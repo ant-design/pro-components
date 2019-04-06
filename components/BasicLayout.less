@@ -1,10 +1,8 @@
 @import '~antd/lib/style/themes/default.less';
 
-.ant-design-pro {
-  .basicLayout {
-    .content {
-      margin: 24px;
-      padding-top: @layout-header-height;
-    }
-  }
+@basicLayout-prefix-cls: ~'@{ant-prefix}-pro-basicLayout-content';
+
+.@{basicLayout-prefix-cls} {
+  margin: 24px;
+  padding-top: @layout-header-height;
 }

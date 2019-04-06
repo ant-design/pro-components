@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Icon } from 'antd';
 import Link from 'umi/link';
 import debounce from 'lodash/debounce';
-import styles from './index.less';
+import './index.less';
 
 export interface GlobalHeaderProps {
   collapsed?: boolean;
@@ -29,13 +29,13 @@ export default class GlobalHeader extends Component<GlobalHeaderProps> {
   render() {
     const { collapsed, isMobile, logo, renderRightContent } = this.props;
     return (
-      <div className={styles.globalHeader}>
+      <div className="ant-pro-global-header">
         {isMobile && (
-          <Link to="/" className={styles.logo} key="logo">
+          <Link to="/" className="ant-pro-global-header-logo" key="logo">
             <img src={logo} alt="logo" width="32" />
           </Link>
         )}
-        <span className={styles.trigger} onClick={this.toggle}>
+        <span className="ant-pro-global-header-trigger" onClick={this.toggle}>
           <Icon type={collapsed ? 'menu-unfold' : 'menu-fold'} />
         </span>
         {renderRightContent && renderRightContent(this.props)}

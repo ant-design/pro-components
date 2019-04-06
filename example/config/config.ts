@@ -125,8 +125,7 @@ export default {
       ) {
         return localName;
       }
-      const match =
-        context.resourcePath.match(/src(.*)/) || context.resourcePath.match(/components(.*)/);
+      const match = context.resourcePath.match(/src(.*)/);
       if (match && match[1]) {
         const antdProPath = match[1].replace('.less', '');
         const arr = slash(antdProPath)

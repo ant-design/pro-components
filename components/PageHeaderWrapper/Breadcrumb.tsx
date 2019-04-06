@@ -4,7 +4,7 @@ import Link from 'umi/link';
 import { formatMessage } from 'umi-plugin-react/locale';
 import { urlToList } from '../utils/pathTools';
 import { PageHeaderWrapperProps } from '.';
-import { MenuDataItem } from '../SiderMenu';
+import { MenuDataItem } from '../typings';
 import { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/lib/breadcrumb';
 
 type BreadcrumbProps = PageHeaderWrapperProps;

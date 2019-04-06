@@ -1,11 +1,13 @@
 @import '~antd/lib/style/themes/default.less';
 
-.globalFooter {
+@global-footer-prefix-cls: ~'@{ant-prefix}-pro-global-footer';
+
+.@{global-footer-prefix-cls} {
   margin: 48px 0 24px 0;
   padding: 0 16px;
   text-align: center;
 
-  .links {
+  &-links {
     margin-bottom: 8px;
 
     a {
@@ -22,7 +24,7 @@
     }
   }
 
-  .copyright {
+  &-copyright {
     color: @text-color-secondary;
     font-size: @font-size-base;
   }

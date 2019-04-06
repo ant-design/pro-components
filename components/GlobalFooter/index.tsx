@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import styles from './index.less';
+import './index.less';
 
 export interface GlobalFooterProps {
   links?: Array<{
@@ -15,11 +15,11 @@ export interface GlobalFooterProps {
 }
 
 const GlobalFooter: React.SFC<GlobalFooterProps> = ({ className, links, copyright }) => {
-  const clsString = classNames(styles.globalFooter, className);
+  const clsString = classNames('ant-pro-global-footer', className);
   return (
     <footer className={clsString}>
       {links && (
-        <div className={styles.links}>
+        <div className="ant-pro-global-footer-links">
           {links.map(link => (
             <a
               key={link.key}
@@ -32,7 +32,7 @@ const GlobalFooter: React.SFC<GlobalFooterProps> = ({ className, links, copyrigh
           ))}
         </div>
       )}
-      {copyright && <div className={styles.copyright}>{copyright}</div>}
+      {copyright && <div className="ant-pro-global-footer-copyright">{copyright}</div>}
     </footer>
   );
 };

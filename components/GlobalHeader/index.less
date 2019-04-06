@@ -1,14 +1,15 @@
 @import '~antd/lib/style/themes/default.less';
+@global-header-prefix-cls: ~'@{ant-prefix}-pro-global-header ';
 
 @pro-header-hover-bg: rgba(0, 0, 0, 0.025);
-.globalHeader {
+.@{global-header-prefix-cls} {
   position: relative;
   height: @layout-header-height;
   padding: 0;
   background: #fff;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
 
-  .logo {
+  &-logo {
     display: inline-block;
     height: @layout-header-height;
     padding: 0 0 0 24px;
@@ -22,16 +23,16 @@
     }
   }
 
-  .menu {
-    :global(.anticon) {
+  &-menu {
+    .anticon {
       margin-right: 8px;
     }
-    :global(.ant-dropdown-menu-item) {
+    .ant-dropdown-menu-item {
       min-width: 160px;
     }
   }
 
-  .trigger {
+  &-trigger {
     height: @layout-header-height;
     padding: ~'calc((@{layout-header-height} - 20px) / 2)' 24px;
     font-size: 20px;
@@ -39,44 +40,6 @@
     transition: all 0.3s, padding 0s;
     &:hover {
       background: @pro-header-hover-bg;
-    }
-  }
-
-  .right {
-    float: right;
-    height: 100%;
-    overflow: hidden;
-    .action {
-      display: inline-block;
-      height: 100%;
-      padding: 0 12px;
-      cursor: pointer;
-      transition: all 0.3s;
-      > i {
-        color: @text-color;
-        vertical-align: middle;
-      }
-      &:hover {
-        background: @pro-header-hover-bg;
-      }
-      &:global(.opened) {
-        background: @pro-header-hover-bg;
-      }
-    }
-    .search {
-      padding: 0 12px;
-      &:hover {
-        background: transparent;
-      }
-    }
-    .account {
-      .avatar {
-        margin: ~'calc((@{layout-header-height} - 24px) / 2)' 0;
-        margin-right: 8px;
-        color: @primary-color;
-        vertical-align: top;
-        background: rgba(255, 255, 255, 0.85);
-      }
     }
   }
 

@@ -5,7 +5,7 @@ import Link from 'umi/link';
 import { Settings } from '../defaultSettings';
 import { BaseMenuProps } from './BaseMenu';
 
-import styles from './index.less';
+import './index.less';
 
 import { getDefaultCollapsedSubMenus } from './SiderMenuUtils';
 
@@ -24,7 +24,6 @@ export const renderLogo = (logo: React.ReactNode) => {
 
 export interface SiderMenuProps extends BaseMenuProps {
   logo: React.ReactNode;
-  fixSiderbar?: boolean;
   settings: Settings;
 }
 
@@ -93,17 +92,16 @@ export default class SiderMenu extends Component<SiderMenuProps, SiderMenuState>
       logo,
       collapsed,
       onCollapse,
-      fixSiderbar,
       theme,
       isMobile,
-      settings: { title },
+      settings: { title, fixSiderbar },
     } = this.props;
     const { openKeys } = this.state;
     const defaultProps = collapsed ? {} : { openKeys };
 
-    const siderClassName = classNames(styles.sider, {
-      [styles.fixSiderBar]: fixSiderbar,
-      [styles.light]: theme === 'light',
+    const siderClassName = classNames('ant-pro-sider-menu-sider', {
+      ['fix-sider-bar']: fixSiderbar,
+      light: theme === 'light',
     });
     return (
       <Sider
@@ -120,7 +118,7 @@ export default class SiderMenu extends Component<SiderMenuProps, SiderMenuState>
         theme={theme}
         className={siderClassName}
       >
-        <div className={styles.logo} id="logo">
+        <div className="ant-pro-sider-menu-logo" id="logo">
           <Link to="/">
             {renderLogo(logo)}
             <h1>{title}</h1>

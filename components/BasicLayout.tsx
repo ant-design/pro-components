@@ -10,12 +10,15 @@ import React, { Suspense, useState } from 'react';
 import { ContainerQuery } from 'react-container-query';
 import DocumentTitle from 'react-document-title';
 import useMedia from 'react-media-hook2';
-import styles from './BasicLayout.less';
 import PageHeaderWrapper from './PageHeaderWrapper';
-import { Settings } from './defaultSettings';
+import defaultSettings, { Settings } from './defaultSettings';
 import { RouterTypes } from 'umi';
 import Footer from './Footer';
 import SettingDrawer, { SettingDrawerProps } from './SettingDrawer';
+import logo from './assets/logo.svg';
+import getLocales, { langType } from './locales';
+
+import './BasicLayout.less';
 
 // lazy load SettingDrawer
 const LazySettingDrawer: React.LazyExoticComponent<typeof SettingDrawer> = React.lazy(() =>
@@ -55,17 +58,27 @@ export interface BasicLayoutProps
     HeaderViewProps {
   settings: Settings;
   logo: string;
-  onChangeLayoutCollapsed: (collapsed: boolean) => void;
+  lang: langType;
+  onChangeLayoutCollapsed?: (collapsed: boolean) => void;
   renderSettingDrawer?: (props: HeaderViewProps) => React.ReactNode;
-  onChangeSetting: SettingDrawerProps['onChangeSetting'];
   renderHeader?: (props: HeaderViewProps) => React.ReactNode;
   renderFooter?: (props: HeaderViewProps) => React.ReactNode;
   renderMenu?: (props: HeaderViewProps) => React.ReactNode;
   renderMenuItem?: BaseMenuProps['renderMenuItem'];
   breadcrumbNameMap?: { [path: string]: MenuDataItem };
+  onChangeSetting: SettingDrawerProps['onChangeSetting'];
+  formatMessage: SettingDrawerProps['formatMessage'];
 }
 
-const renderSettingDrawer = (props: BasicLayoutProps) => {
+const getSetting = (settings: Settings) => {
+  return { ...defaultSettings, ...settings };
+};
+
+const renderSettingDrawer = (
+  props: BasicLayoutProps & {
+    formatMessage: SettingDrawerProps['formatMessage'];
+  },
+) => {
   const { onChangeSetting } = props;
   if (props.renderSettingDrawer) {
     return props.renderSettingDrawer(props);
@@ -111,11 +124,13 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     breadcrumbNameMap = {},
     children,
     onChangeLayoutCollapsed,
-    settings,
     fixSiderbar,
     location,
     menuData,
   } = props;
+  // merge props.settings and defaultSettings
+  const settings = getSetting(props.settings);
+
   const { fixedHeader, layout: PropsLayout } = settings;
   /**
    * init variables
@@ -132,6 +147,36 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     return setCollapsed(payload);
   };
 
+  const formatMessage = ({
+    id,
+    defaultMessage,
+    ...rest
+  }: {
+    id: string;
+    defaultMessage?: string;
+  }) => {
+    if (props.formatMessage) {
+      props.formatMessage({
+        id,
+        defaultMessage,
+        ...rest,
+      });
+    }
+    const locales = getLocales();
+    if (locales[id]) {
+      return locales[id];
+    }
+    if (defaultMessage) {
+      return defaultMessage as string;
+    }
+    return id;
+  };
+
+  const defaultProps = {
+    ...props,
+    formatMessage,
+  };
+
   const layout = (
     <Layout>
       {renderSiderMenu({
@@ -140,7 +185,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
         isMobile,
         theme: settings.navTheme,
         collapsed,
-        ...props,
+        ...defaultProps,
       })}
       <Layout
         style={{
@@ -153,9 +198,12 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
           handleMenuCollapse,
           isMobile,
           collapsed,
-          ...props,
+          ...defaultProps,
         })}
-        <Content className={styles.content} style={!fixedHeader ? { paddingTop: 0 } : {}}>
+        <Content
+          className="ant-pro-basicLayout-content"
+          style={!fixedHeader ? { paddingTop: 0 } : {}}
+        >
           <PageHeaderWrapper location={location} breadcrumbNameMap={breadcrumbNameMap}>
             {children}
           </PageHeaderWrapper>
@@ -163,23 +211,27 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
         {renderFooter({
           isMobile,
           collapsed,
-          ...props,
+          ...defaultProps,
         })}
       </Layout>
     </Layout>
   );
   return (
-    <React.Fragment>
-      <DocumentTitle title={getPageTitle(location!.pathname, breadcrumbNameMap, settings)}>
+    <>
+      <DocumentTitle title={getPageTitle({ pathname: location!.pathname, ...defaultProps })}>
         <ContainerQuery query={query}>
           {params => (
             <div className={classNames(params, 'ant-design-pro', 'basicLayout')}>{layout}</div>
           )}
         </ContainerQuery>
       </DocumentTitle>
-      <Suspense fallback={null}>{renderSettingDrawer(props)}</Suspense>
-    </React.Fragment>
+      <Suspense fallback={null}>{renderSettingDrawer(defaultProps)}</Suspense>
+    </>
   );
 };
 
+BasicLayout.defaultProps = {
+  logo,
+  settings: defaultSettings,
+};
 export default BasicLayout;

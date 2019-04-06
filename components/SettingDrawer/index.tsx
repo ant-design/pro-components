@@ -1,10 +1,8 @@
-import { ConnectProps } from '../connect';
 import React, { Component } from 'react';
 import { Select, message, Drawer, List, Switch, Divider, Icon, Button, Alert, Tooltip } from 'antd';
-import { formatMessage } from 'umi-plugin-react/locale';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import omit from 'omit.js';
-import styles from './index.less';
+import './index.less';
 import ThemeColor from './ThemeColor';
 import BlockCheckbox from './BlockCheckbox';
 import { Settings } from '../defaultSettings';
@@ -17,7 +15,7 @@ interface BodyProps {
 
 const Body: React.FC<BodyProps> = ({ children, title, style }) => (
   <div style={{ ...style, marginBottom: 24 }}>
-    <h3 className={styles.title}>{title}</h3>
+    <h3 className="ant-pro-setting-drawer-title">{title}</h3>
     {children}
   </div>
 );
@@ -29,8 +27,9 @@ interface SettingItemProps {
   disabledReason?: React.ReactNode;
 }
 
-export interface SettingDrawerProps extends ConnectProps {
+export interface SettingDrawerProps {
   settings?: Settings;
+  formatMessage: (data: { id: string; defaultMessage?: string }) => string;
   onChangeSetting: (settings: SettingDrawerState) => void;
 }
 
@@ -44,11 +43,14 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
   };
 
   getLayoutSetting = (): SettingItemProps[] => {
-    const { settings } = this.props;
+    const { settings, formatMessage } = this.props;
     const { contentWidth, fixedHeader, layout, autoHideHeader, fixSiderbar } = settings!;
     return [
       {
-        title: formatMessage({ id: 'app.setting.content-width' }),
+        title: formatMessage({
+          id: 'app.setting.content-width',
+          defaultMessage: 'Content Width',
+        }),
         action: (
           <Select
             value={contentWidth}
@@ -58,17 +60,17 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
           >
             {layout === 'sidemenu' ? null : (
               <Option value="Fixed">
-                {formatMessage({ id: 'app.setting.content-width.fixed' })}
+                {formatMessage({ id: 'app.setting.content-width.fixed', defaultMessage: 'Fixed' })}
               </Option>
             )}
             <Option value="Fluid">
-              {formatMessage({ id: 'app.setting.content-width.fluid' })}
+              {formatMessage({ id: 'app.setting.content-width.fluid', defaultMessage: 'Fluid' })}
             </Option>
           </Select>
         ),
       },
       {
-        title: formatMessage({ id: 'app.setting.fixedheader' }),
+        title: formatMessage({ id: 'app.setting.fixedheader', defaultMessage: 'Fixed Header' }),
         action: (
           <Switch
             size="small"
@@ -78,9 +80,15 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
         ),
       },
       {
-        title: formatMessage({ id: 'app.setting.hideheader' }),
+        title: formatMessage({
+          id: 'app.setting.hideheader',
+          defaultMessage: 'Hidden Header when scrolling',
+        }),
         disabled: !fixedHeader,
-        disabledReason: formatMessage({ id: 'app.setting.hideheader.hint' }),
+        disabledReason: formatMessage({
+          id: 'app.setting.hideheader.hint',
+          defaultMessage: 'Works when Hidden Header is enabled',
+        }),
         action: (
           <Switch
             size="small"
@@ -90,9 +98,12 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
         ),
       },
       {
-        title: formatMessage({ id: 'app.setting.fixedsidebar' }),
+        title: formatMessage({ id: 'app.setting.fixedsidebar', defaultMessage: 'Fixed Sidebar' }),
         disabled: layout === 'topmenu',
-        disabledReason: formatMessage({ id: 'app.setting.fixedsidebar.hint' }),
+        disabledReason: formatMessage({
+          id: 'app.setting.fixedsidebar.hint',
+          defaultMessage: 'Works on Side Menu Layout',
+        }),
         action: (
           <Switch
             size="small"
@@ -138,7 +149,7 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
   };
 
   render() {
-    const { settings } = this.props;
+    const { settings, formatMessage } = this.props;
     const { navTheme, primaryColor, layout, colorWeak } = settings!;
     const { collapse } = this.state;
     return (
@@ -148,7 +159,7 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
         onClose={this.togglerContent}
         placement="right"
         handler={
-          <div className={styles.handle} onClick={this.togglerContent}>
+          <div className="ant-pro-setting-drawer-handle" onClick={this.togglerContent}>
             <Icon
               type={collapse ? 'close' : 'setting'}
               style={{
@@ -162,14 +173,19 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
           zIndex: 999,
         }}
       >
-        <div className={styles.content}>
-          <Body title={formatMessage({ id: 'app.setting.pagestyle' })}>
+        <div className="ant-pro-setting-drawer-content">
+          <Body
+            title={formatMessage({
+              id: 'app.setting.pagestyle',
+              defaultMessage: 'Page style setting',
+            })}
+          >
             <BlockCheckbox
               list={[
                 {
                   key: 'dark',
                   url: 'https://gw.alipayobjects.com/zos/rmsportal/LCkqqYNmvBEbokSDscrm.svg',
-                  title: formatMessage({ id: 'app.setting.pagestyle.dark' }),
+                  title: formatMessage({ id: 'app.setting.pagestyle.dark', defaultMessage: '' }),
                 },
                 {
                   key: 'light',
@@ -246,7 +262,7 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
           </CopyToClipboard>
           <Alert
             type="warning"
-            className={styles.productionHint}
+            className="ant-pro-setting-drawer-production-hint"
             message={
               <div>
                 {formatMessage({ id: 'app.setting.production.hint' })}{' '}
@@ -265,5 +281,4 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
     );
   }
 }
-
 export default SettingDrawer;

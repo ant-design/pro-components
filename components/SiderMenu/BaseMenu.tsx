@@ -7,7 +7,7 @@ import React, { Component } from 'react';
 import { RouterTypes } from 'umi';
 import Link from 'umi/link';
 import { urlToList } from '../utils/pathTools';
-import styles from './index.less';
+import './index.less';
 import { getMenuMatches } from './SiderMenuUtils';
 import { MenuDataItem, Route } from '../typings';
 
@@ -21,7 +21,13 @@ const { SubMenu } = Menu;
 const getIcon = (icon?: string | React.ReactNode) => {
   if (typeof icon === 'string') {
     if (isUrl(icon)) {
-      return <Icon component={() => <img src={icon} alt="icon" className={styles.icon} />} />;
+      return (
+        <Icon
+          component={() => (
+            <img src={icon} alt="icon" className="ant-prefix}-pro-sider-menu-icon" />
+          )}
+        />
+      );
     }
     if (icon.startsWith('icon-')) {
       return <IconFont type={icon} />;

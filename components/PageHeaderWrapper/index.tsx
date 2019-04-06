@@ -1,10 +1,7 @@
 import React from 'react';
-import { formatMessage } from 'umi-plugin-react/locale';
 import { PageHeader, Tabs, Typography } from 'antd';
-import { connect } from 'dva';
 import classNames from 'classnames';
 import GridContent from './GridContent';
-import ConnectState from '../connect';
 import { ContentWidth } from '../defaultSettings';
 import styles from './index.less';
 import { conversionBreadcrumbList } from './Breadcrumb';
@@ -84,10 +81,6 @@ class PageHeaderWrapper extends React.Component<PageHeaderWrapperProps> {
     let pageTitle = title;
     const breadcrumb = conversionBreadcrumbList({
       ...restProps,
-      home: formatMessage({
-        id: 'menu.home',
-        defaultMessage: 'Home',
-      }),
     });
     if (!title && breadcrumb.routes) {
       const router = breadcrumb.routes[breadcrumb.routes.length - 1];

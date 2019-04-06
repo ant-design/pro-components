@@ -1,6 +1,5 @@
 import React from 'react';
 import { Tooltip, Icon } from 'antd';
-import style from './index.less';
 
 export interface BlockChecboxProps {
   value: string;
@@ -8,14 +7,16 @@ export interface BlockChecboxProps {
   list: any[];
 }
 
+const baseClassName = 'ant-pro-setting-drawer-block-checbox';
+
 const BlockChecbox: React.FC<BlockChecboxProps> = ({ value, onChange, list }) => (
-  <div className={style.blockChecbox} key={value}>
+  <div className={baseClassName} key={value}>
     {list.map(item => (
       <Tooltip title={item.title} key={item.key}>
-        <div className={style.item} onClick={() => onChange(item.key)}>
+        <div className={`${baseClassName}-item`} onClick={() => onChange(item.key)}>
           <img src={item.url} alt={item.key} />
           <div
-            className={style.selectIcon}
+            className={`${baseClassName}-selectIcon`}
             style={{
               display: value === item.key ? 'block' : 'none',
             }}
