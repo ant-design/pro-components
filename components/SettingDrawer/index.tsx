@@ -201,6 +201,7 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
           <ThemeColor
             title={formatMessage({ id: 'app.setting.themecolor' })}
             value={primaryColor}
+            formatMessage={formatMessage}
             onChange={color => this.changeSetting('primaryColor', color)}
           />
 
