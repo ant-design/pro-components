@@ -10,6 +10,7 @@ import { urlToList } from '../utils/pathTools';
 import './index.less';
 import { getMenuMatches } from './SiderMenuUtils';
 import { MenuDataItem, Route } from '../typings';
+import { Settings } from '../defaultSettings';
 
 const { SubMenu } = Menu;
 
@@ -50,6 +51,7 @@ export interface BaseMenuProps extends Partial<RouterTypes<Route>> {
   openKeys?: string[];
   style?: React.CSSProperties;
   theme?: MenuTheme;
+  settings: Settings;
   renderMenuItem?: (item: MenuDataItem, defaultDom: React.ReactNode) => React.ReactNode;
 }
 
@@ -158,6 +160,17 @@ export default class BaseMenu extends Component<BaseMenuProps> {
     return `/${path || ''}`.replace(/\/+/g, '/');
   };
 
+  warp: HTMLDivElement;
+
+  getPopupContainer = (fixedHeader, layout) => {
+    if (fixedHeader && layout === 'topmenu') {
+      return this.warp;
+    }
+    return document.body;
+  };
+  getRef = (ref: HTMLDivElement) => {
+    this.warp = ref;
+  };
   render() {
     const {
       openKeys,
@@ -168,6 +181,7 @@ export default class BaseMenu extends Component<BaseMenuProps> {
       collapsed,
       handleOpenChange,
       style,
+      settings: { fixedHeader, layout },
       menuData,
     } = this.props;
     // if pathname can't match, use the nearest parent's key
@@ -186,18 +200,22 @@ export default class BaseMenu extends Component<BaseMenuProps> {
     });
 
     return (
-      <Menu
-        key="Menu"
-        mode={mode}
-        theme={theme}
-        onOpenChange={handleOpenChange}
-        selectedKeys={selectedKeys}
-        style={style}
-        className={cls}
-        {...props}
-      >
-        {this.getNavMenuItems(menuData)}
-      </Menu>
+      <>
+        <Menu
+          key="Menu"
+          mode={mode}
+          theme={theme}
+          onOpenChange={handleOpenChange}
+          selectedKeys={selectedKeys}
+          style={style}
+          className={cls}
+          getPopupContainer={() => this.getPopupContainer(fixedHeader, layout)}
+          {...props}
+        >
+          {this.getNavMenuItems(menuData)}
+        </Menu>
+        <div ref={this.getRef} />
+      </>
     );
   }
 }
