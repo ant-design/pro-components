@@ -120,18 +120,11 @@ export type BasicLayoutContext = { [K in 'location']: BasicLayoutProps[K] } & {
 };
 
 const BasicLayout: React.FC<BasicLayoutProps> = props => {
-  const {
-    breadcrumbNameMap = {},
-    children,
-    onChangeLayoutCollapsed,
-    fixSiderbar,
-    location,
-    menuData,
-  } = props;
+  const { breadcrumbNameMap = {}, children, onChangeLayoutCollapsed, location, menuData } = props;
   // merge props.settings and defaultSettings
   const settings = getSetting(props.settings);
 
-  const { fixedHeader, layout: PropsLayout } = settings;
+  const { fixedHeader, fixSiderbar, layout: PropsLayout } = settings;
   /**
    * init variables
    */

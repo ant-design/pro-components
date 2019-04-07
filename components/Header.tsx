@@ -2,8 +2,6 @@ import GlobalHeader from './GlobalHeader';
 import TopNavHeader from './TopNavHeader';
 import React, { Component } from 'react';
 import { Layout } from 'antd';
-import Animate from 'rc-animate';
-import styles from './Header.less';
 import { Settings } from './defaultSettings';
 
 const { Header } = Layout;
@@ -96,7 +94,7 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
     const HeaderDom = visible ? (
       <Header
         style={{ padding: 0, width, zIndex: 2 }}
-        className={fixedHeader ? styles.fixedHeader : ''}
+        className={fixedHeader ? 'ant-pro-fixed-header' : ''}
       >
         {isTop && !isMobile ? (
           <TopNavHeader
@@ -110,11 +108,7 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
         )}
       </Header>
     ) : null;
-    return (
-      <Animate component="" transitionName="fade">
-        {HeaderDom}
-      </Animate>
-    );
+    return HeaderDom;
   }
 }
 
