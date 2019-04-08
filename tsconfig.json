@@ -9,16 +9,15 @@
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
-    "rootDirs": ["/components", "/test", "./typings"],
+    "rootDirs": ["/src", "/test", "./typings"],
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
-    "allowJs": true,
     "experimentalDecorators": true,
     "strict": true
   },
-  "include": ["./src", "config/defaultSettings.ts"],
+  "include": ["./src"],
   "exclude": [
     "node_modules",
     "build",
@@ -26,7 +25,6 @@
     "acceptance-tests",
     "webpack",
     "jest",
-    "src/setupTests.ts",
     "tslint:latest",
     "tslint-config-prettier"
   ]
