@@ -1,15 +1,13 @@
 import { Layout } from 'antd';
 import classNames from 'classnames';
-import React, { Component, Suspense } from 'react';
+import React, { Component } from 'react';
 import Link from 'umi/link';
 import { Settings } from '../defaultSettings';
-import { BaseMenuProps } from './BaseMenu';
+import BaseMenu, { BaseMenuProps } from './BaseMenu';
 
 import './index.less';
 
 import { getDefaultCollapsedSubMenus } from './SiderMenuUtils';
-
-const BaseMenu = React.lazy(() => import('./BaseMenu'));
 
 const { Sider } = Layout;
 
@@ -124,16 +122,14 @@ export default class SiderMenu extends Component<SiderMenuProps, SiderMenuState>
             <h1>{title}</h1>
           </Link>
         </div>
-        <Suspense fallback={null}>
-          <BaseMenu
-            {...this.props}
-            mode="inline"
-            handleOpenChange={this.handleOpenChange}
-            onOpenChange={this.handleOpenChange}
-            style={{ padding: '16px 0', width: '100%' }}
-            {...defaultProps}
-          />
-        </Suspense>
+        <BaseMenu
+          {...this.props}
+          mode="inline"
+          handleOpenChange={this.handleOpenChange}
+          onOpenChange={this.handleOpenChange}
+          style={{ padding: '16px 0', width: '100%' }}
+          {...defaultProps}
+        />
       </Sider>
     );
   }

@@ -6,7 +6,7 @@ import Header, { HeaderViewProps } from './Header';
 import getPageTitle from './getPageTitle';
 import { Layout } from 'antd';
 import classNames from 'classnames';
-import React, { Suspense, useState } from 'react';
+import React, { useState } from 'react';
 import { ContainerQuery } from 'react-container-query';
 import DocumentTitle from 'react-document-title';
 import useMedia from 'react-media-hook2';
@@ -17,11 +17,6 @@ import SettingDrawer, { SettingDrawerProps } from './SettingDrawer';
 import getLocales, { langType } from './locales';
 
 import './BasicLayout.less';
-
-// lazy load SettingDrawer
-const LazySettingDrawer: React.LazyExoticComponent<typeof SettingDrawer> = React.lazy(() =>
-  import('./SettingDrawer'),
-);
 
 const { Content } = Layout;
 
@@ -81,7 +76,7 @@ const renderSettingDrawer = (
   if (props.renderSettingDrawer) {
     return props.renderSettingDrawer(props);
   }
-  return <LazySettingDrawer {...props} onChangeSetting={onChangeSetting} />;
+  return <SettingDrawer {...props} onChangeSetting={onChangeSetting} />;
 };
 
 const renderHeader = (props: BasicLayoutProps) => {
@@ -214,7 +209,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
           )}
         </ContainerQuery>
       </DocumentTitle>
-      <Suspense fallback={null}>{renderSettingDrawer(defaultProps)}</Suspense>
+      {renderSettingDrawer(defaultProps)}
     </>
   );
 };
