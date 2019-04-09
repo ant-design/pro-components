@@ -1,13 +1,32 @@
 import React from 'react';
 import pathToRegexp from 'path-to-regexp';
 import Link from 'umi/link';
-import { formatMessage } from 'umi-plugin-react/locale';
 import { urlToList } from '../utils/pathTools';
-import { PageHeaderWrapperProps } from '.';
 import { MenuDataItem } from '../typings';
 import { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/lib/breadcrumb';
+import * as H from 'history';
 
-type BreadcrumbProps = PageHeaderWrapperProps;
+export interface BreadcrumbProps {
+  title?: React.ReactNode | string | number;
+  logo?: React.ReactNode | string;
+  action?: React.ReactNode | string;
+  content?: React.ReactNode;
+  extraContent?: React.ReactNode;
+  breadcrumbList?: Array<{ title: string; href: string }>;
+  tabList?: Array<{ key: string; tab: React.ReactNode }>;
+  tabActiveKey?: string;
+  onTabChange?: (key: string) => void;
+  tabBarExtraContent?: React.ReactNode;
+  style?: React.CSSProperties;
+  home?: string;
+  wide?: boolean;
+  className?: string;
+  children?: React.ReactNode;
+  wrapperClassName?: string;
+  top?: React.ReactNode;
+  location?: H.Location;
+  breadcrumbNameMap?: { [path: string]: MenuDataItem };
+}
 
 // 渲染Breadcrumb 子节点
 // Render the Breadcrumb child node
@@ -22,16 +41,13 @@ const itemRender: AntdBreadcrumbProps['itemRender'] = (route, params, routes, pa
 
 const renderItemLocal = (item: MenuDataItem): string => {
   if (item.locale) {
-    return formatMessage({
-      id: item.locale,
-      defaultMessage: item.name,
-    });
+    return item.locale;
   }
   return item.name as string;
 };
 
 export const getBreadcrumb = (
-  breadcrumbNameMap: PageHeaderWrapperProps['breadcrumbNameMap'],
+  breadcrumbNameMap: { [path: string]: MenuDataItem },
   url: string,
 ): MenuDataItem => {
   if (!breadcrumbNameMap) {
@@ -50,7 +66,7 @@ export const getBreadcrumb = (
   return breadcrumb || { path: '' };
 };
 
-export const getBreadcrumbProps = (props: BreadcrumbProps): PageHeaderWrapperProps => {
+export const getBreadcrumbProps = (props: BreadcrumbProps) => {
   const { location, breadcrumbNameMap } = props;
   return {
     location,
@@ -73,8 +89,8 @@ const conversionFromProps = (props: BreadcrumbProps): AntdBreadcrumbProps['route
 };
 
 const conversionFromLocation = (
-  routerLocation: PageHeaderWrapperProps['location'],
-  breadcrumbNameMap: PageHeaderWrapperProps['breadcrumbNameMap'],
+  routerLocation: BreadcrumbProps['location'],
+  breadcrumbNameMap: { [path: string]: MenuDataItem },
   props: BreadcrumbProps,
 ): AntdBreadcrumbProps['routes'] => {
   if (!routerLocation) {
@@ -126,7 +142,7 @@ export const conversionBreadcrumbList = (props: BreadcrumbProps): AntdBreadcrumb
 
   // 根据 location 生成 面包屑
   // Generate breadcrumbs based on location
-  if (location && location.pathname) {
+  if (location && location.pathname && breadcrumbNameMap) {
     return {
       routes: conversionFromLocation(location, breadcrumbNameMap, props),
       itemRender,
