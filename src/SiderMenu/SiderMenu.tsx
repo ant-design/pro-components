@@ -20,7 +20,8 @@ export const renderLogo = (logo: React.ReactNode) => {
   return logo;
 };
 
-export interface SiderMenuProps extends BaseMenuProps {
+export interface SiderMenuProps
+  extends Pick<BaseMenuProps, Exclude<keyof BaseMenuProps, ['onCollapse']>> {
   logo: React.ReactNode;
   settings: Settings;
 }

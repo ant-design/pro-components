@@ -9,7 +9,7 @@ export interface GlobalHeaderProps {
   onCollapse?: (collapsed: boolean) => void;
   isMobile?: boolean;
   logo?: string;
-  renderRightContent: (props: any) => React.ReactNode;
+  renderRightContent?: (props: any) => React.ReactNode;
 }
 
 export default class GlobalHeader extends Component<GlobalHeaderProps> {

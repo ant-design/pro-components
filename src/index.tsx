@@ -1,3 +1,7 @@
-import BasicLayout from './BasicLayout';
+import BasicLayout, { BasicLayoutProps } from './BasicLayout';
 
-export { BasicLayout };
+export { Settings } from './defaultSettings';
+
+export { MenuDataItem } from './typings';
+
+export { BasicLayout, BasicLayoutProps };

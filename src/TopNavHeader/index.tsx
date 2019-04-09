@@ -12,7 +12,7 @@ export interface TopNavHeaderProps extends SiderMenuProps {
   logo: React.ReactNode;
   settings: Settings;
   onCollapse?: (collapse: boolean) => void;
-  renderRightContent: (props: any) => React.ReactNode;
+  renderRightContent?: (props: any) => React.ReactNode;
 }
 
 interface TopNavHeaderState {
@@ -56,9 +56,10 @@ export default class TopNavHeader extends Component<TopNavHeaderProps, TopNavHea
               <BaseMenu {...this.props} flatMenuKeys={flatMenuKeys} className={styles.menu} />
             </div>
           </div>
-          {renderRightContent({
-            ...this.props,
-          })}
+          {renderRightContent &&
+            renderRightContent({
+              ...this.props,
+            })}
         </div>
       </div>
     );

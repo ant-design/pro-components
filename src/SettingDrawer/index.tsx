@@ -30,7 +30,7 @@ interface SettingItemProps {
 export interface SettingDrawerProps {
   settings?: Settings;
   formatMessage: (data: { id: string; defaultMessage?: string }) => string;
-  onChangeSetting: (settings: SettingDrawerState) => void;
+  onChangeSetting?: (settings: SettingDrawerState) => void;
 }
 
 export interface SettingDrawerState extends Partial<Settings> {
@@ -126,7 +126,9 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
     }
     this.setState(nextState, () => {
       const { onChangeSetting } = this.props;
-      onChangeSetting(this.state);
+      if (onChangeSetting) {
+        onChangeSetting(this.state);
+      }
     });
   };
 

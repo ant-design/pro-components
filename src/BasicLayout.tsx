@@ -51,7 +51,7 @@ export interface BasicLayoutProps
     HeaderViewProps {
   settings: Settings;
   logo: string;
-  lang: langType;
+  lang?: langType;
   onChangeLayoutCollapsed?: (collapsed: boolean) => void;
   renderSettingDrawer?: (props: HeaderViewProps) => React.ReactNode;
   renderHeader?: (props: HeaderViewProps) => React.ReactNode;
@@ -59,8 +59,8 @@ export interface BasicLayoutProps
   renderMenu?: (props: HeaderViewProps) => React.ReactNode;
   renderMenuItem?: BaseMenuProps['renderMenuItem'];
   breadcrumbNameMap?: { [path: string]: MenuDataItem };
-  onChangeSetting: SettingDrawerProps['onChangeSetting'];
-  formatMessage: SettingDrawerProps['formatMessage'];
+  onChangeSetting?: SettingDrawerProps['onChangeSetting'];
+  formatMessage?: SettingDrawerProps['formatMessage'];
 }
 
 const getSetting = (settings: Settings) => {
@@ -73,7 +73,7 @@ const renderSettingDrawer = (
   },
 ) => {
   const { onChangeSetting } = props;
-  if (props.renderSettingDrawer) {
+  if (props.renderSettingDrawer && onChangeSetting) {
     return props.renderSettingDrawer(props);
   }
   return <SettingDrawer {...props} onChangeSetting={onChangeSetting} />;

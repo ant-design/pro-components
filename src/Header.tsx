@@ -15,7 +15,7 @@ export interface HeaderViewProps {
   autoHideHeader?: boolean;
   theme?: SiderTheme;
   settings: Settings;
-  renderRightContent: (props: HeaderViewProps) => React.ReactNode;
+  renderRightContent?: (props: HeaderViewProps) => React.ReactNode;
   handleMenuCollapse?: (collapse: boolean) => void;
 }
 
