@@ -4,9 +4,8 @@ import Link from 'umi/link';
 import BaseMenu from '../SiderMenu/BaseMenu';
 import { renderLogo } from '../SiderMenu/SiderMenu';
 import { getFlatMenuKeys } from '../SiderMenu/SiderMenuUtils';
-import styles from './index.less';
-
 import { Settings } from '../defaultSettings';
+import './index.less';
 
 export interface TopNavHeaderProps extends SiderMenuProps {
   logo: React.ReactNode;
@@ -39,22 +38,27 @@ export default class TopNavHeader extends Component<TopNavHeaderProps, TopNavHea
     const { theme, menuData, logo, settings, renderRightContent } = this.props;
     const { maxWidth } = this.state;
     const flatMenuKeys = getFlatMenuKeys(menuData);
+    const baseClassName = 'ant-pro-top-nav-header';
     return (
-      <div className={`${styles.head} ${theme === 'light' ? styles.light : ''}`}>
+      <div className={`${baseClassName} ${theme === 'light' ? 'light' : ''}`}>
         <div
           ref={ref => (this.maim = ref)}
-          className={`${styles.main} ${settings.contentWidth === 'Fixed' ? styles.wide : ''}`}
+          className={`${baseClassName}-main ${settings.contentWidth === 'Fixed' ? 'wide' : ''}`}
         >
-          <div className={styles.left}>
-            <div className={styles.logo} key="logo" id="logo">
+          <div className={`${baseClassName}-left`}>
+            <div className={`${baseClassName}-logo`} key="logo" id="logo">
               <Link to="/">
                 {renderLogo(logo)}
                 <h1>{settings.title}</h1>
               </Link>
             </div>
-            <div style={{ maxWidth }}>
-              <BaseMenu {...this.props} flatMenuKeys={flatMenuKeys} className={styles.menu} />
-            </div>
+          </div>
+          <div style={{ maxWidth, flex: 1 }}>
+            <BaseMenu
+              {...this.props}
+              flatMenuKeys={flatMenuKeys}
+              className={`${baseClassName}-menu`}
+            />
           </div>
           {renderRightContent &&
             renderRightContent({

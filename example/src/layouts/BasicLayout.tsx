@@ -1,8 +1,7 @@
 import { ConnectProps, ConnectState, SettingModelState } from '@/models/connect';
-import BasicLayout, { BasicLayoutProps } from '../../../components/BasicLayout';
+import BasicLayout, { BasicLayoutProps } from '../../../src/BasicLayout';
 import RightContent from '@/components/GlobalHeader/RightContent';
 import { connect } from 'dva';
-import { formatMessage } from 'umi-plugin-react/locale';
 import React, { useState } from 'react';
 import logo from '../assets/logo.svg';
 

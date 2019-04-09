@@ -117,7 +117,13 @@ export default {
   disableRedirectHoist: true,
   cssLoaderOptions: {
     modules: true,
-    getLocalIdent: (context, localIdentName, localName) => {
+    getLocalIdent: (
+      context: {
+        resourcePath: string;
+      },
+      localIdentName: string,
+      localName: string,
+    ) => {
       if (
         context.resourcePath.includes('node_modules') ||
         context.resourcePath.includes('ant.design.pro.less') ||
@@ -126,7 +132,7 @@ export default {
         return localName;
       }
       const match = context.resourcePath.match(/src(.*)/);
-      if (match && match[1]) {
+      if (context.resourcePath.includes('example') && match && match[1]) {
         const antdProPath = match[1].replace('.less', '');
         const arr = slash(antdProPath)
           .split('/')

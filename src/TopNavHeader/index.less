@@ -1,6 +1,8 @@
 @import '~antd/lib/style/themes/default.less';
 
-.head {
+@top-nav-header-prefix-cls: ~'@{ant-prefix}-pro-top-nav-header';
+
+.@{top-nav-header-prefix-cls} {
   position: relative;
   width: 100%;
   height: @layout-header-height;
@@ -18,7 +20,7 @@
   &.light {
     background-color: #fff;
   }
-  .main {
+  &-main {
     display: flex;
     height: @layout-header-height;
     padding-left: 24px;
@@ -35,38 +37,38 @@
       width: 324px;
     }
   }
-}
 
-.logo {
-  position: relative;
-  width: 165px;
-  height: @layout-header-height;
-  overflow: hidden;
-  line-height: @layout-header-height;
-  transition: all 0.3s;
-  img {
-    display: inline-block;
-    height: 32px;
-    vertical-align: middle;
+  &-logo {
+    position: relative;
+    width: 165px;
+    height: @layout-header-height;
+    overflow: hidden;
+    line-height: @layout-header-height;
+    transition: all 0.3s;
+    img {
+      display: inline-block;
+      height: 32px;
+      vertical-align: middle;
+    }
+    h1 {
+      display: inline-block;
+      margin: 0 0 0 12px;
+      color: #fff;
+      font-weight: 400;
+      font-size: 16px;
+      vertical-align: top;
+    }
   }
-  h1 {
-    display: inline-block;
-    margin: 0 0 0 12px;
-    color: #fff;
-    font-weight: 400;
-    font-size: 16px;
-    vertical-align: top;
-  }
-}
 
-.light {
-  h1 {
-    color: #002140;
+  &.light {
+    h1 {
+      color: #002140;
+    }
   }
-}
 
-.menu {
-  height: @layout-header-height;
-  line-height: @layout-header-height;
-  border: none;
+  &-menu {
+    height: @layout-header-height;
+    line-height: @layout-header-height;
+    border: none;
+  }
 }
