@@ -10,12 +10,10 @@ import React, { Suspense, useState } from 'react';
 import { ContainerQuery } from 'react-container-query';
 import DocumentTitle from 'react-document-title';
 import useMedia from 'react-media-hook2';
-import PageHeaderWrapper from './PageHeaderWrapper';
 import defaultSettings, { Settings } from './defaultSettings';
 import { RouterTypes } from 'umi';
 import Footer from './Footer';
 import SettingDrawer, { SettingDrawerProps } from './SettingDrawer';
-import logo from './assets/logo.svg';
 import getLocales, { langType } from './locales';
 
 import './BasicLayout.less';
@@ -120,7 +118,7 @@ export type BasicLayoutContext = { [K in 'location']: BasicLayoutProps[K] } & {
 };
 
 const BasicLayout: React.FC<BasicLayoutProps> = props => {
-  const { breadcrumbNameMap = {}, children, onChangeLayoutCollapsed, location, menuData } = props;
+  const { children, onChangeLayoutCollapsed, location, menuData } = props;
   // merge props.settings and defaultSettings
   const settings = getSetting(props.settings);
 
@@ -197,9 +195,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
           className="ant-pro-basicLayout-content"
           style={!fixedHeader ? { paddingTop: 0 } : {}}
         >
-          <PageHeaderWrapper location={location} breadcrumbNameMap={breadcrumbNameMap}>
-            {children}
-          </PageHeaderWrapper>
+          {children}
         </Content>
         {renderFooter({
           isMobile,
@@ -224,7 +220,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
 };
 
 BasicLayout.defaultProps = {
-  logo,
+  logo: '',
   settings: defaultSettings,
 };
 export default BasicLayout;

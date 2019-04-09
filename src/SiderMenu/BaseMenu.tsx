@@ -160,10 +160,10 @@ export default class BaseMenu extends Component<BaseMenuProps> {
     return `/${path || ''}`.replace(/\/+/g, '/');
   };
 
-  warp: HTMLDivElement;
+  warp: HTMLDivElement | undefined;
 
-  getPopupContainer = (fixedHeader, layout) => {
-    if (fixedHeader && layout === 'topmenu') {
+  getPopupContainer = (fixedHeader: boolean, layout: string): HTMLElement => {
+    if (fixedHeader && layout === 'topmenu' && this.warp) {
       return this.warp;
     }
     return document.body;

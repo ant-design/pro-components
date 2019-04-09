@@ -257,7 +257,7 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
             text={JSON.stringify(omit(settings, ['colorWeak']), null, 2)}
             onCopy={() => message.success(formatMessage({ id: 'app.setting.copyinfo' }))}
           >
-            <Button block icon="copy">
+            <Button block={true} icon="copy">
               {formatMessage({ id: 'app.setting.copy' })}
             </Button>
           </CopyToClipboard>

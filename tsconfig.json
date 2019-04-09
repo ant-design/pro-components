@@ -9,7 +9,6 @@
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
-    "rootDirs": ["/src", "/test", "./typings"],
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "suppressImplicitAnyIndexErrors": true,
@@ -17,7 +16,6 @@
     "experimentalDecorators": true,
     "strict": true
   },
-  "include": ["./src"],
   "exclude": [
     "node_modules",
     "build",
