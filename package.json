@@ -4,6 +4,9 @@
   "description": "ant-design-pro layout, easy to use pro scaffolding.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
+  "files": [
+    "/dist"
+  ],
   "scripts": {
     "analyze": "cross-env ANALYZE=1 umi build",
     "lint": "npm run lint:js && npm run lint:ts && npm run lint:style && npm run lint:prettier",
@@ -19,6 +22,7 @@
     "start": "cd ./example && cross-env APP_TYPE=site umi dev",
     "test": "umi test",
     "build": "umi-lib build",
+    "prepublishOnly": "umi-lib build",
     "tslint": "npm run tslint:fix",
     "tslint:fix": "tslint --fix 'src/**/*.ts*'"
   },
