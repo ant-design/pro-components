@@ -1,6 +1,6 @@
-import { ConnectProps, ConnectState, SettingModelState } from '@/models/connect';
+import { ConnectProps, ConnectState, SettingModelState } from '../models/connect';
 import BasicLayout, { BasicLayoutProps } from '../../../src/BasicLayout';
-import RightContent from '@/components/GlobalHeader/RightContent';
+import RightContent from '../components/GlobalHeader/RightContent';
 import { connect } from 'dva';
 import React, { useState } from 'react';
 import logo from '../assets/logo.svg';

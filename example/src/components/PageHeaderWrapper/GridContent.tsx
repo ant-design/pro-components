@@ -1,16 +1,17 @@
 import React from 'react';
 import { connect } from 'dva';
 import styles from './GridContent.less';
-import ConnectState from '@/models/connect';
-import { ContentWidth } from 'config/defaultSettings';
-
+import { ConnectState, SettingModelState } from '../../models/connect';
 interface GridContentProps {
-  contentWidth: ContentWidth;
+  settings: SettingModelState;
   children: React.ReactNode;
 }
 
 const GridContent = (props: GridContentProps) => {
-  const { contentWidth, children } = props;
+  const {
+    settings: { contentWidth },
+    children,
+  } = props;
   let className = `${styles.main}`;
   if (contentWidth === 'Fixed') {
     className = `${styles.main} ${styles.wide}`;
