@@ -15,6 +15,8 @@ import { RouterTypes } from 'umi';
 import Footer from './Footer';
 import SettingDrawer, { SettingDrawerProps } from './SettingDrawer';
 import getLocales, { langType } from './locales';
+import RouteContext from './RouteContext';
+import { conversionBreadcrumbList } from './PageHeaderWrapper/Breadcrumb';
 
 import './BasicLayout.less';
 
@@ -162,7 +164,9 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     ...props,
     formatMessage,
   };
-
+  const breadcrumb = conversionBreadcrumbList({
+    ...props,
+  });
   const layout = (
     <Layout>
       {renderSiderMenu({
@@ -190,7 +194,14 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
           className="ant-pro-basicLayout-content"
           style={!fixedHeader ? { paddingTop: 0 } : {}}
         >
-          {children}
+          <RouteContext.Provider
+            value={{
+              ...breadcrumb,
+              settings,
+            }}
+          >
+            {children}
+          </RouteContext.Provider>
         </Content>
         {renderFooter({
           isMobile,

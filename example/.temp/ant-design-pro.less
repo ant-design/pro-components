@@ -1,4 +1,4 @@
-@import "~antd/lib/style/themes/default.less";
+@import '~antd/lib/style/themes/default.less';
 
 /* 
   Convert to from  src/undefined
@@ -39,7 +39,7 @@
 
 .antd-pro-components-global-header-index-trigger {
   height: @layout-header-height;
-  padding: ~"calc((@{layout-header-height} - 20px) / 2)" 24px;
+  padding: ~'calc((@{layout-header-height} - 20px) / 2)' 24px;
   font-size: 20px;
   cursor: pointer;
   transition: all 0.3s, padding 0s;
@@ -77,7 +77,7 @@
   }
   .antd-pro-components-global-header-index-account {
     .antd-pro-components-global-header-index-avatar {
-      margin: ~"calc((@{layout-header-height} - 24px) / 2)" 0;
+      margin: ~'calc((@{layout-header-height} - 24px) / 2)' 0;
       margin-right: 8px;
       color: @primary-color;
       vertical-align: top;
@@ -348,80 +348,6 @@
 
 /* 
   Convert to from  src/undefined
- */
-
-.antd-pro-layouts-user-layout-container {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  overflow: auto;
-  background: @layout-body-background;
-}
-
-.antd-pro-layouts-user-layout-lang {
-  width: 100%;
-  height: 40px;
-  line-height: 44px;
-  text-align: right;
-  :global(.ant-dropdown-trigger) {
-    margin-right: 24px;
-  }
-}
-
-.antd-pro-layouts-user-layout-content {
-  flex: 1;
-  padding: 32px 0;
-}
-
-@media (min-width: @screen-md-min) {
-  .antd-pro-layouts-user-layout-container {
-    background-image: url("https://gw.alipayobjects.com/zos/rmsportal/TVYTbAXWheQpRcWDaDMu.svg");
-    background-repeat: no-repeat;
-    background-position: center 110px;
-    background-size: 100%;
-  }
-
-  .antd-pro-layouts-user-layout-content {
-    padding: 32px 0 24px 0;
-  }
-}
-
-.antd-pro-layouts-user-layout-top {
-  text-align: center;
-}
-
-.antd-pro-layouts-user-layout-header {
-  height: 44px;
-  line-height: 44px;
-  a {
-    text-decoration: none;
-  }
-}
-
-.antd-pro-layouts-user-layout-logo {
-  height: 44px;
-  margin-right: 16px;
-  vertical-align: top;
-}
-
-.antd-pro-layouts-user-layout-title {
-  position: relative;
-  top: 2px;
-  color: @heading-color;
-  font-weight: 600;
-  font-size: 33px;
-  font-family: Avenir, "Helvetica Neue", Arial, Helvetica, sans-serif;
-}
-
-.antd-pro-layouts-user-layout-desc {
-  margin-top: 12px;
-  margin-bottom: 40px;
-  color: @text-color-secondary;
-  font-size: @font-size-base;
-}
-
-/* 
-  Convert to from  src/undefined
 */
 
 .textOverflow() {
@@ -445,7 +371,7 @@
     bottom: 0;
     padding: 0 1px;
     background: @bg;
-    content: "...";
+    content: '...';
   }
   &::after {
     position: absolute;
@@ -454,7 +380,7 @@
     height: 1em;
     margin-top: 0.2em;
     background: white;
-    content: "";
+    content: '';
   }
 }
 
@@ -464,7 +390,7 @@
   zoom: 1;
   &::before,
   &::after {
-    content: " ";
+    content: ' ';
     display: table;
   }
   &::after {

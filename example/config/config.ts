@@ -1,6 +1,5 @@
 // https://umijs.org/config/
 import os from 'os';
-import slash from 'slash2';
 import { IPlugin, IConfig } from 'umi-types';
 import defaultSettings from './defaultSettings';
 import webpackPlugin from './plugin.config';
@@ -78,11 +77,6 @@ export default {
   // 路由配置
   routes: [
     {
-      path: '/user',
-      components: ['../layouts/UserLayout'],
-      routes: [],
-    },
-    {
       path: '/',
       component: '../layouts/BasicLayout',
       Routes: ['src/pages/Authorized'],
@@ -134,7 +128,7 @@ export default {
       const match = context.resourcePath.match(/src(.*)/);
       if (context.resourcePath.includes('example') && match && match[1]) {
         const antdProPath = match[1].replace('.less', '');
-        const arr = slash(antdProPath)
+        const arr = antdProPath
           .split('/')
           .map(a => a.replace(/([A-Z])/g, '-$1'))
           .map(a => a.toLowerCase());

@@ -1,14 +1,10 @@
 import React from 'react';
-import { formatMessage } from 'umi-plugin-react/locale';
 import { PageHeader, Tabs, Typography } from 'antd';
 import { connect } from 'dva';
 import classNames from 'classnames';
 import GridContent from './GridContent';
-import ConnectState from '@/models/connect';
-import { ContentWidth } from 'config/defaultSettings';
+import { ConnectState, MenuDataItem } from '../../models/connect';
 import styles from './index.less';
-import { conversionBreadcrumbList } from './Breadcrumb';
-import { MenuDataItem } from '../SiderMenu';
 import * as H from 'history';
 
 const { Title } = Typography;
@@ -53,8 +49,7 @@ export interface PageHeaderWrapperProps {
   tabBarExtraContent?: React.ReactNode;
   style?: React.CSSProperties;
   home?: string;
-  wide?: boolean;
-  contentWidth?: ContentWidth;
+  breadcrumb: any;
   className?: string;
   children?: React.ReactNode;
   wrapperClassName?: string;
@@ -72,23 +67,17 @@ class PageHeaderWrapper extends React.Component<PageHeaderWrapperProps> {
   renderPageHeader = () => {
     const {
       children,
-      contentWidth,
       wrapperClassName,
       top,
       title,
       content,
       logo,
       extraContent,
+      breadcrumb,
       ...restProps
     } = this.mergePropsAndChildren();
     let pageTitle = title;
-    const breadcrumb = conversionBreadcrumbList({
-      ...restProps,
-      home: formatMessage({
-        id: 'menu.home',
-        defaultMessage: 'Home',
-      }),
-    });
+
     if (!title && breadcrumb.routes) {
       const router = breadcrumb.routes[breadcrumb.routes.length - 1];
       if (router) {
@@ -131,11 +120,8 @@ class PageHeaderWrapper extends React.Component<PageHeaderWrapperProps> {
     const { children } = this.mergePropsAndChildren();
     return (
       <div style={{ margin: '-24px -24px 0' }} className={classNames(classNames, styles.main)}>
-        {children ? (
-          <div className={styles['children-content']}>
-            <GridContent>{children}</GridContent>
-          </div>
-        ) : null}
+        {this.renderPageHeader()}
+        {children ? <div className={styles['children-content']}>{children}</div> : null}
       </div>
     );
   }

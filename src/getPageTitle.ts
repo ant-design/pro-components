@@ -39,7 +39,7 @@ const getPageTitle = (props: GetPageTitleProps): string => {
   if (!currRouterData) {
     return title;
   }
-  const pageName = menu.disableLocal
+  const pageName = !menu.locale
     ? currRouterData.name
     : formatMessage({
         id: currRouterData.locale || currRouterData.name!,

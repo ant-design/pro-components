@@ -2,8 +2,8 @@ import isEqual from 'lodash/isEqual';
 import memoizeOne from 'memoize-one';
 import pathToRegexp from 'path-to-regexp';
 import { formatMessage } from 'umi-plugin-react/locale';
-import defaultSettings from '../../config/defaultSettings';
-import { MenuDataItem } from '@/components/SiderMenu/BaseMenu';
+import defaultSettings from '../defaultSettings';
+import { MenuDataItem } from '../typings';
 
 const { menu, title } = defaultSettings;
 
@@ -23,7 +23,7 @@ const getPageTitle = (
   if (!currRouterData) {
     return title;
   }
-  const pageName = menu.disableLocal
+  const pageName = !menu.locale
     ? currRouterData.name
     : formatMessage({
         id: currRouterData.locale || currRouterData.name!,

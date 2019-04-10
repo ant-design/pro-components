@@ -1,19 +1,34 @@
 import React from 'react';
+import PageHeaderWrapper from '../components/PageHeaderWrapper';
+import { RouteContext, GridContent } from '../../../src/index';
 
 const Welcome = () => (
-  <div
-    style={{
-      height: '1200px',
+  <RouteContext.Consumer>
+    {value => {
+      return (
+        <PageHeaderWrapper breadcrumb={value}>
+          <GridContent>
+            <div
+              style={{
+                height: '1200px',
+              }}
+            >
+              <p style={{ textAlign: 'center' }}>
+                想要添加更多页面？请参考{' '}
+                <a
+                  href="https://umijs.org/guide/block.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  umi 区块
+                </a>
+                。
+              </p>
+            </div>
+          </GridContent>
+        </PageHeaderWrapper>
+      );
     }}
-  >
-    <p style={{ textAlign: 'center' }}>
-      想要添加更多页面？请参考{' '}
-      <a href="https://umijs.org/guide/block.html" target="_blank" rel="noopener noreferrer">
-        umi 区块
-      </a>
-      。
-    </p>
-  </div>
+  </RouteContext.Consumer>
 );
-Welcome.title = '欢迎使用';
 export default Welcome;

@@ -20,7 +20,7 @@ function formatter(
       const locale = `${parentName || 'menu'}.${item.name!}`;
       // if enableMenuLocale use item.name,
       // close menu international
-      const name = defaultSettings.menu.disableLocal
+      const name = !defaultSettings.menu.locale
         ? item.name!
         : formatMessage({ id: locale, defaultMessage: item.name! });
       const result: MenuDataItem = {
