@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Select, message, Drawer, List, Switch, Divider, Icon, Button, Alert, Tooltip } from 'antd';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
+import CopyToClipboard from 'react-copy-to-clipboard';
 import omit from 'omit.js';
 import './index.less';
 import ThemeColor from './ThemeColor';
@@ -28,7 +28,7 @@ interface SettingItemProps {
 }
 
 export interface SettingDrawerProps {
-  settings?: Settings;
+  settings: Settings;
   formatMessage: (data: { id: string; defaultMessage?: string }) => string;
   onChangeSetting?: (settings: SettingDrawerState) => void;
 }

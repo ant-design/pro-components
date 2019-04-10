@@ -24,6 +24,7 @@
     "webpack",
     "jest",
     "tslint:latest",
-    "tslint-config-prettier"
+    "tslint-config-prettier",
+    "example"
   ]
 }

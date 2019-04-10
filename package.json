@@ -48,6 +48,7 @@
     "not ie <= 10"
   ],
   "dependencies": {
+    "@types/react-copy-to-clipboard": "^4.2.6",
     "antd": "^3.15.0",
     "classnames": "^2.2.6",
     "lodash": "^4.17.10",

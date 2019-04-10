@@ -1,5 +1,3 @@
-import isEqual from 'lodash/isEqual';
-import memoizeOne from 'memoize-one';
 import pathToRegexp from 'path-to-regexp';
 import { Settings } from './defaultSettings';
 import { MenuDataItem } from './typings';
@@ -49,4 +47,4 @@ const getPageTitle = (props: GetPageTitleProps): string => {
   return `${pageName} - ${title}`;
 };
 
-export default memoizeOne(getPageTitle, isEqual);
+export default getPageTitle;
