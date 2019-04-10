@@ -9,8 +9,8 @@ const FooterView: React.SFC = () => (
     <GlobalFooter
       links={[
         {
-          key: 'Pro 首页',
-          title: 'Pro 首页',
+          key: 'Ant Design Pro',
+          title: 'Ant Design Pro',
           href: 'https://pro.ant.design',
           blankTarget: true,
         },
