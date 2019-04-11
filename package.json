@@ -4,7 +4,7 @@
   "description": "ant-design-pro layout, easy to use pro scaffolding.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
-  "types": "dist/src/index.d.ts",
+  "types": "dist/index.d.ts",
   "sideEffects": false,
   "files": [
     "/dist"
