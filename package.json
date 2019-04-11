@@ -1,16 +1,17 @@
 {
   "name": "@ant-design/pro-layout",
-  "version": "4.0.6",
+  "version": "4.0.8",
   "description": "ant-design-pro layout, easy to use pro scaffolding.",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
-  "sideEffects": false,
   "files": [
     "/dist"
   ],
+  "sideEffects": false,
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "analyze": "cross-env ANALYZE=1 umi build",
+    "build": "umi-lib build",
     "lint": "npm run lint:js && npm run lint:ts && npm run lint:style && npm run lint:prettier",
     "lint-staged": "lint-staged",
     "lint-staged:js": "eslint --ext .js",
@@ -20,11 +21,10 @@
     "lint:prettier": "check-prettier lint",
     "lint:style": "stylelint 'src/**/*.less' --syntax less",
     "lint:ts": "tslint -p . -c tslint.yml",
+    "prepublishOnly": "umi-lib build",
     "prettier": "node ./scripts/prettier.js",
     "start": "cd ./example && cross-env APP_TYPE=site umi dev",
     "test": "umi test",
-    "build": "umi-lib build",
-    "prepublishOnly": "umi-lib build",
     "tslint": "npm run tslint:fix",
     "tslint:fix": "tslint --fix 'src/**/*.ts*'"
   },
@@ -48,7 +48,6 @@
     "not ie <= 10"
   ],
   "dependencies": {
-    "@types/react-copy-to-clipboard": "^4.2.6",
     "antd": "^3.15.0",
     "classnames": "^2.2.6",
     "lodash": "^4.17.10",
@@ -63,16 +62,14 @@
     "react-copy-to-clipboard": "^5.0.1",
     "react-document-title": "^2.0.3",
     "react-dom": "^16.7.0",
-    "react-media-hook2": "^1.0.2",
-    "umi": "^2.6.10",
-    "umi-library": "^1.3.0",
-    "umi-plugin-react": "^1.7.2"
+    "react-media-hook2": "^1.0.2"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.7",
     "@types/history": "^4.7.2",
     "@types/lodash": "^4.14.123",
     "@types/react": "^16.8.1",
+    "@types/react-copy-to-clipboard": "^4.2.6",
     "@types/react-document-title": "^2.0.3",
     "@types/react-dom": "^16.0.11",
     "babel-eslint": "^10.0.1",
@@ -97,6 +94,7 @@
     "lint-staged": "^8.1.1",
     "merge-umi-mock-data": "^1.0.4",
     "prettier": "^1.16.4",
+    "puppeteer": "^1.12.1",
     "slash2": "^2.0.0",
     "stylelint": "^9.10.1",
     "stylelint-config-css-modules": "^1.3.0",
@@ -109,13 +107,12 @@
     "tslint-config-prettier": "^1.17.0",
     "tslint-eslint-rules": "^5.4.0",
     "tslint-react": "^3.6.0",
+    "umi": "^2.6.10",
+    "umi-library": "^1.3.0",
     "umi-plugin-ga": "^1.1.3",
     "umi-plugin-pro-block": "^1.3.0",
     "umi-plugin-react": "^1.7.2",
     "umi-types": "^0.2.0"
-  },
-  "optionalDependencies": {
-    "puppeteer": "^1.12.1"
   },
   "engines": {
     "node": ">=8.0.0"
