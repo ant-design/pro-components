@@ -3,6 +3,7 @@ import TopNavHeader from './TopNavHeader';
 import React, { Component } from 'react';
 import { Layout } from 'antd';
 import { Settings } from './defaultSettings';
+import './Header.less';
 
 const { Header } = Layout;
 
