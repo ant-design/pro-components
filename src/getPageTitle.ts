@@ -44,6 +44,9 @@ const getPageTitle = (props: GetPageTitleProps): string => {
         defaultMessage: currRouterData.name,
       });
 
+  if (!pageName) {
+    return title;
+  }
   return `${pageName} - ${title}`;
 };
 
