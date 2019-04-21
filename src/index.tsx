@@ -17,3 +17,5 @@ export {
   DefaultHeader,
   DefaultFooter,
 };
+
+export default BasicLayout;
