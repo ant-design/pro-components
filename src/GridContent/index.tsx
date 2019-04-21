@@ -13,7 +13,9 @@ const GridContent = (props: GridContentProps) => {
     <RouteContext.Consumer>
       {value => {
         const { children, settings } = props;
-        const contentWidth = settings ? settings.contentWidth : value.settings.contentWidth;
+        const contentWidth = settings
+          ? settings.contentWidth
+          : value.settings.contentWidth;
         let className = `ant-pro-grid-content`;
         if (contentWidth === 'Fixed') {
           className = `ant-pro-grid-content wide`;

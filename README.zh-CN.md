@@ -6,11 +6,11 @@
 
 ![image](https://user-images.githubusercontent.com/8186664/55930941-276e6580-5c56-11e9-800d-bc284bda4daf.png)
 
-开箱即用的中台前端/设计解决方案。
-此仓库是 Ant Design Pro 的 layout, 是为了方便快速的使用 layout 而开发。
+开箱即用的中台前端/设计解决方案。此仓库是 Ant Design Pro 的 layout, 是为了方便快速的使用 layout 而开发。
 
 </div>
 
+- API: [API](./API)
 - 预览：http://preview.pro.ant.design
 - 首页：http://pro.ant.design/index-cn
 - 使用文档：http://pro.ant.design/docs/getting-started-cn
@@ -30,7 +30,6 @@
 - :1234: **Mock 数据**：实用的本地数据调试方案
 - :white_check_mark: **UI 测试**：自动化测试保障前端产品质量
 
-
 ## 使用
 
 ### 使用命令行
@@ -48,8 +47,8 @@ $ npm start         # 访问 http://localhost:8000
 现代浏览器及 IE11。
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera |
-| --------- | --------- | --------- | --------- | --------- |
-| IE11, Edge| last 2 versions| last 2 versions| last 2 versions| last 2 versions
+| --- | --- | --- | --- | --- |
+| IE11, Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
 
 ## 参与贡献
 

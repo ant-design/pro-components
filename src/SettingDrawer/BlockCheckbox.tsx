@@ -9,11 +9,18 @@ export interface BlockChecboxProps {
 
 const baseClassName = 'ant-pro-setting-drawer-block-checbox';
 
-const BlockChecbox: React.FC<BlockChecboxProps> = ({ value, onChange, list }) => (
+const BlockChecbox: React.FC<BlockChecboxProps> = ({
+  value,
+  onChange,
+  list,
+}) => (
   <div className={baseClassName} key={value}>
     {list.map(item => (
       <Tooltip title={item.title} key={item.key}>
-        <div className={`${baseClassName}-item`} onClick={() => onChange(item.key)}>
+        <div
+          className={`${baseClassName}-item`}
+          onClick={() => onChange(item.key)}
+        >
           <img src={item.url} alt={item.key} />
           <div
             className={`${baseClassName}-selectIcon`}

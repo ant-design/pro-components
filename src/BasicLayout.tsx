@@ -135,7 +135,10 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
   /**
    * init variables
    */
-  const isMobile = useMedia({ id: 'BasicLayout', query: '(max-width: 599px)' })[0];
+  const isMobile = useMedia({
+    id: 'BasicLayout',
+    query: '(max-width: 599px)',
+  })[0];
 
   const hasLeftPadding = fixSiderbar && PropsLayout !== 'topmenu' && !isMobile;
 
@@ -225,10 +228,16 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
   );
   return (
     <>
-      <DocumentTitle title={getPageTitle({ pathname: location!.pathname, ...defaultProps })}>
+      <DocumentTitle
+        title={getPageTitle({ pathname: location!.pathname, ...defaultProps })}
+      >
         <ContainerQuery query={query}>
           {params => (
-            <div className={classNames(params, 'ant-design-pro', 'basicLayout')}>{layout}</div>
+            <div
+              className={classNames(params, 'ant-design-pro', 'basicLayout')}
+            >
+              {layout}
+            </div>
           )}
         </ContainerQuery>
       </DocumentTitle>

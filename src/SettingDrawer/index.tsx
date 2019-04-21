@@ -1,5 +1,16 @@
 import React, { Component } from 'react';
-import { Select, message, Drawer, List, Switch, Divider, Icon, Button, Alert, Tooltip } from 'antd';
+import {
+  Select,
+  message,
+  Drawer,
+  List,
+  Switch,
+  Divider,
+  Icon,
+  Button,
+  Alert,
+  Tooltip,
+} from 'antd';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import omit from 'omit.js';
 import './index.less';
@@ -44,7 +55,13 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
 
   getLayoutSetting = (): SettingItemProps[] => {
     const { settings, formatMessage } = this.props;
-    const { contentWidth, fixedHeader, layout, autoHideHeader, fixSiderbar } = settings!;
+    const {
+      contentWidth,
+      fixedHeader,
+      layout,
+      autoHideHeader,
+      fixSiderbar,
+    } = settings!;
     return [
       {
         title: formatMessage({
@@ -60,17 +77,26 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
           >
             {layout === 'sidemenu' ? null : (
               <Option value="Fixed">
-                {formatMessage({ id: 'app.setting.content-width.fixed', defaultMessage: 'Fixed' })}
+                {formatMessage({
+                  id: 'app.setting.content-width.fixed',
+                  defaultMessage: 'Fixed',
+                })}
               </Option>
             )}
             <Option value="Fluid">
-              {formatMessage({ id: 'app.setting.content-width.fluid', defaultMessage: 'Fluid' })}
+              {formatMessage({
+                id: 'app.setting.content-width.fluid',
+                defaultMessage: 'Fluid',
+              })}
             </Option>
           </Select>
         ),
       },
       {
-        title: formatMessage({ id: 'app.setting.fixedheader', defaultMessage: 'Fixed Header' }),
+        title: formatMessage({
+          id: 'app.setting.fixedheader',
+          defaultMessage: 'Fixed Header',
+        }),
         action: (
           <Switch
             size="small"
@@ -98,7 +124,10 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
         ),
       },
       {
-        title: formatMessage({ id: 'app.setting.fixedsidebar', defaultMessage: 'Fixed Sidebar' }),
+        title: formatMessage({
+          id: 'app.setting.fixedsidebar',
+          defaultMessage: 'Fixed Sidebar',
+        }),
         disabled: layout === 'topmenu',
         disabledReason: formatMessage({
           id: 'app.setting.fixedsidebar.hint',
@@ -142,7 +171,10 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
       disabled: item.disabled,
     });
     return (
-      <Tooltip title={item.disabled ? item.disabledReason : ''} placement="left">
+      <Tooltip
+        title={item.disabled ? item.disabledReason : ''}
+        placement="left"
+      >
         <List.Item actions={[action]}>
           <span style={{ opacity: item.disabled ? 0.5 : 1 }}>{item.title}</span>
         </List.Item>
@@ -161,7 +193,10 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
         onClose={this.togglerContent}
         placement="right"
         handler={
-          <div className="ant-pro-setting-drawer-handle" onClick={this.togglerContent}>
+          <div
+            className="ant-pro-setting-drawer-handle"
+            onClick={this.togglerContent}
+          >
             <Icon
               type={collapse ? 'close' : 'setting'}
               style={{
@@ -186,12 +221,17 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
               list={[
                 {
                   key: 'dark',
-                  url: 'https://gw.alipayobjects.com/zos/rmsportal/LCkqqYNmvBEbokSDscrm.svg',
-                  title: formatMessage({ id: 'app.setting.pagestyle.dark', defaultMessage: '' }),
+                  url:
+                    'https://gw.alipayobjects.com/zos/rmsportal/LCkqqYNmvBEbokSDscrm.svg',
+                  title: formatMessage({
+                    id: 'app.setting.pagestyle.dark',
+                    defaultMessage: '',
+                  }),
                 },
                 {
                   key: 'light',
-                  url: 'https://gw.alipayobjects.com/zos/rmsportal/jpRkZQMyYRryryPNtyIC.svg',
+                  url:
+                    'https://gw.alipayobjects.com/zos/rmsportal/jpRkZQMyYRryryPNtyIC.svg',
                   title: formatMessage({ id: 'app.setting.pagestyle.light' }),
                 },
               ]}
@@ -214,12 +254,14 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
               list={[
                 {
                   key: 'sidemenu',
-                  url: 'https://gw.alipayobjects.com/zos/rmsportal/JopDzEhOqwOjeNTXkoje.svg',
+                  url:
+                    'https://gw.alipayobjects.com/zos/rmsportal/JopDzEhOqwOjeNTXkoje.svg',
                   title: formatMessage({ id: 'app.setting.sidemenu' }),
                 },
                 {
                   key: 'topmenu',
-                  url: 'https://gw.alipayobjects.com/zos/rmsportal/KDNDBbriJhLwuqMoxcAr.svg',
+                  url:
+                    'https://gw.alipayobjects.com/zos/rmsportal/KDNDBbriJhLwuqMoxcAr.svg',
                   title: formatMessage({ id: 'app.setting.topmenu' }),
                 },
               ]}
@@ -247,7 +289,9 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
                     <Switch
                       size="small"
                       checked={!!colorWeak}
-                      onChange={checked => this.changeSetting('colorWeak', checked)}
+                      onChange={checked =>
+                        this.changeSetting('colorWeak', checked)
+                      }
                     />
                   ),
                 },
@@ -257,7 +301,9 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
           <Divider />
           <CopyToClipboard
             text={JSON.stringify(omit(settings, ['colorWeak']), null, 2)}
-            onCopy={() => message.success(formatMessage({ id: 'app.setting.copyinfo' }))}
+            onCopy={() =>
+              message.success(formatMessage({ id: 'app.setting.copyinfo' }))
+            }
           >
             <Button block={true} icon="copy">
               {formatMessage({ id: 'app.setting.copy' })}

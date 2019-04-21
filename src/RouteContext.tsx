@@ -6,6 +6,8 @@ interface RouteContextType extends BreadcrumbListReturn {
   settings: Settings;
 }
 
-const routeContext: React.Context<RouteContextType> = createContext({ settings });
+const routeContext: React.Context<RouteContextType> = createContext({
+  settings,
+});
 
 export default routeContext;

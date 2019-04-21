@@ -25,7 +25,10 @@ interface HeaderViewState {
 }
 
 class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
-  static getDerivedStateFromProps(props: HeaderViewProps, state: HeaderViewState) {
+  static getDerivedStateFromProps(
+    props: HeaderViewProps,
+    state: HeaderViewState,
+  ) {
     if (!props.autoHideHeader && !state.visible) {
       return {
         visible: true,
@@ -63,7 +66,8 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
     if (!autoHideHeader) {
       return;
     }
-    const scrollTop = document.body.scrollTop + document.documentElement.scrollTop;
+    const scrollTop =
+      document.body.scrollTop + document.documentElement.scrollTop;
     if (!this.ticking) {
       this.ticking = true;
       requestAnimationFrame(() => {

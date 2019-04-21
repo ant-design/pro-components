@@ -32,7 +32,10 @@ interface SiderMenuState {
   flatMenuKeysLen?: number;
 }
 
-export default class SiderMenu extends Component<SiderMenuProps, SiderMenuState> {
+export default class SiderMenu extends Component<
+  SiderMenuProps,
+  SiderMenuState
+> {
   static defaultProps: Partial<SiderMenuProps> = {
     flatMenuKeys: [],
     onCollapse: () => void 0,
@@ -44,9 +47,15 @@ export default class SiderMenu extends Component<SiderMenuProps, SiderMenuState>
     onOpenChange: () => void 0,
   };
 
-  static getDerivedStateFromProps(props: SiderMenuProps, state: SiderMenuState) {
+  static getDerivedStateFromProps(
+    props: SiderMenuProps,
+    state: SiderMenuState,
+  ) {
     const { pathname, flatMenuKeysLen } = state;
-    if (props.location!.pathname !== pathname || props.flatMenuKeys!.length !== flatMenuKeysLen) {
+    if (
+      props.location!.pathname !== pathname ||
+      props.flatMenuKeys!.length !== flatMenuKeysLen
+    ) {
       return {
         pathname: props.location!.pathname,
         flatMenuKeysLen: props.flatMenuKeys!.length,
@@ -78,9 +87,12 @@ export default class SiderMenu extends Component<SiderMenuProps, SiderMenuState>
   };
 
   handleOpenChange: (openKeys: string[]) => void = openKeys => {
-    const moreThanOne = openKeys.filter(openKey => this.isMainMenu(openKey)).length > 1;
+    const moreThanOne =
+      openKeys.filter(openKey => this.isMainMenu(openKey)).length > 1;
     if (moreThanOne) {
-      this.setState({ openKeys: [openKeys.pop()].filter(item => item) as string[] });
+      this.setState({
+        openKeys: [openKeys.pop()].filter(item => item) as string[],
+      });
     } else {
       this.setState({ openKeys: [...openKeys] });
     }

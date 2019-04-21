@@ -70,7 +70,10 @@ const ThemeColor: React.FC<ThemeColorProps> = ({
       <h3 className="theme-color-title">{title}</h3>
       <div className="theme-color-content">
         {colorList.map(({ key, color }) => (
-          <Tooltip key={color} title={formatMessage({ id: `app.setting.themecolor.${key}` })}>
+          <Tooltip
+            key={color}
+            title={formatMessage({ id: `app.setting.themecolor.${key}` })}
+          >
             <Tag
               className="theme-color-block"
               color={color}

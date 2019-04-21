@@ -1,11 +1,17 @@
-import { ConnectProps, ConnectState, SettingModelState } from '../models/connect';
+import {
+  ConnectProps,
+  ConnectState,
+  SettingModelState,
+} from '../models/connect';
 import BasicLayout, { BasicLayoutProps } from '../../../src/BasicLayout';
 import RightContent from '../components/GlobalHeader/RightContent';
 import { connect } from 'dva';
 import React, { useState } from 'react';
 import logo from '../assets/logo.svg';
 
-export interface BasicLayoutWrapperProps extends ConnectProps, BasicLayoutProps {
+export interface BasicLayoutWrapperProps
+  extends ConnectProps,
+    BasicLayoutProps {
   settings: SettingModelState;
 }
 
@@ -43,9 +49,11 @@ const BasicLayoutWrapper: React.FC<BasicLayoutWrapperProps> = props => {
   );
 };
 
-export default connect(({ global, setting, menu: menuModel }: ConnectState) => ({
-  collapsed: global.collapsed,
-  menuData: menuModel.menuData,
-  breadcrumbNameMap: menuModel.breadcrumbNameMap,
-  settings: setting,
-}))(BasicLayoutWrapper);
+export default connect(
+  ({ global, setting, menu: menuModel }: ConnectState) => ({
+    collapsed: global.collapsed,
+    menuData: menuModel.menuData,
+    breadcrumbNameMap: menuModel.breadcrumbNameMap,
+    settings: setting,
+  }),
+)(BasicLayoutWrapper);

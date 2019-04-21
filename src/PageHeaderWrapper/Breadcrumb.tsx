@@ -18,7 +18,12 @@ export interface BreadcrumbProps {
 
 // 渲染Breadcrumb 子节点
 // Render the Breadcrumb child node
-const itemRender: AntdBreadcrumbProps['itemRender'] = (route, params, routes, paths) => {
+const itemRender: AntdBreadcrumbProps['itemRender'] = (
+  route,
+  params,
+  routes,
+  paths,
+) => {
   const last = routes.indexOf(route) === routes.length - 1;
   return last || !route.component ? (
     <span>{route.breadcrumbName}</span>
@@ -27,7 +32,10 @@ const itemRender: AntdBreadcrumbProps['itemRender'] = (route, params, routes, pa
   );
 };
 
-const renderItemLocal = (item: MenuDataItem, props: BreadcrumbProps): string => {
+const renderItemLocal = (
+  item: MenuDataItem,
+  props: BreadcrumbProps,
+): string => {
   const { formatMessage, settings } = props;
   console.log(item, settings);
   if (item.locale && formatMessage && settings) {
@@ -67,7 +75,9 @@ export const getBreadcrumbProps = (props: BreadcrumbProps) => {
 };
 
 // Generated according to props
-const conversionFromProps = (props: BreadcrumbProps): AntdBreadcrumbProps['routes'] => {
+const conversionFromProps = (
+  props: BreadcrumbProps,
+): AntdBreadcrumbProps['routes'] => {
   const { breadcrumbList = [] } = props;
   return breadcrumbList
     .map(item => {
@@ -127,7 +137,9 @@ type BreadcrumbListReturn = Pick<
  * 将参数转化为面包屑
  * Convert parameters into breadcrumbs
  */
-export const conversionBreadcrumbList = (props: BreadcrumbProps): BreadcrumbListReturn => {
+export const conversionBreadcrumbList = (
+  props: BreadcrumbProps,
+): BreadcrumbListReturn => {
   const { breadcrumbList } = props;
   const { location, breadcrumbNameMap } = getBreadcrumbProps(props);
   if (breadcrumbList && breadcrumbList.length) {

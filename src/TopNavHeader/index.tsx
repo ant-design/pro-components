@@ -18,12 +18,17 @@ interface TopNavHeaderState {
   maxWidth?: number;
 }
 
-export default class TopNavHeader extends Component<TopNavHeaderProps, TopNavHeaderState> {
+export default class TopNavHeader extends Component<
+  TopNavHeaderProps,
+  TopNavHeaderState
+> {
   static getDerivedStateFromProps(props: TopNavHeaderProps) {
     const { settings } = props;
     return {
       maxWidth:
-        (settings.contentWidth === 'Fixed' && window.innerWidth > 1200 ? 1200 : window.innerWidth) -
+        (settings.contentWidth === 'Fixed' && window.innerWidth > 1200
+          ? 1200
+          : window.innerWidth) -
         280 -
         120 -
         40,
@@ -43,7 +48,9 @@ export default class TopNavHeader extends Component<TopNavHeaderProps, TopNavHea
       <div className={`${baseClassName} ${theme === 'light' ? 'light' : ''}`}>
         <div
           ref={ref => (this.maim = ref)}
-          className={`${baseClassName}-main ${settings.contentWidth === 'Fixed' ? 'wide' : ''}`}
+          className={`${baseClassName}-main ${
+            settings.contentWidth === 'Fixed' ? 'wide' : ''
+          }`}
         >
           <div className={`${baseClassName}-left`}>
             <div className={`${baseClassName}-logo`} key="logo" id="logo">

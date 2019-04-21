@@ -18,10 +18,18 @@ const SiderMenuWrapper: React.FC<SiderMenuProps> = props => {
         height: '100vh',
       }}
     >
-      <SiderMenu {...props} flatMenuKeys={flatMenuKeys} collapsed={isMobile ? false : collapsed} />
+      <SiderMenu
+        {...props}
+        flatMenuKeys={flatMenuKeys}
+        collapsed={isMobile ? false : collapsed}
+      />
     </Drawer>
   ) : (
-    <SiderMenu className="ant-pro-sider-menu" {...props} flatMenuKeys={flatMenuKeys} />
+    <SiderMenu
+      className="ant-pro-sider-menu"
+      {...props}
+      flatMenuKeys={flatMenuKeys}
+    />
   );
 };
 

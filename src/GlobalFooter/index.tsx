@@ -14,7 +14,11 @@ export interface GlobalFooterProps {
   className?: string;
 }
 
-const GlobalFooter: React.SFC<GlobalFooterProps> = ({ className, links, copyright }) => {
+const GlobalFooter: React.SFC<GlobalFooterProps> = ({
+  className,
+  links,
+  copyright,
+}) => {
   const clsString = classNames('ant-pro-global-footer', className);
   return (
     <footer className={clsString}>
@@ -32,7 +36,9 @@ const GlobalFooter: React.SFC<GlobalFooterProps> = ({ className, links, copyrigh
           ))}
         </div>
       )}
-      {copyright && <div className="ant-pro-global-footer-copyright">{copyright}</div>}
+      {copyright && (
+        <div className="ant-pro-global-footer-copyright">{copyright}</div>
+      )}
     </footer>
   );
 };

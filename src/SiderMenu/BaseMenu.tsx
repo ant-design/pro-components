@@ -25,7 +25,11 @@ const getIcon = (icon?: string | React.ReactNode) => {
       return (
         <Icon
           component={() => (
-            <img src={icon} alt="icon" className="ant-prefix}-pro-sider-menu-icon" />
+            <img
+              src={icon}
+              alt="icon"
+              className="ant-prefix}-pro-sider-menu-icon"
+            />
           )}
         />
       );
@@ -52,7 +56,10 @@ export interface BaseMenuProps extends Partial<RouterTypes<Route>> {
   style?: React.CSSProperties;
   theme?: MenuTheme;
   settings: Settings;
-  renderMenuItem?: (item: MenuDataItem, defaultDom: React.ReactNode) => React.ReactNode;
+  renderMenuItem?: (
+    item: MenuDataItem,
+    defaultDom: React.ReactNode,
+  ) => React.ReactNode;
 }
 
 export default class BaseMenu extends Component<BaseMenuProps> {

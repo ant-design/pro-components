@@ -93,7 +93,7 @@
     "less": "^3.9.0",
     "lint-staged": "^8.1.1",
     "merge-umi-mock-data": "^1.0.4",
-    "prettier": "^1.16.4",
+    "prettier": "^1.17.0",
     "puppeteer": "^1.12.1",
     "slash2": "^2.0.0",
     "stylelint": "^9.10.1",

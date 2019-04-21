@@ -7,7 +7,9 @@ export const matchParamsPath = (
   breadcrumbNameMap?: { [path: string]: MenuDataItem },
 ): MenuDataItem => {
   if (breadcrumbNameMap) {
-    const pathKey = Object.keys(breadcrumbNameMap).find(key => pathToRegexp(key).test(pathname));
+    const pathKey = Object.keys(breadcrumbNameMap).find(key =>
+      pathToRegexp(key).test(pathname),
+    );
     return breadcrumbNameMap[pathKey!];
   }
   return {
