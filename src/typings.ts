@@ -9,6 +9,16 @@ declare module '*.jpeg';
 declare module '*.gif';
 declare module '*.bmp';
 declare module '*.tiff';
+import React from 'react';
+import * as H from 'history';
+
+export interface LinkProps
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  to: H.LocationDescriptor;
+  replace?: boolean;
+  innerRef?: React.Ref<HTMLAnchorElement>;
+}
+export class Link extends React.Component<LinkProps, any> {}
 
 export interface MenuDataItem {
   authority?: string[] | string;

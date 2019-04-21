@@ -15,6 +15,7 @@
 | renderHeader | 自定义头的 render 方法 | `(props:BasicLayoutProps)=>ReactNode` | - |
 | renderFooter | 自定义页脚的 render 方法 | `(props:BasicLayoutProps)=>ReactNode` | - |
 | renderMenu | 自定义菜单的 render 方法 | `(props:HeaderViewProps)=> ReactNode` | - |
+| onLogoClick | logo 的 单击事件,默认会回到主页 | `(e: React.MouseEvent) => void` | `() => window.history.pushState({}, '', '/')` |
 | renderMenuItem | 自定义菜单项的 render 方法 | [`(itemProps:MenuDataItem)=>ReactNode`](#MenuDataItem) | - |
 | breadcrumbNameMap | 用于辅助生成面包屑。umi 会自动带有 | { [path: string]: [MenuDataItem](#MenuDataItem) } | - |
 

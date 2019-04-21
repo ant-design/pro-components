@@ -249,5 +249,6 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
 BasicLayout.defaultProps = {
   logo: '',
   settings: defaultSettings,
+  onLogoClick: () => window.history.pushState({}, '', '/'),
 };
 export default BasicLayout;

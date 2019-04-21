@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Icon } from 'antd';
-import Link from 'umi/link';
 import debounce from 'lodash/debounce';
 import './index.less';
 
@@ -9,6 +8,7 @@ export interface GlobalHeaderProps {
   onCollapse?: (collapsed: boolean) => void;
   isMobile?: boolean;
   logo?: string;
+  onLogoClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
   renderRightContent?: (props: any) => React.ReactNode;
 }
 
@@ -27,13 +27,23 @@ export default class GlobalHeader extends Component<GlobalHeaderProps> {
     this.triggerResizeEvent();
   };
   render() {
-    const { collapsed, isMobile, logo, renderRightContent } = this.props;
+    const {
+      collapsed,
+      isMobile,
+      logo,
+      renderRightContent,
+      onLogoClick,
+    } = this.props;
     return (
       <div className="ant-pro-global-header">
         {isMobile && (
-          <Link to="/" className="ant-pro-global-header-logo" key="logo">
+          <a
+            className="ant-pro-global-header-logo"
+            key="logo"
+            onClick={e => onLogoClick && onLogoClick(e)}
+          >
             <img src={logo} alt="logo" width="32" />
-          </Link>
+          </a>
         )}
         <span className="ant-pro-global-header-trigger" onClick={this.toggle}>
           <Icon type={collapsed ? 'menu-unfold' : 'menu-fold'} />
