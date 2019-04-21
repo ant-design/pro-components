@@ -1,5 +1,4 @@
 import { Icon } from 'antd';
-import defaultSettings from '../defaultSettings';
 
 const { iconfontUrl } = defaultSettings;
 const scriptUrl = iconfontUrl;

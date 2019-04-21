@@ -10,9 +10,13 @@ import { urlToList } from '../utils/pathTools';
 import './index.less';
 import { getMenuMatches } from './SiderMenuUtils';
 import { MenuDataItem, Route, WithFalse } from '../typings';
-import { Settings } from '../defaultSettings';
+import defaultSettings, { Settings } from '../defaultSettings';
 
 const { SubMenu } = Menu;
+
+let IconFont = Icon.createFromIconfontCN({
+  scriptUrl: defaultSettings.iconfontUrl,
+});
 
 // Allow menu.js config icon as string or ReactNode
 //   icon: 'setting',
@@ -62,6 +66,14 @@ export interface BaseMenuProps extends Partial<RouterTypes<Route>> {
 }
 
 export default class BaseMenu extends Component<BaseMenuProps> {
+  constructor(props: BaseMenuProps) {
+    super(props);
+    const { settings } = props;
+    // reset IconFont
+    IconFont = Icon.createFromIconfontCN({
+      scriptUrl: settings!.iconfontUrl,
+    });
+  }
   static defaultProps: Partial<BaseMenuProps> = {
     flatMenuKeys: [],
     onCollapse: () => void 0,
@@ -72,6 +84,13 @@ export default class BaseMenu extends Component<BaseMenuProps> {
     menuData: [],
     onOpenChange: () => void 0,
   };
+  getDerivedStateFromProps(props: BaseMenuProps) {
+    const { settings } = props;
+    // reset IconFont
+    IconFont = Icon.createFromIconfontCN({
+      scriptUrl: settings!.iconfontUrl,
+    });
+  }
 
   /**
    * 获得菜单子节点
