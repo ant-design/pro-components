@@ -55,10 +55,10 @@ export interface BasicLayoutProps
   logo: string;
   lang?: langType;
   onChangeLayoutCollapsed?: (collapsed: boolean) => void;
-  renderSettingDrawer?: (props: HeaderViewProps) => React.ReactNode;
-  renderHeader?: (props: HeaderViewProps) => React.ReactNode;
-  renderFooter?: (props: HeaderViewProps) => React.ReactNode;
-  renderMenu?: (props: HeaderViewProps) => React.ReactNode;
+  renderSettingDrawer?: false | ((props: HeaderViewProps) => React.ReactNode);
+  renderHeader?: false | ((props: HeaderViewProps) => React.ReactNode);
+  renderFooter?: false | ((props: HeaderViewProps) => React.ReactNode);
+  renderMenu?: false | ((props: HeaderViewProps) => React.ReactNode);
   renderMenuItem?: BaseMenuProps['renderMenuItem'];
   breadcrumbNameMap?: { [path: string]: MenuDataItem };
   onChangeSetting?: SettingDrawerProps['onChangeSetting'];
@@ -74,6 +74,9 @@ const renderSettingDrawer = (
     formatMessage: SettingDrawerProps['formatMessage'];
   },
 ) => {
+  if (props.renderSettingDrawer === false) {
+    return null;
+  }
   const { onChangeSetting } = props;
   if (props.renderSettingDrawer && onChangeSetting) {
     return props.renderSettingDrawer(props);
@@ -82,6 +85,9 @@ const renderSettingDrawer = (
 };
 
 const renderHeader = (props: BasicLayoutProps) => {
+  if (props.renderHeader === false) {
+    return null;
+  }
   if (props.renderHeader) {
     return props.renderHeader({ ...props });
   }
@@ -89,6 +95,9 @@ const renderHeader = (props: BasicLayoutProps) => {
 };
 
 const renderFooter = (props: BasicLayoutProps) => {
+  if (props.renderFooter === false) {
+    return null;
+  }
   if (props.renderFooter) {
     return props.renderFooter({ ...props });
   }
@@ -101,6 +110,9 @@ const renderSiderMenu = (props: BasicLayoutProps) => {
     isMobile,
     renderMenu,
   } = props;
+  if (props.renderMenu === false) {
+    return null;
+  }
   if (layout === 'topmenu' && !isMobile) {
     return null;
   }
