@@ -18,10 +18,6 @@ An out-of-box UI solution for enterprise applications as a React boilerplate. Th
 - FAQ: http://pro.ant.design/docs/faq
 - Mirror Site in China: http://ant-design-pro.gitee.io
 
-## Translation Recruitment :loudspeaker:
-
-We need your help: https://github.com/ant-design/ant-design-pro/issues/120
-
 ## Features
 
 - :gem: **Neat Design**: Follow [Ant Design specification](http://ant.design/)
@@ -33,41 +29,6 @@ We need your help: https://github.com/ant-design/ant-design-pro/issues/120
 - :gear: **Best Practices**: Solid workflow to make your code healthy
 - :1234: **Mock development**: Easy to use mock development solution
 - :white_check_mark: **UI Test**: Fly safely with unit and e2e tests
-
-## Templates
-
-```
-- Dashboard
-  - Analytic
-  - Monitor
-  - Workspace
-- Form
-  - Basic Form
-  - Step Form
-  - Advanced From
-- List
-  - Standard Table
-  - Standard List
-  - Card List
-  - Search List (Project/Applications/Article)
-- Profile
-  - Simple Profile
-  - Advanced Profile
-- Account
-  - Account Center
-  - Account Settings
-- Result
-  - Success
-  - Failed
-- Exception
-  - 403
-  - 404
-  - 500
-- User
-  - Login
-  - Register
-  - Register Result
-```
 
 ## Usage
 
