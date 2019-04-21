@@ -1,4 +1,4 @@
-English | [简体中文](./README.zh-CN.md) | [Русский](./README.ru-RU.md) | [Türkçe](./README.tr-TR.md)
+English | [简体中文](./README.zh-CN.md)
 
 <h1 align="center">Ant Design Pro</h1>
 
@@ -10,7 +10,7 @@ An out-of-box UI solution for enterprise applications as a React boilerplate. Th
 
 </div>
 
-- API: [API](./API)
+- API: https://github.com/ant-design/ant-design-pro-layout/blob/master/API.md
 - Preview: http://preview.pro.ant.design
 - Home Page: http://pro.ant.design
 - Documentation: http://pro.ant.design/docs/getting-started

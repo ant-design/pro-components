@@ -1,4 +1,4 @@
-[English](./README.md) | 简体中文 | [Русский](./README.ru-RU.md) | [Türkçe](./README.tr-TR.md)
+[English](./README.md) | 简体中文
 
 <h1 align="center">Ant Design Pro</h1>
 
@@ -10,7 +10,7 @@
 
 </div>
 
-- API: [API](./API)
+- API: https://github.com/ant-design/ant-design-pro-layout/blob/master/API.md
 - 预览：http://preview.pro.ant.design
 - 首页：http://pro.ant.design/index-cn
 - 使用文档：http://pro.ant.design/docs/getting-started-cn
