@@ -32,14 +32,16 @@
 
 ## 使用
 
-### 使用命令行
-
 ```bash
-$ git clone https://github.com/ant-design/ant-design-pro-layout.git --depth=1
-$ cd ant-design-pro-layout
-$ npm install
-$ cd example && npm install
-$ npm start         # 访问 http://localhost:8000
+npm i @ant-design/pro-layout --save
+// or
+yarn add @ant-design/pro-layout
+```
+
+```jsx
+import BasicLayout from '@ant-design/pro-layout';
+
+render(<BasicLayout />, document.getElementById('root'));
 ```
 
 ## 支持环境

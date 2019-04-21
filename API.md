@@ -1,21 +1,5 @@
 # API
 
-## use
-
-```bash
-npm i @ant-design/pro-layout --save
-// or
-yarn add @ant-design/pro-layout
-```
-
-```jsx
-import BasicLayout from '@ant-design/pro-layout';
-
-render(<BasicLayout />, document.getElementById('root'));
-```
-
-# props
-
 > 所有 render 开头的方法都可以通过传入 `false` 来使其不渲染。
 
 | 参数 | 说明 | 类型 | 默认值 |
