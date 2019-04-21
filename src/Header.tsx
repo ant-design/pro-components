@@ -3,6 +3,7 @@ import TopNavHeader from './TopNavHeader';
 import React, { Component } from 'react';
 import { Layout } from 'antd';
 import { Settings } from './defaultSettings';
+import { WithFalse } from './typings';
 import './Header.less';
 
 const { Header } = Layout;
@@ -12,11 +13,11 @@ export type SiderTheme = 'light' | 'dark';
 export interface HeaderViewProps {
   isMobile?: boolean;
   collapsed?: boolean;
-  logo: string;
+  logo?: React.ReactNode;
   autoHideHeader?: boolean;
   theme?: SiderTheme;
-  settings: Settings;
-  renderRightContent?: (props: HeaderViewProps) => React.ReactNode;
+  settings?: Settings;
+  renderRightContent?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
   handleMenuCollapse?: (collapse: boolean) => void;
 }
 

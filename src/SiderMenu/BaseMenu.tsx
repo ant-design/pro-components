@@ -9,7 +9,7 @@ import Link from 'umi/link';
 import { urlToList } from '../utils/pathTools';
 import './index.less';
 import { getMenuMatches } from './SiderMenuUtils';
-import { MenuDataItem, Route } from '../typings';
+import { MenuDataItem, Route, WithFalse } from '../typings';
 import { Settings } from '../defaultSettings';
 
 const { SubMenu } = Menu;
@@ -55,11 +55,10 @@ export interface BaseMenuProps extends Partial<RouterTypes<Route>> {
   openKeys?: string[];
   style?: React.CSSProperties;
   theme?: MenuTheme;
-  settings: Settings;
-  renderMenuItem?: (
-    item: MenuDataItem,
-    defaultDom: React.ReactNode,
-  ) => React.ReactNode;
+  settings?: Settings;
+  renderMenuItem?: WithFalse<
+    (item: MenuDataItem, defaultDom: React.ReactNode) => React.ReactNode
+  >;
 }
 
 export default class BaseMenu extends Component<BaseMenuProps> {
@@ -188,9 +187,10 @@ export default class BaseMenu extends Component<BaseMenuProps> {
       collapsed,
       handleOpenChange,
       style,
-      settings: { fixedHeader, layout },
+      settings,
       menuData,
     } = this.props;
+    const { fixedHeader, layout } = settings as Settings;
     // if pathname can't match, use the nearest parent's key
     let selectedKeys = this.getSelectedMenuKeys(location!.pathname);
     if (!selectedKeys.length && openKeys) {

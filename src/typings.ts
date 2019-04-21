@@ -1,14 +1,3 @@
-declare module '*.css';
-declare module '*.less';
-declare module '*.scss';
-declare module '*.sass';
-declare module '*.svg';
-declare module '*.png';
-declare module '*.jpg';
-declare module '*.jpeg';
-declare module '*.gif';
-declare module '*.bmp';
-declare module '*.tiff';
 import React from 'react';
 import * as H from 'history';
 
@@ -35,3 +24,16 @@ export interface MenuDataItem {
 export interface Route extends MenuDataItem {
   routes?: Route[];
 }
+export type WithFalse<T> = T | false;
+
+declare module '*.css';
+declare module '*.less';
+declare module '*.scss';
+declare module '*.sass';
+declare module '*.svg';
+declare module '*.png';
+declare module '*.jpg';
+declare module '*.jpeg';
+declare module '*.gif';
+declare module '*.bmp';
+declare module '*.tiff';

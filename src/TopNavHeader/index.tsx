@@ -1,17 +1,18 @@
 import { SiderMenuProps } from '../SiderMenu/SiderMenu';
 import React, { Component } from 'react';
 import BaseMenu from '../SiderMenu/BaseMenu';
-import { renderLogo } from '../SiderMenu/SiderMenu';
+import { defaultRenderLogo } from '../SiderMenu/SiderMenu';
 import { getFlatMenuKeys } from '../SiderMenu/SiderMenuUtils';
+import { HeaderViewProps } from '../Header';
 import { Settings } from '../defaultSettings';
 import './index.less';
 
 export interface TopNavHeaderProps extends SiderMenuProps {
-  logo: React.ReactNode;
-  settings: Settings;
+  logo?: React.ReactNode;
+  settings?: Settings;
   onLogoClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
   onCollapse?: (collapse: boolean) => void;
-  renderRightContent?: (props: any) => React.ReactNode;
+  renderRightContent?: HeaderViewProps['renderRightContent'];
 }
 
 interface TopNavHeaderState {
@@ -26,7 +27,7 @@ export default class TopNavHeader extends Component<
     const { settings } = props;
     return {
       maxWidth:
-        (settings.contentWidth === 'Fixed' && window.innerWidth > 1200
+        (settings!.contentWidth === 'Fixed' && window.innerWidth > 1200
           ? 1200
           : window.innerWidth) -
         280 -
@@ -46,6 +47,7 @@ export default class TopNavHeader extends Component<
       logo,
       onLogoClick,
       settings,
+      renderLogo,
       renderRightContent,
     } = this.props;
     const { maxWidth } = this.state;
@@ -56,14 +58,14 @@ export default class TopNavHeader extends Component<
         <div
           ref={ref => (this.maim = ref)}
           className={`${baseClassName}-main ${
-            settings.contentWidth === 'Fixed' ? 'wide' : ''
+            settings!.contentWidth === 'Fixed' ? 'wide' : ''
           }`}
         >
           <div className={`${baseClassName}-left`}>
             <div className={`${baseClassName}-logo`} key="logo" id="logo">
               <a onClick={e => onLogoClick && onLogoClick(e)}>
-                {renderLogo(logo)}
-                <h1>{settings.title}</h1>
+                {defaultRenderLogo(logo, renderLogo)}
+                <h1>{settings!.title}</h1>
               </a>
             </div>
           </div>

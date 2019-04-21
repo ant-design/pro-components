@@ -27,10 +27,10 @@ const BasicLayoutWrapper: React.FC<BasicLayoutWrapperProps> = props => {
     dispatch!({ type: 'menu/getMenuData', payload: { routes, authority } });
   });
 
-  const onChangeSetting: BasicLayoutProps['onChangeSetting'] = setttins => {
+  const onChangeSetting: BasicLayoutProps['onChangeSetting'] = settings => {
     dispatch!({
       type: 'setting/changeSetting',
-      payload: setttins,
+      payload: settings,
     });
   };
 
@@ -41,6 +41,7 @@ const BasicLayoutWrapper: React.FC<BasicLayoutWrapperProps> = props => {
       onChangeLayoutCollapsed={payload =>
         dispatch!({ type: 'global/changeLayoutCollapsed', payload })
       }
+      renderFooter={false}
       onChangeSetting={onChangeSetting}
       renderRightContent={rightProps => <RightContent {...rightProps} />}
     >

@@ -12,6 +12,7 @@
     "ant-design-pro": "^2.3.0",
     "antd": "^3.15.0",
     "classnames": "^2.2.6",
+    "core-js": "^2.6.5",
     "dva": "^2.4.0",
     "lodash": "^4.17.10",
     "lodash-decorators": "^6.0.0",
@@ -28,7 +29,7 @@
     "react-dom": "^16.7.0",
     "react-fittext": "^1.0.0",
     "react-media-hook2": "^1.0.2",
-    "umi": "^2.6.10",
+    "umi": "^2.6.14",
     "umi-plugin-react": "^1.7.2",
     "umi-request": "^1.0.5"
   },

@@ -1,5 +1,5 @@
 import SiderMenu from './SiderMenu';
-import { MenuDataItem, Route } from './typings';
+import { MenuDataItem, Route, WithFalse } from './typings';
 import { SiderMenuProps } from './SiderMenu/SiderMenu';
 import { BaseMenuProps } from './SiderMenu/BaseMenu';
 import Header, { HeaderViewProps } from './Header';
@@ -53,12 +53,13 @@ export interface BasicLayoutProps
     HeaderViewProps {
   settings: Settings;
   logo: string;
+  renderLogo?: WithFalse<(logo: React.ReactNode) => React.ReactNode>;
   lang?: langType;
   onChangeLayoutCollapsed?: (collapsed: boolean) => void;
-  renderSettingDrawer?: false | ((props: HeaderViewProps) => React.ReactNode);
-  renderHeader?: false | ((props: HeaderViewProps) => React.ReactNode);
-  renderFooter?: false | ((props: HeaderViewProps) => React.ReactNode);
-  renderMenu?: false | ((props: HeaderViewProps) => React.ReactNode);
+  renderSettingDrawer?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
+  renderHeader?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
+  renderFooter?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
+  renderMenu?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
   renderMenuItem?: BaseMenuProps['renderMenuItem'];
   breadcrumbNameMap?: { [path: string]: MenuDataItem };
   onChangeSetting?: SettingDrawerProps['onChangeSetting'];
