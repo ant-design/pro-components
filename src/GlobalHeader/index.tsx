@@ -10,7 +10,7 @@ export interface GlobalHeaderProps {
   collapsed?: boolean;
   onCollapse?: (collapsed: boolean) => void;
   isMobile?: boolean;
-  logo?: string;
+  logo?: React.ReactNode;
   renderLogo?: BasicLayoutProps['renderLogo'];
   onLogoClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
   renderRightContent?: HeaderViewProps['renderRightContent'];

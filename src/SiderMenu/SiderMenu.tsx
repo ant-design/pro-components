@@ -32,7 +32,7 @@ export const defaultRenderLogo = (
 export interface SiderMenuProps
   extends Pick<BaseMenuProps, Exclude<keyof BaseMenuProps, ['onCollapse']>> {
   logo?: React.ReactNode;
-  settings?: Settings;
+  settings?: Partial<Settings>;
   renderLogo?: BasicLayoutProps['renderLogo'];
   onLogoClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }
@@ -63,12 +63,13 @@ export default class SiderMenu extends Component<
     state: SiderMenuState,
   ) {
     const { pathname, flatMenuKeysLen } = state;
+    const { location = { pathname: '/' } } = props;
     if (
-      props.location!.pathname !== pathname ||
+      location.pathname !== pathname ||
       props.flatMenuKeys!.length !== flatMenuKeysLen
     ) {
       return {
-        pathname: props.location!.pathname,
+        pathname: location.pathname,
         flatMenuKeysLen: props.flatMenuKeys!.length,
         openKeys: getDefaultCollapsedSubMenus(props),
       };

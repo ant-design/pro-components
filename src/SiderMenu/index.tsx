@@ -37,4 +37,4 @@ SiderMenuWrapper.defaultProps = {
   onCollapse: () => void 0,
 };
 
-export default React.memo(SiderMenuWrapper);
+export default SiderMenuWrapper;

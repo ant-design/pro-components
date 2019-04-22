@@ -1,5 +1,5 @@
 import SiderMenu from './SiderMenu';
-import { MenuDataItem, Route, WithFalse } from './typings';
+import { MenuDataItem, Route, WithFalse, RouterTypes } from './typings';
 import { SiderMenuProps } from './SiderMenu/SiderMenu';
 import { BaseMenuProps } from './SiderMenu/BaseMenu';
 import Header, { HeaderViewProps } from './Header';
@@ -11,7 +11,6 @@ import { ContainerQuery } from 'react-container-query';
 import DocumentTitle from 'react-document-title';
 import useMedia from 'react-media-hook2';
 import defaultSettings, { Settings } from './defaultSettings';
-import { RouterTypes } from 'umi';
 import Footer from './Footer';
 import SettingDrawer, { SettingDrawerProps } from './SettingDrawer';
 import getLocales, { langType } from './locales';
@@ -51,8 +50,8 @@ export interface BasicLayoutProps
   extends Partial<RouterTypes<Route>>,
     SiderMenuProps,
     HeaderViewProps {
-  settings: Settings;
-  logo: string;
+  settings?: Partial<Settings>;
+  logo?: React.ReactNode;
   renderLogo?: WithFalse<(logo: React.ReactNode) => React.ReactNode>;
   lang?: langType;
   onChangeLayoutCollapsed?: (collapsed: boolean) => void;
@@ -66,13 +65,14 @@ export interface BasicLayoutProps
   formatMessage?: SettingDrawerProps['formatMessage'];
 }
 
-const getSetting = (settings: Settings) => {
+const getSetting = (settings?: Partial<Settings>) => {
   return { ...defaultSettings, ...settings };
 };
 
 const renderSettingDrawer = (
   props: BasicLayoutProps & {
     formatMessage: SettingDrawerProps['formatMessage'];
+    settings: Settings;
   },
 ) => {
   if (props.renderSettingDrawer === false) {
@@ -105,7 +105,7 @@ const renderFooter = (props: BasicLayoutProps) => {
   return <Footer />;
 };
 
-const renderSiderMenu = (props: BasicLayoutProps) => {
+const renderSiderMenu = (props: BasicLayoutProps & { settings: Settings }) => {
   const {
     settings: { layout },
     isMobile,
@@ -128,7 +128,12 @@ export type BasicLayoutContext = { [K in 'location']: BasicLayoutProps[K] } & {
 };
 
 const BasicLayout: React.FC<BasicLayoutProps> = props => {
-  const { children, onChangeLayoutCollapsed, location, menuData } = props;
+  const {
+    children,
+    onChangeLayoutCollapsed,
+    location = { pathname: '/' },
+    menuData,
+  } = props;
   // merge props.settings and defaultSettings
   const settings = getSetting(props.settings);
 
@@ -182,6 +187,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
   };
   const breadcrumb = conversionBreadcrumbList({
     ...props,
+    settings,
   });
   const layout = (
     <Layout>
@@ -192,6 +198,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
         theme: settings.navTheme,
         collapsed,
         ...defaultProps,
+        settings,
       })}
       <Layout
         style={{
@@ -230,7 +237,11 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
   return (
     <>
       <DocumentTitle
-        title={getPageTitle({ pathname: location!.pathname, ...defaultProps })}
+        title={getPageTitle({
+          pathname: location.pathname,
+          ...defaultProps,
+          settings,
+        })}
       >
         <ContainerQuery query={query}>
           {params => (
@@ -242,7 +253,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
           )}
         </ContainerQuery>
       </DocumentTitle>
-      {renderSettingDrawer(defaultProps)}
+      {renderSettingDrawer({ ...defaultProps, settings })}
     </>
   );
 };

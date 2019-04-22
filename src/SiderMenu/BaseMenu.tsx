@@ -1,15 +1,12 @@
-import IconFont from '../IconFont';
 import { isUrl } from '../utils/utils';
 import { Icon, Menu } from 'antd';
 import { MenuMode, MenuTheme } from 'antd/lib/menu';
 import classNames from 'classnames';
 import React, { Component } from 'react';
-import { RouterTypes } from 'umi';
-import Link from 'umi/link';
 import { urlToList } from '../utils/pathTools';
 import './index.less';
 import { getMenuMatches } from './SiderMenuUtils';
-import { MenuDataItem, Route, WithFalse } from '../typings';
+import { MenuDataItem, Route, WithFalse, RouterTypes } from '../typings';
 import defaultSettings, { Settings } from '../defaultSettings';
 
 const { SubMenu } = Menu;
@@ -59,7 +56,7 @@ export interface BaseMenuProps extends Partial<RouterTypes<Route>> {
   openKeys?: string[];
   style?: React.CSSProperties;
   theme?: MenuTheme;
-  settings?: Settings;
+  settings?: Partial<Settings>;
   renderMenuItem?: WithFalse<
     (item: MenuDataItem, defaultDom: React.ReactNode) => React.ReactNode
   >;
@@ -84,12 +81,14 @@ export default class BaseMenu extends Component<BaseMenuProps> {
     menuData: [],
     onOpenChange: () => void 0,
   };
-  getDerivedStateFromProps(props: BaseMenuProps) {
+  state = {};
+  static getDerivedStateFromProps(props: BaseMenuProps) {
     const { settings } = props;
     // reset IconFont
     IconFont = Icon.createFromIconfontCN({
       scriptUrl: settings!.iconfontUrl,
     });
+    return null;
   }
 
   /**
@@ -149,18 +148,18 @@ export default class BaseMenu extends Component<BaseMenuProps> {
     const { name } = item;
     const itemPath = this.conversionPath(item.path);
     const icon = getIcon(item.icon);
-    const { location, isMobile, onCollapse, renderMenuItem } = this.props;
+    const {
+      location = { pathname: '/' },
+      isMobile,
+      onCollapse,
+      renderMenuItem,
+    } = this.props;
     const { target } = item;
     let defaultItem = (
-      <Link
-        to={itemPath}
-        target={target}
-        replace={itemPath === location!.pathname}
-        onClick={isMobile ? () => onCollapse!(true) : void 0}
-      >
+      <>
         {icon}
         <span>{name}</span>
-      </Link>
+      </>
     );
 
     // Is it a http link
@@ -173,7 +172,15 @@ export default class BaseMenu extends Component<BaseMenuProps> {
       );
     }
     if (renderMenuItem) {
-      return renderMenuItem(item, defaultItem);
+      return renderMenuItem(
+        {
+          ...item,
+          itemPath,
+          replace: itemPath === location.pathname,
+          onClick: () => (isMobile ? onCollapse!(true) : null),
+        },
+        defaultItem,
+      );
     }
     return defaultItem;
   };
@@ -201,7 +208,9 @@ export default class BaseMenu extends Component<BaseMenuProps> {
       openKeys,
       theme,
       mode,
-      location,
+      location = {
+        pathname: '/',
+      },
       className,
       collapsed,
       handleOpenChange,
@@ -211,7 +220,7 @@ export default class BaseMenu extends Component<BaseMenuProps> {
     } = this.props;
     const { fixedHeader, layout } = settings as Settings;
     // if pathname can't match, use the nearest parent's key
-    let selectedKeys = this.getSelectedMenuKeys(location!.pathname);
+    let selectedKeys = this.getSelectedMenuKeys(location.pathname);
     if (!selectedKeys.length && openKeys) {
       selectedKeys = [openKeys[openKeys.length - 1]];
     }

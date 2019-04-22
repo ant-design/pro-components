@@ -1,6 +1,5 @@
 import React from 'react';
 import pathToRegexp from 'path-to-regexp';
-import Link from 'umi/link';
 import { urlToList } from '../utils/pathTools';
 import { MenuDataItem } from '../typings';
 import { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/lib/breadcrumb';
@@ -28,7 +27,7 @@ const itemRender: AntdBreadcrumbProps['itemRender'] = (
   return last || !route.component ? (
     <span>{route.breadcrumbName}</span>
   ) : (
-    <Link to={paths.join('/')}>{route.breadcrumbName}</Link>
+    <a>{route.breadcrumbName}</a>
   );
 };
 
@@ -37,7 +36,6 @@ const renderItemLocal = (
   props: BreadcrumbProps,
 ): string => {
   const { formatMessage, settings } = props;
-  console.log(item, settings);
   if (item.locale && formatMessage && settings) {
     if (settings.menu.locale) {
       return formatMessage({ id: item.locale });
@@ -128,7 +126,7 @@ const conversionFromLocation = (
   return extraBreadcrumbItems;
 };
 
-type BreadcrumbListReturn = Pick<
+export type BreadcrumbListReturn = Pick<
   AntdBreadcrumbProps,
   Extract<keyof AntdBreadcrumbProps, 'routes' | 'itemRender'>
 >;
@@ -161,5 +159,3 @@ export const conversionBreadcrumbList = (
     routes: [],
   };
 };
-
-export { BreadcrumbListReturn };

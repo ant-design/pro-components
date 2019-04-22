@@ -26,8 +26,8 @@ export const getMenuMatches = (flatMenuKeys: string[] = [], path: string) =>
  * 获得菜单子节点
  */
 export const getDefaultCollapsedSubMenus = (props: BaseMenuProps) => {
-  const { location, flatMenuKeys } = props;
-  return urlToList(location!.pathname)
+  const { location = { pathname: '/' }, flatMenuKeys } = props;
+  return urlToList(location.pathname)
     .map(item => getMenuMatches(flatMenuKeys, item)[0])
     .filter(item => item)
     .reduce((acc, curr) => [...acc, curr], ['/']);

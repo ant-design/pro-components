@@ -4,12 +4,10 @@ import BaseMenu from '../SiderMenu/BaseMenu';
 import { defaultRenderLogo } from '../SiderMenu/SiderMenu';
 import { getFlatMenuKeys } from '../SiderMenu/SiderMenuUtils';
 import { HeaderViewProps } from '../Header';
-import { Settings } from '../defaultSettings';
 import './index.less';
 
 export interface TopNavHeaderProps extends SiderMenuProps {
   logo?: React.ReactNode;
-  settings?: Settings;
   onLogoClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
   onCollapse?: (collapse: boolean) => void;
   renderRightContent?: HeaderViewProps['renderRightContent'];

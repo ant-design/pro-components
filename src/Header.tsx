@@ -16,7 +16,7 @@ export interface HeaderViewProps {
   logo?: React.ReactNode;
   autoHideHeader?: boolean;
   theme?: SiderTheme;
-  settings?: Settings;
+  settings?: Partial<Settings>;
   renderRightContent?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
   handleMenuCollapse?: (collapse: boolean) => void;
 }
