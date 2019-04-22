@@ -52,13 +52,11 @@ render(<BasicLayout />, document.getElementById('root'));
 ```ts
 // can be done via import { Settings } from '@ant-design/pro-layout/defaultSettings' to get this type
 
-export declare type MenuTheme = 'light' | 'dark';
-
 export interface Settings {
   /**
    * theme for nav menu
    */
-  navTheme: MenuTheme;
+  navTheme: 'light' | 'dark';;
   /**
    * primary color of ant design
    */
@@ -70,7 +68,7 @@ export interface Settings {
   /**
    * layout of content: `Fluid` or `Fixed`, only works when layout is topmenu
    */
-  contentWidth: ContentWidth;
+  contentWidth: 'Fluid' | 'Fixed';
   /**
    * sticky header
    */

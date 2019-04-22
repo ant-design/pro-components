@@ -52,14 +52,11 @@ render(<BasicLayout />, document.getElementById('root'));
 ```ts
 // 可以通过 import { Settings } from '@ant-design/pro-layout/defaultSettings'
 // 来获取这个类型
-
-export declare type MenuTheme = 'light' | 'dark';
-
 export interface Settings {
   /**
    * theme for nav menu
    */
-  navTheme: MenuTheme;
+  navTheme: 'light' | 'dark';;
   /**
    * primary color of ant design
    */
@@ -71,7 +68,7 @@ export interface Settings {
   /**
    * layout of content: `Fluid` or `Fixed`, only works when layout is topmenu
    */
-  contentWidth: ContentWidth;
+  contentWidth: 'Fluid' | 'Fixed';
   /**
    * sticky header
    */
@@ -89,7 +86,6 @@ export interface Settings {
   pwa: boolean;
   // Your custom iconfont Symbol script Url
   // eg：//at.alicdn.com/t/font_1039637_btcrd5co4w.js
-  // 注意：如果需要图标多色，Iconfont 图标项目里要进行批量去色处理
   // Usage: https://github.com/ant-design/ant-design-pro/pull/3517
   iconfontUrl: string;
   colorWeak: boolean;
