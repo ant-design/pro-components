@@ -30,7 +30,7 @@ render(<BasicLayout />, document.getElementById('root'));
 
 | Property | Description | Type | Default Value |
 | --- | --- | --- | --- |
-| logo | The top left corner of the layout logo url | string | '' |
+| logo | The top left corner of the layout logo url | string | - |
 | locale | The language setting of the layout | 'zh-CN' \| 'zh-TW' \| 'en-US'` | navigator.language |
 | settings | layout settings | 见 [`Settings`](#Settings) | [`Settings`](#Settings) | - |
 | onSettingChange | The setting of the layout changes event | (settings: Settings) => void | - |
