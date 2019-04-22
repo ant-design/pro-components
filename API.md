@@ -5,18 +5,18 @@
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | logo | layout 的 左上角 logo 的 url | string | '' |
-| renderLogo | 自定义 logo 的 render 方法。 | `(logo:string)=> ReactNode` | - |
-| lang | 当前 layout 的语言设置 | `'zh-CN' | 'zh-TW' | 'en-US'` | navigator.language |
+| renderLogo | 自定义 logo 的 render 方法。 | (logo:string) => ReactNode | - |
+| lang | 当前 layout 的语言设置 | 'zh-CN' | 'zh-TW' | 'en-US'` | navigator.language |
 | settings | layout 的设置 | 见 [`Settings`](#Settings) | [`Settings`](#Settings) | - |
-| onChangeSetting | layout 的 设置发生更改事件 | `(settings:Settings)=>void` | - |
-| renderSettingDrawer | 自定义设置窗口的 render | `(settings:Settings)=>ReactNode` | - |
+| onChangeSetting | layout 的 设置发生更改事件 | (settings: Settings) => void | - |
+| renderSettingDrawer | 自定义设置窗口的 render | (settings: Settings) => ReactNode | - |
 | collapsed | 控制菜单的收起和展开 | boolean | true |
-| onChangeLayoutCollapsed | 菜单的折叠收起事件 | `(collapsed:boolean)=>void` | - |
-| renderHeader | 自定义头的 render 方法 | `(props:BasicLayoutProps)=>ReactNode` | - |
-| renderFooter | 自定义页脚的 render 方法 | `(props:BasicLayoutProps)=>ReactNode` | - |
-| renderMenu | 自定义菜单的 render 方法 | `(props:HeaderViewProps)=> ReactNode` | - |
-| onLogoClick | logo 的 单击事件,默认会回到主页 | `(e: React.MouseEvent) => void` | `() => window.history.pushState({}, '', '/')` |
-| renderMenuItem | 自定义菜单项的 render 方法 | [`(itemProps:MenuDataItem)=>ReactNode`](#MenuDataItem) | - |
+| onChangeLayoutCollapsed | 菜单的折叠收起事件 | (collapsed: boolean) => void | - |
+| renderHeader | 自定义头的 render 方法 | (props: BasicLayoutProps) => ReactNode | - |
+| renderFooter | 自定义页脚的 render 方法 | (props: BasicLayoutProps) => ReactNode | - |
+| renderMenu | 自定义菜单的 render 方法 | (props: HeaderViewProps) => ReactNode | - |
+| onLogoClick | logo 的 单击事件,默认会回到主页 | (e: React.MouseEvent) => void | () => window.history.pushState({}, '', '/') |
+| renderMenuItem | 自定义菜单项的 render 方法 | [(itemProps: MenuDataItem) => ReactNode](#MenuDataItem) | - |
 | breadcrumbNameMap | 用于辅助生成面包屑。umi 会自动带有 | { [path: string]: [MenuDataItem](#MenuDataItem) } | - |
 
 # 数据结构
