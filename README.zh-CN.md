@@ -32,7 +32,7 @@ render(<BasicLayout />, document.getElementById('root'));
 | --- | --- | --- | --- |
 | logo | layout 的 左上角 logo 的 url | ReactNode \| ()=>ReactNode | - |
 | locale | 当前 layout 的语言设置 | 'zh-CN' \| 'zh-TW' \| 'en-US'` | navigator.language |
-| settings | layout 的设置 | 见 [`Settings`](#Settings) | [`Settings`](#Settings) | - |
+| settings | layout 的设置 | [`Settings`](#Settings) | [`Settings`](#Settings) | - |
 | onSettingChange | layout 的 设置发生更改事件 | (settings: Settings) => void | - |
 | renderSettingDrawer | 自定义设置窗口的 render | (settings: Settings) => ReactNode | - |
 | collapsed | 控制菜单的收起和展开 | boolean | true |
