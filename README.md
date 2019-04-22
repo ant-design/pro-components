@@ -43,7 +43,7 @@ render(<BasicLayout />, document.getElementById('root'));
 | renderMenuItem | the render method of a custom menu item | [(itemProps: MenuDataItem) => ReactNode](#MenuDataItem) | - |
 | breadcrumbNameMap | Used to assist in the generation of bread crumbs. Umi will automatically bring | { [path: string]: [MenuDataItem](#MenuDataItem) } | - |
 
-## 数据结构
+## Data Structure
 
 > For ease of viewing and use, Typescript is used here to write.
 
