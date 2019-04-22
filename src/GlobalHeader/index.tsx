@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Icon } from 'antd';
 import debounce from 'lodash/debounce';
-import { BasicLayoutProps } from '../BasicLayout';
 import { defaultRenderLogo } from '../SiderMenu/SiderMenu';
 import { HeaderViewProps } from '../Header';
 import './index.less';
@@ -11,8 +10,6 @@ export interface GlobalHeaderProps {
   onCollapse?: (collapsed: boolean) => void;
   isMobile?: boolean;
   logo?: React.ReactNode;
-  renderLogo?: BasicLayoutProps['renderLogo'];
-  onLogoClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
   renderRightContent?: HeaderViewProps['renderRightContent'];
 }
 
@@ -31,23 +28,12 @@ export default class GlobalHeader extends Component<GlobalHeaderProps> {
     this.triggerResizeEvent();
   };
   render() {
-    const {
-      collapsed,
-      isMobile,
-      logo,
-      renderRightContent,
-      renderLogo,
-      onLogoClick,
-    } = this.props;
+    const { collapsed, isMobile, logo, renderRightContent } = this.props;
     return (
       <div className="ant-pro-global-header">
         {isMobile && (
-          <a
-            className="ant-pro-global-header-logo"
-            key="logo"
-            onClick={e => onLogoClick && onLogoClick(e)}
-          >
-            {defaultRenderLogo(logo, renderLogo)}
+          <a className="ant-pro-global-header-logo" key="logo">
+            {defaultRenderLogo(logo)}
           </a>
         )}
         <span className="ant-pro-global-header-trigger" onClick={this.toggle}>

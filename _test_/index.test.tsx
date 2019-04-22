@@ -39,21 +39,32 @@ describe('BasicLayout', () => {
     expect(settingDrawer.length).toBe(0);
   });
 
-  it('trigger onLogoClick', () => {
+  it('use onLogoClick', () => {
     const onLogoClick = jest.fn();
     const wrapper = mount(
       <BasicLayout
-        onLogoClick={onLogoClick}
-        logo="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+        logo={
+          <div onClick={onLogoClick} id="test_log">
+            Logo
+          </div>
+        }
       />,
     );
-    const logo = wrapper.find('#logo').find('a');
+    const logo = wrapper.find('#test_log');
     logo.simulate('click');
     expect(onLogoClick).toHaveBeenCalled();
   });
 
   it('render logo', () => {
     const wrapper = mount(<BasicLayout logo={<div id="test_log">Logo</div>} />);
+    const logo = wrapper.find('#test_log');
+    expect(logo.text()).toEqual('Logo');
+  });
+
+  it('render logo by function', () => {
+    const wrapper = mount(
+      <BasicLayout logo={() => <div id="test_log">Logo</div>} />,
+    );
     const logo = wrapper.find('#test_log');
     expect(logo.text()).toEqual('Logo');
   });

@@ -1,6 +1,6 @@
 English | [简体中文](./README.zh-CN.md)
 
-<h1 align="center">Ant Design Pro</h1>
+<h1 align="center">Ant Design Pro Layout</h1>
 
 <div align="center">
 
@@ -9,26 +9,6 @@ English | [简体中文](./README.zh-CN.md)
 An out-of-box UI solution for enterprise applications as a React boilerplate. This repository is the layout of Ant Design Pro and was developed for quick and easy use of the layout.
 
 </div>
-
-- API: https://github.com/ant-design/ant-design-pro-layout/blob/master/API.md
-- Preview: http://preview.pro.ant.design
-- Home Page: http://pro.ant.design
-- Documentation: http://pro.ant.design/docs/getting-started
-- ChangeLog: http://pro.ant.design/docs/changelog
-- FAQ: http://pro.ant.design/docs/faq
-- Mirror Site in China: http://ant-design-pro.gitee.io
-
-## Features
-
-- :gem: **Neat Design**: Follow [Ant Design specification](http://ant.design/)
-- :triangular_ruler: **Common Templates**: Typical templates for enterprise applications
-- :rocket: **State of The Art Development**: Newest development stack of React/umi/dva/antd
-- :iphone: **Responsive**: Designed for variable screen sizes
-- :art: **Theming**: Customizable theme with simple config
-- :globe_with_meridians: **International**: Built-in i18n solution
-- :gear: **Best Practices**: Solid workflow to make your code healthy
-- :1234: **Mock development**: Easy to use mock development solution
-- :white_check_mark: **UI Test**: Fly safely with unit and e2e tests
 
 ## Usage
 
@@ -42,6 +22,94 @@ yarn add @ant-design/pro-layout
 import BasicLayout from '@ant-design/pro-layout';
 
 render(<BasicLayout />, document.getElementById('root'));
+```
+
+## API
+
+> All methods at the beginning of the rendering can prevent rendering by passing in `false`.
+
+| Property | Description | Type | Default Value |
+| --- | --- | --- | --- |
+| logo | The top left corner of the layout logo url | string | '' |
+| locale | The language setting of the layout | 'zh-CN' | 'zh-TW' | 'en-US'` | navigator.language |
+| settings | layout settings | 见 [`Settings`](#Settings) | [`Settings`](#Settings) | - |
+| onSettingChange | The setting of the layout changes event | (settings: Settings) => void | - |
+| renderSettingDrawer | custom settings drawer render render | (settings: Settings) => ReactNode | - |
+| collapsed | control menu's collapse and expansion | boolean | true |
+| onLayoutCollapsedChange | folding collapse event of menu | (collapsed: boolean) => void | - |
+| renderHeader | custom header render method | (props: BasicLayoutProps) => ReactNode | - |
+| renderFooter | custom footer render method | (props: BasicLayoutProps) => ReactNode | - |
+| renderMenu | custom menu render method | (props: HeaderViewProps) => ReactNode | - |
+| renderMenuItem | the render method of a custom menu item | [(itemProps: MenuDataItem) => ReactNode](#MenuDataItem) | - |
+| breadcrumbNameMap | Used to assist in the generation of bread crumbs. Umi will automatically bring | { [path: string]: [MenuDataItem](#MenuDataItem) } | - |
+
+## 数据结构
+
+> For ease of viewing and use, Typescript is used here to write.
+
+### Settings
+
+```ts
+// can be done via import { Settings } from '@ant-design/pro-layout/defaultSettings' to get this type
+
+export declare type MenuTheme = 'light' | 'dark';
+
+export interface Settings {
+  /**
+   * theme for nav menu
+   */
+  navTheme: MenuTheme;
+  /**
+   * primary color of ant design
+   */
+  primaryColor: string;
+  /**
+   * nav menu position: `sidemenu` or `topmenu`
+   */
+  layout: 'sidemenu' | 'topmenu';
+  /**
+   * layout of content: `Fluid` or `Fixed`, only works when layout is topmenu
+   */
+  contentWidth: ContentWidth;
+  /**
+   * sticky header
+   */
+  fixedHeader: boolean;
+  /**
+   * auto hide header
+   */
+  autoHideHeader: boolean;
+  /**
+   * sticky siderbar
+   */
+  fixSiderbar: boolean;
+  menu: { locale: boolean };
+  title: string;
+  pwa: boolean;
+  // Your custom iconfont Symbol script Url
+  // eg：//at.alicdn.com/t/font_1039637_btcrd5co4w.js
+  // Usage: https://github.com/ant-design/ant-design-pro/pull/3517
+  iconfontUrl: string;
+  colorWeak: boolean;
+}
+```
+
+### MenuDataItem
+
+```ts
+// can be imported { MenuDataItem } from '@ant-design/pro-layout/typings' to get this type
+
+export interface MenuDataItem {
+  authority?: string[] | string;
+  children?: MenuDataItem[];
+  hideChildrenInMenu?: boolean;
+  hideInMenu?: boolean;
+  icon?: string;
+  locale?: string;
+  name?: string;
+  path: string;
+  [key: string]: any;
+}
 ```
 
 ## Browsers support

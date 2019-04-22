@@ -7,6 +7,7 @@ import BasicLayout, { BasicLayoutProps } from '../../../src/BasicLayout';
 import RightContent from '../components/GlobalHeader/RightContent';
 import { connect } from 'dva';
 import React, { useState } from 'react';
+import router from 'umi/router';
 import logo from '../assets/logo.svg';
 
 export interface BasicLayoutWrapperProps
@@ -27,7 +28,7 @@ const BasicLayoutWrapper: React.FC<BasicLayoutWrapperProps> = props => {
     dispatch!({ type: 'menu/getMenuData', payload: { routes, authority } });
   });
 
-  const onChangeSetting: BasicLayoutProps['onChangeSetting'] = settings => {
+  const onSettingChange: BasicLayoutProps['onSettingChange'] = settings => {
     dispatch!({
       type: 'setting/changeSetting',
       payload: settings,
@@ -36,13 +37,13 @@ const BasicLayoutWrapper: React.FC<BasicLayoutWrapperProps> = props => {
 
   return (
     <BasicLayout
-      logo={logo}
+      logo={() => <img src={logo} onClick={() => router.push('/')} />}
       {...props}
-      onChangeLayoutCollapsed={payload =>
+      onLayoutCollapsedChange={payload =>
         dispatch!({ type: 'global/changeLayoutCollapsed', payload })
       }
       renderFooter={false}
-      onChangeSetting={onChangeSetting}
+      onSettingChange={onSettingChange}
       renderRightContent={rightProps => <RightContent {...rightProps} />}
     >
       {children}

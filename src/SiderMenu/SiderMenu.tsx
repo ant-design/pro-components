@@ -2,7 +2,6 @@ import { Layout } from 'antd';
 import classNames from 'classnames';
 import React, { Component } from 'react';
 import { Settings } from '../defaultSettings';
-import { BasicLayoutProps } from '../BasicLayout';
 import BaseMenu, { BaseMenuProps } from './BaseMenu';
 
 import './index.less';
@@ -13,18 +12,12 @@ const { Sider } = Layout;
 
 let firstMount: boolean = true;
 
-export const defaultRenderLogo = (
-  logo: React.ReactNode,
-  renderLogo: BasicLayoutProps['renderLogo'],
-) => {
-  if (renderLogo === false) {
-    return null;
-  }
-  if (renderLogo) {
-    return renderLogo(logo);
-  }
+export const defaultRenderLogo = (logo: React.ReactNode) => {
   if (typeof logo === 'string') {
     return <img src={logo} alt="logo" />;
+  }
+  if (typeof logo === 'function') {
+    return logo();
   }
   return logo;
 };
@@ -33,8 +26,6 @@ export interface SiderMenuProps
   extends Pick<BaseMenuProps, Exclude<keyof BaseMenuProps, ['onCollapse']>> {
   logo?: React.ReactNode;
   settings?: Partial<Settings>;
-  renderLogo?: BasicLayoutProps['renderLogo'];
-  onLogoClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
 interface SiderMenuState {
@@ -117,8 +108,6 @@ export default class SiderMenu extends Component<
       onCollapse,
       theme,
       isMobile,
-      renderLogo,
-      onLogoClick,
       settings,
     } = this.props;
     const { openKeys } = this.state;
@@ -144,8 +133,8 @@ export default class SiderMenu extends Component<
         className={siderClassName}
       >
         <div className="ant-pro-sider-menu-logo" id="logo">
-          <a onClick={e => onLogoClick && onLogoClick(e)}>
-            {defaultRenderLogo(logo, renderLogo)}
+          <a>
+            {defaultRenderLogo(logo)}
             <h1>{title}</h1>
           </a>
         </div>

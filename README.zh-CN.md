@@ -10,26 +10,6 @@
 
 </div>
 
-- API: https://github.com/ant-design/ant-design-pro-layout/blob/master/API.md
-- 预览：http://preview.pro.ant.design
-- 首页：http://pro.ant.design/index-cn
-- 使用文档：http://pro.ant.design/docs/getting-started-cn
-- 更新日志: http://pro.ant.design/docs/changelog-cn
-- 常见问题：http://pro.ant.design/docs/faq-cn
-- 国内镜像：http://ant-design-pro.gitee.io
-
-## 特性
-
-- :gem: **优雅美观**：基于 Ant Design 体系精心设计
-- :triangular_ruler: **常见设计模式**：提炼自中后台应用的典型页面和场景
-- :rocket: **最新技术栈**：使用 React/umi/dva/antd 等前端前沿技术开发
-- :iphone: **响应式**：针对不同屏幕大小设计
-- :art: **主题**：可配置的主题满足多样化的品牌诉求
-- :globe_with_meridians: **国际化**：内建业界通用的国际化方案
-- :gear: **最佳实践**：良好的工程实践助您持续产出高质量代码
-- :1234: **Mock 数据**：实用的本地数据调试方案
-- :white_check_mark: **UI 测试**：自动化测试保障前端产品质量
-
 ## 使用
 
 ```bash
@@ -42,6 +22,97 @@ yarn add @ant-design/pro-layout
 import BasicLayout from '@ant-design/pro-layout';
 
 render(<BasicLayout />, document.getElementById('root'));
+```
+
+## API
+
+> 所有 render 开头的方法都可以通过传入 `false` 来使其不渲染。
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| logo | layout 的 左上角 logo 的 url | ReactNode \| ()=>ReactNode | '' |
+| locale | 当前 layout 的语言设置 | 'zh-CN' | 'zh-TW' | 'en-US'` | navigator.language |
+| settings | layout 的设置 | 见 [`Settings`](#Settings) | [`Settings`](#Settings) | - |
+| onSettingChange | layout 的 设置发生更改事件 | (settings: Settings) => void | - |
+| renderSettingDrawer | 自定义设置窗口的 render | (settings: Settings) => ReactNode | - |
+| collapsed | 控制菜单的收起和展开 | boolean | true |
+| onLayoutCollapsedChange | 菜单的折叠收起事件 | (collapsed: boolean) => void | - |
+| renderHeader | 自定义头的 render 方法 | (props: BasicLayoutProps) => ReactNode | - |
+| renderFooter | 自定义页脚的 render 方法 | (props: BasicLayoutProps) => ReactNode | - |
+| renderMenu | 自定义菜单的 render 方法 | (props: HeaderViewProps) => ReactNode | - |
+| renderMenuItem | 自定义菜单项的 render 方法 | [(itemProps: MenuDataItem) => ReactNode](#MenuDataItem) | - |
+| breadcrumbNameMap | 用于辅助生成面包屑。umi 会自动带有 | { [path: string]: [MenuDataItem](#MenuDataItem) } | - |
+
+## 数据结构
+
+> 为了方便查看和使用，这里使用了 Typescript 的 方式来书写。
+
+### Settings
+
+```ts
+// 可以通过 import { Settings } from '@ant-design/pro-layout/defaultSettings'
+// 来获取这个类型
+
+export declare type MenuTheme = 'light' | 'dark';
+
+export interface Settings {
+  /**
+   * theme for nav menu
+   */
+  navTheme: MenuTheme;
+  /**
+   * primary color of ant design
+   */
+  primaryColor: string;
+  /**
+   * nav menu position: `sidemenu` or `topmenu`
+   */
+  layout: 'sidemenu' | 'topmenu';
+  /**
+   * layout of content: `Fluid` or `Fixed`, only works when layout is topmenu
+   */
+  contentWidth: ContentWidth;
+  /**
+   * sticky header
+   */
+  fixedHeader: boolean;
+  /**
+   * auto hide header
+   */
+  autoHideHeader: boolean;
+  /**
+   * sticky siderbar
+   */
+  fixSiderbar: boolean;
+  menu: { locale: boolean };
+  title: string;
+  pwa: boolean;
+  // Your custom iconfont Symbol script Url
+  // eg：//at.alicdn.com/t/font_1039637_btcrd5co4w.js
+  // 注意：如果需要图标多色，Iconfont 图标项目里要进行批量去色处理
+  // Usage: https://github.com/ant-design/ant-design-pro/pull/3517
+  iconfontUrl: string;
+  colorWeak: boolean;
+}
+```
+
+### MenuDataItem
+
+```ts
+// 可以通过 import { MenuDataItem } from '@ant-design/pro-layout/typings'
+// 来获取这个类型
+
+export interface MenuDataItem {
+  authority?: string[] | string;
+  children?: MenuDataItem[];
+  hideChildrenInMenu?: boolean;
+  hideInMenu?: boolean;
+  icon?: string;
+  locale?: string;
+  name?: string;
+  path: string;
+  [key: string]: any;
+}
 ```
 
 ## 支持环境

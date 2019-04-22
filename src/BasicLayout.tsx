@@ -13,7 +13,7 @@ import useMedia from 'react-media-hook2';
 import defaultSettings, { Settings } from './defaultSettings';
 import Footer from './Footer';
 import SettingDrawer, { SettingDrawerProps } from './SettingDrawer';
-import getLocales, { langType } from './locales';
+import getLocales, { localeType } from './locales';
 import RouteContext from './RouteContext';
 import { conversionBreadcrumbList } from './PageHeaderWrapper/Breadcrumb';
 
@@ -51,17 +51,16 @@ export interface BasicLayoutProps
     SiderMenuProps,
     HeaderViewProps {
   settings?: Partial<Settings>;
-  logo?: React.ReactNode;
-  renderLogo?: WithFalse<(logo: React.ReactNode) => React.ReactNode>;
-  lang?: langType;
-  onChangeLayoutCollapsed?: (collapsed: boolean) => void;
+  logo?: React.ReactNode | WithFalse<() => React.ReactNode>;
+  locale?: localeType;
+  onLayoutCollapsedChange?: (collapsed: boolean) => void;
   renderSettingDrawer?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
   renderHeader?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
   renderFooter?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
   renderMenu?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
   renderMenuItem?: BaseMenuProps['renderMenuItem'];
   breadcrumbNameMap?: { [path: string]: MenuDataItem };
-  onChangeSetting?: SettingDrawerProps['onChangeSetting'];
+  onSettingChange?: SettingDrawerProps['onSettingChange'];
   formatMessage?: SettingDrawerProps['formatMessage'];
 }
 
@@ -78,11 +77,11 @@ const renderSettingDrawer = (
   if (props.renderSettingDrawer === false) {
     return null;
   }
-  const { onChangeSetting } = props;
-  if (props.renderSettingDrawer && onChangeSetting) {
+  const { onSettingChange } = props;
+  if (props.renderSettingDrawer && onSettingChange) {
     return props.renderSettingDrawer(props);
   }
-  return <SettingDrawer {...props} onChangeSetting={onChangeSetting} />;
+  return <SettingDrawer {...props} onSettingChange={onSettingChange} />;
 };
 
 const renderHeader = (props: BasicLayoutProps) => {
@@ -130,7 +129,7 @@ export type BasicLayoutContext = { [K in 'location']: BasicLayoutProps[K] } & {
 const BasicLayout: React.FC<BasicLayoutProps> = props => {
   const {
     children,
-    onChangeLayoutCollapsed,
+    onLayoutCollapsedChange,
     location = { pathname: '/' },
     menuData,
   } = props;
@@ -150,8 +149,8 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
 
   const [collapsed, setCollapsed] = useState(false);
   const handleMenuCollapse = (payload: boolean) => {
-    if (onChangeLayoutCollapsed && props.collapsed !== undefined) {
-      return onChangeLayoutCollapsed(payload);
+    if (onLayoutCollapsedChange && props.collapsed !== undefined) {
+      return onLayoutCollapsedChange(payload);
     }
     return setCollapsed(payload);
   };
@@ -261,6 +260,5 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
 BasicLayout.defaultProps = {
   logo: '',
   settings: defaultSettings,
-  onLogoClick: () => window.history.pushState({}, '', '/'),
 };
 export default BasicLayout;

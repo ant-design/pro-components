@@ -8,7 +8,6 @@ import './index.less';
 
 export interface TopNavHeaderProps extends SiderMenuProps {
   logo?: React.ReactNode;
-  onLogoClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
   onCollapse?: (collapse: boolean) => void;
   renderRightContent?: HeaderViewProps['renderRightContent'];
 }
@@ -39,15 +38,7 @@ export default class TopNavHeader extends Component<
   maim: HTMLDivElement | null = null;
 
   render() {
-    const {
-      theme,
-      menuData,
-      logo,
-      onLogoClick,
-      settings,
-      renderLogo,
-      renderRightContent,
-    } = this.props;
+    const { theme, menuData, logo, settings, renderRightContent } = this.props;
     const { maxWidth } = this.state;
     const flatMenuKeys = getFlatMenuKeys(menuData);
     const baseClassName = 'ant-pro-top-nav-header';
@@ -61,8 +52,8 @@ export default class TopNavHeader extends Component<
         >
           <div className={`${baseClassName}-left`}>
             <div className={`${baseClassName}-logo`} key="logo" id="logo">
-              <a onClick={e => onLogoClick && onLogoClick(e)}>
-                {defaultRenderLogo(logo, renderLogo)}
+              <a>
+                {defaultRenderLogo(logo)}
                 <h1>{settings!.title}</h1>
               </a>
             </div>

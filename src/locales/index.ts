@@ -4,19 +4,19 @@ import enTWLocal from './en-US';
 
 const locales = { 'zh-CN': zhLocal, 'zh-TW': zhTWLocal, 'en-US': enTWLocal };
 
-export type langType = keyof typeof locales;
+export type localeType = keyof typeof locales;
 
 export default (
-  lang?: langType,
+  locale?: localeType,
 ): {
   [key: string]: string;
 } => {
-  if (lang) {
-    return locales[lang];
+  if (locale) {
+    return locales[locale];
   }
-  const g_lang =
+  const g_locale =
     ((window as unknown) as {
-      g_lang: keyof typeof locales;
-    }).g_lang || navigator.language;
-  return locales[g_lang];
+      g_locale: keyof typeof locales;
+    }).g_locale || navigator.language;
+  return locales[g_locale];
 };
