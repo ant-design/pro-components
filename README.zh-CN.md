@@ -33,8 +33,6 @@ render(<BasicLayout />, document.getElementById('root'));
 | logo | layout 的 左上角 logo 的 url | ReactNode \| ()=>ReactNode | - |
 | locale | 当前 layout 的语言设置 | 'zh-CN' \| 'zh-TW' \| 'en-US'` | navigator.language |
 | settings | layout 的设置 | [`Settings`](#Settings) | [`Settings`](#Settings) | - |
-| onSettingChange | layout 的 设置发生更改事件 | (settings: Settings) => void | - |
-| renderSettingDrawer | 自定义设置窗口的 render | (settings: Settings) => ReactNode | - |
 | collapsed | 控制菜单的收起和展开 | boolean | true |
 | onLayoutCollapsedChange | 菜单的折叠收起事件 | (collapsed: boolean) => void | - |
 | renderHeader | 自定义头的 render 方法 | (props: BasicLayoutProps) => ReactNode | - |
@@ -42,6 +40,15 @@ render(<BasicLayout />, document.getElementById('root'));
 | renderMenu | 自定义菜单的 render 方法 | (props: HeaderViewProps) => ReactNode | - |
 | renderMenuItem | 自定义菜单项的 render 方法 | [(itemProps: MenuDataItem) => ReactNode](#MenuDataItem) | - |
 | breadcrumbNameMap | 用于辅助生成面包屑。umi 会自动带有 | { [path: string]: [MenuDataItem](#MenuDataItem) } | - |
+
+### SettingDrawer
+
+> SettingDrawer 提供了一个图形界面来设置 layout 的配置。不建议在正式环境中使用。
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| settings | layout 的设置 | [`Settings`](#Settings) | [`Settings`](#Settings) | - |
+| onSettingChange | [`Settings`](#Settings) 发生更改事件 | (settings: [`Settings`](#Settings) ) => void | - |
 
 ## 数据结构
 

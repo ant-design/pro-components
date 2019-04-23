@@ -42,14 +42,16 @@ export interface RouterTypes<T extends Object = {}, P = {}>
   route?: RouteType & T;
 }
 
-declare module '*.css';
+export interface MessageDescriptor {
+  id: string;
+  description?: string;
+  defaultMessage?: string;
+}
+
 declare module '*.less';
-declare module '*.scss';
-declare module '*.sass';
 declare module '*.svg';
 declare module '*.png';
 declare module '*.jpg';
 declare module '*.jpeg';
 declare module '*.gif';
 declare module '*.bmp';
-declare module '*.tiff';

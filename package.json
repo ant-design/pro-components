@@ -48,6 +48,7 @@
     "not ie <= 10"
   ],
   "dependencies": {
+    "@types/react-intl": "^2.3.17",
     "antd": "^3.15.0",
     "classnames": "^2.2.6",
     "lodash": "^4.17.10",

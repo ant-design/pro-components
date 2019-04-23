@@ -1,7 +1,6 @@
 import React from 'react';
 import { Tooltip, Icon } from 'antd';
 import './ThemeColor.less';
-import { SettingDrawerProps } from './index';
 
 export interface TagProps {
   color: string;
@@ -21,7 +20,7 @@ export interface ThemeColorProps {
   title?: string;
   value: string;
   onChange: (color: string) => void;
-  formatMessage: SettingDrawerProps['formatMessage'];
+  formatMessage: (data: { id: string; defaultMessage?: string }) => string;
 }
 
 const ThemeColor: React.FC<ThemeColorProps> = ({

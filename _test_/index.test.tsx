@@ -33,12 +33,6 @@ describe('BasicLayout', () => {
     expect(footer.length).toBe(0);
   });
 
-  it('do not render SettingDrawer', () => {
-    const wrapper = mount(<BasicLayout renderSettingDrawer={false} />);
-    const settingDrawer = wrapper.find('.ant-pro-setting-drawer');
-    expect(settingDrawer.length).toBe(0);
-  });
-
   it('use onLogoClick', () => {
     const onLogoClick = jest.fn();
     const wrapper = mount(

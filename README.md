@@ -26,6 +26,8 @@ render(<BasicLayout />, document.getElementById('root'));
 
 ## API
 
+### BasicLayout
+
 > All methods at the beginning of the rendering can prevent rendering by passing in `false`.
 
 | Property | Description | Type | Default Value |
@@ -34,7 +36,6 @@ render(<BasicLayout />, document.getElementById('root'));
 | locale | The language setting of the layout | 'zh-CN' \| 'zh-TW' \| 'en-US'` | navigator.language |
 | settings | layout settings | [`Settings`](#Settings) | [`Settings`](#Settings) | - |
 | onSettingChange | The setting of the layout changes event | (settings: Settings) => void | - |
-| renderSettingDrawer | custom settings drawer render render | (settings: Settings) => ReactNode | - |
 | collapsed | control menu's collapse and expansion | boolean | true |
 | onLayoutCollapsedChange | folding collapse event of menu | (collapsed: boolean) => void | - |
 | renderHeader | custom header render method | (props: BasicLayoutProps) => ReactNode | - |
@@ -42,6 +43,15 @@ render(<BasicLayout />, document.getElementById('root'));
 | renderMenu | custom menu render method | (props: HeaderViewProps) => ReactNode | - |
 | renderMenuItem | the render method of a custom menu item | [(itemProps: MenuDataItem) => ReactNode](#MenuDataItem) | - |
 | breadcrumbNameMap | Used to assist in the generation of bread crumbs. Umi will automatically bring | { [path: string]: [MenuDataItem](#MenuDataItem) } | - |
+
+### SettingDrawer
+
+> SettingDrawer provides a graphical interface to set the layout configuration. Not recommended for use in a product environment.
+
+| Property | Description | Type | Default Value |
+| --- | --- | --- | --- |
+| settings | layout settings | [`Settings`](#Settings) | [`Settings`](#Settings) | - |
+| onSettingChange | The setting changes event | (settings: [Settings](#Settings)) => void | - |
 
 ## Data Structure
 

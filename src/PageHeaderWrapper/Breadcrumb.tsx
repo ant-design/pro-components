@@ -1,18 +1,18 @@
 import React from 'react';
 import pathToRegexp from 'path-to-regexp';
 import { urlToList } from '../utils/pathTools';
-import { MenuDataItem } from '../typings';
+import { MenuDataItem, MessageDescriptor } from '../typings';
 import { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/lib/breadcrumb';
 import * as H from 'history';
-import { SettingDrawerProps } from '../SettingDrawer';
+import { Settings } from '../defaultSettings';
 
 export interface BreadcrumbProps {
   breadcrumbList?: Array<{ title: string; href: string }>;
   home?: string;
   location?: H.Location;
   breadcrumbNameMap?: { [path: string]: MenuDataItem };
-  formatMessage?: SettingDrawerProps['formatMessage'];
-  settings: SettingDrawerProps['settings'];
+  formatMessage?: (message: MessageDescriptor) => string;
+  settings: Settings;
 }
 
 // 渲染Breadcrumb 子节点

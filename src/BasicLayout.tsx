@@ -1,5 +1,11 @@
 import SiderMenu from './SiderMenu';
-import { MenuDataItem, Route, WithFalse, RouterTypes } from './typings';
+import {
+  MenuDataItem,
+  Route,
+  WithFalse,
+  RouterTypes,
+  MessageDescriptor,
+} from './typings';
 import { SiderMenuProps } from './SiderMenu/SiderMenu';
 import { BaseMenuProps } from './SiderMenu/BaseMenu';
 import Header, { HeaderViewProps } from './Header';
@@ -12,11 +18,9 @@ import DocumentTitle from 'react-document-title';
 import useMedia from 'react-media-hook2';
 import defaultSettings, { Settings } from './defaultSettings';
 import Footer from './Footer';
-import SettingDrawer, { SettingDrawerProps } from './SettingDrawer';
 import getLocales, { localeType } from './locales';
 import RouteContext from './RouteContext';
 import { conversionBreadcrumbList } from './PageHeaderWrapper/Breadcrumb';
-
 import './BasicLayout.less';
 
 const { Content } = Layout;
@@ -60,28 +64,11 @@ export interface BasicLayoutProps
   renderMenu?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
   renderMenuItem?: BaseMenuProps['renderMenuItem'];
   breadcrumbNameMap?: { [path: string]: MenuDataItem };
-  onSettingChange?: SettingDrawerProps['onSettingChange'];
-  formatMessage?: SettingDrawerProps['formatMessage'];
+  formatMessage?: (message: MessageDescriptor) => string;
 }
 
 const getSetting = (settings?: Partial<Settings>) => {
   return { ...defaultSettings, ...settings };
-};
-
-const renderSettingDrawer = (
-  props: BasicLayoutProps & {
-    formatMessage: SettingDrawerProps['formatMessage'];
-    settings: Settings;
-  },
-) => {
-  if (props.renderSettingDrawer === false) {
-    return null;
-  }
-  const { onSettingChange } = props;
-  if (props.renderSettingDrawer && onSettingChange) {
-    return props.renderSettingDrawer(props);
-  }
-  return <SettingDrawer {...props} onSettingChange={onSettingChange} />;
 };
 
 const renderHeader = (props: BasicLayoutProps) => {
@@ -252,7 +239,6 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
           )}
         </ContainerQuery>
       </DocumentTitle>
-      {renderSettingDrawer({ ...defaultProps, settings })}
     </>
   );
 };

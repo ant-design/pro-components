@@ -1,9 +1,9 @@
-import {
-  ConnectProps,
-  ConnectState,
-  SettingModelState,
-} from '../models/connect';
-import BasicLayout, { BasicLayoutProps } from '../../../src/BasicLayout';
+import { ConnectProps, ConnectState } from '../models/connect';
+import BasicLayout, {
+  BasicLayoutProps,
+  SettingDrawer,
+  Settings,
+} from '../../../src';
 import RightContent from '../components/GlobalHeader/RightContent';
 import { connect } from 'dva';
 import React, { useState } from 'react';
@@ -13,7 +13,7 @@ import logo from '../assets/logo.svg';
 export interface BasicLayoutWrapperProps
   extends ConnectProps,
     BasicLayoutProps {
-  settings: SettingModelState;
+  settings: Settings;
 }
 
 const BasicLayoutWrapper: React.FC<BasicLayoutWrapperProps> = props => {
@@ -28,7 +28,7 @@ const BasicLayoutWrapper: React.FC<BasicLayoutWrapperProps> = props => {
     dispatch!({ type: 'menu/getMenuData', payload: { routes, authority } });
   });
 
-  const onSettingChange: BasicLayoutProps['onSettingChange'] = settings => {
+  const onSettingChange = (settings: Settings) => {
     dispatch!({
       type: 'setting/changeSetting',
       payload: settings,
@@ -36,18 +36,19 @@ const BasicLayoutWrapper: React.FC<BasicLayoutWrapperProps> = props => {
   };
 
   return (
-    <BasicLayout
-      logo={() => <img src={logo} onClick={() => router.push('/')} />}
-      {...props}
-      onLayoutCollapsedChange={payload =>
-        dispatch!({ type: 'global/changeLayoutCollapsed', payload })
-      }
-      renderFooter={false}
-      onSettingChange={onSettingChange}
-      renderRightContent={rightProps => <RightContent {...rightProps} />}
-    >
-      {children}
-    </BasicLayout>
+    <>
+      <BasicLayout
+        logo={() => <img src={logo} onClick={() => router.push('/')} />}
+        {...props}
+        onLayoutCollapsedChange={payload =>
+          dispatch!({ type: 'global/changeLayoutCollapsed', payload })
+        }
+        renderRightContent={rightProps => <RightContent {...rightProps} />}
+      >
+        {children}
+      </BasicLayout>
+      <SettingDrawer {...props} onSettingChange={onSettingChange} />
+    </>
   );
 };
 

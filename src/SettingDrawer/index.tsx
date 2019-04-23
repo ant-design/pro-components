@@ -8,7 +8,6 @@ import {
   Divider,
   Icon,
   Button,
-  Alert,
   Tooltip,
 } from 'antd';
 import CopyToClipboard from 'react-copy-to-clipboard';
@@ -17,15 +16,15 @@ import './index.less';
 import ThemeColor from './ThemeColor';
 import BlockCheckbox from './BlockCheckbox';
 import { Settings } from '../defaultSettings';
+import getLocales from '../locales';
 
 const { Option } = Select;
 interface BodyProps {
   title: string;
-  style?: React.CSSProperties;
 }
 
-const Body: React.FC<BodyProps> = ({ children, title, style }) => (
-  <div style={{ ...style, marginBottom: 24 }}>
+const Body: React.FC<BodyProps> = ({ children, title }) => (
+  <div style={{ marginBottom: 24 }}>
     <h3 className="ant-pro-setting-drawer-title">{title}</h3>
     {children}
   </div>
@@ -40,8 +39,11 @@ interface SettingItemProps {
 
 export interface SettingDrawerProps {
   settings: Settings;
-  formatMessage: (data: { id: string; defaultMessage?: string }) => string;
-  onSettingChange?: (settings: SettingDrawerState) => void;
+  collapse?: boolean;
+  // for test
+  getContainer?: any;
+  onCollapseChange?: (collapse: boolean) => void;
+  onSettingChange?: (settings: Settings) => void;
 }
 
 export interface SettingDrawerState extends Partial<Settings> {
@@ -52,9 +54,18 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
   state: SettingDrawerState = {
     collapse: false,
   };
+  static getDerivedStateFromProps(props: SettingDrawerProps) {
+    if ('collapse' in props) {
+      return {
+        collapse: props.collapse,
+      };
+    }
+    return null;
+  }
 
   getLayoutSetting = (): SettingItemProps[] => {
-    const { settings, formatMessage } = this.props;
+    const { settings } = this.props;
+    const formatMessage = this.getFormatMessage();
     const {
       contentWidth,
       fixedHeader,
@@ -156,13 +167,18 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
     this.setState(nextState, () => {
       const { onSettingChange } = this.props;
       if (onSettingChange) {
-        onSettingChange(this.state);
+        onSettingChange(this.state as Settings);
       }
     });
   };
 
   togglerContent = () => {
     const { collapse } = this.state;
+    const { onCollapseChange } = this.props;
+    if (onCollapseChange) {
+      onCollapseChange(!collapse);
+      return;
+    }
     this.setState({ collapse: !collapse });
   };
 
@@ -181,17 +197,38 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
       </Tooltip>
     );
   };
-
+  getFormatMessage = () => {
+    const formatMessage = ({
+      id,
+      defaultMessage,
+      ...rest
+    }: {
+      id: string;
+      defaultMessage?: string;
+    }) => {
+      const locales = getLocales();
+      if (locales[id]) {
+        return locales[id];
+      }
+      if (defaultMessage) {
+        return defaultMessage as string;
+      }
+      return id;
+    };
+    return formatMessage;
+  };
   render() {
-    const { settings, formatMessage } = this.props;
+    const { settings, getContainer } = this.props;
     const { navTheme, primaryColor, layout, colorWeak } = settings!;
     const { collapse } = this.state;
+    const formatMessage = this.getFormatMessage();
     return (
       <Drawer
         visible={collapse}
         width={300}
         onClose={this.togglerContent}
         placement="right"
+        getContainer={getContainer}
         handler={
           <div
             className="ant-pro-setting-drawer-handle"
@@ -309,25 +346,10 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
               {formatMessage({ id: 'app.setting.copy' })}
             </Button>
           </CopyToClipboard>
-          <Alert
-            type="warning"
-            className="ant-pro-setting-drawer-production-hint"
-            message={
-              <div>
-                {formatMessage({ id: 'app.setting.production.hint' })}{' '}
-                <a
-                  href="https://u.ant.design/pro-v2-default-settings"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  src/defaultSettings.js
-                </a>
-              </div>
-            }
-          />
         </div>
       </Drawer>
     );
   }
 }
+
 export default SettingDrawer;
