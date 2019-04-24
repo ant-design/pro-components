@@ -41,7 +41,7 @@ const BasicLayoutWrapper: React.FC<BasicLayoutWrapperProps> = props => {
         logo={() => <img src={logo} onClick={() => router.push('/')} />}
         {...props}
         {...props.settings}
-        onLayoutCollapsedChange={payload =>
+        onCollapse={payload =>
           dispatch!({ type: 'global/changeLayoutCollapsed', payload })
         }
         renderRightContent={rightProps => <RightContent {...rightProps} />}

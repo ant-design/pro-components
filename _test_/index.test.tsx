@@ -62,4 +62,11 @@ describe('BasicLayout', () => {
     const logo = wrapper.find('#test_log');
     expect(logo.text()).toEqual('Logo');
   });
+
+  it('onCollapse', () => {
+    const onCollapse = jest.fn();
+    const wrapper = mount(<BasicLayout onCollapse={onCollapse} />);
+    wrapper.find('.ant-pro-global-header-trigger').simulate('click');
+    expect(onCollapse).toHaveBeenCalled();
+  });
 });

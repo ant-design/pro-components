@@ -57,7 +57,7 @@ export interface BasicLayoutProps
     Partial<Settings> {
   logo?: React.ReactNode | WithFalse<() => React.ReactNode>;
   locale?: localeType;
-  onLayoutCollapsedChange?: (collapsed: boolean) => void;
+  onCollapse?: (collapsed: boolean) => void;
   renderSettingDrawer?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
   renderHeader?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
   renderFooter?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
@@ -108,7 +108,7 @@ export type BasicLayoutContext = { [K in 'location']: BasicLayoutProps[K] } & {
 const BasicLayout: React.FC<BasicLayoutProps> = props => {
   const {
     children,
-    onLayoutCollapsedChange,
+    onCollapse,
     location = { pathname: '/' },
     menuData,
     fixedHeader,
@@ -129,8 +129,8 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
 
   const [collapsed, setCollapsed] = useState(false);
   const handleMenuCollapse = (payload: boolean) => {
-    if (onLayoutCollapsedChange && props.collapsed !== undefined) {
-      return onLayoutCollapsedChange(payload);
+    if (onCollapse && props.collapsed !== undefined) {
+      return onCollapse(payload);
     }
     return setCollapsed(payload);
   };

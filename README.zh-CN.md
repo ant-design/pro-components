@@ -43,7 +43,7 @@ render(<BasicLayout />, document.getElementById('root'));
 | locale | 当前 layout 的语言设置 | 'zh-CN' \| 'zh-TW' \| 'en-US'` | navigator.language |
 | settings | layout 的设置 | [`Settings`](#Settings) | [`Settings`](#Settings) | - |
 | collapsed | 控制菜单的收起和展开 | boolean | true |
-| onLayoutCollapsedChange | 菜单的折叠收起事件 | (collapsed: boolean) => void | - |
+| onCollapse | 菜单的折叠收起事件 | (collapsed: boolean) => void | - |
 | renderHeader | 自定义头的 render 方法 | (props: BasicLayoutProps) => ReactNode | - |
 | renderFooter | 自定义页脚的 render 方法 | (props: BasicLayoutProps) => ReactNode | - |
 | renderMenu | 自定义菜单的 render 方法 | (props: HeaderViewProps) => ReactNode | - |

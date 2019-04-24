@@ -45,7 +45,7 @@ render(<BasicLayout />, document.getElementById('root'));
 | locale | The language setting of the layout | 'zh-CN' \| 'zh-TW' \| 'en-US'` | navigator.language |
 | settings | layout settings | [`Settings`](#Settings) | [`Settings`](#Settings) | - |
 | collapsed | control menu's collapse and expansion | boolean | true |
-| onLayoutCollapsedChange | folding collapse event of menu | (collapsed: boolean) => void | - |
+| onCollapse | folding collapse event of menu | (collapsed: boolean) => void | - |
 | renderHeader | custom header render method | (props: BasicLayoutProps) => ReactNode | - |
 | renderFooter | custom footer render method | (props: BasicLayoutProps) => ReactNode | - |
 | renderMenu | custom menu render method | (props: HeaderViewProps) => ReactNode | - |
