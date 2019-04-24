@@ -44,11 +44,11 @@ render(<BasicLayout />, document.getElementById('root'));
 | settings | layout 的设置 | [`Settings`](#Settings) | [`Settings`](#Settings) | - |
 | collapsed | 控制菜单的收起和展开 | boolean | true |
 | onCollapse | 菜单的折叠收起事件 | (collapsed: boolean) => void | - |
-| renderHeader | 自定义头的 render 方法 | (props: BasicLayoutProps) => ReactNode | - |
-| renderFooter | 自定义页脚的 render 方法 | (props: BasicLayoutProps) => ReactNode | - |
-| renderMenu | 自定义菜单的 render 方法 | (props: HeaderViewProps) => ReactNode | - |
-| renderMenuItem | 自定义菜单项的 render 方法 | [(itemProps: MenuDataItem) => ReactNode](#MenuDataItem) | - |
-| breadcrumbNameMap | 用于辅助生成面包屑。umi 会自动带有 | { [path: string]: [MenuDataItem](#MenuDataItem) } | - |
+| headerRender | 自定义头的 render 方法 | (props: BasicLayoutProps) => ReactNode | - |
+| footerRender | 自定义页脚的 render 方法 | (props: BasicLayoutProps) => ReactNode | - |
+| menuRender | 自定义菜单的 render 方法 | (props: HeaderViewProps) => ReactNode | - |
+| menuItemRender | 自定义菜单项的 render 方法 | [(itemProps: MenuDataItem) => ReactNode](#MenuDataItem) | - |
+| breadcrumb | 用于辅助生成面包屑。umi 会自动带有 | { [path: string]: [MenuDataItem](#MenuDataItem) } | - |
 
 ### SettingDrawer
 

@@ -11,7 +11,7 @@ export interface BreadcrumbProps {
   home?: string;
   location?: H.Location;
   menu?: Settings['menu'];
-  breadcrumbNameMap?: { [path: string]: MenuDataItem };
+  breadcrumb?: { [path: string]: MenuDataItem };
   formatMessage?: (message: MessageDescriptor) => string;
 }
 
@@ -50,19 +50,19 @@ const renderItemLocal = (
 };
 
 export const getBreadcrumb = (
-  breadcrumbNameMap: { [path: string]: MenuDataItem },
+  breadcrumb: { [path: string]: MenuDataItem },
   url: string,
 ): MenuDataItem => {
-  if (!breadcrumbNameMap) {
+  if (!breadcrumb) {
     return {
       path: '',
     };
   }
-  let breadcrumb = breadcrumbNameMap[url];
-  if (!breadcrumb) {
-    Object.keys(breadcrumbNameMap).forEach(item => {
+  let breadcrumbItem = breadcrumb[url];
+  if (!breadcrumbItem) {
+    Object.keys(breadcrumb).forEach(item => {
       if (pathToRegexp(item).test(url)) {
-        breadcrumb = breadcrumbNameMap[item];
+        breadcrumbItem = breadcrumb[item];
       }
     });
   }
@@ -70,10 +70,10 @@ export const getBreadcrumb = (
 };
 
 export const getBreadcrumbProps = (props: BreadcrumbProps) => {
-  const { location, breadcrumbNameMap } = props;
+  const { location, breadcrumb } = props;
   return {
     location,
-    breadcrumbNameMap,
+    breadcrumb,
   };
 };
 
@@ -95,7 +95,7 @@ const conversionFromProps = (
 
 const conversionFromLocation = (
   routerLocation: BreadcrumbProps['location'],
-  breadcrumbNameMap: { [path: string]: MenuDataItem },
+  breadcrumb: { [path: string]: MenuDataItem },
   props: BreadcrumbProps,
 ): AntdBreadcrumbProps['routes'] => {
   if (!routerLocation) {
@@ -107,7 +107,7 @@ const conversionFromLocation = (
   // Loop data mosaic routing
   const extraBreadcrumbItems: AntdBreadcrumbProps['routes'] = pathSnippets
     .map(url => {
-      const currentBreadcrumb = getBreadcrumb(breadcrumbNameMap, url);
+      const currentBreadcrumb = getBreadcrumb(breadcrumb, url);
       if (currentBreadcrumb.inherited) {
         return { path: '', breadcrumbName: '' };
       }
@@ -144,7 +144,7 @@ export const conversionBreadcrumbList = (
   props: BreadcrumbProps,
 ): BreadcrumbListReturn => {
   const { breadcrumbList } = props;
-  const { location, breadcrumbNameMap } = getBreadcrumbProps(props);
+  const { location, breadcrumb } = getBreadcrumbProps(props);
   if (breadcrumbList && breadcrumbList.length) {
     return {
       routes: conversionFromProps(props),
@@ -154,9 +154,9 @@ export const conversionBreadcrumbList = (
 
   // 根据 location 生成 面包屑
   // Generate breadcrumbs based on location
-  if (location && location.pathname && breadcrumbNameMap) {
+  if (location && location.pathname && breadcrumb) {
     return {
-      routes: conversionFromLocation(location, breadcrumbNameMap, props),
+      routes: conversionFromLocation(location, breadcrumb, props),
       itemRender,
     };
   }

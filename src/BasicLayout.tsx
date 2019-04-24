@@ -59,50 +59,50 @@ export interface BasicLayoutProps
   locale?: localeType;
   onCollapse?: (collapsed: boolean) => void;
   renderSettingDrawer?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
-  renderHeader?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
-  renderFooter?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
-  renderMenu?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
-  renderMenuItem?: BaseMenuProps['renderMenuItem'];
-  breadcrumbNameMap?: { [path: string]: MenuDataItem };
+  headerRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
+  footerRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
+  menuRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
+  menuItemRender?: BaseMenuProps['menuItemRender'];
+  breadcrumb?: { [path: string]: MenuDataItem };
   formatMessage?: (message: MessageDescriptor) => string;
 }
 
-const renderHeader = (props: BasicLayoutProps) => {
-  if (props.renderHeader === false) {
+const headerRender = (props: BasicLayoutProps) => {
+  if (props.headerRender === false) {
     return null;
   }
-  if (props.renderHeader) {
-    return props.renderHeader({ ...props });
+  if (props.headerRender) {
+    return props.headerRender({ ...props });
   }
   return <Header {...props} />;
 };
 
-const renderFooter = (props: BasicLayoutProps) => {
-  if (props.renderFooter === false) {
+const footerRender = (props: BasicLayoutProps) => {
+  if (props.footerRender === false) {
     return null;
   }
-  if (props.renderFooter) {
-    return props.renderFooter({ ...props });
+  if (props.footerRender) {
+    return props.footerRender({ ...props });
   }
   return <Footer />;
 };
 
 const renderSiderMenu = (props: BasicLayoutProps) => {
-  const { layout, isMobile, renderMenu } = props;
-  if (props.renderMenu === false) {
+  const { layout, isMobile, menuRender } = props;
+  if (props.menuRender === false) {
     return null;
   }
   if (layout === 'topmenu' && !isMobile) {
     return null;
   }
-  if (renderMenu) {
-    return renderMenu(props);
+  if (menuRender) {
+    return menuRender(props);
   }
   return <SiderMenu {...props} />;
 };
 
 export type BasicLayoutContext = { [K in 'location']: BasicLayoutProps[K] } & {
-  breadcrumbNameMap: { [path: string]: MenuDataItem };
+  breadcrumb: { [path: string]: MenuDataItem };
 };
 
 const BasicLayout: React.FC<BasicLayoutProps> = props => {
@@ -183,7 +183,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
           minHeight: '100vh',
         }}
       >
-        {renderHeader({
+        {headerRender({
           menuData,
           handleMenuCollapse,
           isMobile,
@@ -203,7 +203,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
             {children}
           </RouteContext.Provider>
         </Content>
-        {renderFooter({
+        {footerRender({
           isMobile,
           collapsed,
           ...defaultProps,

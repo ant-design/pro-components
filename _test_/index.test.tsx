@@ -22,13 +22,13 @@ describe('BasicLayout', () => {
   });
 
   it('do not render menu', () => {
-    const wrapper = mount(<BasicLayout renderMenu={false} />);
+    const wrapper = mount(<BasicLayout menuRender={false} />);
     const menu = wrapper.find('.ant-pro-sider-menu');
     expect(menu.length).toBe(0);
   });
 
   it('do not render footer', () => {
-    const wrapper = mount(<BasicLayout renderFooter={false} />);
+    const wrapper = mount(<BasicLayout footerRender={false} />);
     const footer = wrapper.find('footer');
     expect(footer.length).toBe(0);
   });

@@ -58,7 +58,7 @@ export interface BaseMenuProps
   openKeys?: string[];
   style?: React.CSSProperties;
   theme?: MenuTheme;
-  renderMenuItem?: WithFalse<
+  menuItemRender?: WithFalse<
     (item: MenuDataItem, defaultDom: React.ReactNode) => React.ReactNode
   >;
 }
@@ -157,7 +157,7 @@ export default class BaseMenu extends Component<BaseMenuProps> {
       location = { pathname: '/' },
       isMobile,
       onCollapse,
-      renderMenuItem,
+      menuItemRender,
     } = this.props;
     const { target } = item;
     let defaultItem = (
@@ -176,8 +176,8 @@ export default class BaseMenu extends Component<BaseMenuProps> {
         </a>
       );
     }
-    if (renderMenuItem) {
-      return renderMenuItem(
+    if (menuItemRender) {
+      return menuItemRender(
         {
           ...item,
           itemPath,

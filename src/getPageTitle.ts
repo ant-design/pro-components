@@ -4,13 +4,13 @@ import { MenuDataItem } from './typings';
 
 export const matchParamsPath = (
   pathname: string,
-  breadcrumbNameMap?: { [path: string]: MenuDataItem },
+  breadcrumb?: { [path: string]: MenuDataItem },
 ): MenuDataItem => {
-  if (breadcrumbNameMap) {
-    const pathKey = Object.keys(breadcrumbNameMap).find(key =>
+  if (breadcrumb) {
+    const pathKey = Object.keys(breadcrumb).find(key =>
       pathToRegexp(key).test(pathname),
     );
-    return breadcrumbNameMap[pathKey!];
+    return breadcrumb[pathKey!];
   }
   return {
     path: '',
@@ -19,7 +19,7 @@ export const matchParamsPath = (
 
 interface GetPageTitleProps {
   pathname?: string;
-  breadcrumbNameMap?: { [path: string]: MenuDataItem };
+  breadcrumb?: { [path: string]: MenuDataItem };
   menu?: Settings['menu'];
   title?: Settings['title'];
   formatMessage: (data: { id: string; defaultMessage?: string }) => string;
@@ -28,7 +28,7 @@ interface GetPageTitleProps {
 const getPageTitle = (props: GetPageTitleProps): string => {
   const {
     pathname,
-    breadcrumbNameMap,
+    breadcrumb,
     formatMessage,
     title = '',
     menu = {
@@ -39,7 +39,7 @@ const getPageTitle = (props: GetPageTitleProps): string => {
   if (!pathname) {
     return title;
   }
-  const currRouterData = matchParamsPath(pathname, breadcrumbNameMap);
+  const currRouterData = matchParamsPath(pathname, breadcrumb);
   if (!currRouterData) {
     return title;
   }

@@ -10,7 +10,7 @@ export interface GlobalHeaderProps {
   onCollapse?: (collapsed: boolean) => void;
   isMobile?: boolean;
   logo?: React.ReactNode;
-  renderRightContent?: HeaderViewProps['renderRightContent'];
+  rightContentRender?: HeaderViewProps['rightContentRender'];
 }
 
 export default class GlobalHeader extends Component<GlobalHeaderProps> {
@@ -28,7 +28,7 @@ export default class GlobalHeader extends Component<GlobalHeaderProps> {
     this.triggerResizeEvent();
   };
   render() {
-    const { collapsed, isMobile, logo, renderRightContent } = this.props;
+    const { collapsed, isMobile, logo, rightContentRender } = this.props;
     return (
       <div className="ant-pro-global-header">
         {isMobile && (
@@ -39,7 +39,7 @@ export default class GlobalHeader extends Component<GlobalHeaderProps> {
         <span className="ant-pro-global-header-trigger" onClick={this.toggle}>
           <Icon type={collapsed ? 'menu-unfold' : 'menu-fold'} />
         </span>
-        {renderRightContent && renderRightContent(this.props)}
+        {rightContentRender && rightContentRender(this.props)}
       </div>
     );
   }

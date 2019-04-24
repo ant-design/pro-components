@@ -44,7 +44,7 @@ const BasicLayoutWrapper: React.FC<BasicLayoutWrapperProps> = props => {
         onCollapse={payload =>
           dispatch!({ type: 'global/changeLayoutCollapsed', payload })
         }
-        renderRightContent={rightProps => <RightContent {...rightProps} />}
+        rightContentRender={rightProps => <RightContent {...rightProps} />}
       >
         {children}
       </BasicLayout>

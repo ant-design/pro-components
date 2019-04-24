@@ -9,7 +9,7 @@ import './index.less';
 export interface TopNavHeaderProps extends SiderMenuProps {
   logo?: React.ReactNode;
   onCollapse?: (collapse: boolean) => void;
-  renderRightContent?: HeaderViewProps['renderRightContent'];
+  rightContentRender?: HeaderViewProps['rightContentRender'];
 }
 
 interface TopNavHeaderState {
@@ -44,7 +44,7 @@ export default class TopNavHeader extends Component<
       logo,
       title,
       contentWidth,
-      renderRightContent,
+      rightContentRender,
     } = this.props;
     const { maxWidth } = this.state;
     const flatMenuKeys = getFlatMenuKeys(menuData);
@@ -72,8 +72,8 @@ export default class TopNavHeader extends Component<
               className={`${baseClassName}-menu`}
             />
           </div>
-          {renderRightContent &&
-            renderRightContent({
+          {rightContentRender &&
+            rightContentRender({
               ...this.props,
             })}
         </div>

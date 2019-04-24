@@ -46,11 +46,11 @@ render(<BasicLayout />, document.getElementById('root'));
 | settings | layout settings | [`Settings`](#Settings) | [`Settings`](#Settings) | - |
 | collapsed | control menu's collapse and expansion | boolean | true |
 | onCollapse | folding collapse event of menu | (collapsed: boolean) => void | - |
-| renderHeader | custom header render method | (props: BasicLayoutProps) => ReactNode | - |
-| renderFooter | custom footer render method | (props: BasicLayoutProps) => ReactNode | - |
-| renderMenu | custom menu render method | (props: HeaderViewProps) => ReactNode | - |
-| renderMenuItem | the render method of a custom menu item | [(itemProps: MenuDataItem) => ReactNode](#MenuDataItem) | - |
-| breadcrumbNameMap | Used to assist in the generation of bread crumbs. Umi will automatically bring | { [path: string]: [MenuDataItem](#MenuDataItem) } | - |
+| headerRender | custom header render method | (props: BasicLayoutProps) => ReactNode | - |
+| footerRender | custom footer render method | (props: BasicLayoutProps) => ReactNode | - |
+| menuRender | custom menu render method | (props: HeaderViewProps) => ReactNode | - |
+| menuItemRender | the render method of a custom menu item | [(itemProps: MenuDataItem) => ReactNode](#MenuDataItem) | - |
+| breadcrumb | Used to assist in the generation of bread crumbs. Umi will automatically bring | { [path: string]: [MenuDataItem](#MenuDataItem) } | - |
 
 ### SettingDrawer
 
