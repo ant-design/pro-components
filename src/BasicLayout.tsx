@@ -58,9 +58,7 @@ export interface BasicLayoutProps
   logo?: React.ReactNode | WithFalse<() => React.ReactNode>;
   locale?: localeType;
   onCollapse?: (collapsed: boolean) => void;
-  headerRender?: WithFalse<
-    (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
-  >;
+  headerRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
   footerRender?: WithFalse<
     (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
   >;
