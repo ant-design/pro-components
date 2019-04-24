@@ -53,8 +53,8 @@ const query = {
 export interface BasicLayoutProps
   extends Partial<RouterTypes<Route>>,
     SiderMenuProps,
-    HeaderViewProps {
-  settings?: Partial<Settings>;
+    HeaderViewProps,
+    Partial<Settings> {
   logo?: React.ReactNode | WithFalse<() => React.ReactNode>;
   locale?: localeType;
   onLayoutCollapsedChange?: (collapsed: boolean) => void;
@@ -66,10 +66,6 @@ export interface BasicLayoutProps
   breadcrumbNameMap?: { [path: string]: MenuDataItem };
   formatMessage?: (message: MessageDescriptor) => string;
 }
-
-const getSetting = (settings?: Partial<Settings>) => {
-  return { ...defaultSettings, ...settings };
-};
 
 const renderHeader = (props: BasicLayoutProps) => {
   if (props.renderHeader === false) {
@@ -91,12 +87,8 @@ const renderFooter = (props: BasicLayoutProps) => {
   return <Footer />;
 };
 
-const renderSiderMenu = (props: BasicLayoutProps & { settings: Settings }) => {
-  const {
-    settings: { layout },
-    isMobile,
-    renderMenu,
-  } = props;
+const renderSiderMenu = (props: BasicLayoutProps) => {
+  const { layout, isMobile, renderMenu } = props;
   if (props.renderMenu === false) {
     return null;
   }
@@ -119,11 +111,12 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     onLayoutCollapsedChange,
     location = { pathname: '/' },
     menuData,
+    fixedHeader,
+    fixSiderbar,
+    navTheme,
+    layout: PropsLayout,
   } = props;
-  // merge props.settings and defaultSettings
-  const settings = getSetting(props.settings);
 
-  const { fixedHeader, fixSiderbar, layout: PropsLayout } = settings;
   /**
    * init variables
    */
@@ -173,7 +166,6 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
   };
   const breadcrumb = conversionBreadcrumbList({
     ...props,
-    settings,
   });
   const layout = (
     <Layout>
@@ -181,10 +173,9 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
         menuData,
         handleMenuCollapse,
         isMobile,
-        theme: settings.navTheme,
+        theme: navTheme,
         collapsed,
         ...defaultProps,
-        settings,
       })}
       <Layout
         style={{
@@ -206,7 +197,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
           <RouteContext.Provider
             value={{
               ...breadcrumb,
-              settings,
+              ...props,
             }}
           >
             {children}
@@ -226,7 +217,6 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
         title={getPageTitle({
           pathname: location.pathname,
           ...defaultProps,
-          settings,
         })}
       >
         <ContainerQuery query={query}>
@@ -245,6 +235,6 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
 
 BasicLayout.defaultProps = {
   logo: '',
-  settings: defaultSettings,
+  ...defaultSettings,
 };
 export default BasicLayout;

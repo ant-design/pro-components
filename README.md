@@ -32,10 +32,18 @@ render(<BasicLayout />, document.getElementById('root'));
 
 | Property | Description | Type | Default Value |
 | --- | --- | --- | --- |
-| logo | The top left corner of the layout logo url | string | - |
+| title | layout in the upper left corner title | ReactNode | `'Ant Design Pro'` |
+| logo | layout top left logo url | ReactNode \| ()=>ReactNode | - |
+| layout | layout menu mode, sidemenu: right navigation, topmenu: top navigation | 'sidemenu' \| 'topmenu' | `sidemenu'` |
+| contentWidth | content mode of layout, Fluid: fixed width 1200px, Fixed: adaptive | 'Fluid' \| 'Fixed' | `Fluid'` |
+| navTheme | Navigation menu theme | 'light' \| 'dark' | `dark` |
+| fixedHeader | whether to fix header to top | boolean | `false` |
+| FixSiderbar | Whether to fix navigation menu | boolean | `false` |
+| autoHideHeader | automatically hide the header when sliding | boolean' | `false` |
+| menu | About the configuration of the menu, only locale, locale can turn off the globalization of the menu | { locale: boolean } | `{ locale: true }` |
+| iconfontUrl | Use [IconFont](https://ant.design/components/icon-cn/#components-icon-demo-iconfont) icon configuration | string | - |
 | locale | The language setting of the layout | 'zh-CN' \| 'zh-TW' \| 'en-US'` | navigator.language |
 | settings | layout settings | [`Settings`](#Settings) | [`Settings`](#Settings) | - |
-| onSettingChange | The setting of the layout changes event | (settings: Settings) => void | - |
 | collapsed | control menu's collapse and expansion | boolean | true |
 | onLayoutCollapsedChange | folding collapse event of menu | (collapsed: boolean) => void | - |
 | renderHeader | custom header render method | (props: BasicLayoutProps) => ReactNode | - |

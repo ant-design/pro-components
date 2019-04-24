@@ -1,13 +1,9 @@
 import { createContext } from 'react';
 import { BreadcrumbListReturn } from './PageHeaderWrapper/Breadcrumb';
-import settings, { Settings } from './defaultSettings';
+import { Settings } from './defaultSettings';
 
-interface RouteContextType extends BreadcrumbListReturn {
-  settings: Settings;
-}
+interface RouteContextType extends BreadcrumbListReturn, Partial<Settings> {}
 
-const routeContext: React.Context<RouteContextType> = createContext({
-  settings,
-});
+const routeContext: React.Context<RouteContextType> = createContext({});
 
 export default routeContext;

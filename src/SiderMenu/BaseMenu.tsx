@@ -43,7 +43,9 @@ const getIcon = (icon?: string | React.ReactNode) => {
   return icon;
 };
 
-export interface BaseMenuProps extends Partial<RouterTypes<Route>> {
+export interface BaseMenuProps
+  extends Partial<RouterTypes<Route>>,
+    Partial<Settings> {
   className?: string;
   collapsed?: boolean;
   flatMenuKeys?: any[];
@@ -56,7 +58,6 @@ export interface BaseMenuProps extends Partial<RouterTypes<Route>> {
   openKeys?: string[];
   style?: React.CSSProperties;
   theme?: MenuTheme;
-  settings?: Partial<Settings>;
   renderMenuItem?: WithFalse<
     (item: MenuDataItem, defaultDom: React.ReactNode) => React.ReactNode
   >;
@@ -65,11 +66,13 @@ export interface BaseMenuProps extends Partial<RouterTypes<Route>> {
 export default class BaseMenu extends Component<BaseMenuProps> {
   constructor(props: BaseMenuProps) {
     super(props);
-    const { settings } = props;
+    const { iconfontUrl } = props;
     // reset IconFont
-    IconFont = Icon.createFromIconfontCN({
-      scriptUrl: settings!.iconfontUrl,
-    });
+    if (iconfontUrl) {
+      IconFont = Icon.createFromIconfontCN({
+        scriptUrl: iconfontUrl,
+      });
+    }
   }
   static defaultProps: Partial<BaseMenuProps> = {
     flatMenuKeys: [],
@@ -81,13 +84,15 @@ export default class BaseMenu extends Component<BaseMenuProps> {
     menuData: [],
     onOpenChange: () => void 0,
   };
-  state = {};
+
   static getDerivedStateFromProps(props: BaseMenuProps) {
-    const { settings } = props;
+    const { iconfontUrl } = props;
     // reset IconFont
-    IconFont = Icon.createFromIconfontCN({
-      scriptUrl: settings!.iconfontUrl,
-    });
+    if (iconfontUrl) {
+      IconFont = Icon.createFromIconfontCN({
+        scriptUrl: iconfontUrl,
+      });
+    }
     return null;
   }
 
@@ -215,10 +220,10 @@ export default class BaseMenu extends Component<BaseMenuProps> {
       collapsed,
       handleOpenChange,
       style,
-      settings,
+      fixedHeader = false,
+      layout = 'sidemenu',
       menuData,
     } = this.props;
-    const { fixedHeader, layout } = settings as Settings;
     // if pathname can't match, use the nearest parent's key
     let selectedKeys = this.getSelectedMenuKeys(location.pathname);
     if (!selectedKeys.length && openKeys) {

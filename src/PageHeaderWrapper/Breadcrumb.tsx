@@ -10,9 +10,9 @@ export interface BreadcrumbProps {
   breadcrumbList?: Array<{ title: string; href: string }>;
   home?: string;
   location?: H.Location;
+  menu?: Settings['menu'];
   breadcrumbNameMap?: { [path: string]: MenuDataItem };
   formatMessage?: (message: MessageDescriptor) => string;
-  settings: Settings;
 }
 
 // 渲染Breadcrumb 子节点
@@ -35,9 +35,14 @@ const renderItemLocal = (
   item: MenuDataItem,
   props: BreadcrumbProps,
 ): string => {
-  const { formatMessage, settings } = props;
-  if (item.locale && formatMessage && settings) {
-    if (settings.menu.locale) {
+  const {
+    formatMessage,
+    menu = {
+      locale: false,
+    },
+  } = props;
+  if (item.locale && formatMessage) {
+    if (menu.locale) {
       return formatMessage({ id: item.locale });
     }
   }

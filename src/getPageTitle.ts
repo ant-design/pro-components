@@ -20,16 +20,20 @@ export const matchParamsPath = (
 interface GetPageTitleProps {
   pathname?: string;
   breadcrumbNameMap?: { [path: string]: MenuDataItem };
-  settings: Settings;
+  menu?: Settings['menu'];
+  title?: Settings['title'];
   formatMessage: (data: { id: string; defaultMessage?: string }) => string;
 }
 
 const getPageTitle = (props: GetPageTitleProps): string => {
   const {
-    settings: { menu, title },
     pathname,
     breadcrumbNameMap,
     formatMessage,
+    title = '',
+    menu = {
+      locale: false,
+    },
   } = props;
 
   if (!pathname) {

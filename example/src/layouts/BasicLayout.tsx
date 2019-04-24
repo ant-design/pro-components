@@ -28,7 +28,7 @@ const BasicLayoutWrapper: React.FC<BasicLayoutWrapperProps> = props => {
     dispatch!({ type: 'menu/getMenuData', payload: { routes, authority } });
   });
 
-  const onSettingChange = (settings: Settings) => {
+  const onSettingChange = (settings: Partial<Settings>) => {
     dispatch!({
       type: 'setting/changeSetting',
       payload: settings,
@@ -40,6 +40,7 @@ const BasicLayoutWrapper: React.FC<BasicLayoutWrapperProps> = props => {
       <BasicLayout
         logo={() => <img src={logo} onClick={() => router.push('/')} />}
         {...props}
+        {...props.settings}
         onLayoutCollapsedChange={payload =>
           dispatch!({ type: 'global/changeLayoutCollapsed', payload })
         }

@@ -21,10 +21,10 @@ export default class TopNavHeader extends Component<
   TopNavHeaderState
 > {
   static getDerivedStateFromProps(props: TopNavHeaderProps) {
-    const { settings } = props;
+    const { contentWidth } = props;
     return {
       maxWidth:
-        (settings!.contentWidth === 'Fixed' && window.innerWidth > 1200
+        (contentWidth === 'Fixed' && window.innerWidth > 1200
           ? 1200
           : window.innerWidth) -
         280 -
@@ -38,7 +38,14 @@ export default class TopNavHeader extends Component<
   maim: HTMLDivElement | null = null;
 
   render() {
-    const { theme, menuData, logo, settings, renderRightContent } = this.props;
+    const {
+      theme,
+      menuData,
+      logo,
+      title,
+      contentWidth,
+      renderRightContent,
+    } = this.props;
     const { maxWidth } = this.state;
     const flatMenuKeys = getFlatMenuKeys(menuData);
     const baseClassName = 'ant-pro-top-nav-header';
@@ -47,14 +54,14 @@ export default class TopNavHeader extends Component<
         <div
           ref={ref => (this.maim = ref)}
           className={`${baseClassName}-main ${
-            settings!.contentWidth === 'Fixed' ? 'wide' : ''
+            contentWidth === 'Fixed' ? 'wide' : ''
           }`}
         >
           <div className={`${baseClassName}-left`}>
             <div className={`${baseClassName}-logo`} key="logo" id="logo">
               <a>
                 {defaultRenderLogo(logo)}
-                <h1>{settings!.title}</h1>
+                <h1>{title}</h1>
               </a>
             </div>
           </div>

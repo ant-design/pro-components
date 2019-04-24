@@ -2,21 +2,17 @@ import GlobalHeader from './GlobalHeader';
 import TopNavHeader from './TopNavHeader';
 import React, { Component } from 'react';
 import { Layout } from 'antd';
-import { Settings } from './defaultSettings';
 import { WithFalse } from './typings';
 import './Header.less';
+import { Settings } from './defaultSettings';
 
 const { Header } = Layout;
 
-export type SiderTheme = 'light' | 'dark';
-
-export interface HeaderViewProps {
+export interface HeaderViewProps extends Partial<Settings> {
   isMobile?: boolean;
   collapsed?: boolean;
   logo?: React.ReactNode;
   autoHideHeader?: boolean;
-  theme?: SiderTheme;
-  settings?: Partial<Settings>;
   renderRightContent?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
   handleMenuCollapse?: (collapse: boolean) => void;
 }
@@ -53,8 +49,7 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
   }
 
   getHeadWidth = () => {
-    const { isMobile, collapsed, settings } = this.props;
-    const { fixedHeader, layout } = settings!;
+    const { isMobile, collapsed, fixedHeader, layout } = this.props;
     if (isMobile || !fixedHeader || layout === 'topmenu') {
       return '100%';
     }
@@ -92,8 +87,13 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
   };
 
   render() {
-    const { isMobile, handleMenuCollapse, settings } = this.props;
-    const { navTheme, layout, fixedHeader } = settings!;
+    const {
+      isMobile,
+      handleMenuCollapse,
+      navTheme,
+      layout,
+      fixedHeader,
+    } = this.props;
     const { visible } = this.state;
     const isTop = layout === 'topmenu';
     const width = this.getHeadWidth();

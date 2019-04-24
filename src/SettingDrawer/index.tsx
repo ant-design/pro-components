@@ -22,6 +22,9 @@ const { Option } = Select;
 interface BodyProps {
   title: string;
 }
+type MergerSettingsType<T> = Partial<T> & {
+  primaryColor?: string;
+};
 
 const Body: React.FC<BodyProps> = ({ children, title }) => (
   <div style={{ marginBottom: 24 }}>
@@ -38,15 +41,15 @@ interface SettingItemProps {
 }
 
 export interface SettingDrawerProps {
-  settings: Settings;
+  settings: MergerSettingsType<Settings>;
   collapse?: boolean;
   // for test
   getContainer?: any;
   onCollapseChange?: (collapse: boolean) => void;
-  onSettingChange?: (settings: Settings) => void;
+  onSettingChange?: (settings: MergerSettingsType<Settings>) => void;
 }
 
-export interface SettingDrawerState extends Partial<Settings> {
+export interface SettingDrawerState extends MergerSettingsType<Settings> {
   collapse: boolean;
 }
 
@@ -167,7 +170,7 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
     this.setState(nextState, () => {
       const { onSettingChange } = this.props;
       if (onSettingChange) {
-        onSettingChange(this.state as Settings);
+        onSettingChange(this.state as MergerSettingsType<Settings>);
       }
     });
   };
@@ -219,7 +222,12 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
   };
   render() {
     const { settings, getContainer } = this.props;
-    const { navTheme, primaryColor, layout, colorWeak } = settings!;
+    const {
+      navTheme = 'dark',
+      primaryColor = '1890FF',
+      layout = 'sidemenu',
+      colorWeak,
+    } = settings!;
     const { collapse } = this.state;
     const formatMessage = this.getFormatMessage();
     return (

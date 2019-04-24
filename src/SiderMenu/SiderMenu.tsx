@@ -1,7 +1,6 @@
 import { Layout } from 'antd';
 import classNames from 'classnames';
 import React, { Component } from 'react';
-import { Settings } from '../defaultSettings';
 import BaseMenu, { BaseMenuProps } from './BaseMenu';
 
 import './index.less';
@@ -25,7 +24,6 @@ export const defaultRenderLogo = (logo: React.ReactNode) => {
 export interface SiderMenuProps
   extends Pick<BaseMenuProps, Exclude<keyof BaseMenuProps, ['onCollapse']>> {
   logo?: React.ReactNode;
-  settings?: Partial<Settings>;
 }
 
 interface SiderMenuState {
@@ -105,14 +103,14 @@ export default class SiderMenu extends Component<
     const {
       logo,
       collapsed,
+      title,
+      fixSiderbar,
       onCollapse,
       theme,
       isMobile,
-      settings,
     } = this.props;
     const { openKeys } = this.state;
     const defaultProps = collapsed ? {} : { openKeys };
-    const { title, fixSiderbar } = settings as Settings;
     const siderClassName = classNames('ant-pro-sider-menu-sider', {
       ['fix-sider-bar']: fixSiderbar,
       light: theme === 'light',

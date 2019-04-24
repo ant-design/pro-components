@@ -36,3 +36,4 @@ lambda/mock/index.js
 # screenshot
 screenshot
 .firebase
+example/.temp/*

@@ -4,7 +4,7 @@ import { Settings } from '../defaultSettings';
 import RouteContext from '../RouteContext';
 
 interface GridContentProps {
-  settings?: Settings;
+  contentWidth?: Settings['contentWidth'];
   children: React.ReactNode;
 }
 
@@ -12,10 +12,10 @@ const GridContent = (props: GridContentProps) => {
   return (
     <RouteContext.Consumer>
       {value => {
-        const { children, settings } = props;
-        const contentWidth = settings
-          ? settings.contentWidth
-          : value.settings.contentWidth;
+        const { children, contentWidth: propsContentWidth } = props;
+        const contentWidth = propsContentWidth
+          ? propsContentWidth
+          : value.contentWidth;
         let className = `ant-pro-grid-content`;
         if (contentWidth === 'Fixed') {
           className = `ant-pro-grid-content wide`;

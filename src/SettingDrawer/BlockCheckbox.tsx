@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tooltip, Icon } from 'antd';
 
-export interface BlockChecboxProps {
+export interface BlockCheckboxProps {
   value: string;
   onChange: (key: string) => void;
   list: any[];
@@ -9,7 +9,7 @@ export interface BlockChecboxProps {
 
 const baseClassName = 'ant-pro-setting-drawer-block-checbox';
 
-const BlockChecbox: React.FC<BlockChecboxProps> = ({
+const BlockCheckbox: React.FC<BlockCheckboxProps> = ({
   value,
   onChange,
   list,
@@ -36,4 +36,4 @@ const BlockChecbox: React.FC<BlockChecboxProps> = ({
   </div>
 );
 
-export default BlockChecbox;
+export default BlockCheckbox;
