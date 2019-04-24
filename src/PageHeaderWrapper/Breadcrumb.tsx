@@ -66,7 +66,7 @@ export const getBreadcrumb = (
       }
     });
   }
-  return breadcrumb || { path: '' };
+  return breadcrumbItem || { path: '' };
 };
 
 export const getBreadcrumbProps = (props: BreadcrumbProps) => {
