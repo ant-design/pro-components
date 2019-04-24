@@ -84,7 +84,7 @@ export default class BaseMenu extends Component<BaseMenuProps> {
     menuData: [],
     onOpenChange: () => void 0,
   };
-
+  state = {};
   static getDerivedStateFromProps(props: BaseMenuProps) {
     const { iconfontUrl } = props;
     // reset IconFont

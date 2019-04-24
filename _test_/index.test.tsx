@@ -15,7 +15,7 @@ describe('BasicLayout', () => {
       }),
     });
   });
-
+  ``;
   it('base user', () => {
     const html = render(<BasicLayout />).html();
     expect(html).toMatchSnapshot();

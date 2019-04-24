@@ -17,13 +17,11 @@ describe('settings.test', () => {
   });
 
   it('set title', () => {
-    const wrapper = mount(<BasicLayout settings={{ title: 'test-title' }} />);
+    const wrapper = mount(<BasicLayout title="test-title" />);
     let title = wrapper.find('#logo').text();
     expect(title).toEqual('test-title');
     wrapper.setProps({
-      settings: {
-        title: 'Ant Design Pro',
-      },
+      title: 'Ant Design Pro',
     });
     title = wrapper.find('#logo').text();
     expect(title).toEqual('Ant Design Pro');
