@@ -3,6 +3,7 @@ import TopNavHeader from './TopNavHeader';
 import React, { Component } from 'react';
 import { Layout } from 'antd';
 import { WithFalse } from './typings';
+import { BasicLayoutProps } from './BasicLayout';
 import './Header.less';
 import { Settings } from './defaultSettings';
 
@@ -13,6 +14,7 @@ export interface HeaderViewProps extends Partial<Settings> {
   collapsed?: boolean;
   logo?: React.ReactNode;
   autoHideHeader?: boolean;
+  headerRender?: BasicLayoutProps['headerRender'];
   rightContentRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
   handleMenuCollapse?: (collapse: boolean) => void;
 }
@@ -85,36 +87,46 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
       });
     }
   };
-
-  render() {
+  renderContent = () => {
     const {
       isMobile,
       handleMenuCollapse,
       navTheme,
       layout,
-      fixedHeader,
+      headerRender,
     } = this.props;
-    const { visible } = this.state;
     const isTop = layout === 'topmenu';
+    let defaultDom = (
+      <GlobalHeader onCollapse={handleMenuCollapse} {...this.props} />
+    );
+    if (isTop && !isMobile) {
+      defaultDom = (
+        <TopNavHeader
+          theme={navTheme}
+          mode="horizontal"
+          onCollapse={handleMenuCollapse}
+          {...this.props}
+        />
+      );
+    }
+    if (headerRender) {
+      return headerRender(this.props, defaultDom);
+    } else {
+      return defaultDom;
+    }
+  };
+  render() {
+    const { fixedHeader } = this.props;
+    const { visible } = this.state;
     const width = this.getHeadWidth();
-    const HeaderDom = visible ? (
+    return visible ? (
       <Header
         style={{ padding: 0, width, zIndex: 2 }}
         className={fixedHeader ? 'ant-pro-fixed-header' : ''}
       >
-        {isTop && !isMobile ? (
-          <TopNavHeader
-            theme={navTheme}
-            mode="horizontal"
-            onCollapse={handleMenuCollapse}
-            {...this.props}
-          />
-        ) : (
-          <GlobalHeader onCollapse={handleMenuCollapse} {...this.props} />
-        )}
+        {this.renderContent()}
       </Header>
     ) : null;
-    return HeaderDom;
   }
 }
 

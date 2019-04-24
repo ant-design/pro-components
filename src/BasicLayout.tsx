@@ -58,10 +58,15 @@ export interface BasicLayoutProps
   logo?: React.ReactNode | WithFalse<() => React.ReactNode>;
   locale?: localeType;
   onCollapse?: (collapsed: boolean) => void;
-  renderSettingDrawer?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
-  headerRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
-  footerRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
-  menuRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
+  headerRender?: WithFalse<
+    (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
+  >;
+  footerRender?: WithFalse<
+    (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
+  >;
+  menuRender?: WithFalse<
+    (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
+  >;
   menuItemRender?: BaseMenuProps['menuItemRender'];
   breadcrumb?: { [path: string]: MenuDataItem };
   formatMessage?: (message: MessageDescriptor) => string;
@@ -71,9 +76,6 @@ const headerRender = (props: BasicLayoutProps) => {
   if (props.headerRender === false) {
     return null;
   }
-  if (props.headerRender) {
-    return props.headerRender({ ...props });
-  }
   return <Header {...props} />;
 };
 
@@ -82,7 +84,7 @@ const footerRender = (props: BasicLayoutProps) => {
     return null;
   }
   if (props.footerRender) {
-    return props.footerRender({ ...props });
+    return props.footerRender({ ...props }, <Footer />);
   }
   return <Footer />;
 };
@@ -96,7 +98,7 @@ const renderSiderMenu = (props: BasicLayoutProps) => {
     return null;
   }
   if (menuRender) {
-    return menuRender(props);
+    return menuRender(props, <SiderMenu {...props} />);
   }
   return <SiderMenu {...props} />;
 };
