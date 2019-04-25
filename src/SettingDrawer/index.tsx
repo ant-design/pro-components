@@ -24,6 +24,7 @@ interface BodyProps {
 }
 type MergerSettingsType<T> = Partial<T> & {
   primaryColor?: string;
+  colorWeak?: boolean;
 };
 
 const Body: React.FC<BodyProps> = ({ children, title }) => (
