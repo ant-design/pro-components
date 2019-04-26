@@ -25,6 +25,7 @@
     "jest",
     "tslint:latest",
     "tslint-config-prettier",
-    "example"
+    "example",
+    "_test_"
   ]
 }
