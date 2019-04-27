@@ -51,10 +51,10 @@
         color: rgba(255, 255, 255, 0.85);
       }
       &:hover,
-      &:global(.opened) {
+      &.opened {
         background: @primary-color;
       }
-      :global(.ant-badge) {
+      .ant-badge {
         color: rgba(255, 255, 255, 0.85);
       }
     }
@@ -62,7 +62,7 @@
 
   @media only screen and (max-width: @screen-md) {
     .header {
-      :global(.ant-divider-vertical) {
+      .ant-divider-vertical {
         vertical-align: unset;
       }
       .name {
