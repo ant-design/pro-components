@@ -48,7 +48,6 @@
     "not ie <= 10"
   ],
   "dependencies": {
-    "@types/react-intl": "^2.3.17",
     "antd": "^3.15.0",
     "classnames": "^2.2.6",
     "lodash": "^4.17.10",
@@ -66,6 +65,7 @@
     "react-media-hook2": "^1.0.2"
   },
   "devDependencies": {
+    "@types/react-intl": "^2.3.17",
     "@types/classnames": "^2.2.7",
     "@types/enzyme": "^3.9.1",
     "@types/history": "^4.7.2",
