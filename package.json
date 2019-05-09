@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-layout",
-  "version": "4.1.2",
+  "version": "4.1.4",
   "description": "ant-design-pro layout, easy to use pro scaffolding.",
   "files": [
     "/dist"
@@ -65,7 +65,6 @@
     "react-media-hook2": "^1.0.2"
   },
   "devDependencies": {
-    "@types/react-intl": "^2.3.17",
     "@types/classnames": "^2.2.7",
     "@types/enzyme": "^3.9.1",
     "@types/history": "^4.7.2",
@@ -75,6 +74,7 @@
     "@types/react-copy-to-clipboard": "^4.2.6",
     "@types/react-document-title": "^2.0.3",
     "@types/react-dom": "^16.0.11",
+    "@types/react-intl": "^2.3.17",
     "@types/react-router-dom": "^4.3.2",
     "babel-eslint": "^10.0.1",
     "babel-plugin-import": "^1.11.0",
