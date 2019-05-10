@@ -3,6 +3,7 @@ import DefaultFooter from './Footer';
 import DefaultHeader, { HeaderViewProps as HeaderProps } from './Header';
 import RouteContext from './RouteContext';
 import GridContent from './GridContent';
+import getPageTitle from './getPageTitle';
 import SettingDrawer, {
   SettingDrawerProps,
   SettingDrawerState,
@@ -23,6 +24,7 @@ export {
   SettingDrawer,
   SettingDrawerState,
   SettingDrawerProps,
+  getPageTitle,
 };
 
 export default BasicLayout;
