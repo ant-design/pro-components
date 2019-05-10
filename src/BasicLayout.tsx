@@ -67,7 +67,7 @@ export interface BasicLayoutProps
   >;
   menuItemRender?: BaseMenuProps['menuItemRender'];
   breadcrumb?: { [path: string]: MenuDataItem };
-  renderPageTitle?: typeof defaultGetPageTitle;
+  renderPageTitle?: WithFalse<typeof defaultGetPageTitle>;
   formatMessage?: (message: MessageDescriptor) => string;
 }
 
@@ -105,12 +105,19 @@ const renderSiderMenu = (props: BasicLayoutProps) => {
 const renderPageTitle = (
   pageProps: GetPageTitleProps,
   props: BasicLayoutProps,
-) => {
+): string => {
   const { renderPageTitle } = props;
+  if (renderPageTitle === false) {
+    return props.title || '';
+  }
   if (renderPageTitle) {
     const title = renderPageTitle(pageProps);
     if (typeof title === 'string') {
       return title;
+    } else {
+      console.warn(
+        'pro-layout: renderPageTitle return value should be a string',
+      );
     }
   }
   return defaultGetPageTitle(pageProps);
