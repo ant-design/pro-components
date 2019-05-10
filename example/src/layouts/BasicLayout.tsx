@@ -34,7 +34,6 @@ const BasicLayoutWrapper: React.FC<BasicLayoutWrapperProps> = props => {
       payload: settings,
     });
   };
-
   return (
     <>
       <BasicLayout
@@ -57,7 +56,7 @@ export default connect(
   ({ global, setting, menu: menuModel }: ConnectState) => ({
     collapsed: global.collapsed,
     menuData: menuModel.menuData,
-    breadcrumbNameMap: menuModel.breadcrumbNameMap,
+    breadcrumb: menuModel.breadcrumbNameMap,
     settings: setting,
   }),
 )(BasicLayoutWrapper);

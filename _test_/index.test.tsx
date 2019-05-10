@@ -69,4 +69,11 @@ describe('BasicLayout', () => {
     wrapper.find('.ant-pro-global-header-trigger').simulate('click');
     expect(onCollapse).toHaveBeenCalled();
   });
+
+  it('onCollapse', () => {
+    const onCollapse = jest.fn();
+    const wrapper = mount(<BasicLayout onCollapse={onCollapse} />);
+    wrapper.find('.ant-pro-global-header-trigger').simulate('click');
+    expect(onCollapse).toHaveBeenCalled();
+  });
 });

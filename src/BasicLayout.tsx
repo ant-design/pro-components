@@ -9,7 +9,7 @@ import {
 import { SiderMenuProps } from './SiderMenu/SiderMenu';
 import { BaseMenuProps } from './SiderMenu/BaseMenu';
 import Header, { HeaderViewProps } from './Header';
-import getPageTitle from './getPageTitle';
+import defaultGetPageTitle, { GetPageTitleProps } from './getPageTitle';
 import { Layout } from 'antd';
 import classNames from 'classnames';
 import React, { useState } from 'react';
@@ -67,6 +67,7 @@ export interface BasicLayoutProps
   >;
   menuItemRender?: BaseMenuProps['menuItemRender'];
   breadcrumb?: { [path: string]: MenuDataItem };
+  renderPageTitle?: typeof defaultGetPageTitle;
   formatMessage?: (message: MessageDescriptor) => string;
 }
 
@@ -99,6 +100,20 @@ const renderSiderMenu = (props: BasicLayoutProps) => {
     return menuRender(props, <SiderMenu {...props} />);
   }
   return <SiderMenu {...props} />;
+};
+
+const renderPageTitle = (
+  pageProps: GetPageTitleProps,
+  props: BasicLayoutProps,
+) => {
+  const { renderPageTitle } = props;
+  if (renderPageTitle) {
+    const title = renderPageTitle(pageProps);
+    if (typeof title === 'string') {
+      return title;
+    }
+  }
+  return defaultGetPageTitle(pageProps);
 };
 
 export type BasicLayoutContext = { [K in 'location']: BasicLayoutProps[K] } & {
@@ -214,10 +229,13 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
   return (
     <>
       <DocumentTitle
-        title={getPageTitle({
-          pathname: location.pathname,
-          ...defaultProps,
-        })}
+        title={renderPageTitle(
+          {
+            pathname: location.pathname,
+            ...defaultProps,
+          },
+          props,
+        )}
       >
         <ContainerQuery query={query}>
           {params => (

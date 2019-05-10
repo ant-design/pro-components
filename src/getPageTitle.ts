@@ -17,7 +17,7 @@ export const matchParamsPath = (
   };
 };
 
-interface GetPageTitleProps {
+export interface GetPageTitleProps {
   pathname?: string;
   breadcrumb?: { [path: string]: MenuDataItem };
   menu?: Settings['menu'];
