@@ -67,7 +67,7 @@ export interface BasicLayoutProps
   >;
   menuItemRender?: BaseMenuProps['menuItemRender'];
   breadcrumb?: { [path: string]: MenuDataItem };
-  renderPageTitle?: WithFalse<typeof defaultGetPageTitle>;
+  pageTitleRender?: WithFalse<typeof defaultGetPageTitle>;
   formatMessage?: (message: MessageDescriptor) => string;
 }
 
@@ -102,16 +102,16 @@ const renderSiderMenu = (props: BasicLayoutProps) => {
   return <SiderMenu {...props} />;
 };
 
-const renderPageTitle = (
+const pageTitleRender = (
   pageProps: GetPageTitleProps,
   props: BasicLayoutProps,
 ): string => {
-  const { renderPageTitle } = props;
-  if (renderPageTitle === false) {
+  const { pageTitleRender } = props;
+  if (pageTitleRender === false) {
     return props.title || '';
   }
-  if (renderPageTitle) {
-    const title = renderPageTitle(pageProps);
+  if (pageTitleRender) {
+    const title = pageTitleRender(pageProps);
     if (typeof title === 'string') {
       return title;
     } else {
@@ -236,7 +236,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
   return (
     <>
       <DocumentTitle
-        title={renderPageTitle(
+        title={pageTitleRender(
           {
             pathname: location.pathname,
             ...defaultProps,

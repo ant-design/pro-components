@@ -48,6 +48,7 @@ render(<BasicLayout />, document.getElementById('root'));
 | onCollapse | folding collapse event of menu | (collapsed: boolean) => void | - |
 | headerRender | custom header render method | (props: BasicLayoutProps) => ReactNode | - |
 | footerRender | custom footer render method | (props: BasicLayoutProps) => ReactNode | - |
+| pageTitleRender | custom page title render method | (props: BasicLayoutProps) => ReactNode | - |
 | menuRender | custom menu render method | (props: HeaderViewProps) => ReactNode | - |
 | menuItemRender | the render method of a custom menu item | [(itemProps: MenuDataItem) => ReactNode](#MenuDataItem) | - |
 | breadcrumb | Used to assist in the generation of bread crumbs. Umi will automatically bring | { [path: string]: [MenuDataItem](#MenuDataItem) } | - |
