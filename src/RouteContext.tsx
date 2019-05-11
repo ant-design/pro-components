@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { BreadcrumbListReturn } from './PageHeaderWrapper/Breadcrumb';
+import { BreadcrumbListReturn } from './utils/getBreadcrumbProps';
 import { Settings } from './defaultSettings';
 
 interface RouteContextType extends BreadcrumbListReturn, Partial<Settings> {}
