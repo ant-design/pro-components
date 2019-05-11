@@ -2,11 +2,10 @@ import { EffectsCommandMap } from 'dva';
 import { AnyAction } from 'redux';
 import { RouterTypes } from 'umi';
 import { GlobalModelState } from './global';
-import { MenuModelState } from './menu';
 import { UserModelState } from './user';
 import { DefaultSettings as SettingModelState } from '../../config/defaultSettings';
 
-export { GlobalModelState, MenuModelState, SettingModelState, UserModelState };
+export { GlobalModelState, SettingModelState, UserModelState };
 
 export interface MenuDataItem {
   authority?: string[] | string;
@@ -26,7 +25,9 @@ export interface Route extends MenuDataItem {
 
 export type Effect = (
   action: AnyAction,
-  effects: EffectsCommandMap & { select: <T>(func: (state: ConnectState) => T) => T },
+  effects: EffectsCommandMap & {
+    select: <T>(func: (state: ConnectState) => T) => T;
+  },
 ) => void;
 
 /**
@@ -54,7 +55,6 @@ export interface Loading {
 export interface ConnectState {
   global: GlobalModelState;
   loading: Loading;
-  menu: MenuModelState;
   setting: SettingModelState;
   user: UserModelState;
 }

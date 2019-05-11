@@ -1,4 +1,4 @@
-import { ConnectProps, ConnectState } from '../models/connect';
+import { ConnectProps, ConnectState, MenuDataItem } from '../models/connect';
 import BasicLayout, {
   BasicLayoutProps,
   SettingDrawer,
@@ -9,6 +9,8 @@ import { connect } from 'dva';
 import React, { useState } from 'react';
 import router from 'umi/router';
 import logo from '../assets/logo.svg';
+import Authorized from '@/utils/Authorized';
+import Link from 'umi/link';
 
 export interface BasicLayoutWrapperProps
   extends ConnectProps,
@@ -17,15 +19,13 @@ export interface BasicLayoutWrapperProps
 }
 
 const BasicLayoutWrapper: React.FC<BasicLayoutWrapperProps> = props => {
-  const { dispatch, route, children } = props;
-  const { routes, authority } = route!;
+  const { dispatch, children } = props;
   /**
    * constructor
    */
   useState(() => {
     dispatch!({ type: 'user/fetchCurrent' });
     dispatch!({ type: 'setting/getSetting' });
-    dispatch!({ type: 'menu/getMenuData', payload: { routes, authority } });
   });
 
   const onSettingChange = (settings: Partial<Settings>) => {
@@ -34,6 +34,7 @@ const BasicLayoutWrapper: React.FC<BasicLayoutWrapperProps> = props => {
       payload: settings,
     });
   };
+  console.log(props.route);
   return (
     <>
       <BasicLayout
@@ -43,6 +44,14 @@ const BasicLayoutWrapper: React.FC<BasicLayoutWrapperProps> = props => {
         onCollapse={payload =>
           dispatch!({ type: 'global/changeLayoutCollapsed', payload })
         }
+        filterMenuData={menuList => {
+          return menuList.map(item => {
+            return Authorized.check(item.authority, item, null) as MenuDataItem;
+          });
+        }}
+        menuItemRender={(props, defaultDom) => (
+          <Link to={props.path}>{defaultDom}</Link>
+        )}
         rightContentRender={rightProps => <RightContent {...rightProps} />}
       >
         {children}
@@ -52,11 +61,7 @@ const BasicLayoutWrapper: React.FC<BasicLayoutWrapperProps> = props => {
   );
 };
 
-export default connect(
-  ({ global, setting, menu: menuModel }: ConnectState) => ({
-    collapsed: global.collapsed,
-    menuData: menuModel.menuData,
-    breadcrumb: menuModel.breadcrumbNameMap,
-    settings: setting,
-  }),
-)(BasicLayoutWrapper);
+export default connect(({ global, setting }: ConnectState) => ({
+  collapsed: global.collapsed,
+  settings: setting,
+}))(BasicLayoutWrapper);

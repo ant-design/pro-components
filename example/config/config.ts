@@ -79,14 +79,20 @@ export default {
     {
       path: '/',
       component: '../layouts/BasicLayout',
-      Routes: ['src/pages/Authorized'],
-      authority: ['admin', 'user'],
       routes: [
         // dashboard
         {
           path: '/',
           name: 'welcome',
           icon: 'smile',
+          component: './Welcome',
+        },
+        // dashboard
+        {
+          path: '/welcome',
+          name: 'welcome',
+          icon: 'file-protect',
+          authority: 'admin',
           component: './Welcome',
         },
       ],

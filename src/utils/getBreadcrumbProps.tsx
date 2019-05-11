@@ -69,7 +69,7 @@ export const getBreadcrumb = (
   return breadcrumbItem || { path: '' };
 };
 
-export const getBreadcrumbProps = (props: BreadcrumbProps) => {
+export const getBreadcrumbFromProps = (props: BreadcrumbProps) => {
   const { location, breadcrumb } = props;
   return {
     location,
@@ -140,11 +140,11 @@ export type BreadcrumbListReturn = Pick<
  * 将参数转化为面包屑
  * Convert parameters into breadcrumbs
  */
-export const conversionBreadcrumbList = (
+export const getBreadcrumbProps = (
   props: BreadcrumbProps,
 ): BreadcrumbListReturn => {
   const { breadcrumbList } = props;
-  const { location, breadcrumb } = getBreadcrumbProps(props);
+  const { location, breadcrumb } = getBreadcrumbFromProps(props);
   if (breadcrumbList && breadcrumbList.length) {
     return {
       routes: conversionFromProps(props),

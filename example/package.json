@@ -9,7 +9,6 @@
     "dev": "cross-env APP_TYPE=site umi dev"
   },
   "dependencies": {
-    "ant-design-pro": "^2.3.0",
     "antd": "^3.15.0",
     "classnames": "^2.2.6",
     "core-js": "^2.6.5",

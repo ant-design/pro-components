@@ -51,7 +51,7 @@ render(<BasicLayout />, document.getElementById('root'));
 | pageTitleRender | custom page title render method | (props: BasicLayoutProps) => ReactNode | - |
 | menuRender | custom menu render method | (props: HeaderViewProps) => ReactNode | - |
 | menuItemRender | the render method of a custom menu item | [(itemProps: MenuDataItem) => ReactNode](#MenuDataItem) | - |
-| breadcrumb | Used to assist in the generation of bread crumbs. Umi will automatically bring | { [path: string]: [MenuDataItem](#MenuDataItem) } | - |
+| route | Used to assist in the generation of menu and bread crumbs. Umi will automatically bring | [route](#Route) | - |
 
 ### SettingDrawer
 
@@ -126,6 +126,23 @@ export interface MenuDataItem {
   name?: string;
   path: string;
   [key: string]: any;
+}
+```
+
+### Route
+
+```ts
+// can be imported { RouterTypes } from '@ant-design/pro-layout/typings'  to get this type
+export interface Route {
+  path: string;
+  routes: Array<{
+    exact?: boolean;
+    icon: string;
+    name: string;
+    path: string;
+    // optional secondary menu
+    children?: Route['routes'];
+  }>;
 }
 ```
 

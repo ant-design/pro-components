@@ -20,7 +20,8 @@ import defaultSettings, { Settings } from './defaultSettings';
 import Footer from './Footer';
 import getLocales, { localeType } from './locales';
 import RouteContext from './RouteContext';
-import { conversionBreadcrumbList } from './PageHeaderWrapper/Breadcrumb';
+import getMenuData from './utils/getMenuData';
+import { getBreadcrumbProps } from './utils/getBreadcrumbProps';
 import './BasicLayout.less';
 
 const { Content } = Layout;
@@ -66,9 +67,9 @@ export interface BasicLayoutProps
     (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
   >;
   menuItemRender?: BaseMenuProps['menuItemRender'];
-  breadcrumb?: { [path: string]: MenuDataItem };
   pageTitleRender?: WithFalse<typeof defaultGetPageTitle>;
   formatMessage?: (message: MessageDescriptor) => string;
+  filterMenuData?: (menuData: MenuDataItem[]) => MenuDataItem[];
 }
 
 const headerRender = (props: BasicLayoutProps) => {
@@ -132,12 +133,16 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     children,
     onCollapse,
     location = { pathname: '/' },
-    menuData,
     fixedHeader,
     fixSiderbar,
     navTheme,
     layout: PropsLayout,
+    route = {
+      routes: [],
+    },
   } = props;
+  const { routes = [] } = route;
+  const { breadcrumb, menuData } = getMenuData(routes, props);
 
   /**
    * init variables
@@ -186,7 +191,8 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     ...props,
     formatMessage,
   };
-  const breadcrumb = conversionBreadcrumbList({
+  const breadcrumbProps = getBreadcrumbProps({
+    breadcrumb,
     ...props,
   });
   const layout = (
@@ -218,8 +224,9 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
         >
           <RouteContext.Provider
             value={{
-              ...breadcrumb,
+              ...breadcrumbProps,
               ...props,
+              menuData,
             }}
           >
             {children}

@@ -2,10 +2,12 @@
 const { NODE_ENV } = process.env;
 
 export function getAuthority(str?: string): any {
-  // return localStorage.getItem('antd-pro-authority') || ['admin', 'user'];
+  // return localStorage.getItem('antd-pro-authority') || ['user', 'user'];
   const authorityString =
-    typeof str === 'undefined' ? localStorage.getItem('antd-pro-authority') : str;
-  // authorityString could be admin, "admin", ["admin"]
+    typeof str === 'undefined'
+      ? localStorage.getItem('antd-pro-authority')
+      : str;
+  // authorityString could be user, "admin", ["admin"]
   let authority;
   try {
     authority = JSON.parse(authorityString!);
@@ -23,5 +25,8 @@ export function getAuthority(str?: string): any {
 
 export function setAuthority(authority: string | string[]): void {
   const proAuthority = typeof authority === 'string' ? [authority] : authority;
-  return localStorage.setItem('antd-pro-authority', JSON.stringify(proAuthority));
+  return localStorage.setItem(
+    'antd-pro-authority',
+    JSON.stringify(proAuthority),
+  );
 }

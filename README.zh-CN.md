@@ -49,7 +49,7 @@ render(<BasicLayout />, document.getElementById('root'));
 | pageTitleRender | 自定义页面标题的显示方法 | (props: BasicLayoutProps) => ReactNode | - |
 | menuRender | 自定义菜单的 render 方法 | (props: HeaderViewProps) => ReactNode | - |
 | menuItemRender | 自定义菜单项的 render 方法 | [(itemProps: MenuDataItem) => ReactNode](#MenuDataItem) | - |
-| breadcrumb | 用于辅助生成面包屑。umi 会自动带有 | { [path: string]: [MenuDataItem](#MenuDataItem) } | - |
+| route | 用于生成菜单和面包屑。umi 的 Layout 会自动带有 | [route](#Route) | - |
 
 ### SettingDrawer
 
@@ -125,6 +125,24 @@ export interface MenuDataItem {
   name?: string;
   path: string;
   [key: string]: any;
+}
+```
+
+### Route
+
+```ts
+// 可以通过 import { RouterTypes } from '@ant-design/pro-layout/typings'
+// 来获取这个类型
+export interface Route {
+  path: string;
+  routes: Array<{
+    exact?: boolean;
+    icon: string;
+    name: string;
+    path: string;
+    // 可选二级菜单
+    children?: Route['routes'];
+  }>;
 }
 ```
 
