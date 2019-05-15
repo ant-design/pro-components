@@ -128,6 +128,17 @@ export type BasicLayoutContext = { [K in 'location']: BasicLayoutProps[K] } & {
   breadcrumb: { [path: string]: MenuDataItem };
 };
 
+function useCollapsed(
+  collapsed: boolean | undefined,
+  onCollapse: BasicLayoutProps['onCollapse'],
+): [boolean, BasicLayoutProps['onCollapse']] {
+  const [nativeCollapsed, setCollapsed] = useState(false);
+  if (collapsed !== undefined && onCollapse) {
+    return [collapsed, onCollapse];
+  }
+  return [nativeCollapsed, setCollapsed];
+}
+
 const BasicLayout: React.FC<BasicLayoutProps> = props => {
   const {
     children,
@@ -151,16 +162,12 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     id: 'BasicLayout',
     query: '(max-width: 599px)',
   })[0];
-
   const hasLeftPadding = fixSiderbar && PropsLayout !== 'topmenu' && !isMobile;
 
-  const [collapsed, setCollapsed] = useState(false);
-  const handleMenuCollapse = (payload: boolean) => {
-    if (onCollapse && props.collapsed !== undefined) {
-      return onCollapse(payload);
-    }
-    return setCollapsed(payload);
-  };
+  const [collapsed, handleMenuCollapse] = useCollapsed(
+    props.collapsed,
+    onCollapse,
+  );
 
   const formatMessage = ({
     id,

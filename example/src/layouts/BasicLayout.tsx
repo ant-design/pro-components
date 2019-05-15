@@ -34,16 +34,15 @@ const BasicLayoutWrapper: React.FC<BasicLayoutWrapperProps> = props => {
       payload: settings,
     });
   };
-  console.log(props.route);
   return (
     <>
       <BasicLayout
         logo={() => <img src={logo} onClick={() => router.push('/')} />}
         {...props}
         {...props.settings}
-        onCollapse={payload =>
-          dispatch!({ type: 'global/changeLayoutCollapsed', payload })
-        }
+        onCollapse={payload => {
+          dispatch!({ type: 'global/changeLayoutCollapsed', payload });
+        }}
         filterMenuData={menuList => {
           return menuList.map(item => {
             return Authorized.check(item.authority, item, null) as MenuDataItem;

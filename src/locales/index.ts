@@ -18,5 +18,8 @@ export default (
     ((window as unknown) as {
       g_locale: keyof typeof locales;
     }).g_locale || navigator.language;
-  return locales[g_locale];
+  if (locales[g_locale]) {
+    return locales[g_locale];
+  }
+  return locales['zh-CN'];
 };
