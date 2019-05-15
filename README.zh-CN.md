@@ -42,6 +42,7 @@ render(<BasicLayout />, document.getElementById('root'));
 | iconfontUrl | 使用 [IconFont](https://ant.design/components/icon-cn/#components-icon-demo-iconfont) 的图标配置 | string | - |
 | locale | 当前 layout 的语言设置 | 'zh-CN' \| 'zh-TW' \| 'en-US'` | navigator.language |
 | settings | layout 的设置 | [`Settings`](#Settings) | [`Settings`](#Settings) | - |
+| siderWidth | 侧边菜单宽度 | number | 256 |
 | collapsed | 控制菜单的收起和展开 | boolean | true |
 | onCollapse | 菜单的折叠收起事件 | (collapsed: boolean) => void | - |
 | headerRender | 自定义头的 render 方法 | (props: BasicLayoutProps) => ReactNode | - |
