@@ -76,4 +76,18 @@ describe('BasicLayout', () => {
     wrapper.find('.ant-pro-global-header-trigger').simulate('click');
     expect(onCollapse).toHaveBeenCalled();
   });
+
+  it('siderWidth default', () => {
+    const wrapper = mount(<BasicLayout />);
+    expect(wrapper.find('.ant-pro-sider-menu-sider').get(0).props.width).toBe(
+      256,
+    );
+  });
+
+  it('siderWidth default', () => {
+    const wrapper = mount(<BasicLayout siderWidth={160} />);
+    expect(wrapper.find('.ant-pro-sider-menu-sider').get(0).props.width).toBe(
+      160,
+    );
+  });
 });
