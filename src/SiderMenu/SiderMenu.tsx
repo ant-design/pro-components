@@ -24,6 +24,7 @@ export const defaultRenderLogo = (logo: React.ReactNode) => {
 export interface SiderMenuProps
   extends Pick<BaseMenuProps, Exclude<keyof BaseMenuProps, ['onCollapse']>> {
   logo?: React.ReactNode;
+  siderWidth?: number;
 }
 
 interface SiderMenuState {
@@ -107,6 +108,7 @@ export default class SiderMenu extends Component<
       fixSiderbar,
       onCollapse,
       theme,
+      siderWidth = 256,
       isMobile,
     } = this.props;
     const { openKeys } = this.state;
@@ -126,7 +128,7 @@ export default class SiderMenu extends Component<
             onCollapse && onCollapse(collapse);
           }
         }}
-        width={256}
+        width={siderWidth}
         theme={theme}
         className={siderClassName}
       >

@@ -151,6 +151,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     route = {
       routes: [],
     },
+    siderWidth = 256,
   } = props;
   const { routes = [] } = route;
   const { breadcrumb, menuData } = getMenuData(routes, props);
@@ -214,7 +215,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
       })}
       <Layout
         style={{
-          paddingLeft: hasLeftPadding ? (collapsed ? 80 : 256) : void 0,
+          paddingLeft: hasLeftPadding ? (collapsed ? 80 : siderWidth) : void 0,
           minHeight: '100vh',
         }}
       >

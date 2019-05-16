@@ -17,6 +17,7 @@ export interface HeaderViewProps extends Partial<Settings> {
   headerRender?: BasicLayoutProps['headerRender'];
   rightContentRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
   handleMenuCollapse?: (collapse: boolean) => void;
+  siderWidth?: number;
 }
 
 interface HeaderViewState {
@@ -51,11 +52,17 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
   }
 
   getHeadWidth = () => {
-    const { isMobile, collapsed, fixedHeader, layout } = this.props;
+    const {
+      isMobile,
+      collapsed,
+      fixedHeader,
+      layout,
+      siderWidth = 256,
+    } = this.props;
     if (isMobile || !fixedHeader || layout === 'topmenu') {
       return '100%';
     }
-    return collapsed ? 'calc(100% - 80px)' : 'calc(100% - 256px)';
+    return collapsed ? 'calc(100% - 80px)' : `calc(100% - ${siderWidth}px)`;
   };
 
   handScroll = () => {

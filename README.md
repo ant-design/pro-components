@@ -44,6 +44,7 @@ render(<BasicLayout />, document.getElementById('root'));
 | iconfontUrl | Use [IconFont](https://ant.design/components/icon-cn/#components-icon-demo-iconfont) icon configuration | string | - |
 | locale | The language setting of the layout | 'zh-CN' \| 'zh-TW' \| 'en-US'` | navigator.language |
 | settings | layout settings | [`Settings`](#Settings) | [`Settings`](#Settings) | - |
+| siderWidth | width of sider menu | number | 256 |
 | collapsed | control menu's collapse and expansion | boolean | true |
 | onCollapse | folding collapse event of menu | (collapsed: boolean) => void | - |
 | headerRender | custom header render method | (props: BasicLayoutProps) => ReactNode | - |
