@@ -43,7 +43,7 @@ const BasicLayoutWrapper: React.FC<BasicLayoutWrapperProps> = props => {
         onCollapse={payload => {
           dispatch!({ type: 'global/changeLayoutCollapsed', payload });
         }}
-        filterMenuData={menuList => {
+        menuDataRender={menuList => {
           return menuList.map(item => {
             return Authorized.check(item.authority, item, null) as MenuDataItem;
           });

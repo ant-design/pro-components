@@ -6,7 +6,13 @@ import React, { Component } from 'react';
 import { urlToList } from '../utils/pathTools';
 import './index.less';
 import { getMenuMatches } from './SiderMenuUtils';
-import { MenuDataItem, Route, WithFalse, RouterTypes } from '../typings';
+import {
+  MenuDataItem,
+  Route,
+  WithFalse,
+  RouterTypes,
+  MessageDescriptor,
+} from '../typings';
 import defaultSettings, { Settings } from '../defaultSettings';
 
 const { SubMenu } = Menu;
@@ -58,6 +64,7 @@ export interface BaseMenuProps
   openKeys?: string[];
   style?: React.CSSProperties;
   theme?: MenuTheme;
+  formatMessage?: (message: MessageDescriptor) => string;
   menuItemRender?: WithFalse<
     (item: MenuDataItem, defaultDom: React.ReactNode) => React.ReactNode
   >;
@@ -123,16 +130,17 @@ export default class BaseMenu extends Component<BaseMenuProps> {
       !item.hideChildrenInMenu &&
       item.children.some(child => (child.name ? true : false))
     ) {
+      const name = this.getIntlName(item);
       return (
         <SubMenu
           title={
             item.icon ? (
               <span>
                 {getIcon(item.icon)}
-                <span>{item.name}</span>
+                <span>{name}</span>
               </span>
             ) : (
-              item.name
+              name
             )
           }
           key={item.path}
@@ -143,14 +151,28 @@ export default class BaseMenu extends Component<BaseMenuProps> {
     }
     return <Menu.Item key={item.path}>{this.getMenuItemPath(item)}</Menu.Item>;
   };
-
+  getIntlName = (item: MenuDataItem) => {
+    const { name, locale } = item;
+    const {
+      menu = {
+        locale: false,
+      },
+      formatMessage,
+    } = this.props;
+    if (locale && menu.locale && formatMessage) {
+      return formatMessage({
+        id: locale,
+        defaultMessage: name,
+      });
+    }
+    return name;
+  };
   /**
    * 判断是否是http链接.返回 Link 或 a
    * Judge whether it is http link.return a or Link
    * @memberof SiderMenu
    */
   getMenuItemPath = (item: MenuDataItem) => {
-    const { name } = item;
     const itemPath = this.conversionPath(item.path);
     const icon = getIcon(item.icon);
     const {
@@ -160,6 +182,8 @@ export default class BaseMenu extends Component<BaseMenuProps> {
       menuItemRender,
     } = this.props;
     const { target } = item;
+    // if local is true formatMessage all name。
+    const name = this.getIntlName(item);
     let defaultItem = (
       <>
         {icon}

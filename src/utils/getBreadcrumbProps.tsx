@@ -13,6 +13,9 @@ export interface BreadcrumbProps {
   menu?: Settings['menu'];
   breadcrumb?: { [path: string]: MenuDataItem };
   formatMessage?: (message: MessageDescriptor) => string;
+  breadcrumbRender?: (
+    routers: AntdBreadcrumbProps['routes'],
+  ) => AntdBreadcrumbProps['routes'];
 }
 
 // 渲染Breadcrumb 子节点
@@ -43,7 +46,7 @@ const renderItemLocal = (
   } = props;
   if (item.locale && formatMessage) {
     if (menu.locale) {
-      return formatMessage({ id: item.locale });
+      return formatMessage({ id: item.locale, defaultMessage: item.name });
     }
   }
   return item.name as string;
@@ -101,8 +104,7 @@ const conversionFromLocation = (
   if (!routerLocation) {
     return [];
   }
-  const { home } = props;
-  // Convert the url to an array
+  // Convertor the url to an array
   const pathSnippets = urlToList(routerLocation.pathname);
   // Loop data mosaic routing
   const extraBreadcrumbItems: AntdBreadcrumbProps['routes'] = pathSnippets
@@ -121,13 +123,7 @@ const conversionFromLocation = (
         : { path: '', breadcrumbName: '' };
     })
     .filter(item => item && item.path);
-  // Add home breadcrumbs to your head if defined
-  if (home) {
-    extraBreadcrumbItems.unshift({
-      path: '/',
-      breadcrumbName: home,
-    });
-  }
+
   return extraBreadcrumbItems;
 };
 
@@ -140,7 +136,7 @@ export type BreadcrumbListReturn = Pick<
  * 将参数转化为面包屑
  * Convert parameters into breadcrumbs
  */
-export const getBreadcrumbProps = (
+export const genBreadcrumbProps = (
   props: BreadcrumbProps,
 ): BreadcrumbListReturn => {
   const { breadcrumbList } = props;
@@ -162,5 +158,23 @@ export const getBreadcrumbProps = (
   }
   return {
     routes: [],
+  };
+};
+
+// use breadcrumbRender to change routes
+export const getBreadcrumbProps = (
+  props: BreadcrumbProps,
+): BreadcrumbListReturn => {
+  const { breadcrumbRender } = props;
+  const { routes, itemRender } = genBreadcrumbProps(props);
+  if (breadcrumbRender) {
+    return {
+      routes: breadcrumbRender(routes),
+      itemRender,
+    };
+  }
+  return {
+    routes,
+    itemRender,
   };
 };

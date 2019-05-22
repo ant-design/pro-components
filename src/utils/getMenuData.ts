@@ -102,7 +102,7 @@ const memoizeOneGetBreadcrumbNameMap = memoizeOne(
 );
 
 export default (routes: Route[], props: BasicLayoutProps) => {
-  const { formatMessage, menu, filterMenuData } = props;
+  const { formatMessage, menu, menuDataRender } = props;
   let originalMenuData = memoizeOneFormatter({
     data: routes,
     formatMessage,
@@ -110,8 +110,8 @@ export default (routes: Route[], props: BasicLayoutProps) => {
       locale: false,
     },
   });
-  if (filterMenuData) {
-    originalMenuData = filterMenuData(originalMenuData);
+  if (menuDataRender) {
+    originalMenuData = menuDataRender(originalMenuData);
   }
   const menuData = defaultFilterMenuData(originalMenuData);
   const breadcrumb = memoizeOneGetBreadcrumbNameMap(originalMenuData);

@@ -22,6 +22,7 @@ import getLocales, { localeType } from './locales';
 import RouteContext from './RouteContext';
 import getMenuData from './utils/getMenuData';
 import { getBreadcrumbProps } from './utils/getBreadcrumbProps';
+import { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/lib/breadcrumb';
 import './BasicLayout.less';
 
 const { Content } = Layout;
@@ -69,7 +70,10 @@ export interface BasicLayoutProps
   menuItemRender?: BaseMenuProps['menuItemRender'];
   pageTitleRender?: WithFalse<typeof defaultGetPageTitle>;
   formatMessage?: (message: MessageDescriptor) => string;
-  filterMenuData?: (menuData: MenuDataItem[]) => MenuDataItem[];
+  menuDataRender?: (menuData: MenuDataItem[]) => MenuDataItem[];
+  breadcrumbRender?: (
+    routers: AntdBreadcrumbProps['routes'],
+  ) => AntdBreadcrumbProps['routes'];
 }
 
 const headerRender = (props: BasicLayoutProps) => {
@@ -179,7 +183,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     defaultMessage?: string;
   }) => {
     if (props.formatMessage) {
-      props.formatMessage({
+      return props.formatMessage({
         id,
         defaultMessage,
         ...rest,
@@ -198,10 +202,18 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
   const defaultProps = {
     ...props,
     formatMessage,
-  };
-  const breadcrumbProps = getBreadcrumbProps({
     breadcrumb,
+  };
+  const pageTitle = pageTitleRender(
+    {
+      pathname: location.pathname,
+      ...defaultProps,
+    },
+    props,
+  );
+  const breadcrumbProps = getBreadcrumbProps({
     ...props,
+    breadcrumb,
   });
   const layout = (
     <Layout>
@@ -232,9 +244,10 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
         >
           <RouteContext.Provider
             value={{
-              ...breadcrumbProps,
+              breadcrumb: breadcrumbProps,
               ...props,
               menuData,
+              title: pageTitle.split('-')[0],
             }}
           >
             {children}
@@ -250,15 +263,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
   );
   return (
     <>
-      <DocumentTitle
-        title={pageTitleRender(
-          {
-            pathname: location.pathname,
-            ...defaultProps,
-          },
-          props,
-        )}
-      >
+      <DocumentTitle title={pageTitle}>
         <ContainerQuery query={query}>
           {params => (
             <div
