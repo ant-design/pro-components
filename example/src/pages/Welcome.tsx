@@ -6,7 +6,7 @@ const Welcome = () => (
   <RouteContext.Consumer>
     {value => {
       return (
-        <PageHeaderWrapper breadcrumb={value}>
+        <PageHeaderWrapper {...value}>
           <GridContent>
             <div
               style={{

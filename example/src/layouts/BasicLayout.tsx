@@ -48,6 +48,9 @@ const BasicLayoutWrapper: React.FC<BasicLayoutWrapperProps> = props => {
             return Authorized.check(item.authority, item, null) as MenuDataItem;
           });
         }}
+        itemRender={route => {
+          return <Link to={route.path}>{route.breadcrumbName}</Link>;
+        }}
         menuItemRender={(props, defaultDom) => (
           <Link to={props.path}>{defaultDom}</Link>
         )}

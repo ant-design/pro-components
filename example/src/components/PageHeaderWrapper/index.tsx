@@ -2,7 +2,6 @@ import React from 'react';
 import { PageHeader, Tabs, Typography } from 'antd';
 import { connect } from 'dva';
 import classNames from 'classnames';
-import GridContent from './GridContent';
 import { ConnectState, MenuDataItem } from '../../models/connect';
 import styles from './index.less';
 import * as H from 'history';
@@ -109,7 +108,9 @@ class PageHeaderWrapper extends React.Component<PageHeaderWrapperProps> {
           <div className={styles.main}>
             <div className={styles.row}>
               {content && <div className={styles.content}>{content}</div>}
-              {extraContent && <div className={styles.extraContent}>{extraContent}</div>}
+              {extraContent && (
+                <div className={styles.extraContent}>{extraContent}</div>
+              )}
             </div>
           </div>
         </div>
@@ -119,9 +120,14 @@ class PageHeaderWrapper extends React.Component<PageHeaderWrapperProps> {
   render() {
     const { children } = this.mergePropsAndChildren();
     return (
-      <div style={{ margin: '-24px -24px 0' }} className={classNames(classNames, styles.main)}>
+      <div
+        style={{ margin: '-24px -24px 0' }}
+        className={classNames(classNames, styles.main)}
+      >
         {this.renderPageHeader()}
-        {children ? <div className={styles['children-content']}>{children}</div> : null}
+        {children ? (
+          <div className={styles['children-content']}>{children}</div>
+        ) : null}
       </div>
     );
   }
