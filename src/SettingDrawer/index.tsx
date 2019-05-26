@@ -15,7 +15,7 @@ import omit from 'omit.js';
 import './index.less';
 import ThemeColor from './ThemeColor';
 import BlockCheckbox from './BlockCheckbox';
-import { Settings } from '../defaultSettings';
+import defaultSettings, { Settings } from '../defaultSettings';
 import getLocales from '../locales';
 
 const { Option } = Select;
@@ -68,7 +68,7 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
   }
 
   getLayoutSetting = (): SettingItemProps[] => {
-    const { settings } = this.props;
+    const { settings = defaultSettings } = this.props;
     const formatMessage = this.getFormatMessage();
     const {
       contentWidth,
