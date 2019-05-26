@@ -16,22 +16,18 @@ export interface BreadcrumbProps {
   breadcrumbRender?: (
     routers: AntdBreadcrumbProps['routes'],
   ) => AntdBreadcrumbProps['routes'];
+  itemRender?: AntdBreadcrumbProps['itemRender'];
 }
 
 // 渲染Breadcrumb 子节点
 // Render the Breadcrumb child node
-const itemRender: AntdBreadcrumbProps['itemRender'] = (
+const defualtItemRender: AntdBreadcrumbProps['itemRender'] = (
   route,
   params,
   routes,
   paths,
 ) => {
-  const last = routes.indexOf(route) === routes.length - 1;
-  return last || !route.component ? (
-    <span>{route.breadcrumbName}</span>
-  ) : (
-    <a>{route.breadcrumbName}</a>
-  );
+  return <a>{route.breadcrumbName}</a>;
 };
 
 const renderItemLocal = (
@@ -138,35 +134,28 @@ export type BreadcrumbListReturn = Pick<
  */
 export const genBreadcrumbProps = (
   props: BreadcrumbProps,
-): BreadcrumbListReturn => {
+): AntdBreadcrumbProps['routes'] => {
   const { breadcrumbList } = props;
   const { location, breadcrumb } = getBreadcrumbFromProps(props);
   if (breadcrumbList && breadcrumbList.length) {
-    return {
-      routes: conversionFromProps(props),
-      itemRender,
-    };
+    return conversionFromProps(props);
   }
 
   // 根据 location 生成 面包屑
   // Generate breadcrumbs based on location
   if (location && location.pathname && breadcrumb) {
-    return {
-      routes: conversionFromLocation(location, breadcrumb, props),
-      itemRender,
-    };
+    return conversionFromLocation(location, breadcrumb, props);
   }
-  return {
-    routes: [],
-  };
+  return [];
 };
 
 // use breadcrumbRender to change routes
 export const getBreadcrumbProps = (
   props: BreadcrumbProps,
 ): BreadcrumbListReturn => {
-  const { breadcrumbRender } = props;
-  const { routes, itemRender } = genBreadcrumbProps(props);
+  const { breadcrumbRender, itemRender: propsItemRender } = props;
+  const routes = genBreadcrumbProps(props);
+  let itemRender = propsItemRender || defualtItemRender;
   if (breadcrumbRender) {
     return {
       routes: breadcrumbRender(routes),

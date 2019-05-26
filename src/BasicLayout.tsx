@@ -74,6 +74,7 @@ export interface BasicLayoutProps
   breadcrumbRender?: (
     routers: AntdBreadcrumbProps['routes'],
   ) => AntdBreadcrumbProps['routes'];
+  itemRender?: AntdBreadcrumbProps['itemRender'];
 }
 
 const headerRender = (props: BasicLayoutProps) => {
