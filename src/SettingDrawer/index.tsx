@@ -68,15 +68,10 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
   }
 
   getLayoutSetting = (): SettingItemProps[] => {
-    const { settings = defaultSettings } = this.props;
+    const { settings } = this.props;
     const formatMessage = this.getFormatMessage();
-    const {
-      contentWidth,
-      fixedHeader,
-      layout,
-      autoHideHeader,
-      fixSiderbar,
-    } = settings!;
+    const { contentWidth, fixedHeader, layout, autoHideHeader, fixSiderbar } =
+      settings! || defaultSettings;
     return [
       {
         title: formatMessage({
@@ -228,7 +223,7 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
       primaryColor = '1890FF',
       layout = 'sidemenu',
       colorWeak,
-    } = settings!;
+    } = settings! || defaultSettings;
     const { collapse } = this.state;
     const formatMessage = this.getFormatMessage();
     return (
