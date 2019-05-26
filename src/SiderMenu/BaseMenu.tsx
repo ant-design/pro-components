@@ -254,7 +254,7 @@ export default class BaseMenu extends Component<BaseMenuProps> {
       selectedKeys = [openKeys[openKeys.length - 1]];
     }
     let props = {};
-    if (openKeys && !collapsed) {
+    if (openKeys && !collapsed && layout !== 'sidemenu') {
       props = {
         openKeys: openKeys.length === 0 ? [...selectedKeys] : openKeys,
       };
@@ -262,7 +262,6 @@ export default class BaseMenu extends Component<BaseMenuProps> {
     const cls = classNames(className, {
       'top-nav-menu': mode === 'horizontal',
     });
-
     return (
       <>
         <Menu

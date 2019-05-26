@@ -86,11 +86,27 @@ export default {
           name: 'welcome',
           icon: 'smile',
           component: './Welcome',
+          routes: [
+            {
+              path: '/welcome',
+              name: 'one',
+              icon: 'smile',
+              component: './Welcome',
+              routes: [
+                {
+                  path: '/welcome/welcome',
+                  name: 'two',
+                  icon: 'smile',
+                  component: './Welcome',
+                },
+              ],
+            },
+          ],
         },
         // dashboard
         {
-          path: '/welcome',
-          name: 'welcome',
+          path: '/welcome2',
+          name: 'two',
           icon: 'file-protect',
           authority: 'admin',
           component: './Welcome',
