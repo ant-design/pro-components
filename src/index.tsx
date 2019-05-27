@@ -5,6 +5,8 @@ import RouteContext from './RouteContext';
 import GridContent from './GridContent';
 import getPageTitle from './getPageTitle';
 import getMenuData from './utils/getMenuData';
+import PageHeaderWrapper from './PageHeaderWrapper';
+
 import SettingDrawer, {
   SettingDrawerProps,
   SettingDrawerState,
@@ -27,6 +29,7 @@ export {
   SettingDrawerProps,
   getPageTitle,
   getMenuData,
+  PageHeaderWrapper,
 };
 
 export default BasicLayout;

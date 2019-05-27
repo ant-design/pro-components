@@ -1,6 +1,9 @@
 import React from 'react';
-import PageHeaderWrapper from '../components/PageHeaderWrapper';
-import { RouteContext, GridContent } from '../../../src/index';
+import {
+  RouteContext,
+  GridContent,
+  PageHeaderWrapper,
+} from '../../../src/index';
 
 const Welcome = () => (
   <RouteContext.Consumer>
