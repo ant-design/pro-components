@@ -1,13 +1,13 @@
+import H from 'history';
+import { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/lib/breadcrumb';
 import React from 'react';
 import pathToRegexp from 'path-to-regexp';
-import { urlToList } from '../utils/pathTools';
-import { MenuDataItem, MessageDescriptor } from '../typings';
-import { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/lib/breadcrumb';
-import * as H from 'history';
 import { Settings } from '../defaultSettings';
+import { MenuDataItem, MessageDescriptor } from '../typings';
+import { urlToList } from './pathTools';
 
 export interface BreadcrumbProps {
-  breadcrumbList?: Array<{ title: string; href: string }>;
+  breadcrumbList?: { title: string; href: string }[];
   home?: string;
   location?: H.Location;
   menu?: Settings['menu'];
@@ -21,12 +21,7 @@ export interface BreadcrumbProps {
 
 // 渲染Breadcrumb 子节点
 // Render the Breadcrumb child node
-const defualtItemRender: AntdBreadcrumbProps['itemRender'] = (
-  route,
-  params,
-  routes,
-  paths,
-) => {
+const defualtItemRender: AntdBreadcrumbProps['itemRender'] = route => {
   return <a>{route.breadcrumbName}</a>;
 };
 
@@ -68,7 +63,12 @@ export const getBreadcrumb = (
   return breadcrumbItem || { path: '' };
 };
 
-export const getBreadcrumbFromProps = (props: BreadcrumbProps) => {
+export const getBreadcrumbFromProps = (
+  props: BreadcrumbProps,
+): {
+  location: BreadcrumbProps['location'];
+  breadcrumb: BreadcrumbProps['breadcrumb'];
+} => {
   const { location, breadcrumb } = props;
   return {
     location,
@@ -155,7 +155,7 @@ export const getBreadcrumbProps = (
 ): BreadcrumbListReturn => {
   const { breadcrumbRender, itemRender: propsItemRender } = props;
   const routes = genBreadcrumbProps(props);
-  let itemRender = propsItemRender || defualtItemRender;
+  const itemRender = propsItemRender || defualtItemRender;
   if (breadcrumbRender) {
     return {
       routes: breadcrumbRender(routes),

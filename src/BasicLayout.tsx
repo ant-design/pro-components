@@ -1,29 +1,30 @@
-import SiderMenu from './SiderMenu';
-import {
-  MenuDataItem,
-  Route,
-  WithFalse,
-  RouterTypes,
-  MessageDescriptor,
-} from './typings';
-import { SiderMenuProps } from './SiderMenu/SiderMenu';
-import { BaseMenuProps } from './SiderMenu/BaseMenu';
-import Header, { HeaderViewProps } from './Header';
-import defaultGetPageTitle, { GetPageTitleProps } from './getPageTitle';
-import { Layout } from 'antd';
-import classNames from 'classnames';
+import './BasicLayout.less';
+
 import React, { useState } from 'react';
+import { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/lib/breadcrumb';
 import { ContainerQuery } from 'react-container-query';
 import DocumentTitle from 'react-document-title';
+import { Layout } from 'antd';
+import classNames from 'classnames';
 import useMedia from 'react-media-hook2';
+import Header, { HeaderViewProps } from './Header';
+import {
+  MenuDataItem,
+  MessageDescriptor,
+  Route,
+  RouterTypes,
+  WithFalse,
+} from './typings';
+import defaultGetPageTitle, { GetPageTitleProps } from './getPageTitle';
 import defaultSettings, { Settings } from './defaultSettings';
-import Footer from './Footer';
 import getLocales, { localeType } from './locales';
+import { BaseMenuProps } from './SiderMenu/index.d';
+import Footer from './Footer';
 import RouteContext from './RouteContext';
-import getMenuData from './utils/getMenuData';
+import SiderMenu from './SiderMenu';
+import { SiderMenuProps } from './SiderMenu/SiderMenu';
 import { getBreadcrumbProps } from './utils/getBreadcrumbProps';
-import { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/lib/breadcrumb';
-import './BasicLayout.less';
+import getMenuData from './utils/getMenuData';
 
 const { Content } = Layout;
 
@@ -77,14 +78,14 @@ export interface BasicLayoutProps
   itemRender?: AntdBreadcrumbProps['itemRender'];
 }
 
-const headerRender = (props: BasicLayoutProps) => {
+const headerRender = (props: BasicLayoutProps): React.ReactNode => {
   if (props.headerRender === false) {
     return null;
   }
   return <Header {...props} />;
 };
 
-const footerRender = (props: BasicLayoutProps) => {
+const footerRender = (props: BasicLayoutProps): React.ReactNode => {
   if (props.footerRender === false) {
     return null;
   }
@@ -94,7 +95,7 @@ const footerRender = (props: BasicLayoutProps) => {
   return <Footer />;
 };
 
-const renderSiderMenu = (props: BasicLayoutProps) => {
+const renderSiderMenu = (props: BasicLayoutProps): React.ReactNode => {
   const { layout, isMobile, menuRender } = props;
   if (props.menuRender === false) {
     return null;
@@ -108,7 +109,7 @@ const renderSiderMenu = (props: BasicLayoutProps) => {
   return <SiderMenu {...props} />;
 };
 
-const pageTitleRender = (
+const defaultPageTitleRender = (
   pageProps: GetPageTitleProps,
   props: BasicLayoutProps,
 ): string => {
@@ -120,11 +121,8 @@ const pageTitleRender = (
     const title = pageTitleRender(pageProps);
     if (typeof title === 'string') {
       return title;
-    } else {
-      console.warn(
-        'pro-layout: renderPageTitle return value should be a string',
-      );
     }
+    console.warn('pro-layout: renderPageTitle return value should be a string');
   }
   return defaultGetPageTitle(pageProps);
 };
@@ -143,6 +141,17 @@ function useCollapsed(
   }
   return [nativeCollapsed, setCollapsed];
 }
+
+const getPaddingLeft = (
+  hasLeftPadding: boolean,
+  collapsed: boolean,
+  siderWidth: number,
+): number | undefined => {
+  if (hasLeftPadding) {
+    return collapsed ? 80 : siderWidth;
+  }
+  return undefined;
+};
 
 const BasicLayout: React.FC<BasicLayoutProps> = props => {
   const {
@@ -182,7 +191,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
   }: {
     id: string;
     defaultMessage?: string;
-  }) => {
+  }): string => {
     if (props.formatMessage) {
       return props.formatMessage({
         id,
@@ -205,7 +214,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     formatMessage,
     breadcrumb,
   };
-  const pageTitle = pageTitleRender(
+  const pageTitle = defaultPageTitleRender(
     {
       pathname: location.pathname,
       ...defaultProps,
@@ -228,7 +237,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
       })}
       <Layout
         style={{
-          paddingLeft: hasLeftPadding ? (collapsed ? 80 : siderWidth) : void 0,
+          paddingLeft: getPaddingLeft(!!hasLeftPadding, collapsed, siderWidth),
           minHeight: '100vh',
         }}
       >

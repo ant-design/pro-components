@@ -1,10 +1,11 @@
-import { SiderMenuProps } from '../SiderMenu/SiderMenu';
-import React, { Component } from 'react';
-import BaseMenu from '../SiderMenu/BaseMenu';
-import { defaultRenderLogo } from '../SiderMenu/SiderMenu';
-import { getFlatMenuKeys } from '../SiderMenu/SiderMenuUtils';
-import { HeaderViewProps } from '../Header';
 import './index.less';
+
+import React, { Component } from 'react';
+import { SiderMenuProps, defaultRenderLogo } from '../SiderMenu/SiderMenu';
+
+import BaseMenu from '../SiderMenu/BaseMenu';
+import { HeaderViewProps } from '../Header';
+import { getFlatMenuKeys } from '../SiderMenu/SiderMenuUtils';
 
 export interface TopNavHeaderProps extends SiderMenuProps {
   logo?: React.ReactNode;
@@ -20,7 +21,9 @@ export default class TopNavHeader extends Component<
   TopNavHeaderProps,
   TopNavHeaderState
 > {
-  static getDerivedStateFromProps(props: TopNavHeaderProps) {
+  static getDerivedStateFromProps(
+    props: TopNavHeaderProps,
+  ): TopNavHeaderState | null {
     const { contentWidth } = props;
     return {
       maxWidth:
@@ -37,7 +40,7 @@ export default class TopNavHeader extends Component<
 
   maim: HTMLDivElement | null = null;
 
-  render() {
+  render(): React.ReactNode {
     const {
       theme,
       menuData,
@@ -52,7 +55,9 @@ export default class TopNavHeader extends Component<
     return (
       <div className={`${baseClassName} ${theme === 'light' ? 'light' : ''}`}>
         <div
-          ref={ref => (this.maim = ref)}
+          ref={ref => {
+            this.maim = ref;
+          }}
           className={`${baseClassName}-main ${
             contentWidth === 'Fixed' ? 'wide' : ''
           }`}

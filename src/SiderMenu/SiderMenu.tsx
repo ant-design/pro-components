@@ -1,17 +1,18 @@
-import { Layout } from 'antd';
-import classNames from 'classnames';
-import React, { Component } from 'react';
-import BaseMenu, { BaseMenuProps } from './BaseMenu';
-
 import './index.less';
 
+import React, { Component } from 'react';
+
+import { Layout } from 'antd';
+import classNames from 'classnames';
+import BaseMenu from './BaseMenu';
+import { BaseMenuProps } from './index.d';
 import { getDefaultCollapsedSubMenus } from './SiderMenuUtils';
 
 const { Sider } = Layout;
 
-let firstMount: boolean = true;
+let firstMount = true;
 
-export const defaultRenderLogo = (logo: React.ReactNode) => {
+export const defaultRenderLogo = (logo: React.ReactNode): React.ReactNode => {
   if (typeof logo === 'string') {
     return <img src={logo} alt="logo" />;
   }
@@ -39,28 +40,28 @@ export default class SiderMenu extends Component<
 > {
   static defaultProps: Partial<SiderMenuProps> = {
     flatMenuKeys: [],
-    onCollapse: () => void 0,
+    onCollapse: () => undefined,
     isMobile: false,
     openKeys: [],
     collapsed: false,
-    handleOpenChange: () => void 0,
+    handleOpenChange: () => undefined,
     menuData: [],
-    onOpenChange: () => void 0,
+    onOpenChange: () => undefined,
   };
 
   static getDerivedStateFromProps(
     props: SiderMenuProps,
     state: SiderMenuState,
-  ) {
+  ): SiderMenuState | null {
     const { pathname, flatMenuKeysLen } = state;
-    const { location = { pathname: '/' } } = props;
+    const { location = { pathname: '/' }, flatMenuKeys = [] } = props;
     if (
       location.pathname !== pathname ||
-      props.flatMenuKeys!.length !== flatMenuKeysLen
+      flatMenuKeys.length !== flatMenuKeysLen
     ) {
       return {
         pathname: location.pathname,
-        flatMenuKeysLen: props.flatMenuKeys!.length,
+        flatMenuKeysLen: flatMenuKeys.length,
         openKeys: getDefaultCollapsedSubMenus(props),
       };
     }
@@ -74,13 +75,13 @@ export default class SiderMenu extends Component<
     };
   }
 
-  componentDidMount() {
+  componentDidMount(): void {
     firstMount = false;
   }
 
   isMainMenu: (key: string) => boolean = key => {
-    const { menuData } = this.props;
-    return menuData!.some(item => {
+    const { menuData = [] } = this.props;
+    return menuData.some(item => {
       if (key) {
         return item.key === key || item.path === key;
       }
@@ -100,7 +101,7 @@ export default class SiderMenu extends Component<
     }
   };
 
-  render() {
+  render(): React.ReactNode {
     const {
       logo,
       collapsed,
@@ -114,7 +115,7 @@ export default class SiderMenu extends Component<
     const { openKeys } = this.state;
     const defaultProps = collapsed ? {} : { openKeys };
     const siderClassName = classNames('ant-pro-sider-menu-sider', {
-      ['fix-sider-bar']: fixSiderbar,
+      'fix-sider-bar': fixSiderbar,
       light: theme === 'light',
     });
     return (
@@ -125,7 +126,9 @@ export default class SiderMenu extends Component<
         breakpoint="lg"
         onCollapse={collapse => {
           if (firstMount || !isMobile) {
-            onCollapse && onCollapse(collapse);
+            if (onCollapse) {
+              onCollapse(collapse);
+            }
           }
         }}
         width={siderWidth}

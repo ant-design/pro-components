@@ -1,7 +1,8 @@
+import 'jsdom-global/register';
+
 import React from 'react';
 import { mount } from 'enzyme';
 import BasicLayout from '../src/BasicLayout';
-import 'jsdom-global/register';
 
 describe('settings.test', () => {
   beforeAll(() => {
@@ -9,8 +10,8 @@ describe('settings.test', () => {
       value: jest.fn(() => {
         return {
           matches: false,
-          addListener: function() {},
-          removeListener: function() {},
+          addListener() {},
+          removeListener() {},
         };
       }),
     });

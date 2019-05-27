@@ -1,6 +1,6 @@
 import pathToRegexp from 'path-to-regexp';
-import { Settings } from './defaultSettings';
 import { MenuDataItem } from './typings';
+import { Settings } from './defaultSettings';
 
 export const matchParamsPath = (
   pathname: string,
@@ -10,7 +10,9 @@ export const matchParamsPath = (
     const pathKey = Object.keys(breadcrumb).find(key =>
       pathToRegexp(key).test(pathname),
     );
-    return breadcrumb[pathKey!];
+    if (pathKey) {
+      return breadcrumb[pathKey];
+    }
   }
   return {
     path: '',
@@ -43,12 +45,13 @@ const getPageTitle = (props: GetPageTitleProps): string => {
   if (!currRouterData) {
     return title;
   }
-  const pageName = !menu.locale
-    ? currRouterData.name
-    : formatMessage({
-        id: currRouterData.locale || currRouterData.name!,
-        defaultMessage: currRouterData.name,
-      });
+  let pageName = currRouterData.name;
+  if (menu.locale && currRouterData.locale) {
+    pageName = formatMessage({
+      id: currRouterData.locale || '',
+      defaultMessage: currRouterData.name,
+    });
+  }
 
   if (!pageName) {
     return title;

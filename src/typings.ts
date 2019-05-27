@@ -1,5 +1,12 @@
-import React from 'react';
 import * as H from 'history';
+
+import {
+  RouteComponentProps as BasicRouteProps,
+  RouteProps,
+  match,
+} from 'react-router-dom';
+
+import React from 'react';
 
 export interface LinkProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -7,7 +14,6 @@ export interface LinkProps
   replace?: boolean;
   innerRef?: React.Ref<HTMLAnchorElement>;
 }
-export class Link extends React.Component<LinkProps, any> {}
 
 export interface MenuDataItem {
   authority?: string[] | string;
@@ -26,17 +32,11 @@ export interface Route extends MenuDataItem {
 }
 export type WithFalse<T> = T | false;
 
-import {
-  RouteComponentProps as BasicRouteProps,
-  RouteProps,
-  match,
-} from 'react-router-dom';
-
 type IncludeRoute = 'component' | 'exact' | 'path';
 
 type RouteType = Pick<RouteProps, IncludeRoute>;
 
-export interface RouterTypes<T extends Object = {}, P = {}>
+export interface RouterTypes<T extends Record<string, any> = {}, P = {}>
   extends BasicRouteProps {
   computedMatch?: match<P>;
   route?: RouteType & T;

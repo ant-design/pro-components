@@ -1,7 +1,9 @@
-import React from 'react';
-import { render, mount } from 'enzyme';
-import BasicLayout from '../src/BasicLayout';
 import 'jsdom-global/register';
+
+import { mount, render } from 'enzyme';
+
+import React from 'react';
+import BasicLayout from '../src/BasicLayout';
 
 describe('BasicLayout', () => {
   beforeAll(() => {
@@ -9,13 +11,12 @@ describe('BasicLayout', () => {
       value: jest.fn(() => {
         return {
           matches: false,
-          addListener: function() {},
-          removeListener: function() {},
+          addListener() {},
+          removeListener() {},
         };
       }),
     });
   });
-  ``;
   it('base user', () => {
     const html = render(<BasicLayout />).html();
     expect(html).toMatchSnapshot();
@@ -70,13 +71,6 @@ describe('BasicLayout', () => {
     expect(onCollapse).toHaveBeenCalled();
   });
 
-  it('onCollapse', () => {
-    const onCollapse = jest.fn();
-    const wrapper = mount(<BasicLayout onCollapse={onCollapse} />);
-    wrapper.find('.ant-pro-global-header-trigger').simulate('click');
-    expect(onCollapse).toHaveBeenCalled();
-  });
-
   it('siderWidth default', () => {
     const wrapper = mount(<BasicLayout />);
     expect(wrapper.find('.ant-pro-sider-menu-sider').get(0).props.width).toBe(
@@ -84,7 +78,7 @@ describe('BasicLayout', () => {
     );
   });
 
-  it('siderWidth default', () => {
+  it('siderWidth=160', () => {
     const wrapper = mount(<BasicLayout siderWidth={160} />);
     expect(wrapper.find('.ant-pro-sider-menu-sider').get(0).props.width).toBe(
       160,

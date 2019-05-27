@@ -36,7 +36,7 @@ export interface Settings {
   iconfontUrl: string;
 }
 
-export default {
+const defaultSettings: Settings = {
   navTheme: 'dark',
   layout: 'sidemenu',
   contentWidth: 'Fluid',
@@ -48,4 +48,5 @@ export default {
   },
   title: 'Ant Design Pro',
   iconfontUrl: '',
-} as Settings;
+};
+export default defaultSettings;

@@ -1,57 +1,59 @@
 @import '~antd/lib/style/themes/default.less';
 
-.children-content {
+@ant-pro-page-header-wrap: ~'@{ant-prefix}-pro-page-header-wrap';
+
+.@{ant-pro-setting-drawer}-children-content {
   margin: 24px 24px 0;
 }
-.page-header-warp {
+.@{ant-pro-setting-drawer}-page-header-warp {
   background-color: @component-background;
 }
 
-.main {
-  .detail {
+.@{ant-pro-setting-drawer}-main {
+  .@{ant-pro-setting-drawer}-detail {
     display: flex;
   }
 
-  .row {
+  .@{ant-pro-setting-drawer}-row {
     display: flex;
     width: 100%;
   }
 
-  .title-content {
+  .@{ant-pro-setting-drawer}-title-content {
     margin-bottom: 16px;
   }
 
   @media screen and (max-width: @screen-sm) {
-    .content {
+    .@{ant-pro-setting-drawer}-content {
       margin: 24px 0 0;
     }
   }
 
-  .title,
-  .content {
+  .@{ant-pro-setting-drawer}-title,
+  .@{ant-pro-setting-drawer}-content {
     flex: auto;
   }
 
-  .extraContent,
-  .main {
+  .@{ant-pro-setting-drawer}-extraContent,
+  .@{ant-pro-setting-drawer}-main {
     flex: 0 1 auto;
   }
 
-  .main {
+  .@{ant-pro-setting-drawer}-main {
     width: 100%;
   }
 
-  .title {
+  .@{ant-pro-setting-drawer}-title {
     margin-bottom: 16px;
   }
 
-  .logo,
-  .content,
-  .extraContent {
+  .@{ant-pro-setting-drawer}-logo,
+  .@{ant-pro-setting-drawer}-content,
+  .@{ant-pro-setting-drawer}-extraContent {
     margin-bottom: 16px;
   }
 
-  .extraContent {
+  .@{ant-pro-setting-drawer}-extraContent {
     min-width: 242px;
     margin-left: 88px;
     text-align: right;
@@ -59,31 +61,31 @@
 }
 
 @media screen and (max-width: @screen-xl) {
-  .extraContent {
+  .@{ant-pro-setting-drawer}-extraContent {
     margin-left: 44px;
   }
 }
 
 @media screen and (max-width: @screen-lg) {
-  .extraContent {
+  .@{ant-pro-setting-drawer}-extraContent {
     margin-left: 20px;
   }
 }
 
 @media screen and (max-width: @screen-md) {
-  .row {
+  .@{ant-pro-setting-drawer}-row {
     display: block;
   }
 
-  .action,
-  .extraContent {
+  .@{ant-pro-setting-drawer}-action,
+  .@{ant-pro-setting-drawer}-extraContent {
     margin-left: 0;
     text-align: left;
   }
 }
 
 @media screen and (max-width: @screen-sm) {
-  .detail {
+  .@{ant-pro-setting-drawer}-detail {
     display: block;
   }
 }

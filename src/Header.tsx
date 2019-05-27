@@ -1,11 +1,13 @@
-import GlobalHeader from './GlobalHeader';
-import TopNavHeader from './TopNavHeader';
-import React, { Component } from 'react';
-import { Layout } from 'antd';
-import { WithFalse } from './typings';
-import { BasicLayoutProps } from './BasicLayout';
 import './Header.less';
+
+import React, { Component } from 'react';
+
+import { Layout } from 'antd';
+import { BasicLayoutProps } from './BasicLayout';
+import GlobalHeader from './GlobalHeader';
 import { Settings } from './defaultSettings';
+import TopNavHeader from './TopNavHeader';
+import { WithFalse } from './typings';
 
 const { Header } = Layout;
 
@@ -28,7 +30,7 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
   static getDerivedStateFromProps(
     props: HeaderViewProps,
     state: HeaderViewState,
-  ) {
+  ): HeaderViewState | null {
     if (!props.autoHideHeader && !state.visible) {
       return {
         visible: true,
@@ -36,18 +38,20 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
     }
     return null;
   }
+
   state = {
     visible: true,
   };
 
   ticking: boolean = false;
+
   oldScrollTop: number = 0;
 
-  componentDidMount() {
+  componentDidMount(): void {
     document.addEventListener('scroll', this.handScroll, { passive: true });
   }
 
-  componentWillUnmount() {
+  componentWillUnmount(): void {
     document.removeEventListener('scroll', this.handScroll);
   }
 
@@ -94,6 +98,7 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
       });
     }
   };
+
   renderContent = () => {
     const {
       isMobile,
@@ -118,11 +123,11 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
     }
     if (headerRender) {
       return headerRender(this.props);
-    } else {
-      return defaultDom;
     }
+    return defaultDom;
   };
-  render() {
+
+  render(): React.ReactNode {
     const { fixedHeader } = this.props;
     const { visible } = this.state;
     const width = this.getHeadWidth();

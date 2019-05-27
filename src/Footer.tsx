@@ -1,5 +1,6 @@
 import { Icon, Layout } from 'antd';
 import React, { Fragment } from 'react';
+
 import GlobalFooter from './GlobalFooter';
 
 const { Footer } = Layout;

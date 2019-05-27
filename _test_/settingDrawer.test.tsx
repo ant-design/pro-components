@@ -1,8 +1,10 @@
+import 'jsdom-global/register';
+
+import { mount, render } from 'enzyme';
+
 import React from 'react';
-import { render, mount } from 'enzyme';
 import SettingDrawer from '../src/SettingDrawer';
 import defaultSettings from './defaultSettings';
-import 'jsdom-global/register';
 
 describe('settingDrawer.test', () => {
   it('base user', () => {
@@ -10,7 +12,7 @@ describe('settingDrawer.test', () => {
       <SettingDrawer
         settings={defaultSettings}
         getContainer={false}
-        collapse={true}
+        collapse
       />,
     ).html();
     expect(html).toMatchSnapshot();
@@ -21,7 +23,7 @@ describe('settingDrawer.test', () => {
     const wrapper = mount(
       <SettingDrawer
         settings={defaultSettings}
-        collapse={true}
+        collapse
         getContainer={false}
         onCollapseChange={onCollapseChange}
       />,
@@ -36,7 +38,7 @@ describe('settingDrawer.test', () => {
     const wrapper = mount<SettingDrawer>(
       <SettingDrawer
         settings={defaultSettings}
-        collapse={true}
+        collapse
         getContainer={false}
         onCollapseChange={onCollapseChange}
       />,

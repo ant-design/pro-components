@@ -1,8 +1,9 @@
-import { Route, MenuDataItem } from '../typings';
 import isEqual from 'lodash/isEqual';
 import memoizeOne from 'memoize-one';
+import { MenuDataItem, Route } from '../typings';
+import { BasicLayoutProps } from '../BasicLayout';
+
 import { Settings } from '../defaultSettings';
-import { BasicLayoutProps } from 'src/BasicLayout';
 
 interface FormatterProps {
   data: MenuDataItem[];
@@ -16,19 +17,23 @@ function formatter(props: FormatterProps): MenuDataItem[] {
   const { data, menu, formatMessage, authority, parentName } = props;
   return data
     .filter(item => item && item.name && item.path)
-    .map(item => {
-      const locale = `${parentName || 'menu'}.${item.name!}`;
+    .map((item = { path: '' }) => {
+      if (!item.name) {
+        return item;
+      }
+      const { name } = item;
+      const locale = `${parentName || 'menu'}.${name}`;
       // if enableMenuLocale use item.name,
       // close menu international
-      const name =
+      const localeName =
         menu.locale || !formatMessage
-          ? item.name!
-          : formatMessage({ id: locale, defaultMessage: item.name! });
+          ? name
+          : formatMessage({ id: locale, defaultMessage: name });
       const result: MenuDataItem = {
         ...item,
-        name,
+        name: localeName,
         locale,
-        routes: void 0,
+        routes: null,
       };
       if (item.routes) {
         const children = formatter({
@@ -47,22 +52,6 @@ function formatter(props: FormatterProps): MenuDataItem[] {
 const memoizeOneFormatter = memoizeOne(formatter, isEqual);
 
 /**
- * get SubMenu or Item
- */
-const getSubMenu: (item: MenuDataItem) => MenuDataItem = item => {
-  if (
-    item.children &&
-    Array.isArray(item.children) &&
-    !item.hideChildrenInMenu &&
-    item.children.some(child => (child.name ? true : false))
-  ) {
-    const children = defaultFilterMenuData(item.children);
-    if (children.length) return { ...item, children };
-  }
-  return { ...item, children: void 0 };
-};
-
-/**
  * filter menuData
  */
 const defaultFilterMenuData = (
@@ -70,7 +59,18 @@ const defaultFilterMenuData = (
 ): MenuDataItem[] => {
   return menuData
     .filter(item => item && item.name && !item.hideInMenu)
-    .map(item => getSubMenu(item))
+    .map(item => {
+      if (
+        item.children &&
+        Array.isArray(item.children) &&
+        !item.hideChildrenInMenu &&
+        item.children.some(child => !!child.name)
+      ) {
+        const children = defaultFilterMenuData(item.children);
+        if (children.length) return { ...item, children };
+      }
+      return { ...item, children: undefined };
+    })
     .filter(item => item);
 };
 
@@ -78,7 +78,9 @@ const defaultFilterMenuData = (
  * 获取面包屑映射
  * @param MenuDataItem[] menuData 菜单配置
  */
-const getBreadcrumbNameMap = (menuData: MenuDataItem[]) => {
+const getBreadcrumbNameMap = (
+  menuData: MenuDataItem[],
+): { [key: string]: MenuDataItem } => {
   const routerMap: { [key: string]: MenuDataItem } = {};
   const flattenMenuData: (data: MenuDataItem[]) => void = data => {
     data.forEach(menuItem => {

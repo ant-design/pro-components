@@ -1,7 +1,7 @@
 import React from 'react';
 import { Drawer } from 'antd';
-import { SiderMenuProps } from './SiderMenu';
-import SiderMenu from './SiderMenu';
+
+import SiderMenu, { SiderMenuProps } from './SiderMenu';
 import { getFlatMenuKeys } from './SiderMenuUtils';
 
 const SiderMenuWrapper: React.FC<SiderMenuProps> = props => {
@@ -12,7 +12,7 @@ const SiderMenuWrapper: React.FC<SiderMenuProps> = props => {
       visible={!collapsed}
       placement="left"
       className="ant-pro-sider-menu"
-      onClose={() => onCollapse!(true)}
+      onClose={() => onCollapse && onCollapse(true)}
       style={{
         padding: 0,
         height: '100vh',
@@ -34,7 +34,7 @@ const SiderMenuWrapper: React.FC<SiderMenuProps> = props => {
 };
 
 SiderMenuWrapper.defaultProps = {
-  onCollapse: () => void 0,
+  onCollapse: () => undefined,
 };
 
 export default SiderMenuWrapper;

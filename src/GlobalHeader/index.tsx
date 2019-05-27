@@ -1,9 +1,11 @@
+import './index.less';
+
 import React, { Component } from 'react';
+
 import { Icon } from 'antd';
 import debounce from 'lodash/debounce';
-import { defaultRenderLogo } from '../SiderMenu/SiderMenu';
 import { HeaderViewProps } from '../Header';
-import './index.less';
+import { defaultRenderLogo } from '../SiderMenu/SiderMenu';
 
 export interface GlobalHeaderProps {
   collapsed?: boolean;
@@ -19,15 +21,18 @@ export default class GlobalHeader extends Component<GlobalHeaderProps> {
     event.initEvent('resize', true, false);
     window.dispatchEvent(event);
   });
-  componentWillUnmount() {
+
+  componentWillUnmount(): void {
     this.triggerResizeEvent.cancel();
   }
+
   toggle = () => {
     const { collapsed, onCollapse } = this.props;
     if (onCollapse) onCollapse(!collapsed);
     this.triggerResizeEvent();
   };
-  render() {
+
+  render(): React.ReactNode {
     const { collapsed, isMobile, logo, rightContentRender } = this.props;
     return (
       <div className="ant-pro-global-header">

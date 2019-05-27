@@ -1,6 +1,8 @@
-import React from 'react';
-import { Tooltip, Icon } from 'antd';
 import './ThemeColor.less';
+
+import { Icon, Tooltip } from 'antd';
+
+import React from 'react';
 
 export interface TagProps {
   color: string;
@@ -16,7 +18,10 @@ const Tag: React.FC<TagProps> = ({ color, check, ...rest }) => (
 );
 
 export interface ThemeColorProps {
-  colors?: any[];
+  colors?: {
+    key: string;
+    color: string;
+  }[];
   title?: string;
   value: string;
   onChange: (color: string) => void;

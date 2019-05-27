@@ -1,10 +1,15 @@
+import { Icon, Tooltip } from 'antd';
+
 import React from 'react';
-import { Tooltip, Icon } from 'antd';
 
 export interface BlockCheckboxProps {
   value: string;
   onChange: (key: string) => void;
-  list: any[];
+  list: {
+    title: string;
+    key: string;
+    url: string;
+  }[];
 }
 
 const baseClassName = 'ant-pro-setting-drawer-block-checbox';

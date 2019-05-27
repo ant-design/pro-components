@@ -1,19 +1,14 @@
-import { isUrl } from '../utils/utils';
-import { Icon, Menu } from 'antd';
-import { MenuMode, MenuTheme } from 'antd/lib/menu';
-import classNames from 'classnames';
-import React, { Component } from 'react';
-import { urlToList } from '../utils/pathTools';
 import './index.less';
+
+import { Icon, Menu } from 'antd';
+import React, { Component } from 'react';
+import classNames from 'classnames';
+import defaultSettings from '../defaultSettings';
+import { BaseMenuProps } from './index.d';
+import { MenuDataItem } from '../typings';
 import { getMenuMatches } from './SiderMenuUtils';
-import {
-  MenuDataItem,
-  Route,
-  WithFalse,
-  RouterTypes,
-  MessageDescriptor,
-} from '../typings';
-import defaultSettings, { Settings } from '../defaultSettings';
+import { isUrl } from '../utils/utils';
+import { urlToList } from '../utils/pathTools';
 
 const { SubMenu } = Menu;
 
@@ -26,7 +21,7 @@ let IconFont = Icon.createFromIconfontCN({
 //   icon: 'icon-geren' #For Iconfont ,
 //   icon: 'http://demo.com/icon.png',
 //   icon: <Icon type="setting" />,
-const getIcon = (icon?: string | React.ReactNode) => {
+const getIcon = (icon?: string | React.ReactNode): React.ReactNode => {
   if (typeof icon === 'string') {
     if (isUrl(icon)) {
       return (
@@ -49,29 +44,21 @@ const getIcon = (icon?: string | React.ReactNode) => {
   return icon;
 };
 
-export interface BaseMenuProps
-  extends Partial<RouterTypes<Route>>,
-    Partial<Settings> {
-  className?: string;
-  collapsed?: boolean;
-  flatMenuKeys?: any[];
-  handleOpenChange?: (openKeys: string[]) => void;
-  isMobile?: boolean;
-  menuData?: MenuDataItem[];
-  mode?: MenuMode;
-  onCollapse?: (collapsed: boolean) => void;
-  onOpenChange?: (openKeys: string[]) => void;
-  openKeys?: string[];
-  style?: React.CSSProperties;
-  theme?: MenuTheme;
-  formatMessage?: (message: MessageDescriptor) => string;
-  menuItemRender?: WithFalse<
-    (item: MenuDataItem, defaultDom: React.ReactNode) => React.ReactNode
-  >;
-}
-
 export default class BaseMenu extends Component<BaseMenuProps> {
-  constructor(props: BaseMenuProps) {
+  public static defaultProps: Partial<BaseMenuProps> = {
+    flatMenuKeys: [],
+    onCollapse: () => undefined,
+    isMobile: false,
+    openKeys: [],
+    collapsed: false,
+    handleOpenChange: () => undefined,
+    menuData: [],
+    onOpenChange: () => undefined,
+  };
+
+  warp: HTMLDivElement | undefined;
+
+  public constructor(props: BaseMenuProps) {
     super(props);
     const { iconfontUrl } = props;
     // reset IconFont
@@ -81,18 +68,10 @@ export default class BaseMenu extends Component<BaseMenuProps> {
       });
     }
   }
-  static defaultProps: Partial<BaseMenuProps> = {
-    flatMenuKeys: [],
-    onCollapse: () => void 0,
-    isMobile: false,
-    openKeys: [],
-    collapsed: false,
-    handleOpenChange: () => void 0,
-    menuData: [],
-    onOpenChange: () => void 0,
-  };
+
   state = {};
-  static getDerivedStateFromProps(props: BaseMenuProps) {
+
+  public static getDerivedStateFromProps(props: BaseMenuProps): null {
     const { iconfontUrl } = props;
     // reset IconFont
     if (iconfontUrl) {
@@ -128,7 +107,7 @@ export default class BaseMenu extends Component<BaseMenuProps> {
     if (
       Array.isArray(item.children) &&
       !item.hideChildrenInMenu &&
-      item.children.some(child => (child.name ? true : false))
+      item.children.some(child => !!child.name)
     ) {
       const name = this.getIntlName(item);
       return (
@@ -151,6 +130,7 @@ export default class BaseMenu extends Component<BaseMenuProps> {
     }
     return <Menu.Item key={item.path}>{this.getMenuItemPath(item)}</Menu.Item>;
   };
+
   getIntlName = (item: MenuDataItem) => {
     const { name, locale } = item;
     const {
@@ -167,6 +147,7 @@ export default class BaseMenu extends Component<BaseMenuProps> {
     }
     return name;
   };
+
   /**
    * 判断是否是http链接.返回 Link 或 a
    * Judge whether it is http link.return a or Link
@@ -206,7 +187,7 @@ export default class BaseMenu extends Component<BaseMenuProps> {
           ...item,
           itemPath,
           replace: itemPath === location.pathname,
-          onClick: () => (isMobile ? onCollapse!(true) : null),
+          onClick: () => (isMobile ? onCollapse && onCollapse(true) : null),
         },
         defaultItem,
       );
@@ -221,18 +202,18 @@ export default class BaseMenu extends Component<BaseMenuProps> {
     return `/${path || ''}`.replace(/\/+/g, '/');
   };
 
-  warp: HTMLDivElement | undefined;
-
   getPopupContainer = (fixedHeader: boolean, layout: string): HTMLElement => {
     if (fixedHeader && layout === 'topmenu' && this.warp) {
       return this.warp;
     }
     return document.body;
   };
+
   getRef = (ref: HTMLDivElement) => {
     this.warp = ref;
   };
-  render() {
+
+  render(): React.ReactNode {
     const {
       openKeys,
       theme,

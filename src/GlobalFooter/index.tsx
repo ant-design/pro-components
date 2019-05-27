@@ -1,24 +1,21 @@
-import React from 'react';
-import classNames from 'classnames';
 import './index.less';
 
+import React from 'react';
+import classNames from 'classnames';
+
 export interface GlobalFooterProps {
-  links?: Array<{
+  links?: {
     key?: string;
     title: React.ReactNode;
     href: string;
     blankTarget?: boolean;
-  }>;
+  }[];
   copyright?: React.ReactNode;
   style?: React.CSSProperties;
   className?: string;
 }
 
-const GlobalFooter: React.SFC<GlobalFooterProps> = ({
-  className,
-  links,
-  copyright,
-}) => {
+export default ({ className, links, copyright }: GlobalFooterProps) => {
   const clsString = classNames('ant-pro-global-footer', className);
   return (
     <footer className={clsString}>
@@ -42,5 +39,3 @@ const GlobalFooter: React.SFC<GlobalFooterProps> = ({
     </footer>
   );
 };
-
-export default GlobalFooter;

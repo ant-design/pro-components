@@ -1,21 +1,23 @@
-import React, { Component } from 'react';
+import './index.less';
+
 import {
-  Select,
-  message,
-  Drawer,
-  List,
-  Switch,
-  Divider,
-  Icon,
   Button,
+  Divider,
+  Drawer,
+  Icon,
+  List,
+  Select,
+  Switch,
   Tooltip,
+  message,
 } from 'antd';
+import React, { Component } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import omit from 'omit.js';
-import './index.less';
-import ThemeColor from './ThemeColor';
-import BlockCheckbox from './BlockCheckbox';
 import defaultSettings, { Settings } from '../defaultSettings';
+
+import BlockCheckbox from './BlockCheckbox';
+import ThemeColor from './ThemeColor';
 import getLocales from '../locales';
 
 const { Option } = Select;
@@ -58,10 +60,13 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
   state: SettingDrawerState = {
     collapse: false,
   };
-  static getDerivedStateFromProps(props: SettingDrawerProps) {
+
+  static getDerivedStateFromProps(
+    props: SettingDrawerProps,
+  ): SettingDrawerState | null {
     if ('collapse' in props) {
       return {
-        collapse: props.collapse,
+        collapse: !!props.collapse,
       };
     }
     return null;
@@ -71,7 +76,7 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
     const { settings } = this.props;
     const formatMessage = this.getFormatMessage();
     const { contentWidth, fixedHeader, layout, autoHideHeader, fixSiderbar } =
-      settings! || defaultSettings;
+      settings || defaultSettings;
     return [
       {
         title: formatMessage({
@@ -154,9 +159,9 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
     ];
   };
 
-  changeSetting = (key: string, value: any) => {
+  changeSetting = (key: string, value: string | boolean) => {
     const { settings } = this.props;
-    const nextState = { ...settings! };
+    const nextState = { ...settings };
     nextState[key] = value;
     if (key === 'layout') {
       nextState.contentWidth = value === 'topmenu' ? 'Fixed' : 'Fluid';
@@ -196,15 +201,18 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
       </Tooltip>
     );
   };
-  getFormatMessage = () => {
+
+  getFormatMessage = (): ((data: {
+    id: string;
+    defaultMessage?: string;
+  }) => string) => {
     const formatMessage = ({
       id,
       defaultMessage,
-      ...rest
     }: {
       id: string;
       defaultMessage?: string;
-    }) => {
+    }): string => {
       const locales = getLocales();
       if (locales[id]) {
         return locales[id];
@@ -216,14 +224,15 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
     };
     return formatMessage;
   };
-  render() {
+
+  render(): React.ReactNode {
     const { settings, getContainer } = this.props;
     const {
       navTheme = 'dark',
       primaryColor = '1890FF',
       layout = 'sidemenu',
       colorWeak,
-    } = settings! || defaultSettings;
+    } = settings || defaultSettings;
     const { collapse } = this.state;
     const formatMessage = this.getFormatMessage();
     return (
@@ -346,7 +355,7 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
               message.success(formatMessage({ id: 'app.setting.copyinfo' }))
             }
           >
-            <Button block={true} icon="copy">
+            <Button block icon="copy">
               {formatMessage({ id: 'app.setting.copy' })}
             </Button>
           </CopyToClipboard>

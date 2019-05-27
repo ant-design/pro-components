@@ -1,39 +1,42 @@
-import React from 'react';
-import { RouteContext, GridContent } from '../';
+import { GridContent, RouteContext } from '..';
 import { PageHeader, Tabs, Typography } from 'antd';
-import styles from './index.less';
-import { TabsProps } from 'antd/lib/tabs';
 
-interface IPageHeaderTabConfig {
-  tabList?: Array<{
+import React from 'react';
+import { TabsProps } from 'antd/lib/tabs';
+import './index.less';
+
+interface PageHeaderTabConfig {
+  tabList?: {
     key: string;
     tab: string;
-  }>;
+  }[];
   tabActiveKey?: TabsProps['activeKey'];
   onTabChange?: TabsProps['onChange'];
   tabBarExtraContent?: TabsProps['tabBarExtraContent'];
 }
 
-interface IPageHeaderWrapperProps extends IPageHeaderTabConfig {
+interface PageHeaderWrapperProps extends PageHeaderTabConfig {
   content?: React.ReactNode;
   title?: React.ReactNode;
   extraContent?: React.ReactNode;
 }
+
+const prefixedClassName = 'ant-pro-page-header-wrap';
 
 /**
  * render Footer tabList
  * In order to be compatible with the old version of the PageHeader
  * basically all the functions are implemented.
  */
-const renderFooter = ({
+const renderFooter: React.SFC<PageHeaderWrapperProps> = ({
   tabList,
   tabActiveKey,
   onTabChange,
   tabBarExtraContent,
-}: IPageHeaderTabConfig) => {
+}) => {
   return tabList && tabList.length ? (
     <Tabs
-      className={styles.tabs}
+      className={`${prefixedClassName}-tabs`}
       activeKey={tabActiveKey}
       onChange={key => {
         if (onTabChange) {
@@ -49,7 +52,7 @@ const renderFooter = ({
   ) : null;
 };
 
-const PageHeaderWrapper: React.SFC<IPageHeaderWrapperProps> = ({
+const PageHeaderWrapper: React.SFC<PageHeaderWrapperProps> = ({
   children,
   title,
   content,
@@ -74,12 +77,18 @@ const PageHeaderWrapper: React.SFC<IPageHeaderWrapperProps> = ({
           {...restProps}
           footer={renderFooter(restProps)}
         >
-          <div className={styles.detail}>
-            <div className={styles.main}>
-              <div className={styles.row}>
-                {content && <div className={styles.content}>{content}</div>}
+          <div className={`${prefixedClassName}-detail`}>
+            <div className={`${prefixedClassName}-main`}>
+              <div className={`${prefixedClassName}-row`}>
+                {content && (
+                  <div className={`${prefixedClassName}-content`}>
+                    {content}
+                  </div>
+                )}
                 {extraContent && (
-                  <div className={styles.extraContent}>{extraContent}</div>
+                  <div className={`${prefixedClassName}-extraContent`}>
+                    {extraContent}
+                  </div>
                 )}
               </div>
             </div>
@@ -87,7 +96,9 @@ const PageHeaderWrapper: React.SFC<IPageHeaderWrapperProps> = ({
         </PageHeader>
         {children ? (
           <GridContent>
-            <div className={styles['children-content']}>{children}</div>
+            <div className={`${prefixedClassName}-children-content`}>
+              {children}
+            </div>
           </GridContent>
         ) : null}
       </div>
