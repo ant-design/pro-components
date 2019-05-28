@@ -43,7 +43,7 @@ export interface RouterTypes<T extends Record<string, any> = {}, P = {}>
 }
 
 export interface MessageDescriptor {
-  id: string;
+  id: any;
   description?: string;
   defaultMessage?: string;
 }

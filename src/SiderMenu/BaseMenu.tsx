@@ -3,12 +3,40 @@ import './index.less';
 import { Icon, Menu } from 'antd';
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import defaultSettings from '../defaultSettings';
-import { BaseMenuProps } from './index.d';
-import { MenuDataItem } from '../typings';
+import { MenuMode, MenuTheme } from 'antd/lib/menu';
+import defaultSettings, { Settings } from '../defaultSettings';
 import { getMenuMatches } from './SiderMenuUtils';
 import { isUrl } from '../utils/utils';
 import { urlToList } from '../utils/pathTools';
+
+import {
+  MenuDataItem,
+  MessageDescriptor,
+  Route,
+  RouterTypes,
+  WithFalse,
+} from '../typings';
+
+export interface BaseMenuProps
+  extends Partial<RouterTypes<Route>>,
+    Partial<Settings> {
+  className?: string;
+  collapsed?: boolean;
+  flatMenuKeys?: string[];
+  handleOpenChange?: (openKeys: string[]) => void;
+  isMobile?: boolean;
+  menuData?: MenuDataItem[];
+  mode?: MenuMode;
+  onCollapse?: (collapsed: boolean) => void;
+  onOpenChange?: (openKeys: string[]) => void;
+  openKeys?: string[];
+  style?: React.CSSProperties;
+  theme?: MenuTheme;
+  formatMessage?: (message: MessageDescriptor) => string;
+  menuItemRender?: WithFalse<
+    (item: MenuDataItem, defaultDom: React.ReactNode) => React.ReactNode
+  >;
+}
 
 const { SubMenu } = Menu;
 
@@ -235,7 +263,7 @@ export default class BaseMenu extends Component<BaseMenuProps> {
       selectedKeys = [openKeys[openKeys.length - 1]];
     }
     let props = {};
-    if (openKeys && !collapsed && layout !== 'sidemenu') {
+    if (openKeys && !collapsed && layout === 'sidemenu') {
       props = {
         openKeys: openKeys.length === 0 ? [...selectedKeys] : openKeys,
       };
@@ -243,9 +271,11 @@ export default class BaseMenu extends Component<BaseMenuProps> {
     const cls = classNames(className, {
       'top-nav-menu': mode === 'horizontal',
     });
+
     return (
       <>
         <Menu
+          {...props}
           key="Menu"
           mode={mode}
           theme={theme}
@@ -254,7 +284,6 @@ export default class BaseMenu extends Component<BaseMenuProps> {
           style={style}
           className={cls}
           getPopupContainer={() => this.getPopupContainer(fixedHeader, layout)}
-          {...props}
         >
           {this.getNavMenuItems(menuData)}
         </Menu>

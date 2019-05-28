@@ -18,7 +18,7 @@ import {
 import defaultGetPageTitle, { GetPageTitleProps } from './getPageTitle';
 import defaultSettings, { Settings } from './defaultSettings';
 import getLocales, { localeType } from './locales';
-import { BaseMenuProps } from './SiderMenu/index.d';
+import { BaseMenuProps } from './SiderMenu/BaseMenu';
 import Footer from './Footer';
 import RouteContext from './RouteContext';
 import SiderMenu from './SiderMenu';
@@ -106,6 +106,7 @@ const renderSiderMenu = (props: BasicLayoutProps): React.ReactNode => {
   if (menuRender) {
     return menuRender(props, <SiderMenu {...props} />);
   }
+
   return <SiderMenu {...props} />;
 };
 

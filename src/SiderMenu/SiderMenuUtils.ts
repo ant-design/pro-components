@@ -1,5 +1,5 @@
 import pathToRegexp from 'path-to-regexp';
-import { BaseMenuProps } from './index.d';
+import { BaseMenuProps } from './BaseMenu';
 import { MenuDataItem } from '../typings';
 import { urlToList } from '../utils/pathTools';
 

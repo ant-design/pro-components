@@ -25,7 +25,7 @@ export interface ThemeColorProps {
   title?: string;
   value: string;
   onChange: (color: string) => void;
-  formatMessage: (data: { id: string; defaultMessage?: string }) => string;
+  formatMessage: (data: { id: any; defaultMessage?: string }) => string;
 }
 
 const ThemeColor: React.FC<ThemeColorProps> = ({

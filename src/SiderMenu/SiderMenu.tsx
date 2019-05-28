@@ -4,8 +4,7 @@ import React, { Component } from 'react';
 
 import { Layout } from 'antd';
 import classNames from 'classnames';
-import BaseMenu from './BaseMenu';
-import { BaseMenuProps } from './index.d';
+import BaseMenu, { BaseMenuProps } from './BaseMenu';
 import { getDefaultCollapsedSubMenus } from './SiderMenuUtils';
 
 const { Sider } = Layout;
@@ -111,9 +110,10 @@ export default class SiderMenu extends Component<
       theme,
       siderWidth = 256,
       isMobile,
+      layout,
     } = this.props;
     const { openKeys } = this.state;
-    const defaultProps = collapsed ? {} : { openKeys };
+    const defaultProps = collapsed || layout !== 'sidemenu' ? {} : { openKeys };
     const siderClassName = classNames('ant-pro-sider-menu-sider', {
       'fix-sider-bar': fixSiderbar,
       light: theme === 'light',

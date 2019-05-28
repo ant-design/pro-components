@@ -24,7 +24,7 @@ export interface GetPageTitleProps {
   breadcrumb?: { [path: string]: MenuDataItem };
   menu?: Settings['menu'];
   title?: Settings['title'];
-  formatMessage: (data: { id: string; defaultMessage?: string }) => string;
+  formatMessage: (data: { id: any; defaultMessage?: string }) => string;
 }
 
 const getPageTitle = (props: GetPageTitleProps): string => {
