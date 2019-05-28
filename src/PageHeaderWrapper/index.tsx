@@ -1,9 +1,9 @@
-import { GridContent, RouteContext } from '..';
 import { PageHeader, Tabs, Typography } from 'antd';
-
 import React from 'react';
 import { TabsProps } from 'antd/lib/tabs';
 import './index.less';
+import GridContent from '../GridContent';
+import RouteContext from '../RouteContext';
 
 interface PageHeaderTabConfig {
   tabList?: {
@@ -62,38 +62,42 @@ const PageHeaderWrapper: React.SFC<PageHeaderWrapperProps> = ({
   <RouteContext.Consumer>
     {value => (
       <div style={{ margin: '-24px -24px 0' }}>
-        <PageHeader
-          {...value}
-          title={
-            <Typography.Title
-              level={4}
-              style={{
-                margin: 0,
-              }}
+        <div className={`${prefixedClassName}-page-header-warp`}>
+          <GridContent>
+            <PageHeader
+              {...value}
+              title={
+                <Typography.Title
+                  level={4}
+                  style={{
+                    margin: 0,
+                  }}
+                >
+                  {title || value.title}
+                </Typography.Title>
+              }
+              {...restProps}
+              footer={renderFooter(restProps)}
             >
-              {title || value.title}
-            </Typography.Title>
-          }
-          {...restProps}
-          footer={renderFooter(restProps)}
-        >
-          <div className={`${prefixedClassName}-detail`}>
-            <div className={`${prefixedClassName}-main`}>
-              <div className={`${prefixedClassName}-row`}>
-                {content && (
-                  <div className={`${prefixedClassName}-content`}>
-                    {content}
+              <div className={`${prefixedClassName}-detail`}>
+                <div className={`${prefixedClassName}-main`}>
+                  <div className={`${prefixedClassName}-row`}>
+                    {content && (
+                      <div className={`${prefixedClassName}-content`}>
+                        {content}
+                      </div>
+                    )}
+                    {extraContent && (
+                      <div className={`${prefixedClassName}-extraContent`}>
+                        {extraContent}
+                      </div>
+                    )}
                   </div>
-                )}
-                {extraContent && (
-                  <div className={`${prefixedClassName}-extraContent`}>
-                    {extraContent}
-                  </div>
-                )}
+                </div>
               </div>
-            </div>
-          </div>
-        </PageHeader>
+            </PageHeader>
+          </GridContent>
+        </div>
         {children ? (
           <GridContent>
             <div className={`${prefixedClassName}-children-content`}>
