@@ -2,48 +2,6 @@
 
 @pro-header-hover-bg: rgba(0, 0, 0, 0.025);
 
-.header {
-  position: relative;
-  height: @layout-header-height;
-  padding: 0;
-  background: #fff;
-  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
-}
-
-.logo {
-  display: inline-block;
-  height: @layout-header-height;
-  padding: 0 0 0 24px;
-  font-size: 20px;
-  line-height: @layout-header-height;
-  vertical-align: top;
-  cursor: pointer;
-  img {
-    display: inline-block;
-    vertical-align: middle;
-  }
-}
-
-.menu {
-  :global(.anticon) {
-    margin-right: 8px;
-  }
-  :global(.ant-dropdown-menu-item) {
-    min-width: 160px;
-  }
-}
-
-.trigger {
-  height: @layout-header-height;
-  padding: ~'calc((@{layout-header-height} - 20px) / 2)' 24px;
-  font-size: 20px;
-  cursor: pointer;
-  transition: all 0.3s, padding 0s;
-  &:hover {
-    background: @pro-header-hover-bg;
-  }
-}
-
 .right {
   float: right;
   height: 100%;

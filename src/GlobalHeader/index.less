@@ -2,12 +2,15 @@
 @global-header-prefix-cls: ~'@{ant-prefix}-pro-global-header ';
 
 @pro-header-hover-bg: rgba(0, 0, 0, 0.025);
+
+@pro-header-box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+
 .@{global-header-prefix-cls} {
   position: relative;
   height: @layout-header-height;
   padding: 0;
-  background: #fff;
-  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+  background: @component-background;
+  box-shadow: @pro-header-box-shadow;
 
   &-logo {
     display: inline-block;
