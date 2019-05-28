@@ -21,14 +21,14 @@ yarn add @ant-design/pro-layout
 ```
 
 ```jsx
-import BasicLayout from '@ant-design/pro-layout';
+import ProLayout from '@ant-design/pro-layout';
 
-render(<BasicLayout />, document.getElementById('root'));
+render(<ProLayout />, document.getElementById('root'));
 ```
 
 ## API
 
-### BasicLayout
+### ProLayout
 
 > All methods at the beginning of the rendering can prevent rendering by passing in `false`.
 
@@ -57,6 +57,10 @@ render(<BasicLayout />, document.getElementById('root'));
 | route | Used to assist in the generation of menu and bread crumbs. Umi will automatically bring | [route](#Route) | - |
 
 ### SettingDrawer
+
+```js
+import { SettingDrawer } from '@ant-design/pro-layout';
+```
 
 > SettingDrawer provides a graphical interface to set the layout configuration. Not recommended for use in a product environment.
 
