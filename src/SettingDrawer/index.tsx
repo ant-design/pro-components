@@ -272,7 +272,7 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
                 {
                   key: 'dark',
                   url:
-                    'https://gw.alipayobjects.com/zos/rmsportal/LCkqqYNmvBEbokSDscrm.svg',
+                    'https://gw.alipayobjects.com/zos/antfincdn/XwFOFbLkSM/LCkqqYNmvBEbokSDscrm.svg',
                   title: formatMessage({
                     id: 'app.setting.pagestyle.dark',
                     defaultMessage: '',
@@ -281,7 +281,7 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
                 {
                   key: 'light',
                   url:
-                    'https://gw.alipayobjects.com/zos/rmsportal/jpRkZQMyYRryryPNtyIC.svg',
+                    'https://gw.alipayobjects.com/zos/antfincdn/NQ%24zoisaD2/jpRkZQMyYRryryPNtyIC.svg',
                   title: formatMessage({ id: 'app.setting.pagestyle.light' }),
                 },
               ]}
@@ -305,13 +305,13 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
                 {
                   key: 'sidemenu',
                   url:
-                    'https://gw.alipayobjects.com/zos/rmsportal/JopDzEhOqwOjeNTXkoje.svg',
+                    'https://gw.alipayobjects.com/zos/antfincdn/XwFOFbLkSM/LCkqqYNmvBEbokSDscrm.svg',
                   title: formatMessage({ id: 'app.setting.sidemenu' }),
                 },
                 {
                   key: 'topmenu',
                   url:
-                    'https://gw.alipayobjects.com/zos/rmsportal/KDNDBbriJhLwuqMoxcAr.svg',
+                    'https://gw.alipayobjects.com/zos/antfincdn/URETY8%24STp/KDNDBbriJhLwuqMoxcAr.svg',
                   title: formatMessage({ id: 'app.setting.topmenu' }),
                 },
               ]}

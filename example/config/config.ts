@@ -3,6 +3,7 @@ import os from 'os';
 import { IPlugin, IConfig } from 'umi-types';
 import defaultSettings from './defaultSettings';
 import webpackPlugin from './plugin.config';
+import dartConfig from '@ant-design/dark-theme';
 
 const { pwa, primaryColor } = defaultSettings;
 const { APP_TYPE, TEST } = process.env;
@@ -118,6 +119,7 @@ export default {
   // https://ant.design/docs/react/customize-theme-cn
   theme: {
     'primary-color': primaryColor,
+    ...dartConfig,
   },
   // proxy: {
   //   '/server/api/': {
