@@ -1,14 +1,15 @@
 {
   "name": "@ant-design/pro-layout",
-  "version": "4.4.2",
+  "version": "4.5.0-beta",
   "description": "ant-design-pro layout, easy to use pro scaffolding.",
   "files": [
-    "/dist"
+    "/lib",
+    "/es"
   ],
   "sideEffects": false,
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
+  "main": "lib/index.js",
+  "module": "es/index.esm.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "analyze": "cross-env ANALYZE=1 umi build",
     "build": "umi-lib build",

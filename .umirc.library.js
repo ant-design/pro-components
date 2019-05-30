@@ -1,6 +1,6 @@
 export default {
   entry: 'src/index.tsx',
-  esm: 'rollup',
-  cjs: 'rollup',
+  esm: 'babel',
+  cjs: 'babel',
   extraBabelPlugins: [['import', { libraryName: 'antd', style: true }]],
 };
