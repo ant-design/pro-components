@@ -17,7 +17,7 @@ describe('BasicLayout', () => {
       }),
     });
   });
-  it('base user', () => {
+  it('base use', () => {
     const html = render(<BasicLayout />).html();
     expect(html).toMatchSnapshot();
   });
