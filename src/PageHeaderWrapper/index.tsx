@@ -52,6 +52,31 @@ const renderFooter: React.SFC<PageHeaderWrapperProps> = ({
   ) : null;
 };
 
+const renderPageHeader = (
+  content: React.ReactNode,
+  extraContent: React.ReactNode,
+): React.ReactNode => {
+  if (!content && !extraContent) {
+    return null;
+  }
+  return (
+    <div className={`${prefixedClassName}-detail`}>
+      <div className={`${prefixedClassName}-main`}>
+        <div className={`${prefixedClassName}-row`}>
+          {content && (
+            <div className={`${prefixedClassName}-content`}>{content}</div>
+          )}
+          {extraContent && (
+            <div className={`${prefixedClassName}-extraContent`}>
+              {extraContent}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const PageHeaderWrapper: React.SFC<PageHeaderWrapperProps> = ({
   children,
   title,
@@ -79,22 +104,7 @@ const PageHeaderWrapper: React.SFC<PageHeaderWrapperProps> = ({
               {...restProps}
               footer={renderFooter(restProps)}
             >
-              <div className={`${prefixedClassName}-detail`}>
-                <div className={`${prefixedClassName}-main`}>
-                  <div className={`${prefixedClassName}-row`}>
-                    {content && (
-                      <div className={`${prefixedClassName}-content`}>
-                        {content}
-                      </div>
-                    )}
-                    {extraContent && (
-                      <div className={`${prefixedClassName}-extraContent`}>
-                        {extraContent}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
+              {renderPageHeader(content, extraContent)}
             </PageHeader>
           </GridContent>
         </div>
