@@ -34,15 +34,15 @@ render(<BasicLayout />, document.getElementById('root'));
 | --- | --- | --- | --- |
 | title | layout 的 左上角 的 title | ReactNode | `'Ant Design Pro'` |
 | logo | layout 的 左上角 logo 的 url | ReactNode \| ()=>ReactNode | - |
-| layout | layout 的菜单模式,sidemenu：右侧导航，topmenu：顶部导航 | 'sidemenu' \| 'topmenu' | `sidemenu'` |
-| contentWidth | layout 的内容模式,Fluid：定宽 1200px，Fixed：自适应 | 'Fluid' \| 'Fixed' | `Fluid'` |
-| navTheme | 导航的主题 | 'light' \| 'dark' | `dark` |
+| layout | layout 的菜单模式,sidemenu：右侧导航，topmenu：顶部导航 | 'sidemenu' \| 'topmenu' | `'sidemenu'` |
+| contentWidth | layout 的内容模式,Fluid：定宽 1200px，Fixed：自适应 | 'Fluid' \| 'Fixed' | `'Fluid'` |
+| navTheme | 导航的主题 | 'light' \| 'dark' | `'dark'` |
 | fixedHeader | 是否固定 header 到顶部 | boolean | `false` |
 | fixSiderbar | 是否固定导航 | boolean | `false` |
 | autoHideHeader | 是否下滑时自动隐藏 header | boolean' | `false` |
 | menu | 关于 menu 的配置，暂时只有 locale,locale 可以关闭 menu 的自带的全球化 | { locale: boolean } | `{ locale: true }` |
 | iconfontUrl | 使用 [IconFont](https://ant.design/components/icon-cn/#components-icon-demo-iconfont) 的图标配置 | string | - |
-| locale | 当前 layout 的语言设置 | 'zh-CN' \| 'zh-TW' \| 'en-US'` | navigator.language |
+| locale | 当前 layout 的语言设置 | 'zh-CN' \| 'zh-TW' \| 'en-US' | navigator.language |
 | settings | layout 的设置 | [`Settings`](#Settings) | [`Settings`](#Settings) | - |
 | siderWidth | 侧边菜单宽度 | number | 256 |
 | collapsed | 控制菜单的收起和展开 | boolean | true |
@@ -76,7 +76,7 @@ export interface Settings {
   /**
    * theme for nav menu
    */
-  navTheme: 'light' | 'dark';;
+  navTheme: 'light' | 'dark';
   /**
    * primary color of ant design
    */
