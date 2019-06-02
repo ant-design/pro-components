@@ -1,4 +1,4 @@
-import { PageHeader, Tabs, Typography } from 'antd';
+import { PageHeader, Tabs } from 'antd';
 import React from 'react';
 import { TabsProps } from 'antd/lib/tabs';
 import './index.less';
@@ -91,16 +91,7 @@ const PageHeaderWrapper: React.SFC<PageHeaderWrapperProps> = ({
           <GridContent>
             <PageHeader
               {...value}
-              title={
-                <Typography.Title
-                  level={4}
-                  style={{
-                    margin: 0,
-                  }}
-                >
-                  {title || value.title}
-                </Typography.Title>
-              }
+              title={title || value.title}
               {...restProps}
               footer={renderFooter(restProps)}
             >
