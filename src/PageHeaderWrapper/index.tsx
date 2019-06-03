@@ -19,6 +19,7 @@ interface PageHeaderWrapperProps extends PageHeaderTabConfig {
   content?: React.ReactNode;
   title?: React.ReactNode;
   extraContent?: React.ReactNode;
+  pageHeaderRender?: (props: PageHeaderWrapperProps) => React.ReactNode;
 }
 
 const prefixedClassName = 'ant-pro-page-header-wrap';
@@ -77,38 +78,51 @@ const renderPageHeader = (
   );
 };
 
-const PageHeaderWrapper: React.SFC<PageHeaderWrapperProps> = ({
-  children,
-  title,
-  content,
-  extraContent,
-  ...restProps
-}) => (
-  <RouteContext.Consumer>
-    {value => (
-      <div style={{ margin: '-24px -24px 0' }}>
-        <div className={`${prefixedClassName}-page-header-warp`}>
-          <GridContent>
-            <PageHeader
-              {...value}
-              title={title || value.title}
-              {...restProps}
-              footer={renderFooter(restProps)}
-            >
-              {renderPageHeader(content, extraContent)}
-            </PageHeader>
-          </GridContent>
-        </div>
-        {children ? (
-          <GridContent>
-            <div className={`${prefixedClassName}-children-content`}>
-              {children}
-            </div>
-          </GridContent>
-        ) : null}
+const defaultPageHeaderRender = (
+  props: PageHeaderWrapperProps,
+): React.ReactNode => {
+  const {
+    title,
+    content,
+    pageHeaderRender,
+    extraContent,
+    ...restProps
+  } = props;
+  if (pageHeaderRender) {
+    return pageHeaderRender(props);
+  }
+  return (
+    <RouteContext.Consumer>
+      {value => (
+        <PageHeader
+          {...value}
+          title={title || value.title}
+          {...restProps}
+          footer={renderFooter(restProps)}
+        >
+          {renderPageHeader(content, extraContent)}
+        </PageHeader>
+      )}
+    </RouteContext.Consumer>
+  );
+};
+
+const PageHeaderWrapper: React.SFC<PageHeaderWrapperProps> = props => {
+  const { children } = props;
+  return (
+    <div style={{ margin: '-24px -24px 0' }}>
+      <div className={`${prefixedClassName}-page-header-warp`}>
+        <GridContent>{defaultPageHeaderRender(props)}</GridContent>
       </div>
-    )}
-  </RouteContext.Consumer>
-);
+      {children ? (
+        <GridContent>
+          <div className={`${prefixedClassName}-children-content`}>
+            {children}
+          </div>
+        </GridContent>
+      ) : null}
+    </div>
+  );
+};
 
 export default PageHeaderWrapper;
