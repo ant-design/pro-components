@@ -48,6 +48,7 @@ let IconFont = Icon.createFromIconfontCN({
 //   icon: 'setting',
 //   icon: 'icon-geren' #For Iconfont ,
 //   icon: 'http://demo.com/icon.png',
+//   icon: '/favicon.png',
 //   icon: <Icon type="setting" />,
 const getIcon = (icon?: string | React.ReactNode): React.ReactNode => {
   if (typeof icon === 'string') {
