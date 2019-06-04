@@ -88,21 +88,24 @@ const defaultPageHeaderRender = (
     extraContent,
     ...restProps
   } = props;
-  if (pageHeaderRender) {
-    return pageHeaderRender(props);
-  }
+
   return (
     <RouteContext.Consumer>
-      {value => (
-        <PageHeader
-          {...value}
-          title={title || value.title}
-          {...restProps}
-          footer={renderFooter(restProps)}
-        >
-          {renderPageHeader(content, extraContent)}
-        </PageHeader>
-      )}
+      {value => {
+        if (pageHeaderRender) {
+          return pageHeaderRender({ ...props, ...value });
+        }
+        return (
+          <PageHeader
+            {...value}
+            title={title || value.title}
+            {...restProps}
+            footer={renderFooter(restProps)}
+          >
+            {renderPageHeader(content, extraContent)}
+          </PageHeader>
+        );
+      }}
     </RouteContext.Consumer>
   );
 };
