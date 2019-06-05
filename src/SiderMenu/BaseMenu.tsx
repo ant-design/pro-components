@@ -56,12 +56,7 @@ const getIcon = (icon?: string | React.ReactNode): React.ReactNode => {
       return (
         <Icon
           component={() => (
-            <img
-              src={icon}
-              alt="icon"
-              style={{ width: '14px', verticalAlign: 'baseline' }}
-              className="ant-pro-sider-menu-icon"
-            />
+            <img src={icon} alt="icon" className="ant-pro-sider-menu-icon" />
           )}
         />
       );
