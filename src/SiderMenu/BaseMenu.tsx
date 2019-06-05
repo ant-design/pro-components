@@ -60,7 +60,7 @@ const getIcon = (icon?: string | React.ReactNode): React.ReactNode => {
               src={icon}
               alt="icon"
               style={{ width: '14px', verticalAlign: 'baseline' }}
-              className="@{ant-prefix}-pro-sider-menu-icon"
+              className="ant-pro-sider-menu-icon"
             />
           )}
         />
