@@ -21,7 +21,7 @@ export interface BreadcrumbProps {
 
 // 渲染Breadcrumb 子节点
 // Render the Breadcrumb child node
-const defualtItemRender: AntdBreadcrumbProps['itemRender'] = route => {
+const defaultItemRender: AntdBreadcrumbProps['itemRender'] = route => {
   return <a>{route.breadcrumbName}</a>;
 };
 
@@ -156,7 +156,7 @@ export const getBreadcrumbProps = (
 ): BreadcrumbListReturn => {
   const { breadcrumbRender, itemRender: propsItemRender } = props;
   const routes = genBreadcrumbProps(props);
-  const itemRender = propsItemRender || defualtItemRender;
+  const itemRender = propsItemRender || defaultItemRender;
   if (breadcrumbRender) {
     return {
       routes: breadcrumbRender(routes),

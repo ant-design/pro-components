@@ -70,12 +70,11 @@ export default class TopNavHeader extends Component<
               </a>
             </div>
           </div>
-          <div style={{ maxWidth, flex: 1 }}>
-            <BaseMenu
-              {...this.props}
-              flatMenuKeys={flatMenuKeys}
-              className={`${baseClassName}-menu`}
-            />
+          <div
+            style={{ maxWidth, flex: 1 }}
+            className={`${baseClassName}-menu`}
+          >
+            <BaseMenu {...this.props} flatMenuKeys={flatMenuKeys} />
           </div>
           {rightContentRender &&
             rightContentRender({
