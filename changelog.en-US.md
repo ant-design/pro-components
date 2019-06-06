@@ -1,5 +1,10 @@
 # changelog
 
+### 4.5.2
+
+- 🌟 Modify the introduction of `antd/lib` to `antd/es`
+- 🐞 Fixed a problem where `css` was too low to be covered by the `antd` style.
+
 ### 4.5.1
 
 - 🌟 PageHeaderWrapper supports content customization through pageHeaderRender.
