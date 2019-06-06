@@ -115,6 +115,7 @@ const conversionFromLocation = (
         ? {
             path: url,
             breadcrumbName: name,
+            component: currentBreadcrumb.component,
           }
         : { path: '', breadcrumbName: '' };
     })
