@@ -1,7 +1,7 @@
 import './BasicLayout.less';
 
 import React, { useState } from 'react';
-import { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/lib/breadcrumb';
+import { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/es/breadcrumb';
 import { ContainerQuery } from 'react-container-query';
 import DocumentTitle from 'react-document-title';
 import { Layout } from 'antd';

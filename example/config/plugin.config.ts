@@ -25,7 +25,10 @@ function getModulePackageName(module) {
 
 export default config => {
   // pro 和 开发环境再添加这个插件
-  if (process.env.APP_TYPE === 'site' || process.env.NODE_ENV !== 'production') {
+  if (
+    process.env.APP_TYPE === 'site' ||
+    process.env.NODE_ENV !== 'production'
+  ) {
     // 将所有 less 合并为一个供 themePlugin使用
     const outFile = path.join(__dirname, '../.temp/ant-design-pro.less');
     const stylesDir = path.join(__dirname, '../src/');
@@ -41,11 +44,15 @@ export default config => {
       {
         antDir: path.join(__dirname, '../node_modules/antd'),
         stylesDir,
-        varFile: path.join(__dirname, '../node_modules/antd/lib/style/themes/default.less'),
+        varFile: path.join(
+          __dirname,
+          '../node_modules/antd/es/style/themes/default.less',
+        ),
         mainLessFile: outFile, //     themeVariables: ['@primary-color'],
         indexFileName: 'index.html',
         generateOne: true,
-        lessUrl: 'https://gw.alipayobjects.com/os/lib/less.js/3.8.1/less.min.js',
+        lessUrl:
+          'https://gw.alipayobjects.com/os/lib/less.js/3.8.1/less.min.js',
       },
     ]);
   }

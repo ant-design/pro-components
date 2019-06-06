@@ -1,6 +1,6 @@
 import { PageHeader, Tabs } from 'antd';
 import React from 'react';
-import { TabsProps } from 'antd/lib/tabs';
+import { TabsProps } from 'antd/es/tabs';
 import './index.less';
 import GridContent from '../GridContent';
 import RouteContext from '../RouteContext';

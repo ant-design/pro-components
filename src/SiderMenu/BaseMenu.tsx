@@ -3,7 +3,7 @@ import './index.less';
 import { Icon, Menu } from 'antd';
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import { MenuMode, MenuTheme } from 'antd/lib/menu';
+import { MenuMode, MenuTheme } from 'antd/es/menu';
 import defaultSettings, { Settings } from '../defaultSettings';
 import { getMenuMatches } from './SiderMenuUtils';
 import { isUrl } from '../utils/utils';
