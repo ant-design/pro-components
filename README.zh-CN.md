@@ -79,7 +79,7 @@ PageHeaderWrapper 封装了 ant design 的 PageHeader 组件，增加了 tabList
 
 ### GridContent
 
-GridContent 封装了 [等宽](https://preview.pro.ant.design/dashboard/analysis?layout=topmenu&contentWidth=Fixed)和[流式](https://preview.pro.ant.design/dashboard/analysis?layout=topmenu) 的逻辑。你可以在 [preview](https://preview.pro.ant.design/dashboard/analysis) 中查看预览效果。
+GridContent 封装了 [等宽](https://preview.pro.ant.design/dashboard/analysis?layout=topmenu&contentWidth=Fixed)和 [流式](https://preview.pro.ant.design/dashboard/analysis?layout=topmenu) 的逻辑。你可以在 [preview](https://preview.pro.ant.design/dashboard/analysis) 中查看预览效果。
 
 | 参数         | 说明     | 类型                | 默认值 |
 | ------------ | -------- | ------------------- | ------ |
