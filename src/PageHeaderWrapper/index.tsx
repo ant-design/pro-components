@@ -1,9 +1,11 @@
 import { PageHeader, Tabs } from 'antd';
 import React from 'react';
 import { TabsProps } from 'antd/es/tabs';
+import { PageHeaderProps } from 'antd/es/page-header';
 import './index.less';
 import GridContent from '../GridContent';
 import RouteContext from '../RouteContext';
+import { Omit } from '../typings';
 
 interface PageHeaderTabConfig {
   tabList?: {
@@ -15,9 +17,8 @@ interface PageHeaderTabConfig {
   tabBarExtraContent?: TabsProps['tabBarExtraContent'];
 }
 
-interface PageHeaderWrapperProps extends PageHeaderTabConfig {
+interface PageHeaderWrapperProps extends PageHeaderTabConfig, PageHeaderProps {
   content?: React.ReactNode;
-  title?: React.ReactNode;
   extraContent?: React.ReactNode;
   pageHeaderRender?: (props: PageHeaderWrapperProps) => React.ReactNode;
 }
@@ -29,7 +30,7 @@ const prefixedClassName = 'ant-pro-page-header-wrap';
  * In order to be compatible with the old version of the PageHeader
  * basically all the functions are implemented.
  */
-const renderFooter: React.SFC<PageHeaderWrapperProps> = ({
+const renderFooter: React.SFC<Omit<PageHeaderWrapperProps, 'title'>> = ({
   tabList,
   tabActiveKey,
   onTabChange,

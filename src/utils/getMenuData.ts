@@ -1,7 +1,6 @@
 import isEqual from 'lodash/isEqual';
 import memoizeOne from 'memoize-one';
-import { MenuDataItem, Route } from '../typings';
-import { BasicLayoutProps } from '../BasicLayout';
+import { MenuDataItem, Route, MessageDescriptor } from '../typings';
 
 import { Settings } from '../defaultSettings';
 
@@ -12,6 +11,7 @@ interface FormatterProps {
   parentName?: string;
   authority?: string[] | string;
 }
+
 // Conversion router to menu.
 function formatter(props: FormatterProps): MenuDataItem[] {
   const { data, menu, formatMessage, authority, parentName } = props;
@@ -103,8 +103,12 @@ const memoizeOneGetBreadcrumbNameMap = memoizeOne(
   isEqual,
 );
 
-export default (routes: Route[], props: BasicLayoutProps) => {
-  const { formatMessage, menu, menuDataRender } = props;
+export default (
+  routes: Route[],
+  menu?: { locale: boolean },
+  formatMessage?: (message: MessageDescriptor) => string,
+  menuDataRender?: (menuData: MenuDataItem[]) => MenuDataItem[],
+) => {
   let originalMenuData = memoizeOneFormatter({
     data: routes,
     formatMessage,

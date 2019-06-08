@@ -69,6 +69,50 @@ import { SettingDrawer } from '@ant-design/pro-layout';
 | settings | layout settings | [`Settings`](#Settings) | [`Settings`](#Settings) | - |
 | onSettingChange | The setting changes event | (settings: [Settings](#Settings)) => void | - |
 
+### PageHeaderWrapper
+
+PageHeaderWrapper encapsulates the PageHeader component of ant design, adds tabList, and content. Fill in the title and breadcrumb based on the current route. It depends on the route property of the Layout. Of course you can pass in parameters to override the default values. PageHeaderWrapper supports all the attributes of [Tabs](https://ant.design/components/tabs-cn/) and [PageHeader](https://ant.design/components/page-header-cn/).
+
+| Property | Description | Type | Default Value |
+| --- | --- | --- | --- |
+| content | Content area | ReactNode | - |
+| extraContent | Extra content area, on the right side of content | ReactNode | - |
+| tabList | Tabs title list | `Array<{key: string, tab: ReactNode}>` | - |
+| tabActiveKey | The currently highlighted tab item | string | - |
+| onTabChange | Switch panel callback | `(key) => void` | - |
+| tabBarExtraContent | Extra elements on the tab bar | React.ReactNode | 无 |
+
+### GridContent
+
+GridContent encapsulates [equal width](https://preview.pro.ant.design/dashboard/analysis?layout=topmenu&contentWidth=Fixed) and [streaming](https://preview.pro.ant.design/dashboard/) The logic of analysis?layout=topmenu). You can see the preview in [preview](https://preview.pro.ant.design/dashboard/analysis).
+
+| Property     | Description  | Type                | Default Value |
+| ------------ | ------------ | ------------------- | ------------- |
+| contentWidth | Content mode | `'Fluid' | 'Fixed'` | -             |
+
+### getMenuData
+
+Generate menuData and breadcrumb based on the router information.
+
+| Property | Description | Type | Default Value |
+| --- | --- | --- | --- |
+| routes | Routing configuration information | [route[]](#Route) | - |
+| menu | Menu configuration item, default `{locale: true}` | `{ locale: boolean }` | - |
+| menuDataRender | The render method of menuData, with the definition of menuData | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
+| formatMessage | The formatMessage method of react-intl | `(data: { id: any; defaultMessage?: string }) => string;` | - |
+
+### getPageTitle
+
+getPageTitle encapsulates the logic based on the title generated on menuData.
+
+| Property | Description | Type | Default Value |
+| --- | --- | --- | --- |
+| pathname | Current pathname | location.pathname | - |
+| breadcrumb | Collection of MenuDataItem | `{ [path: string]: MenuDataItem }` | - |
+| menu | Menu configuration item, default `{locale: true}` | `{ locale: boolean }` | - |
+| title | Type of title | string | 'Ant Design Pro' |
+| formatMessage | The formatMessage method of react-intl | `(data: { id: any; defaultMessage?: string }) => string;` | - |
+
 ## Data Structure
 
 > For ease of viewing and use, Typescript is used here to write.

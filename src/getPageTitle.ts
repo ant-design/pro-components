@@ -32,7 +32,7 @@ const getPageTitle = (props: GetPageTitleProps): string => {
     pathname,
     breadcrumb,
     formatMessage,
-    title = '',
+    title = 'Ant Design Pro',
     menu = {
       locale: false,
     },
