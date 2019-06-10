@@ -86,6 +86,7 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
 
   onLanguageChange = (): void => {
     const language = getLanguage();
+    console.log(language);
     if (language !== this.state.language) {
       this.setState({
         language,

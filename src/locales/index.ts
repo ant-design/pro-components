@@ -4,13 +4,18 @@ import zhTWLocal from './zh-TW';
 
 const locales = { 'zh-CN': zhLocal, 'zh-TW': zhTWLocal, 'en-US': enTWLocal };
 
+interface GLocaleWindow {
+  g_locale: keyof typeof locales;
+}
+
 export type localeType = keyof typeof locales;
 
 const getLanguage = (): string => {
+  const lang = window.localStorage.getItem('umi_locale');
   return (
-    ((window as unknown) as {
-      g_locale: keyof typeof locales;
-    }).g_locale || navigator.language
+    lang ||
+    ((window as unknown) as GLocaleWindow).g_locale ||
+    navigator.language
   );
 };
 
