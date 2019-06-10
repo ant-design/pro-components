@@ -89,6 +89,17 @@ GridContent 封装了 [等宽](https://preview.pro.ant.design/dashboard/analysis
 
 根据 router 信息来生成 menuData 和 breadcrumb。
 
+```js
+import { getMenuData } from '@ant-design/pro-layout';
+
+const { breadcrumb, menuData } = getMenuData(
+  routes,
+  menu,
+  formatMessage,
+  menuDataRender,
+);
+```
+
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | routes | 路由的配置信息 | [route[]](#Route) | - |
@@ -99,6 +110,18 @@ GridContent 封装了 [等宽](https://preview.pro.ant.design/dashboard/analysis
 ### getPageTitle
 
 getPageTitle 封装了根据 menuData 上生成的 title 的逻辑。
+
+```js
+import { getPageTitle } from '@ant-design/pro-layout';
+
+const title = getPageTitle({
+  pathname,
+  breadcrumb,
+  menu,
+  title,
+  formatMessage,
+});
+```
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |

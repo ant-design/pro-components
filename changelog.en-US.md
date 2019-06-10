@@ -1,5 +1,9 @@
 # changelog
 
+### 4.5.3
+
+- 🌟 SettingDrawer get lang form localStorage.
+
 ### 4.5.2
 
 - 🌟 Modify the introduction of `antd/lib` to `antd/es`

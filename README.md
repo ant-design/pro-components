@@ -94,6 +94,17 @@ GridContent encapsulates [equal width](https://preview.pro.ant.design/dashboard/
 
 Generate menuData and breadcrumb based on the router information.
 
+```js
+import { getMenuData } from '@ant-design/pro-layout';
+
+const { breadcrumb, menuData } = getMenuData(
+  routes,
+  menu,
+  formatMessage,
+  menuDataRender,
+);
+```
+
 | Property | Description | Type | Default Value |
 | --- | --- | --- | --- |
 | routes | Routing configuration information | [route[]](#Route) | - |
@@ -102,6 +113,18 @@ Generate menuData and breadcrumb based on the router information.
 | formatMessage | The formatMessage method of react-intl | `(data: { id: any; defaultMessage?: string }) => string;` | - |
 
 ### getPageTitle
+
+```js
+import { getPageTitle } from '@ant-design/pro-layout';
+
+const title = getPageTitle({
+  pathname,
+  breadcrumb,
+  menu,
+  title,
+  formatMessage,
+});
+```
 
 getPageTitle encapsulates the logic based on the title generated on menuData.
 

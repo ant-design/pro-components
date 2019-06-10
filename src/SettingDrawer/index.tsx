@@ -106,7 +106,7 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
           defaultMessage: 'Content Width',
         }),
         action: (
-          <Select
+          <Select<string>
             value={contentWidth}
             size="small"
             onSelect={value => this.changeSetting('contentWidth', value)}
