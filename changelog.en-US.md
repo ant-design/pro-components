@@ -1,5 +1,9 @@
 # changelog
 
+### 4.5.4
+
+- 🐞 Fixed PageHeaderWrapper type error.
+
 ### 4.5.3
 
 - 🌟 SettingDrawer get lang form localStorage.

@@ -17,7 +17,10 @@ interface PageHeaderTabConfig {
   tabBarExtraContent?: TabsProps['tabBarExtraContent'];
 }
 
-interface PageHeaderWrapperProps extends PageHeaderTabConfig, PageHeaderProps {
+interface PageHeaderWrapperProps
+  extends PageHeaderTabConfig,
+    Omit<PageHeaderProps, 'title'> {
+  title?: React.ReactNode;
   content?: React.ReactNode;
   extraContent?: React.ReactNode;
   pageHeaderRender?: (props: PageHeaderWrapperProps) => React.ReactNode;
