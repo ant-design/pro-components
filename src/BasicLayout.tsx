@@ -284,6 +284,8 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
                       breadcrumb: breadcrumbProps,
                       ...props,
                       menuData,
+                      isMobile,
+                      collapsed,
                       title: pageTitle.split('-')[0],
                     }}
                   >

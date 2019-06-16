@@ -6,6 +6,8 @@ import { MenuDataItem } from './typings';
 interface RouteContextType extends Partial<Settings> {
   breadcrumb?: BreadcrumbListReturn;
   menuData?: MenuDataItem[];
+  isMobile?: boolean;
+  collapsed?: boolean;
 }
 
 const routeContext: React.Context<RouteContextType> = createContext({});
