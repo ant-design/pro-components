@@ -22,7 +22,7 @@
     "lint:prettier": "check-prettier lint",
     "lint:style": "stylelint --fix  'src/**/*.less'  --syntax less",
     "prepublishOnly": "umi-lib build",
-    "prettier": "node ./scripts/prettier.js",
+    "prettier": "prettier -c --write **/*",
     "start": "cd ./example && cross-env APP_TYPE=site umi dev",
     "test": "umi test"
   },
@@ -33,11 +33,12 @@
   },
   "lint-staged": {
     "**/*.less": "stylelint --syntax less",
-    "**/*.{js,ts,tsx,json,jsx,less}": [
-      "node ./scripts/lint-prettier.js",
+    "**/*.{js,jsx,tsx,ts,less,md,json}": [
+      "prettier --write",
       "git add"
     ],
-    "**/*.{js,ts,tsx,jsx}": "npm run lint-staged:js"
+    "**/*.{js,jsx}": "npm run lint-staged:js",
+    "**/*.{js,ts,tsx}": "npm run lint-staged:js"
   },
   "browserslist": [
     "> 1%",
@@ -77,6 +78,7 @@
     "@types/react-intl": "^2.3.17",
     "@types/react-router-dom": "^4.3.2",
     "@typescript-eslint/eslint-plugin": "^1.9.0",
+    "@umijs/fabric": "^1.0.6",
     "babel-eslint": "^10.0.1",
     "babel-plugin-import": "^1.12.0",
     "chalk": "^2.4.2",

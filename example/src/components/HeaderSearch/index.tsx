@@ -24,7 +24,10 @@ interface HeaderSearchState {
   searchMode: boolean;
 }
 
-export default class HeaderSearch extends Component<HeaderSearchProps, HeaderSearchState> {
+export default class HeaderSearch extends Component<
+  HeaderSearchProps,
+  HeaderSearchState
+> {
   static defaultProps = {
     defaultActiveFirstOption: false,
     onPressEnter: () => {},

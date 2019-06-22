@@ -11,7 +11,11 @@ export const dva = {
 
 let authRoutes = {};
 
-function ergodicRoutes(routes: IRoute[], authKey: string, authority: string | string[]) {
+function ergodicRoutes(
+  routes: IRoute[],
+  authKey: string,
+  authority: string | string[],
+) {
   routes.forEach(element => {
     if (element.path === authKey) {
       if (!element.authority) element.authority = []; // eslint-disable-line
