@@ -31,8 +31,7 @@ export default class TopNavHeader extends Component<
           ? 1200
           : window.innerWidth) -
         280 -
-        120 -
-        40,
+        120
     };
   }
 
