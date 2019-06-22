@@ -11,6 +11,9 @@ import { urlToList } from '../utils/pathTools';
 export const getFlatMenuKeys = (menuData: MenuDataItem[] = []): string[] => {
   let keys: string[] = [];
   menuData.forEach(item => {
+    if (!item) {
+      return;
+    }
     keys.push(item.path);
     if (item.children) {
       keys = keys.concat(getFlatMenuKeys(item.children));

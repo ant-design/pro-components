@@ -53,6 +53,7 @@ render(<ProLayout />, document.getElementById('root'));
 | footerRender | custom footer render method | (props: BasicLayoutProps) => ReactNode | - |
 | pageTitleRender | custom page title render method | (props: BasicLayoutProps) => ReactNode | - |
 | menuRender | custom menu render method | (props: HeaderViewProps) => ReactNode | - |
+| menuDataRender | The render method of menuData, with the definition of menuData | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
 | menuItemRender | the render method of a custom menu item | [(itemProps: MenuDataItem) => ReactNode](#MenuDataItem) | - |
 | route | Used to assist in the generation of menu and bread crumbs. Umi will automatically bring | [route](#Route) | - |
 

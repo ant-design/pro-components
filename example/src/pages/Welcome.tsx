@@ -1,37 +1,15 @@
 import React from 'react';
-import {
-  RouteContext,
-  GridContent,
-  PageHeaderWrapper,
-} from '../../../src/index';
 
-const Welcome = () => (
-  <RouteContext.Consumer>
-    {value => {
-      return (
-        <PageHeaderWrapper {...value}>
-          <GridContent>
-            <div
-              style={{
-                height: '1200px',
-              }}
-            >
-              <p style={{ textAlign: 'center' }}>
-                想要添加更多页面？请参考{' '}
-                <a
-                  href="https://umijs.org/guide/block.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  umi 区块
-                </a>
-                。
-              </p>
-            </div>
-          </GridContent>
-        </PageHeaderWrapper>
-      );
-    }}
-  </RouteContext.Consumer>
+export default (): React.ReactNode => (
+  <p style={{ textAlign: 'center' }}>
+    Want to add more pages? Please refer to{' '}
+    <a
+      href="https://pro.ant.design/docs/block-cn"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      use block
+    </a>
+    。
+  </p>
 );
-export default Welcome;

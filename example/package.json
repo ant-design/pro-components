@@ -6,7 +6,7 @@
   "scripts": {
     "analyze": "cross-env ANALYZE=1 umi build",
     "build": "umi build && npm run functions:build",
-    "dev": "cross-env APP_TYPE=site umi dev"
+    "dev": "umi dev"
   },
   "dependencies": {
     "@ant-design/dark-theme": "^0.2.0",

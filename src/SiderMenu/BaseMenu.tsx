@@ -110,12 +110,11 @@ export default class BaseMenu extends Component<BaseMenuProps> {
   /**
    * 获得菜单子节点
    */
-  getNavMenuItems = (menusData: MenuDataItem[] = []): React.ReactNode[] => {
-    return menusData
+  getNavMenuItems = (menusData: MenuDataItem[] = []): React.ReactNode[] =>
+    menusData
       .filter(item => item.name && !item.hideInMenu)
       .map(item => this.getSubMenuOrItem(item))
       .filter(item => item);
-  };
 
   // Get the currently selected menu
   getSelectedMenuKeys = (pathname: string): string[] => {
@@ -132,7 +131,7 @@ export default class BaseMenu extends Component<BaseMenuProps> {
     if (
       Array.isArray(item.children) &&
       !item.hideChildrenInMenu &&
-      item.children.some(child => !!child.name)
+      item.children.some(child => child && !!child.name)
     ) {
       const name = this.getIntlName(item);
       return (
