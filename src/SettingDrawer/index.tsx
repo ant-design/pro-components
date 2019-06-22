@@ -19,6 +19,7 @@ import defaultSettings, { Settings } from '../defaultSettings';
 import BlockCheckbox from './BlockCheckbox';
 import ThemeColor from './ThemeColor';
 import getLocales, { getLanguage } from '../locales';
+import { isBrowser } from '../utils/utils';
 
 const { Option } = Select;
 interface BodyProps {
@@ -75,18 +76,22 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
   }
 
   componentDidMount(): void {
-    window.addEventListener('languagechange', this.onLanguageChange, {
-      passive: true,
-    });
+    if (isBrowser()) {
+      window.addEventListener('languagechange', this.onLanguageChange, {
+        passive: true,
+      });
+    }
   }
 
   componentWillUnmount(): void {
-    window.removeEventListener('languagechange', this.onLanguageChange);
+    if (isBrowser()) {
+      window.removeEventListener('languagechange', this.onLanguageChange);
+    }
   }
 
   onLanguageChange = (): void => {
     const language = getLanguage();
-    console.log(language);
+
     if (language !== this.state.language) {
       this.setState({
         language,

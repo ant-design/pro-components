@@ -4,3 +4,5 @@ const reg = /(((^https?:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+(?::\d+)?|(
 export function isUrl(path: string): boolean {
   return reg.test(path) || path.indexOf('/') === 0;
 }
+
+export const isBrowser = () => typeof window !== 'undefined';

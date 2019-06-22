@@ -6,6 +6,7 @@ import { Icon } from 'antd';
 import debounce from 'lodash/debounce';
 import { HeaderViewProps } from '../Header';
 import { defaultRenderLogo } from '../SiderMenu/SiderMenu';
+import { isBrowser } from '../utils/utils';
 
 export interface GlobalHeaderProps {
   collapsed?: boolean;
@@ -19,7 +20,9 @@ export default class GlobalHeader extends Component<GlobalHeaderProps> {
   triggerResizeEvent = debounce(() => {
     const event = document.createEvent('HTMLEvents');
     event.initEvent('resize', true, false);
-    window.dispatchEvent(event);
+    if (isBrowser()) {
+      window.dispatchEvent(event);
+    }
   });
 
   componentWillUnmount(): void {

@@ -1,6 +1,7 @@
 import enTWLocal from './en-US';
 import zhLocal from './zh-CN';
 import zhTWLocal from './zh-TW';
+import { isBrowser } from '../utils/utils';
 
 const locales = { 'zh-CN': zhLocal, 'zh-TW': zhTWLocal, 'en-US': enTWLocal };
 
@@ -11,7 +12,11 @@ interface GLocaleWindow {
 export type localeType = keyof typeof locales;
 
 const getLanguage = (): string => {
-  const lang = window.localStorage.getItem('umi_locale');
+  // support ssr
+  const lang = undefined;
+  if (isBrowser()) {
+    window.localStorage.getItem('umi_locale');
+  }
   return (
     lang ||
     ((window as unknown) as GLocaleWindow).g_locale ||

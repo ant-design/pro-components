@@ -6,6 +6,7 @@ import { SiderMenuProps, defaultRenderLogo } from '../SiderMenu/SiderMenu';
 import BaseMenu from '../SiderMenu/BaseMenu';
 import { HeaderViewProps } from '../Header';
 import { getFlatMenuKeys } from '../SiderMenu/SiderMenuUtils';
+import { isBrowser } from '../utils/utils';
 
 export interface TopNavHeaderProps extends SiderMenuProps {
   logo?: React.ReactNode;
@@ -25,13 +26,12 @@ export default class TopNavHeader extends Component<
     props: TopNavHeaderProps,
   ): TopNavHeaderState | null {
     const { contentWidth } = props;
+    const innerWidth = isBrowser() ? window.innerWidth : 0;
     return {
       maxWidth:
-        (contentWidth === 'Fixed' && window.innerWidth > 1200
-          ? 1200
-          : window.innerWidth) -
+        (contentWidth === 'Fixed' && innerWidth > 1200 ? 1200 : innerWidth) -
         280 -
-        120
+        120,
     };
   }
 

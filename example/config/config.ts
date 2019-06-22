@@ -97,7 +97,7 @@ export default {
         context.resourcePath.includes('node_modules') ||
         context.resourcePath.includes('ant.design.pro.less') ||
         context.resourcePath.includes('global.less') ||
-        localName.includes('ant-pro')
+        !context.resourcePath.includes('example')
       ) {
         return localName;
       }

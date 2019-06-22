@@ -1,5 +1,3 @@
-import 'jsdom-global/register';
-
 import { mount, render } from 'enzyme';
 
 import React from 'react';
@@ -7,6 +5,14 @@ import SettingDrawer from '../src/SettingDrawer';
 import defaultSettings from './defaultSettings';
 
 describe('settingDrawer.test', () => {
+  beforeAll(() => {
+    Object.defineProperty(window, 'localStorage', {
+      value: {
+        getItem: jest.fn(() => 'zh-CN'),
+      },
+    });
+  });
+
   it('base user', () => {
     const html = render(
       <SettingDrawer

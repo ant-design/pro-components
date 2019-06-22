@@ -1,5 +1,3 @@
-import 'jsdom-global/register';
-
 import { render } from 'enzyme';
 
 import React from 'react';
