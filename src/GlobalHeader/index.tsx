@@ -7,14 +7,20 @@ import debounce from 'lodash/debounce';
 import { HeaderViewProps } from '../Header';
 import { defaultRenderLogo } from '../SiderMenu/SiderMenu';
 import { isBrowser } from '../utils/utils';
+import { WithFalse } from '../typings';
 
 export interface GlobalHeaderProps {
   collapsed?: boolean;
   onCollapse?: (collapsed: boolean) => void;
   isMobile?: boolean;
   logo?: React.ReactNode;
+  collapsedButtonRender?: WithFalse<(collapsed?: boolean) => React.ReactNode>;
   rightContentRender?: HeaderViewProps['rightContentRender'];
 }
+
+const defaultRenderCollapsedButton = (collapsed?: boolean) => (
+  <Icon type={collapsed ? 'menu-unfold' : 'menu-fold'} />
+);
 
 export default class GlobalHeader extends Component<GlobalHeaderProps> {
   triggerResizeEvent = debounce(() => {
@@ -36,7 +42,13 @@ export default class GlobalHeader extends Component<GlobalHeaderProps> {
   };
 
   render(): React.ReactNode {
-    const { collapsed, isMobile, logo, rightContentRender } = this.props;
+    const {
+      collapsed,
+      isMobile,
+      collapsedButtonRender = defaultRenderCollapsedButton,
+      logo,
+      rightContentRender,
+    } = this.props;
     return (
       <div className="ant-pro-global-header">
         {isMobile && (
@@ -44,9 +56,11 @@ export default class GlobalHeader extends Component<GlobalHeaderProps> {
             {defaultRenderLogo(logo)}
           </a>
         )}
-        <span className="ant-pro-global-header-trigger" onClick={this.toggle}>
-          <Icon type={collapsed ? 'menu-unfold' : 'menu-fold'} />
-        </span>
+        {collapsedButtonRender !== false && (
+          <span className="ant-pro-global-header-trigger" onClick={this.toggle}>
+            {collapsedButtonRender(collapsed)}
+          </span>
+        )}
         {rightContentRender && rightContentRender(this.props)}
       </div>
     );
