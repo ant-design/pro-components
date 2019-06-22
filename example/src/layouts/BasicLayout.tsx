@@ -1,69 +1,60 @@
-import { ConnectProps, ConnectState, MenuDataItem } from '../models/connect';
-import BasicLayout, {
-  BasicLayoutProps,
-  SettingDrawer,
+/**
+ * Ant Design Pro v4 use `@ant-design/pro-layout` to handle Layout.
+ * You can view component api by:
+ * https://github.com/ant-design/ant-design-pro-layout
+ */
+
+import ProLayout, {
+  MenuDataItem,
+  BasicLayoutProps as ProLayoutProps,
   Settings,
-} from '../../../src';
-import RightContent from '../components/GlobalHeader/RightContent';
-import { connect } from 'dva';
+  SettingDrawer,
+  PageHeaderWrapper,
+} from '../../../src/index';
 import React, { useState } from 'react';
-import router from 'umi/router';
-import logo from '../assets/logo.svg';
-import Authorized from '@/utils/Authorized';
+
 import Link from 'umi/link';
+import RightContent from '@/components/GlobalHeader/RightContent';
+import logo from '../assets/logo.svg';
 
-export interface BasicLayoutWrapperProps
-  extends ConnectProps,
-    BasicLayoutProps {
-  settings: Settings;
-}
-
-const BasicLayoutWrapper: React.FC<BasicLayoutWrapperProps> = props => {
-  const { dispatch, children } = props;
-  /**
-   * constructor
-   */
-  useState(() => {
-    dispatch!({ type: 'user/fetchCurrent' });
-    dispatch!({ type: 'setting/getSetting' });
-  });
-
-  const onSettingChange = (settings: Partial<Settings>) => {
-    dispatch!({
-      type: 'setting/changeSetting',
-      payload: settings,
-    });
+export interface BasicLayoutProps extends ProLayoutProps {
+  breadcrumbNameMap: {
+    [path: string]: MenuDataItem;
   };
+}
+export type BasicLayoutContext = { [K in 'location']: BasicLayoutProps[K] } & {
+  breadcrumbNameMap: {
+    [path: string]: MenuDataItem;
+  };
+};
+
+const BasicLayout: React.FC<BasicLayoutProps> = props => {
+  const [collapsed, handleMenuCollapse] = useState<boolean>(true);
+  const [settings, setSettings] = useState<Partial<Settings>>({});
+
   return (
     <>
-      <BasicLayout
-        logo={() => <img src={logo} onClick={() => router.push('/')} />}
-        {...props}
-        {...props.settings}
-        onCollapse={payload => {
-          dispatch!({ type: 'global/changeLayoutCollapsed', payload });
-        }}
-        menuDataRender={menuList => {
-          return menuList.map(item => {
-            return Authorized.check(item.authority, item, null) as MenuDataItem;
-          });
-        }}
-        itemRender={route => {
-          return <Link to={route.path}>{route.breadcrumbName}</Link>;
-        }}
-        menuItemRender={(props, defaultDom) => (
-          <Link to={props.path}>{defaultDom}</Link>
+      <ProLayout
+        logo={logo}
+        collapsed={collapsed}
+        onCollapse={handleMenuCollapse}
+        menuItemRender={(menuItemProps, defaultDom) => (
+          <Link to={menuItemProps.path}>{defaultDom}</Link>
         )}
-        rightContentRender={rightProps => <RightContent {...rightProps} />}
+        rightContentRender={rightProps => (
+          <RightContent {...rightProps} {...settings} />
+        )}
+        {...props}
+        {...settings}
       >
-        {children}
-      </BasicLayout>
-      <SettingDrawer {...props} onSettingChange={onSettingChange} />
+        <PageHeaderWrapper>{props.children}</PageHeaderWrapper>
+      </ProLayout>
+      <SettingDrawer
+        settings={settings}
+        onSettingChange={config => setSettings(config)}
+      />
     </>
   );
 };
 
-export default connect(({ global, setting }: ConnectState) => ({
-  collapsed: global.collapsed,
-  settings: setting,
-}))(BasicLayoutWrapper);
+export default BasicLayout;

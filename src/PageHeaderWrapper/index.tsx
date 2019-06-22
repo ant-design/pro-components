@@ -39,22 +39,25 @@ const renderFooter: React.SFC<Omit<PageHeaderWrapperProps, 'title'>> = ({
   onTabChange,
   tabBarExtraContent,
 }) => {
-  return tabList && tabList.length ? (
-    <Tabs
-      className={`${prefixedClassName}-tabs`}
-      activeKey={tabActiveKey}
-      onChange={key => {
-        if (onTabChange) {
-          onTabChange(key);
-        }
-      }}
-      tabBarExtraContent={tabBarExtraContent}
-    >
-      {tabList.map(item => (
-        <Tabs.TabPane tab={item.tab} key={item.key} />
-      ))}
-    </Tabs>
-  ) : null;
+  if (tabList && tabList.length) {
+    return (
+      <Tabs
+        className={`${prefixedClassName}-tabs`}
+        activeKey={tabActiveKey}
+        onChange={key => {
+          if (onTabChange) {
+            onTabChange(key);
+          }
+        }}
+        tabBarExtraContent={tabBarExtraContent}
+      >
+        {tabList.map(item => (
+          <Tabs.TabPane tab={item.tab} key={item.key} />
+        ))}
+      </Tabs>
+    );
+  }
+  return null;
 };
 
 const renderPageHeader = (

@@ -1,12 +1,5 @@
-// https://umijs.org/config/
-import os from 'os';
-import { IPlugin, IConfig } from 'umi-types';
-import defaultSettings from './defaultSettings';
-import webpackPlugin from './plugin.config';
-import dartConfig from '@ant-design/dark-theme';
-
-const { pwa, primaryColor } = defaultSettings;
-const { APP_TYPE, TEST } = process.env;
+import { IConfig, IPlugin } from 'umi-types';
+import slash from 'slash2';
 
 const plugins: IPlugin[] = [
   [
@@ -17,32 +10,18 @@ const plugins: IPlugin[] = [
         hmr: true,
       },
       locale: {
-        enable: true, // default false
-        default: 'zh-CN', // default zh-CN
-        baseNavigator: true, // default true, when it is true, will use `navigator.language` overwrite default
+        // default false
+        enable: true,
+        // default zh-CN
+        default: 'zh-CN',
+        // default true, when it is true, will use `navigator.language` overwrite default
+        baseNavigator: true,
       },
       dynamicImport: {
         loadingComponent: './components/PageLoading/index',
         webpackChunkName: true,
         level: 3,
       },
-      pwa: pwa
-        ? {
-            workboxPluginMode: 'InjectManifest',
-            workboxOptions: {
-              importWorkboxFrom: 'local',
-            },
-          }
-        : false,
-      ...(!TEST && os.platform() === 'darwin'
-        ? {
-            dll: {
-              include: ['dva', 'dva/router', 'dva/saga', 'dva/fetch'],
-              exclude: ['@babel/runtime', 'netlify-lambda'],
-            },
-            hardSource: false,
-          }
-        : {}),
     },
   ],
   [
@@ -54,34 +33,23 @@ const plugins: IPlugin[] = [
       autoAddMenu: true,
     },
   ],
-  // ...(!process.env.TEST && os.platform() === 'darwin'
-  //   ? {
-  //       dll: {
-  //         include: ['dva', 'dva/router', 'dva/saga', 'dva/fetch'],
-  //         exclude: ['@babel/runtime'],
-  //       },
-  //       hardSource: true,
-  //     }
-  //   : {}),
 ];
 
 export default {
-  // add for transfer to umi
   plugins,
-  define: {
-    APP_TYPE: APP_TYPE || '',
+  block: {
+    defaultGitUrl: 'https://github.com/ant-design/pro-blocks',
   },
-  treeShaking: true,
+  hash: true,
   targets: {
     ie: 11,
   },
-  // 路由配置
+  // umi routes: https://umijs.org/zh/guide/router.html
   routes: [
     {
       path: '/',
       component: '../layouts/BasicLayout',
       routes: [
-        // dashboard
         {
           path: '/',
           name: 'welcome',
@@ -104,30 +72,13 @@ export default {
             },
           ],
         },
-        // dashboard
-        {
-          path: '/welcome2',
-          name: 'two',
-          icon: 'file-protect',
-          authority: 'admin',
-          component: './Welcome',
-        },
       ],
     },
   ],
-  // Theme for antd
-  // https://ant.design/docs/react/customize-theme-cn
-  theme: {
-    'primary-color': primaryColor,
-    ...dartConfig,
+
+  define: {
+    ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION: 'site',
   },
-  // proxy: {
-  //   '/server/api/': {
-  //     target: 'https://preview.pro.ant.design/',
-  //     changeOrigin: true,
-  //     pathRewrite: { '^/server': '' },
-  //   },
-  // },
   ignoreMomentLocale: true,
   lessLoaderOptions: {
     javascriptEnabled: true,
@@ -139,30 +90,32 @@ export default {
       context: {
         resourcePath: string;
       },
-      localIdentName: string,
+      _: string,
       localName: string,
     ) => {
       if (
         context.resourcePath.includes('node_modules') ||
         context.resourcePath.includes('ant.design.pro.less') ||
-        context.resourcePath.includes('global.less')
+        context.resourcePath.includes('global.less') ||
+        localName.includes('ant-pro')
       ) {
         return localName;
       }
       const match = context.resourcePath.match(/src(.*)/);
-      if (context.resourcePath.includes('example') && match && match[1]) {
+
+      if (match && match[1]) {
         const antdProPath = match[1].replace('.less', '');
-        const arr = antdProPath
+        const arr = slash(antdProPath)
           .split('/')
-          .map(a => a.replace(/([A-Z])/g, '-$1'))
-          .map(a => a.toLowerCase());
+          .map((a: string) => a.replace(/([A-Z])/g, '-$1'))
+          .map((a: string) => a.toLowerCase());
         return `antd-pro${arr.join('-')}-${localName}`.replace(/--/g, '-');
       }
+
       return localName;
     },
   },
   manifest: {
     basePath: '/',
   },
-  chainWebpack: webpackPlugin,
 } as IConfig;

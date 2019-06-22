@@ -54,10 +54,8 @@ const memoizeOneFormatter = memoizeOne(formatter, isEqual);
 /**
  * filter menuData
  */
-const defaultFilterMenuData = (
-  menuData: MenuDataItem[] = [],
-): MenuDataItem[] => {
-  return menuData
+const defaultFilterMenuData = (menuData: MenuDataItem[] = []): MenuDataItem[] =>
+  menuData
     .filter(item => item && item.name && !item.hideInMenu)
     .map(item => {
       if (
@@ -72,7 +70,6 @@ const defaultFilterMenuData = (
       return { ...item, children: undefined };
     })
     .filter(item => item);
-};
 
 /**
  * 获取面包屑映射

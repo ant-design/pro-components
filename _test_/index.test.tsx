@@ -8,13 +8,11 @@ import BasicLayout from '../src/BasicLayout';
 describe('BasicLayout', () => {
   beforeAll(() => {
     Object.defineProperty(window, 'matchMedia', {
-      value: jest.fn(() => {
-        return {
-          matches: false,
-          addListener() {},
-          removeListener() {},
-        };
-      }),
+      value: jest.fn(() => ({
+        matches: false,
+        addListener() {},
+        removeListener() {},
+      })),
     });
   });
   it('base use', () => {
