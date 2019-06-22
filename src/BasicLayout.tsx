@@ -25,6 +25,7 @@ import SiderMenu from './SiderMenu';
 import { SiderMenuProps } from './SiderMenu/SiderMenu';
 import { getBreadcrumbProps } from './utils/getBreadcrumbProps';
 import getMenuData from './utils/getMenuData';
+import { isBrowser } from './utils/utils';
 
 const { Content } = Layout;
 
@@ -309,5 +310,6 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
 BasicLayout.defaultProps = {
   logo: '',
   ...defaultSettings,
+  location: isBrowser() ? window.location : undefined,
 };
 export default BasicLayout;

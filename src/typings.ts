@@ -37,9 +37,10 @@ type IncludeRoute = 'component' | 'exact' | 'path';
 type RouteType = Pick<RouteProps, IncludeRoute>;
 
 export interface RouterTypes<T extends Record<string, any> = {}, P = {}>
-  extends BasicRouteProps {
+  extends Omit<BasicRouteProps, 'location'> {
   computedMatch?: match<P>;
   route?: RouteType & T;
+  location: BasicRouteProps['location'] | typeof window.location;
 }
 
 export interface MessageDescriptor {

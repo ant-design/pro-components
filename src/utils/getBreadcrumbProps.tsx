@@ -9,7 +9,7 @@ import { urlToList } from './pathTools';
 export interface BreadcrumbProps {
   breadcrumbList?: { title: string; href: string }[];
   home?: string;
-  location?: H.Location;
+  location?: H.Location | typeof window.location;
   menu?: Settings['menu'];
   breadcrumb?: { [path: string]: MenuDataItem };
   formatMessage?: (message: MessageDescriptor) => string;
