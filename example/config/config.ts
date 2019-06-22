@@ -91,7 +91,7 @@ export default {
             {
               path: '/welcome',
               name: 'one',
-              icon: 'smile',
+              icon: '/favicon.png',
               component: './Welcome',
               routes: [
                 {
