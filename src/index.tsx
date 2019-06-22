@@ -5,7 +5,7 @@ import SettingDrawer, {
   SettingDrawerState,
 } from './SettingDrawer';
 
-import DefaultFooter from './Footer';
+import DefaultFooter, { FooterProps } from './Footer';
 import GridContent from './GridContent';
 import PageHeaderWrapper from './PageHeaderWrapper';
 import RouteContext from './RouteContext';
@@ -24,6 +24,7 @@ export {
   GridContent,
   DefaultHeader,
   DefaultFooter,
+  FooterProps,
   SettingDrawer,
   SettingDrawerState,
   SettingDrawerProps,
