@@ -131,7 +131,7 @@ export default class BaseMenu extends Component<BaseMenuProps> {
     if (
       Array.isArray(item.children) &&
       !item.hideChildrenInMenu &&
-      item.children.some(child => !!child.name)
+      item.children.some(child => child && !!child.name)
     ) {
       const name = this.getIntlName(item);
       return (
