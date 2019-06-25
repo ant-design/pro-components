@@ -16,6 +16,7 @@ export interface HeaderViewProps extends Partial<Settings>, GlobalHeaderProps {
   collapsed?: boolean;
   logo?: React.ReactNode;
   autoHideHeader?: boolean;
+  menuRender?: BasicLayoutProps['menuRender'];
   headerRender?: BasicLayoutProps['headerRender'];
   rightContentRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
   handleMenuCollapse?: (collapse: boolean) => void;

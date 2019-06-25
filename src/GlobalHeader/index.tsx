@@ -14,6 +14,7 @@ export interface GlobalHeaderProps {
   onCollapse?: (collapsed: boolean) => void;
   isMobile?: boolean;
   logo?: React.ReactNode;
+  menuRender?: HeaderViewProps['menuRender'];
   collapsedButtonRender?: WithFalse<(collapsed?: boolean) => React.ReactNode>;
   rightContentRender?: HeaderViewProps['rightContentRender'];
 }
@@ -41,14 +42,26 @@ export default class GlobalHeader extends Component<GlobalHeaderProps> {
     this.triggerResizeEvent();
   };
 
-  render(): React.ReactNode {
+  renderCollapsedButton = () => {
     const {
       collapsed,
-      isMobile,
       collapsedButtonRender = defaultRenderCollapsedButton,
-      logo,
-      rightContentRender,
+      menuRender,
     } = this.props;
+
+    if (collapsedButtonRender !== false && menuRender !== false) {
+      return (
+        <span className="ant-pro-global-header-trigger" onClick={this.toggle}>
+          {collapsedButtonRender(collapsed)}
+        </span>
+      );
+    }
+
+    return null;
+  };
+
+  render(): React.ReactNode {
+    const { isMobile, logo, rightContentRender } = this.props;
     return (
       <div className="ant-pro-global-header">
         {isMobile && (
@@ -56,11 +69,7 @@ export default class GlobalHeader extends Component<GlobalHeaderProps> {
             {defaultRenderLogo(logo)}
           </a>
         )}
-        {collapsedButtonRender !== false && (
-          <span className="ant-pro-global-header-trigger" onClick={this.toggle}>
-            {collapsedButtonRender(collapsed)}
-          </span>
-        )}
+        {this.renderCollapsedButton()}
         {rightContentRender && rightContentRender(this.props)}
       </div>
     );

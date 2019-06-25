@@ -86,6 +86,11 @@ describe('BasicLayout', () => {
     expect(wrapper.find('.ant-pro-global-header-trigger')).toHaveLength(0);
   });
 
+  it('🥩 when renderMenu=false, do not render collapsed button', () => {
+    const wrapper = mount(<BasicLayout collapsedButtonRender={false} />);
+    expect(wrapper.find('.ant-pro-global-header-trigger')).toHaveLength(0);
+  });
+
   it('🥩 render customize collapsed button', () => {
     const wrapper = mount<BasicLayoutProps>(
       <BasicLayout
