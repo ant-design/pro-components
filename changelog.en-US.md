@@ -1,5 +1,9 @@
 # changelog
 
+### 4.5.7
+
+- 🐞 Fix the permissions issue of the release package
+
 ### 4.5.6
 
 - 🌟 Add new prop: collapsedButtonRender.
