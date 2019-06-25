@@ -2,7 +2,6 @@ import * as H from 'history';
 
 import {
   RouteComponentProps as BasicRouteProps,
-  RouteProps,
   match,
 } from 'react-router-dom';
 

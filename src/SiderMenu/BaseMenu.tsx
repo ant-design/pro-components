@@ -117,7 +117,7 @@ export default class BaseMenu extends Component<BaseMenuProps> {
       .filter(item => item);
 
   // Get the currently selected menu
-  getSelectedMenuKeys = (pathname: string): string[] => {
+  getSelectedMenuKeys = (pathname?: string): string[] => {
     const { flatMenuKeys } = this.props;
     return urlToList(pathname)
       .map(itemPath => getMenuMatches(flatMenuKeys, itemPath).pop())
