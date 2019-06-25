@@ -1,16 +1,62 @@
-import { render } from 'enzyme';
-
+import { render, mount } from 'enzyme';
 import React from 'react';
-import PageHeaderWrapper from '../src/PageHeaderWrapper';
+import ProLayout, { PageHeaderWrapper } from '../src';
+import defaultProps from './defaultProps';
 
 describe('BasicLayout', () => {
+  beforeAll(() => {
+    Object.defineProperty(window, 'localStorage', {
+      value: {
+        getItem: jest.fn(() => 'zh-CN'),
+      },
+    });
+  });
+
   it('base use', () => {
-    const html = render(<PageHeaderWrapper />).html();
+    const html = render(
+      <ProLayout {...defaultProps}>
+        <PageHeaderWrapper />
+      </ProLayout>,
+    ).html();
     expect(html).toMatchSnapshot();
   });
 
   it('content is text', () => {
-    const html = render(<PageHeaderWrapper content="just so so" />).html();
+    const html = render(
+      <ProLayout {...defaultProps}>
+        <PageHeaderWrapper content="just so so" />
+      </ProLayout>,
+    ).html();
     expect(html).toMatchSnapshot();
+  });
+
+  it('title=false, don not render title view', () => {
+    const wrapper = mount(
+      <ProLayout {...defaultProps}>
+        <PageHeaderWrapper title={false} />
+      </ProLayout>,
+    );
+
+    expect(wrapper.find('.ant-page-header-title-view-title')).toHaveLength(0);
+  });
+
+  it('have default title', () => {
+    const wrapper = mount(
+      <ProLayout {...defaultProps}>
+        <PageHeaderWrapper />
+      </ProLayout>,
+    );
+    const titleDom = wrapper.find('.ant-page-header-title-view-title');
+    expect(titleDom.text()).toEqual('welcome');
+  });
+
+  it('title overrides the default title', () => {
+    const wrapper = mount(
+      <ProLayout {...defaultProps}>
+        <PageHeaderWrapper title="name" />
+      </ProLayout>,
+    );
+    const titleDom = wrapper.find('.ant-page-header-title-view-title');
+    expect(titleDom.text()).toEqual('name');
   });
 });

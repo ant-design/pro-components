@@ -32,15 +32,10 @@ export interface Route extends MenuDataItem {
 }
 export type WithFalse<T> = T | false;
 
-type IncludeRoute = 'component' | 'exact' | 'path';
-
-type RouteType = Pick<RouteProps, IncludeRoute>;
-
-export interface RouterTypes<T extends Record<string, any> = {}, P = {}>
-  extends Omit<BasicRouteProps, 'location'> {
+export interface RouterTypes<P> extends Omit<BasicRouteProps, 'location'> {
   computedMatch?: match<P>;
-  route?: RouteType & T;
-  location: BasicRouteProps['location'] | typeof window.location;
+  route?: Route;
+  location: BasicRouteProps['location'] | { pathname?: string };
 }
 
 export interface MessageDescriptor {

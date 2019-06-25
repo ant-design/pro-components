@@ -9,7 +9,11 @@ import { urlToList } from './pathTools';
 export interface BreadcrumbProps {
   breadcrumbList?: { title: string; href: string }[];
   home?: string;
-  location?: H.Location | typeof window.location;
+  location?:
+    | H.Location
+    | {
+        pathname?: string;
+      };
   menu?: Settings['menu'];
   breadcrumb?: { [path: string]: MenuDataItem };
   formatMessage?: (message: MessageDescriptor) => string;
@@ -93,7 +97,7 @@ const conversionFromProps = (
 };
 
 const conversionFromLocation = (
-  routerLocation: BreadcrumbProps['location'],
+  routerLocation: BreadcrumbProps['location'] = { pathname: '/' },
   breadcrumb: { [path: string]: MenuDataItem },
   props: BreadcrumbProps,
 ): AntdBreadcrumbProps['routes'] => {

@@ -287,7 +287,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
                       menuData,
                       isMobile,
                       collapsed,
-                      title: pageTitle.split('-')[0],
+                      title: pageTitle.split('-')[0].trim(),
                     }}
                   >
                     {children}

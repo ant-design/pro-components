@@ -31,7 +31,6 @@ export type BasicLayoutContext = { [K in 'location']: BasicLayoutProps[K] } & {
 const BasicLayout: React.FC<BasicLayoutProps> = props => {
   const [collapsed, handleMenuCollapse] = useState<boolean>(true);
   const [settings, setSettings] = useState<Partial<Settings>>({});
-
   return (
     <>
       <ProLayout

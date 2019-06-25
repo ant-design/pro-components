@@ -20,7 +20,7 @@ interface PageHeaderTabConfig {
 interface PageHeaderWrapperProps
   extends PageHeaderTabConfig,
     Omit<PageHeaderProps, 'title'> {
-  title?: React.ReactNode;
+  title?: React.ReactNode | false;
   content?: React.ReactNode;
   extraContent?: React.ReactNode;
   pageHeaderRender?: (props: PageHeaderWrapperProps) => React.ReactNode;
@@ -102,10 +102,14 @@ const defaultPageHeaderRender = (
         if (pageHeaderRender) {
           return pageHeaderRender({ ...props, ...value });
         }
+        let pageHeaderTitle = title;
+        if (!title && title !== false) {
+          pageHeaderTitle = value.title;
+        }
         return (
           <PageHeader
             {...value}
-            title={title || value.title}
+            title={pageHeaderTitle}
             {...restProps}
             footer={renderFooter(restProps)}
           >
