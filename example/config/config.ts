@@ -68,6 +68,14 @@ export default {
                   icon: 'smile',
                   component: './Welcome',
                 },
+                {
+                  path:
+                    'https://github.com/ant-design/ant-design-pro-layout/issues',
+                  name: 'three',
+                  icon: 'smile',
+                  target: '_blank',
+                  component: './Welcome',
+                },
               ],
             },
           ],

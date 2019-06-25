@@ -34,7 +34,12 @@ export interface BaseMenuProps
   theme?: MenuTheme;
   formatMessage?: (message: MessageDescriptor) => string;
   menuItemRender?: WithFalse<
-    (item: MenuDataItem, defaultDom: React.ReactNode) => React.ReactNode
+    (
+      item: MenuDataItem & {
+        isUrl: boolean;
+      },
+      defaultDom: React.ReactNode,
+    ) => React.ReactNode
   >;
 }
 
@@ -195,9 +200,9 @@ export default class BaseMenu extends Component<BaseMenuProps> {
         <span>{name}</span>
       </>
     );
-
+    const isHttpUrl = isUrl(itemPath);
     // Is it a http link
-    if (/^https?:\/\//.test(itemPath)) {
+    if (isHttpUrl) {
       defaultItem = (
         <a href={itemPath} target={target}>
           {icon}
@@ -209,6 +214,7 @@ export default class BaseMenu extends Component<BaseMenuProps> {
       return menuItemRender(
         {
           ...item,
+          isUrl: isHttpUrl,
           itemPath,
           replace: itemPath === location.pathname,
           onClick: () => (isMobile ? onCollapse && onCollapse(true) : null),
