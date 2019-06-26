@@ -5,7 +5,6 @@ import { PageHeaderProps } from 'antd/es/page-header';
 import './index.less';
 import GridContent from '../GridContent';
 import RouteContext from '../RouteContext';
-import { Omit } from '../typings';
 
 interface PageHeaderTabConfig {
   tabList?: {
