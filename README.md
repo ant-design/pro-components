@@ -30,7 +30,7 @@ render(<ProLayout />, document.getElementById('root'));
 
 ### ProLayout
 
-> All methods at the beginning of the rendering can prevent rendering by passing in `false`.
+> All methods with the suffix `Render` can prevent rendering by passing in `false`.
 
 | Property | Description | Type | Default Value |
 | --- | --- | --- | --- |
@@ -82,15 +82,15 @@ PageHeaderWrapper encapsulates the PageHeader component of ant design, adds tabL
 | tabList | Tabs title list | `Array<{key: string, tab: ReactNode}>` | - |
 | tabActiveKey | The currently highlighted tab item | string | - |
 | onTabChange | Switch panel callback | `(key) => void` | - |
-| tabBarExtraContent | Extra elements on the tab bar | React.ReactNode | 无 |
+| tabBarExtraContent | Extra elements on the tab bar | React.ReactNode | - |
 
 ### GridContent
 
 GridContent encapsulates [equal width](https://preview.pro.ant.design/dashboard/analysis?layout=topmenu&contentWidth=Fixed) and [streaming](https://preview.pro.ant.design/dashboard/) The logic of analysis?layout=topmenu). You can see the preview in [preview](https://preview.pro.ant.design/dashboard/analysis).
 
-| Property     | Description  | Type                | Default Value |
-| ------------ | ------------ | ------------------- | ------------- |
-| contentWidth | Content mode | `'Fluid' | 'Fixed'` | -             |
+| Property     | Description  | Type               | Default Value |
+| ------------ | ------------ | ------------------ | ------------- |
+| contentWidth | Content mode | 'Fluid' \| 'Fixed' | -             |
 
 ### getMenuData
 

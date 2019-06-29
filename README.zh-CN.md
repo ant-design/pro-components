@@ -28,7 +28,7 @@ render(<BasicLayout />, document.getElementById('root'));
 
 ## API
 
-> 所有 render 开头的方法都可以通过传入 `false` 来使其不渲染。
+> 所有以 `Render` 后缀的方法都可以通过传入 `false` 来使其不渲染。
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -76,15 +76,15 @@ PageHeaderWrapper 封装了 ant design 的 PageHeader 组件，增加了 tabList
 | tabList | tab 标题列表 | `Array<{key: string, tab: ReactNode}>` | - |
 | tabActiveKey | 当前高亮的 tab 项 | string | - |
 | onTabChange | 切换面板的回调 | `(key) => void` | - |
-| tabBarExtraContent | tab bar 上额外的元素 | React.ReactNode | 无 |
+| tabBarExtraContent | tab bar 上额外的元素 | React.ReactNode | - |
 
 ### GridContent
 
 GridContent 封装了 [等宽](https://preview.pro.ant.design/dashboard/analysis?layout=topmenu&contentWidth=Fixed)和 [流式](https://preview.pro.ant.design/dashboard/analysis?layout=topmenu) 的逻辑。你可以在 [preview](https://preview.pro.ant.design/dashboard/analysis) 中查看预览效果。
 
-| 参数         | 说明     | 类型                | 默认值 |
-| ------------ | -------- | ------------------- | ------ |
-| contentWidth | 内容模式 | `'Fluid' | 'Fixed'` | -      |
+| 参数         | 说明     | 类型               | 默认值 |
+| ------------ | -------- | ------------------ | ------ |
+| contentWidth | 内容模式 | 'Fluid' \| 'Fixed' | -      |
 
 ### getMenuData
 
