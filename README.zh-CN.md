@@ -78,6 +78,22 @@ PageHeaderWrapper 封装了 ant design 的 PageHeader 组件，增加了 tabList
 | onTabChange | 切换面板的回调 | `(key) => void` | - |
 | tabBarExtraContent | tab bar 上额外的元素 | React.ReactNode | - |
 
+### RouteContext
+
+RouteContext 可以提供 Layout 的内置的数据。例如 isMobile 和 collapsed，你可以消费这些数据来自定义一些行为。
+
+```tsx
+import { RouteContext } from '@ant-design/pro-layout';
+
+const Page = () => (
+  <RouteContext.Consumer>
+    {value => {
+      return value.title;
+    }}
+  </RouteContext.Consumer>
+);
+```
+
 ### GridContent
 
 GridContent 封装了 [等宽](https://preview.pro.ant.design/dashboard/analysis?layout=topmenu&contentWidth=Fixed)和 [流式](https://preview.pro.ant.design/dashboard/analysis?layout=topmenu) 的逻辑。你可以在 [preview](https://preview.pro.ant.design/dashboard/analysis) 中查看预览效果。

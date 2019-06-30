@@ -84,6 +84,22 @@ PageHeaderWrapper encapsulates the PageHeader component of ant design, adds tabL
 | onTabChange | Switch panel callback | `(key) => void` | - |
 | tabBarExtraContent | Extra elements on the tab bar | React.ReactNode | - |
 
+### RouteContext
+
+RouteContext can provide built-in data for Layout. For example, isMobile and collapsed, you can consume this data to customize some behavior.
+
+```tsx
+import { RouteContext } from '@ant-design/pro-layout';
+
+const Page = () => (
+  <RouteContext.Consumer>
+    {value => {
+      return value.title;
+    }}
+  </RouteContext.Consumer>
+);
+```
+
 ### GridContent
 
 GridContent encapsulates [equal width](https://preview.pro.ant.design/dashboard/analysis?layout=topmenu&contentWidth=Fixed) and [streaming](https://preview.pro.ant.design/dashboard/) The logic of analysis?layout=topmenu). You can see the preview in [preview](https://preview.pro.ant.design/dashboard/analysis).
