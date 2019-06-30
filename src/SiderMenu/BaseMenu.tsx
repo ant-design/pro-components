@@ -216,8 +216,9 @@ export default class BaseMenu extends Component<BaseMenuProps> {
           ...item,
           isUrl: isHttpUrl,
           itemPath,
+          isMobile,
           replace: itemPath === location.pathname,
-          onClick: () => (isMobile ? onCollapse && onCollapse(true) : null),
+          onClick: () => onCollapse && onCollapse(true),
         },
         defaultItem,
       );

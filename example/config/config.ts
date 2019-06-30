@@ -71,7 +71,7 @@ export default {
                 {
                   path:
                     'https://github.com/ant-design/ant-design-pro-layout/issues',
-                  name: 'three',
+                  name: 'site',
                   icon: 'smile',
                   target: '_blank',
                   component: './Welcome',

@@ -25,9 +25,10 @@ export interface BreadcrumbProps {
 
 // 渲染Breadcrumb 子节点
 // Render the Breadcrumb child node
-const defaultItemRender: AntdBreadcrumbProps['itemRender'] = route => (
-  <a>{route.breadcrumbName}</a>
-);
+const defaultItemRender: AntdBreadcrumbProps['itemRender'] = ({
+  breadcrumbName,
+  path,
+}) => <a href={path}>{breadcrumbName}</a>;
 
 const renderItemLocal = (
   item: MenuDataItem,
