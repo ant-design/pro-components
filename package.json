@@ -20,7 +20,7 @@
     "lint-staged:js": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty",
     "lint:fix": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src ./_test_ && npm run lint:style",
     "lint:style": "stylelint --fix  'src/**/*.less'  --syntax less",
-    "prepublishOnly": "npm run build",
+    "prepublishOnly": "npm run build && np --no-cleanup --yolo --no-publish",
     "prettier": "prettier -c --write **/*",
     "start": "cd ./example && umi dev",
     "test": "umi test"
@@ -95,6 +95,7 @@
     "jsdom-global": "^3.0.2",
     "less": "^3.9.0",
     "lint-staged": "^8.1.1",
+    "np": "^5.0.3",
     "prettier": "^1.17.0",
     "puppeteer": "^1.12.1",
     "slash2": "^2.0.0",

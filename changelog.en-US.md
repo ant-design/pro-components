@@ -1,8 +1,13 @@
 # changelog
 
+### 4.5.8
+
+- 🌟 menuItemRender add `isMobile` and `isUrl` props.
+- 🌟 When title=false, don not render title view
+
 ### 4.5.7
 
-- 🐞 Fix the permissions issue of the release package
+- 🐞 Fix the permissions issue of the release package.
 
 ### 4.5.6
 
