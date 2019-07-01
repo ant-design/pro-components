@@ -47,7 +47,6 @@
   "dependencies": {
     "antd": "^3.19.0",
     "classnames": "^2.2.6",
-    "father-build": "^1.2.0",
     "history": "^4.9.0",
     "lodash": "^4.17.10",
     "lodash-decorators": "^6.0.0",
@@ -85,6 +84,7 @@
     "cross-env": "^5.2.0",
     "enzyme": "^3.9.0",
     "eslint": "^5.16.0",
+    "father-build": "^1.2.0",
     "husky": "^2.3.0",
     "import-sort-cli": "^6.0.0",
     "import-sort-parser-babylon": "^6.0.0",
