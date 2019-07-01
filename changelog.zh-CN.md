@@ -12,7 +12,7 @@
 ### 4.5.6
 
 - 🌟 增加一个新的 props：collapsedButtonRender。
-- 🌟 修复 location 不传时，菜单不选中的问题。[#23][https://github.com/ant-design/ant-design-pro-layout/issues/23]
+- 🌟 修复 location 不传时，菜单不选中的问题。[#23](https://github.com/ant-design/ant-design-pro-layout/issues/23)
 - 🌟 Menu icon support 支持本地的图片路径。 [#12](https://github.com/ant-design/ant-design-pro-layout/pull/12) [@billfeller](https://github.com/billfeller)
 - 🐞 修复 icon 错误的 className。 [#17](https://github.com/ant-design/ant-design-pro-layout/pull/17) [@zzh1991](https://github.com/zzh1991)
 - 🌟 Footer 支持传入 props。 [#17](https://github.com/ant-design/ant-design-pro-layout/pull/17) [@zzh1991](https://github.com/zzh1991)

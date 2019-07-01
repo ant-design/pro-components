@@ -12,7 +12,7 @@
 ### 4.5.6
 
 - 🌟 Add new prop: collapsedButtonRender.
-- 🌟 Fix the problem that the location is not passed, the menu is not selected. [#23][https://github.com/ant-design/ant-design-pro-layout/issues/23]
+- 🌟 Fix the problem that the location is not passed, the menu is not selected. [#23](https://github.com/ant-design/ant-design-pro-layout/issues/23)
 - 🌟 Menu icon support local image path. [#12](https://github.com/ant-design/ant-design-pro-layout/pull/12) [@billfeller](https://github.com/billfeller)
 - 🐞 Fix icon error className. [#17](https://github.com/ant-design/ant-design-pro-layout/pull/17) [@zzh1991](https://github.com/zzh1991)
 - 🌟 Footer support configurable. [#17](https://github.com/ant-design/ant-design-pro-layout/pull/17) [@zzh1991](https://github.com/zzh1991)
