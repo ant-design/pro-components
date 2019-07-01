@@ -1,5 +1,9 @@
 # changelog
 
+### 4.5.9
+
+- 🐞 Fix the wrong isUrl to determine the hash mode menu rendering error.
+
 ### 4.5.8
 
 - 🌟 menuItemRender add `isMobile` and `isUrl` props.
