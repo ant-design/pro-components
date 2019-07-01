@@ -1,5 +1,9 @@
 # changelog
 
+### 4.5.10
+
+- 🐞 Fix the problem that lib/xx will still be loaded in es module
+
 ### 4.5.9
 
 - 🐞 Fix the wrong isUrl to determine the hash mode menu rendering error.
