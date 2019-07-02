@@ -1,6 +1,6 @@
 import { render, mount } from 'enzyme';
 import React from 'react';
-import ProLayout, { PageHeaderWrapper } from '../src';
+import ProLayout, { PageHeaderWrapper } from '../../src';
 import defaultProps from './defaultProps';
 
 describe('BasicLayout', () => {
@@ -36,8 +36,7 @@ describe('BasicLayout', () => {
         <PageHeaderWrapper title={false} />
       </ProLayout>,
     );
-
-    expect(wrapper.find('.ant-page-header-title-view-title')).toHaveLength(0);
+    expect(wrapper.find('.ant-page-header-heading-title')).toHaveLength(0);
   });
 
   it('have default title', () => {
@@ -46,7 +45,7 @@ describe('BasicLayout', () => {
         <PageHeaderWrapper />
       </ProLayout>,
     );
-    const titleDom = wrapper.find('.ant-page-header-title-view-title');
+    const titleDom = wrapper.find('.ant-page-header-heading-title');
     expect(titleDom.text()).toEqual('welcome');
   });
 
@@ -56,7 +55,7 @@ describe('BasicLayout', () => {
         <PageHeaderWrapper title="name" />
       </ProLayout>,
     );
-    const titleDom = wrapper.find('.ant-page-header-title-view-title');
+    const titleDom = wrapper.find('.ant-page-header-heading-title');
     expect(titleDom.text()).toEqual('name');
   });
 });

@@ -1,7 +1,7 @@
 import { mount, render } from 'enzyme';
 
 import React from 'react';
-import BasicLayout, { BasicLayoutProps } from '../src/BasicLayout';
+import BasicLayout, { BasicLayoutProps } from '../../src/BasicLayout';
 
 describe('BasicLayout', () => {
   beforeAll(() => {

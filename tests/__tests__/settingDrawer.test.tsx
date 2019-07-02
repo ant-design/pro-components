@@ -1,7 +1,7 @@
 import { mount, render } from 'enzyme';
 
 import React from 'react';
-import SettingDrawer from '../src/SettingDrawer';
+import SettingDrawer from '../../src/SettingDrawer';
 import defaultSettings from './defaultSettings';
 
 describe('settingDrawer.test', () => {

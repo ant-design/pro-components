@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import BasicLayout from '../src/BasicLayout';
+import BasicLayout from '../../src/BasicLayout';
 
 describe('settings.test', () => {
   beforeAll(() => {
