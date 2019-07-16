@@ -24,12 +24,15 @@ export interface GetPageTitleProps {
   breadcrumb?: { [path: string]: MenuDataItem };
   menu?: Settings['menu'];
   title?: Settings['title'];
-  formatMessage: (data: { id: any; defaultMessage?: string }) => string;
+  pageName?: string;
+  formatMessage?: (data: { id: any; defaultMessage?: string }) => string;
 }
-
-const getPageTitle = (props: GetPageTitleProps): string => {
+const getPageTitle = (
+  props: GetPageTitleProps,
+  ignoreTile?: boolean,
+): string => {
   const {
-    pathname,
+    pathname = '/',
     breadcrumb,
     formatMessage,
     title = 'Ant Design Pro',
@@ -37,16 +40,16 @@ const getPageTitle = (props: GetPageTitleProps): string => {
       locale: false,
     },
   } = props;
-
+  const pageTitle = ignoreTile ? '' : title;
   if (!pathname) {
-    return title;
+    return pageTitle;
   }
   const currRouterData = matchParamsPath(pathname, breadcrumb);
   if (!currRouterData) {
-    return title;
+    return pageTitle;
   }
   let pageName = currRouterData.name;
-  if (menu.locale && currRouterData.locale) {
+  if (menu.locale && currRouterData.locale && formatMessage) {
     pageName = formatMessage({
       id: currRouterData.locale || '',
       defaultMessage: currRouterData.name,
@@ -54,7 +57,10 @@ const getPageTitle = (props: GetPageTitleProps): string => {
   }
 
   if (!pageName) {
-    return title;
+    return pageTitle;
+  }
+  if (ignoreTile) {
+    return pageName;
   }
   return `${pageName} - ${title}`;
 };
