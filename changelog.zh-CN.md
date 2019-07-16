@@ -1,5 +1,11 @@
 # 更新日志
 
+### 4.5.11
+
+- 🐞 修复 onCollapse 不配置时，手机模式无法收起的问题。
+- 🌟 pageTitleRender 增加 pageName 参数。
+- 💄 PageHeaderWarp 的样式调整.
+
 ### 4.5.10
 
 - 🐞 修复在 es 模式下仍会加载 lib/xx 的问题

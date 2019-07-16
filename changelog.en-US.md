@@ -1,8 +1,14 @@
 # changelog
 
+### 4.5.11
+
+- 🐞 Fixed an issue where phone mode could not be collapsed when onCollapse was not configured.
+- 🌟 pageTitleRender add pageName props.
+- 💄 PageHeaderWarp style optimization.
+
 ### 4.5.10
 
-- 🐞 Fix the problem that lib/xx will still be loaded in es module
+- 🐞 Fix the problem that lib/xx will still be loaded in es module.
 
 ### 4.5.9
 
