@@ -19,7 +19,6 @@ export interface HeaderViewProps extends Partial<Settings>, GlobalHeaderProps {
   menuRender?: BasicLayoutProps['menuRender'];
   headerRender?: BasicLayoutProps['headerRender'];
   rightContentRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
-  handleMenuCollapse?: (collapse: boolean) => void;
   siderWidth?: number;
 }
 
@@ -101,23 +100,15 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
   };
 
   renderContent = () => {
-    const {
-      isMobile,
-      handleMenuCollapse,
-      navTheme,
-      layout,
-      headerRender,
-    } = this.props;
+    const { isMobile, onCollapse, navTheme, layout, headerRender } = this.props;
     const isTop = layout === 'topmenu';
-    let defaultDom = (
-      <GlobalHeader onCollapse={handleMenuCollapse} {...this.props} />
-    );
+    let defaultDom = <GlobalHeader onCollapse={onCollapse} {...this.props} />;
     if (isTop && !isMobile) {
       defaultDom = (
         <TopNavHeader
           theme={navTheme}
           mode="horizontal"
-          onCollapse={handleMenuCollapse}
+          onCollapse={onCollapse}
           {...this.props}
         />
       );

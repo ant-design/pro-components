@@ -158,7 +158,7 @@ const getPaddingLeft = (
 const BasicLayout: React.FC<BasicLayoutProps> = props => {
   const {
     children,
-    onCollapse,
+    onCollapse: propsOnCollapse,
     location = { pathname: '/' },
     fixedHeader,
     fixSiderbar,
@@ -218,9 +218,9 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
   const hasLeftPadding = fixSiderbar && PropsLayout !== 'topmenu' && !isMobile;
 
   // whether to close the menu
-  const [collapsed, handleMenuCollapse] = useCollapsed(
+  const [collapsed, onCollapse] = useCollapsed(
     props.collapsed,
-    onCollapse,
+    propsOnCollapse,
   );
 
   // Splicing parameters, adding menuData and formatMessage in props
@@ -252,12 +252,12 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
           <div className={classNames(params, 'ant-design-pro', 'basicLayout')}>
             <Layout>
               {renderSiderMenu({
+                ...defaultProps,
                 menuData,
-                handleMenuCollapse,
+                onCollapse,
                 isMobile,
                 theme: navTheme,
                 collapsed,
-                ...defaultProps,
               })}
               <Layout
                 style={{
@@ -270,11 +270,11 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
                 }}
               >
                 {headerRender({
+                  ...defaultProps,
                   menuData,
-                  handleMenuCollapse,
                   isMobile,
                   collapsed,
-                  ...defaultProps,
+                  onCollapse,
                 })}
                 <Content
                   className="ant-pro-basicLayout-content"
