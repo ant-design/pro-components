@@ -151,13 +151,17 @@ export default class BaseMenu extends Component<BaseMenuProps> {
               name
             )
           }
-          key={item.path}
+          key={item.key || item.path}
         >
           {this.getNavMenuItems(item.children)}
         </SubMenu>
       );
     }
-    return <Menu.Item key={item.path}>{this.getMenuItemPath(item)}</Menu.Item>;
+    return (
+      <Menu.Item key={item.key || item.path}>
+        {this.getMenuItemPath(item)}
+      </Menu.Item>
+    );
   };
 
   getIntlName = (item: MenuDataItem) => {
