@@ -48,6 +48,7 @@ render(<BasicLayout />, document.getElementById('root'));
 | collapsed | 控制菜单的收起和展开 | boolean | true |
 | onCollapse | 菜单的折叠收起事件 | (collapsed: boolean) => void | - |
 | headerRender | 自定义头的 render 方法 | (props: BasicLayoutProps) => ReactNode | - |
+| rightContentRender | 自定义头右部的 render 方法 | (props: HeaderViewProps) => ReactNode | - |
 | collapsedButtonRender | 自定义 collapsed button 的方法 | (collapsed: boolean) => ReactNode | - |
 | footerRender | 自定义页脚的 render 方法 | (props: BasicLayoutProps) => ReactNode | - |
 | pageTitleRender | 自定义页面标题的显示方法 | (props: BasicLayoutProps) => ReactNode | - |
