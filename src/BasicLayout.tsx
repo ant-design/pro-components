@@ -7,6 +7,8 @@ import DocumentTitle from 'react-document-title';
 import { Layout } from 'antd';
 import classNames from 'classnames';
 import useMedia from 'react-media-hook2';
+import warning from 'warning';
+
 import Header, { HeaderViewProps } from './Header';
 import {
   MenuDataItem,
@@ -124,7 +126,10 @@ const defaultPageTitleRender = (
     if (typeof title === 'string') {
       return title;
     }
-    console.warn('pro-layout: renderPageTitle return value should be a string');
+    warning(
+      typeof title !== 'string',
+      'pro-layout: renderPageTitle return value should be a string',
+    );
   }
   return defaultGetPageTitle(pageProps);
 };
@@ -136,17 +141,28 @@ export type BasicLayoutContext = { [K in 'location']: BasicLayoutProps[K] } & {
 function useCollapsed(
   collapsed: boolean | undefined,
   onCollapse: BasicLayoutProps['onCollapse'],
-): [boolean, BasicLayoutProps['onCollapse']] {
+): [boolean | undefined, BasicLayoutProps['onCollapse']] {
+  warning(
+    collapsed === undefined || onCollapse === undefined,
+    'pro-layout: onCollapse and collapsed should exist simultaneously',
+  );
+
   const [nativeCollapsed, setCollapsed] = useState(false);
   if (collapsed !== undefined && onCollapse) {
     return [collapsed, onCollapse];
+  }
+  if (collapsed !== undefined && !onCollapse) {
+    return [collapsed, undefined];
+  }
+  if (collapsed === undefined && onCollapse) {
+    return [undefined, onCollapse];
   }
   return [nativeCollapsed, setCollapsed];
 }
 
 const getPaddingLeft = (
   hasLeftPadding: boolean,
-  collapsed: boolean,
+  collapsed: boolean | undefined,
   siderWidth: number,
 ): number | undefined => {
   if (hasLeftPadding) {

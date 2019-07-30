@@ -62,7 +62,9 @@ describe('BasicLayout', () => {
 
   it('🥩 onCollapse', () => {
     const onCollapse = jest.fn();
-    const wrapper = mount(<BasicLayout onCollapse={onCollapse} />);
+    const wrapper = mount(
+      <BasicLayout collapsed={false} onCollapse={onCollapse} />,
+    );
     wrapper.find('.ant-pro-global-header-trigger').simulate('click');
     expect(onCollapse).toHaveBeenCalled();
   });
@@ -87,7 +89,7 @@ describe('BasicLayout', () => {
   });
 
   it('🥩 when renderMenu=false, do not render collapsed button', () => {
-    const wrapper = mount(<BasicLayout collapsedButtonRender={false} />);
+    const wrapper = mount(<BasicLayout menuRender={false} />);
     expect(wrapper.find('.ant-pro-global-header-trigger')).toHaveLength(0);
   });
 
@@ -105,7 +107,6 @@ describe('BasicLayout', () => {
     wrapper.setProps({
       collapsed: true,
     });
-
     expect(dom.text()).toEqual('true');
   });
 });

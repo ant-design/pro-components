@@ -45,7 +45,8 @@
     "not ie <= 10"
   ],
   "dependencies": {
-    "antd": "^3.19.0",
+    "@types/warning": "^3.0.0",
+    "antd": "^3.20.7",
     "classnames": "^2.2.6",
     "history": "^4.9.0",
     "lodash": "^4.17.10",
@@ -61,7 +62,8 @@
     "react-document-title": "^2.0.3",
     "react-dom": "^16.7.0",
     "react-media-hook2": "^1.0.2",
-    "react-router-dom": "4.3.1"
+    "react-router-dom": "4.3.1",
+    "warning": "^4.0.3"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.7",
