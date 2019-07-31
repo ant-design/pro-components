@@ -44,6 +44,7 @@ export default class TopNavHeader extends Component<
       theme,
       menuData,
       logo,
+      onMenuHeaderClick,
       title,
       contentWidth,
       rightContentRender,
@@ -61,7 +62,7 @@ export default class TopNavHeader extends Component<
             contentWidth === 'Fixed' ? 'wide' : ''
           }`}
         >
-          <div className={`${baseClassName}-left`}>
+          <div className={`${baseClassName}-left`} onClick={onMenuHeaderClick}>
             <div className={`${baseClassName}-logo`} key="logo" id="logo">
               <a>
                 {defaultRenderLogo(logo)}

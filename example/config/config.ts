@@ -59,7 +59,6 @@ export default {
             {
               path: '/welcome',
               name: 'one',
-              icon: '/favicon.png',
               component: './Welcome',
               routes: [
                 {
@@ -79,6 +78,11 @@ export default {
               ],
             },
           ],
+        },
+        {
+          path: 'single',
+          name: 'Single',
+          component: './Welcome',
         },
       ],
     },

@@ -25,6 +25,7 @@ export interface SiderMenuProps
   extends Pick<BaseMenuProps, Exclude<keyof BaseMenuProps, ['onCollapse']>> {
   logo?: React.ReactNode;
   siderWidth?: number;
+  onMenuHeaderClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 interface SiderMenuState {
@@ -45,6 +46,7 @@ export default class SiderMenu extends Component<
     collapsed: false,
     handleOpenChange: () => undefined,
     menuData: [],
+    onMenuHeaderClick: () => undefined,
     onOpenChange: () => undefined,
   };
 
@@ -111,6 +113,7 @@ export default class SiderMenu extends Component<
       siderWidth = 256,
       isMobile,
       layout,
+      onMenuHeaderClick,
     } = this.props;
     const { openKeys } = this.state;
     const defaultProps = collapsed || layout !== 'sidemenu' ? {} : { openKeys };
@@ -135,11 +138,15 @@ export default class SiderMenu extends Component<
         theme={theme}
         className={siderClassName}
       >
-        <div className="ant-pro-sider-menu-logo" id="logo">
-          <a>
+        <div
+          className="ant-pro-sider-menu-logo"
+          onClick={onMenuHeaderClick}
+          id="logo"
+        >
+          <div>
             {defaultRenderLogo(logo)}
             <h1>{title}</h1>
-          </a>
+          </div>
         </div>
         <BaseMenu
           {...this.props}

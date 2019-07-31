@@ -127,7 +127,7 @@ const defaultPageTitleRender = (
       return title;
     }
     warning(
-      typeof title !== 'string',
+      typeof title === 'string',
       'pro-layout: renderPageTitle return value should be a string',
     );
   }
@@ -143,7 +143,7 @@ function useCollapsed(
   onCollapse: BasicLayoutProps['onCollapse'],
 ): [boolean | undefined, BasicLayoutProps['onCollapse']] {
   warning(
-    collapsed === undefined || onCollapse === undefined,
+    collapsed !== undefined || onCollapse !== undefined,
     'pro-layout: onCollapse and collapsed should exist simultaneously',
   );
 
