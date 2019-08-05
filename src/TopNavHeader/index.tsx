@@ -1,7 +1,10 @@
 import './index.less';
 
 import React, { Component } from 'react';
-import { SiderMenuProps, defaultRenderLogo } from '../SiderMenu/SiderMenu';
+import {
+  SiderMenuProps,
+  defaultRenderLogoAndTitle,
+} from '../SiderMenu/SiderMenu';
 
 import BaseMenu from '../SiderMenu/BaseMenu';
 import { HeaderViewProps } from '../Header';
@@ -43,11 +46,12 @@ export default class TopNavHeader extends Component<
     const {
       theme,
       menuData,
-      logo,
       onMenuHeaderClick,
-      title,
       contentWidth,
       rightContentRender,
+      logo,
+      title,
+      renderLogoAndTitle,
     } = this.props;
     const { maxWidth } = this.state;
     const flatMenuKeys = getFlatMenuKeys(menuData);
@@ -64,10 +68,7 @@ export default class TopNavHeader extends Component<
         >
           <div className={`${baseClassName}-left`} onClick={onMenuHeaderClick}>
             <div className={`${baseClassName}-logo`} key="logo" id="logo">
-              <a>
-                {defaultRenderLogo(logo)}
-                <h1>{title}</h1>
-              </a>
+              {defaultRenderLogoAndTitle(logo, title, renderLogoAndTitle)}
             </div>
           </div>
           <div

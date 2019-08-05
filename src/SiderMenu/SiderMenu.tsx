@@ -1,9 +1,9 @@
-import './index.less';
-
 import React, { Component } from 'react';
-
 import { Layout } from 'antd';
 import classNames from 'classnames';
+
+import './index.less';
+import { WithFalse } from '../typings';
 import BaseMenu, { BaseMenuProps } from './BaseMenu';
 import { getDefaultCollapsedSubMenus } from './SiderMenuUtils';
 
@@ -21,10 +21,35 @@ export const defaultRenderLogo = (logo: React.ReactNode): React.ReactNode => {
   return logo;
 };
 
+export const defaultRenderLogoAndTitle = (
+  logo: React.ReactNode,
+  title: React.ReactNode,
+  menuHeaderRender: SiderMenuProps['renderLogoAndTitle'],
+): React.ReactNode => {
+  if (menuHeaderRender === false) {
+    return null;
+  }
+  const logoDom = defaultRenderLogo(logo);
+  const titleDom = <h1>{title}</h1>;
+
+  if (menuHeaderRender) {
+    return menuHeaderRender(logoDom, titleDom);
+  }
+  return (
+    <a href="/">
+      {logoDom}
+      {titleDom}
+    </a>
+  );
+};
+
 export interface SiderMenuProps
   extends Pick<BaseMenuProps, Exclude<keyof BaseMenuProps, ['onCollapse']>> {
   logo?: React.ReactNode;
   siderWidth?: number;
+  renderLogoAndTitle?: WithFalse<
+    (logo: React.ReactNode, title: React.ReactNode) => React.ReactNode
+  >;
   onMenuHeaderClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
@@ -104,15 +129,16 @@ export default class SiderMenu extends Component<
 
   render(): React.ReactNode {
     const {
-      logo,
       collapsed,
-      title,
       fixSiderbar,
       onCollapse,
       theme,
       siderWidth = 256,
       isMobile,
       layout,
+      logo,
+      title,
+      renderLogoAndTitle,
       onMenuHeaderClick,
     } = this.props;
     const { openKeys } = this.state;
@@ -143,10 +169,7 @@ export default class SiderMenu extends Component<
           onClick={onMenuHeaderClick}
           id="logo"
         >
-          <div>
-            {defaultRenderLogo(logo)}
-            <h1>{title}</h1>
-          </div>
+          {defaultRenderLogoAndTitle(logo, title, renderLogoAndTitle)}
         </div>
         <BaseMenu
           {...this.props}
