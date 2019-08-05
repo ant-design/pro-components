@@ -24,7 +24,7 @@ export const defaultRenderLogo = (logo: React.ReactNode): React.ReactNode => {
 export const defaultRenderLogoAndTitle = (
   logo: React.ReactNode,
   title: React.ReactNode,
-  menuHeaderRender: SiderMenuProps['renderLogoAndTitle'],
+  menuHeaderRender: SiderMenuProps['menuHeaderRender'],
 ): React.ReactNode => {
   if (menuHeaderRender === false) {
     return null;
@@ -47,7 +47,7 @@ export interface SiderMenuProps
   extends Pick<BaseMenuProps, Exclude<keyof BaseMenuProps, ['onCollapse']>> {
   logo?: React.ReactNode;
   siderWidth?: number;
-  renderLogoAndTitle?: WithFalse<
+  menuHeaderRender?: WithFalse<
     (logo: React.ReactNode, title: React.ReactNode) => React.ReactNode
   >;
   onMenuHeaderClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
@@ -138,7 +138,7 @@ export default class SiderMenu extends Component<
       layout,
       logo,
       title,
-      renderLogoAndTitle,
+      menuHeaderRender: renderLogoAndTitle,
       onMenuHeaderClick,
     } = this.props;
     const { openKeys } = this.state;

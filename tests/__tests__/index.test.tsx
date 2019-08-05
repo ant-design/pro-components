@@ -21,13 +21,13 @@ describe('BasicLayout', () => {
   it('🥩 do not render menu', () => {
     const wrapper = mount(<BasicLayout menuRender={false} />);
     const menu = wrapper.find('.ant-pro-sider-menu');
-    expect(menu.length).toBe(0);
+    expect(menu.exists()).toBe(false);
   });
 
   it('🥩 do not render footer', () => {
     const wrapper = mount(<BasicLayout footerRender={false} />);
     const footer = wrapper.find('footer');
-    expect(footer.length).toBe(0);
+    expect(footer.exists()).toBe(false);
   });
 
   it('🥩 use onLogoClick', () => {
@@ -85,12 +85,12 @@ describe('BasicLayout', () => {
 
   it('🥩 do not render collapsed button', () => {
     const wrapper = mount(<BasicLayout collapsedButtonRender={false} />);
-    expect(wrapper.find('.ant-pro-global-header-trigger')).toHaveLength(0);
+    expect(wrapper.find('.ant-pro-global-header-trigger').exists()).toBe(false);
   });
 
   it('🥩 when renderMenu=false, do not render collapsed button', () => {
     const wrapper = mount(<BasicLayout menuRender={false} />);
-    expect(wrapper.find('.ant-pro-global-header-trigger')).toHaveLength(0);
+    expect(wrapper.find('.ant-pro-global-header-trigger').exists()).toBe(false);
   });
 
   it('🥩 render customize collapsed button', () => {
@@ -108,5 +108,35 @@ describe('BasicLayout', () => {
       collapsed: true,
     });
     expect(dom.text()).toEqual('true');
+  });
+
+  it('🥩 do not render menu header', () => {
+    const wrapper = mount<BasicLayoutProps>(
+      <BasicLayout menuHeaderRender={false} />,
+    );
+    const dom = wrapper.find('#id');
+
+    expect(dom.exists()).toBe(false);
+  });
+
+  it('🥩 customize render menu header', () => {
+    const wrapper = mount<BasicLayoutProps>(
+      <BasicLayout
+        menuHeaderRender={(logo, title) => (
+          <div id="customize_menu_header">
+            {logo}
+            {title}
+            <div id="customize_menu_header_text">customize_menu_header</div>
+          </div>
+        )}
+      />,
+    );
+
+    const dom = wrapper.find('#customize_menu_header');
+    expect(dom.exists()).toBe(true);
+
+    expect(dom.find('#customize_menu_header_text').text()).toEqual(
+      'customize_menu_header',
+    );
   });
 });

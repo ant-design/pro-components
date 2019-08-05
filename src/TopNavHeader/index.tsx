@@ -51,7 +51,7 @@ export default class TopNavHeader extends Component<
       rightContentRender,
       logo,
       title,
-      renderLogoAndTitle,
+      menuHeaderRender,
     } = this.props;
     const { maxWidth } = this.state;
     const flatMenuKeys = getFlatMenuKeys(menuData);
@@ -68,7 +68,7 @@ export default class TopNavHeader extends Component<
         >
           <div className={`${baseClassName}-left`} onClick={onMenuHeaderClick}>
             <div className={`${baseClassName}-logo`} key="logo" id="logo">
-              {defaultRenderLogoAndTitle(logo, title, renderLogoAndTitle)}
+              {defaultRenderLogoAndTitle(logo, title, menuHeaderRender)}
             </div>
           </div>
           <div
