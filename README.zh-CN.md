@@ -34,6 +34,8 @@ render(<BasicLayout />, document.getElementById('root'));
 | --- | --- | --- | --- |
 | title | layout 的 左上角 的 title | ReactNode | `'Ant Design Pro'` |
 | logo | layout 的 左上角 logo 的 url | ReactNode \| ()=>ReactNode | - |
+| menuHeaderRender | 渲染 logo 和 title | ReactNode \| (logo,title)=>ReactNode | - |
+| onMenuHeaderClick | menu 菜单的头部点击事件 | (e: React.MouseEvent<HTMLDivElement>) => void | - |
 | layout | layout 的菜单模式,sidemenu：右侧导航，topmenu：顶部导航 | 'sidemenu' \| 'topmenu' | `'sidemenu'` |
 | contentWidth | layout 的内容模式,Fluid：定宽 1200px，Fixed：自适应 | 'Fluid' \| 'Fixed' | `'Fluid'` |
 | navTheme | 导航的主题 | 'light' \| 'dark' | `'dark'` |

@@ -127,7 +127,7 @@ const defaultPageTitleRender = (
       return title;
     }
     warning(
-      typeof title !== 'string',
+      typeof title === 'string',
       'pro-layout: renderPageTitle return value should be a string',
     );
   }

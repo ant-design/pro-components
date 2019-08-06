@@ -14,6 +14,7 @@ import ProLayout, {
 import React, { useState } from 'react';
 
 import Link from 'umi/link';
+import history from 'umi/router';
 import RightContent from '@/components/GlobalHeader/RightContent';
 import logo from '../assets/logo.svg';
 
@@ -47,6 +48,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
         rightContentRender={rightProps => (
           <RightContent {...rightProps} {...settings} />
         )}
+        onMenuHeaderClick={() => history.push('/')}
         {...props}
         {...settings}
       >
