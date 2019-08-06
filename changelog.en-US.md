@@ -1,5 +1,10 @@
 # changelog
 
+### 4.5.12
+
+- 💄 Fix extra margin top in small screen.
+- 🌟 add menuHeaderRender and onMenuHeaderClick props.
+
 ### 4.5.11
 
 - 🐞 Fixed an issue where phone mode could not be collapsed when onCollapse was not configured.

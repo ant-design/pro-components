@@ -1,5 +1,10 @@
 # 更新日志
 
+### 4.5.12
+
+- 💄 删除在小屏幕上修复额外的边距。
+- 🌟 添加 menuHeaderRender 和 onMenuHeaderClick props。
+
 ### 4.5.11
 
 - 🐞 修复 onCollapse 不配置时，手机模式无法收起的问题。

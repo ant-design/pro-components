@@ -96,7 +96,7 @@
     "jsdom": "^15.0.0",
     "jsdom-global": "^3.0.2",
     "less": "^3.9.0",
-    "lint-staged": "^8.1.1",
+    "lint-staged": "^9.2.1",
     "np": "^5.0.3",
     "prettier": "^1.17.0",
     "puppeteer": "^1.12.1",
