@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-layout",
-  "version": "4.5.12",
+  "version": "4.5.13",
   "description": "ant-design-pro layout, easy to use pro scaffolding.",
   "files": [
     "/lib",
