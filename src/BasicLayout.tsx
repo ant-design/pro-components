@@ -143,7 +143,7 @@ function useCollapsed(
   onCollapse: BasicLayoutProps['onCollapse'],
 ): [boolean | undefined, BasicLayoutProps['onCollapse']] {
   warning(
-    collapsed === undefined || onCollapse === undefined,
+    (collapsed === undefined) === (onCollapse === undefined),
     'pro-layout: onCollapse and collapsed should exist simultaneously',
   );
 
