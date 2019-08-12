@@ -68,6 +68,12 @@ export default {
                   component: './Welcome',
                 },
                 {
+                  path: '/welcome/welcome2',
+                  name: 'two2',
+                  icon: 'smile',
+                  component: './Welcome',
+                },
+                {
                   path:
                     'https://github.com/ant-design/ant-design-pro-layout/issues',
                   name: 'site',

@@ -61,6 +61,8 @@ render(<ProLayout />, document.getElementById('root'));
 | menuItemRender | the render method of a custom menu item | [(itemProps: MenuDataItem) => ReactNode](#MenuDataItem) | - |
 | route | Used to assist in the generation of menu and bread crumbs. Umi will automatically bring | [route](#Route) | - |
 
+Layout support for most of [Menu](https://ant.design/components/menu-cn/#Menu) after 4.5.13.
+
 ### SettingDrawer
 
 ```js

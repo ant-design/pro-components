@@ -55,7 +55,7 @@ export interface SiderMenuProps
 
 interface SiderMenuState {
   pathname?: string;
-  openKeys?: string[];
+  openKeys?: string[] | false;
   flatMenuKeysLen?: number;
 }
 
@@ -116,6 +116,15 @@ export default class SiderMenu extends Component<
   };
 
   handleOpenChange: (openKeys: string[]) => void = openKeys => {
+    const { onOpenChange, openKeys: defaultOpenKeys } = this.props;
+    if (onOpenChange) {
+      onOpenChange(openKeys);
+      return;
+    }
+    // if defaultOpenKeys existence, don't change
+    if (defaultOpenKeys !== undefined) {
+      return;
+    }
     const moreThanOne =
       openKeys.filter(openKey => this.isMainMenu(openKey)).length > 1;
     if (moreThanOne) {
@@ -142,11 +151,18 @@ export default class SiderMenu extends Component<
       onMenuHeaderClick,
     } = this.props;
     const { openKeys } = this.state;
-    const defaultProps = collapsed || layout !== 'sidemenu' ? {} : { openKeys };
+
+    // 如果收起，并且为顶部布局，openKeys 为 false 都不控制 openKeys
+    const defaultProps =
+      collapsed || layout !== 'sidemenu' || openKeys === false
+        ? {}
+        : { openKeys };
+
     const siderClassName = classNames('ant-pro-sider-menu-sider', {
       'fix-sider-bar': fixSiderbar,
       light: theme === 'light',
     });
+
     return (
       <Sider
         collapsible

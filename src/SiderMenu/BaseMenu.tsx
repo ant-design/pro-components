@@ -3,7 +3,7 @@ import './index.less';
 import { Icon, Menu } from 'antd';
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import { MenuMode } from 'antd/es/menu';
+import { MenuMode, MenuProps } from 'antd/es/menu';
 import { MenuTheme } from 'antd/es/menu/MenuContext';
 import defaultSettings, { Settings } from '../defaultSettings';
 import { getMenuMatches } from './SiderMenuUtils';
@@ -20,6 +20,7 @@ import {
 
 export interface BaseMenuProps
   extends Partial<RouterTypes<Route>>,
+    Omit<MenuProps, 'openKeys'>,
     Partial<Settings> {
   className?: string;
   collapsed?: boolean;
@@ -30,7 +31,7 @@ export interface BaseMenuProps
   mode?: MenuMode;
   onCollapse?: (collapsed: boolean) => void;
   onOpenChange?: (openKeys: string[]) => void;
-  openKeys?: string[];
+  openKeys?: WithFalse<string[]>;
   style?: React.CSSProperties;
   theme?: MenuTheme;
   formatMessage?: (message: MessageDescriptor) => string;
@@ -124,7 +125,11 @@ export default class BaseMenu extends Component<BaseMenuProps> {
 
   // Get the currently selected menu
   getSelectedMenuKeys = (pathname?: string): string[] => {
-    const { flatMenuKeys } = this.props;
+    const { flatMenuKeys, selectedKeys } = this.props;
+    if (selectedKeys !== undefined) {
+      return selectedKeys;
+    }
+
     return urlToList(pathname)
       .map(itemPath => getMenuMatches(flatMenuKeys, itemPath).pop())
       .filter(item => item) as string[];
@@ -264,10 +269,11 @@ export default class BaseMenu extends Component<BaseMenuProps> {
       fixedHeader = false,
       layout = 'sidemenu',
       menuData,
+      selectedKeys: defaultSelectedKeys,
     } = this.props;
     // if pathname can't match, use the nearest parent's key
     let selectedKeys = this.getSelectedMenuKeys(location.pathname);
-    if (!selectedKeys.length && openKeys) {
+    if (defaultSelectedKeys === undefined && !selectedKeys.length && openKeys) {
       selectedKeys = [openKeys[openKeys.length - 1]];
     }
     let props = {};
