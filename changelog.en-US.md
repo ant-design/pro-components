@@ -1,5 +1,10 @@
 # changelog
 
+### 4.5.13
+
+- 🐞 Fixed an issue with the output warning of the collapsed error.
+- 🌟 Supported usage of openKeys and selectedKeys is supported.
+
 ### 4.5.12
 
 - 💄 Fix extra margin top in small screen.

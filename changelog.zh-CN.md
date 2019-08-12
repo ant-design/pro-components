@@ -1,5 +1,10 @@
 # 更新日志
 
+### 4.5.13
+
+- 🐞 删除 collapsed 错误的输出 warning 的问题。
+- 🌟 支持了 openKeys 与 selectedKeys 受控用法。
+
 ### 4.5.12
 
 - 💄 删除在小屏幕上修复额外的边距。
