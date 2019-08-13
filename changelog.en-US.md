@@ -1,8 +1,12 @@
 # changelog
 
+### 4.5.14
+
+- 🐞 Fix the problem that the inline menu of the sidebar cannot be expanded and collapsed.
+
 ### 4.5.13
 
-- 🐞 Fixed an issue with the output warning of the collapsed error.
+- 🐞 Fixed an issue with the output warning of the collapsed error. [#81](https://github.com/ant-design/ant-design-pro-layout/pull/81) [@blackraindrop](https://github.com/blackraindrop)
 - 🌟 Supported usage of openKeys and selectedKeys is supported.
 
 ### 4.5.12

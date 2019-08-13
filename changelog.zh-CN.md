@@ -1,8 +1,12 @@
 # 更新日志
 
+### 4.5.14
+
+- 🐞 修复边栏的内联菜单无法展开和折叠的问题。
+
 ### 4.5.13
 
-- 🐞 删除 collapsed 错误的输出 warning 的问题。
+- 🐞 删除 collapsed 错误的输出 warning 的问题。[#81](https://github.com/ant-design/ant-design-pro-layout/pull/81) [@blackraindrop](https://github.com/blackraindrop)
 - 🌟 支持了 openKeys 与 selectedKeys 受控用法。
 
 ### 4.5.12
