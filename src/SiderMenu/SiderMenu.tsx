@@ -65,14 +65,9 @@ export default class SiderMenu extends Component<
 > {
   static defaultProps: Partial<SiderMenuProps> = {
     flatMenuKeys: [],
-    onCollapse: () => undefined,
     isMobile: false,
-    openKeys: [],
     collapsed: false,
-    handleOpenChange: () => undefined,
     menuData: [],
-    onMenuHeaderClick: () => undefined,
-    onOpenChange: () => undefined,
   };
 
   static getDerivedStateFromProps(
