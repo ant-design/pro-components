@@ -103,7 +103,7 @@
     "slash2": "^2.0.0",
     "stylelint": "^10.0.1",
     "umi": "^2.6.14",
-    "umi-types": "^0.3.5"
+    "umi-types": "^0.4.0"
   },
   "engines": {
     "node": ">=8.0.0"
