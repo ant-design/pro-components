@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Layout } from 'antd';
 import classNames from 'classnames';
+import { MenuProps } from 'antd/lib/menu';
 
 import './index.less';
 import { WithFalse } from '../typings';
@@ -51,6 +52,11 @@ export interface SiderMenuProps
     (logo: React.ReactNode, title: React.ReactNode) => React.ReactNode
   >;
   onMenuHeaderClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
+
+  /**
+   * 要给菜单的props, 参考antd-menu的属性。https://ant.design/components/menu-cn/
+   */
+  menuProps?: MenuProps;
 }
 
 interface SiderMenuState {
@@ -189,6 +195,7 @@ export default class SiderMenu extends Component<
           onOpenChange={this.handleOpenChange}
           style={{ padding: '16px 0', width: '100%' }}
           {...defaultProps}
+          {...this.props.menuProps}
         />
       </Sider>
     );

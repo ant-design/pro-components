@@ -79,6 +79,11 @@ export interface BasicLayoutProps
     routers: AntdBreadcrumbProps['routes'],
   ) => AntdBreadcrumbProps['routes'];
   itemRender?: AntdBreadcrumbProps['itemRender'];
+
+  /**
+   * 是否禁用移动端模式，有的管理系统不需要移动端模式，此属性设置为true即可
+   */
+  disableMobile?: boolean;
 }
 
 const headerRender = (props: BasicLayoutProps): React.ReactNode => {
@@ -110,7 +115,7 @@ const renderSiderMenu = (props: BasicLayoutProps): React.ReactNode => {
     return menuRender(props, <SiderMenu {...props} />);
   }
 
-  return <SiderMenu {...props} />;
+  return <SiderMenu {...props} {...props.menuProps} />;
 };
 
 const defaultPageTitleRender = (
@@ -224,13 +229,15 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
   /**
    * init variables
    */
-  const isMobile = useMedia({
-    id: 'BasicLayout',
-    query: '(max-width: 599px)',
-    targetWindow: window || {
-      matchMedia: () => true,
-    },
-  })[0];
+  const isMobile = props.disableMobile
+    ? false
+    : useMedia({
+        id: 'BasicLayout',
+        query: '(max-width: 599px)',
+        targetWindow: window || {
+          matchMedia: () => true,
+        },
+      })[0];
 
   // If it is a fix menu, calculate padding
   // don't need padding in phone mode

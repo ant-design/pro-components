@@ -35,6 +35,10 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
   return (
     <>
       <ProLayout
+        disableMobile
+        menuProps={{
+          mode: 'vertical',
+        }}
         logo={logo}
         collapsed={collapsed}
         onCollapse={handleMenuCollapse}
