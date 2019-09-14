@@ -1,5 +1,11 @@
 # 更新日志
 
+### 4.5.15
+
+- 🐞 修复 GlobalHeader 的 className 错误。 [#92](https://github.com/ant-design/ant-design-pro-layout/pull/92)
+- 🌟 支持 ssr。 [#96](https://github.com/ant-design/ant-design-pro-layout/issues/96)
+- 🌟 增加 `disableMobile` 和 `menuProps` 属性。 [#98](https://github.com/ant-design/ant-design-pro-layout/pull/98)
+
 ### 4.5.14
 
 - 🐞 修复边栏的内联菜单无法展开和折叠的问题。

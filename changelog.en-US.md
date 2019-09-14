@@ -1,5 +1,11 @@
 # changelog
 
+### 4.5.15
+
+- 🐞 Fix Global Header class name. [#92](https://github.com/ant-design/ant-design-pro-layout/pull/92)
+- 🌟 ssr support. [#96](https://github.com/ant-design/ant-design-pro-layout/issues/96)
+- 🌟 add `disableMobile` and `menuProps`. [#98](https://github.com/ant-design/ant-design-pro-layout/pull/98)
+
 ### 4.5.14
 
 - 🐞 Fix the problem that the inline menu of the sidebar cannot be expanded and collapsed.
