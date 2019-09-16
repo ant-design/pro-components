@@ -6,7 +6,7 @@
   position: relative;
   width: 100%;
   height: @layout-header-height;
-  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+  box-shadow: @box-shadow-base;
   transition: background 0.3s, width 0.2s;
   .ant-menu-submenu.ant-menu-submenu-horizontal {
     height: 100%;
@@ -17,7 +17,7 @@
   }
 
   &.light {
-    background-color: #fff;
+    background-color: @component-background;
     h1 {
       color: #002140;
     }
@@ -56,7 +56,7 @@
     h1 {
       display: inline-block;
       margin: 0 0 0 12px;
-      color: #fff;
+      color: @btn-primary-color;
       font-weight: 400;
       font-size: 16px;
       vertical-align: top;
