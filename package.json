@@ -83,7 +83,7 @@
     "babel-eslint": "^10.0.1",
     "babel-plugin-import": "^1.12.0",
     "chalk": "^2.4.2",
-    "cross-env": "^5.2.0",
+    "cross-env": "^6.0.0",
     "enzyme": "^3.9.0",
     "eslint": "^5.16.0",
     "father-build": "^1.2.0",
