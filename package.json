@@ -23,7 +23,9 @@
     "prepublishOnly": "npm run build && np --no-cleanup --yolo --no-publish",
     "prettier": "prettier -c --write **/*",
     "start": "cd ./example && umi dev",
-    "test": "umi test"
+    "test": "umi test",
+    "storybook": "start-storybook",
+    "site": " build-storybook && gh-pages -d ./storybook-static"
   },
   "husky": {
     "hooks": {
@@ -66,6 +68,12 @@
     "warning": "^4.0.3"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^5.2.1",
+    "@storybook/addon-notes": "^5.2.1",
+    "@storybook/addon-storysource": "^5.2.1",
+    "@storybook/addon-viewport": "^5.2.1",
+    "@storybook/addons": "^5.2.1",
+    "@storybook/react": "^5.2.1",
     "@types/classnames": "^2.2.7",
     "@types/enzyme": "^3.9.1",
     "@types/history": "^4.7.2",
@@ -87,6 +95,7 @@
     "enzyme": "^3.9.0",
     "eslint": "^5.16.0",
     "father-build": "^1.2.0",
+    "gh-pages": "^2.1.1",
     "husky": "^3.0.2",
     "import-sort-cli": "^6.0.0",
     "import-sort-parser-babylon": "^6.0.0",
@@ -100,6 +109,7 @@
     "np": "^5.0.3",
     "prettier": "^1.17.0",
     "puppeteer": "^1.12.1",
+    "react-markdown": "^4.2.2",
     "slash2": "^2.0.0",
     "stylelint": "^11.0.0",
     "umi": "^2.6.14",

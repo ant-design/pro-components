@@ -26,6 +26,10 @@ import BasicLayout from '@ant-design/pro-layout';
 render(<BasicLayout />, document.getElementById('root'));
 ```
 
+## 示例
+
+[site](https://ant-design.github.io/ant-design-pro-layout/)
+
 ## API
 
 > 所有以 `Render` 后缀的方法都可以通过传入 `false` 来使其不渲染。

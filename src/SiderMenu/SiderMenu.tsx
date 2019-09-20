@@ -146,7 +146,7 @@ export default class SiderMenu extends Component<
       siderWidth = 256,
       isMobile,
       layout,
-      logo,
+      logo = 'https://gw.alipayobjects.com/zos/antfincdn/PmY%24TNNDBI/logo.svg',
       title,
       menuHeaderRender: renderLogoAndTitle,
       onMenuHeaderClick,
