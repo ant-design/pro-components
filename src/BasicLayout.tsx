@@ -229,15 +229,14 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
   /**
    * init variables
    */
-  const isMobile = props.disableMobile
-    ? false
-    : useMedia({
-        id: 'BasicLayout',
-        query: '(max-width: 599px)',
-        targetWindow: window || {
-          matchMedia: () => true,
-        },
-      })[0];
+  const isMobile =
+    useMedia({
+      id: 'BasicLayout',
+      query: '(max-width: 599px)',
+      targetWindow: window || {
+        matchMedia: () => true,
+      },
+    })[0] && !props.disableMobile;
 
   // If it is a fix menu, calculate padding
   // don't need padding in phone mode
