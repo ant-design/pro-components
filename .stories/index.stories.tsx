@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
-import BasicLayout, { SettingDrawer, PageHeaderWrapper } from '../src/';
+import BasicLayout, {
+  SettingDrawer,
+  PageHeaderWrapper,
+  DefaultFooter,
+} from '../src/';
 import defaultProps from './defaultProps';
 import customMenu from './customMenu';
 import ReactMarkdown from 'react-markdown/with-html';
@@ -74,6 +78,43 @@ export const CustomHeader = () => (
 
 CustomHeader.story = {
   name: '自定义头',
+  parameters: {
+    notes: {
+      markdown: README,
+    },
+  },
+};
+
+export const CloseFooter = () => (
+  <BasicLayout footerRender={false} {...defaultProps} />
+);
+
+CloseFooter.story = {
+  name: '关闭页脚',
+  parameters: {
+    notes: {
+      markdown: README,
+    },
+  },
+};
+
+export const CustomFooter = () => (
+  <BasicLayout
+    footerRender={() => (
+      <DefaultFooter
+        links={[
+          { key: 'test', title: 'layout', href: 'www.alipay.com' },
+          { key: 'test2', title: 'layout2', href: 'www.alipay.com' },
+        ]}
+        copyright="这是一条测试文案"
+      ></DefaultFooter>
+    )}
+    {...defaultProps}
+  />
+);
+
+CustomFooter.story = {
+  name: '自定义页脚',
   parameters: {
     notes: {
       markdown: README,
