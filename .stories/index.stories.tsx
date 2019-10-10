@@ -17,6 +17,7 @@ export const READECN = () => (
     className="markdown-body entry-content"
     style={{
       padding: 24,
+      backgroundColor: '#FFF',
     }}
   >
     <ReactMarkdown className="markdown" source={README} escapeHtml={false} />
