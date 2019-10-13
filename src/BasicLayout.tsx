@@ -100,7 +100,7 @@ const footerRender = (props: BasicLayoutProps): React.ReactNode => {
   if (props.footerRender) {
     return props.footerRender({ ...props }, <Footer />);
   }
-  return <Footer />;
+  return null;
 };
 
 const renderSiderMenu = (props: BasicLayoutProps): React.ReactNode => {
