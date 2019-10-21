@@ -68,7 +68,7 @@ render(<ProLayout />, document.getElementById('root'));
 | disableMobile | Disable automatic switch to mobile mode | boolean | false |
 | menuProps | Props passed to ANTD MENU, SEE (https://ant.design/components/menu-cn/) | MenuProps | undefined |
 
-Layout support for most of [Menu](https://ant.design/components/menu-cn/#Menu) after 4.5.13.
+Layout support for most of [Menu](https://ant.design/components/menu-cn/#Menu) by `menuProps` after 4.5.13.
 
 ### SettingDrawer
 

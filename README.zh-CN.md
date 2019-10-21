@@ -66,7 +66,7 @@ render(<BasicLayout />, document.getElementById('root'));
 | disableMobile | 禁止自动切换到移动页面 | boolean | false |
 | menuProps | 传递到 antd menu 组件的 props, 参考 (https://ant.design/components/menu-cn/) | MenuProps | undefined |
 
-在 4.5.13 以后 Layout 支持 [Menu](https://ant.design/components/menu-cn/#Menu) 的大部分 props。
+在 4.5.13 以后 Layout 通过 `menuProps` 支持 [Menu](https://ant.design/components/menu-cn/#Menu) 的大部分 props。
 
 ### SettingDrawer
 
