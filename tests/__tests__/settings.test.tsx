@@ -7,8 +7,12 @@ describe('settings.test', () => {
     Object.defineProperty(window, 'matchMedia', {
       value: jest.fn(() => ({
         matches: false,
-        addListener() {},
-        removeListener() {},
+        addListener() {
+          console.log('add');
+        },
+        removeListener() {
+          console.log('remove');
+        },
       })),
     });
   });
