@@ -6,7 +6,6 @@
     "/lib",
     "/es"
   ],
-  "sideEffects": false,
   "main": "lib/index.js",
   "module": "es/index.js",
   "types": "lib/index.d.ts",
