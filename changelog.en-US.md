@@ -1,5 +1,13 @@
 # changelog
 
+### 4.6.0
+
+Layout now does not render the footer by default, you need to [set](https://github.com/ant-design/ant-design-pro/blob/7888208389480656ae30a4bc87bf0f38e54fd818/src/layouts/BasicLayout.tsx#L67) yourself.
+
+- 🌟 Add onTitleClick for subMenu. [#139](https://github.com/ant-design/ant-design-pro-layout/issues/139)
+- 🌟 Footer support links = false. [2ac24296](https://github.com/ant-design/ant-design-pro-layout/commit/2ac242962e681cc5a2d01153a1565c578dc42ae8)
+- 🌟 PageHeaderWrapper support all tabpanel props. [478c5a1d](https://github.com/ant-design/ant-design-pro-layout/commit/478c5a1dec631ec2247399e1ceee657361786bd3)
+
 ### 4.5.15
 
 - 🐞 Fix Global Header class name. [#92](https://github.com/ant-design/ant-design-pro-layout/pull/92)
