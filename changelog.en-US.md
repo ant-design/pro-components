@@ -1,5 +1,9 @@
 # changelog
 
+### 4.6.1
+
+- 🐞 Fixing sideEffects causes less problems to load properly. [cf0cb3e8](https://github.com/ant-design/ant-design-pro-layout/commit/cf0cb3e88ce6f80121b9a2e8a5d1eafefbadb59c)
+
 ### 4.6.0
 
 Layout now does not render the footer by default, you need to [set](https://github.com/ant-design/ant-design-pro/blob/7888208389480656ae30a4bc87bf0f38e54fd818/src/layouts/BasicLayout.tsx#L67) yourself.
