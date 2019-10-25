@@ -158,6 +158,7 @@ export default class BaseMenu extends Component<BaseMenuProps> {
             )
           }
           key={item.key || item.path}
+          onTitleClick={item.onTitleClick}
         >
           {this.getNavMenuItems(item.children)}
         </SubMenu>
