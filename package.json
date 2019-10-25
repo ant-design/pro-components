@@ -31,6 +31,27 @@
       "pre-commit": "npm run lint-staged"
     }
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ant-design/ant-design-pro-layout"
+  },
+  "author": "qixian.cs@outlook.com",
+  "bugs": {
+    "url": "https://github.com/ant-design/ant-design-pro-layout/issues"
+  },
+  "homepage": "https://github.com/ant-design/ant-design-pro-layout#readme",
+  "license": "MIT",
+  "keywords": [
+    "ant-design",
+    "ant-design-pro",
+    "antd",
+    "ant",
+    "layout",
+    "admin",
+    "menu",
+    "design",
+    "pro"
+  ],
   "lint-staged": {
     "**/*.less": "stylelint --syntax less",
     "**/*.{js,jsx,tsx,ts,less,md,json}": [
