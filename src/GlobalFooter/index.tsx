@@ -2,14 +2,17 @@ import './index.less';
 
 import React from 'react';
 import classNames from 'classnames';
+import { WithFalse } from '../typings';
 
 export interface GlobalFooterProps {
-  links?: {
-    key?: string;
-    title: React.ReactNode;
-    href: string;
-    blankTarget?: boolean;
-  }[];
+  links?: WithFalse<
+    {
+      key?: string;
+      title: React.ReactNode;
+      href: string;
+      blankTarget?: boolean;
+    }[]
+  >;
   copyright?: React.ReactNode;
   style?: React.CSSProperties;
   className?: string;

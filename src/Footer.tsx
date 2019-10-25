@@ -2,6 +2,7 @@ import { Icon, Layout } from 'antd';
 import React, { Fragment } from 'react';
 
 import GlobalFooter from './GlobalFooter';
+import { WithFalse } from './typings';
 
 const { Footer } = Layout;
 
@@ -29,19 +30,24 @@ const defaultLinks = [
 const defaultCopyright = '2019 蚂蚁金服体验技术部出品';
 
 export interface FooterProps {
-  links?: {
-    key?: string;
-    title: React.ReactNode;
-    href: string;
-    blankTarget?: boolean;
-  }[];
+  links?: WithFalse<
+    {
+      key?: string;
+      title: React.ReactNode;
+      href: string;
+      blankTarget?: boolean;
+    }[]
+  >;
   copyright?: string;
 }
 
-const FooterView: React.FC<FooterProps> = ({ links, copyright }: FooterProps) => (
+const FooterView: React.FC<FooterProps> = ({
+  links,
+  copyright,
+}: FooterProps) => (
   <Footer style={{ padding: 0 }}>
     <GlobalFooter
-      links={links || defaultLinks}
+      links={links !== undefined ? links : defaultLinks}
       copyright={
         <Fragment>
           Copyright <Icon type="copyright" /> {copyright || defaultCopyright}
