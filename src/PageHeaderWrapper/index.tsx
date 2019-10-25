@@ -1,16 +1,13 @@
 import { PageHeader, Tabs } from 'antd';
 import React from 'react';
-import { TabsProps } from 'antd/es/tabs';
+import { TabsProps, TabPaneProps } from 'antd/es/tabs';
 import { PageHeaderProps } from 'antd/es/page-header';
 import './index.less';
 import GridContent from '../GridContent';
 import RouteContext from '../RouteContext';
 
 interface PageHeaderTabConfig {
-  tabList?: {
-    key: string;
-    tab: string;
-  }[];
+  tabList?: TabPaneProps[];
   tabActiveKey?: TabsProps['activeKey'];
   onTabChange?: TabsProps['onChange'];
   tabBarExtraContent?: TabsProps['tabBarExtraContent'];
@@ -51,7 +48,7 @@ const renderFooter: React.SFC<Omit<PageHeaderWrapperProps, 'title'>> = ({
         tabBarExtraContent={tabBarExtraContent}
       >
         {tabList.map(item => (
-          <Tabs.TabPane tab={item.tab} key={item.key} />
+          <Tabs.TabPane {...item} tab={item.tab} key={item.key} />
         ))}
       </Tabs>
     );
