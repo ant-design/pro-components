@@ -2,6 +2,27 @@
   "name": "@ant-design/pro-layout",
   "version": "4.6.1",
   "description": "ant-design-pro layout, easy to use pro scaffolding.",
+  "keywords": [
+    "admin",
+    "ant",
+    "ant-design",
+    "ant-design-pro",
+    "antd",
+    "design",
+    "layout",
+    "menu",
+    "pro"
+  ],
+  "homepage": "https://github.com/ant-design/ant-design-pro-layout#readme",
+  "bugs": {
+    "url": "https://github.com/ant-design/ant-design-pro-layout/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ant-design/ant-design-pro-layout"
+  },
+  "license": "MIT",
+  "author": "qixian.cs@outlook.com",
   "files": [
     "/lib",
     "/es"
@@ -21,37 +42,16 @@
     "lint:style": "stylelint --fix  'src/**/*.less'  --syntax less",
     "prepublishOnly": "npm run build && np --no-cleanup --yolo --no-publish",
     "prettier": "prettier -c --write **/*",
+    "site": " build-storybook && gh-pages -d ./storybook-static",
     "start": "cd ./example && umi dev",
-    "test": "umi test",
     "storybook": "start-storybook",
-    "site": " build-storybook && gh-pages -d ./storybook-static"
+    "test": "umi test"
   },
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint-staged"
     }
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ant-design/ant-design-pro-layout"
-  },
-  "author": "qixian.cs@outlook.com",
-  "bugs": {
-    "url": "https://github.com/ant-design/ant-design-pro-layout/issues"
-  },
-  "homepage": "https://github.com/ant-design/ant-design-pro-layout#readme",
-  "license": "MIT",
-  "keywords": [
-    "ant-design",
-    "ant-design-pro",
-    "antd",
-    "ant",
-    "layout",
-    "admin",
-    "menu",
-    "design",
-    "pro"
-  ],
   "lint-staged": {
     "**/*.less": "stylelint --syntax less",
     "**/*.{js,jsx,tsx,ts,less,md,json}": [
@@ -78,8 +78,8 @@
     "react": "^16.10.2",
     "react-container-query": "^0.11.0",
     "react-copy-to-clipboard": "^5.0.1",
-    "react-document-title": "^2.0.3",
     "react-dom": "^16.10.2",
+    "react-helmet": "^5.2.1",
     "react-media-hook2": "^1.1.2",
     "react-router-dom": "5.1.2",
     "warning": "^4.0.3"
@@ -100,8 +100,8 @@
     "@types/memoize-one": "^4.1.1",
     "@types/react": "^16.9.5",
     "@types/react-copy-to-clipboard": "^4.3.0",
-    "@types/react-document-title": "^2.0.3",
     "@types/react-dom": "^16.9.1",
+    "@types/react-helmet": "^5.0.13",
     "@types/react-intl": "^3.0.0",
     "@types/react-router-dom": "^5.1.0",
     "@types/warning": "^3.0.0",

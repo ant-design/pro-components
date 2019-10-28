@@ -56,7 +56,9 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
         {...props}
         {...settings}
       >
-        <PageHeaderWrapper>{props.children}</PageHeaderWrapper>
+        <PageHeaderWrapper content="欢迎您的使用">
+          {props.children}
+        </PageHeaderWrapper>
       </ProLayout>
       <SettingDrawer
         settings={settings}

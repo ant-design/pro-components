@@ -3,7 +3,7 @@ import './BasicLayout.less';
 import React, { useState } from 'react';
 import { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/es/breadcrumb';
 import { ContainerQuery } from 'react-container-query';
-import DocumentTitle from 'react-document-title';
+import { Helmet } from 'react-helmet';
 import { Layout } from 'antd';
 import classNames from 'classnames';
 import useMedia from 'react-media-hook2';
@@ -271,7 +271,10 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
   });
 
   return (
-    <DocumentTitle title={pageTitle}>
+    <>
+      <Helmet>
+        <title>{pageTitle}</title>
+      </Helmet>
       <ContainerQuery query={query}>
         {params => (
           <div className={classNames(params, 'ant-design-pro', 'basicLayout')}>
@@ -328,7 +331,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
           </div>
         )}
       </ContainerQuery>
-    </DocumentTitle>
+    </>
   );
 };
 

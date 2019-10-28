@@ -1,5 +1,6 @@
 import { PageHeader, Tabs } from 'antd';
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { TabsProps, TabPaneProps } from 'antd/es/tabs';
 import { PageHeaderProps } from 'antd/es/page-header';
 import './index.less';
@@ -103,14 +104,22 @@ const defaultPageHeaderRender = (
           pageHeaderTitle = value.title;
         }
         return (
-          <PageHeader
-            {...value}
-            title={pageHeaderTitle}
-            {...restProps}
-            footer={renderFooter(restProps)}
-          >
-            {renderPageHeader(content, extraContent)}
-          </PageHeader>
+          <>
+            <Helmet>
+              <meta name="description" content={value.title} />
+              {typeof props.content === 'string' && (
+                <meta name="description" content={props.content} />
+              )}
+            </Helmet>
+            <PageHeader
+              {...value}
+              title={pageHeaderTitle}
+              {...restProps}
+              footer={renderFooter(restProps)}
+            >
+              {renderPageHeader(content, extraContent)}
+            </PageHeader>
+          </>
         );
       }}
     </RouteContext.Consumer>
