@@ -45,7 +45,7 @@ render(<BasicLayout />, document.getElementById('root'));
 | navTheme | 导航的主题 | 'light' \| 'dark' | `'dark'` |
 | fixedHeader | 是否固定 header 到顶部 | boolean | `false` |
 | fixSiderbar | 是否固定导航 | boolean | `false` |
-| autoHideHeader | 是否下滑时自动隐藏 header | boolean' | `false` |
+| autoHideHeader | 是否下滑时自动隐藏 header | boolean | `false` |
 | menu | 关于 menu 的配置，暂时只有 locale,locale 可以关闭 menu 的自带的全球化 | { locale: boolean } | `{ locale: true }` |
 | iconfontUrl | 使用 [IconFont](https://ant.design/components/icon-cn/#components-icon-demo-iconfont) 的图标配置 | string | - |
 | locale | 当前 layout 的语言设置 | 'zh-CN' \| 'zh-TW' \| 'en-US' | navigator.language |

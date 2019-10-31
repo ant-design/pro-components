@@ -47,7 +47,7 @@ render(<ProLayout />, document.getElementById('root'));
 | navTheme | Navigation menu theme | 'light' \| 'dark' | `'dark'` |
 | fixedHeader | whether to fix header to top | boolean | `false` |
 | FixSiderbar | Whether to fix navigation menu | boolean | `false` |
-| autoHideHeader | automatically hide the header when sliding | boolean' | `false` |
+| autoHideHeader | automatically hide the header when sliding | boolean | `false` |
 | menu | About the configuration of the menu, only locale, locale can turn off the globalization of the menu | { locale: boolean } | `{ locale: true }` |
 | iconfontUrl | Use [IconFont](https://ant.design/components/icon-cn/#components-icon-demo-iconfont) icon configuration | string | - |
 | locale | The language setting of the layout | 'zh-CN' \| 'zh-TW' \| 'en-US' | navigator.language |
