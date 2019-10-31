@@ -1,5 +1,10 @@
 # 更新日志
 
+### 4.6.2
+
+- 🌟 使用 react-responsive 替换了 react-container-query 和 react-media-hook2。[#150](https://github.com/ant-design/ant-design-pro-layout/pull/139)
+- 🌟 使用 react-helmet 替换了 react-document-title。[#142](https://github.com/ant-design/ant-design-pro-layout/pull/139)
+
 ### 4.6.1
 
 - 🐞 修复 sideEffects 导致 less 无法正确加载的问题。[cf0cb3e8](https://github.com/ant-design/ant-design-pro-layout/commit/cf0cb3e88ce6f80121b9a2e8a5d1eafefbadb59c)
@@ -8,7 +13,7 @@
 
 Layout 现在默认不会渲染页脚，需要自己[设置](https://github.com/ant-design/ant-design-pro/blob/7888208389480656ae30a4bc87bf0f38e54fd818/src/layouts/BasicLayout.tsx#L67)。
 
-- 🌟 SubMenu 支持 onTitleClick 属性。 [#139](https://github.com/ant-design/ant-design-pro-layout/issues/139)
+- 🌟 SubMenu 支持 onTitleClick 属性。 [#139](https://github.com/ant-design/ant-design-pro-layout/pull/139)
 - 🌟 Footer 支持 `links` 设置为 false。[2ac24296](https://github.com/ant-design/ant-design-pro-layout/commit/2ac242962e681cc5a2d01153a1565c578dc42ae8)
 - 🌟 PageHeaderWrapper 支持 [TabsTabPane](https://ant.design/components/tabs-cn/#TabsTabPane) 的所有属性。[478c5a1d](https://github.com/ant-design/ant-design-pro-layout/commit/478c5a1dec631ec2247399e1ceee657361786bd3)
 

@@ -1,5 +1,10 @@
 # changelog
 
+### 4.6.2
+
+- 🌟Replaced react-container-query and react-media-hook2 with react-response. [#150](https://github.com/ant-design/ant-design-pro-layout/pull/139)
+- 🌟Replace react-document-title with react-helmet. [#142](https://github.com/ant-design/ant-design-pro-layout/pull/139)
+
 ### 4.6.1
 
 - 🐞 Fixing sideEffects causes less problems to load properly. [cf0cb3e8](https://github.com/ant-design/ant-design-pro-layout/commit/cf0cb3e88ce6f80121b9a2e8a5d1eafefbadb59c)
