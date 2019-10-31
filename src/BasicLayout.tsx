@@ -2,12 +2,11 @@ import './BasicLayout.less';
 
 import React, { useState } from 'react';
 import { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/es/breadcrumb';
-import { ContainerQuery } from 'react-container-query';
 import { Helmet } from 'react-helmet';
 import { Layout } from 'antd';
 import classNames from 'classnames';
-import useMedia from 'react-media-hook2';
 import warning from 'warning';
+import { useMediaQuery } from 'react-responsive';
 
 import Header, { HeaderViewProps } from './Header';
 import {
@@ -31,7 +30,7 @@ import { isBrowser } from './utils/utils';
 
 const { Content } = Layout;
 
-const query = {
+const MediaQueryEnum = {
   'screen-xs': {
     maxWidth: 575,
   },
@@ -54,6 +53,22 @@ const query = {
   'screen-xxl': {
     minWidth: 1600,
   },
+};
+
+/**
+ * loop query screen className
+ * Array.find will throw a error
+ * `Rendered more hooks than during the previous render.`
+ * So should use Array.forEach
+ */
+const getScreenClassName = () => {
+  let className = '';
+  Object.keys(MediaQueryEnum).forEach(key => {
+    if (useMediaQuery(MediaQueryEnum[key])) {
+      className = key;
+    }
+  });
+  return className;
 };
 
 export interface BasicLayoutProps
@@ -193,6 +208,17 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     menuDataRender,
   } = props;
 
+  /**
+   * init variables
+   */
+  const [isMobile, setIsMobile] = useState<boolean>(
+    useMediaQuery({ maxWidth: 767 }, undefined, (match: boolean) => {
+      if (!props.disableMobile) {
+        setIsMobile(match);
+      }
+    }) && !props.disableMobile,
+  );
+
   const formatMessage = ({
     id,
     defaultMessage,
@@ -225,18 +251,6 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     formatMessage,
     menuDataRender,
   );
-
-  /**
-   * init variables
-   */
-  const isMobile =
-    useMedia({
-      id: 'BasicLayout',
-      query: '(max-width: 599px)',
-      targetWindow: window || {
-        matchMedia: () => true,
-      },
-    })[0] && !props.disableMobile;
 
   // If it is a fix menu, calculate padding
   // don't need padding in phone mode
@@ -275,62 +289,64 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
       <Helmet>
         <title>{pageTitle}</title>
       </Helmet>
-      <ContainerQuery query={query}>
-        {params => (
-          <div className={classNames(params, 'ant-design-pro', 'basicLayout')}>
-            <Layout>
-              {renderSiderMenu({
-                ...defaultProps,
-                menuData,
-                onCollapse,
-                isMobile,
-                theme: navTheme,
+      <div
+        className={classNames(
+          getScreenClassName(),
+          'ant-design-pro',
+          'basicLayout',
+        )}
+      >
+        <Layout>
+          {renderSiderMenu({
+            ...defaultProps,
+            menuData,
+            onCollapse,
+            isMobile,
+            theme: navTheme,
+            collapsed,
+          })}
+          <Layout
+            style={{
+              paddingLeft: getPaddingLeft(
+                !!hasLeftPadding,
                 collapsed,
-              })}
-              <Layout
-                style={{
-                  paddingLeft: getPaddingLeft(
-                    !!hasLeftPadding,
-                    collapsed,
-                    siderWidth,
-                  ),
-                  minHeight: '100vh',
-                }}
-              >
-                {headerRender({
-                  ...defaultProps,
+                siderWidth,
+              ),
+              minHeight: '100vh',
+            }}
+          >
+            {headerRender({
+              ...defaultProps,
+              menuData,
+              isMobile,
+              collapsed,
+              onCollapse,
+            })}
+            <Content
+              className="ant-pro-basicLayout-content"
+              style={!fixedHeader ? { paddingTop: 0 } : {}}
+            >
+              <RouteContext.Provider
+                value={{
+                  breadcrumb: breadcrumbProps,
+                  ...props,
                   menuData,
                   isMobile,
                   collapsed,
-                  onCollapse,
-                })}
-                <Content
-                  className="ant-pro-basicLayout-content"
-                  style={!fixedHeader ? { paddingTop: 0 } : {}}
-                >
-                  <RouteContext.Provider
-                    value={{
-                      breadcrumb: breadcrumbProps,
-                      ...props,
-                      menuData,
-                      isMobile,
-                      collapsed,
-                      title: pageTitle.split('-')[0].trim(),
-                    }}
-                  >
-                    {children}
-                  </RouteContext.Provider>
-                </Content>
-                {footerRender({
-                  isMobile,
-                  collapsed,
-                  ...defaultProps,
-                })}
-              </Layout>
-            </Layout>
-          </div>
-        )}
-      </ContainerQuery>
+                  title: pageTitle.split('-')[0].trim(),
+                }}
+              >
+                {children}
+              </RouteContext.Provider>
+            </Content>
+            {footerRender({
+              isMobile,
+              collapsed,
+              ...defaultProps,
+            })}
+          </Layout>
+        </Layout>
+      </div>
     </>
   );
 };
