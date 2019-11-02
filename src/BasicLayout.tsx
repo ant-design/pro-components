@@ -1,6 +1,6 @@
 import './BasicLayout.less';
 
-import React, { useState } from 'react';
+import React, { useState, CSSProperties } from 'react';
 import { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/es/breadcrumb';
 import { Helmet } from 'react-helmet';
 import { Layout } from 'antd';
@@ -86,6 +86,7 @@ export interface BasicLayoutProps
   menuRender?: WithFalse<
     (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
   >;
+  contentStyle?: CSSProperties;
   menuItemRender?: BaseMenuProps['menuItemRender'];
   pageTitleRender?: WithFalse<typeof defaultGetPageTitle>;
   formatMessage?: (message: MessageDescriptor) => string;
@@ -199,6 +200,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     fixedHeader,
     fixSiderbar,
     navTheme,
+    contentStyle,
     layout: PropsLayout,
     route = {
       routes: [],
@@ -324,7 +326,9 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
             })}
             <Content
               className="ant-pro-basicLayout-content"
-              style={!fixedHeader ? { paddingTop: 0 } : {}}
+              style={
+                !fixedHeader ? { paddingTop: 0, ...contentStyle } : contentStyle
+              }
             >
               <RouteContext.Provider
                 value={{

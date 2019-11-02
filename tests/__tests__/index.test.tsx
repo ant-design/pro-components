@@ -139,4 +139,15 @@ describe('BasicLayout', () => {
       'customize_menu_header',
     );
   });
+
+  it('🥩 contentStyle should change dom', () => {
+    const wrapper = mount<BasicLayoutProps>(
+      <BasicLayout
+        contentStyle={{
+          padding: 56,
+        }}
+      />,
+    );
+    expect(wrapper.html()).toMatchSnapshot();
+  });
 });

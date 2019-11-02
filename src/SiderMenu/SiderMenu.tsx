@@ -163,7 +163,11 @@ export default class SiderMenu extends Component<
       'fix-sider-bar': fixSiderbar,
       light: theme === 'light',
     });
-
+    const headerDom = defaultRenderLogoAndTitle(
+      logo,
+      title,
+      renderLogoAndTitle,
+    );
     return (
       <Sider
         collapsible
@@ -181,13 +185,15 @@ export default class SiderMenu extends Component<
         theme={theme}
         className={siderClassName}
       >
-        <div
-          className="ant-pro-sider-menu-logo"
-          onClick={onMenuHeaderClick}
-          id="logo"
-        >
-          {defaultRenderLogoAndTitle(logo, title, renderLogoAndTitle)}
-        </div>
+        {headerDom && (
+          <div
+            className="ant-pro-sider-menu-logo"
+            onClick={onMenuHeaderClick}
+            id="logo"
+          >
+            {headerDom}
+          </div>
+        )}
         <BaseMenu
           {...this.props}
           mode="inline"
