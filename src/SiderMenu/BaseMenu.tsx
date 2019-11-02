@@ -29,6 +29,7 @@ export interface BaseMenuProps
   isMobile?: boolean;
   menuData?: MenuDataItem[];
   mode?: MenuMode;
+  type?: 'top' | 'sider';
   onCollapse?: (collapsed: boolean) => void;
   onOpenChange?: (openKeys: string[]) => void;
   openKeys?: WithFalse<string[]>;
@@ -269,6 +270,7 @@ export default class BaseMenu extends Component<BaseMenuProps> {
       style,
       fixedHeader = false,
       layout = 'sidemenu',
+      type,
       menuData,
       selectedKeys: defaultSelectedKeys,
     } = this.props;
@@ -278,7 +280,7 @@ export default class BaseMenu extends Component<BaseMenuProps> {
       selectedKeys = [openKeys[openKeys.length - 1]];
     }
     let props = {};
-    if (openKeys && !collapsed && layout === 'sidemenu') {
+    if (openKeys && !collapsed && type === 'sider') {
       props = {
         openKeys: openKeys.length === 0 ? [...selectedKeys] : openKeys,
       };

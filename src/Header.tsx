@@ -3,11 +3,12 @@ import './Header.less';
 import React, { Component } from 'react';
 
 import { Layout } from 'antd';
+import { MenuProps } from 'antd/lib/menu';
 import { BasicLayoutProps } from './BasicLayout';
 import GlobalHeader, { GlobalHeaderProps } from './GlobalHeader';
 import { Settings } from './defaultSettings';
 import TopNavHeader from './TopNavHeader';
-import { WithFalse } from './typings';
+import { WithFalse, MenuDataItem } from './typings';
 
 const { Header } = Layout;
 
@@ -20,6 +21,11 @@ export interface HeaderViewProps extends Partial<Settings>, GlobalHeaderProps {
   headerRender?: BasicLayoutProps['headerRender'];
   rightContentRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
   siderWidth?: number;
+  headerMenuData?: MenuDataItem[];
+  /**
+   * 要给头部菜单的props, 参考antd-menu的属性。https://ant.design/components/menu-cn/
+   */
+  headerMenuProps?: MenuProps;
 }
 
 interface HeaderViewState {
@@ -63,7 +69,7 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
       layout,
       siderWidth = 256,
     } = this.props;
-    if (isMobile || !fixedHeader || layout === 'topmenu') {
+    if (isMobile || !fixedHeader || layout !== 'sidemenu') {
       return '100%';
     }
     return collapsed ? 'calc(100% - 80px)' : `calc(100% - ${siderWidth}px)`;
@@ -101,9 +107,9 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
 
   renderContent = () => {
     const { isMobile, onCollapse, navTheme, layout, headerRender } = this.props;
-    const isTop = layout === 'topmenu';
+    const isSide = layout === 'sidemenu';
     let defaultDom = <GlobalHeader onCollapse={onCollapse} {...this.props} />;
-    if (isTop && !isMobile) {
+    if (!isSide && !isMobile) {
       defaultDom = (
         <TopNavHeader
           theme={navTheme}
@@ -120,12 +126,13 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
   };
 
   render(): React.ReactNode {
-    const { fixedHeader } = this.props;
+    const { fixedHeader, layout } = this.props;
     const { visible } = this.state;
     const width = this.getHeadWidth();
+    const isBoth = layout === 'bothmenu';
     return visible ? (
       <Header
-        style={{ padding: 0, width, zIndex: 2 }}
+        style={{ padding: 0, width, zIndex: isBoth ? 11 : 2 }}
         className={fixedHeader ? 'ant-pro-fixed-header' : ''}
       >
         {this.renderContent()}

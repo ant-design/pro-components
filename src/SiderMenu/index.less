@@ -50,6 +50,12 @@
         }
       }
     }
+    &.both-menu-sider-bar {
+      min-height: calc(100vh - @nav-header-height);
+      &.fix-sider-bar {
+        padding-top: @nav-header-height;
+      }
+    }
     &.light {
       background-color: white;
       box-shadow: 2px 0 8px 0 rgba(29, 35, 41, 0.05);

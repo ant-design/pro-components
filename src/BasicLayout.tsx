@@ -105,7 +105,7 @@ const headerRender = (props: BasicLayoutProps): React.ReactNode => {
   if (props.headerRender === false) {
     return null;
   }
-  return <Header {...props} />;
+  return <Header {...props} {...props.headerMenuProps} />;
 };
 
 const footerRender = (props: BasicLayoutProps): React.ReactNode => {
@@ -130,7 +130,15 @@ const renderSiderMenu = (props: BasicLayoutProps): React.ReactNode => {
     return menuRender(props, <SiderMenu {...props} />);
   }
 
-  return <SiderMenu {...props} {...props.menuProps} />;
+  const { menuProps, theme } = props;
+  const newProps = {
+    ...props,
+    ...menuProps,
+    // if use bothmenu, set light theme to siderMenu
+    theme: layout === 'bothmenu' ? 'light' : theme,
+  };
+
+  return <SiderMenu {...newProps} />;
 };
 
 const defaultPageTitleRender = (
@@ -206,6 +214,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     siderWidth = 256,
     menu,
     menuDataRender,
+    headerMenuData,
   } = props;
 
   /**
@@ -252,6 +261,8 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     menuDataRender,
   );
 
+  // with sider menu and top menu
+  const isBothMenu = PropsLayout === 'bothmenu';
   // If it is a fix menu, calculate padding
   // don't need padding in phone mode
   const hasLeftPadding = fixSiderbar && PropsLayout !== 'topmenu' && !isMobile;
@@ -284,6 +295,119 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     breadcrumb,
   });
 
+  const basicLayout = (
+    <Layout>
+      {renderSiderMenu({
+        ...defaultProps,
+        menuData,
+        onCollapse,
+        isMobile,
+        theme: navTheme,
+        collapsed,
+      })}
+      <Layout
+        style={{
+          paddingLeft: getPaddingLeft(
+            !!hasLeftPadding,
+            collapsed,
+            siderWidth,
+          ),
+          minHeight: '100vh',
+        }}
+      >
+        {headerRender({
+          ...defaultProps,
+          menuData,
+          isMobile,
+          collapsed,
+          onCollapse,
+        })}
+        <Content
+          className="ant-pro-basicLayout-content"
+          style={!fixedHeader ? { paddingTop: 0 } : {}}
+        >
+          <RouteContext.Provider
+            value={{
+              breadcrumb: breadcrumbProps,
+              ...props,
+              menuData,
+              isMobile,
+              collapsed,
+              title: pageTitle.split('-')[0].trim(),
+            }}
+          >
+            {children}
+          </RouteContext.Provider>
+        </Content>
+        {footerRender({
+          isMobile,
+          collapsed,
+          ...defaultProps,
+        })}
+      </Layout>
+    </Layout>
+  );
+
+  const bothLayout = (
+    <Layout>
+      {headerRender({
+        ...defaultProps,
+        menuData: headerMenuData || menuData,
+        isMobile,
+        collapsed,
+        onCollapse,
+      })}
+      <Layout
+        style={{
+          minHeight: 'calc(100vh - 64px)',
+          paddingTop: fixedHeader ? '64px' : 0,
+        }}
+      >
+        {renderSiderMenu({
+          ...defaultProps,
+          menuData,
+          onCollapse,
+          isMobile,
+          theme: navTheme,
+          collapsed,
+        })}
+        <Layout
+          style={{
+            paddingLeft: getPaddingLeft(
+              !!hasLeftPadding,
+              collapsed,
+              siderWidth,
+            ),
+            minHeight: 'calc(100vh - 64px)',
+          }}
+        >
+          <Content
+            className="ant-pro-basicLayout-content"
+            style={{ paddingTop: 0 }}
+          >
+            <RouteContext.Provider
+              value={{
+                breadcrumb: breadcrumbProps,
+                ...props,
+                menuData,
+                isMobile,
+                collapsed,
+                title: pageTitle.split('-')[0].trim(),
+              }}
+            >
+              {children}
+            </RouteContext.Provider>
+          </Content>
+          {footerRender({
+            isMobile,
+            collapsed,
+            ...defaultProps,
+          })}
+        </Layout>
+      </Layout>
+    </Layout>
+  );
+
   return (
     <>
       <Helmet>
@@ -296,56 +420,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
           'basicLayout',
         )}
       >
-        <Layout>
-          {renderSiderMenu({
-            ...defaultProps,
-            menuData,
-            onCollapse,
-            isMobile,
-            theme: navTheme,
-            collapsed,
-          })}
-          <Layout
-            style={{
-              paddingLeft: getPaddingLeft(
-                !!hasLeftPadding,
-                collapsed,
-                siderWidth,
-              ),
-              minHeight: '100vh',
-            }}
-          >
-            {headerRender({
-              ...defaultProps,
-              menuData,
-              isMobile,
-              collapsed,
-              onCollapse,
-            })}
-            <Content
-              className="ant-pro-basicLayout-content"
-              style={!fixedHeader ? { paddingTop: 0 } : {}}
-            >
-              <RouteContext.Provider
-                value={{
-                  breadcrumb: breadcrumbProps,
-                  ...props,
-                  menuData,
-                  isMobile,
-                  collapsed,
-                  title: pageTitle.split('-')[0].trim(),
-                }}
-              >
-                {children}
-              </RouteContext.Provider>
-            </Content>
-            {footerRender({
-              isMobile,
-              collapsed,
-              ...defaultProps,
-            })}
-          </Layout>
-        </Layout>
+        {isBothMenu ? bothLayout : basicLayout}
       </div>
     </>
   );

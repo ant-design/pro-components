@@ -42,7 +42,7 @@ render(<ProLayout />, document.getElementById('root'));
 | logo | layout top left logo url | ReactNode \| ()=>ReactNode | - |
 | menuHeaderRender | render logo and title | ReactNode \| (logo,title)=>ReactNode | - |
 | onMenuHeaderClick | menu header click event | (e: React.MouseEvent<HTMLDivElement>) => void | - |
-| layout | layout menu mode, sidemenu: right navigation, topmenu: top navigation | 'sidemenu' \| 'topmenu' | `'sidemenu'` |
+| layout | layout menu mode, sidemenu: right navigation, topmenu: top navigation, bothmenu: top navigation and sider navigation | 'sidemenu' \| 'topmenu' \| 'bothmenu' | `'sidemenu'` |
 | contentWidth | content mode of layout, Fluid: fixed width 1200px, Fixed: adaptive | 'Fluid' \| 'Fixed' | `'Fluid'` |
 | navTheme | Navigation menu theme | 'light' \| 'dark' | `'dark'` |
 | fixedHeader | whether to fix header to top | boolean | `false` |
@@ -67,6 +67,8 @@ render(<ProLayout />, document.getElementById('root'));
 | route | Used to assist in the generation of menu and bread crumbs. Umi will automatically bring | [route](#Route) | - |
 | disableMobile | Disable automatic switch to mobile mode | boolean | false |
 | menuProps | Props passed to ANTD MENU, SEE (https://ant.design/components/menu-cn/) | MenuProps | undefined |
+| headerMenuProps | Props passed to ANTD MENU (for HeaderMenu), SEE (https://ant.design/components/menu-cn/) | MenuProps | undefined |
+| headerMenuData | The menuData of header menu | MenuDataItem[] | same to origin MenuDataItem[] get from routes |
 
 Layout support for most of [Menu](https://ant.design/components/menu-cn/#Menu) by `menuProps` after 4.5.13.
 
