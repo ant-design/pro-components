@@ -36,6 +36,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     <>
       <ProLayout
         logo={logo}
+        breakpoint={false}
         collapsed={collapsed}
         onCollapse={handleMenuCollapse}
         menuItemRender={(menuItemProps, defaultDom) =>

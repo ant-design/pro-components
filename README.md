@@ -42,12 +42,14 @@ render(<ProLayout />, document.getElementById('root'));
 | logo | layout top left logo url | ReactNode \| ()=>ReactNode | - |
 | menuHeaderRender | render logo and title | ReactNode \| (logo,title)=>ReactNode | - |
 | onMenuHeaderClick | menu header click event | (e: React.MouseEvent<HTMLDivElement>) => void | - |
+| contentStyle | layout content style | CSSProperties | - |
 | layout | layout menu mode, sidemenu: right navigation, topmenu: top navigation | 'sidemenu' \| 'topmenu' | `'sidemenu'` |
 | contentWidth | content mode of layout, Fluid: fixed width 1200px, Fixed: adaptive | 'Fluid' \| 'Fixed' | `'Fluid'` |
 | navTheme | Navigation menu theme | 'light' \| 'dark' | `'dark'` |
 | fixedHeader | whether to fix header to top | boolean | `false` |
 | FixSiderbar | Whether to fix navigation menu | boolean | `false` |
 | autoHideHeader | automatically hide the header when sliding | boolean | `false` |
+| breakpoint | [breakpoints](https://ant.design/components/grid/#api) of the responsive layout | `Enum { 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' }` | `lg` |
 | menu | About the configuration of the menu, only locale, locale can turn off the globalization of the menu | { locale: boolean } | `{ locale: true }` |
 | iconfontUrl | Use [IconFont](https://ant.design/components/icon-cn/#components-icon-demo-iconfont) icon configuration | string | - |
 | locale | The language setting of the layout | 'zh-CN' \| 'zh-TW' \| 'en-US' | navigator.language |

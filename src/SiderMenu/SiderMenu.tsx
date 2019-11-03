@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Layout } from 'antd';
 import classNames from 'classnames';
 import { MenuProps } from 'antd/lib/menu';
+import { SiderProps } from 'antd/es/layout/Sider';
 
 import './index.less';
 import { WithFalse } from '../typings';
@@ -51,6 +52,7 @@ export interface SiderMenuProps
   menuHeaderRender?: WithFalse<
     (logo: React.ReactNode, title: React.ReactNode) => React.ReactNode
   >;
+  breakpoint?: SiderProps['breakpoint'] | false;
   onMenuHeaderClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
 
   /**
@@ -150,6 +152,7 @@ export default class SiderMenu extends Component<
       title,
       menuHeaderRender: renderLogoAndTitle,
       onMenuHeaderClick,
+      breakpoint = 'lg',
     } = this.props;
     const { openKeys } = this.state;
 
@@ -173,7 +176,7 @@ export default class SiderMenu extends Component<
         collapsible
         trigger={null}
         collapsed={collapsed}
-        breakpoint="lg"
+        breakpoint={breakpoint === false ? undefined : breakpoint}
         onCollapse={collapse => {
           if (firstMount || !isMobile) {
             if (onCollapse) {
