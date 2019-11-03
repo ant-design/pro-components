@@ -35,32 +35,38 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
   return (
     <>
       <ProLayout
-        logo={logo}
-        breakpoint={false}
-        collapsed={collapsed}
-        onCollapse={handleMenuCollapse}
-        menuItemRender={(menuItemProps, defaultDom) =>
-          menuItemProps.isUrl ? (
-            defaultDom
-          ) : (
-            <Link to={menuItemProps.path}>{defaultDom}</Link>
-          )
-        }
+        layout="topmenu"
         rightContentRender={rightProps => (
           <RightContent {...rightProps} {...settings} />
         )}
-        onMenuHeaderClick={() => history.push('/')}
-        {...props}
-        {...settings}
+        contentStyle={{ margin: 0 }}
       >
-        <PageHeaderWrapper content="欢迎您的使用">
-          {props.children}
-        </PageHeaderWrapper>
+        <ProLayout
+          navTheme="light"
+          menuHeaderRender={false}
+          logo={logo}
+          collapsed={collapsed}
+          onCollapse={handleMenuCollapse}
+          menuItemRender={(menuItemProps, defaultDom) =>
+            menuItemProps.isUrl ? (
+              defaultDom
+            ) : (
+              <Link to={menuItemProps.path}>{defaultDom}</Link>
+            )
+          }
+          onMenuHeaderClick={() => history.push('/')}
+          {...props}
+          {...settings}
+        >
+          <PageHeaderWrapper content="欢迎您的使用">
+            {props.children}
+          </PageHeaderWrapper>
+        </ProLayout>
+        <SettingDrawer
+          settings={settings}
+          onSettingChange={config => setSettings(config)}
+        />
       </ProLayout>
-      <SettingDrawer
-        settings={settings}
-        onSettingChange={config => setSettings(config)}
-      />
     </>
   );
 };

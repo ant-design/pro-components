@@ -1,6 +1,6 @@
 import './BasicLayout.less';
 
-import React, { useState, CSSProperties } from 'react';
+import React, { useState, CSSProperties, useContext } from 'react';
 import { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/es/breadcrumb';
 import { Helmet } from 'react-helmet';
 import { Layout } from 'antd';
@@ -76,9 +76,14 @@ export interface BasicLayoutProps
     SiderMenuProps,
     HeaderViewProps,
     Partial<Settings> {
+  /**
+   * logo url
+   */
   logo?: React.ReactNode | WithFalse<() => React.ReactNode>;
   locale?: localeType;
+
   onCollapse?: (collapsed: boolean) => void;
+
   headerRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
   footerRender?: WithFalse<
     (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
@@ -86,20 +91,20 @@ export interface BasicLayoutProps
   menuRender?: WithFalse<
     (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
   >;
-  contentStyle?: CSSProperties;
-  menuItemRender?: BaseMenuProps['menuItemRender'];
-  pageTitleRender?: WithFalse<typeof defaultGetPageTitle>;
-  formatMessage?: (message: MessageDescriptor) => string;
-  menuDataRender?: (menuData: MenuDataItem[]) => MenuDataItem[];
   breadcrumbRender?: (
     routers: AntdBreadcrumbProps['routes'],
   ) => AntdBreadcrumbProps['routes'];
+  menuItemRender?: BaseMenuProps['menuItemRender'];
+  pageTitleRender?: WithFalse<typeof defaultGetPageTitle>;
+  menuDataRender?: (menuData: MenuDataItem[]) => MenuDataItem[];
   itemRender?: AntdBreadcrumbProps['itemRender'];
 
+  formatMessage?: (message: MessageDescriptor) => string;
   /**
    * 是否禁用移动端模式，有的管理系统不需要移动端模式，此属性设置为true即可
    */
   disableMobile?: boolean;
+  contentStyle?: CSSProperties;
 }
 
 const headerRender = (props: BasicLayoutProps): React.ReactNode => {
@@ -192,12 +197,16 @@ const getPaddingLeft = (
   return undefined;
 };
 
+/**
+ * 🌃 Powerful and easy to use beautiful layout
+ * 🏄‍ Support multiple topics and layout types
+ * @param props
+ */
 const BasicLayout: React.FC<BasicLayoutProps> = props => {
   const {
     children,
     onCollapse: propsOnCollapse,
     location = { pathname: '/' },
-    fixedHeader,
     fixSiderbar,
     navTheme,
     contentStyle,
@@ -205,6 +214,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     route = {
       routes: [],
     },
+    style,
     siderWidth = 256,
     menu,
     menuDataRender,
@@ -269,6 +279,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     ...props,
     formatMessage,
     breadcrumb,
+    style: undefined,
   };
 
   // gen page title
@@ -286,68 +297,85 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     breadcrumb,
   });
 
+  // render sider dom
+  const siderMenuDom = renderSiderMenu({
+    ...defaultProps,
+    menuData,
+    onCollapse,
+    isMobile,
+    theme: navTheme,
+    collapsed,
+  });
+
+  // render header dom
+  const headerDom = headerRender({
+    ...defaultProps,
+    menuData,
+    isMobile,
+    collapsed,
+    onCollapse,
+  });
+
+  // render footer dom
+  const footerDom = footerRender({
+    isMobile,
+    collapsed,
+    ...defaultProps,
+  });
+  const { isChildrenLayout } = useContext(RouteContext);
+
+  // gen className
+  const className = classNames(
+    getScreenClassName(),
+    'ant-design-pro',
+    'ant-pro-basicLayout',
+    {
+      'ant-pro-basicLayout-topmenu': PropsLayout === 'topmenu',
+      'ant-pro-basicLayout-is-children': isChildrenLayout,
+    },
+  );
+
+  const genLayoutStyle: CSSProperties = {
+    paddingLeft: getPaddingLeft(!!hasLeftPadding, collapsed, siderWidth),
+    height: '100%',
+    position: 'relative',
+  };
+
+  // if is some layout children，don't need min height
+  if (!isChildrenLayout) {
+    genLayoutStyle.minHeight = '100vh';
+  }
+
+  const contentClassName = classNames('ant-pro-basicLayout-content', {
+    'ant-pro-basicLayout-has-header': headerDom,
+  });
+
   return (
     <>
       <Helmet>
         <title>{pageTitle}</title>
       </Helmet>
-      <div
-        className={classNames(
-          getScreenClassName(),
-          'ant-design-pro',
-          'basicLayout',
-        )}
-      >
-        <Layout>
-          {renderSiderMenu({
-            ...defaultProps,
-            menuData,
-            onCollapse,
-            isMobile,
-            theme: navTheme,
-            collapsed,
-          })}
-          <Layout
-            style={{
-              paddingLeft: getPaddingLeft(
-                !!hasLeftPadding,
-                collapsed,
-                siderWidth,
-              ),
-              minHeight: '100vh',
-            }}
-          >
-            {headerRender({
-              ...defaultProps,
-              menuData,
-              isMobile,
-              collapsed,
-              onCollapse,
-            })}
-            <Content
-              className="ant-pro-basicLayout-content"
-              style={
-                !fixedHeader ? { paddingTop: 0, ...contentStyle } : contentStyle
-              }
-            >
+      <div className={className}>
+        <Layout style={style}>
+          {siderMenuDom}
+          <Layout style={genLayoutStyle}>
+            {headerDom}
+            <Content className={contentClassName} style={contentStyle}>
               <RouteContext.Provider
                 value={{
                   breadcrumb: breadcrumbProps,
-                  ...props,
+                  ...defaultProps,
                   menuData,
                   isMobile,
                   collapsed,
+                  isChildrenLayout: true,
                   title: pageTitle.split('-')[0].trim(),
                 }}
               >
                 {children}
               </RouteContext.Provider>
             </Content>
-            {footerRender({
-              isMobile,
-              collapsed,
-              ...defaultProps,
-            })}
+            {footerDom}
           </Layout>
         </Layout>
       </div>

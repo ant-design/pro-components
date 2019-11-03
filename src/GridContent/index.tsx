@@ -1,6 +1,6 @@
 import './GridContent.less';
 
-import React from 'react';
+import React, { useContext } from 'react';
 import RouteContext from '../RouteContext';
 import { Settings } from '../defaultSettings';
 
@@ -9,18 +9,20 @@ interface GridContentProps {
   children: React.ReactNode;
 }
 
-const GridContent: React.SFC<GridContentProps> = props => (
-  <RouteContext.Consumer>
-    {value => {
-      const { children, contentWidth: propsContentWidth } = props;
-      const contentWidth = propsContentWidth || value.contentWidth;
-      let className = 'ant-pro-grid-content';
-      if (contentWidth === 'Fixed') {
-        className = 'ant-pro-grid-content wide';
-      }
-      return <div className={className}>{children}</div>;
-    }}
-  </RouteContext.Consumer>
-);
+/**
+ * This component can support contentWidth so you don't need to calculate the width
+ * contentWidth=Fixed, width will is 1200
+ * @param props
+ */
+const GridContent: React.SFC<GridContentProps> = props => {
+  const value = useContext(RouteContext);
+  const { children, contentWidth: propsContentWidth } = props;
+  const contentWidth = propsContentWidth || value.contentWidth;
+  let className = 'ant-pro-grid-content';
+  if (contentWidth === 'Fixed') {
+    className = 'ant-pro-grid-content wide';
+  }
+  return <div className={className}>{children}</div>;
+};
 
 export default GridContent;

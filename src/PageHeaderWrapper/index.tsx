@@ -1,11 +1,11 @@
 import { PageHeader, Tabs } from 'antd';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Helmet } from 'react-helmet';
 import { TabsProps, TabPaneProps } from 'antd/es/tabs';
 import { PageHeaderProps } from 'antd/es/page-header';
 import './index.less';
 import GridContent from '../GridContent';
-import RouteContext from '../RouteContext';
+import RouteContext, { RouteContextType } from '../RouteContext';
 
 interface PageHeaderTabConfig {
   tabList?: TabPaneProps[];
@@ -84,54 +84,52 @@ const renderPageHeader = (
 
 const defaultPageHeaderRender = (
   props: PageHeaderWrapperProps,
+  value: RouteContextType,
 ): React.ReactNode => {
   const {
     title,
     content,
     pageHeaderRender,
     extraContent,
+    style,
     ...restProps
   } = props;
 
+  if (pageHeaderRender) {
+    return pageHeaderRender({ ...props, ...value });
+  }
+  let pageHeaderTitle = title;
+  if (!title && title !== false) {
+    pageHeaderTitle = value.title;
+  }
   return (
-    <RouteContext.Consumer>
-      {value => {
-        if (pageHeaderRender) {
-          return pageHeaderRender({ ...props, ...value });
-        }
-        let pageHeaderTitle = title;
-        if (!title && title !== false) {
-          pageHeaderTitle = value.title;
-        }
-        return (
-          <>
-            <Helmet>
-              <meta name="description" content={value.title} />
-              {typeof props.content === 'string' && (
-                <meta name="description" content={props.content} />
-              )}
-            </Helmet>
-            <PageHeader
-              {...value}
-              title={pageHeaderTitle}
-              {...restProps}
-              footer={renderFooter(restProps)}
-            >
-              {renderPageHeader(content, extraContent)}
-            </PageHeader>
-          </>
-        );
-      }}
-    </RouteContext.Consumer>
+    <>
+      <Helmet>
+        <meta name="description" content={value.title} />
+        {typeof props.content === 'string' && (
+          <meta name="description" content={props.content} />
+        )}
+      </Helmet>
+      <PageHeader
+        {...value}
+        title={pageHeaderTitle}
+        {...restProps}
+        footer={renderFooter(restProps)}
+      >
+        {renderPageHeader(content, extraContent)}
+      </PageHeader>
+    </>
   );
 };
 
 const PageHeaderWrapper: React.SFC<PageHeaderWrapperProps> = props => {
-  const { children } = props;
+  const { children, style } = props;
+  const value = useContext(RouteContext);
+
   return (
-    <div style={{ margin: '-24px -24px 0' }}>
+    <div style={{ margin: '-24px -24px 0', ...style }}>
       <div className={`${prefixedClassName}-page-header-warp`}>
-        <GridContent>{defaultPageHeaderRender(props)}</GridContent>
+        <GridContent>{defaultPageHeaderRender(props, value)}</GridContent>
       </div>
       {children ? (
         <GridContent>

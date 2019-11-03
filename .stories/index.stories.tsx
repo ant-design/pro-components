@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Avatar } from 'antd';
+
 import BasicLayout, {
   SettingDrawer,
   PageHeaderWrapper,
@@ -165,6 +167,36 @@ export const Drawer = () => {
 
 Drawer.story = {
   name: '使用 Drawer',
+  parameters: {
+    notes: {
+      markdown: README,
+    },
+  },
+};
+
+export const NestedLayout = () => (
+  <BasicLayout
+    {...defaultProps}
+    layout="topmenu"
+    rightContentRender={() => (
+      <div
+        style={{
+          padding: '0px 16px',
+        }}
+      >
+        <Avatar icon="user" />
+      </div>
+    )}
+    contentStyle={{ margin: 0 }}
+  >
+    <BasicLayout menuHeaderRender={false} {...defaultProps}>
+      Hello World
+    </BasicLayout>
+  </BasicLayout>
+);
+
+NestedLayout.story = {
+  name: '嵌套 Layout',
   parameters: {
     notes: {
       markdown: README,

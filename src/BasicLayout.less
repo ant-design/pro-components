@@ -1,15 +1,29 @@
 @import '~antd/es/style/themes/default.less';
 
-@basicLayout-prefix-cls: ~'@{ant-prefix}-pro-basicLayout-content';
+@basicLayout-prefix-cls: ~'@{ant-prefix}-pro-basicLayout';
 
 .@{basicLayout-prefix-cls} {
-  margin: 24px;
-  padding-top: @layout-header-height;
-}
-
-.basicLayout {
   height: 100%;
+
   .ant-layout {
     transition: all 0.2s;
+  }
+
+  .ant-layout-header {
+    position: absolute;
+  }
+
+  &-content {
+    position: relative;
+    margin: 24px;
+    &.@{basicLayout-prefix-cls}-has-header {
+      padding-top: @layout-header-height;
+    }
+  }
+
+  // default children layout height
+  .@{basicLayout-prefix-cls}-is-children,
+  .@{basicLayout-prefix-cls}-is-children > .ant-layout {
+    height: calc(100vh - @layout-header-height);
   }
 }

@@ -1,8 +1,9 @@
 import './Header.less';
 
 import React, { Component } from 'react';
-
+import classNames from 'classnames';
 import { Layout } from 'antd';
+
 import { BasicLayoutProps } from './BasicLayout';
 import GlobalHeader, { GlobalHeaderProps } from './GlobalHeader';
 import { Settings } from './defaultSettings';
@@ -120,14 +121,18 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
   };
 
   render(): React.ReactNode {
-    const { fixedHeader } = this.props;
+    const { fixedHeader, layout } = this.props;
     const { visible } = this.state;
     const width = this.getHeadWidth();
+    const isTop = layout === 'topmenu';
+
+    const className = classNames({
+      'ant-pro-fixed-header': fixedHeader,
+      'ant-pro-top-menu': isTop,
+    });
+
     return visible ? (
-      <Header
-        style={{ padding: 0, width, zIndex: 2 }}
-        className={fixedHeader ? 'ant-pro-fixed-header' : ''}
-      >
+      <Header style={{ padding: 0, width, zIndex: 2 }} className={className}>
         {this.renderContent()}
       </Header>
     ) : null;
