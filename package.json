@@ -75,9 +75,7 @@
     "omit.js": "^1.0.0",
     "path-to-regexp": "^3.1.0",
     "qs": "^6.9.0",
-    "react": "^16.10.2",
     "react-copy-to-clipboard": "^5.0.1",
-    "react-dom": "^16.10.2",
     "react-helmet": "^5.2.1",
     "react-responsive": "^8.0.1",
     "react-router-dom": "5.1.2",
@@ -130,11 +128,17 @@
     "np": "^5.1.0",
     "prettier": "^1.17.0",
     "puppeteer": "^1.20.0",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
     "react-markdown": "^4.2.2",
     "slash2": "^2.0.0",
     "stylelint": "^11.0.0",
     "umi": "^2.9.6",
     "umi-types": "^0.5.2"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "engines": {
     "node": ">=8.0.0"
