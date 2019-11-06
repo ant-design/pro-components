@@ -1,5 +1,6 @@
 import BasicLayout, { BasicLayoutProps } from './BasicLayout';
 import DefaultHeader, { HeaderViewProps as HeaderProps } from './Header';
+import TopNavHeader, { TopNavHeaderProps } from './TopNavHeader';
 import SettingDrawer, {
   SettingDrawerProps,
   SettingDrawerState,
@@ -20,9 +21,11 @@ export {
   BasicLayout,
   BasicLayoutProps,
   HeaderProps,
+  TopNavHeaderProps,
   RouteContext,
   GridContent,
   DefaultHeader,
+  TopNavHeader,
   DefaultFooter,
   FooterProps,
   SettingDrawer,
