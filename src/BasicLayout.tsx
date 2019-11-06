@@ -105,6 +105,7 @@ export interface BasicLayoutProps
    */
   disableMobile?: boolean;
   contentStyle?: CSSProperties;
+  isChildrenLayout?: boolean;
 }
 
 const headerRender = (props: BasicLayoutProps): React.ReactNode => {
@@ -217,6 +218,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     style,
     siderWidth = 256,
     menu,
+    isChildrenLayout: propsIsChildrenLayout,
     menuDataRender,
   } = props;
 
@@ -322,7 +324,15 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     collapsed,
     ...defaultProps,
   });
-  const { isChildrenLayout } = useContext(RouteContext);
+  const { isChildrenLayout: contextIsChildrenLayout } = useContext(
+    RouteContext,
+  );
+
+  // 如果 props 中定义，以 props 为准
+  const isChildrenLayout =
+    propsIsChildrenLayout !== undefined
+      ? propsIsChildrenLayout
+      : contextIsChildrenLayout;
 
   // gen className
   const className = classNames(
@@ -339,11 +349,12 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     paddingLeft: getPaddingLeft(!!hasLeftPadding, collapsed, siderWidth),
     height: '100%',
     position: 'relative',
+    minHeight: '100vh',
   };
 
   // if is some layout children，don't need min height
-  if (!isChildrenLayout) {
-    genLayoutStyle.minHeight = '100vh';
+  if (isChildrenLayout || contentStyle) {
+    genLayoutStyle.minHeight = 0;
   }
 
   const contentClassName = classNames('ant-pro-basicLayout-content', {
