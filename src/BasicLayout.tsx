@@ -98,7 +98,9 @@ export interface BasicLayoutProps
     routers: AntdBreadcrumbProps['routes'],
   ) => AntdBreadcrumbProps['routes'];
   menuItemRender?: BaseMenuProps['menuItemRender'];
-  pageTitleRender?: WithFalse<typeof defaultGetPageTitle>;
+  pageTitleRender?: WithFalse<
+    (props: GetPageTitleProps, defaultPageTitle?: string) => void
+  >;
   menuDataRender?: (menuData: MenuDataItem[]) => MenuDataItem[];
   itemRender?: AntdBreadcrumbProps['itemRender'];
 
@@ -150,11 +152,12 @@ const defaultPageTitleRender = (
   props: BasicLayoutProps,
 ): string => {
   const { pageTitleRender } = props;
+  const defaultPageTitle = defaultGetPageTitle(pageProps);
   if (pageTitleRender === false) {
     return props.title || '';
   }
   if (pageTitleRender) {
-    const title = pageTitleRender(pageProps);
+    const title = pageTitleRender(pageProps, defaultPageTitle);
     if (typeof title === 'string') {
       return title;
     }
@@ -163,7 +166,7 @@ const defaultPageTitleRender = (
       'pro-layout: renderPageTitle return value should be a string',
     );
   }
-  return defaultGetPageTitle(pageProps);
+  return defaultPageTitle;
 };
 
 export type BasicLayoutContext = { [K in 'location']: BasicLayoutProps[K] } & {
