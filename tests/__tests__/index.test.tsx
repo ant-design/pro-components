@@ -150,4 +150,16 @@ describe('BasicLayout', () => {
     );
     expect(wrapper.html()).toMatchSnapshot();
   });
+
+  it('🥩 support className', () => {
+    const wrapper = mount<BasicLayoutProps>(
+      <BasicLayout
+        className="chenshuai2144"
+        contentStyle={{
+          padding: 56,
+        }}
+      />,
+    );
+    expect(wrapper.find('div.chenshuai2144').exists()).toBeTruthy();
+  });
 });

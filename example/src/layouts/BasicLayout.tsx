@@ -36,6 +36,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     <>
       <ProLayout
         layout="topmenu"
+        className="chenshuai2144"
         rightContentRender={rightProps => (
           <RightContent {...rightProps} {...settings} />
         )}

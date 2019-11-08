@@ -7,6 +7,7 @@ import { Layout } from 'antd';
 import classNames from 'classnames';
 import warning from 'warning';
 import { useMediaQuery } from 'react-responsive';
+import Omit from 'omit.js';
 
 import Header, { HeaderViewProps } from './Header';
 import {
@@ -106,6 +107,8 @@ export interface BasicLayoutProps
   disableMobile?: boolean;
   contentStyle?: CSSProperties;
   isChildrenLayout?: boolean;
+
+  className?: string;
 }
 
 const headerRender = (props: BasicLayoutProps): React.ReactNode => {
@@ -277,12 +280,14 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
   );
 
   // Splicing parameters, adding menuData and formatMessage in props
-  const defaultProps = {
-    ...props,
-    formatMessage,
-    breadcrumb,
-    style: undefined,
-  };
+  const defaultProps = Omit(
+    {
+      ...props,
+      formatMessage,
+      breadcrumb,
+    },
+    ['className', 'style'],
+  );
 
   // gen page title
   const pageTitle = defaultPageTitleRender(
@@ -295,7 +300,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
 
   // gen breadcrumbProps, parameter for pageHeader
   const breadcrumbProps = getBreadcrumbProps({
-    ...props,
+    ...defaultProps,
     breadcrumb,
   });
 
@@ -337,6 +342,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
   // gen className
   const className = classNames(
     getScreenClassName(),
+    props.className,
     'ant-design-pro',
     'ant-pro-basicLayout',
     {
