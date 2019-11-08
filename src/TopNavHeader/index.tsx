@@ -31,17 +31,19 @@ export default class TopNavHeader extends Component<TopNavHeaderProps> {
       logo,
       title,
       menuHeaderRender,
+      className: propsClassName,
+      style,
     } = this.props;
     const flatMenuKeys = getFlatMenuKeys(menuData);
     const baseClassName = 'ant-pro-top-nav-header';
     const headerDom = defaultRenderLogoAndTitle(logo, title, menuHeaderRender);
 
-    const className = classNames(baseClassName, {
+    const className = classNames(baseClassName, propsClassName, {
       light: theme === 'light',
     });
 
     return (
-      <div className={className}>
+      <div className={className} style={style}>
         <div
           ref={ref => {
             this.maim = ref;

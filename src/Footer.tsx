@@ -1,5 +1,5 @@
 import { Icon, Layout } from 'antd';
-import React, { Fragment } from 'react';
+import React, { Fragment, CSSProperties } from 'react';
 
 import GlobalFooter from './GlobalFooter';
 import { WithFalse } from './typings';
@@ -39,13 +39,17 @@ export interface FooterProps {
     }[]
   >;
   copyright?: string;
+  style?: CSSProperties;
+  className?: string;
 }
 
 const FooterView: React.FC<FooterProps> = ({
   links,
   copyright,
+  style,
+  className,
 }: FooterProps) => (
-  <Footer style={{ padding: 0 }}>
+  <Footer className={className} style={{ padding: 0, ...style }}>
     <GlobalFooter
       links={links !== undefined ? links : defaultLinks}
       copyright={

@@ -85,7 +85,9 @@ export interface BasicLayoutProps
 
   onCollapse?: (collapsed: boolean) => void;
 
-  headerRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
+  headerRender?: WithFalse<
+    (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
+  >;
   footerRender?: WithFalse<
     (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
   >;

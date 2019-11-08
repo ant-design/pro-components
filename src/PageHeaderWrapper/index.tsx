@@ -123,11 +123,11 @@ const defaultPageHeaderRender = (
 };
 
 const PageHeaderWrapper: React.SFC<PageHeaderWrapperProps> = props => {
-  const { children, style } = props;
+  const { children, style, className } = props;
   const value = useContext(RouteContext);
 
   return (
-    <div style={{ margin: '-24px -24px 0', ...style }}>
+    <div style={{ margin: '-24px -24px 0', ...style }} className={className}>
       <div className={`${prefixedClassName}-page-header-warp`}>
         <GridContent>{defaultPageHeaderRender(props, value)}</GridContent>
       </div>

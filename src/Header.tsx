@@ -115,24 +115,32 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
       );
     }
     if (headerRender) {
-      return headerRender(this.props);
+      return headerRender(this.props, defaultDom);
     }
     return defaultDom;
   };
 
   render(): React.ReactNode {
-    const { fixedHeader, layout } = this.props;
+    const {
+      fixedHeader,
+      layout,
+      className: propsClassName,
+      style,
+    } = this.props;
     const { visible } = this.state;
     const width = this.getHeadWidth();
     const isTop = layout === 'topmenu';
 
-    const className = classNames({
+    const className = classNames(propsClassName, {
       'ant-pro-fixed-header': fixedHeader,
       'ant-pro-top-menu': isTop,
     });
 
     return visible ? (
-      <Header style={{ padding: 0, width, zIndex: 2 }} className={className}>
+      <Header
+        style={{ padding: 0, width, zIndex: 2, ...style }}
+        className={className}
+      >
         {this.renderContent()}
       </Header>
     ) : null;

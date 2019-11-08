@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, CSSProperties } from 'react';
 import { Layout } from 'antd';
 import classNames from 'classnames';
 import { MenuProps } from 'antd/lib/menu';
@@ -59,6 +59,9 @@ export interface SiderMenuProps
    * 要给菜单的props, 参考antd-menu的属性。https://ant.design/components/menu-cn/
    */
   menuProps?: MenuProps;
+
+  className?: string;
+  style?: CSSProperties;
 }
 
 interface SiderMenuState {
@@ -153,6 +156,7 @@ export default class SiderMenu extends Component<
       menuHeaderRender: renderLogoAndTitle,
       onMenuHeaderClick,
       breakpoint = 'lg',
+      style,
     } = this.props;
     const { openKeys } = this.state;
 
@@ -184,6 +188,7 @@ export default class SiderMenu extends Component<
             }
           }
         }}
+        style={style}
         width={siderWidth}
         theme={theme}
         className={siderClassName}

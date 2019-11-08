@@ -18,10 +18,10 @@ export interface GlobalFooterProps {
   className?: string;
 }
 
-export default ({ className, links, copyright }: GlobalFooterProps) => {
+export default ({ className, links, copyright, style }: GlobalFooterProps) => {
   const clsString = classNames('ant-pro-global-footer', className);
   return (
-    <footer className={clsString}>
+    <footer className={clsString} style={style}>
       {links && (
         <div className="ant-pro-global-footer-links">
           {links.map(link => (

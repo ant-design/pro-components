@@ -1,6 +1,7 @@
 import './index.less';
 
 import React, { Component } from 'react';
+import classNames from 'classnames';
 
 import { Icon } from 'antd';
 import debounce from 'lodash/debounce';
@@ -17,6 +18,8 @@ export interface GlobalHeaderProps {
   menuRender?: HeaderViewProps['menuRender'];
   collapsedButtonRender?: WithFalse<(collapsed?: boolean) => React.ReactNode>;
   rightContentRender?: HeaderViewProps['rightContentRender'];
+  className?: string;
+  style?: React.CSSProperties;
 }
 
 const defaultRenderCollapsedButton = (collapsed?: boolean) => (
@@ -61,9 +64,16 @@ export default class GlobalHeader extends Component<GlobalHeaderProps> {
   };
 
   render(): React.ReactNode {
-    const { isMobile, logo, rightContentRender } = this.props;
+    const {
+      isMobile,
+      logo,
+      rightContentRender,
+      className: propClassName,
+      style,
+    } = this.props;
+    const className = classNames(propClassName, 'ant-pro-global-header');
     return (
-      <div className="ant-pro-global-header">
+      <div className={className} style={style}>
         {isMobile && (
           <a className="ant-pro-global-header-logo" key="logo">
             {defaultRenderLogo(logo)}
