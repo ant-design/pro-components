@@ -107,7 +107,7 @@
     "@umijs/fabric": "^1.1.10",
     "babel-eslint": "^10.0.3",
     "babel-plugin-import": "^1.12.2",
-    "chalk": "^2.4.2",
+    "chalk": "^3.0.0",
     "cross-env": "^6.0.3",
     "enzyme": "^3.9.0",
     "eslint": "^5.16.0",
