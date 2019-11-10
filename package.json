@@ -110,7 +110,7 @@
     "chalk": "^3.0.0",
     "cross-env": "^6.0.3",
     "enzyme": "^3.9.0",
-    "eslint": "^5.16.0",
+    "eslint": "^6.6.0",
     "father-build": "^1.12.0",
     "gh-pages": "^2.1.1",
     "husky": "^3.0.8",
