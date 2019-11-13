@@ -14,7 +14,7 @@ describe('BasicLayout', () => {
     });
   });
   it('🥩 base use', () => {
-    const html = render(<BasicLayout />).html();
+    const html = render(<BasicLayout />);
     expect(html).toMatchSnapshot();
   });
 
@@ -141,14 +141,14 @@ describe('BasicLayout', () => {
   });
 
   it('🥩 contentStyle should change dom', () => {
-    const wrapper = mount<BasicLayoutProps>(
+    const wrapper = render(
       <BasicLayout
         contentStyle={{
           padding: 56,
         }}
       />,
     );
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('🥩 support className', () => {

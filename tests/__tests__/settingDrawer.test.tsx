@@ -20,7 +20,7 @@ describe('settingDrawer.test', () => {
         getContainer={false}
         collapse
       />,
-    ).html();
+    );
     expect(html).toMatchSnapshot();
   });
 

@@ -1,0 +1,382 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BasicLayout base use 1`] = `
+<div
+  class="ant-design-pro ant-pro-basicLayout"
+>
+  <section
+    class="ant-layout ant-layout-has-sider"
+  >
+    <aside
+      class="ant-pro-sider-menu-sider ant-layout-sider ant-layout-sider-dark"
+      style="flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
+    >
+      <div
+        class="ant-layout-sider-children"
+      >
+        <div
+          class="ant-pro-sider-menu-logo"
+          id="logo"
+        >
+          <a
+            href="/"
+          >
+            <img
+              alt="logo"
+              src="https://gw.alipayobjects.com/zos/antfincdn/PmY%24TNNDBI/logo.svg"
+            />
+            <h1>
+              Ant Design Pro
+            </h1>
+          </a>
+        </div>
+        <ul
+          class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
+          role="menu"
+          style="padding:16px 0;width:100%"
+        >
+          <li
+            class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+            role="menuitem"
+          >
+            <div
+              aria-expanded="true"
+              aria-haspopup="true"
+              aria-owns="/$Menu"
+              class="ant-menu-submenu-title"
+              style="padding-left:24px"
+            >
+              <span>
+                <i
+                  aria-label="icon: smile"
+                  class="anticon anticon-smile"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="smile"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M288 421a48 48 0 1 0 96 0 48 48 0 1 0-96 0zm352 0a48 48 0 1 0 96 0 48 48 0 1 0-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 0 1 248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 0 1 249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 0 1 775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 0 1 775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 0 0-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 0 0-8-8.4z"
+                    />
+                  </svg>
+                </i>
+                <span>
+                  welcome
+                </span>
+              </span>
+              <i
+                class="ant-menu-submenu-arrow"
+              />
+            </div>
+            <ul
+              class="ant-menu ant-menu-sub ant-menu-inline"
+              id="/$Menu"
+              role="menu"
+            >
+              <li
+                class="ant-menu-submenu ant-menu-submenu-inline"
+                role="menuitem"
+              >
+                <div
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  class="ant-menu-submenu-title"
+                  style="padding-left:48px"
+                >
+                  <span>
+                    <i
+                      aria-label="icon: /favicon.png"
+                      class="anticon anticon-/favicon.png"
+                    />
+                    <span>
+                      one
+                    </span>
+                  </span>
+                  <i
+                    class="ant-menu-submenu-arrow"
+                  />
+                </div>
+                <div />
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <div />
+      </div>
+    </aside>
+    <section
+      class="ant-layout"
+      style="height:100%;position:relative;min-height:100vh"
+    >
+      <header
+        class="ant-layout-header"
+        style="padding:0;width:100%;z-index:9"
+      >
+        <div
+          class="ant-pro-global-header"
+        >
+          <span
+            class="ant-pro-global-header-trigger"
+          >
+            <i
+              aria-label="icon: menu-fold"
+              class="anticon anticon-menu-fold"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="menu-fold"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"
+                />
+              </svg>
+            </i>
+          </span>
+        </div>
+      </header>
+      <main
+        class="ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-layout-content"
+      >
+        <div
+          style="margin:-24px -24px 0"
+        >
+          <div
+            class="ant-pro-page-header-wrap-page-header-warp"
+          >
+            <div
+              class="ant-pro-grid-content"
+            >
+              <div
+                class="ant-page-header ant-page-header-ghost"
+              >
+                <div
+                  class="ant-page-header-heading"
+                >
+                  <span
+                    class="ant-page-header-heading-title"
+                  >
+                    welcome
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </section>
+  </section>
+</div>
+`;
+
+exports[`BasicLayout content is text 1`] = `
+<div
+  class="ant-design-pro ant-pro-basicLayout"
+>
+  <section
+    class="ant-layout ant-layout-has-sider"
+  >
+    <aside
+      class="ant-pro-sider-menu-sider ant-layout-sider ant-layout-sider-dark"
+      style="flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
+    >
+      <div
+        class="ant-layout-sider-children"
+      >
+        <div
+          class="ant-pro-sider-menu-logo"
+          id="logo"
+        >
+          <a
+            href="/"
+          >
+            <img
+              alt="logo"
+              src="https://gw.alipayobjects.com/zos/antfincdn/PmY%24TNNDBI/logo.svg"
+            />
+            <h1>
+              Ant Design Pro
+            </h1>
+          </a>
+        </div>
+        <ul
+          class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
+          role="menu"
+          style="padding:16px 0;width:100%"
+        >
+          <li
+            class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+            role="menuitem"
+          >
+            <div
+              aria-expanded="true"
+              aria-haspopup="true"
+              aria-owns="/$Menu"
+              class="ant-menu-submenu-title"
+              style="padding-left:24px"
+            >
+              <span>
+                <i
+                  aria-label="icon: smile"
+                  class="anticon anticon-smile"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="smile"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M288 421a48 48 0 1 0 96 0 48 48 0 1 0-96 0zm352 0a48 48 0 1 0 96 0 48 48 0 1 0-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 0 1 248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 0 1 249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 0 1 775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 0 1 775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 0 0-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 0 0-8-8.4z"
+                    />
+                  </svg>
+                </i>
+                <span>
+                  welcome
+                </span>
+              </span>
+              <i
+                class="ant-menu-submenu-arrow"
+              />
+            </div>
+            <ul
+              class="ant-menu ant-menu-sub ant-menu-inline"
+              id="/$Menu"
+              role="menu"
+            >
+              <li
+                class="ant-menu-submenu ant-menu-submenu-inline"
+                role="menuitem"
+              >
+                <div
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  class="ant-menu-submenu-title"
+                  style="padding-left:48px"
+                >
+                  <span>
+                    <i
+                      aria-label="icon: /favicon.png"
+                      class="anticon anticon-/favicon.png"
+                    />
+                    <span>
+                      one
+                    </span>
+                  </span>
+                  <i
+                    class="ant-menu-submenu-arrow"
+                  />
+                </div>
+                <div />
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <div />
+      </div>
+    </aside>
+    <section
+      class="ant-layout"
+      style="height:100%;position:relative;min-height:100vh"
+    >
+      <header
+        class="ant-layout-header"
+        style="padding:0;width:100%;z-index:9"
+      >
+        <div
+          class="ant-pro-global-header"
+        >
+          <span
+            class="ant-pro-global-header-trigger"
+          >
+            <i
+              aria-label="icon: menu-fold"
+              class="anticon anticon-menu-fold"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="menu-fold"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"
+                />
+              </svg>
+            </i>
+          </span>
+        </div>
+      </header>
+      <main
+        class="ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-layout-content"
+      >
+        <div
+          style="margin:-24px -24px 0"
+        >
+          <div
+            class="ant-pro-page-header-wrap-page-header-warp"
+          >
+            <div
+              class="ant-pro-grid-content"
+            >
+              <div
+                class="ant-page-header ant-page-header-ghost"
+              >
+                <div
+                  class="ant-page-header-heading"
+                >
+                  <span
+                    class="ant-page-header-heading-title"
+                  >
+                    welcome
+                  </span>
+                </div>
+                <div
+                  class="ant-page-header-content"
+                >
+                  <div
+                    class="ant-pro-page-header-wrap-detail"
+                  >
+                    <div
+                      class="ant-pro-page-header-wrap-main"
+                    >
+                      <div
+                        class="ant-pro-page-header-wrap-row"
+                      >
+                        <div
+                          class="ant-pro-page-header-wrap-content"
+                        >
+                          just so so
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </section>
+  </section>
+</div>
+`;

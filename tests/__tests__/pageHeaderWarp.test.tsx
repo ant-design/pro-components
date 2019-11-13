@@ -17,7 +17,7 @@ describe('BasicLayout', () => {
       <ProLayout {...defaultProps}>
         <PageHeaderWrapper />
       </ProLayout>,
-    ).html();
+    );
     expect(html).toMatchSnapshot();
   });
 
@@ -26,7 +26,7 @@ describe('BasicLayout', () => {
       <ProLayout {...defaultProps}>
         <PageHeaderWrapper content="just so so" />
       </ProLayout>,
-    ).html();
+    );
     expect(html).toMatchSnapshot();
   });
 
