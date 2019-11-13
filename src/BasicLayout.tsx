@@ -378,7 +378,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
         <title>{pageTitle}</title>
       </Helmet>
       <div className={className}>
-        <Layout style={style}>
+        <Layout style={style} hasSider>
           {siderMenuDom}
           <Layout style={genLayoutStyle}>
             {headerDom}
