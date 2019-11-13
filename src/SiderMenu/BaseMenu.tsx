@@ -144,19 +144,27 @@ export default class BaseMenu extends Component<BaseMenuProps> {
       !item.hideChildrenInMenu &&
       item.children.some(child => child && !!child.name)
     ) {
+      const { menuItemRender } = this.props;
       const name = this.getIntlName(item);
+
+      //  get defaultTitle by menuItemRender
+      const defaultTitle = item.icon ? (
+        <span>
+          {getIcon(item.icon)}
+          <span>{name}</span>
+        </span>
+      ) : (
+        name
+      );
+
+      // subMenu only title render
+      const title = menuItemRender
+        ? menuItemRender({ ...item, isUrl: false }, defaultTitle)
+        : defaultTitle;
+
       return (
         <SubMenu
-          title={
-            item.icon ? (
-              <span>
-                {getIcon(item.icon)}
-                <span>{name}</span>
-              </span>
-            ) : (
-              name
-            )
-          }
+          title={title}
           key={item.key || item.path}
           onTitleClick={item.onTitleClick}
         >
