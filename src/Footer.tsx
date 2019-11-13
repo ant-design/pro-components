@@ -38,7 +38,7 @@ export interface FooterProps {
       blankTarget?: boolean;
     }[]
   >;
-  copyright?: string;
+  copyright?: WithFalse<String>;
   style?: CSSProperties;
   className?: string;
 }
@@ -53,9 +53,11 @@ const FooterView: React.FC<FooterProps> = ({
     <GlobalFooter
       links={links !== undefined ? links : defaultLinks}
       copyright={
-        <Fragment>
-          Copyright <Icon type="copyright" /> {copyright || defaultCopyright}
-        </Fragment>
+        copyright === false ? null : (
+          <Fragment>
+            Copyright <Icon type="copyright" /> {copyright || defaultCopyright}
+          </Fragment>
+        )
       }
     />
   </Footer>
