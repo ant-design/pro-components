@@ -1,5 +1,18 @@
 # changelog
 
+### 4.7.0
+
+- 💄 Modify Header component `zIndex` to 9. [#167](https://github.com/ant-design/ant-design-pro-layout/pull/167)
+- 🌟 DefaultFooter `copyright` support false. [#181](https://github.com/ant-design/ant-design-pro-layout/pull/181)
+- 🐞 Fix two renders of Layout. [#172](https://github.com/ant-design/ant-design-pro-layout/pull/172)
+- 🐞 Fix PageHeaderWrapper don't render breadcrumb. [#179](https://github.com/ant-design/ant-design-pro-layout/pull/179)
+- 🐞 Fix submenu don't work for `menuItemRender`. [#180](https://github.com/ant-design/ant-design-pro-layout/pull/180)
+- 🌟 PageTitleRender has defaultPageTitle. [63c0a56c](https://github.com/ant-design/ant-design-pro-layout/commit/63c0a56c077815693cbbcd606b937dbe3270ed06)
+- 🌟 All component support style and className. [#169](https://github.com/ant-design/ant-design-pro-layout/pull/169)
+- 🌟 Support `breakpoint` props. [#160](https://github.com/ant-design/ant-design-pro-layout/pull/160)
+- 🌟 Support `contentStyle` props. [#158](https://github.com/ant-design/ant-design-pro-layout/pull/158)
+- 🌟 Support `isChildrenLayout` props. [9749d772](https://github.com/ant-design/ant-design-pro-layout/commit/9749d7727aae1af260f6e23f35920b9ce7a94d22)
+
 ### 4.6.2
 
 - 🌟Replaced react-container-query and react-media-hook2 with react-response. [#150](https://github.com/ant-design/ant-design-pro-layout/pull/139)

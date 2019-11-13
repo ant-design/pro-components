@@ -1,5 +1,18 @@
 # 更新日志
 
+### 4.7.0
+
+- 💄 修改 Header 的 `zIndex` 为 9。[#167](https://github.com/ant-design/ant-design-pro-layout/pull/167)
+- 🌟 DefaultFooter `copyright` 支持值为 false。 [#181](https://github.com/ant-design/ant-design-pro-layout/pull/181)
+- 🐞 修复 Layout 渲染两次的问题。[#172](https://github.com/ant-design/ant-design-pro-layout/pull/172)
+- 🐞 修复 PageHeaderWrapper 不渲染面包屑的问题。 [#179](https://github.com/ant-design/ant-design-pro-layout/pull/179)
+- 🐞 修复 submenu 不支持 menuItemRender 的问题。 [#180](https://github.com/ant-design/ant-design-pro-layout/pull/180)
+- 🌟 Layout 的 pageTitleRender 现在包含了默认的 title。 [63c0a56c](https://github.com/ant-design/ant-design-pro-layout/commit/63c0a56c077815693cbbcd606b937dbe3270ed06)
+- 🌟 所有的组件都支持了 `style` 和 `className`。[#169](https://github.com/ant-design/ant-design-pro-layout/pull/169)
+- 🌟 支持 `breakpoint` 属性。[#160](https://github.com/ant-design/ant-design-pro-layout/pull/160)
+- 🌟 支持 contentStyle 来设置 Layout 的容器样式。[#158](https://github.com/ant-design/ant-design-pro-layout/pull/158)
+- 🌟 支持 isChildrenLayout 属性,用于支持嵌套 layout。[9749d772](https://github.com/ant-design/ant-design-pro-layout/commit/9749d7727aae1af260f6e23f35920b9ce7a94d22)
+
 ### 4.6.2
 
 - 🌟 使用 react-responsive 替换了 react-container-query 和 react-media-hook2。[#150](https://github.com/ant-design/ant-design-pro-layout/pull/139)
