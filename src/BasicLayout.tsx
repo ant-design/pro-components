@@ -385,8 +385,8 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
             <Content className={contentClassName} style={contentStyle}>
               <RouteContext.Provider
                 value={{
-                  breadcrumb: breadcrumbProps,
                   ...defaultProps,
+                  breadcrumb: breadcrumbProps,
                   menuData,
                   isMobile,
                   collapsed,
