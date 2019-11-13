@@ -99,7 +99,7 @@ export interface BasicLayoutProps
   ) => AntdBreadcrumbProps['routes'];
   menuItemRender?: BaseMenuProps['menuItemRender'];
   pageTitleRender?: WithFalse<
-    (props: GetPageTitleProps, defaultPageTitle?: string) => void
+    (props: GetPageTitleProps, defaultPageTitle?: string) => string
   >;
   menuDataRender?: (menuData: MenuDataItem[]) => MenuDataItem[];
   itemRender?: AntdBreadcrumbProps['itemRender'];
