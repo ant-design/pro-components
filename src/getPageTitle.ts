@@ -1,4 +1,4 @@
-import pathToRegexp from 'path-to-regexp';
+import { pathToRegexp } from 'path-to-regexp';
 import { MenuDataItem } from './typings';
 import { Settings } from './defaultSettings';
 
