@@ -21,6 +21,7 @@ const SiderMenuWrapper: React.FC<SiderMenuProps> = props => {
         height: '100vh',
         ...style,
       }}
+      bodyStyle={{ height: '100vh' }}
     >
       <SiderMenu
         {...omitProps}

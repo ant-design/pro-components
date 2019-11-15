@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import { Icon } from 'antd';
 import debounce from 'lodash/debounce';
 import { HeaderViewProps } from '../Header';
-import { defaultRenderLogo } from '../SiderMenu/SiderMenu';
+import { defaultRenderLogo, SiderMenuProps } from '../SiderMenu/SiderMenu';
 import { isBrowser } from '../utils/utils';
 import { WithFalse } from '../typings';
 
@@ -20,11 +20,25 @@ export interface GlobalHeaderProps {
   rightContentRender?: HeaderViewProps['rightContentRender'];
   className?: string;
   style?: React.CSSProperties;
+  menuHeaderRender?: SiderMenuProps['menuHeaderRender'];
 }
 
 const defaultRenderCollapsedButton = (collapsed?: boolean) => (
   <Icon type={collapsed ? 'menu-unfold' : 'menu-fold'} />
 );
+
+const renderLogo = (
+  menuHeaderRender: SiderMenuProps['menuHeaderRender'],
+  logoDom: React.ReactNode,
+) => {
+  if (menuHeaderRender === false) {
+    return null;
+  }
+  if (menuHeaderRender) {
+    return menuHeaderRender(logoDom, null);
+  }
+  return logoDom;
+};
 
 export default class GlobalHeader extends Component<GlobalHeaderProps> {
   triggerResizeEvent = debounce(() => {
@@ -68,17 +82,20 @@ export default class GlobalHeader extends Component<GlobalHeaderProps> {
       isMobile,
       logo,
       rightContentRender,
+      menuHeaderRender,
       className: propClassName,
       style,
     } = this.props;
     const className = classNames(propClassName, 'ant-pro-global-header');
+
+    const logoDom = (
+      <a className="ant-pro-global-header-logo" key="logo">
+        {defaultRenderLogo(logo)}
+      </a>
+    );
     return (
       <div className={className} style={style}>
-        {isMobile && (
-          <a className="ant-pro-global-header-logo" key="logo">
-            {defaultRenderLogo(logo)}
-          </a>
-        )}
+        {isMobile && renderLogo(menuHeaderRender, logoDom)}
         {this.renderCollapsedButton()}
         {rightContentRender && rightContentRender(this.props)}
       </div>
