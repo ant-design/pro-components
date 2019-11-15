@@ -1,5 +1,9 @@
 # 更新日志
 
+### 4.7.1-2
+
+- 🔔 增加 4.7.0 大改动的提示。[5ae53455](https://github.com/ant-design/an1t-design-pro-layout/commit/5ae53455)
+
 ### 4.7.0
 
 - 💄 修改 Header 的 `zIndex` 为 9。[#167](https://github.com/ant-design/ant-design-pro-layout/pull/167)
