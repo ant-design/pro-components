@@ -31,7 +31,6 @@
   "module": "es/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "postinstall": "node ./scripts/warning.js",
     "analyze": "cross-env ANALYZE=1 umi build",
     "build": "father-build build",
     "format-imports": "import-sort --write '**/*.{js,jsx,ts,tsx}'",
