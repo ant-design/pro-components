@@ -19,6 +19,14 @@ export interface GlobalFooterProps {
 }
 
 export default ({ className, links, copyright, style }: GlobalFooterProps) => {
+  if (
+    (links == null ||
+      links === false ||
+      (Array.isArray(links) && links.length === 0)) &&
+    (copyright == null || copyright === false)
+  ) {
+    return null;
+  }
   const clsString = classNames('ant-pro-global-footer', className);
   return (
     <footer className={clsString} style={style}>

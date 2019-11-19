@@ -13,4 +13,10 @@ describe('DefaultFooter test', () => {
     const wrapper = render(<DefaultFooter copyright={false} />);
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('if copyright and links falsy both, should not to render nothing', () => {
+    const wrapper = mount(<DefaultFooter copyright={false} links={false} />);
+
+    expect(wrapper.find('.ant-pro-global-footer').exists()).toBeFalsy();
+  });
 });
