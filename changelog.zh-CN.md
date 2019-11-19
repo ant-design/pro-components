@@ -1,5 +1,10 @@
 # 更新日志
 
+### 4.7.3
+
+- 🐞 修复 `siderWidth` 在手机模式不生效的问题。 [e6cc962d](https://github.com/ant-design/an1t-design-pro-layout/commit/e6cc962d)
+- 🐞 修复手机模式下，菜单样式错误的问题。[#192](https://github.com/ant-design/ant-design-pro-layout/pull/192)
+
 ### 4.7.1-2
 
 - 🔔 增加 4.7.0 大改动的提示。[5ae53455](https://github.com/ant-design/an1t-design-pro-layout/commit/5ae53455)

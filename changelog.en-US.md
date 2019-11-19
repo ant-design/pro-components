@@ -1,5 +1,10 @@
 # changelog
 
+### 4.7.3
+
+- 🐞 Fix `siderWidth` in mobile mode does not work. [e6cc962d](https://github.com/ant-design/an1t-design-pro-layout/commit/e6cc962d)
+- 🐞 Fixed a problem with the wrong menu style in the phone mode. [#192](https://github.com/ant-design/ant-design-pro-layout/pull/192)
+
 ### 4.7.1-2
 
 - 🔔 Increase the hint of 4.7.0 large strain. [5ae53455](https://github.com/ant-design/an1t-design-pro-layout/commit/5ae53455)
