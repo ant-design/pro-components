@@ -47,6 +47,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
           navTheme="light"
           menuHeaderRender={false}
           logo={logo}
+          siderWidth={200}
           collapsed={collapsed}
           onCollapse={handleMenuCollapse}
           menuItemRender={(menuItemProps, defaultDom) =>

@@ -7,7 +7,15 @@ import SiderMenu, { SiderMenuProps } from './SiderMenu';
 import { getFlatMenuKeys } from './SiderMenuUtils';
 
 const SiderMenuWrapper: React.FC<SiderMenuProps> = props => {
-  const { isMobile, menuData, collapsed, onCollapse, style, className } = props;
+  const {
+    isMobile,
+    menuData,
+    siderWidth,
+    collapsed,
+    onCollapse,
+    style,
+    className,
+  } = props;
   const flatMenuKeys = getFlatMenuKeys(menuData);
   const omitProps = Omit(props, ['className', 'style']);
   return isMobile ? (
@@ -21,6 +29,7 @@ const SiderMenuWrapper: React.FC<SiderMenuProps> = props => {
         height: '100vh',
         ...style,
       }}
+      width={siderWidth}
       bodyStyle={{ height: '100vh' }}
     >
       <SiderMenu
