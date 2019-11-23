@@ -58,16 +58,16 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
 
   getHeadWidth = () => {
     const {
-      isMobile,
       collapsed,
-      fixedHeader,
+      isMobile,
       layout,
+      fixSiderbar,
       siderWidth = 256,
     } = this.props;
-    if (isMobile || !fixedHeader || layout === 'topmenu') {
-      return '100%';
+    if (fixSiderbar && !isMobile && layout === 'sidemenu') {
+      return collapsed ? 'calc(100% - 80px)' : `calc(100% - ${siderWidth}px)`;
     }
-    return collapsed ? 'calc(100% - 80px)' : `calc(100% - ${siderWidth}px)`;
+    return '100%';
   };
 
   handScroll = () => {
@@ -128,7 +128,7 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
       style,
     } = this.props;
     const { visible } = this.state;
-    const width = this.getHeadWidth();
+
     const isTop = layout === 'topmenu';
 
     const className = classNames(propsClassName, {
@@ -138,7 +138,7 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
 
     return visible ? (
       <Header
-        style={{ padding: 0, width, zIndex: 9, ...style }}
+        style={{ padding: 0, width: this.getHeadWidth(), zIndex: 9, ...style }}
         className={className}
       >
         {this.renderContent()}
