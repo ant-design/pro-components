@@ -107,7 +107,7 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
     if (isTop && !isMobile) {
       defaultDom = (
         <TopNavHeader
-          theme={navTheme}
+          theme={navTheme as 'light' | 'dark'}
           mode="horizontal"
           onCollapse={onCollapse}
           {...this.props}
