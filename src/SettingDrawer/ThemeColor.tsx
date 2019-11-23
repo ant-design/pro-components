@@ -35,40 +35,10 @@ const ThemeColor: React.FC<ThemeColorProps> = ({
   onChange,
   formatMessage,
 }) => {
-  const colorList = colors || [
-    {
-      key: 'dust',
-      color: '#F5222D',
-    },
-    {
-      key: 'volcano',
-      color: '#FA541C',
-    },
-    {
-      key: 'sunset',
-      color: '#FAAD14',
-    },
-    {
-      key: 'cyan',
-      color: '#13C2C2',
-    },
-    {
-      key: 'green',
-      color: '#52C41A',
-    },
-    {
-      key: 'daybreak',
-      color: '#1890FF',
-    },
-    {
-      key: 'geekblue',
-      color: '#2F54EB',
-    },
-    {
-      key: 'purple',
-      color: '#722ED1',
-    },
-  ];
+  const colorList = colors || [];
+  if (colorList.length < 1) {
+    return null;
+  }
   return (
     <div className="theme-color">
       <h3 className="theme-color-title">{title}</h3>
@@ -81,8 +51,8 @@ const ThemeColor: React.FC<ThemeColorProps> = ({
             <Tag
               className="theme-color-block"
               color={color}
-              check={value === color}
-              onClick={() => onChange && onChange(color)}
+              check={value === key}
+              onClick={() => onChange && onChange(key)}
             />
           </Tooltip>
         ))}

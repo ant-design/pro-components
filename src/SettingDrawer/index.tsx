@@ -25,9 +25,41 @@ const { Option } = Select;
 interface BodyProps {
   title: string;
 }
+
 type MergerSettingsType<T> = Partial<T> & {
   primaryColor?: string;
   colorWeak?: boolean;
+};
+
+const updateTheme = (dark: boolean, color?: string) => {
+  // ssr
+  if (typeof window === 'undefined') {
+    return;
+  }
+  const href = dark ? '/theme/dark' : '/theme/';
+  const colorFileName =
+    dark && color && color !== 'daybreak' ? `-${color}` : color;
+  const dom = document.getElementById('theme-style') as HTMLLinkElement;
+
+  // 如果这两个都是空
+  if (!href && !colorFileName) {
+    if (dom) {
+      dom.remove();
+      localStorage.removeItem('site-theme');
+    }
+    return;
+  }
+  if (dom) {
+    dom.href = `${href}${colorFileName}.css`;
+  } else {
+    const style = document.createElement('link');
+    style.type = 'text/css';
+    style.rel = 'stylesheet';
+    style.id = 'theme-style';
+    style.href = `${href}${colorFileName}.css`;
+    document.body.append(style);
+  }
+  localStorage.setItem('site-theme', dark ? 'dark' : 'light');
 };
 
 const Body: React.FC<BodyProps> = ({ children, title }) => (
@@ -190,6 +222,18 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
     const { settings } = this.props;
     const nextState = { ...settings };
     nextState[key] = value;
+    if (key === 'navTheme') {
+      updateTheme(value === 'realDark');
+      nextState.primaryColor = 'daybreak';
+    }
+
+    if (key === 'primaryColor') {
+      updateTheme(
+        nextState.navTheme === 'realDark',
+        value === 'daybreak' ? '' : (value as string),
+      );
+    }
+
     if (key === 'layout') {
       nextState.contentWidth = value === 'topmenu' ? 'Fixed' : 'Fluid';
     } else if (key === 'fixedHeader' && !value) {
@@ -252,16 +296,107 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
     return formatMessage;
   };
 
+  getThemeList = () => {
+    const formatMessage = this.getFormatMessage();
+    const list: {
+      key: string;
+      fileName: string;
+      modifyVars: {
+        '@primary-color': string;
+      };
+      theme: 'dark' | 'light';
+    }[] = (window as any).umi_plugin_ant_themeVar || [];
+    const themeList = [
+      {
+        key: 'light',
+        url:
+          'https://gw.alipayobjects.com/zos/antfincdn/NQ%24zoisaD2/jpRkZQMyYRryryPNtyIC.svg',
+        title: formatMessage({ id: 'app.setting.pagestyle.light' }),
+      },
+      {
+        key: 'dark',
+        url:
+          'https://gw.alipayobjects.com/zos/antfincdn/XwFOFbLkSM/LCkqqYNmvBEbokSDscrm.svg',
+        title: formatMessage({
+          id: 'app.setting.pagestyle.dark',
+          defaultMessage: '',
+        }),
+      },
+    ];
+
+    const darkColorList: {
+      key: string;
+      color: string;
+      theme: 'dark' | 'light';
+    }[] = [
+      {
+        key: 'daybreak',
+        color: '#1890ff',
+        theme: 'dark',
+      },
+    ];
+
+    const lightColorList: {
+      key: string;
+      color: string;
+      theme: 'dark' | 'light';
+    }[] = [
+      {
+        key: 'daybreak',
+        color: '#1890ff',
+        theme: 'dark',
+      },
+    ];
+
+    if (list.find(item => item.theme === 'dark')) {
+      themeList.push({
+        key: 'realDark',
+        url:
+          'https://gw.alipayobjects.com/zos/antfincdn/hmKaLQvmY2/LCkqqYNmvBEbokSDscrm.svg',
+        title: formatMessage({
+          id: 'app.setting.pagestyle.dark',
+          defaultMessage: '',
+        }),
+      });
+    }
+    // insert  theme color List
+    list.forEach(item => {
+      const color = (item.modifyVars || {})['@primary-color'];
+      if (item.theme === 'dark' && color) {
+        darkColorList.push({
+          color,
+          ...item,
+        });
+      }
+      if (!item.theme || item.theme === 'light') {
+        lightColorList.push({
+          color,
+          ...item,
+        });
+      }
+    });
+
+    return {
+      colorList: {
+        dark: darkColorList,
+        light: lightColorList,
+      },
+      themeList,
+    };
+  };
+
   render(): React.ReactNode {
     const { settings, getContainer } = this.props;
     const {
-      navTheme = 'dark',
-      primaryColor = '1890FF',
+      navTheme = 'light',
+      primaryColor = 'daybreak',
       layout = 'sidemenu',
       colorWeak,
     } = settings || defaultSettings;
+
     const { collapse } = this.state;
     const formatMessage = this.getFormatMessage();
+    const themeList = this.getThemeList();
     return (
       <Drawer
         visible={collapse}
@@ -295,23 +430,7 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
             })}
           >
             <BlockCheckbox
-              list={[
-                {
-                  key: 'dark',
-                  url:
-                    'https://gw.alipayobjects.com/zos/antfincdn/XwFOFbLkSM/LCkqqYNmvBEbokSDscrm.svg',
-                  title: formatMessage({
-                    id: 'app.setting.pagestyle.dark',
-                    defaultMessage: '',
-                  }),
-                },
-                {
-                  key: 'light',
-                  url:
-                    'https://gw.alipayobjects.com/zos/antfincdn/NQ%24zoisaD2/jpRkZQMyYRryryPNtyIC.svg',
-                  title: formatMessage({ id: 'app.setting.pagestyle.light' }),
-                },
-              ]}
+              list={themeList.themeList}
               value={navTheme}
               onChange={value => this.changeSetting('navTheme', value)}
             />
@@ -320,6 +439,9 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
           <ThemeColor
             title={formatMessage({ id: 'app.setting.themecolor' })}
             value={primaryColor}
+            colors={
+              themeList.colorList[navTheme === 'realDark' ? 'dark' : 'light']
+            }
             formatMessage={formatMessage}
             onChange={color => this.changeSetting('primaryColor', color)}
           />

@@ -318,14 +318,15 @@ Pro-Layout 在 4.7 中支持了 subMenu 的 render, 会导致 menu 变成蓝色�
     ...defaultProps,
     breadcrumb,
   });
-
   // render sider dom
   const siderMenuDom = renderSiderMenu({
     ...defaultProps,
     menuData,
     onCollapse,
     isMobile,
-    theme: navTheme,
+    theme: (navTheme || 'dark').toLocaleLowerCase().includes('dark')
+      ? 'dark'
+      : 'light',
     collapsed,
   });
 
@@ -336,6 +337,9 @@ Pro-Layout 在 4.7 中支持了 subMenu 的 render, 会导致 menu 变成蓝色�
     isMobile,
     collapsed,
     onCollapse,
+    theme: (navTheme || 'dark').toLocaleLowerCase().includes('dark')
+      ? 'dark'
+      : 'light',
   });
 
   // render footer dom

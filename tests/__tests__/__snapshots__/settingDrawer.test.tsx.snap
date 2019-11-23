@@ -71,12 +71,12 @@ exports[`settingDrawer.test base user 1`] = `
                     class="ant-pro-setting-drawer-block-checbox-item"
                   >
                     <img
-                      alt="dark"
-                      src="https://gw.alipayobjects.com/zos/antfincdn/XwFOFbLkSM/LCkqqYNmvBEbokSDscrm.svg"
+                      alt="light"
+                      src="https://gw.alipayobjects.com/zos/antfincdn/NQ%24zoisaD2/jpRkZQMyYRryryPNtyIC.svg"
                     />
                     <div
                       class="ant-pro-setting-drawer-block-checbox-selectIcon"
-                      style="display:block"
+                      style="display:none"
                     >
                       <i
                         aria-label="icon: check"
@@ -103,12 +103,12 @@ exports[`settingDrawer.test base user 1`] = `
                     class="ant-pro-setting-drawer-block-checbox-item"
                   >
                     <img
-                      alt="light"
-                      src="https://gw.alipayobjects.com/zos/antfincdn/NQ%24zoisaD2/jpRkZQMyYRryryPNtyIC.svg"
+                      alt="dark"
+                      src="https://gw.alipayobjects.com/zos/antfincdn/XwFOFbLkSM/LCkqqYNmvBEbokSDscrm.svg"
                     />
                     <div
                       class="ant-pro-setting-drawer-block-checbox-selectIcon"
-                      style="display:none"
+                      style="display:block"
                     >
                       <i
                         aria-label="icon: check"
@@ -146,36 +146,28 @@ exports[`settingDrawer.test base user 1`] = `
                 >
                   <div
                     class="theme-color-block"
-                    style="background-color:#F5222D"
-                  />
-                  <div
-                    class="theme-color-block"
-                    style="background-color:#FA541C"
-                  />
-                  <div
-                    class="theme-color-block"
-                    style="background-color:#FAAD14"
-                  />
-                  <div
-                    class="theme-color-block"
-                    style="background-color:#13C2C2"
-                  />
-                  <div
-                    class="theme-color-block"
-                    style="background-color:#52C41A"
-                  />
-                  <div
-                    class="theme-color-block"
-                    style="background-color:#1890FF"
-                  />
-                  <div
-                    class="theme-color-block"
-                    style="background-color:#2F54EB"
-                  />
-                  <div
-                    class="theme-color-block"
-                    style="background-color:#722ED1"
-                  />
+                    style="background-color:#1890ff"
+                  >
+                    <i
+                      aria-label="icon: check"
+                      class="anticon anticon-check"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="check"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 0 0-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+                        />
+                      </svg>
+                    </i>
+                  </div>
                 </div>
               </div>
               <div

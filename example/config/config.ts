@@ -1,5 +1,6 @@
 import { IConfig, IPlugin } from 'umi-types';
 import slash from 'slash2';
+import themePluginConfig from './themePluginConfig';
 
 const plugins: IPlugin[] = [
   [
@@ -33,6 +34,7 @@ const plugins: IPlugin[] = [
       autoAddMenu: true,
     },
   ],
+  ['umi-plugin-antd-theme', themePluginConfig],
 ];
 
 export default {
