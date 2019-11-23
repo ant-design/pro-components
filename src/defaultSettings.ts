@@ -15,6 +15,7 @@ export interface Settings {
    * layout of content: `Fluid` or `Fixed`, only works when layout is topmenu
    */
   contentWidth: ContentWidth;
+
   /**
    * sticky header
    */
@@ -34,6 +35,7 @@ export interface Settings {
   // 注意：如果需要图标多色，Iconfont 图标项目里要进行批量去色处理
   // Usage: https://github.com/ant-design/ant-design-pro/pull/3517
   iconfontUrl: string;
+  primaryColor: string;
 }
 
 const defaultSettings: Settings = {
@@ -48,5 +50,6 @@ const defaultSettings: Settings = {
   },
   title: 'Ant Design Pro',
   iconfontUrl: '',
+  primaryColor: 'daybreak',
 };
 export default defaultSettings;

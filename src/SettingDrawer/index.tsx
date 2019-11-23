@@ -11,6 +11,8 @@ import {
   Tooltip,
   message,
 } from 'antd';
+import { createBrowserHistory } from 'history';
+import { stringify } from 'qs';
 import React, { Component } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import omit from 'omit.js';
@@ -49,14 +51,16 @@ const updateTheme = (dark: boolean, color?: string) => {
     }
     return;
   }
+
+  const url = `${href}${colorFileName || ''}.css`;
   if (dom) {
-    dom.href = `${href}${colorFileName}.css`;
+    dom.href = url;
   } else {
     const style = document.createElement('link');
     style.type = 'text/css';
     style.rel = 'stylesheet';
     style.id = 'theme-style';
-    style.href = `${href}${colorFileName}.css`;
+    style.href = url;
     document.body.append(style);
   }
   localStorage.setItem('site-theme', dark ? 'dark' : 'light');
@@ -69,12 +73,24 @@ const Body: React.FC<BodyProps> = ({ children, title }) => (
   </div>
 );
 
-interface SettingItemProps {
+export interface SettingItemProps {
   title: React.ReactNode;
   action: React.ReactElement;
   disabled?: boolean;
   disabledReason?: React.ReactNode;
 }
+
+const browserHistory = createBrowserHistory();
+
+const getDifferentSetting = (state: Partial<Settings>) => {
+  const stateObj: Partial<Settings> = {};
+  Object.keys(state).forEach(key => {
+    if (state[key] !== defaultSettings[key] && key !== 'collapse') {
+      stateObj[key] = state[key];
+    }
+  });
+  return stateObj;
+};
 
 export interface SettingDrawerProps {
   settings: MergerSettingsType<Settings>;
@@ -241,6 +257,9 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
     }
     this.setState(nextState, () => {
       const { onSettingChange } = this.props;
+      browserHistory.replace({
+        search: stringify(getDifferentSetting(this.state)),
+      });
       if (onSettingChange) {
         onSettingChange(this.state as MergerSettingsType<Settings>);
       }
