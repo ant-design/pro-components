@@ -1,5 +1,9 @@
 # changelog
 
+### 4.7.4
+
+- 💄 Fix style issues under `fixSiderbar` and `fixedHeader`. [8e916250](https://github.com/ant-design/an1t-design-pro-layout/commit/8e916250)
+
 ### 4.7.3
 
 - 🐞 Fix `siderWidth` in mobile mode does not work. [e6cc962d](https://github.com/ant-design/an1t-design-pro-layout/commit/e6cc962d)

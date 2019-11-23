@@ -1,5 +1,9 @@
 # 更新日志
 
+### 4.7.4
+
+- 💄 修复 `fixSiderbar` 和 `fixedHeader` 下的样式问题。 [8e916250](https://github.com/ant-design/an1t-design-pro-layout/commit/8e916250)
+
 ### 4.7.3
 
 - 🐞 修复 `siderWidth` 在手机模式不生效的问题。 [e6cc962d](https://github.com/ant-design/an1t-design-pro-layout/commit/e6cc962d)
