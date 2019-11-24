@@ -33,39 +33,6 @@ type MergerSettingsType<T> = Partial<T> & {
   colorWeak?: boolean;
 };
 
-const updateTheme = (dark: boolean, color?: string) => {
-  // ssr
-  if (typeof window === 'undefined') {
-    return;
-  }
-  const href = dark ? '/theme/dark' : '/theme/';
-  const colorFileName =
-    dark && color && color !== 'daybreak' ? `-${color}` : color;
-  const dom = document.getElementById('theme-style') as HTMLLinkElement;
-
-  // 如果这两个都是空
-  if (!href && !colorFileName) {
-    if (dom) {
-      dom.remove();
-      localStorage.removeItem('site-theme');
-    }
-    return;
-  }
-
-  const url = `${href}${colorFileName || ''}.css`;
-  if (dom) {
-    dom.href = url;
-  } else {
-    const style = document.createElement('link');
-    style.type = 'text/css';
-    style.rel = 'stylesheet';
-    style.id = 'theme-style';
-    style.href = url;
-    document.body.append(style);
-  }
-  localStorage.setItem('site-theme', dark ? 'dark' : 'light');
-};
-
 const Body: React.FC<BodyProps> = ({ children, title }) => (
   <div style={{ marginBottom: 24 }}>
     <h3 className="ant-pro-setting-drawer-title">{title}</h3>
@@ -145,6 +112,57 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
         language,
       });
     }
+  };
+
+  updateTheme = (dark: boolean, color?: string) => {
+    // ssr
+    if (typeof window === 'undefined') {
+      return;
+    }
+    const formatMessage = this.getFormatMessage();
+    const hide = message.loading(
+      formatMessage({
+        id: 'app.setting.loading',
+        defaultMessage: '正在加载主题',
+      }),
+    );
+    const href = dark ? '/theme/dark' : '/theme/';
+    const colorFileName =
+      dark && color && color !== 'daybreak' ? `-${color}` : color;
+    const dom = document.getElementById('theme-style') as HTMLLinkElement;
+
+    // 如果这两个都是空
+    if (!href && !colorFileName) {
+      if (dom) {
+        dom.remove();
+        localStorage.removeItem('site-theme');
+      }
+      return;
+    }
+
+    const url = `${href}${colorFileName || ''}.css`;
+    if (dom) {
+      dom.onload = () => {
+        window.setTimeout(() => {
+          hide();
+        });
+      };
+      dom.href = url;
+    } else {
+      const style = document.createElement('link');
+      style.type = 'text/css';
+      style.rel = 'stylesheet';
+      style.id = 'theme-style';
+      style.onload = () => {
+        window.setTimeout(() => {
+          hide();
+        });
+      };
+      style.href = url;
+      document.body.append(style);
+    }
+
+    localStorage.setItem('site-theme', dark ? 'dark' : 'light');
   };
 
   getLayoutSetting = (): SettingItemProps[] => {
@@ -239,12 +257,12 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
     const nextState = { ...settings };
     nextState[key] = value;
     if (key === 'navTheme') {
-      updateTheme(value === 'realDark');
+      this.updateTheme(value === 'realDark');
       nextState.primaryColor = 'daybreak';
     }
 
     if (key === 'primaryColor') {
-      updateTheme(
+      this.updateTheme(
         nextState.navTheme === 'realDark',
         value === 'daybreak' ? '' : (value as string),
       );

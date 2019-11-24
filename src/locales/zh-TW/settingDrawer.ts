@@ -25,6 +25,7 @@ export default {
   'app.setting.othersettings': '其他設置',
   'app.setting.weakmode': '色弱模式',
   'app.setting.copy': '拷貝設置',
+  'app.setting.loading': '正在加載主題',
   'app.setting.copyinfo':
     '拷貝成功，請到 src/defaultSettings.js 中替換默認配置',
   'app.setting.production.hint':

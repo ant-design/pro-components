@@ -25,6 +25,7 @@ export default {
   'app.setting.othersettings': 'Other Settings',
   'app.setting.weakmode': 'Weak Mode',
   'app.setting.copy': 'Copy Setting',
+  'app.setting.loading': 'Loading theme',
   'app.setting.copyinfo':
     'copy success，please replace defaultSettings in src/models/setting.js',
   'app.setting.production.hint':
