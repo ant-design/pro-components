@@ -1,5 +1,11 @@
 # changelog
 
+### 4.8.0
+
+- 🔥🔥🔥 SettingDrawer has been technically modified and linked to [umi-plugin-antd-theme](https://github.com/chenshuai2144/umi-plugin-antd-theme). [#207](https://github.com/ant-design/ant-design-pro-layout/pull/207)
+- 🔔 The `autoHideHeader` has been removed, resulting in performance loss and not much usage. [#209](https://github.com/ant-design/ant-design-pro-layout/pull/209)
+- 修复 Fix style issues under `fixSiderbar` and `fixedHeader`. [#209](https://github.com/ant-design/ant-design-pro-layout/pull/209)
+
 ### 4.7.4
 
 - 💄 Fix style issues under `fixSiderbar` and `fixedHeader`. [8e916250](https://github.com/ant-design/an1t-design-pro-layout/commit/8e916250)
