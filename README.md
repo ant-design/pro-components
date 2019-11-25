@@ -6,7 +6,7 @@ English | [简体中文](./README.zh-CN.md) [changelog](./changelog.en-US.md)
 
 <div align="center">
 
-![image](https://user-images.githubusercontent.com/8186664/55930941-276e6580-5c56-11e9-800d-bc284bda4daf.png)
+![image](https://gw.alipayobjects.com/zos/antfincdn/raCkHezMns/Kapture%2525202019-11-25%252520at%25252019.15.12.gif)
 
 An out-of-box UI solution for enterprise applications as a React boilerplate. This repository is the layout of Ant Design Pro and was developed for quick and easy use of the layout.
 

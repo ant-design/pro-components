@@ -6,7 +6,7 @@
 
 <div align="center">
 
-![image](https://user-images.githubusercontent.com/8186664/55930941-276e6580-5c56-11e9-800d-bc284bda4daf.png)
+![image](https://gw.alipayobjects.com/zos/antfincdn/raCkHezMns/Kapture%2525202019-11-25%252520at%25252019.15.12.gif)
 
 开箱即用的中台前端/设计解决方案。此仓库是 Ant Design Pro 的 layout, 是为了方便快速的使用 layout 而开发。
 
