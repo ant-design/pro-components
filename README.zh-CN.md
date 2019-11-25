@@ -46,7 +46,6 @@ render(<BasicLayout />, document.getElementById('root'));
 | navTheme | 导航的主题 | 'light' \| 'dark' | `'dark'` |
 | fixedHeader | 是否固定 header 到顶部 | boolean | `false` |
 | fixSiderbar | 是否固定导航 | boolean | `false` |
-| autoHideHeader | 是否下滑时自动隐藏 header | boolean | `false` |
 | breakpoint | 触发响应式布局的[断点](https://ant.design/components/grid-cn/#Col) | `Enum { 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' }` | `lg` |
 | menu | 关于 menu 的配置，暂时只有 locale,locale 可以关闭 menu 的自带的全球化 | { locale: boolean } | `{ locale: true }` |
 | iconfontUrl | 使用 [IconFont](https://ant.design/components/icon-cn/#components-icon-demo-iconfont) 的图标配置 | string | - |
@@ -192,10 +191,6 @@ export interface Settings {
    * sticky header
    */
   fixedHeader: boolean;
-  /**
-   * auto hide header
-   */
-  autoHideHeader: boolean;
   /**
    * sticky siderbar
    */

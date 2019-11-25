@@ -168,7 +168,7 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
   getLayoutSetting = (): SettingItemProps[] => {
     const { settings } = this.props;
     const formatMessage = this.getFormatMessage();
-    const { contentWidth, fixedHeader, layout, autoHideHeader, fixSiderbar } =
+    const { contentWidth, fixedHeader, layout, fixSiderbar } =
       settings || defaultSettings;
     return [
       {
@@ -215,24 +215,6 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
       },
       {
         title: formatMessage({
-          id: 'app.setting.hideheader',
-          defaultMessage: 'Hidden Header when scrolling',
-        }),
-        disabled: !fixedHeader,
-        disabledReason: formatMessage({
-          id: 'app.setting.hideheader.hint',
-          defaultMessage: 'Works when Hidden Header is enabled',
-        }),
-        action: (
-          <Switch
-            size="small"
-            checked={!!autoHideHeader}
-            onChange={checked => this.changeSetting('autoHideHeader', checked)}
-          />
-        ),
-      },
-      {
-        title: formatMessage({
           id: 'app.setting.fixedsidebar',
           defaultMessage: 'Fixed Sidebar',
         }),
@@ -270,8 +252,6 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
 
     if (key === 'layout') {
       nextState.contentWidth = value === 'topmenu' ? 'Fixed' : 'Fluid';
-    } else if (key === 'fixedHeader' && !value) {
-      nextState.autoHideHeader = false;
     }
     this.setState(nextState, () => {
       const { onSettingChange } = this.props;

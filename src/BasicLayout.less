@@ -4,20 +4,23 @@
 
 .@{basicLayout-prefix-cls} {
   height: 100%;
+  transform: rotate(0);
 
   .ant-layout {
     transition: all 0.2s;
   }
 
   .ant-layout-header {
-    position: absolute;
+    &.ant-pro-fixed-header {
+      position: sticky;
+    }
   }
 
   &-content {
     position: relative;
     margin: 24px;
-    &.@{basicLayout-prefix-cls}-has-header {
-      padding-top: @layout-header-height;
+    .ant-layout {
+      transform: rotate(0);
     }
   }
 

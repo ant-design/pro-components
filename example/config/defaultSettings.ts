@@ -24,10 +24,6 @@ export interface DefaultSettings {
    */
   fixedHeader: boolean;
   /**
-   * auto hide header
-   */
-  autoHideHeader: boolean;
-  /**
    * sticky siderbar
    */
   fixSiderbar: boolean;
@@ -48,7 +44,6 @@ export default {
   layout: 'sidemenu',
   contentWidth: 'Fluid',
   fixedHeader: false,
-  autoHideHeader: false,
   fixSiderbar: false,
   colorWeak: false,
   menu: {

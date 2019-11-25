@@ -1,4 +1,4 @@
-import { MenuTheme } from 'antd/es/menu';
+import { MenuProps } from 'antd/es/menu';
 
 export type ContentWidth = 'Fluid' | 'Fixed';
 
@@ -6,7 +6,7 @@ export interface Settings {
   /**
    * theme for nav menu
    */
-  navTheme: MenuTheme | undefined;
+  navTheme: MenuProps['theme'] | undefined;
   /**
    * nav menu position: `sidemenu` or `topmenu`
    */
@@ -19,10 +19,7 @@ export interface Settings {
    * sticky header
    */
   fixedHeader: boolean;
-  /**
-   * auto hide header
-   */
-  autoHideHeader: boolean;
+
   /**
    * sticky siderbar
    */
@@ -41,7 +38,6 @@ const defaultSettings: Settings = {
   layout: 'sidemenu',
   contentWidth: 'Fluid',
   fixedHeader: false,
-  autoHideHeader: false,
   fixSiderbar: false,
   menu: {
     locale: true,

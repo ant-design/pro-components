@@ -359,32 +359,6 @@ exports[`settingDrawer.test base user 1`] = `
                         class="ant-list-item"
                       >
                         <span
-                          style="opacity:0.5"
-                        >
-                          Hidden Header when scrolling
-                        </span>
-                        <ul
-                          class="ant-list-item-action"
-                        >
-                          <li>
-                            <button
-                              aria-checked="false"
-                              class="ant-switch-small ant-switch ant-switch-disabled"
-                              disabled=""
-                              role="switch"
-                              type="button"
-                            >
-                              <span
-                                class="ant-switch-inner"
-                              />
-                            </button>
-                          </li>
-                        </ul>
-                      </li>
-                      <li
-                        class="ant-list-item"
-                      >
-                        <span
                           style="opacity:1"
                         >
                           Fixed Sidebar
