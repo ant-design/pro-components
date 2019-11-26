@@ -113,6 +113,11 @@ export interface BasicLayoutProps
   isChildrenLayout?: boolean;
 
   className?: string;
+
+  /**
+   * 兼用 content的 margin
+   */
+  disableContentMargin: boolean;
 }
 
 const headerRender = (props: BasicLayoutProps): React.ReactNode => {
@@ -224,6 +229,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
       routes: [],
     },
     style,
+    disableContentMargin,
     siderWidth = 256,
     menu,
     isChildrenLayout: propsIsChildrenLayout,
@@ -384,6 +390,7 @@ Pro-Layout 在 4.7 中支持了 subMenu 的 render, 会导致 menu 变成蓝色�
 
   const contentClassName = classNames('ant-pro-basicLayout-content', {
     'ant-pro-basicLayout-has-header': headerDom,
+    'ant-pro-basicLayout-content-disable-margin': disableContentMargin,
   });
 
   return (

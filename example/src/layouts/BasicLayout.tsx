@@ -41,7 +41,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
         rightContentRender={rightProps => (
           <RightContent {...rightProps} {...settings} />
         )}
-        contentStyle={{ margin: 0 }}
+        disableContentMargin
       >
         <ProLayout
           navTheme="light"
