@@ -224,6 +224,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     fixSiderbar,
     navTheme,
     contentStyle,
+    fixedHeader,
     layout: PropsLayout,
     route = {
       routes: [],
@@ -386,6 +387,9 @@ Pro-Layout 在 4.7 中支持了 subMenu 的 render, 会导致 menu 变成蓝色�
   // if is some layout children，don't need min height
   if (isChildrenLayout || (contentStyle && contentStyle.minHeight)) {
     genLayoutStyle.minHeight = 0;
+  }
+  if (fixSiderbar || fixedHeader) {
+    genLayoutStyle.height = '100vh';
   }
 
   const contentClassName = classNames('ant-pro-basicLayout-content', {
