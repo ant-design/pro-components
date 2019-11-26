@@ -1,5 +1,9 @@
 # changelog
 
+### 4.8.1
+
+- 🌟 Add the `disableContentMargin` property to close the margin of the content area. [1456cce1](https://github.com/ant-design/an1t-design-pro-layout/commit/1456cce1)
+
 ### 4.8.0
 
 - 🔥🔥🔥 SettingDrawer has been technically modified and linked to [umi-plugin-antd-theme](https://github.com/chenshuai2144/umi-plugin-antd-theme). [#207](https://github.com/ant-design/ant-design-pro-layout/pull/207)

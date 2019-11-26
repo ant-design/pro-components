@@ -1,5 +1,9 @@
 # 更新日志
 
+### 4.8.1
+
+- 🌟 增加 `disableContentMargin` 属性，用于关闭内容区的 margin。[1456cce1](https://github.com/ant-design/an1t-design-pro-layout/commit/1456cce1)
+
 ### 4.8.0
 
 - 🔥🔥🔥 SettingDrawer 进行了技术改造，与 [umi-plugin-antd-theme](https://github.com/chenshuai2144/umi-plugin-antd-theme) 进行了联动。[#207](https://github.com/ant-design/ant-design-pro-layout/pull/207)
