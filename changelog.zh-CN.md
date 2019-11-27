@@ -2,9 +2,9 @@
 
 ### 4.8.3
 
--🐞 解决页脚不显示的问题。 [da8239d3](https://github.com/ant-design/an1t-design-pro-layout/commit/da8239d3)
+- 🐞 解决页脚不显示的问题。 [da8239d3](https://github.com/ant-design/an1t-design-pro-layout/commit/da8239d3)
 
--🌟 支持从 url 获取设置。 [a9dc2d8f](https://github.com/ant-design/an1t-design-pro-layout/commit/a9dc2d8)
+- 🌟 支持从 url 获取设置。 [a9dc2d8f](https://github.com/ant-design/an1t-design-pro-layout/commit/a9dc2d8)
 
 ### 4.8.2
 
