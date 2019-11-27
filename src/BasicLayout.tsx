@@ -421,8 +421,8 @@ Pro-Layout 在 4.7 中支持了 subMenu 的 render, 会导致 menu 变成蓝色�
               >
                 {children}
               </RouteContext.Provider>
+              {footerDom}
             </Content>
-            {footerDom}
           </Layout>
         </Layout>
       </div>
