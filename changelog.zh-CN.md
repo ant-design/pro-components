@@ -1,5 +1,15 @@
 # 更新日志
 
+### 4.8.3
+
+-🐞 解决页脚不显示的问题。 [da8239d3](https://github.com/ant-design/an1t-design-pro-layout/commit/da8239d3)
+
+-🌟 支持从 url 获取设置。 [a9dc2d8f](https://github.com/ant-design/an1t-design-pro-layout/commit/a9dc2d8)
+
+### 4.8.2
+
+- 🐞 修复 `fixSiderbar` 显示错误的问题. [1a478d60](https://github.com/ant-design/an1t-design-pro-layout/commit/1a478d60)
+
 ### 4.8.1
 
 - 🌟 增加 `disableContentMargin` 属性，用于关闭内容区的 margin。[1456cce1](https://github.com/ant-design/an1t-design-pro-layout/commit/1456cce1)

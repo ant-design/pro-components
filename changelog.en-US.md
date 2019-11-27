@@ -1,5 +1,14 @@
 # changelog
 
+### 4.8.3
+
+- 🐞 Fix footer hidden problem. [da8239d3](https://github.com/ant-design/an1t-design-pro-layout/commit/da8239d3)
+- 🌟 Support get setting from url. [a9dc2d8f](https://github.com/ant-design/an1t-design-pro-layout/commit/a9dc2d8f)
+
+### 4.8.2
+
+- 🐞 Fix fixSiderbar warning. [1a478d60](https://github.com/ant-design/an1t-design-pro-layout/commit/1a478d60)
+
 ### 4.8.1
 
 - 🌟 Add the `disableContentMargin` property to close the margin of the content area. [1456cce1](https://github.com/ant-design/an1t-design-pro-layout/commit/1456cce1)
