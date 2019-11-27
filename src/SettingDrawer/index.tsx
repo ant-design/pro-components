@@ -12,7 +12,7 @@ import {
   message,
 } from 'antd';
 import { createBrowserHistory } from 'history';
-import { stringify } from 'qs';
+import { stringify, parse } from 'qs';
 import React, { Component } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import omit from 'omit.js';
@@ -52,10 +52,16 @@ const browserHistory = createBrowserHistory();
 const getDifferentSetting = (state: Partial<Settings>) => {
   const stateObj: Partial<Settings> = {};
   Object.keys(state).forEach(key => {
-    if (state[key] !== defaultSettings[key] && key !== 'collapse') {
+    if (
+      state[key] !== defaultSettings[key] &&
+      key !== 'collapse' &&
+      state[key]
+    ) {
       stateObj[key] = state[key];
     }
   });
+
+  delete stateObj.menu;
   return stateObj;
 };
 
@@ -95,6 +101,16 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
       window.addEventListener('languagechange', this.onLanguageChange, {
         passive: true,
       });
+      if (window.location.search) {
+        const setting = parse(window.location.search);
+        const { settings, onSettingChange } = this.props;
+        if (onSettingChange) {
+          onSettingChange({
+            ...settings,
+            ...setting,
+          });
+        }
+      }
     }
   }
 
