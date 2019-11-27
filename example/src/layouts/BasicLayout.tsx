@@ -35,31 +35,41 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
   return (
     <>
       <ProLayout
-        navTheme="light"
-        menuHeaderRender={false}
-        logo={logo}
-        siderWidth={200}
-        collapsed={collapsed}
-        onCollapse={handleMenuCollapse}
-        menuItemRender={(menuItemProps, defaultDom) =>
-          menuItemProps.isUrl ? (
-            defaultDom
-          ) : (
-            <Link to={menuItemProps.path}>{defaultDom}</Link>
-          )
-        }
-        onMenuHeaderClick={() => history.push('/')}
-        {...props}
-        {...settings}
+        layout="topmenu"
+        className="chenshuai2144"
+        disableMobile
+        rightContentRender={rightProps => (
+          <RightContent {...rightProps} {...settings} />
+        )}
+        disableContentMargin
       >
-        <PageHeaderWrapper content="欢迎您的使用">
-          {props.children}
-        </PageHeaderWrapper>
+        <ProLayout
+          navTheme="light"
+          menuHeaderRender={false}
+          logo={logo}
+          siderWidth={200}
+          collapsed={collapsed}
+          onCollapse={handleMenuCollapse}
+          menuItemRender={(menuItemProps, defaultDom) =>
+            menuItemProps.isUrl ? (
+              defaultDom
+            ) : (
+              <Link to={menuItemProps.path}>{defaultDom}</Link>
+            )
+          }
+          onMenuHeaderClick={() => history.push('/')}
+          {...props}
+          {...settings}
+        >
+          <PageHeaderWrapper content="欢迎您的使用">
+            {props.children}
+          </PageHeaderWrapper>
+        </ProLayout>
+        <SettingDrawer
+          settings={settings}
+          onSettingChange={config => setSettings(config)}
+        />
       </ProLayout>
-      <SettingDrawer
-        settings={settings}
-        onSettingChange={config => setSettings(config)}
-      />
     </>
   );
 };
