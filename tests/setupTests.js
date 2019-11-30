@@ -1,7 +1,7 @@
 import 'jsdom-global/register';
 
 // browserMocks.js
-const localStorageMock = (function() {
+const localStorageMock = (() => {
   let store = {};
 
   return {
