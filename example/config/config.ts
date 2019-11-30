@@ -1,6 +1,6 @@
 import { IConfig, IPlugin } from 'umi-types';
 import slash from 'slash2';
-import themePluginConfig from './themePluginConfig';
+// import themePluginConfig from './themePluginConfig';
 
 const plugins: IPlugin[] = [
   [
@@ -34,9 +34,8 @@ const plugins: IPlugin[] = [
       autoAddMenu: true,
     },
   ],
-  ['umi-plugin-antd-theme', themePluginConfig],
+  // ['umi-plugin-antd-theme', themePluginConfig],
 ];
-
 export default {
   plugins,
   block: {
@@ -53,10 +52,16 @@ export default {
       component: '../layouts/BasicLayout',
       routes: [
         {
+          path: 'https://github.com/ant-design/ant-design-pro-layout/issues',
+          name: 'site',
+          icon: 'smile',
+          target: '_blank',
+          component: './Welcome',
+        },
+        {
           path: '/',
           name: 'welcome',
           icon: 'smile',
-          component: './Welcome',
           routes: [
             {
               path: '/welcome',
@@ -75,15 +80,13 @@ export default {
                   icon: 'smile',
                   component: './Welcome',
                 },
-                {
-                  path:
-                    'https://github.com/ant-design/ant-design-pro-layout/issues',
-                  name: 'site',
-                  icon: 'smile',
-                  target: '_blank',
-                  component: './Welcome',
-                },
               ],
+            },
+            {
+              name: '分析页',
+              icon: 'smile',
+              path: '/dashboardanalysis',
+              component: './DashboardAnalysisTwo',
             },
           ],
         },
@@ -95,7 +98,6 @@ export default {
       ],
     },
   ],
-
   define: {
     ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION: 'site',
   },
@@ -121,6 +123,7 @@ export default {
       ) {
         return localName;
       }
+
       const match = context.resourcePath.match(/src(.*)/);
 
       if (match && match[1]) {

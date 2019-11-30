@@ -5,31 +5,29 @@
 .@{basicLayout-prefix-cls} {
   height: 100%;
   transform: rotate(0);
-
-  .ant-layout {
-    transition: all 0.2s;
-  }
+  transition: all 0.2s;
 
   .ant-layout-header {
     &.ant-pro-fixed-header {
       position: sticky;
+      top: 0;
     }
   }
 
   &-content {
     position: relative;
     margin: 24px;
-    .ant-layout {
-      transform: rotate(0);
-    }
     &-disable-margin {
       margin: 0;
     }
+    > .ant-layout {
+      max-height: 100%;
+    }
   }
 
-  // default children layout height
-  .@{basicLayout-prefix-cls}-is-children,
-  .@{basicLayout-prefix-cls}-is-children > .ant-layout {
-    height: calc(100vh - @layout-header-height);
+  .@{basicLayout-prefix-cls}-has-header {
+    .@{basicLayout-prefix-cls}-is-children {
+      height: calc(100vh - @layout-header-height);
+    }
   }
 }

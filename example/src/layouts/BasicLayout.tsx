@@ -10,7 +10,7 @@ import ProLayout, {
   Settings,
   SettingDrawer,
   PageHeaderWrapper,
-} from '../../../src/index';
+} from '../../../src/';
 import React, { useState } from 'react';
 
 import Link from 'umi/link';
@@ -38,10 +38,12 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
         layout="topmenu"
         className="chenshuai2144"
         disableMobile
+        fixSiderbar
         rightContentRender={rightProps => (
           <RightContent {...rightProps} {...settings} />
         )}
         disableContentMargin
+        {...props}
       >
         <ProLayout
           navTheme="light"
@@ -49,6 +51,8 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
           logo={logo}
           siderWidth={200}
           collapsed={collapsed}
+          fixSiderbar
+          fixedHeader
           onCollapse={handleMenuCollapse}
           menuItemRender={(menuItemProps, defaultDom) =>
             menuItemProps.isUrl ? (

@@ -8,6 +8,7 @@ import classNames from 'classnames';
 import warning from 'warning';
 import { useMediaQuery } from 'react-responsive';
 import Omit from 'omit.js';
+import ResizeObserver from 'rc-resize-observer';
 
 import Header, { HeaderViewProps } from './Header';
 import {
@@ -117,7 +118,7 @@ export interface BasicLayoutProps
   /**
    * 兼用 content的 margin
    */
-  disableContentMargin: boolean;
+  disableContentMargin?: boolean;
 }
 
 const headerRender = (props: BasicLayoutProps): React.ReactNode => {
@@ -224,7 +225,6 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     fixSiderbar,
     navTheme,
     contentStyle,
-    fixedHeader,
     layout: PropsLayout,
     route = {
       routes: [],
@@ -388,14 +388,12 @@ Pro-Layout 在 4.7 中支持了 subMenu 的 render, 会导致 menu 变成蓝色�
   if (isChildrenLayout || (contentStyle && contentStyle.minHeight)) {
     genLayoutStyle.minHeight = 0;
   }
-  if (fixSiderbar || fixedHeader) {
-    genLayoutStyle.height = '100vh';
-  }
 
   const contentClassName = classNames('ant-pro-basicLayout-content', {
     'ant-pro-basicLayout-has-header': headerDom,
     'ant-pro-basicLayout-content-disable-margin': disableContentMargin,
   });
+  const [contentSize, setContentSize] = useState<number | string>('100%');
 
   return (
     <>
@@ -403,24 +401,43 @@ Pro-Layout 在 4.7 中支持了 subMenu 的 render, 会导致 menu 变成蓝色�
         <title>{pageTitle}</title>
       </Helmet>
       <div className={className}>
-        <Layout style={style} hasSider>
+        <Layout
+          style={{
+            ...style,
+            height: '100%',
+          }}
+          hasSider
+        >
           {siderMenuDom}
           <Layout style={genLayoutStyle}>
             {headerDom}
-            <Content className={contentClassName} style={contentStyle}>
-              <RouteContext.Provider
-                value={{
-                  ...defaultProps,
-                  breadcrumb: breadcrumbProps,
-                  menuData,
-                  isMobile,
-                  collapsed,
-                  isChildrenLayout: true,
-                  title: pageTitle.split('-')[0].trim(),
+            <Content
+              className={contentClassName}
+              style={{
+                ...contentStyle,
+                minHeight: contentSize,
+              }}
+            >
+              <ResizeObserver
+                onResize={({ height }) => {
+                  // remove margin height
+                  setContentSize(height - 24);
                 }}
               >
-                {children}
-              </RouteContext.Provider>
+                <RouteContext.Provider
+                  value={{
+                    ...defaultProps,
+                    breadcrumb: breadcrumbProps,
+                    menuData,
+                    isMobile,
+                    collapsed,
+                    isChildrenLayout: true,
+                    title: pageTitle.split('-')[0].trim(),
+                  }}
+                >
+                  {children}
+                </RouteContext.Provider>
+              </ResizeObserver>
               {footerDom}
             </Content>
           </Layout>
