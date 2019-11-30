@@ -58,9 +58,14 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
             menuItemProps.isUrl ? (
               defaultDom
             ) : (
-              <Link to={menuItemProps.path}>{defaultDom}</Link>
+              <Link className="qixian-menuItem" to={menuItemProps.path}>
+                {defaultDom}
+              </Link>
             )
           }
+          subMenuItemRender={(_, defaultDom) => (
+            <a className="qixian-subMenuItem">{defaultDom}</a>
+          )}
           onMenuHeaderClick={() => history.push('/')}
           {...props}
           {...settings}

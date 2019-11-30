@@ -35,6 +35,14 @@ export interface BaseMenuProps
   style?: React.CSSProperties;
   theme?: MenuTheme;
   formatMessage?: (message: MessageDescriptor) => string;
+  subMenuItemRender?: WithFalse<
+    (
+      item: MenuDataItem & {
+        isUrl: boolean;
+      },
+      defaultDom: React.ReactNode,
+    ) => React.ReactNode
+  >;
   menuItemRender?: WithFalse<
     (
       item: MenuDataItem & {
@@ -144,8 +152,8 @@ export default class BaseMenu extends Component<BaseMenuProps> {
       !item.hideChildrenInMenu &&
       item.children.some(child => child && !!child.name)
     ) {
-      const { menuItemRender } = this.props;
       const name = this.getIntlName(item);
+      const { subMenuItemRender } = this.props;
 
       //  get defaultTitle by menuItemRender
       const defaultTitle = item.icon ? (
@@ -158,8 +166,8 @@ export default class BaseMenu extends Component<BaseMenuProps> {
       );
 
       // subMenu only title render
-      const title = menuItemRender
-        ? menuItemRender({ ...item, isUrl: false }, defaultTitle)
+      const title = subMenuItemRender
+        ? subMenuItemRender({ ...item, isUrl: false }, defaultTitle)
         : defaultTitle;
 
       return (
