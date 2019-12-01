@@ -64,6 +64,10 @@ export default {
           icon: 'smile',
           routes: [
             {
+              path: '/',
+              redirect: '/welcome',
+            },
+            {
               path: '/welcome',
               name: 'one',
               component: './Welcome',

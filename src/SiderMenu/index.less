@@ -4,6 +4,7 @@
 
 @nav-header-height: @layout-header-height;
 .@{sider-menu-prefix-cls} {
+  position: relative;
   &-logo {
     position: relative;
     height: @nav-header-height;
@@ -37,7 +38,7 @@
       top: 0;
       left: 0;
       box-shadow: 2px 0 8px 0 rgba(29, 35, 41, 0.05);
-      .ant-menu-root {
+      > .ant-menu-root {
         height: ~'calc(100vh - @{nav-header-height})';
         overflow-y: auto;
       }
@@ -67,6 +68,15 @@
   &-icon {
     width: 14px;
     vertical-align: baseline;
+  }
+
+  &-links {
+    position: absolute;
+    bottom: 12px;
+    width: 100%;
+    .ant-menu-root {
+      height: auto;
+    }
   }
 
   .top-nav-menu li.ant-menu-item {

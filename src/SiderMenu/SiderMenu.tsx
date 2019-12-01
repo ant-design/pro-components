@@ -1,5 +1,5 @@
 import React, { Component, CSSProperties } from 'react';
-import { Layout } from 'antd';
+import { Layout, Menu } from 'antd';
 import classNames from 'classnames';
 import { MenuProps } from 'antd/lib/menu';
 import { SiderProps } from 'antd/es/layout/Sider';
@@ -62,6 +62,7 @@ export interface SiderMenuProps
 
   className?: string;
   style?: CSSProperties;
+  links?: React.ReactNode[];
 }
 
 interface SiderMenuState {
@@ -157,6 +158,7 @@ export default class SiderMenu extends Component<
       onMenuHeaderClick,
       breakpoint = 'lg',
       style,
+      links,
     } = this.props;
     const { openKeys } = this.state;
 
@@ -211,6 +213,13 @@ export default class SiderMenu extends Component<
           {...defaultProps}
           {...this.props.menuProps}
         />
+        <div className="ant-pro-sider-menu-links">
+          <Menu theme={theme} selectedKeys={[]} openKeys={[]}>
+            {(links || []).map(node => (
+              <Menu.Item>{node}</Menu.Item>
+            ))}
+          </Menu>
+        </div>
       </Sider>
     );
   }

@@ -12,6 +12,7 @@ import ProLayout, {
   PageHeaderWrapper,
 } from '../../../src/';
 import React, { useState } from 'react';
+import { Icon } from 'antd';
 
 import Link from 'umi/link';
 import history from 'umi/router';
@@ -31,7 +32,11 @@ export type BasicLayoutContext = { [K in 'location']: BasicLayoutProps[K] } & {
 
 const BasicLayout: React.FC<BasicLayoutProps> = props => {
   const [collapsed, handleMenuCollapse] = useState<boolean>(true);
-  const [settings, setSettings] = useState<Partial<Settings>>({});
+  const [settings, setSettings] = useState<Partial<Settings>>({
+    fixSiderbar: true,
+    fixedHeader: true,
+    navTheme: 'light',
+  });
   return (
     <>
       <ProLayout
@@ -46,13 +51,16 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
         {...props}
       >
         <ProLayout
-          navTheme="light"
           menuHeaderRender={false}
           logo={logo}
           siderWidth={200}
           collapsed={collapsed}
-          fixSiderbar
-          fixedHeader
+          links={[
+            <span>
+              <Icon type="smile" />
+              name
+            </span>,
+          ]}
           onCollapse={handleMenuCollapse}
           menuItemRender={(menuItemProps, defaultDom) =>
             menuItemProps.isUrl ? (
