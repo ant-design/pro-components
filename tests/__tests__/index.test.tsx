@@ -114,7 +114,7 @@ describe('BasicLayout', () => {
     const wrapper = mount<BasicLayoutProps>(
       <BasicLayout menuHeaderRender={false} />,
     );
-    const dom = wrapper.find('#id');
+    const dom = wrapper.find('#logo');
 
     expect(dom.exists()).toBe(false);
   });
@@ -161,5 +161,19 @@ describe('BasicLayout', () => {
       />,
     );
     expect(wrapper.find('div.chenshuai2144').exists()).toBeTruthy();
+  });
+
+  it('🥩 support links', () => {
+    const wrapper = mount<BasicLayoutProps>(<BasicLayout links={['name']} />);
+    const dom = wrapper.find('.ant-pro-sider-menu-links');
+
+    expect(dom.exists()).toBeTruthy();
+  });
+
+  it('🥩 do no render links', () => {
+    const wrapper = mount<BasicLayoutProps>(<BasicLayout />);
+    const dom = wrapper.find('.ant-pro-sider-menu-links');
+
+    expect(dom.exists()).toBeFalsy();
   });
 });

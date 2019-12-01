@@ -213,13 +213,15 @@ export default class SiderMenu extends Component<
           {...defaultProps}
           {...this.props.menuProps}
         />
-        <div className="ant-pro-sider-menu-links">
-          <Menu theme={theme} selectedKeys={[]} openKeys={[]}>
-            {(links || []).map(node => (
-              <Menu.Item>{node}</Menu.Item>
-            ))}
-          </Menu>
-        </div>
+        {links && links.length > 0 && (
+          <div className="ant-pro-sider-menu-links">
+            <Menu theme={theme} selectedKeys={[]} openKeys={[]}>
+              {(links || []).map(node => (
+                <Menu.Item>{node}</Menu.Item>
+              ))}
+            </Menu>
+          </div>
+        )}
       </Sider>
     );
   }
