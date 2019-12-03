@@ -3,9 +3,14 @@
 @basicLayout-prefix-cls: ~'@{ant-prefix}-pro-basicLayout';
 
 .@{basicLayout-prefix-cls} {
-  height: 100%;
   transform: rotate(0);
   transition: all 0.2s;
+
+  section.ant-layout {
+    section.ant-layout {
+      height: 100vh;
+    }
+  }
 
   .ant-layout-header {
     &.ant-pro-fixed-header {
@@ -27,7 +32,11 @@
 
   .@{basicLayout-prefix-cls}-has-header {
     .@{basicLayout-prefix-cls}-is-children {
-      height: calc(100vh - @layout-header-height);
+      section.ant-layout {
+        section.ant-layout {
+          height: calc(100vh - @layout-header-height);
+        }
+      }
     }
   }
 }

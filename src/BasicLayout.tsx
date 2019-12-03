@@ -369,9 +369,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
 
   const genLayoutStyle: CSSProperties = {
     paddingLeft: getPaddingLeft(!!hasLeftPadding, collapsed, siderWidth),
-    height: '100%',
     position: 'relative',
-    minHeight: '100vh',
   };
 
   // if is some layout children，don't need min height
