@@ -1,5 +1,14 @@
 # 更新日志
 
+### 4.9.2
+
+- 🐞 修复 layout 被过度撑开的问题。 [ab49d602](https://github.com/ant-design/an1t-design-pro-layout/commit/ab49d602)
+
+### 4.9.1
+
+- 🌟 新增 `subMenuItemRender` 的支持。[8911e211](https://github.com/ant-design/an1t-design-pro-layout/commit/8911e211)
+- 🌟 新增 `links` 的支持。[ab162a0e](https://github.com/ant-design/an1t-design-pro-layout/commit/ab162a0e)
+
 ### 4.8.3
 
 - 🐞 解决页脚不显示的问题。 [da8239d3](https://github.com/ant-design/an1t-design-pro-layout/commit/da8239d3)
@@ -12,7 +21,7 @@
 
 ### 4.8.1
 
-- 🌟 增加 `disableContentMargin` 属性，用于关闭内容区的 margin。[1456cce1](https://github.com/ant-design/an1t-design-pro-layout/commit/1456cce1)
+- 🌟 增加 g`disableContentMargin` 属性，用于关闭内容区的 margin。[1456cce1](https://github.com/ant-design/an1t-design-pro-layout/commit/1456cce1)
 
 ### 4.8.0
 
