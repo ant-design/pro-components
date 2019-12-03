@@ -113,7 +113,7 @@ exports[`BasicLayout base use 1`] = `
     </aside>
     <section
       class="ant-layout"
-      style="height:100%;position:relative;min-height:100vh"
+      style="position:relative"
     >
       <header
         class="ant-layout-header"
@@ -295,7 +295,7 @@ exports[`BasicLayout content is text 1`] = `
     </aside>
     <section
       class="ant-layout"
-      style="height:100%;position:relative;min-height:100vh"
+      style="position:relative"
     >
       <header
         class="ant-layout-header"
