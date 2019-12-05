@@ -425,7 +425,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
                     title: pageTitle.split('-')[0].trim(),
                   }}
                 >
-                  {children}
+                  <div>{children}</div>
                 </RouteContext.Provider>
               </ResizeObserver>
               {footerDom}

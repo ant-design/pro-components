@@ -1,6 +1,5 @@
 import { IConfig, IPlugin } from 'umi-types';
-import slash from 'slash2';
-// import themePluginConfig from './themePluginConfig';
+import slash from 'slash2'; // import themePluginConfig from './themePluginConfig';
 
 const plugins: IPlugin[] = [
   [
@@ -34,7 +33,6 @@ const plugins: IPlugin[] = [
       autoAddMenu: true,
     },
   ],
-  // ['umi-plugin-antd-theme', themePluginConfig],
 ];
 export default {
   plugins,
@@ -91,6 +89,12 @@ export default {
               icon: 'smile',
               path: '/dashboardanalysis',
               component: './DashboardAnalysisTwo',
+            },
+            {
+              name: '个人设置',
+              icon: 'smile',
+              path: '/accountsettings',
+              component: './AccountSettings',
             },
           ],
         },
