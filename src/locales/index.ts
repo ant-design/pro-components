@@ -13,9 +13,9 @@ export type localeType = keyof typeof locales;
 
 const getLanguage = (): string => {
   // support ssr
-  const lang = undefined;
+  let lang;
   if (isBrowser()) {
-    window.localStorage.getItem('umi_locale');
+    lang = window.localStorage.getItem('umi_locale');
   }
   return (
     lang ||
