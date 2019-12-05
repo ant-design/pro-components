@@ -1,10 +1,14 @@
 # 更新日志
 
+### 4.9.4
+
+- 🐞 修复 ResizeObserver 在 children 为数组时报错的问题。[246d9dba](https://github.com/ant-design/an1t-design-pro-layout/commit/246d9dba)
+
 ### 4.9.3
 
--🐞 修复：面包屑顺序和路由配置不匹配。[＃212](https://github.com/ant-design/ant-design-pro-layout/pull/212)
+- 🐞 修复面包屑顺序和路由配置不匹配的问题。[＃212](https://github.com/ant-design/ant-design-pro-layout/pull/212)
 
--🐞 修复：getLanguage 函数忽略 localStorage 的问题。 [＃222](https://github.com/ant-design/ant-design-pro-layout/pull/222)
+- 🐞 修复 getLanguage 函数忽略 localStorage 的问题。 [＃222](https://github.com/ant-design/ant-design-pro-layout/pull/222)
 
 ### 4.9.2
 

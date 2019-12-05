@@ -1,5 +1,9 @@
 # changelog
 
+### 4.9.4
+
+- 🐞 Fixed ResizeObserver reporting an error when children is an array. [246d9dba](https://github.com/ant-design/an1t-design-pro-layout/commit/246d9dba)
+
 ### 4.9.3
 
 - 🐞 fix: breadcrumb order and route config do not match [#212](https://github.com/ant-design/ant-design-pro-layout/pull/212)
