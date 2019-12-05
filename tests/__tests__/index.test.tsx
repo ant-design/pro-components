@@ -22,6 +22,12 @@ describe('BasicLayout', () => {
     const wrapper = mount(<BasicLayout menuRender={false} />);
     const menu = wrapper.find('.ant-pro-sider-menu');
     expect(menu.exists()).toBe(false);
+    expect(
+      (
+        wrapper.find('section.ant-layout section.ant-layout').props().style ||
+        {}
+      ).padding,
+    ).toBe(undefined);
   });
 
   it('🥩 do not render footer', () => {

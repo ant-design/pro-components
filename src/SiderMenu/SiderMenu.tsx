@@ -215,7 +215,12 @@ export default class SiderMenu extends Component<
         />
         {links && links.length > 0 && (
           <div className="ant-pro-sider-menu-links">
-            <Menu theme={theme} selectedKeys={[]} openKeys={[]}>
+            <Menu
+              theme={theme}
+              className="ant-pro-sider-menu-link-menu"
+              selectedKeys={[]}
+              openKeys={[]}
+            >
               {(links || []).map((node, index) => (
                 // eslint-disable-next-line react/no-array-index-key
                 <Menu.Item key={index}>{node}</Menu.Item>

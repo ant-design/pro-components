@@ -39,9 +39,12 @@
       left: 0;
       box-shadow: 2px 0 8px 0 rgba(29, 35, 41, 0.05);
       > .ant-menu-root {
-        height: ~'calc(100vh - @{nav-header-height})';
-        overflow-y: auto;
+        :not(.@{sider-menu-prefix-cls}-link-menu) {
+          height: ~'calc(100vh - @{nav-header-height})';
+          overflow-y: auto;
+        }
       }
+
       .ant-menu-inline {
         border-right: 0;
         .ant-menu-item,
@@ -74,7 +77,7 @@
     position: absolute;
     bottom: 12px;
     width: 100%;
-    .ant-menu-root {
+    ul.ant-menu-root {
       height: auto;
     }
   }
