@@ -78,7 +78,9 @@ exports[`BasicLayout 🥩 base use 1`] = `
       <main
         class="ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-layout-content"
         style="min-height:100%"
-      />
+      >
+        <div />
+      </main>
     </section>
   </section>
 </div>
@@ -162,7 +164,9 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
       <main
         class="ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-layout-content"
         style="padding:56px;min-height:100%"
-      />
+      >
+        <div />
+      </main>
     </section>
   </section>
 </div>
