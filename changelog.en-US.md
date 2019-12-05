@@ -1,14 +1,18 @@
 # changelog
 
+### 4.9.5
+
+- 🐞 Fix SettingDrawer get params bug. [f5758da0](https://github.com/ant-design/an1t-design-pro-layout/commit/246d9dba)
+
 ### 4.9.4
 
 - 🐞 Fixed ResizeObserver reporting an error when children is an array. [246d9dba](https://github.com/ant-design/an1t-design-pro-layout/commit/246d9dba)
 
 ### 4.9.3
 
-- 🐞 fix: breadcrumb order and route config do not match [#212](https://github.com/ant-design/ant-design-pro-layout/pull/212)
+- 🐞 Fix: breadcrumb order and route config do not match [#212](https://github.com/ant-design/ant-design-pro-layout/pull/212)
 
-- 🐞 fix: getLanguage function ignores localStorage [#222](https://github.com/ant-design/ant-design-pro-layout/pull/222)
+- 🐞 Fix: getLanguage function ignores localStorage [#222](https://github.com/ant-design/ant-design-pro-layout/pull/222)
 
 ### 4.9.2
 

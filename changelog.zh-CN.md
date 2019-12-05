@@ -1,5 +1,7 @@
 # 更新日志
 
+-🐞 修复 SettingDrawer 获取参数错误。 [F5758da0](https://github.com/ant-design/an1t-design-pro-layout/commit/246d9dba)
+
 ### 4.9.4
 
 - 🐞 修复 ResizeObserver 在 children 为数组时报错的问题。[246d9dba](https://github.com/ant-design/an1t-design-pro-layout/commit/246d9dba)
