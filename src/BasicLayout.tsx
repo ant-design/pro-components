@@ -274,7 +274,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
   };
 
   const { routes = [] } = route;
-  const { breadcrumb, menuData } = getMenuData(
+  const { breadcrumb, breadcrumbMap, menuData } = getMenuData(
     routes,
     menu,
     formatMessage,
@@ -306,6 +306,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     {
       pathname: location.pathname,
       ...defaultProps,
+      breadcrumbMap,
     },
     props,
   );
@@ -313,7 +314,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
   // gen breadcrumbProps, parameter for pageHeader
   const breadcrumbProps = getBreadcrumbProps({
     ...defaultProps,
-    breadcrumb,
+    breadcrumbMap,
   });
   // render sider dom
   const siderMenuDom = renderSiderMenu({

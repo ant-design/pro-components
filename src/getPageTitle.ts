@@ -5,15 +5,31 @@ import { Settings } from './defaultSettings';
 export const matchParamsPath = (
   pathname: string,
   breadcrumb?: { [path: string]: MenuDataItem },
+  breadcrumbMap?: Map<string, MenuDataItem>,
 ): MenuDataItem => {
+  // Internal logic use breadcrumbMap to ensure the order
+  // 内部逻辑使用 breadcrumbMap 来确保查询顺序
+  if (breadcrumbMap) {
+    const pathKey = [...breadcrumbMap.keys()].find(key =>
+      pathToRegexp(key).test(pathname),
+    );
+    if (pathKey) {
+      return breadcrumbMap.get(pathKey) as MenuDataItem;
+    }
+  }
+
+  // External uses use breadcrumb
+  // 外部用户使用 breadcrumb 参数
   if (breadcrumb) {
     const pathKey = Object.keys(breadcrumb).find(key =>
       pathToRegexp(key).test(pathname),
     );
+
     if (pathKey) {
       return breadcrumb[pathKey];
     }
   }
+
   return {
     path: '',
   };
@@ -22,6 +38,7 @@ export const matchParamsPath = (
 export interface GetPageTitleProps {
   pathname?: string;
   breadcrumb?: { [path: string]: MenuDataItem };
+  breadcrumbMap?: Map<string, MenuDataItem>;
   menu?: Settings['menu'];
   title?: Settings['title'];
   pageName?: string;
@@ -34,6 +51,7 @@ const getPageTitle = (
   const {
     pathname = '/',
     breadcrumb,
+    breadcrumbMap,
     formatMessage,
     title = 'Ant Design Pro',
     menu = {
@@ -44,7 +62,7 @@ const getPageTitle = (
   if (!pathname) {
     return pageTitle;
   }
-  const currRouterData = matchParamsPath(pathname, breadcrumb);
+  const currRouterData = matchParamsPath(pathname, breadcrumb, breadcrumbMap);
   if (!currRouterData) {
     return pageTitle;
   }

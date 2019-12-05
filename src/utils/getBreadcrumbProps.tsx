@@ -15,7 +15,7 @@ export interface BreadcrumbProps {
         pathname?: string;
       };
   menu?: Settings['menu'];
-  breadcrumb?: { [path: string]: MenuDataItem };
+  breadcrumbMap?: Map<string, MenuDataItem>;
   formatMessage?: (message: MessageDescriptor) => string;
   breadcrumbRender?: (
     routers: AntdBreadcrumbProps['routes'],
@@ -49,21 +49,25 @@ const renderItemLocal = (
 };
 
 export const getBreadcrumb = (
-  breadcrumb: { [path: string]: MenuDataItem },
+  breadcrumbMap: Map<string, MenuDataItem>,
   url: string,
 ): MenuDataItem => {
-  if (!breadcrumb) {
+  if (!breadcrumbMap) {
     return {
       path: '',
     };
   }
-  let breadcrumbItem = breadcrumb[url];
+  let breadcrumbItem = breadcrumbMap.get(url);
   if (!breadcrumbItem) {
-    Object.keys(breadcrumb).forEach(item => {
-      if (pathToRegexp(item).test(url)) {
-        breadcrumbItem = breadcrumb[item];
-      }
-    });
+    // Find the first matching path in the order defined by route config
+    // 按照 route config 定义的顺序找到第一个匹配的路径
+    const targetPath = [...breadcrumbMap.keys()].find(path =>
+      pathToRegexp(path).test(url),
+    );
+
+    if (targetPath) {
+      breadcrumbItem = breadcrumbMap.get(targetPath);
+    }
   }
   return breadcrumbItem || { path: '' };
 };
@@ -72,12 +76,12 @@ export const getBreadcrumbFromProps = (
   props: BreadcrumbProps,
 ): {
   location: BreadcrumbProps['location'];
-  breadcrumb: BreadcrumbProps['breadcrumb'];
+  breadcrumbMap: BreadcrumbProps['breadcrumbMap'];
 } => {
-  const { location, breadcrumb } = props;
+  const { location, breadcrumbMap } = props;
   return {
     location,
-    breadcrumb,
+    breadcrumbMap,
   };
 };
 
@@ -99,7 +103,7 @@ const conversionFromProps = (
 
 const conversionFromLocation = (
   routerLocation: BreadcrumbProps['location'] = { pathname: '/' },
-  breadcrumb: { [path: string]: MenuDataItem },
+  breadcrumbMap: Map<string, MenuDataItem>,
   props: BreadcrumbProps,
 ): AntdBreadcrumbProps['routes'] => {
   if (!routerLocation) {
@@ -110,7 +114,7 @@ const conversionFromLocation = (
   // Loop data mosaic routing
   const extraBreadcrumbItems: AntdBreadcrumbProps['routes'] = pathSnippets
     .map(url => {
-      const currentBreadcrumb = getBreadcrumb(breadcrumb, url);
+      const currentBreadcrumb = getBreadcrumb(breadcrumbMap, url);
       if (currentBreadcrumb.inherited) {
         return { path: '', breadcrumbName: '' };
       }
@@ -142,15 +146,15 @@ export const genBreadcrumbProps = (
   props: BreadcrumbProps,
 ): AntdBreadcrumbProps['routes'] => {
   const { breadcrumbList } = props;
-  const { location, breadcrumb } = getBreadcrumbFromProps(props);
+  const { location, breadcrumbMap } = getBreadcrumbFromProps(props);
   if (breadcrumbList && breadcrumbList.length) {
     return conversionFromProps(props);
   }
 
   // 根据 location 生成 面包屑
   // Generate breadcrumbs based on location
-  if (location && location.pathname && breadcrumb) {
-    return conversionFromLocation(location, breadcrumb, props);
+  if (location && location.pathname && breadcrumbMap) {
+    return conversionFromLocation(location, breadcrumbMap, props);
   }
   return [];
 };

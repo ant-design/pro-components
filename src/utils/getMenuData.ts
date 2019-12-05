@@ -77,8 +77,9 @@ const defaultFilterMenuData = (menuData: MenuDataItem[] = []): MenuDataItem[] =>
  */
 const getBreadcrumbNameMap = (
   menuData: MenuDataItem[],
-): { [key: string]: MenuDataItem } => {
-  const routerMap: { [key: string]: MenuDataItem } = {};
+): Map<string, MenuDataItem> => {
+  // Map is used to ensure the order of keys
+  const routerMap = new Map<string, MenuDataItem>();
   const flattenMenuData: (data: MenuDataItem[]) => void = data => {
     data.forEach(menuItem => {
       if (!menuItem) {
@@ -88,7 +89,7 @@ const getBreadcrumbNameMap = (
         flattenMenuData(menuItem.children);
       }
       // Reduce memory usage
-      routerMap[menuItem.path] = menuItem;
+      routerMap.set(menuItem.path, menuItem);
     });
   };
   flattenMenuData(menuData);
@@ -117,6 +118,11 @@ export default (
     originalMenuData = menuDataRender(originalMenuData);
   }
   const menuData = defaultFilterMenuData(originalMenuData);
-  const breadcrumb = memoizeOneGetBreadcrumbNameMap(originalMenuData);
-  return { breadcrumb, menuData };
+  // Map type used for internal logic
+  // Map 类型用于内部逻辑，为了避免顺序问题
+  const breadcrumbMap = memoizeOneGetBreadcrumbNameMap(originalMenuData);
+  // Object type used for external users
+  // 外部暴露的 breadcrumb 还是 Object 类型
+  const breadcrumb = Object.fromEntries(breadcrumbMap);
+  return { breadcrumb, breadcrumbMap, menuData };
 };
