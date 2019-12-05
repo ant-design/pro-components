@@ -410,8 +410,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
             >
               <ResizeObserver
                 onResize={({ height }) => {
-                  // remove margin height
-                  setContentSize(height - 24);
+                  setContentSize(height);
                 }}
               >
                 <RouteContext.Provider

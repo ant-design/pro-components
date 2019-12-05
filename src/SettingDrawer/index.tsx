@@ -47,29 +47,13 @@ export interface SettingItemProps {
   disabledReason?: React.ReactNode;
 }
 
-const browserHistory = createBrowserHistory();
-
-const getDifferentSetting = (state: Partial<Settings>) => {
-  const stateObj: Partial<Settings> = {};
-  Object.keys(state).forEach(key => {
-    if (
-      state[key] !== defaultSettings[key] &&
-      key !== 'collapse' &&
-      state[key]
-    ) {
-      stateObj[key] = state[key];
-    }
-  });
-
-  delete stateObj.menu;
-  return stateObj;
-};
-
 export interface SettingDrawerProps {
   settings: MergerSettingsType<Settings>;
   collapse?: boolean;
   // for test
   getContainer?: any;
+  publicPath?: string;
+  hideLoading?: boolean;
   onCollapseChange?: (collapse: boolean) => void;
   onSettingChange?: (settings: MergerSettingsType<Settings>) => void;
 }
@@ -96,33 +80,75 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
     return null;
   }
 
+  settings: MergerSettingsType<Settings> = defaultSettings;
+
   componentDidMount(): void {
-    if (isBrowser()) {
-      window.addEventListener('languagechange', this.onLanguageChange, {
-        passive: true,
-      });
-      if (window.location.search) {
-        const setting = parse(window.location.search);
-        const { settings, onSettingChange } = this.props;
-        if (onSettingChange) {
-          onSettingChange({
-            ...settings,
-            ...setting,
-          });
+    const { settings } = this.props;
+    this.settings = {
+      ...defaultSettings,
+      ...settings,
+    };
+
+    if (!isBrowser()) {
+      return;
+    }
+
+    let loadedStyle = false;
+    window.addEventListener('languagechange', this.onLanguageChange, {
+      passive: true,
+    });
+
+    if (window.location.search) {
+      const setting = parse(window.location.search);
+      const replaceSetting = {};
+      Object.keys(setting).forEach(key => {
+        if (defaultSettings[key]) {
+          replaceSetting[key] = setting[key];
         }
+      });
+
+      const { onSettingChange } = this.props;
+      if (onSettingChange) {
+        onSettingChange({
+          ...settings,
+          ...replaceSetting,
+        });
       }
+
+      // 如果 url 中设置主题，进行一次加载。
+      if (this.settings.navTheme !== setting.navTheme && setting.navTheme) {
+        this.updateTheme(
+          settings.navTheme === 'realDark',
+          setting.primaryColor,
+          true,
+        );
+        loadedStyle = true;
+      }
+    }
+
+    if (loadedStyle) {
+      return;
+    }
+
+    // 如果 url 中没有设置主题，并且 url 中的没有加载，进行一次加载。
+    if (defaultSettings.navTheme !== settings.navTheme && settings.navTheme) {
+      this.updateTheme(
+        settings.navTheme === 'realDark',
+        settings.primaryColor,
+        true,
+      );
     }
   }
 
   componentWillUnmount(): void {
-    if (isBrowser()) {
-      window.removeEventListener('languagechange', this.onLanguageChange);
+    if (!isBrowser()) {
+      return;
     }
+    window.removeEventListener('languagechange', this.onLanguageChange);
   }
 
   onLanguageChange = (): void => {
     const language = getLanguage();
-
     if (language !== this.state.language) {
       this.setState({
         language,
@@ -130,19 +156,27 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
     }
   };
 
-  updateTheme = (dark: boolean, color?: string) => {
+  updateTheme = (dark: boolean, color?: string, hideMessageLoading = false) => {
+    const {
+      publicPath = '/theme',
+      hideLoading = hideMessageLoading,
+    } = this.props;
     // ssr
     if (typeof window === 'undefined') {
       return;
     }
     const formatMessage = this.getFormatMessage();
-    const hide = message.loading(
-      formatMessage({
-        id: 'app.setting.loading',
-        defaultMessage: '正在加载主题',
-      }),
-    );
-    const href = dark ? '/theme/dark' : '/theme/';
+    let hide: any = () => null;
+    if (!hideLoading) {
+      hide = message.loading(
+        formatMessage({
+          id: 'app.setting.loading',
+          defaultMessage: '正在加载主题',
+        }),
+      );
+    }
+
+    const href = dark ? `${publicPath}/dark` : `${publicPath}/`;
     const colorFileName =
       dark && color && color !== 'daybreak' ? `-${color}` : color;
     const dom = document.getElementById('theme-style') as HTMLLinkElement;
@@ -250,12 +284,17 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
     ];
   };
 
-  changeSetting = (key: string, value: string | boolean) => {
+  changeSetting = (
+    key: string,
+    value: string | boolean,
+    hideMessageLoading?: boolean,
+  ) => {
+    const browserHistory = createBrowserHistory();
     const { settings } = this.props;
     const nextState = { ...settings };
     nextState[key] = value;
     if (key === 'navTheme') {
-      this.updateTheme(value === 'realDark');
+      this.updateTheme(value === 'realDark', undefined, hideMessageLoading);
       nextState.primaryColor = 'daybreak';
     }
 
@@ -263,6 +302,7 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
       this.updateTheme(
         nextState.navTheme === 'realDark',
         value === 'daybreak' ? '' : (value as string),
+        hideMessageLoading,
       );
     }
 
@@ -272,7 +312,7 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
     this.setState(nextState, () => {
       const { onSettingChange } = this.props;
       browserHistory.replace({
-        search: stringify(getDifferentSetting(this.state)),
+        search: stringify(this.getDifferentSetting(this.state)),
       });
       if (onSettingChange) {
         onSettingChange(this.state as MergerSettingsType<Settings>);
@@ -418,14 +458,30 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
     };
   };
 
+  getDifferentSetting = (state: Partial<Settings>) => {
+    const stateObj: Partial<Settings> = {};
+    Object.keys(state).forEach(key => {
+      if (
+        state[key] !== this.settings[key] &&
+        key !== 'collapse' &&
+        state[key]
+      ) {
+        stateObj[key] = state[key];
+      }
+    });
+
+    delete stateObj.menu;
+    return stateObj;
+  };
+
   render(): React.ReactNode {
     const { settings, getContainer } = this.props;
     const {
-      navTheme = 'light',
+      navTheme = 'dark',
       primaryColor = 'daybreak',
       layout = 'sidemenu',
       colorWeak,
-    } = settings || defaultSettings;
+    } = settings || {};
 
     const { collapse } = this.state;
     const formatMessage = this.getFormatMessage();
