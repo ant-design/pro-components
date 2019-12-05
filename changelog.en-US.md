@@ -1,5 +1,11 @@
 # changelog
 
+### 4.9.3
+
+- 🐞 fix: breadcrumb order and route config do not match [#212](https://github.com/ant-design/ant-design-pro-layout/pull/212)
+
+- 🐞 fix: getLanguage function ignores localStorage [#222](https://github.com/ant-design/ant-design-pro-layout/pull/222)
+
 ### 4.9.2
 
 -🐞 Fix the problem of layout being stretched too far. [ab49d602](https://github.com/ant-design/an1t-design-pro-layout/commit/ab49d602)

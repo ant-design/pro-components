@@ -365,6 +365,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     {
       'ant-pro-basicLayout-topmenu': PropsLayout === 'topmenu',
       'ant-pro-basicLayout-is-children': isChildrenLayout,
+      'ant-pro-basicLayout-fix-siderbar': fixSiderbar,
     },
   );
 

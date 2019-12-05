@@ -5,10 +5,11 @@
 .@{basicLayout-prefix-cls} {
   transform: rotate(0);
   transition: all 0.2s;
-
-  section.ant-layout {
-    section.ant-layout {
-      height: 100vh;
+  &.@{basicLayout-prefix-cls}-fix-siderbar {
+    > section.ant-layout {
+      > section.ant-layout {
+        height: 100vh;
+      }
     }
   }
 
@@ -31,7 +32,7 @@
   }
 
   .@{basicLayout-prefix-cls}-has-header {
-    .@{basicLayout-prefix-cls}-is-children {
+    .@{basicLayout-prefix-cls}-is-children.@{basicLayout-prefix-cls}-fix-siderbar {
       section.ant-layout {
         section.ant-layout {
           height: calc(100vh - @layout-header-height);

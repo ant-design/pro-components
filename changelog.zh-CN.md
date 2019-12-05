@@ -1,5 +1,11 @@
 # 更新日志
 
+### 4.9.3
+
+-🐞 修复：面包屑顺序和路由配置不匹配。[＃212](https://github.com/ant-design/ant-design-pro-layout/pull/212)
+
+-🐞 修复：getLanguage 函数忽略 localStorage 的问题。 [＃222](https://github.com/ant-design/ant-design-pro-layout/pull/222)
+
 ### 4.9.2
 
 - 🐞 修复 layout 被过度撑开的问题。 [ab49d602](https://github.com/ant-design/an1t-design-pro-layout/commit/ab49d602)
