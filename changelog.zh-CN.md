@@ -1,8 +1,17 @@
 # 更新日志
 
+### 4.9.7
+
+- 🐞 支持 ie11，删除了 `Object.fromEntries`使用。[4f2a368](https://github.com/ant-design/an1t-design-pro-layout/commit/4f2a368)
+- 🌟 新增 `hideColors` 属性。[90464d9](https://github.com/ant-design/an1t-design-pro-layout/commit/90464d9)
+
+### 4.9.6
+
+- 🐞 修复 `menuRender=false` 时，padding 计算错误的问题。[fdabceb](https://github.com/ant-design/an1t-design-pro-layout/commit/fdabceb)
+
 ### 4.9.5
 
--🐞 修复 SettingDrawer 获取参数错误。 [F5758da0](https://github.com/ant-design/an1t-design-pro-layout/commit/246d9dba)
+- 🐞 修复 SettingDrawer 获取参数错误。 [F5758da0](https://github.com/ant-design/an1t-design-pro-layout/commit/246d9dba)
 
 ### 4.9.4
 

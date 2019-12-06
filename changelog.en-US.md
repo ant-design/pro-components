@@ -1,5 +1,13 @@
 # changelog
 
+### 4.9.7
+
+-Ie Support ie11, remove the use of `Object.fromEntries`. [4f2a368](https://github.com/ant-design/an1t-design-pro-layout/commit/4f2a368) -🌟 Added `hideColors` property. [90464d9](https://github.com/ant-design/an1t-design-pro-layout/commit/90464d9)
+
+### 4.9.6
+
+- 🐞 Fix padding calculation error when `menuRender = false`. [fdabceb](https://github.com/ant-design/an1t-design-pro-layout/commit/fdabceb)
+
 ### 4.9.5
 
 - 🐞 Fix SettingDrawer get params bug. [f5758da0](https://github.com/ant-design/an1t-design-pro-layout/commit/246d9dba)
@@ -16,11 +24,11 @@
 
 ### 4.9.2
 
--🐞 Fix the problem of layout being stretched too far. [ab49d602](https://github.com/ant-design/an1t-design-pro-layout/commit/ab49d602)
+- 🐞 Fix the problem of layout being stretched too far. [ab49d602](https://github.com/ant-design/an1t-design-pro-layout/commit/ab49d602)
 
 ### 4.9.1
 
--🌟 Added support for `subMenuItemRender`. [8911e211](https://github.com/ant-design/an1t-design-pro-layout/commit/8911e211) -🌟 Added support for `links`. [ab162a0e](https://github.com/ant-design/an1t-design-pro-layout/commit/ab162a0e)
+- 🌟 Added support for `subMenuItemRender`. [8911e211](https://github.com/ant-design/an1t-design-pro-layout/commit/8911e211) -🌟 Added support for `links`. [ab162a0e](https://github.com/ant-design/an1t-design-pro-layout/commit/ab162a0e)
 
 ### 4.8.3
 
