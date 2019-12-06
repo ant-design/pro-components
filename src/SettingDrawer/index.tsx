@@ -83,7 +83,7 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
   settings: MergerSettingsType<Settings> = defaultSettings;
 
   componentDidMount(): void {
-    const { settings } = this.props;
+    const { settings = {} } = this.props;
     this.settings = {
       ...defaultSettings,
       ...settings,
@@ -177,8 +177,12 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
     }
 
     const href = dark ? `${publicPath}/dark` : `${publicPath}/`;
-    const colorFileName =
-      dark && color && color !== 'daybreak' ? `-${color}` : color;
+    // 如果是 dark，并且是 color=daybreak，无需进行拼接
+    let colorFileName = dark && color ? `-${color}` : color;
+    if (color === 'daybreak' && dark) {
+      colorFileName = '';
+    }
+
     const dom = document.getElementById('theme-style') as HTMLLinkElement;
 
     // 如果这两个都是空
@@ -216,7 +220,7 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
   };
 
   getLayoutSetting = (): SettingItemProps[] => {
-    const { settings } = this.props;
+    const { settings = {} } = this.props;
     const formatMessage = this.getFormatMessage();
     const { contentWidth, fixedHeader, layout, fixSiderbar } =
       settings || defaultSettings;
