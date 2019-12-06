@@ -24,6 +24,29 @@ describe('settingDrawer.test', () => {
     expect(html).toMatchSnapshot();
   });
 
+  it('settings = undefined', () => {
+    const html = render(
+      <SettingDrawer
+        settings={undefined as any}
+        getContainer={false}
+        collapse
+      />,
+    );
+    expect(html).toMatchSnapshot();
+  });
+
+  it('hideColors = true', () => {
+    const html = render(
+      <SettingDrawer
+        settings={defaultSettings}
+        hideColors
+        getContainer={false}
+        collapse
+      />,
+    );
+    expect(html).toMatchSnapshot();
+  });
+
   it('onCollapseChange', () => {
     const onCollapseChange = jest.fn();
     const wrapper = mount(

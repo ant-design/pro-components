@@ -54,6 +54,7 @@ export interface SettingDrawerProps {
   getContainer?: any;
   publicPath?: string;
   hideLoading?: boolean;
+  hideColors?: boolean;
   onCollapseChange?: (collapse: boolean) => void;
   onSettingChange?: (settings: MergerSettingsType<Settings>) => void;
 }
@@ -294,7 +295,7 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
     hideMessageLoading?: boolean,
   ) => {
     const browserHistory = createBrowserHistory();
-    const { settings } = this.props;
+    const { settings = {} } = this.props;
     const nextState = { ...settings };
     nextState[key] = value;
     if (key === 'navTheme') {
@@ -479,7 +480,7 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
   };
 
   render(): React.ReactNode {
-    const { settings, getContainer } = this.props;
+    const { settings, hideColors, getContainer } = this.props;
     const {
       navTheme = 'dark',
       primaryColor = 'daybreak',
@@ -533,7 +534,11 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
             title={formatMessage({ id: 'app.setting.themecolor' })}
             value={primaryColor}
             colors={
-              themeList.colorList[navTheme === 'realDark' ? 'dark' : 'light']
+              hideColors
+                ? []
+                : themeList.colorList[
+                    navTheme === 'realDark' ? 'dark' : 'light'
+                  ]
             }
             formatMessage={formatMessage}
             onChange={color => this.changeSetting('primaryColor', color)}
