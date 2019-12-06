@@ -72,6 +72,7 @@
     "history": "^4.10.1",
     "lodash": "^4.17.10",
     "memoize-one": "^5.1.1",
+    "object.fromentries": "^2.0.1",
     "omit.js": "^1.0.0",
     "path-to-regexp": "2.4.0",
     "qs": "^6.9.0",

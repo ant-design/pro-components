@@ -101,6 +101,13 @@ const memoizeOneGetBreadcrumbNameMap = memoizeOne(
   isEqual,
 );
 
+function fromEntries(iterable: any) {
+  return [...iterable].reduce((obj, [key, val]) => {
+    obj[key] = val;
+    return obj;
+  }, {});
+}
+
 export default (
   routes: Route[],
   menu?: { locale: boolean },
@@ -123,6 +130,6 @@ export default (
   const breadcrumbMap = memoizeOneGetBreadcrumbNameMap(originalMenuData);
   // Object type used for external users
   // 外部暴露的 breadcrumb 还是 Object 类型
-  const breadcrumb = Object.fromEntries(breadcrumbMap);
+  const breadcrumb = fromEntries(breadcrumbMap);
   return { breadcrumb, breadcrumbMap, menuData };
 };

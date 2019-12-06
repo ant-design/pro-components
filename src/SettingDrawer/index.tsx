@@ -214,7 +214,11 @@ class SettingDrawer extends Component<SettingDrawerProps, SettingDrawerState> {
         });
       };
       style.href = url;
-      document.body.append(style);
+      if (document.body.append) {
+        document.body.append(style);
+      } else {
+        document.body.appendChild(style);
+      }
     }
 
     localStorage.setItem('site-theme', dark ? 'dark' : 'light');

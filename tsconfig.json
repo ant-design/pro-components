@@ -2,7 +2,7 @@
   "compilerOptions": {
     "outDir": "build/dist",
     "module": "esnext",
-    "target": "esnext",
+    "target": "ES2015",
     "lib": ["esnext", "dom"],
     "sourceMap": true,
     "baseUrl": ".",
