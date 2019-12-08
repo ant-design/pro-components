@@ -220,6 +220,8 @@ export default class SiderMenu extends Component<
               className="ant-pro-sider-menu-link-menu"
               selectedKeys={[]}
               openKeys={[]}
+              mode="inline"
+              inlineCollapsed={collapsed}
             >
               {(links || []).map((node, index) => (
                 // eslint-disable-next-line react/no-array-index-key

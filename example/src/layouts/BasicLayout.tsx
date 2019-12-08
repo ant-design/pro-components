@@ -56,10 +56,10 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
           siderWidth={200}
           collapsed={collapsed}
           links={[
-            <span>
-              <Icon type="smile" />
-              name
-            </span>,
+            <>
+              <Icon type="heart" theme="twoTone" twoToneColor="red" />
+              <span>name</span>
+            </>,
           ]}
           onCollapse={handleMenuCollapse}
           menuItemRender={(menuItemProps, defaultDom) =>
