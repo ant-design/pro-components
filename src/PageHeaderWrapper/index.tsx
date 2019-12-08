@@ -12,6 +12,7 @@ interface PageHeaderTabConfig {
   tabActiveKey?: TabsProps['activeKey'];
   onTabChange?: TabsProps['onChange'];
   tabBarExtraContent?: TabsProps['tabBarExtraContent'];
+  tabProps?: TabsProps;
 }
 
 interface PageHeaderWrapperProps
@@ -35,6 +36,7 @@ const renderFooter: React.SFC<Omit<PageHeaderWrapperProps, 'title'>> = ({
   tabActiveKey,
   onTabChange,
   tabBarExtraContent,
+  tabProps,
 }) => {
   if (tabList && tabList.length) {
     return (
@@ -47,6 +49,7 @@ const renderFooter: React.SFC<Omit<PageHeaderWrapperProps, 'title'>> = ({
           }
         }}
         tabBarExtraContent={tabBarExtraContent}
+        {...tabProps}
       >
         {tabList.map(item => (
           <Tabs.TabPane {...item} tab={item.tab} key={item.key} />

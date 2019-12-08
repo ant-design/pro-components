@@ -126,10 +126,24 @@ CustomFooter.story = {
 };
 
 export const UsePageHeader = () => {
+  const [activeKey, setActiveKey] = useState<string>('key1');
   return (
     <>
       <BasicLayout {...defaultProps}>
-        <PageHeaderWrapper>Hello World</PageHeaderWrapper>
+        <PageHeaderWrapper
+          tabList={[
+            { tab: 'key1', key: 'key1' },
+            { tab: 'key2', key: 'key2' },
+          ]}
+          tabProps={{
+            activeKey,
+            onChange: key => {
+              setActiveKey(key);
+            },
+          }}
+        >
+          Hello World
+        </PageHeaderWrapper>
       </BasicLayout>
     </>
   );
