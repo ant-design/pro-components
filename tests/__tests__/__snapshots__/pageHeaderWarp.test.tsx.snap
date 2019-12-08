@@ -153,7 +153,7 @@ exports[`BasicLayout base use 1`] = `
       >
         <div>
           <div
-            style="margin:-24px -24px 0"
+            class="ant-pro-page-header-wrap"
           >
             <div
               class="ant-pro-page-header-wrap-page-header-warp"
@@ -337,7 +337,7 @@ exports[`BasicLayout content is text 1`] = `
       >
         <div>
           <div
-            style="margin:-24px -24px 0"
+            class="ant-pro-page-header-wrap"
           >
             <div
               class="ant-pro-page-header-wrap-page-header-warp"
