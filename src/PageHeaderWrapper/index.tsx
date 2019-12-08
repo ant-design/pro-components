@@ -1,6 +1,7 @@
 import { PageHeader, Tabs } from 'antd';
 import React, { useContext } from 'react';
 import { Helmet } from 'react-helmet';
+import classNames from 'classnames';
 import { TabsProps, TabPaneProps } from 'antd/es/tabs';
 import { PageHeaderProps } from 'antd/es/page-header';
 import './index.less';
@@ -126,11 +127,11 @@ const defaultPageHeaderRender = (
 };
 
 const PageHeaderWrapper: React.SFC<PageHeaderWrapperProps> = props => {
-  const { children, style, className } = props;
+  const { children, style } = props;
   const value = useContext(RouteContext);
-
+  const className = classNames(prefixedClassName, props.className);
   return (
-    <div style={{ margin: '-24px -24px 0', ...style }} className={className}>
+    <div style={style} className={className}>
       <div className={`${prefixedClassName}-page-header-warp`}>
         <GridContent>{defaultPageHeaderRender(props, value)}</GridContent>
       </div>

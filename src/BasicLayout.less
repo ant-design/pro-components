@@ -26,8 +26,14 @@
   &-content {
     position: relative;
     margin: 24px;
+    .@{ant-prefix}-pro-page-header-wrap {
+      margin: -24px -24px 0;
+    }
     &-disable-margin {
       margin: 0;
+      > div > .@{ant-prefix}-pro-page-header-wrap {
+        margin: 0;
+      }
     }
     > .ant-layout {
       max-height: 100%;
