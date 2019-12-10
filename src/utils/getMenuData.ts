@@ -22,7 +22,7 @@ function formatter(props: FormatterProps): MenuDataItem[] {
         return item;
       }
       const { name } = item;
-      const locale = `${parentName || 'menu'}.${name}`;
+      const locale = item.locale || `${parentName || 'menu'}.${name}`;
       // if enableMenuLocale use item.name,
       // close menu international
       const localeName =
@@ -71,6 +71,12 @@ const defaultFilterMenuData = (menuData: MenuDataItem[] = []): MenuDataItem[] =>
     })
     .filter(item => item);
 
+const mergePath = (path: string, parentPath?: string) => {
+  if (path.startsWith('/')) {
+    return path;
+  }
+  return `${parentPath}/${path}`.replace('//', '/');
+};
 /**
  * 获取面包屑映射
  * @param MenuDataItem[] menuData 菜单配置
@@ -80,16 +86,17 @@ const getBreadcrumbNameMap = (
 ): Map<string, MenuDataItem> => {
   // Map is used to ensure the order of keys
   const routerMap = new Map<string, MenuDataItem>();
-  const flattenMenuData: (data: MenuDataItem[]) => void = data => {
+  const flattenMenuData = (data: MenuDataItem[], parent?: MenuDataItem) => {
     data.forEach(menuItem => {
       if (!menuItem) {
         return;
       }
       if (menuItem && menuItem.children) {
-        flattenMenuData(menuItem.children);
+        flattenMenuData(menuItem.children, menuItem);
       }
       // Reduce memory usage
-      routerMap.set(menuItem.path, menuItem);
+      const path = mergePath(menuItem.path, parent ? parent.path : '/');
+      routerMap.set(path, menuItem);
     });
   };
   flattenMenuData(menuData);
@@ -102,10 +109,18 @@ const memoizeOneGetBreadcrumbNameMap = memoizeOne(
 );
 
 function fromEntries(iterable: any) {
-  return [...iterable].reduce((obj, [key, val]) => {
-    obj[key] = val;
-    return obj;
-  }, {});
+  return [...iterable].reduce(
+    (
+      obj: {
+        [key: string]: MenuDataItem;
+      },
+      [key, val],
+    ) => {
+      obj[key] = val;
+      return obj;
+    },
+    {},
+  );
 }
 
 export default (
@@ -126,10 +141,11 @@ export default (
   }
   const menuData = defaultFilterMenuData(originalMenuData);
   // Map type used for internal logic
-  // Map 类型用于内部逻辑，为了避免顺序问题
   const breadcrumbMap = memoizeOneGetBreadcrumbNameMap(originalMenuData);
   // Object type used for external users
-  // 外部暴露的 breadcrumb 还是 Object 类型
-  const breadcrumb = fromEntries(breadcrumbMap);
+
+  const breadcrumb: {
+    [key: string]: MenuDataItem;
+  } = fromEntries(breadcrumbMap);
   return { breadcrumb, breadcrumbMap, menuData };
 };
