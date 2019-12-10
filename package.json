@@ -80,6 +80,7 @@
     "react-helmet": "^5.2.1",
     "react-responsive": "^8.0.1",
     "react-router-dom": "5.1.2",
+    "use-merge-value": "^1.0.1",
     "warning": "^4.0.3"
   },
   "devDependencies": {

@@ -1,11 +1,12 @@
 import './BasicLayout.less';
 
-import React, { useState, CSSProperties, useContext } from 'react';
+import React, { useState, CSSProperties, useContext, useEffect } from 'react';
 import { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/es/breadcrumb';
 import { Helmet } from 'react-helmet';
 import { Layout } from 'antd';
 import classNames from 'classnames';
 import warning from 'warning';
+import useMergeValue from 'use-merge-value';
 import { useMediaQuery } from 'react-responsive';
 import Omit from 'omit.js';
 import ResizeObserver from 'rc-resize-observer';
@@ -205,28 +206,6 @@ export type BasicLayoutContext = { [K in 'location']: BasicLayoutProps[K] } & {
   breadcrumb: { [path: string]: MenuDataItem };
 };
 
-function useCollapsed(
-  collapsed: boolean | undefined,
-  onCollapse: BasicLayoutProps['onCollapse'],
-): [boolean | undefined, BasicLayoutProps['onCollapse']] {
-  warning(
-    (collapsed === undefined) === (onCollapse === undefined),
-    'pro-layout: onCollapse and collapsed should exist simultaneously',
-  );
-
-  const [nativeCollapsed, setCollapsed] = useState(false);
-  if (collapsed !== undefined && onCollapse) {
-    return [collapsed, onCollapse];
-  }
-  if (collapsed !== undefined && !onCollapse) {
-    return [collapsed, undefined];
-  }
-  if (collapsed === undefined && onCollapse) {
-    return [undefined, onCollapse];
-  }
-  return [nativeCollapsed, setCollapsed];
-}
-
 const getPaddingLeft = (
   hasLeftPadding: boolean,
   collapsed: boolean | undefined,
@@ -311,11 +290,10 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
   // don't need padding in phone mode
   const hasLeftPadding = fixSiderbar && PropsLayout !== 'topmenu' && !isMobile;
 
-  // whether to close the menu
-  const [collapsed, onCollapse] = useCollapsed(
-    props.collapsed,
-    propsOnCollapse,
-  );
+  const [collapsed, onCollapse] = useMergeValue<boolean>(false, {
+    value: props.collapsed,
+    onChange: propsOnCollapse,
+  });
 
   // Splicing parameters, adding menuData and formatMessage in props
   const defaultProps = Omit(
@@ -414,6 +392,15 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     'ant-pro-basicLayout-content-disable-margin': disableContentMargin,
   });
   const [contentSize, setContentSize] = useState<number | string>('100%');
+
+  // warning info
+  useEffect(() => {
+    warning(
+      (props.collapsed === undefined) === (props.onCollapse === undefined),
+      'pro-layout: onCollapse and collapsed should exist simultaneously',
+    );
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -456,8 +443,8 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
                   <div>{children}</div>
                 </RouteContext.Provider>
               </ResizeObserver>
-              {footerDom}
             </Content>
+            {footerDom}
           </Layout>
         </Layout>
       </div>
