@@ -350,6 +350,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     collapsed,
     ...defaultProps,
   });
+
   const { isChildrenLayout: contextIsChildrenLayout } = useContext(
     RouteContext,
   );
