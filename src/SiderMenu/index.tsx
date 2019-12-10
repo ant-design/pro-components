@@ -22,7 +22,7 @@ const SiderMenuWrapper: React.FC<SiderMenuProps> = props => {
     <Drawer
       visible={!collapsed}
       placement="left"
-      className={classNames('ant-pro-sider-menu', className)}
+      className={classNames('ant-pro-drawer-sider-menu', className)}
       onClose={() => onCollapse && onCollapse(true)}
       style={{
         padding: 0,
@@ -34,6 +34,7 @@ const SiderMenuWrapper: React.FC<SiderMenuProps> = props => {
     >
       <SiderMenu
         {...omitProps}
+        className={classNames('ant-pro-sider-menu', className)}
         flatMenuKeys={flatMenuKeys}
         collapsed={isMobile ? false : collapsed}
       />

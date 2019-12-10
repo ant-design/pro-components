@@ -47,6 +47,12 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
         rightContentRender={rightProps => (
           <RightContent {...rightProps} {...settings} />
         )}
+        pageTitleRender={(props, pageName, info) => {
+          if (info) {
+            return info.pageName;
+          }
+          return pageName || 'ant';
+        }}
         disableContentMargin
         {...props}
       >

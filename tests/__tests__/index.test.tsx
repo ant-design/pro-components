@@ -182,4 +182,20 @@ describe('BasicLayout', () => {
 
     expect(dom.exists()).toBeFalsy();
   });
+
+  it('🥩 set page title render', () => {
+    const wrapper = mount<BasicLayoutProps>(
+      <BasicLayout
+        pageTitleRender={(props, pageName, info) => {
+          if (info) {
+            return info.pageName;
+          }
+          return pageName || 'ant';
+        }}
+      />,
+    );
+    const dom = wrapper.find('.ant-pro-sider-menu-links');
+
+    expect(dom.exists()).toBeFalsy();
+  });
 });

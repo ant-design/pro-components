@@ -221,7 +221,6 @@ export default class SiderMenu extends Component<
               selectedKeys={[]}
               openKeys={[]}
               mode="inline"
-              inlineCollapsed={collapsed}
             >
               {(links || []).map((node, index) => (
                 // eslint-disable-next-line react/no-array-index-key

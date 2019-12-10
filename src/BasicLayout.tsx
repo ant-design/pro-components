@@ -18,7 +18,7 @@ import {
   RouterTypes,
   WithFalse,
 } from './typings';
-import defaultGetPageTitle, { GetPageTitleProps } from './getPageTitle';
+import { getPageTitleInfo, GetPageTitleProps } from './getPageTitle';
 import defaultSettings, { Settings } from './defaultSettings';
 import getLocales, { localeType } from './locales';
 import { BaseMenuProps } from './SiderMenu/BaseMenu';
@@ -100,7 +100,18 @@ export interface BasicLayoutProps
   ) => AntdBreadcrumbProps['routes'];
   menuItemRender?: BaseMenuProps['menuItemRender'];
   pageTitleRender?: WithFalse<
-    (props: GetPageTitleProps, defaultPageTitle?: string) => string
+    (
+      props: GetPageTitleProps,
+      defaultPageTitle?: string,
+      info?: {
+        // 页面标题
+        title: string;
+        // locale 的 title
+        id: string;
+        // 页面标题不带默认的 title
+        pageName: string;
+      },
+    ) => string
   >;
   menuDataRender?: (menuData: MenuDataItem[]) => MenuDataItem[];
   itemRender?: AntdBreadcrumbProps['itemRender'];
@@ -156,23 +167,38 @@ const renderSiderMenu = (props: BasicLayoutProps): React.ReactNode => {
 const defaultPageTitleRender = (
   pageProps: GetPageTitleProps,
   props: BasicLayoutProps,
-): string => {
+): {
+  title: string;
+  id: string;
+  pageName: string;
+} => {
   const { pageTitleRender } = props;
-  const defaultPageTitle = defaultGetPageTitle(pageProps);
+  const pageTitleInfo = getPageTitleInfo(pageProps);
   if (pageTitleRender === false) {
-    return props.title || '';
+    return {
+      title: props.title || '',
+      id: '',
+      pageName: '',
+    };
   }
   if (pageTitleRender) {
-    const title = pageTitleRender(pageProps, defaultPageTitle);
+    const title = pageTitleRender(
+      pageProps,
+      pageTitleInfo.title,
+      pageTitleInfo,
+    );
     if (typeof title === 'string') {
-      return title;
+      return {
+        ...pageTitleInfo,
+        title,
+      };
     }
     warning(
       typeof title === 'string',
       'pro-layout: renderPageTitle return value should be a string',
     );
   }
-  return defaultPageTitle;
+  return pageTitleInfo;
 };
 
 export type BasicLayoutContext = { [K in 'location']: BasicLayoutProps[K] } & {
@@ -302,7 +328,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
   );
 
   // gen page title
-  const pageTitle = defaultPageTitleRender(
+  const pageTitleInfo = defaultPageTitleRender(
     {
       pathname: location.pathname,
       ...defaultProps,
@@ -387,11 +413,10 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     'ant-pro-basicLayout-content-disable-margin': disableContentMargin,
   });
   const [contentSize, setContentSize] = useState<number | string>('100%');
-
   return (
     <>
       <Helmet>
-        <title>{pageTitle}</title>
+        <title>{pageTitleInfo.title}</title>
       </Helmet>
       <div className={className}>
         <Layout
@@ -424,7 +449,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
                     isMobile,
                     collapsed,
                     isChildrenLayout: true,
-                    title: pageTitle.split('-')[0].trim(),
+                    title: pageTitleInfo.pageName,
                   }}
                 >
                   <div>{children}</div>
