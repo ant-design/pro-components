@@ -40,6 +40,7 @@ render(<ProLayout />, document.getElementById('root'));
 | --- | --- | --- | --- |
 | title | layout in the upper left corner title | ReactNode | `'Ant Design Pro'` |
 | logo | layout top left logo url | ReactNode \| ()=>ReactNode | - |
+| loading | layout loading status | boolean | - |
 | menuHeaderRender | render logo and title | ReactNode \| (logo,title)=>ReactNode | - |
 | onMenuHeaderClick | menu header click event | (e: React.MouseEvent<HTMLDivElement>) => void | - |
 | contentStyle | layout content style | CSSProperties | - |
@@ -98,6 +99,14 @@ PageHeaderWrapper encapsulates the PageHeader component of ant design, adds tabL
 | tabActiveKey | The currently highlighted tab item | string | - |
 | onTabChange | Switch panel callback | `(key) => void` | - |
 | tabBarExtraContent | Extra elements on the tab bar | React.ReactNode | - |
+
+### PageLading
+
+a simple loading page
+
+| Property | Description | Type      | Default Value |
+| -------- | ----------- | --------- | ------------- |
+| tip      | loading tip | ReactNode | -             |
 
 ### RouteContext
 

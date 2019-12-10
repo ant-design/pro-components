@@ -12,6 +12,7 @@ import PageHeaderWrapper from './PageHeaderWrapper';
 import RouteContext from './RouteContext';
 import getMenuData from './utils/getMenuData';
 import getPageTitle from './getPageTitle';
+import PageLoading from './PageLoading';
 
 export { Settings } from './defaultSettings';
 
@@ -23,6 +24,7 @@ export {
   HeaderProps,
   TopNavHeaderProps,
   RouteContext,
+  PageLoading,
   GridContent,
   DefaultHeader,
   TopNavHeader,

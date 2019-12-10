@@ -38,6 +38,7 @@ render(<BasicLayout />, document.getElementById('root'));
 | --- | --- | --- | --- |
 | title | layout 的 左上角 的 title | ReactNode | `'Ant Design Pro'` |
 | logo | layout 的 左上角 logo 的 url | ReactNode \| ()=>ReactNode | - |
+| loading | layout 的加载态 | boolean | - |
 | menuHeaderRender | 渲染 logo 和 title | ReactNode \| (logo,title)=>ReactNode | - |
 | onMenuHeaderClick | menu 菜单的头部点击事件 | `(e: React.MouseEvent<HTMLDivElement>) => void` | - |
 | contentStyle | layout 的 内容区 style | CSSProperties | - |
@@ -92,6 +93,14 @@ PageHeaderWrapper 封装了 ant design 的 PageHeader 组件，增加了 tabList
 | tabActiveKey | 当前高亮的 tab 项 | string | - |
 | onTabChange | 切换面板的回调 | `(key) => void` | - |
 | tabBarExtraContent | tab bar 上额外的元素 | React.ReactNode | - |
+
+### PageLading
+
+一个简单的加载页面
+
+| 参数 | 说明       | 类型      | 默认值 |
+| ---- | ---------- | --------- | ------ |
+| tip  | 加载的小说 | ReactNode | -      |
 
 ### RouteContext
 

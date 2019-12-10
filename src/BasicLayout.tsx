@@ -30,6 +30,7 @@ import { SiderMenuProps } from './SiderMenu/SiderMenu';
 import { getBreadcrumbProps } from './utils/getBreadcrumbProps';
 import getMenuData from './utils/getMenuData';
 import { isBrowser } from './utils/utils';
+import PageLoading from './PageLoading';
 
 const { Content } = Layout;
 
@@ -83,6 +84,9 @@ export interface BasicLayoutProps
    * logo url
    */
   logo?: React.ReactNode | WithFalse<() => React.ReactNode>;
+
+  loading?: boolean;
+
   locale?: localeType;
 
   onCollapse?: (collapsed: boolean) => void;
@@ -240,6 +244,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     menu,
     isChildrenLayout: propsIsChildrenLayout,
     menuDataRender,
+    loading,
   } = props;
 
   /**
@@ -441,7 +446,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
                     title: pageTitleInfo.pageName,
                   }}
                 >
-                  <div>{children}</div>
+                  <div>{loading ? <PageLoading /> : children}</div>
                 </RouteContext.Provider>
               </ResizeObserver>
             </Content>

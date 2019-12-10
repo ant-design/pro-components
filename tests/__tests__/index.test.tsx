@@ -18,6 +18,11 @@ describe('BasicLayout', () => {
     expect(html).toMatchSnapshot();
   });
 
+  it('🥩 support loading', () => {
+    const html = render(<BasicLayout loading />);
+    expect(html).toMatchSnapshot();
+  });
+
   it('🥩 do not render menu', () => {
     const wrapper = mount(<BasicLayout menuRender={false} />);
     const menu = wrapper.find('.ant-pro-sider-menu');
