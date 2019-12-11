@@ -62,7 +62,7 @@ describe('settingDrawer.test', () => {
     expect(onCollapseChange).toHaveBeenCalled();
   });
 
-  fit('collapse', () => {
+  it('collapse', () => {
     const onCollapseChange = jest.fn();
     const wrapper = mount<SettingDrawerProps>(
       <SettingDrawer
