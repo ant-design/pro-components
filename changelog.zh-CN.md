@@ -1,5 +1,15 @@
 # 更新日志
 
+### 4.9.8
+
+- 🐞 添加默认的高度和宽度。[8064423d](https://github.com/ant-design/an1t-design-pro-layout/commit/8064423d)
+- 🌟 为 PageHeaderWrapper 添加 `tabAnimated` 属性。[#224](https://github.com/ant-design/ant-design-pro-layout/pull/224)
+- 🌟 链接菜单支持 `inlineCollapsed`。[90003255](https://github.com/ant-design/an1t-design-pro-layout/commit/90003255)
+- 🌟 `pageTitleRender`添加增加`info`的参数。[fbc86888](https://github.com/ant-design/an1t-design-pro-layout/commit/fbc86888)
+- 🌟 使用 ResizeObserver 支持折叠菜单。[69b41b0e](https://github.com/ant-design/an1t-design-pro-layout/commit/69b41b0e)
+- 🌟 增加 `loading` 属性。[69b41b0e](https://github.com/ant-design/an1t-design-pro-layout/commit/69b41b0e)
+- 🌟 设置抽屉支持了意大利语。[#228](https://github.com/ant-design/ant-design-pro-layout/pull/228)
+
 ### 4.9.7
 
 - 🐞 支持 ie11，删除了 `Object.fromEntries`使用。[4f2a368](https://github.com/ant-design/an1t-design-pro-layout/commit/4f2a368)

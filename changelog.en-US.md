@@ -1,5 +1,15 @@
 # changelog
 
+### 4.9.8
+
+- 🐞 Add default height and width. [8064423d](https://github.com/ant-design/an1t-design-pro-layout/commit/8064423d)
+- 🌟 Add `tabAnimated` props for PageHeaderWrapper. [#224](https://github.com/ant-design/ant-design-pro-layout/pull/224)
+- 🌟 Links menu support inlineCollapsed. [90003255](https://github.com/ant-design/an1t-design-pro-layout/commit/90003255)
+- 🌟 `pageTitleRender` add add `info` props. [fbc86888](https://github.com/ant-design/an1t-design-pro-layout/commit/fbc86888)
+- 🌟 Use ResizeObserver support fold menu. [69b41b0e](https://github.com/ant-design/an1t-design-pro-layout/commit/69b41b0e)
+- 🌟 add `loading` props. [69b41b0e](https://github.com/ant-design/an1t-design-pro-layout/commit/69b41b0e)
+- 🌟 Added setting drawer Italian language support. [#228](https://github.com/ant-design/ant-design-pro-layout/pull/228)
+
 ### 4.9.7
 
 -Ie Support ie11, remove the use of `Object.fromEntries`. [4f2a368](https://github.com/ant-design/an1t-design-pro-layout/commit/4f2a368) -🌟 Added `hideColors` property. [90464d9](https://github.com/ant-design/an1t-design-pro-layout/commit/90464d9)
@@ -18,9 +28,9 @@
 
 ### 4.9.3
 
-- 🐞 Fix: breadcrumb order and route config do not match [#212](https://github.com/ant-design/ant-design-pro-layout/pull/212)
+- 🐞 Fix: breadcrumb order and route config do not match. [#212](https://github.com/ant-design/ant-design-pro-layout/pull/212)
 
-- 🐞 Fix: getLanguage function ignores localStorage [#222](https://github.com/ant-design/ant-design-pro-layout/pull/222)
+- 🐞 Fix: getLanguage function ignores localStorage. [#222](https://github.com/ant-design/ant-design-pro-layout/pull/222)
 
 ### 4.9.2
 
