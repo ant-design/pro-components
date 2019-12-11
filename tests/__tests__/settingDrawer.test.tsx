@@ -1,7 +1,7 @@
 import { mount, render } from 'enzyme';
 
 import React from 'react';
-import SettingDrawer from '../../src/SettingDrawer';
+import SettingDrawer, { SettingDrawerProps } from '../../src/SettingDrawer';
 import defaultSettings from './defaultSettings';
 
 describe('settingDrawer.test', () => {
@@ -62,9 +62,9 @@ describe('settingDrawer.test', () => {
     expect(onCollapseChange).toHaveBeenCalled();
   });
 
-  it('collapse', () => {
+  fit('collapse', () => {
     const onCollapseChange = jest.fn();
-    const wrapper = mount<SettingDrawer>(
+    const wrapper = mount<SettingDrawerProps>(
       <SettingDrawer
         settings={defaultSettings}
         collapse
@@ -72,8 +72,12 @@ describe('settingDrawer.test', () => {
         onCollapseChange={onCollapseChange}
       />,
     );
-    expect(wrapper.state().collapse).toBe(true);
+    expect(
+      wrapper.find('.ant-pro-setting-drawer-handle Icon').props().type,
+    ).toBe('close');
     wrapper.setProps({ collapse: false });
-    expect(wrapper.state().collapse).toBe(false);
+    expect(
+      wrapper.find('.ant-pro-setting-drawer-handle Icon').props().type,
+    ).toBe('setting');
   });
 });
