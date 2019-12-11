@@ -1,9 +1,15 @@
-import enTWLocal from './en-US';
 import zhLocal from './zh-CN';
 import zhTWLocal from './zh-TW';
+import enUSLocal from './en-US';
+import itITLocal from './it-IT';
 import { isBrowser } from '../utils/utils';
 
-const locales = { 'zh-CN': zhLocal, 'zh-TW': zhTWLocal, 'en-US': enTWLocal };
+const locales = {
+  'zh-CN': zhLocal,
+  'zh-TW': zhTWLocal,
+  'en-US': enUSLocal,
+  'it-IT': itITLocal,
+};
 
 interface GLocaleWindow {
   g_locale: keyof typeof locales;
