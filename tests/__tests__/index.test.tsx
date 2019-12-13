@@ -35,6 +35,47 @@ describe('BasicLayout', () => {
     ).toBe(undefined);
   });
 
+  it('🥩 support menuDateRender', () => {
+    const wrapper = render(
+      <BasicLayout
+        menuDataRender={() => [
+          {
+            path: '/welcome',
+            name: 'one',
+            component: './Welcome',
+            routes: [
+              {
+                path: '/welcome/welcome',
+                name: 'two',
+                icon: 'smile',
+                component: './Welcome',
+              },
+              {
+                path: '/welcome/welcome2',
+                name: 'two2',
+                icon: 'smile',
+                component: './Welcome',
+              },
+            ],
+          },
+          {
+            name: '分析页',
+            icon: 'smile',
+            path: '/dashboardanalysis',
+            component: './DashboardAnalysisTwo',
+          },
+          {
+            name: '个人设置',
+            icon: 'smile',
+            path: '/accountsettings',
+            component: './AccountSettings',
+          },
+        ]}
+      />,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('🥩 do not render footer', () => {
     const wrapper = mount(<BasicLayout footerRender={false} />);
     const footer = wrapper.find('footer');
