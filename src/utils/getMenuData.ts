@@ -32,7 +32,7 @@ function formatter(props: FormatterProps): MenuDataItem[] {
       // if enableMenuLocale use item.name,
       // close menu international
       const localeName =
-        menu.locale && formatMessage
+        menu.locale !== false && formatMessage
           ? formatMessage({ id: locale, defaultMessage: name })
           : name;
 

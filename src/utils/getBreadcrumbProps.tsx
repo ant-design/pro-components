@@ -40,7 +40,7 @@ const renderItemLocal = (
       locale: false,
     },
   } = props;
-  if (item.locale && formatMessage && menu.locale) {
+  if (item.locale && formatMessage && menu.locale !== false) {
     return formatMessage({ id: item.locale, defaultMessage: item.name });
   }
   return item.name as string;

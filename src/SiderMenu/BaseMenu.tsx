@@ -195,7 +195,7 @@ export default class BaseMenu extends Component<BaseMenuProps> {
       },
       formatMessage,
     } = this.props;
-    if (locale && menu.locale && formatMessage) {
+    if (locale && menu.locale !== false && formatMessage) {
       return formatMessage({
         id: locale,
         defaultMessage: name,
