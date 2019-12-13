@@ -1,31 +1,36 @@
 # 更新日志
 
+### 4.9.9
+
+- 🐞 修复 `menu.locale=false`不工作的问题。[892983ab](https://github.com/ant-design/ant-design-pro-layout/commit/892983ab)
+- 🌟 `menuDataRender` 支持了国际化。[c7f8ede4](https://github.com/ant-design/ant-design-pro-layout/commit/c7f8ede4)
+
 ### 4.9.8
 
-- 🐞 添加默认的高度和宽度。[8064423d](https://github.com/ant-design/an1t-design-pro-layout/commit/8064423d)
+- 🐞 添加默认的高度和宽度。[8064423d](https://github.com/ant-design/ant-design-pro-layout/commit/8064423d)
 - 🌟 为 PageHeaderWrapper 添加 `tabAnimated` 属性。[#224](https://github.com/ant-design/ant-design-pro-layout/pull/224)
-- 🌟 链接菜单支持 `inlineCollapsed`。[90003255](https://github.com/ant-design/an1t-design-pro-layout/commit/90003255)
-- 🌟 `pageTitleRender`添加增加`info`的参数。[fbc86888](https://github.com/ant-design/an1t-design-pro-layout/commit/fbc86888)
-- 🌟 使用 ResizeObserver 支持折叠菜单。[69b41b0e](https://github.com/ant-design/an1t-design-pro-layout/commit/69b41b0e)
-- 🌟 增加 `loading` 属性。[69b41b0e](https://github.com/ant-design/an1t-design-pro-layout/commit/69b41b0e)
+- 🌟 链接菜单支持 `inlineCollapsed`。[90003255](https://github.com/ant-design/ant-design-pro-layout/commit/90003255)
+- 🌟 `pageTitleRender`添加增加`info`的参数。[fbc86888](https://github.com/ant-design/ant-design-pro-layout/commit/fbc86888)
+- 🌟 使用 ResizeObserver 支持折叠菜单。[69b41b0e](https://github.com/ant-design/ant-design-pro-layout/commit/69b41b0e)
+- 🌟 增加 `loading` 属性。[69b41b0e](https://github.com/ant-design/ant-design-pro-layout/commit/69b41b0e)
 - 🌟 设置抽屉支持了意大利语。[#228](https://github.com/ant-design/ant-design-pro-layout/pull/228)
 
 ### 4.9.7
 
-- 🐞 支持 ie11，删除了 `Object.fromEntries`使用。[4f2a368](https://github.com/ant-design/an1t-design-pro-layout/commit/4f2a368)
-- 🌟 新增 `hideColors` 属性。[90464d9](https://github.com/ant-design/an1t-design-pro-layout/commit/90464d9)
+- 🐞 支持 ie11，删除了 `Object.fromEntries`使用。[4f2a368](https://github.com/ant-design/ant-design-pro-layout/commit/4f2a368)
+- 🌟 新增 `hideColors` 属性。[90464d9](https://github.com/ant-design/ant-design-pro-layout/commit/90464d9)
 
 ### 4.9.6
 
-- 🐞 修复 `menuRender=false` 时，padding 计算错误的问题。[fdabceb](https://github.com/ant-design/an1t-design-pro-layout/commit/fdabceb)
+- 🐞 修复 `menuRender=false` 时，padding 计算错误的问题。[fdabceb](https://github.com/ant-design/ant-design-pro-layout/commit/fdabceb)
 
 ### 4.9.5
 
-- 🐞 修复 SettingDrawer 获取参数错误。 [F5758da0](https://github.com/ant-design/an1t-design-pro-layout/commit/246d9dba)
+- 🐞 修复 SettingDrawer 获取参数错误。 [F5758da0](https://github.com/ant-design/ant-design-pro-layout/commit/246d9dba)
 
 ### 4.9.4
 
-- 🐞 修复 ResizeObserver 在 children 为数组时报错的问题。[246d9dba](https://github.com/ant-design/an1t-design-pro-layout/commit/246d9dba)
+- 🐞 修复 ResizeObserver 在 children 为数组时报错的问题。[246d9dba](https://github.com/ant-design/ant-design-pro-layout/commit/246d9dba)
 
 ### 4.9.3
 
@@ -35,26 +40,26 @@
 
 ### 4.9.2
 
-- 🐞 修复 layout 被过度撑开的问题。 [ab49d602](https://github.com/ant-design/an1t-design-pro-layout/commit/ab49d602)
+- 🐞 修复 layout 被过度撑开的问题。 [ab49d602](https://github.com/ant-design/ant-design-pro-layout/commit/ab49d602)
 
 ### 4.9.1
 
-- 🌟 新增 `subMenuItemRender` 的支持。[8911e211](https://github.com/ant-design/an1t-design-pro-layout/commit/8911e211)
-- 🌟 新增 `links` 的支持。[ab162a0e](https://github.com/ant-design/an1t-design-pro-layout/commit/ab162a0e)
+- 🌟 新增 `subMenuItemRender` 的支持。[8911e211](https://github.com/ant-design/ant-design-pro-layout/commit/8911e211)
+- 🌟 新增 `links` 的支持。[ab162a0e](https://github.com/ant-design/ant-design-pro-layout/commit/ab162a0e)
 
 ### 4.8.3
 
-- 🐞 解决页脚不显示的问题。 [da8239d3](https://github.com/ant-design/an1t-design-pro-layout/commit/da8239d3)
+- 🐞 解决页脚不显示的问题。 [da8239d3](https://github.com/ant-design/ant-design-pro-layout/commit/da8239d3)
 
-- 🌟 支持从 url 获取设置。 [a9dc2d8f](https://github.com/ant-design/an1t-design-pro-layout/commit/a9dc2d8)
+- 🌟 支持从 url 获取设置。 [a9dc2d8f](https://github.com/ant-design/ant-design-pro-layout/commit/a9dc2d8)
 
 ### 4.8.2
 
-- 🐞 修复 `fixSiderbar` 显示错误的问题. [1a478d60](https://github.com/ant-design/an1t-design-pro-layout/commit/1a478d60)
+- 🐞 修复 `fixSiderbar` 显示错误的问题. [1a478d60](https://github.com/ant-design/ant-design-pro-layout/commit/1a478d60)
 
 ### 4.8.1
 
-- 🌟 增加 g`disableContentMargin` 属性，用于关闭内容区的 margin。[1456cce1](https://github.com/ant-design/an1t-design-pro-layout/commit/1456cce1)
+- 🌟 增加 g`disableContentMargin` 属性，用于关闭内容区的 margin。[1456cce1](https://github.com/ant-design/ant-design-pro-layout/commit/1456cce1)
 
 ### 4.8.0
 
@@ -64,16 +69,16 @@
 
 ### 4.7.4
 
-- 💄 修复 `fixSiderbar` 和 `fixedHeader` 下的样式问题。 [8e916250](https://github.com/ant-design/an1t-design-pro-layout/commit/8e916250)
+- 💄 修复 `fixSiderbar` 和 `fixedHeader` 下的样式问题。 [8e916250](https://github.com/ant-design/ant-design-pro-layout/commit/8e916250)
 
 ### 4.7.3
 
-- 🐞 修复 `siderWidth` 在手机模式不生效的问题。 [e6cc962d](https://github.com/ant-design/an1t-design-pro-layout/commit/e6cc962d)
+- 🐞 修复 `siderWidth` 在手机模式不生效的问题。 [e6cc962d](https://github.com/ant-design/ant-design-pro-layout/commit/e6cc962d)
 - 🐞 修复手机模式下，菜单样式错误的问题。[#192](https://github.com/ant-design/ant-design-pro-layout/pull/192)
 
 ### 4.7.1-2
 
-- 🔔 增加 4.7.0 大改动的提示。[5ae53455](https://github.com/ant-design/an1t-design-pro-layout/commit/5ae53455)
+- 🔔 增加 4.7.0 大改动的提示。[5ae53455](https://github.com/ant-design/ant-design-pro-layout/commit/5ae53455)
 
 ### 4.7.0
 

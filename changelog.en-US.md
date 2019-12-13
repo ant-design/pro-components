@@ -1,30 +1,35 @@
 # changelog
 
+### 4.9.9
+
+- 🐞 Fix `menu.locale=false` do not work problem. [892983ab](https://github.com/ant-design/ant-design-pro-layout/commit/892983ab)
+- 🌟 `menuDataRender` support locale. [c7f8ede4](https://github.com/ant-design/ant-design-pro-layout/commit/c7f8ede4)
+
 ### 4.9.8
 
-- 🐞 Add default height and width. [8064423d](https://github.com/ant-design/an1t-design-pro-layout/commit/8064423d)
+- 🐞 Add default height and width. [8064423d](https://github.com/ant-design/ant-design-pro-layout/commit/8064423d)
 - 🌟 Add `tabAnimated` props for PageHeaderWrapper. [#224](https://github.com/ant-design/ant-design-pro-layout/pull/224)
-- 🌟 Links menu support inlineCollapsed. [90003255](https://github.com/ant-design/an1t-design-pro-layout/commit/90003255)
-- 🌟 `pageTitleRender` add add `info` props. [fbc86888](https://github.com/ant-design/an1t-design-pro-layout/commit/fbc86888)
-- 🌟 Use ResizeObserver support fold menu. [69b41b0e](https://github.com/ant-design/an1t-design-pro-layout/commit/69b41b0e)
-- 🌟 add `loading` props. [69b41b0e](https://github.com/ant-design/an1t-design-pro-layout/commit/69b41b0e)
+- 🌟 Links menu support inlineCollapsed. [90003255](https://github.com/ant-design/ant-design-pro-layout/commit/90003255)
+- 🌟 `pageTitleRender` add add `info` props. [fbc86888](https://github.com/ant-design/ant-design-pro-layout/commit/fbc86888)
+- 🌟 Use ResizeObserver support fold menu. [69b41b0e](https://github.com/ant-design/ant-design-pro-layout/commit/69b41b0e)
+- 🌟 add `loading` props. [69b41b0e](https://github.com/ant-design/ant-design-pro-layout/commit/69b41b0e)
 - 🌟 Added setting drawer Italian language support. [#228](https://github.com/ant-design/ant-design-pro-layout/pull/228)
 
 ### 4.9.7
 
--Ie Support ie11, remove the use of `Object.fromEntries`. [4f2a368](https://github.com/ant-design/an1t-design-pro-layout/commit/4f2a368) -🌟 Added `hideColors` property. [90464d9](https://github.com/ant-design/an1t-design-pro-layout/commit/90464d9)
+-Ie Support ie11, remove the use of `Object.fromEntries`. [4f2a368](https://github.com/ant-design/ant-design-pro-layout/commit/4f2a368) -🌟 Added `hideColors` property. [90464d9](https://github.com/ant-design/ant-design-pro-layout/commit/90464d9)
 
 ### 4.9.6
 
-- 🐞 Fix padding calculation error when `menuRender = false`. [fdabceb](https://github.com/ant-design/an1t-design-pro-layout/commit/fdabceb)
+- 🐞 Fix padding calculation error when `menuRender = false`. [fdabceb](https://github.com/ant-design/ant-design-pro-layout/commit/fdabceb)
 
 ### 4.9.5
 
-- 🐞 Fix SettingDrawer get params bug. [f5758da0](https://github.com/ant-design/an1t-design-pro-layout/commit/246d9dba)
+- 🐞 Fix SettingDrawer get params bug. [f5758da0](https://github.com/ant-design/ant-design-pro-layout/commit/246d9dba)
 
 ### 4.9.4
 
-- 🐞 Fixed ResizeObserver reporting an error when children is an array. [246d9dba](https://github.com/ant-design/an1t-design-pro-layout/commit/246d9dba)
+- 🐞 Fixed ResizeObserver reporting an error when children is an array. [246d9dba](https://github.com/ant-design/ant-design-pro-layout/commit/246d9dba)
 
 ### 4.9.3
 
@@ -34,24 +39,24 @@
 
 ### 4.9.2
 
-- 🐞 Fix the problem of layout being stretched too far. [ab49d602](https://github.com/ant-design/an1t-design-pro-layout/commit/ab49d602)
+- 🐞 Fix the problem of layout being stretched too far. [ab49d602](https://github.com/ant-design/ant-design-pro-layout/commit/ab49d602)
 
 ### 4.9.1
 
-- 🌟 Added support for `subMenuItemRender`. [8911e211](https://github.com/ant-design/an1t-design-pro-layout/commit/8911e211) -🌟 Added support for `links`. [ab162a0e](https://github.com/ant-design/an1t-design-pro-layout/commit/ab162a0e)
+- 🌟 Added support for `subMenuItemRender`. [8911e211](https://github.com/ant-design/ant-design-pro-layout/commit/8911e211) -🌟 Added support for `links`. [ab162a0e](https://github.com/ant-design/ant-design-pro-layout/commit/ab162a0e)
 
 ### 4.8.3
 
-- 🐞 Fix footer hidden problem. [da8239d3](https://github.com/ant-design/an1t-design-pro-layout/commit/da8239d3)
-- 🌟 Support get setting from url. [a9dc2d8f](https://github.com/ant-design/an1t-design-pro-layout/commit/a9dc2d8f)
+- 🐞 Fix footer hidden problem. [da8239d3](https://github.com/ant-design/ant-design-pro-layout/commit/da8239d3)
+- 🌟 Support get setting from url. [a9dc2d8f](https://github.com/ant-design/ant-design-pro-layout/commit/a9dc2d8f)
 
 ### 4.8.2
 
-- 🐞 Fix fixSiderbar warning. [1a478d60](https://github.com/ant-design/an1t-design-pro-layout/commit/1a478d60)
+- 🐞 Fix fixSiderbar warning. [1a478d60](https://github.com/ant-design/ant-design-pro-layout/commit/1a478d60)
 
 ### 4.8.1
 
-- 🌟 Add the `disableContentMargin` property to close the margin of the content area. [1456cce1](https://github.com/ant-design/an1t-design-pro-layout/commit/1456cce1)
+- 🌟 Add the `disableContentMargin` property to close the margin of the content area. [1456cce1](https://github.com/ant-design/ant-design-pro-layout/commit/1456cce1)
 
 ### 4.8.0
 
@@ -61,16 +66,16 @@
 
 ### 4.7.4
 
-- 💄 Fix style issues under `fixSiderbar` and `fixedHeader`. [8e916250](https://github.com/ant-design/an1t-design-pro-layout/commit/8e916250)
+- 💄 Fix style issues under `fixSiderbar` and `fixedHeader`. [8e916250](https://github.com/ant-design/ant-design-pro-layout/commit/8e916250)
 
 ### 4.7.3
 
-- 🐞 Fix `siderWidth` in mobile mode does not work. [e6cc962d](https://github.com/ant-design/an1t-design-pro-layout/commit/e6cc962d)
+- 🐞 Fix `siderWidth` in mobile mode does not work. [e6cc962d](https://github.com/ant-design/ant-design-pro-layout/commit/e6cc962d)
 - 🐞 Fixed a problem with the wrong menu style in the phone mode. [#192](https://github.com/ant-design/ant-design-pro-layout/pull/192)
 
 ### 4.7.1-2
 
-- 🔔 Increase the hint of 4.7.0 large strain. [5ae53455](https://github.com/ant-design/an1t-design-pro-layout/commit/5ae53455)
+- 🔔 Increase the hint of 4.7.0 large strain. [5ae53455](https://github.com/ant-design/ant-design-pro-layout/commit/5ae53455)
 
 ### 4.7.0
 
