@@ -6,7 +6,7 @@ import { Settings } from '../defaultSettings';
 
 interface FormatterProps {
   data: MenuDataItem[];
-  menu: Settings['menu'];
+  menu?: Settings['menu'];
   formatMessage?: (data: { id: string; defaultMessage?: string }) => string;
   parentName?: string;
   authority?: string[] | string;
@@ -14,7 +14,13 @@ interface FormatterProps {
 
 // Conversion router to menu.
 function formatter(props: FormatterProps): MenuDataItem[] {
-  const { data, menu, formatMessage, authority, parentName } = props;
+  const {
+    data,
+    menu = { locale: true },
+    formatMessage,
+    authority,
+    parentName,
+  } = props;
   return data
     .filter(item => item && item.name && item.path)
     .map((item = { path: '' }) => {
@@ -29,17 +35,18 @@ function formatter(props: FormatterProps): MenuDataItem[] {
         menu.locale && formatMessage
           ? formatMessage({ id: locale, defaultMessage: name })
           : name;
+
       const result: MenuDataItem = {
         ...item,
         name: localeName,
         locale,
         routes: null,
       };
-      if (item.routes) {
+      if (item.routes || item.children) {
         const children = formatter({
           ...props,
           authority: item.authority || authority,
-          data: item.routes,
+          data: item.routes || item.children,
           parentName: locale,
         });
         // Reduce memory usage
@@ -137,7 +144,11 @@ export default (
     },
   });
   if (menuDataRender) {
-    originalMenuData = menuDataRender(originalMenuData);
+    originalMenuData = memoizeOneFormatter({
+      data: menuDataRender(originalMenuData),
+      menu,
+      formatMessage,
+    });
   }
   const menuData = defaultFilterMenuData(originalMenuData);
   // Map type used for internal logic

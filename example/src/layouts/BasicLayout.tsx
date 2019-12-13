@@ -78,6 +78,43 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
               </Link>
             )
           }
+          menuDataRender={() => [
+            {
+              path: '/',
+              redirect: '/welcome',
+            },
+            {
+              path: '/welcome',
+              name: 'one',
+              component: './Welcome',
+              routes: [
+                {
+                  path: '/welcome/welcome',
+                  name: 'two',
+                  icon: 'smile',
+                  component: './Welcome',
+                },
+                {
+                  path: '/welcome/welcome2',
+                  name: 'two2',
+                  icon: 'smile',
+                  component: './Welcome',
+                },
+              ],
+            },
+            {
+              name: '分析页',
+              icon: 'smile',
+              path: '/dashboardanalysis',
+              component: './DashboardAnalysisTwo',
+            },
+            {
+              name: '个人设置',
+              icon: 'smile',
+              path: '/accountsettings',
+              component: './AccountSettings',
+            },
+          ]}
           subMenuItemRender={(_, defaultDom) => (
             <a className="qixian-subMenuItem">{defaultDom}</a>
           )}
