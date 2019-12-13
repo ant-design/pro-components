@@ -38,233 +38,175 @@ describe('BasicLayout', () => {
   it('🥩 support menuDateRender', () => {
     const wrapper = render(
       <BasicLayout
-        menuDataRender={() => [
-          {
-            path: '/home',
-            name: '首页',
-            icon: 'smile',
-            routes: null,
-            locale: 'menu.home',
-            children: [
-              {
-                path: '/home/overview',
-                name: '概述',
-                exact: true,
-                locale: 'menu.home.overview',
-                routes: null,
-              },
-              {
-                path: '/home/search',
-                name: '搜索',
-                exact: true,
-                locale: 'menu.home.search',
-                routes: null,
-              },
-            ],
-          },
-          {
-            path: '/data_hui',
-            name: '汇总数据',
-            icon: 'smile',
-            routes: null,
-            locale: 'menu.data_hui',
-            children: [
-              {
-                collapsed: true,
-                menuName: '域&middot;买家维度交易',
-                name: '域&middot;买家维度交易',
-                icon: 'smile',
-                path: '/',
-                children: [
-                  {
-                    id: 2,
-                    isNavHome: '2',
-                    itemId: '191020104',
-                    itemName: '_交易_买家_月表',
-                    tab: 'adm_rk_cr_tb_trd_byr_ms',
-                    tabProj: 'alifin_odps_birisk',
-                    name: '_交易_买家_月表',
-                    path:
-                      '/data_hui?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alifin_odps_birisk',
-                    icon: 'smile',
-                  },
-                  {
-                    id: 3,
-                    isNavHome: '3',
-                    itemId: '191020104',
-                    itemName: '_航旅交易_买家_日表',
-                    tab: 'adm_rk_cr_tb_trv_byr_ds',
-                    tabProj: 'alifin_odps_birisk',
-                    name: '_航旅交易_买家_日表',
-                    path:
-                      '/data_hui?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
-                    icon: 'smile',
-                  },
-                ],
-              },
-              {
-                collapsed: true,
-                items: [
-                  {
-                    id: 5,
-                    isNavHome: '2',
-                    itemId: '191020107',
-                    itemName: '_交易_买家_月表',
-                    tab: 'adm_rk_cr_tb_trd_byr_ms',
-                    tabProj: 'alifin_odps_birisk',
-                    name: '_交易_买家_月表',
-                    path:
-                      '/data_hui?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alifin_odps_birisk',
-                    icon: 'smile',
-                  },
-                  {
-                    id: 6,
-                    isNavHome: '3',
-                    itemId: '191020108',
-                    itemName: '_航旅交易_买家_日表',
-                    tab: 'adm_rk_cr_tb_trv_byr_ds',
-                    tabProj: 'alifin_odps_birisk',
-                    name: '_航旅交易_买家_日表',
-                    path:
-                      '/data_hui?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
-                    icon: 'smile',
-                  },
-                ],
-                menuName: '域&middot;买家维度交易2',
-                name: '域&middot;买家维度交易2',
-                icon: 'smile',
-                path: '/',
-                children: [
-                  {
-                    id: 5,
-                    isNavHome: '2',
-                    itemId: '191020107',
-                    itemName: '_交易_买家_月表',
-                    tab: 'adm_rk_cr_tb_trd_byr_ms',
-                    tabProj: 'alifin_odps_birisk',
-                    name: '_交易_买家_月表',
-                    path:
-                      '/data_hui?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alifin_odps_birisk',
-                    icon: 'smile',
-                  },
-                  {
-                    id: 6,
-                    isNavHome: '3',
-                    itemId: '191020108',
-                    itemName: '_航旅交易_买家_日表',
-                    tab: 'adm_rk_cr_tb_trv_byr_ds',
-                    tabProj: 'alifin_odps_birisk',
-                    name: '_航旅交易_买家_日表',
-                    path:
-                      '/data_hui?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
-                    icon: 'smile',
-                  },
-                ],
-              },
-              {
-                collapsed: true,
-                items: [
-                  {
-                    id: 7,
-                    isNavHome: '2',
-                    itemId: '191020107',
-                    itemName: '_交易_买家_月表2',
-                    tab: 'adm_rk_cr_tb_trd_byr_ms',
-                    tabProj: 'alifin_odps_birisk',
-                    name: '_交易_买家_月表2',
-                    path:
-                      '/data_hui?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alifin_odps_birisk',
-                    icon: 'smile',
-                  },
-                  {
-                    id: 8,
-                    isNavHome: '3',
-                    itemId: '191020108',
-                    itemName: '_航旅交易_买家_日表3',
-                    tab: 'adm_rk_cr_tb_trv_byr_ds',
-                    tabProj: 'alifin_odps_birisk',
-                    name: '_航旅交易_买家_日表3',
-                    path:
-                      '/data_hui?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
-                    icon: 'smile',
-                  },
-                ],
-                menuName: '域&middot;买家维度交易2',
-                name: '域&middot;买家维度交易2',
-                icon: 'smile',
-                path: '/',
-                children: [
-                  {
-                    id: 7,
-                    isNavHome: '2',
-                    itemId: '191020107',
-                    itemName: '_交易_买家_月表2',
-                    tab: 'adm_rk_cr_tb_trd_byr_ms',
-                    tabProj: 'alifin_odps_birisk',
-                    name: '_交易_买家_月表2',
-                    path:
-                      '/data_hui?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alifin_odps_birisk',
-                    icon: 'smile',
-                  },
-                  {
-                    id: 8,
-                    isNavHome: '3',
-                    itemId: '191020108',
-                    itemName: '_航旅交易_买家_日表3',
-                    tab: 'adm_rk_cr_tb_trv_byr_ds',
-                    tabProj: 'alifin_odps_birisk',
-                    name: '_航旅交易_买家_日表3',
-                    path:
-                      '/data_hui?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
-                    icon: 'smile',
-                  },
-                ],
-              },
-            ],
-          },
-          {
-            path: '/data_ming',
-            name: '明细数据',
-            icon: 'smile',
-            routes: null,
-            locale: 'menu.data_ming',
-            children: [],
-          },
-          {
-            path: '/other',
-            name: '其他',
-            icon: 'smile',
-            routes: null,
-            locale: 'menu.other',
-            children: [
-              {
-                path: '/other/upLoad',
-                name: 'odps同步导入',
-                exact: true,
-                locale: 'menu.other.upLoad',
-                routes: null,
-                hideInMenu: true,
-              },
-              {
-                path: '/other/upLoadMenu',
-                name: '菜单导入',
-                exact: true,
-                locale: 'menu.other.upLoadMenu',
-                routes: null,
-                hideInMenu: true,
-              },
-              {
-                path: '/other/homeEdit',
-                name: '概述编辑',
-                exact: true,
-                locale: 'menu.other.homeEdit',
-                routes: null,
-                hideInMenu: true,
-              },
-            ],
-            hideInMenu: true,
-          },
-        ]}
+        menuDataRender={() =>
+          [
+            {
+              path: '/home',
+              name: '首页',
+              icon: 'smile',
+
+              locale: 'menu.home',
+              children: [
+                {
+                  path: '/home/overview',
+                  name: '概述',
+                  exact: true,
+                  locale: 'menu.home.overview',
+                },
+                {
+                  path: '/home/search',
+                  name: '搜索',
+                  exact: true,
+                  locale: 'menu.home.search',
+                },
+              ],
+            },
+            {
+              path: '/data_hui',
+              name: '汇总数据',
+              icon: 'smile',
+
+              locale: 'menu.data_hui',
+              children: [
+                {
+                  collapsed: true,
+                  menuName: '域&middot;买家维度交易',
+                  name: '域&middot;买家维度交易',
+                  icon: 'smile',
+                  children: [
+                    {
+                      id: 2,
+                      isNavHome: '2',
+                      itemId: '191020104',
+                      itemName: '_交易_买家_月表',
+                      tab: 'adm_rk_cr_tb_trd_byr_ms',
+                      tabProj: 'alifin_odps_birisk',
+                      name: '_交易_买家_月表',
+                      path:
+                        '/data_hui?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alifin_odps_birisk',
+                      icon: 'smile',
+                    },
+                    {
+                      id: 3,
+                      isNavHome: '3',
+                      itemId: '191020104',
+                      itemName: '_航旅交易_买家_日表',
+                      tab: 'adm_rk_cr_tb_trv_byr_ds',
+                      tabProj: 'alifin_odps_birisk',
+                      name: '_航旅交易_买家_日表',
+                      path:
+                        '/data_hui?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
+                      icon: 'smile',
+                    },
+                  ],
+                },
+                {
+                  collapsed: true,
+                  menuName: '域&middot;买家维度交易2',
+                  name: '域&middot;买家维度交易2',
+                  icon: 'smile',
+                  path: '/',
+                  children: [
+                    {
+                      id: 5,
+                      isNavHome: '2',
+                      itemId: '191020107',
+                      itemName: '_交易_买家_月表',
+                      tab: 'adm_rk_cr_tb_trd_byr_ms',
+                      tabProj: 'alifin_odps_birisk',
+                      name: '_交易_买家_月表',
+                      path:
+                        '/data_hui?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alifin_odps_birisk',
+                      icon: 'smile',
+                    },
+                    {
+                      id: 6,
+                      isNavHome: '3',
+                      itemId: '191020108',
+                      itemName: '_航旅交易_买家_日表',
+                      tab: 'adm_rk_cr_tb_trv_byr_ds',
+                      tabProj: 'alifin_odps_birisk',
+                      name: '_航旅交易_买家_日表',
+                      path:
+                        '/data_hui?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
+                      icon: 'smile',
+                    },
+                  ],
+                },
+                {
+                  collapsed: true,
+                  menuName: '域&middot;买家维度交易2',
+                  name: '域&middot;买家维度交易2',
+                  icon: 'smile',
+                  path: '/',
+                  children: [
+                    {
+                      id: 7,
+                      isNavHome: '2',
+                      itemId: '191020107',
+                      itemName: '_交易_买家_月表2',
+                      tab: 'adm_rk_cr_tb_trd_byr_ms',
+                      tabProj: 'alifin_odps_birisk',
+                      name: '_交易_买家_月表2',
+                      path:
+                        '/data_hui?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alifin_odps_birisk',
+                      icon: 'smile',
+                    },
+                    {
+                      id: 8,
+                      isNavHome: '3',
+                      itemId: '191020108',
+                      itemName: '_航旅交易_买家_日表3',
+                      tab: 'adm_rk_cr_tb_trv_byr_ds',
+                      tabProj: 'alifin_odps_birisk',
+                      name: '_航旅交易_买家_日表3',
+                      path:
+                        '/data_hui?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
+                      icon: 'smile',
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              path: '/data_ming',
+              name: '明细数据',
+              icon: 'smile',
+              locale: 'menu.data_ming',
+              children: [],
+            },
+            {
+              path: '/other',
+              name: '其他',
+              icon: 'smile',
+              locale: 'menu.other',
+              children: [
+                {
+                  path: '/other/upLoad',
+                  name: 'odps同步导入',
+                  exact: true,
+                  locale: 'menu.other.upLoad',
+                  hideInMenu: true,
+                },
+                {
+                  path: '/other/upLoadMenu',
+                  name: '菜单导入',
+                  exact: true,
+                  locale: 'menu.other.upLoadMenu',
+                  hideInMenu: true,
+                },
+                {
+                  path: '/other/homeEdit',
+                  name: '概述编辑',
+                  exact: true,
+                  locale: 'menu.other.homeEdit',
+                  hideInMenu: true,
+                },
+              ],
+              hideInMenu: true,
+            },
+          ] as any
+        }
       />,
     );
     expect(wrapper).toMatchSnapshot();

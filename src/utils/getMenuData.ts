@@ -22,7 +22,18 @@ function formatter(props: FormatterProps): MenuDataItem[] {
     parentName,
   } = props;
   return data
-    .filter(item => item && item.name && item.path)
+    .filter(item => {
+      if (!item) {
+        return false;
+      }
+      if (item.routes || item.children) {
+        return true;
+      }
+      if (item.name && item.path) {
+        return true;
+      }
+      return false;
+    })
     .map((item = { path: '' }) => {
       if (!item.name) {
         return item;
@@ -78,8 +89,8 @@ const defaultFilterMenuData = (menuData: MenuDataItem[] = []): MenuDataItem[] =>
     })
     .filter(item => item);
 
-const mergePath = (path: string, parentPath?: string) => {
-  if (path.startsWith('/')) {
+const mergePath = (path: string = '', parentPath: string = '/') => {
+  if ((path || parentPath).startsWith('/')) {
     return path;
   }
   return `${parentPath}/${path}`.replace('//', '/');
