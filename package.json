@@ -69,6 +69,7 @@
   "dependencies": {
     "antd": "^3.23.6",
     "classnames": "^2.2.6",
+    "hash.js": "^1.1.7",
     "history": "^4.10.1",
     "lodash": "^4.17.10",
     "memoize-one": "^5.1.1",
@@ -80,6 +81,7 @@
     "react-helmet": "^5.2.1",
     "react-responsive": "^8.0.1",
     "react-router-dom": "5.1.2",
+    "unstated-next": "^1.1.0",
     "use-merge-value": "^1.0.1",
     "warning": "^4.0.3"
   },
@@ -91,6 +93,8 @@
     "@storybook/addon-viewport": "^5.2.3",
     "@storybook/addons": "^5.2.3",
     "@storybook/react": "^5.2.3",
+    "@testing-library/react": "^9.4.0",
+    "@testing-library/react-hooks": "^3.2.1",
     "@types/classnames": "^2.2.7",
     "@types/enzyme": "^3.9.1",
     "@types/history": "^4.7.3",

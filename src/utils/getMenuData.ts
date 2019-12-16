@@ -3,6 +3,7 @@ import memoizeOne from 'memoize-one';
 import { MenuDataItem, Route, MessageDescriptor } from '../typings';
 
 import { Settings } from '../defaultSettings';
+import { genKeyByPath } from './utils';
 
 interface FormatterProps {
   data: MenuDataItem[];
@@ -13,10 +14,15 @@ interface FormatterProps {
 }
 
 // Conversion router to menu.
-function formatter(props: FormatterProps): MenuDataItem[] {
+function formatter(
+  props: FormatterProps,
+  parent?: MenuDataItem,
+): MenuDataItem[] {
   const {
     data,
-    menu = { locale: true },
+    menu = {
+      locale: true,
+    },
     formatMessage,
     authority,
     parentName,
@@ -51,15 +57,19 @@ function formatter(props: FormatterProps): MenuDataItem[] {
         ...item,
         name: localeName,
         locale,
+        key: genKeyByPath(item.path, parent && parent?.key),
         routes: null,
       };
       if (item.routes || item.children) {
-        const children = formatter({
-          ...props,
-          authority: item.authority || authority,
-          data: item.routes || item.children,
-          parentName: locale,
-        });
+        const children = formatter(
+          {
+            ...props,
+            authority: item.authority || authority,
+            data: item.routes || item.children,
+            parentName: locale,
+          },
+          result,
+        );
         // Reduce memory usage
         result.children = children;
       }
@@ -161,11 +171,11 @@ export default (
       formatMessage,
     });
   }
+
   const menuData = defaultFilterMenuData(originalMenuData);
   // Map type used for internal logic
   const breadcrumbMap = memoizeOneGetBreadcrumbNameMap(originalMenuData);
   // Object type used for external users
-
   const breadcrumb: {
     [key: string]: MenuDataItem;
   } = fromEntries(breadcrumbMap);

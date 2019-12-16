@@ -32,7 +32,7 @@ export type BasicLayoutContext = { [K in 'location']: BasicLayoutProps[K] } & {
 };
 
 const BasicLayout: React.FC<BasicLayoutProps> = props => {
-  const [collapsed, handleMenuCollapse] = useState<boolean>(true);
+  const [collapsed, handleMenuCollapse] = useState<boolean>(false);
   const [settings, setSettings] = useState<Partial<Settings>>({
     fixSiderbar: true,
     fixedHeader: true,
@@ -61,7 +61,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
           menuHeaderRender={false}
           logo={logo}
           siderWidth={200}
-          collapsed={collapsed}
+          breakpoint={false}
           links={[
             <>
               <Icon type="heart" theme="twoTone" twoToneColor="red" />

@@ -1,14 +1,14 @@
 import './index.less';
 
 import { Icon, Menu } from 'antd';
-import React, { Component } from 'react';
+import React, { useEffect, useRef } from 'react';
 import classNames from 'classnames';
+import useMergeValue from 'use-merge-value';
 import { MenuMode, MenuProps } from 'antd/es/menu';
 import { MenuTheme } from 'antd/es/menu/MenuContext';
 import defaultSettings, { Settings } from '../defaultSettings';
-import { getMenuMatches } from './SiderMenuUtils';
+import { getSelectedMenuKeys } from './SiderMenuUtils';
 import { isUrl } from '../utils/utils';
-import { urlToList } from '../utils/pathTools';
 
 import {
   MenuDataItem,
@@ -17,21 +17,24 @@ import {
   RouterTypes,
   WithFalse,
 } from '../typings';
+import MenuCounter from './Counter';
 
 export interface BaseMenuProps
   extends Partial<RouterTypes<Route>>,
-    Omit<MenuProps, 'openKeys'>,
+    Omit<MenuProps, 'openKeys' | 'onOpenChange'>,
     Partial<Settings> {
   className?: string;
   collapsed?: boolean;
-  flatMenuKeys?: string[];
   handleOpenChange?: (openKeys: string[]) => void;
   isMobile?: boolean;
   menuData?: MenuDataItem[];
   mode?: MenuMode;
   onCollapse?: (collapsed: boolean) => void;
-  onOpenChange?: (openKeys: string[]) => void;
-  openKeys?: WithFalse<string[]>;
+  openKeys?: WithFalse<string[]> | undefined;
+  /**
+   * 要给菜单的props, 参考antd-menu的属性。https://ant.design/components/menu-cn/
+   */
+  menuProps?: MenuProps;
   style?: React.CSSProperties;
   theme?: MenuTheme;
   formatMessage?: (message: MessageDescriptor) => string;
@@ -84,64 +87,18 @@ const getIcon = (icon?: string | React.ReactNode): React.ReactNode => {
   return icon;
 };
 
-export default class BaseMenu extends Component<BaseMenuProps> {
-  public static defaultProps: Partial<BaseMenuProps> = {
-    flatMenuKeys: [],
-    onCollapse: () => undefined,
-    isMobile: false,
-    openKeys: [],
-    collapsed: false,
-    handleOpenChange: () => undefined,
-    menuData: [],
-    onOpenChange: () => undefined,
-  };
-
-  warp: HTMLDivElement | undefined;
-
-  public constructor(props: BaseMenuProps) {
-    super(props);
-    const { iconfontUrl } = props;
-    // reset IconFont
-    if (iconfontUrl) {
-      IconFont = Icon.createFromIconfontCN({
-        scriptUrl: iconfontUrl,
-      });
-    }
+class MenuUtil {
+  constructor(props: BaseMenuProps) {
+    this.props = props;
   }
 
-  state = {};
+  props: BaseMenuProps;
 
-  public static getDerivedStateFromProps(props: BaseMenuProps): null {
-    const { iconfontUrl } = props;
-    // reset IconFont
-    if (iconfontUrl) {
-      IconFont = Icon.createFromIconfontCN({
-        scriptUrl: iconfontUrl,
-      });
-    }
-    return null;
-  }
-
-  /**
-   * 获得菜单子节点
-   */
   getNavMenuItems = (menusData: MenuDataItem[] = []): React.ReactNode[] =>
     menusData
       .filter(item => item.name && !item.hideInMenu)
       .map(item => this.getSubMenuOrItem(item))
       .filter(item => item);
-
-  // Get the currently selected menu
-  getSelectedMenuKeys = (pathname?: string): string[] => {
-    const { flatMenuKeys, selectedKeys } = this.props;
-    if (selectedKeys !== undefined) {
-      return selectedKeys;
-    }
-
-    return urlToList(pathname)
-      .map(itemPath => getMenuMatches(flatMenuKeys, itemPath).pop())
-      .filter(item => item) as string[];
-  };
 
   /**
    * get SubMenu or Item
@@ -259,67 +216,127 @@ export default class BaseMenu extends Component<BaseMenuProps> {
     }
     return `/${path || ''}`.replace(/\/+/g, '/');
   };
-
-  getPopupContainer = (fixedHeader: boolean, layout: string): HTMLElement => {
-    if (fixedHeader && layout === 'topmenu' && this.warp) {
-      return this.warp;
-    }
-    return document.body;
-  };
-
-  getRef = (ref: HTMLDivElement) => {
-    this.warp = ref;
-  };
-
-  render(): React.ReactNode {
-    const {
-      openKeys,
-      theme,
-      mode,
-      location = {
-        pathname: '/',
-      },
-      className,
-      collapsed,
-      handleOpenChange,
-      style,
-      fixedHeader = false,
-      layout = 'sidemenu',
-      menuData,
-      selectedKeys: defaultSelectedKeys,
-    } = this.props;
-    // if pathname can't match, use the nearest parent's key
-    let selectedKeys = this.getSelectedMenuKeys(location.pathname);
-    if (defaultSelectedKeys === undefined && !selectedKeys.length && openKeys) {
-      selectedKeys = [openKeys[openKeys.length - 1]];
-    }
-    let props = {};
-    if (openKeys && !collapsed && layout === 'sidemenu') {
-      props = {
-        openKeys: openKeys.length === 0 ? [...selectedKeys] : openKeys,
-      };
-    }
-    const cls = classNames(className, {
-      'top-nav-menu': mode === 'horizontal',
-    });
-
-    return (
-      <>
-        <Menu
-          {...props}
-          key="Menu"
-          mode={mode}
-          theme={theme}
-          onOpenChange={handleOpenChange}
-          selectedKeys={selectedKeys}
-          style={style}
-          className={cls}
-          getPopupContainer={() => this.getPopupContainer(fixedHeader, layout)}
-        >
-          {this.getNavMenuItems(menuData)}
-        </Menu>
-        <div ref={this.getRef} />
-      </>
-    );
-  }
 }
+
+/**
+ * 生成openKeys 的对象，因为设置了openKeys 就会变成受控，所以需要一个空对象
+ * @param BaseMenuProps
+ */
+const getOpenKeysProps = (
+  openKeys: string[] | false = [],
+  selectedKeys: string[] = [],
+  { layout, collapsed }: BaseMenuProps,
+): {
+  openKeys?: undefined | string[];
+} => {
+  let openKeysProps = {};
+  if (openKeys && !collapsed && layout === 'sidemenu') {
+    openKeysProps = {
+      openKeys: openKeys.length === 0 ? [...selectedKeys] : openKeys,
+    };
+  }
+  return openKeysProps;
+};
+const BaseMenu: React.FC<BaseMenuProps> = props => {
+  const {
+    theme,
+    mode,
+    location = {
+      pathname: '/',
+    },
+    className,
+    handleOpenChange,
+    style,
+    menuData,
+    iconfontUrl,
+    selectedKeys: propsSelectedKeys,
+    onSelect,
+    openKeys: propsOpenKeys,
+  } = props;
+
+  const { pathname } = location;
+
+  const ref = useRef(null);
+  const { flatMenuKeys, flatMenus } = MenuCounter.useContainer();
+
+  const [openKeys, setOpenKeys] = useMergeValue<
+    WithFalse<string[] | undefined>
+  >([], {
+    value: propsOpenKeys,
+    onChange: handleOpenChange as any,
+  });
+
+  useEffect(() => {
+    if (!flatMenus) {
+      return;
+    }
+    const keys = getSelectedMenuKeys(
+      location.pathname || '/',
+      flatMenus,
+      flatMenuKeys || [],
+    );
+    setOpenKeys(keys);
+  }, [flatMenus]);
+
+  const [selectedKeys, setSelectedKeys] = useMergeValue<string[] | undefined>(
+    [],
+    {
+      value: propsSelectedKeys,
+      onChange: onSelect
+        ? keys => {
+            if (onSelect && keys) {
+              onSelect(keys as any);
+            }
+          }
+        : undefined,
+    },
+  );
+
+  useEffect(() => {
+    // reset IconFont
+    if (iconfontUrl) {
+      IconFont = Icon.createFromIconfontCN({
+        scriptUrl: iconfontUrl,
+      });
+    }
+  }, [iconfontUrl]);
+
+  useEffect(() => {
+    // if pathname can't match, use the nearest parent's key
+    const keys = getSelectedMenuKeys(
+      pathname || '/',
+      flatMenus,
+      flatMenuKeys || [],
+    );
+    setSelectedKeys(keys);
+  }, [pathname, flatMenuKeys.join('-')]);
+
+  const openKeysProps = getOpenKeysProps(openKeys, selectedKeys, props);
+  const cls = classNames(className, {
+    'top-nav-menu': mode === 'horizontal',
+  });
+
+  const menuUtils = new MenuUtil(props);
+
+  return (
+    <>
+      <Menu
+        {...props.menuProps}
+        {...openKeysProps}
+        key="Menu"
+        mode={mode}
+        theme={theme}
+        selectedKeys={selectedKeys}
+        style={style}
+        onOpenChange={setOpenKeys}
+        className={cls}
+        getPopupContainer={() => ref.current || document.body}
+      >
+        {menuUtils.getNavMenuItems(menuData)}
+      </Menu>
+      <div ref={ref} />
+    </>
+  );
+};
+
+export default BaseMenu;

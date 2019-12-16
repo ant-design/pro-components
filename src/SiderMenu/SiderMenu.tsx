@@ -1,17 +1,14 @@
-import React, { Component, CSSProperties } from 'react';
+import React, { CSSProperties } from 'react';
 import { Layout, Menu } from 'antd';
 import classNames from 'classnames';
-import { MenuProps } from 'antd/lib/menu';
 import { SiderProps } from 'antd/es/layout/Sider';
 
 import './index.less';
 import { WithFalse } from '../typings';
 import BaseMenu, { BaseMenuProps } from './BaseMenu';
-import { getDefaultCollapsedSubMenus } from './SiderMenuUtils';
+import MenuCounter from './Counter';
 
 const { Sider } = Layout;
-
-let firstMount = true;
 
 export const defaultRenderLogo = (logo: React.ReactNode): React.ReactNode => {
   if (typeof logo === 'string') {
@@ -54,182 +51,93 @@ export interface SiderMenuProps
   >;
   breakpoint?: SiderProps['breakpoint'] | false;
   onMenuHeaderClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
-
-  /**
-   * 要给菜单的props, 参考antd-menu的属性。https://ant.design/components/menu-cn/
-   */
-  menuProps?: MenuProps;
-
+  hide?: boolean;
   className?: string;
   style?: CSSProperties;
   links?: React.ReactNode[];
+  onOpenChange?: (openKeys: WithFalse<string[]>) => void;
 }
 
-interface SiderMenuState {
-  pathname?: string;
-  openKeys?: string[] | false;
-  flatMenuKeysLen?: number;
-}
+const SiderMenu: React.FC<SiderMenuProps> = props => {
+  const {
+    collapsed,
+    fixSiderbar,
+    onCollapse,
+    theme,
+    siderWidth = 256,
+    isMobile,
+    logo = 'https://gw.alipayobjects.com/zos/antfincdn/PmY%24TNNDBI/logo.svg',
+    title,
+    menuHeaderRender: renderLogoAndTitle,
+    onMenuHeaderClick,
+    breakpoint = 'lg',
+    style,
+    links,
+    onOpenChange,
+  } = props;
 
-export default class SiderMenu extends Component<
-  SiderMenuProps,
-  SiderMenuState
-> {
-  static defaultProps: Partial<SiderMenuProps> = {
-    flatMenuKeys: [],
-    isMobile: false,
-    collapsed: false,
-    menuData: [],
-  };
+  const { flatMenus } = MenuCounter.useContainer();
 
-  static getDerivedStateFromProps(
-    props: SiderMenuProps,
-    state: SiderMenuState,
-  ): SiderMenuState | null {
-    const { pathname, flatMenuKeysLen } = state;
-    const { location = { pathname: '/' }, flatMenuKeys = [] } = props;
-    if (
-      location.pathname !== pathname ||
-      flatMenuKeys.length !== flatMenuKeysLen
-    ) {
-      return {
-        pathname: location.pathname,
-        flatMenuKeysLen: flatMenuKeys.length,
-        openKeys: getDefaultCollapsedSubMenus(props),
-      };
-    }
-    return null;
-  }
+  const siderClassName = classNames('ant-pro-sider-menu-sider', {
+    'fix-sider-bar': fixSiderbar,
+    light: theme === 'light',
+  });
 
-  constructor(props: SiderMenuProps) {
-    super(props);
-    this.state = {
-      openKeys: getDefaultCollapsedSubMenus(props),
-    };
-  }
+  const headerDom = defaultRenderLogoAndTitle(logo, title, renderLogoAndTitle);
 
-  componentDidMount(): void {
-    firstMount = false;
-  }
-
-  isMainMenu: (key: string) => boolean = key => {
-    const { menuData = [] } = this.props;
-    return menuData.some(item => {
-      if (key) {
-        return item.key === key || item.path === key;
-      }
-      return false;
-    });
-  };
-
-  handleOpenChange: (openKeys: string[]) => void = openKeys => {
-    const { onOpenChange, openKeys: defaultOpenKeys } = this.props;
-    if (onOpenChange) {
-      onOpenChange(openKeys);
-      return;
-    }
-    // if defaultOpenKeys existence, don't change
-    if (defaultOpenKeys !== undefined) {
-      return;
-    }
-    const moreThanOne =
-      openKeys.filter(openKey => this.isMainMenu(openKey)).length > 1;
-    if (moreThanOne) {
-      this.setState({
-        openKeys: [openKeys.pop()].filter(item => item) as string[],
-      });
-    } else {
-      this.setState({ openKeys: [...openKeys] });
-    }
-  };
-
-  render(): React.ReactNode {
-    const {
-      collapsed,
-      fixSiderbar,
-      onCollapse,
-      theme,
-      siderWidth = 256,
-      isMobile,
-      layout,
-      logo = 'https://gw.alipayobjects.com/zos/antfincdn/PmY%24TNNDBI/logo.svg',
-      title,
-      menuHeaderRender: renderLogoAndTitle,
-      onMenuHeaderClick,
-      breakpoint = 'lg',
-      style,
-      links,
-    } = this.props;
-    const { openKeys } = this.state;
-
-    // 如果收起，并且为顶部布局，openKeys 为 false 都不控制 openKeys
-    const defaultProps =
-      collapsed || layout !== 'sidemenu' || openKeys === false
-        ? {}
-        : { openKeys };
-
-    const siderClassName = classNames('ant-pro-sider-menu-sider', {
-      'fix-sider-bar': fixSiderbar,
-      light: theme === 'light',
-    });
-    const headerDom = defaultRenderLogoAndTitle(
-      logo,
-      title,
-      renderLogoAndTitle,
-    );
-    return (
-      <Sider
-        collapsible
-        trigger={null}
-        collapsed={collapsed}
-        breakpoint={breakpoint === false ? undefined : breakpoint}
-        onCollapse={collapse => {
-          if (firstMount || !isMobile) {
-            if (onCollapse) {
-              onCollapse(collapse);
-            }
+  return (
+    <Sider
+      collapsible
+      trigger={null}
+      collapsed={collapsed}
+      breakpoint={breakpoint === false ? undefined : breakpoint}
+      onCollapse={collapse => {
+        if (!isMobile) {
+          if (onCollapse) {
+            onCollapse(collapse);
           }
-        }}
-        style={style}
-        width={siderWidth}
-        theme={theme}
-        className={siderClassName}
-      >
-        {headerDom && (
-          <div
-            className="ant-pro-sider-menu-logo"
-            onClick={onMenuHeaderClick}
-            id="logo"
-          >
-            {headerDom}
-          </div>
-        )}
+        }
+      }}
+      style={style}
+      width={siderWidth}
+      theme={theme}
+      className={siderClassName}
+    >
+      {headerDom && (
+        <div
+          className="ant-pro-sider-menu-logo"
+          onClick={onMenuHeaderClick}
+          id="logo"
+        >
+          {headerDom}
+        </div>
+      )}
+      {flatMenus && (
         <BaseMenu
-          {...this.props}
+          {...props}
           mode="inline"
-          handleOpenChange={this.handleOpenChange}
-          onOpenChange={this.handleOpenChange}
+          handleOpenChange={onOpenChange}
           style={{ padding: '16px 0', width: '100%' }}
-          {...defaultProps}
-          {...this.props.menuProps}
         />
-        {links && links.length > 0 && (
-          <div className="ant-pro-sider-menu-links">
-            <Menu
-              theme={theme}
-              className="ant-pro-sider-menu-link-menu"
-              selectedKeys={[]}
-              openKeys={[]}
-              mode="inline"
-            >
-              {(links || []).map((node, index) => (
-                // eslint-disable-next-line react/no-array-index-key
-                <Menu.Item key={index}>{node}</Menu.Item>
-              ))}
-            </Menu>
-          </div>
-        )}
-      </Sider>
-    );
-  }
-}
+      )}
+      {links && links.length > 0 && (
+        <div className="ant-pro-sider-menu-links">
+          <Menu
+            theme={theme}
+            className="ant-pro-sider-menu-link-menu"
+            selectedKeys={[]}
+            openKeys={[]}
+            mode="inline"
+          >
+            {(links || []).map((node, index) => (
+              // eslint-disable-next-line react/no-array-index-key
+              <Menu.Item key={index}>{node}</Menu.Item>
+            ))}
+          </Menu>
+        </div>
+      )}
+    </Sider>
+  );
+};
+
+export default SiderMenu;

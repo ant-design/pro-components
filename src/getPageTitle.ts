@@ -44,6 +44,7 @@ export interface GetPageTitleProps {
   pageName?: string;
   formatMessage?: (data: { id: any; defaultMessage?: string }) => string;
 }
+
 const getPageTitle = (props: GetPageTitleProps, ignoreTile?: boolean) => {
   const {
     pathname = '/',

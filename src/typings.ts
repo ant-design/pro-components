@@ -22,6 +22,7 @@ export interface MenuDataItem {
   icon?: string;
   locale?: string;
   name?: string;
+  key?: string;
   path: string;
   [key: string]: any;
 }

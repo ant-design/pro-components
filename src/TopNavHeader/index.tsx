@@ -10,7 +10,6 @@ import './index.less';
 
 import BaseMenu from '../SiderMenu/BaseMenu';
 import { HeaderViewProps } from '../Header';
-import { getFlatMenuKeys } from '../SiderMenu/SiderMenuUtils';
 
 export interface TopNavHeaderProps extends SiderMenuProps {
   logo?: React.ReactNode;
@@ -22,7 +21,6 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = props => {
   const ref = useRef(null);
   const {
     theme,
-    menuData,
     onMenuHeaderClick,
     contentWidth,
     rightContentRender,
@@ -32,7 +30,6 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = props => {
     className: propsClassName,
     style,
   } = props;
-  const flatMenuKeys = getFlatMenuKeys(menuData);
   const baseClassName = 'ant-pro-top-nav-header';
   const headerDom = defaultRenderLogoAndTitle(logo, title, menuHeaderRender);
 
@@ -66,11 +63,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = props => {
               setContentSize(width);
             }}
           >
-            <BaseMenu
-              {...props}
-              {...props.menuProps}
-              flatMenuKeys={flatMenuKeys}
-            />
+            <BaseMenu {...props} {...props.menuProps} />
           </ResizeObserver>
         </div>
         {rightContentRender &&

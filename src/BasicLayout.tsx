@@ -31,6 +31,7 @@ import { getBreadcrumbProps } from './utils/getBreadcrumbProps';
 import getMenuData from './utils/getMenuData';
 import { isBrowser } from './utils/utils';
 import PageLoading from './PageLoading';
+import MenuCounter from './SiderMenu/Counter';
 
 const { Content } = Layout;
 
@@ -160,13 +161,13 @@ const renderSiderMenu = (props: BasicLayoutProps): React.ReactNode => {
     return null;
   }
   if (layout === 'topmenu' && !isMobile) {
-    return null;
+    return <SiderMenu {...props} hide />;
   }
   if (menuRender) {
     return menuRender(props, <SiderMenu {...props} />);
   }
 
-  return <SiderMenu {...props} {...props.menuProps} />;
+  return <SiderMenu {...props} />;
 };
 
 const defaultPageTitleRender = (
@@ -412,48 +413,50 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
       <Helmet>
         <title>{pageTitleInfo.title}</title>
       </Helmet>
-      <div className={className}>
-        <Layout
-          style={{
-            ...style,
-            height: '100%',
-          }}
-          hasSider
-        >
-          {siderMenuDom}
-          <Layout style={genLayoutStyle}>
-            {headerDom}
-            <Content
-              className={contentClassName}
-              style={{
-                ...contentStyle,
-                minHeight: contentSize,
-              }}
-            >
-              <ResizeObserver
-                onResize={({ height }) => {
-                  setContentSize(height);
+      <MenuCounter.Provider>
+        <div className={className}>
+          <Layout
+            style={{
+              ...style,
+              height: '100%',
+            }}
+            hasSider
+          >
+            {siderMenuDom}
+            <Layout style={genLayoutStyle}>
+              {headerDom}
+              <Content
+                className={contentClassName}
+                style={{
+                  ...contentStyle,
+                  minHeight: contentSize,
                 }}
               >
-                <RouteContext.Provider
-                  value={{
-                    ...defaultProps,
-                    breadcrumb: breadcrumbProps,
-                    menuData,
-                    isMobile,
-                    collapsed,
-                    isChildrenLayout: true,
-                    title: pageTitleInfo.pageName,
+                <ResizeObserver
+                  onResize={({ height }) => {
+                    setContentSize(height);
                   }}
                 >
-                  <div>{loading ? <PageLoading /> : children}</div>
-                </RouteContext.Provider>
-              </ResizeObserver>
-            </Content>
-            {footerDom}
+                  <RouteContext.Provider
+                    value={{
+                      ...defaultProps,
+                      breadcrumb: breadcrumbProps,
+                      menuData,
+                      isMobile,
+                      collapsed,
+                      isChildrenLayout: true,
+                      title: pageTitleInfo.pageName,
+                    }}
+                  >
+                    <div>{loading ? <PageLoading /> : children}</div>
+                  </RouteContext.Provider>
+                </ResizeObserver>
+              </Content>
+              {footerDom}
+            </Layout>
           </Layout>
-        </Layout>
-      </div>
+        </div>
+      </MenuCounter.Provider>
     </>
   );
 };

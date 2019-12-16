@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Drawer } from 'antd';
 import classNames from 'classnames';
 import Omit from 'omit.js';
-
 import SiderMenu, { SiderMenuProps } from './SiderMenu';
-import { getFlatMenuKeys } from './SiderMenuUtils';
+import { getFlatMenus } from './SiderMenuUtils';
+import MenuCounter from './Counter';
 
 const SiderMenuWrapper: React.FC<SiderMenuProps> = props => {
   const {
@@ -15,9 +15,24 @@ const SiderMenuWrapper: React.FC<SiderMenuProps> = props => {
     onCollapse,
     style,
     className,
+    hide,
   } = props;
-  const flatMenuKeys = getFlatMenuKeys(menuData);
+  const { setFlatMenus, setFlatMenuKeys } = MenuCounter.useContainer();
+
+  useEffect(() => {
+    // 当 menu data 改变的时候重新计算这两个参数
+    const newFlatMenus = getFlatMenus(menuData);
+    requestAnimationFrame(() => {
+      setFlatMenus(newFlatMenus);
+      setFlatMenuKeys(Object.keys(newFlatMenus));
+    });
+  }, [JSON.stringify(menuData)]);
+
   const omitProps = Omit(props, ['className', 'style']);
+
+  if (hide) {
+    return null;
+  }
   return isMobile ? (
     <Drawer
       visible={!collapsed}
@@ -35,7 +50,6 @@ const SiderMenuWrapper: React.FC<SiderMenuProps> = props => {
       <SiderMenu
         {...omitProps}
         className={classNames('ant-pro-sider-menu', className)}
-        flatMenuKeys={flatMenuKeys}
         collapsed={isMobile ? false : collapsed}
       />
     </Drawer>
@@ -44,7 +58,6 @@ const SiderMenuWrapper: React.FC<SiderMenuProps> = props => {
       className={classNames('ant-pro-sider-menu', className)}
       {...omitProps}
       style={style}
-      flatMenuKeys={flatMenuKeys}
     />
   );
 };

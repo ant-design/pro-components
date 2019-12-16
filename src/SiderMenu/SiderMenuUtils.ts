@@ -1,7 +1,5 @@
 import pathToRegexp from 'path-to-regexp';
-import { BaseMenuProps } from './BaseMenu';
 import { MenuDataItem } from '../typings';
-import { urlToList } from '../utils/pathTools';
 
 /**
  * Recursively flatten the data
@@ -22,24 +20,66 @@ export const getFlatMenuKeys = (menuData: MenuDataItem[] = []): string[] => {
   return keys;
 };
 
+/**
+ * 获取打平的 menuData
+ * 已 path 为key
+ * @param menuData
+ */
+export const getFlatMenus = (
+  menuData: MenuDataItem[] = [],
+): {
+  [key: string]: MenuDataItem;
+} => {
+  let menus = {};
+  menuData.forEach(item => {
+    if (!item) {
+      return;
+    }
+    menus[item.path] = item;
+    if (item.children) {
+      menus = { ...menus, ...getFlatMenus(item.children) };
+    }
+  });
+  return menus;
+};
+
+/**
+ * a-b-c
+ * [
+ *  "a",
+ *  "a-b",
+ *  "a-b-c"
+ * ]
+ * @param menuKey
+ */
+export const genKeysToArray = (menuKey: string) => {
+  const keys = menuKey.split('-');
+  const keyArray: string[] = [];
+  keys.forEach((key, index) => {
+    if (index === 0) {
+      keyArray.push(key);
+      return;
+    }
+    keyArray.push(keys.slice(0, index + 1).join('-'));
+  });
+  return keyArray;
+};
+
 export const getMenuMatches = (
   flatMenuKeys: string[] = [],
   path: string,
-): string[] =>
-  flatMenuKeys.filter(item => item && pathToRegexp(item).test(path));
+): string =>
+  flatMenuKeys.find(item => item && pathToRegexp(item).test(path)) || '/';
 
-/**
- * 获得菜单子节点
- */
-export const getDefaultCollapsedSubMenus = (
-  props: BaseMenuProps,
-): string[] | false => {
-  const { location = { pathname: '/' }, flatMenuKeys, openKeys } = props;
-  if (openKeys === false) {
-    return false;
-  }
-  return urlToList(location.pathname)
-    .map(item => getMenuMatches(flatMenuKeys, item)[0])
-    .filter(item => item)
-    .reduce((acc, curr) => [...acc, curr], ['/']);
+// 获取当前的选中菜单
+export const getSelectedMenuKeys = (
+  pathname: string,
+  flatMenus: {
+    [key: string]: MenuDataItem;
+  } = {},
+  flatMenuKeys: string[],
+): string[] => {
+  const menuPathKey = getMenuMatches(flatMenuKeys, pathname || '/');
+  const key = (flatMenus[menuPathKey] || { key: '' }).key || '';
+  return genKeysToArray(key);
 };
