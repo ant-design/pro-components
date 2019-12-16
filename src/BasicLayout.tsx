@@ -448,7 +448,9 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
                       title: pageTitleInfo.pageName,
                     }}
                   >
-                    <div>{loading ? <PageLoading /> : children}</div>
+                    <div className="ant-pro-basicLayout-children-content-wrap">
+                      {loading ? <PageLoading /> : children}
+                    </div>
                   </RouteContext.Provider>
                 </ResizeObserver>
               </Content>

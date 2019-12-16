@@ -73,7 +73,9 @@ exports[`BasicLayout base use 1`] = `
         class="ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-layout-content"
         style="min-height:100%"
       >
-        <div>
+        <div
+          class="ant-pro-basicLayout-children-content-wrap"
+        >
           <div
             class="ant-pro-page-header-wrap"
           >
@@ -179,7 +181,9 @@ exports[`BasicLayout content is text 1`] = `
         class="ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-layout-content"
         style="min-height:100%"
       >
-        <div>
+        <div
+          class="ant-pro-basicLayout-children-content-wrap"
+        >
           <div
             class="ant-pro-page-header-wrap"
           >
