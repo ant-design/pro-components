@@ -1,5 +1,15 @@
 # 更新日志
 
+### 4.9.11
+
+- 🌟 Menu 的 `key` 与 `path` 解耦 [#238](https://github.com/ant-design/ant-design-pro-layout/pull/238)
+- 🐞 修复了移动模式下的菜单样式问题。 [#241](https://github.com/ant-design/ant-design-pro-layout/pull/241)
+- 🐞 修复了 Layout 的高度被固定的问题。 [2752721](https://github.com/ant-design/ant-design-pro-layout/commit/2752721)
+
+### 4.9.10
+
+- 🐞 Stricter locale judgment. [567cbdf](https://github.com/ant-design/ant-design-pro-layout/commit/567cbdf)
+
 ### 4.9.9
 
 - 🐞 修复 `menu.locale=false`不工作的问题。[892983ab](https://github.com/ant-design/ant-design-pro-layout/commit/892983ab)

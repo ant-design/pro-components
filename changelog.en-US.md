@@ -1,5 +1,15 @@
 # changelog
 
+### 4.9.11
+
+- 🌟 Decoupling the menu `key` from the `path`. [#238](https://github.com/ant-design/ant-design-pro-layout/pull/238)
+- 🐞 Fix menu style issues in mobile mode. [#241](https://github.com/ant-design/ant-design-pro-layout/pull/241)
+- 🐞 Fix layout height is fixed. [2752721](https://github.com/ant-design/ant-design-pro-layout/commit/2752721)
+
+### 4.9.10
+
+- 🐞 Stricter locale judgment. [567cbdf](https://github.com/ant-design/ant-design-pro-layout/commit/567cbdf)
+
 ### 4.9.9
 
 - 🐞 Fix `menu.locale=false` do not work problem. [892983ab](https://github.com/ant-design/ant-design-pro-layout/commit/892983ab)
