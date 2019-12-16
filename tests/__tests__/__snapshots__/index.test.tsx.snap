@@ -6,7 +6,7 @@ exports[`BasicLayout 🥩 base use 1`] = `
 >
   <section
     class="ant-layout ant-layout-has-sider"
-    style="height:100%"
+    style="min-height:100%"
   >
     <aside
       class="ant-pro-sider-menu-sider ant-layout-sider ant-layout-sider-dark"
@@ -88,7 +88,7 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
 >
   <section
     class="ant-layout ant-layout-has-sider"
-    style="height:100%"
+    style="min-height:100%"
   >
     <aside
       class="ant-pro-sider-menu-sider ant-layout-sider ant-layout-sider-dark"
@@ -170,7 +170,7 @@ exports[`BasicLayout 🥩 support loading 1`] = `
 >
   <section
     class="ant-layout ant-layout-has-sider"
-    style="height:100%"
+    style="min-height:100%"
   >
     <aside
       class="ant-pro-sider-menu-sider ant-layout-sider ant-layout-sider-dark"
@@ -277,7 +277,7 @@ exports[`BasicLayout 🥩 support menuDateRender 1`] = `
 >
   <section
     class="ant-layout ant-layout-has-sider"
-    style="height:100%"
+    style="min-height:100%"
   >
     <aside
       class="ant-pro-sider-menu-sider ant-layout-sider ant-layout-sider-dark"

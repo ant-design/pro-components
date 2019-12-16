@@ -6,7 +6,7 @@ exports[`BasicLayout base use 1`] = `
 >
   <section
     class="ant-layout ant-layout-has-sider"
-    style="height:100%"
+    style="min-height:100%"
   >
     <aside
       class="ant-pro-sider-menu-sider ant-layout-sider ant-layout-sider-dark"
@@ -114,7 +114,7 @@ exports[`BasicLayout content is text 1`] = `
 >
   <section
     class="ant-layout ant-layout-has-sider"
-    style="height:100%"
+    style="min-height:100%"
   >
     <aside
       class="ant-pro-sider-menu-sider ant-layout-sider ant-layout-sider-dark"
