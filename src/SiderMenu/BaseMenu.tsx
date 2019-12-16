@@ -267,7 +267,7 @@ const BaseMenu: React.FC<BaseMenuProps> = props => {
   });
 
   useEffect(() => {
-    if (!flatMenus) {
+    if (!flatMenus || flatMenuKeys.length === 0) {
       return;
     }
     const keys = getSelectedMenuKeys(
@@ -276,7 +276,7 @@ const BaseMenu: React.FC<BaseMenuProps> = props => {
       flatMenuKeys || [],
     );
     setOpenKeys(keys);
-  }, [flatMenus]);
+  }, [flatMenus, flatMenuKeys.join('-')]);
 
   const [selectedKeys, setSelectedKeys] = useMergeValue<string[] | undefined>(
     [],

@@ -418,7 +418,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
           <Layout
             style={{
               ...style,
-              height: '100%',
+              minHeight: '100%',
             }}
             hasSider
           >
