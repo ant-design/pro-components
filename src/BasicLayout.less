@@ -27,8 +27,6 @@
   flex-direction: column;
   width: 100%;
   min-height: 100%;
-  transform: rotate(0);
-  transition: all 0.2s;
 
   &.@{basicLayout-prefix-cls}-fix-siderbar {
     > section.ant-layout {
@@ -60,6 +58,12 @@
     > .ant-layout {
       max-height: 100%;
     }
+  }
+
+  // children should support fixed
+  .@{basicLayout-prefix-cls}-is-children {
+    transform: rotate(0);
+    transition: all 0.2s;
   }
 
   .@{basicLayout-prefix-cls}-has-header {

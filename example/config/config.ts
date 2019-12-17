@@ -57,6 +57,23 @@ export default {
           component: './Welcome',
         },
         {
+          name: '分析页',
+          icon: 'smile',
+          path: '/dashboardanalysis',
+          component: './DashboardAnalysisTwo',
+        },
+        {
+          name: '个人设置',
+          icon: 'smile',
+          path: '/accountsettings',
+          component: './AccountSettings',
+        },
+        {
+          path: 'single',
+          name: 'Single',
+          component: './Welcome',
+        },
+        {
           path: '/',
           name: 'welcome',
           icon: 'smile',
@@ -84,24 +101,7 @@ export default {
                 },
               ],
             },
-            {
-              name: '分析页',
-              icon: 'smile',
-              path: '/dashboardanalysis',
-              component: './DashboardAnalysisTwo',
-            },
-            {
-              name: '个人设置',
-              icon: 'smile',
-              path: '/accountsettings',
-              component: './AccountSettings',
-            },
           ],
-        },
-        {
-          path: 'single',
-          name: 'Single',
-          component: './Welcome',
         },
       ],
     },

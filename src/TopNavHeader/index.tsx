@@ -36,9 +36,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = props => {
   const className = classNames(baseClassName, propsClassName, {
     light: theme === 'light',
   });
-
-  const [contentSize, setContentSize] = useState<number | string>('100%');
-
+  const [rightSize, setRightSize] = useState<number | string>(0);
   return (
     <div className={className} style={style}>
       <div
@@ -55,21 +53,27 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = props => {
           </div>
         )}
         <div
-          style={{ flex: 1, maxWidth: contentSize }}
+          style={{ flex: 1, overflow: 'hidden' }}
           className={`${baseClassName}-menu`}
         >
-          <ResizeObserver
-            onResize={({ width }) => {
-              setContentSize(width);
+          <BaseMenu {...props} {...props.menuProps} />
+        </div>
+        <ResizeObserver
+          onResize={({ width }) => {
+            setRightSize(width);
+          }}
+        >
+          <div
+            style={{
+              width: rightSize,
             }}
           >
-            <BaseMenu {...props} {...props.menuProps} />
-          </ResizeObserver>
-        </div>
-        {rightContentRender &&
-          rightContentRender({
-            ...props,
-          })}
+            {rightContentRender &&
+              rightContentRender({
+                ...props,
+              })}
+          </div>
+        </ResizeObserver>
       </div>
     </div>
   );
