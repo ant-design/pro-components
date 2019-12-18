@@ -20,12 +20,18 @@ const SiderMenuWrapper: React.FC<SiderMenuProps> = props => {
   const { setFlatMenus, setFlatMenuKeys } = MenuCounter.useContainer();
 
   useEffect(() => {
+    if (!menuData || menuData.length < 1) {
+      return () => null;
+    }
     // 当 menu data 改变的时候重新计算这两个参数
     const newFlatMenus = getFlatMenus(menuData);
-    requestAnimationFrame(() => {
+    const animationFrameId = requestAnimationFrame(() => {
       setFlatMenus(newFlatMenus);
       setFlatMenuKeys(Object.keys(newFlatMenus));
     });
+    return () =>
+      window.cancelAnimationFrame &&
+      window.cancelAnimationFrame(animationFrameId);
   }, [JSON.stringify(menuData)]);
 
   const omitProps = Omit(props, ['className', 'style']);

@@ -24,7 +24,7 @@ export interface Settings {
    * sticky siderbar
    */
   fixSiderbar: boolean;
-  menu: { locale: boolean };
+  menu: { locale?: boolean; defaultOpenAll?: boolean };
   title: string;
   // Your custom iconfont Symbol script Url
   // eg：//at.alicdn.com/t/font_1039637_btcrd5co4w.js

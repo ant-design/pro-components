@@ -25,6 +25,7 @@ export interface MenuDataItem {
   key?: string;
   path: string;
   [key: string]: any;
+  parentKeys?: string[];
 }
 
 export interface Route extends MenuDataItem {

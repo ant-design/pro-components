@@ -80,6 +80,10 @@ export const getSelectedMenuKeys = (
   flatMenuKeys: string[],
 ): string[] => {
   const menuPathKey = getMenuMatches(flatMenuKeys, pathname || '/');
-  const key = (flatMenus[menuPathKey] || { key: '' }).key || '';
-  return genKeysToArray(key);
+  const menuItem = flatMenus[menuPathKey] || { parentKeys: '', key: '' };
+  const keys = menuItem.parentKeys || [];
+  if (menuItem.key) {
+    keys.push(menuItem.key);
+  }
+  return keys;
 };

@@ -1,14 +1,14 @@
 import './index.less';
 
 import { Icon, Menu } from 'antd';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import useMergeValue from 'use-merge-value';
 import { MenuMode, MenuProps } from 'antd/es/menu';
 import { MenuTheme } from 'antd/es/menu/MenuContext';
 import defaultSettings, { Settings } from '../defaultSettings';
 import { getSelectedMenuKeys } from './SiderMenuUtils';
-import { isUrl } from '../utils/utils';
+import { isUrl, getOpenKeysFromMenuData } from '../utils/utils';
 
 import {
   MenuDataItem,
@@ -111,7 +111,6 @@ class MenuUtil {
     ) {
       const name = this.getIntlName(item);
       const { subMenuItemRender } = this.props;
-
       //  get defaultTitle by menuItemRender
       const defaultTitle = item.icon ? (
         <span>
@@ -189,8 +188,7 @@ class MenuUtil {
     if (isHttpUrl) {
       defaultItem = (
         <a href={itemPath} target={target}>
-          {icon}
-          <span>{name}</span>
+          {icon} <span>{name}</span>
         </a>
       );
     }
@@ -224,7 +222,6 @@ class MenuUtil {
  */
 const getOpenKeysProps = (
   openKeys: string[] | false = [],
-  selectedKeys: string[] = [],
   { layout, collapsed }: BaseMenuProps,
 ): {
   openKeys?: undefined | string[];
@@ -232,11 +229,12 @@ const getOpenKeysProps = (
   let openKeysProps = {};
   if (openKeys && !collapsed && layout === 'sidemenu') {
     openKeysProps = {
-      openKeys: openKeys.length === 0 ? [...selectedKeys] : openKeys,
+      openKeys,
     };
   }
   return openKeysProps;
 };
+
 const BaseMenu: React.FC<BaseMenuProps> = props => {
   const {
     theme,
@@ -248,6 +246,7 @@ const BaseMenu: React.FC<BaseMenuProps> = props => {
     handleOpenChange,
     style,
     menuData,
+    menu,
     iconfontUrl,
     selectedKeys: propsSelectedKeys,
     onSelect,
@@ -258,16 +257,31 @@ const BaseMenu: React.FC<BaseMenuProps> = props => {
 
   const ref = useRef(null);
   const { flatMenuKeys, flatMenus } = MenuCounter.useContainer();
+  const [defaultOpenAll, setDefaultOpenAll] = useState(menu?.defaultOpenAll);
 
   const [openKeys, setOpenKeys] = useMergeValue<
     WithFalse<string[] | undefined>
-  >([], {
-    value: propsOpenKeys,
-    onChange: handleOpenChange as any,
-  });
+  >(
+    () => {
+      if (menu?.defaultOpenAll) {
+        return getOpenKeysFromMenuData(menuData) || [];
+      }
+      if (propsOpenKeys === false) {
+        return false;
+      }
+      return [];
+    },
+    {
+      value: propsOpenKeys === false ? undefined : propsOpenKeys,
+      onChange: handleOpenChange as any,
+    },
+  );
 
   useEffect(() => {
     if (!flatMenus || flatMenuKeys.length === 0) {
+      return;
+    }
+    if (menu?.defaultOpenAll || propsOpenKeys === false) {
       return;
     }
     const keys = getSelectedMenuKeys(
@@ -276,7 +290,7 @@ const BaseMenu: React.FC<BaseMenuProps> = props => {
       flatMenuKeys || [],
     );
     setOpenKeys(keys);
-  }, [flatMenus, flatMenuKeys.join('-')]);
+  }, [JSON.stringify(flatMenus), flatMenuKeys.join('-')]);
 
   const [selectedKeys, setSelectedKeys] = useMergeValue<string[] | undefined>(
     [],
@@ -302,22 +316,35 @@ const BaseMenu: React.FC<BaseMenuProps> = props => {
   }, [iconfontUrl]);
 
   useEffect(() => {
+    if (!flatMenus || flatMenuKeys.length === 0) {
+      return () => null;
+    }
+
     // if pathname can't match, use the nearest parent's key
     const keys = getSelectedMenuKeys(
       pathname || '/',
       flatMenus,
       flatMenuKeys || [],
     );
-    setSelectedKeys(keys);
+    const animationFrameId = requestAnimationFrame(() => {
+      setSelectedKeys(keys);
+      if (!defaultOpenAll && propsOpenKeys !== false) {
+        setOpenKeys(keys);
+      } else {
+        setDefaultOpenAll(false);
+      }
+    });
+    return () =>
+      window.cancelAnimationFrame &&
+      window.cancelAnimationFrame(animationFrameId);
   }, [pathname, flatMenuKeys.join('-')]);
 
-  const openKeysProps = getOpenKeysProps(openKeys, selectedKeys, props);
+  const openKeysProps = getOpenKeysProps(openKeys, props);
   const cls = classNames(className, {
     'top-nav-menu': mode === 'horizontal',
   });
 
   const menuUtils = new MenuUtil(props);
-
   return (
     <>
       <Menu
@@ -328,8 +355,8 @@ const BaseMenu: React.FC<BaseMenuProps> = props => {
         theme={theme}
         selectedKeys={selectedKeys}
         style={style}
-        onOpenChange={setOpenKeys}
         className={cls}
+        onOpenChange={setOpenKeys}
         getPopupContainer={() => ref.current || document.body}
       >
         {menuUtils.getNavMenuItems(menuData)}

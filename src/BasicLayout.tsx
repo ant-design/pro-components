@@ -285,12 +285,53 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
   };
 
   const { routes = [] } = route;
-  const { breadcrumb, breadcrumbMap, menuData } = getMenuData(
-    routes,
-    menu,
-    formatMessage,
-    menuDataRender,
-  );
+  const [menuInfoData, setMenuInfoData] = useMergeValue<{
+    breadcrumb?: {
+      [key: string]: MenuDataItem;
+    };
+    breadcrumbMap?: Map<string, MenuDataItem>;
+    menuData?: MenuDataItem[];
+  }>(() => getMenuData(routes, menu, formatMessage, menuDataRender));
+
+  let renderMenuInfoData: {
+    breadcrumb?: {
+      [key: string]: MenuDataItem;
+    };
+    breadcrumbMap?: Map<string, MenuDataItem>;
+    menuData?: MenuDataItem[];
+  } = {};
+
+  // 如果menuDataRender 存在，就应该每次都render一下，不然无法保证数据的同步
+  if (menuDataRender) {
+    renderMenuInfoData = getMenuData(
+      routes,
+      menu,
+      formatMessage,
+      menuDataRender,
+    );
+  }
+
+  const { breadcrumb = {}, breadcrumbMap, menuData = [] } = !menuDataRender
+    ? menuInfoData
+    : renderMenuInfoData;
+
+  /**
+   *  如果 menuRender 不存在，可以做一下性能优化
+   *  只要 routers 没有更新就不需要重新计算
+   */
+  useEffect(() => {
+    if (!menuDataRender) {
+      const infoData = getMenuData(routes, menu, formatMessage, menuDataRender);
+      // 稍微慢一点 render，不然会造成性能问题，看起来像是菜单的卡顿
+      const animationFrameId = requestAnimationFrame(() => {
+        setMenuInfoData(infoData);
+      });
+      return () =>
+        window.cancelAnimationFrame &&
+        window.cancelAnimationFrame(animationFrameId);
+    }
+    return () => null;
+  }, [JSON.stringify(routes), JSON.stringify(menu)]);
 
   // If it is a fix menu, calculate padding
   // don't need padding in phone mode

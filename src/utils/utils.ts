@@ -1,4 +1,5 @@
-import hash from 'hash.js';
+import { MenuDataItem } from '../typings';
+
 /* eslint no-useless-escape:0 import/prefer-default-export:0 */
 const reg = /(((^https?:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+(?::\d+)?|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)$/;
 
@@ -13,21 +14,20 @@ export const isBrowser = () =>
   typeof window.document !== 'undefined' &&
   !isNode;
 
-export const genKeyByPath = (path: string, key: string = '') => {
-  const keyArry = [];
-  const newKey = hash
-    .sha1()
-    .update(path || guid())
-    .digest('hex');
-  if (key) {
-    keyArry.push(key);
+export const getKeyByPath = (path: string) => {
+  if (path && path !== '/') {
+    return path;
   }
-  keyArry.push(newKey);
-  return keyArry.join('-');
+  return guid();
+};
+
+export const genKeyByPath = (path: string) => {
+  const newKey = getKeyByPath(path);
+  return newKey;
 };
 
 export function guid() {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+  return 'xxxxxxxx'.replace(/[xy]/g, c => {
     // eslint-disable-next-line no-bitwise
     const r = (Math.random() * 16) | 0;
     // eslint-disable-next-line no-bitwise
@@ -35,3 +35,17 @@ export function guid() {
     return v.toString(16);
   });
 }
+
+export const getOpenKeysFromMenuData = (menuData?: MenuDataItem[]) =>
+  menuData?.reduce((pre, item) => {
+    if (item.key) {
+      pre.push(item.key);
+    }
+    if (item.children) {
+      const newArray: string[] = pre.concat(
+        getOpenKeysFromMenuData(item.children) || [],
+      );
+      return newArray;
+    }
+    return pre;
+  }, [] as string[]);

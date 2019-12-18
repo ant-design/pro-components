@@ -69,9 +69,28 @@ export default {
           component: './AccountSettings',
         },
         {
+          name: '高级表单',
+          icon: 'smile',
+          path: 'formadvancedform',
+          component: './FormAdvancedForm',
+        },
+        {
           path: 'single',
           name: 'Single',
-          component: './Welcome',
+          routes: [
+            {
+              path: 'welcome',
+              name: 'two',
+              icon: 'smile',
+              component: './Welcome',
+            },
+            {
+              path: 'welcome2',
+              name: 'two2',
+              icon: 'smile',
+              component: './Welcome',
+            },
+          ],
         },
         {
           path: '/',
@@ -84,17 +103,21 @@ export default {
             },
             {
               path: '/welcome',
+              redirect: '/welcome/welcome',
+            },
+            {
+              path: 'welcome',
               name: 'one',
               component: './Welcome',
               routes: [
                 {
-                  path: '/welcome/welcome',
+                  path: 'welcome',
                   name: 'two',
                   icon: 'smile',
                   component: './Welcome',
                 },
                 {
-                  path: '/welcome/welcome2',
+                  path: 'welcome2',
                   name: 'two2',
                   icon: 'smile',
                   component: './Welcome',

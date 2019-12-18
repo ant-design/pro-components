@@ -16,7 +16,7 @@ interface FormatterProps {
 // Conversion router to menu.
 function formatter(
   props: FormatterProps,
-  parent?: MenuDataItem,
+  parent: Partial<MenuDataItem> = { path: '/' },
 ): MenuDataItem[] {
   const {
     data,
@@ -40,7 +40,7 @@ function formatter(
       }
       return false;
     })
-    .map((item = { path: '' }) => {
+    .map((item = { path: '/' }) => {
       if (!item.name) {
         return item;
       }
@@ -52,13 +52,14 @@ function formatter(
         menu.locale !== false && formatMessage
           ? formatMessage({ id: locale, defaultMessage: name })
           : name;
-
+      const { parentKeys = [] } = parent;
       const result: MenuDataItem = {
         ...item,
         name: localeName,
         locale,
-        key: genKeyByPath(item.path, parent && parent?.key),
+        key: item.key || genKeyByPath(item.path),
         routes: null,
+        parentKeys: [...parentKeys, parent.key || '/'],
       };
       if (item.routes || item.children) {
         const children = formatter(
@@ -153,7 +154,7 @@ function fromEntries(iterable: any) {
 
 export default (
   routes: Route[],
-  menu?: { locale: boolean },
+  menu?: { locale?: boolean },
   formatMessage?: (message: MessageDescriptor) => string,
   menuDataRender?: (menuData: MenuDataItem[]) => MenuDataItem[],
 ) => {
