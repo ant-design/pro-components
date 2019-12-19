@@ -53,6 +53,8 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
       layout,
       className: propsClassName,
       style,
+      collapsed,
+      siderWidth,
     } = this.props;
 
     const isTop = layout === 'topmenu';
@@ -66,7 +68,15 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
       <>
         {fixedHeader && <Header />}
         <Header
-          style={{ padding: 0, width: '100%', zIndex: 9, ...style }}
+          style={{
+            padding: 0,
+            width: fixedHeader
+              ? `calc(100% - ${collapsed ? 80 : siderWidth}px)`
+              : '100%',
+            zIndex: 9,
+            right: fixedHeader ? 0 : undefined,
+            ...style,
+          }}
           className={className}
         >
           {this.renderContent()}
