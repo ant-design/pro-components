@@ -135,7 +135,11 @@ export interface BasicLayoutProps
   disableContentMargin?: boolean;
 }
 
-const headerRender = (props: BasicLayoutProps): React.ReactNode => {
+const headerRender = (
+  props: BasicLayoutProps & {
+    hasSiderMenu: boolean;
+  },
+): React.ReactNode => {
   if (props.headerRender === false) {
     return null;
   }
@@ -379,6 +383,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
   // render header dom
   const headerDom = headerRender({
     ...defaultProps,
+    hasSiderMenu: !!siderMenuDom,
     menuData,
     isMobile,
     collapsed,

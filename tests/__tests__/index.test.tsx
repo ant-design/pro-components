@@ -397,4 +397,45 @@ describe('BasicLayout', () => {
 
     expect(dom.exists()).toBeFalsy();
   });
+
+  it('🥩 fixSider and collapsed should have different style', async () => {
+    const wrapper = mount<BasicLayoutProps>(<BasicLayout collapsed />);
+    await waitForComponentToPaint(wrapper);
+
+    let dom = wrapper.find('.ant-pro-fixed-header');
+    expect(dom.exists()).toBeFalsy();
+    wrapper.setProps({
+      fixedHeader: true,
+    });
+    await waitForComponentToPaint(wrapper);
+    dom = wrapper.find('header.ant-pro-fixed-header');
+    expect(dom.exists()).toBeTruthy();
+    expect(dom.props()?.style?.width).toBe('calc(100% - 80px)');
+
+    wrapper.setProps({
+      fixedHeader: true,
+      collapsed: false,
+    });
+
+    dom = wrapper.find('header.ant-pro-fixed-header');
+    expect(dom.props()?.style?.width).toBe('calc(100% - 256px)');
+
+    wrapper.setProps({
+      fixedHeader: true,
+      collapsed: false,
+      siderWidth: 120,
+    });
+
+    dom = wrapper.find('header.ant-pro-fixed-header');
+    expect(dom.props()?.style?.width).toBe('calc(100% - 120px)');
+
+    wrapper.setProps({
+      fixedHeader: true,
+      collapsed: false,
+      menuRender: false,
+    });
+
+    dom = wrapper.find('header.ant-pro-fixed-header');
+    expect(dom.props()?.style?.width).toBe('100%');
+  });
 });
