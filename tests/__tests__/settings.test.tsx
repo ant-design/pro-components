@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import BasicLayout from '../../src/BasicLayout';
+import { waitForComponentToPaint } from './util';
 
 describe('settings.test', () => {
   beforeAll(() => {
@@ -17,8 +18,9 @@ describe('settings.test', () => {
     });
   });
 
-  it('set title', () => {
+  it('set title', async () => {
     const wrapper = mount(<BasicLayout title="test-title" />);
+    await waitForComponentToPaint(wrapper);
     let title = wrapper.find('#logo').text();
     expect(title).toEqual('test-title');
     wrapper.setProps({

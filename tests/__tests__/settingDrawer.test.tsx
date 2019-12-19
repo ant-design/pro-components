@@ -1,8 +1,8 @@
 import { mount, render } from 'enzyme';
-
 import React from 'react';
 import SettingDrawer, { SettingDrawerProps } from '../../src/SettingDrawer';
 import defaultSettings from './defaultSettings';
+import { waitForComponentToPaint } from './util';
 
 describe('settingDrawer.test', () => {
   beforeAll(() => {
@@ -47,7 +47,19 @@ describe('settingDrawer.test', () => {
     expect(html).toMatchSnapshot();
   });
 
-  it('onCollapseChange', () => {
+  it('hideHintAlert = true', () => {
+    const html = render(
+      <SettingDrawer
+        settings={defaultSettings}
+        hideHintAlert
+        getContainer={false}
+        collapse
+      />,
+    );
+    expect(html).toMatchSnapshot();
+  });
+
+  it('onCollapseChange', async () => {
     const onCollapseChange = jest.fn();
     const wrapper = mount(
       <SettingDrawer
@@ -57,12 +69,13 @@ describe('settingDrawer.test', () => {
         onCollapseChange={onCollapseChange}
       />,
     );
+    await waitForComponentToPaint(wrapper);
     const button = wrapper.find('.ant-pro-setting-drawer-handle');
     button.simulate('click');
     expect(onCollapseChange).toHaveBeenCalled();
   });
 
-  it('collapse', () => {
+  it('collapse', async () => {
     const onCollapseChange = jest.fn();
     const wrapper = mount<SettingDrawerProps>(
       <SettingDrawer
@@ -72,6 +85,7 @@ describe('settingDrawer.test', () => {
         onCollapseChange={onCollapseChange}
       />,
     );
+    await waitForComponentToPaint(wrapper);
     expect(
       wrapper.find('.ant-pro-setting-drawer-handle Icon').props().type,
     ).toBe('close');

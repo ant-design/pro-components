@@ -2,6 +2,7 @@ import { render, mount } from 'enzyme';
 import React from 'react';
 import ProLayout, { PageHeaderWrapper } from '../../src';
 import defaultProps from './defaultProps';
+import { waitForComponentToPaint } from './util';
 
 describe('BasicLayout', () => {
   beforeAll(() => {
@@ -30,31 +31,34 @@ describe('BasicLayout', () => {
     expect(html).toMatchSnapshot();
   });
 
-  it('title=false, don not render title view', () => {
+  it('title=false, don not render title view', async () => {
     const wrapper = mount(
       <ProLayout {...defaultProps}>
         <PageHeaderWrapper title={false} />
       </ProLayout>,
     );
+    await waitForComponentToPaint(wrapper);
     expect(wrapper.find('.ant-page-header-heading-title')).toHaveLength(0);
   });
 
-  it('have default title', () => {
+  it('have default title', async () => {
     const wrapper = mount(
       <ProLayout {...defaultProps}>
         <PageHeaderWrapper />
       </ProLayout>,
     );
+    await waitForComponentToPaint(wrapper);
     const titleDom = wrapper.find('.ant-page-header-heading-title');
     expect(titleDom.text()).toEqual('welcome');
   });
 
-  it('title overrides the default title', () => {
+  it('title overrides the default title', async () => {
     const wrapper = mount(
       <ProLayout {...defaultProps}>
         <PageHeaderWrapper title="name" />
       </ProLayout>,
     );
+    await waitForComponentToPaint(wrapper);
     const titleDom = wrapper.find('.ant-page-header-heading-title');
     expect(titleDom.text()).toEqual('name');
   });

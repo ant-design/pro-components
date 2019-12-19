@@ -2,9 +2,7 @@ import './index.less';
 
 import React, { Component } from 'react';
 import classNames from 'classnames';
-
 import { Icon } from 'antd';
-import debounce from 'lodash/debounce';
 import { HeaderViewProps } from '../Header';
 import { defaultRenderLogo, SiderMenuProps } from '../SiderMenu/SiderMenu';
 import { isBrowser } from '../utils/utils';
@@ -41,17 +39,13 @@ const renderLogo = (
 };
 
 export default class GlobalHeader extends Component<GlobalHeaderProps> {
-  triggerResizeEvent = debounce(() => {
-    const event = document.createEvent('HTMLEvents');
-    event.initEvent('resize', true, false);
+  triggerResizeEvent = () => {
     if (isBrowser()) {
+      const event = document.createEvent('HTMLEvents');
+      event.initEvent('resize', true, false);
       window.dispatchEvent(event);
     }
-  });
-
-  componentWillUnmount(): void {
-    this.triggerResizeEvent.cancel();
-  }
+  };
 
   toggle = () => {
     const { collapsed, onCollapse } = this.props;

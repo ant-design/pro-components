@@ -2,6 +2,7 @@ import { mount, render } from 'enzyme';
 
 import React from 'react';
 import BasicLayout, { BasicLayoutProps } from '../../src/BasicLayout';
+import { waitForComponentToPaint } from './util';
 
 describe('BasicLayout', () => {
   beforeAll(() => {
@@ -23,8 +24,9 @@ describe('BasicLayout', () => {
     expect(html).toMatchSnapshot();
   });
 
-  it('🥩 do not render menu', () => {
+  it('🥩 do not render menu', async () => {
     const wrapper = mount(<BasicLayout menuRender={false} />);
+    await waitForComponentToPaint(wrapper);
     const menu = wrapper.find('.ant-pro-sider-menu');
     expect(menu.exists()).toBe(false);
     expect(
@@ -212,13 +214,14 @@ describe('BasicLayout', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('🥩 do not render footer', () => {
+  it('🥩 do not render footer', async () => {
     const wrapper = mount(<BasicLayout footerRender={false} />);
+    await waitForComponentToPaint(wrapper);
     const footer = wrapper.find('footer');
     expect(footer.exists()).toBe(false);
   });
 
-  it('🥩 use onLogoClick', () => {
+  it('🥩 use onLogoClick', async () => {
     const onLogoClick = jest.fn();
     const wrapper = mount(
       <BasicLayout
@@ -229,59 +232,67 @@ describe('BasicLayout', () => {
         }
       />,
     );
+    await waitForComponentToPaint(wrapper);
     const logo = wrapper.find('#test_log');
     logo.simulate('click');
     expect(onLogoClick).toHaveBeenCalled();
   });
 
-  it('🥩 render logo', () => {
+  it('🥩 render logo', async () => {
     const wrapper = mount(<BasicLayout logo={<div id="test_log">Logo</div>} />);
+    await waitForComponentToPaint(wrapper);
     const logo = wrapper.find('#test_log');
     expect(logo.text()).toEqual('Logo');
   });
 
-  it('🥩 render logo by function', () => {
+  it('🥩 render logo by function', async () => {
     const wrapper = mount(
       <BasicLayout logo={() => <div id="test_log">Logo</div>} />,
     );
+    await waitForComponentToPaint(wrapper);
     const logo = wrapper.find('#test_log');
     expect(logo.text()).toEqual('Logo');
   });
 
-  it('🥩 onCollapse', () => {
+  it('🥩 onCollapse', async () => {
     const onCollapse = jest.fn();
     const wrapper = mount(
       <BasicLayout collapsed={false} onCollapse={onCollapse} />,
     );
+    await waitForComponentToPaint(wrapper);
     wrapper.find('.ant-pro-global-header-trigger').simulate('click');
     expect(onCollapse).toHaveBeenCalled();
   });
 
-  it('🥩 siderWidth default', () => {
+  it('🥩 siderWidth default', async () => {
     const wrapper = mount(<BasicLayout />);
+    await waitForComponentToPaint(wrapper);
     expect(wrapper.find('.ant-pro-sider-menu-sider').get(0).props.width).toBe(
       256,
     );
   });
 
-  it('🥩 siderWidth=160', () => {
+  it('🥩 siderWidth=160', async () => {
     const wrapper = mount(<BasicLayout siderWidth={160} />);
+    await waitForComponentToPaint(wrapper);
     expect(wrapper.find('.ant-pro-sider-menu-sider').get(0).props.width).toBe(
       160,
     );
   });
 
-  it('🥩 do not render collapsed button', () => {
+  it('🥩 do not render collapsed button', async () => {
     const wrapper = mount(<BasicLayout collapsedButtonRender={false} />);
+    await waitForComponentToPaint(wrapper);
     expect(wrapper.find('.ant-pro-global-header-trigger').exists()).toBe(false);
   });
 
-  it('🥩 when renderMenu=false, do not render collapsed button', () => {
+  it('🥩 when renderMenu=false, do not render collapsed button', async () => {
     const wrapper = mount(<BasicLayout menuRender={false} />);
+    await waitForComponentToPaint(wrapper);
     expect(wrapper.find('.ant-pro-global-header-trigger').exists()).toBe(false);
   });
 
-  it('🥩 render customize collapsed button', () => {
+  it('🥩 render customize collapsed button', async () => {
     const wrapper = mount<BasicLayoutProps>(
       <BasicLayout
         collapsedButtonRender={collapsed => (
@@ -289,6 +300,7 @@ describe('BasicLayout', () => {
         )}
       />,
     );
+    await waitForComponentToPaint(wrapper);
     const dom = wrapper.find('#customize_collapsed_button');
     expect(dom.text()).toEqual('false');
 
@@ -298,16 +310,17 @@ describe('BasicLayout', () => {
     expect(dom.text()).toEqual('true');
   });
 
-  it('🥩 do not render menu header', () => {
+  it('🥩 do not render menu header', async () => {
     const wrapper = mount<BasicLayoutProps>(
       <BasicLayout menuHeaderRender={false} />,
     );
+    await waitForComponentToPaint(wrapper);
     const dom = wrapper.find('#logo');
 
     expect(dom.exists()).toBe(false);
   });
 
-  it('🥩 customize render menu header', () => {
+  it('🥩 customize render menu header', async () => {
     const wrapper = mount<BasicLayoutProps>(
       <BasicLayout
         menuHeaderRender={(logo, title) => (
@@ -319,6 +332,7 @@ describe('BasicLayout', () => {
         )}
       />,
     );
+    await waitForComponentToPaint(wrapper);
 
     const dom = wrapper.find('#customize_menu_header');
     expect(dom.exists()).toBe(true);
@@ -328,7 +342,7 @@ describe('BasicLayout', () => {
     );
   });
 
-  it('🥩 contentStyle should change dom', () => {
+  it('🥩 contentStyle should change dom', async () => {
     const wrapper = render(
       <BasicLayout
         contentStyle={{
@@ -339,7 +353,7 @@ describe('BasicLayout', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('🥩 support className', () => {
+  it('🥩 support className', async () => {
     const wrapper = mount<BasicLayoutProps>(
       <BasicLayout
         className="chenshuai2144"
@@ -351,21 +365,23 @@ describe('BasicLayout', () => {
     expect(wrapper.find('div.chenshuai2144').exists()).toBeTruthy();
   });
 
-  it('🥩 support links', () => {
+  it('🥩 support links', async () => {
     const wrapper = mount<BasicLayoutProps>(<BasicLayout links={['name']} />);
+    await waitForComponentToPaint(wrapper);
     const dom = wrapper.find('.ant-pro-sider-menu-links');
 
     expect(dom.exists()).toBeTruthy();
   });
 
-  it('🥩 do no render links', () => {
+  it('🥩 do no render links', async () => {
     const wrapper = mount<BasicLayoutProps>(<BasicLayout />);
+    await waitForComponentToPaint(wrapper);
     const dom = wrapper.find('.ant-pro-sider-menu-links');
 
     expect(dom.exists()).toBeFalsy();
   });
 
-  it('🥩 set page title render', () => {
+  it('🥩 set page title render', async () => {
     const wrapper = mount<BasicLayoutProps>(
       <BasicLayout
         pageTitleRender={(props, pageName, info) => {
@@ -376,6 +392,7 @@ describe('BasicLayout', () => {
         }}
       />,
     );
+    await waitForComponentToPaint(wrapper);
     const dom = wrapper.find('.ant-pro-sider-menu-links');
 
     expect(dom.exists()).toBeFalsy();

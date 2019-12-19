@@ -86,6 +86,7 @@ import { SettingDrawer } from '@ant-design/pro-layout';
 | --- | --- | --- | --- |
 | settings | layout settings | [`Settings`](#Settings) | [`Settings`](#Settings) | - |
 | onSettingChange | The setting changes event | (settings: [Settings](#Settings)) => void | - |
+| hideHintAlert | remove hint info | boolean | - |
 
 ### PageHeaderWrapper
 

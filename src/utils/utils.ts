@@ -36,8 +36,11 @@ export function guid() {
   });
 }
 
-export const getOpenKeysFromMenuData = (menuData?: MenuDataItem[]) =>
-  menuData?.reduce((pre, item) => {
+export const getOpenKeysFromMenuData = (menuData?: MenuDataItem[]) => {
+  if (!menuData) {
+    return undefined;
+  }
+  return menuData.reduce((pre, item) => {
     if (item.key) {
       pre.push(item.key);
     }
@@ -49,3 +52,4 @@ export const getOpenKeysFromMenuData = (menuData?: MenuDataItem[]) =>
     }
     return pre;
   }, [] as string[]);
+};

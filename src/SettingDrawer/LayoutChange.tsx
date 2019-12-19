@@ -22,7 +22,6 @@ const LayoutSetting: React.FC<{
   const formatMessage = getFormatMessage();
   const { contentWidth, fixedHeader, layout, fixSiderbar } =
     settings || defaultSettings;
-
   return (
     <List
       split={false}

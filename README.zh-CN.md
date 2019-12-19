@@ -80,6 +80,7 @@ render(<BasicLayout />, document.getElementById('root'));
 | --- | --- | --- | --- |
 | settings | layout 的设置 | [`Settings`](#Settings) | [`Settings`](#Settings) | - |
 | onSettingChange | [`Settings`](#Settings) 发生更改事件 | (settings: [`Settings`](#Settings) ) => void | - |
+| hideHintAlert | 删除下方的提示信息 | boolean | - |
 
 ### PageHeaderWrapper
 

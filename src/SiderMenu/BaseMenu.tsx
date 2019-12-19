@@ -246,7 +246,7 @@ const BaseMenu: React.FC<BaseMenuProps> = props => {
     handleOpenChange,
     style,
     menuData,
-    menu,
+    menu = { locale: true },
     iconfontUrl,
     selectedKeys: propsSelectedKeys,
     onSelect,
@@ -257,13 +257,13 @@ const BaseMenu: React.FC<BaseMenuProps> = props => {
 
   const ref = useRef(null);
   const { flatMenuKeys, flatMenus } = MenuCounter.useContainer();
-  const [defaultOpenAll, setDefaultOpenAll] = useState(menu?.defaultOpenAll);
+  const [defaultOpenAll, setDefaultOpenAll] = useState(menu.defaultOpenAll);
 
   const [openKeys, setOpenKeys] = useMergeValue<
     WithFalse<string[] | undefined>
   >(
     () => {
-      if (menu?.defaultOpenAll) {
+      if (menu.defaultOpenAll) {
         return getOpenKeysFromMenuData(menuData) || [];
       }
       if (propsOpenKeys === false) {
@@ -281,7 +281,7 @@ const BaseMenu: React.FC<BaseMenuProps> = props => {
     if (!flatMenus || flatMenuKeys.length === 0) {
       return;
     }
-    if (menu?.defaultOpenAll || propsOpenKeys === false) {
+    if (menu.defaultOpenAll || propsOpenKeys === false) {
       return;
     }
     const keys = getSelectedMenuKeys(

@@ -32,6 +32,7 @@ export interface Settings {
   // Usage: https://github.com/ant-design/ant-design-pro/pull/3517
   iconfontUrl: string;
   primaryColor: string;
+  colorWeak?: boolean;
 }
 
 const defaultSettings: Settings = {

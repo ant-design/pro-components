@@ -86,7 +86,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
           {props.children}
         </ProLayout>
         <SettingDrawer
-          settings={settings}
+          // settings={settings}
           onSettingChange={config => setSettings(config)}
         />
       </ProLayout>
