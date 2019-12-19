@@ -57,6 +57,12 @@ export default {
           component: './Welcome',
         },
         {
+          name: 'flex 布局测试',
+          icon: 'smile',
+          path: 'flex',
+          component: './FlexDemo',
+        },
+        {
           name: '分析页',
           icon: 'smile',
           path: '/dashboardanalysis',
@@ -74,6 +80,7 @@ export default {
           path: 'formadvancedform',
           component: './FormAdvancedForm',
         },
+
         {
           path: 'single',
           name: 'Single',

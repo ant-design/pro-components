@@ -28,17 +28,13 @@
   width: 100%;
   min-height: 100%;
 
-  &.@{basicLayout-prefix-cls}-fix-siderbar {
-    > section.ant-layout {
-      > section.ant-layout {
-        height: 100vh;
-      }
-    }
-  }
-
   .ant-layout-header {
+    &:not(.ant-pro-top-menu) {
+      background: @component-background;
+    }
+
     &.ant-pro-fixed-header {
-      position: sticky;
+      position: fixed;
       top: 0;
     }
   }
@@ -61,19 +57,30 @@
   }
 
   // children should support fixed
-  .@{basicLayout-prefix-cls}-is-children {
+  .@{basicLayout-prefix-cls}-is-children.@{basicLayout-prefix-cls}-fix-siderbar {
+    height: 100vh;
     overflow: hidden;
     transform: rotate(0);
-    transition: all 0.2s;
   }
 
   .@{basicLayout-prefix-cls}-has-header {
-    .@{basicLayout-prefix-cls}-is-children.@{basicLayout-prefix-cls}-fix-siderbar {
-      section.ant-layout {
-        section.ant-layout {
-          height: calc(100vh - @layout-header-height);
-        }
+    .@{basicLayout-prefix-cls}-is-children {
+      min-height: calc(100vh - @layout-header-height);
+      &.@{basicLayout-prefix-cls}-fix-siderbar {
+        height: calc(100vh - @layout-header-height);
       }
+    }
+  }
+
+  // tech-page-container
+  .@{basicLayout-prefix-cls}-has-header .tech-page-container {
+    height: calc(100vh - @layout-header-height);
+  }
+
+  .@{basicLayout-prefix-cls}-has-header
+    .@{basicLayout-prefix-cls}-is-children.@{basicLayout-prefix-cls}-has-header {
+    .tech-page-container {
+      height: calc(100vh - @layout-header-height - @layout-header-height);
     }
   }
 }

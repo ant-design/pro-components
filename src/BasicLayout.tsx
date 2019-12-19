@@ -9,8 +9,6 @@ import warning from 'warning';
 import useMergeValue from 'use-merge-value';
 import { useMediaQuery } from 'react-responsive';
 import Omit from 'omit.js';
-import ResizeObserver from 'rc-resize-observer';
-
 import Header, { HeaderViewProps } from './Header';
 import {
   MenuDataItem,
@@ -32,8 +30,7 @@ import getMenuData from './utils/getMenuData';
 import { isBrowser } from './utils/utils';
 import PageLoading from './PageLoading';
 import MenuCounter from './SiderMenu/Counter';
-
-const { Content } = Layout;
+import WrapContent from './WrapContent';
 
 const MediaQueryEnum = {
   'screen-xs': {
@@ -439,7 +436,6 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     'ant-pro-basicLayout-has-header': headerDom,
     'ant-pro-basicLayout-content-disable-margin': disableContentMargin,
   });
-  const [contentSize, setContentSize] = useState<number | string>('100%');
 
   // warning info
   useEffect(() => {
@@ -466,35 +462,25 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
             {siderMenuDom}
             <Layout style={genLayoutStyle}>
               {headerDom}
-              <Content
-                className={contentClassName}
-                style={{
-                  ...contentStyle,
-                  minHeight: contentSize,
+              <RouteContext.Provider
+                value={{
+                  ...defaultProps,
+                  breadcrumb: breadcrumbProps,
+                  menuData,
+                  isMobile,
+                  collapsed,
+                  isChildrenLayout: true,
+                  title: pageTitleInfo.pageName,
                 }}
               >
-                <ResizeObserver
-                  onResize={({ height }) => {
-                    setContentSize(height);
-                  }}
+                <WrapContent
+                  className={contentClassName}
+                  style={contentStyle}
+                  isChildrenLayout={isChildrenLayout}
                 >
-                  <RouteContext.Provider
-                    value={{
-                      ...defaultProps,
-                      breadcrumb: breadcrumbProps,
-                      menuData,
-                      isMobile,
-                      collapsed,
-                      isChildrenLayout: true,
-                      title: pageTitleInfo.pageName,
-                    }}
-                  >
-                    <div className="ant-pro-basicLayout-children-content-wrap">
-                      {loading ? <PageLoading /> : children}
-                    </div>
-                  </RouteContext.Provider>
-                </ResizeObserver>
-              </Content>
+                  {loading ? <PageLoading /> : children}
+                </WrapContent>
+              </RouteContext.Provider>
               {footerDom}
             </Layout>
           </Layout>

@@ -10,7 +10,6 @@ import ProLayout, {
   Settings,
   SettingDrawer,
   DefaultFooter,
-  PageHeaderWrapper,
 } from '../../../src/';
 import React, { useState } from 'react';
 import { Icon } from 'antd';
@@ -84,9 +83,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
           {...props}
           {...settings}
         >
-          <PageHeaderWrapper content="欢迎您的使用">
-            {props.children}
-          </PageHeaderWrapper>
+          {props.children}
         </ProLayout>
         <SettingDrawer
           settings={settings}

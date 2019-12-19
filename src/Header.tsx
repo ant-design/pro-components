@@ -63,12 +63,15 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
     });
 
     return (
-      <Header
-        style={{ padding: 0, width: '100%', zIndex: 9, ...style }}
-        className={className}
-      >
-        {this.renderContent()}
-      </Header>
+      <>
+        {fixedHeader && <Header />}
+        <Header
+          style={{ padding: 0, width: '100%', zIndex: 9, ...style }}
+          className={className}
+        >
+          {this.renderContent()}
+        </Header>
+      </>
     );
   }
 }
