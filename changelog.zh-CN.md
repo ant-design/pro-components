@@ -1,5 +1,11 @@
 # 更新日志
 
+### 4.10.0
+
+- 🐞 修复顶部菜单响应式的问题。 [#243](https://github.com/ant-design/ant-design-pro-layout/pull/243)
+- 🔧 重构 Layout 的盒模型与菜单算法。 [#247](https://github.com/ant-design/ant-design-pro-layout/pull/247)
+- 🐞 修复 url 参数对 SettingDrawer 不起作用的问题。 [#246](https://github.com/ant-design/ant-design-pro-layout/pull/246)
+
 ### 4.9.11
 
 - 🌟 Menu 的 `key` 与 `path` 解耦 [#238](https://github.com/ant-design/ant-design-pro-layout/pull/238)
@@ -8,7 +14,7 @@
 
 ### 4.9.10
 
-- 🐞 Stricter locale judgment. [567cbdf](https://github.com/ant-design/ant-design-pro-layout/commit/567cbdf)
+- 🐞 更严格的 `menu.locale` 判断。 [567cbdf](https://github.com/ant-design/ant-design-pro-layout/commit/567cbdf)
 
 ### 4.9.9
 

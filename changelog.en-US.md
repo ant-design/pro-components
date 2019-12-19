@@ -1,5 +1,11 @@
 # changelog
 
+### 4.10.0
+
+- 🐞 Fix the problem that the top menu bar is not responsive. [#243](https://github.com/ant-design/ant-design-pro-layout/pull/243)
+- 🔧 Refactored layout box model. [#247](https://github.com/ant-design/ant-design-pro-layout/pull/247)
+- 🐞 Fix settingDrawer no work for url params. [#246](https://github.com/ant-design/ant-design-pro-layout/pull/246)
+
 ### 4.9.11
 
 - 🌟 Decoupling the menu `key` from the `path`. [#238](https://github.com/ant-design/ant-design-pro-layout/pull/238)
