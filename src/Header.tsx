@@ -61,6 +61,8 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
 
     const isTop = layout === 'topmenu';
 
+    const needSettingWidth = fixedHeader && hasSiderMenu && !isTop;
+
     const className = classNames(propsClassName, {
       'ant-pro-fixed-header': fixedHeader,
       'ant-pro-top-menu': isTop,
@@ -72,10 +74,9 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
         <Header
           style={{
             padding: 0,
-            width:
-              fixedHeader && hasSiderMenu
-                ? `calc(100% - ${collapsed ? 80 : siderWidth}px)`
-                : '100%',
+            width: needSettingWidth
+              ? `calc(100% - ${collapsed ? 80 : siderWidth}px)`
+              : '100%',
             zIndex: 9,
             right: fixedHeader ? 0 : undefined,
             ...style,

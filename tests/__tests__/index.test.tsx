@@ -437,5 +437,13 @@ describe('BasicLayout', () => {
 
     dom = wrapper.find('header.ant-pro-fixed-header');
     expect(dom.props()?.style?.width).toBe('100%');
+
+    wrapper.setProps({
+      fixedHeader: true,
+      layout: 'topmenu',
+    });
+
+    dom = wrapper.find('header.ant-pro-fixed-header');
+    expect(dom.props()?.style?.width).toBe('100%');
   });
 });

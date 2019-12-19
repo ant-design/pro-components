@@ -429,7 +429,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = props => {
     if (window.location.search) {
       params = parse(window.location.search.replace('?', ''));
     }
-    const diffParams = getDifferentSetting({ ...params, ...settingState });
+    const diffParams = getDifferentSetting({ ...settingState, ...params });
     if (Object.keys(settingState).length < 1) {
       return;
     }
@@ -526,6 +526,8 @@ const SettingDrawer: React.FC<SettingDrawerProps> = props => {
             message={formatMessage({
               id: 'app.setting.production.hint',
             })}
+            icon={<Icon type="notification" />}
+            showIcon
             style={{ marginBottom: 16 }}
           />
         )}
