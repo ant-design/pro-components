@@ -46,7 +46,6 @@ describe('BasicLayout', () => {
               path: '/home',
               name: '首页',
               icon: 'smile',
-
               locale: 'menu.home',
               children: [
                 {
@@ -107,7 +106,6 @@ describe('BasicLayout', () => {
                   menuName: '域&middot;买家维度交易2',
                   name: '域&middot;买家维度交易2',
                   icon: 'smile',
-                  path: '/',
                   children: [
                     {
                       id: 5,
@@ -140,7 +138,6 @@ describe('BasicLayout', () => {
                   menuName: '域&middot;买家维度交易2',
                   name: '域&middot;买家维度交易2',
                   icon: 'smile',
-                  path: '/',
                   children: [
                     {
                       id: 7,
@@ -205,7 +202,6 @@ describe('BasicLayout', () => {
                   hideInMenu: true,
                 },
               ],
-              hideInMenu: true,
             },
           ] as any
         }

@@ -23,7 +23,7 @@ export interface MenuDataItem {
   locale?: string;
   name?: string;
   key?: string;
-  path: string;
+  path?: string;
   [key: string]: any;
   parentKeys?: string[];
 }
