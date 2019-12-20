@@ -40,25 +40,22 @@ export default () => {
         location={{
           pathname: '/home/overview',
         }}
-        menuHeaderRender={(logo, title, props = { collapsed: false }) =>
-          props.collapsed ? (
-            <div>{logo}</div>
-          ) : (
-            <div
+        menuHeaderRender={(logo, title, props = { collapsed: false }) => (
+          <div>
+            {logo}
+            {title}
+            <Input.Search
               style={{
-                paddingRight: 30,
+                width: props.collapsed ? 0 : '100%',
+                transition: props.collapsed ? undefined : 'all 0.3s',
+                opacity: props.collapsed ? 0 : 1,
               }}
-            >
-              {logo}
-              {title}
-              <Input.Search
-                onSearch={e => {
-                  setKeyWord(e);
-                }}
-              />
-            </div>
-          )
-        }
+              onSearch={e => {
+                setKeyWord(e);
+              }}
+            />
+          </div>
+        )}
         menuDataRender={() => filterByMenuDate(complexMenu, keyWord)}
       >
         <PageHeaderWrapper content="欢迎使用">

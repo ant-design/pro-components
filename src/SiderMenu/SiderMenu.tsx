@@ -35,12 +35,13 @@ export const defaultRenderLogoAndTitle = (
   const titleDom = <h1>{title}</h1>;
 
   if (menuHeaderRender) {
-    return menuHeaderRender(logoDom, titleDom, props);
+    // when collapsed, no render title
+    return menuHeaderRender(logoDom, props.collapsed ? null : titleDom, props);
   }
   return (
     <a href="/">
       {logoDom}
-      {titleDom}
+      {props.collapsed ? null : titleDom}
     </a>
   );
 };
@@ -73,7 +74,6 @@ const SiderMenu: React.FC<SiderMenuProps> = props => {
     theme,
     siderWidth = 256,
     isMobile,
-
     onMenuHeaderClick,
     breakpoint = 'lg',
     style,
