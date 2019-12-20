@@ -138,6 +138,7 @@
     "slash2": "^2.0.0",
     "stylelint": "^11.0.0",
     "umi": "^2.9.6",
+    "umi-plugin-githubpages": "^1.0.0",
     "umi-types": "^0.5.2"
   },
   "peerDependencies": {
