@@ -166,7 +166,7 @@ class MenuUtil {
    * @memberof SiderMenu
    */
   getMenuItemPath = (item: MenuDataItem) => {
-    const itemPath = this.conversionPath(item.path);
+    const itemPath = this.conversionPath(item.path || '/');
     const icon = getIcon(item.icon);
     const {
       location = { pathname: '/' },

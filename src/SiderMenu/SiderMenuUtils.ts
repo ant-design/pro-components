@@ -12,7 +12,7 @@ export const getFlatMenuKeys = (menuData: MenuDataItem[] = []): string[] => {
     if (!item) {
       return;
     }
-    keys.push(item.path);
+    keys.push(item.path || '/');
     if (item.children) {
       keys = keys.concat(getFlatMenuKeys(item.children));
     }
@@ -35,7 +35,7 @@ export const getFlatMenus = (
     if (!item) {
       return;
     }
-    menus[item.path] = item;
+    menus[item.path || '/'] = item;
     if (item.children) {
       menus = { ...menus, ...getFlatMenus(item.children) };
     }

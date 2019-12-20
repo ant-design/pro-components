@@ -21,10 +21,13 @@ export const defaultRenderLogo = (logo: React.ReactNode): React.ReactNode => {
 };
 
 export const defaultRenderLogoAndTitle = (
-  logo: React.ReactNode,
-  title: React.ReactNode,
-  menuHeaderRender: SiderMenuProps['menuHeaderRender'],
+  props: SiderMenuProps,
 ): React.ReactNode => {
+  const {
+    logo = 'https://gw.alipayobjects.com/zos/antfincdn/PmY%24TNNDBI/logo.svg',
+    title,
+    menuHeaderRender,
+  } = props;
   if (menuHeaderRender === false) {
     return null;
   }
@@ -32,7 +35,7 @@ export const defaultRenderLogoAndTitle = (
   const titleDom = <h1>{title}</h1>;
 
   if (menuHeaderRender) {
-    return menuHeaderRender(logoDom, titleDom);
+    return menuHeaderRender(logoDom, titleDom, props);
   }
   return (
     <a href="/">
@@ -47,7 +50,11 @@ export interface SiderMenuProps
   logo?: React.ReactNode;
   siderWidth?: number;
   menuHeaderRender?: WithFalse<
-    (logo: React.ReactNode, title: React.ReactNode) => React.ReactNode
+    (
+      logo: React.ReactNode,
+      title: React.ReactNode,
+      props?: SiderMenuProps,
+    ) => React.ReactNode
   >;
   breakpoint?: SiderProps['breakpoint'] | false;
   onMenuHeaderClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
@@ -66,9 +73,7 @@ const SiderMenu: React.FC<SiderMenuProps> = props => {
     theme,
     siderWidth = 256,
     isMobile,
-    logo = 'https://gw.alipayobjects.com/zos/antfincdn/PmY%24TNNDBI/logo.svg',
-    title,
-    menuHeaderRender: renderLogoAndTitle,
+
     onMenuHeaderClick,
     breakpoint = 'lg',
     style,
@@ -83,7 +88,7 @@ const SiderMenu: React.FC<SiderMenuProps> = props => {
     light: theme === 'light',
   });
 
-  const headerDom = defaultRenderLogoAndTitle(logo, title, renderLogoAndTitle);
+  const headerDom = defaultRenderLogoAndTitle(props);
 
   return (
     <Sider

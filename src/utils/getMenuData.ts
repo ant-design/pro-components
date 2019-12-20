@@ -57,7 +57,7 @@ function formatter(
         ...item,
         name: localeName,
         locale,
-        key: item.key || genKeyByPath(item.path),
+        key: item.key || genKeyByPath(item.path || '/'),
         routes: null,
         parentKeys: [...parentKeys, parent.key || '/'],
       };

@@ -24,14 +24,11 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = props => {
     onMenuHeaderClick,
     contentWidth,
     rightContentRender,
-    logo,
-    title,
-    menuHeaderRender,
     className: propsClassName,
     style,
   } = props;
   const baseClassName = 'ant-pro-top-nav-header';
-  const headerDom = defaultRenderLogoAndTitle(logo, title, menuHeaderRender);
+  const headerDom = defaultRenderLogoAndTitle(props);
 
   const className = classNames(baseClassName, propsClassName, {
     light: theme === 'light',
