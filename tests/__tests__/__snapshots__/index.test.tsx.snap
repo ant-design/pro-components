@@ -67,6 +67,9 @@ exports[`BasicLayout 🥩 base use 1`] = `
               </svg>
             </i>
           </span>
+          <div
+            style="flex:1"
+          />
         </div>
       </header>
       <main
@@ -149,6 +152,9 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
               </svg>
             </i>
           </span>
+          <div
+            style="flex:1"
+          />
         </div>
       </header>
       <main
@@ -231,6 +237,9 @@ exports[`BasicLayout 🥩 support loading 1`] = `
               </svg>
             </i>
           </span>
+          <div
+            style="flex:1"
+          />
         </div>
       </header>
       <main
@@ -338,6 +347,9 @@ exports[`BasicLayout 🥩 support menuDateRender 1`] = `
               </svg>
             </i>
           </span>
+          <div
+            style="flex:1"
+          />
         </div>
       </header>
       <main

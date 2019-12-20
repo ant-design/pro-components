@@ -45,7 +45,7 @@
     "site": "father-doc build && gh-pages -d ./dist",
     "start": "cd ./example && umi dev",
     "doc": "father-doc dev",
-    "test": "umi test"
+    "test": "father test"
   },
   "husky": {
     "hooks": {
