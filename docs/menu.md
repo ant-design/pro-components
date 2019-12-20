@@ -1,5 +1,6 @@
 ---
 title: menu 的相关能力
+order: 9
 ---
 
 # menu 的各种操作

@@ -1,18 +1,46 @@
-import React from 'react';
-// eslint-disable-next-line import/no-unresolved
-import ProLayout, { PageHeaderWrapper } from '@ant-design/pro-layout';
+import React, { useState } from 'react';
+import ProLayout, {
+  PageHeaderWrapper,
+  SettingDrawer,
+  // eslint-disable-next-line import/no-unresolved
+} from '@ant-design/pro-layout';
 import defaultProps from './defaultProps';
 
-export default () => (
-  <ProLayout
-    {...defaultProps}
-    style={{
-      height: 500,
-    }}
-    location={{
-      pathname: '/welcome',
-    }}
-  >
-    <PageHeaderWrapper content="欢迎使用">Hello World</PageHeaderWrapper>
-  </ProLayout>
-);
+export default () => {
+  const [settings, setSetting] = useState({});
+  return (
+    <div
+      id="test"
+      style={{
+        transform: 'rotate(0)',
+        overflowX: 'hidden',
+      }}
+    >
+      <ProLayout
+        {...defaultProps}
+        style={{
+          height: 800,
+        }}
+        location={{
+          pathname: '/welcome',
+        }}
+        {...settings}
+      >
+        <PageHeaderWrapper content="欢迎使用">
+          <div
+            style={{
+              height: '120vh',
+            }}
+          >
+            Hello World
+          </div>
+        </PageHeaderWrapper>
+      </ProLayout>
+      <SettingDrawer
+        getContainer={() => document.getElementById('test')}
+        settings={settings}
+        onSettingChange={setSetting}
+      />
+    </div>
+  );
+};
