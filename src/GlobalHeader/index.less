@@ -7,6 +7,8 @@
 
 .@{global-header-prefix-cls} {
   position: relative;
+  display: flex;
+  align-items: center;
   height: @layout-header-height;
   padding: 0;
   background: @pro-header-bg;
@@ -38,7 +40,7 @@
 
   &-trigger {
     height: @layout-header-height;
-    padding: ~'calc((@{layout-header-height} - 26px) / 2)' 24px;
+    padding: 0 24px;
     font-size: 20px;
     cursor: pointer;
     transition: all 0.3s, padding 0s;

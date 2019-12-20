@@ -16,7 +16,10 @@
     "experimentalDecorators": true,
     "strict": true,
     "declaration": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "@ant-design/pro-layout": ["./src"]
+    }
   },
   "exclude": [
     "node_modules",

@@ -42,9 +42,9 @@
     "lint:style": "stylelint --fix \"src/**/*.less\" --syntax less",
     "prepublishOnly": "npm run test && npm run build && np --no-cleanup --yolo --no-publish",
     "prettier": "prettier -c --write \"**/**\"",
-    "site": " build-storybook && gh-pages -d ./storybook-static",
+    "site": "father-doc build && gh-pages -d ./dist",
     "start": "cd ./example && umi dev",
-    "storybook": "start-storybook",
+    "doc": "father-doc dev",
     "test": "umi test"
   },
   "husky": {
@@ -67,6 +67,7 @@
     "not ie <= 10"
   ],
   "dependencies": {
+    "@material-ui/core": "^4.8.0",
     "antd": "^3.26.3",
     "classnames": "^2.2.6",
     "history": "^4.10.1",
@@ -86,12 +87,6 @@
   },
   "devDependencies": {
     "@ant-design/dark-theme": "^1.0.3",
-    "@storybook/addon-actions": "^5.2.3",
-    "@storybook/addon-notes": "^5.2.3",
-    "@storybook/addon-storysource": "^5.2.3",
-    "@storybook/addon-viewport": "^5.2.3",
-    "@storybook/addons": "^5.2.3",
-    "@storybook/react": "^5.2.3",
     "@testing-library/react": "^9.4.0",
     "@testing-library/react-hooks": "^3.2.1",
     "@types/classnames": "^2.2.7",
@@ -120,7 +115,7 @@
     "eslint": "^6.6.0",
     "father": "^2.26.0",
     "father-build": "^1.12.0",
-    "father-doc": "^1.0.0-alpha.6",
+    "father-doc": "^1.0.0-alpha.7",
     "gh-pages": "^2.1.1",
     "husky": "^3.0.8",
     "import-sort-cli": "^6.0.0",

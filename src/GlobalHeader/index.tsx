@@ -91,6 +91,7 @@ export default class GlobalHeader extends Component<GlobalHeaderProps> {
       <div className={className} style={style}>
         {isMobile && renderLogo(menuHeaderRender, logoDom)}
         {this.renderCollapsedButton()}
+        <div style={{ flex: 1 }} />
         {rightContentRender && rightContentRender(this.props)}
       </div>
     );

@@ -57,6 +57,7 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
       collapsed,
       siderWidth = 256,
       hasSiderMenu,
+      headerRender,
     } = this.props;
 
     const isTop = layout === 'topmenu';
@@ -67,6 +68,10 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
       'ant-pro-fixed-header': fixedHeader,
       'ant-pro-top-menu': isTop,
     });
+
+    if (headerRender === false) {
+      return null;
+    }
 
     return (
       <>
