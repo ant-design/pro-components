@@ -90,7 +90,7 @@ export default () => {
           height: 500,
         }}
         menuHeaderRender={menuHeader ? undefined : false}
-        headerRender={(_, dom) => (header ? dom : null)}
+        headerRender={header ? undefined : false}
         collapsedButtonRender={collapsedButtonRender ? undefined : false}
         menuRender={(_, dom) => (menu ? dom : null)}
         breakpoint={false}
