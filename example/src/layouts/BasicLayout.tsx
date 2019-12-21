@@ -53,14 +53,19 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
           }
           return pageName || 'ant';
         }}
-        collapsed={collapsed}
         disableContentMargin
         {...props}
       >
         <ProLayout
-          menuHeaderRender={false}
+          // menuHeaderRender={false}
           logo={logo}
-          siderWidth={200}
+          // siderWidth={200}
+          menuHeaderRender={(logoDom, titleDom) => (
+            <Link to="/">
+              {logoDom}
+              {titleDom}
+            </Link>
+          )}
           breakpoint={false}
           links={[
             <>
@@ -73,11 +78,12 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
             menuItemProps.isUrl ? (
               defaultDom
             ) : (
-              <Link className="qixian-menuItem" to={menuItemProps.path}>
+              <Link className="qixian-menuItem" to={menuItemProps.path || '/'}>
                 {defaultDom}
               </Link>
             )
           }
+          collapsed={collapsed}
           onMenuHeaderClick={() => history.push('/')}
           footerRender={() => <DefaultFooter />}
           {...props}

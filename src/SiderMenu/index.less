@@ -7,13 +7,21 @@
   position: relative;
   &-logo {
     position: relative;
-    min-height: @nav-header-height;
     padding: 0 (@menu-collapsed-width - 32px) / 2;
     overflow: hidden;
-    line-height: @nav-header-height;
     background: @layout-sider-background;
     cursor: pointer;
     transition: all 0.3s;
+    > * {
+      display: flex;
+      align-items: center;
+      min-height: 64px;
+    }
+
+    > a {
+      height: 64px;
+    }
+
     img {
       display: inline-block;
       height: 32px;
@@ -26,6 +34,8 @@
       font-weight: 600;
       font-size: 20px;
       vertical-align: middle;
+      animation: fade-in;
+      animation-duration: 0.3s;
     }
   }
   &-sider {
@@ -114,5 +124,17 @@
   }
   .ant-drawer-body {
     padding: 0;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

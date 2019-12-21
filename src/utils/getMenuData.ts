@@ -27,6 +27,9 @@ function formatter(
     authority,
     parentName,
   } = props;
+  if (!data) {
+    return [];
+  }
   return data
     .filter(item => {
       if (!item) {
