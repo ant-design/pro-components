@@ -2,7 +2,6 @@ import React from 'react';
 import ProLayout, {
   DefaultFooter,
   PageHeaderWrapper,
-  // eslint-disable-next-line import/no-unresolved
 } from '@ant-design/pro-layout';
 import defaultProps from './defaultProps';
 

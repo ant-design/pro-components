@@ -18,3 +18,7 @@ order: 1
 ## 默认打开所有菜单
 
 <code src="./example/DefaultOpenAllMenu.tsx" />
+
+## 带参数的面包屑
+
+<code src="./example/BreadcrumbsRepeat.tsx" />

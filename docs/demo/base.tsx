@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import ProLayout, {
   PageHeaderWrapper,
   SettingDrawer,
-  // eslint-disable-next-line import/no-unresolved
 } from '@ant-design/pro-layout';
 import defaultProps from './defaultProps';
 

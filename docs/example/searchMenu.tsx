@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import ProLayout, {
   PageHeaderWrapper,
   MenuDataItem,
@@ -68,13 +67,7 @@ export default () => {
         menuDataRender={() => filterByMenuDate(complexMenu, keyWord)}
       >
         <PageHeaderWrapper content="欢迎使用">
-          <div
-            style={{
-              height: '120vh',
-            }}
-          >
-            Hello World
-          </div>
+          <div>Hello World</div>
         </PageHeaderWrapper>
       </ProLayout>
     </div>

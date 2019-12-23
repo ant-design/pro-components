@@ -1,5 +1,4 @@
 import React from 'react';
-// eslint-disable-next-line import/no-unresolved
 import ProLayout, { PageHeaderWrapper } from '@ant-design/pro-layout';
 import defaultProps from './defaultProps';
 

@@ -19,13 +19,7 @@ export default () => (
       menu={{ defaultOpenAll: true }}
     >
       <PageHeaderWrapper content="欢迎使用">
-        <div
-          style={{
-            height: '120vh',
-          }}
-        >
-          Hello World
-        </div>
+        <div>Hello World</div>
       </PageHeaderWrapper>
     </ProLayout>
   </div>
