@@ -14,3 +14,7 @@ order: 1
 ## 多个路由对应一个菜单项
 
 <code src="./example/MultipleMenuOnePath.tsx" />
+
+## 默认打开所有菜单
+
+<code src="./example/DefaultOpenAllMenu.tsx" />

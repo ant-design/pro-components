@@ -89,6 +89,19 @@ export default [
     name: '明细数据',
     icon: 'smile',
     locale: 'menu.data_ming',
+    children: [
+      {
+        path: '/other/outLoadMenu',
+        name: '菜单导出',
+        locale: 'menu.other.outLoadMenu',
+        hideInMenu: true,
+      },
+      {
+        path: '/other/homeEdit',
+        name: '概述导出',
+        locale: 'menu.other.outHomeEdit',
+      },
+    ],
   },
   {
     path: '/other',
@@ -100,13 +113,11 @@ export default [
         path: '/other/upLoad',
         name: 'odps同步导入',
         locale: 'menu.other.upLoad',
-        hideInMenu: true,
       },
       {
         path: '/other/upLoadMenu',
         name: '菜单导入',
         locale: 'menu.other.upLoadMenu',
-        hideInMenu: true,
       },
       {
         path: '/other/homeEdit',
