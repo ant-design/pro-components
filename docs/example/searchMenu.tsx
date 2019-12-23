@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import ProLayout, {
   PageHeaderWrapper,
   MenuDataItem,
-  // eslint-disable-next-line import/no-unresolved
 } from '@ant-design/pro-layout';
 import { Input } from 'antd';
 import complexMenu from './complexMenu';
@@ -41,9 +41,18 @@ export default () => {
           pathname: '/home/overview',
         }}
         menuHeaderRender={(logo, title, props = { collapsed: false }) => (
-          <div>
-            {logo}
-            {title}
+          <>
+            <div
+              style={{
+                height: 64,
+                display: 'flex',
+                alignItems: 'center',
+                justifyItems: 'center',
+              }}
+            >
+              {logo}
+              {title}
+            </div>
             <Input.Search
               style={{
                 width: props.collapsed ? 0 : '100%',
@@ -54,7 +63,7 @@ export default () => {
                 setKeyWord(e);
               }}
             />
-          </div>
+          </>
         )}
         menuDataRender={() => filterByMenuDate(complexMenu, keyWord)}
       >

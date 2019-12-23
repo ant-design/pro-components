@@ -3,7 +3,6 @@ import { Switch, Avatar } from 'antd';
 import ProLayout, {
   PageHeaderWrapper,
   DefaultFooter,
-  // eslint-disable-next-line import/no-unresolved
 } from '@ant-design/pro-layout';
 import defaultProps from './defaultProps';
 

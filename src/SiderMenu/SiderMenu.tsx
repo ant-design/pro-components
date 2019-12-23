@@ -82,7 +82,6 @@ const SiderMenu: React.FC<SiderMenuProps> = props => {
   } = props;
 
   const { flatMenus } = MenuCounter.useContainer();
-
   const siderClassName = classNames('ant-pro-sider-menu-sider', {
     'fix-sider-bar': fixSiderbar,
     light: theme === 'light',

@@ -32,11 +32,11 @@ export const getFlatMenus = (
 } => {
   let menus = {};
   menuData.forEach(item => {
-    if (!item) {
+    if (!item || item.hideInMenu) {
       return;
     }
     menus[item.path || '/'] = item;
-    if (item.children) {
+    if (item.children && !item.hideChildrenInMenu) {
       menus = { ...menus, ...getFlatMenus(item.children) };
     }
   });
@@ -68,8 +68,18 @@ export const genKeysToArray = (menuKey: string) => {
 export const getMenuMatches = (
   flatMenuKeys: string[] = [],
   path: string,
-): string =>
-  flatMenuKeys.find(item => item && pathToRegexp(item).test(path)) || '/';
+): string | undefined =>
+  flatMenuKeys
+    .filter(item => {
+      if (item && pathToRegexp(`${item}(.*)`).test(path)) {
+        return true;
+      }
+      return false;
+    })
+    .sort(
+      (a, b) => a.substr(1).split('/').length - b.substr(1).split('/').length,
+    )
+    .pop();
 
 // 获取当前的选中菜单
 export const getSelectedMenuKeys = (
@@ -80,6 +90,9 @@ export const getSelectedMenuKeys = (
   flatMenuKeys: string[],
 ): string[] => {
   const menuPathKey = getMenuMatches(flatMenuKeys, pathname || '/');
+  if (!menuPathKey) {
+    return [];
+  }
   const menuItem = flatMenus[menuPathKey] || { parentKeys: '', key: '' };
   const keys = menuItem.parentKeys || [];
   if (menuItem.key) {

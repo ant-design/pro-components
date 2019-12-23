@@ -10,3 +10,7 @@ order: 1
 ## 搜索菜单
 
 <code src="./example/searchMenu.tsx" />
+
+## 多个路由对应一个菜单项
+
+<code src="./example/MultipleMenuOnePath.tsx" />
