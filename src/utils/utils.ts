@@ -1,3 +1,5 @@
+import { useRef, useEffect } from 'react';
+import isEqual from 'lodash.isequal';
 import { MenuDataItem } from '../typings';
 
 /* eslint no-useless-escape:0 import/prefer-default-export:0 */
@@ -53,3 +55,25 @@ export const getOpenKeysFromMenuData = (menuData?: MenuDataItem[]) => {
     return pre;
   }, [] as string[]);
 };
+
+function deepCompareEquals(a: any, b: any) {
+  return isEqual(a, b);
+}
+
+function useDeepCompareMemoize(value: any) {
+  const ref = useRef();
+  // it can be done by using useMemo as well
+  // but useRef is rather cleaner and easier
+  if (!deepCompareEquals(value, ref.current)) {
+    ref.current = value;
+  }
+
+  return ref.current;
+}
+
+export function useDeepCompareEffect(
+  effect: React.EffectCallback,
+  dependencies?: Object,
+) {
+  useEffect(effect, useDeepCompareMemoize(dependencies));
+}

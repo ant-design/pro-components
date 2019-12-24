@@ -1,4 +1,5 @@
 import React from 'react';
+import { Icon } from 'antd';
 import ProLayout, { PageHeaderWrapper } from '@ant-design/pro-layout';
 
 export default () => (
@@ -19,6 +20,13 @@ export default () => (
             path: '/home',
             name: '收藏',
             icon: 'icon-shoucang1',
+          },
+          {
+            key: 'test',
+            name: 'test',
+            icon: <Icon type="smile" />,
+            path: '/test',
+            exact: true,
           },
           {
             path: '/home/overview',

@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Drawer } from 'antd';
 import classNames from 'classnames';
 import Omit from 'omit.js';
 import SiderMenu, { SiderMenuProps } from './SiderMenu';
 import { getFlatMenus } from './SiderMenuUtils';
 import MenuCounter from './Counter';
+import { useDeepCompareEffect } from '../utils/utils';
 
 const SiderMenuWrapper: React.FC<SiderMenuProps> = props => {
   const {
@@ -19,7 +20,7 @@ const SiderMenuWrapper: React.FC<SiderMenuProps> = props => {
   } = props;
   const { setFlatMenus, setFlatMenuKeys } = MenuCounter.useContainer();
 
-  useEffect(() => {
+  useDeepCompareEffect(() => {
     if (!menuData || menuData.length < 1) {
       return () => null;
     }
@@ -32,7 +33,7 @@ const SiderMenuWrapper: React.FC<SiderMenuProps> = props => {
     return () =>
       window.cancelAnimationFrame &&
       window.cancelAnimationFrame(animationFrameId);
-  }, [JSON.stringify(menuData)]);
+  }, menuData);
 
   const omitProps = Omit(props, ['className', 'style']);
 

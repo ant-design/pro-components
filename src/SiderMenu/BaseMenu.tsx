@@ -290,7 +290,7 @@ const BaseMenu: React.FC<BaseMenuProps> = props => {
       flatMenuKeys || [],
     );
     setOpenKeys(keys);
-  }, [JSON.stringify(flatMenus), flatMenuKeys.join('-')]);
+  }, [flatMenus, flatMenuKeys.join('-')]);
 
   const [selectedKeys, setSelectedKeys] = useMergeValue<string[] | undefined>(
     [],
