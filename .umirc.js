@@ -13,6 +13,7 @@ export default {
       },
     ],
   ],
+  hash: true,
   plugins: [['umi-plugin-githubpages', {}]],
   disableCSSModules: true,
 };
