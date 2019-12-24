@@ -22,3 +22,7 @@ order: 1
 ## 带参数的面包屑
 
 <code src="./example/BreadcrumbsRepeat.tsx" />
+
+## IconFont
+
+<code src="./example/IconFont.tsx" />
