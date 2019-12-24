@@ -92,6 +92,9 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
           {props.children}
         </ProLayout>
         <SettingDrawer
+          // hideLoading
+          // hideCopyButton
+          // hideHintAlert
           // settings={settings}
           onSettingChange={config => setSettings(config)}
         />

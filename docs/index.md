@@ -84,6 +84,8 @@ render(<BasicLayout />, document.getElementById('root'));
 | settings | layout 的设置 | [`Settings`](#Settings) | [`Settings`](#Settings) | - |
 | onSettingChange | [`Settings`](#Settings) 发生更改事件 | (settings: [`Settings`](#Settings) ) => void | - |
 | hideHintAlert | 删除下方的提示信息 | boolean | - |
+| hideLoading | 删除主题切换时的 message 提示 | boolean | - |
+| hideCopyButton | 删除下方的拷贝设置按钮 | boolean | - |
 
 ### PageHeaderWrapper
 

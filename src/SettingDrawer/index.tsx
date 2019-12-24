@@ -55,6 +55,7 @@ export interface SettingDrawerProps {
   hideLoading?: boolean;
   hideColors?: boolean;
   hideHintAlert?: boolean;
+  hideCopyButton?: boolean;
   onCollapseChange?: (collapse: boolean) => void;
   onSettingChange?: (settings: MergerSettingsType<Settings>) => void;
 }
@@ -324,6 +325,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = props => {
     hideLoading = false,
     hideColors,
     hideHintAlert,
+    hideCopyButton,
     getContainer,
     onSettingChange,
   } = props;
@@ -518,7 +520,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = props => {
             ]}
           />
         </Body>
-        <Divider />
+        {hideHintAlert && hideCopyButton ? null : <Divider />}
 
         {hideHintAlert ? null : (
           <Alert
@@ -532,16 +534,18 @@ const SettingDrawer: React.FC<SettingDrawerProps> = props => {
           />
         )}
 
-        <CopyToClipboard
-          text={JSON.stringify(omit(settingState, ['colorWeak']), null, 2)}
-          onCopy={() =>
-            message.success(formatMessage({ id: 'app.setting.copyinfo' }))
-          }
-        >
-          <Button block icon="copy">
-            {formatMessage({ id: 'app.setting.copy' })}
-          </Button>
-        </CopyToClipboard>
+        {hideCopyButton ? null : (
+          <CopyToClipboard
+            text={JSON.stringify(omit(settingState, ['colorWeak']), null, 2)}
+            onCopy={() =>
+              message.success(formatMessage({ id: 'app.setting.copyinfo' }))
+            }
+          >
+            <Button block icon="copy">
+              {formatMessage({ id: 'app.setting.copy' })}
+            </Button>
+          </CopyToClipboard>
+        )}
       </div>
     </Drawer>
   );

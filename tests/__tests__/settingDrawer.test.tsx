@@ -59,6 +59,30 @@ describe('settingDrawer.test', () => {
     expect(html).toMatchSnapshot();
   });
 
+  it('hideLoading = true', () => {
+    const html = render(
+      <SettingDrawer
+        settings={defaultSettings}
+        hideLoading
+        getContainer={false}
+        collapse
+      />,
+    );
+    expect(html).toMatchSnapshot();
+  });
+
+  it('hideCopyButton = true', () => {
+    const html = render(
+      <SettingDrawer
+        settings={defaultSettings}
+        hideCopyButton
+        getContainer={false}
+        collapse
+      />,
+    );
+    expect(html).toMatchSnapshot();
+  });
+
   it('onCollapseChange', async () => {
     const onCollapseChange = jest.fn();
     const wrapper = mount(
