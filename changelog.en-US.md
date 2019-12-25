@@ -1,5 +1,10 @@
 # changelog
 
+### 4.10.1
+
+- 🌟 SettingDrawer add `hideCopyButton` props. [#258](https://github.com/ant-design/ant-design-pro-layout/pull/258)
+- 🐞 Optimize calculation logic for menu expansion. [3c9b5ce9](https://github.com/ant-design/ant-design-pro-layout/commit/3c9b5ce9) [e5ad035b](https://github.com/ant-design/ant-design-pro-layout/commit/e5ad035b)
+
 ### 4.10.0
 
 - 🐞 Fix the problem that the top menu bar is not responsive. [#243](https://github.com/ant-design/ant-design-pro-layout/pull/243)

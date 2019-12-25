@@ -1,5 +1,10 @@
 # 更新日志
 
+### 4.10.1
+
+- 🌟 SettingDrawer 添加 `hideCopyButton`道具。[#258](https://github.com/ant-design/ant-design-pro-layout/pull/258)
+- 🐞 优化生成菜单的计算逻辑。 [3c9b5ce9](https://github.com/ant-design/ant-design-pro-layout/commit/3c9b5ce9) [e5ad035b](https://github.com/ant-design/ant-design-pro-layout/commit/e5ad035b)
+
 ### 4.10.0
 
 - 🐞 修复顶部菜单响应式的问题。 [#243](https://github.com/ant-design/ant-design-pro-layout/pull/243)
