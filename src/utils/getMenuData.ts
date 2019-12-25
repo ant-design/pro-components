@@ -12,6 +12,12 @@ interface FormatterProps {
   parentName?: string;
   authority?: string[] | string;
 }
+const mergePath = (path: string = '', parentPath: string = '/') => {
+  if ((path || parentPath).startsWith('/')) {
+    return path;
+  }
+  return `/${parentPath}/${path}`.replace(/\/\//g, '/').replace(/\/\//g, '/');
+};
 
 // Conversion router to menu.
 function formatter(
@@ -47,6 +53,7 @@ function formatter(
       if (!item.name) {
         return item;
       }
+      const path = mergePath(item.path, parent ? parent.path : '/');
       const { name } = item;
       const locale = item.locale || `${parentName || 'menu'}.${name}`;
       // if enableMenuLocale use item.name,
@@ -58,6 +65,7 @@ function formatter(
       const { parentKeys = [] } = parent;
       const result: MenuDataItem = {
         ...item,
+        path,
         name: localeName,
         locale,
         key: item.key || genKeyByPath(item.path || '/'),
@@ -103,12 +111,6 @@ const defaultFilterMenuData = (menuData: MenuDataItem[] = []): MenuDataItem[] =>
     })
     .filter(item => item);
 
-const mergePath = (path: string = '', parentPath: string = '/') => {
-  if ((path || parentPath).startsWith('/')) {
-    return path;
-  }
-  return `${parentPath}/${path}`.replace('//', '/');
-};
 /**
  * 获取面包屑映射
  * @param MenuDataItem[] menuData 菜单配置
