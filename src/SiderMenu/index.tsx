@@ -33,7 +33,7 @@ const SiderMenuWrapper: React.FC<SiderMenuProps> = props => {
     return () =>
       window.cancelAnimationFrame &&
       window.cancelAnimationFrame(animationFrameId);
-  }, menuData);
+  }, [menuData]);
 
   const omitProps = Omit(props, ['className', 'style']);
 
