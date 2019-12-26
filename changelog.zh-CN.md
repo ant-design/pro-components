@@ -1,5 +1,9 @@
 # 更新日志
 
+### 4.10.2
+
+- 🐞 修复动态菜单不生效的问题。 [4a52b015](https://github.com/ant-design/ant-design-pro-layout/commit/4a52b015)
+
 ### 4.10.1
 
 - 🌟 SettingDrawer 添加 `hideCopyButton`道具。[#258](https://github.com/ant-design/ant-design-pro-layout/pull/258)

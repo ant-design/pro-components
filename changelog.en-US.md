@@ -1,5 +1,9 @@
 # changelog
 
+### 4.10.2
+
+- 🐞 Fix the problem that the dynamic menu does not take effect. [4a52b015](https://github.com/ant-design/ant-design-pro-layout/commit/4a52b015)
+
 ### 4.10.1
 
 - 🌟 SettingDrawer add `hideCopyButton` props. [#258](https://github.com/ant-design/ant-design-pro-layout/pull/258)
