@@ -27,7 +27,7 @@ import SiderMenu from './SiderMenu';
 import { SiderMenuProps } from './SiderMenu/SiderMenu';
 import { getBreadcrumbProps } from './utils/getBreadcrumbProps';
 import getMenuData from './utils/getMenuData';
-import { isBrowser } from './utils/utils';
+import { isBrowser, useDeepCompareEffect } from './utils/utils';
 import PageLoading from './PageLoading';
 import MenuCounter from './SiderMenu/Counter';
 import WrapContent from './WrapContent';
@@ -320,7 +320,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
    *  如果 menuRender 不存在，可以做一下性能优化
    *  只要 routers 没有更新就不需要重新计算
    */
-  useEffect(() => {
+  useDeepCompareEffect(() => {
     if (!menuDataRender) {
       const infoData = getMenuData(routes, menu, formatMessage, menuDataRender);
       // 稍微慢一点 render，不然会造成性能问题，看起来像是菜单的卡顿
@@ -332,7 +332,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
         window.cancelAnimationFrame(animationFrameId);
     }
     return () => null;
-  }, [routes, JSON.stringify(menu)]);
+  }, [props.route, JSON.stringify(menu)]);
 
   // If it is a fix menu, calculate padding
   // don't need padding in phone mode
