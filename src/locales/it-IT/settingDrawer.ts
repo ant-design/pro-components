@@ -12,16 +12,16 @@ export default {
   'app.setting.themecolor.cyan': 'Ciano',
   'app.setting.themecolor.green': 'Verde polare',
   'app.setting.themecolor.daybreak': 'Blu cielo mattutino (default)',
-  'app.setting.themecolor.geekblue': 'Geek blu',
+  'app.setting.themecolor.geekblue': 'Blu geek',
   'app.setting.themecolor.purple': 'Viola dorato',
   'app.setting.navigationmode': 'Modalità di navigazione',
   'app.setting.sidemenu': 'Menu laterale',
   'app.setting.topmenu': 'Menu in testata',
   'app.setting.fixedheader': 'Testata fissa',
   'app.setting.fixedsidebar': 'Menu laterale fisso',
-  'app.setting.fixedsidebar.hint': 'Works on Side Menu Layout',
+  'app.setting.fixedsidebar.hint': 'Solo se selezionato Menu laterale',
   'app.setting.hideheader': 'Nascondi testata durante lo scorrimento',
-  'app.setting.hideheader.hint': 'Works when Hidden Header is enabled',
+  'app.setting.hideheader.hint': 'Solo se abilitato Nascondi testata durante lo scorrimento',
   'app.setting.othersettings': 'Altre impostazioni',
   'app.setting.weakmode': 'Inverti colori',
   'app.setting.copy': 'Copia impostazioni',
@@ -29,5 +29,5 @@ export default {
   'app.setting.copyinfo':
     'Impostazioni copiate con successo! Incolla il contenuto in config/defaultSettings.js',
   'app.setting.production.hint':
-    'Setting panel shows in development environment only, please manually modify',
+    'Questo pannello è visibile solo durante lo sviluppo. Le impostazioni devono poi essere modificate manulamente',
 };
