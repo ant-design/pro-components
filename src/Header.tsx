@@ -58,11 +58,12 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
       siderWidth = 256,
       hasSiderMenu,
       headerRender,
+      isMobile,
     } = this.props;
 
     const isTop = layout === 'topmenu';
 
-    const needSettingWidth = fixedHeader && hasSiderMenu && !isTop;
+    const needSettingWidth = fixedHeader && hasSiderMenu && !isTop && !isMobile;
 
     const className = classNames(propsClassName, {
       'ant-pro-fixed-header': fixedHeader,
