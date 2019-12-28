@@ -83,9 +83,9 @@ export default class GlobalHeader extends Component<GlobalHeaderProps> {
     const className = classNames(propClassName, 'ant-pro-global-header');
 
     const logoDom = (
-      <a className="ant-pro-global-header-logo" key="logo">
+      <span className="ant-pro-global-header-logo" key="logo">
         {defaultRenderLogo(logo)}
-      </a>
+      </span>
     );
     return (
       <div className={className} style={style}>
