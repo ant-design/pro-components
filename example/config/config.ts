@@ -97,6 +97,13 @@ export default {
               icon: 'smile',
               component: './Welcome',
             },
+            {
+              path: 'welcome3/:id?',
+              name: 'two3',
+              hideInMenu: true,
+              icon: 'smile',
+              component: './Welcome',
+            },
           ],
         },
         {
@@ -136,9 +143,6 @@ export default {
       ],
     },
   ],
-  define: {
-    ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION: 'site',
-  },
   ignoreMomentLocale: true,
   lessLoaderOptions: {
     javascriptEnabled: true,

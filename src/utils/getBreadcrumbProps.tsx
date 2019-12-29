@@ -60,7 +60,8 @@ export const getBreadcrumb = (
     // Find the first matching path in the order defined by route config
     // 按照 route config 定义的顺序找到第一个匹配的路径
     const targetPath = [...breadcrumbMap.keys()].find(path =>
-      pathToRegexp(path).test(url),
+      // remove ? ,不然会重复
+      pathToRegexp(path.replace('?', '')).test(url),
     );
 
     if (targetPath) {
