@@ -3,7 +3,7 @@ import memoizeOne from 'memoize-one';
 import { MenuDataItem, Route, MessageDescriptor } from '../typings';
 
 import { Settings } from '../defaultSettings';
-import { genKeyByPath } from './utils';
+import { genKeyByPath, isUrl } from './utils';
 
 interface FormatterProps {
   data: MenuDataItem[];
@@ -13,6 +13,9 @@ interface FormatterProps {
   authority?: string[] | string;
 }
 const mergePath = (path: string = '', parentPath: string = '/') => {
+  if (isUrl(path)) {
+    return path;
+  }
   if ((path || parentPath).startsWith('/')) {
     return path;
   }
