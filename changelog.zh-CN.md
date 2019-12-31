@@ -1,5 +1,13 @@
 # 更新日志
 
+### 4.10.3
+
+- 🌟 SettingDrawer 增加意大利语支持。[#269](https://github.com/ant-design/ant-design-pro-layout/pull/269)
+- 🐞 修复 header 在手机模式下显示异常的问题。[37ffbf27](https://github.com/ant-design/ant-design-pro-layout/commit/37ffbf27)
+- 🐞 修复 layout 参数为空的时候会死循环的问题。[86275f4b](https://github.com/ant-design/ant-design-pro-layout/commit/86275f4b)
+- 🐞 修复 a 标签中嵌套 a 标签的问题。[2c0c42bb](https://github.com/ant-design/ant-design-pro-layout/commit/2c0c42bb)
+- 🐞 修复固定菜单的情况下菜单不出滚动跳的问题。[e638aca1](https://github.com/ant-design/ant-design-pro-layout/commit/e638aca1)
+
 ### 4.10.2
 
 - 🐞 修复动态菜单不生效的问题。 [4a52b015](https://github.com/ant-design/ant-design-pro-layout/commit/4a52b015)

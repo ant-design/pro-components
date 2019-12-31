@@ -1,5 +1,13 @@
 # changelog
 
+### 4.10.3
+
+- 🌟 SettingDrawer adds inertia support. [#269](https://github.com/ant-design/ant-design-pro-layout/pull/269)
+- 🐞 Fix the issue that the header is displayed abnormally in the mobile mode. [37ffbf27](https://github.com/ant-design/ant-design-pro-layout/commit/37ffbf27)
+- 🐞 Fixed the problem of infinite loop when layout parameter is empty. [86275f4b](https://github.com/ant-design/ant-design-pro-layout/commit/86275f4b)
+- 🐞 Fix the problem of embedded tags in tags. [2c0c42bb](https://github.com/ant-design/ant-design-pro-layout/commit/2c0c42bb)
+- 🐞 Fixed the problem of the menu not scrolling when fixed menu. [e638aca1](https://github.com/ant-design/ant-design-pro-layout/commit/e638aca1)
+
 ### 4.10.2
 
 - 🐞 Fix the problem that the dynamic menu does not take effect. [4a52b015](https://github.com/ant-design/ant-design-pro-layout/commit/4a52b015)
