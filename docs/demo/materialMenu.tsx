@@ -23,6 +23,7 @@ export default () => (
         <List
           component="nav"
           style={{
+            transition: 'all 0.2s',
             width: props.collapsed ? 80 : 256,
           }}
           aria-label="main mailbox folders"
