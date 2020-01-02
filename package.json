@@ -70,6 +70,7 @@
     "@material-ui/core": "^4.8.0",
     "antd": "^3.26.3",
     "classnames": "^2.2.6",
+    "hash.js": "^1.1.7",
     "history": "^4.10.1",
     "lodash.isequal": "^4.5.0",
     "memoize-one": "^5.1.1",
@@ -82,7 +83,7 @@
     "react-responsive": "^8.0.1",
     "react-router-dom": "5.1.2",
     "unstated-next": "^1.1.0",
-    "use-json-comparison": "^1.0.2",
+    "use-json-comparison": "1.0.3",
     "use-media-antd-query": "^1.0.1",
     "use-merge-value": "^1.0.1",
     "warning": "^4.0.3"

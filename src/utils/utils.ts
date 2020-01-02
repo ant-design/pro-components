@@ -1,6 +1,8 @@
 import { useRef, useEffect } from 'react';
 import isEqual from 'lodash.isequal';
+import hash from 'hash.js';
 import { MenuDataItem } from '../typings';
+import { stringify } from 'use-json-comparison';
 
 /* eslint no-useless-escape:0 import/prefer-default-export:0 */
 const reg = /(((^https?:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+(?::\d+)?|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)$/;
@@ -16,18 +18,6 @@ export const isBrowser = () =>
   typeof window.document !== 'undefined' &&
   !isNode;
 
-export const getKeyByPath = (path: string) => {
-  if (path && path !== '/') {
-    return path;
-  }
-  return guid();
-};
-
-export const genKeyByPath = (path: string) => {
-  const newKey = getKeyByPath(path);
-  return newKey;
-};
-
 export function guid() {
   return 'xxxxxxxx'.replace(/[xy]/g, c => {
     // eslint-disable-next-line no-bitwise
@@ -37,6 +27,28 @@ export function guid() {
     return v.toString(16);
   });
 }
+
+export const getKeyByPath = (item: MenuDataItem) => {
+  const { path, name } = item;
+  if (path && path !== '/') {
+    return path;
+  }
+  // 如果有name, 使用name
+  if (name) {
+    return name;
+  }
+  // 如果还是没有，用对象的hash 生成一个
+  try {
+    return hash
+      .sha256()
+      .update(stringify(item))
+      .digest('hex');
+  } catch (error) {
+    // dom some thing
+  }
+  // 要是还是不行，返回一个随机值
+  return guid();
+};
 
 export const getOpenKeysFromMenuData = (menuData?: MenuDataItem[]) => {
   if (!menuData) {

@@ -3,7 +3,7 @@ import memoizeOne from 'memoize-one';
 import { MenuDataItem, Route, MessageDescriptor } from '../typings';
 
 import { Settings } from '../defaultSettings';
-import { genKeyByPath, isUrl } from './utils';
+import { getKeyByPath, isUrl } from './utils';
 
 interface FormatterProps {
   data: MenuDataItem[];
@@ -71,7 +71,7 @@ function formatter(
         path,
         name: localeName,
         locale,
-        key: item.key || genKeyByPath(item.path || '/'),
+        key: item.key || getKeyByPath(item),
         routes: null,
         parentKeys: [...parentKeys, parent.key || '/'],
       };
