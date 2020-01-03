@@ -33,6 +33,7 @@
   "scripts": {
     "analyze": "cross-env ANALYZE=1 umi build",
     "build": "father-build build",
+    "doc": "father-doc dev",
     "format-imports": "import-sort --write '**/*.{js,jsx,ts,tsx}'",
     "lint": "npm run lint-eslint && npm run lint:style",
     "lint-eslint": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
@@ -44,7 +45,6 @@
     "prettier": "prettier -c --write \"**/**\"",
     "site": "father-doc build && gh-pages -d ./dist",
     "start": "cd ./example && umi dev",
-    "doc": "father-doc dev",
     "test": "father test"
   },
   "husky": {
@@ -67,7 +67,6 @@
     "not ie <= 10"
   ],
   "dependencies": {
-    "@material-ui/core": "^4.8.0",
     "antd": "^3.26.3",
     "classnames": "^2.2.6",
     "hash.js": "^1.1.7",
@@ -90,6 +89,7 @@
   },
   "devDependencies": {
     "@ant-design/dark-theme": "^1.0.3",
+    "@material-ui/core": "^4.8.0",
     "@testing-library/react": "^9.4.0",
     "@testing-library/react-hooks": "^3.2.1",
     "@types/classnames": "^2.2.7",
