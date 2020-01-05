@@ -348,7 +348,6 @@ const BaseMenu: React.FC<BaseMenuProps> = props => {
   return (
     <>
       <Menu
-        {...props.menuProps}
         {...openKeysProps}
         key="Menu"
         mode={mode}
@@ -358,6 +357,7 @@ const BaseMenu: React.FC<BaseMenuProps> = props => {
         className={cls}
         onOpenChange={setOpenKeys}
         getPopupContainer={() => ref.current || document.body}
+        {...props.menuProps}
       >
         {menuUtils.getNavMenuItems(menuData)}
       </Menu>
