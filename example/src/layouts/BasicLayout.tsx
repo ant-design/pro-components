@@ -40,65 +40,47 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
   return (
     <>
       <ProLayout
-        layout="topmenu"
-        className="chenshuai2144"
-        disableMobile
-        fixSiderbar
-        rightContentRender={rightProps => (
-          <RightContent {...rightProps} {...settings} />
+        // menuHeaderRender={false}
+        logo={logo}
+        // siderWidth={200}
+        menuHeaderRender={(logoDom, titleDom) => (
+          <Link to="/">
+            {logoDom}
+            {titleDom}
+          </Link>
         )}
-        pageTitleRender={(props, pageName, info) => {
-          if (info) {
-            return info.pageName;
-          }
-          return pageName || 'ant';
-        }}
-        disableContentMargin
-        {...props}
-      >
-        <ProLayout
-          // menuHeaderRender={false}
-          logo={logo}
-          // siderWidth={200}
-          menuHeaderRender={(logoDom, titleDom) => (
-            <Link to="/">
-              {logoDom}
-              {titleDom}
+        breakpoint={false}
+        links={[
+          <>
+            <Icon type="heart" theme="twoTone" twoToneColor="red" />
+            <span>name</span>
+          </>,
+        ]}
+        onCollapse={handleMenuCollapse}
+        menuItemRender={(menuItemProps, defaultDom) =>
+          menuItemProps.isUrl ? (
+            defaultDom
+          ) : (
+            <Link className="qixian-menuItem" to={menuItemProps.path || '/'}>
+              {defaultDom}
             </Link>
-          )}
-          breakpoint={false}
-          links={[
-            <>
-              <Icon type="heart" theme="twoTone" twoToneColor="red" />
-              <span>name</span>
-            </>,
-          ]}
-          onCollapse={handleMenuCollapse}
-          menuItemRender={(menuItemProps, defaultDom) =>
-            menuItemProps.isUrl ? (
-              defaultDom
-            ) : (
-              <Link className="qixian-menuItem" to={menuItemProps.path || '/'}>
-                {defaultDom}
-              </Link>
-            )
-          }
-          collapsed={collapsed}
-          onMenuHeaderClick={() => history.push('/')}
-          footerRender={() => <DefaultFooter />}
-          {...props}
-          {...settings}
-        >
-          {props.children}
-        </ProLayout>
-        <SettingDrawer
-          // hideLoading
-          // hideCopyButton
-          // hideHintAlert
-          // settings={settings}
-          onSettingChange={config => setSettings(config)}
-        />
+          )
+        }
+        collapsed={collapsed}
+        onMenuHeaderClick={() => history.push('/')}
+        footerRender={() => <DefaultFooter />}
+        {...props}
+        {...settings}
+      >
+        {props.children}
       </ProLayout>
+      <SettingDrawer
+        // hideLoading
+        // hideCopyButton
+        // hideHintAlert
+        // settings={settings}
+        onSettingChange={config => setSettings(config)}
+      />
     </>
   );
 };

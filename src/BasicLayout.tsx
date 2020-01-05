@@ -402,7 +402,6 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
       'pro-layout: onCollapse and collapsed should exist simultaneously',
     );
   }, []);
-
   return (
     <>
       <Helmet>

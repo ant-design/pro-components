@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { createContainer } from 'unstated-next';
 import { MenuDataItem } from '../typings';
 
@@ -9,8 +9,15 @@ function useMenuCounter() {
       }
     | undefined
   >(undefined);
-  const [flatMenuKeys, setFlatMenuKeys] = useState<string[]>([]);
-  return { flatMenus, setFlatMenus, flatMenuKeys, setFlatMenuKeys };
+  const flatMenuKeys = useRef<string[]>([]);
+  return {
+    flatMenus,
+    setFlatMenus,
+    flatMenuKeys: flatMenuKeys.current,
+    setFlatMenuKeys: (keys: string[]) => {
+      flatMenuKeys.current = keys;
+    },
+  };
 }
 
 const MenuCounter = createContainer(useMenuCounter);
