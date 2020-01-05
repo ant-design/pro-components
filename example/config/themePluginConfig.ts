@@ -6,110 +6,110 @@ export default {
       theme: 'dark',
     },
     {
-      key: 'dust',
-      fileName: 'dust.css',
+      key: '#F5222D',
+      fileName: '#F5222D.css',
       modifyVars: {
         '@primary-color': '#F5222D',
       },
     },
     {
-      key: 'volcano',
-      fileName: 'volcano.css',
+      key: '#FA541C',
+      fileName: '#FA541C.css',
       modifyVars: {
         '@primary-color': '#FA541C',
       },
     },
-    // {
-    //   key: 'sunset',
-    //   fileName: 'sunset.css',
-    //   modifyVars: {
-    //     '@primary-color': '#FAAD14',
-    //   },
-    // },
-    // {
-    //   key: 'cyan',
-    //   fileName: 'cyan.css',
-    //   modifyVars: {
-    //     '@primary-color': '#13C2C2',
-    //   },
-    // },
-    // {
-    //   key: 'green',
-    //   fileName: 'green.css',
-    //   modifyVars: {
-    //     '@primary-color': '#52C41A',
-    //   },
-    // },
-    // {
-    //   key: 'geekblue',
-    //   fileName: 'geekblue.css',
-    //   modifyVars: {
-    //     '@primary-color': '#2F54EB',
-    //   },
-    // },
-    // {
-    //   key: 'purple',
-    //   fileName: 'purple.css',
-    //   modifyVars: {
-    //     '@primary-color': '#722ED1',
-    //   },
-    // },
-
-    // {
-    //   key: 'dark-dust',
-    //   theme: 'dark',
-    //   fileName: 'dark-dust.css',
-    //   modifyVars: {
-    //     '@primary-color': '#F5222D',
-    //   },
-    // },
-    // {
-    //   key: 'dark-volcano',
-    //   theme: 'dark',
-    //   fileName: 'dark-volcano.css',
-    //   modifyVars: {
-    //     '@primary-color': '#FA541C',
-    //   },
-    // },
-    // {
-    //   key: 'dark-sunset',
-    //   theme: 'dark',
-    //   fileName: 'dark-sunset.css',
-    //   modifyVars: {
-    //     '@primary-color': '#FAAD14',
-    //   },
-    // },
-    // {
-    //   key: 'dark-cyan',
-    //   theme: 'dark',
-    //   fileName: 'dark-cyan.css',
-    //   modifyVars: {
-    //     '@primary-color': '#13C2C2',
-    //   },
-    // },
-    // {
-    //   key: 'dark-green',
-    //   theme: 'dark',
-    //   fileName: 'dark-green.css',
-    //   modifyVars: {
-    //     '@primary-color': '#52C41A',
-    //   },
-    // },,
     {
-      key: 'geekblue',
-      theme: 'dark',
-      fileName: 'dark-geekblue.css',
+      key: '#FAAD14',
+      fileName: '#FAAD14.css',
+      modifyVars: {
+        '@primary-color': '#FAAD14',
+      },
+    },
+    {
+      key: '#13C2C2',
+      fileName: '#13C2C2.css',
+      modifyVars: {
+        '@primary-color': '#13C2C2',
+      },
+    },
+    {
+      key: '#52C41A',
+      fileName: '#52C41A.css',
+      modifyVars: {
+        '@primary-color': '#52C41A',
+      },
+    },
+    {
+      key: '#2F54EB',
+      fileName: '#2F54EB.css',
       modifyVars: {
         '@primary-color': '#2F54EB',
       },
     },
-    // {
-    //   key: 'dark-purple',
-    //   theme: 'dark',
-    //   fileName: 'dark-purple.css',
-    //   modifyVars: {
-    //     '@primary-color': '#722ED1',
-    //   },
-    // },
+    {
+      key: '#722ED1',
+      fileName: '#722ED1.css',
+      modifyVars: {
+        '@primary-color': '#722ED1',
+      },
+    },
+
+    {
+      key: '#F5222D',
+      theme: 'dark',
+      fileName: 'dark-#F5222D.css',
+      modifyVars: {
+        '@primary-color': '#F5222D',
+      },
+    },
+    {
+      key: '#FA541C',
+      theme: 'dark',
+      fileName: 'dark-#FA541C.css',
+      modifyVars: {
+        '@primary-color': '#FA541C',
+      },
+    },
+    {
+      key: '#FAAD14',
+      theme: 'dark',
+      fileName: 'dark-#FAAD14.css',
+      modifyVars: {
+        '@primary-color': '#FAAD14',
+      },
+    },
+    {
+      key: '#13C2C2',
+      theme: 'dark',
+      fileName: 'dark-#13C2C2.css',
+      modifyVars: {
+        '@primary-color': '#13C2C2',
+      },
+    },
+    {
+      key: '#52C41A',
+      theme: 'dark',
+      fileName: 'dark-#52C41A.css',
+      modifyVars: {
+        '@primary-color': '#52C41A',
+      },
+    },
+    {
+      key: '#2F54EB',
+      theme: 'dark',
+      fileName: 'dark-#2F54EB.css',
+      modifyVars: {
+        '@primary-color': '#2F54EB',
+      },
+    },
+    {
+      key: '#722ED1',
+      theme: 'dark',
+      fileName: 'dark-#722ED1.css',
+      modifyVars: {
+        '@primary-color': '#722ED1',
+      },
+    },
   ],
 };

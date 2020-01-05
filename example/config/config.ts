@@ -1,5 +1,7 @@
 import { IConfig, IPlugin } from 'umi-types';
-import slash from 'slash2'; // import themePluginConfig from './themePluginConfig';
+import slash from 'slash2';
+import defaultSettings from './defaultSettings';
+import themePluginConfig from './themePluginConfig';
 
 const plugins: IPlugin[] = [
   [
@@ -34,6 +36,9 @@ const plugins: IPlugin[] = [
     },
   ],
 ];
+
+plugins.push(['umi-plugin-antd-theme', themePluginConfig]);
+
 export default {
   plugins,
   block: {
@@ -42,6 +47,9 @@ export default {
   hash: true,
   targets: {
     ie: 11,
+  },
+  theme: {
+    '@primary-color': defaultSettings.primaryColor,
   },
   // umi routes: https://umijs.org/zh/guide/router.html
   routes: [

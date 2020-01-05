@@ -89,3 +89,19 @@ export function useDeepCompareEffect(
 ) {
   useEffect(effect, useDeepCompareMemoize(dependencies));
 }
+
+const themeConfig = {
+  daybreak: 'daybreak',
+  '#1890ff': 'daybreak',
+  '#F5222D': 'dust',
+  '#FA541C': 'volcano',
+  '#FAAD14': 'sunset',
+  '#13C2C2': 'cyan',
+  '#52C41A': 'green',
+  '#2F54EB': 'geekblue',
+  '#722ED1': 'purple',
+};
+
+export function genThemeToString(val?: string): string {
+  return val ? themeConfig[val] : undefined;
+}

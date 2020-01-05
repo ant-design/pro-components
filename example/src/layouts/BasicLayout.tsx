@@ -13,10 +13,10 @@ import ProLayout, {
 } from '../../../src/';
 import React, { useState } from 'react';
 import { Icon } from 'antd';
+import defaultSettings from '../../config/defaultSettings';
 
 import Link from 'umi/link';
 import history from 'umi/router';
-import RightContent from '@/components/GlobalHeader/RightContent';
 import logo from '../assets/logo.svg';
 
 export interface BasicLayoutProps extends ProLayoutProps {
@@ -33,9 +33,9 @@ export type BasicLayoutContext = { [K in 'location']: BasicLayoutProps[K] } & {
 const BasicLayout: React.FC<BasicLayoutProps> = props => {
   const [collapsed, handleMenuCollapse] = useState<boolean>(false);
   const [settings, setSettings] = useState<Partial<Settings>>({
+    ...defaultSettings,
     fixSiderbar: true,
     fixedHeader: true,
-    navTheme: 'light',
   });
   return (
     <>
@@ -78,7 +78,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
         // hideLoading
         // hideCopyButton
         // hideHintAlert
-        // settings={settings}
+        settings={settings}
         onSettingChange={config => setSettings(config)}
       />
     </>

@@ -128,7 +128,10 @@ const updateTheme = (
 
   const href = dark ? `${publicPath}/dark` : `${publicPath}/`;
   // 如果是 dark，并且是 color=daybreak，无需进行拼接
-  let colorFileName = dark && color ? `-${color}` : color;
+  let colorFileName =
+    dark && color
+      ? `-${encodeURIComponent(color)}`
+      : encodeURIComponent(color || '');
   if (color === 'daybreak' && dark) {
     colorFileName = '';
   }
@@ -319,7 +322,7 @@ const initState = (
   }
 };
 
-const getParamsFromUrl = () => {
+const getParamsFromUrl = (settings: MergerSettingsType<Settings>) => {
   if (!isBrowser()) {
     return defaultSettings;
   }
@@ -328,10 +331,11 @@ const getParamsFromUrl = () => {
   if (window.location.search) {
     params = parse(window.location.search.replace('?', ''));
   }
-  return getDifferentSetting({
+  return {
     ...defaultSettings,
+    ...settings,
     ...params,
-  });
+  };
 };
 
 const SettingDrawer: React.FC<SettingDrawerProps> = props => {
@@ -351,9 +355,9 @@ const SettingDrawer: React.FC<SettingDrawerProps> = props => {
   });
   const [language, setLanguage] = useState<string>(getLanguage());
   const [settingState, setSettingState] = useMergeValue<Partial<Settings>>(
-    () => getParamsFromUrl(),
+    getParamsFromUrl(propsSettings),
     {
-      value: props.settings,
+      value: propsSettings,
       onChange: onSettingChange,
     },
   );

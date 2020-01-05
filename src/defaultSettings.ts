@@ -46,6 +46,6 @@ const defaultSettings: Settings = {
   },
   title: 'Ant Design Pro',
   iconfontUrl: '',
-  primaryColor: 'daybreak',
+  primaryColor: '#1890ff',
 };
 export default defaultSettings;
