@@ -375,6 +375,14 @@ const SettingDrawer: React.FC<SettingDrawerProps> = props => {
     window.addEventListener('languagechange', onLanguageChange, {
       passive: true,
     });
+
+    // 第一次进入与 浏览器参数同步一下
+    let params = {};
+    if (window.location.search) {
+      params = parse(window.location.search.replace('?', ''));
+    }
+    setSettingState(params);
+
     return () => window.removeEventListener('languagechange', onLanguageChange);
   }, []);
 
@@ -391,6 +399,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = props => {
   ) => {
     const nextState = { ...settingState };
     nextState[key] = value;
+
     if (key === 'navTheme') {
       updateTheme(
         value === 'realDark',
@@ -431,10 +440,12 @@ const SettingDrawer: React.FC<SettingDrawerProps> = props => {
     if (window.location.search) {
       params = parse(window.location.search.replace('?', ''));
     }
-    const diffParams = getDifferentSetting({ ...settingState, ...params });
-    if (Object.keys(settingState).length < 1) {
+
+    const diffParams = getDifferentSetting({ ...params, ...settingState });
+    if (Object.keys(diffParams).length < 1) {
       return;
     }
+
     browserHistory.replace({
       search: stringify(diffParams),
     });
