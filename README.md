@@ -101,7 +101,7 @@ PageHeaderWrapper encapsulates the PageHeader component of ant design, adds tabL
 | onTabChange | Switch panel callback | `(key) => void` | - |
 | tabBarExtraContent | Extra elements on the tab bar | React.ReactNode | - |
 
-### PageLading
+### PageLoading
 
 a simple loading page
 

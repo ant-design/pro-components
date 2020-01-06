@@ -100,7 +100,7 @@ PageHeaderWrapper 封装了 ant design 的 PageHeader 组件，增加了 tabList
 | onTabChange | 切换面板的回调 | `(key) => void` | - |
 | tabBarExtraContent | tab bar 上额外的元素 | React.ReactNode | - |
 
-### PageLading
+### PageLoading
 
 一个简单的加载页面
 
