@@ -12,7 +12,7 @@ import {
 } from 'antd';
 import { createBrowserHistory } from 'history';
 import { stringify, parse } from 'qs';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import useMergeValue from 'use-merge-value';
 import omit from 'omit.js';
@@ -338,6 +338,10 @@ const getParamsFromUrl = (settings: MergerSettingsType<Settings>) => {
   };
 };
 
+/**
+ * 可视化配置组件
+ * @param props
+ */
 const SettingDrawer: React.FC<SettingDrawerProps> = props => {
   const {
     settings: propsSettings = {},
@@ -348,6 +352,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = props => {
     getContainer,
     onSettingChange,
   } = props;
+  const firstRender = useRef<boolean>(true);
 
   const [show, setShow] = useMergeValue(false, {
     value: props.collapse,
@@ -445,6 +450,10 @@ const SettingDrawer: React.FC<SettingDrawerProps> = props => {
      * 如果不是浏览器 都没有必要做了
      */
     if (!isBrowser()) {
+      return;
+    }
+    if (firstRender.current) {
+      firstRender.current = false;
       return;
     }
     const browserHistory = createBrowserHistory();
