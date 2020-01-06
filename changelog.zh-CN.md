@@ -1,5 +1,10 @@
 # 更新日志
 
+### 4.10.4
+
+- 🌟 `menuProps` 支持覆盖任何属性。[c039b4a1](https://github.com/ant-design/ant-design-pro-layout/commit/c039b4a1)
+- 🐞 修复 SettingDrawer 不修改 url 的问题。[c039b4a1](https://github.com/ant-design/ant-design-pro-layout/commit/c039b4a1)
+
 ### 4.10.3
 
 - 🌟 SettingDrawer 增加意大利语支持。[#269](https://github.com/ant-design/ant-design-pro-layout/pull/269)
