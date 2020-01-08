@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
+import { debounce } from '../utils/utils';
 
 import {
   SiderMenuProps,
@@ -62,12 +63,12 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = props => {
             }}
           >
             <ResizeObserver
-              onResize={({ width }) => {
+              onResize={debounce(({ width }: { width: number }) => {
                 if (!width) {
                   return;
                 }
                 setRightSize(width);
-              }}
+              }, 200)}
             >
               <div
                 style={{

@@ -37,7 +37,7 @@ const plugins: IPlugin[] = [
   ],
 ];
 
-plugins.push(['umi-plugin-antd-theme', themePluginConfig]);
+// plugins.push(['umi-plugin-antd-theme', themePluginConfig]);
 
 export default {
   plugins,

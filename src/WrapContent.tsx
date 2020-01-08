@@ -1,6 +1,7 @@
 import React, { CSSProperties } from 'react';
 import { ConfigProvider, Layout } from 'antd';
 import ResizeObserver from 'rc-resize-observer';
+import { debounce } from './utils/utils';
 
 const { Content } = Layout;
 
@@ -21,6 +22,13 @@ class WrapContent extends React.Component<
   };
 
   ref: HTMLDivElement | null = null;
+
+  resize = debounce(({ height }: { height: number }) => {
+    const { contentSize } = this.state;
+    if (height !== contentSize) {
+      this.setState({ contentSize: height });
+    }
+  }, 100);
 
   shouldComponentUpdate(
     _: any,
@@ -49,13 +57,7 @@ class WrapContent extends React.Component<
           minHeight: contentSize,
         }}
       >
-        <ResizeObserver
-          onResize={({ height }) => {
-            if (height !== contentSize) {
-              this.setState({ contentSize: height });
-            }
-          }}
-        >
+        <ResizeObserver onResize={this.resize}>
           <ConfigProvider
             getPopupContainer={() => {
               if (!isChildrenLayout && this.ref) {
