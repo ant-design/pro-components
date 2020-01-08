@@ -1,7 +1,7 @@
 import './index.less';
 
 import { Icon, Menu } from 'antd';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import useMergeValue from 'use-merge-value';
 import { MenuMode, MenuProps } from 'antd/es/menu';
@@ -255,7 +255,6 @@ const BaseMenu: React.FC<BaseMenuProps> = props => {
 
   const { pathname } = location;
 
-  const ref = useRef(null);
   const { flatMenuKeys, flatMenus } = MenuCounter.useContainer();
   const [defaultOpenAll, setDefaultOpenAll] = useState(menu.defaultOpenAll);
 
@@ -346,23 +345,19 @@ const BaseMenu: React.FC<BaseMenuProps> = props => {
 
   const menuUtils = new MenuUtil(props);
   return (
-    <>
-      <Menu
-        {...openKeysProps}
-        key="Menu"
-        mode={mode}
-        theme={theme}
-        selectedKeys={selectedKeys}
-        style={style}
-        className={cls}
-        onOpenChange={setOpenKeys}
-        getPopupContainer={() => ref.current || document.body}
-        {...props.menuProps}
-      >
-        {menuUtils.getNavMenuItems(menuData)}
-      </Menu>
-      <div ref={ref} />
-    </>
+    <Menu
+      {...openKeysProps}
+      key="Menu"
+      mode={mode}
+      theme={theme}
+      selectedKeys={selectedKeys}
+      style={style}
+      className={cls}
+      onOpenChange={setOpenKeys}
+      {...props.menuProps}
+    >
+      {menuUtils.getNavMenuItems(menuData)}
+    </Menu>
   );
 };
 
