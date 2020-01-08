@@ -1,5 +1,9 @@
 # 更新日志
 
+### 4.10.5
+
+- 🐞 不在锁包 use-json-comparison。
+
 ### 4.10.4
 
 - 🌟 `menuProps` 支持覆盖任何属性。[c039b4a1](https://github.com/ant-design/ant-design-pro-layout/commit/c039b4a1)

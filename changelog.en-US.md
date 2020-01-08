@@ -1,5 +1,9 @@
 # changelog
 
+### 4.10.5
+
+- 🐞 unlock use-json-comparison.
+
 ### 4.10.4
 
 - 🌟 `menuProps` supports overriding any attributes. [c039b4a1](https://github.com/ant-design/ant-design-pro-layout/commit/c039b4a1)
