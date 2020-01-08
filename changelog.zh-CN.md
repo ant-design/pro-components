@@ -2,7 +2,7 @@
 
 ### 4.10.5
 
-- 🐞 不在锁包 use-json-comparison。
+- 🐞 不锁 use-json-comparison 的版本。
 
 ### 4.10.4
 
