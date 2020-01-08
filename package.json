@@ -82,7 +82,7 @@
     "react-responsive": "^8.0.1",
     "react-router-dom": "5.1.2",
     "unstated-next": "^1.1.0",
-    "use-json-comparison": "1.0.3",
+    "use-json-comparison": "^1.0.3",
     "use-media-antd-query": "^1.0.1",
     "use-merge-value": "^1.0.1",
     "warning": "^4.0.3"
