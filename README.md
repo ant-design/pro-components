@@ -48,7 +48,7 @@ render(<ProLayout />, document.getElementById('root'));
 | contentWidth | content mode of layout, Fluid: fixed width 1200px, Fixed: adaptive | 'Fluid' \| 'Fixed' | `'Fluid'` |
 | navTheme | Navigation menu theme | 'light' \| 'dark' | `'dark'` |
 | fixedHeader | whether to fix header to top | boolean | `false` |
-| FixSiderbar | Whether to fix navigation menu | boolean | `false` |
+| fixSiderbar | Whether to fix navigation menu | boolean | `false` |
 | breakpoint | [breakpoints](https://ant.design/components/grid/#api) of the responsive layout | `Enum { 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' }` | `lg` |
 | menu | About the configuration of the menu, only locale, locale can turn off the globalization of the menu | { locale: boolean,defaultOpenAll: boolean } | `{ locale: true }` |
 | iconfontUrl | Use [IconFont](https://ant.design/components/icon-cn/#components-icon-demo-iconfont) icon configuration | string | - |
