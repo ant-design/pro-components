@@ -1,5 +1,9 @@
 # 更新日志
 
+### 4.10.6
+
+- 🐞 不在默认配置 menu 的 `getPopupContainer。`[e6c6971](https://github.com/ant-design/ant-design-pro-layout/commit/e6c6971)
+
 ### 4.10.5
 
 - 🐞 不锁 use-json-comparison 的版本。
