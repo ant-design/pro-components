@@ -119,7 +119,7 @@
     "father-build": "^1.12.0",
     "father-doc": "^1.0.0-alpha.12",
     "gh-pages": "^2.1.1",
-    "husky": "^3.0.8",
+    "husky": "^4.0.0",
     "import-sort-cli": "^6.0.0",
     "import-sort-parser-babylon": "^6.0.0",
     "import-sort-parser-typescript": "^6.0.0",
