@@ -1,5 +1,9 @@
 # 更新日志
 
+### 4.10.7
+
+- 🐞 修复在 chrome reload 不触发 keys 计算的问题。 [a8f770f](https://github.com/ant-design/ant-design-pro-layout/commit/a8f770f)
+
 ### 4.10.6
 
 - 🐞 不在默认配置 menu 的 `getPopupContainer。`[e6c6971](https://github.com/ant-design/ant-design-pro-layout/commit/e6c6971)

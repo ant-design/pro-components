@@ -2,9 +2,11 @@
 
 ### 4.10.7
 
+- 🐞 Fixed the issue that keys calculation would not be triggered during reload. [a8f770f](https://github.com/ant-design/ant-design-pro-layout/commit/a8f770f)
+
 ### 4.10.6
 
-- 🐞 `getPopupContainer` not in the default configuration menu.[e6c6971](https://github.com/ant-design/ant-design-pro-layout/commit/e6c6971)
+- 🐞 `getPopupContainer` not in the default configuration menu. [e6c6971](https://github.com/ant-design/ant-design-pro-layout/commit/e6c6971)
 
 ### 4.10.5
 
