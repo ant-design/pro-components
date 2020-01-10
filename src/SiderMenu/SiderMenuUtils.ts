@@ -94,7 +94,7 @@ export const getSelectedMenuKeys = (
     return [];
   }
   const menuItem = flatMenus[menuPathKey] || { parentKeys: '', key: '' };
-  const keys = menuItem.parentKeys || [];
+  const keys = [...(menuItem.parentKeys || [])];
   if (menuItem.key) {
     keys.push(menuItem.key);
   }
