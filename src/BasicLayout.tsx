@@ -411,8 +411,8 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
         <div className={className}>
           <Layout
             style={{
-              ...style,
               minHeight: '100%',
+              ...style,
             }}
             hasSider
           >

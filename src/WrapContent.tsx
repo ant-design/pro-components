@@ -60,7 +60,7 @@ class WrapContent extends React.Component<
         <ResizeObserver onResize={this.resize}>
           <ConfigProvider
             getPopupContainer={() => {
-              if (!isChildrenLayout && this.ref) {
+              if (isChildrenLayout && this.ref) {
                 return this.ref;
               }
               return document.body;
