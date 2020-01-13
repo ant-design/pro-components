@@ -1,5 +1,11 @@
 # 更新日志
 
+### 4.10.8
+
+- 🌟 当 `isMobile` 改成的时候设置 Drawer 的 `visible` 为 `false`。[fb5cdd47](https://github.com/ant-design/ant-design-pro-layout/commit/fb5cdd47)
+- 🌟 导出 `PageHeaderWrapperProps` 定义。 [#291](https://github.com/ant-design/ant-design-pro-layout/pull/291)
+- 🐞 Layout `style` 优先使用用户的配置。 [521bf7c5](https://github.com/ant-design/ant-design-pro-layout/commit/521bf7c5)
+
 ### 4.10.7
 
 - 🐞 修复在 chrome reload 不触发 keys 计算的问题。 [a8f770f](https://github.com/ant-design/ant-design-pro-layout/commit/a8f770f)

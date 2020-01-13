@@ -1,5 +1,11 @@
 # changelog
 
+### 4.10.8
+
+- 🌟 when `isMobile` set Drawer `visible = false`. [fb5cdd47](https://github.com/ant-design/ant-design-pro-layout/commit/fb5cdd47)
+- 🌟 export `PageHeaderWrapperProps` interface. [#291](https://github.com/ant-design/ant-design-pro-layout/pull/291)
+- 🐞 Layout `style` prefer user configuration. [521bf7c5](https://github.com/ant-design/ant-design-pro-layout/commit/521bf7c5)
+
 ### 4.10.7
 
 - 🐞 Fixed the issue that keys calculation would not be triggered during reload. [a8f770f](https://github.com/ant-design/ant-design-pro-layout/commit/a8f770f)
