@@ -8,7 +8,7 @@ import './index.less';
 import GridContent from '../GridContent';
 import RouteContext, { RouteContextType } from '../RouteContext';
 
-interface PageHeaderTabConfig {
+export interface PageHeaderTabConfig {
   tabList?: TabPaneProps[];
   tabActiveKey?: TabsProps['activeKey'];
   onTabChange?: TabsProps['onChange'];
@@ -16,7 +16,7 @@ interface PageHeaderTabConfig {
   tabProps?: TabsProps;
 }
 
-interface PageHeaderWrapperProps
+export interface PageHeaderWrapperProps
   extends PageHeaderTabConfig,
     Omit<PageHeaderProps, 'title'> {
   title?: React.ReactNode | false;
