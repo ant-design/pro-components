@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Drawer } from 'antd';
 import classNames from 'classnames';
 import useJsonComparison from 'use-json-comparison';
@@ -34,6 +34,14 @@ const SiderMenuWrapper: React.FC<SiderMenuProps> = props => {
       window.cancelAnimationFrame &&
       window.cancelAnimationFrame(animationFrameId);
   }, menuData);
+
+  useEffect(() => {
+    if (isMobile === true) {
+      if (onCollapse) {
+        onCollapse(true);
+      }
+    }
+  }, [isMobile]);
 
   const omitProps = Omit(props, ['className', 'style']);
 
