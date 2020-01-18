@@ -32,7 +32,7 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "analyze": "cross-env ANALYZE=1 umi build",
-    "build": "father-build build",
+    "build": "father build && webpack",
     "doc": "father-doc dev",
     "format-imports": "import-sort --write '**/*.{js,jsx,ts,tsx}'",
     "lint": "npm run lint-eslint && npm run lint:style",
@@ -41,7 +41,7 @@
     "lint-staged:js": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty",
     "lint:fix": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./**/src ./tests && npm run lint:style",
     "lint:style": "stylelint --fix \"src/**/*.less\" --syntax less",
-    "prepublishOnly": "npm run test && npm run build && np --no-cleanup --yolo --no-publish",
+    "prepublishOnly": "npm run test && npm run build && np --no-cleanup --yolo --no-publish --any-branch",
     "prettier": "prettier -c --write \"**/**\"",
     "site": "father-doc build && gh-pages -d ./dist",
     "start": "cd ./example && umi dev",
@@ -89,6 +89,11 @@
   },
   "devDependencies": {
     "@ant-design/dark-theme": "^1.0.3",
+    "@babel/core": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
+    "@babel/preset-typescript": "^7.8.3",
     "@material-ui/core": "^4.8.2",
     "@testing-library/react": "^9.4.0",
     "@testing-library/react-hooks": "^3.2.1",
@@ -109,6 +114,7 @@
     "@types/warning": "^3.0.0",
     "@umijs/fabric": "^2.0.0",
     "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
     "babel-plugin-import": "^1.12.2",
     "chalk": "^3.0.0",
     "cross-env": "^6.0.3",
@@ -116,7 +122,6 @@
     "enzyme-to-json": "^3.4.3",
     "eslint": "^6.8.0",
     "father": "^2.26.0",
-    "father-build": "^1.12.0",
     "father-doc": "^1.0.0-alpha.12",
     "gh-pages": "^2.1.1",
     "husky": "^4.0.0",
@@ -138,7 +143,8 @@
     "stylelint": "^12.0.0",
     "umi": "^2.12.9",
     "umi-plugin-githubpages": "^1.0.0",
-    "umi-types": "^0.5.11"
+    "umi-types": "^0.5.11",
+    "webpack-cli": "^3.3.10"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
