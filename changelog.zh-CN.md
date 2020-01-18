@@ -1,5 +1,9 @@
 # 更新日志
 
+### 4.10.9
+
+- 🌟 提供了 umd 版本的包。[ecb95fa](https://github.com/ant-design/ant-design-pro-layout/commit/ecb95fa)
+
 ### 4.10.8
 
 - 🌟 当 `isMobile` 改成的时候设置 Drawer 的 `visible` 为 `false`。[fb5cdd47](https://github.com/ant-design/ant-design-pro-layout/commit/fb5cdd47)

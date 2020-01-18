@@ -1,5 +1,9 @@
 # changelog
 
+### 4.10.9
+
+- 🌟 umd version provided. [ecb95fa](https://github.com/ant-design/ant-design-pro-layout/commit/ecb95fa)
+
 ### 4.10.8
 
 - 🌟 when `isMobile` set Drawer `visible = false`. [fb5cdd47](https://github.com/ant-design/ant-design-pro-layout/commit/fb5cdd47)
