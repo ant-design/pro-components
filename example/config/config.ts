@@ -4,6 +4,7 @@ import defaultSettings from './defaultSettings';
 import themePluginConfig from './themePluginConfig';
 
 const plugins: IPlugin[] = [
+  ['umi-plugin-antd-icon-config', {}],
   [
     'umi-plugin-react',
     {
