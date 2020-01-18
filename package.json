@@ -139,6 +139,7 @@
     "puppeteer": "^2.0.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
+    "react-github-btn": "^1.1.1",
     "react-markdown": "^4.3.0",
     "slash2": "^2.0.0",
     "stylelint": "^13.0.0",

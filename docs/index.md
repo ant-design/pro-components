@@ -15,6 +15,22 @@ order: 10
 
 </div>
 
+```tsx | inline
+import React from 'react';
+import GitHubButton from 'react-github-btn';
+
+export default () => (
+  <GitHubButton
+    href="https://github.com/ant-design/pro-table"
+    data-size="large"
+    data-show-count
+    aria-label="Star ant-design/pro-table on GitHub"
+  >
+    Star
+  </GitHubButton>
+);
+```
+
 ## 使用
 
 ```bash
