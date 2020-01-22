@@ -36,21 +36,17 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
   const [settings, setSettings] = useState<Partial<Settings>>({
     ...defaultSettings,
     fixSiderbar: true,
-    fixedHeader: true,
   });
   return (
     <>
       <ProLayout
-        // menuHeaderRender={false}
         logo={logo}
-        // siderWidth={200}
         menuHeaderRender={(logoDom, titleDom) => (
           <Link to="/">
             {logoDom}
             {titleDom}
           </Link>
         )}
-        breakpoint={false}
         links={[
           <>
             <Icon type="heart" theme="twoTone" twoToneColor="red" />

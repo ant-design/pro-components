@@ -21,7 +21,7 @@ import defaultSettings, { Settings } from '../defaultSettings';
 import BlockCheckbox from './BlockCheckbox';
 import ThemeColor from './ThemeColor';
 import getLocales, { getLanguage } from '../locales';
-import { isBrowser } from '../utils/utils';
+import { isBrowser, genStringToTheme } from '../utils/utils';
 import LayoutSetting, { renderLayoutSettingItem } from './LayoutChange';
 
 interface BodyProps {
@@ -338,6 +338,19 @@ const getParamsFromUrl = (settings: MergerSettingsType<Settings>) => {
   };
 };
 
+const genCopySettingJson = (settingState: MergerSettingsType<Settings>) =>
+  JSON.stringify(
+    omit(
+      {
+        ...settingState,
+        primaryColor: genStringToTheme(settingState.primaryColor),
+      },
+      ['colorWeak'],
+    ),
+    null,
+    2,
+  );
+
 /**
  * 可视化配置组件
  * @param props
@@ -360,7 +373,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = props => {
   });
   const [language, setLanguage] = useState<string>(getLanguage());
   const [settingState, setSettingState] = useMergeValue<Partial<Settings>>(
-    getParamsFromUrl(propsSettings),
+    () => getParamsFromUrl(propsSettings),
     {
       value: propsSettings,
       onChange: onSettingChange,
@@ -456,6 +469,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = props => {
       firstRender.current = false;
       return;
     }
+
     const browserHistory = createBrowserHistory();
     let params = {};
     if (window.location.search) {
@@ -463,7 +477,6 @@ const SettingDrawer: React.FC<SettingDrawerProps> = props => {
     }
 
     const diffParams = getDifferentSetting({ ...params, ...settingState });
-
     if (Object.keys(settingState).length < 1) {
       return;
     }
@@ -569,7 +582,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = props => {
 
         {hideCopyButton ? null : (
           <CopyToClipboard
-            text={JSON.stringify(omit(settingState, ['colorWeak']), null, 2)}
+            text={genCopySettingJson(settingState)}
             onCopy={() =>
               message.success(formatMessage({ id: 'app.setting.copyinfo' }))
             }

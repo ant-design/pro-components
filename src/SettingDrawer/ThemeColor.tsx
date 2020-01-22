@@ -60,7 +60,7 @@ const ThemeColor: React.FC<ThemeColorProps> = ({
               <Tag
                 className="theme-color-block"
                 color={color}
-                check={value === key}
+                check={value === key || genThemeToString(value) === key}
                 onClick={() => onChange && onChange(key)}
               />
             </Tooltip>
