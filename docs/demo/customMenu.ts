@@ -19,4 +19,9 @@ export default [
       },
     ],
   },
+  {
+    path: '/demo',
+    name: 'demo',
+    icon: 'heart',
+  },
 ];

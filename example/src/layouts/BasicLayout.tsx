@@ -12,7 +12,7 @@ import ProLayout, {
   DefaultFooter,
 } from '../../../src/';
 import React, { useState } from 'react';
-import { Icon } from 'antd';
+import { HeartTwoTone } from '@ant-design/icons';
 import defaultSettings from '../../config/defaultSettings';
 
 import Link from 'umi/link';
@@ -49,7 +49,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
         )}
         links={[
           <>
-            <Icon type="heart" theme="twoTone" twoToneColor="red" />
+            <HeartTwoTone />
             <span>name</span>
           </>,
         ]}

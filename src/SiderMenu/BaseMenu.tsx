@@ -1,6 +1,8 @@
 import './index.less';
 
-import { Icon, Menu } from 'antd';
+import Icon, { createFromIconfontCN } from '@ant-design/icons';
+
+import { Menu } from 'antd';
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import useMergeValue from 'use-merge-value';
@@ -62,7 +64,7 @@ export interface BaseMenuProps
 
 const { SubMenu } = Menu;
 
-let IconFont = Icon.createFromIconfontCN({
+let IconFont = createFromIconfontCN({
   scriptUrl: defaultSettings.iconfontUrl,
 });
 
@@ -95,7 +97,6 @@ https://pro.ant.design/blog/antd-4.0-cn 寻找解决方式！`,
       );
       firstConsole = false;
     }
-    return <Icon type={icon} />;
   }
   return icon;
 };
@@ -321,7 +322,7 @@ const BaseMenu: React.FC<BaseMenuProps> = props => {
   useEffect(() => {
     // reset IconFont
     if (iconfontUrl) {
-      IconFont = Icon.createFromIconfontCN({
+      IconFont = createFromIconfontCN({
         scriptUrl: iconfontUrl,
       });
     }

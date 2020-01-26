@@ -9,11 +9,13 @@
     "dev": "umi dev"
   },
   "dependencies": {
+    "@ant-design/compatible": "^0.0.1-rc.0",
     "@ant-design/dark-theme": "^0.2.0",
+    "@ant-design/icons": "^4.0.0-alpha.11",
     "@antv/data-set": "^0.10.2",
     "@types/lodash.debounce": "^4.0.6",
     "@types/lodash.isequal": "^4.5.5",
-    "antd": "^3.26.3",
+    "antd": "^4.0.0-beta.0",
     "bizcharts": "^3.5.3-beta.0",
     "bizcharts-plugin-slider": "^2.1.1-beta.1",
     "classnames": "^2.2.6",

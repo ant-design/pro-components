@@ -2,7 +2,7 @@ import './index.less';
 
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import { Icon } from 'antd';
+import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
 import { HeaderViewProps } from '../Header';
 import { defaultRenderLogo, SiderMenuProps } from '../SiderMenu/SiderMenu';
 import { isBrowser } from '../utils/utils';
@@ -21,9 +21,8 @@ export interface GlobalHeaderProps {
   menuHeaderRender?: SiderMenuProps['menuHeaderRender'];
 }
 
-const defaultRenderCollapsedButton = (collapsed?: boolean) => (
-  <Icon type={collapsed ? 'menu-unfold' : 'menu-fold'} />
-);
+const defaultRenderCollapsedButton = (collapsed?: boolean) =>
+  collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />;
 
 const renderLogo = (
   menuHeaderRender: SiderMenuProps['menuHeaderRender'],

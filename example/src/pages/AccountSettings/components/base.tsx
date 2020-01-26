@@ -1,4 +1,7 @@
-import { Button, Form, Input, Select, Upload, message } from 'antd';
+import { UploadOutlined } from '@ant-design/icons';
+import { Form } from '@ant-design/compatible';
+import '@ant-design/compatible/assets/index.css';
+import { Button, Input, Select, Upload, message } from 'antd';
 import { FormattedMessage, formatMessage } from 'umi-plugin-react/locale';
 import React, { Component, Fragment } from 'react';
 
@@ -26,7 +29,7 @@ const AvatarView = ({ avatar }: { avatar: string }) => (
     </div>
     <Upload fileList={[]}>
       <div className={styles.button_view}>
-        <Button icon="upload">
+        <Button icon={<UploadOutlined />}>
           <FormattedMessage
             id="accountsettings.basic.change-avatar"
             defaultMessage="Change avatar"

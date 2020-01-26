@@ -1,6 +1,8 @@
 import './ThemeColor.less';
 
-import { Icon, Tooltip } from 'antd';
+import { CheckOutlined } from '@ant-design/icons';
+
+import { Tooltip } from 'antd';
 
 import React from 'react';
 import { genThemeToString } from '../utils/utils';
@@ -12,10 +14,12 @@ export interface TagProps {
   onClick?: () => void;
 }
 
-const Tag: React.FC<TagProps> = ({ color, check, ...rest }) => (
-  <div {...rest} style={{ backgroundColor: color }}>
-    {check ? <Icon type="check" /> : ''}
-  </div>
+const Tag: React.FC<TagProps> = React.forwardRef(
+  ({ color, check, ...rest }, ref) => (
+    <div {...rest} style={{ backgroundColor: color }} ref={ref as any}>
+      {check ? <CheckOutlined /> : ''}
+    </div>
+  ),
 );
 
 export interface ThemeColorProps {
@@ -29,19 +33,16 @@ export interface ThemeColorProps {
   formatMessage: (data: { id: any; defaultMessage?: string }) => string;
 }
 
-const ThemeColor: React.FC<ThemeColorProps> = ({
-  colors,
-  title,
-  value,
-  onChange,
-  formatMessage,
-}) => {
+const ThemeColor: React.FC<ThemeColorProps> = (
+  { colors, title, value, onChange, formatMessage },
+  ref,
+) => {
   const colorList = colors || [];
   if (colorList.length < 1) {
     return null;
   }
   return (
-    <div className="theme-color">
+    <div className="theme-color" ref={ref}>
       <h3 className="theme-color-title">{title}</h3>
       <div className="theme-color-content">
         {colorList.map(({ key, color }) => {
@@ -71,4 +72,4 @@ const ThemeColor: React.FC<ThemeColorProps> = ({
   );
 };
 
-export default ThemeColor;
+export default React.forwardRef(ThemeColor);

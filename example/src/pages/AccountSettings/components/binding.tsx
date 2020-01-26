@@ -1,5 +1,10 @@
 import { FormattedMessage, formatMessage } from 'umi-plugin-react/locale';
-import { Icon, List } from 'antd';
+import {
+  AlipayOutlined,
+  DingdingOutlined,
+  TaobaoOutlined,
+} from '@ant-design/icons';
+import { List } from 'antd';
 import React, { Component, Fragment } from 'react';
 
 class BindingView extends Component {
@@ -18,7 +23,7 @@ class BindingView extends Component {
           />
         </a>,
       ],
-      avatar: <Icon type="taobao" className="taobao" />,
+      avatar: <TaobaoOutlined className="taobao" />,
     },
     {
       title: formatMessage({ id: 'accountsettings.binding.alipay' }, {}),
@@ -34,7 +39,7 @@ class BindingView extends Component {
           />
         </a>,
       ],
-      avatar: <Icon type="alipay" className="alipay" />,
+      avatar: <AlipayOutlined className="alipay" />,
     },
     {
       title: formatMessage({ id: 'accountsettings.binding.dingding' }, {}),
@@ -50,7 +55,7 @@ class BindingView extends Component {
           />
         </a>,
       ],
-      avatar: <Icon type="dingding" className="dingding" />,
+      avatar: <DingdingOutlined className="dingding" />,
     },
   ];
 

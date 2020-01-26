@@ -1,4 +1,5 @@
-import { Icon, Tooltip } from 'antd';
+import { CheckOutlined } from '@ant-design/icons';
+import { Tooltip } from 'antd';
 
 import React from 'react';
 import { getFormatMessage } from './index';
@@ -52,7 +53,7 @@ const BlockCheckbox: React.FC<BlockCheckboxProps> = ({
                 display: value === item.key ? 'block' : 'none',
               }}
             >
-              <Icon type="check" />
+              <CheckOutlined />
             </div>
           </div>
         </Tooltip>

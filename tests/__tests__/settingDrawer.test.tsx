@@ -6,6 +6,13 @@ import { waitForComponentToPaint } from './util';
 
 describe('settingDrawer.test', () => {
   beforeAll(() => {
+    Object.defineProperty(window, 'matchMedia', {
+      value: jest.fn(() => ({
+        matches: false,
+        addListener() {},
+        removeListener() {},
+      })),
+    });
     Object.defineProperty(window, 'localStorage', {
       value: {
         getItem: jest.fn(() => 'zh-CN'),
@@ -97,25 +104,5 @@ describe('settingDrawer.test', () => {
     const button = wrapper.find('.ant-pro-setting-drawer-handle');
     button.simulate('click');
     expect(onCollapseChange).toHaveBeenCalled();
-  });
-
-  it('collapse', async () => {
-    const onCollapseChange = jest.fn();
-    const wrapper = mount<SettingDrawerProps>(
-      <SettingDrawer
-        settings={defaultSettings}
-        collapse
-        getContainer={false}
-        onCollapseChange={onCollapseChange}
-      />,
-    );
-    await waitForComponentToPaint(wrapper);
-    expect(
-      wrapper.find('.ant-pro-setting-drawer-handle Icon').props().type,
-    ).toBe('close');
-    wrapper.setProps({ collapse: false });
-    expect(
-      wrapper.find('.ant-pro-setting-drawer-handle Icon').props().type,
-    ).toBe('setting');
   });
 });

@@ -1,10 +1,11 @@
+import { Form, Icon as LegacyIcon } from '@ant-design/compatible';
+import '@ant-design/compatible/assets/index.css';
+import { ExclamationCircleOutlined } from '@ant-design/icons';
 import {
   Button,
   Card,
   Col,
   DatePicker,
-  Form,
-  Icon,
   Input,
   Popover,
   Row,
@@ -96,7 +97,7 @@ class FormAdvancedForm extends Component<FormAdvancedFormProps> {
           className={styles.errorListItem}
           onClick={() => scrollToField(key)}
         >
-          <Icon type="cross-circle-o" className={styles.errorIcon} />
+          <LegacyIcon type="cross-circle-o" className={styles.errorIcon} />
           <div className={styles.errorMessage}>{errorMessage[0]}</div>
           <div className={styles.errorField}>{fieldLabels[key]}</div>
         </li>
@@ -116,7 +117,7 @@ class FormAdvancedForm extends Component<FormAdvancedFormProps> {
             return trigger;
           }}
         >
-          <Icon type="exclamation-circle" />
+          <ExclamationCircleOutlined />
         </Popover>
         {errorCount}
       </span>
