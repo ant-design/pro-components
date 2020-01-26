@@ -1,5 +1,10 @@
 # 更新日志
 
+### 4.10.10
+
+- 🌟 The default color values have been enumerated and can now be copied directly. [87e81c5](https://github.com/ant-design/ant-design-pro-layout/commit/87e81c5)
+- 🌟 增加 icon 的过期警告。[6642e43](https://github.com/ant-design/ant-design-pro-layout/commit/6642e43)
+
 ### 4.10.9
 
 - 🌟 提供了 umd 版本的包。[ecb95fa](https://github.com/ant-design/ant-design-pro-layout/commit/ecb95fa)
