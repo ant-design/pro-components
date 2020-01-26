@@ -3,7 +3,7 @@
 ### 4.10.10
 
 - 🌟 The default color values have been enumerated and can now be copied directly. [87e81c5](https://github.com/ant-design/ant-design-pro-layout/commit/87e81c5)
-- 🌟 Added icon expiration warning. [6642e43](https://github.com/ant-design/ant-design-pro-layout/commit/6642e43)
+- 🌟 Added icon expiration warning. q[6642e43](https://github.com/ant-design/ant-design-pro-layout/commit/6642e43)
 
 ### 4.10.9
 
