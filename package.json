@@ -102,7 +102,7 @@
     "@types/classnames": "^2.2.7",
     "@types/enzyme": "^3.10.3",
     "@types/history": "^4.7.3",
-    "@types/jest": "^24.0.25",
+    "@types/jest": "^25.1.0",
     "@types/lodash.isequal": "^4.5.5",
     "@types/memoize-one": "^5.1.2",
     "@types/qs": "^6.9.0",
