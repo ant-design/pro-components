@@ -1,84 +1,84 @@
-import React, { CSSProperties } from 'react';
+import React, { CSSProperties, useState } from 'react';
 import { ConfigProvider, Layout } from 'antd';
 import ResizeObserver from 'rc-resize-observer';
+
 import { debounce } from './utils/utils';
 
 const { Content } = Layout;
 
-class WrapContent extends React.Component<
-  {
-    isChildrenLayout?: boolean;
-    className?: string;
-    style?: CSSProperties;
-  },
-  {
-    contentSize: string | number;
-  }
-> {
-  state: {
-    contentSize: string | number;
-  } = {
-    contentSize: 'auto',
-  };
-
+class WrapContent extends React.Component<{
+  isChildrenLayout?: boolean;
+  className?: string;
+  style?: CSSProperties;
+  location?: any;
+  contentHeight: number | string;
+}> {
   ref: HTMLDivElement | null = null;
 
-  resize = debounce(({ height }: { height: number }) => {
-    const { contentSize } = this.state;
-    if (height !== contentSize) {
-      this.setState({ contentSize: height });
-    }
-  }, 100);
-
-  shouldComponentUpdate(
-    _: any,
-    nextState: {
-      contentSize: string | number;
-    },
-  ) {
-    if (nextState.contentSize !== this.state.contentSize) {
+  shouldComponentUpdate(_: any) {
+    if (_.contentHeight !== this.props.contentHeight) {
       return true;
     }
-    if (_.children !== this.props.children) {
+    if (JSON.stringify(_.location) !== JSON.stringify(this.props.location)) {
       return true;
     }
     return false;
   }
 
   render() {
-    const { contentSize } = this.state;
-    const { style, className, children, isChildrenLayout } = this.props;
-
+    const {
+      style,
+      className,
+      contentHeight,
+      children,
+      isChildrenLayout,
+    } = this.props;
     return (
       <Content
         className={className}
         style={{
           ...style,
-          minHeight: contentSize,
+          minHeight: contentHeight,
         }}
       >
-        <ResizeObserver onResize={this.resize}>
-          <ConfigProvider
-            getPopupContainer={() => {
-              if (isChildrenLayout && this.ref) {
-                return this.ref;
-              }
-              return document.body;
+        <ConfigProvider
+          getPopupContainer={() => {
+            if (isChildrenLayout && this.ref) {
+              return this.ref;
+            }
+            return document.body;
+          }}
+        >
+          <div
+            ref={ele => {
+              this.ref = ele;
             }}
+            className="ant-pro-basicLayout-children-content-wrap"
           >
-            <div
-              ref={ele => {
-                this.ref = ele;
-              }}
-              className="ant-pro-basicLayout-children-content-wrap"
-            >
-              {children}
-            </div>
-          </ConfigProvider>
-        </ResizeObserver>
+            {children}
+          </div>
+        </ConfigProvider>
       </Content>
     );
   }
 }
 
-export default WrapContent;
+export default (props: {
+  isChildrenLayout?: boolean;
+  className?: string;
+  style?: CSSProperties;
+  location?: any;
+  children: any;
+}) => {
+  const [contentHeight, setContentHeight] = useState<string | number>('auto');
+  const resize = debounce(({ height }: { height: number }) => {
+    if (contentHeight !== height) {
+      setContentHeight(height);
+    }
+  }, 100);
+  return (
+    <ResizeObserver onResize={resize}>
+      <WrapContent {...props} contentHeight={contentHeight} />
+    </ResizeObserver>
+  );
+};
