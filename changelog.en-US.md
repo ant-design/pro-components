@@ -1,8 +1,12 @@
 # changelog
 
+### 5.0.1
+
+- 🌟 Optimize performance to reduce the number of renders. [23b824c](https://github.com/ant-design/ant-design-pro-layout/commit/23b824c)
+
 ### 5.0.0
 
-- 🔥🔥🔥 antd@4 is supported. In order to cope with the changes of icons, it needs to be used with `umi-plugin-antd-icon-config` to realize the function of the configuration menu in config.[#294](https://github.com/ant-design/ant-design-pro-layout/pull/294)
+- 🔥🔥🔥 antd@4 is supported. In order to cope with the changes of icons, it needs to be used with `umi-plugin-antd-icon-config` to realize the function of the configuration menu in config. [#294](https://github.com/ant-design/ant-design-pro-layout/pull/294)
 
 ### 4.10.10
 

@@ -1,5 +1,9 @@
 # 更新日志
 
+### 5.0.1
+
+- 🌟 优化性能，减少 render 次数。[23b824c](https://github.com/ant-design/ant-design-pro-layout/commit/23b824c)
+
 ### 5.0.0
 
 - 🔥🔥🔥 支持了 antd@4, 为了配合 icons 的改动，需要与 `umi-plugin-antd-icon-config` 配合使用，才能实现 config 中配置菜单的功能。[#294](https://github.com/ant-design/ant-design-pro-layout/pull/294)
