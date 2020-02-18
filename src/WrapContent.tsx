@@ -19,7 +19,7 @@ class WrapContent extends React.Component<{
     if (_.contentHeight !== this.props.contentHeight) {
       return true;
     }
-    if (JSON.stringify(_.location) !== JSON.stringify(this.props.location)) {
+    if (_.children !== this.props.children) {
       return true;
     }
     return false;
