@@ -1,4 +1,4 @@
-import React, { CSSProperties, useState } from 'react';
+import React, { CSSProperties } from 'react';
 import { ConfigProvider, Layout } from 'antd';
 import ResizeObserver from 'rc-resize-observer';
 
@@ -11,7 +11,7 @@ class WrapContent extends React.Component<{
   className?: string;
   style?: CSSProperties;
   location?: any;
-  contentHeight: number | string;
+  contentHeight?: number | string;
 }> {
   ref: HTMLDivElement | null = null;
 
@@ -26,21 +26,9 @@ class WrapContent extends React.Component<{
   }
 
   render() {
-    const {
-      style,
-      className,
-      contentHeight,
-      children,
-      isChildrenLayout,
-    } = this.props;
+    const { style, className, children, isChildrenLayout } = this.props;
     return (
-      <Content
-        className={className}
-        style={{
-          ...style,
-          minHeight: contentHeight,
-        }}
-      >
+      <Content className={className} style={style}>
         <ConfigProvider
           getPopupContainer={() => {
             if (isChildrenLayout && this.ref) {
@@ -63,22 +51,45 @@ class WrapContent extends React.Component<{
   }
 }
 
-export default (props: {
-  isChildrenLayout?: boolean;
-  className?: string;
-  style?: CSSProperties;
-  location?: any;
-  children: any;
-}) => {
-  const [contentHeight, setContentHeight] = useState<string | number>('auto');
-  const resize = debounce(({ height }: { height: number }) => {
+class ResizeObserverContent extends React.Component<
+  {
+    isChildrenLayout?: boolean;
+    className?: string;
+    style?: CSSProperties;
+    location?: any;
+    children: any;
+  },
+  {
+    contentHeight: number | undefined;
+  }
+> {
+  state: { contentHeight: number | undefined } = {
+    contentHeight: undefined,
+  };
+
+  resize = debounce(({ height }: { height: number }) => {
+    const { contentHeight } = this.state;
     if (contentHeight !== height) {
-      setContentHeight(height);
+      this.setState({
+        contentHeight: height,
+      });
     }
   }, 100);
-  return (
-    <ResizeObserver onResize={resize}>
-      <WrapContent {...props} contentHeight={contentHeight} />
-    </ResizeObserver>
-  );
-};
+
+  render() {
+    const { contentHeight } = this.state;
+    return (
+      <div
+        style={{
+          minHeight: contentHeight,
+        }}
+      >
+        <ResizeObserver onResize={this.resize}>
+          <WrapContent {...this.props} contentHeight={contentHeight} />
+        </ResizeObserver>
+      </div>
+    );
+  }
+}
+
+export default ResizeObserverContent;
