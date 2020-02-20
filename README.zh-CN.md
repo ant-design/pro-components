@@ -20,7 +20,7 @@ npm i @ant-design/pro-layout --save
 yarn add @ant-design/pro-layout
 ```
 
-```jsx
+```jsx | pure
 import BasicLayout from '@ant-design/pro-layout';
 
 render(<BasicLayout />, document.getElementById('root'));
@@ -99,9 +99,9 @@ PageHeaderWrapper 封装了 ant design 的 PageHeader 组件，增加了 tabList
 
 一个简单的加载页面
 
-| 参数 | 说明       | 类型      | 默认值 |
-| ---- | ---------- | --------- | ------ |
-| tip  | 加载的小说 | ReactNode | -      |
+| 参数 | 说明         | 类型      | 默认值 |
+| ---- | ------------ | --------- | ------ |
+| tip  | 加载的小说明 | ReactNode | -      |
 
 ### RouteContext
 
@@ -131,7 +131,7 @@ GridContent 封装了 [等宽](https://preview.pro.ant.design/dashboard/analysis
 
 根据 router 信息来生成 menuData 和 breadcrumb。
 
-```js
+```js | pure
 import { getMenuData } from '@ant-design/pro-layout';
 
 const { breadcrumb, menuData } = getMenuData(
@@ -153,7 +153,7 @@ const { breadcrumb, menuData } = getMenuData(
 
 getPageTitle 封装了根据 menuData 上生成的 title 的逻辑。
 
-```js
+```js | pure
 import { getPageTitle } from '@ant-design/pro-layout';
 
 const title = getPageTitle({
@@ -179,7 +179,7 @@ const title = getPageTitle({
 
 ### Settings
 
-```ts
+```ts | pure
 // 可以通过 import { Settings } from '@ant-design/pro-layout/defaultSettings'
 // 来获取这个类型
 export interface Settings {
@@ -220,7 +220,7 @@ export interface Settings {
 
 ### MenuDataItem
 
-```ts
+```ts | pure
 // 可以通过 import { MenuDataItem } from '@ant-design/pro-layout/typings'
 // 来获取这个类型
 
@@ -239,7 +239,7 @@ export interface MenuDataItem {
 
 ### Route
 
-```ts
+```ts | pure
 // 可以通过 import { RouterTypes } from '@ant-design/pro-layout/typings'
 // 来获取这个类型
 export interface Route {
@@ -254,14 +254,6 @@ export interface Route {
   }>;
 }
 ```
-
-## 支持环境
-
-现代浏览器及 IE11。
-
-| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera |
-| --- | --- | --- | --- | --- |
-| IE11, Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
 
 ## 参与贡献
 

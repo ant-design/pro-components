@@ -124,7 +124,7 @@
     "enzyme-to-json": "^3.4.3",
     "eslint": "^6.8.0",
     "father": "^2.26.0",
-    "father-doc": "^1.0.0-alpha.12",
+    "father-doc": "1.0.0-beta.2",
     "gh-pages": "^2.1.1",
     "husky": "^4.0.0",
     "import-sort-cli": "^6.0.0",

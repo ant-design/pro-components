@@ -20,7 +20,7 @@ npm i @ant-design/pro-layout --save
 yarn add @ant-design/pro-layout
 ```
 
-```jsx
+```jsx | pure
 import ProLayout from '@ant-design/pro-layout';
 
 render(<ProLayout />, document.getElementById('root'));
@@ -42,7 +42,7 @@ render(<ProLayout />, document.getElementById('root'));
 | logo | layout top left logo url | ReactNode \| ()=>ReactNode | - |
 | loading | layout loading status | boolean | - |
 | menuHeaderRender | render logo and title | ReactNode \| (logo,title)=>ReactNode | - |
-| onMenuHeaderClick | menu header click event | (e: React.MouseEvent<HTMLDivElement>) => void | - |
+| onMenuHeaderClick | menu header click event | `(e: React.MouseEvent<HTMLDivElement>) => void` | - |
 | contentStyle | layout content style | CSSProperties | - |
 | layout | layout menu mode, sidemenu: right navigation, topmenu: top navigation | 'sidemenu' \| 'topmenu' | `'sidemenu'` |
 | contentWidth | content mode of layout, Fluid: fixed width 1200px, Fixed: adaptive | 'Fluid' \| 'Fixed' | `'Fluid'` |
@@ -76,7 +76,7 @@ Layout support for most of [Menu](https://ant.design/components/menu-cn/#Menu) b
 
 ### SettingDrawer
 
-```js
+```js | pure
 import { SettingDrawer } from '@ant-design/pro-layout';
 ```
 
@@ -113,7 +113,7 @@ a simple loading page
 
 RouteContext can provide built-in data for Layout. For example, isMobile and collapsed, you can consume this data to customize some behavior.
 
-```tsx
+```tsx | pure
 import { RouteContext } from '@ant-design/pro-layout';
 
 const Page = () => (
@@ -137,7 +137,7 @@ GridContent encapsulates [equal width](https://preview.pro.ant.design/dashboard/
 
 Generate menuData and breadcrumb based on the router information.
 
-```js
+```js | pure
 import { getMenuData } from '@ant-design/pro-layout';
 
 const { breadcrumb, menuData } = getMenuData(
@@ -157,7 +157,7 @@ const { breadcrumb, menuData } = getMenuData(
 
 ### getPageTitle
 
-```js
+```js | pure
 import { getPageTitle } from '@ant-design/pro-layout';
 
 const title = getPageTitle({
@@ -185,7 +185,7 @@ getPageTitle encapsulates the logic based on the title generated on menuData.
 
 ### Settings
 
-```ts
+```ts | pure
 // can be done via import { Settings } from '@ant-design/pro-layout/defaultSettings' to get this type
 
 export interface Settings {
@@ -226,7 +226,7 @@ export interface Settings {
 
 ### MenuDataItem
 
-```ts
+```ts | pure
 // can be imported { MenuDataItem } from '@ant-design/pro-layout/typings' to get this type
 
 export interface MenuDataItem {
@@ -244,7 +244,7 @@ export interface MenuDataItem {
 
 ### Route
 
-```ts
+```ts | pure
 // can be imported { RouterTypes } from '@ant-design/pro-layout/typings'  to get this type
 export interface Route {
   path: string;
@@ -258,14 +258,6 @@ export interface Route {
   }>;
 }
 ```
-
-## Browsers support
-
-Modern browsers and IE11.
-
-| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera |
-| --- | --- | --- | --- | --- |
-| IE11, Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
 
 ## Contributing
 

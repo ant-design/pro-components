@@ -149,9 +149,9 @@ PageHeaderWrapper 封装了 ant design 的 PageHeader 组件，增加了 tabList
 
 一个简单的加载页面
 
-| 参数 | 说明       | 类型      | 默认值 |
-| ---- | ---------- | --------- | ------ |
-| tip  | 加载的小说 | ReactNode | -      |
+| 参数 | 说明         | 类型      | 默认值 |
+| ---- | ------------ | --------- | ------ |
+| tip  | 加载的小说明 | ReactNode | -      |
 
 ### RouteContext
 
