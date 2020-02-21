@@ -132,7 +132,7 @@
     "import-sort-parser-typescript": "^6.0.0",
     "import-sort-style-module": "^6.0.0",
     "jest-puppeteer": "^4.1.1",
-    "jsdom": "^15.0.0",
+    "jsdom": "^16.2.0",
     "jsdom-global": "^3.0.2",
     "lint-staged": "^10.0.2",
     "np": "^6.1.0",
