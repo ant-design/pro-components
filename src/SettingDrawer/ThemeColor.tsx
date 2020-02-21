@@ -33,10 +33,10 @@ export interface ThemeColorProps {
   formatMessage: (data: { id: any; defaultMessage?: string }) => string;
 }
 
-const ThemeColor: React.FC<ThemeColorProps> = (
-  { colors, title, value, onChange, formatMessage },
-  ref,
-) => {
+const ThemeColor: React.ForwardRefRenderFunction<
+  HTMLDivElement,
+  ThemeColorProps
+> = ({ colors, title, value, onChange, formatMessage }, ref) => {
   const colorList = colors || [];
   if (colorList.length < 1) {
     return null;
