@@ -3,12 +3,7 @@ import ProLayout, {
   PageHeaderWrapper,
   MenuDataItem,
 } from '@ant-design/pro-layout';
-import { SmileOutlined, HeartOutlined } from '@ant-design/icons';
-
-const IconMap = {
-  smile: <SmileOutlined />,
-  heart: <HeartOutlined />,
-};
+import { Icon } from '@ant-design/compatible';
 
 const defaultMenus = [
   {
@@ -41,7 +36,7 @@ const defaultMenus = [
 const loopMenuItem = (menus: MenuDataItem[]): MenuDataItem[] =>
   menus.map(({ icon, children, ...item }) => ({
     ...item,
-    icon: icon && IconMap[icon as string],
+    icon: icon && <Icon type={icon as string} />,
     children: children && loopMenuItem(children),
   }));
 

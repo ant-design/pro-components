@@ -13,6 +13,18 @@ Pro-Layout 提供了强大的 menu，但是这样必然会 u 封装很多行为�
 
 <code src="./demo/dynamicMenu.tsx" />
 
+## 从服务器加载 menu 并且使用 icon
+
+这里主要是一个演示，我们需要准备一个枚举来进行 icon 的渲染，可以显著的减少 打包的大小
+
+<code src="./demo/antd@4MenuIconFormServe.tsx" />
+
+## 从服务器加载 menu 并且使用旧版本 icon
+
+使用兼容包来实现，虽然比较简单，但是会照成打包太大
+
+<code src="./demo/antd@3MenuIconFormServe.tsx" />
+
 ## 自定义 menu 的内容
 
 通过 `menuItemRender`, `subMenuItemRender`,`title`,`logo`,`menuHeaderRender` 可以非常方便的自定义 menu 的样式。如果实在是不满意，可以使用 `menuRender` 完全的自定义。

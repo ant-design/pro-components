@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { Drawer } from 'antd';
 import classNames from 'classnames';
-import useJsonComparison from 'use-json-comparison';
 import Omit from 'omit.js';
+
+import { useDeepCompareEffect } from '../utils/utils';
 import SiderMenu, { SiderMenuProps } from './SiderMenu';
 import { getFlatMenus } from './SiderMenuUtils';
 import MenuCounter from './Counter';
@@ -20,11 +21,11 @@ const SiderMenuWrapper: React.FC<SiderMenuProps> = props => {
   } = props;
   const { setFlatMenus, setFlatMenuKeys } = MenuCounter.useContainer();
 
-  useJsonComparison(() => {
+  useDeepCompareEffect(() => {
     if (!menuData || menuData.length < 1) {
       return () => null;
     }
-    // 当 menu data 改变的时候重新计算这两个参数
+    // // 当 menu data 改变的时候重新计算这两个参数
     const newFlatMenus = getFlatMenus(menuData);
     const animationFrameId = requestAnimationFrame(() => {
       setFlatMenus(newFlatMenus);
@@ -33,7 +34,7 @@ const SiderMenuWrapper: React.FC<SiderMenuProps> = props => {
     return () =>
       window.cancelAnimationFrame &&
       window.cancelAnimationFrame(animationFrameId);
-  }, menuData);
+  }, [menuData]);
 
   useEffect(() => {
     if (isMobile === true) {

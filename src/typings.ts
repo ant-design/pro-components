@@ -19,7 +19,7 @@ export interface MenuDataItem {
   children?: MenuDataItem[];
   hideChildrenInMenu?: boolean;
   hideInMenu?: boolean;
-  icon?: string;
+  icon?: React.ReactNode;
   locale?: string;
   name?: string;
   key?: string;
