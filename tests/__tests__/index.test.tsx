@@ -45,7 +45,6 @@ describe('BasicLayout', () => {
             {
               path: '/home',
               name: '首页',
-              icon: 'smile',
               locale: 'menu.home',
               children: [
                 {
@@ -65,7 +64,6 @@ describe('BasicLayout', () => {
             {
               path: '/data_hui',
               name: '汇总数据',
-              icon: 'smile',
 
               locale: 'menu.data_hui',
               children: [
@@ -73,7 +71,7 @@ describe('BasicLayout', () => {
                   collapsed: true,
                   menuName: '域&middot;买家维度交易',
                   name: '域&middot;买家维度交易',
-                  icon: 'smile',
+
                   children: [
                     {
                       id: 2,
@@ -85,7 +83,6 @@ describe('BasicLayout', () => {
                       name: '_交易_买家_月表',
                       path:
                         '/data_hui?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alifin_odps_birisk',
-                      icon: 'smile',
                     },
                     {
                       id: 3,
@@ -97,7 +94,6 @@ describe('BasicLayout', () => {
                       name: '_航旅交易_买家_日表',
                       path:
                         '/data_hui?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
-                      icon: 'smile',
                     },
                   ],
                 },
@@ -105,7 +101,6 @@ describe('BasicLayout', () => {
                   collapsed: true,
                   menuName: '域&middot;买家维度交易2',
                   name: '域&middot;买家维度交易2',
-                  icon: 'smile',
                   children: [
                     {
                       id: 5,
@@ -117,7 +112,6 @@ describe('BasicLayout', () => {
                       name: '_交易_买家_月表',
                       path:
                         '/data_hui?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alifin_odps_birisk',
-                      icon: 'smile',
                     },
                     {
                       id: 6,
@@ -129,7 +123,6 @@ describe('BasicLayout', () => {
                       name: '_航旅交易_买家_日表',
                       path:
                         '/data_hui?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
-                      icon: 'smile',
                     },
                   ],
                 },
@@ -137,7 +130,7 @@ describe('BasicLayout', () => {
                   collapsed: true,
                   menuName: '域&middot;买家维度交易2',
                   name: '域&middot;买家维度交易2',
-                  icon: 'smile',
+
                   children: [
                     {
                       id: 7,
@@ -149,7 +142,6 @@ describe('BasicLayout', () => {
                       name: '_交易_买家_月表2',
                       path:
                         '/data_hui?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alifin_odps_birisk',
-                      icon: 'smile',
                     },
                     {
                       id: 8,
@@ -161,7 +153,6 @@ describe('BasicLayout', () => {
                       name: '_航旅交易_买家_日表3',
                       path:
                         '/data_hui?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
-                      icon: 'smile',
                     },
                   ],
                 },
@@ -170,14 +161,14 @@ describe('BasicLayout', () => {
             {
               path: '/data_ming',
               name: '明细数据',
-              icon: 'smile',
+
               locale: 'menu.data_ming',
               children: [],
             },
             {
               path: '/other',
               name: '其他',
-              icon: 'smile',
+
               locale: 'menu.other',
               children: [
                 {

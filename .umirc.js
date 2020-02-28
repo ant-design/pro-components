@@ -1,8 +1,7 @@
 export default {
-  doc: {
-    title: 'Pro-Layout',
-    logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
-  },
+  title: 'Pro-Layout',
+  logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+  mode: 'site',
   extraBabelPlugins: [
     [
       'import',
@@ -14,6 +13,4 @@ export default {
     ],
   ],
   hash: true,
-  plugins: [['umi-plugin-githubpages', {}]],
-  disableCSSModules: true,
 };

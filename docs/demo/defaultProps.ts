@@ -5,7 +5,6 @@ export default {
       {
         path: '/',
         name: 'welcome',
-        icon: 'smile',
         routes: [
           {
             path: '/welcome',
@@ -15,7 +14,6 @@ export default {
               {
                 path: '/welcome/welcome',
                 name: 'two',
-                icon: 'smile',
                 exact: true,
               },
             ],
