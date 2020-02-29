@@ -55,6 +55,7 @@ render(<BasicLayout />, document.getElementById('root'));
 | siderWidth | 侧边菜单宽度 | number | 256 |
 | collapsed | 控制菜单的收起和展开 | boolean | true |
 | onCollapse | 菜单的折叠收起事件 | (collapsed: boolean) => void | - |
+| onPageChange | 页面切换时触发 | (location: Location) => void | - |
 | headerRender | 自定义头的 render 方法 | (props: BasicLayoutProps) => ReactNode | - |
 | rightContentRender | 自定义头右部的 render 方法 | (props: HeaderViewProps) => ReactNode | - |
 | collapsedButtonRender | 自定义 collapsed button 的方法 | (collapsed: boolean) => ReactNode | - |

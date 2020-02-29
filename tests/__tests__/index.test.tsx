@@ -385,6 +385,27 @@ describe('BasicLayout', () => {
     expect(dom.exists()).toBeFalsy();
   });
 
+  it('🥩 onPageChange', async () => {
+    const onPageChange = jest.fn();
+    const wrapper = mount<BasicLayoutProps>(
+      <BasicLayout
+        onPageChange={onPageChange}
+        location={{
+          pathname: '/',
+        }}
+      />,
+    );
+
+    await waitForComponentToPaint(wrapper);
+    wrapper.setProps({
+      location: {
+        pathname: '/name',
+      },
+    });
+
+    expect(onPageChange).toBeCalled();
+  });
+
   it('🥩 fixSider and collapsed should have different style', async () => {
     const wrapper = mount<BasicLayoutProps>(<BasicLayout collapsed />);
     await waitForComponentToPaint(wrapper);

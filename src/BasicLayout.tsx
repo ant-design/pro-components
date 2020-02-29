@@ -7,6 +7,7 @@ import { Layout } from 'antd';
 import classNames from 'classnames';
 import warning from 'warning';
 import useMergeValue from 'use-merge-value';
+import { stringify } from 'use-json-comparison';
 import useAntdMediaQuery from 'use-media-antd-query';
 
 import Omit from 'omit.js';
@@ -42,6 +43,11 @@ export interface BasicLayoutProps
    * logo url
    */
   logo?: React.ReactNode | WithFalse<() => React.ReactNode>;
+
+  /**
+   * 页面切换的时候触发
+   */
+  onPageChange?: (location?: RouterTypes<Route>['location']) => void;
 
   loading?: boolean;
 
@@ -286,7 +292,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
         window.cancelAnimationFrame(animationFrameId);
     }
     return () => null;
-  }, [props.route, JSON.stringify(menu)]);
+  }, [props.route, stringify(menu)]);
 
   // If it is a fix menu, calculate padding
   // don't need padding in phone mode
@@ -403,34 +409,46 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
       'pro-layout: onCollapse and collapsed should exist simultaneously',
     );
   }, []);
+
+  /**
+   * 页面切换的时候触发
+   */
+  useEffect(() => {
+    const { onPageChange } = props;
+    if (onPageChange) {
+      onPageChange(props.location);
+    }
+  }, [stringify(props.location)]);
+
   return (
     <>
       <Helmet>
         <title>{pageTitleInfo.title}</title>
       </Helmet>
       <MenuCounter.Provider>
-        <div className={className}>
-          <Layout
-            style={{
-              minHeight: '100%',
-              ...style,
-            }}
-            hasSider
-          >
-            {siderMenuDom}
-            <Layout style={genLayoutStyle}>
-              {headerDom}
-              <RouteContext.Provider
-                value={{
-                  ...defaultProps,
-                  breadcrumb: breadcrumbProps,
-                  menuData,
-                  isMobile,
-                  collapsed,
-                  isChildrenLayout: true,
-                  title: pageTitleInfo.pageName,
-                }}
-              >
+        <RouteContext.Provider
+          value={{
+            ...defaultProps,
+            breadcrumb: breadcrumbProps,
+            menuData,
+            isMobile,
+            collapsed,
+            isChildrenLayout: true,
+            title: pageTitleInfo.pageName,
+          }}
+        >
+          <div className={className}>
+            <Layout
+              style={{
+                minHeight: '100%',
+                ...style,
+              }}
+              hasSider
+            >
+              {siderMenuDom}
+              <Layout style={genLayoutStyle}>
+                {headerDom}
+
                 <WrapContent
                   className={contentClassName}
                   isChildrenLayout={isChildrenLayout}
@@ -439,11 +457,11 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
                 >
                   {loading ? <PageLoading /> : children}
                 </WrapContent>
-              </RouteContext.Provider>
-              {footerDom}
+                {footerDom}
+              </Layout>
             </Layout>
-          </Layout>
-        </div>
+          </div>
+        </RouteContext.Provider>
       </MenuCounter.Provider>
     </>
   );

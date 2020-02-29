@@ -56,6 +56,7 @@ render(<ProLayout />, document.getElementById('root'));
 | settings | layout settings | [`Settings`](#Settings) | [`Settings`](#Settings) | - |
 | siderWidth | width of sider menu | number | 256 |
 | collapsed | control menu's collapse and expansion | boolean | true |
+| onPageChange | Triggered when page switching | (location: Location) => void | - |
 | onCollapse | folding collapse event of menu | (collapsed: boolean) => void | - |
 | headerRender | custom header render method | (props: BasicLayoutProps) => ReactNode | - |
 | rightContentRender | header right content render method | (props: HeaderViewProps) => ReactNode | - |
