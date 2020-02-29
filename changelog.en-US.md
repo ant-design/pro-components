@@ -1,5 +1,25 @@
 # changelog
 
+### 5.0.5
+
+- 💄 Fix the problem that the name is too long and cause a newline when `topMenu`. [9ad2016](https://github.com/ant-design/ant-design-pro-layout/commit/9ad2016)
+- 🐛 Fix the problem of similar path matching errors. [ed74c4b](https://github.com/ant-design/ant-design-pro-layout/commit/ed74c4b)
+- 🐛 Fix the issue that `contentStyle` does not take effect. [f87e24c](https://github.com/ant-design/ant-design-pro-layout/commit/f87e24c)
+- 💥 Added `postMenuData` props. [cace4c1](https://github.com/ant-design/ant-design-pro-layout/commit/cace4c1)
+- 💥 Added `onPageChange` props. [#346](https://github.com/ant-design/ant-design-pro-layout/pull/346)
+
+### 5.0.4
+
+- 🐞 The problem of monitoring failure when the menu icon is changed to dom. [901220f](https://github.com/ant-design/ant-design-pro-layout/commit/901220f)
+
+### 5.0.3
+
+- 🐞 Fix the problem of height calculation error. [d3edafb](https://github.com/ant-design/ant-design-pro-layout/commit/d3edafb)
+
+### 5.0.2
+
+- 🐞 Fix the problem that children change the page not refreshing. [e2b46dd](https://github.com/ant-design/ant-design-pro-layout/commit/e2b46dd)
+
 ### 5.0.1
 
 - 🌟 Optimize performance to reduce the number of renders. [23b824c](https://github.com/ant-design/ant-design-pro-layout/commit/23b824c)

@@ -1,5 +1,25 @@
 # 更新日志
 
+### 5.0.5
+
+- 💄 修复 `topMenu` 的时候，名字太长导致换行的问题。[9ad2016](https://github.com/ant-design/ant-design-pro-layout/commit/9ad2016)
+- 🐛 修复相似路径匹配出错的问题。[ed74c4b](https://github.com/ant-design/ant-design-pro-layout/commit/ed74c4b)
+- 🐛 修复 `contentStyle` 不生效的问题。[f87e24c](https://github.com/ant-design/ant-design-pro-layout/commit/f87e24c)
+- 💥 增加 `postMenuData` props。[cace4c1](https://github.com/ant-design/ant-design-pro-layout/commit/cace4c1)
+- 💥 增加 `onPageChange` props。[#346](https://github.com/ant-design/ant-design-pro-layout/pull/346)
+
+### 5.0.4
+
+- 🐞 修改 menu 的 icon 为 dom 时监听失效的问题。[901220f](https://github.com/ant-design/ant-design-pro-layout/commit/901220f)
+
+### 5.0.3
+
+- 🐞 修复高度计算错误的问题。[d3edafb](https://github.com/ant-design/ant-design-pro-layout/commit/d3edafb)
+
+### 5.0.2
+
+- 🐞 修复 children 改变页面不刷新的问题。[e2b46dd](https://github.com/ant-design/ant-design-pro-layout/commit/e2b46dd)
+
 ### 5.0.1
 
 - 🌟 优化性能，减少 render 次数。[23b824c](https://github.com/ant-design/ant-design-pro-layout/commit/23b824c)
