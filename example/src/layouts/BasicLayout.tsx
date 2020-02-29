@@ -67,6 +67,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
           <div
             style={{
               padding: '0 16px',
+              minWidth: 280,
             }}
           >
             <SelectLang />
