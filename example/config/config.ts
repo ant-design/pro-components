@@ -134,13 +134,13 @@ export default {
               component: './Welcome',
               routes: [
                 {
-                  path: 'welcome',
+                  path: 'repertoryFw',
                   name: 'two',
                   icon: 'smile',
                   component: './Welcome',
                 },
                 {
-                  path: 'welcome2',
+                  path: 'repertory',
                   name: 'two2',
                   icon: 'smile',
                   component: './Welcome',

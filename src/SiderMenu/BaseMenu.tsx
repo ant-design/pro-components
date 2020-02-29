@@ -339,6 +339,7 @@ const BaseMenu: React.FC<BaseMenuProps> = props => {
       flatMenus,
       flatMenuKeys || [],
     );
+
     const animationFrameId = requestAnimationFrame(() => {
       setSelectedKeys(keys);
       if (!defaultOpenAll && propsOpenKeys !== false) {
@@ -356,7 +357,6 @@ const BaseMenu: React.FC<BaseMenuProps> = props => {
   const cls = classNames(className, {
     'top-nav-menu': mode === 'horizontal',
   });
-
   const menuUtils = new MenuUtil(props);
   return (
     <Menu

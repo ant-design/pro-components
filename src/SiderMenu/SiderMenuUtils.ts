@@ -71,14 +71,31 @@ export const getMenuMatches = (
 ): string | undefined =>
   flatMenuKeys
     .filter(item => {
-      if (item && pathToRegexp(`${item}(.*)`).test(path)) {
+      if (item === '/' && path === '/') {
         return true;
+      }
+      if (item !== '/' && item) {
+        // /a
+        if (pathToRegexp(`${item}`).test(path)) {
+          return true;
+        }
+        // /a/b/b
+        if (pathToRegexp(`${item}(.*)`).test(path)) {
+          return true;
+        }
       }
       return false;
     })
-    .sort(
-      (a, b) => a.substr(1).split('/').length - b.substr(1).split('/').length,
-    )
+    .sort((a, b) => {
+      // 如果完全匹配放到最后面
+      if (a === path) {
+        return 10;
+      }
+      if (b === path) {
+        return -10;
+      }
+      return a.substr(1).split('/').length - b.substr(1).split('/').length;
+    })
     .pop();
 
 // 获取当前的选中菜单
