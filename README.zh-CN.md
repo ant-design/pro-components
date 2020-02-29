@@ -61,6 +61,7 @@ render(<BasicLayout />, document.getElementById('root'));
 | footerRender | 自定义页脚的 render 方法 | (props: BasicLayoutProps) => ReactNode | - |
 | pageTitleRender | 自定义页面标题的显示方法 | (props: BasicLayoutProps) => ReactNode | - |
 | menuRender | 自定义菜单的 render 方法 | (props: HeaderViewProps) => ReactNode | - |
+| postMenuData | 在显示前对菜单数据进行查看，修改不会触发重新渲染 | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
 | menuItemRender | 自定义菜单项的 render 方法 | [(itemProps: MenuDataItem) => ReactNode](#MenuDataItem) | - |
 | subMenuItemRender | 自定义拥有子菜单菜单项的 render 方法 | [(itemProps: MenuDataItem) => ReactNode](#MenuDataItem) | - |
 | menuDataRender | menuData 的 render 方法，用来自定义 menuData | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |

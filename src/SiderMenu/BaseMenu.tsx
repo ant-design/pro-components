@@ -60,6 +60,7 @@ export interface BaseMenuProps
       defaultDom: React.ReactNode,
     ) => React.ReactNode
   >;
+  postMenuData?: (menusData?: MenuDataItem[]) => MenuDataItem[];
 }
 
 const { SubMenu } = Menu;
@@ -370,9 +371,13 @@ const BaseMenu: React.FC<BaseMenuProps> = props => {
       onOpenChange={setOpenKeys}
       {...props.menuProps}
     >
-      {menuUtils.getNavMenuItems(menuData)}
+      {menuUtils.getNavMenuItems(props.postMenuData(menuData))}
     </Menu>
   );
+};
+
+BaseMenu.defaultProps = {
+  postMenuData: data => data || [],
 };
 
 export default BaseMenu;

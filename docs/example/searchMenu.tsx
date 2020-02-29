@@ -64,7 +64,8 @@ export default () => {
             />
           </>
         )}
-        menuDataRender={() => filterByMenuDate(complexMenu, keyWord)}
+        menuDataRender={() => complexMenu}
+        postMenuData={menus => filterByMenuDate(menus || [], keyWord)}
       >
         <PageHeaderWrapper content="欢迎使用">
           <div>Hello World</div>

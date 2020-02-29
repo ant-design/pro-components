@@ -64,6 +64,8 @@ render(<ProLayout />, document.getElementById('root'));
 | pageTitleRender | custom page title render method | (props: BasicLayoutProps) => ReactNode | - |
 | menuRender | custom menu render method | (props: HeaderViewProps) => ReactNode | - |
 | menuDataRender | The render method of menuData, with the definition of menuData | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
+| postMenuData | View the menu data before displaying it. Modification will not trigger re-rendering. | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
+| postMenuData |
 | menuItemRender | the render method of a custom menu item | [(itemProps: MenuDataItem) => ReactNode](#MenuDataItem) | - |
 | subMenuItemRender | the render method of a custom subMenu item | [(itemProps: MenuDataItem) => ReactNode](#MenuDataItem) | - |
 | breadcrumbRender | custom breadcrumbs data | (route)=>route | - |
