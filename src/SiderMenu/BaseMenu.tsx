@@ -359,6 +359,8 @@ const BaseMenu: React.FC<BaseMenuProps> = props => {
     'top-nav-menu': mode === 'horizontal',
   });
   const menuUtils = new MenuUtil(props);
+
+  const postData = props.postMenuData ? props.postMenuData(menuData) : menuData;
   return (
     <Menu
       {...openKeysProps}
@@ -371,7 +373,7 @@ const BaseMenu: React.FC<BaseMenuProps> = props => {
       onOpenChange={setOpenKeys}
       {...props.menuProps}
     >
-      {menuUtils.getNavMenuItems(props.postMenuData(menuData))}
+      {menuUtils.getNavMenuItems(postData)}
     </Menu>
   );
 };
