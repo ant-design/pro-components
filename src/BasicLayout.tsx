@@ -207,12 +207,13 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     isChildrenLayout: propsIsChildrenLayout,
     menuDataRender,
     loading,
+    ...rest
   } = props;
 
   const formatMessage = ({
     id,
     defaultMessage,
-    ...rest
+    ...restParams
   }: {
     id: string;
     defaultMessage?: string;
@@ -221,7 +222,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
       return props.formatMessage({
         id,
         defaultMessage,
-        ...rest,
+        ...restParams,
       });
     }
     const locales = getLocales();
@@ -432,9 +433,9 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
               >
                 <WrapContent
                   className={contentClassName}
-                  style={contentStyle}
                   isChildrenLayout={isChildrenLayout}
-                  {...props}
+                  {...rest}
+                  style={contentStyle}
                 >
                   {loading ? <PageLoading /> : children}
                 </WrapContent>
