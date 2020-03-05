@@ -9,7 +9,6 @@ export default {
           {
             path: '/welcome',
             name: 'one',
-            icon: '/favicon.png',
             routes: [
               {
                 path: '/welcome/welcome',

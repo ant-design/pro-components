@@ -17,7 +17,6 @@ export default () => (
           {
             path: '/config',
             name: '配置中心',
-            icon: 'gold',
             routes: [
               {
                 path: 'product',
@@ -105,7 +104,6 @@ export default () => (
           {
             path: 'asset',
             name: '资产',
-            icon: 'inbox',
             routes: [
               {
                 path: 'query',
@@ -122,7 +120,6 @@ export default () => (
           {
             path: 'bill',
             name: '账单',
-            icon: 'snippets',
             routes: [
               {
                 path: 'billNo',
@@ -144,7 +141,6 @@ export default () => (
           {
             path: 'cif',
             name: 'CIF',
-            icon: 'team',
             routes: [
               {
                 path: 'bankAccount',
@@ -183,7 +179,6 @@ export default () => (
           {
             path: 'tools',
             name: '小工具',
-            icon: 'tool',
             routes: [
               {
                 path: 'ttsql',
