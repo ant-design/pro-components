@@ -67,8 +67,7 @@
     "not ie <= 10"
   ],
   "dependencies": {
-    "@ant-design/icons": "^4.0.0-alpha.11",
-    "antd": "^4.0.0-beta.0",
+    "@ant-design/icons": "^4.0.0",
     "classnames": "^2.2.6",
     "hash.js": "^1.1.7",
     "history": "^4.10.1",
@@ -147,7 +146,8 @@
   },
   "peerDependencies": {
     "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
+    "react-dom": ">=16.8.0",
+    "antd": "^4.x"
   },
   "engines": {
     "node": ">=8.0.0"
