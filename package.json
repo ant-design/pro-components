@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-layout",
-  "version": "5.0.5",
+  "version": "5.0.6",
   "description": "ant-design-pro layout, easy to use pro scaffolding.",
   "keywords": [
     "admin",
@@ -145,9 +145,9 @@
     "webpack-cli": "^3.3.10"
   },
   "peerDependencies": {
+    "antd": "^4.x",
     "react": ">=16.8.0",
-    "react-dom": ">=16.8.0",
-    "antd": "^4.x"
+    "react-dom": ">=16.8.0"
   },
   "engines": {
     "node": ">=8.0.0"
