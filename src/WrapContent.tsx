@@ -76,6 +76,10 @@ class ResizeObserverContent extends React.Component<
     }
   }, 100);
 
+  componentWillUnmount() {
+    window.clearTimeout(this.resize.id);
+  }
+
   render() {
     const { contentHeight } = this.state;
     return (

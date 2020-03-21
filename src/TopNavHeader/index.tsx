@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
-import { debounce } from '../utils/utils';
 
 import {
   SiderMenuProps,
@@ -17,6 +16,45 @@ export interface TopNavHeaderProps extends SiderMenuProps {
   onCollapse?: (collapse: boolean) => void;
   rightContentRender?: HeaderViewProps['rightContentRender'];
 }
+
+/**
+ * 抽离出来是为了防止 rightSize 经常改变导致菜单 render
+ * @param param0
+ */
+const RightContent: React.FC<TopNavHeaderProps> = ({
+  rightContentRender,
+  ...props
+}) => {
+  const [rightSize, setRightSize] = useState<number | string>('auto');
+
+  return (
+    <div
+      style={{
+        minWidth: rightSize,
+      }}
+    >
+      <ResizeObserver
+        onResize={({ width }: { width: number }) => {
+          if (!width) {
+            return;
+          }
+          setRightSize(width);
+        }}
+      >
+        <div
+          style={{
+            paddingRight: 8,
+          }}
+        >
+          {rightContentRender &&
+            rightContentRender({
+              ...props,
+            })}
+        </div>
+      </ResizeObserver>
+    </div>
+  );
+};
 
 const TopNavHeader: React.FC<TopNavHeaderProps> = props => {
   const ref = useRef(null);
@@ -34,7 +72,6 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = props => {
   const className = classNames(baseClassName, propsClassName, {
     light: theme === 'light',
   });
-  const [rightSize, setRightSize] = useState<number | string>('auto');
   return (
     <div className={className} style={style}>
       <div
@@ -50,37 +87,11 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = props => {
             </div>
           </div>
         )}
-        <div
-          style={{ flex: 1, overflow: 'hidden' }}
-          className={`${baseClassName}-menu`}
-        >
+        <div style={{ flex: 1 }} className={`${baseClassName}-menu`}>
           <BaseMenu {...props} {...props.menuProps} />
         </div>
         {rightContentRender && (
-          <div
-            style={{
-              minWidth: rightSize,
-            }}
-          >
-            <ResizeObserver
-              onResize={debounce(({ width }: { width: number }) => {
-                if (!width) {
-                  return;
-                }
-                setRightSize(width);
-              }, 200)}
-            >
-              <div
-                style={{
-                  paddingRight: 8,
-                }}
-              >
-                {rightContentRender({
-                  ...props,
-                })}
-              </div>
-            </ResizeObserver>
-          </div>
+          <RightContent rightContentRender={rightContentRender} {...props} />
         )}
       </div>
     </div>

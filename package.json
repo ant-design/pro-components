@@ -32,7 +32,6 @@
   "module": "es/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "analyze": "cross-env ANALYZE=1 umi build",
     "build": "father build && webpack",
     "doc": "dumi dev",
     "lint": "npm run lint-eslint && npm run lint:style",
@@ -114,10 +113,7 @@
     "@types/react-router-dom": "^5.1.0",
     "@types/warning": "^3.0.0",
     "@umijs/fabric": "^2.0.0",
-    "babel-eslint": "^10.0.3",
-    "babel-loader": "^8.0.6",
     "babel-plugin-import": "^1.12.2",
-    "chalk": "^3.0.0",
     "cross-env": "^7.0.0",
     "dumi": "^1.0.0-beta.10",
     "enzyme": "^3.11.0",
