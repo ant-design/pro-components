@@ -3,6 +3,7 @@
 @sider-menu-prefix-cls: ~'@{ant-prefix}-pro-sider-menu';
 
 @nav-header-height: @layout-header-height;
+
 .@{sider-menu-prefix-cls} {
   position: relative;
   &-logo {
@@ -63,10 +64,10 @@
       }
     }
     &.light {
-      background-color: white;
+      background-color: @white;
       box-shadow: 2px 0 8px 0 rgba(29, 35, 41, 0.05);
       .@{sider-menu-prefix-cls}-logo {
-        background-color: white;
+        background-color: @white;
         h1 {
           color: @primary-color;
         }
