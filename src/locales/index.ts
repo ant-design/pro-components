@@ -18,11 +18,12 @@ interface GLocaleWindow {
 export type localeType = keyof typeof locales;
 
 const getLanguage = (): string => {
-  // support ssr
   let lang;
-  if (isBrowser()) {
-    lang = window.localStorage.getItem('umi_locale');
+  // support ssr
+  if (!isBrowser()) {
+    return lang;
   }
+  lang = window.localStorage.getItem('umi_locale');
   return (
     lang ||
     ((window as unknown) as GLocaleWindow).g_locale ||
