@@ -1,6 +1,6 @@
 import { PageHeader, Tabs } from 'antd';
 import React, { useContext } from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import classNames from 'classnames';
 import { TabsProps, TabPaneProps } from 'antd/es/tabs';
 import { PageHeaderProps } from 'antd/es/page-header';
@@ -107,7 +107,7 @@ const defaultPageHeaderRender = (
     pageHeaderTitle = value.title;
   }
   return (
-    <>
+    <HelmetProvider>
       <Helmet>
         <meta name="description" content={value.title} />
         {typeof props.content === 'string' && (
@@ -122,7 +122,7 @@ const defaultPageHeaderRender = (
       >
         {renderPageHeader(content, extraContent)}
       </PageHeader>
-    </>
+    </HelmetProvider>
   );
 };
 
