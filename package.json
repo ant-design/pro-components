@@ -129,7 +129,7 @@
     "jsdom-global": "^3.0.2",
     "lint-staged": "^10.0.2",
     "np": "^6.1.0",
-    "prettier": "^1.19.1",
+    "prettier": "^2.0.1",
     "puppeteer": "^2.0.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
