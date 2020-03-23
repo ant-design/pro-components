@@ -1,6 +1,10 @@
 ---
 title: Layout Render API
 order: 8
+sidemenu: false
+nav:
+  title: API
+  order: 7
 ---
 
 # Layout API

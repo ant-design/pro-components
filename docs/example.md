@@ -1,6 +1,10 @@
 ---
 title: Example 展示
 order: 1
+sidemenu: false
+nav:
+  title: 示例
+  order: 10
 ---
 
 # Example 展示

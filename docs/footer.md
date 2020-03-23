@@ -1,6 +1,10 @@
 ---
 title: 页脚
 order: 7
+sidemenu: false
+nav:
+  title: 页脚
+  order: 7
 ---
 
 # footer 的各种操作

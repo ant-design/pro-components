@@ -1,6 +1,10 @@
 ---
 title: menu 的相关能力
 order: 9
+sidemenu: false
+nav:
+  title: 能力展示
+  order: 1
 ---
 
 # menu 的各种操作
