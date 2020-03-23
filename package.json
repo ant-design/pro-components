@@ -23,14 +23,14 @@
   },
   "license": "MIT",
   "author": "qixian.cs@outlook.com",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "lib/index.d.ts",
   "files": [
     "/lib",
     "/es",
     "/dist"
   ],
-  "main": "lib/index.js",
-  "module": "es/index.js",
-  "types": "lib/index.d.ts",
   "scripts": {
     "build": "father build && webpack",
     "doc": "dumi dev",
@@ -44,7 +44,8 @@
     "prettier": "prettier -c --write \"**/**\"",
     "site": "dumi build && gh-pages -d ./dist",
     "start": "cd ./example && umi dev",
-    "test": "father test"
+    "test": "father test",
+    "tsc": "tsc"
   },
   "husky": {
     "hooks": {
@@ -135,6 +136,7 @@
     "react-markdown": "^4.3.0",
     "slash2": "^2.0.0",
     "stylelint": "^13.0.0",
+    "typescript": "^3.8.3",
     "umi": "^3.0.0",
     "umi-plugin-githubpages": "^2.0.0",
     "umi-types": "^0.5.11",

@@ -31,6 +31,7 @@
     "tslint:latest",
     "tslint-config-prettier",
     "example",
-    "_test_"
+    "_test_",
+    "tests"
   ]
 }
