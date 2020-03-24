@@ -1,18 +1,18 @@
 @import '~antd/es/style/themes/default.less';
-@global-header-prefix-cls: ~'@{ant-prefix}-pro-global-header';
+@pro-layout-global-header-prefix-cls: ~'@{ant-prefix}-pro-global-header';
 
-@pro-header-bg: @component-background;
-@pro-header-hover-bg: @component-background;
-@pro-header-box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+@pro-layout-header-bg: @component-background;
+@pro-layout-header-hover-bg: @component-background;
+@pro-layout-header-box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
 
-.@{global-header-prefix-cls} {
+.@{pro-layout-global-header-prefix-cls} {
   position: relative;
   display: flex;
   align-items: center;
   height: @layout-header-height;
   padding: 0;
-  background: @pro-header-bg;
-  box-shadow: @pro-header-box-shadow;
+  background: @pro-layout-header-bg;
+  box-shadow: @pro-layout-header-box-shadow;
 
   &-logo {
     display: inline-flex;
@@ -46,7 +46,7 @@
     cursor: pointer;
     transition: all 0.3s, padding 0s;
     &:hover {
-      background: @pro-header-hover-bg;
+      background: @pro-layout-header-hover-bg;
     }
   }
 

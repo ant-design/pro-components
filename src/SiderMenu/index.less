@@ -1,10 +1,10 @@
 @import '~antd/es/style/themes/default.less';
 
-@sider-menu-prefix-cls: ~'@{ant-prefix}-pro-sider-menu';
+@pro-layout-sider-menu-prefix-cls: ~'@{ant-prefix}-pro-sider-menu';
 
 @nav-header-height: @layout-header-height;
 
-.@{sider-menu-prefix-cls} {
+.@{pro-layout-sider-menu-prefix-cls} {
   position: relative;
   &-logo {
     position: relative;
@@ -49,7 +49,7 @@
       overflow: auto;
       box-shadow: 2px 0 8px 0 rgba(29, 35, 41, 0.05);
       > .ant-menu-root {
-        :not(.@{sider-menu-prefix-cls}-link-menu) {
+        :not(.@{pro-layout-sider-menu-prefix-cls}-link-menu) {
           height: ~'calc(100vh - @{nav-header-height})';
           overflow-y: auto;
         }
@@ -66,7 +66,7 @@
     &.light {
       background-color: @white;
       box-shadow: 2px 0 8px 0 rgba(29, 35, 41, 0.05);
-      .@{sider-menu-prefix-cls}-logo {
+      .@{pro-layout-sider-menu-prefix-cls}-logo {
         background-color: @white;
         h1 {
           color: @primary-color;
