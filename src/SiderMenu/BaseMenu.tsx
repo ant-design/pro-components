@@ -3,7 +3,7 @@ import './index.less';
 import Icon, { createFromIconfontCN } from '@ant-design/icons';
 
 import { Menu } from 'antd';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import classNames from 'classnames';
 import useMergeValue from 'use-merge-value';
 import warning from 'warning';
@@ -111,9 +111,9 @@ class MenuUtil {
 
   getNavMenuItems = (menusData: MenuDataItem[] = []): React.ReactNode[] =>
     menusData
-      .filter(item => item.name && !item.hideInMenu)
-      .map(item => this.getSubMenuOrItem(item))
-      .filter(item => item);
+      .filter((item) => item.name && !item.hideInMenu)
+      .map((item) => this.getSubMenuOrItem(item))
+      .filter((item) => item);
 
   /**
    * get SubMenu or Item
@@ -122,7 +122,7 @@ class MenuUtil {
     if (
       Array.isArray(item.children) &&
       !item.hideChildrenInMenu &&
-      item.children.some(child => child && !!child.name)
+      item.children.some((child) => child && !!child.name)
     ) {
       const name = this.getIntlName(item);
       const { subMenuItemRender } = this.props;
@@ -250,7 +250,7 @@ const getOpenKeysProps = (
   return openKeysProps;
 };
 
-const BaseMenu: React.FC<BaseMenuProps> = props => {
+const BaseMenu: React.FC<BaseMenuProps> = (props) => {
   const {
     theme,
     mode,
@@ -267,6 +267,8 @@ const BaseMenu: React.FC<BaseMenuProps> = props => {
     onSelect,
     openKeys: propsOpenKeys,
   } = props;
+  // 用于减少 defaultOpenKeys 计算的组件
+  const defaultOpenKeysRef = useRef<string[]>([]);
 
   const { pathname } = location;
 
@@ -311,7 +313,7 @@ const BaseMenu: React.FC<BaseMenuProps> = props => {
     {
       value: propsSelectedKeys,
       onChange: onSelect
-        ? keys => {
+        ? (keys) => {
             if (onSelect && keys) {
               onSelect(keys as any);
             }
@@ -361,11 +363,27 @@ const BaseMenu: React.FC<BaseMenuProps> = props => {
   const menuUtils = new MenuUtil(props);
 
   const postData = props.postMenuData ? props.postMenuData(menuData) : menuData;
+
+  // 这次 openKeys === false 的时候的情况，这种情况下帮用户选中一次
+  // 第二次以后不再关系，所以用了 defaultOpenKeys
+  if (props.openKeys === false && !props.handleOpenChange) {
+    const keys = getSelectedMenuKeys(
+      location.pathname || '/',
+      flatMenus,
+      flatMenuKeys || [],
+    );
+    defaultOpenKeysRef.current = keys;
+    if (keys.length < 1) {
+      return null;
+    }
+  }
+
   return (
     <Menu
       {...openKeysProps}
       key="Menu"
       mode={mode}
+      defaultOpenKeys={defaultOpenKeysRef.current}
       theme={theme}
       selectedKeys={selectedKeys}
       style={style}
@@ -379,7 +397,7 @@ const BaseMenu: React.FC<BaseMenuProps> = props => {
 };
 
 BaseMenu.defaultProps = {
-  postMenuData: data => data || [],
+  postMenuData: (data) => data || [],
 };
 
 export default BaseMenu;
