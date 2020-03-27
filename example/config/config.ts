@@ -62,6 +62,7 @@ export default {
           path: 'https://github.com/ant-design/ant-design-pro-layout/issues',
           name: 'site',
           icon: 'smile',
+          locale: false,
           target: '_blank',
           component: './Welcome',
         },
