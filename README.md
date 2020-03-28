@@ -1,6 +1,6 @@
 English | [简体中文](./README.zh-CN.md) [changelog](./changelog.en-US.md)
 
-[![](https://img.shields.io/npm/dw/@ant-design/pro-layout.svg)](https://www.npmjs.com/package/@ant-design/pro-layout) [![npm package](https://img.shields.io/npm/v/@ant-design/pro-layout.svg?style=flat-square?style=flat-square)](https://www.npmjs.com/package/@ant-design/pro-layout) [![](https://img.shields.io/github/issues/ant-design/ant-design-pro-layout.svg)](https://github.com/ant-design/ant-design-pro-layout/issues) [![Dependencies](https://img.shields.io/david/ant-design/ant-design-pro-layout.svg?style=flat-square)](https://david-dm.org/ant-design/ant-design-pro-layout) [![DevDependencies](https://img.shields.io/david/dev/ant-design/ant-design-pro-layout.svg?style=flat-square)](https://david-dm.org/ant-design/ant-design-pro-layout?type=dev) ![](https://github.com/ant-design/ant-design-pro-layout/workflows/.github/workflows/test.yml/badge.svg)
+[![](https://img.shields.io/npm/dw/@ant-design/pro-layout.svg)](https://www.npmjs.com/package/@ant-design/pro-layout) [![npm package](https://img.shields.io/npm/v/@ant-design/pro-layout.svg?style=flat-square?style=flat-square)](https://www.npmjs.com/package/@ant-design/pro-layout) [![](https://img.shields.io/github/issues/ant-design/ant-design-pro-layout.svg)](https://github.com/ant-design/ant-design-pro-layout/issues) [![Dependencies](https://img.shields.io/david/ant-design/ant-design-pro-layout.svg?style=flat-square)](https://david-dm.org/ant-design/ant-design-pro-layout) [![DevDependencies](https://img.shields.io/david/dev/ant-design/ant-design-pro-layout.svg?style=flat-square)](https://david-dm.org/ant-design/ant-design-pro-layout?type=dev) ![Test CI](https://github.com/ant-design/ant-design-pro-layout/workflows/Test%20CI/badge.svg) ![Deploy CI](https://github.com/ant-design/ant-design-pro-layout/workflows/Deploy%20CI/badge.svg)
 
 <h1 align="center">Ant Design Pro Layout</h1>
 
@@ -121,7 +121,7 @@ import { RouteContext } from '@ant-design/pro-layout';
 
 const Page = () => (
   <RouteContext.Consumer>
-    {value => {
+    {(value) => {
       return value.title;
     }}
   </RouteContext.Consumer>
