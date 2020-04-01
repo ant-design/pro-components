@@ -40,6 +40,7 @@ render(<ProLayout />, document.getElementById('root'));
 | --- | --- | --- | --- |
 | title | layout in the upper left corner title | ReactNode | `'Ant Design Pro'` |
 | logo | layout top left logo url | ReactNode \| ()=>ReactNode | - |
+| pure | Interface that doesn't require extra ui | boolean | - |
 | loading | layout loading status | boolean | - |
 | menuHeaderRender | render logo and title | ReactNode \| (logo,title)=>ReactNode | - |
 | onMenuHeaderClick | menu header click event | `(e: React.MouseEvent<HTMLDivElement>) => void` | - |

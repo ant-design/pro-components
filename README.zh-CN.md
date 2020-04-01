@@ -38,6 +38,7 @@ render(<BasicLayout />, document.getElementById('root'));
 | --- | --- | --- | --- |
 | title | layout 的 左上角 的 title | ReactNode | `'Ant Design Pro'` |
 | logo | layout 的 左上角 logo 的 url | ReactNode \| ()=>ReactNode | - |
+| pure | 是否删除掉所有的自带界面 | boolean | - |
 | loading | layout 的加载态 | boolean | - |
 | menuHeaderRender | 渲染 logo 和 title | ReactNode \| (logo,title)=>ReactNode | - |
 | onMenuHeaderClick | menu 菜单的头部点击事件 | `(e: React.MouseEvent<HTMLDivElement>) => void` | - |
@@ -114,7 +115,7 @@ import { RouteContext } from '@ant-design/pro-layout';
 
 const Page = () => (
   <RouteContext.Consumer>
-    {value => {
+    {(value) => {
       return value.title;
     }}
   </RouteContext.Consumer>

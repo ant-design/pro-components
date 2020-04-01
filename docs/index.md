@@ -85,6 +85,7 @@ render(<BasicLayout />, document.getElementById('root'));
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
+| pure | 是否删除掉所有的自带界面 | boolean | - |
 | title | layout 的 左上角 的 title | ReactNode | `'Ant Design Pro'` |
 | logo | layout 的 左上角 logo 的 url | ReactNode \| ()=>ReactNode | - |
 | loading | layout 的加载态 | boolean | - |
@@ -163,7 +164,7 @@ import { RouteContext } from '@ant-design/pro-layout';
 
 const Page = () => (
   <RouteContext.Consumer>
-    {value => {
+    {(value) => {
       return value.title;
     }}
   </RouteContext.Consumer>

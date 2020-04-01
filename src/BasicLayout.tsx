@@ -39,6 +39,7 @@ export interface BasicLayoutProps
     SiderMenuProps,
     HeaderViewProps,
     Partial<Settings> {
+  pure?: boolean;
   /**
    * logo url
    */
@@ -106,14 +107,14 @@ const headerRender = (
     hasSiderMenu: boolean;
   },
 ): React.ReactNode => {
-  if (props.headerRender === false) {
+  if (props.headerRender === false || props.pure) {
     return null;
   }
   return <Header {...props} />;
 };
 
 const footerRender = (props: BasicLayoutProps): React.ReactNode => {
-  if (props.footerRender === false) {
+  if (props.footerRender === false || props.pure) {
     return null;
   }
   if (props.footerRender) {
@@ -124,7 +125,7 @@ const footerRender = (props: BasicLayoutProps): React.ReactNode => {
 
 const renderSiderMenu = (props: BasicLayoutProps): React.ReactNode => {
   const { layout, isMobile, menuRender } = props;
-  if (props.menuRender === false) {
+  if (props.menuRender === false || props.pure) {
     return null;
   }
   if (layout === 'topmenu' && !isMobile) {
@@ -194,7 +195,7 @@ const getPaddingLeft = (
  * 🏄‍ Support multiple topics and layout types
  * @param props
  */
-const BasicLayout: React.FC<BasicLayoutProps> = props => {
+const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   const {
     children,
     onCollapse: propsOnCollapse,

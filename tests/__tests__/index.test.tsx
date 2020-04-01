@@ -282,7 +282,7 @@ describe('BasicLayout', () => {
   it('🥩 render customize collapsed button', async () => {
     const wrapper = mount<BasicLayoutProps>(
       <BasicLayout
-        collapsedButtonRender={collapsed => (
+        collapsedButtonRender={(collapsed) => (
           <span id="customize_collapsed_button">{`${collapsed}`}</span>
         )}
       />,
@@ -365,6 +365,15 @@ describe('BasicLayout', () => {
     await waitForComponentToPaint(wrapper);
     const dom = wrapper.find('.ant-pro-sider-menu-links');
 
+    expect(dom.exists()).toBeFalsy();
+  });
+
+  it('🥩 pure style', async () => {
+    const wrapper = mount<BasicLayoutProps>(<BasicLayout pure />);
+    await waitForComponentToPaint(wrapper);
+    const menu = wrapper.find('.ant-pro-sider-menu');
+    expect(menu.exists()).toBe(false);
+    const dom = wrapper.find('.ant-pro-sider-menu-links');
     expect(dom.exists()).toBeFalsy();
   });
 

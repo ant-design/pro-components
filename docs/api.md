@@ -19,6 +19,7 @@ Pro-Layout provides rich APIs for various customizations. Here you can see the d
 
 | Parameter | Description | Type | Default |
 | --- | --- | --- | --- |
+| pure | Interface that doesn't require extra ui | boolean | - |
 | title | title at the top left corner of layout | ReactNode | `'Ant Design Pro'` |
 | logo | URL of the logo in the upper left corner of the layout | ReactNode \| ()=>ReactNode | - |
 | loading | loading state of layout | boolean | - |
