@@ -31,7 +31,7 @@ export type BasicLayoutContext = { [K in 'location']: BasicLayoutProps[K] } & {
   };
 };
 
-const BasicLayout: React.FC<BasicLayoutProps> = props => {
+const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   const [collapsed, handleMenuCollapse] = useState<boolean>(false);
   const [settings, setSettings] = useState<Partial<Settings>>({
     ...defaultSettings,
@@ -67,6 +67,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
           <div
             style={{
               padding: '0 16px',
+              minWidth: 500,
             }}
           >
             <SelectLang />
@@ -85,7 +86,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
         // hideCopyButton
         // hideHintAlert
         settings={settings}
-        onSettingChange={config => setSettings(config)}
+        onSettingChange={(config) => setSettings(config)}
       />
     </>
   );
