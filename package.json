@@ -79,7 +79,6 @@
     "qs": "^6.9.0",
     "rc-resize-observer": "^0.2.1",
     "react-copy-to-clipboard": "^5.0.1",
-    "react-helmet-async": "^1.0.4",
     "react-responsive": "^8.0.1",
     "react-router-dom": "5.1.2",
     "unstated-next": "^1.1.0",

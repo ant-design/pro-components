@@ -2,7 +2,6 @@ import './BasicLayout.less';
 
 import React, { CSSProperties, useContext, useEffect } from 'react';
 import { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/es/breadcrumb';
-import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { Layout } from 'antd';
 import classNames from 'classnames';
 import warning from 'warning';
@@ -33,6 +32,7 @@ import { isBrowser, useDeepCompareEffect } from './utils/utils';
 import PageLoading from './PageLoading';
 import MenuCounter from './SiderMenu/Counter';
 import WrapContent from './WrapContent';
+import { useDocumentTitle } from './utils/hooks';
 
 export interface BasicLayoutProps
   extends Partial<RouterTypes<Route>>,
@@ -421,52 +421,47 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     }
   }, [stringify(props.location)]);
 
-  return (
-    <>
-      <HelmetProvider>
-        <Helmet>
-          <title>{pageTitleInfo.title}</title>
-        </Helmet>
-      </HelmetProvider>
-      <MenuCounter.Provider>
-        <RouteContext.Provider
-          value={{
-            ...defaultProps,
-            breadcrumb: breadcrumbProps,
-            menuData,
-            isMobile,
-            collapsed,
-            isChildrenLayout: true,
-            title: pageTitleInfo.pageName,
-          }}
-        >
-          <div className={className}>
-            <Layout
-              style={{
-                minHeight: '100%',
-                ...style,
-              }}
-              hasSider
-            >
-              {siderMenuDom}
-              <Layout style={genLayoutStyle}>
-                {headerDom}
+  useDocumentTitle(pageTitleInfo.title);
 
-                <WrapContent
-                  className={contentClassName}
-                  isChildrenLayout={isChildrenLayout}
-                  {...rest}
-                  style={contentStyle}
-                >
-                  {loading ? <PageLoading /> : children}
-                </WrapContent>
-                {footerDom}
-              </Layout>
+  return (
+    <MenuCounter.Provider>
+      <RouteContext.Provider
+        value={{
+          ...defaultProps,
+          breadcrumb: breadcrumbProps,
+          menuData,
+          isMobile,
+          collapsed,
+          isChildrenLayout: true,
+          title: pageTitleInfo.pageName,
+        }}
+      >
+        <div className={className}>
+          <Layout
+            style={{
+              minHeight: '100%',
+              ...style,
+            }}
+            hasSider
+          >
+            {siderMenuDom}
+            <Layout style={genLayoutStyle}>
+              {headerDom}
+
+              <WrapContent
+                className={contentClassName}
+                isChildrenLayout={isChildrenLayout}
+                {...rest}
+                style={contentStyle}
+              >
+                {loading ? <PageLoading /> : children}
+              </WrapContent>
+              {footerDom}
             </Layout>
-          </div>
-        </RouteContext.Provider>
-      </MenuCounter.Provider>
-    </>
+          </Layout>
+        </div>
+      </RouteContext.Provider>
+    </MenuCounter.Provider>
   );
 };
 

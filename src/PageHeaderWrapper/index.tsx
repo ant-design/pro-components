@@ -1,6 +1,5 @@
 import { PageHeader, Tabs } from 'antd';
 import React, { useContext } from 'react';
-import { Helmet, HelmetProvider } from 'react-helmet-async';
 import classNames from 'classnames';
 import { TabsProps, TabPaneProps } from 'antd/es/tabs';
 import { PageHeaderProps } from 'antd/es/page-header';
@@ -44,7 +43,7 @@ const renderFooter: React.SFC<Omit<PageHeaderWrapperProps, 'title'>> = ({
       <Tabs
         className={`${prefixedClassName}-tabs`}
         activeKey={tabActiveKey}
-        onChange={key => {
+        onChange={(key) => {
           if (onTabChange) {
             onTabChange(key);
           }
@@ -52,7 +51,7 @@ const renderFooter: React.SFC<Omit<PageHeaderWrapperProps, 'title'>> = ({
         tabBarExtraContent={tabBarExtraContent}
         {...tabProps}
       >
-        {tabList.map(item => (
+        {tabList.map((item) => (
           <Tabs.TabPane {...item} tab={item.tab} key={item.key} />
         ))}
       </Tabs>
@@ -107,26 +106,18 @@ const defaultPageHeaderRender = (
     pageHeaderTitle = value.title;
   }
   return (
-    <HelmetProvider>
-      <Helmet>
-        <meta name="description" content={value.title} />
-        {typeof props.content === 'string' && (
-          <meta name="description" content={props.content} />
-        )}
-      </Helmet>
-      <PageHeader
-        {...value}
-        title={pageHeaderTitle}
-        {...restProps}
-        footer={renderFooter(restProps)}
-      >
-        {renderPageHeader(content, extraContent)}
-      </PageHeader>
-    </HelmetProvider>
+    <PageHeader
+      {...value}
+      title={pageHeaderTitle}
+      {...restProps}
+      footer={renderFooter(restProps)}
+    >
+      {renderPageHeader(content, extraContent)}
+    </PageHeader>
   );
 };
 
-const PageHeaderWrapper: React.SFC<PageHeaderWrapperProps> = props => {
+const PageHeaderWrapper: React.SFC<PageHeaderWrapperProps> = (props) => {
   const { children, style } = props;
   const value = useContext(RouteContext);
   const className = classNames(prefixedClassName, props.className);
