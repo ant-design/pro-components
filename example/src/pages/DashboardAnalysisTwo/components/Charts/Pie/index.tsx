@@ -149,10 +149,15 @@ class Pie extends Component<PieProps, PieState> {
     const { legendData } = this.state;
     legendData[i] = newItem;
 
-    const filteredLegendData = legendData.filter(l => l.checked).map(l => l.x);
+    const filteredLegendData = legendData
+      .filter((l) => l.checked)
+      .map((l) => l.x);
 
     if (this.chart) {
-      this.chart.filter('x', val => filteredLegendData.indexOf(`${val}`) > -1);
+      this.chart.filter(
+        'x',
+        (val) => filteredLegendData.indexOf(`${val}`) > -1,
+      );
     }
 
     this.setState({

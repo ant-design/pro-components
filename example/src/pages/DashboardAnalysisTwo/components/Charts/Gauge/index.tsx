@@ -65,7 +65,7 @@ if (Shape.registerShape) {
   });
 }
 
-const Gauge: React.FC<GaugeProps> = props => {
+const Gauge: React.FC<GaugeProps> = (props) => {
   const {
     title,
     height = 1,

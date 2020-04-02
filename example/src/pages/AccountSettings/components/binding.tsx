@@ -65,7 +65,7 @@ class BindingView extends Component {
         <List
           itemLayout="horizontal"
           dataSource={this.getData()}
-          renderItem={item => (
+          renderItem={(item) => (
             <List.Item actions={item.actions}>
               <List.Item.Meta
                 avatar={item.avatar}

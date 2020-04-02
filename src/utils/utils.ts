@@ -19,7 +19,7 @@ export const isBrowser = () =>
   !isNode;
 
 export function guid() {
-  return 'xxxxxxxx'.replace(/[xy]/g, c => {
+  return 'xxxxxxxx'.replace(/[xy]/g, (c) => {
     // eslint-disable-next-line no-bitwise
     const r = (Math.random() * 16) | 0;
     // eslint-disable-next-line no-bitwise
@@ -39,10 +39,7 @@ export const getKeyByPath = (item: MenuDataItem) => {
   }
   // 如果还是没有，用对象的hash 生成一个
   try {
-    return hash
-      .sha256()
-      .update(stringify(item))
-      .digest('hex');
+    return hash.sha256().update(stringify(item)).digest('hex');
   } catch (error) {
     // dom some thing
   }
@@ -163,7 +160,7 @@ export function debounce(func: Function, wait: number, immediate?: boolean) {
   };
 
   // eslint-disable-next-line func-names
-  debounceFunction = function() {
+  debounceFunction = function () {
     // @ts-ignore
     context = this;
     // eslint-disable-next-line prefer-rest-params

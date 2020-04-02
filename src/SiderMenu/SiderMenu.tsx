@@ -66,7 +66,7 @@ export interface SiderMenuProps
   onOpenChange?: (openKeys: WithFalse<string[]>) => void;
 }
 
-const SiderMenu: React.FC<SiderMenuProps> = props => {
+const SiderMenu: React.FC<SiderMenuProps> = (props) => {
   const {
     collapsed,
     fixSiderbar,
@@ -95,7 +95,7 @@ const SiderMenu: React.FC<SiderMenuProps> = props => {
       trigger={null}
       collapsed={collapsed}
       breakpoint={breakpoint === false ? undefined : breakpoint}
-      onCollapse={collapse => {
+      onCollapse={(collapse) => {
         if (!isMobile) {
           if (onCollapse) {
             onCollapse(collapse);

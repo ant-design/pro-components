@@ -18,7 +18,7 @@ interface GridContentProps {
  * contentWidth=Fixed, width will is 1200
  * @param props
  */
-const GridContent: React.SFC<GridContentProps> = props => {
+const GridContent: React.SFC<GridContentProps> = (props) => {
   const value = useContext(RouteContext);
   const {
     children,

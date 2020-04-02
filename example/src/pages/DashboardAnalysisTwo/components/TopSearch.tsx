@@ -144,7 +144,7 @@ const TopSearch = ({
       </Col>
     </Row>
     <Table<any>
-      rowKey={record => record.index}
+      rowKey={(record) => record.index}
       size="small"
       columns={columns}
       dataSource={searchData}

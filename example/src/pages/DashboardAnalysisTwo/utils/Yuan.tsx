@@ -26,7 +26,7 @@ export default class Yuan extends React.Component<{
   render() {
     return (
       <span
-        ref={ref => {
+        ref={(ref) => {
           this.main = ref;
         }}
       />

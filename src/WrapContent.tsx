@@ -38,7 +38,7 @@ class WrapContent extends React.Component<{
           }}
         >
           <div
-            ref={ele => {
+            ref={(ele) => {
               this.ref = ele;
             }}
             className="ant-pro-basicLayout-children-content-wrap"

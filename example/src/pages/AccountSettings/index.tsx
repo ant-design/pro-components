@@ -90,7 +90,7 @@ class AccountSettings extends Component<
 
   getMenu = () => {
     const { menuMap } = this.state;
-    return Object.keys(menuMap).map(item => (
+    return Object.keys(menuMap).map((item) => (
       <Item key={item}>{menuMap[item]}</Item>
     ));
   };
@@ -155,7 +155,7 @@ class AccountSettings extends Component<
     return (
       <div
         className={styles.main}
-        ref={ref => {
+        ref={(ref) => {
           if (ref) {
             this.main = ref;
           }

@@ -8,7 +8,7 @@ export interface GlobalHeaderRightProps {
   layout?: 'sidemenu' | 'topmenu';
 }
 
-const GlobalHeaderRight: React.SFC<GlobalHeaderRightProps> = props => {
+const GlobalHeaderRight: React.SFC<GlobalHeaderRightProps> = (props) => {
   const { theme, layout = 'sidemenu' } = props;
   let className = styles.right;
 

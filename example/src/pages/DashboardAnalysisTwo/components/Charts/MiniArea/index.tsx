@@ -28,7 +28,7 @@ export interface MiniAreaProps {
   }[];
 }
 
-const MiniArea: React.FC<MiniAreaProps> = props => {
+const MiniArea: React.FC<MiniAreaProps> = (props) => {
   const {
     height = 1,
     data = [],

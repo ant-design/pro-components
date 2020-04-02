@@ -20,7 +20,7 @@ class PhoneView extends PureComponent<PhoneViewProps> {
         <Input
           className={styles.area_code}
           value={values[0]}
-          onChange={e => {
+          onChange={(e) => {
             if (onChange) {
               onChange(`${e.target.value}-${values[1]}`);
             }
@@ -28,7 +28,7 @@ class PhoneView extends PureComponent<PhoneViewProps> {
         />
         <Input
           className={styles.phone_number}
-          onChange={e => {
+          onChange={(e) => {
             if (onChange) {
               onChange(`${values[0]}-${e.target.value}`);
             }

@@ -56,7 +56,7 @@ const RightContent: React.FC<TopNavHeaderProps> = ({
   );
 };
 
-const TopNavHeader: React.FC<TopNavHeaderProps> = props => {
+const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
   const ref = useRef(null);
   const {
     theme,

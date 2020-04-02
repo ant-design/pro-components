@@ -32,7 +32,7 @@ export default ({ className, links, copyright, style }: GlobalFooterProps) => {
     <footer className={clsString} style={style}>
       {links && (
         <div className="ant-pro-global-footer-links">
-          {links.map(link => (
+          {links.map((link) => (
             <a
               key={link.key}
               title={link.key}

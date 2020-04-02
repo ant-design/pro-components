@@ -10,7 +10,7 @@ import styles from './index.less';
 interface SelectLangProps {
   className?: string;
 }
-const SelectLang: React.FC<SelectLangProps> = props => {
+const SelectLang: React.FC<SelectLangProps> = (props) => {
   const { className } = props;
   const selectedLang = getLocale();
   const changeLang = ({ key }: ClickParam): void => setLocale(key, false);
@@ -33,7 +33,7 @@ const SelectLang: React.FC<SelectLangProps> = props => {
       selectedKeys={[selectedLang]}
       onClick={changeLang}
     >
-      {locales.map(locale => (
+      {locales.map((locale) => (
         <Menu.Item key={locale}>
           <span role="img" aria-label={languageLabels[locale]}>
             {languageIcons[locale]}

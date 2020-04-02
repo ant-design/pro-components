@@ -8,7 +8,7 @@ import SiderMenu, { SiderMenuProps } from './SiderMenu';
 import { getFlatMenus } from './SiderMenuUtils';
 import MenuCounter from './Counter';
 
-const SiderMenuWrapper: React.FC<SiderMenuProps> = props => {
+const SiderMenuWrapper: React.FC<SiderMenuProps> = (props) => {
   const {
     isMobile,
     menuData,

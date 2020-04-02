@@ -20,7 +20,7 @@ export interface TimelineChartProps {
   borderWidth?: number;
 }
 
-const TimelineChart: React.FC<TimelineChartProps> = props => {
+const TimelineChart: React.FC<TimelineChartProps> = (props) => {
   const {
     title,
     height = 400,

@@ -96,7 +96,7 @@ class BaseView extends Component<BaseViewProps> {
   setBaseInfo = () => {
     const { currentUser, form } = this.props;
     if (currentUser) {
-      Object.keys(form.getFieldsValue()).forEach(key => {
+      Object.keys(form.getFieldsValue()).forEach((key) => {
         const obj = {};
         obj[key] = currentUser[key] || null;
         form.setFieldsValue(obj);
@@ -124,7 +124,7 @@ class BaseView extends Component<BaseViewProps> {
   handlerSubmit = (event: React.MouseEvent) => {
     event.preventDefault();
     const { form } = this.props;
-    form.validateFields(err => {
+    form.validateFields((err) => {
       if (!err) {
         message.success(
           formatMessage({ id: 'accountsettings.basic.update.success' }),

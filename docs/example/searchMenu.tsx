@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+
 import ProLayout, {
   PageHeaderWrapper,
   MenuDataItem,
+  // eslint-disable-next-line import/no-unresolved
 } from '@ant-design/pro-layout';
 import { Input } from 'antd';
 import complexMenu from './complexMenu';
@@ -11,7 +13,7 @@ const filterByMenuDate = (
   keyWord: string,
 ): MenuDataItem[] =>
   data
-    .map(item => {
+    .map((item) => {
       if (
         (item.name && item.name.includes(keyWord)) ||
         filterByMenuDate(item.children || [], keyWord).length > 0
@@ -24,7 +26,7 @@ const filterByMenuDate = (
 
       return undefined;
     })
-    .filter(item => item) as MenuDataItem[];
+    .filter((item) => item) as MenuDataItem[];
 
 export default () => {
   const [keyWord, setKeyWord] = useState('');
@@ -58,14 +60,14 @@ export default () => {
                 transition: props.collapsed ? undefined : 'all 0.3s',
                 opacity: props.collapsed ? 0 : 1,
               }}
-              onSearch={e => {
+              onSearch={(e) => {
                 setKeyWord(e);
               }}
             />
           </>
         )}
         menuDataRender={() => complexMenu}
-        postMenuData={menus => filterByMenuDate(menus || [], keyWord)}
+        postMenuData={(menus) => filterByMenuDate(menus || [], keyWord)}
       >
         <PageHeaderWrapper content="欢迎使用">
           <div>Hello World</div>

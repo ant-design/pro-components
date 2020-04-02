@@ -8,7 +8,7 @@ import { MenuDataItem } from '../typings';
  */
 export const getFlatMenuKeys = (menuData: MenuDataItem[] = []): string[] => {
   let keys: string[] = [];
-  menuData.forEach(item => {
+  menuData.forEach((item) => {
     if (!item) {
       return;
     }
@@ -31,7 +31,7 @@ export const getFlatMenus = (
   [key: string]: MenuDataItem;
 } => {
   let menus = {};
-  menuData.forEach(item => {
+  menuData.forEach((item) => {
     if (!item || item.hideInMenu) {
       return;
     }
@@ -70,7 +70,7 @@ export const getMenuMatches = (
   path: string,
 ): string | undefined =>
   flatMenuKeys
-    .filter(item => {
+    .filter((item) => {
       if (item === '/' && path === '/') {
         return true;
       }
