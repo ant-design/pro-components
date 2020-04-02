@@ -66,7 +66,7 @@ let oldSetting: MergerSettingsType<Settings> = {};
 
 const getDifferentSetting = (state: Partial<Settings>) => {
   const stateObj: Partial<Settings> = {};
-  Object.keys(state).forEach(key => {
+  Object.keys(state).forEach((key) => {
     if (state[key] !== oldSetting[key] && key !== 'collapse') {
       stateObj[key] = state[key];
     }
@@ -225,7 +225,7 @@ const getThemeList = () => {
     },
   ];
 
-  if (list.find(item => item.theme === 'dark')) {
+  if (list.find((item) => item.theme === 'dark')) {
     themeList.push({
       key: 'realDark',
       url:
@@ -237,7 +237,7 @@ const getThemeList = () => {
     });
   }
   // insert  theme color List
-  list.forEach(item => {
+  list.forEach((item) => {
     const color = (item.modifyVars || {})['@primary-color'];
     if (item.theme === 'dark' && color) {
       darkColorList.push({
@@ -280,7 +280,7 @@ const initState = (
   if (window.location.search) {
     const params = parse(window.location.search.replace('?', ''));
     const replaceSetting = {};
-    Object.keys(params).forEach(key => {
+    Object.keys(params).forEach((key) => {
       if (defaultSettings[key]) {
         replaceSetting[key] = params[key];
       }
@@ -352,7 +352,7 @@ const genCopySettingJson = (settingState: MergerSettingsType<Settings>) =>
  * 可视化配置组件
  * @param props
  */
-const SettingDrawer: React.FC<SettingDrawerProps> = props => {
+const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   const {
     settings: propsSettings = {},
     hideLoading = false,
@@ -526,7 +526,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = props => {
           <BlockCheckbox
             list={themeList.themeList}
             value={navTheme}
-            onChange={value => changeSetting('navTheme', value, hideLoading)}
+            onChange={(value) => changeSetting('navTheme', value, hideLoading)}
           />
         </Body>
 
@@ -539,7 +539,9 @@ const SettingDrawer: React.FC<SettingDrawerProps> = props => {
               : themeList.colorList[navTheme === 'realDark' ? 'dark' : 'light']
           }
           formatMessage={formatMessage}
-          onChange={color => changeSetting('primaryColor', color, hideLoading)}
+          onChange={(color) =>
+            changeSetting('primaryColor', color, hideLoading)
+          }
         />
 
         <Divider />
@@ -547,7 +549,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = props => {
         <Body title={formatMessage({ id: 'app.setting.navigationmode' })}>
           <BlockCheckbox
             value={layout}
-            onChange={value => changeSetting('layout', value, hideLoading)}
+            onChange={(value) => changeSetting('layout', value, hideLoading)}
           />
         </Body>
         <LayoutSetting settings={settingState} changeSetting={changeSetting} />
@@ -564,7 +566,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = props => {
                   <Switch
                     size="small"
                     checked={!!colorWeak}
-                    onChange={checked => changeSetting('colorWeak', checked)}
+                    onChange={(checked) => changeSetting('colorWeak', checked)}
                   />
                 ),
               },
