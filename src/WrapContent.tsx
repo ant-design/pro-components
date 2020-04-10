@@ -1,6 +1,7 @@
 import React, { CSSProperties } from 'react';
 import { ConfigProvider, Layout } from 'antd';
 import ResizeObserver from 'rc-resize-observer';
+import GridContent from './GridContent';
 
 import { debounce } from './utils/utils';
 
@@ -43,7 +44,7 @@ class WrapContent extends React.Component<{
             }}
             className="ant-pro-basicLayout-children-content-wrap"
           >
-            {children}
+            <GridContent>{children}</GridContent>
           </div>
         </ConfigProvider>
       </Content>

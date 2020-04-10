@@ -63,7 +63,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
             </Link>
           )
         }
-        rightContentRender={() => (
+        rightContentRender={() => [
           <div
             style={{
               padding: '0 16px',
@@ -71,8 +71,9 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
             }}
           >
             <SelectLang />
-          </div>
-        )}
+          </div>,
+          <span />,
+        ]}
         collapsed={collapsed}
         onMenuHeaderClick={() => history.push('/')}
         footerRender={() => <DefaultFooter />}

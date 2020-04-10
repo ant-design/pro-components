@@ -79,7 +79,11 @@ exports[`BasicLayout 🥩 base use 1`] = `
         >
           <div
             class="ant-pro-basicLayout-children-content-wrap"
-          />
+          >
+            <div
+              class="ant-pro-grid-content"
+            />
+          </div>
         </main>
       </div>
     </section>
@@ -167,7 +171,11 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
         >
           <div
             class="ant-pro-basicLayout-children-content-wrap"
-          />
+          >
+            <div
+              class="ant-pro-grid-content"
+            />
+          </div>
         </main>
       </div>
     </section>
@@ -256,27 +264,31 @@ exports[`BasicLayout 🥩 support loading 1`] = `
             class="ant-pro-basicLayout-children-content-wrap"
           >
             <div
-              style="padding-top:100px;text-align:center"
+              class="ant-pro-grid-content"
             >
               <div
-                class="ant-spin ant-spin-lg ant-spin-spinning"
+                style="padding-top:100px;text-align:center"
               >
-                <span
-                  class="ant-spin-dot ant-spin-dot-spin"
+                <div
+                  class="ant-spin ant-spin-lg ant-spin-spinning"
                 >
-                  <i
-                    class="ant-spin-dot-item"
-                  />
-                  <i
-                    class="ant-spin-dot-item"
-                  />
-                  <i
-                    class="ant-spin-dot-item"
-                  />
-                  <i
-                    class="ant-spin-dot-item"
-                  />
-                </span>
+                  <span
+                    class="ant-spin-dot ant-spin-dot-spin"
+                  >
+                    <i
+                      class="ant-spin-dot-item"
+                    />
+                    <i
+                      class="ant-spin-dot-item"
+                    />
+                    <i
+                      class="ant-spin-dot-item"
+                    />
+                    <i
+                      class="ant-spin-dot-item"
+                    />
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -366,7 +378,11 @@ exports[`BasicLayout 🥩 support menuDateRender 1`] = `
         >
           <div
             class="ant-pro-basicLayout-children-content-wrap"
-          />
+          >
+            <div
+              class="ant-pro-grid-content"
+            />
+          </div>
         </main>
       </div>
     </section>
