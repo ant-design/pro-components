@@ -5,6 +5,7 @@ import pathToRegexp from 'path-to-regexp';
 import { Settings } from '../defaultSettings';
 import { MenuDataItem, MessageDescriptor } from '../typings';
 import { urlToList } from './pathTools';
+import { isBrowser } from './utils';
 
 export interface BreadcrumbProps {
   breadcrumbList?: { title: string; href: string }[];
@@ -92,8 +93,12 @@ const conversionFromProps = (
   return breadcrumbList
     .map((item) => {
       const { title, href } = item;
+      // For application that has configured router base
+      // @ts-ignore
+      const { routerBase = '/' } = isBrowser() ? window : {};
+      const realPath = routerBase === '/' ? href : `${routerBase}${href}`;
       return {
-        path: href,
+        path: realPath,
         breadcrumbName: title,
       };
     })
@@ -113,6 +118,10 @@ const conversionFromLocation = (
   // Loop data mosaic routing
   const extraBreadcrumbItems: AntdBreadcrumbProps['routes'] = pathSnippets
     .map((url) => {
+      // For application that has configured router base
+      // @ts-ignore
+      const { routerBase = '/' } = isBrowser() ? window : {};
+      const realPath = routerBase === '/' ? url : `${routerBase}${url}`;
       const currentBreadcrumb = getBreadcrumb(breadcrumbMap, url);
       if (currentBreadcrumb.inherited) {
         return { path: '', breadcrumbName: '' };
@@ -121,7 +130,7 @@ const conversionFromLocation = (
       const { hideInBreadcrumb } = currentBreadcrumb;
       return name && !hideInBreadcrumb
         ? {
-            path: url,
+            path: realPath,
             breadcrumbName: name,
             component: currentBreadcrumb.component,
           }

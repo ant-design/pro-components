@@ -42,6 +42,7 @@ const plugins: IPlugin[] = [
 
 export default {
   plugins,
+  // base: 'prefix',
   block: {
     defaultGitUrl: 'https://github.com/ant-design/pro-blocks',
   },
