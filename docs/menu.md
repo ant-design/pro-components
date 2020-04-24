@@ -19,13 +19,13 @@ Pro-Layout 提供了强大的 menu，但是这样必然会封装很多行为，�
 
 ## 从服务器加载 menu 并且使用 icon
 
-这里主要是一个演示，我们需要准备一个枚举来进行 icon 的渲染，可以显著的减少 打包的大小
+这里主要是一个演示，我们需要准备一个枚举来进行 icon 的渲染，可以显著的减少打包的大小
 
 <code src="./demo/antd@4MenuIconFormServe.tsx" />
 
 ## 从服务器加载 menu 并且使用旧版本 icon
 
-使用兼容包来实现，虽然比较简单，但是会照成打包太大
+使用兼容包来实现，虽然比较简单，但是会造成打包太大
 
 <code src="./demo/antd@3MenuIconFormServe.tsx" />
 
