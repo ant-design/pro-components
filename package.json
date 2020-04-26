@@ -1,7 +1,7 @@
 {
   "name": "@ant-design/pro-list",
-  "version": "2.2.4",
-  "description": "🏆 Use Ant Design Table like a Pro!",
+  "version": "0.0.0",
+  "description": "🏆 Use Ant Design List like a Pro!",
   "repository": "https://github.com/ant-design/pro-list",
   "license": "MIT",
   "main": "lib/index.js",

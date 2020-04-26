@@ -44,7 +44,7 @@ function flattenData<RecordType>(data: RecordType[] | undefined): RecordType[] {
 }
 
 export default function useSelection<RecordType>(
-  rowSelection: TableRowSelection<RecordType> | null,
+  rowSelection: TableRowSelection<RecordType> | undefined,
   config: UseSelectionConfig<RecordType>,
 ): [() => ColumnType<RecordType> | null, Set<Key>] {
   const {

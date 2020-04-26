@@ -1,5 +1,5 @@
 export default {
-  title: 'Pro-Table',
+  title: 'Pro-List',
   mode: 'site',
   logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
   extraBabelPlugins: [

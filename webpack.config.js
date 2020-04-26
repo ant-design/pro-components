@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   entry: './src/index.tsx',
   output: {
-    library: 'ProTable',
+    library: 'ProList',
     libraryExport: 'default',
     path: path.resolve(__dirname, 'dist'),
     filename: 'pro-list.umd.js',

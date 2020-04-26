@@ -40,7 +40,7 @@ function ProList<RecordType = any>(props: ProListProps<RecordType>) {
     showActions = 'always',
     bordered,
     split = true,
-    expandable: expandableConfig = {},
+    expandable: expandableConfig,
     ...rest
   } = props;
   const prefixCls = getPrefixCls('list', customizePrefixCls);
@@ -95,7 +95,7 @@ function ProList<RecordType = any>(props: ProListProps<RecordType>) {
   /**
    * 提供和 table 一样的 rowSelection 配置
    */
-  const [selectItemRender, selectedKeySet] = useSelection(rowSelection || {}, {
+  const [selectItemRender, selectedKeySet] = useSelection(rowSelection, {
     getRowKey,
     getRecordByKey,
     prefixCls,
@@ -165,7 +165,7 @@ function ProList<RecordType = any>(props: ProListProps<RecordType>) {
   const selectItemDom = selectItemRender();
 
   const defaultRenderItem = () => {
-    const { rowExpandable } = expandableConfig;
+    const { rowExpandable } = expandableConfig || {};
     const { renderItem } = props;
 
     if (renderItem) {

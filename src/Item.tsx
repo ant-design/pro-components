@@ -116,7 +116,7 @@ function ProListItem(props: ItemProps) {
     loading,
     expand: propsExpand,
     onExpand: propsOnExpand,
-    expandable: expandableConfig = {},
+    expandable: expandableConfig,
     rowSupportExpand,
     showActions,
     type,
@@ -125,13 +125,8 @@ function ProListItem(props: ItemProps) {
     ...rest
   } = props;
 
-  const {
-    expandedRowRender,
-    expandIcon,
-    expandRowByClick,
-    indentSize = 8,
-    expandedRowClassName,
-  } = expandableConfig;
+  const { expandedRowRender, expandIcon, expandRowByClick, indentSize = 8, expandedRowClassName } =
+    expandableConfig || {};
 
   const [expanded, onExpand] = useMergedState<boolean>(!!propsExpand, {
     value: propsExpand,
@@ -146,7 +141,7 @@ function ProListItem(props: ItemProps) {
     },
     propsClassName,
   );
-  const needExpanded = !expanded || Object.values(expandableConfig).length === 0;
+  const needExpanded = !expanded || Object.values(expandableConfig || {}).length === 0;
   const expandedRowDom = expandedRowRender && expandedRowRender(item, index, indentSize, expanded);
   return (
     <div className={className} style={style}>

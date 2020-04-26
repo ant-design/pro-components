@@ -26,7 +26,7 @@ export default () => {
         ]}
         itemLayout="vertical"
         rowKey="id"
-        title="复杂的例子"
+        title="竖排样式"
         dataSource={dataSource}
         renderItem={(item) => ({
           title: item,

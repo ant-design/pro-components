@@ -1,11 +1,16 @@
 ---
 title: ProList 高级列表
-legacy: /ProList
-nav:
-  path: /components
+order: 10
+sidemenu: false
 ---
 
-# ProList (高级列表)
+<h1 align="center">@ant-design/pro-list</h1>
+
+<div align="center">
+
+🏆 Use Ant Design List like a Pro!
+
+</div>
 
 ProList 在 antd 的 list 支持了一些功能，比如 多选，展开等功能，使用体验贴近 table。
 
