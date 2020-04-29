@@ -4,7 +4,7 @@ import * as React from 'react';
 import { readdirSync } from 'fs';
 import { join } from 'path';
 
-const demoPath = join(__dirname, '../demo/');
+const demoPath = join(__dirname, '../docs/demo/');
 const demos = readdirSync(demoPath);
 
 describe('ProList render', () => {
