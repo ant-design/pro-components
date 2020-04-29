@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, ReactText } from 'react';
 import { Button, Progress, Tag } from 'antd';
 // @ts-ignore
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -7,10 +7,10 @@ import ProList from '@ant-design/pro-list';
 const dataSource = ['语雀的天空', 'Ant Design', '蚂蚁金服体验科技', 'TechUI'];
 
 export default () => {
-  const [selectedRowKeys, setSelectedRowKeys] = useState([]);
+  const [selectedRowKeys, setSelectedRowKeys] = useState<ReactText[]>([]);
   const rowSelection = {
     selectedRowKeys,
-    onChange: (keys) => setSelectedRowKeys(keys),
+    onChange: (keys: ReactText[]) => setSelectedRowKeys(keys),
   };
   return (
     <>
