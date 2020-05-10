@@ -278,7 +278,10 @@ const initState = (
   let loadedStyle = false;
 
   if (window.location.search) {
-    const params = parse(window.location.search.replace('?', ''));
+    const params = parse(window.location.search.replace('?', '')) as {
+      primaryColor: string;
+      navTheme: string;
+    };
     const replaceSetting = {};
     Object.keys(params).forEach((key) => {
       if (defaultSettings[key]) {

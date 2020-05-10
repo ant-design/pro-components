@@ -272,7 +272,7 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
 
   const { pathname } = location;
 
-  const { flatMenuKeys, flatMenus } = MenuCounter.useContainer();
+  const { flatMenuKeys } = MenuCounter.useContainer();
   const [defaultOpenAll, setDefaultOpenAll] = useState(menu.defaultOpenAll);
 
   const [openKeys, setOpenKeys] = useMergeValue<
@@ -294,19 +294,12 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
   );
 
   useEffect(() => {
-    if (!flatMenus || flatMenuKeys.length === 0) {
-      return;
-    }
     if (menu.defaultOpenAll || propsOpenKeys === false) {
       return;
     }
-    const keys = getSelectedMenuKeys(
-      location.pathname || '/',
-      flatMenus,
-      flatMenuKeys || [],
-    );
+    const keys = getSelectedMenuKeys(location.pathname || '/', menuData || []);
     setOpenKeys(keys);
-  }, [flatMenus, flatMenuKeys.join('-')]);
+  }, [flatMenuKeys.join('-')]);
 
   const [selectedKeys, setSelectedKeys] = useMergeValue<string[] | undefined>(
     [],
@@ -332,17 +325,8 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
   }, [iconfontUrl]);
 
   useEffect(() => {
-    if (!flatMenus || flatMenuKeys.length === 0) {
-      return () => null;
-    }
-
     // if pathname can't match, use the nearest parent's key
-    const keys = getSelectedMenuKeys(
-      pathname || '/',
-      flatMenus,
-      flatMenuKeys || [],
-    );
-
+    const keys = getSelectedMenuKeys(location.pathname || '/', menuData || []);
     const animationFrameId = requestAnimationFrame(() => {
       setSelectedKeys(keys);
       if (!defaultOpenAll && propsOpenKeys !== false) {
@@ -367,11 +351,7 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
   // 这次 openKeys === false 的时候的情况，这种情况下帮用户选中一次
   // 第二次以后不再关系，所以用了 defaultOpenKeys
   if (props.openKeys === false && !props.handleOpenChange) {
-    const keys = getSelectedMenuKeys(
-      location.pathname || '/',
-      flatMenus,
-      flatMenuKeys || [],
-    );
+    const keys = getSelectedMenuKeys(location.pathname || '/', menuData || []);
     defaultOpenKeysRef.current = keys;
     if (keys.length < 1) {
       return null;

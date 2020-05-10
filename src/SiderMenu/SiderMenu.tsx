@@ -81,7 +81,7 @@ const SiderMenu: React.FC<SiderMenuProps> = (props) => {
     onOpenChange,
   } = props;
 
-  const { flatMenus } = MenuCounter.useContainer();
+  const { flatMenuKeys } = MenuCounter.useContainer();
   const siderClassName = classNames('ant-pro-sider-menu-sider', {
     'fix-sider-bar': fixSiderbar,
     light: theme === 'light',
@@ -116,7 +116,7 @@ const SiderMenu: React.FC<SiderMenuProps> = (props) => {
           {headerDom}
         </div>
       )}
-      {flatMenus && (
+      {flatMenuKeys && (
         <BaseMenu
           {...props}
           mode="inline"

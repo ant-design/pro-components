@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import { Drawer } from 'antd';
 import classNames from 'classnames';
 import Omit from 'omit.js';
+import { getFlatMenus } from '@umijs/route-utils';
 
 import { useDeepCompareEffect } from '../utils/utils';
 import SiderMenu, { SiderMenuProps } from './SiderMenu';
-import { getFlatMenus } from './SiderMenuUtils';
 import MenuCounter from './Counter';
 
 const SiderMenuWrapper: React.FC<SiderMenuProps> = (props) => {
@@ -19,7 +19,7 @@ const SiderMenuWrapper: React.FC<SiderMenuProps> = (props) => {
     className,
     hide,
   } = props;
-  const { setFlatMenus, setFlatMenuKeys } = MenuCounter.useContainer();
+  const { setFlatMenuKeys } = MenuCounter.useContainer();
 
   useDeepCompareEffect(() => {
     if (!menuData || menuData.length < 1) {
@@ -28,7 +28,6 @@ const SiderMenuWrapper: React.FC<SiderMenuProps> = (props) => {
     // // 当 menu data 改变的时候重新计算这两个参数
     const newFlatMenus = getFlatMenus(menuData);
     const animationFrameId = requestAnimationFrame(() => {
-      setFlatMenus(newFlatMenus);
       setFlatMenuKeys(Object.keys(newFlatMenus));
     });
     return () =>
