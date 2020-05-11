@@ -449,9 +449,9 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
               {headerDom}
 
               <WrapContent
-                className={contentClassName}
                 isChildrenLayout={isChildrenLayout}
                 {...rest}
+                className={contentClassName}
                 style={contentStyle}
               >
                 {loading ? <PageLoading /> : children}
