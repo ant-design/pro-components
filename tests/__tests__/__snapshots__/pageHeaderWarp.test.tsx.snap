@@ -31,6 +31,30 @@ exports[`BasicLayout base use 1`] = `
             </h1>
           </a>
         </div>
+        <ul
+          class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
+          role="menu"
+          style="padding:16px 0;width:100%"
+        >
+          <li
+            class="ant-menu-submenu ant-menu-submenu-inline"
+            role="menuitem"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="ant-menu-submenu-title"
+              style="padding-left:24px"
+              title="welcome"
+            >
+              welcome
+              <i
+                class="ant-menu-submenu-arrow"
+              />
+            </div>
+            <div />
+          </li>
+        </ul>
       </div>
     </aside>
     <section
@@ -148,6 +172,30 @@ exports[`BasicLayout content is text 1`] = `
             </h1>
           </a>
         </div>
+        <ul
+          class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
+          role="menu"
+          style="padding:16px 0;width:100%"
+        >
+          <li
+            class="ant-menu-submenu ant-menu-submenu-inline"
+            role="menuitem"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="ant-menu-submenu-title"
+              style="padding-left:24px"
+              title="welcome"
+            >
+              welcome
+              <i
+                class="ant-menu-submenu-arrow"
+              />
+            </div>
+            <div />
+          </li>
+        </ul>
       </div>
     </aside>
     <section

@@ -31,6 +31,11 @@ exports[`BasicLayout 🥩 base use 1`] = `
             </h1>
           </a>
         </div>
+        <ul
+          class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
+          role="menu"
+          style="padding:16px 0;width:100%"
+        />
       </div>
     </aside>
     <section
@@ -122,6 +127,11 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
             </h1>
           </a>
         </div>
+        <ul
+          class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
+          role="menu"
+          style="padding:16px 0;width:100%"
+        />
       </div>
     </aside>
     <section
@@ -214,6 +224,11 @@ exports[`BasicLayout 🥩 support loading 1`] = `
             </h1>
           </a>
         </div>
+        <ul
+          class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
+          role="menu"
+          style="padding:16px 0;width:100%"
+        />
       </div>
     </aside>
     <section
@@ -330,6 +345,66 @@ exports[`BasicLayout 🥩 support menuDateRender 1`] = `
             </h1>
           </a>
         </div>
+        <ul
+          class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
+          role="menu"
+          style="padding:16px 0;width:100%"
+        >
+          <li
+            class="ant-menu-submenu ant-menu-submenu-inline"
+            role="menuitem"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="ant-menu-submenu-title"
+              style="padding-left:24px"
+              title="首页"
+            >
+              首页
+              <i
+                class="ant-menu-submenu-arrow"
+              />
+            </div>
+            <div />
+          </li>
+          <li
+            class="ant-menu-submenu ant-menu-submenu-inline"
+            role="menuitem"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="ant-menu-submenu-title"
+              style="padding-left:24px"
+              title="汇总数据"
+            >
+              汇总数据
+              <i
+                class="ant-menu-submenu-arrow"
+              />
+            </div>
+            <div />
+          </li>
+          <li
+            class="ant-menu-item"
+            role="menuitem"
+            style="padding-left:24px"
+          >
+            <span>
+              明细数据
+            </span>
+          </li>
+          <li
+            class="ant-menu-item"
+            role="menuitem"
+            style="padding-left:24px"
+          >
+            <span>
+              其他
+            </span>
+          </li>
+        </ul>
       </div>
     </aside>
     <section
