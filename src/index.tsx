@@ -22,6 +22,7 @@ export interface ProListProps<RecordType>
   rowKey?: string | GetRowKey<RecordType>;
   renderItem: (row: RecordType, index: number) => ItemProps;
   listRenderItem?: (row: RecordType, index: number) => React.ReactNode;
+  headerRender?: React.ReactNode;
   expandable?: ExpandableConfig<RecordType>;
   showActions?: 'hover' | 'always';
 }
@@ -39,6 +40,7 @@ function ProList<RecordType = any>(props: ProListProps<RecordType>) {
     rowKey,
     showActions = 'always',
     bordered,
+    headerRender,
     split = true,
     expandable: expandableConfig,
     ...rest
@@ -237,7 +239,8 @@ function ProList<RecordType = any>(props: ProListProps<RecordType>) {
         {...rest}
         split={false}
         header={
-          (rest.title || rest.actions) && <ToolBar className={`${prefixCls}-toolbar`} {...rest} />
+          headerRender ||
+          ((rest.title || rest.actions) && <ToolBar className={`${prefixCls}-toolbar`} {...rest} />)
         }
         bordered={bordered}
         dataSource={pageData}
