@@ -52,6 +52,10 @@ ProList 在 antd 的 list 支持了一些功能，比如 多选，展开等功�
 
 <code src="./demo/special.tsx" />
 
+### 自定义表头
+
+<code src="./demo/headerRender.tsx" />
+
 ### 小菜单
 
 <code src="./demo/minMenu.tsx" />
@@ -71,7 +75,7 @@ ProList 与 antd 的 [List](https://ant.design/components/list-cn/) 相比，主
 | renderItem | 现在的 renderItem 需要返回 ProList.Item 的 props，而不是 dom | ItemProps | - |
 | title | 列表头部主标题 | ReactNode | - |
 | actions | 列表头部操作项 | React.ReactNode[] | - |
-| headerRender | 自定义列表头部，这是 antd 的 header 的别名, 使用该属性时 title 和 actions 无效 | React.ReactNode | - |
+| headerRender | 自定义列表头的 render 方法 | (props: {title, actions}, defaultDom: React.ReactNode) => ReactNode | - |
 | listRenderItem | 这是 antd 的 renderItem 的别名 | (row,index)=> Node | - |
 
 ### ProList.Item

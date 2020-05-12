@@ -15,6 +15,13 @@ import './index.less';
 
 type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 
+type WithFalse<T> = T | false;
+
+export interface HeaderViewProps {
+  title?: React.ReactNode;
+  actions?: React.ReactNode[];
+}
+
 export interface ProListProps<RecordType>
   extends Omit<ToolBarProps, 'locale'>,
     AntdListProps<RecordType> {
@@ -22,7 +29,9 @@ export interface ProListProps<RecordType>
   rowKey?: string | GetRowKey<RecordType>;
   renderItem: (row: RecordType, index: number) => ItemProps;
   listRenderItem?: (row: RecordType, index: number) => React.ReactNode;
-  headerRender?: React.ReactNode;
+  headerRender?: WithFalse<
+    (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
+  >;
   expandable?: ExpandableConfig<RecordType>;
   showActions?: 'hover' | 'always';
 }
@@ -233,15 +242,29 @@ function ProList<RecordType = any>(props: ProListProps<RecordType>) {
     [`${prefixCls}-bordered`]: bordered,
     [`${prefixCls}-no-split`]: !split,
   });
+
+  const renderHeader = () => {
+    if (headerRender === false) {
+      return null;
+    }
+
+    const defaultDom = (rest.title || rest.actions) && (
+      <ToolBar className={`${prefixCls}-toolbar`} {...rest} />
+    );
+
+    if (headerRender) {
+      return headerRender({ title: rest.title, actions: rest.actions }, defaultDom);
+    }
+
+    return defaultDom;
+  };
+
   return (
     <div className={listClassName}>
       <List<RecordType>
         {...rest}
         split={false}
-        header={
-          headerRender ||
-          ((rest.title || rest.actions) && <ToolBar className={`${prefixCls}-toolbar`} {...rest} />)
-        }
+        header={renderHeader()}
         bordered={bordered}
         dataSource={pageData}
         renderItem={defaultRenderItem()}
