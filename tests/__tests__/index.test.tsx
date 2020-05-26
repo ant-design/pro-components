@@ -161,9 +161,7 @@ describe('BasicLayout', () => {
             {
               path: '/data_ming',
               name: '明细数据',
-
               locale: 'menu.data_ming',
-              children: [],
             },
             {
               path: '/other',

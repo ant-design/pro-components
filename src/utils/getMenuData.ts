@@ -28,6 +28,7 @@ export default (
     routes,
     menu?.locale || false,
     formatMessage,
+    true,
   );
   if (!menuDataRender) {
     return {
@@ -40,6 +41,7 @@ export default (
     menuDataRender(menuData),
     menu?.locale || false,
     formatMessage,
+    true,
   );
   return {
     breadcrumb: fromEntries(renderData.breadcrumb),

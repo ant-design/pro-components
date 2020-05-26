@@ -396,13 +396,22 @@ exports[`BasicLayout 🥩 support menuDateRender 1`] = `
             </span>
           </li>
           <li
-            class="ant-menu-item"
+            class="ant-menu-submenu ant-menu-submenu-inline"
             role="menuitem"
-            style="padding-left:24px"
           >
-            <span>
+            <div
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="ant-menu-submenu-title"
+              style="padding-left:24px"
+              title="其他"
+            >
               其他
-            </span>
+              <i
+                class="ant-menu-submenu-arrow"
+              />
+            </div>
+            <div />
           </li>
         </ul>
       </div>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// eslint-disable-next-line import/no-unresolved
 import ProLayout, { PageHeaderWrapper } from '@ant-design/pro-layout';
 import { Button } from 'antd';
 import defaultProps from './defaultProps';
@@ -16,9 +17,6 @@ export default () => {
         +1
       </Button>
       <ProLayout
-        location={{
-          pathname: '/welcome',
-        }}
         menuItemRender={(item, dom) => (
           <div>
             {index} {dom}
@@ -43,6 +41,9 @@ export default () => {
           </div>
         )}
         {...defaultProps}
+        location={{
+          pathname: '/welcome',
+        }}
       >
         <PageHeaderWrapper content="欢迎使用">Hello World</PageHeaderWrapper>
       </ProLayout>
