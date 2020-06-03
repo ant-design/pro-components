@@ -46,12 +46,13 @@ const RightContent: React.FC<TopNavHeaderProps> = ({
             setRightSize(width);
           }}
         >
-          <>
-            {rightContentRender &&
-              rightContentRender({
+          {rightContentRender && (
+            <div>
+              {rightContentRender({
                 ...props,
               })}
-          </>
+            </div>
+          )}
         </ResizeObserver>
       </div>
     </div>
