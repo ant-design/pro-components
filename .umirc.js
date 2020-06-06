@@ -1,5 +1,5 @@
 export default {
-  title: 'Pro-Layout',
+  title: 'ProLayout',
   logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
   mode: 'site',
   extraBabelPlugins: [
@@ -11,6 +11,13 @@ export default {
         style: 'css',
       },
     ],
+  ],
+  navs: [
+    null,
+    {
+      title: 'GitHub',
+      path: 'https://github.com/ant-design/pro-table',
+    },
   ],
   hash: true,
 };

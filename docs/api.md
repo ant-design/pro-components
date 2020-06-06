@@ -9,7 +9,7 @@ nav:
 
 # Layout API
 
-Pro-Layout provides rich APIs for various customizations. Here you can see the demonstration of various APIs.
+ProLayout provides rich APIs for various customizations. Here you can see the demonstration of various APIs.
 
 ## Demo
 
