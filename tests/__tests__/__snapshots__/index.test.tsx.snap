@@ -195,15 +195,15 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
 
 exports[`BasicLayout 🥩 support loading 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout"
+  class="ant-design-pro ant-pro-basicLayout screen-md"
 >
   <section
     class="ant-layout ant-layout-has-sider"
-    style="min-height:100%"
+    style="min-height: 100%;"
   >
     <aside
       class="ant-pro-sider-menu-sider ant-layout-sider ant-layout-sider-dark"
-      style="flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
+      style="flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
     >
       <div
         class="ant-layout-sider-children"
@@ -227,17 +227,17 @@ exports[`BasicLayout 🥩 support loading 1`] = `
         <ul
           class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
           role="menu"
-          style="padding:16px 0;width:100%"
+          style="padding: 16px 0px; width: 100%;"
         />
       </div>
     </aside>
     <section
       class="ant-layout"
-      style="position:relative"
+      style="position: relative;"
     >
       <header
         class="ant-layout-header"
-        style="padding:0;width:100%;z-index:9"
+        style="padding: 0px; width: 100%; z-index: 9;"
       >
         <div
           class="ant-pro-global-header"
@@ -267,7 +267,7 @@ exports[`BasicLayout 🥩 support loading 1`] = `
             </span>
           </span>
           <div
-            style="flex:1"
+            style="flex: 1;"
           />
         </div>
       </header>
@@ -282,7 +282,7 @@ exports[`BasicLayout 🥩 support loading 1`] = `
               class="ant-pro-grid-content"
             >
               <div
-                style="padding-top:100px;text-align:center"
+                style="padding-top: 100px; text-align: center;"
               >
                 <div
                   class="ant-spin ant-spin-lg ant-spin-spinning"
@@ -316,15 +316,15 @@ exports[`BasicLayout 🥩 support loading 1`] = `
 
 exports[`BasicLayout 🥩 support menuDateRender 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout"
+  class="ant-design-pro ant-pro-basicLayout screen-md"
 >
   <section
     class="ant-layout ant-layout-has-sider"
-    style="min-height:100%"
+    style="min-height: 100%;"
   >
     <aside
       class="ant-pro-sider-menu-sider ant-layout-sider ant-layout-sider-dark"
-      style="flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
+      style="flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
     >
       <div
         class="ant-layout-sider-children"
@@ -348,35 +348,27 @@ exports[`BasicLayout 🥩 support menuDateRender 1`] = `
         <ul
           class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
           role="menu"
-          style="padding:16px 0;width:100%"
+          style="padding: 16px 0px; width: 100%;"
         >
           <li
-            class="ant-menu-submenu ant-menu-submenu-inline"
+            class="ant-menu-item"
             role="menuitem"
+            style="padding-left: 24px;"
           >
-            <div
-              aria-expanded="false"
-              aria-haspopup="true"
-              class="ant-menu-submenu-title"
-              style="padding-left:24px"
-              title="首页"
-            >
+            <span>
               首页
-              <i
-                class="ant-menu-submenu-arrow"
-              />
-            </div>
-            <div />
+            </span>
           </li>
           <li
-            class="ant-menu-submenu ant-menu-submenu-inline"
+            class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
             role="menuitem"
           >
             <div
-              aria-expanded="false"
+              aria-expanded="true"
               aria-haspopup="true"
+              aria-owns="/data_hui$Menu"
               class="ant-menu-submenu-title"
-              style="padding-left:24px"
+              style="padding-left: 24px;"
               title="汇总数据"
             >
               汇总数据
@@ -384,45 +376,119 @@ exports[`BasicLayout 🥩 support menuDateRender 1`] = `
                 class="ant-menu-submenu-arrow"
               />
             </div>
-            <div />
+            <ul
+              class="ant-menu ant-menu-sub ant-menu-inline"
+              id="/data_hui$Menu"
+              role="menu"
+            >
+              <li
+                class="ant-menu-submenu ant-menu-submenu-inline"
+                role="menuitem"
+              >
+                <div
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  class="ant-menu-submenu-title"
+                  style="padding-left: 48px;"
+                  title="域买家维度交易"
+                >
+                  域买家维度交易
+                  <i
+                    class="ant-menu-submenu-arrow"
+                  />
+                </div>
+                <div />
+              </li>
+              <li
+                class="ant-menu-submenu ant-menu-submenu-inline"
+                role="menuitem"
+              >
+                <div
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  class="ant-menu-submenu-title"
+                  style="padding-left: 48px;"
+                  title="域买家维度交易2"
+                >
+                  域买家维度交易2
+                  <i
+                    class="ant-menu-submenu-arrow"
+                  />
+                </div>
+                <div />
+              </li>
+              <li
+                class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+                role="menuitem"
+              >
+                <div
+                  aria-expanded="true"
+                  aria-haspopup="true"
+                  aria-owns="域买家维度交易3$Menu"
+                  class="ant-menu-submenu-title"
+                  style="padding-left: 48px;"
+                  title="域买家维度交易3"
+                >
+                  域买家维度交易3
+                  <i
+                    class="ant-menu-submenu-arrow"
+                  />
+                </div>
+                <ul
+                  class="ant-menu ant-menu-sub ant-menu-inline"
+                  id="域买家维度交易3$Menu"
+                  role="menu"
+                >
+                  <li
+                    class="ant-menu-item"
+                    role="menuitem"
+                    style="padding-left: 72px;"
+                  >
+                    <span>
+                      _交易_买家_月表2
+                    </span>
+                  </li>
+                  <li
+                    class="ant-menu-item"
+                    role="menuitem"
+                    style="padding-left: 72px;"
+                  >
+                    <span>
+                      _航旅交易_买家_日表3
+                    </span>
+                  </li>
+                </ul>
+              </li>
+            </ul>
           </li>
           <li
             class="ant-menu-item"
             role="menuitem"
-            style="padding-left:24px"
+            style="padding-left: 24px;"
           >
             <span>
               明细数据
             </span>
           </li>
           <li
-            class="ant-menu-submenu ant-menu-submenu-inline"
+            class="ant-menu-item"
             role="menuitem"
+            style="padding-left: 24px;"
           >
-            <div
-              aria-expanded="false"
-              aria-haspopup="true"
-              class="ant-menu-submenu-title"
-              style="padding-left:24px"
-              title="其他"
-            >
+            <span>
               其他
-              <i
-                class="ant-menu-submenu-arrow"
-              />
-            </div>
-            <div />
+            </span>
           </li>
         </ul>
       </div>
     </aside>
     <section
       class="ant-layout"
-      style="position:relative"
+      style="position: relative;"
     >
       <header
         class="ant-layout-header"
-        style="padding:0;width:100%;z-index:9"
+        style="padding: 0px; width: 100%; z-index: 9;"
       >
         <div
           class="ant-pro-global-header"
@@ -452,7 +518,7 @@ exports[`BasicLayout 🥩 support menuDateRender 1`] = `
             </span>
           </span>
           <div
-            style="flex:1"
+            style="flex: 1;"
           />
         </div>
       </header>

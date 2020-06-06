@@ -7,11 +7,13 @@ export default [
       {
         path: '/home/overview',
         name: '概述',
+        hideInMenu: true,
         locale: 'menu.home.overview',
       },
       {
         path: '/home/search',
         name: '搜索',
+        hideInMenu: true,
         locale: 'menu.home.search',
       },
     ],
@@ -23,9 +25,8 @@ export default [
     children: [
       {
         collapsed: true,
-        menuName: '域&middot;买家维度交易',
-        name: '域&middot;买家维度交易',
-
+        menuName: '域买家维度交易',
+        name: '域买家维度交易',
         children: [
           {
             id: 2,
@@ -41,7 +42,7 @@ export default [
         ],
       },
       {
-        name: '域&middot;买家维度交易2',
+        name: '域买家维度交易2',
         path: '/',
         children: [
           {
@@ -57,7 +58,7 @@ export default [
         ],
       },
       {
-        name: '域&middot;买家维度交易2',
+        name: '域买家维度交易3',
         path: '/',
         children: [
           {
