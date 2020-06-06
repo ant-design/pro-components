@@ -16,7 +16,7 @@ export default {
     null,
     {
       title: 'GitHub',
-      path: 'https://github.com/ant-design/pro-table',
+      path: 'https://github.com/ant-design/ant-design-pro-layout',
     },
   ],
   hash: true,
