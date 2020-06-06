@@ -203,7 +203,7 @@ class MenuUtil {
     if (isHttpUrl) {
       defaultItem = (
         <a href={itemPath} target={target}>
-          {icon} <span>{name}</span>
+          {icon}<span>{name}</span>
         </a>
       );
     }
