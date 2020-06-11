@@ -4,7 +4,6 @@ import classNames from 'classnames';
 import { TabsProps, TabPaneProps } from 'antd/es/tabs';
 import { PageHeaderProps } from 'antd/es/page-header';
 import './index.less';
-import GridContent from '../GridContent';
 import RouteContext, { RouteContextType } from '../RouteContext';
 
 export interface PageHeaderTabConfig {
