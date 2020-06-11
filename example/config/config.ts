@@ -123,10 +123,6 @@ export default {
           icon: 'smile',
           routes: [
             {
-              path: '/',
-              redirect: '/welcome',
-            },
-            {
               path: '/welcome',
               redirect: '/welcome/welcome',
             },

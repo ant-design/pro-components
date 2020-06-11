@@ -114,20 +114,16 @@ exports[`BasicLayout base use 1`] = `
                   class="ant-pro-page-header-wrap-page-header-warp"
                 >
                   <div
-                    class="ant-pro-grid-content"
+                    class="ant-page-header ant-page-header-ghost"
                   >
                     <div
-                      class="ant-page-header ant-page-header-ghost"
+                      class="ant-page-header-heading"
                     >
-                      <div
-                        class="ant-page-header-heading"
+                      <span
+                        class="ant-page-header-heading-title"
                       >
-                        <span
-                          class="ant-page-header-heading-title"
-                        >
-                          welcome
-                        </span>
-                      </div>
+                        welcome
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -255,37 +251,33 @@ exports[`BasicLayout content is text 1`] = `
                   class="ant-pro-page-header-wrap-page-header-warp"
                 >
                   <div
-                    class="ant-pro-grid-content"
+                    class="ant-page-header ant-page-header-ghost"
                   >
                     <div
-                      class="ant-page-header ant-page-header-ghost"
+                      class="ant-page-header-heading"
+                    >
+                      <span
+                        class="ant-page-header-heading-title"
+                      >
+                        welcome
+                      </span>
+                    </div>
+                    <div
+                      class="ant-page-header-content"
                     >
                       <div
-                        class="ant-page-header-heading"
-                      >
-                        <span
-                          class="ant-page-header-heading-title"
-                        >
-                          welcome
-                        </span>
-                      </div>
-                      <div
-                        class="ant-page-header-content"
+                        class="ant-pro-page-header-wrap-detail"
                       >
                         <div
-                          class="ant-pro-page-header-wrap-detail"
+                          class="ant-pro-page-header-wrap-main"
                         >
                           <div
-                            class="ant-pro-page-header-wrap-main"
+                            class="ant-pro-page-header-wrap-row"
                           >
                             <div
-                              class="ant-pro-page-header-wrap-row"
+                              class="ant-pro-page-header-wrap-content"
                             >
-                              <div
-                                class="ant-pro-page-header-wrap-content"
-                              >
-                                just so so
-                              </div>
+                              just so so
                             </div>
                           </div>
                         </div>

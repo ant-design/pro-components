@@ -360,13 +360,12 @@ exports[`BasicLayout 🥩 support menuDateRender 1`] = `
             </span>
           </li>
           <li
-            class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
+            class="ant-menu-submenu ant-menu-submenu-inline"
             role="menuitem"
           >
             <div
-              aria-expanded="true"
+              aria-expanded="false"
               aria-haspopup="true"
-              aria-owns="/data_hui$Menu"
               class="ant-menu-submenu-title"
               style="padding-left: 24px;"
               title="汇总数据"
@@ -376,90 +375,7 @@ exports[`BasicLayout 🥩 support menuDateRender 1`] = `
                 class="ant-menu-submenu-arrow"
               />
             </div>
-            <ul
-              class="ant-menu ant-menu-sub ant-menu-inline"
-              id="/data_hui$Menu"
-              role="menu"
-            >
-              <li
-                class="ant-menu-submenu ant-menu-submenu-inline"
-                role="menuitem"
-              >
-                <div
-                  aria-expanded="false"
-                  aria-haspopup="true"
-                  class="ant-menu-submenu-title"
-                  style="padding-left: 48px;"
-                  title="域买家维度交易"
-                >
-                  域买家维度交易
-                  <i
-                    class="ant-menu-submenu-arrow"
-                  />
-                </div>
-                <div />
-              </li>
-              <li
-                class="ant-menu-submenu ant-menu-submenu-inline"
-                role="menuitem"
-              >
-                <div
-                  aria-expanded="false"
-                  aria-haspopup="true"
-                  class="ant-menu-submenu-title"
-                  style="padding-left: 48px;"
-                  title="域买家维度交易2"
-                >
-                  域买家维度交易2
-                  <i
-                    class="ant-menu-submenu-arrow"
-                  />
-                </div>
-                <div />
-              </li>
-              <li
-                class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
-                role="menuitem"
-              >
-                <div
-                  aria-expanded="true"
-                  aria-haspopup="true"
-                  aria-owns="域买家维度交易3$Menu"
-                  class="ant-menu-submenu-title"
-                  style="padding-left: 48px;"
-                  title="域买家维度交易3"
-                >
-                  域买家维度交易3
-                  <i
-                    class="ant-menu-submenu-arrow"
-                  />
-                </div>
-                <ul
-                  class="ant-menu ant-menu-sub ant-menu-inline"
-                  id="域买家维度交易3$Menu"
-                  role="menu"
-                >
-                  <li
-                    class="ant-menu-item"
-                    role="menuitem"
-                    style="padding-left: 72px;"
-                  >
-                    <span>
-                      _交易_买家_月表2
-                    </span>
-                  </li>
-                  <li
-                    class="ant-menu-item"
-                    role="menuitem"
-                    style="padding-left: 72px;"
-                  >
-                    <span>
-                      _航旅交易_买家_日表3
-                    </span>
-                  </li>
-                </ul>
-              </li>
-            </ul>
+            <div />
           </li>
           <li
             class="ant-menu-item"

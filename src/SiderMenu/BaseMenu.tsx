@@ -203,7 +203,8 @@ class MenuUtil {
     if (isHttpUrl) {
       defaultItem = (
         <a href={itemPath} target={target}>
-          {icon}<span>{name}</span>
+          {icon}
+          <span>{name}</span>
         </a>
       );
     }
@@ -331,7 +332,7 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
       setSelectedKeys(keys);
       if (!defaultOpenAll && propsOpenKeys !== false) {
         setOpenKeys(keys);
-      } else {
+      } else if (flatMenuKeys.length > 0) {
         setDefaultOpenAll(false);
       }
     });

@@ -79,6 +79,9 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
         footerRender={() => <DefaultFooter />}
         {...props}
         {...settings}
+        menu={{
+          defaultOpenAll: true,
+        }}
       >
         {props.children}
       </ProLayout>
