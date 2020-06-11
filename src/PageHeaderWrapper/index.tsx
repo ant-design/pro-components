@@ -124,14 +124,12 @@ const PageHeaderWrapper: React.SFC<PageHeaderWrapperProps> = (props) => {
   return (
     <div style={style} className={className}>
       <div className={`${prefixedClassName}-page-header-warp`}>
-        <GridContent>{defaultPageHeaderRender(props, value)}</GridContent>
+        {defaultPageHeaderRender(props, value)}
       </div>
       {children ? (
-        <GridContent>
-          <div className={`${prefixedClassName}-children-content`}>
-            {children}
-          </div>
-        </GridContent>
+        <div className={`${prefixedClassName}-children-content`}>
+          {children}
+        </div>
       ) : null}
     </div>
   );

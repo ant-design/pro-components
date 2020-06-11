@@ -3,8 +3,22 @@ import { PageHeaderWrapper } from '../../../src';
 
 export default (): React.ReactNode => {
   console.log('run');
+  const tabList = [
+    {
+      key: 'articles',
+      tab: '文章',
+    },
+    {
+      key: 'projects',
+      tab: '项目',
+    },
+    {
+      key: 'applications',
+      tab: '应用',
+    },
+  ];
   return (
-    <PageHeaderWrapper>
+    <PageHeaderWrapper tabList={tabList}>
       <div style={{ textAlign: 'center', minHeight: '120vh' }}>
         Want to add more pages? Please refer to{' '}
         <a
