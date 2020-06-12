@@ -57,6 +57,7 @@ class ResizeObserverContent extends React.Component<
     isChildrenLayout?: boolean;
     className?: string;
     style?: CSSProperties;
+    disableAutoContentMinHeight?: boolean;
     location?: any;
     children: any;
   },
@@ -82,6 +83,10 @@ class ResizeObserverContent extends React.Component<
   }
 
   render() {
+    const { disableAutoContentMinHeight } = this.props;
+    if (disableAutoContentMinHeight) {
+      return <WrapContent {...this.props} contentHeight={undefined} />;
+    }
     const { contentHeight } = this.state;
     return (
       <div

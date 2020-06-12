@@ -455,3 +455,97 @@ exports[`BasicLayout 🥩 support menuDateRender 1`] = `
   </section>
 </div>
 `;
+
+exports[`🥩 support disableAutoContentMinHeight 1`] = `
+<div
+  class="ant-design-pro ant-pro-basicLayout screen-md"
+>
+  <section
+    class="ant-layout ant-layout-has-sider"
+    style="min-height: 100%;"
+  >
+    <aside
+      class="ant-pro-sider-menu-sider ant-layout-sider ant-layout-sider-dark"
+      style="flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
+    >
+      <div
+        class="ant-layout-sider-children"
+      >
+        <div
+          class="ant-pro-sider-menu-logo"
+          id="logo"
+        >
+          <a
+            href="/"
+          >
+            <img
+              alt="logo"
+              src="https://gw.alipayobjects.com/zos/antfincdn/PmY%24TNNDBI/logo.svg"
+            />
+            <h1>
+              Ant Design Pro
+            </h1>
+          </a>
+        </div>
+        <ul
+          class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
+          role="menu"
+          style="padding: 16px 0px; width: 100%;"
+        />
+      </div>
+    </aside>
+    <section
+      class="ant-layout"
+      style="position: relative;"
+    >
+      <header
+        class="ant-layout-header"
+        style="padding: 0px; width: 100%; z-index: 9;"
+      >
+        <div
+          class="ant-pro-global-header"
+        >
+          <span
+            class="ant-pro-global-header-trigger"
+          >
+            <span
+              aria-label="menu-fold"
+              class="anticon anticon-menu-fold"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="menu-fold"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
+                />
+              </svg>
+            </span>
+          </span>
+          <div
+            style="flex: 1;"
+          />
+        </div>
+      </header>
+      <main
+        class="ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-layout-content"
+      >
+        <div
+          class="ant-pro-basicLayout-children-content-wrap"
+        >
+          <div
+            class="ant-pro-grid-content"
+          />
+        </div>
+      </main>
+    </section>
+  </section>
+</div>
+`;

@@ -39,6 +39,7 @@ export interface BasicLayoutProps
     SiderMenuProps,
     HeaderViewProps,
     Partial<Settings> {
+  disableAutoContentMinHeight?: boolean;
   pure?: boolean;
   /**
    * logo url
