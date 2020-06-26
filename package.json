@@ -133,7 +133,7 @@
     "np": "^6.1.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "prettier": "^2.0.1",
-    "puppeteer": "^3.0.1",
+    "puppeteer": "^4.0.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-github-btn": "^1.1.1",
