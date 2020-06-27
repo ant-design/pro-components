@@ -1,6 +1,6 @@
 import { render, mount } from 'enzyme';
 import React from 'react';
-import ProLayout, { PageHeaderWrapper } from '../../src';
+import ProLayout, { PageContainer } from '../../src';
 import defaultProps from './defaultProps';
 import { waitForComponentToPaint } from './util';
 
@@ -23,7 +23,7 @@ describe('BasicLayout', () => {
   it('base use', () => {
     const html = render(
       <ProLayout {...defaultProps}>
-        <PageHeaderWrapper />
+        <PageContainer />
       </ProLayout>,
     );
     expect(html).toMatchSnapshot();
@@ -32,7 +32,7 @@ describe('BasicLayout', () => {
   it('content is text', () => {
     const html = render(
       <ProLayout {...defaultProps}>
-        <PageHeaderWrapper content="just so so" />
+        <PageContainer content="just so so" />
       </ProLayout>,
     );
     expect(html).toMatchSnapshot();
@@ -41,7 +41,7 @@ describe('BasicLayout', () => {
   it('title=false, don not render title view', async () => {
     const wrapper = mount(
       <ProLayout {...defaultProps}>
-        <PageHeaderWrapper title={false} />
+        <PageContainer title={false} />
       </ProLayout>,
     );
     await waitForComponentToPaint(wrapper);
@@ -51,7 +51,7 @@ describe('BasicLayout', () => {
   it('have default title', async () => {
     const wrapper = mount(
       <ProLayout {...defaultProps}>
-        <PageHeaderWrapper />
+        <PageContainer />
       </ProLayout>,
     );
     await waitForComponentToPaint(wrapper);
@@ -62,7 +62,7 @@ describe('BasicLayout', () => {
   it('title overrides the default title', async () => {
     const wrapper = mount(
       <ProLayout {...defaultProps}>
-        <PageHeaderWrapper title="name" />
+        <PageContainer title="name" />
       </ProLayout>,
     );
     await waitForComponentToPaint(wrapper);

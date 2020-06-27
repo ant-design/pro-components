@@ -2,7 +2,7 @@ import H from 'history';
 import { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/es/breadcrumb';
 import React from 'react';
 import pathToRegexp from 'path-to-regexp';
-import { Settings } from '../defaultSettings';
+import { ProSettings } from '../defaultSettings';
 import { MenuDataItem, MessageDescriptor } from '../typings';
 import { urlToList } from './pathTools';
 import { isBrowser } from './utils';
@@ -15,7 +15,7 @@ export interface BreadcrumbProps {
     | {
         pathname?: string;
       };
-  menu?: Settings['menu'];
+  menu?: ProSettings['menu'];
   breadcrumbMap?: Map<string, MenuDataItem>;
   formatMessage?: (message: MessageDescriptor) => string;
   breadcrumbRender?: (

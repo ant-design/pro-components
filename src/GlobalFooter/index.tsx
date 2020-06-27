@@ -15,10 +15,17 @@ export interface GlobalFooterProps {
   >;
   copyright?: React.ReactNode;
   style?: React.CSSProperties;
+  prefixCls?: string;
   className?: string;
 }
 
-export default ({ className, links, copyright, style }: GlobalFooterProps) => {
+export default ({
+  className,
+  prefixCls = 'ant-pro',
+  links,
+  copyright,
+  style,
+}: GlobalFooterProps) => {
   if (
     (links == null ||
       links === false ||
@@ -27,11 +34,12 @@ export default ({ className, links, copyright, style }: GlobalFooterProps) => {
   ) {
     return null;
   }
-  const clsString = classNames('ant-pro-global-footer', className);
+  const baseClassName = `${prefixCls}-global-footer`;
+  const clsString = classNames(baseClassName, className);
   return (
     <footer className={clsString} style={style}>
       {links && (
-        <div className="ant-pro-global-footer-links">
+        <div className={`${baseClassName}-links`}>
           {links.map((link) => (
             <a
               key={link.key}
@@ -45,7 +53,7 @@ export default ({ className, links, copyright, style }: GlobalFooterProps) => {
         </div>
       )}
       {copyright && (
-        <div className="ant-pro-global-footer-copyright">{copyright}</div>
+        <div className={`${baseClassName}-copyright`}>{copyright}</div>
       )}
     </footer>
   );

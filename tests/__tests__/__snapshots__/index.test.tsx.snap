@@ -9,14 +9,14 @@ exports[`BasicLayout 🥩 base use 1`] = `
     style="min-height:100%"
   >
     <aside
-      class="ant-pro-sider-menu-sider ant-layout-sider ant-layout-sider-dark"
-      style="flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
+      class="ant-pro-sider ant-pro-sider-layout-side ant-layout-sider ant-layout-sider-dark"
+      style="overflow:hidden;flex:0 0 208px;max-width:208px;min-width:208px;width:208px"
     >
       <div
         class="ant-layout-sider-children"
       >
         <div
-          class="ant-pro-sider-menu-logo"
+          class="ant-pro-sider-logo"
           id="logo"
         >
           <a
@@ -31,11 +31,50 @@ exports[`BasicLayout 🥩 base use 1`] = `
             </h1>
           </a>
         </div>
-        <ul
-          class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
-          role="menu"
-          style="padding:16px 0;width:100%"
-        />
+        <div
+          style="flex:1;overflow-y:auto;overflow-x:hidden"
+        >
+          <ul
+            class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
+            role="menu"
+            style="width:100%"
+          />
+        </div>
+        <div
+          class="ant-pro-sider-links"
+        >
+          <ul
+            class="ant-menu ant-pro-sider-link-menu ant-menu-dark ant-menu-root ant-menu-inline"
+            role="menu"
+          >
+            <li
+              class="ant-menu-item ant-pro-sider-collapsed-button ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:16px"
+            >
+              <span
+                aria-label="menu-fold"
+                class="anticon anticon-menu-fold"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="menu-fold"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
+                  />
+                </svg>
+              </span>
+            </li>
+          </ul>
+        </div>
       </div>
     </aside>
     <section
@@ -44,53 +83,23 @@ exports[`BasicLayout 🥩 base use 1`] = `
     >
       <header
         class="ant-layout-header"
-        style="padding:0;width:100%;z-index:9"
+        style="padding:0;height:48px;line-height:48px;width:100%;z-index:9"
       >
         <div
-          class="ant-pro-global-header"
+          class="ant-pro-global-header ant-pro-global-header-layout-side"
         >
-          <span
-            class="ant-pro-global-header-trigger"
-          >
-            <span
-              aria-label="menu-fold"
-              class="anticon anticon-menu-fold"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="menu-fold"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
-                />
-              </svg>
-            </span>
-          </span>
           <div
             style="flex:1"
           />
         </div>
       </header>
-      <div>
-        <main
-          class="ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-layout-content"
-        >
-          <div
-            class="ant-pro-basicLayout-children-content-wrap"
-          >
-            <div
-              class="ant-pro-grid-content"
-            />
-          </div>
-        </main>
-      </div>
+      <main
+        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+      >
+        <div
+          class="ant-pro-basicLayout-children-content-wrap"
+        />
+      </main>
     </section>
   </section>
 </div>
@@ -105,14 +114,14 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
     style="min-height:100%"
   >
     <aside
-      class="ant-pro-sider-menu-sider ant-layout-sider ant-layout-sider-dark"
-      style="flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
+      class="ant-pro-sider ant-pro-sider-layout-side ant-layout-sider ant-layout-sider-dark"
+      style="overflow:hidden;flex:0 0 208px;max-width:208px;min-width:208px;width:208px"
     >
       <div
         class="ant-layout-sider-children"
       >
         <div
-          class="ant-pro-sider-menu-logo"
+          class="ant-pro-sider-logo"
           id="logo"
         >
           <a
@@ -127,11 +136,50 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
             </h1>
           </a>
         </div>
-        <ul
-          class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
-          role="menu"
-          style="padding:16px 0;width:100%"
-        />
+        <div
+          style="flex:1;overflow-y:auto;overflow-x:hidden"
+        >
+          <ul
+            class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
+            role="menu"
+            style="width:100%"
+          />
+        </div>
+        <div
+          class="ant-pro-sider-links"
+        >
+          <ul
+            class="ant-menu ant-pro-sider-link-menu ant-menu-dark ant-menu-root ant-menu-inline"
+            role="menu"
+          >
+            <li
+              class="ant-menu-item ant-pro-sider-collapsed-button ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:16px"
+            >
+              <span
+                aria-label="menu-fold"
+                class="anticon anticon-menu-fold"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="menu-fold"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
+                  />
+                </svg>
+              </span>
+            </li>
+          </ul>
+        </div>
       </div>
     </aside>
     <section
@@ -140,54 +188,24 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
     >
       <header
         class="ant-layout-header"
-        style="padding:0;width:100%;z-index:9"
+        style="padding:0;height:48px;line-height:48px;width:100%;z-index:9"
       >
         <div
-          class="ant-pro-global-header"
+          class="ant-pro-global-header ant-pro-global-header-layout-side"
         >
-          <span
-            class="ant-pro-global-header-trigger"
-          >
-            <span
-              aria-label="menu-fold"
-              class="anticon anticon-menu-fold"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="menu-fold"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
-                />
-              </svg>
-            </span>
-          </span>
           <div
             style="flex:1"
           />
         </div>
       </header>
-      <div>
-        <main
-          class="ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-layout-content"
-          style="padding:56px"
-        >
-          <div
-            class="ant-pro-basicLayout-children-content-wrap"
-          >
-            <div
-              class="ant-pro-grid-content"
-            />
-          </div>
-        </main>
-      </div>
+      <main
+        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+        style="padding:56px"
+      >
+        <div
+          class="ant-pro-basicLayout-children-content-wrap"
+        />
+      </main>
     </section>
   </section>
 </div>
@@ -202,14 +220,14 @@ exports[`BasicLayout 🥩 support loading 1`] = `
     style="min-height: 100%;"
   >
     <aside
-      class="ant-pro-sider-menu-sider ant-layout-sider ant-layout-sider-dark"
-      style="flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
+      class="ant-pro-sider ant-pro-sider-layout-side ant-layout-sider ant-layout-sider-dark"
+      style="overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px; width: 208px;"
     >
       <div
         class="ant-layout-sider-children"
       >
         <div
-          class="ant-pro-sider-menu-logo"
+          class="ant-pro-sider-logo"
           id="logo"
         >
           <a
@@ -224,11 +242,50 @@ exports[`BasicLayout 🥩 support loading 1`] = `
             </h1>
           </a>
         </div>
-        <ul
-          class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
-          role="menu"
-          style="padding: 16px 0px; width: 100%;"
-        />
+        <div
+          style="flex: 1; overflow-y: auto; overflow-x: hidden;"
+        >
+          <ul
+            class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
+            role="menu"
+            style="width: 100%;"
+          />
+        </div>
+        <div
+          class="ant-pro-sider-links"
+        >
+          <ul
+            class="ant-menu ant-pro-sider-link-menu ant-menu-dark ant-menu-root ant-menu-inline"
+            role="menu"
+          >
+            <li
+              class="ant-menu-item ant-pro-sider-collapsed-button ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left: 16px;"
+            >
+              <span
+                aria-label="menu-fold"
+                class="anticon anticon-menu-fold"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="menu-fold"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
+                  />
+                </svg>
+              </span>
+            </li>
+          </ul>
+        </div>
       </div>
     </aside>
     <section
@@ -237,78 +294,48 @@ exports[`BasicLayout 🥩 support loading 1`] = `
     >
       <header
         class="ant-layout-header"
-        style="padding: 0px; width: 100%; z-index: 9;"
+        style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 9;"
       >
         <div
-          class="ant-pro-global-header"
+          class="ant-pro-global-header ant-pro-global-header-layout-side"
         >
-          <span
-            class="ant-pro-global-header-trigger"
-          >
-            <span
-              aria-label="menu-fold"
-              class="anticon anticon-menu-fold"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="menu-fold"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
-                />
-              </svg>
-            </span>
-          </span>
           <div
             style="flex: 1;"
           />
         </div>
       </header>
-      <div>
-        <main
-          class="ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-layout-content"
+      <main
+        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+      >
+        <div
+          class="ant-pro-basicLayout-children-content-wrap"
         >
           <div
-            class="ant-pro-basicLayout-children-content-wrap"
+            style="padding-top: 100px; text-align: center;"
           >
             <div
-              class="ant-pro-grid-content"
+              class="ant-spin ant-spin-lg ant-spin-spinning"
             >
-              <div
-                style="padding-top: 100px; text-align: center;"
+              <span
+                class="ant-spin-dot ant-spin-dot-spin"
               >
-                <div
-                  class="ant-spin ant-spin-lg ant-spin-spinning"
-                >
-                  <span
-                    class="ant-spin-dot ant-spin-dot-spin"
-                  >
-                    <i
-                      class="ant-spin-dot-item"
-                    />
-                    <i
-                      class="ant-spin-dot-item"
-                    />
-                    <i
-                      class="ant-spin-dot-item"
-                    />
-                    <i
-                      class="ant-spin-dot-item"
-                    />
-                  </span>
-                </div>
-              </div>
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+              </span>
             </div>
           </div>
-        </main>
-      </div>
+        </div>
+      </main>
     </section>
   </section>
 </div>
@@ -323,14 +350,14 @@ exports[`BasicLayout 🥩 support menuDateRender 1`] = `
     style="min-height: 100%;"
   >
     <aside
-      class="ant-pro-sider-menu-sider ant-layout-sider ant-layout-sider-dark"
-      style="flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
+      class="ant-pro-sider ant-pro-sider-layout-side ant-layout-sider ant-layout-sider-dark"
+      style="overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px; width: 208px;"
     >
       <div
         class="ant-layout-sider-children"
       >
         <div
-          class="ant-pro-sider-menu-logo"
+          class="ant-pro-sider-logo"
           id="logo"
         >
           <a
@@ -345,57 +372,103 @@ exports[`BasicLayout 🥩 support menuDateRender 1`] = `
             </h1>
           </a>
         </div>
-        <ul
-          class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
-          role="menu"
-          style="padding: 16px 0px; width: 100%;"
+        <div
+          style="flex: 1; overflow-y: auto; overflow-x: hidden;"
         >
-          <li
-            class="ant-menu-item"
-            role="menuitem"
-            style="padding-left: 24px;"
+          <ul
+            class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
+            role="menu"
+            style="width: 100%;"
           >
-            <span>
-              首页
-            </span>
-          </li>
-          <li
-            class="ant-menu-submenu ant-menu-submenu-inline"
-            role="menuitem"
-          >
-            <div
-              aria-expanded="false"
-              aria-haspopup="true"
-              class="ant-menu-submenu-title"
-              style="padding-left: 24px;"
-              title="汇总数据"
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left: 16px;"
             >
-              汇总数据
-              <i
-                class="ant-menu-submenu-arrow"
-              />
-            </div>
-            <div />
-          </li>
-          <li
-            class="ant-menu-item"
-            role="menuitem"
-            style="padding-left: 24px;"
+              <span
+                class="antd-menu-item-title"
+              >
+                首页
+              </span>
+            </li>
+            <li
+              class="ant-menu-submenu ant-menu-submenu-inline"
+              role="menuitem"
+            >
+              <div
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="ant-menu-submenu-title"
+                role="button"
+                style="padding-left: 16px;"
+                title="汇总数据"
+              >
+                汇总数据
+                <i
+                  class="ant-menu-submenu-arrow"
+                />
+              </div>
+              <div />
+            </li>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left: 16px;"
+            >
+              <span
+                class="antd-menu-item-title"
+              >
+                明细数据
+              </span>
+            </li>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left: 16px;"
+            >
+              <span
+                class="antd-menu-item-title"
+              >
+                其他
+              </span>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="ant-pro-sider-links"
+        >
+          <ul
+            class="ant-menu ant-pro-sider-link-menu ant-menu-dark ant-menu-root ant-menu-inline"
+            role="menu"
           >
-            <span>
-              明细数据
-            </span>
-          </li>
-          <li
-            class="ant-menu-item"
-            role="menuitem"
-            style="padding-left: 24px;"
-          >
-            <span>
-              其他
-            </span>
-          </li>
-        </ul>
+            <li
+              class="ant-menu-item ant-pro-sider-collapsed-button ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left: 16px;"
+            >
+              <span
+                aria-label="menu-fold"
+                class="anticon anticon-menu-fold"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="menu-fold"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
+                  />
+                </svg>
+              </span>
+            </li>
+          </ul>
+        </div>
       </div>
     </aside>
     <section
@@ -404,53 +477,23 @@ exports[`BasicLayout 🥩 support menuDateRender 1`] = `
     >
       <header
         class="ant-layout-header"
-        style="padding: 0px; width: 100%; z-index: 9;"
+        style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 9;"
       >
         <div
-          class="ant-pro-global-header"
+          class="ant-pro-global-header ant-pro-global-header-layout-side"
         >
-          <span
-            class="ant-pro-global-header-trigger"
-          >
-            <span
-              aria-label="menu-fold"
-              class="anticon anticon-menu-fold"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="menu-fold"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
-                />
-              </svg>
-            </span>
-          </span>
           <div
             style="flex: 1;"
           />
         </div>
       </header>
-      <div>
-        <main
-          class="ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-layout-content"
-        >
-          <div
-            class="ant-pro-basicLayout-children-content-wrap"
-          >
-            <div
-              class="ant-pro-grid-content"
-            />
-          </div>
-        </main>
-      </div>
+      <main
+        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+      >
+        <div
+          class="ant-pro-basicLayout-children-content-wrap"
+        />
+      </main>
     </section>
   </section>
 </div>
@@ -465,14 +508,14 @@ exports[`🥩 support disableAutoContentMinHeight 1`] = `
     style="min-height: 100%;"
   >
     <aside
-      class="ant-pro-sider-menu-sider ant-layout-sider ant-layout-sider-dark"
-      style="flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
+      class="ant-pro-sider ant-pro-sider-layout-side ant-layout-sider ant-layout-sider-dark"
+      style="overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px; width: 208px;"
     >
       <div
         class="ant-layout-sider-children"
       >
         <div
-          class="ant-pro-sider-menu-logo"
+          class="ant-pro-sider-logo"
           id="logo"
         >
           <a
@@ -487,11 +530,50 @@ exports[`🥩 support disableAutoContentMinHeight 1`] = `
             </h1>
           </a>
         </div>
-        <ul
-          class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
-          role="menu"
-          style="padding: 16px 0px; width: 100%;"
-        />
+        <div
+          style="flex: 1; overflow-y: auto; overflow-x: hidden;"
+        >
+          <ul
+            class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
+            role="menu"
+            style="width: 100%;"
+          />
+        </div>
+        <div
+          class="ant-pro-sider-links"
+        >
+          <ul
+            class="ant-menu ant-pro-sider-link-menu ant-menu-dark ant-menu-root ant-menu-inline"
+            role="menu"
+          >
+            <li
+              class="ant-menu-item ant-pro-sider-collapsed-button ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left: 16px;"
+            >
+              <span
+                aria-label="menu-fold"
+                class="anticon anticon-menu-fold"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="menu-fold"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
+                  />
+                </svg>
+              </span>
+            </li>
+          </ul>
+        </div>
       </div>
     </aside>
     <section
@@ -500,50 +582,22 @@ exports[`🥩 support disableAutoContentMinHeight 1`] = `
     >
       <header
         class="ant-layout-header"
-        style="padding: 0px; width: 100%; z-index: 9;"
+        style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 9;"
       >
         <div
-          class="ant-pro-global-header"
+          class="ant-pro-global-header ant-pro-global-header-layout-side"
         >
-          <span
-            class="ant-pro-global-header-trigger"
-          >
-            <span
-              aria-label="menu-fold"
-              class="anticon anticon-menu-fold"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="menu-fold"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
-                />
-              </svg>
-            </span>
-          </span>
           <div
             style="flex: 1;"
           />
         </div>
       </header>
       <main
-        class="ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-layout-content"
+        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
       >
         <div
           class="ant-pro-basicLayout-children-content-wrap"
-        >
-          <div
-            class="ant-pro-grid-content"
-          />
-        </div>
+        />
       </main>
     </section>
   </section>

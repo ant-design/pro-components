@@ -1,5 +1,14 @@
-import 'jsdom-global/register';
+global.requestAnimationFrame =
+  global.requestAnimationFrame ||
+  function requestAnimationFrame(cb) {
+    return setTimeout(cb, 0);
+  };
 
+global.cancelAnimationFrame =
+  global.cancelAnimationFrame ||
+  function cancelAnimationFrame() {
+    return null;
+  };
 // browserMocks.js
 const localStorageMock = (() => {
   let store = {};
@@ -19,4 +28,8 @@ const localStorageMock = (() => {
 
 Object.defineProperty(window, 'localStorage', {
   value: localStorageMock,
+});
+
+Object.defineProperty(window, 'cancelAnimationFrame', {
+  value: () => null,
 });

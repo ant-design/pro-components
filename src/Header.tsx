@@ -3,25 +3,31 @@ import './Header.less';
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import { Layout } from 'antd';
-
-import { BasicLayoutProps } from './BasicLayout';
 import GlobalHeader, { GlobalHeaderProps } from './GlobalHeader';
-import { Settings } from './defaultSettings';
+import { PureSettings } from './defaultSettings';
 import TopNavHeader from './TopNavHeader';
 import { WithFalse } from './typings';
 
 const { Header } = Layout;
 
-export interface HeaderViewProps extends Partial<Settings>, GlobalHeaderProps {
-  isMobile?: boolean;
-  collapsed?: boolean;
-  logo?: React.ReactNode;
-  menuRender?: BasicLayoutProps['menuRender'];
-  headerRender?: BasicLayoutProps['headerRender'];
-  rightContentRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
-  siderWidth?: number;
-  hasSiderMenu?: boolean;
-}
+export type HeaderViewProps = Partial<PureSettings> &
+  GlobalHeaderProps & {
+    isMobile?: boolean;
+    collapsed?: boolean;
+    logo?: React.ReactNode;
+
+    headerRender?: WithFalse<
+      (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
+    >;
+    headerTitleRender?: WithFalse<
+      (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
+    >;
+    headerContentRender?: WithFalse<
+      (props: HeaderViewProps) => React.ReactNode
+    >;
+    siderWidth?: number;
+    hasSiderMenu?: boolean;
+  };
 
 interface HeaderViewState {
   visible: boolean;
@@ -29,9 +35,20 @@ interface HeaderViewState {
 
 class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
   renderContent = () => {
-    const { isMobile, onCollapse, navTheme, layout, headerRender } = this.props;
-    const isTop = layout === 'topmenu';
-    let defaultDom = <GlobalHeader onCollapse={onCollapse} {...this.props} />;
+    const {
+      isMobile,
+      onCollapse,
+      navTheme,
+      layout,
+      headerRender,
+      headerContentRender,
+    } = this.props;
+    const isTop = layout === 'top';
+    let defaultDom = (
+      <GlobalHeader onCollapse={onCollapse} {...this.props}>
+        {headerContentRender && headerContentRender(this.props)}
+      </GlobalHeader>
+    );
     if (isTop && !isMobile) {
       defaultDom = (
         <TopNavHeader
@@ -42,7 +59,7 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
         />
       );
     }
-    if (headerRender) {
+    if (headerRender && typeof headerRender === 'function') {
       return headerRender(this.props, defaultDom);
     }
     return defaultDom;
@@ -55,36 +72,52 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
       className: propsClassName,
       style,
       collapsed,
-      siderWidth = 256,
+      siderWidth = 208,
       hasSiderMenu,
       headerRender,
       isMobile,
+      prefixCls,
     } = this.props;
+    const needFixedHeader = fixedHeader || layout === 'mix';
+    const isTop = layout === 'top';
 
-    const isTop = layout === 'topmenu';
-
-    const needSettingWidth = fixedHeader && hasSiderMenu && !isTop && !isMobile;
+    const needSettingWidth =
+      needFixedHeader && hasSiderMenu && !isTop && !isMobile;
 
     const className = classNames(propsClassName, {
-      'ant-pro-fixed-header': fixedHeader,
-      'ant-pro-top-menu': isTop,
+      [`${prefixCls}-fixed-header`]: needFixedHeader,
+      [`${prefixCls}-top-menu`]: isTop,
     });
 
     if (headerRender === false) {
       return null;
     }
 
+    const width =
+      layout !== 'mix' && needSettingWidth
+        ? `calc(100% - ${collapsed ? 48 : siderWidth}px)`
+        : '100%';
+
+    const right = needFixedHeader ? 0 : undefined;
+
     return (
       <>
-        {fixedHeader && <Header />}
+        {needFixedHeader && (
+          <Header
+            style={{
+              height: 48,
+              lineHeight: '48px',
+            }}
+          />
+        )}
         <Header
           style={{
             padding: 0,
-            width: needSettingWidth
-              ? `calc(100% - ${collapsed ? 80 : siderWidth}px)`
-              : '100%',
-            zIndex: 9,
-            right: fixedHeader ? 0 : undefined,
+            height: 48,
+            lineHeight: '48px',
+            width,
+            zIndex: layout === 'mix' ? 100 : 9,
+            right,
             ...style,
           }}
           className={className}

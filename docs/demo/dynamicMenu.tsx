@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import ProLayout, {
-  PageHeaderWrapper,
+  PageContainer,
   PageLoading,
   MenuDataItem,
+  // eslint-disable-next-line import/no-unresolved
 } from '@ant-design/pro-layout';
 import { Button } from 'antd';
 import customMenuDate from './customMenu';
@@ -54,7 +55,7 @@ export default () => {
         }}
         menuDataRender={() => menuData}
       >
-        <PageHeaderWrapper content="欢迎使用">Hello World</PageHeaderWrapper>
+        <PageContainer content="欢迎使用">Hello World</PageContainer>
       </ProLayout>
     </>
   );

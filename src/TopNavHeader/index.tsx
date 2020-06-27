@@ -11,11 +11,11 @@ import './index.less';
 import BaseMenu from '../SiderMenu/BaseMenu';
 import { HeaderViewProps } from '../Header';
 
-export interface TopNavHeaderProps extends SiderMenuProps {
+export type TopNavHeaderProps = SiderMenuProps & {
   logo?: React.ReactNode;
   onCollapse?: (collapse: boolean) => void;
   rightContentRender?: HeaderViewProps['rightContentRender'];
-}
+};
 
 /**
  * 抽离出来是为了防止 rightSize 经常改变导致菜单 render
@@ -68,9 +68,13 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
     rightContentRender,
     className: propsClassName,
     style,
+    layout,
   } = props;
   const baseClassName = 'ant-pro-top-nav-header';
-  const headerDom = defaultRenderLogoAndTitle({ ...props, collapsed: false });
+  const headerDom = defaultRenderLogoAndTitle(
+    { ...props, collapsed: false },
+    layout === 'mix' ? 'headerTitleRender' : undefined,
+  );
 
   const className = classNames(baseClassName, propsClassName, {
     light: theme === 'light',

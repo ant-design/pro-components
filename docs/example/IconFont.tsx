@@ -1,6 +1,6 @@
 import React from 'react';
-import { Icon } from 'antd';
-import ProLayout, { PageHeaderWrapper } from '@ant-design/pro-layout';
+// eslint-disable-next-line import/no-unresolved
+import ProLayout, { PageContainer } from '@ant-design/pro-layout';
 
 export default () => (
   <div
@@ -24,7 +24,7 @@ export default () => (
           {
             key: 'test',
             name: 'test',
-            icon: <Icon type="smile" />,
+            icon: 'smile',
             path: '/test',
             exact: true,
           },
@@ -41,9 +41,9 @@ export default () => (
         ],
       }}
     >
-      <PageHeaderWrapper content="欢迎使用">
+      <PageContainer content="欢迎使用">
         <div>Hello World</div>
-      </PageHeaderWrapper>
+      </PageContainer>
     </ProLayout>
   </div>
 );

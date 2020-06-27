@@ -1,9 +1,10 @@
 export default {
   'menu.welcome': 'Welcome',
   'menu.more-blocks': 'More Blocks',
-
   'menu.home': 'Início',
   'menu.login': 'Login',
+  'menu.admin': 'Admin',
+  'menu.admin.sub-page': 'Sub-Page',
   'menu.register': 'Registro',
   'menu.register.result': 'Resultado de registro',
   'menu.dashboard': 'Dashboard',
@@ -16,10 +17,8 @@ export default {
   'menu.form': 'Formulário',
   'menu.form.basic-form': 'Formulário Básico',
   'menu.form.step-form': 'Formulário Assistido',
-  'menu.form.step-form.info':
-    'Formulário Assistido(gravar informações de transferência)',
-  'menu.form.step-form.confirm':
-    'Formulário Assistido(confirmar informações de transferência)',
+  'menu.form.step-form.info': 'Formulário Assistido(gravar informações de transferência)',
+  'menu.form.step-form.confirm': 'Formulário Assistido(confirmar informações de transferência)',
   'menu.form.step-form.result': 'Formulário Assistido(finalizado)',
   'menu.form.advanced-form': 'Formulário Avançado',
   'menu.list': 'Lista',

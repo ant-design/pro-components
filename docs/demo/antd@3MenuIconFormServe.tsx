@@ -1,8 +1,6 @@
 import React from 'react';
-import ProLayout, {
-  PageHeaderWrapper,
-  MenuDataItem,
-} from '@ant-design/pro-layout';
+// eslint-disable-next-line import/no-unresolved
+import ProLayout, { PageContainer, MenuDataItem } from '@ant-design/pro-layout';
 import { Icon } from '@ant-design/compatible';
 
 const defaultMenus = [
@@ -57,7 +55,7 @@ export default () => (
       }}
       menuDataRender={() => loopMenuItem(defaultMenus)}
     >
-      <PageHeaderWrapper content="欢迎使用">
+      <PageContainer content="欢迎使用">
         <div
           style={{
             height: '120vh',
@@ -65,7 +63,7 @@ export default () => (
         >
           Hello World
         </div>
-      </PageHeaderWrapper>
+      </PageContainer>
     </ProLayout>
   </div>
 );

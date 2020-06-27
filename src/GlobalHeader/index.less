@@ -1,4 +1,6 @@
 @import '~antd/es/style/themes/default.less';
+@import '../BasicLayout.less';
+
 @pro-layout-global-header-prefix-cls: ~'@{ant-prefix}-pro-global-header';
 
 @pro-layout-header-bg: @component-background;
@@ -9,24 +11,56 @@
   position: relative;
   display: flex;
   align-items: center;
-  height: @layout-header-height;
-  padding: 0;
+  height: @pro-layout-header-height;
+  padding: 0 16px;
   background: @pro-layout-header-bg;
   box-shadow: @pro-layout-header-box-shadow;
+  > * {
+    height: 100%;
+  }
+
+  &-collapsed-button {
+    display: flex;
+    align-items: center;
+    margin-left: 16px;
+    font-size: 20px;
+  }
+
+  &-layout {
+    &-mix {
+      background-color: @layout-sider-background;
+      .@{pro-layout-global-header-prefix-cls}-logo {
+        h1 {
+          color: @btn-primary-color;
+        }
+      }
+      .anticon {
+        color: @btn-primary-color;
+      }
+    }
+  }
 
   &-logo {
-    display: inline-flex;
-    align-items: center;
-    height: @layout-header-height;
-    padding: 0 0 0 24px;
-    font-size: 20px;
-    line-height: @layout-header-height;
-    vertical-align: top;
-    cursor: pointer;
-    img {
-      display: inline-block;
-      height: 32px;
-      vertical-align: middle;
+    position: relative;
+    overflow: hidden;
+    line-height: @pro-layout-header-height;
+    transition: all 0.3s;
+    a {
+      display: flex;
+      align-items: center;
+      height: @pro-layout-header-height;
+      img {
+        height: 28px;
+      }
+      h1 {
+        height: 32px;
+        margin: 0 0 0 8px;
+        margin: 0 0 0 12px;
+        color: @primary-color;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 32px;
+      }
     }
   }
 
@@ -34,24 +68,13 @@
     .anticon {
       margin-right: 8px;
     }
-    .ant-dropdown-menu-item {
+    .@{ant-prefix}-dropdown-menu-item {
       min-width: 160px;
     }
   }
 
-  &-trigger {
-    height: @layout-header-height;
-    padding: 0 24px;
-    font-size: 20px;
-    cursor: pointer;
-    transition: all 0.3s, padding 0s;
-    &:hover {
-      background: @pro-layout-header-hover-bg;
-    }
-  }
-
   .dark {
-    height: @layout-header-height;
+    height: @pro-layout-header-height;
     .action {
       color: rgba(255, 255, 255, 0.85);
       > i {
@@ -61,7 +84,7 @@
       &.opened {
         background: @primary-color;
       }
-      .ant-badge {
+      .@{ant-prefix}-badge {
         color: rgba(255, 255, 255, 0.85);
       }
     }

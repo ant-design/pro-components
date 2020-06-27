@@ -17,6 +17,8 @@ export default {
   'app.setting.navigationmode': 'Navigation Mode',
   'app.setting.sidemenu': 'Side Menu Layout',
   'app.setting.topmenu': 'Top Menu Layout',
+  'app.setting.mixmenu': 'Mix Menu Layout',
+  'app.setting.splitMenus': 'split menus',
   'app.setting.fixedheader': 'Fixed Header',
   'app.setting.fixedsidebar': 'Fixed Sidebar',
   'app.setting.fixedsidebar.hint': 'Works on Side Menu Layout',

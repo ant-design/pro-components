@@ -4,13 +4,14 @@ import React, { useContext, CSSProperties } from 'react';
 import classNames from 'classnames';
 
 import RouteContext from '../RouteContext';
-import { Settings } from '../defaultSettings';
+import { PureSettings } from '../defaultSettings';
 
 interface GridContentProps {
-  contentWidth?: Settings['contentWidth'];
+  contentWidth?: PureSettings['contentWidth'];
   children: React.ReactNode;
   className?: string;
   style?: CSSProperties;
+  prefixCls?: string;
 }
 
 /**
@@ -25,15 +26,16 @@ const GridContent: React.SFC<GridContentProps> = (props) => {
     contentWidth: propsContentWidth,
     className: propsClassName,
     style,
+    prefixCls = 'ant-pro',
   } = props;
   const contentWidth = propsContentWidth || value.contentWidth;
-  let className = 'ant-pro-grid-content';
+  let className = `${prefixCls}-grid-content`;
   if (contentWidth === 'Fixed') {
-    className = 'ant-pro-grid-content wide';
+    className = `${prefixCls}-grid-content wide`;
   }
   return (
     <div className={classNames(className, propsClassName)} style={style}>
-      {children}
+      <div className={`${prefixCls}-grid-content-children`}>{children}</div>
     </div>
   );
 };

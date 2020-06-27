@@ -1,39 +1,17 @@
 @import '~antd/es/style/themes/default.less';
 
 @basicLayout-prefix-cls: ~'@{ant-prefix}-pro-basicLayout';
+@pro-layout-header-height: 48px;
 
 .@{basicLayout-prefix-cls} {
-  &:not('.ant-pro-basicLayout-mobile') {
-    ::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: rgba(0, 0, 0, 0.06);
-      border-radius: 3px;
-      -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.08);
-    }
-
-    /* 滚动条滑块 */
-    ::-webkit-scrollbar-thumb {
-      background: rgba(0, 0, 0, 0.12);
-      border-radius: 3px;
-      -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
-    }
-  }
   // BFC
   display: flex;
   flex-direction: column;
   width: 100%;
   min-height: 100%;
 
-  .ant-layout-header {
-    &:not(.ant-pro-top-menu) {
-      background: @component-background;
-    }
-
-    &.ant-pro-fixed-header {
+  .@{ant-prefix}-layout-header {
+    &.@{ant-prefix}-pro-fixed-header {
       position: fixed;
       top: 0;
     }
@@ -43,16 +21,16 @@
     position: relative;
     margin: 24px;
     transition: all 0.2s;
-    .@{ant-prefix}-pro-page-header-wrap {
+    .@{ant-prefix}-pro-page-container {
       margin: -24px -24px 0;
     }
     &-disable-margin {
       margin: 0;
-      > div > .@{ant-prefix}-pro-page-header-wrap {
+      > div > .@{ant-prefix}-pro-page-container {
         margin: 0;
       }
     }
-    > .ant-layout {
+    > .@{ant-prefix}-layout {
       max-height: 100%;
     }
   }
@@ -65,23 +43,22 @@
   }
 
   .@{basicLayout-prefix-cls}-has-header {
-    .@{basicLayout-prefix-cls}-is-children {
-      min-height: calc(100vh - @layout-header-height);
-      &.@{basicLayout-prefix-cls}-fix-siderbar {
-        height: calc(100vh - @layout-header-height);
-      }
-    }
-  }
-
-  // tech-page-container
-  .@{basicLayout-prefix-cls}-has-header .tech-page-container {
-    height: calc(100vh - @layout-header-height);
-  }
-
-  .@{basicLayout-prefix-cls}-has-header
-    .@{basicLayout-prefix-cls}-is-children.@{basicLayout-prefix-cls}-has-header {
+    // tech-page-container
     .tech-page-container {
-      height: calc(100vh - @layout-header-height - @layout-header-height);
+      height: calc(100vh - @pro-layout-header-height);
+    }
+    .@{basicLayout-prefix-cls}-is-children.@{basicLayout-prefix-cls}-has-header {
+      .tech-page-container {
+        height: calc(
+          100vh - @pro-layout-header-height - @pro-layout-header-height;
+        );
+      }
+      .@{basicLayout-prefix-cls}-is-children {
+        min-height: calc(100vh - @pro-layout-header-height);
+        &.@{basicLayout-prefix-cls}-fix-siderbar {
+          height: calc(100vh - @pro-layout-header-height);
+        }
+      }
     }
   }
 }

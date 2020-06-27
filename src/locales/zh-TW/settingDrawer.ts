@@ -17,6 +17,8 @@ export default {
   'app.setting.navigationmode': '導航模式',
   'app.setting.sidemenu': '側邊菜單布局',
   'app.setting.topmenu': '頂部菜單布局',
+  'app.setting.mixmenu': '混合菜單布局',
+  'app.setting.splitMenus': '自动分割菜单',
   'app.setting.fixedheader': '固定 Header',
   'app.setting.fixedsidebar': '固定側邊菜單',
   'app.setting.fixedsidebar.hint': '側邊菜單布局時可配置',

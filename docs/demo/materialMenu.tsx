@@ -1,6 +1,6 @@
 import React from 'react';
 // eslint-disable-next-line import/no-unresolved
-import ProLayout, { PageHeaderWrapper } from '@ant-design/pro-layout';
+import ProLayout, { PageContainer } from '@ant-design/pro-layout';
 import List from '@material-ui/core/List';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItem from '@material-ui/core/ListItem';
@@ -42,6 +42,6 @@ export default () => (
       </div>
     )}
   >
-    <PageHeaderWrapper content="欢迎使用">Hello World</PageHeaderWrapper>
+    <PageContainer content="欢迎使用">Hello World</PageContainer>
   </ProLayout>
 );

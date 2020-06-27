@@ -8,34 +8,40 @@ import SettingDrawer, {
 
 import DefaultFooter, { FooterProps } from './Footer';
 import GridContent from './GridContent';
-import PageHeaderWrapper from './PageHeaderWrapper';
+import PageContainer from './PageContainer';
 import RouteContext from './RouteContext';
 import getMenuData from './utils/getMenuData';
 import getPageTitle from './getPageTitle';
 import PageLoading from './PageLoading';
 
-export { Settings } from './defaultSettings';
+export type { ProSettings as Settings } from './defaultSettings';
 
 export { MenuDataItem } from './typings';
 
+const PageHeaderWrapper = PageContainer;
+
 export {
   BasicLayout,
-  BasicLayoutProps,
-  HeaderProps,
-  TopNavHeaderProps,
   RouteContext,
   PageLoading,
   GridContent,
   DefaultHeader,
   TopNavHeader,
   DefaultFooter,
-  FooterProps,
   SettingDrawer,
-  SettingDrawerState,
-  SettingDrawerProps,
   getPageTitle,
-  getMenuData,
   PageHeaderWrapper,
+  getMenuData,
+  PageContainer,
+};
+
+export type {
+  FooterProps,
+  TopNavHeaderProps,
+  BasicLayoutProps,
+  HeaderProps,
+  SettingDrawerProps,
+  SettingDrawerState,
 };
 
 export default BasicLayout;

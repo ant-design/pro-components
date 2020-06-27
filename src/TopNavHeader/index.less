@@ -1,53 +1,62 @@
 @import '~antd/es/style/themes/default.less';
+@import '../BasicLayout.less';
 
 @top-nav-header-prefix-cls: ~'@{ant-prefix}-pro-top-nav-header';
 
 .@{top-nav-header-prefix-cls} {
   position: relative;
   width: 100%;
-  height: @layout-header-height;
-  box-shadow: @box-shadow-base;
+  height: @pro-layout-header-height;
+  box-shadow: 0 1px 4px 0 rgba(0, 21, 41, 0.12);
   transition: background 0.3s, width 0.2s;
 
-  .ant-menu-submenu.ant-menu-submenu-horizontal {
+  :global {
+    .ant-menu.ant-menu-dark .ant-menu-item-selected,
+    .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
+      background: #252a3d;
+    }
+  }
+
+  .@{ant-prefix}-menu-submenu.@{ant-prefix}-menu-submenu-horizontal {
     height: 100%;
-    line-height: @layout-header-height;
-    .ant-menu-submenu-title {
+    line-height: @pro-layout-header-height;
+    .@{ant-prefix}-menu-submenu-title {
       height: 100%;
     }
   }
 
   &.light {
     background-color: @component-background;
-    h1 {
-      color: #002140;
+    .@{top-nav-header-prefix-cls}-logo {
+      h1 {
+        color: @primary-color;
+      }
+    }
+    .anticon {
+      color: inherit;
     }
   }
 
   &-main {
     display: flex;
-    height: @layout-header-height;
+    height: @pro-layout-header-height;
     padding-left: 24px;
-    &.wide {
-      max-width: 1200px;
-      margin: auto;
-      padding-left: 0;
-    }
     .left {
       display: flex;
       flex: 1;
     }
-    .right {
-      width: 324px;
-    }
+  }
+
+  .anticon {
+    color: @btn-primary-color;
   }
 
   &-logo {
     position: relative;
     min-width: 165px;
-    height: @layout-header-height;
+    height: @pro-layout-header-height;
     overflow: hidden;
-    line-height: @layout-header-height;
+    line-height: @pro-layout-header-height;
     transition: all 0.3s;
     img {
       display: inline-block;
@@ -65,9 +74,9 @@
   }
   &-menu {
     min-width: 0;
-    .ant-menu.ant-menu-horizontal {
-      height: @layout-header-height;
-      line-height: @layout-header-height;
+    .@{ant-prefix}-menu.@{ant-prefix}-menu-horizontal {
+      height: @pro-layout-header-height;
+      line-height: @pro-layout-header-height;
       border: none;
     }
   }

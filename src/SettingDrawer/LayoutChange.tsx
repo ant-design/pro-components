@@ -1,6 +1,6 @@
 import React from 'react';
 import { List, Tooltip, Select, Switch } from 'antd';
-import defaultSettings, { Settings } from '../defaultSettings';
+import defaultSettings, { ProSettings } from '../defaultSettings';
 import { getFormatMessage, SettingItemProps } from './index';
 
 export const renderLayoutSettingItem = (item: SettingItemProps) => {
@@ -16,12 +16,13 @@ export const renderLayoutSettingItem = (item: SettingItemProps) => {
   );
 };
 const LayoutSetting: React.FC<{
-  settings: Partial<Settings>;
+  settings: Partial<ProSettings>;
   changeSetting: (key: string, value: any, hideLoading?: boolean) => void;
 }> = ({ settings = {}, changeSetting }) => {
   const formatMessage = getFormatMessage();
-  const { contentWidth, fixedHeader, layout, fixSiderbar } =
+  const { contentWidth, splitMenus, fixedHeader, layout, fixSiderbar } =
     settings || defaultSettings;
+
   return (
     <List
       split={false}
@@ -38,7 +39,7 @@ const LayoutSetting: React.FC<{
               onSelect={(value) => changeSetting('contentWidth', value)}
               style={{ width: 80 }}
             >
-              {layout === 'sidemenu' ? null : (
+              {layout === 'side' ? null : (
                 <Select.Option value="Fixed">
                   {formatMessage({
                     id: 'app.setting.content-width.fixed',
@@ -73,7 +74,7 @@ const LayoutSetting: React.FC<{
             id: 'app.setting.fixedsidebar',
             defaultMessage: 'Fixed Sidebar',
           }),
-          disabled: layout === 'topmenu',
+          disabled: layout === 'top',
           disabledReason: formatMessage({
             id: 'app.setting.fixedsidebar.hint',
             defaultMessage: 'Works on Side Menu Layout',
@@ -83,6 +84,17 @@ const LayoutSetting: React.FC<{
               size="small"
               checked={!!fixSiderbar}
               onChange={(checked) => changeSetting('fixSiderbar', checked)}
+            />
+          ),
+        },
+        {
+          title: formatMessage({ id: 'app.setting.splitMenus' }),
+          disabled: layout !== 'mix',
+          action: (
+            <Switch
+              size="small"
+              checked={!!splitMenus}
+              onChange={(checked) => changeSetting('splitMenus', checked)}
             />
           ),
         },

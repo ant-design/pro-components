@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import ProLayout, {
-  PageHeaderWrapper,
+  PageContainer,
   MenuDataItem,
   // eslint-disable-next-line import/no-unresolved
 } from '@ant-design/pro-layout';
@@ -41,37 +41,21 @@ export default () => {
         location={{
           pathname: '/home/overview',
         }}
-        menuHeaderRender={(logo, title, props = { collapsed: false }) => (
-          <>
-            <div
-              style={{
-                height: 64,
-                display: 'flex',
-                alignItems: 'center',
-                justifyItems: 'center',
-              }}
-            >
-              {logo}
-              {title}
-            </div>
+        menuExtraRender={({ collapsed }) =>
+          !collapsed && (
             <Input.Search
-              style={{
-                width: props.collapsed ? 0 : '100%',
-                transition: props.collapsed ? undefined : 'all 0.3s',
-                opacity: props.collapsed ? 0 : 1,
-              }}
               onSearch={(e) => {
                 setKeyWord(e);
               }}
             />
-          </>
-        )}
+          )
+        }
         menuDataRender={() => complexMenu}
         postMenuData={(menus) => filterByMenuDate(menus || [], keyWord)}
       >
-        <PageHeaderWrapper content="欢迎使用">
+        <PageContainer content="欢迎使用">
           <div>Hello World</div>
-        </PageHeaderWrapper>
+        </PageContainer>
       </ProLayout>
     </div>
   );

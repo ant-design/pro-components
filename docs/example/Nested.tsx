@@ -1,5 +1,6 @@
 import React from 'react';
-import ProLayout, { PageHeaderWrapper } from '@ant-design/pro-layout';
+// eslint-disable-next-line import/no-unresolved
+import ProLayout, { PageContainer } from '@ant-design/pro-layout';
 import complexMenu from './complexMenu';
 
 export default () => (
@@ -33,9 +34,9 @@ export default () => (
         }}
         menuHeaderRender={false}
       >
-        <PageHeaderWrapper content="欢迎使用">
+        <PageContainer content="欢迎使用">
           <div>Hello World</div>
-        </PageHeaderWrapper>
+        </PageContainer>
       </ProLayout>
     </ProLayout>
   </div>

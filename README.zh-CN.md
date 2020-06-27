@@ -58,6 +58,8 @@ render(<BasicLayout />, document.getElementById('root'));
 | onCollapse | 菜单的折叠收起事件 | (collapsed: boolean) => void | - |
 | onPageChange | 页面切换时触发 | (location: Location) => void | - |
 | headerRender | 自定义头的 render 方法 | (props: BasicLayoutProps) => ReactNode | - |
+| headerTitleRender | 自定义头标题的方法 | (props: BasicLayoutProps) => ReactNode | - |
+| headerContentRender | 自定义头内容的方法 | (props: BasicLayoutProps) => ReactNode | - |
 | rightContentRender | 自定义头右部的 render 方法 | (props: HeaderViewProps) => ReactNode | - |
 | collapsedButtonRender | 自定义 collapsed button 的方法 | (collapsed: boolean) => ReactNode | - |
 | footerRender | 自定义页脚的 render 方法 | (props: BasicLayoutProps) => ReactNode | - |
@@ -85,9 +87,9 @@ render(<BasicLayout />, document.getElementById('root'));
 | onSettingChange | [`Settings`](#Settings) 发生更改事件 | (settings: [`Settings`](#Settings) ) => void | - |
 | hideHintAlert | 删除下方的提示信息 | boolean | - |
 
-### PageHeaderWrapper
+### PageContainer
 
-PageHeaderWrapper 封装了 ant design 的 PageHeader 组件，增加了 tabList，和 content。 根据当前的路由填入 title 和 breadcrumb。它依赖 Layout 的 route 属性。当然你可以传入参数来复写默认值。 PageHeaderWrapper 支持 [Tabs](https://ant.design/components/tabs-cn/) 和 [PageHeader](https://ant.design/components/page-header-cn/) 的所有属性。
+PageContainer 封装了 ant design 的 PageHeader 组件，增加了 tabList，和 content。 根据当前的路由填入 title 和 breadcrumb。它依赖 Layout 的 route 属性。当然你可以传入参数来复写默认值。 PageContainer 支持 [Tabs](https://ant.design/components/tabs-cn/) 和 [PageHeader](https://ant.design/components/page-header-cn/) 的所有属性。
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |

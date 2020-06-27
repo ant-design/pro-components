@@ -60,6 +60,8 @@ render(<ProLayout />, document.getElementById('root'));
 | onPageChange | Triggered when page switching | (location: Location) => void | - |
 | onCollapse | folding collapse event of menu | (collapsed: boolean) => void | - |
 | headerRender | custom header render method | (props: BasicLayoutProps) => ReactNode | - |
+| headerTitleRender | custom header title render method | (props: BasicLayoutProps) => ReactNode | - |
+| headerContentRender | custom header content render method | (props: BasicLayoutProps) => ReactNode | - |
 | rightContentRender | header right content render method | (props: HeaderViewProps) => ReactNode | - |
 | collapsedButtonRender | custom collapsed button method | (collapsed: boolean) => ReactNode | - |
 | footerRender | custom footer render method | (props: BasicLayoutProps) => ReactNode | - |
@@ -92,9 +94,9 @@ import { SettingDrawer } from '@ant-design/pro-layout';
 | onSettingChange | The setting changes event | (settings: [Settings](#Settings)) => void | - |
 | hideHintAlert | remove hint info | boolean | - |
 
-### PageHeaderWrapper
+### PageContainer
 
-PageHeaderWrapper encapsulates the PageHeader component of ant design, adds tabList, and content. Fill in the title and breadcrumb based on the current route. It depends on the route property of the Layout. Of course you can pass in parameters to override the default values. PageHeaderWrapper supports all the attributes of [Tabs](https://ant.design/components/tabs-cn/) and [PageHeader](https://ant.design/components/page-header-cn/).
+PageContainer encapsulates the PageHeader component of ant design, adds tabList, and content. Fill in the title and breadcrumb based on the current route. It depends on the route property of the Layout. Of course you can pass in parameters to override the default values. PageContainer supports all the attributes of [Tabs](https://ant.design/components/tabs-cn/) and [PageHeader](https://ant.design/components/page-header-cn/).
 
 | Property | Description | Type | Default Value |
 | --- | --- | --- | --- |

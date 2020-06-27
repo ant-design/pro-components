@@ -37,6 +37,7 @@ describe('BasicLayout', () => {
         {}
       ).padding,
     ).toBe(undefined);
+    wrapper.unmount();
   });
 
   it('🥩 support menuDateRender', async () => {
@@ -206,6 +207,7 @@ describe('BasicLayout', () => {
     await waitForComponentToPaint(wrapper);
     const footer = wrapper.find('footer');
     expect(footer.exists()).toBe(false);
+    wrapper.unmount();
   });
 
   it('🥩 use onLogoClick', async () => {
@@ -223,6 +225,7 @@ describe('BasicLayout', () => {
     const logo = wrapper.find('#test_log');
     logo.simulate('click');
     expect(onLogoClick).toHaveBeenCalled();
+    wrapper.unmount();
   });
 
   it('🥩 render logo', async () => {
@@ -230,6 +233,7 @@ describe('BasicLayout', () => {
     await waitForComponentToPaint(wrapper);
     const logo = wrapper.find('#test_log');
     expect(logo.text()).toEqual('Logo');
+    wrapper.unmount();
   });
 
   it('🥩 render logo by function', async () => {
@@ -239,44 +243,50 @@ describe('BasicLayout', () => {
     await waitForComponentToPaint(wrapper);
     const logo = wrapper.find('#test_log');
     expect(logo.text()).toEqual('Logo');
+    wrapper.unmount();
   });
 
   it('🥩 onCollapse', async () => {
     const onCollapse = jest.fn();
-    const wrapper = mount(
-      <BasicLayout collapsed={false} onCollapse={onCollapse} />,
-    );
+    const wrapper = mount(<BasicLayout onCollapse={onCollapse} />);
     await waitForComponentToPaint(wrapper);
-    wrapper.find('.ant-pro-global-header-trigger').simulate('click');
+    wrapper
+      .find('.ant-pro-sider-collapsed-button')
+      .map((item) => item && item.simulate('click'));
     expect(onCollapse).toHaveBeenCalled();
+    wrapper.unmount();
   });
 
   it('🥩 siderWidth default', async () => {
     const wrapper = mount(<BasicLayout />);
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-sider-menu-sider').get(0).props.width).toBe(
-      256,
-    );
+    expect(wrapper.find('.ant-pro-sider').get(1).props.width).toBe(208);
+    wrapper.unmount();
   });
 
   it('🥩 siderWidth=160', async () => {
     const wrapper = mount(<BasicLayout siderWidth={160} />);
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-sider-menu-sider').get(0).props.width).toBe(
-      160,
-    );
+    expect(wrapper.find('.ant-pro-sider').get(1).props.width).toBe(160);
+    wrapper.unmount();
   });
 
   it('🥩 do not render collapsed button', async () => {
     const wrapper = mount(<BasicLayout collapsedButtonRender={false} />);
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-global-header-trigger').exists()).toBe(false);
+    expect(wrapper.find('.ant-pro-sider-collapsed-button').exists()).toBe(
+      false,
+    );
+    wrapper.unmount();
   });
 
   it('🥩 when renderMenu=false, do not render collapsed button', async () => {
     const wrapper = mount(<BasicLayout menuRender={false} />);
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-global-header-trigger').exists()).toBe(false);
+    expect(wrapper.find('.ant-pro-sider-collapsed-button').exists()).toBe(
+      false,
+    );
+    wrapper.unmount();
   });
 
   it('🥩 render customize collapsed button', async () => {
@@ -305,6 +315,7 @@ describe('BasicLayout', () => {
     const dom = wrapper.find('#logo');
 
     expect(dom.exists()).toBe(false);
+    wrapper.unmount();
   });
 
   it('🥩 customize render menu header', async () => {
@@ -327,6 +338,7 @@ describe('BasicLayout', () => {
     expect(dom.find('#customize_menu_header_text').text()).toEqual(
       'customize_menu_header',
     );
+    wrapper.unmount();
   });
 
   it('🥩 contentStyle should change dom', async () => {
@@ -350,22 +362,24 @@ describe('BasicLayout', () => {
       />,
     );
     expect(wrapper.find('div.chenshuai2144').exists()).toBeTruthy();
+    wrapper.unmount();
   });
 
   it('🥩 support links', async () => {
     const wrapper = mount<BasicLayoutProps>(<BasicLayout links={['name']} />);
     await waitForComponentToPaint(wrapper);
-    const dom = wrapper.find('.ant-pro-sider-menu-links');
-
+    const dom = wrapper.find('.ant-pro-sider-link');
     expect(dom.exists()).toBeTruthy();
+    wrapper.unmount();
   });
 
   it('🥩 do no render links', async () => {
     const wrapper = mount<BasicLayoutProps>(<BasicLayout />);
     await waitForComponentToPaint(wrapper);
-    const dom = wrapper.find('.ant-pro-sider-menu-links');
+    const dom = wrapper.find('.ant-pro-sider-link');
 
     expect(dom.exists()).toBeFalsy();
+    wrapper.unmount();
   });
 
   it('🥩 pure style', async () => {
@@ -373,8 +387,9 @@ describe('BasicLayout', () => {
     await waitForComponentToPaint(wrapper);
     const menu = wrapper.find('.ant-pro-sider-menu');
     expect(menu.exists()).toBe(false);
-    const dom = wrapper.find('.ant-pro-sider-menu-links');
+    const dom = wrapper.find('.ant-pro-sider-link');
     expect(dom.exists()).toBeFalsy();
+    wrapper.unmount();
   });
 
   it('🥩 set page title render', async () => {
@@ -389,9 +404,10 @@ describe('BasicLayout', () => {
       />,
     );
     await waitForComponentToPaint(wrapper);
-    const dom = wrapper.find('.ant-pro-sider-menu-links');
+    const dom = wrapper.find('.ant-pro-sider-link');
 
     expect(dom.exists()).toBeFalsy();
+    wrapper.unmount();
   });
 
   it('🥩 onPageChange', async () => {
@@ -413,6 +429,7 @@ describe('BasicLayout', () => {
     });
 
     expect(onPageChange).toBeCalled();
+    wrapper.unmount();
   });
 
   it('🥩 fixSider and collapsed should have different style', async () => {
@@ -427,7 +444,7 @@ describe('BasicLayout', () => {
     await waitForComponentToPaint(wrapper);
     dom = wrapper.find('header.ant-pro-fixed-header');
     expect(dom.exists()).toBeTruthy();
-    expect(dom.props()?.style?.width).toBe('calc(100% - 80px)');
+    expect(dom.props()?.style?.width).toBe('calc(100% - 48px)');
 
     wrapper.setProps({
       fixedHeader: true,
@@ -435,7 +452,7 @@ describe('BasicLayout', () => {
     });
 
     dom = wrapper.find('header.ant-pro-fixed-header');
-    expect(dom.props()?.style?.width).toBe('calc(100% - 256px)');
+    expect(dom.props()?.style?.width).toBe('calc(100% - 208px)');
 
     wrapper.setProps({
       fixedHeader: true,
@@ -457,7 +474,7 @@ describe('BasicLayout', () => {
 
     wrapper.setProps({
       fixedHeader: true,
-      layout: 'topmenu',
+      layout: 'top',
     });
 
     dom = wrapper.find('header.ant-pro-fixed-header');

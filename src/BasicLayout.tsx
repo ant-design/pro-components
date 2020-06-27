@@ -19,7 +19,7 @@ import {
   WithFalse,
 } from './typings';
 import { getPageTitleInfo, GetPageTitleProps } from './getPageTitle';
-import defaultSettings, { Settings } from './defaultSettings';
+import defaultSettings, { PureSettings } from './defaultSettings';
 import getLocales, { localeType } from './locales';
 import { BaseMenuProps } from './SiderMenu/BaseMenu';
 import Footer from './Footer';
@@ -34,74 +34,67 @@ import MenuCounter from './SiderMenu/Counter';
 import WrapContent from './WrapContent';
 import { useDocumentTitle } from './utils/hooks';
 
-export interface BasicLayoutProps
-  extends Partial<RouterTypes<Route>>,
-    SiderMenuProps,
-    HeaderViewProps,
-    Partial<Settings> {
-  disableAutoContentMinHeight?: boolean;
-  pure?: boolean;
-  /**
-   * logo url
-   */
-  logo?: React.ReactNode | WithFalse<() => React.ReactNode>;
+export type BasicLayoutProps = Partial<RouterTypes<Route>> &
+  SiderMenuProps &
+  HeaderViewProps &
+  Partial<PureSettings> & {
+    pure?: boolean;
+    /**
+     * logo url
+     */
+    logo?: React.ReactNode | WithFalse<() => React.ReactNode>;
 
-  /**
-   * 页面切换的时候触发
-   */
-  onPageChange?: (location?: RouterTypes<Route>['location']) => void;
+    /**
+     * 页面切换的时候触发
+     */
+    onPageChange?: (location?: RouterTypes<Route>['location']) => void;
 
-  loading?: boolean;
+    loading?: boolean;
 
-  locale?: localeType;
+    locale?: localeType;
 
-  onCollapse?: (collapsed: boolean) => void;
+    onCollapse?: (collapsed: boolean) => void;
 
-  headerRender?: WithFalse<
-    (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
-  >;
-  footerRender?: WithFalse<
-    (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
-  >;
-  menuRender?: WithFalse<
-    (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
-  >;
-  breadcrumbRender?: (
-    routers: AntdBreadcrumbProps['routes'],
-  ) => AntdBreadcrumbProps['routes'];
-  menuItemRender?: BaseMenuProps['menuItemRender'];
-  pageTitleRender?: WithFalse<
-    (
-      props: GetPageTitleProps,
-      defaultPageTitle?: string,
-      info?: {
-        // 页面标题
-        title: string;
-        // locale 的 title
-        id: string;
-        // 页面标题不带默认的 title
-        pageName: string;
-      },
-    ) => string
-  >;
-  menuDataRender?: (menuData: MenuDataItem[]) => MenuDataItem[];
-  itemRender?: AntdBreadcrumbProps['itemRender'];
+    footerRender?: WithFalse<
+      (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
+    >;
 
-  formatMessage?: (message: MessageDescriptor) => string;
-  /**
-   * 是否禁用移动端模式，有的管理系统不需要移动端模式，此属性设置为true即可
-   */
-  disableMobile?: boolean;
-  contentStyle?: CSSProperties;
-  isChildrenLayout?: boolean;
+    breadcrumbRender?: (
+      routers: AntdBreadcrumbProps['routes'],
+    ) => AntdBreadcrumbProps['routes'];
+    menuItemRender?: BaseMenuProps['menuItemRender'];
+    pageTitleRender?: WithFalse<
+      (
+        props: GetPageTitleProps,
+        defaultPageTitle?: string,
+        info?: {
+          // 页面标题
+          title: string;
+          // locale 的 title
+          id: string;
+          // 页面标题不带默认的 title
+          pageName: string;
+        },
+      ) => string
+    >;
+    menuDataRender?: (menuData: MenuDataItem[]) => MenuDataItem[];
+    itemRender?: AntdBreadcrumbProps['itemRender'];
 
-  className?: string;
+    formatMessage?: (message: MessageDescriptor) => string;
+    /**
+     * 是否禁用移动端模式，有的管理系统不需要移动端模式，此属性设置为true即可
+     */
+    disableMobile?: boolean;
+    contentStyle?: CSSProperties;
+    isChildrenLayout?: boolean;
 
-  /**
-   * 兼用 content的 margin
-   */
-  disableContentMargin?: boolean;
-}
+    className?: string;
+
+    /**
+     * 兼用 content的 margin
+     */
+    disableContentMargin?: boolean;
+  };
 
 const headerRender = (
   props: BasicLayoutProps & {
@@ -129,7 +122,7 @@ const renderSiderMenu = (props: BasicLayoutProps): React.ReactNode => {
   if (props.menuRender === false || props.pure) {
     return null;
   }
-  if (layout === 'topmenu' && !isMobile) {
+  if (layout === 'top' && !isMobile) {
     return <SiderMenu {...props} hide />;
   }
   if (menuRender) {
@@ -186,7 +179,7 @@ const getPaddingLeft = (
   siderWidth: number,
 ): number | undefined => {
   if (hasLeftPadding) {
-    return collapsed ? 80 : siderWidth;
+    return collapsed ? 48 : siderWidth;
   }
   return undefined;
 };
@@ -210,14 +203,14 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     },
     style,
     disableContentMargin,
-    siderWidth = 256,
+    siderWidth = 208,
     menu,
     isChildrenLayout: propsIsChildrenLayout,
     menuDataRender,
     loading,
     ...rest
   } = props;
-
+  const { prefixCls } = rest;
   const formatMessage = ({
     id,
     defaultMessage,
@@ -277,7 +270,6 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   const { breadcrumb = {}, breadcrumbMap, menuData = [] } = !menuDataRender
     ? menuInfoData
     : renderMenuInfoData;
-
   /**
    *  如果 menuRender 不存在，可以做一下性能优化
    *  只要 routers 没有更新就不需要重新计算
@@ -298,7 +290,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
 
   // If it is a fix menu, calculate padding
   // don't need padding in phone mode
-  const hasLeftPadding = fixSiderbar && PropsLayout !== 'topmenu' && !isMobile;
+  const hasLeftPadding = fixSiderbar && PropsLayout !== 'top' && !isMobile;
 
   const [collapsed, onCollapse] = useMergeValue<boolean>(false, {
     value: props.collapsed,
@@ -330,6 +322,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     ...defaultProps,
     breadcrumbMap,
   });
+
   // render sider dom
   const siderMenuDom = renderSiderMenu({
     ...defaultProps,
@@ -372,17 +365,18 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
       ? propsIsChildrenLayout
       : contextIsChildrenLayout;
 
+  const baseClassName = `${prefixCls}-basicLayout`;
   // gen className
   const className = classNames(
     props.className,
     'ant-design-pro',
-    'ant-pro-basicLayout',
+    baseClassName,
     {
       [`screen-${colSize}`]: colSize,
-      'ant-pro-basicLayout-topmenu': PropsLayout === 'topmenu',
-      'ant-pro-basicLayout-is-children': isChildrenLayout,
-      'ant-pro-basicLayout-fix-siderbar': fixSiderbar,
-      'ant-pro-basicLayout-mobile': isMobile,
+      [`${baseClassName}-top-menu`]: PropsLayout === 'top',
+      [`${baseClassName}-is-children`]: isChildrenLayout,
+      [`${baseClassName}-fix-siderbar`]: fixSiderbar,
+      [`${baseClassName}-mobile`]: isMobile,
     },
   );
 
@@ -399,18 +393,10 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     genLayoutStyle.minHeight = 0;
   }
 
-  const contentClassName = classNames('ant-pro-basicLayout-content', {
-    'ant-pro-basicLayout-has-header': headerDom,
-    'ant-pro-basicLayout-content-disable-margin': disableContentMargin,
+  const contentClassName = classNames(`${baseClassName}-content`, {
+    [`${baseClassName}-has-header`]: headerDom,
+    [`${baseClassName}-content-disable-margin`]: disableContentMargin,
   });
-
-  // warning info
-  useEffect(() => {
-    warning(
-      (props.collapsed === undefined) === (props.onCollapse === undefined),
-      'pro-layout: onCollapse and collapsed should exist simultaneously',
-    );
-  }, []);
 
   /**
    * 页面切换的时候触发
@@ -448,7 +434,6 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
             {siderMenuDom}
             <Layout style={genLayoutStyle}>
               {headerDom}
-
               <WrapContent
                 isChildrenLayout={isChildrenLayout}
                 {...rest}
@@ -469,6 +454,8 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
 BasicLayout.defaultProps = {
   logo: 'https://gw.alipayobjects.com/zos/antfincdn/PmY%24TNNDBI/logo.svg',
   ...defaultSettings,
+  prefixCls: 'ant-pro',
+  siderWidth: 208,
   location: isBrowser() ? window.location : undefined,
 };
 export default BasicLayout;

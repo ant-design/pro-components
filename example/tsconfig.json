@@ -13,24 +13,14 @@
     "noImplicitReturns": true,
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
+    "allowJs": true,
+    "skipLibCheck": true,
     "experimentalDecorators": true,
     "strict": true,
-    "declaration": true,
-    "skipLibCheck": true,
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@@/*": ["./src/.umi/*"]
     }
   },
-  "exclude": [
-    "node_modules",
-    "build",
-    "scripts",
-    "acceptance-tests",
-    "webpack",
-    "jest",
-    "tslint:latest",
-    "tslint-config-prettier",
-    "example",
-    "_test_"
-  ]
+  "exclude": ["node_modules", "build", "dist", "scripts", "src/.umi/*", "webpack", "jest"]
 }

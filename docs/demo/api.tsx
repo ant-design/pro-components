@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Switch, Avatar } from 'antd';
 import ProLayout, {
-  PageHeaderWrapper,
+  PageContainer,
   DefaultFooter,
 } from '@ant-design/pro-layout';
 import defaultProps from './defaultProps';
@@ -119,7 +119,7 @@ export default () => {
         pure={pure}
         footerRender={() => (footer ? <DefaultFooter /> : null)}
       >
-        <PageHeaderWrapper content="欢迎使用">Hello World</PageHeaderWrapper>
+        <PageContainer content="欢迎使用">Hello World</PageContainer>
       </ProLayout>
     </>
   );

@@ -13,16 +13,18 @@ import React, { useState, useEffect, useRef } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import useMergeValue from 'use-merge-value';
 import omit from 'omit.js';
-import defaultSettings, { Settings } from '../defaultSettings';
+import defaultSettings, { ProSettings } from '../defaultSettings';
 
 import BlockCheckbox from './BlockCheckbox';
 import ThemeColor from './ThemeColor';
 import getLocales, { getLanguage } from '../locales';
 import { isBrowser, genStringToTheme } from '../utils/utils';
 import LayoutSetting, { renderLayoutSettingItem } from './LayoutChange';
+import RegionalSetting from './RegionalChange';
 
 interface BodyProps {
   title: string;
+  prefixCls: string;
 }
 
 type MergerSettingsType<T> = Partial<T> & {
@@ -30,9 +32,9 @@ type MergerSettingsType<T> = Partial<T> & {
   colorWeak?: boolean;
 };
 
-const Body: React.FC<BodyProps> = ({ children, title }) => (
+const Body: React.FC<BodyProps> = ({ children, prefixCls, title }) => (
   <div style={{ marginBottom: 24 }}>
-    <h3 className="ant-pro-setting-drawer-title">{title}</h3>
+    <h3 className={`${prefixCls}-drawer-title`}>{title}</h3>
     {children}
   </div>
 );
@@ -45,30 +47,36 @@ export interface SettingItemProps {
 }
 
 export interface SettingDrawerProps {
-  settings?: MergerSettingsType<Settings>;
+  settings?: MergerSettingsType<ProSettings>;
   collapse?: boolean;
   getContainer?: any;
   publicPath?: string;
   hideLoading?: boolean;
   hideColors?: boolean;
   hideHintAlert?: boolean;
+  prefixCls?: string;
   hideCopyButton?: boolean;
   onCollapseChange?: (collapse: boolean) => void;
-  onSettingChange?: (settings: MergerSettingsType<Settings>) => void;
+  onSettingChange?: (settings: MergerSettingsType<ProSettings>) => void;
 }
 
-export interface SettingDrawerState extends MergerSettingsType<Settings> {
+export interface SettingDrawerState extends MergerSettingsType<ProSettings> {
   collapse?: boolean;
   language?: string;
 }
 
-let oldSetting: MergerSettingsType<Settings> = {};
+let oldSetting: MergerSettingsType<ProSettings> = {};
 
-const getDifferentSetting = (state: Partial<Settings>) => {
-  const stateObj: Partial<Settings> = {};
+const getDifferentSetting = (state: Partial<ProSettings>) => {
+  const stateObj: Partial<ProSettings> = {};
   Object.keys(state).forEach((key) => {
     if (state[key] !== oldSetting[key] && key !== 'collapse') {
       stateObj[key] = state[key];
+    }
+
+    if (key.includes('Render')) {
+      stateObj[key] =
+        state[key] === 'false' || state[key] === false ? false : undefined;
     }
   });
 
@@ -267,7 +275,7 @@ const getThemeList = () => {
  * @param param0
  */
 const initState = (
-  settings: Partial<Settings>,
+  settings: Partial<ProSettings>,
   onSettingChange: SettingDrawerProps['onSettingChange'],
   publicPath?: string,
 ) => {
@@ -284,8 +292,11 @@ const initState = (
     };
     const replaceSetting = {};
     Object.keys(params).forEach((key) => {
-      if (defaultSettings[key]) {
+      if (defaultSettings[key] || defaultSettings[key] === undefined) {
         replaceSetting[key] = params[key];
+        if (key.includes('Render')) {
+          replaceSetting[key] = params[key] === 'false' ? false : undefined;
+        }
       }
     });
     if (onSettingChange) {
@@ -299,7 +310,7 @@ const initState = (
     if (oldSetting.navTheme !== params.navTheme && params.navTheme) {
       updateTheme(
         settings.navTheme === 'realDark',
-        params.primaryColor,
+        (params as { primaryColor: string }).primaryColor,
         true,
         publicPath,
       );
@@ -322,7 +333,7 @@ const initState = (
   }
 };
 
-const getParamsFromUrl = (settings: MergerSettingsType<Settings>) => {
+const getParamsFromUrl = (settings: MergerSettingsType<ProSettings>) => {
   if (!isBrowser()) {
     return defaultSettings;
   }
@@ -338,7 +349,7 @@ const getParamsFromUrl = (settings: MergerSettingsType<Settings>) => {
   };
 };
 
-const genCopySettingJson = (settingState: MergerSettingsType<Settings>) =>
+const genCopySettingJson = (settingState: MergerSettingsType<ProSettings>) =>
   JSON.stringify(
     omit(
       {
@@ -364,6 +375,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     hideCopyButton,
     getContainer,
     onSettingChange,
+    prefixCls = 'ant-pro',
   } = props;
   const firstRender = useRef<boolean>(true);
 
@@ -372,7 +384,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     onChange: props.onCollapseChange,
   });
   const [language, setLanguage] = useState<string>(getLanguage());
-  const [settingState, setSettingState] = useMergeValue<Partial<Settings>>(
+  const [settingState, setSettingState] = useMergeValue<Partial<ProSettings>>(
     () => getParamsFromUrl(propsSettings),
     {
       value: propsSettings,
@@ -450,7 +462,26 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     }
 
     if (key === 'layout') {
-      nextState.contentWidth = value === 'topmenu' ? 'Fixed' : 'Fluid';
+      nextState.contentWidth = value === 'top' ? 'Fixed' : 'Fluid';
+    }
+    if (key === 'layout' && value === 'mix') {
+      nextState.navTheme = 'light';
+    }
+    if (key === 'colorWeak' && value === true) {
+      const dom = document.querySelector('body div') as HTMLDivElement;
+      if (!dom) {
+        return;
+      }
+      dom.dataset.prosettingdrawer = dom.style.filter;
+      dom.style.filter = 'invert(80%)';
+    }
+    if (key === 'colorWeak' && value === false) {
+      const dom = document.querySelector('body div') as HTMLDivElement;
+      if (!dom) {
+        return;
+      }
+      dom.style.filter = dom.dataset.prosettingdrawer || 'none';
+      delete dom.dataset.prosettingdrawer;
     }
     setSettingState(nextState);
   };
@@ -485,6 +516,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
       search: stringify(diffParams),
     });
   }, [JSON.stringify(settingState)]);
+  const baseClassName = `${prefixCls}-setting`;
 
   return (
     <Drawer
@@ -495,7 +527,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
       getContainer={getContainer}
       handler={
         <div
-          className="ant-pro-setting-drawer-handle"
+          className={`${baseClassName}-drawer-handle`}
           onClick={() => setShow(!show)}
         >
           {show ? (
@@ -519,16 +551,19 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
         zIndex: 999,
       }}
     >
-      <div className="ant-pro-setting-drawer-content">
+      <div className={`${baseClassName}-drawer-content`}>
         <Body
           title={formatMessage({
             id: 'app.setting.pagestyle',
             defaultMessage: 'Page style setting',
           })}
+          prefixCls={baseClassName}
         >
           <BlockCheckbox
+            prefixCls={baseClassName}
             list={themeList.themeList}
             value={navTheme}
+            key="navTheme"
             onChange={(value) => changeSetting('navTheme', value, hideLoading)}
           />
         </Body>
@@ -549,16 +584,56 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
 
         <Divider />
 
-        <Body title={formatMessage({ id: 'app.setting.navigationmode' })}>
+        <Body
+          prefixCls={baseClassName}
+          title={formatMessage({ id: 'app.setting.navigationmode' })}
+        >
           <BlockCheckbox
+            prefixCls={baseClassName}
             value={layout}
+            key="layout"
+            list={[
+              {
+                key: 'side',
+                url:
+                  'https://gw.alipayobjects.com/zos/antfincdn/XwFOFbLkSM/LCkqqYNmvBEbokSDscrm.svg',
+                title: formatMessage({ id: 'app.setting.sidemenu' }),
+              },
+              {
+                key: 'top',
+                url:
+                  'https://gw.alipayobjects.com/zos/antfincdn/URETY8%24STp/KDNDBbriJhLwuqMoxcAr.svg',
+                title: formatMessage({ id: 'app.setting.topmenu' }),
+              },
+              {
+                key: 'mix',
+                url:
+                  'https://gw.alipayobjects.com/zos/antfincdn/x8Ob%26B8cy8/LCkqqYNmvBEbokSDscrm.svg',
+                title: formatMessage({ id: 'app.setting.mixmenu' }),
+              },
+            ]}
             onChange={(value) => changeSetting('layout', value, hideLoading)}
           />
         </Body>
         <LayoutSetting settings={settingState} changeSetting={changeSetting} />
         <Divider />
 
-        <Body title={formatMessage({ id: 'app.setting.othersettings' })}>
+        <Body
+          prefixCls={baseClassName}
+          title={formatMessage({ id: 'app.setting.regionalsettings' })}
+        >
+          <RegionalSetting
+            settings={settingState}
+            changeSetting={changeSetting}
+          />
+        </Body>
+
+        <Divider />
+
+        <Body
+          prefixCls={baseClassName}
+          title={formatMessage({ id: 'app.setting.othersettings' })}
+        >
           <List
             split={false}
             renderItem={renderLayoutSettingItem}

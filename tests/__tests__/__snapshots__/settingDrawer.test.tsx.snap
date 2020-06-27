@@ -28,10 +28,12 @@ exports[`settingDrawer.test base user 1`] = `
             <button
               aria-label="Close"
               class="ant-drawer-close"
+              style="--scroll-bar:0px"
             >
-              <i
-                aria-label="icon: close"
+              <span
+                aria-label="close"
                 class="anticon anticon-close"
+                role="img"
               >
                 <svg
                   aria-hidden="true"
@@ -44,10 +46,10 @@ exports[`settingDrawer.test base user 1`] = `
                   width="1em"
                 >
                   <path
-                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 0 0 203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
                   />
                 </svg>
-              </i>
+              </span>
             </button>
           </div>
           <div
@@ -65,75 +67,9 @@ exports[`settingDrawer.test base user 1`] = `
                   整体风格设置
                 </h3>
                 <div
-                  class="ant-pro-setting-drawer-block-checbox"
-                >
-                  <div
-                    class="ant-pro-setting-drawer-block-checbox-item"
-                  >
-                    <img
-                      alt="light"
-                      src="https://gw.alipayobjects.com/zos/antfincdn/NQ%24zoisaD2/jpRkZQMyYRryryPNtyIC.svg"
-                    />
-                    <div
-                      class="ant-pro-setting-drawer-block-checbox-selectIcon"
-                      style="display:none"
-                    >
-                      <span
-                        aria-label="check"
-                        class="anticon anticon-check"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="check"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                  <div
-                    class="ant-pro-setting-drawer-block-checbox-item"
-                  >
-                    <img
-                      alt="dark"
-                      src="https://gw.alipayobjects.com/zos/antfincdn/XwFOFbLkSM/LCkqqYNmvBEbokSDscrm.svg"
-                    />
-                    <div
-                      class="ant-pro-setting-drawer-block-checbox-selectIcon"
-                      style="display:block"
-                    >
-                      <span
-                        aria-label="check"
-                        class="anticon anticon-check"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="check"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                  class="ant-pro-setting-drawer-block-checkbox"
+                  style="min-height:42px"
+                />
               </div>
               <div
                 class="theme-color"
@@ -186,75 +122,9 @@ exports[`settingDrawer.test base user 1`] = `
                   导航模式
                 </h3>
                 <div
-                  class="ant-pro-setting-drawer-block-checbox"
-                >
-                  <div
-                    class="ant-pro-setting-drawer-block-checbox-item"
-                  >
-                    <img
-                      alt="sidemenu"
-                      src="https://gw.alipayobjects.com/zos/antfincdn/XwFOFbLkSM/LCkqqYNmvBEbokSDscrm.svg"
-                    />
-                    <div
-                      class="ant-pro-setting-drawer-block-checbox-selectIcon"
-                      style="display:block"
-                    >
-                      <span
-                        aria-label="check"
-                        class="anticon anticon-check"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="check"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                  <div
-                    class="ant-pro-setting-drawer-block-checbox-item"
-                  >
-                    <img
-                      alt="topmenu"
-                      src="https://gw.alipayobjects.com/zos/antfincdn/URETY8%24STp/KDNDBbriJhLwuqMoxcAr.svg"
-                    />
-                    <div
-                      class="ant-pro-setting-drawer-block-checbox-selectIcon"
-                      style="display:none"
-                    >
-                      <span
-                        aria-label="check"
-                        class="anticon anticon-check"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="check"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                  class="ant-pro-setting-drawer-block-checkbox"
+                  style="min-height:42px"
+                />
               </div>
               <div
                 class="ant-list"
@@ -281,56 +151,63 @@ exports[`settingDrawer.test base user 1`] = `
                         >
                           <li>
                             <div
-                              class="ant-select-sm ant-select ant-select-enabled"
+                              class="ant-select ant-select-sm ant-select-single ant-select-show-arrow"
                               style="width:80px"
                             >
                               <div
-                                aria-autocomplete="list"
-                                aria-controls=""
-                                aria-expanded="false"
-                                aria-haspopup="true"
-                                class="ant-select-selection
-            ant-select-selection--single"
-                                role="combobox"
-                                tabindex="0"
+                                class="ant-select-selector"
                               >
-                                <div
-                                  class="ant-select-selection__rendered"
-                                >
-                                  <div
-                                    class="ant-select-selection-selected-value"
-                                    style="display:block;opacity:1"
-                                    title="流式"
-                                  >
-                                    流式
-                                  </div>
-                                </div>
                                 <span
-                                  class="ant-select-arrow"
-                                  style="user-select:none;-webkit-user-select:none"
-                                  unselectable="on"
+                                  class="ant-select-selection-search"
                                 >
-                                  <i
-                                    aria-label="icon: down"
-                                    class="anticon anticon-down ant-select-arrow-icon"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      class=""
-                                      data-icon="down"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="64 64 896 896"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                      />
-                                    </svg>
-                                  </i>
+                                  <input
+                                    aria-activedescendant="undefined_list_0"
+                                    aria-autocomplete="list"
+                                    aria-controls="undefined_list"
+                                    aria-haspopup="listbox"
+                                    aria-owns="undefined_list"
+                                    autocomplete="off"
+                                    class="ant-select-selection-search-input"
+                                    readonly=""
+                                    role="combobox"
+                                    style="opacity:0"
+                                    unselectable="on"
+                                    value=""
+                                  />
+                                </span>
+                                <span
+                                  class="ant-select-selection-item"
+                                >
+                                  流式
                                 </span>
                               </div>
+                              <span
+                                aria-hidden="true"
+                                class="ant-select-arrow"
+                                style="user-select:none;-webkit-user-select:none"
+                                unselectable="on"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class=""
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </span>
                             </div>
                           </li>
                         </ul>
@@ -349,10 +226,13 @@ exports[`settingDrawer.test base user 1`] = `
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch-small ant-switch"
+                              class="ant-switch ant-switch-small"
                               role="switch"
                               type="button"
                             >
+                              <div
+                                class="ant-switch-handle"
+                              />
                               <span
                                 class="ant-switch-inner"
                               />
@@ -374,10 +254,42 @@ exports[`settingDrawer.test base user 1`] = `
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch-small ant-switch"
+                              class="ant-switch ant-switch-small"
                               role="switch"
                               type="button"
                             >
+                              <div
+                                class="ant-switch-handle"
+                              />
+                              <span
+                                class="ant-switch-inner"
+                              />
+                            </button>
+                          </li>
+                        </ul>
+                      </li>
+                      <li
+                        class="ant-list-item"
+                      >
+                        <span
+                          style="opacity:0.5"
+                        >
+                          自动分割菜单
+                        </span>
+                        <ul
+                          class="ant-list-item-action"
+                        >
+                          <li>
+                            <button
+                              aria-checked="false"
+                              class="ant-switch ant-switch-small ant-switch-disabled"
+                              disabled=""
+                              role="switch"
+                              type="button"
+                            >
+                              <div
+                                class="ant-switch-handle"
+                              />
                               <span
                                 class="ant-switch-inner"
                               />
@@ -386,6 +298,147 @@ exports[`settingDrawer.test base user 1`] = `
                         </ul>
                       </li>
                     </ul>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ant-divider ant-divider-horizontal"
+                role="separator"
+              />
+              <div
+                style="margin-bottom:24px"
+              >
+                <h3
+                  class="ant-pro-setting-drawer-title"
+                >
+                  内容区域
+                </h3>
+                <div
+                  class="ant-list"
+                >
+                  <div
+                    class="ant-spin-nested-loading"
+                  >
+                    <div
+                      class="ant-spin-container"
+                    >
+                      <ul
+                        class="ant-list-items"
+                      >
+                        <li
+                          class="ant-list-item"
+                        >
+                          <span
+                            style="opacity:1"
+                          >
+                            顶栏
+                          </span>
+                          <ul
+                            class="ant-list-item-action"
+                          >
+                            <li>
+                              <button
+                                aria-checked="true"
+                                class="ant-switch ant-switch-small ant-switch-checked"
+                                role="switch"
+                                type="button"
+                              >
+                                <div
+                                  class="ant-switch-handle"
+                                />
+                                <span
+                                  class="ant-switch-inner"
+                                />
+                              </button>
+                            </li>
+                          </ul>
+                        </li>
+                        <li
+                          class="ant-list-item"
+                        >
+                          <span
+                            style="opacity:1"
+                          >
+                            页脚
+                          </span>
+                          <ul
+                            class="ant-list-item-action"
+                          >
+                            <li>
+                              <button
+                                aria-checked="true"
+                                class="ant-switch ant-switch-small ant-switch-checked"
+                                role="switch"
+                                type="button"
+                              >
+                                <div
+                                  class="ant-switch-handle"
+                                />
+                                <span
+                                  class="ant-switch-inner"
+                                />
+                              </button>
+                            </li>
+                          </ul>
+                        </li>
+                        <li
+                          class="ant-list-item"
+                        >
+                          <span
+                            style="opacity:1"
+                          >
+                            菜单
+                          </span>
+                          <ul
+                            class="ant-list-item-action"
+                          >
+                            <li>
+                              <button
+                                aria-checked="true"
+                                class="ant-switch ant-switch-small ant-switch-checked"
+                                role="switch"
+                                type="button"
+                              >
+                                <div
+                                  class="ant-switch-handle"
+                                />
+                                <span
+                                  class="ant-switch-inner"
+                                />
+                              </button>
+                            </li>
+                          </ul>
+                        </li>
+                        <li
+                          class="ant-list-item"
+                        >
+                          <span
+                            style="opacity:1"
+                          >
+                            菜单头
+                          </span>
+                          <ul
+                            class="ant-list-item-action"
+                          >
+                            <li>
+                              <button
+                                aria-checked="true"
+                                class="ant-switch ant-switch-small ant-switch-checked"
+                                role="switch"
+                                type="button"
+                              >
+                                <div
+                                  class="ant-switch-handle"
+                                />
+                                <span
+                                  class="ant-switch-inner"
+                                />
+                              </button>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -427,10 +480,13 @@ exports[`settingDrawer.test base user 1`] = `
                             <li>
                               <button
                                 aria-checked="false"
-                                class="ant-switch-small ant-switch"
+                                class="ant-switch ant-switch-small"
                                 role="switch"
                                 type="button"
                               >
+                                <div
+                                  class="ant-switch-handle"
+                                />
                                 <span
                                   class="ant-switch-inner"
                                 />
@@ -571,10 +627,12 @@ exports[`settingDrawer.test hideColors = true 1`] = `
             <button
               aria-label="Close"
               class="ant-drawer-close"
+              style="--scroll-bar:0px"
             >
-              <i
-                aria-label="icon: close"
+              <span
+                aria-label="close"
                 class="anticon anticon-close"
+                role="img"
               >
                 <svg
                   aria-hidden="true"
@@ -587,10 +645,10 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                   width="1em"
                 >
                   <path
-                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 0 0 203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
                   />
                 </svg>
-              </i>
+              </span>
             </button>
           </div>
           <div
@@ -608,75 +666,9 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                   整体风格设置
                 </h3>
                 <div
-                  class="ant-pro-setting-drawer-block-checbox"
-                >
-                  <div
-                    class="ant-pro-setting-drawer-block-checbox-item"
-                  >
-                    <img
-                      alt="light"
-                      src="https://gw.alipayobjects.com/zos/antfincdn/NQ%24zoisaD2/jpRkZQMyYRryryPNtyIC.svg"
-                    />
-                    <div
-                      class="ant-pro-setting-drawer-block-checbox-selectIcon"
-                      style="display:none"
-                    >
-                      <span
-                        aria-label="check"
-                        class="anticon anticon-check"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="check"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                  <div
-                    class="ant-pro-setting-drawer-block-checbox-item"
-                  >
-                    <img
-                      alt="dark"
-                      src="https://gw.alipayobjects.com/zos/antfincdn/XwFOFbLkSM/LCkqqYNmvBEbokSDscrm.svg"
-                    />
-                    <div
-                      class="ant-pro-setting-drawer-block-checbox-selectIcon"
-                      style="display:block"
-                    >
-                      <span
-                        aria-label="check"
-                        class="anticon anticon-check"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="check"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                  class="ant-pro-setting-drawer-block-checkbox"
+                  style="min-height:42px"
+                />
               </div>
               <div
                 class="ant-divider ant-divider-horizontal"
@@ -691,75 +683,9 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                   导航模式
                 </h3>
                 <div
-                  class="ant-pro-setting-drawer-block-checbox"
-                >
-                  <div
-                    class="ant-pro-setting-drawer-block-checbox-item"
-                  >
-                    <img
-                      alt="sidemenu"
-                      src="https://gw.alipayobjects.com/zos/antfincdn/XwFOFbLkSM/LCkqqYNmvBEbokSDscrm.svg"
-                    />
-                    <div
-                      class="ant-pro-setting-drawer-block-checbox-selectIcon"
-                      style="display:block"
-                    >
-                      <span
-                        aria-label="check"
-                        class="anticon anticon-check"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="check"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                  <div
-                    class="ant-pro-setting-drawer-block-checbox-item"
-                  >
-                    <img
-                      alt="topmenu"
-                      src="https://gw.alipayobjects.com/zos/antfincdn/URETY8%24STp/KDNDBbriJhLwuqMoxcAr.svg"
-                    />
-                    <div
-                      class="ant-pro-setting-drawer-block-checbox-selectIcon"
-                      style="display:none"
-                    >
-                      <span
-                        aria-label="check"
-                        class="anticon anticon-check"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="check"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                  class="ant-pro-setting-drawer-block-checkbox"
+                  style="min-height:42px"
+                />
               </div>
               <div
                 class="ant-list"
@@ -786,56 +712,63 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                         >
                           <li>
                             <div
-                              class="ant-select-sm ant-select ant-select-enabled"
+                              class="ant-select ant-select-sm ant-select-single ant-select-show-arrow"
                               style="width:80px"
                             >
                               <div
-                                aria-autocomplete="list"
-                                aria-controls=""
-                                aria-expanded="false"
-                                aria-haspopup="true"
-                                class="ant-select-selection
-            ant-select-selection--single"
-                                role="combobox"
-                                tabindex="0"
+                                class="ant-select-selector"
                               >
-                                <div
-                                  class="ant-select-selection__rendered"
-                                >
-                                  <div
-                                    class="ant-select-selection-selected-value"
-                                    style="display:block;opacity:1"
-                                    title="流式"
-                                  >
-                                    流式
-                                  </div>
-                                </div>
                                 <span
-                                  class="ant-select-arrow"
-                                  style="user-select:none;-webkit-user-select:none"
-                                  unselectable="on"
+                                  class="ant-select-selection-search"
                                 >
-                                  <i
-                                    aria-label="icon: down"
-                                    class="anticon anticon-down ant-select-arrow-icon"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      class=""
-                                      data-icon="down"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="64 64 896 896"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                      />
-                                    </svg>
-                                  </i>
+                                  <input
+                                    aria-activedescendant="undefined_list_0"
+                                    aria-autocomplete="list"
+                                    aria-controls="undefined_list"
+                                    aria-haspopup="listbox"
+                                    aria-owns="undefined_list"
+                                    autocomplete="off"
+                                    class="ant-select-selection-search-input"
+                                    readonly=""
+                                    role="combobox"
+                                    style="opacity:0"
+                                    unselectable="on"
+                                    value=""
+                                  />
+                                </span>
+                                <span
+                                  class="ant-select-selection-item"
+                                >
+                                  流式
                                 </span>
                               </div>
+                              <span
+                                aria-hidden="true"
+                                class="ant-select-arrow"
+                                style="user-select:none;-webkit-user-select:none"
+                                unselectable="on"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class=""
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </span>
                             </div>
                           </li>
                         </ul>
@@ -854,10 +787,13 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch-small ant-switch"
+                              class="ant-switch ant-switch-small"
                               role="switch"
                               type="button"
                             >
+                              <div
+                                class="ant-switch-handle"
+                              />
                               <span
                                 class="ant-switch-inner"
                               />
@@ -879,10 +815,42 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch-small ant-switch"
+                              class="ant-switch ant-switch-small"
                               role="switch"
                               type="button"
                             >
+                              <div
+                                class="ant-switch-handle"
+                              />
+                              <span
+                                class="ant-switch-inner"
+                              />
+                            </button>
+                          </li>
+                        </ul>
+                      </li>
+                      <li
+                        class="ant-list-item"
+                      >
+                        <span
+                          style="opacity:0.5"
+                        >
+                          自动分割菜单
+                        </span>
+                        <ul
+                          class="ant-list-item-action"
+                        >
+                          <li>
+                            <button
+                              aria-checked="false"
+                              class="ant-switch ant-switch-small ant-switch-disabled"
+                              disabled=""
+                              role="switch"
+                              type="button"
+                            >
+                              <div
+                                class="ant-switch-handle"
+                              />
                               <span
                                 class="ant-switch-inner"
                               />
@@ -891,6 +859,147 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                         </ul>
                       </li>
                     </ul>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ant-divider ant-divider-horizontal"
+                role="separator"
+              />
+              <div
+                style="margin-bottom:24px"
+              >
+                <h3
+                  class="ant-pro-setting-drawer-title"
+                >
+                  内容区域
+                </h3>
+                <div
+                  class="ant-list"
+                >
+                  <div
+                    class="ant-spin-nested-loading"
+                  >
+                    <div
+                      class="ant-spin-container"
+                    >
+                      <ul
+                        class="ant-list-items"
+                      >
+                        <li
+                          class="ant-list-item"
+                        >
+                          <span
+                            style="opacity:1"
+                          >
+                            顶栏
+                          </span>
+                          <ul
+                            class="ant-list-item-action"
+                          >
+                            <li>
+                              <button
+                                aria-checked="true"
+                                class="ant-switch ant-switch-small ant-switch-checked"
+                                role="switch"
+                                type="button"
+                              >
+                                <div
+                                  class="ant-switch-handle"
+                                />
+                                <span
+                                  class="ant-switch-inner"
+                                />
+                              </button>
+                            </li>
+                          </ul>
+                        </li>
+                        <li
+                          class="ant-list-item"
+                        >
+                          <span
+                            style="opacity:1"
+                          >
+                            页脚
+                          </span>
+                          <ul
+                            class="ant-list-item-action"
+                          >
+                            <li>
+                              <button
+                                aria-checked="true"
+                                class="ant-switch ant-switch-small ant-switch-checked"
+                                role="switch"
+                                type="button"
+                              >
+                                <div
+                                  class="ant-switch-handle"
+                                />
+                                <span
+                                  class="ant-switch-inner"
+                                />
+                              </button>
+                            </li>
+                          </ul>
+                        </li>
+                        <li
+                          class="ant-list-item"
+                        >
+                          <span
+                            style="opacity:1"
+                          >
+                            菜单
+                          </span>
+                          <ul
+                            class="ant-list-item-action"
+                          >
+                            <li>
+                              <button
+                                aria-checked="true"
+                                class="ant-switch ant-switch-small ant-switch-checked"
+                                role="switch"
+                                type="button"
+                              >
+                                <div
+                                  class="ant-switch-handle"
+                                />
+                                <span
+                                  class="ant-switch-inner"
+                                />
+                              </button>
+                            </li>
+                          </ul>
+                        </li>
+                        <li
+                          class="ant-list-item"
+                        >
+                          <span
+                            style="opacity:1"
+                          >
+                            菜单头
+                          </span>
+                          <ul
+                            class="ant-list-item-action"
+                          >
+                            <li>
+                              <button
+                                aria-checked="true"
+                                class="ant-switch ant-switch-small ant-switch-checked"
+                                role="switch"
+                                type="button"
+                              >
+                                <div
+                                  class="ant-switch-handle"
+                                />
+                                <span
+                                  class="ant-switch-inner"
+                                />
+                              </button>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -932,10 +1041,13 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                             <li>
                               <button
                                 aria-checked="false"
-                                class="ant-switch-small ant-switch"
+                                class="ant-switch ant-switch-small"
                                 role="switch"
                                 type="button"
                               >
+                                <div
+                                  class="ant-switch-handle"
+                                />
                                 <span
                                   class="ant-switch-inner"
                                 />
@@ -1076,10 +1188,12 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
             <button
               aria-label="Close"
               class="ant-drawer-close"
+              style="--scroll-bar:0px"
             >
-              <i
-                aria-label="icon: close"
+              <span
+                aria-label="close"
                 class="anticon anticon-close"
+                role="img"
               >
                 <svg
                   aria-hidden="true"
@@ -1092,10 +1206,10 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                   width="1em"
                 >
                   <path
-                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 0 0 203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
                   />
                 </svg>
-              </i>
+              </span>
             </button>
           </div>
           <div
@@ -1113,75 +1227,9 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                   整体风格设置
                 </h3>
                 <div
-                  class="ant-pro-setting-drawer-block-checbox"
-                >
-                  <div
-                    class="ant-pro-setting-drawer-block-checbox-item"
-                  >
-                    <img
-                      alt="light"
-                      src="https://gw.alipayobjects.com/zos/antfincdn/NQ%24zoisaD2/jpRkZQMyYRryryPNtyIC.svg"
-                    />
-                    <div
-                      class="ant-pro-setting-drawer-block-checbox-selectIcon"
-                      style="display:none"
-                    >
-                      <span
-                        aria-label="check"
-                        class="anticon anticon-check"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="check"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                  <div
-                    class="ant-pro-setting-drawer-block-checbox-item"
-                  >
-                    <img
-                      alt="dark"
-                      src="https://gw.alipayobjects.com/zos/antfincdn/XwFOFbLkSM/LCkqqYNmvBEbokSDscrm.svg"
-                    />
-                    <div
-                      class="ant-pro-setting-drawer-block-checbox-selectIcon"
-                      style="display:block"
-                    >
-                      <span
-                        aria-label="check"
-                        class="anticon anticon-check"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="check"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                  class="ant-pro-setting-drawer-block-checkbox"
+                  style="min-height:42px"
+                />
               </div>
               <div
                 class="theme-color"
@@ -1234,75 +1282,9 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                   导航模式
                 </h3>
                 <div
-                  class="ant-pro-setting-drawer-block-checbox"
-                >
-                  <div
-                    class="ant-pro-setting-drawer-block-checbox-item"
-                  >
-                    <img
-                      alt="sidemenu"
-                      src="https://gw.alipayobjects.com/zos/antfincdn/XwFOFbLkSM/LCkqqYNmvBEbokSDscrm.svg"
-                    />
-                    <div
-                      class="ant-pro-setting-drawer-block-checbox-selectIcon"
-                      style="display:block"
-                    >
-                      <span
-                        aria-label="check"
-                        class="anticon anticon-check"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="check"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                  <div
-                    class="ant-pro-setting-drawer-block-checbox-item"
-                  >
-                    <img
-                      alt="topmenu"
-                      src="https://gw.alipayobjects.com/zos/antfincdn/URETY8%24STp/KDNDBbriJhLwuqMoxcAr.svg"
-                    />
-                    <div
-                      class="ant-pro-setting-drawer-block-checbox-selectIcon"
-                      style="display:none"
-                    >
-                      <span
-                        aria-label="check"
-                        class="anticon anticon-check"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="check"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                  class="ant-pro-setting-drawer-block-checkbox"
+                  style="min-height:42px"
+                />
               </div>
               <div
                 class="ant-list"
@@ -1329,56 +1311,63 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                         >
                           <li>
                             <div
-                              class="ant-select-sm ant-select ant-select-enabled"
+                              class="ant-select ant-select-sm ant-select-single ant-select-show-arrow"
                               style="width:80px"
                             >
                               <div
-                                aria-autocomplete="list"
-                                aria-controls=""
-                                aria-expanded="false"
-                                aria-haspopup="true"
-                                class="ant-select-selection
-            ant-select-selection--single"
-                                role="combobox"
-                                tabindex="0"
+                                class="ant-select-selector"
                               >
-                                <div
-                                  class="ant-select-selection__rendered"
-                                >
-                                  <div
-                                    class="ant-select-selection-selected-value"
-                                    style="display:block;opacity:1"
-                                    title="流式"
-                                  >
-                                    流式
-                                  </div>
-                                </div>
                                 <span
-                                  class="ant-select-arrow"
-                                  style="user-select:none;-webkit-user-select:none"
-                                  unselectable="on"
+                                  class="ant-select-selection-search"
                                 >
-                                  <i
-                                    aria-label="icon: down"
-                                    class="anticon anticon-down ant-select-arrow-icon"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      class=""
-                                      data-icon="down"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="64 64 896 896"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                      />
-                                    </svg>
-                                  </i>
+                                  <input
+                                    aria-activedescendant="undefined_list_0"
+                                    aria-autocomplete="list"
+                                    aria-controls="undefined_list"
+                                    aria-haspopup="listbox"
+                                    aria-owns="undefined_list"
+                                    autocomplete="off"
+                                    class="ant-select-selection-search-input"
+                                    readonly=""
+                                    role="combobox"
+                                    style="opacity:0"
+                                    unselectable="on"
+                                    value=""
+                                  />
+                                </span>
+                                <span
+                                  class="ant-select-selection-item"
+                                >
+                                  流式
                                 </span>
                               </div>
+                              <span
+                                aria-hidden="true"
+                                class="ant-select-arrow"
+                                style="user-select:none;-webkit-user-select:none"
+                                unselectable="on"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class=""
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </span>
                             </div>
                           </li>
                         </ul>
@@ -1397,10 +1386,13 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch-small ant-switch"
+                              class="ant-switch ant-switch-small"
                               role="switch"
                               type="button"
                             >
+                              <div
+                                class="ant-switch-handle"
+                              />
                               <span
                                 class="ant-switch-inner"
                               />
@@ -1422,10 +1414,42 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch-small ant-switch"
+                              class="ant-switch ant-switch-small"
                               role="switch"
                               type="button"
                             >
+                              <div
+                                class="ant-switch-handle"
+                              />
+                              <span
+                                class="ant-switch-inner"
+                              />
+                            </button>
+                          </li>
+                        </ul>
+                      </li>
+                      <li
+                        class="ant-list-item"
+                      >
+                        <span
+                          style="opacity:0.5"
+                        >
+                          自动分割菜单
+                        </span>
+                        <ul
+                          class="ant-list-item-action"
+                        >
+                          <li>
+                            <button
+                              aria-checked="false"
+                              class="ant-switch ant-switch-small ant-switch-disabled"
+                              disabled=""
+                              role="switch"
+                              type="button"
+                            >
+                              <div
+                                class="ant-switch-handle"
+                              />
                               <span
                                 class="ant-switch-inner"
                               />
@@ -1434,6 +1458,147 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                         </ul>
                       </li>
                     </ul>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ant-divider ant-divider-horizontal"
+                role="separator"
+              />
+              <div
+                style="margin-bottom:24px"
+              >
+                <h3
+                  class="ant-pro-setting-drawer-title"
+                >
+                  内容区域
+                </h3>
+                <div
+                  class="ant-list"
+                >
+                  <div
+                    class="ant-spin-nested-loading"
+                  >
+                    <div
+                      class="ant-spin-container"
+                    >
+                      <ul
+                        class="ant-list-items"
+                      >
+                        <li
+                          class="ant-list-item"
+                        >
+                          <span
+                            style="opacity:1"
+                          >
+                            顶栏
+                          </span>
+                          <ul
+                            class="ant-list-item-action"
+                          >
+                            <li>
+                              <button
+                                aria-checked="true"
+                                class="ant-switch ant-switch-small ant-switch-checked"
+                                role="switch"
+                                type="button"
+                              >
+                                <div
+                                  class="ant-switch-handle"
+                                />
+                                <span
+                                  class="ant-switch-inner"
+                                />
+                              </button>
+                            </li>
+                          </ul>
+                        </li>
+                        <li
+                          class="ant-list-item"
+                        >
+                          <span
+                            style="opacity:1"
+                          >
+                            页脚
+                          </span>
+                          <ul
+                            class="ant-list-item-action"
+                          >
+                            <li>
+                              <button
+                                aria-checked="true"
+                                class="ant-switch ant-switch-small ant-switch-checked"
+                                role="switch"
+                                type="button"
+                              >
+                                <div
+                                  class="ant-switch-handle"
+                                />
+                                <span
+                                  class="ant-switch-inner"
+                                />
+                              </button>
+                            </li>
+                          </ul>
+                        </li>
+                        <li
+                          class="ant-list-item"
+                        >
+                          <span
+                            style="opacity:1"
+                          >
+                            菜单
+                          </span>
+                          <ul
+                            class="ant-list-item-action"
+                          >
+                            <li>
+                              <button
+                                aria-checked="true"
+                                class="ant-switch ant-switch-small ant-switch-checked"
+                                role="switch"
+                                type="button"
+                              >
+                                <div
+                                  class="ant-switch-handle"
+                                />
+                                <span
+                                  class="ant-switch-inner"
+                                />
+                              </button>
+                            </li>
+                          </ul>
+                        </li>
+                        <li
+                          class="ant-list-item"
+                        >
+                          <span
+                            style="opacity:1"
+                          >
+                            菜单头
+                          </span>
+                          <ul
+                            class="ant-list-item-action"
+                          >
+                            <li>
+                              <button
+                                aria-checked="true"
+                                class="ant-switch ant-switch-small ant-switch-checked"
+                                role="switch"
+                                type="button"
+                              >
+                                <div
+                                  class="ant-switch-handle"
+                                />
+                                <span
+                                  class="ant-switch-inner"
+                                />
+                              </button>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1475,10 +1640,13 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                             <li>
                               <button
                                 aria-checked="false"
-                                class="ant-switch-small ant-switch"
+                                class="ant-switch ant-switch-small"
                                 role="switch"
                                 type="button"
                               >
+                                <div
+                                  class="ant-switch-handle"
+                                />
                                 <span
                                   class="ant-switch-inner"
                                 />
@@ -1591,10 +1759,12 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
             <button
               aria-label="Close"
               class="ant-drawer-close"
+              style="--scroll-bar:0px"
             >
-              <i
-                aria-label="icon: close"
+              <span
+                aria-label="close"
                 class="anticon anticon-close"
+                role="img"
               >
                 <svg
                   aria-hidden="true"
@@ -1607,10 +1777,10 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                   width="1em"
                 >
                   <path
-                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 0 0 203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
                   />
                 </svg>
-              </i>
+              </span>
             </button>
           </div>
           <div
@@ -1628,75 +1798,9 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                   整体风格设置
                 </h3>
                 <div
-                  class="ant-pro-setting-drawer-block-checbox"
-                >
-                  <div
-                    class="ant-pro-setting-drawer-block-checbox-item"
-                  >
-                    <img
-                      alt="light"
-                      src="https://gw.alipayobjects.com/zos/antfincdn/NQ%24zoisaD2/jpRkZQMyYRryryPNtyIC.svg"
-                    />
-                    <div
-                      class="ant-pro-setting-drawer-block-checbox-selectIcon"
-                      style="display:none"
-                    >
-                      <span
-                        aria-label="check"
-                        class="anticon anticon-check"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="check"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                  <div
-                    class="ant-pro-setting-drawer-block-checbox-item"
-                  >
-                    <img
-                      alt="dark"
-                      src="https://gw.alipayobjects.com/zos/antfincdn/XwFOFbLkSM/LCkqqYNmvBEbokSDscrm.svg"
-                    />
-                    <div
-                      class="ant-pro-setting-drawer-block-checbox-selectIcon"
-                      style="display:block"
-                    >
-                      <span
-                        aria-label="check"
-                        class="anticon anticon-check"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="check"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                  class="ant-pro-setting-drawer-block-checkbox"
+                  style="min-height:42px"
+                />
               </div>
               <div
                 class="theme-color"
@@ -1749,75 +1853,9 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                   导航模式
                 </h3>
                 <div
-                  class="ant-pro-setting-drawer-block-checbox"
-                >
-                  <div
-                    class="ant-pro-setting-drawer-block-checbox-item"
-                  >
-                    <img
-                      alt="sidemenu"
-                      src="https://gw.alipayobjects.com/zos/antfincdn/XwFOFbLkSM/LCkqqYNmvBEbokSDscrm.svg"
-                    />
-                    <div
-                      class="ant-pro-setting-drawer-block-checbox-selectIcon"
-                      style="display:block"
-                    >
-                      <span
-                        aria-label="check"
-                        class="anticon anticon-check"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="check"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                  <div
-                    class="ant-pro-setting-drawer-block-checbox-item"
-                  >
-                    <img
-                      alt="topmenu"
-                      src="https://gw.alipayobjects.com/zos/antfincdn/URETY8%24STp/KDNDBbriJhLwuqMoxcAr.svg"
-                    />
-                    <div
-                      class="ant-pro-setting-drawer-block-checbox-selectIcon"
-                      style="display:none"
-                    >
-                      <span
-                        aria-label="check"
-                        class="anticon anticon-check"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="check"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                  class="ant-pro-setting-drawer-block-checkbox"
+                  style="min-height:42px"
+                />
               </div>
               <div
                 class="ant-list"
@@ -1844,56 +1882,63 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                         >
                           <li>
                             <div
-                              class="ant-select-sm ant-select ant-select-enabled"
+                              class="ant-select ant-select-sm ant-select-single ant-select-show-arrow"
                               style="width:80px"
                             >
                               <div
-                                aria-autocomplete="list"
-                                aria-controls=""
-                                aria-expanded="false"
-                                aria-haspopup="true"
-                                class="ant-select-selection
-            ant-select-selection--single"
-                                role="combobox"
-                                tabindex="0"
+                                class="ant-select-selector"
                               >
-                                <div
-                                  class="ant-select-selection__rendered"
-                                >
-                                  <div
-                                    class="ant-select-selection-selected-value"
-                                    style="display:block;opacity:1"
-                                    title="流式"
-                                  >
-                                    流式
-                                  </div>
-                                </div>
                                 <span
-                                  class="ant-select-arrow"
-                                  style="user-select:none;-webkit-user-select:none"
-                                  unselectable="on"
+                                  class="ant-select-selection-search"
                                 >
-                                  <i
-                                    aria-label="icon: down"
-                                    class="anticon anticon-down ant-select-arrow-icon"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      class=""
-                                      data-icon="down"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="64 64 896 896"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                      />
-                                    </svg>
-                                  </i>
+                                  <input
+                                    aria-activedescendant="undefined_list_0"
+                                    aria-autocomplete="list"
+                                    aria-controls="undefined_list"
+                                    aria-haspopup="listbox"
+                                    aria-owns="undefined_list"
+                                    autocomplete="off"
+                                    class="ant-select-selection-search-input"
+                                    readonly=""
+                                    role="combobox"
+                                    style="opacity:0"
+                                    unselectable="on"
+                                    value=""
+                                  />
+                                </span>
+                                <span
+                                  class="ant-select-selection-item"
+                                >
+                                  流式
                                 </span>
                               </div>
+                              <span
+                                aria-hidden="true"
+                                class="ant-select-arrow"
+                                style="user-select:none;-webkit-user-select:none"
+                                unselectable="on"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class=""
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </span>
                             </div>
                           </li>
                         </ul>
@@ -1912,10 +1957,13 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch-small ant-switch"
+                              class="ant-switch ant-switch-small"
                               role="switch"
                               type="button"
                             >
+                              <div
+                                class="ant-switch-handle"
+                              />
                               <span
                                 class="ant-switch-inner"
                               />
@@ -1937,10 +1985,42 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch-small ant-switch"
+                              class="ant-switch ant-switch-small"
                               role="switch"
                               type="button"
                             >
+                              <div
+                                class="ant-switch-handle"
+                              />
+                              <span
+                                class="ant-switch-inner"
+                              />
+                            </button>
+                          </li>
+                        </ul>
+                      </li>
+                      <li
+                        class="ant-list-item"
+                      >
+                        <span
+                          style="opacity:0.5"
+                        >
+                          自动分割菜单
+                        </span>
+                        <ul
+                          class="ant-list-item-action"
+                        >
+                          <li>
+                            <button
+                              aria-checked="false"
+                              class="ant-switch ant-switch-small ant-switch-disabled"
+                              disabled=""
+                              role="switch"
+                              type="button"
+                            >
+                              <div
+                                class="ant-switch-handle"
+                              />
                               <span
                                 class="ant-switch-inner"
                               />
@@ -1949,6 +2029,147 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                         </ul>
                       </li>
                     </ul>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ant-divider ant-divider-horizontal"
+                role="separator"
+              />
+              <div
+                style="margin-bottom:24px"
+              >
+                <h3
+                  class="ant-pro-setting-drawer-title"
+                >
+                  内容区域
+                </h3>
+                <div
+                  class="ant-list"
+                >
+                  <div
+                    class="ant-spin-nested-loading"
+                  >
+                    <div
+                      class="ant-spin-container"
+                    >
+                      <ul
+                        class="ant-list-items"
+                      >
+                        <li
+                          class="ant-list-item"
+                        >
+                          <span
+                            style="opacity:1"
+                          >
+                            顶栏
+                          </span>
+                          <ul
+                            class="ant-list-item-action"
+                          >
+                            <li>
+                              <button
+                                aria-checked="true"
+                                class="ant-switch ant-switch-small ant-switch-checked"
+                                role="switch"
+                                type="button"
+                              >
+                                <div
+                                  class="ant-switch-handle"
+                                />
+                                <span
+                                  class="ant-switch-inner"
+                                />
+                              </button>
+                            </li>
+                          </ul>
+                        </li>
+                        <li
+                          class="ant-list-item"
+                        >
+                          <span
+                            style="opacity:1"
+                          >
+                            页脚
+                          </span>
+                          <ul
+                            class="ant-list-item-action"
+                          >
+                            <li>
+                              <button
+                                aria-checked="true"
+                                class="ant-switch ant-switch-small ant-switch-checked"
+                                role="switch"
+                                type="button"
+                              >
+                                <div
+                                  class="ant-switch-handle"
+                                />
+                                <span
+                                  class="ant-switch-inner"
+                                />
+                              </button>
+                            </li>
+                          </ul>
+                        </li>
+                        <li
+                          class="ant-list-item"
+                        >
+                          <span
+                            style="opacity:1"
+                          >
+                            菜单
+                          </span>
+                          <ul
+                            class="ant-list-item-action"
+                          >
+                            <li>
+                              <button
+                                aria-checked="true"
+                                class="ant-switch ant-switch-small ant-switch-checked"
+                                role="switch"
+                                type="button"
+                              >
+                                <div
+                                  class="ant-switch-handle"
+                                />
+                                <span
+                                  class="ant-switch-inner"
+                                />
+                              </button>
+                            </li>
+                          </ul>
+                        </li>
+                        <li
+                          class="ant-list-item"
+                        >
+                          <span
+                            style="opacity:1"
+                          >
+                            菜单头
+                          </span>
+                          <ul
+                            class="ant-list-item-action"
+                          >
+                            <li>
+                              <button
+                                aria-checked="true"
+                                class="ant-switch ant-switch-small ant-switch-checked"
+                                role="switch"
+                                type="button"
+                              >
+                                <div
+                                  class="ant-switch-handle"
+                                />
+                                <span
+                                  class="ant-switch-inner"
+                                />
+                              </button>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1990,10 +2211,13 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                             <li>
                               <button
                                 aria-checked="false"
-                                class="ant-switch-small ant-switch"
+                                class="ant-switch ant-switch-small"
                                 role="switch"
                                 type="button"
                               >
+                                <div
+                                  class="ant-switch-handle"
+                                />
                                 <span
                                   class="ant-switch-inner"
                                 />
@@ -2100,10 +2324,12 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
             <button
               aria-label="Close"
               class="ant-drawer-close"
+              style="--scroll-bar:0px"
             >
-              <i
-                aria-label="icon: close"
+              <span
+                aria-label="close"
                 class="anticon anticon-close"
+                role="img"
               >
                 <svg
                   aria-hidden="true"
@@ -2116,10 +2342,10 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                   width="1em"
                 >
                   <path
-                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 0 0 203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
                   />
                 </svg>
-              </i>
+              </span>
             </button>
           </div>
           <div
@@ -2137,75 +2363,9 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                   整体风格设置
                 </h3>
                 <div
-                  class="ant-pro-setting-drawer-block-checbox"
-                >
-                  <div
-                    class="ant-pro-setting-drawer-block-checbox-item"
-                  >
-                    <img
-                      alt="light"
-                      src="https://gw.alipayobjects.com/zos/antfincdn/NQ%24zoisaD2/jpRkZQMyYRryryPNtyIC.svg"
-                    />
-                    <div
-                      class="ant-pro-setting-drawer-block-checbox-selectIcon"
-                      style="display:none"
-                    >
-                      <span
-                        aria-label="check"
-                        class="anticon anticon-check"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="check"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                  <div
-                    class="ant-pro-setting-drawer-block-checbox-item"
-                  >
-                    <img
-                      alt="dark"
-                      src="https://gw.alipayobjects.com/zos/antfincdn/XwFOFbLkSM/LCkqqYNmvBEbokSDscrm.svg"
-                    />
-                    <div
-                      class="ant-pro-setting-drawer-block-checbox-selectIcon"
-                      style="display:block"
-                    >
-                      <span
-                        aria-label="check"
-                        class="anticon anticon-check"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="check"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                  class="ant-pro-setting-drawer-block-checkbox"
+                  style="min-height:42px"
+                />
               </div>
               <div
                 class="theme-color"
@@ -2258,75 +2418,9 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                   导航模式
                 </h3>
                 <div
-                  class="ant-pro-setting-drawer-block-checbox"
-                >
-                  <div
-                    class="ant-pro-setting-drawer-block-checbox-item"
-                  >
-                    <img
-                      alt="sidemenu"
-                      src="https://gw.alipayobjects.com/zos/antfincdn/XwFOFbLkSM/LCkqqYNmvBEbokSDscrm.svg"
-                    />
-                    <div
-                      class="ant-pro-setting-drawer-block-checbox-selectIcon"
-                      style="display:block"
-                    >
-                      <span
-                        aria-label="check"
-                        class="anticon anticon-check"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="check"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                  <div
-                    class="ant-pro-setting-drawer-block-checbox-item"
-                  >
-                    <img
-                      alt="topmenu"
-                      src="https://gw.alipayobjects.com/zos/antfincdn/URETY8%24STp/KDNDBbriJhLwuqMoxcAr.svg"
-                    />
-                    <div
-                      class="ant-pro-setting-drawer-block-checbox-selectIcon"
-                      style="display:none"
-                    >
-                      <span
-                        aria-label="check"
-                        class="anticon anticon-check"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="check"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                  class="ant-pro-setting-drawer-block-checkbox"
+                  style="min-height:42px"
+                />
               </div>
               <div
                 class="ant-list"
@@ -2353,56 +2447,63 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                         >
                           <li>
                             <div
-                              class="ant-select-sm ant-select ant-select-enabled"
+                              class="ant-select ant-select-sm ant-select-single ant-select-show-arrow"
                               style="width:80px"
                             >
                               <div
-                                aria-autocomplete="list"
-                                aria-controls=""
-                                aria-expanded="false"
-                                aria-haspopup="true"
-                                class="ant-select-selection
-            ant-select-selection--single"
-                                role="combobox"
-                                tabindex="0"
+                                class="ant-select-selector"
                               >
-                                <div
-                                  class="ant-select-selection__rendered"
-                                >
-                                  <div
-                                    class="ant-select-selection-selected-value"
-                                    style="display:block;opacity:1"
-                                    title="流式"
-                                  >
-                                    流式
-                                  </div>
-                                </div>
                                 <span
-                                  class="ant-select-arrow"
-                                  style="user-select:none;-webkit-user-select:none"
-                                  unselectable="on"
+                                  class="ant-select-selection-search"
                                 >
-                                  <i
-                                    aria-label="icon: down"
-                                    class="anticon anticon-down ant-select-arrow-icon"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      class=""
-                                      data-icon="down"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="64 64 896 896"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                      />
-                                    </svg>
-                                  </i>
+                                  <input
+                                    aria-activedescendant="undefined_list_0"
+                                    aria-autocomplete="list"
+                                    aria-controls="undefined_list"
+                                    aria-haspopup="listbox"
+                                    aria-owns="undefined_list"
+                                    autocomplete="off"
+                                    class="ant-select-selection-search-input"
+                                    readonly=""
+                                    role="combobox"
+                                    style="opacity:0"
+                                    unselectable="on"
+                                    value=""
+                                  />
+                                </span>
+                                <span
+                                  class="ant-select-selection-item"
+                                >
+                                  流式
                                 </span>
                               </div>
+                              <span
+                                aria-hidden="true"
+                                class="ant-select-arrow"
+                                style="user-select:none;-webkit-user-select:none"
+                                unselectable="on"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class=""
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </span>
                             </div>
                           </li>
                         </ul>
@@ -2421,10 +2522,13 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch-small ant-switch"
+                              class="ant-switch ant-switch-small"
                               role="switch"
                               type="button"
                             >
+                              <div
+                                class="ant-switch-handle"
+                              />
                               <span
                                 class="ant-switch-inner"
                               />
@@ -2446,10 +2550,42 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch-small ant-switch"
+                              class="ant-switch ant-switch-small"
                               role="switch"
                               type="button"
                             >
+                              <div
+                                class="ant-switch-handle"
+                              />
+                              <span
+                                class="ant-switch-inner"
+                              />
+                            </button>
+                          </li>
+                        </ul>
+                      </li>
+                      <li
+                        class="ant-list-item"
+                      >
+                        <span
+                          style="opacity:0.5"
+                        >
+                          自动分割菜单
+                        </span>
+                        <ul
+                          class="ant-list-item-action"
+                        >
+                          <li>
+                            <button
+                              aria-checked="false"
+                              class="ant-switch ant-switch-small ant-switch-disabled"
+                              disabled=""
+                              role="switch"
+                              type="button"
+                            >
+                              <div
+                                class="ant-switch-handle"
+                              />
                               <span
                                 class="ant-switch-inner"
                               />
@@ -2458,6 +2594,147 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                         </ul>
                       </li>
                     </ul>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ant-divider ant-divider-horizontal"
+                role="separator"
+              />
+              <div
+                style="margin-bottom:24px"
+              >
+                <h3
+                  class="ant-pro-setting-drawer-title"
+                >
+                  内容区域
+                </h3>
+                <div
+                  class="ant-list"
+                >
+                  <div
+                    class="ant-spin-nested-loading"
+                  >
+                    <div
+                      class="ant-spin-container"
+                    >
+                      <ul
+                        class="ant-list-items"
+                      >
+                        <li
+                          class="ant-list-item"
+                        >
+                          <span
+                            style="opacity:1"
+                          >
+                            顶栏
+                          </span>
+                          <ul
+                            class="ant-list-item-action"
+                          >
+                            <li>
+                              <button
+                                aria-checked="true"
+                                class="ant-switch ant-switch-small ant-switch-checked"
+                                role="switch"
+                                type="button"
+                              >
+                                <div
+                                  class="ant-switch-handle"
+                                />
+                                <span
+                                  class="ant-switch-inner"
+                                />
+                              </button>
+                            </li>
+                          </ul>
+                        </li>
+                        <li
+                          class="ant-list-item"
+                        >
+                          <span
+                            style="opacity:1"
+                          >
+                            页脚
+                          </span>
+                          <ul
+                            class="ant-list-item-action"
+                          >
+                            <li>
+                              <button
+                                aria-checked="true"
+                                class="ant-switch ant-switch-small ant-switch-checked"
+                                role="switch"
+                                type="button"
+                              >
+                                <div
+                                  class="ant-switch-handle"
+                                />
+                                <span
+                                  class="ant-switch-inner"
+                                />
+                              </button>
+                            </li>
+                          </ul>
+                        </li>
+                        <li
+                          class="ant-list-item"
+                        >
+                          <span
+                            style="opacity:1"
+                          >
+                            菜单
+                          </span>
+                          <ul
+                            class="ant-list-item-action"
+                          >
+                            <li>
+                              <button
+                                aria-checked="true"
+                                class="ant-switch ant-switch-small ant-switch-checked"
+                                role="switch"
+                                type="button"
+                              >
+                                <div
+                                  class="ant-switch-handle"
+                                />
+                                <span
+                                  class="ant-switch-inner"
+                                />
+                              </button>
+                            </li>
+                          </ul>
+                        </li>
+                        <li
+                          class="ant-list-item"
+                        >
+                          <span
+                            style="opacity:1"
+                          >
+                            菜单头
+                          </span>
+                          <ul
+                            class="ant-list-item-action"
+                          >
+                            <li>
+                              <button
+                                aria-checked="true"
+                                class="ant-switch ant-switch-small ant-switch-checked"
+                                role="switch"
+                                type="button"
+                              >
+                                <div
+                                  class="ant-switch-handle"
+                                />
+                                <span
+                                  class="ant-switch-inner"
+                                />
+                              </button>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2499,10 +2776,13 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                             <li>
                               <button
                                 aria-checked="false"
-                                class="ant-switch-small ant-switch"
+                                class="ant-switch ant-switch-small"
                                 role="switch"
                                 type="button"
                               >
+                                <div
+                                  class="ant-switch-handle"
+                                />
                                 <span
                                   class="ant-switch-inner"
                                 />
@@ -2643,10 +2923,12 @@ exports[`settingDrawer.test settings = undefined 1`] = `
             <button
               aria-label="Close"
               class="ant-drawer-close"
+              style="--scroll-bar:0px"
             >
-              <i
-                aria-label="icon: close"
+              <span
+                aria-label="close"
                 class="anticon anticon-close"
+                role="img"
               >
                 <svg
                   aria-hidden="true"
@@ -2659,10 +2941,10 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                   width="1em"
                 >
                   <path
-                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 0 0 203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
                   />
                 </svg>
-              </i>
+              </span>
             </button>
           </div>
           <div
@@ -2680,75 +2962,9 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                   整体风格设置
                 </h3>
                 <div
-                  class="ant-pro-setting-drawer-block-checbox"
-                >
-                  <div
-                    class="ant-pro-setting-drawer-block-checbox-item"
-                  >
-                    <img
-                      alt="light"
-                      src="https://gw.alipayobjects.com/zos/antfincdn/NQ%24zoisaD2/jpRkZQMyYRryryPNtyIC.svg"
-                    />
-                    <div
-                      class="ant-pro-setting-drawer-block-checbox-selectIcon"
-                      style="display:none"
-                    >
-                      <span
-                        aria-label="check"
-                        class="anticon anticon-check"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="check"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                  <div
-                    class="ant-pro-setting-drawer-block-checbox-item"
-                  >
-                    <img
-                      alt="dark"
-                      src="https://gw.alipayobjects.com/zos/antfincdn/XwFOFbLkSM/LCkqqYNmvBEbokSDscrm.svg"
-                    />
-                    <div
-                      class="ant-pro-setting-drawer-block-checbox-selectIcon"
-                      style="display:block"
-                    >
-                      <span
-                        aria-label="check"
-                        class="anticon anticon-check"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="check"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                  class="ant-pro-setting-drawer-block-checkbox"
+                  style="min-height:42px"
+                />
               </div>
               <div
                 class="theme-color"
@@ -2801,75 +3017,9 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                   导航模式
                 </h3>
                 <div
-                  class="ant-pro-setting-drawer-block-checbox"
-                >
-                  <div
-                    class="ant-pro-setting-drawer-block-checbox-item"
-                  >
-                    <img
-                      alt="sidemenu"
-                      src="https://gw.alipayobjects.com/zos/antfincdn/XwFOFbLkSM/LCkqqYNmvBEbokSDscrm.svg"
-                    />
-                    <div
-                      class="ant-pro-setting-drawer-block-checbox-selectIcon"
-                      style="display:block"
-                    >
-                      <span
-                        aria-label="check"
-                        class="anticon anticon-check"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="check"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                  <div
-                    class="ant-pro-setting-drawer-block-checbox-item"
-                  >
-                    <img
-                      alt="topmenu"
-                      src="https://gw.alipayobjects.com/zos/antfincdn/URETY8%24STp/KDNDBbriJhLwuqMoxcAr.svg"
-                    />
-                    <div
-                      class="ant-pro-setting-drawer-block-checbox-selectIcon"
-                      style="display:none"
-                    >
-                      <span
-                        aria-label="check"
-                        class="anticon anticon-check"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="check"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                  class="ant-pro-setting-drawer-block-checkbox"
+                  style="min-height:42px"
+                />
               </div>
               <div
                 class="ant-list"
@@ -2896,56 +3046,63 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                         >
                           <li>
                             <div
-                              class="ant-select-sm ant-select ant-select-enabled"
+                              class="ant-select ant-select-sm ant-select-single ant-select-show-arrow"
                               style="width:80px"
                             >
                               <div
-                                aria-autocomplete="list"
-                                aria-controls=""
-                                aria-expanded="false"
-                                aria-haspopup="true"
-                                class="ant-select-selection
-            ant-select-selection--single"
-                                role="combobox"
-                                tabindex="0"
+                                class="ant-select-selector"
                               >
-                                <div
-                                  class="ant-select-selection__rendered"
-                                >
-                                  <div
-                                    class="ant-select-selection-selected-value"
-                                    style="display:block;opacity:1"
-                                    title="定宽"
-                                  >
-                                    定宽
-                                  </div>
-                                </div>
                                 <span
-                                  class="ant-select-arrow"
-                                  style="user-select:none;-webkit-user-select:none"
-                                  unselectable="on"
+                                  class="ant-select-selection-search"
                                 >
-                                  <i
-                                    aria-label="icon: down"
-                                    class="anticon anticon-down ant-select-arrow-icon"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      class=""
-                                      data-icon="down"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="64 64 896 896"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                      />
-                                    </svg>
-                                  </i>
+                                  <input
+                                    aria-activedescendant="undefined_list_0"
+                                    aria-autocomplete="list"
+                                    aria-controls="undefined_list"
+                                    aria-haspopup="listbox"
+                                    aria-owns="undefined_list"
+                                    autocomplete="off"
+                                    class="ant-select-selection-search-input"
+                                    readonly=""
+                                    role="combobox"
+                                    style="opacity:0"
+                                    unselectable="on"
+                                    value=""
+                                  />
+                                </span>
+                                <span
+                                  class="ant-select-selection-item"
+                                >
+                                  定宽
                                 </span>
                               </div>
+                              <span
+                                aria-hidden="true"
+                                class="ant-select-arrow"
+                                style="user-select:none;-webkit-user-select:none"
+                                unselectable="on"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class=""
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </span>
                             </div>
                           </li>
                         </ul>
@@ -2964,10 +3121,13 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch-small ant-switch"
+                              class="ant-switch ant-switch-small"
                               role="switch"
                               type="button"
                             >
+                              <div
+                                class="ant-switch-handle"
+                              />
                               <span
                                 class="ant-switch-inner"
                               />
@@ -2989,10 +3149,42 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch-small ant-switch"
+                              class="ant-switch ant-switch-small"
                               role="switch"
                               type="button"
                             >
+                              <div
+                                class="ant-switch-handle"
+                              />
+                              <span
+                                class="ant-switch-inner"
+                              />
+                            </button>
+                          </li>
+                        </ul>
+                      </li>
+                      <li
+                        class="ant-list-item"
+                      >
+                        <span
+                          style="opacity:0.5"
+                        >
+                          自动分割菜单
+                        </span>
+                        <ul
+                          class="ant-list-item-action"
+                        >
+                          <li>
+                            <button
+                              aria-checked="false"
+                              class="ant-switch ant-switch-small ant-switch-disabled"
+                              disabled=""
+                              role="switch"
+                              type="button"
+                            >
+                              <div
+                                class="ant-switch-handle"
+                              />
                               <span
                                 class="ant-switch-inner"
                               />
@@ -3001,6 +3193,147 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                         </ul>
                       </li>
                     </ul>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ant-divider ant-divider-horizontal"
+                role="separator"
+              />
+              <div
+                style="margin-bottom:24px"
+              >
+                <h3
+                  class="ant-pro-setting-drawer-title"
+                >
+                  内容区域
+                </h3>
+                <div
+                  class="ant-list"
+                >
+                  <div
+                    class="ant-spin-nested-loading"
+                  >
+                    <div
+                      class="ant-spin-container"
+                    >
+                      <ul
+                        class="ant-list-items"
+                      >
+                        <li
+                          class="ant-list-item"
+                        >
+                          <span
+                            style="opacity:1"
+                          >
+                            顶栏
+                          </span>
+                          <ul
+                            class="ant-list-item-action"
+                          >
+                            <li>
+                              <button
+                                aria-checked="true"
+                                class="ant-switch ant-switch-small ant-switch-checked"
+                                role="switch"
+                                type="button"
+                              >
+                                <div
+                                  class="ant-switch-handle"
+                                />
+                                <span
+                                  class="ant-switch-inner"
+                                />
+                              </button>
+                            </li>
+                          </ul>
+                        </li>
+                        <li
+                          class="ant-list-item"
+                        >
+                          <span
+                            style="opacity:1"
+                          >
+                            页脚
+                          </span>
+                          <ul
+                            class="ant-list-item-action"
+                          >
+                            <li>
+                              <button
+                                aria-checked="true"
+                                class="ant-switch ant-switch-small ant-switch-checked"
+                                role="switch"
+                                type="button"
+                              >
+                                <div
+                                  class="ant-switch-handle"
+                                />
+                                <span
+                                  class="ant-switch-inner"
+                                />
+                              </button>
+                            </li>
+                          </ul>
+                        </li>
+                        <li
+                          class="ant-list-item"
+                        >
+                          <span
+                            style="opacity:1"
+                          >
+                            菜单
+                          </span>
+                          <ul
+                            class="ant-list-item-action"
+                          >
+                            <li>
+                              <button
+                                aria-checked="true"
+                                class="ant-switch ant-switch-small ant-switch-checked"
+                                role="switch"
+                                type="button"
+                              >
+                                <div
+                                  class="ant-switch-handle"
+                                />
+                                <span
+                                  class="ant-switch-inner"
+                                />
+                              </button>
+                            </li>
+                          </ul>
+                        </li>
+                        <li
+                          class="ant-list-item"
+                        >
+                          <span
+                            style="opacity:1"
+                          >
+                            菜单头
+                          </span>
+                          <ul
+                            class="ant-list-item-action"
+                          >
+                            <li>
+                              <button
+                                aria-checked="true"
+                                class="ant-switch ant-switch-small ant-switch-checked"
+                                role="switch"
+                                type="button"
+                              >
+                                <div
+                                  class="ant-switch-handle"
+                                />
+                                <span
+                                  class="ant-switch-inner"
+                                />
+                              </button>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -3042,10 +3375,13 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                             <li>
                               <button
                                 aria-checked="false"
-                                class="ant-switch-small ant-switch"
+                                class="ant-switch ant-switch-small"
                                 role="switch"
                                 type="button"
                               >
+                                <div
+                                  class="ant-switch-handle"
+                                />
                                 <span
                                   class="ant-switch-inner"
                                 />
