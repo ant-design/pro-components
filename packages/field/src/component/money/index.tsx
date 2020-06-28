@@ -1,4 +1,4 @@
-import { Progress, Input, InputNumber } from 'antd';
+import { InputNumber } from 'antd';
 import { FieldFC } from '../../index';
 
 const moneyIntl = new Intl.NumberFormat('zh-Hans-CN', {
