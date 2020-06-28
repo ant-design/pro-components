@@ -9,7 +9,7 @@ _roadhog-api-doc
 # production
 /dist
 /.vscode
-
+**/**/lib/**
 # misc
 .DS_Store
 npm-debug.log*
@@ -36,3 +36,4 @@ functions/mock
 # screenshot
 screenshot
 .firebase
+packages/field/lib/index.js
