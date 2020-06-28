@@ -5,6 +5,7 @@
     "packages/*"
   ],
   "scripts": {
+    "start": "dumi dev",
     "bootstrap": "node ./scripts/bootstrap.js",
     "build": "father-build",
     "link": "yarn link umi && yarn link @umijs/test && yarn link @umijs/utils && yarn link @umijs/types",
@@ -32,6 +33,7 @@
     "@umijs/test": "^3.0.10",
     "@umijs/test-utils": "^1.0.0",
     "body-parser": "^1.18.2",
+    "dumi": "^1.0.31",
     "express": "^4.15.3",
     "father-build": "^1.17.2",
     "lerna": "^3.20.2",
