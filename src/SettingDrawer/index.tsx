@@ -333,7 +333,7 @@ const initState = (
   }
 };
 
-const getParamsFromUrl = (settings: MergerSettingsType<ProSettings>) => {
+const getParamsFromUrl = (settings?: MergerSettingsType<ProSettings>) => {
   if (!isBrowser()) {
     return defaultSettings;
   }
@@ -344,7 +344,7 @@ const getParamsFromUrl = (settings: MergerSettingsType<ProSettings>) => {
   }
   return {
     ...defaultSettings,
-    ...settings,
+    ...(settings || {}),
     ...params,
   };
 };
@@ -368,7 +368,7 @@ const genCopySettingJson = (settingState: MergerSettingsType<ProSettings>) =>
  */
 const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   const {
-    settings: propsSettings = {},
+    settings: propsSettings = undefined,
     hideLoading = false,
     hideColors,
     hideHintAlert,
@@ -391,6 +391,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
       onChange: onSettingChange,
     },
   );
+  const preStateRef = useRef(settingState);
 
   const {
     navTheme = 'dark',
@@ -439,7 +440,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     value: string | boolean,
     hideMessageLoading?: boolean,
   ) => {
-    const nextState = { ...settingState };
+    const nextState = { ...preStateRef.current };
     nextState[key] = value;
 
     if (key === 'navTheme') {
@@ -464,6 +465,9 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     if (key === 'layout') {
       nextState.contentWidth = value === 'top' ? 'Fixed' : 'Fluid';
     }
+    if (key === 'layout' && value !== 'mix') {
+      nextState.splitMenus = false;
+    }
     if (key === 'layout' && value === 'mix') {
       nextState.navTheme = 'light';
     }
@@ -483,6 +487,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
       dom.style.filter = dom.dataset.prosettingdrawer || 'none';
       delete dom.dataset.prosettingdrawer;
     }
+    preStateRef.current = nextState;
     setSettingState(nextState);
   };
 
