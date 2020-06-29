@@ -88,7 +88,10 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
         }`}
       >
         {headerDom && (
-          <div className={`${baseClassName}-left`} onClick={onMenuHeaderClick}>
+          <div
+            className={`${baseClassName}-main-left`}
+            onClick={onMenuHeaderClick}
+          >
             <div className={`${baseClassName}-logo`} key="logo" id="logo">
               {headerDom}
             </div>

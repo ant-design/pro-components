@@ -43,7 +43,7 @@ const BlockCheckbox: React.FC<BlockCheckboxProps> = ({
       </div>
     ));
     setDom(domList);
-  }, [value]);
+  }, [value, list?.length]);
   return (
     <div
       className={baseClassName}

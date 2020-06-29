@@ -181,7 +181,7 @@ const updateTheme = (
   localStorage.setItem('site-theme', dark ? 'dark' : 'light');
 };
 
-const getThemeList = () => {
+const getThemeList = (settings: Partial<ProSettings>) => {
   const formatMessage = getFormatMessage();
   const list: {
     key: string;
@@ -197,15 +197,6 @@ const getThemeList = () => {
       url:
         'https://gw.alipayobjects.com/zos/antfincdn/NQ%24zoisaD2/jpRkZQMyYRryryPNtyIC.svg',
       title: formatMessage({ id: 'app.setting.pagestyle.light' }),
-    },
-    {
-      key: 'dark',
-      url:
-        'https://gw.alipayobjects.com/zos/antfincdn/XwFOFbLkSM/LCkqqYNmvBEbokSDscrm.svg',
-      title: formatMessage({
-        id: 'app.setting.pagestyle.dark',
-        defaultMessage: '',
-      }),
     },
   ];
 
@@ -232,6 +223,17 @@ const getThemeList = () => {
       theme: 'dark',
     },
   ];
+  if (settings.layout !== 'mix') {
+    themeList.push({
+      key: 'dark',
+      url:
+        'https://gw.alipayobjects.com/zos/antfincdn/XwFOFbLkSM/LCkqqYNmvBEbokSDscrm.svg',
+      title: formatMessage({
+        id: 'app.setting.pagestyle.dark',
+        defaultMessage: '',
+      }),
+    });
+  }
 
   if (list.find((item) => item.theme === 'dark')) {
     themeList.push({
@@ -244,6 +246,7 @@ const getThemeList = () => {
       }),
     });
   }
+
   // insert  theme color List
   list.forEach((item) => {
     const color = (item.modifyVars || {})['@primary-color'];
@@ -492,7 +495,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   };
 
   const formatMessage = getFormatMessage();
-  const themeList = getThemeList();
+  const themeList = getThemeList(settingState);
 
   useEffect(() => {
     /**
