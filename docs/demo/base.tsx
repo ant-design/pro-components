@@ -2,12 +2,16 @@ import React, { useState } from 'react';
 import ProLayout, {
   PageContainer,
   SettingDrawer,
+  ProSettings,
   // eslint-disable-next-line import/no-unresolved
 } from '@ant-design/pro-layout';
 import defaultProps from './defaultProps';
 
 export default () => {
-  const [settings, setSetting] = useState({});
+  const [settings, setSetting] = useState<Partial<ProSettings> | undefined>(
+    undefined,
+  );
+  const [pathname, setPathname] = useState('/welcome');
   return (
     <div
       id="test-pro-layout"
@@ -22,8 +26,17 @@ export default () => {
           height: 800,
         }}
         location={{
-          pathname: '/welcome',
+          pathname,
         }}
+        menuItemRender={(item, dom) => (
+          <a
+            onClick={() => {
+              setPathname(item.path || '/welcome');
+            }}
+          >
+            {dom}
+          </a>
+        )}
         rightContentRender={() => 'dom'}
         {...settings}
       >
@@ -40,7 +53,7 @@ export default () => {
       <SettingDrawer
         getContainer={() => document.getElementById('test-pro-layout')}
         settings={settings}
-        onSettingChange={setSetting}
+        onSettingChange={(changeSetting) => setSetting(changeSetting)}
       />
     </div>
   );
