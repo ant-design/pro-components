@@ -1,4 +1,4 @@
-import { Progress, Input, InputNumber } from 'antd';
+import { Progress, InputNumber } from 'antd';
 import { FieldFC } from '../../index';
 
 export function getProgressStatus(

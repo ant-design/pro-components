@@ -10,16 +10,21 @@
     "url": "https://github.com/ant-design/pro-components"
   },
   "license": "MIT",
-  "types": "lib/types/index.d.ts",
   "files": [
+    "es",
     "lib",
     "src"
   ],
   "author": "chenshuai2144",
   "dependencies": {
-    "@types/lodash.tonumber": "^4.0.6",
     "antd": "^4.3.5",
+    "lodash.isequal": "^4.5.0",
     "lodash.tonumber": "^4.0.3",
-    "moment": "^2.27.0"
+    "moment": "^2.27.0",
+    "rc-table": "^7.8.1"
+  },
+  "devDependencies": {
+    "@types/lodash.isequal": "^4.5.5",
+    "@types/lodash.tonumber": "^4.0.6"
   }
 }

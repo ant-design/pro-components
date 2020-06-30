@@ -9,7 +9,24 @@ import React, {
 import isEqual from 'lodash.isequal';
 import { DataIndex } from 'rc-table/lib/interface';
 import TableStatus, { StatusType } from './status';
-import { valueEnumObj, valueEnumMap } from '../Table';
+
+export type ValueEnumObj = {
+  [key: string]:
+    | {
+        text: ReactNode;
+        status: StatusType;
+      }
+    | ReactNode;
+};
+
+export type ValueEnumMap = Map<
+  React.ReactText,
+  | {
+      text: ReactNode;
+      status: StatusType;
+    }
+  | ReactNode
+>;
 
 /**
  * 转化 text 和 valueEnum
@@ -20,7 +37,7 @@ import { valueEnumObj, valueEnumMap } from '../Table';
  */
 export const parsingText = (
   text: string | number,
-  valueEnum?: valueEnumMap,
+  valueEnum?: ValueEnumMap,
   pure?: boolean,
 ) => {
   if (!valueEnum) {
@@ -53,7 +70,7 @@ export const parsingText = (
  * @param valueEnum
  */
 export const parsingValueEnumToArray = (
-  valueEnum: valueEnumMap | undefined = new Map(),
+  valueEnum: ValueEnumMap | undefined = new Map(),
 ): {
   value: string | number;
   text: string;
@@ -281,13 +298,13 @@ function getType(obj: any) {
 }
 
 export const ObjToMap = (
-  value: valueEnumObj | valueEnumMap | undefined,
-): valueEnumMap | undefined => {
+  value: ValueEnumObj | ValueEnumMap | undefined,
+): ValueEnumMap | undefined => {
   if (!value) {
     return value;
   }
   if (getType(value) === 'map') {
-    return value as valueEnumMap;
+    return value as ValueEnumMap;
   }
   return new Map(Object.entries(value));
 };

@@ -3,7 +3,6 @@
     "target": "esnext",
     "moduleResolution": "node",
     "jsx": "preserve",
-    "allowJs": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "strict": true,
@@ -18,6 +17,7 @@
     "jest.config.js",
     "**/*.spec.ts",
     "**/lib",
+    "**/es",
     "**/scripts",
     "fixtures",
     "examples"

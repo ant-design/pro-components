@@ -9,8 +9,11 @@ const tailPkgs = readdirSync(join(__dirname, 'packages')).filter(
 );
 
 export default {
-  target: 'node',
   cjs: { type: 'babel', lazy: true },
+  esm: {
+    type: 'babel',
+    importLibToEs: true,
+  },
   disableTypeCheck: true,
   pkgs: [...headPkgs, ...tailPkgs],
   extraBabelPlugins: [

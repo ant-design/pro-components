@@ -7,8 +7,7 @@ const headPkgs = [];
 
 const tailPkgs = readdirSync(join(__dirname, 'packages'))
   .filter(pkg => pkg.charAt(0) !== '.' && !headPkgs.includes(pkg))
-  .map(path => join(path, 'src'));
-
+  .map(path => join('packages', path, 'src'));
 export default {
   title: 'ProComponent',
   mode: 'site',
