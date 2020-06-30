@@ -46,7 +46,7 @@ export type ProSettings = PureSettings & RenderSetting;
 
 const defaultSettings: ProSettings = {
   navTheme: 'dark',
-  layout: 'mix',
+  layout: 'side',
   contentWidth: 'Fluid',
   fixedHeader: false,
   fixSiderbar: false,
