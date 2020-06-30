@@ -3073,7 +3073,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                                 <span
                                   class="ant-select-selection-item"
                                 >
-                                  定宽
+                                  流式
                                 </span>
                               </div>
                               <span
