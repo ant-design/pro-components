@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/from",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "description": "@ant-design/from",
   "keywords": [
     "umi"
@@ -19,7 +19,7 @@
     "src"
   ],
   "dependencies": {
-    "@ant-design/pro-field": "^0.0.4"
+    "@ant-design/pro-field": "0.0.5"
   },
   "peerDependencies": {
     "umi": "3.x"
