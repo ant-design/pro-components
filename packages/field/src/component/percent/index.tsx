@@ -58,15 +58,23 @@ const FieldPercent: FieldFC<PercentPropInt> = ({
         dom,
       );
     }
+    return dom;
   }
   if (type === 'edit' || type === 'update') {
+    const realValue = useMemo(
+      () =>
+        typeof text === 'string' && (text as string).includes('%')
+          ? toNumber((text as string).replace('%', ''))
+          : toNumber(text),
+      [text],
+    );
     const dom = (
       <InputNumber
         formatter={value => {
-          if (value) {
+          if (value && prefix) {
             return `${prefix} ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
           }
-          return '';
+          return value;
         }}
         parser={value =>
           value
@@ -74,9 +82,10 @@ const FieldPercent: FieldFC<PercentPropInt> = ({
             : ''
         }
         {...formItemProps}
-        defaultValue={text}
+        defaultValue={realValue}
       />
     );
+    return dom;
   }
   return null;
 };

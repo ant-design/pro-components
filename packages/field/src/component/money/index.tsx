@@ -63,6 +63,7 @@ const FieldMoney: FieldFC<{
   if (type === 'edit' || type === 'update') {
     const dom = (
       <InputNumber
+        defaultValue={text}
         min={0}
         precision={2}
         formatter={value => {

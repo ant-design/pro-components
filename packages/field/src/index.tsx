@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { Avatar } from 'antd';
+import { Avatar, DatePicker } from 'antd';
 import moment from 'moment';
 import Percent from './component/percent';
 import IndexColumn from './component/indexColumn';
@@ -141,24 +141,11 @@ const defaultRenderTextByObject = (
  * @param text
  * @param valueType
  */
-const defaultRenderText = <T, U>(
+const defaultRenderText = (
   text: string | number | React.ReactText[],
-  valueType: ProColumnsValueType | ProColumnsValueTypeFunction<T>,
-  item?: T,
+  valueType: ProColumnsValueType,
   props: RenderProps = { type: 'read', emptyText: '-' },
 ): React.ReactNode => {
-  // when valueType == function
-  // item always not null
-  if (typeof valueType === 'function' && item) {
-    const value = valueType(item);
-    if (typeof value === 'string') {
-      return defaultRenderText(text, value);
-    }
-    if (typeof value === 'object') {
-      return defaultRenderTextByObject(text as string, value);
-    }
-  }
-
   /**
    * 如果是金额的值
    */
@@ -184,6 +171,13 @@ const defaultRenderText = <T, U>(
   ) {
     // 值不存在的时候显示 "-"
     const [startText, endText] = text;
+    if (props.type === 'edit') {
+      return (
+        <DatePicker.RangePicker
+          defaultValue={[moment(startText), moment(endText)]}
+        />
+      );
+    }
     return (
       <div>
         <div>{startText ? moment(startText).format('YYYY-MM-DD') : '-'}</div>
@@ -196,6 +190,9 @@ const defaultRenderText = <T, U>(
    *如果是日期加时间类型的值
    */
   if (valueType === 'dateTime' && text) {
+    if (props.type === 'edit') {
+      return <DatePicker defaultValue={moment(text)} />;
+    }
     return moment(text).format('YYYY-MM-DD HH:mm:ss');
   }
 
@@ -210,6 +207,14 @@ const defaultRenderText = <T, U>(
   ) {
     // 值不存在的时候显示 "-"
     const [startText, endText] = text;
+    if (props.type === 'edit') {
+      return (
+        <DatePicker.RangePicker
+          showTime
+          defaultValue={[moment(startText), moment(endText)]}
+        />
+      );
+    }
     return (
       <div>
         <div>
@@ -275,4 +280,13 @@ const defaultRenderText = <T, U>(
   return text;
 };
 
-export default defaultRenderText;
+export { defaultRenderText };
+
+const Field: React.FC<{
+  text: string | number | React.ReactText[];
+  valueType: ProColumnsValueType;
+} & RenderProps> = ({ text, valueType, ...rest }) => {
+  return <>{defaultRenderText(text, valueType, rest)}</>;
+};
+
+export default Field;

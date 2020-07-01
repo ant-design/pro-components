@@ -1,5 +1,7 @@
 import { Progress, InputNumber } from 'antd';
 import { FieldFC } from '../../index';
+import toNumber from 'lodash.tonumber';
+import { useMemo } from 'react';
 
 export function getProgressStatus(
   text: number,
@@ -22,24 +24,32 @@ export function getProgressStatus(
 }
 
 const FieldProgress: FieldFC<{
-  text: number;
+  text: number | string;
 }> = ({ text, type, render, renderFormItem, formItemProps }) => {
+  const realValue = useMemo(
+    () =>
+      typeof text === 'string' && (text as string).includes('%')
+        ? toNumber((text as string).replace('%', ''))
+        : toNumber(text),
+    [text],
+  );
   if (type === 'read') {
     const dom = (
       <Progress
         size="small"
-        percent={text}
-        status={getProgressStatus(text as number)}
+        style={{ minWidth: 100 }}
+        percent={30}
+        status={getProgressStatus(realValue as number)}
         {...formItemProps}
       />
     );
     if (render) {
-      return render(text, { type, ...formItemProps }, dom);
+      return render(realValue, { type, ...formItemProps }, dom);
     }
     return dom;
   }
   if (type === 'edit' || type === 'update') {
-    const dom = <InputNumber {...formItemProps} defaultValue={text} />;
+    const dom = <InputNumber {...formItemProps} defaultValue={realValue} />;
     if (renderFormItem) {
       return renderFormItem(text, { type, ...formItemProps }, dom);
     }
