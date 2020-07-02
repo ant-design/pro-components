@@ -1,6 +1,6 @@
 ---
 name: '报告Bug 🐛'
-about: 报告 Ant Design Pro Table 的 bug
+about: 报告 Ant Design Pro List 的 bug
 title: '🐛[BUG]'
 labels: '🐛 BUG'
 assignees: ''

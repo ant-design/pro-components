@@ -1,6 +1,6 @@
 ---
 name: '疑问或需要帮助 ❓'
-about: 对 Ant Design Pro Table 使用的疑问或需要帮助
+about: 对 Ant Design Pro List 使用的疑问或需要帮助
 title: '🧐[问题]'
 labels: '🧐 Question'
 assignees: ''
