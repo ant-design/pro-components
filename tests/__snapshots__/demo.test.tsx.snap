@@ -24,7 +24,7 @@ exports[`ProList render base.tsx should match snapshot  1`] = `
           class="ant-pro-list-toolbar-option"
         >
           <div
-            class="ant-space ant-space-horizontal"
+            class="ant-space ant-space-horizontal ant-space-align-center"
           >
             <div
               class="ant-space-item"
@@ -432,7 +432,7 @@ exports[`ProList render complex.tsx should match snapshot  1`] = `
           class="ant-pro-list-toolbar-option"
         >
           <div
-            class="ant-space ant-space-horizontal"
+            class="ant-space ant-space-horizontal ant-space-align-center"
           >
             <div
               class="ant-space-item"
@@ -1320,7 +1320,7 @@ exports[`ProList render expand.tsx should match snapshot  1`] = `
           class="ant-pro-list-toolbar-option"
         >
           <div
-            class="ant-space ant-space-horizontal"
+            class="ant-space ant-space-horizontal ant-space-align-center"
           >
             <div
               class="ant-space-item"
@@ -1976,7 +1976,7 @@ exports[`ProList render group.tsx should match snapshot  1`] = `
           class="ant-pro-list-toolbar-option"
         >
           <div
-            class="ant-space ant-space-horizontal"
+            class="ant-space ant-space-horizontal ant-space-align-center"
           >
             <div
               class="ant-space-item"
@@ -2746,7 +2746,7 @@ exports[`ProList render headerRender.tsx should match snapshot  1`] = `
             class="ant-pro-list-toolbar-option"
           >
             <div
-              class="ant-space ant-space-horizontal"
+              class="ant-space ant-space-horizontal ant-space-align-center"
             >
               <div
                 class="ant-space-item"
@@ -2770,7 +2770,7 @@ exports[`ProList render headerRender.tsx should match snapshot  1`] = `
         >
           这是自定义的第二行: 基础列表
           <div
-            class="ant-space ant-space-horizontal"
+            class="ant-space ant-space-horizontal ant-space-align-center"
           >
             <div
               class="ant-space-item"
@@ -3202,7 +3202,7 @@ exports[`ProList render layout.tsx should match snapshot  1`] = `
           class="ant-pro-list-toolbar-option"
         >
           <div
-            class="ant-space ant-space-horizontal"
+            class="ant-space ant-space-horizontal ant-space-align-center"
           >
             <div
               class="ant-space-item"
@@ -4248,7 +4248,7 @@ exports[`ProList render selectedRow.tsx should match snapshot  1`] = `
           class="ant-pro-list-toolbar-option"
         >
           <div
-            class="ant-space ant-space-horizontal"
+            class="ant-space ant-space-horizontal ant-space-align-center"
           >
             <div
               class="ant-space-item"
@@ -4883,6 +4883,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          unselectable="on"
           value=""
         />
       </span>
@@ -4900,7 +4901,7 @@ Array [
     >
       <span
         aria-label="down"
-        class="anticon anticon-down"
+        class="anticon anticon-down ant-select-suffix"
         role="img"
       >
         <svg
@@ -4941,6 +4942,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          unselectable="on"
           value=""
         />
       </span>
@@ -4958,7 +4960,7 @@ Array [
     >
       <span
         aria-label="down"
-        class="anticon anticon-down"
+        class="anticon anticon-down ant-select-suffix"
         role="img"
       >
         <svg
@@ -4999,6 +5001,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          unselectable="on"
           value=""
         />
       </span>
@@ -5016,7 +5019,7 @@ Array [
     >
       <span
         aria-label="down"
-        class="anticon anticon-down"
+        class="anticon anticon-down ant-select-suffix"
         role="img"
       >
         <svg
@@ -5061,7 +5064,7 @@ Array [
             class="ant-pro-list-toolbar-option"
           >
             <div
-              class="ant-space ant-space-horizontal"
+              class="ant-space ant-space-horizontal ant-space-align-center"
             >
               <div
                 class="ant-space-item"
@@ -5934,7 +5937,7 @@ exports[`ProList render special.tsx should match snapshot  1`] = `
           class="ant-pro-list-toolbar-option"
         >
           <div
-            class="ant-space ant-space-horizontal"
+            class="ant-space ant-space-horizontal ant-space-align-center"
           >
             <div
               class="ant-space-item"

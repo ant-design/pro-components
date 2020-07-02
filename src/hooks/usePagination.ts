@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { PaginationProps, PaginationConfig } from 'antd/es/pagination';
-import { TablePaginationConfig } from 'antd/es/table/interface';
 
 export const DEFAULT_PAGE_SIZE = 10;
 
@@ -14,7 +13,7 @@ export function getPaginationParam(
   };
   const paginationObj = pagination && typeof pagination === 'object' ? pagination : {};
 
-  Object.keys(paginationObj).forEach(pageProp => {
+  Object.keys(paginationObj).forEach((pageProp) => {
     const value = (mergedPagination as any)[pageProp];
 
     if (typeof value !== 'function') {
@@ -27,13 +26,13 @@ export function getPaginationParam(
 
 export default function usePagination(
   total: number,
-  pagination: TablePaginationConfig | false | undefined,
+  pagination: PaginationConfig | false | undefined,
   onChange: (current: number, pageSize: number) => void,
-): [TablePaginationConfig, () => void] {
+): [PaginationConfig, () => void] {
   const { total: paginationTotal = 0, ...paginationObj } =
     pagination && typeof pagination === 'object' ? pagination : {};
 
-  const [innerPagination, setInnerPagination] = useState<TablePaginationConfig>(() => {
+  const [innerPagination, setInnerPagination] = useState<PaginationConfig>(() => {
     return {
       current: 'defaultCurrent' in paginationObj ? paginationObj.defaultCurrent : 1,
       pageSize:
