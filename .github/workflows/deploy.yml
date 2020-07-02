@@ -1,0 +1,26 @@
+name: Deploy CI
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      - run: yarn
+      - run: yarn run lint
+      # - run: yarn run tsc
+      - name: Build and Deploy
+        uses: JamesIves/github-pages-deploy-action@master
+        env:
+          CI: true
+          GIT_CONFIG_NAME: qixian.cs
+          GIT_CONFIG_EMAIL: qixian.cs@outlook.com
+          NODE_OPTIONS: --max_old_space_size=4096
+          GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: 'dist/'
+          BUILD_SCRIPT: yarn && npm uninstall husky && npm run site_build && git checkout . && git clean -df
