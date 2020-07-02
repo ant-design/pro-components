@@ -189,7 +189,7 @@ exports[`settingDrawer.test base user 1`] = `
                               >
                                 <span
                                   aria-label="down"
-                                  class="anticon anticon-down"
+                                  class="anticon anticon-down ant-select-suffix"
                                   role="img"
                                 >
                                   <svg
@@ -750,7 +750,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                               >
                                 <span
                                   aria-label="down"
-                                  class="anticon anticon-down"
+                                  class="anticon anticon-down ant-select-suffix"
                                   role="img"
                                 >
                                   <svg
@@ -1349,7 +1349,7 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                               >
                                 <span
                                   aria-label="down"
-                                  class="anticon anticon-down"
+                                  class="anticon anticon-down ant-select-suffix"
                                   role="img"
                                 >
                                   <svg
@@ -1920,7 +1920,7 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                               >
                                 <span
                                   aria-label="down"
-                                  class="anticon anticon-down"
+                                  class="anticon anticon-down ant-select-suffix"
                                   role="img"
                                 >
                                   <svg
@@ -2485,7 +2485,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                               >
                                 <span
                                   aria-label="down"
-                                  class="anticon anticon-down"
+                                  class="anticon anticon-down ant-select-suffix"
                                   role="img"
                                 >
                                   <svg
@@ -3084,7 +3084,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                               >
                                 <span
                                   aria-label="down"
-                                  class="anticon anticon-down"
+                                  class="anticon anticon-down ant-select-suffix"
                                   role="img"
                                 >
                                   <svg

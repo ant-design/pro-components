@@ -33,6 +33,7 @@ import PageLoading from './PageLoading';
 import MenuCounter from './SiderMenu/Counter';
 import WrapContent from './WrapContent';
 import { useDocumentTitle } from './utils/hooks';
+import compatibleLayout from './utils/compatibleLayout';
 
 export type BasicLayoutProps = Partial<RouterTypes<Route>> &
   SiderMenuProps &
@@ -197,10 +198,10 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     fixSiderbar,
     navTheme,
     contentStyle,
-    layout: PropsLayout,
     route = {
       routes: [],
     },
+    layout: defaultPropsLayout,
     style,
     disableContentMargin,
     siderWidth = 208,
@@ -210,6 +211,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     loading,
     ...rest
   } = props;
+  const propsLayout = compatibleLayout(defaultPropsLayout);
   const { prefixCls } = rest;
   const formatMessage = ({
     id,
@@ -290,7 +292,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
 
   // If it is a fix menu, calculate padding
   // don't need padding in phone mode
-  const hasLeftPadding = fixSiderbar && PropsLayout !== 'top' && !isMobile;
+  const hasLeftPadding = fixSiderbar && propsLayout !== 'top' && !isMobile;
 
   const [collapsed, onCollapse] = useMergeValue<boolean>(false, {
     value: props.collapsed,
@@ -303,6 +305,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
       ...props,
       formatMessage,
       breadcrumb,
+      layout: compatibleLayout(props.layout) as 'side',
     },
     ['className', 'style'],
   );
@@ -373,7 +376,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     baseClassName,
     {
       [`screen-${colSize}`]: colSize,
-      [`${baseClassName}-top-menu`]: PropsLayout === 'top',
+      [`${baseClassName}-top-menu`]: propsLayout === 'top',
       [`${baseClassName}-is-children`]: isChildrenLayout,
       [`${baseClassName}-fix-siderbar`]: fixSiderbar,
       [`${baseClassName}-mobile`]: isMobile,

@@ -24,6 +24,7 @@ export default () => {
         {...defaultProps}
         style={{
           height: 800,
+          maxHeight: '100vh',
         }}
         location={{
           pathname,
