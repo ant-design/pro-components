@@ -20,7 +20,7 @@ import {
 } from './typings';
 import { getPageTitleInfo, GetPageTitleProps } from './getPageTitle';
 import defaultSettings, { PureSettings } from './defaultSettings';
-import getLocales, { localeType } from './locales';
+import getLocales, { LocaleType } from './locales';
 import { BaseMenuProps } from './SiderMenu/BaseMenu';
 import Footer from './Footer';
 import RouteContext from './RouteContext';
@@ -52,7 +52,7 @@ export type BasicLayoutProps = Partial<RouterTypes<Route>> &
 
     loading?: boolean;
 
-    locale?: localeType;
+    locale?: LocaleType;
 
     onCollapse?: (collapsed: boolean) => void;
 

@@ -15,7 +15,7 @@ interface GLocaleWindow {
   g_locale: keyof typeof locales;
 }
 
-export type localeType = keyof typeof locales;
+export type LocaleType = keyof typeof locales;
 
 const getLanguage = (): string => {
   let lang;
@@ -34,7 +34,7 @@ const getLanguage = (): string => {
 export { getLanguage };
 
 export default (
-  locale?: localeType,
+  locale?: LocaleType,
 ): {
   [key: string]: string;
 } => {

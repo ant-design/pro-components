@@ -9,7 +9,7 @@ import GridContent from '../GridContent';
 import FooterToolbar from '../FooterToolbar';
 
 export interface PageHeaderTabConfig {
-  tabList?: TabPaneProps[];
+  tabList?: (TabPaneProps & { key?: React.ReactText })[];
   tabActiveKey?: TabsProps['activeKey'];
   onTabChange?: TabsProps['onChange'];
   tabBarExtraContent?: TabsProps['tabBarExtraContent'];
@@ -60,7 +60,7 @@ const renderFooter: React.SFC<Omit<
       >
         {tabList.map((item, index) => (
           // eslint-disable-next-line react/no-array-index-key
-          <Tabs.TabPane {...item} tab={item.tab} key={index} />
+          <Tabs.TabPane {...item} tab={item.tab} key={item.key || index} />
         ))}
       </Tabs>
     );
