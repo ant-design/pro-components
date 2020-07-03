@@ -9,10 +9,11 @@ import SettingDrawer, {
 import DefaultFooter, { FooterProps } from './Footer';
 import GridContent from './GridContent';
 import PageContainer from './PageContainer';
-import RouteContext from './RouteContext';
+import RouteContext, { RouteContextType } from './RouteContext';
 import getMenuData from './utils/getMenuData';
 import getPageTitle from './getPageTitle';
 import PageLoading from './PageLoading';
+import FooterToolbar from './FooterToolbar';
 
 export type { ProSettings as Settings, ProSettings } from './defaultSettings';
 
@@ -33,12 +34,14 @@ export {
   PageHeaderWrapper,
   getMenuData,
   PageContainer,
+  FooterToolbar,
 };
 
 export type {
   FooterProps,
   TopNavHeaderProps,
   BasicLayoutProps,
+  RouteContextType,
   HeaderProps,
   SettingDrawerProps,
   SettingDrawerState,

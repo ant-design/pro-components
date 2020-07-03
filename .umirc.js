@@ -19,5 +19,6 @@ export default {
       path: 'https://github.com/ant-design/ant-design-pro-layout',
     },
   ],
+  dynamicImport: {},
   hash: true,
 };

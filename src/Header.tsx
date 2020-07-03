@@ -107,6 +107,7 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
             style={{
               height: 48,
               lineHeight: '48px',
+              background: 'transparent',
             }}
           />
         )}

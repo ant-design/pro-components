@@ -47,7 +47,7 @@ export const defaultRenderLogoAndTitle = (
   }
 
   return (
-    <a href="/">
+    <a>
       {logoDom}
       {props.collapsed ? null : titleDom}
     </a>
@@ -108,95 +108,106 @@ const SiderMenu: React.FC<SiderMenuProps> = (props) => {
   const extraDom = menuExtraRender && menuExtraRender(props);
 
   return (
-    <Sider
-      collapsible
-      trigger={null}
-      collapsed={collapsed}
-      breakpoint={breakpoint === false ? undefined : breakpoint}
-      onCollapse={(collapse) => {
-        if (!isMobile) {
-          if (onCollapse) {
-            onCollapse(collapse);
+    <>
+      {fixSiderbar && (
+        <div
+          style={{
+            width: collapsed ? 48 : siderWidth,
+            overflow: 'hidden',
+            ...style,
+          }}
+        />
+      )}
+      <Sider
+        collapsible
+        trigger={null}
+        collapsed={collapsed}
+        breakpoint={breakpoint === false ? undefined : breakpoint}
+        onCollapse={(collapse) => {
+          if (!isMobile) {
+            if (onCollapse) {
+              onCollapse(collapse);
+            }
           }
-        }
-      }}
-      collapsedWidth={48}
-      style={{
-        overflow: 'hidden',
-        ...style,
-      }}
-      width={siderWidth}
-      theme={theme}
-      className={siderClassName}
-    >
-      {headerDom && (
-        <div
-          className={`${baseClassName}-logo`}
-          onClick={onMenuHeaderClick}
-          id="logo"
-        >
-          {headerDom}
-        </div>
-      )}
-      {extraDom && (
-        <div
-          className={`${baseClassName}-extra ${
-            !headerDom && `${baseClassName}-extra-no-logo`
-          }`}
-        >
-          {extraDom}
-        </div>
-      )}
-      <div
-        style={{
-          flex: 1,
-          overflowY: 'auto',
-          overflowX: 'hidden',
         }}
+        collapsedWidth={48}
+        style={{
+          overflow: 'hidden',
+          ...style,
+        }}
+        width={siderWidth}
+        theme={theme}
+        className={siderClassName}
       >
-        {flatMenuKeys && (
-          <BaseMenu
-            {...props}
-            mode="inline"
-            handleOpenChange={onOpenChange}
-            style={{
-              width: '100%',
-            }}
-            className={`${baseClassName}-menu`}
-          />
+        {headerDom && (
+          <div
+            className={`${baseClassName}-logo`}
+            onClick={onMenuHeaderClick}
+            id="logo"
+          >
+            {headerDom}
+          </div>
         )}
-      </div>
-      <div className={`${baseClassName}-links`}>
-        <Menu
-          theme={theme}
-          inlineIndent={16}
-          className={`${baseClassName}-link-menu`}
-          selectedKeys={[]}
-          openKeys={[]}
-          mode="inline"
+        {extraDom && (
+          <div
+            className={`${baseClassName}-extra ${
+              !headerDom && `${baseClassName}-extra-no-logo`
+            }`}
+          >
+            {extraDom}
+          </div>
+        )}
+        <div
+          style={{
+            flex: 1,
+            overflowY: 'auto',
+            overflowX: 'hidden',
+          }}
         >
-          {(links || []).map((node, index) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <Menu.Item className={`${baseClassName}-link`} key={index}>
-              {node}
-            </Menu.Item>
-          ))}
-          {collapsedButtonRender && !isMobile && (
-            <Menu.Item
-              className={`${baseClassName}-collapsed-button`}
-              title={false}
-              onClick={() => {
-                if (onCollapse) {
-                  onCollapse(!collapsed);
-                }
+          {flatMenuKeys && (
+            <BaseMenu
+              {...props}
+              mode="inline"
+              handleOpenChange={onOpenChange}
+              style={{
+                width: '100%',
               }}
-            >
-              {collapsedButtonRender(collapsed)}
-            </Menu.Item>
+              className={`${baseClassName}-menu`}
+            />
           )}
-        </Menu>
-      </div>
-    </Sider>
+        </div>
+        <div className={`${baseClassName}-links`}>
+          <Menu
+            theme={theme}
+            inlineIndent={16}
+            className={`${baseClassName}-link-menu`}
+            selectedKeys={[]}
+            openKeys={[]}
+            mode="inline"
+          >
+            {(links || []).map((node, index) => (
+              // eslint-disable-next-line react/no-array-index-key
+              <Menu.Item className={`${baseClassName}-link`} key={index}>
+                {node}
+              </Menu.Item>
+            ))}
+            {collapsedButtonRender && !isMobile && (
+              <Menu.Item
+                className={`${baseClassName}-collapsed-button`}
+                title={false}
+                onClick={() => {
+                  if (onCollapse) {
+                    onCollapse(!collapsed);
+                  }
+                }}
+              >
+                {collapsedButtonRender(collapsed)}
+              </Menu.Item>
+            )}
+          </Menu>
+        </div>
+      </Sider>
+    </>
   );
 };
 

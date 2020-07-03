@@ -6,6 +6,7 @@ import ProLayout, {
   // eslint-disable-next-line import/no-unresolved
 } from '@ant-design/pro-layout';
 import defaultProps from './defaultProps';
+import { Button, Result } from 'antd';
 
 export default () => {
   const [settings, setSetting] = useState<Partial<ProSettings> | undefined>(
@@ -41,13 +42,25 @@ export default () => {
         rightContentRender={() => 'dom'}
         {...settings}
       >
-        <PageContainer content="欢迎使用">
+        <PageContainer
+          content="欢迎使用"
+          footer={[<Button>重置</Button>, <Button type="primary">提交</Button>]}
+        >
           <div
             style={{
               height: '120vh',
             }}
           >
-            Hello World
+            <Result
+              status="404"
+              style={{
+                height: '100%',
+                background: '#fff',
+              }}
+              title="Hello World"
+              subTitle="Sorry, you are not authorized to access this page."
+              extra={<Button type="primary">Back Home</Button>}
+            />
           </div>
         </PageContainer>
       </ProLayout>

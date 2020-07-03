@@ -19,9 +19,7 @@ exports[`BasicLayout base use 1`] = `
           class="ant-pro-sider-logo"
           id="logo"
         >
-          <a
-            href="/"
-          >
+          <a>
             <img
               alt="logo"
               src="https://gw.alipayobjects.com/zos/antfincdn/PmY%24TNNDBI/logo.svg"
@@ -178,9 +176,7 @@ exports[`BasicLayout content is text 1`] = `
           class="ant-pro-sider-logo"
           id="logo"
         >
-          <a
-            href="/"
-          >
+          <a>
             <img
               alt="logo"
               src="https://gw.alipayobjects.com/zos/antfincdn/PmY%24TNNDBI/logo.svg"

@@ -9,7 +9,15 @@ export interface RouteContextType extends Partial<PureSettings> {
   isMobile?: boolean;
   prefixCls?: string;
   collapsed?: boolean;
+  hasSiderMenu?: boolean;
+  hasHeader?: boolean;
+  siderWidth?: number;
   isChildrenLayout?: boolean;
+  pageTitleInfo?: {
+    title: string;
+    id: string;
+    pageName: string;
+  };
 }
 
 const routeContext: React.Context<RouteContextType> = createContext({});

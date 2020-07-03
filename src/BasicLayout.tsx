@@ -182,7 +182,7 @@ const getPaddingLeft = (
   if (hasLeftPadding) {
     return collapsed ? 48 : siderWidth;
   }
-  return undefined;
+  return 0;
 };
 
 /**
@@ -292,7 +292,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
 
   // If it is a fix menu, calculate padding
   // don't need padding in phone mode
-  const hasLeftPadding = fixSiderbar && propsLayout !== 'top' && !isMobile;
+  const hasLeftPadding = propsLayout !== 'top' && !isMobile;
 
   const [collapsed, onCollapse] = useMergeValue<boolean>(false, {
     value: props.collapsed,
@@ -383,11 +383,17 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     },
   );
 
+  /**
+   * 计算 slider 的宽度
+   */
+  const leftSiderWidth = getPaddingLeft(
+    !!hasLeftPadding,
+    collapsed,
+    siderWidth,
+  );
+
   // siderMenuDom 为空的时候，不需要 padding
   const genLayoutStyle: CSSProperties = {
-    paddingLeft: siderMenuDom
-      ? getPaddingLeft(!!hasLeftPadding, collapsed, siderWidth)
-      : undefined,
     position: 'relative',
   };
 
@@ -424,6 +430,10 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
           collapsed,
           isChildrenLayout: true,
           title: pageTitleInfo.pageName,
+          hasSiderMenu: !!siderMenuDom,
+          hasHeader: !!headerDom,
+          siderWidth: leftSiderWidth,
+          pageTitleInfo,
         }}
       >
         <div className={className}>

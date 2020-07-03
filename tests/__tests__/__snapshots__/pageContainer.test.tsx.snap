@@ -1,0 +1,215 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageContainer ⚡️ support footer 1`] = `
+<div
+  class="ant-pro-page-container"
+>
+  <div
+    class="ant-pro-page-container-warp"
+  >
+    <div
+      class="ant-page-header ant-page-header-ghost"
+    >
+      <div
+        class="ant-page-header-heading"
+      >
+        <div
+          class="ant-page-header-heading-left"
+        >
+          <span
+            class="ant-page-header-heading-title"
+            title="期贤"
+          >
+            期贤
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-pro-grid-content"
+  >
+    <div
+      class="ant-pro-grid-content-children"
+    />
+  </div>
+  <div
+    class="ant-pro-footer-bar"
+  >
+    <div
+      class="ant-pro-footer-bar-left"
+    />
+    <div
+      class="ant-pro-footer-bar-right"
+    >
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center"
+      >
+        <div
+          class="ant-space-item"
+        >
+          <button
+            type="button"
+          >
+            right
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PageContainer 💄 base use 1`] = `
+<div
+  class="ant-pro-page-container"
+>
+  <div
+    class="ant-pro-page-container-warp"
+  >
+    <div
+      class="ant-page-header ant-page-header-ghost"
+    >
+      <div
+        class="ant-page-header-heading"
+      >
+        <div
+          class="ant-page-header-heading-left"
+        >
+          <span
+            class="ant-page-header-heading-title"
+            title="期贤"
+          >
+            期贤
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-pro-grid-content"
+  >
+    <div
+      class="ant-pro-grid-content-children"
+    />
+  </div>
+</div>
+`;
+
+exports[`PageContainer 🔥 footer bar support extra 1`] = `
+<div
+  class="qixian_footer ant-pro-footer-bar"
+>
+  <div
+    class="ant-pro-footer-bar-left"
+  >
+    <img
+      alt="logo"
+      src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+    />
+  </div>
+  <div
+    class="ant-pro-footer-bar-right"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <button
+          type="button"
+        >
+          right
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PageContainer 🔥 footer bar support renderContent 1`] = `
+<div
+  class="qixian_footer ant-pro-footer-bar"
+>
+  home_toolbar
+</div>
+`;
+
+exports[`PageContainer 🔥 support footer 1`] = `
+<div
+  class="ant-pro-page-container"
+>
+  <div
+    class="ant-pro-page-container-warp"
+  >
+    <div
+      class="ant-page-header has-breadcrumb ant-page-header-ghost"
+    >
+      <div
+        class="ant-breadcrumb"
+      >
+        <span>
+          <span
+            class="ant-breadcrumb-link"
+          >
+            <span>
+              home
+            </span>
+          </span>
+          <span
+            class="ant-breadcrumb-separator"
+          >
+            /
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-page-header-heading"
+      >
+        <div
+          class="ant-page-header-heading-left"
+        >
+          <span
+            class="ant-page-header-heading-title"
+            title="期贤"
+          >
+            期贤
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-pro-grid-content"
+  >
+    <div
+      class="ant-pro-grid-content-children"
+    />
+  </div>
+  <div
+    class="ant-pro-footer-bar"
+  >
+    <div
+      class="ant-pro-footer-bar-left"
+    />
+    <div
+      class="ant-pro-footer-bar-right"
+    >
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center"
+      >
+        <div
+          class="ant-space-item"
+        >
+          <button
+            type="button"
+          >
+            right
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

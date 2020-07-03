@@ -1,11 +1,12 @@
 import { PageHeader, Tabs } from 'antd';
-import React, { useContext } from 'react';
+import React, { useContext, ReactNode } from 'react';
 import classNames from 'classnames';
 import { TabsProps, TabPaneProps } from 'antd/es/tabs';
 import { PageHeaderProps } from 'antd/es/page-header';
 import './index.less';
 import RouteContext, { RouteContextType } from '../RouteContext';
 import GridContent from '../GridContent';
+import FooterToolbar from '../FooterToolbar';
 
 export interface PageHeaderTabConfig {
   tabList?: TabPaneProps[];
@@ -22,6 +23,7 @@ export interface PageContainerProps
   content?: React.ReactNode;
   extraContent?: React.ReactNode;
   prefixCls?: string;
+  footer?: ReactNode[];
   pageHeaderRender?: (props: PageContainerProps) => React.ReactNode;
 }
 
@@ -102,6 +104,7 @@ const defaultPageHeaderRender = (
     pageHeaderRender,
     extraContent,
     style,
+
     prefixCls,
     ...restProps
   } = props;
@@ -129,8 +132,8 @@ const defaultPageHeaderRender = (
   );
 };
 
-const PageContainer: React.SFC<PageContainerProps> = (props) => {
-  const { children, style, prefixCls = 'ant-pro' } = props;
+const PageContainer: React.FC<PageContainerProps> = (props) => {
+  const { children, style, footer, prefixCls = 'ant-pro' } = props;
   const value = useContext(RouteContext);
 
   const prefixedClassName = `${prefixCls}-page-container`;
@@ -148,11 +151,22 @@ const PageContainer: React.SFC<PageContainerProps> = (props) => {
       </div>
       <GridContent>
         {children ? (
-          <div className={`${prefixedClassName}-children-content`}>
-            {children}
+          <div>
+            <div className={`${prefixedClassName}-children-content`}>
+              {children}
+            </div>
+            {footer && (
+              <div
+                style={{
+                  height: 48,
+                  marginTop: 24,
+                }}
+              />
+            )}
           </div>
         ) : null}
       </GridContent>
+      {footer && <FooterToolbar>{footer}</FooterToolbar>}
     </div>
   );
 };

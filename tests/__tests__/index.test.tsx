@@ -481,16 +481,3 @@ describe('BasicLayout', () => {
     expect(dom.props()?.style?.width).toBe('100%');
   });
 });
-
-it('🥩 support disableAutoContentMinHeight', async () => {
-  const wrapper = mount<BasicLayoutProps>(
-    <BasicLayout
-      disableAutoContentMinHeight
-      location={{
-        pathname: '/',
-      }}
-    />,
-  );
-  await waitForComponentToPaint(wrapper);
-  expect(wrapper.render()).toMatchSnapshot();
-});
