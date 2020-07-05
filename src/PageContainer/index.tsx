@@ -24,6 +24,7 @@ export interface PageContainerProps
   extraContent?: React.ReactNode;
   prefixCls?: string;
   footer?: ReactNode[];
+  ghost?: boolean;
   pageHeaderRender?: (props: PageContainerProps) => React.ReactNode;
 }
 
@@ -101,10 +102,10 @@ const defaultPageHeaderRender = (
   const {
     title,
     content,
+    subTitle,
     pageHeaderRender,
     extraContent,
     style,
-
     prefixCls,
     ...restProps
   } = props;
@@ -133,12 +134,13 @@ const defaultPageHeaderRender = (
 };
 
 const PageContainer: React.FC<PageContainerProps> = (props) => {
-  const { children, style, footer, prefixCls = 'ant-pro' } = props;
+  const { children, style, footer, ghost, prefixCls = 'ant-pro' } = props;
   const value = useContext(RouteContext);
-
   const prefixedClassName = `${prefixCls}-page-container`;
 
-  const className = classNames(prefixedClassName, props.className);
+  const className = classNames(prefixedClassName, props.className, {
+    [`${prefixCls}-page-container-ghost`]: ghost,
+  });
 
   return (
     <div style={style} className={className}>

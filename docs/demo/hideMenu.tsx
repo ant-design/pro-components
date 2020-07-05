@@ -12,6 +12,7 @@ export default () => (
     location={{
       pathname: '/welcome',
     }}
+    collapsed
     menuRender={(props, dom) => (
       <div
         style={{

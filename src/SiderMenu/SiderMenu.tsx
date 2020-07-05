@@ -65,6 +65,9 @@ export interface SiderMenuProps
       props?: SiderMenuProps,
     ) => React.ReactNode
   >;
+  menuContentRender?: WithFalse<
+    (props: SiderMenuProps, defaultDom: React.ReactNode) => React.ReactNode
+  >;
   menuExtraRender?: WithFalse<(props: SiderMenuProps) => React.ReactNode>;
   collapsedButtonRender?: WithFalse<(collapsed?: boolean) => React.ReactNode>;
   breakpoint?: SiderProps['breakpoint'] | false;
@@ -94,6 +97,7 @@ const SiderMenu: React.FC<SiderMenuProps> = (props) => {
     menuExtraRender = false,
     collapsedButtonRender = defaultRenderCollapsedButton,
     links,
+    menuContentRender,
     prefixCls = 'ant-pro',
     onOpenChange,
   } = props;
@@ -104,9 +108,20 @@ const SiderMenu: React.FC<SiderMenuProps> = (props) => {
     [`${baseClassName}-layout-${layout}`]: layout && !isMobile,
     [`${baseClassName}-light`]: theme === 'light',
   });
+
   const headerDom = defaultRenderLogoAndTitle(props);
   const extraDom = menuExtraRender && menuExtraRender(props);
-
+  const menuDom = flatMenuKeys && (
+    <BaseMenu
+      {...props}
+      mode="inline"
+      handleOpenChange={onOpenChange}
+      style={{
+        width: '100%',
+      }}
+      className={`${baseClassName}-menu`}
+    />
+  );
   return (
     <>
       {fixSiderbar && (
@@ -164,17 +179,7 @@ const SiderMenu: React.FC<SiderMenuProps> = (props) => {
             overflowX: 'hidden',
           }}
         >
-          {flatMenuKeys && (
-            <BaseMenu
-              {...props}
-              mode="inline"
-              handleOpenChange={onOpenChange}
-              style={{
-                width: '100%',
-              }}
-              className={`${baseClassName}-menu`}
-            />
-          )}
+          {menuContentRender ? menuContentRender(props, menuDom) : menuDom}
         </div>
         <div className={`${baseClassName}-links`}>
           <Menu

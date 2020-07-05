@@ -1,7 +1,7 @@
 ---
 title: 介绍
 order: 10
-sidemenu: false
+side: false
 hero:
   title: ProLayout
   desc: 🏆 Use Ant Design Table like a Pro!

@@ -53,8 +53,9 @@ export default () => (
   >
     <ProLayout
       style={{
-        height: 800,
+        height: 500,
       }}
+      collapsed
       location={{
         pathname: '/welcome',
       }}

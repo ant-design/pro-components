@@ -1,7 +1,7 @@
 ---
 title: 页脚
 order: 7
-sidemenu: false
+side: false
 nav:
   title: 页脚
   order: 7

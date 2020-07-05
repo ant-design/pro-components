@@ -1,10 +1,10 @@
 ---
 title: Layout Render API
-order: 8
-sidemenu: false
+order: 9
+side: false
 nav:
   title: API
-  order: 7
+  order: 1
 ---
 
 # Layout API
@@ -28,7 +28,7 @@ ProLayout 提供了丰富的 API 来自定义各种行为，我们可以在下�
 | menuHeaderRender | 渲染 logo 和 title | ReactNode \| (logo,title)=>ReactNode | - |
 | onMenuHeaderClick | menu 菜单的头部点击事件 | `(e: React.MouseEvent<HTMLDivElement>) => void` | - |
 | contentStyle | layout 的 内容区 style | CSSProperties | - |
-| layout | layout 的菜单模式,sidemenu：右侧导航，topmenu：顶部导航 | 'sidemenu' \| 'topmenu' | `'sidemenu'` |
+| layout | layout 的菜单模式,side：右侧导航，top：顶部导航 mix：混合模式 | 'side' \| 'top' \| 'mix' | `'side'` |
 | splitMenus | 是否自动切分 menuData，只有 mix 模式会生效 | boolean | false |
 | contentWidth | layout 的内容模式,Fluid：定宽 1200px，Fixed：自适应 | 'Fluid' \| 'Fixed' | `'Fluid'` |
 | navTheme | 导航的主题 | 'light' \| 'dark' | `'dark'` |
@@ -43,19 +43,14 @@ ProLayout 提供了丰富的 API 来自定义各种行为，我们可以在下�
 | collapsed | 控制菜单的收起和展开 | boolean | true |
 | onCollapse | 菜单的折叠收起事件 | (collapsed: boolean) => void | - |
 | headerRender | 自定义头的 render 方法 | (props: BasicLayoutProps) => ReactNode | - |
+| itemRender | 自定义面包屑的子节点,默认使用了 a 节点 | `(route: Route, params: any, routes: Array<Route>, paths: Array<string>) => React.ReactNode` | - |
 | rightContentRender | 自定义头右部的 render 方法 | (props: HeaderViewProps) => ReactNode | - |
 | collapsedButtonRender | 自定义 collapsed button 的方法 | (collapsed: boolean) => ReactNode | - |
 | footerRender | 自定义页脚的 render 方法 | (props: BasicLayoutProps) => ReactNode | - |
 | pageTitleRender | 自定义页面标题的显示方法 | (props: BasicLayoutProps) => ReactNode | - |
 | menuRender | 自定义菜单的 render 方法 | (props: HeaderViewProps) => ReactNode | - |
-| menuItemRender | 自定义菜单项的 render 方法 | [(itemProps: MenuDataItem) => ReactNode](#MenuDataItem) | - |
-| subMenuItemRender | 自定义拥有子菜单菜单项的 render 方法 | [(itemProps: MenuDataItem) => ReactNode](#MenuDataItem) | - |
-| menuDataRender | menuData 的 render 方法，用来自定义 menuData | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
-| breadcrumbRender | 自定义面包屑的数据 | (route)=>route | - |
-| route | 用于生成菜单和面包屑。umi 的 Layout 会自动带有 | [route](#Route) | - |
-| disableMobile | 禁止自动切换到移动页面 | boolean | false |
-| links | 显示在菜单右下角的快捷操作 | ReactNode[] | - |
-| menuProps | 传递到 antd menu 组件的 props, 参考 (https://ant.design/components/menu-cn/) | MenuProps | undefined |
+| menuContentRender | 菜单内容的 render 方法 | (props: HeaderViewProps) => ReactNode | - |
+| menuItemRender | 自定义菜单项的 render 方法 | [(itemProps: MenuDataItem) => ReactNode](#MenuDataItem) | - |  | subMenuItemRender | 自定义拥有子菜单菜单项的 render 方法 | [(itemProps: MenuDataItem) => ReactNode](#MenuDataItem) | - |  | menuDataRender | menuData 的 render 方法，用来自定义 menuData | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |  | breadcrumbRender | 自定义面包屑的数据 | (route)=>route | - |  | route | 用于生成菜单和面包屑。umi 的 Layout 会自动带有 | [route](#Route) | - |  | disableMobile | 禁止自动切换到移动页面 | boolean | false |  | links | 显示在菜单右下角的快捷操作 | ReactNode[] | - |  | menuProps | 传递到 antd menu 组件的 props, 参考 (https://ant.design/components/menu-cn/) | MenuProps | undefined |
 
 在 4.5.13 以后 Layout 通过 `menuProps` 支持 [Menu](https://ant.design/components/menu-cn/#Menu) 的大部分 props。
 
@@ -73,7 +68,7 @@ ProLayout 提供了丰富的 API 来自定义各种行为，我们可以在下�
 
 ### PageContainer
 
-PageContainer 封装了 ant design 的 PageHeader 组件，增加了 tabList，和 content。 根据当前的路由填入 title 和 breadcrumb。它依赖 Layout 的 route 属性。当然你可以传入参数来复写默认值。 PageContainer 支持 [Tabs](https://ant.design/components/tabs-cn/) 和 [PageHeader](https://ant.design/components/page-header-cn/) 的所有属性。
+PageContainer 封装了 ant design 的 PageHeader 组件，增加了 tabList 和 content。 根据当前的路由填入 title 和 breadcrumb。它依赖 Layout 的 route 属性。当然你可以传入参数来复写默认值。 PageContainer 支持 [Tabs](https://ant.design/components/tabs-cn/) 和 [PageHeader](https://ant.design/components/page-header-cn/) 的所有属性。
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -83,6 +78,17 @@ PageContainer 封装了 ant design 的 PageHeader 组件，增加了 tabList，�
 | tabActiveKey | 当前高亮的 tab 项 | string | - |
 | onTabChange | 切换面板的回调 | `(key) => void` | - |
 | tabBarExtraContent | tab bar 上额外的元素 | React.ReactNode | - |
+| footer | 底部的操作栏，会一直浮动到底部 | React.ReactNode[] | - |
+
+### FooterToolbar
+
+与 PageContainer 的 footer 配置相同，但是支持更多更灵活的设置。此操作栏会一直浮动到底部。
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| extra | 左侧内容区 | ReactNode | - |
+| children | 右侧内容区 | ReactNode[] | - |
+| renderContent | 自定义内容区，可以进行更加自定义的设置 | `renderContent?: (props,dom) => ReactNode;` | - |
 
 ### PageLoading
 
@@ -97,11 +103,11 @@ PageContainer 封装了 ant design 的 PageHeader 组件，增加了 tabList，�
 RouteContext 可以提供 Layout 的内置的数据。例如 isMobile 和 collapsed，你可以消费这些数据来自定义一些行为。
 
 ```tsx | pure
-import { RouteContext } from '@ant-design/pro-layout';
+import { RouteContext, RouteContextType } from '@ant-design/pro-layout';
 
 const Page = () => (
   <RouteContext.Consumer>
-    {(value) => {
+    {(value: RouteContextType) => {
       return value.title;
     }}
   </RouteContext.Consumer>
@@ -110,7 +116,7 @@ const Page = () => (
 
 ### GridContent
 
-GridContent 封装了 [等宽](https://preview.pro.ant.design/dashboard/analysis?layout=topmenu&contentWidth=Fixed)和 [流式](https://preview.pro.ant.design/dashboard/analysis?layout=topmenu) 的逻辑。你可以在 [preview](https://preview.pro.ant.design/dashboard/analysis) 中查看预览效果。
+GridContent 封装了 [等宽](https://preview.pro.ant.design/dashboard/analysis?layout=top&contentWidth=Fixed)和 [流式](https://preview.pro.ant.design/dashboard/analysis?layout=top) 的逻辑。你可以在 [preview](https://preview.pro.ant.design/dashboard/analysis) 中查看预览效果。
 
 | 参数         | 说明     | 类型               | 默认值 |
 | ------------ | -------- | ------------------ | ------ |
@@ -181,11 +187,11 @@ export interface Settings {
    */
   primaryColor: string;
   /**
-   * nav menu position: `sidemenu` or `topmenu`
+   * nav menu position: `side` or `top`
    */
-  layout: 'sidemenu' | 'topmenu';
+  layout: 'side' | 'top';
   /**
-   * layout of content: `Fluid` or `Fixed`, only works when layout is topmenu
+   * layout of content: `Fluid` or `Fixed`, only works when layout is top
    */
   contentWidth: 'Fluid' | 'Fixed';
   /**
@@ -210,7 +216,7 @@ export interface Settings {
 ### MenuDataItem
 
 ```ts | pure
-// 可以通过 import { MenuDataItem } from '@ant-design/pro-layout/typings'
+// 可以通过 import { MenuDataItem } from '@ant-design/pro-layout'
 // 来获取这个类型
 
 export interface MenuDataItem {

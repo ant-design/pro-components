@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import ProLayout, {
   PageContainer,
-  PageLoading,
   MenuDataItem,
   // eslint-disable-next-line import/no-unresolved
 } from '@ant-design/pro-layout';
-import { Button } from 'antd';
+import { Button, Spin } from 'antd';
 import customMenuDate from './customMenu';
 
 export default () => {
@@ -32,19 +31,17 @@ export default () => {
       </Button>
       <ProLayout
         style={{
-          height: 500,
+          height: 400,
           border: '1px solid #ddd',
         }}
-        menuRender={(_, dom) =>
+        menuContentRender={(_, dom) =>
           loading ? (
             <div
               style={{
-                width: 256,
-                background: '#FFF',
-                height: '100%',
+                padding: '24px 0',
               }}
             >
-              <PageLoading />
+              <Spin tip="菜单加载中">{dom}</Spin>
             </div>
           ) : (
             dom

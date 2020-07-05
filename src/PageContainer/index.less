@@ -6,8 +6,18 @@
   margin: 24px 24px 0;
 }
 
-.@{pro-layout-page-container}-warp {
-  background-color: @component-background;
+.@{pro-layout-page-container} {
+  &-warp {
+    background-color: @component-background;
+    .@{ant-prefix}-tabs-nav {
+      margin: 0;
+    }
+  }
+  &-ghost {
+    .@{pro-layout-page-container}-warp {
+      background-color: transparent;
+    }
+  }
 }
 
 .@{pro-layout-page-container}-main {

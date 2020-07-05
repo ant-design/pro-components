@@ -43,7 +43,7 @@ render(<BasicLayout />, document.getElementById('root'));
 | menuHeaderRender | 渲染 logo 和 title | ReactNode \| (logo,title)=>ReactNode | - |
 | onMenuHeaderClick | menu 菜单的头部点击事件 | `(e: React.MouseEvent<HTMLDivElement>) => void` | - |
 | contentStyle | layout 的 内容区 style | CSSProperties | - |
-| layout | layout 的菜单模式,sidemenu：右侧导航，topmenu：顶部导航 | 'sidemenu' \| 'topmenu' | `'sidemenu'` |
+| layout | layout 的菜单模式,side：右侧导航，top：顶部导航 | 'side' \| 'top' | `'side'` |
 | contentWidth | layout 的内容模式,Fluid：定宽 1200px，Fixed：自适应 | 'Fluid' \| 'Fixed' | `'Fluid'` |
 | navTheme | 导航的主题 | 'light' \| 'dark' | `'dark'` |
 | fixedHeader | 是否固定 header 到顶部 | boolean | `false` |
@@ -89,7 +89,7 @@ render(<BasicLayout />, document.getElementById('root'));
 
 ### PageContainer
 
-PageContainer 封装了 ant design 的 PageHeader 组件，增加了 tabList，和 content。 根据当前的路由填入 title 和 breadcrumb。它依赖 Layout 的 route 属性。当然你可以传入参数来复写默认值。 PageContainer 支持 [Tabs](https://ant.design/components/tabs-cn/) 和 [PageHeader](https://ant.design/components/page-header-cn/) 的所有属性。
+PageContainer 封装了 ant design 的 PageHeader 组件，增加了 tabList 和 content。 根据当前的路由填入 title 和 breadcrumb。它依赖 Layout 的 route 属性。当然你可以传入参数来复写默认值。 PageContainer 支持 [Tabs](https://ant.design/components/tabs-cn/) 和 [PageHeader](https://ant.design/components/page-header-cn/) 的所有属性。
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -113,11 +113,11 @@ PageContainer 封装了 ant design 的 PageHeader 组件，增加了 tabList，�
 RouteContext 可以提供 Layout 的内置的数据。例如 isMobile 和 collapsed，你可以消费这些数据来自定义一些行为。
 
 ```tsx
-import { RouteContext } from '@ant-design/pro-layout';
+import { RouteContext, RouteContextType } from '../index';
 
 const Page = () => (
   <RouteContext.Consumer>
-    {(value) => {
+    {(value: RouteContextType) => {
       return value.title;
     }}
   </RouteContext.Consumer>
@@ -126,7 +126,7 @@ const Page = () => (
 
 ### GridContent
 
-GridContent 封装了 [等宽](https://preview.pro.ant.design/dashboard/analysis?layout=topmenu&contentWidth=Fixed)和 [流式](https://preview.pro.ant.design/dashboard/analysis?layout=topmenu) 的逻辑。你可以在 [preview](https://preview.pro.ant.design/dashboard/analysis) 中查看预览效果。
+GridContent 封装了 [等宽](https://preview.pro.ant.design/dashboard/analysis?layout=top&contentWidth=Fixed)和 [流式](https://preview.pro.ant.design/dashboard/analysis?layout=top) 的逻辑。你可以在 [preview](https://preview.pro.ant.design/dashboard/analysis) 中查看预览效果。
 
 | 参数         | 说明     | 类型               | 默认值 |
 | ------------ | -------- | ------------------ | ------ |
@@ -197,11 +197,11 @@ export interface Settings {
    */
   primaryColor: string;
   /**
-   * nav menu position: `sidemenu` or `topmenu`
+   * nav menu position: `side` or `top`
    */
-  layout: 'sidemenu' | 'topmenu';
+  layout: 'side' | 'top';
   /**
-   * layout of content: `Fluid` or `Fixed`, only works when layout is topmenu
+   * layout of content: `Fluid` or `Fixed`, only works when layout is top
    */
   contentWidth: 'Fluid' | 'Fixed';
   /**
@@ -226,7 +226,7 @@ export interface Settings {
 ### MenuDataItem
 
 ```ts | pure
-// 可以通过 import { MenuDataItem } from '@ant-design/pro-layout/typings'
+// 可以通过 import { MenuDataItem } from '@ant-design/pro-layout'
 // 来获取这个类型
 
 export interface MenuDataItem {

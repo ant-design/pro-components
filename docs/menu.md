@@ -1,9 +1,9 @@
 ---
-title: menu 的相关能力
+title: 菜单能力
 order: 9
-sidemenu: false
+side: false
 nav:
-  title: 能力展示
+  title: 菜单能力
   order: 1
 ---
 
@@ -52,7 +52,7 @@ ProLayout 提供了强大的 menu，但是这样必然会封装很多行为，�
 | loading | layout 的加载态 | boolean | - |
 | menuHeaderRender | 渲染 logo 和 title | ReactNode \| (logo,title)=>ReactNode | - |
 | menuRender | 自定义菜单的 render 方法 | (props: HeaderViewProps) => ReactNode | - |
-| layout | layout 的菜单模式,sidemenu：右侧导航，topmenu：顶部导航 | 'sidemenu' \| 'topmenu' | `'sidemenu'` |
+| layout | layout 的菜单模式,side：右侧导航，top：顶部导航 | 'side' \| 'top' | `'side'` |
 | breakpoint | 触发响应式布局的[断点](https://ant.design/components/grid-cn/#Col) | `Enum { 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' }` | `lg` |
 | menuItemRender | 自定义菜单项的 render 方法 | (itemProps: MenuDataItem) => ReactNode | - |
 | subMenuItemRender | 自定义拥有子菜单菜单项的 render 方法 | (itemProps: MenuDataItem) => ReactNode | - |

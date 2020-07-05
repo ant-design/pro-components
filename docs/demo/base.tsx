@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { Button, Descriptions, Result, Avatar } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
+
 import ProLayout, {
   PageContainer,
   SettingDrawer,
@@ -6,7 +9,20 @@ import ProLayout, {
   // eslint-disable-next-line import/no-unresolved
 } from '@ant-design/pro-layout';
 import defaultProps from './defaultProps';
-import { Button, Result } from 'antd';
+
+const content = (
+  <Descriptions size="small" column={2}>
+    <Descriptions.Item label="创建人">张三</Descriptions.Item>
+    <Descriptions.Item label="联系方式">
+      <a>421421</a>
+    </Descriptions.Item>
+    <Descriptions.Item label="创建时间">2017-01-10</Descriptions.Item>
+    <Descriptions.Item label="更新时间">2017-10-10</Descriptions.Item>
+    <Descriptions.Item label="备注">
+      中国浙江省杭州市西湖区古翠路
+    </Descriptions.Item>
+  </Descriptions>
+);
 
 export default () => {
   const [settings, setSetting] = useState<Partial<ProSettings> | undefined>(
@@ -24,7 +40,7 @@ export default () => {
       <ProLayout
         {...defaultProps}
         style={{
-          height: 800,
+          height: 500,
           maxHeight: '100vh',
         }}
         location={{
@@ -39,11 +55,32 @@ export default () => {
             {dom}
           </a>
         )}
-        rightContentRender={() => 'dom'}
+        rightContentRender={() => (
+          <div>
+            <Avatar shape="square" size="small" icon={<UserOutlined />} />
+          </div>
+        )}
         {...settings}
       >
         <PageContainer
-          content="欢迎使用"
+          content={content}
+          tabList={[
+            {
+              tab: '基本信息',
+              key: 'base',
+            },
+            {
+              tab: '详细信息',
+              key: 'info',
+            },
+          ]}
+          extra={[
+            <Button key="3">操作</Button>,
+            <Button key="2">操作</Button>,
+            <Button key="1" type="primary">
+              主操作
+            </Button>,
+          ]}
           footer={[<Button>重置</Button>, <Button type="primary">提交</Button>]}
         >
           <div

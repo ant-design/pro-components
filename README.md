@@ -45,7 +45,7 @@ render(<ProLayout />, document.getElementById('root'));
 | menuHeaderRender | render logo and title | ReactNode \| (logo,title)=>ReactNode | - |
 | onMenuHeaderClick | menu header click event | `(e: React.MouseEvent<HTMLDivElement>) => void` | - |
 | contentStyle | layout content style | CSSProperties | - |
-| layout | layout menu mode, sidemenu: right navigation, topmenu: top navigation | 'sidemenu' \| 'topmenu' | `'sidemenu'` |
+| layout | layout menu mode, side: right navigation, top: top navigation | 'side' \| 'top' | `'side'` |
 | contentWidth | content mode of layout, Fluid: fixed width 1200px, Fixed: adaptive | 'Fluid' \| 'Fixed' | `'Fluid'` |
 | navTheme | Navigation menu theme | 'light' \| 'dark' | `'dark'` |
 | fixedHeader | whether to fix header to top | boolean | `false` |
@@ -120,11 +120,11 @@ a simple loading page
 RouteContext can provide built-in data for Layout. For example, isMobile and collapsed, you can consume this data to customize some behavior.
 
 ```tsx | pure
-import { RouteContext } from '@ant-design/pro-layout';
+import { RouteContext, RouteContextType } from '../index';
 
 const Page = () => (
   <RouteContext.Consumer>
-    {(value) => {
+    {(value: RouteContextType) => {
       return value.title;
     }}
   </RouteContext.Consumer>
@@ -133,7 +133,7 @@ const Page = () => (
 
 ### GridContent
 
-GridContent encapsulates [equal width](https://preview.pro.ant.design/dashboard/analysis?layout=topmenu&contentWidth=Fixed) and [streaming](https://preview.pro.ant.design/dashboard/) The logic of analysis?layout=topmenu). You can see the preview in [preview](https://preview.pro.ant.design/dashboard/analysis).
+GridContent encapsulates [equal width](https://preview.pro.ant.design/dashboard/analysis?layout=top&contentWidth=Fixed) and [streaming](https://preview.pro.ant.design/dashboard/) The logic of analysis?layout=top). You can see the preview in [preview](https://preview.pro.ant.design/dashboard/analysis).
 
 | Property     | Description  | Type               | Default Value |
 | ------------ | ------------ | ------------------ | ------------- |
@@ -204,11 +204,11 @@ export interface Settings {
    */
   primaryColor: string;
   /**
-   * nav menu position: `sidemenu` or `topmenu`
+   * nav menu position: `side` or `top`
    */
-  layout: 'sidemenu' | 'topmenu';
+  layout: 'side' | 'top';
   /**
-   * layout of content: `Fluid` or `Fixed`, only works when layout is topmenu
+   * layout of content: `Fluid` or `Fixed`, only works when layout is top
    */
   contentWidth: 'Fluid' | 'Fixed';
   /**

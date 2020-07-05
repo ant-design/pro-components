@@ -17,7 +17,7 @@ import FooterToolbar from './FooterToolbar';
 
 export type { ProSettings as Settings, ProSettings } from './defaultSettings';
 
-export { MenuDataItem } from './typings';
+export type { MenuDataItem } from './typings';
 
 const PageHeaderWrapper = PageContainer;
 

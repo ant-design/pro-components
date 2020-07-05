@@ -1,7 +1,7 @@
 ---
 title: Example 展示
 order: 1
-sidemenu: false
+side: false
 nav:
   title: 示例
   order: 10

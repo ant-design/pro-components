@@ -33,7 +33,7 @@
   ],
   "scripts": {
     "build": "father build && webpack",
-    "doc": "dumi dev",
+    "start": "dumi dev",
     "lint": "npm run lint-eslint && npm run lint:style",
     "lint-eslint": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
     "lint-staged": "lint-staged",
@@ -44,7 +44,7 @@
     "prettier": "prettier -c --write \"**/**\"",
     "site": "dumi build && gh-pages -d ./dist",
     "site_build": "dumi build",
-    "start": "cd ./example && umi dev",
+    "doc": "cd ./example && umi dev",
     "test": "father test",
     "tsc": "tsc"
   },
