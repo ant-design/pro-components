@@ -7,7 +7,7 @@ hero:
   desc: 🏆 Use Ant Design Table like a Pro!
   actions:
     - text: 快速开始 →
-      link: /#usage
+      link: /getting-started
 features:
   - icon: https://gw.alipayobjects.com/os/q/cms/images/k9ziitmp/13668549-b393-42a2-97c3-a6365ba87ac2_w96_h96.png
     title: 简单易用
