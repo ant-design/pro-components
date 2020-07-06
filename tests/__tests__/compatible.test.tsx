@@ -1,4 +1,4 @@
-import { mount, render } from 'enzyme';
+import { mount } from 'enzyme';
 
 import React from 'react';
 import BasicLayout from '../../src/BasicLayout';

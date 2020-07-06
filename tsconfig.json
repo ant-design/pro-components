@@ -21,7 +21,7 @@
       "@ant-design/pro-layout": ["./src"]
     }
   },
-  "include": ["**/tests/", "**/src/", "**/docs/"],
+  "include": ["**/src/", "**/docs/"],
   "exclude": [
     "node_modules",
     "build",
@@ -31,6 +31,8 @@
     "jest",
     "tslint:latest",
     "tslint-config-prettier",
-    "example"
+    "example",
+    "**/tests/",
+    "**/docs/"
   ]
 }

@@ -233,7 +233,7 @@ class MenuUtil {
  * @param BaseMenuProps
  */
 const getOpenKeysProps = (
-  openKeys: string[] | false = [],
+  openKeys: React.ReactText[] | false = [],
   { layout, collapsed }: BaseMenuProps,
 ): {
   openKeys?: undefined | string[];
@@ -276,7 +276,7 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
   const [defaultOpenAll, setDefaultOpenAll] = useState(menu.defaultOpenAll);
 
   const [openKeys, setOpenKeys] = useMergeValue<
-    WithFalse<string[] | undefined>
+    WithFalse<React.ReactText[] | undefined>
   >(
     () => {
       if (menu.defaultOpenAll) {
@@ -398,7 +398,7 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
       selectedKeys={selectedKeys}
       style={style}
       className={cls}
-      onOpenChange={setOpenKeys}
+      onOpenChange={(keys) => setOpenKeys(keys as string[])}
       {...props.menuProps}
     >
       {menuUtils.getNavMenuItems(

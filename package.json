@@ -32,7 +32,7 @@
     "/dist"
   ],
   "scripts": {
-    "build": "father build && webpack",
+    "build": "father-build && webpack",
     "start": "dumi dev",
     "lint": "npm run lint-eslint && npm run lint:style",
     "lint-eslint": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
@@ -45,7 +45,7 @@
     "site": "dumi build && gh-pages -d ./dist",
     "site_build": "dumi build",
     "doc": "cd ./example && umi dev",
-    "test": "father test",
+    "test": "umi-test",
     "tsc": "tsc"
   },
   "husky": {
@@ -122,7 +122,7 @@
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.4.3",
     "eslint": "^7.2.0",
-    "father": "^2.26.0",
+    "father-build": "^1.18.1",
     "gh-pages": "^3.1.0",
     "husky": "^4.0.0",
     "jsdom": "^16.2.0",
@@ -143,6 +143,7 @@
     "typescript": "^3.8.3",
     "umi": "^3.0.0",
     "umi-plugin-githubpages": "^2.0.0",
+    "umi-test": "^1.9.6",
     "umi-types": "^0.5.11",
     "webpack-cli": "^3.3.10"
   },
