@@ -32,7 +32,7 @@ interface UseSelectionConfig<RecordType> {
   locale: TableLocale;
 }
 
-type INTERNAL_SELECTION_ITEM = SelectionItem | typeof SELECTION_ALL | typeof SELECTION_INVERT;
+type InternalSelectionItem = SelectionItem | typeof SELECTION_ALL | typeof SELECTION_INVERT;
 
 function flattenData<RecordType>(data: RecordType[] | undefined): RecordType[] {
   const list: RecordType[] = [];
@@ -118,10 +118,10 @@ export default function useSelection<RecordType>(
       return null;
     }
 
-    const selectionList: INTERNAL_SELECTION_ITEM[] =
+    const selectionList: InternalSelectionItem[] =
       selections === true ? [SELECTION_ALL, SELECTION_INVERT] : selections;
 
-    return selectionList.map((selection: INTERNAL_SELECTION_ITEM) => {
+    return selectionList.map((selection: InternalSelectionItem) => {
       if (selection === SELECTION_ALL) {
         return {
           key: 'all',
