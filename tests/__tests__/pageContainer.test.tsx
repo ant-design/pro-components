@@ -1,5 +1,4 @@
 import { render, mount } from 'enzyme';
-
 import React from 'react';
 import PageContainer from '../../src/PageContainer';
 import FooterToolbar from '../../src/FooterToolbar';
@@ -101,6 +100,42 @@ describe('PageContainer', () => {
             </button>,
           ]}
         />
+      </BasicLayout>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    expect(wrapper.find('.ant-pro-footer-bar').props().style.width).toBe(
+      'calc(100% - 208px)',
+    );
+    wrapper.setProps({
+      collapsed: true,
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    expect(wrapper.find('.ant-pro-footer-bar').props().style.width).toBe(
+      'calc(100% - 48px)',
+    );
+
+    wrapper.setProps({
+      layout: 'top',
+    });
+
+    expect(wrapper.find('.ant-pro-footer-bar').props().style.width).toBe(
+      '100%',
+    );
+  });
+
+  it('🐲 FooterToolbar should know width', async () => {
+    const wrapper = mount<BasicLayoutProps>(
+      <BasicLayout>
+        <PageContainer>
+          <FooterToolbar>
+            <button type="button" key="button">
+              qixian
+            </button>
+          </FooterToolbar>
+        </PageContainer>
       </BasicLayout>,
     );
     await waitForComponentToPaint(wrapper);

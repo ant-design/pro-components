@@ -29,14 +29,26 @@ describe('BasicLayout', () => {
   it('🥩 do not render menu', async () => {
     const wrapper = mount(<BasicLayout menuRender={false} />);
     await waitForComponentToPaint(wrapper);
-    const menu = wrapper.find('.ant-pro-sider-menu');
+    const menu = wrapper.find('.ant-pro-sider');
     expect(menu.exists()).toBe(false);
+    const menuContent = wrapper.find('.ant-pro-sider-menu');
+    expect(menuContent.exists()).toBe(false);
     expect(
       (
         wrapper.find('section.ant-layout section.ant-layout').props().style ||
         {}
       ).padding,
     ).toBe(undefined);
+    wrapper.unmount();
+  });
+
+  it('🥩 do not render menu content', async () => {
+    const wrapper = mount(<BasicLayout menuContentRender={false} />);
+    await waitForComponentToPaint(wrapper);
+    const menu = wrapper.find('.ant-pro-sider');
+    expect(menu.exists()).toBe(true);
+    const menuContent = wrapper.find('.ant-pro-sider-menu');
+    expect(menuContent.exists()).toBe(false);
     wrapper.unmount();
   });
 

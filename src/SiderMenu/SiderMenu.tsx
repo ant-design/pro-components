@@ -110,8 +110,10 @@ const SiderMenu: React.FC<SiderMenuProps> = (props) => {
   });
 
   const headerDom = defaultRenderLogoAndTitle(props);
+
   const extraDom = menuExtraRender && menuExtraRender(props);
-  const menuDom = flatMenuKeys && (
+
+  const menuDom = menuContentRender !== false && flatMenuKeys && (
     <BaseMenu
       {...props}
       mode="inline"
