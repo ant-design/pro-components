@@ -1,7 +1,8 @@
 import { Progress, InputNumber } from 'antd';
-import { FieldFC } from '../../index';
 import toNumber from 'lodash.tonumber';
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
+
+import { FieldFC } from '../../index';
 
 export function getProgressStatus(
   text: number,

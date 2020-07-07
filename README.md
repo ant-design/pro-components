@@ -1,10 +1,6 @@
-# @umijs/plugins
+# @ant-design/pro-xxx
 
-Official umi plugins and presets.
-
-## Plugins
-
-TODO
+这里放置了 pro 系列组件，用于支撑重型组件
 
 ## LICENSE
 

@@ -1,7 +1,8 @@
-import { useState } from 'React';
-import Field, { FieldFCType } from '../src/index';
-import { Button, Descriptions, Space } from 'antd';
+import React, { useState } from 'react';
+import { Button, Descriptions } from 'antd';
 import moment from 'moment';
+
+import Field, { FieldFCType } from '../src/index';
 
 export default () => {
   const [state, setState] = useState<FieldFCType>('read');
