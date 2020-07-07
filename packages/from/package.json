@@ -1,0 +1,33 @@
+{
+  "name": "@ant-design/from",
+  "version": "1.0.0-beta.2",
+  "description": "@ant-design/from",
+  "keywords": [
+    "umi"
+  ],
+  "homepage": "https://github.com/umijs/plugins/tree/master/packages/from#readme",
+  "bugs": "http://github.com/umijs/plugins/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/umijs/plugins"
+  },
+  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "dependencies": {
+    "@ant-design/pro-field": "0.0.5"
+  },
+  "peerDependencies": {
+    "umi": "3.x"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "authors": [
+    "chencheng <sorrycc@gmail.com> (https://github.com/sorrycc)"
+  ]
+}
