@@ -7,12 +7,11 @@ const { yParser } = require('@umijs/utils');
   const version = '1.0.0-beta.1';
 
   const pkgs = readdirSync(join(__dirname, '../packages')).filter(
-    pkg => pkg.charAt(0) !== '.' && pkg.endsWith('.md'),
+    pkg => pkg.charAt(0) !== '.',
   );
 
-  console.log(pkgs);
   pkgs.forEach(shortName => {
-    const name = `@ant-design/${shortName}`;
+    const name = `@ant-design/pro-${shortName}`;
 
     const pkgJSONPath = join(
       __dirname,
