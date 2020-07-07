@@ -16,7 +16,8 @@
     "umi"
   ],
   "authors": [
-    "chencheng <sorrycc@gmail.com> (https://github.com/sorrycc)"
+    "chencheng <sorrycc@gmail.com> (https://github.com/sorrycc)",
+    "chenshuai2144 <qixian.cs@outlook.om> (https://github.com/chenshuai2144)"
   ],
   "license": "MIT",
   "bugs": "http://github.com/umijs/plugins/issues",
