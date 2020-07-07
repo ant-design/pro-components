@@ -1,4 +1,5 @@
 import React, { Fragment, ReactNode, useMemo } from 'react';
+import { InputNumber } from 'antd';
 import toNumber from 'lodash.tonumber';
 
 import {
@@ -7,7 +8,6 @@ import {
   getRealTextWithPrecision,
 } from './util';
 import { FieldFC } from '../../index';
-import { Input, InputNumber } from 'antd';
 
 export interface PercentPropInt {
   prefix?: ReactNode;
@@ -30,14 +30,15 @@ const FieldPercent: FieldFC<PercentPropInt> = ({
   renderFormItem,
   formItemProps,
 }) => {
+  const realValue = useMemo(
+    () =>
+      typeof text === 'string' && (text as string).includes('%')
+        ? toNumber((text as string).replace('%', ''))
+        : toNumber(text),
+    [text],
+  );
+
   if (type === 'read') {
-    const realValue = useMemo(
-      () =>
-        typeof text === 'string' && (text as string).includes('%')
-          ? toNumber((text as string).replace('%', ''))
-          : toNumber(text),
-      [text],
-    );
     /** 颜色有待确定, 根据提供 colors: ['正', '负'] | boolean */
     const style = showColor ? { color: getColorByRealValue(realValue) } : {};
 
@@ -61,13 +62,6 @@ const FieldPercent: FieldFC<PercentPropInt> = ({
     return dom;
   }
   if (type === 'edit' || type === 'update') {
-    const realValue = useMemo(
-      () =>
-        typeof text === 'string' && (text as string).includes('%')
-          ? toNumber((text as string).replace('%', ''))
-          : toNumber(text),
-      [text],
-    );
     const dom = (
       <InputNumber
         formatter={value => {
@@ -85,6 +79,9 @@ const FieldPercent: FieldFC<PercentPropInt> = ({
         defaultValue={realValue}
       />
     );
+    if (renderFormItem) {
+      return renderFormItem(text, { type, ...formItemProps }, dom);
+    }
     return dom;
   }
   return null;

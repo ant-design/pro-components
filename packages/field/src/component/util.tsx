@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import React, {
   ReactNode,
   useEffect,
@@ -301,7 +302,7 @@ export const ObjToMap = (
   value: ValueEnumObj | ValueEnumMap | undefined,
 ): ValueEnumMap | undefined => {
   if (!value) {
-    return value;
+    return undefined;
   }
   if (getType(value) === 'map') {
     return value as ValueEnumMap;

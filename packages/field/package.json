@@ -18,10 +18,14 @@
   "author": "chenshuai2144",
   "dependencies": {
     "antd": "^4.3.5",
+    "classname": "^0.0.0",
     "lodash.isequal": "^4.5.0",
     "lodash.tonumber": "^4.0.3",
     "moment": "^2.27.0",
     "rc-table": "^7.8.1"
+  },
+  "peerDependencies": {
+    "react": "^16.x"
   },
   "devDependencies": {
     "@types/lodash.isequal": "^4.5.5",

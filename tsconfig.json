@@ -11,15 +11,5 @@
     "suppressImplicitAnyIndexErrors": true,
     "declaration": true
   },
-  "exclude": [
-    "node_modules",
-    "dist",
-    "jest.config.js",
-    "**/*.spec.ts",
-    "**/lib",
-    "**/es",
-    "**/scripts",
-    "fixtures",
-    "examples"
-  ]
+  "include": ["**/src", "**/docs", "**/demo", ".eslintrc.js"]
 }

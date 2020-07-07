@@ -8,6 +8,7 @@
     "start": "dumi dev",
     "bootstrap": "node ./scripts/bootstrap.js",
     "build": "father-build",
+    "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./packages",
     "link": "yarn link umi && yarn link @umijs/test && yarn link @umijs/utils && yarn link @umijs/types",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "release": "node ./scripts/release.js",
@@ -45,7 +46,8 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-test-renderer": "^16.9.0",
-    "yorkie": "^2.0.0"
+    "yorkie": "^2.0.0",
+    "@umijs/fabric":"2.2.2"
   },
   "gitHooks": {
     "pre-commit": "lint-staged",

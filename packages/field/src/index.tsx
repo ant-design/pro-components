@@ -102,7 +102,7 @@ type RenderProps = Omit<FieldFCRenderProps, 'text'> &
  * @param valueType ProColumnsValueObjectType
  */
 const defaultRenderTextByObject = (
-  text: string | number,
+  text: string | number | React.ReactText[],
   valueType: ProColumnsValueObjectType,
   props: RenderProps = { type: 'read' },
 ) => {
@@ -146,6 +146,9 @@ const defaultRenderText = (
   valueType: ProColumnsValueType,
   props: RenderProps = { type: 'read', emptyText: '-' },
 ): React.ReactNode => {
+  if (typeof valueType === 'object') {
+    return defaultRenderTextByObject(text, valueType, props);
+  }
   /**
    * 如果是金额的值
    */

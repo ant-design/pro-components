@@ -6,7 +6,7 @@ const msg = require('fs')
   .readFileSync(msgPath, 'utf-8')
   .trim();
 
-const commitRE = /^(revert: )?(feat|fix|docs|style|refactor|perf|test|workflow|build|ci|chore|types|wip|release|dep)(\(.+\))?: .{1,50}/;
+const commitRE = /^(revert: )?(💥 feat|🐛 fix|📝 docs|💄 UI|refactor|⚡️ perf|🏗workflow|build|👷 CI|🎨 chore|✅ tests|🔧 types|wip|release|📦dep)(\(.+\))?: .{1,50}/;
 
 if (!commitRE.test(msg)) {
   console.log();
@@ -17,10 +17,13 @@ if (!commitRE.test(msg)) {
       chalk.red(
         `  Proper commit message format is required for automated changelog generation. Examples:\n\n`,
       ) +
-      `    ${chalk.green(`feat(compiler): add 'comments' option`)}\n` +
-      `    ${chalk.green(
-        `fix(v-model): handle events on blur (close #28)`,
-      )}\n\n` +
+      `    ${chalk.green(`💥 feat(compiler): add 'comments' option`)}\n
+           ${chalk.green(`🐛 fix(compiler): fix some bug`)}\n
+           ${chalk.green(`📝 docs(compiler): add some docs`)}\n
+           ${chalk.green(`💄 UI(compiler): better styles`)}\n
+           ${chalk.green(`🎨 chore(compiler): do something`)}\n
+           
+      \n\n` +
       chalk.red(`  See .github/commit-convention.md for more details.\n`),
   );
   process.exit(1);
