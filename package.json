@@ -47,10 +47,13 @@
     "react-dom": "^16.12.0",
     "react-test-renderer": "^16.9.0",
     "yorkie": "^2.0.0",
-    "@umijs/fabric":"2.2.2"
+    "@umijs/fabric": "2.2.2"
   },
   "gitHooks": {
     "pre-commit": "lint-staged",
     "commit-msg": "node scripts/verifyCommit.js"
+  },
+  "dependencies": {
+    "@umijs/utils": "^3.2.8"
   }
 }

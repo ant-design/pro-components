@@ -11,5 +11,5 @@
     "suppressImplicitAnyIndexErrors": true,
     "declaration": true
   },
-  "include": ["**/src", "**/docs", "**/demo", ".eslintrc.js"]
+  "include": ["**/src", "**/docs", "scripts", "**/demo", ".eslintrc.js"]
 }
