@@ -1,10 +1,13 @@
 import React, { ReactNode } from 'react';
-import { Avatar, DatePicker } from 'antd';
-import moment from 'moment';
+import { Avatar } from 'antd';
 import Percent from './component/percent';
 import IndexColumn from './component/indexColumn';
 import Progress from './component/progress';
 import FieldMoney from './component/money';
+import FieldDatePicker from './component/datePicker';
+import FieldRangePicker from './component/rangePicker';
+import FieldCode from './component/code';
+import FieldTimePicker from './component/timePicker';
 
 export type ColumnEmptyText = string;
 
@@ -19,6 +22,10 @@ export type ColumnEmptyText = string;
  * index：序列
  * progress: 进度条
  * percent: 百分比
+ * digit 数值
+ * avatar 头像
+ * code 代码块
+ * jsonCode json 的代码块，格式化了一下
  */
 export type ProColumnsValueType =
   | 'money'
@@ -36,21 +43,29 @@ export type ProColumnsValueType =
   | 'percent'
   | 'digit'
   | 'avatar'
-  | 'code';
+  | 'code'
+  | 'jsonCode';
 
-export type FieldFCType = 'read' | 'edit' | 'update';
+export type FieldFCMode = 'read' | 'edit' | 'update';
 
 type BaseFieldFC = {
+  /**
+   * 值的类型
+   */
   text: React.ReactNode;
   formItemProps?: any;
-  type: FieldFCType;
+  mode: FieldFCMode;
+  /**
+   *简约模式
+   */
+  plain?: boolean;
 };
 
 /**
  * render 第二个参数，里面包含了一些常用的参数
  */
 export type FieldFCRenderProps = {
-  type?: FieldFCType;
+  mode?: FieldFCMode;
   value?: any;
   onChange?: (value: any) => void;
 } & BaseFieldFC;
@@ -104,7 +119,7 @@ type RenderProps = Omit<FieldFCRenderProps, 'text'> &
 const defaultRenderTextByObject = (
   text: string | number | React.ReactText[],
   valueType: ProColumnsValueObjectType,
-  props: RenderProps = { type: 'read' },
+  props: RenderProps = { mode: 'read', plain: false },
 ) => {
   if (valueType.type === 'progress') {
     return (
@@ -144,7 +159,7 @@ const defaultRenderTextByObject = (
 const defaultRenderText = (
   text: string | number | React.ReactText[],
   valueType: ProColumnsValueType,
-  props: RenderProps = { type: 'read', emptyText: '-' },
+  props: RenderProps = { mode: 'read', emptyText: '-' },
 ): React.ReactNode => {
   if (typeof valueType === 'object') {
     return defaultRenderTextByObject(text, valueType, props);
@@ -160,7 +175,9 @@ const defaultRenderText = (
    *如果是日期的值
    */
   if (valueType === 'date' && text) {
-    return moment(text).format('YYYY-MM-DD');
+    return (
+      <FieldDatePicker text={text as string} format="YYYY-MM-DD" {...props} />
+    );
   }
 
   /**
@@ -172,20 +189,12 @@ const defaultRenderText = (
     Array.isArray(text) &&
     text.length === 2
   ) {
-    // 值不存在的时候显示 "-"
-    const [startText, endText] = text;
-    if (props.type === 'edit') {
-      return (
-        <DatePicker.RangePicker
-          defaultValue={[moment(startText), moment(endText)]}
-        />
-      );
-    }
     return (
-      <div>
-        <div>{startText ? moment(startText).format('YYYY-MM-DD') : '-'}</div>
-        <div>{endText ? moment(endText).format('YYYY-MM-DD') : '-'}</div>
-      </div>
+      <FieldRangePicker
+        text={text as string[]}
+        format="YYYY-MM-DD"
+        {...props}
+      />
     );
   }
 
@@ -193,10 +202,14 @@ const defaultRenderText = (
    *如果是日期加时间类型的值
    */
   if (valueType === 'dateTime' && text) {
-    if (props.type === 'edit') {
-      return <DatePicker defaultValue={moment(text)} />;
-    }
-    return moment(text).format('YYYY-MM-DD HH:mm:ss');
+    return (
+      <FieldDatePicker
+        text={text as string}
+        format="YYYY-MM-DD HH:mm:ss"
+        showTime
+        {...props}
+      />
+    );
   }
 
   /**
@@ -209,24 +222,13 @@ const defaultRenderText = (
     text.length === 2
   ) {
     // 值不存在的时候显示 "-"
-    const [startText, endText] = text;
-    if (props.type === 'edit') {
-      return (
-        <DatePicker.RangePicker
-          showTime
-          defaultValue={[moment(startText), moment(endText)]}
-        />
-      );
-    }
     return (
-      <div>
-        <div>
-          {startText ? moment(startText).format('YYYY-MM-DD HH:mm:ss') : '-'}
-        </div>
-        <div>
-          {endText ? moment(endText).format('YYYY-MM-DD HH:mm:ss') : '-'}
-        </div>
-      </div>
+      <FieldRangePicker
+        text={text as string[]}
+        format="YYYY-MM-DD HH:mm:ss"
+        showTime
+        {...props}
+      />
     );
   }
 
@@ -234,7 +236,9 @@ const defaultRenderText = (
    *如果是时间类型的值
    */
   if (valueType === 'time' && text) {
-    return moment(text).format('HH:mm:ss');
+    return (
+      <FieldTimePicker text={text as string} format="HH:mm:ss" {...props} />
+    );
   }
 
   if (valueType === 'index') {
@@ -258,21 +262,13 @@ const defaultRenderText = (
   }
 
   if (valueType === 'code' && text) {
-    return (
-      <pre
-        style={{
-          padding: 16,
-          overflow: 'auto',
-          fontSize: '85%',
-          lineHeight: 1.45,
-          backgroundColor: '#f6f8fa',
-          borderRadius: 3,
-        }}
-      >
-        <code>{text}</code>
-      </pre>
-    );
+    return <FieldCode text={text as string} {...props} />;
   }
+
+  if (valueType === 'jsonCode' && text) {
+    return <FieldCode text={text as string} language="json" {...props} />;
+  }
+
   const { emptyText } = props;
   if (emptyText !== false) {
     if (typeof text !== 'boolean' && typeof text !== 'number' && !text) {

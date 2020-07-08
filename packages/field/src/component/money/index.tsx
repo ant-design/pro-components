@@ -41,13 +41,23 @@ const getTextByLocale = (locale: string, paramsText: number) => {
   return moneyIntl.format(text);
 };
 
-const FieldMoney: FieldFC<{
+export type FieldMoneyProps = {
   text: number;
   moneySymbol?: string;
   locale?: string;
-}> = ({
+};
+
+/**
+ * 金额组件
+ * @param FieldMoneyProps
+ * {
+ *    text: number;
+ *    moneySymbol?: string;
+ * }
+ */
+const FieldMoney: FieldFC<FieldMoneyProps> = ({
   text,
-  type,
+  mode: type,
   moneySymbol = '￥',
   locale = '',
   render,
@@ -57,7 +67,7 @@ const FieldMoney: FieldFC<{
   if (type === 'read') {
     const dom = <span>{getTextByLocale(locale, text)}</span>;
     if (render) {
-      return render(text, { type, ...formItemProps }, dom);
+      return render(text, { mode: type, ...formItemProps }, dom);
     }
     return dom;
   }
@@ -88,7 +98,7 @@ const FieldMoney: FieldFC<{
       />
     );
     if (renderFormItem) {
-      return renderFormItem(text, { type, ...formItemProps }, dom);
+      return renderFormItem(text, { mode: type, ...formItemProps }, dom);
     }
     return dom;
   }
