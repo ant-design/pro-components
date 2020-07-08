@@ -3885,10 +3885,10 @@
     umi-webpack-bundle-analyzer "3.5.0"
     zlib "1.0.5"
 
-"@umijs/preset-dumi@1.0.32":
-  version "1.0.32"
-  resolved "https://registry.npm.taobao.org/@umijs/preset-dumi/download/@umijs/preset-dumi-1.0.32.tgz#6de4af4d387372839917cb9feea13022a0c59daa"
-  integrity sha1-beSvTThzcoOZF8uf7qEwIqDFnao=
+"@umijs/preset-dumi@1.0.33":
+  version "1.0.33"
+  resolved "https://registry.npm.taobao.org/@umijs/preset-dumi/download/@umijs/preset-dumi-1.0.33.tgz#cff6539ca5dccfe66c6def4a018beced9ab32157"
+  integrity sha1-z/ZTnKXcz+Zsbe9KAYvs7ZqzIVc=
   dependencies:
     "@babel/core" "^7.7.2"
     "@babel/generator" "^7.7.2"
@@ -7200,12 +7200,12 @@ dotenv@8.2.0, dotenv@^8.2.0:
   resolved "https://registry.npm.taobao.org/dotenv/download/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
   integrity sha1-l+YZJZradQ7qPk6j4mvO6lQksWo=
 
-dumi@^1.0.31:
-  version "1.0.32"
-  resolved "https://registry.npm.taobao.org/dumi/download/dumi-1.0.32.tgz#28ac05f289666f5ca1f345fe9667615ab4bf7ff4"
-  integrity sha1-KKwF8olmb1yh80X+lmdhWrS/f/Q=
+dumi@^1.0.33:
+  version "1.0.33"
+  resolved "https://registry.npm.taobao.org/dumi/download/dumi-1.0.33.tgz#f5ab775931354f9a0657bfbc3a8a1c7e410e6c33"
+  integrity sha1-9at3WTE1T5oGV7+8OoocfkEObDM=
   dependencies:
-    "@umijs/preset-dumi" "1.0.32"
+    "@umijs/preset-dumi" "1.0.33"
     umi "^3.0.0"
 
 duplexer3@^0.1.4:

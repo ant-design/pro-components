@@ -32,13 +32,16 @@ const { yParser } = require('@umijs/utils');
         files: ['lib', 'src'],
         repository: {
           type: 'git',
-          url: 'https://github.com/umijs/plugins',
+          url: 'https://github.com/ant-design/pro-components',
         },
-        keywords: ['umi'],
-        authors: ['chencheng <sorrycc@gmail.com> (https://github.com/sorrycc)'],
+        keywords: ['antd', 'admin', 'ant-design', 'ant-design-pro'],
+        authors: [
+          'chencheng <sorrycc@gmail.com> (https://github.com/sorrycc)',
+          'chenshuai2144 <qixian.cs@outlook.com> (https://github.com/chenshuai2144)',
+        ],
         license: 'MIT',
         bugs: 'http://github.com/umijs/plugins/issues',
-        homepage: `https://github.com/umijs/plugins/tree/master/packages/${shortName}#readme`,
+        homepage: `https://github.com/ant-design/pro-components/tree/master/packages/${shortName}#readme`,
         peerDependencies: {
           umi: '3.x',
         },
