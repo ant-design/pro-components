@@ -1,13 +1,14 @@
 import React, { ReactNode } from 'react';
 import { Avatar } from 'antd';
-import Percent from './component/percent';
-import IndexColumn from './component/indexColumn';
-import Progress from './component/progress';
-import FieldMoney from './component/money';
-import FieldDatePicker from './component/datePicker';
-import FieldRangePicker from './component/rangePicker';
-import FieldCode from './component/code';
-import FieldTimePicker from './component/timePicker';
+import FieldPercent from './components/percent';
+import FieldIndexColumn from './components/indexColumn';
+import FieldProgress from './components/progress';
+import FieldMoney from './components/money';
+import FieldDatePicker from './components/datePicker';
+import FieldRangePicker from './components/rangePicker';
+import FieldCode from './components/code';
+import FieldTimePicker from './components/timePicker';
+import FieldText from './components/text';
 
 export type ColumnEmptyText = string;
 
@@ -123,7 +124,7 @@ const defaultRenderTextByObject = (
 ) => {
   if (valueType.type === 'progress') {
     return (
-      <Progress
+      <FieldProgress
         {...props}
         text={text as number}
         formItemProps={{
@@ -140,7 +141,7 @@ const defaultRenderTextByObject = (
   }
   if (valueType.type === 'percent') {
     return (
-      <Percent
+      <FieldPercent
         {...props}
         text={text as number}
         showSymbol={valueType.showSymbol}
@@ -242,19 +243,19 @@ const defaultRenderText = (
   }
 
   if (valueType === 'index') {
-    return <IndexColumn>{(text as number) + 1}</IndexColumn>;
+    return <FieldIndexColumn>{(text as number) + 1}</FieldIndexColumn>;
   }
 
   if (valueType === 'indexBorder') {
-    return <IndexColumn border>{(text as number) + 1}</IndexColumn>;
+    return <FieldIndexColumn border>{(text as number) + 1}</FieldIndexColumn>;
   }
 
   if (valueType === 'progress') {
-    return <Progress {...props} text={text as number} />;
+    return <FieldProgress {...props} text={text as number} />;
   }
   /** 百分比, 默认展示符号, 不展示小数位 */
   if (valueType === 'percent') {
-    return <Percent text={text as number} {...props} />;
+    return <FieldPercent text={text as number} {...props} />;
   }
 
   if (valueType === 'avatar' && typeof text === 'string') {
@@ -276,7 +277,7 @@ const defaultRenderText = (
     }
   }
 
-  return text;
+  return <FieldText text={text as string} {...props} />;
 };
 
 export { defaultRenderText };
@@ -286,6 +287,18 @@ const Field: React.FC<{
   valueType: ProColumnsValueType;
 } & RenderProps> = ({ text, valueType, ...rest }) => {
   return <>{defaultRenderText(text, valueType, rest)}</>;
+};
+
+export {
+  FieldPercent,
+  FieldIndexColumn,
+  FieldProgress,
+  FieldMoney,
+  FieldDatePicker,
+  FieldRangePicker,
+  FieldCode,
+  FieldTimePicker,
+  FieldText,
 };
 
 export default Field;
