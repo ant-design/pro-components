@@ -12,6 +12,7 @@
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "release": "node ./scripts/release.js",
     "start": "dumi dev",
+    "site": "dumi build",
     "test": "umi-test",
     "test:coverage": "umi-test --coverage",
     "test:update": "umi-test --updateSnapshot"

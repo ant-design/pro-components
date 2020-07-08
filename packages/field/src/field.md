@@ -11,7 +11,7 @@ nav:
 
 ## DEMO
 
-<code src="../demo/base.tsx" />
+<code src="../demos/base.tsx" />
 
 ## API
 

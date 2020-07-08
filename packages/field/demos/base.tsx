@@ -23,6 +23,14 @@ export default () => {
       <br />
       <br />
       <Descriptions column={2}>
+        <Descriptions.Item label="文本">
+          <Field
+            text="这是一段文本"
+            valueType="text"
+            mode={state}
+            plain={plain}
+          />
+        </Descriptions.Item>
         <Descriptions.Item label="金额">
           <Field text="100" valueType="money" mode={state} plain={plain} />
         </Descriptions.Item>

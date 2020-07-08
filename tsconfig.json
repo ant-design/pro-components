@@ -16,7 +16,7 @@
     "**/src",
     "**/docs",
     "scripts",
-    "**/demo",
+    "**/demos",
     ".eslintrc.js",
     "tests",
     "jest.config.js"
