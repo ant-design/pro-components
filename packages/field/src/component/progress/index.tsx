@@ -24,9 +24,13 @@ export function getProgressStatus(
   return 'normal';
 }
 
+/**
+ * 进度条组件
+ * @param
+ */
 const FieldProgress: FieldFC<{
   text: number | string;
-}> = ({ text, type, render, renderFormItem, formItemProps }) => {
+}> = ({ text, mode, render, plain, renderFormItem, formItemProps }) => {
   const realValue = useMemo(
     () =>
       typeof text === 'string' && (text as string).includes('%')
@@ -34,25 +38,26 @@ const FieldProgress: FieldFC<{
         : toNumber(text),
     [text],
   );
-  if (type === 'read') {
+  if (mode === 'read') {
     const dom = (
       <Progress
         size="small"
         style={{ minWidth: 100 }}
-        percent={30}
+        percent={realValue}
+        steps={plain ? 10 : undefined}
         status={getProgressStatus(realValue as number)}
         {...formItemProps}
       />
     );
     if (render) {
-      return render(realValue, { type, ...formItemProps }, dom);
+      return render(realValue, { mode, ...formItemProps }, dom);
     }
     return dom;
   }
-  if (type === 'edit' || type === 'update') {
+  if (mode === 'edit' || mode === 'update') {
     const dom = <InputNumber {...formItemProps} defaultValue={realValue} />;
     if (renderFormItem) {
-      return renderFormItem(text, { type, ...formItemProps }, dom);
+      return renderFormItem(text, { mode, ...formItemProps }, dom);
     }
     return dom;
   }

@@ -9,22 +9,26 @@ import {
 } from './util';
 import { FieldFC } from '../../index';
 
-export interface PercentPropInt {
+export type PercentPropInt = {
   prefix?: ReactNode;
   suffix?: ReactNode;
   text?: number | string;
   precision?: number;
   showColor?: boolean;
   showSymbol?: boolean;
-}
+};
 
+/**
+ * 百分比组件
+ * @param  PercentPropInt
+ */
 const FieldPercent: FieldFC<PercentPropInt> = ({
   text,
   prefix,
   precision,
   showSymbol,
   suffix = '%',
-  type,
+  mode,
   showColor = false,
   render,
   renderFormItem,
@@ -38,7 +42,7 @@ const FieldPercent: FieldFC<PercentPropInt> = ({
     [text],
   );
 
-  if (type === 'read') {
+  if (mode === 'read') {
     /** 颜色有待确定, 根据提供 colors: ['正', '负'] | boolean */
     const style = showColor ? { color: getColorByRealValue(realValue) } : {};
 
@@ -55,13 +59,13 @@ const FieldPercent: FieldFC<PercentPropInt> = ({
     if (render) {
       return render(
         text,
-        { type, ...formItemProps, prefix, precision, showSymbol, suffix },
+        { mode, ...formItemProps, prefix, precision, showSymbol, suffix },
         dom,
       );
     }
     return dom;
   }
-  if (type === 'edit' || type === 'update') {
+  if (mode === 'edit' || mode === 'update') {
     const dom = (
       <InputNumber
         formatter={value => {
@@ -80,7 +84,7 @@ const FieldPercent: FieldFC<PercentPropInt> = ({
       />
     );
     if (renderFormItem) {
-      return renderFormItem(text, { type, ...formItemProps }, dom);
+      return renderFormItem(text, { mode, ...formItemProps }, dom);
     }
     return dom;
   }

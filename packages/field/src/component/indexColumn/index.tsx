@@ -16,7 +16,7 @@ const IndexColumn: React.FC<{ border?: boolean }> = ({
 }) => (
   <ConfigConsumer>
     {({ getPrefixCls }: ConfigConsumerProps) => {
-      const className = getPrefixCls('pro-table-index-column');
+      const className = getPrefixCls('pro-field-index-column');
       return (
         <div
           className={classnames(className, {

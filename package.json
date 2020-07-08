@@ -54,6 +54,7 @@
     "commit-msg": "node scripts/verifyCommit.js"
   },
   "dependencies": {
-    "@umijs/utils": "^3.2.8"
+    "@umijs/utils": "^3.2.8",
+    "husky": "^4.2.5"
   }
 }
