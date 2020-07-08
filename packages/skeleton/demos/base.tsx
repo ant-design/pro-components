@@ -6,7 +6,7 @@ export default () => {
   return (
     <div
       style={{
-        background: '#aaa',
+        background: '#fafafa',
         padding: 24,
       }}
     >

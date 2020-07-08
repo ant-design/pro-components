@@ -23,12 +23,14 @@ const StatisticSkeleton: React.FC<{
               key={index}
               style={{
                 borderLeft: index === 1 ? '1px solid #ddd' : undefined,
+                paddingLeft: 42,
               }}
             >
               <Skeleton
                 paragraph={false}
                 title={{
                   width: 100,
+                  style: { marginTop: 0 },
                 }}
               />
               <Skeleton.Button active size="small" />
@@ -197,7 +199,7 @@ const List = () => (
       >
         <Divider style={{ margin: 0 }} />
       </div>
-      <ListSkeleton size={4} />
+      <ListSkeleton size={5} />
       <Card
         bordered={false}
         style={{
