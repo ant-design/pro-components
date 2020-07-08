@@ -10,10 +10,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/umijs/plugins"
+    "url": "https://github.com/ant-design/pro-components"
   },
   "keywords": [
-    "umi"
+    "antd",
+    "admin",
+    "ant-design",
+    "ant-design-pro"
   ],
   "authors": [
     "chencheng <sorrycc@gmail.com> (https://github.com/sorrycc)",
@@ -21,7 +24,7 @@
   ],
   "license": "MIT",
   "bugs": "http://github.com/umijs/plugins/issues",
-  "homepage": "https://github.com/umijs/plugins/tree/master/packages/descriptions#readme",
+  "homepage": "https://github.com/ant-design/pro-components/tree/master/packages/descriptions#readme",
   "peerDependencies": {
     "umi": "3.x"
   },

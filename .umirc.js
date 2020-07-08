@@ -22,7 +22,7 @@ export default {
       },
     ],
   ],
-  resolve: { includes: [...headPkgs, ...tailPkgs] },
+  resolve: { includes: [...headPkgs, ...tailPkgs, 'docs'] },
   navs: [
     null,
     {
