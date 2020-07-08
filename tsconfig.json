@@ -12,5 +12,13 @@
     "declaration": true,
     "skipLibCheck": true
   },
-  "include": ["**/src", "**/docs", "scripts", "**/demo", ".eslintrc.js"]
+  "include": [
+    "**/src",
+    "**/docs",
+    "scripts",
+    "**/demo",
+    ".eslintrc.js",
+    "tests",
+    "jest.config.js"
+  ]
 }
