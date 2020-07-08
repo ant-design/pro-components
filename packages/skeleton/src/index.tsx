@@ -1,6 +1,16 @@
 import React from 'react';
-import ListSkeleton from './component/list';
+import ListPageSkeleton from './component/list';
 
-export default () => <ListSkeleton />;
+const PageSkeleton: React.FC<{
+  type?: 'list';
+  active?: boolean;
+}> = ({ type = 'list', active }) => {
+  if (type === 'list') {
+    return <ListPageSkeleton active={active} />;
+  }
+  return null;
+};
 
-export { ListSkeleton };
+export { ListPageSkeleton };
+
+export default PageSkeleton;
