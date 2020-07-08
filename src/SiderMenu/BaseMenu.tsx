@@ -308,6 +308,7 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
   );
 
   useEffect(() => {
+    setPostMenuData(menuData);
     if (menu.defaultOpenAll || propsOpenKeys === false || flatMenuKeys.length) {
       return;
     }

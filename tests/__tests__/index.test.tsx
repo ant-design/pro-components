@@ -52,7 +52,7 @@ describe('BasicLayout', () => {
     wrapper.unmount();
   });
 
-  it('🥩 support menuDateRender', async () => {
+  it('🥩 support menuDataRender', async () => {
     const wrapper = mount(
       <BasicLayout
         menuDataRender={() =>
@@ -220,6 +220,36 @@ describe('BasicLayout', () => {
     const footer = wrapper.find('footer');
     expect(footer.exists()).toBe(false);
     wrapper.unmount();
+  });
+
+  it('🥩 menuDataRender change date', async () => {
+    const wrapper = mount(<BasicLayout menuDataRender={() => []} />);
+    await waitForComponentToPaint(wrapper);
+
+    expect(wrapper.render()).toMatchSnapshot();
+
+    wrapper.setProps({
+      menuDataRender: () => [
+        {
+          path: '/home',
+          name: '首页',
+          children: [
+            {
+              path: '/home/overview',
+              name: '概述',
+              exact: true,
+            },
+            {
+              path: '/home/search',
+              name: '搜索',
+              exact: true,
+            },
+          ],
+        },
+      ],
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('🥩 use onLogoClick', async () => {

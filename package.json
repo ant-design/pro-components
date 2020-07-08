@@ -46,7 +46,7 @@
     "site_build": "dumi build",
     "doc": "cd ./example && umi dev",
     "test": "umi-test",
-    "tsc": "tsc"
+    "tsc": "tsc -p tsconfig-check.json"
   },
   "husky": {
     "hooks": {

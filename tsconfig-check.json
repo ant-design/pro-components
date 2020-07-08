@@ -21,17 +21,5 @@
       "@ant-design/pro-layout": ["./src"]
     }
   },
-  "include": ["**/src/", "**/docs/", "**/tests/"],
-  "exclude": [
-    "node_modules",
-    "build",
-    "scripts",
-    "acceptance-tests",
-    "webpack",
-    "jest",
-    "tslint:latest",
-    "tslint-config-prettier",
-    "example",
-    "**/docs/"
-  ]
+  "include": ["src/"]
 }
