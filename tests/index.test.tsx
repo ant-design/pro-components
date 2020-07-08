@@ -15,7 +15,7 @@ describe('Field', () => {
   });
 
   it('🥩 base use', async () => {
-    const html = render(<Field text="100" valueType="money" mode="read" />);
+    const html = render(<Field text="100" valueType="money" mode="edit" />);
     expect(html).toMatchSnapshot();
   });
 });
