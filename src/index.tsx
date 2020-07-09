@@ -268,6 +268,7 @@ function ProList<RecordType = any>(props: ProListProps<RecordType>) {
         bordered={bordered}
         dataSource={pageData}
         renderItem={defaultRenderItem()}
+        pagination={pagination && mergedPagination}
       />
     </div>
   );
