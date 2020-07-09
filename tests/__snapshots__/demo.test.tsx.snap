@@ -4959,7 +4959,6 @@ Array [
     >
       <span
         class="ant-select-selection-search"
-        title="default"
       >
         <input
           aria-activedescendant="undefined_list_0"
@@ -4978,6 +4977,7 @@ Array [
       </span>
       <span
         class="ant-select-selection-item"
+        title="default"
       >
         default
       </span>
@@ -5019,7 +5019,6 @@ Array [
     >
       <span
         class="ant-select-selection-search"
-        title="有"
       >
         <input
           aria-activedescendant="undefined_list_0"
@@ -5038,6 +5037,7 @@ Array [
       </span>
       <span
         class="ant-select-selection-item"
+        title="有"
       >
         有
       </span>
@@ -5079,7 +5079,6 @@ Array [
     >
       <span
         class="ant-select-selection-search"
-        title="有"
       >
         <input
           aria-activedescendant="undefined_list_0"
@@ -5098,6 +5097,7 @@ Array [
       </span>
       <span
         class="ant-select-selection-item"
+        title="有"
       >
         有
       </span>
