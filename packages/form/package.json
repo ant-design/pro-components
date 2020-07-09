@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/form",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0-beta.3",
   "description": "@ant-design/form",
   "keywords": [
     "antd",
@@ -22,11 +22,11 @@
     "src"
   ],
   "dependencies": {
-    "@ant-design/pro-field": "0.0.5"
+    "@ant-design/pro-field": "0.0.6"
   },
   "peerDependencies": {
-    "react": "^16.x",
-    "antd": "4.x"
+    "antd": "4.x",
+    "react": "^16.x"
   },
   "publishConfig": {
     "access": "public"

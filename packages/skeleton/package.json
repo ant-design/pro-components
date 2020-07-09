@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-skeleton",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "description": "@ant-design/pro-skeleton",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -26,8 +26,8 @@
   "bugs": "http://github.com/umijs/plugins/issues",
   "homepage": "https://github.com/ant-design/pro-components/tree/master/packages/skeleton#readme",
   "peerDependencies": {
-    "react": "^16.x",
-    "antd": "4.x"
+    "antd": "4.x",
+    "react": "^16.x"
   },
   "publishConfig": {
     "access": "public"
