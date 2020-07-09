@@ -10,11 +10,8 @@ import React, {
   MouseEventHandler,
 } from 'react';
 
-import LocaleWraper, { LocaleWrapperProps } from '../locale/LocaleWrapper';
-import zhCN from './locale/zh-CN';
-
-import getPrefixCls from '../_util/getPrefixCls';
-import './style/index.less';
+import { getPrefixCls } from '@ant-design/pro-utils';
+import './index.less';
 
 /**
  * 配置表单列变化的容器宽度断点
@@ -33,8 +30,7 @@ const BREAKPOINTS = {
 };
 
 export interface AdvancedQueryProps
-  extends Omit<FormProps, 'labelCol' | 'wrapperCol' | 'layout'>,
-    LocaleWrapperProps {
+  extends Omit<FormProps, 'labelCol' | 'wrapperCol' | 'layout'> {
   /**
    * 点击重设按钮时的回调（自定义操作区域时无法生效）
    */
@@ -104,7 +100,8 @@ class InnerAdvancedQuery extends Component<AdvancedQueryProps> {
   actionRef = React.createRef<HTMLDivElement>();
 
   static getDerivedStateFromProps(
-    { children = [], prefixCls, defaultColsNumber },
+    { children = [], prefixCls, defaultColsNumber }: AdvancedQueryProps,
+    // @ts-expect-error TODO
     { colsInRow },
   ) {
     const overflowNumber = defaultColsNumber || colsInRow - 1 || 1;
@@ -114,13 +111,14 @@ class InnerAdvancedQuery extends Component<AdvancedQueryProps> {
       childrenCount,
       // 比对子节点数量及当前宽度可展示的表单列数量，设置是否有折叠项
       isOverflow: childrenCount > overflowNumber,
-      prefixCls: getPrefixCls('adv-query', prefixCls),
+      prefixCls: getPrefixCls('form-query-filter', prefixCls),
     };
   }
 
   static getChildrenCount(children: ReactNode = []): number {
     let count = 0;
 
+    // @ts-expect-error
     [].concat(children).forEach(item => {
       if ((item as ReactElement).type === React.Fragment) {
         // 从 React Fragment 中将 children 铺开计算数量
@@ -231,7 +229,7 @@ class InnerAdvancedQuery extends Component<AdvancedQueryProps> {
       colsInRow,
       childrenCount,
     } = this.state;
-    const { onReset, locale } = this.props;
+    const { onReset } = this.props;
     const isSingleLine = childrenCount < colsInRow;
 
     return (
@@ -242,9 +240,9 @@ class InnerAdvancedQuery extends Component<AdvancedQueryProps> {
         // 仅 care major 避免 snapshot 报错 4.3.3 -> 4
         data-antd={parseInt(version, 10)}
       >
-        {onReset && <Button onClick={onReset}>{locale.reset}</Button>}
+        {onReset && <Button onClick={onReset}>Reset</Button>}
         <Button type="primary" htmlType="submit">
-          {locale.search}
+          Query
         </Button>
         {/* 仅在有超出单行展示的表单项时才显示收起/折叠按钮 */}
         {isOverflow && (
@@ -257,11 +255,11 @@ class InnerAdvancedQuery extends Component<AdvancedQueryProps> {
             {/* 后续 tech-ui 会接入国际化，所以此处不开放 props 进行文本修改 */}
             {isCollapsed ? (
               <>
-                {locale.expand} <DownOutlined />
+                Expand <DownOutlined />
               </>
             ) : (
               <>
-                {locale.collapse} <UpOutlined />
+                Collapse <UpOutlined />
               </>
             )}
           </Button>
@@ -334,16 +332,5 @@ class InnerAdvancedQuery extends Component<AdvancedQueryProps> {
   }
 }
 
-const AdvancedQuery = LocaleWraper({
-  componentName: 'AdvancedQuery',
-  defaultLocale: zhCN,
-})(
-  React.forwardRef((props, ref) => (
-    <InnerAdvancedQuery {...props} forwardRef={ref} />
-  )) as React.ComponentType<AdvancedQueryProps>,
-);
-
-type InnerType = typeof InnerAdvancedQuery;
-type WrapperType = InnerType & typeof AdvancedQuery;
-
-export default AdvancedQuery as WrapperType;
+// TODO i18n
+export default InnerAdvancedQuery;

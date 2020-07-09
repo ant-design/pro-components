@@ -1,0 +1,245 @@
+@import (reference) '~antd/lib/style/themes/default';
+
+@tech-adv-query-hgap: @padding-lg;
+@tech-adv-query-vgap: @form-item-margin-bottom;
+@tech-adv-query-prefix-cls: ~'antd-pro-form-query-filter';
+
+.@{tech-adv-query-prefix-cls} {
+  display: flex;
+
+  > .ant-form,
+  > .ant-legacy-form {
+    display: block;
+    flex: 1;
+    margin: 0 -@tech-adv-query-hgap -@tech-adv-query-vgap 0;
+  }
+
+  &-action-area {
+    display: inline-block;
+    margin: 0 @tech-adv-query-hgap @tech-adv-query-vgap 0;
+
+    // 非单行时操作按钮右对齐
+    &:not([data-single-line]) {
+      float: right;
+      text-align: right;
+    }
+
+    // 单行时提交按钮在重置按钮前面
+    &[data-single-line] {
+      > button.ant-btn[type='submit'] {
+        float: left;
+        margin-right: 8px;
+        margin-left: 0;
+      }
+    }
+
+    // 兼容 antd 3 的表格行间距
+    &[data-antd^='3'] {
+      margin-top: @input-padding-vertical-base;
+    }
+
+    .@{tech-adv-query-prefix-cls}-toggle-btn {
+      display: inline-block;
+      margin-left: @padding-md;
+      background-color: transparent;
+      border: 0;
+      box-shadow: none;
+
+      &:not(:hover):not(:active):not(:focus) {
+        color: @link-color;
+      }
+
+      // 移除点击动画，防止与旁边按钮间距过小动画重叠到按钮上
+      &::after {
+        content: none;
+      }
+
+      // 为按钮的图标继承按钮的过渡动画
+      > i {
+        transition: inherit;
+      }
+      > span.anticon {
+        transition: inherit;
+      }
+    }
+
+    // 为操作区的按钮添加默认间距
+    .@{ant-prefix}-btn
+      + .@{ant-prefix}-btn:not(.@{tech-adv-query-prefix-cls}-toggle-btn) {
+      margin-left: @padding-xs;
+    }
+  }
+
+  .@{ant-prefix}-form-inline,
+  .@{ant-prefix}-legacy-form-inline {
+    // 消除操作区域的浮动影响
+    &::after {
+      display: table;
+      clear: both;
+      content: '';
+    }
+
+    .@{ant-prefix}-row.@{ant-prefix}-form-item,
+    .@{ant-prefix}-row.@{ant-prefix}-legacy-form-item {
+      display: inline-flex;
+    }
+
+    .@{ant-prefix}-form-item-control,
+    .@{ant-prefix}-legacy-form-item-control {
+      flex: 1;
+    }
+
+    .@{ant-prefix}-form-item,
+    .@{ant-prefix}-legacy-form-item {
+      margin-right: @tech-adv-query-hgap;
+      margin-bottom: @tech-adv-query-vgap;
+
+      // 与 antd 默认行为保持一致：小于最小屏幕尺寸时表单 label 与 control 上下排列
+      @media (max-width: @screen-xs-max) {
+        > *[class~=~'@{ant-prefix}-col'] {
+          width: 100%;
+        }
+
+        .@{ant-prefix}-form-item-control,
+        .@{ant-prefix}-legacy-form-item-control {
+          flex: 1;
+          line-height: @line-height-base;
+        }
+      }
+
+      // 用 label 内边距代替冒号的外边距，防止 label 文字省略时与 control 贴边
+      .@{ant-prefix}-form-item-label,
+      .@{ant-prefix}-legacy-form-item-label {
+        padding-right: @padding-xs;
+        text-overflow: ellipsis;
+
+        > label::after {
+          margin-right: 0;
+        }
+      }
+
+      // 清空 inline 表单校验信息展示时的间距，避免跳动
+      &.@{ant-prefix}-form-item-with-help {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // 不同列数状态下的表单项的样式
+  &[data-cols='1'] .@{ant-prefix}-form-item,
+  &[data-cols='1'] .@{ant-prefix}-legacy-form-item,
+  &[data-cols='1'] .@{tech-adv-query-prefix-cls}-action-area {
+    width: calc(100% - @tech-adv-query-hgap);
+  }
+
+  &[data-cols='2'] .@{ant-prefix}-form-item,
+  &[data-cols='2'] .@{ant-prefix}-legacy-form-item,
+  &[data-cols='2'] .@{tech-adv-query-prefix-cls}-action-area {
+    width: calc((100% - @tech-adv-query-hgap * 2) / 2);
+  }
+
+  &[data-cols='3'] .@{ant-prefix}-form-item,
+  &[data-cols='3'] .@{ant-prefix}-legacy-form-item,
+  &[data-cols='3'] .@{tech-adv-query-prefix-cls}-action-area {
+    width: calc((100% - @tech-adv-query-hgap * 3) / 3);
+  }
+
+  &[data-cols='4'] .@{ant-prefix}-form-item,
+  &[data-cols='4'] .@{ant-prefix}-legacy-form-item,
+  &[data-cols='4'] .@{tech-adv-query-prefix-cls}-action-area {
+    width: calc((100% - @tech-adv-query-hgap * 4) / 4);
+  }
+
+  // 不同表单标签布局下的样式
+  &[data-label-layout='default'] {
+    .@{ant-prefix}-form-item-label,
+    .@{ant-prefix}--legacy-form-item-label {
+      width: 33.33333333%;
+    }
+
+    .@{ant-prefix}-form-item-control-wrapper,
+    .@{ant-prefix}-legacy-form-item-control-wrapper {
+      width: 66.66666667%;
+    }
+  }
+
+  &[data-label-layout='growth'] {
+    .@{ant-prefix}-form-item-label,
+    .@{ant-prefix}-legacy-form-item-label {
+      width: 50%;
+    }
+
+    .@{ant-prefix}-form-item-control-wrapper,
+    .@{ant-prefix}-legacy-form-item-control-wrapper {
+      width: 50%;
+    }
+  }
+
+  &[data-label-layout='vertical'] {
+    .@{ant-prefix}-form-item-label,
+    .@{ant-prefix}-legacy-form-item-label {
+      width: 100%;
+      padding: @form-vertical-label-padding;
+      line-height: @line-height-base;
+      text-align: left;
+
+      > label {
+        height: auto;
+
+        ::after {
+          content: none;
+        }
+      }
+    }
+
+    .@{ant-prefix}-form-item-control-wrapper,
+    .@{ant-prefix}-legacy-form-item-control-wrapper {
+      width: 100%;
+
+      .@{ant-prefix}-form-item-control,
+      .@{ant-prefix}-legacy-form-item-control {
+        line-height: @line-height-base;
+      }
+    }
+
+    // 垂直布局模式下增加操作区域的上边距，与表单控件对齐，仅在非单列且操作区用于填补空隙时有效
+    &[data-cols='2']
+      .@{tech-adv-query-prefix-cls}-action-area:not(:nth-child(2n + 1)),
+    &[data-cols='3']
+      .@{tech-adv-query-prefix-cls}-action-area:not(:nth-child(3n + 1)),
+    &[data-cols='4']
+      .@{tech-adv-query-prefix-cls}-action-area:not(:nth-child(4n + 1)) {
+      &[data-antd^='3'] {
+        padding-top: 25px;
+      }
+
+      // antd 4 开始表单控件的间距变化了
+      &[data-antd^='4'] {
+        padding-top: 30px;
+      }
+    }
+
+    // 垂直布局模式下允许 flex 换行
+    .@{ant-prefix}-form-item,
+    .@{ant-prefix}-legacy-form-item {
+      flex-wrap: wrap;
+    }
+
+    // 垂直布局模式下将列间隙扩大 8px
+    &[data-cols='2'] .@{ant-prefix}-form-item:not(:nth-child(2n)),
+    &[data-cols='2'] .@{ant-prefix}-legacy-form-item:not(:nth-child(2n)),
+    &[data-cols='3'] .@{ant-prefix}-form-item:not(:nth-child(3n)),
+    &[data-cols='3'] .@{ant-prefix}-legacy-form-item:not(:nth-child(3n)),
+    &[data-cols='4'] .@{ant-prefix}-form-item:not(:nth-child(4n)),
+    &[data-cols='4'] .@{ant-prefix}-legacy-form-item:not(:nth-child(4n)) {
+      padding-right: @padding-xs;
+    }
+  }
+
+  // 展开状态下的样式
+  &:not(.@{tech-adv-query-prefix-cls}-collapsed) {
+    .@{tech-adv-query-prefix-cls}-toggle-btn > i {
+      transform: rotate(180deg);
+    }
+  }
+}

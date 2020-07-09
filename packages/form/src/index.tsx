@@ -2,6 +2,8 @@ import React from 'react';
 import { Form } from 'antd';
 import { FormProps } from 'antd/lib/form/Form';
 
+import QueryFilter from './layouts/QueryFilter';
+
 import ProFormDatePicker from './components/datePicker';
 import ProFormText from './components/text';
 
@@ -9,6 +11,6 @@ const ProForm: React.FC<FormProps> = ({ children, ...rest }) => {
   return <Form {...rest}>{children}</Form>;
 };
 
-export { ProFormDatePicker, ProFormText };
+export { ProFormDatePicker, ProFormText, QueryFilter };
 
 export default ProForm;

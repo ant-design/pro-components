@@ -12,3 +12,7 @@ nav:
 ## DEMO
 
 <code src="../demos/base.tsx" />
+
+## 高级查询
+
+<code src="../demos/query-filter.tsx" />
