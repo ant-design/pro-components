@@ -1,14 +1,14 @@
 {
-  "name": "@ant-design/from",
+  "name": "@ant-design/form",
   "version": "1.0.0-beta.2",
-  "description": "@ant-design/from",
+  "description": "@ant-design/form",
   "keywords": [
     "antd",
     "admin",
     "ant-design",
     "ant-design-pro"
   ],
-  "homepage": "https://github.com/ant-design/pro-components/tree/master/packages/from#readme",
+  "homepage": "https://github.com/ant-design/pro-components/tree/master/packages/form#readme",
   "bugs": "http://github.com/umijs/plugins/issues",
   "repository": {
     "type": "git",
@@ -25,7 +25,8 @@
     "@ant-design/pro-field": "0.0.5"
   },
   "peerDependencies": {
-    "umi": "3.x"
+    "react": "^16.x",
+    "antd": "4.x"
   },
   "publishConfig": {
     "access": "public"

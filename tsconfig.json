@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
     "target": "esnext",
     "moduleResolution": "node",
     "jsx": "preserve",
@@ -10,7 +11,11 @@
     "noImplicitReturns": true,
     "suppressImplicitAnyIndexErrors": true,
     "declaration": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "@ant-design/pro-field": ["./packages/field/src/index.tsx"],
+      "@ant-design/pro-skeleton": ["./packages/skeleton/src/index.tsx"]
+    }
   },
   "include": [
     "**/src",

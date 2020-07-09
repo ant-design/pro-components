@@ -168,14 +168,14 @@ const defaultRenderText = (
   /**
    * 如果是金额的值
    */
-  if (valueType === 'money' && (text || text === 0)) {
+  if (valueType === 'money') {
     return <FieldMoney {...props} text={text as number} />;
   }
 
   /**
    *如果是日期的值
    */
-  if (valueType === 'date' && text) {
+  if (valueType === 'date') {
     return (
       <FieldDatePicker text={text as string} format="YYYY-MM-DD" {...props} />
     );
@@ -184,12 +184,7 @@ const defaultRenderText = (
   /**
    *如果是日期范围的值
    */
-  if (
-    valueType === 'dateRange' &&
-    text &&
-    Array.isArray(text) &&
-    text.length === 2
-  ) {
+  if (valueType === 'dateRange') {
     return (
       <FieldRangePicker
         text={text as string[]}
@@ -202,7 +197,7 @@ const defaultRenderText = (
   /**
    *如果是日期加时间类型的值
    */
-  if (valueType === 'dateTime' && text) {
+  if (valueType === 'dateTime') {
     return (
       <FieldDatePicker
         text={text as string}
@@ -216,12 +211,7 @@ const defaultRenderText = (
   /**
    *如果是日期加时间类型的值的值
    */
-  if (
-    valueType === 'dateTimeRange' &&
-    text &&
-    Array.isArray(text) &&
-    text.length === 2
-  ) {
+  if (valueType === 'dateTimeRange') {
     // 值不存在的时候显示 "-"
     return (
       <FieldRangePicker
@@ -236,7 +226,7 @@ const defaultRenderText = (
   /**
    *如果是时间类型的值
    */
-  if (valueType === 'time' && text) {
+  if (valueType === 'time') {
     return (
       <FieldTimePicker text={text as string} format="HH:mm:ss" {...props} />
     );
@@ -262,16 +252,16 @@ const defaultRenderText = (
     return <Avatar src={text as string} size={22} shape="circle" />;
   }
 
-  if (valueType === 'code' && text) {
+  if (valueType === 'code') {
     return <FieldCode text={text as string} {...props} />;
   }
 
-  if (valueType === 'jsonCode' && text) {
+  if (valueType === 'jsonCode') {
     return <FieldCode text={text as string} language="json" {...props} />;
   }
 
   const { emptyText } = props;
-  if (emptyText !== false) {
+  if (emptyText !== false && props.mode === 'read') {
     if (typeof text !== 'boolean' && typeof text !== 'number' && !text) {
       return emptyText || '-';
     }
@@ -282,11 +272,26 @@ const defaultRenderText = (
 
 export { defaultRenderText };
 
-const Field: React.FC<{
-  text: string | number | React.ReactText[];
-  valueType: ProColumnsValueType;
-} & RenderProps> = ({ text, valueType, ...rest }) => {
-  return <>{defaultRenderText(text, valueType, rest)}</>;
+const Field: React.ForwardRefRenderFunction<
+  any,
+  {
+    text: string | number | React.ReactText[];
+    valueType: ProColumnsValueType;
+  } & RenderProps
+> = ({ text, valueType, onChange, value, ...rest }, ref) => {
+  return (
+    <React.Fragment>
+      {defaultRenderText(text, valueType, {
+        ...rest,
+        ref,
+        formItemProps: (value || onChange || rest?.formItemProps) && {
+          ...rest?.formItemProps,
+          value,
+          onChange,
+        },
+      })}
+    </React.Fragment>
+  );
 };
 
 export {
@@ -301,4 +306,4 @@ export {
   FieldText,
 };
 
-export default Field;
+export default React.forwardRef(Field);
