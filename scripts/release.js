@@ -104,7 +104,7 @@ async function release() {
         // '--no-git-tag-version',
         // '--no-push',
         '--message',
-        'chore(release): Publish',
+        '🎨 chore(release): Publish',
         '--conventional-commits',
       ]
         .concat(conventionalGraduate)
