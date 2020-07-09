@@ -1,5 +1,5 @@
 import React, { useState, ReactText } from 'react';
-import { Button, Progress, Tag } from 'antd';
+import { Button, Progress, Tag, Space } from 'antd';
 // @ts-ignore
 // eslint-disable-next-line import/no-extraneous-dependencies
 import ProList from '@ant-design/pro-list';
@@ -24,17 +24,10 @@ export default () => {
         renderItem={(item) => ({
           title: item,
           subTitle: (
-            <div>
+            <Space size={0}>
               <Tag color="blue">Ant Design</Tag>
-              <Tag
-                color="#5BD8A6"
-                style={{
-                  marginRight: 8,
-                }}
-              >
-                TechUI
-              </Tag>
-            </div>
+              <Tag color="#5BD8A6">TechUI</Tag>
+            </Space>
           ),
           actions: [<a>邀请</a>],
           description:

@@ -85,13 +85,13 @@ const ProListItemAvatar: React.FC<{
   if (typeof avatar === 'string') {
     return (
       <div className={`${className}-avatar`}>
-        <Avatar size={20} src={avatar} />
+        <Avatar size={22} src={avatar} />
       </div>
     );
   }
   return (
     <div className={`${className}-avatar`}>
-      <Avatar size={20} {...avatar} />
+      <Avatar size={22} {...avatar} />
     </div>
   );
 };
