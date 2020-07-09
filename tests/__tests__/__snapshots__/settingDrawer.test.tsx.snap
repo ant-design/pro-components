@@ -159,7 +159,6 @@ exports[`settingDrawer.test base user 1`] = `
                               >
                                 <span
                                   class="ant-select-selection-search"
-                                  title="流式"
                                 >
                                   <input
                                     aria-activedescendant="undefined_list_0"
@@ -178,6 +177,7 @@ exports[`settingDrawer.test base user 1`] = `
                                 </span>
                                 <span
                                   class="ant-select-selection-item"
+                                  title="流式"
                                 >
                                   流式
                                 </span>
@@ -721,7 +721,6 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                               >
                                 <span
                                   class="ant-select-selection-search"
-                                  title="流式"
                                 >
                                   <input
                                     aria-activedescendant="undefined_list_0"
@@ -740,6 +739,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                                 </span>
                                 <span
                                   class="ant-select-selection-item"
+                                  title="流式"
                                 >
                                   流式
                                 </span>
@@ -1321,7 +1321,6 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                               >
                                 <span
                                   class="ant-select-selection-search"
-                                  title="流式"
                                 >
                                   <input
                                     aria-activedescendant="undefined_list_0"
@@ -1340,6 +1339,7 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                                 </span>
                                 <span
                                   class="ant-select-selection-item"
+                                  title="流式"
                                 >
                                   流式
                                 </span>
@@ -1893,7 +1893,6 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                               >
                                 <span
                                   class="ant-select-selection-search"
-                                  title="流式"
                                 >
                                   <input
                                     aria-activedescendant="undefined_list_0"
@@ -1912,6 +1911,7 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                                 </span>
                                 <span
                                   class="ant-select-selection-item"
+                                  title="流式"
                                 >
                                   流式
                                 </span>
@@ -2459,7 +2459,6 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                               >
                                 <span
                                   class="ant-select-selection-search"
-                                  title="流式"
                                 >
                                   <input
                                     aria-activedescendant="undefined_list_0"
@@ -2478,6 +2477,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                                 </span>
                                 <span
                                   class="ant-select-selection-item"
+                                  title="流式"
                                 >
                                   流式
                                 </span>
@@ -3059,7 +3059,6 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                               >
                                 <span
                                   class="ant-select-selection-search"
-                                  title="流式"
                                 >
                                   <input
                                     aria-activedescendant="undefined_list_0"
@@ -3078,6 +3077,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                                 </span>
                                 <span
                                   class="ant-select-selection-item"
+                                  title="流式"
                                 >
                                   流式
                                 </span>
