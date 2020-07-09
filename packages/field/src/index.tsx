@@ -284,7 +284,7 @@ const Field: React.ForwardRefRenderFunction<
       {defaultRenderText(text, valueType, {
         ...rest,
         ref,
-        formItemProps: {
+        formItemProps: (value || onChange || rest?.formItemProps) && {
           ...rest?.formItemProps,
           value,
           onChange,
