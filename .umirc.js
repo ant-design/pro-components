@@ -19,6 +19,8 @@ export default {
       path: 'https://github.com/ant-design/ant-design-pro-layout',
     },
   ],
-  dynamicImport: {},
+  dynamicImport: {
+    loading: '@ant-design/pro-skeleton',
+  },
   hash: true,
 };

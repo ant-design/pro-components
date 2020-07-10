@@ -93,6 +93,7 @@
   "devDependencies": {
     "@ant-design/compatible": "^1.0.1",
     "@ant-design/dark-theme": "^2.0.2",
+    "@ant-design/pro-skeleton": "^1.0.0-beta.2",
     "@babel/core": "^7.8.3",
     "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
