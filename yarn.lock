@@ -18497,6 +18497,11 @@ umask@^1.1.0:
   resolved "https://registry.npm.taobao.org/umask/download/umask-1.1.0.tgz#f29cebf01df517912bb58ff9c4e50fde8e33320d"
   integrity sha1-8pzr8B31F5ErtY/5xOUP3o4zMg0=
 
+umi-plugin-githubpages@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.npm.taobao.org/umi-plugin-githubpages/download/umi-plugin-githubpages-2.0.1.tgz#1b4d7b05314c4bf403c9d932c2bf8c0fe8e3dbc0"
+  integrity sha1-G017BTFMS/QDydkywr+MD+jj28A=
+
 umi-test@^1.9.6:
   version "1.9.6"
   resolved "https://registry.npm.taobao.org/umi-test/download/umi-test-1.9.6.tgz#63856c511d396def5a088e6df7cdfc5311da2321"
