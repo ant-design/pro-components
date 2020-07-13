@@ -1,4 +1,3 @@
-import React from 'react';
 import ProFormDatePicker from './components/datePicker';
 import ProFormText from './components/text';
 
