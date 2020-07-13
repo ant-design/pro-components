@@ -1,30 +1,60 @@
 import React from 'react';
+import useMediaQuery from 'use-media-antd-query';
 import { Skeleton, Card, Space, Divider } from 'antd';
 
-const StatisticSkeleton: React.FC<{
-  size: number;
-  active?: boolean;
-}> = ({ size, active }) => (
-  <Card
-    bordered={false}
+/**
+ * 一条分割线
+ */
+export const Line = ({ padding }: { padding?: string | number }) => (
+  <div
     style={{
-      marginBottom: 16,
+      padding: padding || '0 24px',
     }}
   >
-    <Space
+    <Divider style={{ margin: 0 }} />
+  </div>
+);
+
+export const MediaQueryKeyEnum = {
+  xs: 2,
+  sm: 2,
+  md: 4,
+  lg: 4,
+  xl: 6,
+  xxl: 6,
+};
+
+const StatisticSkeleton: React.FC<{
+  size?: number;
+  active?: boolean;
+}> = ({ size, active }) => {
+  const colSize = useMediaQuery();
+  const arraySize = size === undefined ? MediaQueryKeyEnum[colSize] || 6 : size;
+  return (
+    <Card
+      bordered={false}
       style={{
-        width: '100%',
-        justifyContent: 'space-between',
+        marginBottom: 16,
       }}
     >
-      {new Array(size).fill(null).map((_, index) => (
-        <div>
+      <div
+        style={{
+          width: '100%',
+          justifyContent: 'space-between',
+          display: 'flex',
+        }}
+      >
+        {new Array(arraySize).fill(null).map((_, index) => (
           <div
             // eslint-disable-next-line react/no-array-index-key
             key={index}
             style={{
-              borderLeft: index === 1 ? '1px solid #ddd' : undefined,
-              paddingLeft: 42,
+              borderLeft:
+                arraySize > 2 && index === 1
+                  ? '1px solid rgba(0,0,0,0.06)'
+                  : undefined,
+              paddingLeft: arraySize > 2 ? 42 : 16,
+              flex: 1,
             }}
           >
             <Skeleton
@@ -35,18 +65,23 @@ const StatisticSkeleton: React.FC<{
                 style: { marginTop: 0 },
               }}
             />
-            <Skeleton.Button active={active} size="small" />
+            <Skeleton.Button
+              active={active}
+              style={{
+                height: 48,
+              }}
+            />
           </div>
-        </div>
-      ))}
-    </Space>
-  </Card>
-);
+        ))}
+      </div>
+    </Card>
+  );
+};
 
 /**
  * 列表子项目骨架屏
  */
-const ListSkeletonItem: React.FC<{ active: boolean }> = ({ active }) => (
+export const ListSkeletonItem: React.FC<{ active: boolean }> = ({ active }) => (
   <>
     <Card
       bordered={false}
@@ -55,7 +90,7 @@ const ListSkeletonItem: React.FC<{ active: boolean }> = ({ active }) => (
         borderRadius: 0,
       }}
       bodyStyle={{
-        padding: 16,
+        padding: 24,
       }}
     >
       <div
@@ -75,7 +110,7 @@ const ListSkeletonItem: React.FC<{ active: boolean }> = ({ active }) => (
           <Skeleton
             active={active}
             title={{
-              width: 120,
+              width: 100,
               style: {
                 marginTop: 0,
               },
@@ -91,24 +126,22 @@ const ListSkeletonItem: React.FC<{ active: boolean }> = ({ active }) => (
         <Skeleton.Button
           active={active}
           size="small"
-          style={{ width: 120, marginTop: 12 }}
+          style={{ width: 165, marginTop: 12 }}
         />
       </div>
     </Card>
-    <div
-      style={{
-        padding: '0 16px',
-      }}
-    >
-      <Divider style={{ margin: 0 }} />
-    </div>
+    <Line />
   </>
 );
 
-const ListSkeleton: React.FC<{
+/**
+ * 列表骨架屏
+ */
+export const ListSkeleton: React.FC<{
   size: number;
   active?: boolean;
-}> = ({ size, active = true }) => (
+  actionButton?: boolean;
+}> = ({ size, active = true, actionButton }) => (
   <Card
     bordered={false}
     bodyStyle={{
@@ -119,110 +152,8 @@ const ListSkeleton: React.FC<{
       // eslint-disable-next-line react/no-array-index-key
       <ListSkeletonItem key={index} active={!!active} />
     ))}
-  </Card>
-);
 
-const ListPageSkeleton: React.FC<{ active?: boolean }> = ({
-  active = true,
-}) => (
-  <div
-    style={{
-      width: '100%',
-    }}
-  >
-    <div
-      style={{
-        marginBottom: 16,
-      }}
-    >
-      <Skeleton
-        paragraph={false}
-        title={{
-          width: 160,
-        }}
-      />
-      <Skeleton.Button active={active} size="small" />
-    </div>
-    <StatisticSkeleton size={5} active={active} />
-    <Card
-      bordered={false}
-      bodyStyle={{
-        padding: 0,
-      }}
-    >
-      <Card
-        bordered={false}
-        style={{
-          borderBottomRightRadius: 0,
-          borderBottomLeftRadius: 0,
-        }}
-      >
-        <Space
-          style={{
-            width: '100%',
-            justifyContent: 'space-between',
-          }}
-        >
-          <Skeleton.Button
-            active={active}
-            style={{ width: 200 }}
-            size="small"
-          />
-          <Space>
-            <Skeleton.Button
-              active={active}
-              size="small"
-              style={{ width: 120 }}
-            />
-            <Skeleton.Button
-              active={active}
-              size="small"
-              style={{ width: 80 }}
-            />
-          </Space>
-        </Space>
-        <div
-          style={{
-            width: '100%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-          }}
-        >
-          <div
-            style={{
-              maxWidth: '100%',
-              flex: 1,
-            }}
-          >
-            <Skeleton
-              active={active}
-              title={{
-                width: 120,
-              }}
-              paragraph={{
-                rows: 1,
-                style: {
-                  margin: 0,
-                },
-              }}
-            />
-          </div>
-          <Skeleton.Button
-            active={active}
-            size="small"
-            style={{ width: 120, marginTop: 12 }}
-          />
-        </div>
-      </Card>
-      <div
-        style={{
-          padding: '0 16px',
-        }}
-      >
-        <Divider style={{ margin: 0 }} />
-      </div>
-      <ListSkeleton size={5} active={active} />
+    {actionButton !== false && (
       <Card
         bordered={false}
         style={{
@@ -237,13 +168,109 @@ const ListPageSkeleton: React.FC<{ active?: boolean }> = ({
       >
         <Skeleton.Button
           style={{
-            width: 100,
+            width: 102,
           }}
           active={active}
           size="small"
         />
       </Card>
-    </Card>
+    )}
+  </Card>
+);
+
+/**
+ * 面包屑的 骨架屏
+ * @param param0
+ */
+export const PageHeaderSkeleton = ({ active }: { active: boolean }) => (
+  <div
+    style={{
+      marginBottom: 16,
+    }}
+  >
+    <Skeleton
+      paragraph={false}
+      title={{
+        width: 185,
+      }}
+    />
+    <Skeleton.Button active={active} size="small" />
+  </div>
+);
+
+export type ListPageSkeletonProps = {
+  active?: boolean;
+  pageHeader?: false;
+  statistic?: number | false;
+  actionButton?: false;
+  toolbar?: false;
+  list?: number | false;
+};
+
+/**
+ * 列表操作栏的骨架屏
+ * @param param0
+ */
+export const ListToolbarSkeleton = ({ active }: { active: boolean }) => (
+  <Card
+    bordered={false}
+    style={{
+      borderBottomRightRadius: 0,
+      borderBottomLeftRadius: 0,
+    }}
+    bodyStyle={{
+      paddingBottom: 8,
+    }}
+  >
+    <Space
+      style={{
+        width: '100%',
+        justifyContent: 'space-between',
+      }}
+    >
+      <Skeleton.Button active={active} style={{ width: 200 }} size="small" />
+      <Space>
+        <Skeleton.Button active={active} size="small" style={{ width: 120 }} />
+        <Skeleton.Button active={active} size="small" style={{ width: 80 }} />
+      </Space>
+    </Space>
+  </Card>
+);
+
+const ListPageSkeleton: React.FC<ListPageSkeletonProps> = ({
+  active = true,
+  statistic,
+  actionButton,
+  toolbar,
+  pageHeader,
+  list = 5,
+}) => (
+  <div
+    style={{
+      width: '100%',
+    }}
+  >
+    {pageHeader !== false && <PageHeaderSkeleton active={active} />}
+    {statistic !== false && (
+      <StatisticSkeleton size={statistic as number} active={active} />
+    )}
+    {(toolbar !== false || list !== false) && (
+      <Card
+        bordered={false}
+        bodyStyle={{
+          padding: 0,
+        }}
+      >
+        {toolbar !== false && <ListToolbarSkeleton active={active} />}
+        {list !== false && (
+          <ListSkeleton
+            size={list as number}
+            active={active}
+            actionButton={actionButton}
+          />
+        )}
+      </Card>
+    )}
   </div>
 );
 
