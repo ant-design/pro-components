@@ -93,11 +93,7 @@ exports[`BasicLayout 🥩 base use 1`] = `
       </header>
       <main
         class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
-      >
-        <div
-          class="ant-pro-basicLayout-children-content-wrap"
-        />
-      </main>
+      />
     </section>
   </section>
 </div>
@@ -197,11 +193,7 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
       <main
         class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
         style="padding:56px"
-      >
-        <div
-          class="ant-pro-basicLayout-children-content-wrap"
-        />
-      </main>
+      />
     </section>
   </section>
 </div>
@@ -300,11 +292,7 @@ exports[`BasicLayout 🥩 menuDataRender change date 1`] = `
       </header>
       <main
         class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
-      >
-        <div
-          class="ant-pro-basicLayout-children-content-wrap"
-        />
-      </main>
+      />
     </section>
   </section>
 </div>
@@ -423,11 +411,7 @@ exports[`BasicLayout 🥩 menuDataRender change date 2`] = `
       </header>
       <main
         class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
-      >
-        <div
-          class="ant-pro-basicLayout-children-content-wrap"
-        />
-      </main>
+      />
     </section>
   </section>
 </div>
@@ -528,31 +512,27 @@ exports[`BasicLayout 🥩 support loading 1`] = `
         class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
       >
         <div
-          class="ant-pro-basicLayout-children-content-wrap"
+          style="padding-top: 100px; text-align: center;"
         >
           <div
-            style="padding-top: 100px; text-align: center;"
+            class="ant-spin ant-spin-lg ant-spin-spinning"
           >
-            <div
-              class="ant-spin ant-spin-lg ant-spin-spinning"
+            <span
+              class="ant-spin-dot ant-spin-dot-spin"
             >
-              <span
-                class="ant-spin-dot ant-spin-dot-spin"
-              >
-                <i
-                  class="ant-spin-dot-item"
-                />
-                <i
-                  class="ant-spin-dot-item"
-                />
-                <i
-                  class="ant-spin-dot-item"
-                />
-                <i
-                  class="ant-spin-dot-item"
-                />
-              </span>
-            </div>
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+            </span>
           </div>
         </div>
       </main>
@@ -707,11 +687,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
       </header>
       <main
         class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
-      >
-        <div
-          class="ant-pro-basicLayout-children-content-wrap"
-        />
-      </main>
+      />
     </section>
   </section>
 </div>
