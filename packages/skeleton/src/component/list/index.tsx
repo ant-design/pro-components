@@ -50,7 +50,9 @@ const StatisticSkeleton: React.FC<{
             key={index}
             style={{
               borderLeft:
-                arraySize > 2 && index === 1 ? '1px solid #ddd' : undefined,
+                arraySize > 2 && index === 1
+                  ? '1px solid rgba(0,0,0,0.06)'
+                  : undefined,
               paddingLeft: arraySize > 2 ? 42 : 16,
               flex: 1,
             }}
@@ -63,7 +65,12 @@ const StatisticSkeleton: React.FC<{
                 style: { marginTop: 0 },
               }}
             />
-            <Skeleton.Button active={active} size="small" />
+            <Skeleton.Button
+              active={active}
+              style={{
+                height: 48,
+              }}
+            />
           </div>
         ))}
       </div>
