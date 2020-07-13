@@ -152,7 +152,7 @@
 
 ### 4.8.1
 
-- 🌟 增加 g`disableContentMargin` 属性，用于关闭内容区的 margin。[1456cce1](https://github.com/ant-design/ant-design-pro-layout/commit/1456cce1)
+- 🌟 增加 `disableContentMargin` 属性，用于关闭内容区的 margin。[1456cce1](https://github.com/ant-design/ant-design-pro-layout/commit/1456cce1)
 
 ### 4.8.0
 
