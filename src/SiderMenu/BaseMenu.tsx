@@ -205,17 +205,19 @@ class MenuUtil {
     }
 
     if (menuItemRender) {
-      return menuItemRender(
-        {
-          ...item,
-          isUrl: isHttpUrl,
-          itemPath,
-          isMobile,
-          replace: itemPath === location.pathname,
-          onClick: () => onCollapse && onCollapse(true),
-        },
-        defaultItem,
-      );
+      const renderItemProps = {
+        ...item,
+        isUrl: isHttpUrl,
+        itemPath,
+        isMobile,
+        replace: itemPath === location.pathname,
+        onClick: () => onCollapse && onCollapse(true),
+      };
+      // 如果 hideChildrenInMenu 删除掉无用的 children
+      if (renderItemProps.hideChildrenInMenu) {
+        delete renderItemProps.children;
+      }
+      return menuItemRender(renderItemProps, defaultItem);
     }
     return defaultItem;
   };
