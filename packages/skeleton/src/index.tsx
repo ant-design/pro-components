@@ -7,6 +7,11 @@ import ListPageSkeleton, {
   ListSkeletonItem,
 } from './component/list';
 import ResultPageSkeleton from './component/result';
+import DescriptionsPageSkeleton, {
+  TableItemSkeleton,
+  DescriptionsSkeleton,
+  TableSkeleton,
+} from './component/descriptions';
 
 const PageSkeleton: React.FC<
   ListPageSkeletonProps & {
@@ -20,7 +25,10 @@ const PageSkeleton: React.FC<
   if (type === 'result') {
     return <ResultPageSkeleton {...rest} />;
   }
-  return null;
+  if (type === 'descriptions') {
+    return <DescriptionsPageSkeleton {...rest} />;
+  }
+  return <ResultPageSkeleton {...rest} />;
 };
 
 export {
@@ -29,6 +37,9 @@ export {
   ListSkeletonItem,
   PageHeaderSkeleton,
   ListToolbarSkeleton,
+  DescriptionsSkeleton,
+  TableSkeleton,
+  TableItemSkeleton,
 };
 
 export default PageSkeleton;

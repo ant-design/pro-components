@@ -5,17 +5,17 @@ import { Skeleton, Card, Space, Divider } from 'antd';
 /**
  * 一条分割线
  */
-const Line = () => (
+export const Line = ({ padding }: { padding?: string | number }) => (
   <div
     style={{
-      padding: '0 24px',
+      padding: padding || '0 24px',
     }}
   >
     <Divider style={{ margin: 0 }} />
   </div>
 );
 
-const MediaQueryKeyEnum = {
+export const MediaQueryKeyEnum = {
   xs: 2,
   sm: 2,
   md: 4,
