@@ -5,22 +5,20 @@ import ListPageSkeleton, {
   ListToolbarSkeleton,
   ListSkeleton,
   ListSkeletonItem,
-} from './component/list';
-import ResultPageSkeleton from './component/result';
+} from './component/List';
+import ResultPageSkeleton from './component/Result';
 import DescriptionsPageSkeleton, {
   TableItemSkeleton,
   DescriptionsSkeleton,
   DescriptionsPageSkeletonProps,
   TableSkeleton,
-} from './component/descriptions';
+} from './component/Descriptions';
 
-const PageSkeleton: React.FC<
-  ListPageSkeletonProps &
-    DescriptionsPageSkeletonProps & {
-      type?: 'list' | 'result' | 'descriptions';
-      active?: boolean;
-    }
-> = ({ type = 'list', ...rest }) => {
+const PageSkeleton: React.FC<ListPageSkeletonProps &
+  DescriptionsPageSkeletonProps & {
+    type?: 'list' | 'result' | 'descriptions';
+    active?: boolean;
+  }> = ({ type = 'list', ...rest }) => {
   if (type === 'list') {
     return <ListPageSkeleton {...rest} />;
   }
