@@ -3,11 +3,11 @@ import { Skeleton, Card } from 'antd';
 import useMediaQuery from 'use-media-antd-query';
 import { PageHeaderSkeleton, Line } from '../list';
 
-interface DescriptionsPageSkeletonProps {
+export type DescriptionsPageSkeletonProps = {
   active?: boolean;
   pageHeader?: false;
   table?: false | number;
-}
+};
 
 const MediaQueryKeyEnum = {
   xs: 1,
