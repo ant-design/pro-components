@@ -22,7 +22,10 @@
     "src"
   ],
   "dependencies": {
-    "@ant-design/pro-field": "0.0.6"
+    "@ant-design/icons": "^4.2.1",
+    "@ant-design/pro-field": "0.0.6",
+    "classnames": "^2.2.6",
+    "rc-resize-observer": "^0.2.3"
   },
   "peerDependencies": {
     "antd": "4.x",
