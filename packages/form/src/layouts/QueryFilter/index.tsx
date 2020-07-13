@@ -82,7 +82,7 @@ const ProForm: React.FC<ProFormProps> = (props) => {
                 },
               });
             }}
-            itemsRender={(items) => {
+            contentRender={(items) => {
               return (
                 <Row gutter={16} justify="start">
                   {items.map((item) => (
