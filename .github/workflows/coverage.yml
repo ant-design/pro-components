@@ -1,4 +1,4 @@
-name: Node CI
+name: coverage CI
 
 on: [push, pull_request]
 
