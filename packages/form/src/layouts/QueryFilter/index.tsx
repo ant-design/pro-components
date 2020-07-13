@@ -12,9 +12,16 @@ const ProForm: React.FC<ProFormProps> = props => {
     <div>
       <FormRender
         {...props}
+        itemRender={(item: any) => {
+          return React.cloneElement(item, {
+            style: {
+              width: '100%',
+            },
+          });
+        }}
         itemsRender={items => {
           return (
-            <Row>
+            <Row gutter={16}>
               {items.map(item => (
                 <Col span={6}>{item}</Col>
               ))}
