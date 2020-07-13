@@ -1,6 +1,6 @@
 import React from 'react';
 import { Skeleton, Card, Space } from 'antd';
-import { PageHeaderSkeleton } from '../list';
+import { PageHeaderSkeleton } from '../List';
 
 interface ResultPageSkeletonProps {
   active?: boolean;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Skeleton, Card } from 'antd';
 import useMediaQuery from 'use-media-antd-query';
-import { PageHeaderSkeleton, Line } from '../list';
+import { PageHeaderSkeleton, Line } from '../List';
 
 export type DescriptionsPageSkeletonProps = {
   active?: boolean;
