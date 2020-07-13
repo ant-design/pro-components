@@ -1,12 +1,14 @@
 import React from 'react';
-import ListPageSkeleton from './component/list';
+import ListPageSkeleton, { ListPageSkeletonProps } from './component/list';
 
-const PageSkeleton: React.FC<{
-  type?: 'list';
-  active?: boolean;
-}> = ({ type = 'list', active }) => {
+const PageSkeleton: React.FC<
+  ListPageSkeletonProps & {
+    type?: 'list';
+    active?: boolean;
+  }
+> = ({ type = 'list', ...rest }) => {
   if (type === 'list') {
-    return <ListPageSkeleton active={active} />;
+    return <ListPageSkeleton {...rest} />;
   }
   return null;
 };
