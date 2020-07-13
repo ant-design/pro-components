@@ -104,7 +104,7 @@ describe('PageContainer', () => {
     );
     await waitForComponentToPaint(wrapper);
 
-    expect(wrapper.find('.ant-pro-footer-bar').props().style.width).toBe(
+    expect(wrapper?.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe(
       'calc(100% - 208px)',
     );
     wrapper.setProps({
@@ -113,7 +113,7 @@ describe('PageContainer', () => {
 
     await waitForComponentToPaint(wrapper);
 
-    expect(wrapper.find('.ant-pro-footer-bar').props().style.width).toBe(
+    expect(wrapper?.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe(
       'calc(100% - 48px)',
     );
 
@@ -121,9 +121,10 @@ describe('PageContainer', () => {
       layout: 'top',
     });
 
-    expect(wrapper.find('.ant-pro-footer-bar').props().style.width).toBe(
+    expect(wrapper?.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe(
       '100%',
     );
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('🐲 FooterToolbar should know width', async () => {
@@ -140,7 +141,7 @@ describe('PageContainer', () => {
     );
     await waitForComponentToPaint(wrapper);
 
-    expect(wrapper.find('.ant-pro-footer-bar').props().style.width).toBe(
+    expect(wrapper?.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe(
       'calc(100% - 208px)',
     );
     wrapper.setProps({
@@ -149,7 +150,7 @@ describe('PageContainer', () => {
 
     await waitForComponentToPaint(wrapper);
 
-    expect(wrapper.find('.ant-pro-footer-bar').props().style.width).toBe(
+    expect(wrapper.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe(
       'calc(100% - 48px)',
     );
 
@@ -157,8 +158,29 @@ describe('PageContainer', () => {
       layout: 'top',
     });
 
-    expect(wrapper.find('.ant-pro-footer-bar').props().style.width).toBe(
+    expect(wrapper.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe(
       '100%',
     );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('🐲 footer is null, do not render footerToolbar ', async () => {
+    const wrapper = mount(
+      <PageContainer
+        footer={[
+          <button type="button" key="button">
+            qixian
+          </button>,
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(wrapper);
+    expect(wrapper.render()).toMatchSnapshot();
+
+    wrapper.setProps({
+      footer: undefined,
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

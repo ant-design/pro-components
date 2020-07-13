@@ -157,7 +157,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
             <div className={`${prefixedClassName}-children-content`}>
               {children}
             </div>
-            {footer && (
+            {value.hasFooterToolbar && (
               <div
                 style={{
                   height: 48,

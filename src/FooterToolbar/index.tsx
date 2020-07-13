@@ -1,4 +1,4 @@
-import React, { useContext, useMemo, ReactNode } from 'react';
+import React, { useContext, useEffect, useMemo, ReactNode } from 'react';
 import { Space } from 'antd';
 import classNames from 'classnames';
 
@@ -47,6 +47,22 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
       </div>
     </>
   );
+
+  /**
+   * 告诉 props 是否存在 footerBar
+   */
+  useEffect(() => {
+    if (!value || !value?.setHasFooterToolbar) {
+      return () => {};
+    }
+    value?.setHasFooterToolbar(true);
+    return () => {
+      if (!value || !value?.setHasFooterToolbar) {
+        return;
+      }
+      value?.setHasFooterToolbar(false);
+    };
+  }, []);
 
   return (
     <div

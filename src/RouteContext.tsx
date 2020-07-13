@@ -13,6 +13,9 @@ export interface RouteContextType extends Partial<PureSettings> {
   hasHeader?: boolean;
   siderWidth?: number;
   isChildrenLayout?: boolean;
+  hasFooterToolbar?: boolean;
+  hasFooter?: boolean;
+  setHasFooterToolbar?: React.Dispatch<React.SetStateAction<boolean>>;
   pageTitleInfo?: {
     title: string;
     id: string;

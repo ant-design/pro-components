@@ -1,6 +1,6 @@
 import './BasicLayout.less';
 
-import React, { CSSProperties, useContext, useEffect } from 'react';
+import React, { CSSProperties, useContext, useEffect, useState } from 'react';
 import { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/es/breadcrumb';
 import { Layout } from 'antd';
 import classNames from 'classnames';
@@ -416,6 +416,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
       onPageChange(props.location);
     }
   }, [stringify(props.location)]);
+  const [hasFooterToolbar, setHasFooterToolbar] = useState(false);
 
   useDocumentTitle(pageTitleInfo, props.title);
 
@@ -433,6 +434,9 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
           hasSiderMenu: !!siderMenuDom,
           hasHeader: !!headerDom,
           siderWidth: leftSiderWidth,
+          hasFooter: !!footerDom,
+          hasFooterToolbar,
+          setHasFooterToolbar,
           pageTitleInfo,
         }}
       >
