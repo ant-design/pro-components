@@ -1,5 +1,12 @@
 import React from 'react';
-import ListPageSkeleton, { ListPageSkeletonProps } from './component/list';
+import ListPageSkeleton, {
+  ListPageSkeletonProps,
+  PageHeaderSkeleton,
+  ListToolbarSkeleton,
+  ListSkeleton,
+  ListSkeletonItem,
+} from './component/list';
+import ResultPageSkeleton from './component/result';
 
 const PageSkeleton: React.FC<
   ListPageSkeletonProps & {
@@ -10,9 +17,18 @@ const PageSkeleton: React.FC<
   if (type === 'list') {
     return <ListPageSkeleton {...rest} />;
   }
+  if (type === 'result') {
+    return <ResultPageSkeleton {...rest} />;
+  }
   return null;
 };
 
-export { ListPageSkeleton };
+export {
+  ListPageSkeleton,
+  ListSkeleton,
+  ListSkeletonItem,
+  PageHeaderSkeleton,
+  ListToolbarSkeleton,
+};
 
 export default PageSkeleton;

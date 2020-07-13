@@ -74,7 +74,7 @@ const StatisticSkeleton: React.FC<{
 /**
  * 列表子项目骨架屏
  */
-const ListSkeletonItem: React.FC<{ active: boolean }> = ({ active }) => (
+export const ListSkeletonItem: React.FC<{ active: boolean }> = ({ active }) => (
   <>
     <Card
       bordered={false}
@@ -127,7 +127,10 @@ const ListSkeletonItem: React.FC<{ active: boolean }> = ({ active }) => (
   </>
 );
 
-const ListSkeleton: React.FC<{
+/**
+ * 列表骨架屏
+ */
+export const ListSkeleton: React.FC<{
   size: number;
   active?: boolean;
   actionButton?: boolean;
