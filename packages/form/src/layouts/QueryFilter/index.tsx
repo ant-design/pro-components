@@ -1,4 +1,5 @@
 import React from 'react';
+import { Row, Col } from 'antd';
 import { FormProps } from 'antd/lib/form/Form';
 import FormRender from '../../FormRender';
 
@@ -9,8 +10,18 @@ export interface ProFormProps extends FormProps {
 const ProForm: React.FC<ProFormProps> = props => {
   return (
     <div>
-      我是查询表单:
-      <FormRender {...props} formContentRender={content => content} />
+      <FormRender
+        {...props}
+        itemsRender={items => {
+          return (
+            <Row>
+              {items.map(item => (
+                <Col span={6}>{item}</Col>
+              ))}
+            </Row>
+          );
+        }}
+      />
     </div>
   );
 };

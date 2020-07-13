@@ -6,7 +6,7 @@ export interface ProFormProps extends FormProps {
   // TODO
 }
 const ProForm: React.FC<ProFormProps> = props => {
-  return <FormRender {...props} formContentRender={content => content} />;
+  return <FormRender {...props} />;
 };
 
 export default ProForm;
