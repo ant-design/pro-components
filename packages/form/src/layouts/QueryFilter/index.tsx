@@ -3,8 +3,8 @@ import { Row, Col, Form } from 'antd';
 import { FormProps } from 'antd/lib/form/Form';
 import RcResizeObserver from 'rc-resize-observer';
 import useMediaQuery from 'use-media-antd-query';
-import FormRender from '../../BaseForm';
-import Submiter from './Submiter';
+import BaseForm from '../../BaseForm';
+import Actions from './Actions';
 
 const defaultColConfig = {
   xs: 24,
@@ -72,7 +72,7 @@ const ProForm: React.FC<ProFormProps> = (props) => {
         }}
       >
         <div>
-          <FormRender
+          <BaseForm
             {...props}
             form={form}
             itemRender={(item: any) => {
@@ -95,18 +95,11 @@ const ProForm: React.FC<ProFormProps> = (props) => {
                       textAlign: 'right',
                     }}
                   >
-                    <Submiter
+                    <Actions
                       showCollapseButton={items.length > rowNumber - 1}
                       form={form}
-                      submit={() => {
-                        // TODO
-                      }}
                       collapse={collapse}
                       setCollapse={setCollapse}
-                      searchConfig={{
-                        searchText: '查询',
-                        resetText: '重置',
-                      }}
                     />
                   </Col>
                 </Row>
