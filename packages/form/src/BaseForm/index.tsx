@@ -7,7 +7,7 @@ export interface CommonFormProps {
   submiterProps?: Omit<SubmiterProps, 'form'>;
 }
 
-export interface FormRenderProps extends FormProps, CommonFormProps {
+export interface BaseFormProps extends FormProps, CommonFormProps {
   contentRender?: (
     items: React.ReactNode[],
     submiter: React.ReactNode,
@@ -15,7 +15,7 @@ export interface FormRenderProps extends FormProps, CommonFormProps {
   itemRender?: (item: React.ReactNode) => React.ReactNode;
 }
 
-const FormRender: React.FC<FormRenderProps> = (props) => {
+const BaseForm: React.FC<BaseFormProps> = (props) => {
   const { children, contentRender, submiterProps, itemRender, ...rest } = props;
   const [form] = Form.useForm();
   const items =
@@ -31,4 +31,4 @@ const FormRender: React.FC<FormRenderProps> = (props) => {
   );
 };
 
-export default FormRender;
+export default BaseForm;

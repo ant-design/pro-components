@@ -4,7 +4,7 @@ import { FormProps } from 'antd/lib/form/Form';
 import RcResizeObserver from 'rc-resize-observer';
 import useMediaQuery from 'use-media-antd-query';
 import { useControllableValue } from 'ahooks';
-import BaseForm from '../../BaseForm';
+import BaseForm, { CommonFormProps } from '../../BaseForm';
 import Actions from './Actions';
 
 const defaultColConfig = {
@@ -16,8 +16,13 @@ const defaultColConfig = {
   xxl: 6,
 };
 
-export interface ProFormProps extends FormProps {
+export interface QueryFilterProps extends FormProps, CommonFormProps {
   span?: number | typeof defaultColConfig;
+  collapsed?: boolean;
+  defaultCollapsed?: boolean;
+  onCollapse?: (collapsed: boolean) => void;
+  labelLayout?: 'default' | 'growth' | 'vertical';
+  defaultColsNumber?: number;
 }
 
 /**
@@ -49,8 +54,8 @@ const getOffset = (length: number, span: number = 8) => {
   return (cols - 1 - (length % cols)) * span;
 };
 
-const ProForm: React.FC<ProFormProps> = (props) => {
-  const { span = defaultColConfig } = props;
+const QueryFilter: React.FC<QueryFilterProps> = (props) => {
+  const { span = defaultColConfig, layout, defaultColsNumber, ...rest } = props;
   const [formHeight, setFormHeight] = useState<number | undefined>(88);
   const [collapsed, setCollapsed] = useControllableValue<boolean>(props, {
     defaultValuePropName: 'defaultCollapsed',
@@ -77,7 +82,8 @@ const ProForm: React.FC<ProFormProps> = (props) => {
       >
         <div>
           <BaseForm
-            {...props}
+            {...rest}
+            layout={layout}
             itemRender={(item: any) => {
               return React.cloneElement(item, {
                 style: {
@@ -88,6 +94,9 @@ const ProForm: React.FC<ProFormProps> = (props) => {
             contentRender={(items, submiter) => {
               const showItems = collapsed
                 ? items.filter((_, index) => {
+                    if (defaultColsNumber !== undefined) {
+                      return index < defaultColsNumber;
+                    }
                     return index < rowNumber;
                   })
                 : items;
@@ -108,6 +117,13 @@ const ProForm: React.FC<ProFormProps> = (props) => {
                       submiter={submiter}
                       collapsed={collapsed}
                       setCollapsed={setCollapsed}
+                      style={{
+                        // 当表单是垂直布局且提交按钮不是独自在一行的情况下需要设置一个 paddingTop 使得与控件对齐
+                        paddingTop:
+                          layout === 'vertical' && showItems.length % rowNumber
+                            ? 30
+                            : 0,
+                      }}
                     />
                   </Col>
                 </Row>
@@ -120,4 +136,4 @@ const ProForm: React.FC<ProFormProps> = (props) => {
   );
 };
 
-export default ProForm;
+export default QueryFilter;

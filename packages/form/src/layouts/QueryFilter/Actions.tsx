@@ -24,6 +24,7 @@ export interface ActionsProps {
   showCollapseButton: boolean;
   isForm?: boolean;
   span?: number | typeof defaultColConfig;
+  style?: React.CSSProperties;
   /**
    * 收起按钮的 render
    */
@@ -82,10 +83,11 @@ const Actions: React.FC<ActionsProps> = (props) => {
     showCollapseButton,
     collapseRender = defaultCollapseRender,
     submiter,
+    style,
   } = props;
 
   return (
-    <Space>
+    <Space style={style}>
       {submiter}
       {showCollapseButton && (
         <a
