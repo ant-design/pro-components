@@ -1,5 +1,6 @@
 import React from 'react';
 import { Space } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
 
 /**
  * 默认的查询表单配置
@@ -15,8 +16,11 @@ const defaultColConfig = {
 
 export interface ActionsProps {
   submiter: React.ReactNode;
-  collapse: boolean;
-  setCollapse: (collapse: boolean) => void;
+  /**
+   * 是否收起
+   */
+  collapsed?: boolean;
+  setCollapsed: (collapse: boolean) => void;
   showCollapseButton: boolean;
   isForm?: boolean;
   span?: number | typeof defaultColConfig;
@@ -33,14 +37,39 @@ export interface ActionsProps {
     showCollapseButton?: boolean,
   ) => React.ReactNode;
   /**
-   * 是否收起
-   */
-  collapsed?: boolean;
-  /**
    * 收起按钮的事件
    */
   onCollapse?: (collapsed: boolean) => void;
 }
+
+const defaultCollapseRender = (collapsed: boolean) => {
+  if (collapsed) {
+    return (
+      <>
+        展开
+        <DownOutlined
+          style={{
+            marginLeft: '0.5em',
+            transition: '0.3s all',
+            transform: `rotate(${collapsed ? 0 : 0.5}turn)`,
+          }}
+        />
+      </>
+    );
+  }
+  return (
+    <>
+      收起
+      <DownOutlined
+        style={{
+          marginLeft: '0.5em',
+          transition: '0.3s all',
+          transform: `rotate(${collapsed ? 0 : 0.5}turn)`,
+        }}
+      />
+    </>
+  );
+};
 
 /**
  * FormFooter 的组件，可以自动进行一些配置
@@ -48,24 +77,23 @@ export interface ActionsProps {
  */
 const Actions: React.FC<ActionsProps> = (props) => {
   const {
-    setCollapse,
-    collapse,
+    setCollapsed,
+    collapsed = false,
     showCollapseButton,
-    isForm,
-    collapseRender,
+    collapseRender = defaultCollapseRender,
     submiter,
   } = props;
 
   return (
     <Space>
       {submiter}
-      {!isForm && showCollapseButton && (
+      {showCollapseButton && (
         <a
           onClick={() => {
-            setCollapse(!collapse);
+            setCollapsed(!collapsed);
           }}
         >
-          {collapseRender && collapseRender(collapse)}
+          {collapseRender(collapsed)}
         </a>
       )}
     </Space>

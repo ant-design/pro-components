@@ -3,6 +3,7 @@ import { Row, Col } from 'antd';
 import { FormProps } from 'antd/lib/form/Form';
 import RcResizeObserver from 'rc-resize-observer';
 import useMediaQuery from 'use-media-antd-query';
+import { useControllableValue } from 'ahooks';
 import BaseForm from '../../BaseForm';
 import Actions from './Actions';
 
@@ -50,8 +51,12 @@ const getOffset = (length: number, span: number = 8) => {
 
 const ProForm: React.FC<ProFormProps> = (props) => {
   const { span = defaultColConfig } = props;
-  const [collapse, setCollapse] = useState<boolean>(false);
   const [formHeight, setFormHeight] = useState<number | undefined>(88);
+  const [collapsed, setCollapsed] = useControllableValue<boolean>(props, {
+    defaultValuePropName: 'defaultCollapsed',
+    valuePropName: 'collapsed',
+    trigger: 'onCollapse',
+  });
   const windowSize = useMediaQuery();
   const [colSize, setColSize] = useState(getSpanConfig(span, windowSize));
   useEffect(() => {
@@ -81,14 +86,19 @@ const ProForm: React.FC<ProFormProps> = (props) => {
               });
             }}
             contentRender={(items, submiter) => {
+              const showItems = collapsed
+                ? items.filter((_, index) => {
+                    return index < rowNumber;
+                  })
+                : items;
               return (
                 <Row gutter={16} justify="start">
-                  {items.map((item) => (
+                  {showItems.map((item) => (
                     <Col span={colSize}>{item}</Col>
                   ))}
                   <Col
                     span={colSize}
-                    offset={getOffset(items.length, colSize)}
+                    offset={getOffset(showItems.length, colSize)}
                     style={{
                       textAlign: 'right',
                     }}
@@ -96,8 +106,8 @@ const ProForm: React.FC<ProFormProps> = (props) => {
                     <Actions
                       showCollapseButton={items.length > rowNumber - 1}
                       submiter={submiter}
-                      collapse={collapse}
-                      setCollapse={setCollapse}
+                      collapsed={collapsed}
+                      setCollapsed={setCollapsed}
                     />
                   </Col>
                 </Row>

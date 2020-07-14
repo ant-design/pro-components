@@ -22,7 +22,9 @@
     "src"
   ],
   "dependencies": {
+    "@ant-design/icons": "^4.2.1",
     "@ant-design/pro-field": "0.0.6",
+    "ahooks": "^2.2.0",
     "rc-resize-observer": "^0.2.3",
     "use-media-antd-query": "^1.0.2"
   },
