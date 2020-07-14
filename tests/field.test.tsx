@@ -1,7 +1,6 @@
-import Field from '../packages/field/src/index';
-
 import { render } from 'enzyme';
 import React from 'react';
+import Field from '../packages/field/src/index';
 
 describe('Field', () => {
   beforeAll(() => {

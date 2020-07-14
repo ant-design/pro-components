@@ -1,14 +1,14 @@
 import React, { ReactNode } from 'react';
 import { Avatar } from 'antd';
-import FieldPercent from './components/percent';
-import FieldIndexColumn from './components/indexColumn';
-import FieldProgress from './components/progress';
-import FieldMoney from './components/money';
-import FieldDatePicker from './components/datePicker';
-import FieldRangePicker from './components/rangePicker';
-import FieldCode from './components/code';
-import FieldTimePicker from './components/timePicker';
-import FieldText from './components/text';
+import FieldPercent from './components/Percent';
+import FieldIndexColumn from './components/IndexColumn';
+import FieldProgress from './components/Progress';
+import FieldMoney from './components/Money';
+import FieldDatePicker from './components/DatePicker';
+import FieldRangePicker from './components/RangePicker';
+import FieldCode from './components/Code';
+import FieldTimePicker from './components/TimePicker';
+import FieldText from './components/Text';
 
 export type ColumnEmptyText = string;
 
