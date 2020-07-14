@@ -1,7 +1,5 @@
 import React from 'react';
-import { FormInstance } from 'antd/es/form';
 import { Space } from 'antd';
-import Submiter, { SubmiterProps } from '../../components/Submiter';
 
 /**
  * 默认的查询表单配置
@@ -15,8 +13,8 @@ const defaultColConfig = {
   xxl: 6,
 };
 
-export interface FormOptionProps extends SubmiterProps {
-  form: FormInstance;
+export interface ActionsProps {
+  submiter: React.ReactNode;
   collapse: boolean;
   setCollapse: (collapse: boolean) => void;
   showCollapseButton: boolean;
@@ -48,19 +46,19 @@ export interface FormOptionProps extends SubmiterProps {
  * FormFooter 的组件，可以自动进行一些配置
  * @param props
  */
-const Actions: React.FC<FormOptionProps> = (props) => {
+const Actions: React.FC<ActionsProps> = (props) => {
   const {
     setCollapse,
     collapse,
-    form,
     showCollapseButton,
     isForm,
     collapseRender,
+    submiter,
   } = props;
 
   return (
     <Space>
-      <Submiter form={form} />
+      {submiter}
       {!isForm && showCollapseButton && (
         <a
           onClick={() => {

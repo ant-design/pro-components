@@ -1,23 +1,19 @@
 import React from 'react';
-import { Form } from 'antd';
 import { FormProps } from 'antd/lib/form/Form';
-import BaseForm from '../../BaseForm';
-import Submiter from '../../components/Submiter';
+import BaseForm, { CommonFormProps } from '../../BaseForm';
 
-export interface ProFormProps extends FormProps {
+export interface ProFormProps extends FormProps, CommonFormProps {
   // TODO
 }
 const ProForm: React.FC<ProFormProps> = (props) => {
-  const [form] = Form.useForm();
   return (
     <BaseForm
       {...props}
-      form={form}
-      contentRender={(items) => {
+      contentRender={(items, submiter) => {
         return (
           <>
             {items}
-            <Submiter form={form} />
+            {submiter}
           </>
         );
       }}

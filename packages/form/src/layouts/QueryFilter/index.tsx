@@ -50,7 +50,6 @@ const getOffset = (length: number, span: number = 8) => {
 
 const ProForm: React.FC<ProFormProps> = (props) => {
   const { span = defaultColConfig } = props;
-  const [form] = Form.useForm();
   const [collapse, setCollapse] = useState<boolean>(false);
   const [formHeight, setFormHeight] = useState<number | undefined>(88);
   const windowSize = useMediaQuery();
@@ -74,7 +73,6 @@ const ProForm: React.FC<ProFormProps> = (props) => {
         <div>
           <BaseForm
             {...props}
-            form={form}
             itemRender={(item: any) => {
               return React.cloneElement(item, {
                 style: {
@@ -82,7 +80,7 @@ const ProForm: React.FC<ProFormProps> = (props) => {
                 },
               });
             }}
-            contentRender={(items) => {
+            contentRender={(items, submiter) => {
               return (
                 <Row gutter={16} justify="start">
                   {items.map((item) => (
@@ -97,7 +95,7 @@ const ProForm: React.FC<ProFormProps> = (props) => {
                   >
                     <Actions
                       showCollapseButton={items.length > rowNumber - 1}
-                      form={form}
+                      submiter={submiter}
                       collapse={collapse}
                       setCollapse={setCollapse}
                     />
