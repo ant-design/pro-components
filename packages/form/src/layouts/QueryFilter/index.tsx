@@ -3,7 +3,7 @@ import { Row, Col } from 'antd';
 import { FormProps } from 'antd/lib/form/Form';
 import RcResizeObserver from 'rc-resize-observer';
 import useMediaQuery from 'use-media-antd-query';
-import { useControllableValue } from 'ahooks';
+import useMergeValue from 'use-merge-value';
 import BaseForm, { CommonFormProps } from '../../BaseForm';
 import Actions from './Actions';
 
@@ -54,13 +54,20 @@ const getOffset = (length: number, span: number = 8) => {
   return (cols - 1 - (length % cols)) * span;
 };
 
-const QueryFilter: React.FC<QueryFilterProps> = (props) => {
-  const { span = defaultColConfig, layout, defaultColsNumber, ...rest } = props;
+const QueryFilter: React.FC<QueryFilterProps> = props => {
+  const {
+    span = defaultColConfig,
+    collapsed: controlCollapsed,
+    defaultCollapsed = false,
+    layout,
+    defaultColsNumber,
+    onCollapse,
+    ...rest
+  } = props;
   const [formHeight, setFormHeight] = useState<number | undefined>(88);
-  const [collapsed, setCollapsed] = useControllableValue<boolean>(props, {
-    defaultValuePropName: 'defaultCollapsed',
-    valuePropName: 'collapsed',
-    trigger: 'onCollapse',
+  const [collapsed, setCollapsed] = useMergeValue<boolean>(defaultCollapsed, {
+    value: controlCollapsed,
+    onChange: onCollapse,
   });
   const windowSize = useMediaQuery();
   const [colSize, setColSize] = useState(getSpanConfig(span, windowSize));
@@ -102,7 +109,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
                 : items;
               return (
                 <Row gutter={16} justify="start">
-                  {showItems.map((item) => (
+                  {showItems.map(item => (
                     <Col span={colSize}>{item}</Col>
                   ))}
                   <Col
