@@ -12,15 +12,21 @@ export interface BaseFormProps extends FormProps, CommonFormProps {
     items: React.ReactNode[],
     submiter: React.ReactNode,
   ) => React.ReactNode;
-  itemRender?: (item: React.ReactNode) => React.ReactNode;
+  fieldRender?: (item: React.ReactNode) => React.ReactNode;
 }
 
 const BaseForm: React.FC<BaseFormProps> = (props) => {
-  const { children, contentRender, submiterProps, itemRender, ...rest } = props;
+  const {
+    children,
+    contentRender,
+    submiterProps,
+    fieldRender,
+    ...rest
+  } = props;
   const [form] = Form.useForm();
   const items =
     React.Children.map(children, (item) => {
-      return itemRender ? itemRender(item) : item;
+      return fieldRender ? fieldRender(item) : item;
     }) || [];
   const submiter = <Submiter {...submiterProps} form={form} />;
   const content = contentRender ? contentRender(items, submiter) : items;

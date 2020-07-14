@@ -84,7 +84,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
           <BaseForm
             {...rest}
             layout={layout}
-            itemRender={(item: any) => {
+            fieldRender={(item: any) => {
               return React.cloneElement(item, {
                 style: {
                   width: '100%',
