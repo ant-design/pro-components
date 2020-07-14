@@ -22,7 +22,11 @@
     "src"
   ],
   "dependencies": {
-    "@ant-design/pro-field": "0.0.6"
+    "@ant-design/icons": "^4.2.1",
+    "@ant-design/pro-field": "0.0.6",
+    "rc-resize-observer": "^0.2.3",
+    "use-media-antd-query": "^1.0.2",
+    "use-merge-value": "^1.0.2"
   },
   "peerDependencies": {
     "antd": "4.x",
