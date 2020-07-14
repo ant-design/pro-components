@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button } from 'antd';
 import ProForm, { ProFormText, ProFormDatePicker } from '../src';
 
 export default () => {
