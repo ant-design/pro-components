@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/form",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0-beta.4",
   "description": "@ant-design/form",
   "keywords": [
     "antd",
@@ -23,7 +23,7 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
-    "@ant-design/pro-field": "0.0.6",
+    "@ant-design/pro-field": "0.0.7",
     "rc-resize-observer": "^0.2.3",
     "use-media-antd-query": "^1.0.2",
     "use-merge-value": "^1.0.2"
