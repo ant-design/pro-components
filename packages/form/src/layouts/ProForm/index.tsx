@@ -1,11 +1,11 @@
 import React from 'react';
 import { FormProps } from 'antd/lib/form/Form';
-import FormRender from '../../FormRender';
+import FormRender from '../../BaseForm';
 
 export interface ProFormProps extends FormProps {
   // TODO
 }
-const ProForm: React.FC<ProFormProps> = props => {
+const ProForm: React.FC<ProFormProps> = (props) => {
   return <FormRender {...props} />;
 };
 

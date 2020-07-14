@@ -3,7 +3,7 @@ import { Row, Col, Form } from 'antd';
 import { FormProps } from 'antd/lib/form/Form';
 import RcResizeObserver from 'rc-resize-observer';
 import useMediaQuery from 'use-media-antd-query';
-import FormRender from '../../FormRender';
+import FormRender from '../../BaseForm';
 import Submiter from './Submiter';
 
 const defaultColConfig = {
