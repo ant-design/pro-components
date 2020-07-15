@@ -10,6 +10,7 @@ import ProFormSwitch from './components/Switch';
 
 import ProForm from './layouts/ProForm';
 import QueryFilter from './layouts/QueryFilter';
+import SearchFilter from './layouts/SearchFilter';
 
 export {
   ProFormDatePicker,
@@ -22,6 +23,7 @@ export {
   ProFormCheckbox,
   ProFormDateTimeRangePicker,
   QueryFilter,
+  SearchFilter,
 };
 
 export default ProForm;

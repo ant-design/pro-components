@@ -46,3 +46,7 @@ nav:
 | `≧ 785px && < 1057px` | 3                                    |
 | `≧ 513px && < 785px`  | 2                                    |
 | `< 513px`             | 1（此时 label 与控件会强制上下布局） |
+
+## SearchFilter 搜索过滤
+
+<code src="../demos/search-filter.tsx" />
