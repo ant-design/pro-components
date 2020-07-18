@@ -17,7 +17,7 @@ Layout 的基础能力就是布局，在 ProLayout 中我们抽象了三种布�
 
 ![side](https://gw.alipayobjects.com/zos/antfincdn/gXkuc%26RmT7/64038246-E2BF-4840-8898-5AF531897A44.png)
 
-### stop 模式
+### top 模式
 
 ![top](https://gw.alipayobjects.com/zos/antfincdn/d39gv%26sKfC/F12A0CEC-3DBC-4815-851C-1120B91827A5.png)
 
