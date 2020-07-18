@@ -2,12 +2,13 @@ import React from 'react';
 import { HeartTwoTone, SmileTwoTone } from '@ant-design/icons';
 import { Card, Typography, Alert } from 'antd';
 import { PageContainer } from '../../../src/';
+import { useIntl } from 'umi';
 
 export default (): React.ReactNode => (
   <PageContainer>
     <Card>
       <Alert
-        message="umi ui 现已发布，欢迎使用 npm run ui 启动体验。"
+        message={useIntl().formatMessage({ id: 'app.alert.umi-ui-released' })}
         type="success"
         showIcon
         banner

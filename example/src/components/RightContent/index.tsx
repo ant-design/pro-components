@@ -5,6 +5,7 @@ import { useModel, SelectLang } from 'umi';
 import Avatar from './AvatarDropdown';
 import HeaderSearch from '../HeaderSearch';
 import styles from './index.less';
+import { useIntl } from 'umi';
 
 export type SiderTheme = 'light' | 'dark';
 
@@ -52,7 +53,7 @@ const GlobalHeaderRight: React.FC<{}> = () => {
         //   //console.log('input', value);
         // }}
       />
-      <Tooltip title="使用文档">
+      <Tooltip title={useIntl().formatMessage({ id: 'component.globalHeader.help' })}>
         <span
           className={styles.action}
           onClick={() => {

@@ -11,6 +11,8 @@ export default {
   'layout.user.link.privacy': '隐私',
   'layout.user.link.terms': '条款',
   'app.preview.down.block': '下载此页面到本地项目',
+  'app.alert.umi-ui-available': 'umi ui 现已发布，点击右下角 umi 图标即可使用',
+  'app.alert.umi-ui-released': 'umi ui 现已发布，欢迎使用 npm run ui 启动体验。',
   'app.welcome.link.fetch-blocks': '获取全部区块',
   'app.welcome.link.block-list': '基于 block 开发，快速构建标准页面',
   ...globalHeader,

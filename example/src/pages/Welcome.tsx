@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, Typography, Alert } from 'antd';
 import styles from './Welcome.less';
 import { PageContainer } from '../../../src/';
+import { useIntl } from 'umi';
 
 const CodePreview: React.FC<{}> = ({ children }) => (
   <pre className={styles.pre}>
@@ -12,10 +13,10 @@ const CodePreview: React.FC<{}> = ({ children }) => (
 );
 
 export default (): React.ReactNode => (
-  <PageContainer title="欢迎">
+  <PageContainer title={useIntl().formatMessage({ id: 'menu.welcome' })}>
     <Card>
       <Alert
-        message="umi ui 现已发布，点击右下角 umi 图标即可使用"
+        message={useIntl().formatMessage({ id: 'app.alert.umi-ui-available' })}
         type="success"
         showIcon
         banner
@@ -26,7 +27,7 @@ export default (): React.ReactNode => (
       />
       <Typography.Text strong>
         <a target="_blank" rel="noopener noreferrer" href="https://pro.ant.design/docs/block">
-          基于 block 开发，快速构建标准页面
+          {useIntl().formatMessage({ id: 'app.welcome.link.block-list' })}
         </a>
       </Typography.Text>
       <CodePreview> npm run ui</CodePreview>
@@ -41,7 +42,7 @@ export default (): React.ReactNode => (
           rel="noopener noreferrer"
           href="https://pro.ant.design/docs/available-script#npm-run-fetchblocks"
         >
-          获取全部区块
+          {useIntl().formatMessage({ id: 'app.welcome.link.fetch-blocks' })}
         </a>
       </Typography.Text>
       <CodePreview> npm run fetch:blocks</CodePreview>
