@@ -27,7 +27,6 @@ export interface ThemeColorProps {
     key: string;
     color: string;
   }[];
-  title?: string;
   value: string;
   onChange: (color: string) => void;
   formatMessage: (data: { id: any; defaultMessage?: string }) => string;
@@ -36,14 +35,13 @@ export interface ThemeColorProps {
 const ThemeColor: React.ForwardRefRenderFunction<
   HTMLDivElement,
   ThemeColorProps
-> = ({ colors, title, value, onChange, formatMessage }, ref) => {
+> = ({ colors, value, onChange, formatMessage }, ref) => {
   const colorList = colors || [];
   if (colorList.length < 1) {
     return null;
   }
   return (
     <div className="theme-color" ref={ref}>
-      <h3 className="theme-color-title">{title}</h3>
       <div className="theme-color-content">
         {colorList.map(({ key, color }) => {
           const themeKey = genThemeToString(key);

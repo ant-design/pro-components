@@ -575,20 +575,26 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
             onChange={(value) => changeSetting('navTheme', value, hideLoading)}
           />
         </Body>
-
-        <ThemeColor
-          title={formatMessage({ id: 'app.setting.themecolor' })}
-          value={primaryColor}
-          colors={
-            hideColors
-              ? []
-              : themeList.colorList[navTheme === 'realDark' ? 'dark' : 'light']
-          }
-          formatMessage={formatMessage}
-          onChange={(color) =>
-            changeSetting('primaryColor', color, hideLoading)
-          }
-        />
+        <Body
+          title={formatMessage({
+            id: 'app.setting.themecolor',
+            defaultMessage: 'Theme color',
+          })}
+          prefixCls={baseClassName}
+        >
+          <ThemeColor
+            value={primaryColor}
+            colors={
+              hideColors
+                ? []
+                : themeList.colorList[navTheme === 'realDark' ? 'dark' : 'light']
+            }
+            formatMessage={formatMessage}
+            onChange={(color) =>
+              changeSetting('primaryColor', color, hideLoading)
+            }
+          />
+        </Body>
 
         <Divider />
 
