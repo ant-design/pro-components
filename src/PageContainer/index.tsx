@@ -102,7 +102,6 @@ const defaultPageHeaderRender = (
   const {
     title,
     content,
-    subTitle,
     pageHeaderRender,
     extraContent,
     style,
