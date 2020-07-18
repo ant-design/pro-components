@@ -271,6 +271,7 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
   // 用于减少 defaultOpenKeys 计算的组件
   const defaultOpenKeysRef = useRef<string[]>([]);
   const [postMenuData, setPostMenuData] = useState(() => menuData);
+  const postMenuDataRef = useRef(postMenuData);
 
   const { pathname } = location;
 
@@ -313,7 +314,10 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
     if (menu.defaultOpenAll || propsOpenKeys === false || flatMenuKeys.length) {
       return;
     }
-    const keys = getSelectedMenuKeys(location.pathname || '/', menuData || []);
+    const keys = getSelectedMenuKeys(
+      location.pathname || '/',
+      postMenuDataRef.current || [],
+    );
     if (keys) {
       openKeysRef.current = keys;
       setOpenKeys(keys);
@@ -332,7 +336,10 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
 
   useEffect(() => {
     // if pathname can't match, use the nearest parent's key
-    const keys = getSelectedMenuKeys(location.pathname || '/', menuData || []);
+    const keys = getSelectedMenuKeys(
+      location.pathname || '/',
+      postMenuDataRef.current || [],
+    );
     const animationFrameId = requestAnimationFrame(() => {
       if (keys.join('-') !== (selectedKeys || []).join('-')) {
         setSelectedKeys(keys);
@@ -364,6 +371,10 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
 
   const [menuUtils] = useState(() => new MenuUtil(props));
 
+  /**
+   * 这里需要用 menuData
+   * 为了计算 splitMenus 需要用最全的 menuData
+   */
   useEffect(() => {
     if (splitMenus && openKeys) {
       const keys = getSelectedMenuKeys(
@@ -391,6 +402,15 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
     }
   }
 
+  const finallyData = props.postMenuData
+    ? props.postMenuData(postMenuData)
+    : postMenuData;
+
+  /**
+   * 记下最新的 menuData
+   */
+  postMenuDataRef.current = finallyData;
+
   return (
     <Menu
       {...openKeysProps}
@@ -405,10 +425,7 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
       onOpenChange={(keys) => setOpenKeys(keys as string[])}
       {...props.menuProps}
     >
-      {menuUtils.getNavMenuItems(
-        props.postMenuData ? props.postMenuData(postMenuData) : postMenuData,
-        false,
-      )}
+      {menuUtils.getNavMenuItems(finallyData, false)}
     </Menu>
   );
 };

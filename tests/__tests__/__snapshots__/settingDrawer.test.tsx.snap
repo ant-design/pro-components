@@ -72,40 +72,44 @@ exports[`settingDrawer.test base user 1`] = `
                 />
               </div>
               <div
-                class="theme-color"
+                style="margin-bottom:24px"
               >
                 <h3
-                  class="theme-color-title"
+                  class="ant-pro-setting-drawer-title"
                 >
                   主题色
                 </h3>
                 <div
-                  class="theme-color-content"
+                  class="theme-color"
                 >
                   <div
-                    class="theme-color-block"
-                    style="background-color:#1890ff"
+                    class="theme-color-content"
                   >
-                    <span
-                      aria-label="check"
-                      class="anticon anticon-check"
-                      role="img"
+                    <div
+                      class="theme-color-block"
+                      style="background-color:#1890ff"
                     >
-                      <svg
-                        aria-hidden="true"
-                        class=""
-                        data-icon="check"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
+                      <span
+                        aria-label="check"
+                        class="anticon anticon-check"
+                        role="img"
                       >
-                        <path
-                          d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                        />
-                      </svg>
-                    </span>
+                        <svg
+                          aria-hidden="true"
+                          class=""
+                          data-icon="check"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -672,6 +676,15 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                 />
               </div>
               <div
+                style="margin-bottom:24px"
+              >
+                <h3
+                  class="ant-pro-setting-drawer-title"
+                >
+                  主题色
+                </h3>
+              </div>
+              <div
                 class="ant-divider ant-divider-horizontal"
                 role="separator"
               />
@@ -1234,40 +1247,44 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                 />
               </div>
               <div
-                class="theme-color"
+                style="margin-bottom:24px"
               >
                 <h3
-                  class="theme-color-title"
+                  class="ant-pro-setting-drawer-title"
                 >
                   主题色
                 </h3>
                 <div
-                  class="theme-color-content"
+                  class="theme-color"
                 >
                   <div
-                    class="theme-color-block"
-                    style="background-color:#1890ff"
+                    class="theme-color-content"
                   >
-                    <span
-                      aria-label="check"
-                      class="anticon anticon-check"
-                      role="img"
+                    <div
+                      class="theme-color-block"
+                      style="background-color:#1890ff"
                     >
-                      <svg
-                        aria-hidden="true"
-                        class=""
-                        data-icon="check"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
+                      <span
+                        aria-label="check"
+                        class="anticon anticon-check"
+                        role="img"
                       >
-                        <path
-                          d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                        />
-                      </svg>
-                    </span>
+                        <svg
+                          aria-hidden="true"
+                          class=""
+                          data-icon="check"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1806,40 +1823,44 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                 />
               </div>
               <div
-                class="theme-color"
+                style="margin-bottom:24px"
               >
                 <h3
-                  class="theme-color-title"
+                  class="ant-pro-setting-drawer-title"
                 >
                   主题色
                 </h3>
                 <div
-                  class="theme-color-content"
+                  class="theme-color"
                 >
                   <div
-                    class="theme-color-block"
-                    style="background-color:#1890ff"
+                    class="theme-color-content"
                   >
-                    <span
-                      aria-label="check"
-                      class="anticon anticon-check"
-                      role="img"
+                    <div
+                      class="theme-color-block"
+                      style="background-color:#1890ff"
                     >
-                      <svg
-                        aria-hidden="true"
-                        class=""
-                        data-icon="check"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
+                      <span
+                        aria-label="check"
+                        class="anticon anticon-check"
+                        role="img"
                       >
-                        <path
-                          d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                        />
-                      </svg>
-                    </span>
+                        <svg
+                          aria-hidden="true"
+                          class=""
+                          data-icon="check"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2372,40 +2393,44 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                 />
               </div>
               <div
-                class="theme-color"
+                style="margin-bottom:24px"
               >
                 <h3
-                  class="theme-color-title"
+                  class="ant-pro-setting-drawer-title"
                 >
                   主题色
                 </h3>
                 <div
-                  class="theme-color-content"
+                  class="theme-color"
                 >
                   <div
-                    class="theme-color-block"
-                    style="background-color:#1890ff"
+                    class="theme-color-content"
                   >
-                    <span
-                      aria-label="check"
-                      class="anticon anticon-check"
-                      role="img"
+                    <div
+                      class="theme-color-block"
+                      style="background-color:#1890ff"
                     >
-                      <svg
-                        aria-hidden="true"
-                        class=""
-                        data-icon="check"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
+                      <span
+                        aria-label="check"
+                        class="anticon anticon-check"
+                        role="img"
                       >
-                        <path
-                          d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                        />
-                      </svg>
-                    </span>
+                        <svg
+                          aria-hidden="true"
+                          class=""
+                          data-icon="check"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2972,40 +2997,44 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                 />
               </div>
               <div
-                class="theme-color"
+                style="margin-bottom:24px"
               >
                 <h3
-                  class="theme-color-title"
+                  class="ant-pro-setting-drawer-title"
                 >
                   主题色
                 </h3>
                 <div
-                  class="theme-color-content"
+                  class="theme-color"
                 >
                   <div
-                    class="theme-color-block"
-                    style="background-color:#1890ff"
+                    class="theme-color-content"
                   >
-                    <span
-                      aria-label="check"
-                      class="anticon anticon-check"
-                      role="img"
+                    <div
+                      class="theme-color-block"
+                      style="background-color:#1890ff"
                     >
-                      <svg
-                        aria-hidden="true"
-                        class=""
-                        data-icon="check"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
+                      <span
+                        aria-label="check"
+                        class="anticon anticon-check"
+                        role="img"
                       >
-                        <path
-                          d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                        />
-                      </svg>
-                    </span>
+                        <svg
+                          aria-hidden="true"
+                          class=""
+                          data-icon="check"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
