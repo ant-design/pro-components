@@ -9,6 +9,7 @@ import FieldRangePicker from './components/RangePicker';
 import FieldCode from './components/Code';
 import FieldTimePicker from './components/TimePicker';
 import FieldText from './components/Text';
+import FieldTextArea from './components/TextArea';
 
 export type ColumnEmptyText = string;
 
@@ -258,6 +259,10 @@ const defaultRenderText = (
 
   if (valueType === 'jsonCode') {
     return <FieldCode text={text as string} language="json" {...props} />;
+  }
+
+  if (valueType === 'textarea') {
+    return <FieldTextArea text={text as string} {...props} />;
   }
 
   const { emptyText } = props;
