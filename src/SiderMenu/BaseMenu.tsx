@@ -9,7 +9,7 @@ import { MenuMode, MenuProps } from 'antd/es/menu';
 import { MenuTheme } from 'antd/es/menu/MenuContext';
 import defaultSettings, { PureSettings } from '../defaultSettings';
 import { getSelectedMenuKeys } from './SiderMenuUtils';
-import { isUrl, getOpenKeysFromMenuData } from '../utils/utils';
+import { isUrl, getOpenKeysFromMenuData, isImg } from '../utils/utils';
 
 import {
   MenuDataItem,
@@ -73,7 +73,7 @@ let IconFont = createFromIconfontCN({
 //   icon: <Icon type="setting" />,
 const getIcon = (icon?: string | React.ReactNode): React.ReactNode => {
   if (typeof icon === 'string' && icon !== '') {
-    if (isUrl(icon)) {
+    if (isUrl(icon) || isImg(icon)) {
       return (
         <Icon
           component={() => (

@@ -18,6 +18,11 @@ export const isBrowser = () =>
   typeof window.document !== 'undefined' &&
   !isNode;
 
+/** 判断是否是图片链接 */
+export function isImg(path: string): boolean {
+  return /\w.(png|jpg|jpeg|svg|webp|gif|bmp)$/i.test(path);
+}
+
 export function guid() {
   return 'xxxxxxxx'.replace(/[xy]/g, (c) => {
     // eslint-disable-next-line no-bitwise
