@@ -4,7 +4,7 @@ import ProField from '@ant-design/pro-field';
 import { Form } from 'antd';
 import { FormItemProps } from 'antd/lib/form';
 import { DatePickerProps } from 'antd/lib/date-picker';
-import { createField } from '../../FieldContext';
+import { createField } from '../../BaseForm';
 
 /**
  * 文本选择组件

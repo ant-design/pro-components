@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Switch } from 'antd';
 import { FormItemProps } from 'antd/lib/form';
 import { SwitchProps } from 'antd/lib/switch';
-import { createField } from '../../FieldContext';
+import { createField } from '../../BaseForm';
 
 /**
  * 单选 Switch

@@ -8,7 +8,7 @@ const msg = require('fs')
   .readFileSync(msgPath, 'utf-8')
   .trim();
 
-const commitRE = /^(revert: )?(💥 feat|🐛 fix|📝 docs|💄 UI|refactor|⚡️ perf|🏗 workflow|build|👷 CI|🎨 chore|✅ tests|🔧 types|wip|release|📦dep)(\(.+\))?: .{1,50}/;
+const commitRE = /^(revert: )?(feat|fix|docs|UI|refactor|⚡perf|workflow|build|CI|chore|tests|types|wip|release|dep)(\(.+\))?: .{1,50}/;
 
 if (!commitRE.test(msg)) {
   console.log();

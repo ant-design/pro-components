@@ -14,13 +14,20 @@ const SearchFilter: React.FC<SearchFilterProps> = props => {
           width: 286,
         },
       }}
-      contentRender={items => {
-        return items.map((item, index) => {
+      contentRender={items =>
+        items.map((item, index) => {
           if (index < items.length - 1) {
-            return [item, <Divider dashed />];
+            return [item, <Divider style={{ marginTop: 0 }} dashed />];
           }
           return item;
-        });
+        })
+      }
+      groupProps={{
+        titleStyle: {
+          display: 'inline-block',
+          marginRight: 16,
+        },
+        titleRender: title => `${title}:`,
       }}
       {...props}
     />
