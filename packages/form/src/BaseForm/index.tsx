@@ -1,6 +1,8 @@
 import React from 'react';
 import { Form } from 'antd';
 import { FormProps } from 'antd/lib/form/Form';
+import { FormItemProps } from 'antd/lib/form';
+import FieldContext from '../FieldContext';
 import Submiter, { SubmiterProps } from '../components/Submiter';
 
 export interface CommonFormProps {
@@ -12,28 +14,34 @@ export interface BaseFormProps extends FormProps, CommonFormProps {
     items: React.ReactNode[],
     submiter: React.ReactNode,
   ) => React.ReactNode;
-  fieldRender?: (item: React.ReactNode) => React.ReactNode;
+  fieldStyle?: React.CSSProperties;
+  formItemProps?: FormItemProps; // TODO
 }
 
-const BaseForm: React.FC<BaseFormProps> = (props) => {
+const BaseForm: React.FC<BaseFormProps> = props => {
   const {
     children,
     contentRender,
     submiterProps,
-    fieldRender,
+    fieldStyle,
+    formItemProps,
     ...rest
   } = props;
   const [form] = Form.useForm();
-  const items =
-    React.Children.map(children, (item) => {
-      return fieldRender ? fieldRender(item) : item;
-    }) || [];
+  const items = React.Children.toArray(children);
   const submiter = <Submiter {...submiterProps} form={form} />;
   const content = contentRender ? contentRender(items, submiter) : items;
   return (
-    <Form form={form} {...rest}>
-      {content}
-    </Form>
+    <FieldContext.Provider
+      value={{
+        fieldStyle,
+        formItemProps,
+      }}
+    >
+      <Form form={form} {...rest}>
+        {content}
+      </Form>
+    </FieldContext.Provider>
   );
 };
 

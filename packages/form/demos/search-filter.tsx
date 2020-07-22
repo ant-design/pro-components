@@ -1,12 +1,17 @@
 import React from 'react';
-import { SearchFilter, ProFormText } from '../src';
+import ProForm, { SearchFilter, ProFormText } from '../src';
 
 export default () => {
   return (
     <div>
       <SearchFilter onFinish={values => console.log(values)}>
-        <ProFormText name="name" label="开始日期" />
-        <ProFormText name="name2" label="名称" />
+        <ProForm.Group title="分组一">
+          <ProFormText name="name" />
+        </ProForm.Group>
+        <ProForm.Group title="分组二">
+          <ProFormText name="name2" label="开始日期" />
+          <ProFormText name="name3" label="名称" />
+        </ProForm.Group>
       </SearchFilter>
     </div>
   );

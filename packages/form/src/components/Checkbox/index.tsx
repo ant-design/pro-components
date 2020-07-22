@@ -3,6 +3,7 @@ import { Form, Checkbox } from 'antd';
 import { FormItemProps } from 'antd/lib/form';
 import { CheckboxGroupProps, CheckboxProps } from 'antd/lib/checkbox';
 import CheckboxGroup from 'antd/lib/checkbox/Group';
+import { createField } from '../../FieldContext';
 
 const Group: React.FC<FormItemProps &
   CheckboxGroupProps & {
@@ -54,4 +55,4 @@ const ProFormCheckbox: React.FC<FormItemProps & CheckboxProps> & {
 
 ProFormCheckbox.Group = Group;
 
-export default ProFormCheckbox;
+export default createField(ProFormCheckbox);

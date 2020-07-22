@@ -2,6 +2,7 @@ import React from 'react';
 import { Form, Switch } from 'antd';
 import { FormItemProps } from 'antd/lib/form';
 import { SwitchProps } from 'antd/lib/switch';
+import { createField } from '../../FieldContext';
 
 /**
  * 单选 Switch
@@ -16,4 +17,4 @@ const ProFormSwitch: React.FC<FormItemProps &
   );
 };
 
-export default ProFormSwitch;
+export default createField(ProFormSwitch);
