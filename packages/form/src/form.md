@@ -50,3 +50,7 @@ nav:
 ## SearchFilter 搜索过滤
 
 <code src="../demos/search-filter.tsx" />
+
+## LightFilter 轻量筛选
+
+<code src="../demos/light-filter.tsx" />
