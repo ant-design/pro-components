@@ -4,6 +4,7 @@ import ProField from '@ant-design/pro-field';
 import { Form } from 'antd';
 import { FormItemProps } from 'antd/lib/form';
 import { DatePickerProps } from 'antd/lib/date-picker';
+import { createField } from '../../BaseForm';
 
 /**
  * 日期选择组件
@@ -26,4 +27,6 @@ const ProFormDatePicker: React.ForwardRefRenderFunction<
   );
 };
 
-export default React.forwardRef(ProFormDatePicker);
+export default createField<FormItemProps & DatePickerProps>(
+  React.forwardRef(ProFormDatePicker),
+);

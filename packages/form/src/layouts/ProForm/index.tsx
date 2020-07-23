@@ -1,14 +1,16 @@
 import React from 'react';
 import { FormProps } from 'antd/lib/form/Form';
+import Group from '../../components/Group';
 import BaseForm, { CommonFormProps } from '../../BaseForm';
 
 export interface ProFormProps extends FormProps, CommonFormProps {
-  // TODO
+  // ProForm 基础表单，暂无特殊属性
 }
-const ProForm: React.FC<ProFormProps> = (props) => {
+
+const ProForm: React.FC<ProFormProps> & { Group: typeof Group } = props => {
   return (
     <BaseForm
-      {...props}
+      layout="vertical"
       contentRender={(items, submiter) => {
         return (
           <>
@@ -17,8 +19,11 @@ const ProForm: React.FC<ProFormProps> = (props) => {
           </>
         );
       }}
+      {...props}
     />
   );
 };
+
+ProForm.Group = Group;
 
 export default ProForm;

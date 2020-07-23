@@ -5,7 +5,7 @@ import { QueryFilter, ProFormText, ProFormDatePicker } from '../src';
 export default () => {
   return (
     <div>
-      <QueryFilter onFinish={(values) => console.log(values)}>
+      <QueryFilter onFinish={values => console.log(values)}>
         <ProFormText name="name" label="开始日期" />
         <ProFormDatePicker name="date" label="结束日期" />
         <ProFormText name="name2" label="名称" />
@@ -15,8 +15,8 @@ export default () => {
       </QueryFilter>
       <Divider />
       <QueryFilter
-        onFinish={(values) => console.log(values)}
-        defaultColsNumber={3}
+        onFinish={values => console.log(values)}
+        defaultColsNumber={5}
         defaultCollapsed
       >
         <ProFormText name="name" label="开始日期" />
@@ -27,7 +27,7 @@ export default () => {
         <ProFormDatePicker name="date3" label="日期" />
       </QueryFilter>
       <Divider />
-      <QueryFilter onFinish={(values) => console.log(values)} layout="vertical">
+      <QueryFilter onFinish={values => console.log(values)} layout="vertical">
         <ProFormText name="name" label="名称" required />
         <ProFormDatePicker name="date" label="日期" />
       </QueryFilter>

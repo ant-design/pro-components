@@ -74,7 +74,7 @@ const QueryFilter: React.FC<QueryFilterProps> = props => {
   useEffect(() => {
     setColSize(getSpanConfig(span || 8, windowSize));
   }, [windowSize]);
-  const rowNumber = 24 / colSize || 3;
+  const rowNumber = 24 / (colSize || 3);
 
   return (
     <div
@@ -91,12 +91,8 @@ const QueryFilter: React.FC<QueryFilterProps> = props => {
           <BaseForm
             {...rest}
             layout={layout}
-            fieldRender={(item: any) => {
-              return React.cloneElement(item, {
-                style: {
-                  width: '100%',
-                },
-              });
+            fieldStyle={{
+              width: '100%',
             }}
             contentRender={(items, submiter) => {
               const showItems = collapsed
@@ -104,7 +100,7 @@ const QueryFilter: React.FC<QueryFilterProps> = props => {
                     if (defaultColsNumber !== undefined) {
                       return index < defaultColsNumber;
                     }
-                    return index < rowNumber;
+                    return index < rowNumber - 1;
                   })
                 : items;
               return (

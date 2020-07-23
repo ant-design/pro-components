@@ -4,6 +4,7 @@ import ProField from '@ant-design/pro-field';
 import { Form } from 'antd';
 import { FormItemProps } from 'antd/lib/form';
 import { DatePickerProps } from 'antd/lib/date-picker';
+import { createField } from '../../BaseForm';
 
 /**
  * 日期区间选择组件
@@ -26,4 +27,4 @@ const ProFormDatePicker: React.FC<FormItemProps & DatePickerProps> = ({
   );
 };
 
-export default ProFormDatePicker;
+export default createField<FormItemProps & DatePickerProps>(ProFormDatePicker);
