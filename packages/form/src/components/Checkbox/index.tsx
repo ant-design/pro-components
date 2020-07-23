@@ -21,7 +21,7 @@ const Group: React.FC<ProFormCheckboxGroupProps> = ({
     <Form.Item valuePropName="checked" {...restProps}>
       <CheckboxGroup {...restProps}>
         {options
-          ? options.map(option => {
+          ? options.map((option) => {
               if (typeof option === 'string') {
                 return <Checkbox value={option}>{option}</Checkbox>;
               }
@@ -51,9 +51,10 @@ const Group: React.FC<ProFormCheckboxGroupProps> = ({
  * 多选框的
  * @param
  */
-const ProFormCheckbox: React.FC<FormItemProps & CheckboxProps> & {
-  Group: React.ComponentType<ProFormCheckboxGroupProps>;
-} = ({ value, ...restProps }) => {
+const ProFormCheckbox: React.FC<FormItemProps & CheckboxProps> = ({
+  value,
+  ...restProps
+}) => {
   return (
     <Form.Item valuePropName="checked" {...restProps}>
       <Checkbox {...restProps} />
@@ -61,8 +62,13 @@ const ProFormCheckbox: React.FC<FormItemProps & CheckboxProps> & {
   );
 };
 
-ProFormCheckbox.Group = createField<ProFormCheckboxGroupProps>(Group);
+// @ts-expect-error
+const WrappedProFormCheckbox: React.ComponentType<
+  FormItemProps & CheckboxProps
+> & {
+  Group: React.ComponentType<ProFormCheckboxGroupProps>;
+} = createField<FormItemProps & CheckboxProps>(ProFormCheckbox);
 
-export default createField<FormItemProps & CheckboxProps>(
-  ProFormCheckbox,
-) as typeof ProFormCheckbox;
+WrappedProFormCheckbox.Group = createField(Group);
+
+export default WrappedProFormCheckbox;
