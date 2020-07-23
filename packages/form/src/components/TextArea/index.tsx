@@ -27,4 +27,6 @@ const ProFormTextArea: React.ForwardRefRenderFunction<
   );
 };
 
-export default createField(React.forwardRef(ProFormTextArea));
+export default createField<FormItemProps & DatePickerProps>(
+  React.forwardRef(ProFormTextArea),
+);

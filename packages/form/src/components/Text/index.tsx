@@ -27,4 +27,6 @@ const ProFormDatePicker: React.ForwardRefRenderFunction<
   );
 };
 
-export default createField(React.forwardRef(ProFormDatePicker));
+export default createField<FormItemProps & DatePickerProps>(
+  React.forwardRef(ProFormDatePicker),
+);

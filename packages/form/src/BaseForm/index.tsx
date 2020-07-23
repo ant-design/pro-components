@@ -21,8 +21,10 @@ export interface BaseFormProps extends FormProps, CommonFormProps {
 }
 
 // TODO fix typescript
-export function createField(Field: any): typeof Field {
-  const FieldWithContext: React.FC<any> = (props: any) => {
+export function createField<P = any>(
+  Field: React.ComponentType<P> | React.ForwardRefExoticComponent<P>,
+): React.ComponentType<P> {
+  const FieldWithContext: React.FC<P> = (props: P) => {
     const { fieldStyle, formItemProps } = React.useContext(FieldContext);
     return (
       <Field style={fieldStyle} formItemProps={formItemProps} {...props} />
