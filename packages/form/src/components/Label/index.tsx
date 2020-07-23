@@ -38,8 +38,8 @@ const Label: React.FC<LabelProps> = (props) => {
   };
 
   const getTextByValue = (
-    aLabel,
-    aValue: string | string[],
+    aLabel: string,
+    aValue?: string | string[],
   ): React.ReactNode => {
     if (aValue && (!Array.isArray(aValue) || aValue.length)) {
       const str = Array.isArray(aValue) ? aValue.join(',') : aValue;
