@@ -3,9 +3,8 @@ import { Divider } from 'antd';
 import { FormProps } from 'antd/lib/form/Form';
 import BaseForm, { CommonFormProps } from '../../BaseForm';
 
-export interface SearchFilterProps extends FormProps, CommonFormProps {
-  // TODO
-}
+export interface SearchFilterProps extends FormProps, CommonFormProps {}
+
 const SearchFilter: React.FC<SearchFilterProps> = props => {
   return (
     <BaseForm
@@ -17,7 +16,10 @@ const SearchFilter: React.FC<SearchFilterProps> = props => {
       contentRender={items =>
         items.map((item, index) => {
           if (index < items.length - 1) {
-            return [item, <Divider style={{ marginTop: 0 }} dashed />];
+            return [
+              item,
+              <Divider style={{ marginTop: -8, marginBottom: 16 }} dashed />,
+            ];
           }
           return item;
         })
