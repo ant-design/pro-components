@@ -20,7 +20,6 @@ export interface BaseFormProps extends FormProps, CommonFormProps {
   groupProps?: GroupProps;
 }
 
-// TODO fix typescript
 export function createField<P = any>(
   Field: React.ComponentType<P> | React.ForwardRefExoticComponent<P>,
 ): React.ComponentType<P> {
@@ -33,7 +32,7 @@ export function createField<P = any>(
   return FieldWithContext;
 }
 
-const BaseForm: React.FC<BaseFormProps> = props => {
+const BaseForm: React.FC<BaseFormProps> = (props) => {
   const {
     children,
     contentRender,
