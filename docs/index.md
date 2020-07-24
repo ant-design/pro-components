@@ -1,5 +1,5 @@
 ---
-title: 介绍 - ProTable
+title: 介绍 - ProComponents
 order: 10
 sidebar: false
 hero:

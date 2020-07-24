@@ -1,0 +1,43 @@
+{
+  "name": "@ant-design/pro-form",
+  "version": "1.0.0-beta.5",
+  "description": "@ant-design/pro-form",
+  "keywords": [
+    "antd",
+    "admin",
+    "ant-design",
+    "ant-design-pro"
+  ],
+  "homepage": "https://github.com/ant-design/pro-components/tree/master/packages/form#readme",
+  "bugs": "https://github.com/ant-design/pro-components/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ant-design/pro-components"
+  },
+  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "dependencies": {
+    "@ant-design/icons": "^4.2.1",
+    "@ant-design/pro-field": "0.0.8",
+    "classnames": "^2.2.6",
+    "rc-resize-observer": "^0.2.3",
+    "use-media-antd-query": "^1.0.2",
+    "use-merge-value": "^1.0.2"
+  },
+  "peerDependencies": {
+    "antd": "4.x",
+    "react": "^16.x"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "authors": [
+    "chenshuai2144 <qixian.cs@outlook.com> (https://github.com/chenshuai2144)",
+    "yutingzhao1991 <yutingzhao1991@sina.com> (https://github.com/yutingzhao1991)"
+  ]
+}

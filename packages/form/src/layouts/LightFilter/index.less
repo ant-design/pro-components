@@ -1,0 +1,48 @@
+@import (reference) '~antd/lib/style/themes/default';
+
+@pro-form-lightfilter-prefix-cls: ~'@{ant-prefix}-pro-form-lightfilter';
+
+.@{pro-form-lightfilter-prefix-cls} {
+  line-height: 30px;
+
+  // 防止 &-container 负 margin 溢出影响外部布局
+  // @see https://yuque.antfin-inc.com/tech-ui/topics/523
+  &::before {
+    display: block;
+    height: 0;
+    visibility: hidden;
+    content: '.';
+  }
+
+  &-small {
+    line-height: 24px;
+  }
+
+  &-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: -8px;
+    margin-right: -4px;
+  }
+
+  &-item {
+    &:not(:last-child) {
+      margin-right: 8px;
+    }
+
+    margin-top: 8px;
+  }
+
+  &-formlabel {
+    margin-bottom: 2px;
+  }
+
+  &-line {
+    min-width: 198px;
+  }
+
+  &-line:not(:first-child) {
+    margin-top: 24px;
+    margin-bottom: 8px;
+  }
+}

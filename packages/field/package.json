@@ -1,8 +1,9 @@
 {
   "name": "@ant-design/pro-field",
-  "version": "0.0.5",
+  "version": "0.0.8",
   "description": "原子信息组件，统一 ProForm、ProTable、ProList、Filter 等组件里面的字段定义。",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "homepage": "https://github.com/ant-design/pro-components/tree/master/packages/plugin-layout#readme",
   "bugs": "https://github.com/ant-design/pro-components/issues",
   "repository": {
@@ -24,8 +25,8 @@
     "rc-table": "^7.8.1"
   },
   "peerDependencies": {
-    "react": "^16.x",
-    "antd": "4.x"
+    "antd": "4.x",
+    "react": "^16.x"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.10",
