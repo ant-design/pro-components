@@ -1,11 +1,18 @@
 import React from 'react';
-import { Divider } from 'antd';
+import { Divider, Form } from 'antd';
 import { QueryFilter, ProFormText, ProFormDatePicker } from '../src';
 
 export default () => {
+  const [form] = Form.useForm();
   return (
     <div>
-      <QueryFilter onFinish={(values) => console.log(values)}>
+      <QueryFilter
+        form={form}
+        onFinish={(values) => {
+          console.log(values);
+          console.log(form.getFieldsValue());
+        }}
+      >
         <ProFormText name="name" label="开始日期" />
         <ProFormDatePicker name="date" label="结束日期" />
         <ProFormText name="name2" label="名称" />

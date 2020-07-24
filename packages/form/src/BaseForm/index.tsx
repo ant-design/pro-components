@@ -44,11 +44,13 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
     fieldProps,
     formItemProps,
     groupProps,
+    form: userForm,
     ...rest
   } = props;
   const [form] = Form.useForm();
+  const realForm = userForm || form;
   const items = React.Children.toArray(children);
-  const submiter = <Submiter {...submiterProps} form={form} />;
+  const submiter = <Submiter {...submiterProps} form={realForm} />;
   const content = contentRender ? contentRender(items, submiter) : items;
   return (
     <FieldContext.Provider
@@ -58,7 +60,7 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
         groupProps,
       }}
     >
-      <Form form={form} {...rest}>
+      <Form form={realForm} {...rest}>
         {content}
       </Form>
     </FieldContext.Provider>
