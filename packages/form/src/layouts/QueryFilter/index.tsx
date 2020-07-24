@@ -23,6 +23,7 @@ export interface QueryFilterProps extends FormProps, CommonFormProps {
   onCollapse?: (collapsed: boolean) => void;
   labelLayout?: 'default' | 'growth' | 'vertical';
   defaultColsNumber?: number;
+  labelWidth?: number;
 }
 
 /**
@@ -52,6 +53,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
     layout,
     defaultColsNumber,
     onCollapse,
+    labelWidth,
     ...rest
   } = props;
   const [formHeight, setFormHeight] = useState<number | undefined>(88);
@@ -84,6 +86,11 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
             fieldProps={{
               style: {
                 width: '100%',
+              },
+            }}
+            formItemProps={{
+              labelCol: {
+                flex: labelWidth && `0 0 ${labelWidth}px`,
               },
             }}
             contentRender={(items, submiter) => {

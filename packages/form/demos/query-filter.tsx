@@ -18,6 +18,7 @@ export default () => {
         onFinish={(values) => console.log(values)}
         defaultColsNumber={5}
         defaultCollapsed
+        labelWidth={80}
       >
         <ProFormText name="name" label="开始日期" />
         <ProFormDatePicker name="date" label="结束日期" />
