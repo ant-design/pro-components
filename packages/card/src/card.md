@@ -41,7 +41,7 @@ nav:
 
 当添加分隔线时会自动增加标题的高度与内容区域分开。
 
-<code src="../demos/headerBorder.tsx" background="#f0f2f5" />
+<code src="../demos/headerBordered.tsx" background="#f0f2f5" />
 
 ### 内容居中
 
@@ -88,5 +88,5 @@ nav:
 |  gutter | 数字或使用数组形式同时设置 [水平间距, 垂直间距] | `number` \| `array` | 0 |
 |  split | 拆分卡片的方向 | `vertical` \| `horizontal`  | - |
 | bordered | 是否有边框 | `boolean` | false |
-| headerBorder | 页头是否有分割线 | `boolean` | false |
+| headerBordered | 页头是否有分割线 | `boolean` | false |
 | height | 设置卡片高度 | `number` \| `string` | auto |

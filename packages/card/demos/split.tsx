@@ -8,7 +8,7 @@ export default () => {
       extra="2019年9月28日"
       split="vertical"
       bordered
-      headerBorder
+      headerBordered
     >
       <ProCard split="horizontal">
         <ProCard split="horizontal">

@@ -8,7 +8,7 @@ export default () => {
       extra="extra"
       tip="这是提示"
       style={{ width: 300 }}
-      headerBorder
+      headerBordered
     >
       内容
     </ProCard>

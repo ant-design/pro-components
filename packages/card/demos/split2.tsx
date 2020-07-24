@@ -8,12 +8,12 @@ export default () => {
       extra="2019年9月28日"
       split="vertical"
       bordered
-      headerBorder
+      headerBordered
     >
       <ProCard title="左侧详情" colSpan="30%">
         左侧内容
       </ProCard>
-      <ProCard title="流量占用情况" height={360}>
+      <ProCard title="流量占用情况" style={{ height: 360 }}>
         右侧内容
       </ProCard>
     </ProCard>

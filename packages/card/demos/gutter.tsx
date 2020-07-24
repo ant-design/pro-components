@@ -5,7 +5,7 @@ export default () => {
   return (
     <>
       <ProCard gutter={[16, 16]}>
-        <ProCard colSpan="300px" title="title" headerBorder>
+        <ProCard colSpan="300px" title="title" headerBordered>
           300px
         </ProCard>
         <ProCard>auto</ProCard>

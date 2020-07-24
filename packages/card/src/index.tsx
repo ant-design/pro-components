@@ -31,7 +31,7 @@ export type ProCardProps = {
   /**
    * 页头是否有分割线
    */
-  headerBorder?: boolean;
+  headerBordered?: boolean;
   /**
    * 卡片标题
    */
@@ -56,10 +56,6 @@ export type ProCardProps = {
    * 栅格布局宽度，24 栅格，支持指定宽度或百分，需要支持响应式 colSpan={{ xs: 12, sm: 6 }}
    */
   colSpan?: number | string;
-  /**
-   * 设置卡片高度
-   */
-  height?: number | string;
   /**
    * 栅格间距
    */
@@ -90,9 +86,8 @@ const ProCard: ProCardType = props => (
         loading,
         colSpan,
         gutter,
-        height,
         split,
-        headerBorder,
+        headerBordered,
         bordered,
         children,
       } = props;
@@ -153,11 +148,6 @@ const ProCard: ProCardType = props => (
               flexShrink: 0,
             }
           : {}),
-        ...(height
-          ? {
-              height,
-            }
-          : {}),
         ...style,
       };
 
@@ -169,7 +159,7 @@ const ProCard: ProCardType = props => (
       });
 
       const headerCls = classNames(`${prefixCls}-header`, {
-        [`${prefixCls}-header-border`]: headerBorder,
+        [`${prefixCls}-header-border`]: headerBordered,
       });
 
       const bodyCls = classNames(`${prefixCls}-body`, {
