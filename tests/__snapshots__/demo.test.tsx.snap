@@ -1,0 +1,2339 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test card demos renders ./packages/card/demos/basic.tsx correctly 1`] = `
+<div
+  class="ant-pro-card"
+  style="width:300px"
+>
+  <div
+    class="ant-pro-card-header"
+  >
+    <div
+      class="ant-pro-card-title"
+    >
+      标题
+      <span
+        aria-label="question-circle"
+        class="anticon anticon-question-circle"
+        role="img"
+        style="margin-left:8px"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="question-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+          />
+          <path
+            d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      class="ant-pro-card-extra"
+    >
+      extra
+    </div>
+  </div>
+  <div
+    class="ant-pro-card-body"
+  >
+    内容
+  </div>
+</div>
+`;
+
+exports[`test card demos renders ./packages/card/demos/bordered.tsx correctly 1`] = `
+<div
+  class="ant-pro-card ant-pro-card-border"
+  style="width:300px"
+>
+  <div
+    class="ant-pro-card-header"
+  >
+    <div
+      class="ant-pro-card-title"
+    >
+      标题
+      <span
+        aria-label="question-circle"
+        class="anticon anticon-question-circle"
+        role="img"
+        style="margin-left:8px"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="question-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+          />
+          <path
+            d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      class="ant-pro-card-extra"
+    >
+      extra
+    </div>
+  </div>
+  <div
+    class="ant-pro-card-body"
+  >
+    内容
+  </div>
+</div>
+`;
+
+exports[`test card demos renders ./packages/card/demos/colspan.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-pro-card ant-pro-card-span-24"
+    style="background-color:#0092ff;color:#fff"
+  >
+    <div
+      class="ant-pro-card-body ant-pro-card-body-center"
+    >
+      colSpan - 24
+    </div>
+  </div>,
+  <div
+    class="ant-pro-card ant-pro-card-span-16"
+    style="background-color:rgba(0,146,255,.75);color:#fff"
+  >
+    <div
+      class="ant-pro-card-body ant-pro-card-body-center"
+    >
+      colSpan - 16
+    </div>
+  </div>,
+  <div
+    class="ant-pro-card ant-pro-card-span-8"
+    style="background-color:#0092ff;color:#fff"
+  >
+    <div
+      class="ant-pro-card-body ant-pro-card-body-center"
+    >
+      colSpan - 8
+    </div>
+  </div>,
+  <div
+    class="ant-pro-card ant-pro-card-contain-card"
+    style="margin-top:8px"
+  >
+    <div
+      class="ant-pro-card-body"
+    >
+      <div
+        class="ant-pro-card ant-pro-card-span-12"
+        style="border-radius:0;background-color:#0092ff;color:#fff"
+      >
+        <div
+          class="ant-pro-card-body ant-pro-card-body-center"
+        >
+          colSpan-12
+        </div>
+      </div>
+      <div
+        class="ant-pro-card ant-pro-card-span-6"
+        style="border-radius:0;background-color:rgba(0,146,255,.75);color:#fff"
+      >
+        <div
+          class="ant-pro-card-body ant-pro-card-body-center"
+        >
+          colSpan-6
+        </div>
+      </div>
+      <div
+        class="ant-pro-card ant-pro-card-span-6"
+        style="border-radius:0;background-color:#0092ff;color:#fff"
+      >
+        <div
+          class="ant-pro-card-body ant-pro-card-body-center"
+        >
+          colSpan-6
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-pro-card ant-pro-card-contain-card"
+    style="margin-top:8px"
+  >
+    <div
+      class="ant-pro-card-body"
+    >
+      <div
+        class="ant-pro-card ant-pro-card-span-8"
+        style="border-radius:0;background-color:#0092ff;color:#fff"
+      >
+        <div
+          class="ant-pro-card-body ant-pro-card-body-center"
+        >
+          colSpan-8
+        </div>
+      </div>
+      <div
+        class="ant-pro-card"
+        style="border-radius:0;background-color:rgba(0,146,255,.75);color:#fff"
+      >
+        <div
+          class="ant-pro-card-body ant-pro-card-body-center"
+        >
+          auto
+        </div>
+      </div>
+      <div
+        class="ant-pro-card"
+        style="border-radius:0;background-color:#0092ff;color:#fff"
+      >
+        <div
+          class="ant-pro-card-body ant-pro-card-body-center"
+        >
+          auto
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-pro-card ant-pro-card-contain-card"
+    style="margin-top:8px"
+  >
+    <div
+      class="ant-pro-card-body"
+    >
+      <div
+        class="ant-pro-card"
+        style="flex-basis:200px;flex-shrink:0;border-radius:0;background-color:#0092ff;color:#fff"
+      >
+        <div
+          class="ant-pro-card-body ant-pro-card-body-center"
+        >
+          colSpan - 200px
+        </div>
+      </div>
+      <div
+        class="ant-pro-card"
+        style="border-radius:0;background-color:rgba(0,146,255,.75);color:#fff"
+      >
+        <div
+          class="ant-pro-card-body ant-pro-card-body-center"
+        >
+          auto
+        </div>
+      </div>
+      <div
+        class="ant-pro-card"
+        style="border-radius:0;background-color:#0092ff;color:#fff"
+      >
+        <div
+          class="ant-pro-card-body ant-pro-card-body-center"
+        >
+          auto
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-pro-card ant-pro-card-contain-card"
+    style="margin-top:8px"
+  >
+    <div
+      class="ant-pro-card-body"
+    >
+      <div
+        class="ant-pro-card"
+        style="border-radius:0;background-color:#0092ff;color:#fff"
+      >
+        <div
+          class="ant-pro-card-body"
+        >
+          auto
+        </div>
+      </div>
+      <div
+        class="ant-pro-card"
+        style="flex-basis:30%;flex-shrink:0;border-radius:0;background-color:rgba(0,146,255,.75);color:#fff"
+      >
+        <div
+          class="ant-pro-card-body"
+        >
+          colSpan - 30%
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`test card demos renders ./packages/card/demos/gutter.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-pro-card ant-pro-card-contain-card"
+  >
+    <div
+      class="ant-pro-card-body"
+    >
+      <div
+        class="ant-pro-card"
+        style="flex-basis:300px;flex-shrink:0;margin-right:16px;margin-bottom:16px;border-radius:0"
+      >
+        <div
+          class="ant-pro-card-header ant-pro-card-header-border"
+        >
+          <div
+            class="ant-pro-card-title"
+          >
+            title
+          </div>
+          <div
+            class="ant-pro-card-extra"
+          />
+        </div>
+        <div
+          class="ant-pro-card-body"
+        >
+          300px
+        </div>
+      </div>
+      <div
+        class="ant-pro-card"
+        style="margin-right:16px;margin-bottom:16px;border-radius:0"
+      >
+        <div
+          class="ant-pro-card-body"
+        >
+          auto
+        </div>
+      </div>
+      <div
+        class="ant-pro-card"
+        style="margin-bottom:16px;border-radius:0"
+      >
+        <div
+          class="ant-pro-card-body"
+        >
+          auto
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-pro-card ant-pro-card-contain-card"
+  >
+    <div
+      class="ant-pro-card-body"
+    >
+      <div
+        class="ant-pro-card"
+        style="margin-right:16px;border-radius:0"
+      >
+        <div
+          class="ant-pro-card-body"
+        >
+          auto
+        </div>
+      </div>
+      <div
+        class="ant-pro-card"
+        style="margin-right:16px;border-radius:0"
+      >
+        <div
+          class="ant-pro-card-body"
+        >
+          auto
+        </div>
+      </div>
+      <div
+        class="ant-pro-card"
+        style="border-radius:0"
+      >
+        <div
+          class="ant-pro-card-body"
+        >
+          auto
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`test card demos renders ./packages/card/demos/headerBordered.tsx correctly 1`] = `
+<div
+  class="ant-pro-card"
+  style="width:300px"
+>
+  <div
+    class="ant-pro-card-header ant-pro-card-header-border"
+  >
+    <div
+      class="ant-pro-card-title"
+    >
+      标题
+      <span
+        aria-label="question-circle"
+        class="anticon anticon-question-circle"
+        role="img"
+        style="margin-left:8px"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="question-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+          />
+          <path
+            d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      class="ant-pro-card-extra"
+    >
+      extra
+    </div>
+  </div>
+  <div
+    class="ant-pro-card-body"
+  >
+    内容
+  </div>
+</div>
+`;
+
+exports[`test card demos renders ./packages/card/demos/headless.tsx correctly 1`] = `
+<div
+  class="ant-pro-card"
+  style="width:300px"
+>
+  <div
+    class="ant-pro-card-body"
+  >
+    内容
+  </div>
+</div>
+`;
+
+exports[`test card demos renders ./packages/card/demos/layout.tsx correctly 1`] = `
+<div
+  class="ant-pro-card"
+  style="width:300px"
+>
+  <div
+    class="ant-pro-card-header"
+  >
+    <div
+      class="ant-pro-card-title"
+    >
+      标题
+    </div>
+    <div
+      class="ant-pro-card-extra"
+    >
+      extra
+    </div>
+  </div>
+  <div
+    class="ant-pro-card-body ant-pro-card-body-center"
+  >
+    内容垂直居中
+  </div>
+</div>
+`;
+
+exports[`test card demos renders ./packages/card/demos/loading.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-pro-card"
+    style="width:300px"
+  >
+    <div
+      class="ant-pro-card-header"
+    >
+      <div
+        class="ant-pro-card-title"
+      >
+        默认 Loading
+      </div>
+      <div
+        class="ant-pro-card-extra"
+      >
+        extra
+      </div>
+    </div>
+    <div
+      class="ant-pro-card-body ant-pro-card-body-center"
+    >
+      <div
+        class="ant-spin ant-spin-spinning"
+      >
+        <span
+          class="ant-spin-dot ant-spin-dot-spin"
+        >
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+        </span>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-pro-card"
+    style="width:300px;margin-top:16px"
+  >
+    <div
+      class="ant-pro-card-header"
+    >
+      <div
+        class="ant-pro-card-title"
+      >
+        自定义 Loading
+      </div>
+      <div
+        class="ant-pro-card-extra"
+      >
+        extra
+      </div>
+    </div>
+    <div
+      class="ant-pro-card-body ant-pro-card-body-center"
+    >
+      <div>
+        加载中
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`test card demos renders ./packages/card/demos/split.tsx correctly 1`] = `
+<div
+  class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card"
+>
+  <div
+    class="ant-pro-card-header ant-pro-card-header-border"
+  >
+    <div
+      class="ant-pro-card-title"
+    >
+      复杂切分
+    </div>
+    <div
+      class="ant-pro-card-extra"
+    >
+      2019年9月28日
+    </div>
+  </div>
+  <div
+    class="ant-pro-card-body"
+  >
+    <div
+      class="ant-pro-card ant-pro-card-split-vertical ant-pro-card-contain-card"
+      style="border-radius:0"
+    >
+      <div
+        class="ant-pro-card-body ant-pro-card-body-column"
+      >
+        <div
+          class="ant-pro-card ant-pro-card-split-horizontal ant-pro-card-contain-card"
+          style="border-radius:0"
+        >
+          <div
+            class="ant-pro-card-body ant-pro-card-body-column"
+          >
+            <div
+              class="ant-pro-card ant-pro-card-split-horizontal ant-pro-card-contain-card"
+              style="border-radius:0"
+            >
+              <div
+                class="ant-pro-card-body"
+              >
+                <div
+                  class="ant-pro-card ant-pro-card-split-vertical"
+                  style="flex-basis:150px;flex-shrink:0;border-radius:0"
+                >
+                  <div
+                    class="ant-pro-card-header"
+                  >
+                    <div
+                      class="ant-pro-card-title"
+                    >
+                      昨日全部流量
+                    </div>
+                    <div
+                      class="ant-pro-card-extra"
+                    />
+                  </div>
+                  <div
+                    class="ant-pro-card-body"
+                  >
+                    123
+                  </div>
+                </div>
+                <div
+                  class="ant-pro-card ant-pro-card-split-vertical"
+                  style="border-radius:0"
+                >
+                  <div
+                    class="ant-pro-card-header"
+                  >
+                    <div
+                      class="ant-pro-card-title"
+                    >
+                      本月累计流量
+                    </div>
+                    <div
+                      class="ant-pro-card-extra"
+                    />
+                  </div>
+                  <div
+                    class="ant-pro-card-body"
+                  >
+                    234
+                  </div>
+                </div>
+                <div
+                  class="ant-pro-card"
+                  style="border-radius:0"
+                >
+                  <div
+                    class="ant-pro-card-header"
+                  >
+                    <div
+                      class="ant-pro-card-title"
+                    >
+                      今年累计流量
+                    </div>
+                    <div
+                      class="ant-pro-card-extra"
+                    />
+                  </div>
+                  <div
+                    class="ant-pro-card-body"
+                  >
+                    345
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-pro-card ant-pro-card-contain-card"
+              style="border-radius:0"
+            >
+              <div
+                class="ant-pro-card-body"
+              >
+                <div
+                  class="ant-pro-card ant-pro-card-split-vertical"
+                  style="border-radius:0"
+                >
+                  <div
+                    class="ant-pro-card-header"
+                  >
+                    <div
+                      class="ant-pro-card-title"
+                    >
+                      运行中试验
+                    </div>
+                    <div
+                      class="ant-pro-card-extra"
+                    />
+                  </div>
+                  <div
+                    class="ant-pro-card-body"
+                  >
+                    12/56
+                  </div>
+                </div>
+                <div
+                  class="ant-pro-card"
+                  style="border-radius:0"
+                >
+                  <div
+                    class="ant-pro-card-header"
+                  >
+                    <div
+                      class="ant-pro-card-title"
+                    >
+                      历史试验总数
+                    </div>
+                    <div
+                      class="ant-pro-card-extra"
+                    />
+                  </div>
+                  <div
+                    class="ant-pro-card-body"
+                  >
+                    134 个
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-pro-card"
+          style="border-radius:0"
+        >
+          <div
+            class="ant-pro-card-header"
+          >
+            <div
+              class="ant-pro-card-title"
+            >
+              流量趋势
+            </div>
+            <div
+              class="ant-pro-card-extra"
+            />
+          </div>
+          <div
+            class="ant-pro-card-body"
+          >
+            <div>
+              图表
+            </div>
+            <div>
+              图表
+            </div>
+            <div>
+              图表
+            </div>
+            <div>
+              图表
+            </div>
+            <div>
+              图表
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-pro-card"
+      style="border-radius:0"
+    >
+      <div
+        class="ant-pro-card-header"
+      >
+        <div
+          class="ant-pro-card-title"
+        >
+          流量占用情况
+        </div>
+        <div
+          class="ant-pro-card-extra"
+        />
+      </div>
+      <div
+        class="ant-pro-card-body"
+      >
+        右侧内容
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test card demos renders ./packages/card/demos/split2.tsx correctly 1`] = `
+<div
+  class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card"
+>
+  <div
+    class="ant-pro-card-header ant-pro-card-header-border"
+  >
+    <div
+      class="ant-pro-card-title"
+    >
+      左右分栏带标题
+    </div>
+    <div
+      class="ant-pro-card-extra"
+    >
+      2019年9月28日
+    </div>
+  </div>
+  <div
+    class="ant-pro-card-body"
+  >
+    <div
+      class="ant-pro-card ant-pro-card-split-vertical"
+      style="flex-basis:30%;flex-shrink:0;border-radius:0"
+    >
+      <div
+        class="ant-pro-card-header"
+      >
+        <div
+          class="ant-pro-card-title"
+        >
+          左侧详情
+        </div>
+        <div
+          class="ant-pro-card-extra"
+        />
+      </div>
+      <div
+        class="ant-pro-card-body"
+      >
+        左侧内容
+      </div>
+    </div>
+    <div
+      class="ant-pro-card"
+      style="border-radius:0;height:360px"
+    >
+      <div
+        class="ant-pro-card-header"
+      >
+        <div
+          class="ant-pro-card-title"
+        >
+          流量占用情况
+        </div>
+        <div
+          class="ant-pro-card-extra"
+        />
+      </div>
+      <div
+        class="ant-pro-card-body"
+      >
+        右侧内容
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test card demos renders ./packages/card/demos/split23.tsx correctly 1`] = `
+<div
+  class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card"
+>
+  <div
+    class="ant-pro-card-body"
+  >
+    <div
+      class="ant-pro-card ant-pro-card-split-vertical"
+      style="flex-basis:30%;flex-shrink:0;border-radius:0"
+    >
+      <div
+        class="ant-pro-card-header"
+      >
+        <div
+          class="ant-pro-card-title"
+        >
+          左侧详情
+        </div>
+        <div
+          class="ant-pro-card-extra"
+        />
+      </div>
+      <div
+        class="ant-pro-card-body"
+      >
+        左侧内容
+      </div>
+    </div>
+    <div
+      class="ant-pro-card"
+      style="border-radius:0;height:360px"
+    >
+      <div
+        class="ant-pro-card-header ant-pro-card-header-border"
+      >
+        <div
+          class="ant-pro-card-title"
+        >
+          左右分栏子卡片带标题
+        </div>
+        <div
+          class="ant-pro-card-extra"
+        />
+      </div>
+      <div
+        class="ant-pro-card-body"
+      >
+        右侧内容
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test card demos renders ./packages/card/demos/steps-v.tsx correctly 1`] = `
+<div
+  class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card"
+>
+  <div
+    class="ant-pro-card-body"
+  >
+    <div
+      class="ant-pro-card ant-pro-card-split-vertical"
+      style="flex-basis:25%;flex-shrink:0;border-radius:0"
+    >
+      <div
+        class="ant-pro-card-body"
+      >
+        <div
+          class="ant-steps ant-steps-vertical ant-steps-small"
+          style="height:320px"
+        >
+          <div
+            class="ant-steps-item ant-steps-item-process ant-steps-item-active"
+          >
+            <div
+              class="ant-steps-item-container"
+            >
+              <div
+                class="ant-steps-item-tail"
+              />
+              <div
+                class="ant-steps-item-icon"
+              >
+                <span
+                  class="ant-steps-icon"
+                >
+                  1
+                </span>
+              </div>
+              <div
+                class="ant-steps-item-content"
+              >
+                <div
+                  class="ant-steps-item-title"
+                >
+                  填写基本信息
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-steps-item ant-steps-item-wait"
+          >
+            <div
+              class="ant-steps-item-container"
+            >
+              <div
+                class="ant-steps-item-tail"
+              />
+              <div
+                class="ant-steps-item-icon"
+              >
+                <span
+                  class="ant-steps-icon"
+                >
+                  2
+                </span>
+              </div>
+              <div
+                class="ant-steps-item-content"
+              >
+                <div
+                  class="ant-steps-item-title"
+                >
+                  配置模板
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-steps-item ant-steps-item-wait"
+          >
+            <div
+              class="ant-steps-item-container"
+            >
+              <div
+                class="ant-steps-item-tail"
+              />
+              <div
+                class="ant-steps-item-icon"
+              >
+                <span
+                  class="ant-steps-icon"
+                >
+                  3
+                </span>
+              </div>
+              <div
+                class="ant-steps-item-content"
+              >
+                <div
+                  class="ant-steps-item-title"
+                >
+                  配置访问
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-steps-item ant-steps-item-wait"
+          >
+            <div
+              class="ant-steps-item-container"
+            >
+              <div
+                class="ant-steps-item-tail"
+              />
+              <div
+                class="ant-steps-item-icon"
+              >
+                <span
+                  class="ant-steps-icon"
+                >
+                  4
+                </span>
+              </div>
+              <div
+                class="ant-steps-item-content"
+              >
+                <div
+                  class="ant-steps-item-title"
+                >
+                  配置部署和调度
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-steps-item ant-steps-item-wait"
+          >
+            <div
+              class="ant-steps-item-container"
+            >
+              <div
+                class="ant-steps-item-tail"
+              />
+              <div
+                class="ant-steps-item-icon"
+              >
+                <span
+                  class="ant-steps-icon"
+                >
+                  5
+                </span>
+              </div>
+              <div
+                class="ant-steps-item-content"
+              >
+                <div
+                  class="ant-steps-item-title"
+                >
+                  预览
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-pro-card"
+      style="border-radius:0"
+    >
+      <div
+        class="ant-pro-card-header"
+      >
+        <div
+          class="ant-pro-card-title"
+        >
+          流量占用情况
+        </div>
+        <div
+          class="ant-pro-card-extra"
+        />
+      </div>
+      <div
+        class="ant-pro-card-body"
+      >
+        <div
+          class="ant-space ant-space-horizontal ant-space-align-center"
+        >
+          <div
+            class="ant-space-item"
+            style="margin-right:8px"
+          >
+            <button
+              class="ant-btn ant-btn-primary"
+              type="button"
+            >
+              <span>
+                下一步
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+          >
+            <button
+              class="ant-btn"
+              disabled=""
+              type="button"
+            >
+              <span>
+                上一步
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test card demos renders ./packages/card/demos/tabs.tsx correctly 1`] = `
+<div
+  class="ant-pro-card ant-pro-card-border"
+>
+  <div
+    class="ant-pro-card-body"
+  >
+    <div
+      class="ant-tabs ant-tabs-top"
+    >
+      <div
+        class="ant-tabs-nav"
+        role="tablist"
+      >
+        <div
+          class="ant-tabs-nav-wrap"
+        >
+          <div
+            class="ant-tabs-nav-list"
+            style="transform:translate(0px, 0px)"
+          >
+            <div
+              class="ant-tabs-tab ant-tabs-tab-active"
+            >
+              <div
+                aria-selected="true"
+                class="ant-tabs-tab-btn"
+                role="tab"
+                tabindex="0"
+              >
+                Tab 1
+              </div>
+            </div>
+            <div
+              class="ant-tabs-tab"
+            >
+              <div
+                aria-selected="false"
+                class="ant-tabs-tab-btn"
+                role="tab"
+                tabindex="0"
+              >
+                Tab 2
+              </div>
+            </div>
+            <div
+              class="ant-tabs-tab"
+            >
+              <div
+                aria-selected="false"
+                class="ant-tabs-tab-btn"
+                role="tab"
+                tabindex="0"
+              >
+                Tab 3
+              </div>
+            </div>
+            <div
+              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+        >
+          <button
+            aria-controls="null-more-popup"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-hidden="true"
+            class="ant-tabs-nav-more"
+            id="null-more"
+            style="visibility:hidden;order:1"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="ellipsis"
+              class="anticon anticon-ellipsis"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="ellipsis"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="ant-tabs-content-holder"
+      >
+        <div
+          class="ant-tabs-content ant-tabs-content-top"
+        >
+          <div
+            aria-hidden="false"
+            class="ant-tabs-tabpane ant-tabs-tabpane-active"
+            role="tabpanel"
+            tabindex="0"
+          >
+            Content of Tab 1
+          </div>
+          <div
+            aria-hidden="true"
+            class="ant-tabs-tabpane"
+            role="tabpanel"
+            style="display:none"
+            tabindex="-1"
+          />
+          <div
+            aria-hidden="true"
+            class="ant-tabs-tabpane"
+            role="tabpanel"
+            style="display:none"
+            tabindex="-1"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test card demos renders ./packages/card/demos/tabs-v.tsx correctly 1`] = `
+<div
+  class="ant-pro-card ant-pro-card-border"
+>
+  <div
+    class="ant-pro-card-body"
+  >
+    <div
+      class="ant-tabs ant-tabs-left"
+    >
+      <div
+        class="ant-tabs-nav"
+        role="tablist"
+      >
+        <div
+          class="ant-tabs-nav-wrap"
+        >
+          <div
+            class="ant-tabs-nav-list"
+            style="transform:translate(0px, 0px)"
+          >
+            <div
+              class="ant-tabs-tab ant-tabs-tab-active"
+            >
+              <div
+                aria-selected="true"
+                class="ant-tabs-tab-btn"
+                role="tab"
+                tabindex="0"
+              >
+                Tab 1
+              </div>
+            </div>
+            <div
+              class="ant-tabs-tab"
+            >
+              <div
+                aria-selected="false"
+                class="ant-tabs-tab-btn"
+                role="tab"
+                tabindex="0"
+              >
+                Tab 2
+              </div>
+            </div>
+            <div
+              class="ant-tabs-tab"
+            >
+              <div
+                aria-selected="false"
+                class="ant-tabs-tab-btn"
+                role="tab"
+                tabindex="0"
+              >
+                Tab 3
+              </div>
+            </div>
+            <div
+              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+        >
+          <button
+            aria-controls="null-more-popup"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-hidden="true"
+            class="ant-tabs-nav-more"
+            id="null-more"
+            style="visibility:hidden;order:1"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="ellipsis"
+              class="anticon anticon-ellipsis"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="ellipsis"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="ant-tabs-content-holder"
+      >
+        <div
+          class="ant-tabs-content ant-tabs-content-left"
+        >
+          <div
+            aria-hidden="false"
+            class="ant-tabs-tabpane ant-tabs-tabpane-active"
+            role="tabpanel"
+            tabindex="0"
+          >
+            Content of Tab 1
+          </div>
+          <div
+            aria-hidden="true"
+            class="ant-tabs-tabpane"
+            role="tabpanel"
+            style="display:none"
+            tabindex="-1"
+          />
+          <div
+            aria-hidden="true"
+            class="ant-tabs-tabpane"
+            role="tabpanel"
+            style="display:none"
+            tabindex="-1"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test field demos renders ./packages/field/demos/base.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center"
+  >
+    <div
+      class="ant-space-item"
+      style="margin-right:8px"
+    >
+      <div
+        class="ant-radio-group ant-radio-group-outline"
+      >
+        <label
+          class="ant-radio-wrapper ant-radio-wrapper-checked"
+        >
+          <span
+            class="ant-radio ant-radio-checked"
+          >
+            <input
+              checked=""
+              class="ant-radio-input"
+              type="radio"
+              value="read"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span>
+            只读
+          </span>
+        </label>
+        <label
+          class="ant-radio-wrapper"
+        >
+          <span
+            class="ant-radio"
+          >
+            <input
+              class="ant-radio-input"
+              type="radio"
+              value="edit"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span>
+            编辑
+          </span>
+        </label>
+      </div>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right:8px"
+    >
+      简约模式
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        aria-checked="false"
+        class="ant-switch"
+        role="switch"
+        type="button"
+      >
+        <div
+          class="ant-switch-handle"
+        />
+        <span
+          class="ant-switch-inner"
+        />
+      </button>
+    </div>
+  </div>,
+  <br />,
+  <br />,
+  <div
+    class="ant-descriptions"
+  >
+    <div
+      class="ant-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                文本
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <span>
+                  这是一段文本
+                </span>
+              </span>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                金额
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <span>
+                  CN¥ 100.00
+                </span>
+              </span>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                百分比
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <span>
+                  100.00%
+                </span>
+              </span>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                进度条
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <div
+                  class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+                  style="min-width:100px"
+                >
+                  <div
+                    class="ant-progress-outer"
+                  >
+                    <div
+                      class="ant-progress-inner"
+                    >
+                      <div
+                        class="ant-progress-bg"
+                        style="width:40%;height:6px;border-radius:"
+                      />
+                    </div>
+                  </div>
+                  <span
+                    class="ant-progress-text"
+                    title="40%"
+                  >
+                    40%
+                  </span>
+                </div>
+              </span>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                日期时间
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <span>
+                  2016-11-22 00:00:00
+                </span>
+              </span>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                日期
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <span>
+                  2016-11-22
+                </span>
+              </span>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                日期区间
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <div>
+                  <div>
+                    2016-11-21 00:00:00
+                  </div>
+                  <div>
+                    2016-11-22 00:00:00
+                  </div>
+                </div>
+              </span>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                时间
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <span>
+                  00:00:00
+                </span>
+              </span>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                代码块
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <pre
+                  style="padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f6f8fa;border-radius:3px"
+                >
+                  <code>
+                    
+            yarn run v1.22.0
+            $ eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./packages
+            Done in 9.70s.
+          
+                  </code>
+                </pre>
+              </span>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                JSON 代码块
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <pre
+                  style="padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f6f8fa;border-radius:3px"
+                >
+                  <code>
+                    {
+  "compilerOptions": {
+    "target": "esnext",
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "declaration": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "**/src",
+    "**/docs",
+    "scripts",
+    "**/demo",
+    ".eslintrc.js"
+  ]
+}
+                  </code>
+                </pre>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>,
+]
+`;
+
+exports[`test skeleton demos renders ./packages/skeleton/demos/base.tsx correctly 1`] = `
+<div
+  style="background:#fafafa;padding:24px"
+>
+  <div
+    style="width:100%"
+  >
+    <div
+      style="margin-bottom:16px"
+    >
+      <div
+        class="ant-skeleton"
+      >
+        <div
+          class="ant-skeleton-content"
+        >
+          <h3
+            class="ant-skeleton-title"
+            style="width:160px"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+      >
+        <span
+          class="ant-skeleton-button ant-skeleton-button-sm"
+        />
+      </div>
+    </div>
+    <div
+      class="ant-card"
+      style="margin-bottom:16px"
+    >
+      <div
+        class="ant-card-body"
+      >
+        <div
+          class="ant-space ant-space-horizontal ant-space-align-center"
+          style="width:100%;justify-content:space-between"
+        >
+          <div
+            class="ant-space-item"
+            style="margin-right:8px"
+          >
+            <div>
+              <div
+                style="padding-left:42px"
+              >
+                <div
+                  class="ant-skeleton ant-skeleton-active"
+                >
+                  <div
+                    class="ant-skeleton-content"
+                  >
+                    <h3
+                      class="ant-skeleton-title"
+                      style="width:100px;margin-top:0"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+                >
+                  <span
+                    class="ant-skeleton-button ant-skeleton-button-sm"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right:8px"
+          >
+            <div>
+              <div
+                style="border-left:1px solid #ddd;padding-left:42px"
+              >
+                <div
+                  class="ant-skeleton ant-skeleton-active"
+                >
+                  <div
+                    class="ant-skeleton-content"
+                  >
+                    <h3
+                      class="ant-skeleton-title"
+                      style="width:100px;margin-top:0"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+                >
+                  <span
+                    class="ant-skeleton-button ant-skeleton-button-sm"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right:8px"
+          >
+            <div>
+              <div
+                style="padding-left:42px"
+              >
+                <div
+                  class="ant-skeleton ant-skeleton-active"
+                >
+                  <div
+                    class="ant-skeleton-content"
+                  >
+                    <h3
+                      class="ant-skeleton-title"
+                      style="width:100px;margin-top:0"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+                >
+                  <span
+                    class="ant-skeleton-button ant-skeleton-button-sm"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right:8px"
+          >
+            <div>
+              <div
+                style="padding-left:42px"
+              >
+                <div
+                  class="ant-skeleton ant-skeleton-active"
+                >
+                  <div
+                    class="ant-skeleton-content"
+                  >
+                    <h3
+                      class="ant-skeleton-title"
+                      style="width:100px;margin-top:0"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+                >
+                  <span
+                    class="ant-skeleton-button ant-skeleton-button-sm"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-space-item"
+          >
+            <div>
+              <div
+                style="padding-left:42px"
+              >
+                <div
+                  class="ant-skeleton ant-skeleton-active"
+                >
+                  <div
+                    class="ant-skeleton-content"
+                  >
+                    <h3
+                      class="ant-skeleton-title"
+                      style="width:100px;margin-top:0"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+                >
+                  <span
+                    class="ant-skeleton-button ant-skeleton-button-sm"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-card"
+    >
+      <div
+        class="ant-card-body"
+        style="padding:0"
+      >
+        <div
+          class="ant-card"
+          style="border-bottom-right-radius:0;border-bottom-left-radius:0"
+        >
+          <div
+            class="ant-card-body"
+          >
+            <div
+              class="ant-space ant-space-horizontal ant-space-align-center"
+              style="width:100%;justify-content:space-between"
+            >
+              <div
+                class="ant-space-item"
+                style="margin-right:8px"
+              >
+                <div
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+                >
+                  <span
+                    class="ant-skeleton-button ant-skeleton-button-sm"
+                    style="width:200px"
+                  />
+                </div>
+              </div>
+              <div
+                class="ant-space-item"
+              >
+                <div
+                  class="ant-space ant-space-horizontal ant-space-align-center"
+                >
+                  <div
+                    class="ant-space-item"
+                    style="margin-right:8px"
+                  >
+                    <div
+                      class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+                    >
+                      <span
+                        class="ant-skeleton-button ant-skeleton-button-sm"
+                        style="width:120px"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                  >
+                    <div
+                      class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+                    >
+                      <span
+                        class="ant-skeleton-button ant-skeleton-button-sm"
+                        style="width:80px"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="width:100%;display:flex;align-items:center;justify-content:space-between"
+            >
+              <div
+                style="max-width:100%;flex:1"
+              >
+                <div
+                  class="ant-skeleton ant-skeleton-active"
+                >
+                  <div
+                    class="ant-skeleton-content"
+                  >
+                    <h3
+                      class="ant-skeleton-title"
+                      style="width:120px"
+                    />
+                    <ul
+                      class="ant-skeleton-paragraph"
+                      style="margin:0"
+                    >
+                      <li
+                        style="width:61%"
+                      />
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+              >
+                <span
+                  class="ant-skeleton-button ant-skeleton-button-sm"
+                  style="width:120px;margin-top:12px"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style="padding:0 16px"
+        >
+          <div
+            class="ant-divider ant-divider-horizontal"
+            role="separator"
+            style="margin:0"
+          />
+        </div>
+        <div
+          class="ant-card"
+        >
+          <div
+            class="ant-card-body"
+            style="padding:0"
+          >
+            <div
+              class="ant-card"
+              style="border-radius:0"
+            >
+              <div
+                class="ant-card-body"
+                style="padding:16px"
+              >
+                <div
+                  style="width:100%;display:flex;align-items:center;justify-content:space-between"
+                >
+                  <div
+                    style="max-width:100%;flex:1"
+                  >
+                    <div
+                      class="ant-skeleton ant-skeleton-active"
+                    >
+                      <div
+                        class="ant-skeleton-content"
+                      >
+                        <h3
+                          class="ant-skeleton-title"
+                          style="width:120px;margin-top:0"
+                        />
+                        <ul
+                          class="ant-skeleton-paragraph"
+                          style="margin:0"
+                        >
+                          <li
+                            style="width:61%"
+                          />
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+                  >
+                    <span
+                      class="ant-skeleton-button ant-skeleton-button-sm"
+                      style="width:120px;margin-top:12px"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding:0 16px"
+            >
+              <div
+                class="ant-divider ant-divider-horizontal"
+                role="separator"
+                style="margin:0"
+              />
+            </div>
+            <div
+              class="ant-card"
+              style="border-radius:0"
+            >
+              <div
+                class="ant-card-body"
+                style="padding:16px"
+              >
+                <div
+                  style="width:100%;display:flex;align-items:center;justify-content:space-between"
+                >
+                  <div
+                    style="max-width:100%;flex:1"
+                  >
+                    <div
+                      class="ant-skeleton ant-skeleton-active"
+                    >
+                      <div
+                        class="ant-skeleton-content"
+                      >
+                        <h3
+                          class="ant-skeleton-title"
+                          style="width:120px;margin-top:0"
+                        />
+                        <ul
+                          class="ant-skeleton-paragraph"
+                          style="margin:0"
+                        >
+                          <li
+                            style="width:61%"
+                          />
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+                  >
+                    <span
+                      class="ant-skeleton-button ant-skeleton-button-sm"
+                      style="width:120px;margin-top:12px"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding:0 16px"
+            >
+              <div
+                class="ant-divider ant-divider-horizontal"
+                role="separator"
+                style="margin:0"
+              />
+            </div>
+            <div
+              class="ant-card"
+              style="border-radius:0"
+            >
+              <div
+                class="ant-card-body"
+                style="padding:16px"
+              >
+                <div
+                  style="width:100%;display:flex;align-items:center;justify-content:space-between"
+                >
+                  <div
+                    style="max-width:100%;flex:1"
+                  >
+                    <div
+                      class="ant-skeleton ant-skeleton-active"
+                    >
+                      <div
+                        class="ant-skeleton-content"
+                      >
+                        <h3
+                          class="ant-skeleton-title"
+                          style="width:120px;margin-top:0"
+                        />
+                        <ul
+                          class="ant-skeleton-paragraph"
+                          style="margin:0"
+                        >
+                          <li
+                            style="width:61%"
+                          />
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+                  >
+                    <span
+                      class="ant-skeleton-button ant-skeleton-button-sm"
+                      style="width:120px;margin-top:12px"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding:0 16px"
+            >
+              <div
+                class="ant-divider ant-divider-horizontal"
+                role="separator"
+                style="margin:0"
+              />
+            </div>
+            <div
+              class="ant-card"
+              style="border-radius:0"
+            >
+              <div
+                class="ant-card-body"
+                style="padding:16px"
+              >
+                <div
+                  style="width:100%;display:flex;align-items:center;justify-content:space-between"
+                >
+                  <div
+                    style="max-width:100%;flex:1"
+                  >
+                    <div
+                      class="ant-skeleton ant-skeleton-active"
+                    >
+                      <div
+                        class="ant-skeleton-content"
+                      >
+                        <h3
+                          class="ant-skeleton-title"
+                          style="width:120px;margin-top:0"
+                        />
+                        <ul
+                          class="ant-skeleton-paragraph"
+                          style="margin:0"
+                        >
+                          <li
+                            style="width:61%"
+                          />
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+                  >
+                    <span
+                      class="ant-skeleton-button ant-skeleton-button-sm"
+                      style="width:120px;margin-top:12px"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding:0 16px"
+            >
+              <div
+                class="ant-divider ant-divider-horizontal"
+                role="separator"
+                style="margin:0"
+              />
+            </div>
+            <div
+              class="ant-card"
+              style="border-radius:0"
+            >
+              <div
+                class="ant-card-body"
+                style="padding:16px"
+              >
+                <div
+                  style="width:100%;display:flex;align-items:center;justify-content:space-between"
+                >
+                  <div
+                    style="max-width:100%;flex:1"
+                  >
+                    <div
+                      class="ant-skeleton ant-skeleton-active"
+                    >
+                      <div
+                        class="ant-skeleton-content"
+                      >
+                        <h3
+                          class="ant-skeleton-title"
+                          style="width:120px;margin-top:0"
+                        />
+                        <ul
+                          class="ant-skeleton-paragraph"
+                          style="margin:0"
+                        >
+                          <li
+                            style="width:61%"
+                          />
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+                  >
+                    <span
+                      class="ant-skeleton-button ant-skeleton-button-sm"
+                      style="width:120px;margin-top:12px"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding:0 16px"
+            >
+              <div
+                class="ant-divider ant-divider-horizontal"
+                role="separator"
+                style="margin:0"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-card"
+          style="border-top-right-radius:0;border-top-left-radius:0"
+        >
+          <div
+            class="ant-card-body"
+            style="display:flex;align-items:center;justify-content:center"
+          >
+            <div
+              class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+            >
+              <span
+                class="ant-skeleton-button ant-skeleton-button-sm"
+                style="width:100px"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
