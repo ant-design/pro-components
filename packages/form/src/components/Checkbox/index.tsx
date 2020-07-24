@@ -71,4 +71,4 @@ const WrappedProFormCheckbox: React.ComponentType<
 
 WrappedProFormCheckbox.Group = createField(Group);
 
-export default WrappedProFormCheckbox;
+export default createField<FormItemProps & CheckboxProps>(ProFormCheckbox);

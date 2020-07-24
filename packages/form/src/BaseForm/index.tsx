@@ -20,9 +20,14 @@ export interface BaseFormProps extends FormProps, CommonFormProps {
   groupProps?: GroupProps;
 }
 
+// 给控件扩展的通用的属性
+export interface ExtendsProps {
+  secondary?: boolean;
+}
+
 export function createField<P = any>(
   Field: React.ComponentType<P> | React.ForwardRefExoticComponent<P>,
-): React.ComponentType<P> {
+): React.ComponentType<P & ExtendsProps> {
   const FieldWithContext: React.FC<P> = (props: P) => {
     const { fieldStyle, formItemProps } = React.useContext(FieldContext);
     return (
