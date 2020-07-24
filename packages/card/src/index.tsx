@@ -63,11 +63,20 @@ export type ProCardProps = {
   /**
    * 拆分卡片方式
    */
-  split?: `vertical` | `horizontal`;
+  split?: 'vertical' | 'horizontal';
   /**
    * 是否有边框
    */
   bordered?: boolean;
+};
+
+/**
+ * 根据条件返回 style，负责返回空对象
+ * @param withStyle 是否符合条件
+ * @param appendStyle 如果符合条件要返回的 style 属性
+ */
+const getStyle = (withStyle: boolean, appendStyle: React.CSSProperties) => {
+  return withStyle ? appendStyle : {};
 };
 
 const ProCard: ProCardType = props => (
@@ -92,15 +101,9 @@ const ProCard: ProCardType = props => (
         children,
       } = props;
 
-      const tipDom = tip && (
-        <Tooltip title={tip}>
-          <QuestionCircleOutlined style={{ marginLeft: 8 }} />
-        </Tooltip>
-      );
-
       const normalizedGutter = Array.isArray(gutter) ? gutter : [gutter, 0];
 
-      // 判断是否套了卡片，如果套了的话将自身卡片内部内容的padding设置为0
+      // 判断是否套了卡片，如果套了的话将自身卡片内部内容的 padding 设置为0
       let containProCard;
       const childrenArray = React.Children.toArray(
         children,
@@ -109,6 +112,19 @@ const ProCard: ProCardType = props => (
       const childrenModified = childrenArray.map((element, index) => {
         if (element?.type?.displayName === 'ProCard') {
           containProCard = true;
+
+          // 右侧空隙
+          const gutterRightStyle = getStyle(
+            normalizedGutter[0]! > 0 && index !== childrenArray.length - 1,
+            {
+              marginRight: normalizedGutter[0],
+            },
+          );
+          // 下方空隙
+          const gutterBottomStyle = getStyle(normalizedGutter[1]! > 0, {
+            marginBottom: normalizedGutter[1],
+          });
+
           return React.cloneElement(element, {
             className: classNames(element.props.className, {
               // 横纵切割
@@ -117,19 +133,10 @@ const ProCard: ProCardType = props => (
               [`${prefixCls}-split-horizontal`]:
                 split === 'horizontal' && index !== childrenArray.length - 1,
             }),
-            // gutter
             style: {
-              ...(normalizedGutter[0]! > 0 && index !== childrenArray.length - 1
-                ? {
-                    marginRight: normalizedGutter[0],
-                  }
-                : {}),
-              ...(normalizedGutter[1]! > 0
-                ? {
-                    marginBottom: normalizedGutter[1],
-                  }
-                : {}),
-              // 被嵌套时radius设置为0
+              ...gutterRightStyle,
+              ...gutterBottomStyle,
+              // 被嵌套时进入布局模式，内部卡片 radius 设置为 0
               ...{
                 borderRadius: 0,
               },
@@ -140,14 +147,17 @@ const ProCard: ProCardType = props => (
         return element;
       });
 
+      // 当 colSpan 为 30% 或 300px 时
+      const colSpanStyle = getStyle(
+        typeof colSpan === 'string' && /\d%|\dpx/i.test(colSpan),
+        {
+          flexBasis: colSpan,
+          flexShrink: 0,
+        },
+      );
+
       const cardStyle = {
-        // 当 colSpan 为 30% 或 300px 时。
-        ...(typeof colSpan === 'string' && /\d%|\dpx/i.test(colSpan)
-          ? {
-              flexBasis: colSpan,
-              flexShrink: 0,
-            }
-          : {}),
+        ...colSpanStyle,
         ...style,
       };
 
@@ -168,6 +178,12 @@ const ProCard: ProCardType = props => (
       });
 
       const loadingDOM = React.isValidElement(loading) ? loading : <Spin />;
+
+      const tipDom = tip && (
+        <Tooltip title={tip}>
+          <QuestionCircleOutlined style={{ marginLeft: 8 }} />
+        </Tooltip>
+      );
 
       return (
         <div className={cardCls} style={cardStyle}>
