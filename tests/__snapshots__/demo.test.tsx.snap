@@ -585,7 +585,7 @@ exports[`demos renders ./packages/card/demos/split.tsx correctly 1`] = `
               >
                 <div
                   class="ant-pro-card ant-pro-card-split-vertical"
-                  style="flex-basis:150px;flex-shrink:0;border-radius:0"
+                  style="border-radius:0"
                 >
                   <div
                     class="ant-pro-card-header"
@@ -815,7 +815,7 @@ exports[`demos renders ./packages/card/demos/split2.tsx correctly 1`] = `
     </div>
     <div
       class="ant-pro-card"
-      style="border-radius:0;height:360px"
+      style="border-radius:0"
     >
       <div
         class="ant-pro-card-header"
@@ -832,7 +832,11 @@ exports[`demos renders ./packages/card/demos/split2.tsx correctly 1`] = `
       <div
         class="ant-pro-card-body"
       >
-        右侧内容
+        <div
+          style="height:360px"
+        >
+          右侧内容
+        </div>
       </div>
     </div>
   </div>
@@ -870,7 +874,7 @@ exports[`demos renders ./packages/card/demos/split23.tsx correctly 1`] = `
     </div>
     <div
       class="ant-pro-card"
-      style="border-radius:0;height:360px"
+      style="border-radius:0"
     >
       <div
         class="ant-pro-card-header ant-pro-card-header-border"
@@ -887,7 +891,11 @@ exports[`demos renders ./packages/card/demos/split23.tsx correctly 1`] = `
       <div
         class="ant-pro-card-body"
       >
-        右侧内容
+        <div
+          style="height:360px"
+        >
+          右侧内容
+        </div>
       </div>
     </div>
   </div>
