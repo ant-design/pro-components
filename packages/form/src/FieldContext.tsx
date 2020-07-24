@@ -1,9 +1,9 @@
 import React from 'react';
 import { FormItemProps } from 'antd/lib/form';
-import { GroupProps } from './interface';
+import { GroupProps, FieldProps } from './interface';
 
 export interface FiledContextProps {
-  fieldStyle?: React.CSSProperties;
+  fieldProps?: FieldProps;
   formItemProps?: FormItemProps;
   groupProps?: GroupProps;
 }

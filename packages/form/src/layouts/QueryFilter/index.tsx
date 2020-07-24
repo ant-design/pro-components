@@ -23,6 +23,7 @@ export interface QueryFilterProps extends FormProps, CommonFormProps {
   onCollapse?: (collapsed: boolean) => void;
   labelLayout?: 'default' | 'growth' | 'vertical';
   defaultColsNumber?: number;
+  labelWidth?: number;
 }
 
 /**
@@ -44,17 +45,7 @@ const getSpanConfig = (
   return config[size];
 };
 
-/**
- * 获取最后一行的 offset，保证在最后一列
- * @param length
- * @param span
- */
-const getOffset = (length: number, span: number = 8) => {
-  const cols = 24 / span;
-  return (cols - 1 - (length % cols)) * span;
-};
-
-const QueryFilter: React.FC<QueryFilterProps> = props => {
+const QueryFilter: React.FC<QueryFilterProps> = (props) => {
   const {
     span = defaultColConfig,
     collapsed: controlCollapsed,
@@ -62,6 +53,7 @@ const QueryFilter: React.FC<QueryFilterProps> = props => {
     layout,
     defaultColsNumber,
     onCollapse,
+    labelWidth,
     ...rest
   } = props;
   const [formHeight, setFormHeight] = useState<number | undefined>(88);
@@ -70,11 +62,11 @@ const QueryFilter: React.FC<QueryFilterProps> = props => {
     onChange: onCollapse,
   });
   const windowSize = useMediaQuery();
-  const [colSize, setColSize] = useState(getSpanConfig(span, windowSize));
+  const [spanSize, setSpanSize] = useState(getSpanConfig(span, windowSize));
   useEffect(() => {
-    setColSize(getSpanConfig(span || 8, windowSize));
+    setSpanSize(getSpanConfig(span || 8, windowSize));
   }, [windowSize]);
-  const rowNumber = 24 / (colSize || 3);
+  const rowNumber = 24 / (spanSize || 3);
 
   return (
     <div
@@ -91,8 +83,15 @@ const QueryFilter: React.FC<QueryFilterProps> = props => {
           <BaseForm
             {...rest}
             layout={layout}
-            fieldStyle={{
-              width: '100%',
+            fieldProps={{
+              style: {
+                width: '100%',
+              },
+            }}
+            formItemProps={{
+              labelCol: {
+                flex: labelWidth && `0 0 ${labelWidth}px`,
+              },
             }}
             contentRender={(items, submiter) => {
               const showItems = collapsed
@@ -103,14 +102,20 @@ const QueryFilter: React.FC<QueryFilterProps> = props => {
                     return index < rowNumber - 1;
                   })
                 : items;
+
+              // totalSpan 统计控件占的位置，计算 offset 保证查询按钮在最后一列
+              let totalSpan = 0;
               return (
                 <Row gutter={16} justify="start">
-                  {showItems.map(item => (
-                    <Col span={colSize}>{item}</Col>
-                  ))}
+                  {showItems.map((item: any) => {
+                    const colSize = item.props?.colSize || 1;
+                    const colSpan = Math.min(spanSize * colSize, 24);
+                    totalSpan += colSpan;
+                    return <Col span={colSpan}>{item}</Col>;
+                  })}
                   <Col
-                    span={colSize}
-                    offset={getOffset(showItems.length, colSize)}
+                    span={spanSize}
+                    offset={24 - spanSize - (totalSpan % 24)}
                     style={{
                       textAlign: 'right',
                     }}
