@@ -89,4 +89,3 @@ nav:
 |  split | 拆分卡片的方向 | `vertical` \| `horizontal`  | - |
 | bordered | 是否有边框 | `boolean` | false |
 | headerBordered | 页头是否有分割线 | `boolean` | false |
-| height | 设置卡片高度 | `number` \| `string` | auto |

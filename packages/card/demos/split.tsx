@@ -13,9 +13,7 @@ export default () => {
       <ProCard split="horizontal">
         <ProCard split="horizontal">
           <ProCard split="vertical">
-            <ProCard title="昨日全部流量" colSpan="150px">
-              123
-            </ProCard>
+            <ProCard title="昨日全部流量">123</ProCard>
             <ProCard title="本月累计流量">234</ProCard>
             <ProCard title="今年累计流量">345</ProCard>
           </ProCard>
