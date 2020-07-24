@@ -23,6 +23,7 @@ export interface BaseFormProps extends FormProps, CommonFormProps {
 // 给控件扩展的通用的属性
 export interface ExtendsProps {
   secondary?: boolean;
+  colSize?: number;
 }
 
 export function createField<P = any>(
