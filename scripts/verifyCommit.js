@@ -4,11 +4,9 @@
 const { chalk } = require('@umijs/utils');
 
 const msgPath = process.env.GIT_PARAMS;
-const msg = require('fs')
-  .readFileSync(msgPath, 'utf-8')
-  .trim();
+const msg = require('fs').readFileSync(msgPath, 'utf-8').trim();
 
-const commitRE = /^(revert: )?(feat|fix|docs|UI|refactor|⚡perf|workflow|build|CI|chore|tests|types|wip|release|dep)(\(.+\))?: .{1,50}/;
+const commitRE = /^(((\ud83c[\udf00-\udfff])|(\ud83d[\udc00-\ude4f\ude80-\udeff])|[\u2600-\u2B55]) )?(revert: )?(feat|fix|docs|UI|refactor|⚡perf|workflow|build|CI|chore|tests|types|wip|release|dep)(\(.+\))?: .{1,50}/;
 
 if (!commitRE.test(msg)) {
   console.log();
