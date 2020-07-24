@@ -26,7 +26,6 @@
   "bugs": "http://github.com/umijs/plugins/issues",
   "homepage": "https://github.com/ant-design/pro-components/tree/master/packages/card#readme",
   "peerDependencies": {
-    "umi": "3.x",
     "react": "^16.x",
     "antd": "4.x"
   },
