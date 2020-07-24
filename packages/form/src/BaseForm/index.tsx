@@ -4,7 +4,7 @@ import { FormProps } from 'antd/lib/form/Form';
 import { FormItemProps } from 'antd/lib/form';
 import FieldContext from '../FieldContext';
 import Submiter, { SubmiterProps } from '../components/Submiter';
-import { GroupProps } from '../interface';
+import { GroupProps, FieldProps } from '../interface';
 
 export interface CommonFormProps {
   submiterProps?: Omit<SubmiterProps, 'form'>;
@@ -15,7 +15,7 @@ export interface BaseFormProps extends FormProps, CommonFormProps {
     items: React.ReactNode[],
     submiter: React.ReactNode,
   ) => React.ReactNode;
-  fieldStyle?: React.CSSProperties;
+  fieldProps?: FieldProps;
   formItemProps?: FormItemProps;
   groupProps?: GroupProps;
 }
@@ -30,10 +30,8 @@ export function createField<P = any>(
   Field: React.ComponentType<P> | React.ForwardRefExoticComponent<P>,
 ): React.ComponentType<P & ExtendsProps> {
   const FieldWithContext: React.FC<P> = (props: P) => {
-    const { fieldStyle, formItemProps } = React.useContext(FieldContext);
-    return (
-      <Field style={fieldStyle} formItemProps={formItemProps} {...props} />
-    );
+    const { fieldProps, formItemProps } = React.useContext(FieldContext);
+    return <Field fieldProps={fieldProps} {...formItemProps} {...props} />;
   };
   return FieldWithContext;
 }
@@ -43,7 +41,7 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
     children,
     contentRender,
     submiterProps,
-    fieldStyle,
+    fieldProps,
     formItemProps,
     groupProps,
     ...rest
@@ -55,7 +53,7 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
   return (
     <FieldContext.Provider
       value={{
-        fieldStyle,
+        fieldProps,
         formItemProps,
         groupProps,
       }}

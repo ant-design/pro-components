@@ -2,16 +2,17 @@ import React from 'react';
 // eslint-disable-next-line import/no-unresolved
 import ProField from '@ant-design/pro-field';
 import { Form } from 'antd';
-import { FormItemProps } from 'antd/lib/form';
 import { DatePickerProps } from 'antd/lib/date-picker';
 import { createField } from '../../BaseForm';
+import { ProFormItemProps } from '../../interface';
 
 /**
  * 日期选择组件
  * @param
  */
-const ProFormDatePicker: React.FC<FormItemProps & DatePickerProps> = ({
+const ProFormDatePicker: React.FC<ProFormItemProps & DatePickerProps> = ({
   value,
+  fieldProps,
   ...restProps
 }) => {
   return (
@@ -20,11 +21,12 @@ const ProFormDatePicker: React.FC<FormItemProps & DatePickerProps> = ({
         text={value}
         mode="edit"
         valueType="date"
-        {...restProps}
-        formItemProps={restProps}
+        formItemProps={fieldProps}
       />
     </Form.Item>
   );
 };
 
-export default createField<FormItemProps & DatePickerProps>(ProFormDatePicker);
+export default createField<ProFormItemProps & DatePickerProps>(
+  ProFormDatePicker,
+);

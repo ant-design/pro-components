@@ -81,8 +81,10 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
           <BaseForm
             {...rest}
             layout={layout}
-            fieldStyle={{
-              width: '100%',
+            fieldProps={{
+              style: {
+                width: '100%',
+              },
             }}
             contentRender={(items, submiter) => {
               const showItems = collapsed

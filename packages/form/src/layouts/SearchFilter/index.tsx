@@ -5,15 +5,15 @@ import BaseForm, { CommonFormProps } from '../../BaseForm';
 
 export interface SearchFilterProps extends FormProps, CommonFormProps {}
 
-const SearchFilter: React.FC<SearchFilterProps> = props => {
+const SearchFilter: React.FC<SearchFilterProps> = (props) => {
   return (
     <BaseForm
-      formItemProps={{
+      fieldProps={{
         style: {
           width: 286,
         },
       }}
-      contentRender={items =>
+      contentRender={(items) =>
         items.map((item, index) => {
           if (index < items.length - 1) {
             return [
@@ -29,7 +29,7 @@ const SearchFilter: React.FC<SearchFilterProps> = props => {
           display: 'inline-block',
           marginRight: 16,
         },
-        titleRender: title => `${title}:`,
+        titleRender: (title) => `${title}:`,
       }}
       {...props}
     />
