@@ -5,7 +5,7 @@ import FieldContext from '../../FieldContext';
 import { GroupProps } from '../../interface';
 import './index.less';
 
-const Group: React.FC<GroupProps> = props => {
+const Group: React.FC<GroupProps> = (props) => {
   const { groupProps } = React.useContext(FieldContext);
   const { children, style, title, titleStyle, titleRender } = {
     ...groupProps,
@@ -18,7 +18,7 @@ const Group: React.FC<GroupProps> = props => {
         return (
           <div style={style}>
             <div className={`${className}-title`} style={titleStyle}>
-              {titleRender ? titleRender(title) : title}
+              {titleRender ? titleRender(title, props) : title}
             </div>
             <Space size={32}>{children}</Space>
           </div>
