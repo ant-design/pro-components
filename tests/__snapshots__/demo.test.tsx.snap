@@ -1830,7 +1830,6 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
             >
               <input
                 autocomplete="off"
-                name="date"
                 placeholder="Select date"
                 readonly=""
                 size="12"
@@ -1905,7 +1904,6 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
               >
                 <div
                   class="ant-picker ant-picker-range"
-                  name="dateTime"
                 >
                   <div
                     class="ant-picker-input ant-picker-input-active"
@@ -2044,7 +2042,6 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
               >
                 <div
                   class="ant-picker ant-picker-range"
-                  name="dateRange"
                 >
                   <div
                     class="ant-picker-input ant-picker-input-active"
@@ -2188,7 +2185,6 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
             >
               <input
                 autocomplete="off"
-                name="dateTimeRange"
                 placeholder="Select date"
                 readonly=""
                 size="21"
@@ -2256,7 +2252,6 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
             >
               <input
                 autocomplete="off"
-                name="time"
                 placeholder="Select time"
                 readonly=""
                 size="10"
@@ -2426,12 +2421,11 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
           style="margin-left:-8px;margin-right:-8px"
         >
           <div
-            class="ant-col"
+            class="ant-col ant-col-NaN"
             style="padding-left:8px;padding-right:8px"
           >
             <div
               class="ant-row ant-form-item"
-              style="width:100%"
             >
               <div
                 class="ant-col ant-form-item-label"
@@ -2455,6 +2449,7 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
                   >
                     <input
                       class="ant-input"
+                      style="width:100%"
                       type="text"
                       value=""
                     />
@@ -2464,12 +2459,11 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
             </div>
           </div>
           <div
-            class="ant-col"
+            class="ant-col ant-col-NaN"
             style="padding-left:8px;padding-right:8px"
           >
             <div
               class="ant-row ant-form-item"
-              style="width:100%"
             >
               <div
                 class="ant-col ant-form-item-label"
@@ -2500,7 +2494,6 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
                       >
                         <input
                           autocomplete="off"
-                          name="date"
                           placeholder="Select date"
                           readonly=""
                           size="12"
@@ -2539,12 +2532,11 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
             </div>
           </div>
           <div
-            class="ant-col"
+            class="ant-col ant-col-NaN"
             style="padding-left:8px;padding-right:8px"
           >
             <div
               class="ant-row ant-form-item"
-              style="width:100%"
             >
               <div
                 class="ant-col ant-form-item-label"
@@ -2568,6 +2560,7 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
                   >
                     <input
                       class="ant-input"
+                      style="width:100%"
                       type="text"
                       value=""
                     />
@@ -2577,12 +2570,11 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
             </div>
           </div>
           <div
-            class="ant-col"
+            class="ant-col ant-col-NaN"
             style="padding-left:8px;padding-right:8px"
           >
             <div
               class="ant-row ant-form-item"
-              style="width:100%"
             >
               <div
                 class="ant-col ant-form-item-label"
@@ -2613,7 +2605,6 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
                       >
                         <input
                           autocomplete="off"
-                          name="date2"
                           placeholder="Select date"
                           readonly=""
                           size="12"
@@ -2652,12 +2643,11 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
             </div>
           </div>
           <div
-            class="ant-col"
+            class="ant-col ant-col-NaN"
             style="padding-left:8px;padding-right:8px"
           >
             <div
               class="ant-row ant-form-item"
-              style="width:100%"
             >
               <div
                 class="ant-col ant-form-item-label"
@@ -2681,6 +2671,7 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
                   >
                     <input
                       class="ant-input"
+                      style="width:100%"
                       type="text"
                       value=""
                     />
@@ -2690,12 +2681,12 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
             </div>
           </div>
           <div
-            class="ant-col"
+            class="ant-col ant-col-NaN"
             style="padding-left:8px;padding-right:8px"
           >
             <div
               class="ant-row ant-form-item"
-              style="width:100%"
+              colsize="2"
             >
               <div
                 class="ant-col ant-form-item-label"
@@ -2726,7 +2717,6 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
                       >
                         <input
                           autocomplete="off"
-                          name="date3"
                           placeholder="Select date"
                           readonly=""
                           size="12"
@@ -2765,7 +2755,7 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
             </div>
           </div>
           <div
-            class="ant-col ant-col-offset-16"
+            class="ant-col"
             style="padding-left:8px;padding-right:8px;text-align:right"
           >
             <div
@@ -2827,15 +2817,15 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
           style="margin-left:-8px;margin-right:-8px"
         >
           <div
-            class="ant-col"
+            class="ant-col ant-col-NaN"
             style="padding-left:8px;padding-right:8px"
           >
             <div
               class="ant-row ant-form-item"
-              style="width:100%"
             >
               <div
                 class="ant-col ant-form-item-label"
+                style="flex:0 0 80px"
               >
                 <label
                   class=""
@@ -2856,6 +2846,7 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
                   >
                     <input
                       class="ant-input"
+                      style="width:100%"
                       type="text"
                       value=""
                     />
@@ -2865,15 +2856,15 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
             </div>
           </div>
           <div
-            class="ant-col"
+            class="ant-col ant-col-NaN"
             style="padding-left:8px;padding-right:8px"
           >
             <div
               class="ant-row ant-form-item"
-              style="width:100%"
             >
               <div
                 class="ant-col ant-form-item-label"
+                style="flex:0 0 80px"
               >
                 <label
                   class=""
@@ -2901,7 +2892,6 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
                       >
                         <input
                           autocomplete="off"
-                          name="date"
                           placeholder="Select date"
                           readonly=""
                           size="12"
@@ -2940,15 +2930,15 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
             </div>
           </div>
           <div
-            class="ant-col"
+            class="ant-col ant-col-NaN"
             style="padding-left:8px;padding-right:8px"
           >
             <div
               class="ant-row ant-form-item"
-              style="width:100%"
             >
               <div
                 class="ant-col ant-form-item-label"
+                style="flex:0 0 80px"
               >
                 <label
                   class=""
@@ -2969,6 +2959,7 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
                   >
                     <input
                       class="ant-input"
+                      style="width:100%"
                       type="text"
                       value=""
                     />
@@ -2978,15 +2969,15 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
             </div>
           </div>
           <div
-            class="ant-col"
+            class="ant-col ant-col-NaN"
             style="padding-left:8px;padding-right:8px"
           >
             <div
               class="ant-row ant-form-item"
-              style="width:100%"
             >
               <div
                 class="ant-col ant-form-item-label"
+                style="flex:0 0 80px"
               >
                 <label
                   class=""
@@ -3014,7 +3005,6 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
                       >
                         <input
                           autocomplete="off"
-                          name="date2"
                           placeholder="Select date"
                           readonly=""
                           size="12"
@@ -3053,15 +3043,15 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
             </div>
           </div>
           <div
-            class="ant-col"
+            class="ant-col ant-col-NaN"
             style="padding-left:8px;padding-right:8px"
           >
             <div
               class="ant-row ant-form-item"
-              style="width:100%"
             >
               <div
                 class="ant-col ant-form-item-label"
+                style="flex:0 0 80px"
               >
                 <label
                   class=""
@@ -3082,6 +3072,7 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
                   >
                     <input
                       class="ant-input"
+                      style="width:100%"
                       type="text"
                       value=""
                     />
@@ -3153,12 +3144,11 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
           style="margin-left:-8px;margin-right:-8px"
         >
           <div
-            class="ant-col"
+            class="ant-col ant-col-NaN"
             style="padding-left:8px;padding-right:8px"
           >
             <div
               class="ant-row ant-form-item"
-              style="width:100%"
             >
               <div
                 class="ant-col ant-form-item-label"
@@ -3182,6 +3172,7 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
                   >
                     <input
                       class="ant-input"
+                      style="width:100%"
                       type="text"
                       value=""
                     />
@@ -3191,12 +3182,11 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
             </div>
           </div>
           <div
-            class="ant-col"
+            class="ant-col ant-col-NaN"
             style="padding-left:8px;padding-right:8px"
           >
             <div
               class="ant-row ant-form-item"
-              style="width:100%"
             >
               <div
                 class="ant-col ant-form-item-label"
@@ -3227,7 +3217,6 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
                       >
                         <input
                           autocomplete="off"
-                          name="date"
                           placeholder="Select date"
                           readonly=""
                           size="12"
@@ -3335,7 +3324,6 @@ exports[`demos renders ./packages/form/demos/search-filter.tsx correctly 1`] = `
       >
         <div
           class="ant-row ant-form-item"
-          formitemprops="[object Object]"
         >
           <div
             class="ant-col ant-form-item-control"
@@ -3389,7 +3377,6 @@ exports[`demos renders ./packages/form/demos/search-filter.tsx correctly 1`] = `
       >
         <div
           class="ant-row ant-form-item"
-          formitemprops="[object Object]"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -3427,7 +3414,6 @@ exports[`demos renders ./packages/form/demos/search-filter.tsx correctly 1`] = `
       >
         <div
           class="ant-row ant-form-item"
-          formitemprops="[object Object]"
         >
           <div
             class="ant-col ant-form-item-label"
