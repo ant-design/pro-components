@@ -37,10 +37,6 @@ ProLayout 提供了强大的 menu，但是这样必然会封装很多行为，�
 
 <code src="../demos/customizeMenu.tsx" />
 
-## 我是高手，我喜欢混着用
-
-<code src="../demos/materialMenu.tsx" />
-
 ## 关闭时完全收起 menu
 
 <code src="../demos/hideMenu.tsx" />
