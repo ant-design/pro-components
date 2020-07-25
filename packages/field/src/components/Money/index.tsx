@@ -77,7 +77,7 @@ const FieldMoney: FieldFC<FieldMoneyProps> = ({
         defaultValue={text}
         min={0}
         precision={2}
-        formatter={value => {
+        formatter={(value) => {
           if (value) {
             return `${moneySymbol} ${value}`.replace(
               /\B(?=(\d{3})+(?!\d))/g,
@@ -86,7 +86,7 @@ const FieldMoney: FieldFC<FieldMoneyProps> = ({
           }
           return '';
         }}
-        parser={value =>
+        parser={(value) =>
           value
             ? value.replace(new RegExp(`\\${moneySymbol}\\s?|(,*)`, 'g'), '')
             : ''

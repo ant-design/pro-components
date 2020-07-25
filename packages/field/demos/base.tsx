@@ -11,14 +11,14 @@ export default () => {
     <>
       <Space>
         <Radio.Group
-          onChange={e => setState(e.target.value as FieldFCMode)}
+          onChange={(e) => setState(e.target.value as FieldFCMode)}
           value={state}
         >
           <Radio value="read">只读</Radio>
           <Radio value="edit">编辑</Radio>
         </Radio.Group>
         简约模式
-        <Switch checked={plain} onChange={checked => setPlain(checked)} />
+        <Switch checked={plain} onChange={(checked) => setPlain(checked)} />
       </Space>
       <br />
       <br />
@@ -58,12 +58,7 @@ export default () => {
         </Descriptions.Item>
         <Descriptions.Item label="日期区间">
           <Field
-            text={[
-              moment()
-                .add(-1, 'd')
-                .valueOf(),
-              moment().valueOf(),
-            ]}
+            text={[moment().add(-1, 'd').valueOf(), moment().valueOf()]}
             plain={plain}
             valueType="dateTimeRange"
             mode={state}

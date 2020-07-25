@@ -5,7 +5,7 @@ import { join } from 'path';
 // runtime must build before renderer-react
 const headPkgs: string[] = [];
 const tailPkgs = readdirSync(join(__dirname, 'packages')).filter(
-  pkg => pkg.charAt(0) !== '.' && !headPkgs.includes(pkg),
+  (pkg) => pkg.charAt(0) !== '.' && !headPkgs.includes(pkg),
 );
 
 export default {

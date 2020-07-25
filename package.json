@@ -28,12 +28,12 @@
     ]
   },
   "devDependencies": {
+    "@ant-design/compatible": "^1.0.4",
     "@babel/core": "^7.8.3",
     "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
     "@babel/preset-typescript": "^7.8.3",
-    "@material-ui/core": "^4.8.2",
     "@testing-library/react": "^10.0.2",
     "@testing-library/react-hooks": "^3.2.1",
     "@types/classnames": "^2.2.7",
