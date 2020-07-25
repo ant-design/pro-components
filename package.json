@@ -100,5 +100,8 @@
   "gitHooks": {
     "pre-commit": "lint-staged",
     "commit-msg": "node scripts/verifyCommit.js"
+  },
+  "dependencies": {
+    "@umijs/plugin-analytics": "^0.2.2"
   }
 }

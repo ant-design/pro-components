@@ -46,6 +46,9 @@ export default {
       path: 'https://github.com/ant-design/pro-components',
     },
   ],
+  analytics: {
+    ga: 'UA-173569162-1',
+  },
   hash: true,
   dynamicImport: {
     loading: '@ant-design/pro-skeleton',
