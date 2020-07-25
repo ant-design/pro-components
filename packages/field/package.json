@@ -22,8 +22,7 @@
     "classnames": "^2.2.6",
     "lodash.isequal": "^4.5.0",
     "lodash.tonumber": "^4.0.3",
-    "moment": "^2.27.0",
-    "rc-table": "^7.8.1"
+    "moment": "^2.27.0"
   },
   "peerDependencies": {
     "antd": "4.x",
