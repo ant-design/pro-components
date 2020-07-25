@@ -14,7 +14,6 @@ export default {
     type: 'babel',
     importLibToEs: true,
   },
-  disableTypeCheck: true,
   pkgs: [...headPkgs, ...tailPkgs],
   extraBabelPlugins: [
     [

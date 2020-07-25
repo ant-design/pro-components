@@ -1,11 +1,11 @@
 import React from 'react';
 import { Form, Checkbox } from 'antd';
-import { FormItemProps } from 'antd/lib/form';
 import { CheckboxGroupProps, CheckboxProps } from 'antd/lib/checkbox';
 import CheckboxGroup from 'antd/lib/checkbox/Group';
 import { createField } from '../../BaseForm';
+import { ProFormItemProps } from '../../interface';
 
-export type ProFormCheckboxGroupProps = FormItemProps &
+export type ProFormCheckboxGroupProps = ProFormItemProps &
   CheckboxGroupProps & {
     layout: 'horizontal' | 'vertical';
   };
@@ -21,7 +21,7 @@ const Group: React.FC<ProFormCheckboxGroupProps> = ({
     <Form.Item valuePropName="checked" {...restProps}>
       <CheckboxGroup {...restProps}>
         {options
-          ? options.map(option => {
+          ? options.map((option) => {
               if (typeof option === 'string') {
                 return <Checkbox value={option}>{option}</Checkbox>;
               }
@@ -51,9 +51,10 @@ const Group: React.FC<ProFormCheckboxGroupProps> = ({
  * 多选框的
  * @param
  */
-const ProFormCheckbox: React.FC<FormItemProps & CheckboxProps> & {
-  Group: React.ComponentType<ProFormCheckboxGroupProps>;
-} = ({ value, ...restProps }) => {
+const ProFormCheckbox: React.FC<ProFormItemProps & CheckboxProps> = ({
+  value,
+  ...restProps
+}) => {
   return (
     <Form.Item valuePropName="checked" {...restProps}>
       <Checkbox {...restProps} />
@@ -61,8 +62,13 @@ const ProFormCheckbox: React.FC<FormItemProps & CheckboxProps> & {
   );
 };
 
-ProFormCheckbox.Group = createField<ProFormCheckboxGroupProps>(Group);
+// @ts-expect-error
+const WrappedProFormCheckbox: React.ComponentType<
+ProFormItemProps & CheckboxProps
+> & {
+  Group: React.ComponentType<ProFormCheckboxGroupProps>;
+} = createField<ProFormItemProps & CheckboxProps>(ProFormCheckbox);
 
-export default createField<FormItemProps & CheckboxProps>(
-  ProFormCheckbox,
-) as typeof ProFormCheckbox;
+WrappedProFormCheckbox.Group = createField(Group);
+
+export default WrappedProFormCheckbox;

@@ -7,10 +7,10 @@ const { yParser } = require('@umijs/utils');
   const version = '1.0.0-beta.1';
 
   const pkgs = readdirSync(join(__dirname, '../packages')).filter(
-    pkg => pkg.charAt(0) !== '.',
+    (pkg) => pkg.charAt(0) !== '.',
   );
 
-  pkgs.forEach(shortName => {
+  pkgs.forEach((shortName) => {
     const name = `@ant-design/pro-${shortName}`;
 
     const pkgJSONPath = join(
@@ -29,7 +29,7 @@ const { yParser } = require('@umijs/utils');
         description: name,
         main: 'lib/index.js',
         types: 'lib/index.d.ts',
-        files: ['lib', 'src'],
+        files: ['lib', 'src', 'dist', 'es'],
         repository: {
           type: 'git',
           url: 'https://github.com/ant-design/pro-components',
@@ -64,7 +64,7 @@ const { yParser } = require('@umijs/utils');
           'main',
           'module',
           'description',
-        ].forEach(key => {
+        ].forEach((key) => {
           if (pkg[key]) json[key] = pkg[key];
         });
       }
