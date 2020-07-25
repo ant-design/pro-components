@@ -30,6 +30,15 @@ const StatisticSkeleton: React.FC<{
 }> = ({ size, active }) => {
   const colSize = useMediaQuery();
   const arraySize = size === undefined ? MediaQueryKeyEnum[colSize] || 6 : size;
+  const firstWidth = (index: number) => {
+    if (arraySize > 2 && index !== 0) {
+      return 42;
+    }
+    if (index === 0) {
+      return 0;
+    }
+    return 16;
+  };
   return (
     <Card
       bordered={false}
@@ -53,8 +62,9 @@ const StatisticSkeleton: React.FC<{
                 arraySize > 2 && index === 1
                   ? '1px solid rgba(0,0,0,0.06)'
                   : undefined,
-              paddingLeft: arraySize > 2 ? 42 : 16,
+              paddingLeft: firstWidth(index),
               flex: 1,
+              marginRight: index === 0 ? 16 : 0,
             }}
           >
             <Skeleton

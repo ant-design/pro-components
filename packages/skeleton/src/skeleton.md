@@ -2,7 +2,7 @@
 title: ProSkeleton
 nav:
   title: ProSkeleton
-  path: /Skeleton
+  path: /skeleton
 ---
 
 # ProSkeleton
@@ -11,7 +11,17 @@ nav:
 
 ## DEMO
 
-<code src="../demos/base.tsx" />
+### List
+
+<code src="../demos/list.tsx" />
+
+### 结果页
+
+<code src="../demos/result.tsx" />
+
+### 详情页
+
+<code src="../demos/descriptions.tsx" />
 
 ## API
 
