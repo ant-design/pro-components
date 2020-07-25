@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-skeleton",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0-beta.4",
   "description": "@ant-design/pro-skeleton",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
