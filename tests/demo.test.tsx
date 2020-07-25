@@ -48,11 +48,11 @@ type Options = {
 function demoTest(component: string, options: Options = {}) {
   const files = glob.sync(`./packages/${component}/demos/*.tsx`);
 
-  files.forEach((file) => {
+  files.forEach(file => {
     let testMethod = options.skip === true ? test.skip : test;
     if (
       Array.isArray(options.skip) &&
-      options.skip.some((c) => file.includes(c))
+      options.skip.some(c => file.includes(c))
     ) {
       testMethod = test.skip;
     }
@@ -83,15 +83,16 @@ describe('demos', () => {
 
   beforeEach(() => {
     const mockFormatExpression = {
-      format: (value) => `￥ ${value.toString()}`,
+      format: (value: string) => `￥ ${value.toString()}`,
     };
+    // @ts-ignore
     Intl.NumberFormat = jest
       .fn()
       .mockImplementation(() => mockFormatExpression);
   });
 
   const files = glob.sync(`./packages/*`) as string[];
-  files.forEach((file) => {
+  files.forEach(file => {
     const component = file.split('/').pop();
     if (!component) return;
     demoTest(component);
