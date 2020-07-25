@@ -1,0 +1,284 @@
+@import '~antd/es/style/themes/default.less';
+@import '../BasicLayout.less';
+
+@pro-layout-sider-menu-prefix-cls: ~'@{ant-prefix}-pro-sider';
+
+@nav-header-height: @pro-layout-header-height;
+
+.@{pro-layout-sider-menu-prefix-cls} {
+  position: relative;
+  background-color: @layout-sider-background;
+  border-right: 0;
+  transition: background-color 0.3s;
+
+  &.@{ant-prefix}-menu-vertical .@{ant-prefix}-menu-item:not(:last-child),
+  &.@{ant-prefix}-menu-vertical-left .@{ant-prefix}-menu-item:not(:last-child),
+  &.@{ant-prefix}-menu-vertical-right .@{ant-prefix}-menu-item:not(:last-child),
+  &.@{ant-prefix}-menu-inline .@{ant-prefix}-menu-item:not(:last-child) {
+    margin-bottom: 4px;
+  }
+
+  &.@{ant-prefix}-layout-sider-light {
+    .@{ant-prefix}-menu-item a {
+      color: @heading-color;
+    }
+    .@{ant-prefix}-menu-item-selected a,
+    .@{ant-prefix}-menu-item a:hover {
+      color: @primary-color;
+    }
+  }
+
+  &-layout-mix {
+    padding-top: 48px;
+  }
+
+  .@{ant-prefix}-menu-inline-collapsed
+    > .@{ant-prefix}-menu-item
+    .anticon
+    + span,
+  .@{ant-prefix}-menu-inline-collapsed
+    > .@{ant-prefix}-menu-item-group
+    > .@{ant-prefix}-menu-item-group-list
+    > .@{ant-prefix}-menu-item
+    .anticon
+    + span,
+  .@{ant-prefix}-menu-inline-collapsed
+    > .@{ant-prefix}-menu-item-group
+    > .@{ant-prefix}-menu-item-group-list
+    > .@{ant-prefix}-menu-submenu
+    > .@{ant-prefix}-menu-submenu-title
+    .anticon
+    + span,
+  .@{ant-prefix}-menu-inline-collapsed
+    > .@{ant-prefix}-menu-submenu
+    > .@{ant-prefix}-menu-submenu-title
+    .anticon
+    + span {
+    display: none;
+  }
+
+  &-logo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 16px 16px;
+    line-height: 32px;
+    cursor: pointer;
+
+    > a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 32px;
+    }
+
+    img {
+      display: inline-block;
+      height: 32px;
+      vertical-align: middle;
+      transition: height 0.2s;
+    }
+    h1 {
+      display: inline-block;
+      height: 32px;
+      margin: 0 0 0 12px;
+      color: white;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 32px;
+      vertical-align: middle;
+      animation: fade-in;
+      animation-duration: 0.2s;
+    }
+  }
+
+  &-extra {
+    margin-bottom: 16px;
+    padding: 0 16px;
+    &-no-logo {
+      margin-top: 16px;
+    }
+  }
+
+  &-menu {
+    position: relative;
+    z-index: 10;
+    min-height: 100%;
+    box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
+  }
+
+  .@{ant-prefix}-layout-sider-children {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 3px;
+      -webkit-box-shadow: inset 0 0 5px rgba(37, 37, 37, 0.05);
+    }
+
+    /* 滚动条滑块 */
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 3px;
+      -webkit-box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.05);
+    }
+  }
+
+  &.@{ant-prefix}-layout-sider-collapsed {
+    .@{ant-prefix}-menu-inline-collapsed {
+      width: 48px;
+    }
+    .@{pro-layout-sider-menu-prefix-cls} {
+      &-logo {
+        padding: 16px 8px;
+      }
+    }
+  }
+
+  .@{ant-prefix}-menu-inline-collapsed {
+    & > .@{ant-prefix}-menu-item .sider-menu-item-img + span,
+    &
+      > .@{ant-prefix}-menu-item-group
+      > .@{ant-prefix}-menu-item-group-list
+      > .@{ant-prefix}-menu-item
+      .sider-menu-item-img
+      + span,
+    &
+      > .@{ant-prefix}-menu-submenu
+      > .@{ant-prefix}-menu-submenu-title
+      .sider-menu-item-img
+      + span {
+      display: inline-block;
+      max-width: 0;
+      opacity: 0;
+    }
+
+    .@{ant-prefix}-menu-item {
+      width: 48px;
+      padding: 0 16px !important;
+    }
+
+    // hide menu item text in collapsed
+    .antd-menu-item-title {
+      display: none;
+    }
+
+    .@{ant-prefix}-menu-submenu {
+      &-title {
+        width: 48px;
+        padding: 0 16px !important;
+      }
+    }
+  }
+
+  &-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    height: 100%;
+    overflow: auto;
+    overflow-x: hidden;
+    box-shadow: 2px 0 8px 0 rgba(29, 35, 41, 0.05);
+    > .@{ant-prefix}-menu-root {
+      :not(.@{pro-layout-sider-menu-prefix-cls}-link-menu) {
+        height: ~'calc(100vh - @{nav-header-height})';
+        overflow-y: auto;
+      }
+    }
+  }
+
+  .@{ant-prefix}-menu-inline {
+    .@{ant-prefix}-menu-item,
+    .@{ant-prefix}-menu-submenu-title {
+      width: 100%;
+    }
+  }
+
+  &-light {
+    .@{ant-prefix}-layout-sider-children {
+      ::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.06);
+        border-radius: 3px;
+        -webkit-box-shadow: inset 0 0 5px rgba(0, 21, 41, 0.05);
+      }
+
+      /* 滚动条滑块 */
+      ::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.12);
+        border-radius: 3px;
+        -webkit-box-shadow: inset 0 0 5px rgba(0, 21, 41, 0.05);
+      }
+    }
+
+    background-color: @white;
+    box-shadow: 2px 0 8px 0 rgba(29, 35, 41, 0.05);
+    .@{pro-layout-sider-menu-prefix-cls}-logo {
+      h1 {
+        color: @primary-color;
+      }
+    }
+    .@{ant-prefix}-menu-light {
+      border-right-color: transparent;
+    }
+
+    .@{pro-layout-sider-menu-prefix-cls}-collapsed-button {
+      border-top: @border-width-base @border-style-base @border-color-split;
+    }
+  }
+
+  &-icon {
+    width: 14px;
+    vertical-align: baseline;
+  }
+
+  &-links {
+    width: 100%;
+    ul.@{ant-prefix}-menu-root {
+      height: auto;
+    }
+  }
+
+  &-collapsed-button {
+    border-top: @border-width-base @border-style-base rgba(0, 0, 0, 0.25);
+    .anticon {
+      font-size: 16px;
+    }
+  }
+
+  .top-nav-menu li.@{ant-prefix}-menu-item {
+    height: @nav-header-height;
+    line-height: @nav-header-height;
+  }
+  .drawer .drawer-content {
+    background: @layout-sider-background;
+  }
+
+  .@{ant-prefix}-menu-item .sider-menu-item-img + span,
+  .@{ant-prefix}-menu-submenu-title .sider-menu-item-img + span {
+    opacity: 1;
+    transition: opacity 0.3s @ease-in-out, width 0.3s @ease-in-out;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  99% {
+    display: none;
+    opacity: 0;
+  }
+  100% {
+    display: block;
+    opacity: 1;
+  }
+}
