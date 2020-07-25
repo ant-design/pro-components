@@ -3,7 +3,7 @@ import ProForm, { SearchFilter, ProFormText } from '../src';
 
 export default () => {
   return (
-    <SearchFilter onFinish={values => console.log(values)}>
+    <SearchFilter onFinish={(values) => console.log(values)}>
       <ProForm.Group title="分组一">
         <ProFormText name="name" />
         <a style={{ marginTop: -22, marginLeft: -16, display: 'block' }}>

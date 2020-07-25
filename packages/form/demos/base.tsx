@@ -11,7 +11,7 @@ import ProForm, {
 
 export default () => {
   return (
-    <ProForm onFinish={values => console.log(values)}>
+    <ProForm onFinish={(values) => console.log(values)}>
       <ProFormText name="name" label="名称" />
       <ProFormTextArea name="remark" label="备注" />
       <ProFormDatePicker name="date" label="日期" />

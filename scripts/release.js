@@ -57,7 +57,7 @@ async function release() {
     const updatedStdout = execa.sync(lernaCli, ['changed']).stdout;
     updated = updatedStdout
       .split('\n')
-      .map(pkg => {
+      .map((pkg) => {
         return pkg.split('/')[1];
       })
       .filter(Boolean);
@@ -147,7 +147,7 @@ async function release() {
   logStep('done');
 }
 
-release().catch(err => {
+release().catch((err) => {
   console.error(err);
   process.exit(1);
 });

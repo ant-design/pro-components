@@ -68,13 +68,13 @@ const FieldPercent: FieldFC<PercentPropInt> = ({
   if (mode === 'edit' || mode === 'update') {
     const dom = (
       <InputNumber
-        formatter={value => {
+        formatter={(value) => {
           if (value && prefix) {
             return `${prefix} ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
           }
           return value;
         }}
-        parser={value =>
+        parser={(value) =>
           value
             ? value.replace(new RegExp(`\\${prefix}\\s?|(,*)`, 'g'), '')
             : ''

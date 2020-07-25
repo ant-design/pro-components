@@ -587,7 +587,9 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
             colors={
               hideColors
                 ? []
-                : themeList.colorList[navTheme === 'realDark' ? 'dark' : 'light']
+                : themeList.colorList[
+                    navTheme === 'realDark' ? 'dark' : 'light'
+                  ]
             }
             formatMessage={formatMessage}
             onChange={(color) =>

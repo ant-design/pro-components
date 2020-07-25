@@ -14,11 +14,13 @@ import DescriptionsPageSkeleton, {
   TableSkeleton,
 } from './component/Descriptions';
 
-const PageSkeleton: React.FC<ListPageSkeletonProps &
-  DescriptionsPageSkeletonProps & {
-    type?: 'list' | 'result' | 'descriptions';
-    active?: boolean;
-  }> = ({ type = 'list', ...rest }) => {
+const PageSkeleton: React.FC<
+  ListPageSkeletonProps &
+    DescriptionsPageSkeletonProps & {
+      type?: 'list' | 'result' | 'descriptions';
+      active?: boolean;
+    }
+> = ({ type = 'list', ...rest }) => {
   if (type === 'list') {
     return <ListPageSkeleton {...rest} />;
   }

@@ -64,7 +64,7 @@ const ProFormCheckbox: React.FC<ProFormItemProps & CheckboxProps> = ({
 
 // @ts-expect-error
 const WrappedProFormCheckbox: React.ComponentType<
-ProFormItemProps & CheckboxProps
+  ProFormItemProps & CheckboxProps
 > & {
   Group: React.ComponentType<ProFormCheckboxGroupProps>;
 } = createField<ProFormItemProps & CheckboxProps>(ProFormCheckbox);
