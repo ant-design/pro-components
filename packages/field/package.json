@@ -12,9 +12,10 @@
   },
   "license": "MIT",
   "files": [
-    "es",
     "lib",
-    "src"
+    "src",
+    "es",
+    "dist"
   ],
   "author": "chenshuai2144",
   "dependencies": {

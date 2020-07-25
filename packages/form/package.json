@@ -19,7 +19,9 @@
   "types": "lib/index.d.ts",
   "files": [
     "lib",
-    "src"
+    "src",
+    "es",
+    "dist"
   ],
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
