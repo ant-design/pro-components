@@ -1,4 +1,5 @@
 import { readdirSync } from 'fs';
+import chalk from 'chalk';
 import { join } from 'path';
 
 const headPkgList = [];
@@ -15,13 +16,16 @@ const alias = pkgList.reduce((pre, pkg) => {
   };
 }, {});
 
-console.log(alias);
+console.log(`🌼 alias list \n${chalk.blue(Object.keys(alias).join('\n'))}`);
+
 const tailPkgList = pkgList
   .map((path) => [
     join('packages', path, 'src'),
     join('packages', path, 'docs'),
   ])
   .flat(1);
+
+const isProduction = process.env.NODE_ENV === 'production';
 
 export default {
   title: 'ProComponent',
@@ -46,9 +50,11 @@ export default {
       path: 'https://github.com/ant-design/pro-components',
     },
   ],
-  analytics: {
-    ga: 'UA-173569162-1',
-  },
+  analytics: isProduction
+    ? {
+        ga: 'UA-173569162-1',
+      }
+    : false,
   hash: true,
   dynamicImport: {
     loading: '@ant-design/pro-skeleton',
