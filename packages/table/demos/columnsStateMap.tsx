@@ -88,13 +88,13 @@ export default () => {
       <code>{JSON.stringify(columnsStateMap)}</code>
       <ProTable<TableListItem, { keyWord?: string }>
         columns={columns}
-        request={(params = {}) =>
+        request={(params) =>
           Promise.resolve({
             data: tableListDataSource.filter((item) => {
-              if (!params.keyWord) {
+              if (!params?.keyWord) {
                 return true;
               }
-              if (item.name.includes(params.keyWord) || item.status.includes(params.keyWord)) {
+              if (item.name.includes(params?.keyWord) || item.status.includes(params?.keyWord)) {
                 return true;
               }
               return false;

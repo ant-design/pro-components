@@ -9,16 +9,16 @@ import { FieldFC } from '../../index';
  */
 const FieldText: FieldFC<{
   text: string;
-}> = ({ text, mode, render, renderFormItem, formItemProps }) => {
+}> = ({ text, mode, render, renderFormItem, formItemProps }, ref) => {
   if (mode === 'read') {
-    const dom = <span>{text || '-'}</span>;
+    const dom = <span ref={ref}>{text || '-'}</span>;
     if (render) {
       return render(text, { mode, ...formItemProps }, dom);
     }
     return dom;
   }
   if (mode === 'edit' || mode === 'update') {
-    const dom = <Input {...formItemProps} defaultValue={text} />;
+    const dom = <Input ref={ref} {...formItemProps} defaultValue={text} />;
     if (renderFormItem) {
       return renderFormItem(text, { mode, ...formItemProps }, dom);
     }
@@ -27,4 +27,4 @@ const FieldText: FieldFC<{
   return null;
 };
 
-export default FieldText;
+export default React.forwardRef(FieldText);

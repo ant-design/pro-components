@@ -28,7 +28,7 @@ export function getProgressStatus(text: number): 'success' | 'exception' | 'norm
  */
 const FieldProgress: FieldFC<{
   text: number | string;
-}> = ({ text, mode, render, plain, renderFormItem, formItemProps }) => {
+}> = ({ text, mode, render, plain, renderFormItem, formItemProps }, ref) => {
   const realValue = useMemo(
     () =>
       typeof text === 'string' && (text as string).includes('%')
@@ -39,6 +39,7 @@ const FieldProgress: FieldFC<{
   if (mode === 'read') {
     const dom = (
       <Progress
+        ref={ref}
         size="small"
         style={{ minWidth: 100 }}
         percent={realValue}
@@ -53,7 +54,7 @@ const FieldProgress: FieldFC<{
     return dom;
   }
   if (mode === 'edit' || mode === 'update') {
-    const dom = <InputNumber {...formItemProps} defaultValue={realValue} />;
+    const dom = <InputNumber ref={ref} {...formItemProps} defaultValue={realValue} />;
     if (renderFormItem) {
       return renderFormItem(text, { mode, ...formItemProps }, dom);
     }
@@ -62,4 +63,4 @@ const FieldProgress: FieldFC<{
   return null;
 };
 
-export default FieldProgress;
+export default React.forwardRef(FieldProgress);

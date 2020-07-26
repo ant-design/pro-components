@@ -18,18 +18,21 @@ export type PercentPropInt = {
  * 百分比组件
  * @param  PercentPropInt
  */
-const FieldPercent: FieldFC<PercentPropInt> = ({
-  text,
-  prefix,
-  precision,
-  showSymbol,
-  suffix = '%',
-  mode,
-  showColor = false,
-  render,
-  renderFormItem,
-  formItemProps,
-}) => {
+const FieldPercent: FieldFC<PercentPropInt> = (
+  {
+    text,
+    prefix,
+    precision,
+    showSymbol,
+    suffix = '%',
+    mode,
+    showColor = false,
+    render,
+    renderFormItem,
+    formItemProps,
+  },
+  ref,
+) => {
   const realValue = useMemo(
     () =>
       typeof text === 'string' && (text as string).includes('%')
@@ -43,7 +46,7 @@ const FieldPercent: FieldFC<PercentPropInt> = ({
     const style = showColor ? { color: getColorByRealValue(realValue) } : {};
 
     const dom = (
-      <span style={style}>
+      <span style={style} ref={ref}>
         {prefix && <span>{prefix}</span>}
         {showSymbol && <Fragment>{getSymbolByRealValue(realValue)}&nbsp;</Fragment>}
         {getRealTextWithPrecision(realValue, precision)}
@@ -58,6 +61,7 @@ const FieldPercent: FieldFC<PercentPropInt> = ({
   if (mode === 'edit' || mode === 'update') {
     const dom = (
       <InputNumber
+        ref={ref}
         formatter={(value) => {
           if (value && prefix) {
             return `${prefix} ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -79,4 +83,4 @@ const FieldPercent: FieldFC<PercentPropInt> = ({
   return null;
 };
 
-export default FieldPercent;
+export default React.forwardRef(FieldPercent);

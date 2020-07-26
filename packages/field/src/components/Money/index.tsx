@@ -55,17 +55,12 @@ export type FieldMoneyProps = {
  *    moneySymbol?: string;
  * }
  */
-const FieldMoney: FieldFC<FieldMoneyProps> = ({
-  text,
-  mode: type,
-  moneySymbol = '￥',
-  locale = '',
-  render,
-  renderFormItem,
-  formItemProps,
-}) => {
+const FieldMoney: FieldFC<FieldMoneyProps> = (
+  { text, mode: type, moneySymbol = '￥', locale = '', render, renderFormItem, formItemProps },
+  ref,
+) => {
   if (type === 'read') {
-    const dom = <span>{getTextByLocale(locale, text)}</span>;
+    const dom = <span ref={ref}>{getTextByLocale(locale, text)}</span>;
     if (render) {
       return render(text, { mode: type, ...formItemProps }, dom);
     }
@@ -74,6 +69,7 @@ const FieldMoney: FieldFC<FieldMoneyProps> = ({
   if (type === 'edit' || type === 'update') {
     const dom = (
       <InputNumber
+        ref={ref}
         defaultValue={text}
         min={0}
         precision={2}
@@ -100,4 +96,4 @@ const FieldMoney: FieldFC<FieldMoneyProps> = ({
   return null;
 };
 
-export default FieldMoney;
+export default React.forwardRef(FieldMoney);
