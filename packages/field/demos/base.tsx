@@ -10,10 +10,7 @@ export default () => {
   return (
     <>
       <Space>
-        <Radio.Group
-          onChange={(e) => setState(e.target.value as FieldFCMode)}
-          value={state}
-        >
+        <Radio.Group onChange={(e) => setState(e.target.value as FieldFCMode)} value={state}>
           <Radio value="read">只读</Radio>
           <Radio value="edit">编辑</Radio>
         </Radio.Group>
@@ -24,12 +21,7 @@ export default () => {
       <br />
       <Descriptions column={2}>
         <Descriptions.Item label="文本">
-          <Field
-            text="这是一段文本"
-            valueType="text"
-            mode={state}
-            plain={plain}
-          />
+          <Field text="这是一段文本" valueType="text" mode={state} plain={plain} />
         </Descriptions.Item>
         <Descriptions.Item label="金额">
           <Field text="100" valueType="money" mode={state} plain={plain} />
@@ -41,20 +33,10 @@ export default () => {
           <Field text="40" valueType="progress" mode={state} plain={plain} />
         </Descriptions.Item>
         <Descriptions.Item label="日期时间">
-          <Field
-            text={moment().valueOf()}
-            valueType="dateTime"
-            mode={state}
-            plain={plain}
-          />
+          <Field text={moment().valueOf()} valueType="dateTime" mode={state} plain={plain} />
         </Descriptions.Item>
         <Descriptions.Item label="日期">
-          <Field
-            text={moment().valueOf()}
-            valueType="date"
-            mode={state}
-            plain={plain}
-          />
+          <Field text={moment().valueOf()} valueType="date" mode={state} plain={plain} />
         </Descriptions.Item>
         <Descriptions.Item label="日期区间">
           <Field
@@ -65,12 +47,7 @@ export default () => {
           />
         </Descriptions.Item>
         <Descriptions.Item label="时间">
-          <Field
-            text={moment().valueOf()}
-            plain={plain}
-            valueType="time"
-            mode={state}
-          />
+          <Field text={moment().valueOf()} plain={plain} valueType="time" mode={state} />
         </Descriptions.Item>
         <Descriptions.Item label="代码块">
           <Field

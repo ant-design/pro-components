@@ -8,7 +8,7 @@
     "bootstrap": "node ./scripts/bootstrap.js",
     "build": "father-build && webpack --progress",
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./packages",
-    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
+    "prettier": "prettier --write \"**\\**\\*.{js,jsx,tsx,ts,less,md,json}\"",
     "release": "node ./scripts/release.js",
     "site": "dumi build",
     "start": "dumi dev",

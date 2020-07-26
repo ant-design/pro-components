@@ -130,12 +130,7 @@ GridContent 封装了 [等宽](https://preview.pro.ant.design/dashboard/analysis
 ```js
 import { getMenuData } from '@ant-design/pro-layout';
 
-const { breadcrumb, menuData } = getMenuData(
-  routes,
-  menu,
-  formatMessage,
-  menuDataRender,
-);
+const { breadcrumb, menuData } = getMenuData(routes, menu, formatMessage, menuDataRender);
 ```
 
 | 参数 | 说明 | 类型 | 默认值 |

@@ -2,11 +2,7 @@ import React, { Fragment, ReactNode, useMemo } from 'react';
 import { InputNumber } from 'antd';
 import toNumber from 'lodash.tonumber';
 
-import {
-  getColorByRealValue,
-  getSymbolByRealValue,
-  getRealTextWithPrecision,
-} from './util';
+import { getColorByRealValue, getSymbolByRealValue, getRealTextWithPrecision } from './util';
 import { FieldFC } from '../../index';
 
 export type PercentPropInt = {
@@ -49,19 +45,13 @@ const FieldPercent: FieldFC<PercentPropInt> = ({
     const dom = (
       <span style={style}>
         {prefix && <span>{prefix}</span>}
-        {showSymbol && (
-          <Fragment>{getSymbolByRealValue(realValue)}&nbsp;</Fragment>
-        )}
+        {showSymbol && <Fragment>{getSymbolByRealValue(realValue)}&nbsp;</Fragment>}
         {getRealTextWithPrecision(realValue, precision)}
         {suffix && suffix}
       </span>
     );
     if (render) {
-      return render(
-        text,
-        { mode, ...formItemProps, prefix, precision, showSymbol, suffix },
-        dom,
-      );
+      return render(text, { mode, ...formItemProps, prefix, precision, showSymbol, suffix }, dom);
     }
     return dom;
   }
@@ -75,9 +65,7 @@ const FieldPercent: FieldFC<PercentPropInt> = ({
           return value;
         }}
         parser={(value) =>
-          value
-            ? value.replace(new RegExp(`\\${prefix}\\s?|(,*)`, 'g'), '')
-            : ''
+          value ? value.replace(new RegExp(`\\${prefix}\\s?|(,*)`, 'g'), '') : ''
         }
         {...formItemProps}
         defaultValue={realValue}

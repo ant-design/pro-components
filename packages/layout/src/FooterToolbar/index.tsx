@@ -16,14 +16,7 @@ export interface FooterToolbarProps {
   prefixCls?: string;
 }
 const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
-  const {
-    children,
-    prefixCls = 'ant-pro',
-    className,
-    extra,
-    renderContent,
-    ...restProps
-  } = props;
+  const { children, prefixCls = 'ant-pro', className, extra, renderContent, ...restProps } = props;
 
   const baseClassName = `${prefixCls}-footer-bar`;
   const value = useContext(RouteContext);
@@ -65,11 +58,7 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
   }, []);
 
   return (
-    <div
-      className={classNames(className, `${baseClassName}`)}
-      style={{ width }}
-      {...restProps}
-    >
+    <div className={classNames(className, `${baseClassName}`)} style={{ width }} {...restProps}>
       {renderContent
         ? renderContent(
             {

@@ -31,18 +31,14 @@ async function release() {
       printErrorAndExit(`Your git status is not clean. Aborting.`);
     }
   } else {
-    logStep(
-      'git status check is skipped, since --skip-git-status-check is supplied',
-    );
+    logStep('git status check is skipped, since --skip-git-status-check is supplied');
   }
 
   // Check npm registry
   logStep('check npm registry');
   const userRegistry = execa.sync('npm', ['config', 'get', 'registry']).stdout;
   if (userRegistry.includes('https://registry.yarnpkg.com/')) {
-    printErrorAndExit(
-      `Release failed, please use ${chalk.blue('npm run release')}.`,
-    );
+    printErrorAndExit(`Release failed, please use ${chalk.blue('npm run release')}.`);
   }
   if (!userRegistry.includes('https://registry.npmjs.org/')) {
     const registry = chalk.blue('https://registry.npmjs.org/');
@@ -83,16 +79,12 @@ async function release() {
     logStep('bump version with lerna version');
     const conventionalGraduate = args.conventionalGraduate
       ? ['--conventional-graduate'].concat(
-          Array.isArray(args.conventionalGraduate)
-            ? args.conventionalGraduate.join(',')
-            : [],
+          Array.isArray(args.conventionalGraduate) ? args.conventionalGraduate.join(',') : [],
         )
       : [];
     const conventionalPrerelease = args.conventionalPrerelease
       ? ['--conventional-prerelease'].concat(
-          Array.isArray(args.conventionalPrerelease)
-            ? args.conventionalPrerelease.join(',')
-            : [],
+          Array.isArray(args.conventionalPrerelease) ? args.conventionalPrerelease.join(',') : [],
         )
       : [];
     await exec(
@@ -125,16 +117,12 @@ async function release() {
     if (args.publishOnly) {
       isPackageExist = packageExists({ name, version });
       if (isPackageExist) {
-        console.log(
-          `package ${name}@${version} is already exists on npm, skip.`,
-        );
+        console.log(`package ${name}@${version} is already exists on npm, skip.`);
       }
     }
     if (!args.publishOnly || !isPackageExist) {
       console.log(
-        `[${index + 1}/${pkgs.length}] Publish package ${name} ${
-          isNext ? 'with next tag' : ''
-        }`,
+        `[${index + 1}/${pkgs.length}] Publish package ${name} ${isNext ? 'with next tag' : ''}`,
       );
       const cliArgs = isNext ? ['publish', '--tag', 'next'] : ['publish'];
       const { stdout } = execa.sync('npm', cliArgs, {

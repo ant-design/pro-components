@@ -1,10 +1,7 @@
 /* eslint-disable import/no-unresolved */
 import React, { useState } from 'react';
 import { Switch, Avatar } from 'antd';
-import ProLayout, {
-  PageContainer,
-  DefaultFooter,
-} from '@ant-design/pro-layout';
+import ProLayout, { PageContainer, DefaultFooter } from '@ant-design/pro-layout';
 import defaultProps from './defaultProps';
 
 export default () => {

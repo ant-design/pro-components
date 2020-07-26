@@ -2,3 +2,6 @@
 package.json
 .umi
 .umi-production
+**/dist
+**/lib
+**/es

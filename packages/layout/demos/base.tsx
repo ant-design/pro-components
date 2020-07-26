@@ -18,16 +18,12 @@ const content = (
     </Descriptions.Item>
     <Descriptions.Item label="创建时间">2017-01-10</Descriptions.Item>
     <Descriptions.Item label="更新时间">2017-10-10</Descriptions.Item>
-    <Descriptions.Item label="备注">
-      中国浙江省杭州市西湖区古翠路
-    </Descriptions.Item>
+    <Descriptions.Item label="备注">中国浙江省杭州市西湖区古翠路</Descriptions.Item>
   </Descriptions>
 );
 
 export default () => {
-  const [settings, setSetting] = useState<Partial<ProSettings> | undefined>(
-    undefined,
-  );
+  const [settings, setSetting] = useState<Partial<ProSettings> | undefined>(undefined);
   const [pathname, setPathname] = useState('/welcome');
   return (
     <div

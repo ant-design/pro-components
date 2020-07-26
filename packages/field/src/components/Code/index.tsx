@@ -25,15 +25,7 @@ const languageFormat = (text: string, language: string) => {
 const FieldCode: FieldFC<{
   text: string;
   language?: 'json' | 'text';
-}> = ({
-  text,
-  mode,
-  render,
-  language = 'text',
-  renderFormItem,
-  plain,
-  formItemProps,
-}) => {
+}> = ({ text, mode, render, language = 'text', renderFormItem, plain, formItemProps }) => {
   const code = languageFormat(text, language);
   if (mode === 'read') {
     const dom = (
@@ -57,9 +49,7 @@ const FieldCode: FieldFC<{
     return dom;
   }
   if (mode === 'edit' || mode === 'update') {
-    let dom = (
-      <Input.TextArea rows={5} {...formItemProps} defaultValue={code} />
-    );
+    let dom = <Input.TextArea rows={5} {...formItemProps} defaultValue={code} />;
     if (plain) {
       dom = <Input {...formItemProps} defaultValue={code} />;
     }

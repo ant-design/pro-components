@@ -25,10 +25,7 @@ describe('PageContainer', () => {
 
   it('⚡️ support footer', async () => {
     const html = render(
-      <PageContainer
-        title="期贤"
-        footer={[<button type="button">right</button>]}
-      />,
+      <PageContainer title="期贤" footer={[<button type="button">right</button>]} />,
     );
     expect(html).toMatchSnapshot();
   });
@@ -106,26 +103,20 @@ describe('PageContainer', () => {
     );
     await waitForComponentToPaint(wrapper);
 
-    expect(wrapper?.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe(
-      'calc(100% - 208px)',
-    );
+    expect(wrapper?.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe('calc(100% - 208px)');
     wrapper.setProps({
       collapsed: true,
     });
 
     await waitForComponentToPaint(wrapper);
 
-    expect(wrapper?.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe(
-      'calc(100% - 48px)',
-    );
+    expect(wrapper?.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe('calc(100% - 48px)');
 
     wrapper.setProps({
       layout: 'top',
     });
 
-    expect(wrapper?.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe(
-      '100%',
-    );
+    expect(wrapper?.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe('100%');
     expect(wrapper.render()).toMatchSnapshot();
   });
 
@@ -143,26 +134,20 @@ describe('PageContainer', () => {
     );
     await waitForComponentToPaint(wrapper);
 
-    expect(wrapper?.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe(
-      'calc(100% - 208px)',
-    );
+    expect(wrapper?.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe('calc(100% - 208px)');
     wrapper.setProps({
       collapsed: true,
     });
 
     await waitForComponentToPaint(wrapper);
 
-    expect(wrapper.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe(
-      'calc(100% - 48px)',
-    );
+    expect(wrapper.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe('calc(100% - 48px)');
 
     wrapper.setProps({
       layout: 'top',
     });
 
-    expect(wrapper.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe(
-      '100%',
-    );
+    expect(wrapper.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe('100%');
     expect(wrapper.render()).toMatchSnapshot();
   });
 

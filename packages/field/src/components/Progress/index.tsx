@@ -4,9 +4,7 @@ import React, { useMemo } from 'react';
 
 import { FieldFC } from '../../index';
 
-export function getProgressStatus(
-  text: number,
-): 'success' | 'exception' | 'normal' | 'active' {
+export function getProgressStatus(text: number): 'success' | 'exception' | 'normal' | 'active' {
   if (typeof text !== 'number') {
     return 'exception';
   }

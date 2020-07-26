@@ -79,17 +79,12 @@ const FieldMoney: FieldFC<FieldMoneyProps> = ({
         precision={2}
         formatter={(value) => {
           if (value) {
-            return `${moneySymbol} ${value}`.replace(
-              /\B(?=(\d{3})+(?!\d))/g,
-              ',',
-            );
+            return `${moneySymbol} ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
           }
           return '';
         }}
         parser={(value) =>
-          value
-            ? value.replace(new RegExp(`\\${moneySymbol}\\s?|(,*)`, 'g'), '')
-            : ''
+          value ? value.replace(new RegExp(`\\${moneySymbol}\\s?|(,*)`, 'g'), '') : ''
         }
         style={{
           width: '100%',

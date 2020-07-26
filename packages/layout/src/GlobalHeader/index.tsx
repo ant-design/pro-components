@@ -20,9 +20,7 @@ export interface GlobalHeaderProps extends Partial<PureSettings> {
   onCollapse?: (collapsed: boolean) => void;
   isMobile?: boolean;
   logo?: React.ReactNode;
-  menuRender?: WithFalse<
-    (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
-  >;
+  menuRender?: WithFalse<(props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode>;
   rightContentRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
   className?: string;
   prefixCls?: string;
@@ -124,10 +122,7 @@ export default class GlobalHeader extends Component<GlobalHeaderProps> {
         {layout === 'mix' && !isMobile && (
           <>
             <div className={`${baseClassName}-logo`}>
-              {defaultRenderLogoAndTitle(
-                { ...this.props, collapsed: false },
-                'headerTitleRender',
-              )}
+              {defaultRenderLogoAndTitle({ ...this.props, collapsed: false }, 'headerTitleRender')}
             </div>
           </>
         )}

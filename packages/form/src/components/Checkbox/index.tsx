@@ -51,10 +51,7 @@ const Group: React.FC<ProFormCheckboxGroupProps> = ({
  * 多选框的
  * @param
  */
-const ProFormCheckbox: React.FC<ProFormItemProps & CheckboxProps> = ({
-  value,
-  ...restProps
-}) => {
+const ProFormCheckbox: React.FC<ProFormItemProps & CheckboxProps> = ({ value, ...restProps }) => {
   return (
     <Form.Item valuePropName="checked" {...restProps}>
       <Checkbox {...restProps} />
@@ -63,9 +60,7 @@ const ProFormCheckbox: React.FC<ProFormItemProps & CheckboxProps> = ({
 };
 
 // @ts-expect-error
-const WrappedProFormCheckbox: React.ComponentType<
-  ProFormItemProps & CheckboxProps
-> & {
+const WrappedProFormCheckbox: React.ComponentType<ProFormItemProps & CheckboxProps> & {
   Group: React.ComponentType<ProFormCheckboxGroupProps>;
 } = createField<ProFormItemProps & CheckboxProps>(ProFormCheckbox);
 

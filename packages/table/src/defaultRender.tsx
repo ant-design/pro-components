@@ -59,9 +59,18 @@ const moneyIntl = new Intl.NumberFormat('zh-Hans-CN', {
   minimumFractionDigits: 2,
 });
 
-const enMoneyIntl = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
-const ruMoneyIntl = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' });
-const msMoneyIntl = new Intl.NumberFormat('ms-MY', { style: 'currency', currency: 'MYR' });
+const enMoneyIntl = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+});
+const ruMoneyIntl = new Intl.NumberFormat('ru-RU', {
+  style: 'currency',
+  currency: 'RUB',
+});
+const msMoneyIntl = new Intl.NumberFormat('ms-MY', {
+  style: 'currency',
+  currency: 'MYR',
+});
 
 /**
  * render valueType object

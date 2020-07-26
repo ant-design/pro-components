@@ -127,10 +127,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
                       setCollapsed={setCollapsed}
                       style={{
                         // 当表单是垂直布局且提交按钮不是独自在一行的情况下需要设置一个 paddingTop 使得与控件对齐
-                        paddingTop:
-                          layout === 'vertical' && showItems.length % rowNumber
-                            ? 30
-                            : 0,
+                        paddingTop: layout === 'vertical' && showItems.length % rowNumber ? 30 : 0,
                       }}
                     />
                   </Col>

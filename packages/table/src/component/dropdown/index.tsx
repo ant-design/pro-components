@@ -47,12 +47,9 @@ const DropdownButton: React.FC<DropdownProps> = ({
   </ConfigConsumer>
 );
 
-const TableDropdown: React.FC<DropdownProps> & { Button: typeof DropdownButton } = ({
-  className: propsClassName,
-  style,
-  onSelect,
-  menus = [],
-}) => (
+const TableDropdown: React.FC<DropdownProps> & {
+  Button: typeof DropdownButton;
+} = ({ className: propsClassName, style, onSelect, menus = [] }) => (
   <ConfigConsumer>
     {({ getPrefixCls }: ConfigConsumerProps) => {
       const className = getPrefixCls('pro-table-dropdown');

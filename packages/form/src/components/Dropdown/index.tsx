@@ -51,13 +51,7 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
                 >
                   {children}
                 </div>
-                {footer && (
-                  <Footer
-                    disabled={disabled}
-                    prefixCls={prefixCls}
-                    {...footer}
-                  />
-                )}
+                {footer && <Footer disabled={disabled} prefixCls={prefixCls} {...footer} />}
               </div>
             }
           >

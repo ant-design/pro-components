@@ -17,16 +17,9 @@ const ProFormTimePicker: React.FC<ProFormItemProps & DatePickerProps> = ({
 }) => {
   return (
     <Form.Item {...restProps}>
-      <ProField
-        text={value}
-        mode="edit"
-        formItemProps={fieldProps}
-        valueType="time"
-      />
+      <ProField text={value} mode="edit" formItemProps={fieldProps} valueType="time" />
     </Form.Item>
   );
 };
 
-export default createField<ProFormItemProps & DatePickerProps>(
-  ProFormTimePicker,
-);
+export default createField<ProFormItemProps & DatePickerProps>(ProFormTimePicker);

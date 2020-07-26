@@ -11,15 +11,7 @@ import { FieldFC } from '../../index';
 const FieldTimePicker: FieldFC<{
   text: string | number;
   format: string;
-}> = ({
-  text,
-  mode,
-  format = 'HH:mm:ss',
-  render,
-  renderFormItem,
-  plain,
-  formItemProps,
-}) => {
+}> = ({ text, mode, format = 'HH:mm:ss', render, renderFormItem, plain, formItemProps }) => {
   if (mode === 'read') {
     const dom = <span>{text ? moment(text).format(format) : '-'}</span>;
     if (render) {

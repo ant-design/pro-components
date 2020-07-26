@@ -85,7 +85,11 @@ const useFetchData = <T extends RequestData<any>>(
           setList(data);
         }
         // 判断是否可以继续翻页
-        setPageInfo({ ...pageInfo, total: dataTotal, hasMore: dataTotal > pageSize * page });
+        setPageInfo({
+          ...pageInfo,
+          total: dataTotal,
+          hasMore: dataTotal > pageSize * page,
+        });
       }
       if (onLoad) {
         onLoad(data);

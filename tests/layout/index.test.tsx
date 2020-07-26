@@ -34,10 +34,7 @@ describe('BasicLayout', () => {
     const menuContent = wrapper.find('.ant-pro-sider-menu');
     expect(menuContent.exists()).toBe(false);
     expect(
-      (
-        wrapper.find('section.ant-layout section.ant-layout').props().style ||
-        {}
-      ).padding,
+      (wrapper.find('section.ant-layout section.ant-layout').props().style || {}).padding,
     ).toBe(undefined);
     wrapper.unmount();
   });
@@ -279,9 +276,7 @@ describe('BasicLayout', () => {
   });
 
   it('🥩 render logo by function', async () => {
-    const wrapper = mount(
-      <BasicLayout logo={() => <div id="test_log">Logo</div>} />,
-    );
+    const wrapper = mount(<BasicLayout logo={() => <div id="test_log">Logo</div>} />);
     await waitForComponentToPaint(wrapper);
     const logo = wrapper.find('#test_log');
     expect(logo.text()).toEqual('Logo');
@@ -292,9 +287,7 @@ describe('BasicLayout', () => {
     const onCollapse = jest.fn();
     const wrapper = mount(<BasicLayout onCollapse={onCollapse} />);
     await waitForComponentToPaint(wrapper);
-    wrapper
-      .find('.ant-pro-sider-collapsed-button')
-      .map((item) => item && item.simulate('click'));
+    wrapper.find('.ant-pro-sider-collapsed-button').map((item) => item && item.simulate('click'));
     expect(onCollapse).toHaveBeenCalled();
     wrapper.unmount();
   });
@@ -316,18 +309,14 @@ describe('BasicLayout', () => {
   it('🥩 do not render collapsed button', async () => {
     const wrapper = mount(<BasicLayout collapsedButtonRender={false} />);
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-sider-collapsed-button').exists()).toBe(
-      false,
-    );
+    expect(wrapper.find('.ant-pro-sider-collapsed-button').exists()).toBe(false);
     wrapper.unmount();
   });
 
   it('🥩 when renderMenu=false, do not render collapsed button', async () => {
     const wrapper = mount(<BasicLayout menuRender={false} />);
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-sider-collapsed-button').exists()).toBe(
-      false,
-    );
+    expect(wrapper.find('.ant-pro-sider-collapsed-button').exists()).toBe(false);
     wrapper.unmount();
   });
 
@@ -350,9 +339,7 @@ describe('BasicLayout', () => {
   });
 
   it('🥩 do not render menu header', async () => {
-    const wrapper = mount<BasicLayoutProps>(
-      <BasicLayout menuHeaderRender={false} />,
-    );
+    const wrapper = mount<BasicLayoutProps>(<BasicLayout menuHeaderRender={false} />);
     await waitForComponentToPaint(wrapper);
     const dom = wrapper.find('#logo');
 
@@ -377,9 +364,7 @@ describe('BasicLayout', () => {
     const dom = wrapper.find('#customize_menu_header');
     expect(dom.exists()).toBe(true);
 
-    expect(dom.find('#customize_menu_header_text').text()).toEqual(
-      'customize_menu_header',
-    );
+    expect(dom.find('#customize_menu_header_text').text()).toEqual('customize_menu_header');
     wrapper.unmount();
   });
 

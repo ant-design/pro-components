@@ -16,10 +16,7 @@ const SearchFilter: React.FC<SearchFilterProps> = (props) => {
       contentRender={(items) =>
         items.map((item, index) => {
           if (index < items.length - 1) {
-            return [
-              item,
-              <Divider style={{ marginTop: -8, marginBottom: 16 }} dashed />,
-            ];
+            return [item, <Divider style={{ marginTop: -8, marginBottom: 16 }} dashed />];
           }
           return item;
         })
