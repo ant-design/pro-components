@@ -5,3 +5,4 @@ package.json
 **/dist
 **/lib
 **/es
+**\__snapshots__\**
