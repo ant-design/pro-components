@@ -4,7 +4,7 @@ order: 0
 group:
   path: /layout
 nav:
-  title: ProLayout
+  title: 布局
   path: /layout
 ---
 

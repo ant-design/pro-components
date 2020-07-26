@@ -6,7 +6,7 @@ group:
   path: /layout
   order: 0
 nav:
-  title: ProLayout
+  title: 布局
   path: /layout
   order: 0
 ---

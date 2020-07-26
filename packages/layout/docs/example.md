@@ -5,7 +5,7 @@ side: false
 group:
   path: /layout
 nav:
-  title: ProLayout
+  title: 布局
   path: /layout
 ---
 

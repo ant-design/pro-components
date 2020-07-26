@@ -4,7 +4,7 @@ order: 9
 group:
   path: /table
 nav:
-  title: ProTable
+  title: 表格
   path: /table
 ---
 

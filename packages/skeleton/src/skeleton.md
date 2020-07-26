@@ -1,7 +1,7 @@
 ---
 title: ProSkeleton
 nav:
-  title: ProSkeleton
+  title: 骨架屏
   path: /skeleton
 ---
 

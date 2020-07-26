@@ -4,7 +4,7 @@ order: 0
 group:
   path: /table
 nav:
-  title: ProTable
+  title: 表格
   path: /table
 ---
 
@@ -268,8 +268,8 @@ options = {
 
 更多的功能查看查看具体的说明:
 
-- [API](/api)
-- [国际化](/intl)
-- [查询表单](/search)
-- [预设样式](/value-type)
-- [例子](/example)
+- [API](/table/api)
+- [国际化](/table/intl)
+- [查询表单](/table/search)
+- [预设样式](/table/value-type)
+- [例子](/table/example)

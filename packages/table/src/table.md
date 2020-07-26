@@ -4,10 +4,10 @@ order: 0
 group:
   path: /table
 nav:
-  title: ProTable
+  title: 表格
   path: /table
 hero:
-  title: ProTable
+  title: 表格
   desc: 🏆 Use Ant Design Table like a Pro!
   actions:
     - text: 快速开始 →
