@@ -29,10 +29,7 @@ const Group: React.FC<ProFormRadioGroupProps> = ({
  * Radio
  * @param
  */
-const ProFormRadio: React.FC<FormItemProps & RadioProps> = ({
-  value,
-  ...restProps
-}) => {
+const ProFormRadio: React.FC<FormItemProps & RadioProps> = ({ value, ...restProps }) => {
   return (
     <Form.Item valuePropName="checked" {...restProps}>
       <Radio {...restProps} />

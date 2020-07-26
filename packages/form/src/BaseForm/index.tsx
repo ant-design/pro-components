@@ -11,10 +11,7 @@ export interface CommonFormProps {
 }
 
 export interface BaseFormProps extends FormProps, CommonFormProps {
-  contentRender?: (
-    items: React.ReactNode[],
-    submiter: React.ReactNode,
-  ) => React.ReactNode;
+  contentRender?: (items: React.ReactNode[], submiter: React.ReactNode) => React.ReactNode;
   fieldProps?: FieldProps;
   formItemProps?: FormItemProps;
   groupProps?: GroupProps;

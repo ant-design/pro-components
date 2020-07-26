@@ -19,10 +19,7 @@ const alias = pkgList.reduce((pre, pkg) => {
 console.log(`🌼 alias list \n${chalk.blue(Object.keys(alias).join('\n'))}`);
 
 const tailPkgList = pkgList
-  .map((path) => [
-    join('packages', path, 'src'),
-    join('packages', path, 'docs'),
-  ])
+  .map((path) => [join('packages', path, 'src'), join('packages', path, 'docs')])
   .flat(1);
 
 const isProduction = process.env.NODE_ENV === 'production';

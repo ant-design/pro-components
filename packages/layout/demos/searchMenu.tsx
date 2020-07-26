@@ -8,10 +8,7 @@ import ProLayout, {
 import { Input } from 'antd';
 import complexMenu from './complexMenu';
 
-const filterByMenuDate = (
-  data: MenuDataItem[],
-  keyWord: string,
-): MenuDataItem[] =>
+const filterByMenuDate = (data: MenuDataItem[], keyWord: string): MenuDataItem[] =>
   data
     .map((item) => {
       if (

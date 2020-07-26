@@ -10,21 +10,16 @@ import { createField } from '../../BaseForm';
  * 日期时间区间选择组件
  * @param
  */
-const ProFormDateTimeRangePicker: React.FC<
-  ProFormItemProps & DatePickerProps
-> = ({ value, fieldProps, ...restProps }) => {
+const ProFormDateTimeRangePicker: React.FC<ProFormItemProps & DatePickerProps> = ({
+  value,
+  fieldProps,
+  ...restProps
+}) => {
   return (
     <Form.Item {...restProps}>
-      <ProField
-        text={value}
-        mode="edit"
-        formItemProps={fieldProps}
-        valueType="dateTime"
-      />
+      <ProField text={value} mode="edit" formItemProps={fieldProps} valueType="dateTime" />
     </Form.Item>
   );
 };
 
-export default createField<ProFormItemProps & DatePickerProps>(
-  ProFormDateTimeRangePicker,
-);
+export default createField<ProFormItemProps & DatePickerProps>(ProFormDateTimeRangePicker);

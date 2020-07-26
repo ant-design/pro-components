@@ -78,11 +78,7 @@ type RenderFieldFC = {
     props: Omit<FieldFCRenderProps, 'value' | 'onChange'>,
     dom: JSX.Element,
   ) => JSX.Element;
-  renderFormItem?: (
-    text: any,
-    props: FieldFCRenderProps,
-    dom: JSX.Element,
-  ) => JSX.Element;
+  renderFormItem?: (text: any, props: FieldFCRenderProps, dom: JSX.Element) => JSX.Element;
 };
 
 /**
@@ -136,9 +132,7 @@ const defaultRenderTextByObject = (
     );
   }
   if (valueType.type === 'money') {
-    return (
-      <FieldMoney {...props} text={text as number} locale={valueType.locale} />
-    );
+    return <FieldMoney {...props} text={text as number} locale={valueType.locale} />;
   }
   if (valueType.type === 'percent') {
     return (
@@ -177,22 +171,14 @@ const defaultRenderText = (
    *如果是日期的值
    */
   if (valueType === 'date') {
-    return (
-      <FieldDatePicker text={text as string} format="YYYY-MM-DD" {...props} />
-    );
+    return <FieldDatePicker text={text as string} format="YYYY-MM-DD" {...props} />;
   }
 
   /**
    *如果是日期范围的值
    */
   if (valueType === 'dateRange') {
-    return (
-      <FieldRangePicker
-        text={text as string[]}
-        format="YYYY-MM-DD"
-        {...props}
-      />
-    );
+    return <FieldRangePicker text={text as string[]} format="YYYY-MM-DD" {...props} />;
   }
 
   /**
@@ -200,12 +186,7 @@ const defaultRenderText = (
    */
   if (valueType === 'dateTime') {
     return (
-      <FieldDatePicker
-        text={text as string}
-        format="YYYY-MM-DD HH:mm:ss"
-        showTime
-        {...props}
-      />
+      <FieldDatePicker text={text as string} format="YYYY-MM-DD HH:mm:ss" showTime {...props} />
     );
   }
 
@@ -215,12 +196,7 @@ const defaultRenderText = (
   if (valueType === 'dateTimeRange') {
     // 值不存在的时候显示 "-"
     return (
-      <FieldRangePicker
-        text={text as string[]}
-        format="YYYY-MM-DD HH:mm:ss"
-        showTime
-        {...props}
-      />
+      <FieldRangePicker text={text as string[]} format="YYYY-MM-DD HH:mm:ss" showTime {...props} />
     );
   }
 
@@ -228,9 +204,7 @@ const defaultRenderText = (
    *如果是时间类型的值
    */
   if (valueType === 'time') {
-    return (
-      <FieldTimePicker text={text as string} format="HH:mm:ss" {...props} />
-    );
+    return <FieldTimePicker text={text as string} format="HH:mm:ss" {...props} />;
   }
 
   if (valueType === 'index') {

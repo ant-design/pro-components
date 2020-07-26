@@ -1,9 +1,7 @@
 const { readdirSync } = require('fs');
 const { join } = require('path');
 
-const pkgs = readdirSync(join(__dirname, './packages')).filter(
-  (pkg) => pkg.charAt(0) !== '.',
-);
+const pkgs = readdirSync(join(__dirname, './packages')).filter((pkg) => pkg.charAt(0) !== '.');
 
 const moduleNameMapper = {};
 

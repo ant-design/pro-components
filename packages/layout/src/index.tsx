@@ -1,10 +1,7 @@
 import BasicLayout, { BasicLayoutProps } from './BasicLayout';
 import DefaultHeader, { HeaderViewProps as HeaderProps } from './Header';
 import TopNavHeader, { TopNavHeaderProps } from './TopNavHeader';
-import SettingDrawer, {
-  SettingDrawerProps,
-  SettingDrawerState,
-} from './SettingDrawer';
+import SettingDrawer, { SettingDrawerProps, SettingDrawerState } from './SettingDrawer';
 
 import DefaultFooter, { FooterProps } from './Footer';
 import GridContent from './GridContent';

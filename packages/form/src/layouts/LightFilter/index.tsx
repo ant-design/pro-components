@@ -41,12 +41,7 @@ const LightFilterConatiner: React.FC<{
   });
 
   return (
-    <div
-      className={classNames(
-        `${prefixCls}-lightfilter`,
-        `${prefixCls}-lightfilter-${size}`,
-      )}
-    >
+    <div className={classNames(`${prefixCls}-lightfilter`, `${prefixCls}-lightfilter-${size}`)}>
       <div className={`${prefixCls}-lightfilter-container`}>
         {outsideItems.map((child: any) => {
           const { field } = child.props;
@@ -64,11 +59,7 @@ const LightFilterConatiner: React.FC<{
               padding={24}
               onVisibleChange={setOpen}
               visible={open}
-              label={
-                collapseLabel || (
-                  <Label size={size} label={locale.more} expanded={open} />
-                )
-              }
+              label={collapseLabel || <Label size={size} label={locale.more} expanded={open} />}
               footer={{
                 onConfirm: () => {
                   // TODO

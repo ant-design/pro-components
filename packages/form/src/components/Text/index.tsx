@@ -10,23 +10,15 @@ import { ProFormItemProps } from '../../interface';
  * 日期选择组件
  * @param
  */
-const ProFormDatePicker: React.ForwardRefRenderFunction<
-  any,
-  ProFormItemProps & DatePickerProps
-> = ({ value, fieldProps, ...restProps }, ref) => {
+const ProFormDatePicker: React.ForwardRefRenderFunction<any, ProFormItemProps & DatePickerProps> = (
+  { value, fieldProps, ...restProps },
+  ref,
+) => {
   return (
     <Form.Item {...restProps}>
-      <ProField
-        text={value}
-        ref={ref}
-        mode="edit"
-        valueType="text"
-        formItemProps={fieldProps}
-      />
+      <ProField text={value} ref={ref} mode="edit" valueType="text" formItemProps={fieldProps} />
     </Form.Item>
   );
 };
 
-export default createField<ProFormItemProps & DatePickerProps>(
-  React.forwardRef(ProFormDatePicker),
-);
+export default createField<ProFormItemProps & DatePickerProps>(React.forwardRef(ProFormDatePicker));

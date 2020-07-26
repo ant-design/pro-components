@@ -37,10 +37,7 @@ const Label: React.FC<LabelProps> = (props) => {
     itemUnit: '项',
   };
 
-  const getTextByValue = (
-    aLabel: string,
-    aValue?: string | string[],
-  ): React.ReactNode => {
+  const getTextByValue = (aLabel: string, aValue?: string | string[]): React.ReactNode => {
     if (aValue && (!Array.isArray(aValue) || aValue.length)) {
       const str = Array.isArray(aValue) ? aValue.join(',') : aValue;
       const prefix = aLabel ? `${aLabel}: ` : '';
@@ -50,9 +47,7 @@ const Label: React.FC<LabelProps> = (props) => {
       const tail =
         str.length > 16
           ? `...${
-              Array.isArray(aValue) && aValue.length > 1
-                ? `${aValue.length}${locale.itemUnit}`
-                : ''
+              Array.isArray(aValue) && aValue.length > 1 ? `${aValue.length}${locale.itemUnit}` : ''
             }`
           : '';
       return <span title={str}>{`${prefix}${str.substr(0, 16)}${tail}`}</span>;
@@ -85,9 +80,7 @@ const Label: React.FC<LabelProps> = (props) => {
           }}
         />
       )}
-      <DownOutlined
-        className={classNames(`${prefixCls}-icon`, `${prefixCls}-arrow`)}
-      />
+      <DownOutlined className={classNames(`${prefixCls}-icon`, `${prefixCls}-arrow`)} />
     </span>
   );
 };

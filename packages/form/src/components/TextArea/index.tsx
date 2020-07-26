@@ -10,10 +10,10 @@ import { createField } from '../../BaseForm';
  * 文本选择组件
  * @param
  */
-const ProFormTextArea: React.ForwardRefRenderFunction<
-  any,
-  ProFormItemProps & DatePickerProps
-> = ({ value, fieldProps, ...restProps }, ref) => {
+const ProFormTextArea: React.ForwardRefRenderFunction<any, ProFormItemProps & DatePickerProps> = (
+  { value, fieldProps, ...restProps },
+  ref,
+) => {
   return (
     <Form.Item {...restProps}>
       <ProField
@@ -27,6 +27,4 @@ const ProFormTextArea: React.ForwardRefRenderFunction<
   );
 };
 
-export default createField<ProFormItemProps & DatePickerProps>(
-  React.forwardRef(ProFormTextArea),
-);
+export default createField<ProFormItemProps & DatePickerProps>(React.forwardRef(ProFormTextArea));
