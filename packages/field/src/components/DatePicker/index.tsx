@@ -47,4 +47,4 @@ const FieldDatePicker: FieldFC<{
   return null;
 };
 
-export default FieldDatePicker;
+export default React.forwardRef(FieldDatePicker);

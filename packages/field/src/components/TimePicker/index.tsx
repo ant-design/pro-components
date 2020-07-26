@@ -11,9 +11,9 @@ import { FieldFC } from '../../index';
 const FieldTimePicker: FieldFC<{
   text: string | number;
   format: string;
-}> = ({ text, mode, format = 'HH:mm:ss', render, renderFormItem, plain, formItemProps }) => {
+}> = ({ text, mode, format = 'HH:mm:ss', render, renderFormItem, plain, formItemProps }, ref) => {
   if (mode === 'read') {
-    const dom = <span>{text ? moment(text).format(format) : '-'}</span>;
+    const dom = <span ref={ref}>{text ? moment(text).format(format) : '-'}</span>;
     if (render) {
       return render(text, { mode, ...formItemProps }, <span>{dom}</span>);
     }
@@ -22,6 +22,7 @@ const FieldTimePicker: FieldFC<{
   if (mode === 'edit' || mode === 'update') {
     const dom = (
       <DatePicker.TimePicker
+        ref={ref}
         format={format}
         bordered={plain === undefined ? true : !plain}
         defaultValue={text ? moment(text) : undefined}
@@ -36,4 +37,4 @@ const FieldTimePicker: FieldFC<{
   return null;
 };
 
-export default FieldTimePicker;
+export default React.forwardRef(FieldTimePicker);

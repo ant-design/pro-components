@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Radio, Switch, Space, Descriptions } from 'antd';
 import moment from 'moment';
 
-import Field, { FieldFCMode } from '../src/index';
+import Field, { FieldFCMode } from '@ant-design/pro-field';
 
 export default () => {
   const [state, setState] = useState<FieldFCMode>('read');
@@ -28,6 +28,39 @@ export default () => {
         </Descriptions.Item>
         <Descriptions.Item label="百分比">
           <Field text="100" valueType="percent" mode={state} plain={plain} />
+        </Descriptions.Item>
+        <Descriptions.Item label="选择框">
+          <Field
+            text="open"
+            mode={state}
+            valueEnum={{
+              all: { text: '全部', status: 'Default' },
+              open: {
+                text: '未解决',
+                status: 'Error',
+              },
+              closed: {
+                text: '已解决',
+                status: 'Success',
+              },
+              processing: {
+                text: '解决中',
+                status: 'Processing',
+              },
+            }}
+          />
+        </Descriptions.Item>
+        <Descriptions.Item label="远程选择框">
+          <Field
+            text="open"
+            mode={state}
+            request={() => [
+              { label: '全部', value: 'all' },
+              { label: '未解决', value: 'open' },
+              { label: '已解决', value: 'closed' },
+              { label: '解决中', value: 'processing' },
+            ]}
+          />
         </Descriptions.Item>
         <Descriptions.Item label="进度条">
           <Field text="40" valueType="progress" mode={state} plain={plain} />

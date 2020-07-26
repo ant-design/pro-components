@@ -10,6 +10,7 @@ import FieldCode from './components/Code';
 import FieldTimePicker from './components/TimePicker';
 import FieldText from './components/Text';
 import FieldTextArea from './components/TextArea';
+import FiledSelect, { ValueEnumMap, ValueEnumObj, RequestData } from './components/Select';
 
 export type ColumnEmptyText = string;
 
@@ -61,6 +62,11 @@ type BaseFieldFC = {
    *简约模式
    */
   plain?: boolean;
+
+  /**
+   * 映射值的类型
+   */
+  valueEnum?: ValueEnumMap | ValueEnumObj;
 };
 
 /**
@@ -84,7 +90,7 @@ type RenderFieldFC = {
 /**
  * 默认的 Field 需要实现的功能
  */
-export type FieldFC<T> = React.FC<BaseFieldFC & RenderFieldFC & T>;
+export type FieldFC<T> = React.ForwardRefRenderFunction<any, BaseFieldFC & RenderFieldFC & T>;
 
 // function return type
 export type ProColumnsValueObjectType = {
@@ -94,6 +100,7 @@ export type ProColumnsValueObjectType = {
   /** percent */
   showSymbol?: boolean;
   precision?: number;
+  request?: RequestData;
 };
 
 /**
@@ -246,6 +253,10 @@ const defaultRenderText = (
     }
   }
 
+  if (props.valueEnum || props.request) {
+    return <FiledSelect text={text as string} {...props} />;
+  }
+
   return <FieldText text={text as string} {...props} />;
 };
 
@@ -283,6 +294,7 @@ export {
   FieldCode,
   FieldTimePicker,
   FieldText,
+  FiledSelect,
 };
 
 export default React.forwardRef(Field);
