@@ -1,6 +1,6 @@
 ---
 title: ProList
-order: 20
+order: 12
 side: false
 group:
   path: /list
