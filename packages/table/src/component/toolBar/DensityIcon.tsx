@@ -1,8 +1,8 @@
+import { useIntl } from '@ant-design/pro-provider';
 import React from 'react';
 import { ColumnHeightOutlined } from '@ant-design/icons';
 import { Menu, Dropdown, Tooltip } from 'antd';
 import Container from '../../container';
-import { useIntl } from '../intlContext';
 
 export type DensitySize = 'middle' | 'small' | 'large' | undefined;
 

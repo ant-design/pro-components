@@ -1,8 +1,3 @@
-import ProTable, { ProColumns, ActionType, ProTableProps, ColumnsState } from './Table';
-import IndexColumn from './component/indexColumn';
-import { RequestData } from './useFetchData';
-import TableDropdown from './component/dropdown';
-import TableStatus from './component/status';
 import {
   IntlProvider,
   IntlConsumer,
@@ -17,7 +12,14 @@ import {
   ruRUIntl,
   msMYIntl,
   zhTWIntl,
-} from './component/intlContext';
+} from '@ant-design/pro-provider';
+
+import ProTable, { ProColumns, ActionType, ProTableProps, ColumnsState } from './Table';
+import IndexColumn from './component/indexColumn';
+import { RequestData } from './useFetchData';
+import TableDropdown from './component/dropdown';
+import TableStatus from './component/status';
+
 import Search from './form';
 import defaultRenderText, { ProColumnsValueType } from './defaultRender';
 

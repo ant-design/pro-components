@@ -1,4 +1,5 @@
 import React from 'react';
+import { useIntl } from '@ant-design/pro-provider';
 import { ConfigConsumer, ConfigConsumerProps } from 'antd/lib/config-provider/context';
 import { PushpinOutlined, SettingOutlined, VerticalAlignMiddleOutlined } from '@ant-design/icons';
 import { Checkbox, Popover, Tooltip } from 'antd';
@@ -7,7 +8,6 @@ import Backend from 'react-dnd-html5-backend';
 import Container from '../../container';
 import { ProColumns, ColumnsState } from '../../Table';
 import DnDItem from './DndItem';
-import { useIntl } from '../intlContext';
 import './index.less';
 import { genColumnKey } from '../util';
 
