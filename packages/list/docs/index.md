@@ -1,18 +1,13 @@
 ---
-title: ProList 高级列表
-order: 10
-sidemenu: false
+title: ProList
+order: 20
+side: false
+group:
+  path: /list
+nav:
+  title: 列表
+  path: /list
 ---
-
-<h1 align="center">@ant-design/pro-list</h1>
-
-<div align="center">
-
-🏆 Use Ant Design List like a Pro!
-
-</div>
-
-ProList 在 antd 的 list 支持了一些功能，比如 多选，展开等功能，使用体验贴近 table。
 
 ## 何时使用
 
@@ -22,43 +17,43 @@ ProList 在 antd 的 list 支持了一些功能，比如 多选，展开等功�
 
 ### 基本使用
 
-<code src="./demo/base.tsx" />
+<code src="../demo/base.tsx" />
 
 ### 支持展开的列表
 
-<code src="./demo/expand.tsx" />
+<code src="../demo/expand.tsx" />
 
 ### 支持选中的列表
 
-<code src="./demo/selectedRow.tsx" />
+<code src="../demo/selectedRow.tsx" />
 
 ### 复杂的列表
 
-<code src="./demo/complex.tsx" />
+<code src="../demo/complex.tsx" />
 
 ### 各种 size
 
-<code src="./demo/size.tsx" />
+<code src="../demo/size.tsx" />
 
 ### 竖排样式
 
-<code src="./demo/layout.tsx" />
+<code src="../demo/layout.tsx" />
 
 ### 文段式场景
 
-<code src="./demo/group.tsx" />
+<code src="../demo/group.tsx" />
 
 ### 一些预设的模式
 
-<code src="./demo/special.tsx" />
+<code src="../demo/special.tsx" />
 
 ### 自定义表头
 
-<code src="./demo/headerRender.tsx" />
+<code src="../demo/headerRender.tsx" />
 
 ### 小菜单
 
-<code src="./demo/minMenu.tsx" />
+<code src="../demo/minMenu.tsx" />
 
 ## API
 
