@@ -4,7 +4,7 @@ import ProLayout, {
   PageContainer,
   // eslint-disable-next-line import/no-unresolved
 } from '@ant-design/pro-layout';
-import defaultProps from './defaultProps';
+import defaultProps from '../fixtures/defaultProps';
 
 export default () => (
   <ProLayout

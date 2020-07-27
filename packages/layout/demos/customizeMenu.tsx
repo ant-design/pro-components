@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 // eslint-disable-next-line import/no-unresolved
 import ProLayout, { PageContainer } from '@ant-design/pro-layout';
 import { Button } from 'antd';
-import defaultProps from './defaultProps';
+import defaultProps from '../fixtures/defaultProps';
 
 export default () => {
   const [index, setIndex] = useState(0);

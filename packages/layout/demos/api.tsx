@@ -1,8 +1,11 @@
 /* eslint-disable import/no-unresolved */
 import React, { useState } from 'react';
 import { Switch, Avatar } from 'antd';
-import ProLayout, { PageContainer, DefaultFooter } from '@ant-design/pro-layout';
-import defaultProps from './defaultProps';
+import ProLayout, {
+  PageContainer,
+  DefaultFooter,
+} from '@ant-design/pro-layout';
+import defaultProps from '../fixtures/defaultProps';
 
 export default () => {
   const [loading, setLoading] = useState(false);
@@ -18,7 +21,7 @@ export default () => {
     <>
       <Switch
         checked={loading}
-        onChange={(e) => setLoading(e)}
+        onChange={e => setLoading(e)}
         style={{
           margin: 8,
         }}
@@ -26,7 +29,7 @@ export default () => {
       loading 状态
       <Switch
         checked={collapsed}
-        onChange={(e) => setCollapsed(e)}
+        onChange={e => setCollapsed(e)}
         style={{
           margin: 8,
         }}
@@ -34,7 +37,7 @@ export default () => {
       折叠layout
       <Switch
         checked={menu}
-        onChange={(e) => setMenu(e)}
+        onChange={e => setMenu(e)}
         style={{
           margin: 8,
         }}
@@ -42,7 +45,7 @@ export default () => {
       显示菜单
       <Switch
         checked={collapsedButtonRender}
-        onChange={(e) => setCollapsedButtonRender(e)}
+        onChange={e => setCollapsedButtonRender(e)}
         style={{
           margin: 8,
         }}
@@ -50,7 +53,7 @@ export default () => {
       显示折叠按钮
       <Switch
         checked={header}
-        onChange={(e) => setHeader(e)}
+        onChange={e => setHeader(e)}
         style={{
           margin: 8,
         }}
@@ -58,7 +61,7 @@ export default () => {
       显示顶栏
       <Switch
         checked={menuHeader}
-        onChange={(e) => setMenuHeader(e)}
+        onChange={e => setMenuHeader(e)}
         style={{
           margin: 8,
         }}
@@ -66,7 +69,7 @@ export default () => {
       显示菜单头
       <Switch
         checked={footer}
-        onChange={(e) => setFooter(e)}
+        onChange={e => setFooter(e)}
         style={{
           margin: 8,
         }}
@@ -74,7 +77,7 @@ export default () => {
       显示页脚
       <Switch
         checked={right}
-        onChange={(e) => setRight(e)}
+        onChange={e => setRight(e)}
         style={{
           margin: 8,
         }}
@@ -82,7 +85,7 @@ export default () => {
       显示顶栏右侧
       <Switch
         checked={pure}
-        onChange={(e) => setPure(e)}
+        onChange={e => setPure(e)}
         style={{
           margin: 8,
         }}
