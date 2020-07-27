@@ -1,0 +1,19 @@
+name: Test CI
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@master
+
+      - name: install
+        run: npm install
+
+      - name: lint
+        run: npm run lint && npm run tsc
+      - name: test
+        run: npm run test:coverage
+      - name: Generate coverage
+        run: bash <(curl -s https://codecov.io/bash)
