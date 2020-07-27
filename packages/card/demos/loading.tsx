@@ -4,12 +4,7 @@ import ProCard from '../src/index';
 export default () => {
   return (
     <>
-      <ProCard
-        title="默认 Loading"
-        extra="extra"
-        loading
-        style={{ width: 300 }}
-      >
+      <ProCard title="默认 Loading" extra="extra" loading style={{ width: 300 }}>
         内容
       </ProCard>
 

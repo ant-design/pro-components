@@ -33,7 +33,6 @@
     "react-dom": ">=16.8.0"
   },
   "dependencies": {
-    "@ant-design/compatible": "^1.0.4",
     "@ant-design/icons": "^4.0.0",
     "@umijs/route-utils": "^1.0.5",
     "antd": "^4.2.0",

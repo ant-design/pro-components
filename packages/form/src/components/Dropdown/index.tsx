@@ -18,7 +18,7 @@ export interface DropdownProps {
   visible?: boolean;
 }
 
-const FilterDropdown: React.FC<DropdownProps> = props => {
+const FilterDropdown: React.FC<DropdownProps> = (props) => {
   const {
     children,
     label = 'hover me',
@@ -43,7 +43,7 @@ const FilterDropdown: React.FC<DropdownProps> = props => {
               <div className={`${prefixCls}-overlay`}>
                 <div
                   className={`${prefixCls}-content`}
-                  onClick={e => {
+                  onClick={(e) => {
                     if (!hideWhenClick) {
                       e.stopPropagation();
                     }
@@ -51,13 +51,7 @@ const FilterDropdown: React.FC<DropdownProps> = props => {
                 >
                   {children}
                 </div>
-                {footer && (
-                  <Footer
-                    disabled={disabled}
-                    prefixCls={prefixCls}
-                    {...footer}
-                  />
-                )}
+                {footer && <Footer disabled={disabled} prefixCls={prefixCls} {...footer} />}
               </div>
             }
           >

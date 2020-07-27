@@ -9,12 +9,7 @@ export default () => {
   return (
     <ProCard split="vertical" bordered>
       <ProCard colSpan="25%">
-        <Steps
-          direction="vertical"
-          size="small"
-          current={current}
-          style={{ height: 320 }}
-        >
+        <Steps direction="vertical" size="small" current={current} style={{ height: 320 }}>
           <Step title="填写基本信息" />
           <Step title="配置模板" />
           <Step title="配置访问" />
@@ -24,17 +19,10 @@ export default () => {
       </ProCard>
       <ProCard title="流量占用情况">
         <Space>
-          <Button
-            type="primary"
-            onClick={() => setCurrent(current + 1)}
-            disabled={current === 5}
-          >
+          <Button type="primary" onClick={() => setCurrent(current + 1)} disabled={current === 5}>
             下一步
           </Button>
-          <Button
-            onClick={() => setCurrent(current - 1)}
-            disabled={current === 0}
-          >
+          <Button onClick={() => setCurrent(current - 1)} disabled={current === 0}>
             上一步
           </Button>
         </Space>

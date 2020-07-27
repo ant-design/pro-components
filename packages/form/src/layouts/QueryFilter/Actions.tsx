@@ -76,7 +76,7 @@ const defaultCollapseRender = (collapsed: boolean) => {
  * FormFooter 的组件，可以自动进行一些配置
  * @param props
  */
-const Actions: React.FC<ActionsProps> = props => {
+const Actions: React.FC<ActionsProps> = (props) => {
   const {
     setCollapsed,
     collapsed = false,

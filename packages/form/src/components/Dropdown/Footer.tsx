@@ -13,7 +13,7 @@ export interface FooterProps {
   disabled?: boolean;
 }
 
-const Footer: React.FC<FooterProps> = props => {
+const Footer: React.FC<FooterProps> = (props) => {
   const { prefixCls, onClear, onConfirm, disabled } = props;
 
   // TODO 国际化
@@ -25,7 +25,7 @@ const Footer: React.FC<FooterProps> = props => {
   return (
     <div
       className={`${prefixCls}-footer`}
-      onClick={e => {
+      onClick={(e) => {
         if ((e.target as Element).getAttribute('data-type') !== 'confirm') {
           e.stopPropagation();
         }
@@ -38,7 +38,7 @@ const Footer: React.FC<FooterProps> = props => {
         type="link"
         size="small"
         disabled={disabled}
-        onClick={e => {
+        onClick={(e) => {
           if (onClear) {
             onClear(e);
           }

@@ -1,8 +1,5 @@
 import React, { ReactNode } from 'react';
-import {
-  ConfigConsumer,
-  ConfigConsumerProps,
-} from 'antd/lib/config-provider/context';
+import { ConfigConsumer, ConfigConsumerProps } from 'antd/lib/config-provider/context';
 import { Spin, Tooltip } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
@@ -79,7 +76,7 @@ const getStyle = (withStyle: boolean, appendStyle: React.CSSProperties) => {
   return withStyle ? appendStyle : {};
 };
 
-const ProCard: ProCardType = props => (
+const ProCard: ProCardType = (props) => (
   <ConfigConsumer>
     {({ getPrefixCls }: ConfigConsumerProps) => {
       const prefixCls = getPrefixCls('pro-card');
@@ -105,9 +102,7 @@ const ProCard: ProCardType = props => (
 
       // 判断是否套了卡片，如果套了的话将自身卡片内部内容的 padding 设置为0
       let containProCard;
-      const childrenArray = React.Children.toArray(
-        children,
-      ) as ProCardChildType[];
+      const childrenArray = React.Children.toArray(children) as ProCardChildType[];
 
       const childrenModified = childrenArray.map((element, index) => {
         if (element?.type?.displayName === 'ProCard') {
@@ -148,13 +143,10 @@ const ProCard: ProCardType = props => (
       });
 
       // 当 colSpan 为 30% 或 300px 时
-      const colSpanStyle = getStyle(
-        typeof colSpan === 'string' && /\d%|\dpx/i.test(colSpan),
-        {
-          flexBasis: colSpan,
-          flexShrink: 0,
-        },
-      );
+      const colSpanStyle = getStyle(typeof colSpan === 'string' && /\d%|\dpx/i.test(colSpan), {
+        flexBasis: colSpan,
+        flexShrink: 0,
+      });
 
       const cardStyle = {
         ...colSpanStyle,

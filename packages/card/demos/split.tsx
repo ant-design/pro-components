@@ -3,13 +3,7 @@ import ProCard from '../src/index';
 
 export default () => {
   return (
-    <ProCard
-      title="复杂切分"
-      extra="2019年9月28日"
-      split="vertical"
-      bordered
-      headerBordered
-    >
+    <ProCard title="复杂切分" extra="2019年9月28日" split="vertical" bordered headerBordered>
       <ProCard split="horizontal">
         <ProCard split="horizontal">
           <ProCard split="vertical">
