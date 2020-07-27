@@ -2,6 +2,7 @@ import './index.less';
 
 import React, { useEffect, CSSProperties, useRef, useState, ReactNode } from 'react';
 import { Table, ConfigProvider, Card, Space, Typography, Empty, Tooltip } from 'antd';
+import { IntlProvider, IntlConsumer, IntlType, useIntl } from '@ant-design/pro-provider';
 import classNames from 'classnames';
 import useMergeValue from 'use-merge-value';
 import { stringify } from 'use-json-comparison';
@@ -12,7 +13,6 @@ import { TableCurrentDataSource, SorterResult } from 'antd/lib/table/interface';
 import { ConfigConsumer, ConfigConsumerProps } from 'antd/lib/config-provider';
 
 import { noteOnce } from 'rc-util/lib/warning';
-import { IntlProvider, IntlConsumer, IntlType, useIntl } from './component/intlContext';
 import useFetchData, { UseFetchDataAction, RequestData } from './useFetchData';
 import Container, { useCounter } from './container';
 import Toolbar, { OptionConfig, ToolBarProps } from './component/toolBar';
