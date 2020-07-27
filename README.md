@@ -1,7 +1,12 @@
+# 此仓库已废弃
+
+**重要：** 此仓库后续不再维护，也不再接受更多的特性更新。`ant-design/pro-list` 将会迁移至 `ant-design/pro-components` 仓库进行后续的维护，访问 https://procomponent.ant.design/ 了解更多。此变更不影响继续使用 `@ant-design/pro-list` 这个 npm 包名安装使用此组件。
+
+
 English | [简体中文](./README.zh-CN.md) [changelog](./changelog.en-US.md)
 
 ![](https://codecov.io/gh/ant-design/ant-design-pro-layout/branch/master/graph/badge.svg)
-[![](https://img.shields.io/npm/dw/@ant-design/pro-layout.svg)](https://www.npmjs.com/package/@ant-design/pro-layout) [![npm package](https://img.shields.io/npm/v/@ant-design/pro-layout.svg?style=flat-square?style=flat-square)](https://www.npmjs.com/package/@ant-design/pro-layout) [![](https://img.shields.io/github/issues/ant-design/ant-design-pro-layout.svg)](https://github.com/ant-design/ant-design-pro-layout/issues) [![Dependencies](https://img.shields.io/david/ant-design/ant-design-pro-layout.svg?style=flat-square)](https://david-dm.org/ant-design/ant-design-pro-layout) [![DevDependencies](https://img.shields.io/david/dev/ant-design/ant-design-pro-layout.svg?style=flat-square)](https://david-dm.org/ant-design/ant-design-pro-layout?type=dev) ![Test CI](https://github.com/ant-design/ant-design-pro-layout/workflows/Test%20CI/badge.svg) ![Deploy CI](https://github.com/ant-design/ant-design-pro-layout/workflows/Deploy%20CI/badge.svg)
+[![](https://img.shields.io/npm/dw/@ant-design/pro-layout.svg)](https://www.npmjs.com/package/@ant-design/pro-layout) [![npm package](https://img.shields.io/npm/v/@ant-design/pro-layout.svg?style=flat-square?style=flat-square)](https://www.npmjs.com/package/@ant-design/pro-layout) [![](https://img.shields.io/github/issues/ant-design/ant-design-pro-layout.svg)](https://github.com/ant-design/ant-design-pro-layout/issues) 
 
 <h1 align="center">Ant Design Pro Layout</h1>
 
