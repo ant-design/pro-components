@@ -18,7 +18,7 @@ const SiderMenuWrapper: React.FC<SiderMenuProps> = (props) => {
     style,
     className,
     hide,
-    prefixCls
+    prefixCls,
   } = props;
   const { setFlatMenuKeys } = MenuCounter.useContainer();
 
@@ -31,9 +31,7 @@ const SiderMenuWrapper: React.FC<SiderMenuProps> = (props) => {
     const animationFrameId = requestAnimationFrame(() => {
       setFlatMenuKeys(Object.keys(newFlatMenus));
     });
-    return () =>
-      window.cancelAnimationFrame &&
-      window.cancelAnimationFrame(animationFrameId);
+    return () => window.cancelAnimationFrame && window.cancelAnimationFrame(animationFrameId);
   }, [menuData]);
 
   useEffect(() => {

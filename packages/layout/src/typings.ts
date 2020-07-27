@@ -1,14 +1,10 @@
 import * as H from 'history';
 
-import {
-  RouteComponentProps as BasicRouteProps,
-  match,
-} from 'react-router-dom';
+import { RouteComponentProps as BasicRouteProps, match } from 'react-router-dom';
 
 import React from 'react';
 
-export interface LinkProps
-  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   to: H.LocationDescriptor;
   replace?: boolean;
   innerRef?: React.Ref<HTMLAnchorElement>;

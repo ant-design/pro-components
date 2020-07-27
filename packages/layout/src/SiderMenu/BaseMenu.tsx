@@ -11,13 +11,7 @@ import defaultSettings, { PureSettings } from '../defaultSettings';
 import { getSelectedMenuKeys } from './SiderMenuUtils';
 import { isUrl, getOpenKeysFromMenuData, isImg } from '../utils/utils';
 
-import {
-  MenuDataItem,
-  MessageDescriptor,
-  Route,
-  RouterTypes,
-  WithFalse,
-} from '../typings';
+import { MenuDataItem, MessageDescriptor, Route, RouterTypes, WithFalse } from '../typings';
 import MenuCounter from './Counter';
 
 export interface BaseMenuProps
@@ -75,11 +69,7 @@ const getIcon = (icon?: string | React.ReactNode): React.ReactNode => {
   if (typeof icon === 'string' && icon !== '') {
     if (isUrl(icon) || isImg(icon)) {
       return (
-        <Icon
-          component={() => (
-            <img src={icon} alt="icon" className="ant-pro-sider-menu-icon" />
-          )}
-        />
+        <Icon component={() => <img src={icon} alt="icon" className="ant-pro-sider-menu-icon" />} />
       );
     }
     if (icon.startsWith('icon-')) {
@@ -96,10 +86,7 @@ class MenuUtil {
 
   props: BaseMenuProps;
 
-  getNavMenuItems = (
-    menusData: MenuDataItem[] = [],
-    isChildren: boolean,
-  ): React.ReactNode[] =>
+  getNavMenuItems = (menusData: MenuDataItem[] = [], isChildren: boolean): React.ReactNode[] =>
     menusData
       .filter((item) => item.name && !item.hideInMenu)
       .map((item) => this.getSubMenuOrItem(item, isChildren))
@@ -117,10 +104,7 @@ class MenuUtil {
   /**
    * get SubMenu or Item
    */
-  getSubMenuOrItem = (
-    item: MenuDataItem,
-    isChildren: boolean,
-  ): React.ReactNode => {
+  getSubMenuOrItem = (item: MenuDataItem, isChildren: boolean): React.ReactNode => {
     if (Array.isArray(item.children) && this.hasChildren(item)) {
       const name = this.getIntlName(item);
       const { subMenuItemRender } = this.props;
@@ -140,20 +124,14 @@ class MenuUtil {
         : defaultTitle;
 
       return (
-        <SubMenu
-          title={title}
-          key={item.key || item.path}
-          onTitleClick={item.onTitleClick}
-        >
+        <SubMenu title={title} key={item.key || item.path} onTitleClick={item.onTitleClick}>
           {this.getNavMenuItems(item.children, true)}
         </SubMenu>
       );
     }
 
     return (
-      <Menu.Item key={item.key || item.path}>
-        {this.getMenuItemPath(item, isChildren)}
-      </Menu.Item>
+      <Menu.Item key={item.key || item.path}>{this.getMenuItemPath(item, isChildren)}</Menu.Item>
     );
   };
 
@@ -181,12 +159,7 @@ class MenuUtil {
    */
   getMenuItemPath = (item: MenuDataItem, isChildren: boolean) => {
     const itemPath = this.conversionPath(item.path || '/');
-    const {
-      location = { pathname: '/' },
-      isMobile,
-      onCollapse,
-      menuItemRender,
-    } = this.props;
+    const { location = { pathname: '/' }, isMobile, onCollapse, menuItemRender } = this.props;
     const { target } = item;
     // if local is true formatMessage all name。
     const name = this.getIntlName(item);
@@ -283,9 +256,7 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
   const { flatMenuKeys } = MenuCounter.useContainer();
   const [defaultOpenAll, setDefaultOpenAll] = useState(menu.defaultOpenAll);
 
-  const [openKeys, setOpenKeys] = useMergeValue<
-    WithFalse<React.ReactText[] | undefined>
-  >(
+  const [openKeys, setOpenKeys] = useMergeValue<WithFalse<React.ReactText[] | undefined>>(
     () => {
       if (menu.defaultOpenAll) {
         return getOpenKeysFromMenuData(menuData) || [];
@@ -301,28 +272,22 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
     },
   );
 
-  const [selectedKeys, setSelectedKeys] = useMergeValue<string[] | undefined>(
-    [],
-    {
-      value: propsSelectedKeys,
-      onChange: onSelect
-        ? (keys) => {
-            if (onSelect && keys) {
-              onSelect(keys as any);
-            }
+  const [selectedKeys, setSelectedKeys] = useMergeValue<string[] | undefined>([], {
+    value: propsSelectedKeys,
+    onChange: onSelect
+      ? (keys) => {
+          if (onSelect && keys) {
+            onSelect(keys as any);
           }
-        : undefined,
-    },
-  );
+        }
+      : undefined,
+  });
 
   useEffect(() => {
     if (menu.defaultOpenAll || propsOpenKeys === false || flatMenuKeys.length) {
       return;
     }
-    const keys = getSelectedMenuKeys(
-      location.pathname || '/',
-      postMenuDataRef.current || [],
-    );
+    const keys = getSelectedMenuKeys(location.pathname || '/', postMenuDataRef.current || []);
     if (keys) {
       openKeysRef.current = keys;
       setOpenKeys(keys);
@@ -341,10 +306,7 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
 
   useEffect(() => {
     // if pathname can't match, use the nearest parent's key
-    const keys = getSelectedMenuKeys(
-      location.pathname || '/',
-      postMenuDataRef.current || [],
-    );
+    const keys = getSelectedMenuKeys(location.pathname || '/', postMenuDataRef.current || []);
     const animationFrameId = requestAnimationFrame(() => {
       if (keys.join('-') !== (selectedKeys || []).join('-')) {
         setSelectedKeys(keys);
@@ -360,9 +322,7 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
         setDefaultOpenAll(false);
       }
     });
-    return () =>
-      window.cancelAnimationFrame &&
-      window.cancelAnimationFrame(animationFrameId);
+    return () => window.cancelAnimationFrame && window.cancelAnimationFrame(animationFrameId);
   }, [pathname]);
 
   const openKeysProps = useMemo(() => getOpenKeysProps(openKeys, props), [
@@ -382,14 +342,10 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
    */
   useEffect(() => {
     if (splitMenus && openKeys) {
-      const keys = getSelectedMenuKeys(
-        location.pathname || '/',
-        menuData || [],
-      );
+      const keys = getSelectedMenuKeys(location.pathname || '/', menuData || []);
       const [key] = keys;
       if (key) {
-        const postData =
-          menuData?.find((item) => item.key === key)?.children || [];
+        const postData = menuData?.find((item) => item.key === key)?.children || [];
         setPostMenuData(postData);
         return;
       }
@@ -407,9 +363,7 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
     }
   }
 
-  const finallyData = props.postMenuData
-    ? props.postMenuData(postMenuData)
-    : postMenuData;
+  const finallyData = props.postMenuData ? props.postMenuData(postMenuData) : postMenuData;
 
   /**
    * 记下最新的 menuData

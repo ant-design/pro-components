@@ -2,10 +2,7 @@ import React, { useRef, useState } from 'react';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 
-import {
-  SiderMenuProps,
-  defaultRenderLogoAndTitle,
-} from '../SiderMenu/SiderMenu';
+import { SiderMenuProps, defaultRenderLogoAndTitle } from '../SiderMenu/SiderMenu';
 import './index.less';
 
 import BaseMenu from '../SiderMenu/BaseMenu';
@@ -21,10 +18,7 @@ export type TopNavHeaderProps = SiderMenuProps & {
  * 抽离出来是为了防止 rightSize 经常改变导致菜单 render
  * @param param0
  */
-const RightContent: React.FC<TopNavHeaderProps> = ({
-  rightContentRender,
-  ...props
-}) => {
+const RightContent: React.FC<TopNavHeaderProps> = ({ rightContentRender, ...props }) => {
   const [rightSize, setRightSize] = useState<number | string>('auto');
 
   return (
@@ -81,17 +75,9 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
   });
   return (
     <div className={className} style={style}>
-      <div
-        ref={ref}
-        className={`${baseClassName}-main ${
-          contentWidth === 'Fixed' ? 'wide' : ''
-        }`}
-      >
+      <div ref={ref} className={`${baseClassName}-main ${contentWidth === 'Fixed' ? 'wide' : ''}`}>
         {headerDom && (
-          <div
-            className={`${baseClassName}-main-left`}
-            onClick={onMenuHeaderClick}
-          >
+          <div className={`${baseClassName}-main-left`} onClick={onMenuHeaderClick}>
             <div className={`${baseClassName}-logo`} key="logo" id="logo">
               {headerDom}
             </div>
@@ -100,9 +86,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
         <div style={{ flex: 1 }} className={`${baseClassName}-menu`}>
           <BaseMenu {...props} {...props.menuProps} />
         </div>
-        {rightContentRender && (
-          <RightContent rightContentRender={rightContentRender} {...props} />
-        )}
+        {rightContentRender && <RightContent rightContentRender={rightContentRender} {...props} />}
       </div>
     </div>
   );

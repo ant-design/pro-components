@@ -3,19 +3,11 @@ import { transformRoute } from '@umijs/route-utils';
 import { MenuDataItem, Route, MessageDescriptor } from '../typings';
 
 function fromEntries(iterable: any) {
-  return [...iterable].reduce(
-    (
-      obj: {
-        [key: string]: MenuDataItem;
-      },
-      [key, val],
-    ) => {
-      // eslint-disable-next-line no-param-reassign
-      obj[key] = val;
-      return obj;
-    },
-    {},
-  );
+  return [...iterable].reduce((obj: { [key: string]: MenuDataItem }, [key, val]) => {
+    // eslint-disable-next-line no-param-reassign
+    obj[key] = val;
+    return obj;
+  }, {});
 }
 
 export default (
