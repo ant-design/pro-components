@@ -1,0 +1,64 @@
+{
+  "private": true,
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "bootstrap": "node ./scripts/bootstrap.js",
+    "build": "father-build",
+    "link": "yarn link umi && yarn link @umijs/test && yarn link @umijs/utils && yarn link @umijs/types",
+    "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./packages",
+    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
+    "release": "node ./scripts/release.js",
+    "start": "dumi dev",
+    "site": "dumi build",
+    "test": "umi-test",
+    "test:coverage": "umi-test --coverage",
+    "test:update": "umi-test --updateSnapshot"
+  },
+  "lint-staged": {
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write",
+      "git add"
+    ],
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "@testing-library/react": "^9.4.0",
+    "@testing-library/react-hooks": "^3.2.1",
+    "@types/enzyme": "^3.10.3",
+    "@types/jest": "^25.1.3",
+    "@types/node": "^13.7.7",
+    "@umijs/fabric": "2.2.2",
+    "@umijs/test": "^3.0.10",
+    "@umijs/test-utils": "^1.0.0",
+    "@umijs/utils": "^3.2.8",
+    "antd": "^4.4.1",
+    "body-parser": "^1.18.2",
+    "dumi": "^1.0.33",
+    "enzyme": "^3.11.0",
+    "enzyme-to-json": "^3.4.3",
+    "express": "^4.15.3",
+    "father-build": "^1.17.2",
+    "lerna": "^3.20.2",
+    "lint-staged": "^10.0.8",
+    "npm-run-all": "^4.1.5",
+    "pify": "^5.0.0",
+    "prettier": "^1.19.1",
+    "query-string": "^6.11.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-test-renderer": "^16.9.0",
+    "umi-plugin-githubpages": "^2.0.1",
+    "umi-test": "^1.9.6",
+    "yorkie": "^2.0.0"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged",
+    "commit-msg": "node scripts/verifyCommit.js"
+  }
+}

@@ -1,0 +1,22 @@
+@import '~antd/es/style/themes/default.less';
+
+@pro-field-index-prefix-cls: ~'@{ant-prefix}-pro-field-index-column';
+
+.@{pro-field-index-prefix-cls} {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+
+  &-border {
+    color: #fff;
+    font-size: 12px;
+    line-height: 12px;
+    background-color: #314659;
+    border-radius: 9px;
+    &.top-three {
+      background-color: #979797;
+    }
+  }
+}

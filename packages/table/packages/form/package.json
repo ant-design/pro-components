@@ -1,0 +1,38 @@
+{
+  "name": "@ant-design/form",
+  "version": "1.0.0-beta.3",
+  "description": "@ant-design/form",
+  "keywords": [
+    "antd",
+    "admin",
+    "ant-design",
+    "ant-design-pro"
+  ],
+  "homepage": "https://github.com/ant-design/pro-components/tree/master/packages/form#readme",
+  "bugs": "http://github.com/umijs/plugins/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ant-design/pro-components"
+  },
+  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "dependencies": {
+    "@ant-design/pro-field": "0.0.6"
+  },
+  "peerDependencies": {
+    "antd": "4.x",
+    "react": "^16.x"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "authors": [
+    "chencheng <sorrycc@gmail.com> (https://github.com/sorrycc)",
+    "chenshuai2144 <qixian.cs@outlook.om> (https://github.com/chenshuai2144)"
+  ]
+}

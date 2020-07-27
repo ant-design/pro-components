@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "declaration": true,
+    "skipLibCheck": true,
+    "paths": {
+      "@ant-design/pro-field": ["./packages/field/src/index.tsx"],
+      "@ant-design/pro-skeleton": ["./packages/skeleton/src/index.tsx"]
+    }
+  },
+  "include": [
+    "**/src",
+    "**/docs",
+    "scripts",
+    "**/demos",
+    ".eslintrc.js",
+    "tests",
+    "jest.config.js"
+  ]
+}
