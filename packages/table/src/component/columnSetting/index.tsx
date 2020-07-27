@@ -284,14 +284,11 @@ const ColumnSetting = <T, U = {}>(props: ColumnSettingProps<T>) => {
             placement="bottomRight"
             content={<GroupCheckboxList className={className} localColumns={localColumns} />}
           >
-            <Tooltip title={intl.getMessage('tableToolBar.columnSetting', '列设置')}>
-              <SettingOutlined
-                className={`${toolBarClassName}-item-icon`}
-                style={{
-                  fontSize: 16,
-                }}
-              />
-            </Tooltip>
+            <span className={`${toolBarClassName}-item-icon`}>
+              <Tooltip title={intl.getMessage('tableToolBar.columnSetting', '列设置')}>
+                <SettingOutlined />
+              </Tooltip>
+            </span>
           </Popover>
         );
       }}
