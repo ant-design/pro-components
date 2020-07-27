@@ -1,7 +1,19 @@
-# @ant-design/pro-xxx
+# @ant-design/pro-table
 
-这里放置了 pro 系列组件，用于支撑重型组件
+> @ant-design/pro-table.
 
-## LICENSE
+See our website [@ant-design/pro-table](https://umijs.org/plugins/table) for more information.
 
-MIT
+## Install
+
+Using npm:
+
+```bash
+$ npm install --save-dev @ant-design/pro-table
+```
+
+or using yarn:
+
+```bash
+$ yarn add @ant-design/pro-table --dev
+```
