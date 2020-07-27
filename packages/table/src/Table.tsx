@@ -335,6 +335,11 @@ export interface ProTableProps<T, U extends { [key: string]: any }>
    * 空值时显示
    */
   columnEmptyText?: ColumnEmptyText;
+
+  /**
+   * 是否手动触发请求
+   */
+  manualRequest?: boolean;
 }
 
 const mergePagination = <T extends any[], U>(
@@ -596,6 +601,7 @@ const ProTable = <T extends {}, U extends object>(
     type = 'table',
     onReset = () => {},
     columnEmptyText = '-',
+    manualRequest = false,
     ...rest
   } = props;
 
@@ -626,13 +632,17 @@ const ProTable = <T extends {}, U extends object>(
 
   const action = useFetchData(
     async ({ pageSize, current }) => {
-      if (!request) {
+      // 需要手动触发的首次请求
+      const needManualFirstReq = manualRequest && !formSearch;
+
+      if (!request || needManualFirstReq) {
         return {
           data: props.dataSource || [],
           success: true,
         } as RequestData<T>;
       }
-      const msg = await request(
+
+      const response = await request(
         {
           current,
           pageSize,
@@ -643,9 +653,9 @@ const ProTable = <T extends {}, U extends object>(
         proFilter,
       );
       if (postData) {
-        return { ...msg, data: postData(msg.data) };
+        return { ...response, data: postData(response.data) };
       }
-      return msg;
+      return response;
     },
     defaultData,
     {
