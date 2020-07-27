@@ -10,8 +10,7 @@ export function useDocumentTitle(
   },
   appDefaultTitle: string = defaultSettings.title,
 ) {
-  const titleText =
-    typeof titleInfo.pageName === 'string' ? titleInfo.title : appDefaultTitle;
+  const titleText = typeof titleInfo.pageName === 'string' ? titleInfo.title : appDefaultTitle;
   useEffect(() => {
     if (isBrowser() && titleText) {
       document.title = titleText;

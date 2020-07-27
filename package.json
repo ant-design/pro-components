@@ -11,7 +11,7 @@
     "prettier": "prettier --write \"**/**.{js,jsx,tsx,ts,less,md,json}\"",
     "release": "node ./scripts/release.js",
     "site": "dumi build",
-    "deploy":"npm run site && gh-pages -d ./dist",
+    "deploy": "npm run site && gh-pages -d ./dist",
     "start": "dumi dev",
     "lint:prettier": "prettier --check \"**/**.{js,jsx,tsx,ts,less,md,json}\" --end-of-line auto",
     "test": "umi-test",
@@ -21,7 +21,7 @@
   },
   "lint-staged": {
     "*.ts?(x)": [
-      "prettier --parser=typescript --write",
+      "prettier --write",
       "git add"
     ],
     "*.{js,jsx,less,md,json}": [
