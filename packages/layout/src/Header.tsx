@@ -22,7 +22,9 @@ export type HeaderViewProps = Partial<PureSettings> &
     headerTitleRender?: WithFalse<
       (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
     >;
-    headerContentRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
+    headerContentRender?: WithFalse<
+      (props: HeaderViewProps) => React.ReactNode
+    >;
     siderWidth?: number;
     hasSiderMenu?: boolean;
   };
@@ -75,11 +77,13 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
       headerRender,
       isMobile,
       prefixCls,
+      headerHeight
     } = this.props;
     const needFixedHeader = fixedHeader || layout === 'mix';
     const isTop = layout === 'top';
 
-    const needSettingWidth = needFixedHeader && hasSiderMenu && !isTop && !isMobile;
+    const needSettingWidth =
+      needFixedHeader && hasSiderMenu && !isTop && !isMobile;
 
     const className = classNames(propsClassName, {
       [`${prefixCls}-fixed-header`]: needFixedHeader,
@@ -102,8 +106,8 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
         {needFixedHeader && (
           <Header
             style={{
-              height: 48,
-              lineHeight: '48px',
+              height: headerHeight,
+              lineHeight: `${headerHeight}px`,
               background: 'transparent',
             }}
           />
@@ -111,8 +115,8 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
         <Header
           style={{
             padding: 0,
-            height: 48,
-            lineHeight: '48px',
+            height: headerHeight,
+            lineHeight: `${headerHeight}px`,
             width,
             zIndex: layout === 'mix' ? 100 : 9,
             right,

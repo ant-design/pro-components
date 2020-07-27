@@ -6,7 +6,7 @@
 .@{top-nav-header-prefix-cls} {
   position: relative;
   width: 100%;
-  height: @pro-layout-header-height;
+  height: 100%;
   box-shadow: 0 1px 4px 0 rgba(0, 21, 41, 0.12);
   transition: background 0.3s, width 0.2s;
 
@@ -19,7 +19,6 @@
 
   .@{ant-prefix}-menu-submenu.@{ant-prefix}-menu-submenu-horizontal {
     height: 100%;
-    line-height: @pro-layout-header-height;
     .@{ant-prefix}-menu-submenu-title {
       height: 100%;
     }
@@ -39,7 +38,7 @@
 
   &-main {
     display: flex;
-    height: @pro-layout-header-height;
+    height: 100%;
     padding-left: 16px;
     &-left {
       display: flex;
@@ -54,9 +53,8 @@
   &-logo {
     position: relative;
     min-width: 165px;
-    height: @pro-layout-header-height;
+    height: 100%;
     overflow: hidden;
-    line-height: @pro-layout-header-height;
     transition: all 0.3s;
     img {
       display: inline-block;
@@ -75,8 +73,7 @@
   &-menu {
     min-width: 0;
     .@{ant-prefix}-menu.@{ant-prefix}-menu-horizontal {
-      height: @pro-layout-header-height;
-      line-height: @pro-layout-header-height;
+      height: 100%;
       border: none;
     }
   }

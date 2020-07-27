@@ -14,12 +14,21 @@ export interface BlockCheckboxProps {
   prefixCls: string;
 }
 
-const BlockCheckbox: React.FC<BlockCheckboxProps> = ({ value, onChange, list, prefixCls }) => {
+const BlockCheckbox: React.FC<BlockCheckboxProps> = ({
+  value,
+  onChange,
+  list,
+  prefixCls,
+}) => {
   const baseClassName = `${prefixCls}-drawer-block-checkbox`;
   const [dom, setDom] = useState<JSX.Element[]>([]);
   useEffect(() => {
     const domList = (list || []).map((item) => (
-      <div key={item.key} className={`${baseClassName}-item`} onClick={() => onChange(item.key)}>
+      <div
+        key={item.key}
+        className={`${baseClassName}-item`}
+        onClick={() => onChange(item.key)}
+      >
         <Tooltip title={item.title} key={item.key}>
           <img src={item.url} alt={item.key} />
         </Tooltip>

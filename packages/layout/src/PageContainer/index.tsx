@@ -16,7 +16,9 @@ export interface PageHeaderTabConfig {
   tabProps?: TabsProps;
 }
 
-export interface PageContainerProps extends PageHeaderTabConfig, Omit<PageHeaderProps, 'title'> {
+export interface PageContainerProps
+  extends PageHeaderTabConfig,
+    Omit<PageHeaderProps, 'title'> {
   title?: React.ReactNode | false;
   content?: React.ReactNode;
   extraContent?: React.ReactNode;
@@ -36,7 +38,14 @@ const renderFooter: React.SFC<Omit<
     prefixedClassName: string;
   },
   'title'
->> = ({ tabList, tabActiveKey, onTabChange, tabBarExtraContent, tabProps, prefixedClassName }) => {
+>> = ({
+  tabList,
+  tabActiveKey,
+  onTabChange,
+  tabBarExtraContent,
+  tabProps,
+  prefixedClassName,
+}) => {
   if (tabList && tabList.length) {
     return (
       <Tabs
@@ -72,9 +81,13 @@ const renderPageHeader = (
     <div className={`${prefixedClassName}-detail`}>
       <div className={`${prefixedClassName}-main`}>
         <div className={`${prefixedClassName}-row`}>
-          {content && <div className={`${prefixedClassName}-content`}>{content}</div>}
+          {content && (
+            <div className={`${prefixedClassName}-content`}>{content}</div>
+          )}
           {extraContent && (
-            <div className={`${prefixedClassName}-extraContent`}>{extraContent}</div>
+            <div className={`${prefixedClassName}-extraContent`}>
+              {extraContent}
+            </div>
           )}
         </div>
       </div>
@@ -86,7 +99,15 @@ const defaultPageHeaderRender = (
   props: PageContainerProps,
   value: RouteContextType & { prefixedClassName: string },
 ): React.ReactNode => {
-  const { title, content, pageHeaderRender, extraContent, style, prefixCls, ...restProps } = props;
+  const {
+    title,
+    content,
+    pageHeaderRender,
+    extraContent,
+    style,
+    prefixCls,
+    ...restProps
+  } = props;
 
   if (pageHeaderRender) {
     return pageHeaderRender({ ...props, ...value });
@@ -132,7 +153,9 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
       <GridContent>
         {children ? (
           <div>
-            <div className={`${prefixedClassName}-children-content`}>{children}</div>
+            <div className={`${prefixedClassName}-children-content`}>
+              {children}
+            </div>
             {value.hasFooterToolbar && (
               <div
                 style={{

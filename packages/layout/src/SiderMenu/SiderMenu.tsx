@@ -59,7 +59,11 @@ export interface SiderMenuProps
   logo?: React.ReactNode;
   siderWidth?: number;
   menuHeaderRender?: WithFalse<
-    (logo: React.ReactNode, title: React.ReactNode, props?: SiderMenuProps) => React.ReactNode
+    (
+      logo: React.ReactNode,
+      title: React.ReactNode,
+      props?: SiderMenuProps,
+    ) => React.ReactNode
   >;
   menuContentRender?: WithFalse<
     (props: SiderMenuProps, defaultDom: React.ReactNode) => React.ReactNode
@@ -96,6 +100,7 @@ const SiderMenu: React.FC<SiderMenuProps> = (props) => {
     menuContentRender,
     prefixCls = 'ant-pro',
     onOpenChange,
+    headerHeight
   } = props;
   const baseClassName = `${prefixCls}-sider`;
   const { flatMenuKeys } = MenuCounter.useContainer();
@@ -149,6 +154,7 @@ const SiderMenu: React.FC<SiderMenuProps> = (props) => {
         collapsedWidth={48}
         style={{
           overflow: 'hidden',
+          paddingTop: layout === 'mix' ? headerHeight : undefined,
           ...style,
         }}
         width={siderWidth}
@@ -156,13 +162,19 @@ const SiderMenu: React.FC<SiderMenuProps> = (props) => {
         className={siderClassName}
       >
         {headerDom && (
-          <div className={`${baseClassName}-logo`} onClick={onMenuHeaderClick} id="logo">
+          <div
+            className={`${baseClassName}-logo`}
+            onClick={onMenuHeaderClick}
+            id="logo"
+          >
             {headerDom}
           </div>
         )}
         {extraDom && (
           <div
-            className={`${baseClassName}-extra ${!headerDom && `${baseClassName}-extra-no-logo`}`}
+            className={`${baseClassName}-extra ${
+              !headerDom && `${baseClassName}-extra-no-logo`
+            }`}
           >
             {extraDom}
           </div>

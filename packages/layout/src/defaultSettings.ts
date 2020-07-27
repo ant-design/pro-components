@@ -16,12 +16,15 @@ export interface PureSettings {
   /**
    * nav menu position: `side` or `top`
    */
+  headerHeight?: number;
+  /**
+   * customize header height
+   */
   layout: 'side' | 'top' | 'mix';
   /**
    * layout of content: `Fluid` or `Fixed`, only works when layout is top
    */
   contentWidth: ContentWidth;
-
   /**
    * sticky header
    */
@@ -53,6 +56,7 @@ const defaultSettings: ProSettings = {
   menu: {
     locale: true,
   },
+  headerHeight: 48,
   title: 'Ant Design Pro',
   iconfontUrl: '',
   primaryColor: '#1890ff',

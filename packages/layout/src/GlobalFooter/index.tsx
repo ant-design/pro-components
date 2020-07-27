@@ -27,7 +27,9 @@ export default ({
   style,
 }: GlobalFooterProps) => {
   if (
-    (links == null || links === false || (Array.isArray(links) && links.length === 0)) &&
+    (links == null ||
+      links === false ||
+      (Array.isArray(links) && links.length === 0)) &&
     (copyright == null || copyright === false)
   ) {
     return null;
@@ -50,7 +52,9 @@ export default ({
           ))}
         </div>
       )}
-      {copyright && <div className={`${baseClassName}-copyright`}>{copyright}</div>}
+      {copyright && (
+        <div className={`${baseClassName}-copyright`}>{copyright}</div>
+      )}
     </footer>
   );
 };

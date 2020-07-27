@@ -9,10 +9,14 @@ const reg = /(((^https?:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+(?::\d+)?|(
 
 export const isUrl = (path: string): boolean => reg.test(path);
 const isNode =
-  typeof process !== 'undefined' && process.versions != null && process.versions.node != null;
+  typeof process !== 'undefined' &&
+  process.versions != null &&
+  process.versions.node != null;
 
 export const isBrowser = () =>
-  typeof window !== 'undefined' && typeof window.document !== 'undefined' && !isNode;
+  typeof window !== 'undefined' &&
+  typeof window.document !== 'undefined' &&
+  !isNode;
 
 /** 判断是否是图片链接 */
 export function isImg(path: string): boolean {
@@ -57,7 +61,9 @@ export const getOpenKeysFromMenuData = (menuData?: MenuDataItem[]) => {
       pre.push(item.key);
     }
     if (item.children) {
-      const newArray: string[] = pre.concat(getOpenKeysFromMenuData(item.children) || []);
+      const newArray: string[] = pre.concat(
+        getOpenKeysFromMenuData(item.children) || [],
+      );
       return newArray;
     }
     return pre;
@@ -79,7 +85,10 @@ function useDeepCompareMemoize(value: any) {
   return ref.current;
 }
 
-export function useDeepCompareEffect(effect: React.EffectCallback, dependencies?: Object) {
+export function useDeepCompareEffect(
+  effect: React.EffectCallback,
+  dependencies?: Object,
+) {
   useEffect(effect, useDeepCompareMemoize(dependencies));
 }
 

@@ -11,7 +11,13 @@ import useAntdMediaQuery from 'use-media-antd-query';
 
 import Omit from 'omit.js';
 import Header, { HeaderViewProps } from './Header';
-import { MenuDataItem, MessageDescriptor, Route, RouterTypes, WithFalse } from './typings';
+import {
+  MenuDataItem,
+  MessageDescriptor,
+  Route,
+  RouterTypes,
+  WithFalse,
+} from './typings';
 import { getPageTitleInfo, GetPageTitleProps } from './getPageTitle';
 import defaultSettings, { PureSettings } from './defaultSettings';
 import getLocales, { LocaleType } from './locales';
@@ -54,7 +60,9 @@ export type BasicLayoutProps = Partial<RouterTypes<Route>> &
       (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
     >;
 
-    breadcrumbRender?: (routers: AntdBreadcrumbProps['routes']) => AntdBreadcrumbProps['routes'];
+    breadcrumbRender?: (
+      routers: AntdBreadcrumbProps['routes'],
+    ) => AntdBreadcrumbProps['routes'];
     menuItemRender?: BaseMenuProps['menuItemRender'];
     pageTitleRender?: WithFalse<
       (
@@ -143,7 +151,11 @@ const defaultPageTitleRender = (
     };
   }
   if (pageTitleRender) {
-    const title = pageTitleRender(pageProps, pageTitleInfo.title, pageTitleInfo);
+    const title = pageTitleRender(
+      pageProps,
+      pageTitleInfo.title,
+      pageTitleInfo,
+    );
     if (typeof title === 'string') {
       return {
         ...pageTitleInfo,
@@ -246,10 +258,16 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
 
   // 如果menuDataRender 存在，就应该每次都render一下，不然无法保证数据的同步
   if (menuDataRender) {
-    renderMenuInfoData = getMenuData(routes, menu, formatMessage, menuDataRender);
+    renderMenuInfoData = getMenuData(
+      routes,
+      menu,
+      formatMessage,
+      menuDataRender,
+    );
   }
 
-  const isMobile = (colSize === 'sm' || colSize === 'xs') && !props.disableMobile;
+  const isMobile =
+    (colSize === 'sm' || colSize === 'xs') && !props.disableMobile;
 
   const { breadcrumb = {}, breadcrumbMap, menuData = [] } = !menuDataRender
     ? menuInfoData
@@ -265,7 +283,9 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
       const animationFrameId = requestAnimationFrame(() => {
         setMenuInfoData(infoData);
       });
-      return () => window.cancelAnimationFrame && window.cancelAnimationFrame(animationFrameId);
+      return () =>
+        window.cancelAnimationFrame &&
+        window.cancelAnimationFrame(animationFrameId);
     }
     return () => null;
   }, [props.route, stringify(menu)]);
@@ -312,7 +332,9 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     menuData,
     onCollapse,
     isMobile,
-    theme: (navTheme || 'dark').toLocaleLowerCase().includes('dark') ? 'dark' : 'light',
+    theme: (navTheme || 'dark').toLocaleLowerCase().includes('dark')
+      ? 'dark'
+      : 'light',
     collapsed,
   });
 
@@ -324,7 +346,9 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     isMobile,
     collapsed,
     onCollapse,
-    theme: (navTheme || 'dark').toLocaleLowerCase().includes('dark') ? 'dark' : 'light',
+    theme: (navTheme || 'dark').toLocaleLowerCase().includes('dark')
+      ? 'dark'
+      : 'light',
   });
 
   // render footer dom
@@ -334,26 +358,39 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     ...defaultProps,
   });
 
-  const { isChildrenLayout: contextIsChildrenLayout } = useContext(RouteContext);
+  const { isChildrenLayout: contextIsChildrenLayout } = useContext(
+    RouteContext,
+  );
 
   // 如果 props 中定义，以 props 为准
   const isChildrenLayout =
-    propsIsChildrenLayout !== undefined ? propsIsChildrenLayout : contextIsChildrenLayout;
+    propsIsChildrenLayout !== undefined
+      ? propsIsChildrenLayout
+      : contextIsChildrenLayout;
 
   const baseClassName = `${prefixCls}-basicLayout`;
   // gen className
-  const className = classNames(props.className, 'ant-design-pro', baseClassName, {
-    [`screen-${colSize}`]: colSize,
-    [`${baseClassName}-top-menu`]: propsLayout === 'top',
-    [`${baseClassName}-is-children`]: isChildrenLayout,
-    [`${baseClassName}-fix-siderbar`]: fixSiderbar,
-    [`${baseClassName}-mobile`]: isMobile,
-  });
+  const className = classNames(
+    props.className,
+    'ant-design-pro',
+    baseClassName,
+    {
+      [`screen-${colSize}`]: colSize,
+      [`${baseClassName}-top-menu`]: propsLayout === 'top',
+      [`${baseClassName}-is-children`]: isChildrenLayout,
+      [`${baseClassName}-fix-siderbar`]: fixSiderbar,
+      [`${baseClassName}-mobile`]: isMobile,
+    },
+  );
 
   /**
    * 计算 slider 的宽度
    */
-  const leftSiderWidth = getPaddingLeft(!!hasLeftPadding, collapsed, siderWidth);
+  const leftSiderWidth = getPaddingLeft(
+    !!hasLeftPadding,
+    collapsed,
+    siderWidth,
+  );
 
   // siderMenuDom 为空的时候，不需要 padding
   const genLayoutStyle: CSSProperties = {

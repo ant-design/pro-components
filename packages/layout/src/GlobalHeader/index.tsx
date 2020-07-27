@@ -20,7 +20,9 @@ export interface GlobalHeaderProps extends Partial<PureSettings> {
   onCollapse?: (collapsed: boolean) => void;
   isMobile?: boolean;
   logo?: React.ReactNode;
-  menuRender?: WithFalse<(props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode>;
+  menuRender?: WithFalse<
+    (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
+  >;
   rightContentRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
   className?: string;
   prefixCls?: string;
@@ -74,7 +76,7 @@ export default class GlobalHeader extends Component<GlobalHeaderProps> {
       children,
       splitMenus,
       menuData,
-      prefixCls,
+      prefixCls
     } = this.props;
     const baseClassName = `${prefixCls}-global-header`;
     const className = classNames(propClassName, baseClassName, {
@@ -105,7 +107,7 @@ export default class GlobalHeader extends Component<GlobalHeaderProps> {
     );
 
     return (
-      <div className={className} style={style}>
+      <div className={className} style={{ ...style }}>
         {isMobile && renderLogo(menuHeaderRender, logoDom)}
         {isMobile && collapsedButtonRender && (
           <span
@@ -122,7 +124,10 @@ export default class GlobalHeader extends Component<GlobalHeaderProps> {
         {layout === 'mix' && !isMobile && (
           <>
             <div className={`${baseClassName}-logo`}>
-              {defaultRenderLogoAndTitle({ ...this.props, collapsed: false }, 'headerTitleRender')}
+              {defaultRenderLogoAndTitle(
+                { ...this.props, collapsed: false },
+                'headerTitleRender',
+              )}
             </div>
           </>
         )}

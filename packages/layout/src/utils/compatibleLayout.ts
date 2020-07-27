@@ -1,4 +1,6 @@
-const compatibleLayout = (layout?: 'side' | 'top' | 'mix' | 'sidemenu' | 'topmenu') => {
+const compatibleLayout = (
+  layout?: 'side' | 'top' | 'mix' | 'sidemenu' | 'topmenu',
+) => {
   if (!layout) {
     return layout;
   }

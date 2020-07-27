@@ -75,7 +75,8 @@ const getDifferentSetting = (state: Partial<ProSettings>) => {
     }
 
     if (key.includes('Render')) {
-      stateObj[key] = state[key] === 'false' || state[key] === false ? false : undefined;
+      stateObj[key] =
+        state[key] === 'false' || state[key] === false ? false : undefined;
     }
   });
 
@@ -83,7 +84,10 @@ const getDifferentSetting = (state: Partial<ProSettings>) => {
   return stateObj;
 };
 
-export const getFormatMessage = (): ((data: { id: string; defaultMessage?: string }) => string) => {
+export const getFormatMessage = (): ((data: {
+  id: string;
+  defaultMessage?: string;
+}) => string) => {
   const formatMessage = ({
     id,
     defaultMessage,
@@ -110,7 +114,10 @@ const updateTheme = (
   publicPath = '/theme',
 ) => {
   // ssr
-  if (typeof window === 'undefined' || !(window as any).umi_plugin_ant_themeVar) {
+  if (
+    typeof window === 'undefined' ||
+    !(window as any).umi_plugin_ant_themeVar
+  ) {
     return;
   }
   const formatMessage = getFormatMessage();
@@ -127,7 +134,9 @@ const updateTheme = (
   const href = dark ? `${publicPath}/dark` : `${publicPath}/`;
   // 如果是 dark，并且是 color=daybreak，无需进行拼接
   let colorFileName =
-    dark && color ? `-${encodeURIComponent(color)}` : encodeURIComponent(color || '');
+    dark && color
+      ? `-${encodeURIComponent(color)}`
+      : encodeURIComponent(color || '');
   if (color === 'daybreak' && dark) {
     colorFileName = '';
   }
@@ -185,7 +194,8 @@ const getThemeList = (settings: Partial<ProSettings>) => {
   const themeList = [
     {
       key: 'light',
-      url: 'https://gw.alipayobjects.com/zos/antfincdn/NQ%24zoisaD2/jpRkZQMyYRryryPNtyIC.svg',
+      url:
+        'https://gw.alipayobjects.com/zos/antfincdn/NQ%24zoisaD2/jpRkZQMyYRryryPNtyIC.svg',
       title: formatMessage({ id: 'app.setting.pagestyle.light' }),
     },
   ];
@@ -216,7 +226,8 @@ const getThemeList = (settings: Partial<ProSettings>) => {
   if (settings.layout !== 'mix') {
     themeList.push({
       key: 'dark',
-      url: 'https://gw.alipayobjects.com/zos/antfincdn/XwFOFbLkSM/LCkqqYNmvBEbokSDscrm.svg',
+      url:
+        'https://gw.alipayobjects.com/zos/antfincdn/XwFOFbLkSM/LCkqqYNmvBEbokSDscrm.svg',
       title: formatMessage({
         id: 'app.setting.pagestyle.dark',
         defaultMessage: '',
@@ -227,7 +238,8 @@ const getThemeList = (settings: Partial<ProSettings>) => {
   if (list.find((item) => item.theme === 'dark')) {
     themeList.push({
       key: 'realDark',
-      url: 'https://gw.alipayobjects.com/zos/antfincdn/hmKaLQvmY2/LCkqqYNmvBEbokSDscrm.svg',
+      url:
+        'https://gw.alipayobjects.com/zos/antfincdn/hmKaLQvmY2/LCkqqYNmvBEbokSDscrm.svg',
       title: formatMessage({
         id: 'app.setting.pagestyle.dark',
         defaultMessage: '',
@@ -315,7 +327,12 @@ const initState = (
 
   // 如果 url 中没有设置主题，并且 url 中的没有加载，进行一次加载。
   if (defaultSettings.navTheme !== settings.navTheme && settings.navTheme) {
-    updateTheme(settings.navTheme === 'realDark', settings.primaryColor, true, publicPath);
+    updateTheme(
+      settings.navTheme === 'realDark',
+      settings.primaryColor,
+      true,
+      publicPath,
+    );
   }
 };
 
@@ -379,8 +396,12 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   );
   const preStateRef = useRef(settingState);
 
-  const { navTheme = 'dark', primaryColor = 'daybreak', layout = 'sidemenu', colorWeak } =
-    settingState || {};
+  const {
+    navTheme = 'dark',
+    primaryColor = 'daybreak',
+    layout = 'sidemenu',
+    colorWeak,
+  } = settingState || {};
 
   useEffect(() => {
     // 语言修改，这个是和 locale 是配置起来的
@@ -417,12 +438,21 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
    * @param value
    * @param hideMessageLoading
    */
-  const changeSetting = (key: string, value: string | boolean, hideMessageLoading?: boolean) => {
+  const changeSetting = (
+    key: string,
+    value: string | boolean,
+    hideMessageLoading?: boolean,
+  ) => {
     const nextState = { ...preStateRef.current };
     nextState[key] = value;
 
     if (key === 'navTheme') {
-      updateTheme(value === 'realDark', undefined, hideMessageLoading, props.publicPath);
+      updateTheme(
+        value === 'realDark',
+        undefined,
+        hideMessageLoading,
+        props.publicPath,
+      );
       nextState.primaryColor = 'daybreak';
     }
 
@@ -504,7 +534,10 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
       placement="right"
       getContainer={getContainer}
       handler={
-        <div className={`${baseClassName}-drawer-handle`} onClick={() => setShow(!show)}>
+        <div
+          className={`${baseClassName}-drawer-handle`}
+          onClick={() => setShow(!show)}
+        >
           {show ? (
             <CloseOutlined
               style={{
@@ -552,16 +585,23 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
           <ThemeColor
             value={primaryColor}
             colors={
-              hideColors ? [] : themeList.colorList[navTheme === 'realDark' ? 'dark' : 'light']
+              hideColors
+                ? []
+                : themeList.colorList[navTheme === 'realDark' ? 'dark' : 'light']
             }
             formatMessage={formatMessage}
-            onChange={(color) => changeSetting('primaryColor', color, hideLoading)}
+            onChange={(color) =>
+              changeSetting('primaryColor', color, hideLoading)
+            }
           />
         </Body>
 
         <Divider />
 
-        <Body prefixCls={baseClassName} title={formatMessage({ id: 'app.setting.navigationmode' })}>
+        <Body
+          prefixCls={baseClassName}
+          title={formatMessage({ id: 'app.setting.navigationmode' })}
+        >
           <BlockCheckbox
             prefixCls={baseClassName}
             value={layout}
@@ -596,12 +636,18 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
           prefixCls={baseClassName}
           title={formatMessage({ id: 'app.setting.regionalsettings' })}
         >
-          <RegionalSetting settings={settingState} changeSetting={changeSetting} />
+          <RegionalSetting
+            settings={settingState}
+            changeSetting={changeSetting}
+          />
         </Body>
 
         <Divider />
 
-        <Body prefixCls={baseClassName} title={formatMessage({ id: 'app.setting.othersettings' })}>
+        <Body
+          prefixCls={baseClassName}
+          title={formatMessage({ id: 'app.setting.othersettings' })}
+        >
           <List
             split={false}
             renderItem={renderLayoutSettingItem}
@@ -636,7 +682,9 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
         {hideCopyButton ? null : (
           <CopyToClipboard
             text={genCopySettingJson(settingState)}
-            onCopy={() => message.success(formatMessage({ id: 'app.setting.copyinfo' }))}
+            onCopy={() =>
+              message.success(formatMessage({ id: 'app.setting.copyinfo' }))
+            }
           >
             <Button block>
               <CopyOutlined /> {formatMessage({ id: 'app.setting.copy' })}

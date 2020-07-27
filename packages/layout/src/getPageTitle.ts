@@ -10,7 +10,9 @@ export const matchParamsPath = (
   // Internal logic use breadcrumbMap to ensure the order
   // 内部逻辑使用 breadcrumbMap 来确保查询顺序
   if (breadcrumbMap) {
-    const pathKey = [...breadcrumbMap.keys()].find((key) => pathToRegexp(key).test(pathname));
+    const pathKey = [...breadcrumbMap.keys()].find(key =>
+      pathToRegexp(key).test(pathname),
+    );
     if (pathKey) {
       return breadcrumbMap.get(pathKey) as MenuDataItem;
     }
@@ -19,7 +21,9 @@ export const matchParamsPath = (
   // External uses use breadcrumb
   // 外部用户使用 breadcrumb 参数
   if (breadcrumb) {
-    const pathKey = Object.keys(breadcrumb).find((key) => pathToRegexp(key).test(pathname));
+    const pathKey = Object.keys(breadcrumb).find(key =>
+      pathToRegexp(key).test(pathname),
+    );
 
     if (pathKey) {
       return breadcrumb[pathKey];

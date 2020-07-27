@@ -24,7 +24,11 @@ const getLanguage = (): string => {
     return lang || '';
   }
   lang = window.localStorage.getItem('umi_locale');
-  return lang || ((window as unknown) as GLocaleWindow).g_locale || navigator.language;
+  return (
+    lang ||
+    ((window as unknown) as GLocaleWindow).g_locale ||
+    navigator.language
+  );
 };
 
 export { getLanguage };
