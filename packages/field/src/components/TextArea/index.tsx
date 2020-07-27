@@ -7,18 +7,18 @@ import { FieldFC } from '../../index';
  * 最基本的组件，就是个普通的 Input.TextArea
  * @param
  */
-const FieldText: FieldFC<{
+const FieldTextArea: FieldFC<{
   text: string;
-}> = ({ text, mode, render, renderFormItem, formItemProps }) => {
+}> = ({ text, mode, render, renderFormItem, formItemProps }, ref) => {
   if (mode === 'read') {
-    const dom = <span>{text || '-'}</span>;
+    const dom = <span ref={ref}>{text || '-'}</span>;
     if (render) {
       return render(text, { mode, ...formItemProps }, dom);
     }
     return dom;
   }
   if (mode === 'edit' || mode === 'update') {
-    const dom = <Input.TextArea {...formItemProps} defaultValue={text} />;
+    const dom = <Input.TextArea ref={ref} {...formItemProps} defaultValue={text} />;
     if (renderFormItem) {
       return renderFormItem(text, { mode, ...formItemProps }, dom);
     }
@@ -27,4 +27,4 @@ const FieldText: FieldFC<{
   return null;
 };
 
-export default FieldText;
+export default React.forwardRef(FieldTextArea);

@@ -1,0 +1,20 @@
+@import '~antd/es/style/themes/default.less';
+
+@pro-footer-bar-prefix-cls: ~'@{ant-prefix}-pro-footer-bar';
+
+.@{pro-footer-bar-prefix-cls} {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  display: flex;
+  width: 100%;
+  padding: 0 24px;
+  line-height: 48px;
+  background: @component-background;
+  border-top: 1px solid @border-color-split;
+  box-shadow: @box-shadow-base;
+  &-left {
+    flex: 1;
+  }
+}

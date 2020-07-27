@@ -19,7 +19,7 @@ tailPkgs.forEach((pkg) => {
     entry,
     output: {
       filename: '[name].js',
-      library: 'ProLayot',
+      library: `Pro${pkg.toLowerCase().replace(/( |^)[a-z]/g, (L) => L.toUpperCase())}`,
       libraryExport: 'default',
       path: path.resolve(__dirname, 'packages', pkg, 'dist'),
       globalObject: 'this',

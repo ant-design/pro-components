@@ -5,7 +5,7 @@ import { join } from 'path';
 // runtime must build before renderer-react
 const headPkgs: string[] = [];
 const tailPkgs = readdirSync(join(__dirname, 'packages')).filter(
-  pkg => pkg.charAt(0) !== '.' && !headPkgs.includes(pkg),
+  (pkg) => pkg.charAt(0) !== '.' && !headPkgs.includes(pkg),
 );
 
 export default {
@@ -16,10 +16,6 @@ export default {
   },
   pkgs: [...headPkgs, ...tailPkgs],
   extraBabelPlugins: [
-    [
-      'babel-plugin-import',
-      { libraryName: 'antd', libraryDirectory: 'es', style: true },
-      'antd',
-    ],
+    ['babel-plugin-import', { libraryName: 'antd', libraryDirectory: 'es', style: true }, 'antd'],
   ],
 };

@@ -1,0 +1,59 @@
+@import '~antd/es/style/themes/default.less';
+
+@pro-column-setting-prefix-cls: ~'@{ant-prefix}-pro-table-column-setting';
+
+.@{pro-column-setting-prefix-cls} {
+  width: auto;
+  &-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 32px;
+  }
+  &-overlay {
+    .ant-popover-inner-content {
+      padding: 12px 0;
+    }
+  }
+}
+.@{pro-column-setting-prefix-cls}-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  &-title {
+    color: #8c8c8c;
+    font-size: 12px;
+  }
+  &-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 4px 16px;
+    &-option {
+      display: none;
+      float: right;
+      cursor: pointer;
+      > span {
+        > i.anticon {
+          color: @primary-color;
+        }
+      }
+      > span + span {
+        margin-left: 8px;
+      }
+    }
+    &:hover {
+      background-color: @item-active-bg;
+      .@{pro-column-setting-prefix-cls}-list-item-option {
+        display: block;
+      }
+    }
+  }
+  .@{ant-prefix}-checkbox-wrapper {
+    flex: 1;
+    margin: 0;
+    :last-child {
+      margin-bottom: 0;
+    }
+  }
+}

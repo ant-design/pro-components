@@ -30,9 +30,7 @@ describe('skeleton', () => {
   });
 
   it('🥩 descriptions api use', async () => {
-    const wrapper = mount(
-      <ProSkeleton type="descriptions" pageHeader={false} table={10} />,
-    );
+    const wrapper = mount(<ProSkeleton type="descriptions" pageHeader={false} table={10} />);
     expect(wrapper.render()).toMatchSnapshot();
     wrapper.setProps({
       table: false,

@@ -1,0 +1,529 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageContainer ⚡️ support footer 1`] = `
+<div
+  class="ant-pro-page-container"
+>
+  <div
+    class="ant-pro-page-container-warp"
+  >
+    <div
+      class="ant-page-header ant-page-header-ghost"
+    >
+      <div
+        class="ant-page-header-heading"
+      >
+        <div
+          class="ant-page-header-heading-left"
+        >
+          <span
+            class="ant-page-header-heading-title"
+            title="期贤"
+          >
+            期贤
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-pro-grid-content"
+  >
+    <div
+      class="ant-pro-grid-content-children"
+    />
+  </div>
+  <div
+    class="ant-pro-footer-bar"
+  >
+    <div
+      class="ant-pro-footer-bar-left"
+    />
+    <div
+      class="ant-pro-footer-bar-right"
+    >
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center"
+      >
+        <div
+          class="ant-space-item"
+        >
+          <button
+            type="button"
+          >
+            right
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
+<div
+  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-top-menu"
+>
+  <section
+    class="ant-layout ant-layout-has-sider"
+    style="min-height: 100%;"
+  >
+    <section
+      class="ant-layout"
+      style="position: relative;"
+    >
+      <header
+        class="ant-layout-header ant-pro-top-menu"
+        style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 9;"
+      >
+        <div
+          class="ant-pro-top-nav-header"
+        >
+          <div
+            class="ant-pro-top-nav-header-main "
+          >
+            <div
+              class="ant-pro-top-nav-header-main-left"
+            >
+              <div
+                class="ant-pro-top-nav-header-logo"
+                id="logo"
+              >
+                <a>
+                  <img
+                    alt="logo"
+                    src="https://gw.alipayobjects.com/zos/antfincdn/PmY%24TNNDBI/logo.svg"
+                  />
+                  <h1>
+                    Ant Design Pro
+                  </h1>
+                </a>
+              </div>
+            </div>
+            <div
+              class="ant-pro-top-nav-header-menu"
+              style="flex: 1;"
+            >
+              <ul
+                class="ant-menu top-nav-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
+                role="menu"
+              />
+            </div>
+          </div>
+        </div>
+      </header>
+      <main
+        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+      >
+        <div
+          class="ant-pro-page-container"
+        >
+          <div
+            class="ant-pro-page-container-warp"
+          >
+            <div
+              class="ant-page-header ant-page-header-ghost"
+            >
+              <div
+                class="ant-page-header-heading"
+              >
+                <div
+                  class="ant-page-header-heading-left"
+                >
+                  <span
+                    class="ant-page-header-heading-title"
+                    title="Ant Design Pro"
+                  >
+                    Ant Design Pro
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-pro-grid-content"
+          >
+            <div
+              class="ant-pro-grid-content-children"
+            >
+              <div>
+                <div
+                  class="ant-pro-page-container-children-content"
+                >
+                  <div
+                    class="ant-pro-footer-bar"
+                    style="width: 100%;"
+                  >
+                    <div
+                      class="ant-pro-footer-bar-left"
+                    />
+                    <div
+                      class="ant-pro-footer-bar-right"
+                    >
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      >
+                        <div
+                          class="ant-space-item"
+                        >
+                          <button
+                            type="button"
+                          >
+                            qixian
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  style="height: 48px; margin-top: 24px;"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </section>
+  </section>
+</div>
+`;
+
+exports[`PageContainer 🐲 footer is null, do not render footerToolbar  1`] = `
+<div
+  class="ant-pro-page-container"
+>
+  <div
+    class="ant-pro-page-container-warp"
+  >
+    <div
+      class="ant-page-header ant-page-header-ghost"
+    />
+  </div>
+  <div
+    class="ant-pro-grid-content"
+  >
+    <div
+      class="ant-pro-grid-content-children"
+    />
+  </div>
+  <div
+    class="ant-pro-footer-bar"
+  >
+    <div
+      class="ant-pro-footer-bar-left"
+    />
+    <div
+      class="ant-pro-footer-bar-right"
+    >
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center"
+      >
+        <div
+          class="ant-space-item"
+        >
+          <button
+            type="button"
+          >
+            qixian
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PageContainer 🐲 footer is null, do not render footerToolbar  2`] = `
+<div
+  class="ant-pro-page-container"
+>
+  <div
+    class="ant-pro-page-container-warp"
+  >
+    <div
+      class="ant-page-header ant-page-header-ghost"
+    />
+  </div>
+  <div
+    class="ant-pro-grid-content"
+  >
+    <div
+      class="ant-pro-grid-content-children"
+    />
+  </div>
+</div>
+`;
+
+exports[`PageContainer 🐲 footer should know width 1`] = `
+<div
+  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-top-menu"
+>
+  <section
+    class="ant-layout ant-layout-has-sider"
+    style="min-height: 100%;"
+  >
+    <section
+      class="ant-layout"
+      style="position: relative;"
+    >
+      <header
+        class="ant-layout-header ant-pro-top-menu"
+        style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 9;"
+      >
+        <div
+          class="ant-pro-top-nav-header"
+        >
+          <div
+            class="ant-pro-top-nav-header-main "
+          >
+            <div
+              class="ant-pro-top-nav-header-main-left"
+            >
+              <div
+                class="ant-pro-top-nav-header-logo"
+                id="logo"
+              >
+                <a>
+                  <img
+                    alt="logo"
+                    src="https://gw.alipayobjects.com/zos/antfincdn/PmY%24TNNDBI/logo.svg"
+                  />
+                  <h1>
+                    Ant Design Pro
+                  </h1>
+                </a>
+              </div>
+            </div>
+            <div
+              class="ant-pro-top-nav-header-menu"
+              style="flex: 1;"
+            >
+              <ul
+                class="ant-menu top-nav-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
+                role="menu"
+              />
+            </div>
+          </div>
+        </div>
+      </header>
+      <main
+        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+      >
+        <div
+          class="ant-pro-page-container"
+        >
+          <div
+            class="ant-pro-page-container-warp"
+          >
+            <div
+              class="ant-page-header ant-page-header-ghost"
+            >
+              <div
+                class="ant-page-header-heading"
+              >
+                <div
+                  class="ant-page-header-heading-left"
+                >
+                  <span
+                    class="ant-page-header-heading-title"
+                    title="Ant Design Pro"
+                  >
+                    Ant Design Pro
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-pro-grid-content"
+          >
+            <div
+              class="ant-pro-grid-content-children"
+            />
+          </div>
+          <div
+            class="ant-pro-footer-bar"
+            style="width: 100%;"
+          >
+            <div
+              class="ant-pro-footer-bar-left"
+            />
+            <div
+              class="ant-pro-footer-bar-right"
+            >
+              <div
+                class="ant-space ant-space-horizontal ant-space-align-center"
+              >
+                <div
+                  class="ant-space-item"
+                >
+                  <button
+                    type="button"
+                  >
+                    qixian
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </section>
+  </section>
+</div>
+`;
+
+exports[`PageContainer 💄 base use 1`] = `
+<div
+  class="ant-pro-page-container"
+>
+  <div
+    class="ant-pro-page-container-warp"
+  >
+    <div
+      class="ant-page-header ant-page-header-ghost"
+    >
+      <div
+        class="ant-page-header-heading"
+      >
+        <div
+          class="ant-page-header-heading-left"
+        >
+          <span
+            class="ant-page-header-heading-title"
+            title="期贤"
+          >
+            期贤
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-pro-grid-content"
+  >
+    <div
+      class="ant-pro-grid-content-children"
+    />
+  </div>
+</div>
+`;
+
+exports[`PageContainer 🔥 footer bar support extra 1`] = `
+<div
+  class="qixian_footer ant-pro-footer-bar"
+>
+  <div
+    class="ant-pro-footer-bar-left"
+  >
+    <img
+      alt="logo"
+      src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+    />
+  </div>
+  <div
+    class="ant-pro-footer-bar-right"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <button
+          type="button"
+        >
+          right
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PageContainer 🔥 footer bar support renderContent 1`] = `
+<div
+  class="qixian_footer ant-pro-footer-bar"
+>
+  home_toolbar
+</div>
+`;
+
+exports[`PageContainer 🔥 support footer 1`] = `
+<div
+  class="ant-pro-page-container"
+>
+  <div
+    class="ant-pro-page-container-warp"
+  >
+    <div
+      class="ant-page-header has-breadcrumb ant-page-header-ghost"
+    >
+      <div
+        class="ant-breadcrumb"
+      >
+        <span>
+          <span
+            class="ant-breadcrumb-link"
+          >
+            <span>
+              home
+            </span>
+          </span>
+          <span
+            class="ant-breadcrumb-separator"
+          >
+            /
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-page-header-heading"
+      >
+        <div
+          class="ant-page-header-heading-left"
+        >
+          <span
+            class="ant-page-header-heading-title"
+            title="期贤"
+          >
+            期贤
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-pro-grid-content"
+  >
+    <div
+      class="ant-pro-grid-content-children"
+    />
+  </div>
+  <div
+    class="ant-pro-footer-bar"
+  >
+    <div
+      class="ant-pro-footer-bar-left"
+    />
+    <div
+      class="ant-pro-footer-bar-right"
+    >
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center"
+      >
+        <div
+          class="ant-space-item"
+        >
+          <button
+            type="button"
+          >
+            right
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
