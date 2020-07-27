@@ -76,7 +76,7 @@ export default class GlobalHeader extends Component<GlobalHeaderProps> {
       children,
       splitMenus,
       menuData,
-      prefixCls,
+      prefixCls
     } = this.props;
     const baseClassName = `${prefixCls}-global-header`;
     const className = classNames(propClassName, baseClassName, {
@@ -107,7 +107,7 @@ export default class GlobalHeader extends Component<GlobalHeaderProps> {
     );
 
     return (
-      <div className={className} style={style}>
+      <div className={className} style={{ ...style }}>
         {isMobile && renderLogo(menuHeaderRender, logoDom)}
         {isMobile && collapsedButtonRender && (
           <span

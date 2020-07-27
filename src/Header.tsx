@@ -77,6 +77,7 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
       headerRender,
       isMobile,
       prefixCls,
+      headerHeight
     } = this.props;
     const needFixedHeader = fixedHeader || layout === 'mix';
     const isTop = layout === 'top';
@@ -105,8 +106,8 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
         {needFixedHeader && (
           <Header
             style={{
-              height: 48,
-              lineHeight: '48px',
+              height: headerHeight,
+              lineHeight: `${headerHeight}px`,
               background: 'transparent',
             }}
           />
@@ -114,8 +115,8 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
         <Header
           style={{
             padding: 0,
-            height: 48,
-            lineHeight: '48px',
+            height: headerHeight,
+            lineHeight: `${headerHeight}px`,
             width,
             zIndex: layout === 'mix' ? 100 : 9,
             right,

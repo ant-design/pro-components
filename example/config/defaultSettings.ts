@@ -16,4 +16,5 @@ export default {
   title: 'Ant Design Pro',
   pwa: false,
   iconfontUrl: '',
+  headerHeight: 64,
 } as Settings;

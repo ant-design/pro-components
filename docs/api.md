@@ -32,6 +32,7 @@ ProLayout 提供了丰富的 API 来自定义各种行为，我们可以在下�
 | splitMenus | 是否自动切分 menuData，只有 mix 模式会生效 | boolean | false |
 | contentWidth | layout 的内容模式,Fluid：定宽 1200px，Fixed：自适应 | 'Fluid' \| 'Fixed' | `'Fluid'` |
 | navTheme | 导航的主题 | 'light' \| 'dark' | `'dark'` |
+| headerHeight | header 自定义高度 | number | 48 |
 | fixedHeader | 是否固定 header 到顶部 | boolean | `false` |
 | fixSiderbar | 是否固定导航 | boolean | `false` |
 | breakpoint | 触发响应式布局的[断点](https://ant.design/components/grid-cn/#Col) | `Enum { 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' }` | `lg` |
