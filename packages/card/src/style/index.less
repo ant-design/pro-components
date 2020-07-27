@@ -1,0 +1,80 @@
+@import (reference) '~antd/lib/style/themes/default';
+@pro-card-prefix-cls: ~'@{ant-prefix}-pro-card';
+
+.@{pro-card-prefix-cls} {
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border-radius: @card-radius;
+  width: 100%;
+
+  &-border {
+    border: @border-width-base @border-style-base @border-color-split;
+  }
+
+  &-split-vertical {
+    border-right: @border-width-base @border-style-base @border-color-split;
+  }
+
+  &-split-horizontal {
+    border-bottom: @border-width-base @border-style-base @border-color-split;
+  }
+
+  &-contain-card {
+    background-color: transparent;
+  }
+
+  &-contain-card > &-body {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    padding: 0;
+  }
+
+  &-contain-card > &-body-column {
+    flex-direction: column;
+  }
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    padding: @padding-md;
+    padding-bottom: 0;
+    &-border {
+      & {
+        padding-bottom: @padding-md;
+      }
+      border-bottom: @border-width-base @border-style-base @border-color-split;
+    }
+  }
+
+  &-title {
+    font-weight: bold;
+  }
+
+  &-body {
+    display: block;
+    padding: @padding-md;
+    box-sizing: border-box;
+
+    &-center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.loop-grid-columns(@index) when (@index > 0) {
+  .@{pro-card-prefix-cls}-span-@{index} {
+    display: block;
+    width: percentage((@index / @grid-columns));
+  }
+  .loop-grid-columns((@index - 1));
+}
+
+.loop-grid-columns(@grid-columns);

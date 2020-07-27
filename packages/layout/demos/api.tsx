@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Switch, Avatar } from 'antd';
 import ProLayout, { PageContainer, DefaultFooter } from '@ant-design/pro-layout';
-import defaultProps from './defaultProps';
+import defaultProps from '../fixtures/defaultProps';
 
 export default () => {
   const [loading, setLoading] = useState(false);

@@ -21,5 +21,14 @@
       "@ant-design/pro-list": ["./packages/list/src/index.tsx"]
     }
   },
-  "include": ["**/src", "**/docs", "scripts", "**/demos", ".eslintrc.js", "tests", "jest.config.js"]
+  "include": [
+    "**/src",
+    "**/docs",
+    "scripts",
+    "**/demos",
+    ".eslintrc.js",
+    "tests",
+    "jest.config.js",
+    "**/fixtures"
+  ]
 }
