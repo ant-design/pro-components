@@ -9,8 +9,13 @@ import { ProDescriptionsFC } from '../../index';
  */
 const ProDescriptionsText: ProDescriptionsFC<{
   text: string;
-}> = ({ text, render, formItemProps }) => {
-  const dom = <Descriptions>{text || '-'}</Descriptions>;
+  label: string;
+}> = ({ text, label, render, formItemProps }) => {
+  const dom = (
+    <Descriptions>
+      <Descriptions.Item label={label}>{text || '-'}</Descriptions.Item>
+    </Descriptions>
+  );
   if (render) {
     return render(text, { ...formItemProps }, dom);
   }

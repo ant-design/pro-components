@@ -1,6 +1,7 @@
 import React from 'react';
-// import { Avatar, Descriptions } from 'antd';
-import ProDescriptionsText from './components/Text';
+import { Descriptions } from 'antd';
+// import ProDescriptionsText from './components/Text';
+import ProDescriptionsItem from './Item';
 
 export type ColumnEmptyText = string;
 
@@ -75,9 +76,7 @@ type RenderProDescriptionsFC = {
 /**
  * 默认的 ProDescriptions 需要实现的功能
  */
-export type ProDescriptionsFC<T> = React.FC<
-  BaseProDescriptionsFC & RenderProDescriptionsFC & T
->;
+export type ProDescriptionsFC<T> = React.FC<BaseProDescriptionsFC & RenderProDescriptionsFC & T>;
 
 // function return type
 export type ProColumnsValueObjectType = {
@@ -107,36 +106,39 @@ type RenderProps = Omit<ProDescriptionsFCRenderProps, 'text'> &
  * @param text
  * @param valueType
  */
-const defaultRenderText = (
-  text: string | number | React.ReactText[],
-  valueType: ProColumnsValueType,
-  props: RenderProps = { emptyText: '-' },
-): React.ReactNode => {
-  return <ProDescriptionsText text={text as string} {...props} />;
+// const defaultRenderText = (
+//   text: string | number | React.ReactText[],
+//   valueType: ProColumnsValueType,
+//   props: RenderProps = { emptyText: '-' },
+// ): React.ReactNode => {
+//   return <ProDescriptionsText text={text as string} {...props} />;
+// };
+
+const ProDescriptions: React.ForwardRefRenderFunction<any, RenderProps> = props => {
+  return <Descriptions {...props} />;
 };
 
-const ProDescriptions: React.ForwardRefRenderFunction<
-  any,
-  {
-    text: string | number | React.ReactText[];
-    valueType: ProColumnsValueType;
-  } & RenderProps
-> = ({ text, valueType, onChange, value, ...rest }, ref) => {
-  return (
-    <React.Fragment>
-      {defaultRenderText(text, valueType, {
-        ...rest,
-        ref,
-        formItemProps: (value || onChange || rest?.formItemProps) && {
-          ...rest?.formItemProps,
-          value,
-          onChange,
-        },
-      })}
-    </React.Fragment>
-  );
+export interface ProDescriptionsItemProps {
+  prefixCls?: string;
+  className?: string;
+  valueType?: ProColumnsValueType;
+  style?: React.CSSProperties;
+  label?: React.ReactNode;
+  text?: React.ReactNode;
+  children: React.ReactNode;
+  span?: number;
+}
+
+const Item = (props: ProDescriptionsItemProps) => {
+  const { valueType, text } = props;
+  console.log(valueType, 'valueType');
+  let finallyText = text;
+  if (valueType === 'money') {
+    finallyText = `¥${text}`;
+  }
+  return <Descriptions.Item {...props}>{finallyText}</Descriptions.Item>;
 };
 
-export { ProDescriptionsText };
+ProDescriptions.Item = Item;
 
 export default React.forwardRef(ProDescriptions);

@@ -1,7 +1,7 @@
 ---
 title: ProDescriptions
 nav:
-  title: ProDescriptions
+  title: 描述列表
   path: /descriptions
 ---
 
