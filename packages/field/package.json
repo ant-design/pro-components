@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-field",
-  "version": "0.0.8",
+  "version": "0.0.10",
   "description": "原子信息组件，统一 ProForm、ProTable、ProList、Filter 等组件里面的字段定义。",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -12,17 +12,17 @@
   },
   "license": "MIT",
   "files": [
-    "es",
     "lib",
-    "src"
+    "src",
+    "es",
+    "dist"
   ],
   "author": "chenshuai2144",
   "dependencies": {
     "classnames": "^2.2.6",
     "lodash.isequal": "^4.5.0",
     "lodash.tonumber": "^4.0.3",
-    "moment": "^2.27.0",
-    "rc-table": "^7.8.1"
+    "moment": "^2.27.0"
   },
   "peerDependencies": {
     "antd": "4.x",

@@ -7,10 +7,7 @@ interface ResultPageSkeletonProps {
   pageHeader?: false;
 }
 
-const ResultPageSkeleton: React.FC<ResultPageSkeletonProps> = ({
-  active = true,
-  pageHeader,
-}) => {
+const ResultPageSkeleton: React.FC<ResultPageSkeletonProps> = ({ active = true, pageHeader }) => {
   return (
     <div
       style={{
@@ -34,15 +31,8 @@ const ResultPageSkeleton: React.FC<ResultPageSkeletonProps> = ({
               marginBottom: 32,
             }}
           />
-          <Skeleton.Button
-            active={active}
-            style={{ width: 214, marginBottom: 8 }}
-          />
-          <Skeleton.Button
-            active={active}
-            style={{ width: 328 }}
-            size="small"
-          />
+          <Skeleton.Button active={active} style={{ width: 214, marginBottom: 8 }} />
+          <Skeleton.Button active={active} style={{ width: 328 }} size="small" />
           <Space
             style={{
               marginTop: 24,

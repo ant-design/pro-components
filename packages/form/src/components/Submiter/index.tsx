@@ -28,12 +28,7 @@ export interface SubmiterProps {
  * @param props
  */
 const Submiter: React.FC<SubmiterProps> = (props) => {
-  const {
-    form,
-    onSubmit = () => {},
-    onReset = () => {},
-    searchConfig = {},
-  } = props;
+  const { form, onSubmit = () => {}, onReset = () => {}, searchConfig = {} } = props;
   // TODO i18n
   const { submitText = '提交', resetText = '重置' } = searchConfig;
 

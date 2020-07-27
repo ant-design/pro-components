@@ -2,17 +2,18 @@ import React from 'react';
 // eslint-disable-next-line import/no-unresolved
 import ProField from '@ant-design/pro-field';
 import { Form } from 'antd';
-import { FormItemProps } from 'antd/lib/form';
 import { DatePickerProps } from 'antd/lib/date-picker';
+import { ProFormItemProps } from '../../interface';
+import { createField } from '../../BaseForm';
 
 /**
  * 文本选择组件
  * @param
  */
-const ProFormTextArea: React.ForwardRefRenderFunction<
-  any,
-  FormItemProps & DatePickerProps
-> = ({ value, ...restProps }, ref) => {
+const ProFormTextArea: React.ForwardRefRenderFunction<any, ProFormItemProps & DatePickerProps> = (
+  { value, fieldProps, ...restProps },
+  ref,
+) => {
   return (
     <Form.Item {...restProps}>
       <ProField
@@ -20,10 +21,10 @@ const ProFormTextArea: React.ForwardRefRenderFunction<
         ref={ref}
         mode="edit"
         valueType="textarea"
-        {...restProps}
+        formItemProps={fieldProps}
       />
     </Form.Item>
   );
 };
 
-export default React.forwardRef(ProFormTextArea);
+export default createField<ProFormItemProps & DatePickerProps>(React.forwardRef(ProFormTextArea));

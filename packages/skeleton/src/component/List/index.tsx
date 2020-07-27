@@ -30,6 +30,15 @@ const StatisticSkeleton: React.FC<{
 }> = ({ size, active }) => {
   const colSize = useMediaQuery();
   const arraySize = size === undefined ? MediaQueryKeyEnum[colSize] || 6 : size;
+  const firstWidth = (index: number) => {
+    if (arraySize > 2 && index !== 0) {
+      return 42;
+    }
+    if (index === 0) {
+      return 0;
+    }
+    return 16;
+  };
   return (
     <Card
       bordered={false}
@@ -49,12 +58,10 @@ const StatisticSkeleton: React.FC<{
             // eslint-disable-next-line react/no-array-index-key
             key={index}
             style={{
-              borderLeft:
-                arraySize > 2 && index === 1
-                  ? '1px solid rgba(0,0,0,0.06)'
-                  : undefined,
-              paddingLeft: arraySize > 2 ? 42 : 16,
+              borderLeft: arraySize > 2 && index === 1 ? '1px solid rgba(0,0,0,0.06)' : undefined,
+              paddingLeft: firstWidth(index),
               flex: 1,
+              marginRight: index === 0 ? 16 : 0,
             }}
           >
             <Skeleton
@@ -123,11 +130,7 @@ export const ListSkeletonItem: React.FC<{ active: boolean }> = ({ active }) => (
             }}
           />
         </div>
-        <Skeleton.Button
-          active={active}
-          size="small"
-          style={{ width: 165, marginTop: 12 }}
-        />
+        <Skeleton.Button active={active} size="small" style={{ width: 165, marginTop: 12 }} />
       </div>
     </Card>
     <Line />
@@ -251,9 +254,7 @@ const ListPageSkeleton: React.FC<ListPageSkeletonProps> = ({
     }}
   >
     {pageHeader !== false && <PageHeaderSkeleton active={active} />}
-    {statistic !== false && (
-      <StatisticSkeleton size={statistic as number} active={active} />
-    )}
+    {statistic !== false && <StatisticSkeleton size={statistic as number} active={active} />}
     {(toolbar !== false || list !== false) && (
       <Card
         bordered={false}
@@ -263,11 +264,7 @@ const ListPageSkeleton: React.FC<ListPageSkeletonProps> = ({
       >
         {toolbar !== false && <ListToolbarSkeleton active={active} />}
         {list !== false && (
-          <ListSkeleton
-            size={list as number}
-            active={active}
-            actionButton={actionButton}
-          />
+          <ListSkeleton size={list as number} active={active} actionButton={actionButton} />
         )}
       </Card>
     )}

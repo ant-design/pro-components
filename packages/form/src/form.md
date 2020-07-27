@@ -1,7 +1,7 @@
 ---
 title: ProForm
 nav:
-  title: ProForm
+  title: 表单
   path: /form
 ---
 
@@ -35,6 +35,7 @@ nav:
 | onCollapse | 切换表单折叠状态时的回调 | `Function(collapsed)` | - |
 | hideRequiredMark | 隐藏所有表单项的必选标记，**默认隐藏** | `boolean` | true |
 | defaultColsNumber | 自定义折叠状态下默认显示的表单控件数量，没有设置或小于 0，则显示一行控件; 数量大于等于控件数量则隐藏展开按钮 | `number` | - |
+| labelWidth | label 宽度 | `number` | - |
 
 ### 响应式断点规则
 
@@ -46,3 +47,11 @@ nav:
 | `≧ 785px && < 1057px` | 3                                    |
 | `≧ 513px && < 785px`  | 2                                    |
 | `< 513px`             | 1（此时 label 与控件会强制上下布局） |
+
+## SearchFilter 搜索过滤
+
+<code src="../demos/search-filter.tsx" />
+
+## LightFilter 轻量筛选
+
+<code src="../demos/light-filter.tsx" />

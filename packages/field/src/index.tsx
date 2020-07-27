@@ -10,6 +10,7 @@ import FieldCode from './components/Code';
 import FieldTimePicker from './components/TimePicker';
 import FieldText from './components/Text';
 import FieldTextArea from './components/TextArea';
+import FiledSelect, { ValueEnumMap, ValueEnumObj, RequestData } from './components/Select';
 
 export type ColumnEmptyText = string;
 
@@ -61,6 +62,11 @@ type BaseFieldFC = {
    *简约模式
    */
   plain?: boolean;
+
+  /**
+   * 映射值的类型
+   */
+  valueEnum?: ValueEnumMap | ValueEnumObj;
 };
 
 /**
@@ -78,17 +84,13 @@ type RenderFieldFC = {
     props: Omit<FieldFCRenderProps, 'value' | 'onChange'>,
     dom: JSX.Element,
   ) => JSX.Element;
-  renderFormItem?: (
-    text: any,
-    props: FieldFCRenderProps,
-    dom: JSX.Element,
-  ) => JSX.Element;
+  renderFormItem?: (text: any, props: FieldFCRenderProps, dom: JSX.Element) => JSX.Element;
 };
 
 /**
  * 默认的 Field 需要实现的功能
  */
-export type FieldFC<T> = React.FC<BaseFieldFC & RenderFieldFC & T>;
+export type FieldFC<T> = React.ForwardRefRenderFunction<any, BaseFieldFC & RenderFieldFC & T>;
 
 // function return type
 export type ProColumnsValueObjectType = {
@@ -98,6 +100,7 @@ export type ProColumnsValueObjectType = {
   /** percent */
   showSymbol?: boolean;
   precision?: number;
+  request?: RequestData;
 };
 
 /**
@@ -136,9 +139,7 @@ const defaultRenderTextByObject = (
     );
   }
   if (valueType.type === 'money') {
-    return (
-      <FieldMoney {...props} text={text as number} locale={valueType.locale} />
-    );
+    return <FieldMoney {...props} text={text as number} locale={valueType.locale} />;
   }
   if (valueType.type === 'percent') {
     return (
@@ -177,22 +178,14 @@ const defaultRenderText = (
    *如果是日期的值
    */
   if (valueType === 'date') {
-    return (
-      <FieldDatePicker text={text as string} format="YYYY-MM-DD" {...props} />
-    );
+    return <FieldDatePicker text={text as string} format="YYYY-MM-DD" {...props} />;
   }
 
   /**
    *如果是日期范围的值
    */
   if (valueType === 'dateRange') {
-    return (
-      <FieldRangePicker
-        text={text as string[]}
-        format="YYYY-MM-DD"
-        {...props}
-      />
-    );
+    return <FieldRangePicker text={text as string[]} format="YYYY-MM-DD" {...props} />;
   }
 
   /**
@@ -200,12 +193,7 @@ const defaultRenderText = (
    */
   if (valueType === 'dateTime') {
     return (
-      <FieldDatePicker
-        text={text as string}
-        format="YYYY-MM-DD HH:mm:ss"
-        showTime
-        {...props}
-      />
+      <FieldDatePicker text={text as string} format="YYYY-MM-DD HH:mm:ss" showTime {...props} />
     );
   }
 
@@ -215,12 +203,7 @@ const defaultRenderText = (
   if (valueType === 'dateTimeRange') {
     // 值不存在的时候显示 "-"
     return (
-      <FieldRangePicker
-        text={text as string[]}
-        format="YYYY-MM-DD HH:mm:ss"
-        showTime
-        {...props}
-      />
+      <FieldRangePicker text={text as string[]} format="YYYY-MM-DD HH:mm:ss" showTime {...props} />
     );
   }
 
@@ -228,9 +211,7 @@ const defaultRenderText = (
    *如果是时间类型的值
    */
   if (valueType === 'time') {
-    return (
-      <FieldTimePicker text={text as string} format="HH:mm:ss" {...props} />
-    );
+    return <FieldTimePicker text={text as string} format="HH:mm:ss" {...props} />;
   }
 
   if (valueType === 'index') {
@@ -272,6 +253,10 @@ const defaultRenderText = (
     }
   }
 
+  if (props.valueEnum || props.request) {
+    return <FiledSelect text={text as string} {...props} />;
+  }
+
   return <FieldText text={text as string} {...props} />;
 };
 
@@ -309,6 +294,7 @@ export {
   FieldCode,
   FieldTimePicker,
   FieldText,
+  FiledSelect,
 };
 
 export default React.forwardRef(Field);

@@ -2,11 +2,7 @@ import React, { Fragment, ReactNode, useMemo } from 'react';
 import { InputNumber } from 'antd';
 import toNumber from 'lodash.tonumber';
 
-import {
-  getColorByRealValue,
-  getSymbolByRealValue,
-  getRealTextWithPrecision,
-} from './util';
+import { getColorByRealValue, getSymbolByRealValue, getRealTextWithPrecision } from './util';
 import { FieldFC } from '../../index';
 
 export type PercentPropInt = {
@@ -22,18 +18,21 @@ export type PercentPropInt = {
  * 百分比组件
  * @param  PercentPropInt
  */
-const FieldPercent: FieldFC<PercentPropInt> = ({
-  text,
-  prefix,
-  precision,
-  showSymbol,
-  suffix = '%',
-  mode,
-  showColor = false,
-  render,
-  renderFormItem,
-  formItemProps,
-}) => {
+const FieldPercent: FieldFC<PercentPropInt> = (
+  {
+    text,
+    prefix,
+    precision,
+    showSymbol,
+    suffix = '%',
+    mode,
+    showColor = false,
+    render,
+    renderFormItem,
+    formItemProps,
+  },
+  ref,
+) => {
   const realValue = useMemo(
     () =>
       typeof text === 'string' && (text as string).includes('%')
@@ -47,37 +46,30 @@ const FieldPercent: FieldFC<PercentPropInt> = ({
     const style = showColor ? { color: getColorByRealValue(realValue) } : {};
 
     const dom = (
-      <span style={style}>
+      <span style={style} ref={ref}>
         {prefix && <span>{prefix}</span>}
-        {showSymbol && (
-          <Fragment>{getSymbolByRealValue(realValue)}&nbsp;</Fragment>
-        )}
+        {showSymbol && <Fragment>{getSymbolByRealValue(realValue)}&nbsp;</Fragment>}
         {getRealTextWithPrecision(realValue, precision)}
         {suffix && suffix}
       </span>
     );
     if (render) {
-      return render(
-        text,
-        { mode, ...formItemProps, prefix, precision, showSymbol, suffix },
-        dom,
-      );
+      return render(text, { mode, ...formItemProps, prefix, precision, showSymbol, suffix }, dom);
     }
     return dom;
   }
   if (mode === 'edit' || mode === 'update') {
     const dom = (
       <InputNumber
-        formatter={value => {
+        ref={ref}
+        formatter={(value) => {
           if (value && prefix) {
             return `${prefix} ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
           }
           return value;
         }}
-        parser={value =>
-          value
-            ? value.replace(new RegExp(`\\${prefix}\\s?|(,*)`, 'g'), '')
-            : ''
+        parser={(value) =>
+          value ? value.replace(new RegExp(`\\${prefix}\\s?|(,*)`, 'g'), '') : ''
         }
         {...formItemProps}
         defaultValue={realValue}
@@ -91,4 +83,4 @@ const FieldPercent: FieldFC<PercentPropInt> = ({
   return null;
 };
 
-export default FieldPercent;
+export default React.forwardRef(FieldPercent);

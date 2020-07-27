@@ -1,7 +1,7 @@
 {
-  "name": "@ant-design/form",
-  "version": "1.0.0-beta.5",
-  "description": "@ant-design/form",
+  "name": "@ant-design/pro-form",
+  "version": "1.0.0-beta.7",
+  "description": "@ant-design/pro-form",
   "keywords": [
     "antd",
     "admin",
@@ -9,7 +9,7 @@
     "ant-design-pro"
   ],
   "homepage": "https://github.com/ant-design/pro-components/tree/master/packages/form#readme",
-  "bugs": "http://github.com/umijs/plugins/issues",
+  "bugs": "https://github.com/ant-design/pro-components/issues",
   "repository": {
     "type": "git",
     "url": "https://github.com/ant-design/pro-components"
@@ -19,11 +19,14 @@
   "types": "lib/index.d.ts",
   "files": [
     "lib",
-    "src"
+    "src",
+    "es",
+    "dist"
   ],
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
-    "@ant-design/pro-field": "0.0.8",
+    "@ant-design/pro-field": "0.0.10",
+    "classnames": "^2.2.6",
     "rc-resize-observer": "^0.2.3",
     "use-media-antd-query": "^1.0.2",
     "use-merge-value": "^1.0.2"
@@ -36,7 +39,7 @@
     "access": "public"
   },
   "authors": [
-    "chencheng <sorrycc@gmail.com> (https://github.com/sorrycc)",
-    "chenshuai2144 <qixian.cs@outlook.om> (https://github.com/chenshuai2144)"
+    "chenshuai2144 <qixian.cs@outlook.com> (https://github.com/chenshuai2144)",
+    "yutingzhao1991 <yutingzhao1991@sina.com> (https://github.com/yutingzhao1991)"
   ]
 }

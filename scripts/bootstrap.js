@@ -6,20 +6,12 @@ const { yParser } = require('@umijs/utils');
   const args = yParser(process.argv);
   const version = '1.0.0-beta.1';
 
-  const pkgs = readdirSync(join(__dirname, '../packages')).filter(
-    pkg => pkg.charAt(0) !== '.',
-  );
+  const pkgs = readdirSync(join(__dirname, '../packages')).filter((pkg) => pkg.charAt(0) !== '.');
 
-  pkgs.forEach(shortName => {
+  pkgs.forEach((shortName) => {
     const name = `@ant-design/pro-${shortName}`;
 
-    const pkgJSONPath = join(
-      __dirname,
-      '..',
-      'packages',
-      shortName,
-      'package.json',
-    );
+    const pkgJSONPath = join(__dirname, '..', 'packages', shortName, 'package.json');
     const pkgJSONExists = existsSync(pkgJSONPath);
     let json;
     if (args.force || !pkgJSONExists) {
@@ -29,7 +21,7 @@ const { yParser } = require('@umijs/utils');
         description: name,
         main: 'lib/index.js',
         types: 'lib/index.d.ts',
-        files: ['lib', 'src'],
+        files: ['lib', 'src', 'dist', 'es'],
         repository: {
           type: 'git',
           url: 'https://github.com/ant-design/pro-components',
@@ -64,20 +56,14 @@ const { yParser } = require('@umijs/utils');
           'main',
           'module',
           'description',
-        ].forEach(key => {
+        ].forEach((key) => {
           if (pkg[key]) json[key] = pkg[key];
         });
       }
       writeFileSync(pkgJSONPath, `${JSON.stringify(json, null, 2)}\n`);
     }
 
-    const readmePath = join(
-      __dirname,
-      '..',
-      'packages',
-      shortName,
-      'README.md',
-    );
+    const readmePath = join(__dirname, '..', 'packages', shortName, 'README.md');
     if (args.force || !existsSync(readmePath)) {
       writeFileSync(
         readmePath,

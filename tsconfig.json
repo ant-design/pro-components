@@ -13,8 +13,12 @@
     "declaration": true,
     "skipLibCheck": true,
     "paths": {
+      "@ant-design/pro-layout": ["./packages/layout/src/index.tsx"],
+      "@ant-design/pro-form": ["./packages/form/src/index.tsx"],
+      "@ant-design/pro-table": ["./packages/table/src/index.tsx"],
       "@ant-design/pro-field": ["./packages/field/src/index.tsx"],
-      "@ant-design/pro-skeleton": ["./packages/skeleton/src/index.tsx"]
+      "@ant-design/pro-skeleton": ["./packages/skeleton/src/index.tsx"],
+      "@ant-design/pro-list": ["./packages/list/src/index.tsx"]
     }
   },
   "include": [
@@ -24,6 +28,7 @@
     "**/demos",
     ".eslintrc.js",
     "tests",
-    "jest.config.js"
+    "jest.config.js",
+    "**/fixtures"
   ]
 }
