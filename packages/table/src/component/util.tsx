@@ -30,7 +30,7 @@ export const parsingText = (text: string | number, valueEnum?: ValueEnumMap, pur
       return domText.text;
     }
     const { status } = domText;
-    const Status = TableStatus[status.toLowerCase() || 'Init'];
+    const Status = TableStatus[status || 'Init'];
     if (Status) return <Status>{domText.text}</Status>;
     return <BadgeColor color={status}>{domText.text}</BadgeColor>;
   }
