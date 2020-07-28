@@ -9,7 +9,7 @@ hero:
 features:
   - icon: https://gw.alipayobjects.com/os/q/cms/images/k9ziitmp/13668549-b393-42a2-97c3-a6365ba87ac2_w96_h96.png
     title: 简单易用
-    desc: 在 Ant Design 进行了自己的封装，更加以用，并且支持降级
+    desc: 在 Ant Design 进行了自己的封装，更加易用，并且支持降级
   - icon: https://gw.alipayobjects.com/os/q/cms/images/k9ziik0f/487a2685-8f68-4c34-824f-e34c171d0dfd_w96_h96.png
     title: Ant Design
     desc: 与 Ant Design 设计体系一脉相承，无缝对接 antd 项目
