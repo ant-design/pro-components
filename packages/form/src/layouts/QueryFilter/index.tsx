@@ -1,23 +1,41 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Row, Col } from 'antd';
 import { FormProps } from 'antd/lib/form/Form';
 import RcResizeObserver from 'rc-resize-observer';
-import useMediaQuery from 'use-media-antd-query';
 import useMergeValue from 'use-merge-value';
 import BaseForm, { CommonFormProps } from '../../BaseForm';
 import Actions from './Actions';
 
-const defaultColConfig = {
-  xs: 24,
-  sm: 24,
-  md: 12,
-  lg: 12,
-  xl: 8,
-  xxl: 6,
+/**
+ * 配置表单列变化的容器宽度断点
+ */
+const BREAKPOINTS = {
+  vertical: [
+    513, // 一列
+    785, // 两列
+    1062, // 三列，超出变四列
+  ],
+  default: [
+    513, // 一列
+    701, // 两列
+    1063, // 三列，超出变四列
+  ],
+};
+
+/**
+ * 合并用户和默认的配置
+ * @param span
+ * @param width
+ */
+const getSpanConfig = (
+  layout: FormProps['layout'],
+  width: number,
+): number => {
+  const colsInRow: number = (BREAKPOINTS[layout || 'default'] || BREAKPOINTS.default).findIndex((item: number) => width < item) + 1 || 4;
+  return 24 / colsInRow;
 };
 
 export interface QueryFilterProps extends FormProps, CommonFormProps {
-  span?: number | typeof defaultColConfig;
   collapsed?: boolean;
   defaultCollapsed?: boolean;
   onCollapse?: (collapsed: boolean) => void;
@@ -26,28 +44,8 @@ export interface QueryFilterProps extends FormProps, CommonFormProps {
   labelWidth?: number;
 }
 
-/**
- * 合并用户和默认的配置
- * @param span
- * @param size
- */
-const getSpanConfig = (
-  span: number | typeof defaultColConfig,
-  size: keyof typeof defaultColConfig,
-): number => {
-  if (typeof span === 'number') {
-    return span;
-  }
-  const config = {
-    ...defaultColConfig,
-    ...span,
-  };
-  return config[size];
-};
-
 const QueryFilter: React.FC<QueryFilterProps> = (props) => {
   const {
-    span = defaultColConfig,
     collapsed: controlCollapsed,
     defaultCollapsed = false,
     layout,
@@ -61,12 +59,8 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
     value: controlCollapsed,
     onChange: onCollapse,
   });
-  const windowSize = useMediaQuery();
-  const [spanSize, setSpanSize] = useState(getSpanConfig(span, windowSize));
-  useEffect(() => {
-    setSpanSize(getSpanConfig(span || 8, windowSize));
-  }, [windowSize]);
-  const rowNumber = 24 / (spanSize || 3);
+  const [spanSize, setSpanSize] = useState<number>(3);
+  const rowNumber = 24 / spanSize;
 
   return (
     <div
@@ -75,8 +69,9 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
       }}
     >
       <RcResizeObserver
-        onResize={({ height }) => {
+        onResize={({ height, width }) => {
           setFormHeight(height + 24);
+          setSpanSize(getSpanConfig(layout, width));
         }}
       >
         <div>
@@ -94,25 +89,39 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
               },
             }}
             contentRender={(items, submiter) => {
-              const showItems = collapsed
-                ? items.filter((_, index) => {
-                    if (defaultColsNumber !== undefined) {
-                      return index < defaultColsNumber;
-                    }
-                    return index < rowNumber - 1;
-                  })
-                : items;
-
+              const showItems: {
+                span: number;
+                element: React.ReactNode;
+              }[] = [];
               // totalSpan 统计控件占的位置，计算 offset 保证查询按钮在最后一列
               let totalSpan = 0;
+              items.forEach((item: React.ReactNode, index: number) => {
+                if (collapsed) {
+                  if (defaultColsNumber !== undefined) {
+                    if (index > defaultColsNumber) {
+                      return;
+                    }
+                  } else if (index < rowNumber - 1) {
+                    return;
+                  }
+                }
+                const colSize = React.isValidElement(item) ? item.props?.colSize || 1 : 1;
+                const colSpan = Math.min(spanSize * colSize, 24);
+                if (24 - totalSpan % 24 < colSpan) {
+                  // 如果当前行空余位置放不下，那么折行
+                  totalSpan += (24 - totalSpan % 24);
+                }
+                totalSpan += colSpan;
+
+                showItems.push({
+                  span: colSpan,
+                  element: item,
+                })
+              });
+
               return (
                 <Row gutter={16} justify="start">
-                  {showItems.map((item: any) => {
-                    const colSize = item.props?.colSize || 1;
-                    const colSpan = Math.min(spanSize * colSize, 24);
-                    totalSpan += colSpan;
-                    return <Col span={colSpan}>{item}</Col>;
-                  })}
+                  {showItems.map((item) => <Col span={item.span}>{item.element}</Col>)}
                   <Col
                     span={spanSize}
                     offset={24 - spanSize - (totalSpan % 24)}
