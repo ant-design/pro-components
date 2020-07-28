@@ -89,20 +89,22 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
               },
             }}
             contentRender={(items, submiter) => {
-              const showItems: {
+              const itemsWithInfo: {
                 span: number;
+                hidden: boolean;
                 element: React.ReactNode;
               }[] = [];
               // totalSpan 统计控件占的位置，计算 offset 保证查询按钮在最后一列
               let totalSpan = 0;
               items.forEach((item: React.ReactNode, index: number) => {
+                let hidden: boolean = false;
                 if (collapsed) {
                   if (defaultColsNumber !== undefined) {
                     if (index > defaultColsNumber) {
-                      return;
+                      hidden = true;
                     }
-                  } else if (index < rowNumber - 1) {
-                    return;
+                  } else if (index >= rowNumber - 1) {
+                    hidden = true;
                   }
                 }
                 const colSize = React.isValidElement(item) ? item.props?.colSize || 1 : 1;
@@ -113,15 +115,24 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
                 }
                 totalSpan += colSpan;
 
-                showItems.push({
+                itemsWithInfo.push({
                   span: colSpan,
                   element: item,
+                  hidden,
                 })
               });
 
               return (
                 <Row gutter={16} justify="start">
-                  {showItems.map((item) => <Col span={item.span}>{item.element}</Col>)}
+                  {itemsWithInfo.map((item, index) => {
+                    if (React.isValidElement(item.element) && item.hidden) {
+                      return React.cloneElement(item.element, {
+                        hidden: true,
+                        key: index,
+                      });
+                    }
+                    return <Col key={index} span={item.span}>{item.element}</Col>;
+                  })}
                   <Col
                     span={spanSize}
                     offset={24 - spanSize - (totalSpan % 24)}
@@ -136,7 +147,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
                       setCollapsed={setCollapsed}
                       style={{
                         // 当表单是垂直布局且提交按钮不是独自在一行的情况下需要设置一个 paddingTop 使得与控件对齐
-                        paddingTop: layout === 'vertical' && showItems.length % rowNumber ? 30 : 0,
+                        paddingTop: layout === 'vertical' && totalSpan % 24 ? 30 : 0,
                       }}
                     />
                   </Col>
