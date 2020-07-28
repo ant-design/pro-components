@@ -34,7 +34,7 @@ export default {
       {
         libraryName: 'antd',
         libraryDirectory: 'es',
-        style: 'css',
+        style: true,
       },
     ],
   ],

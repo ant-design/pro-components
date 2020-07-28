@@ -1,144 +1,100 @@
 import React from 'react';
-import { Descriptions } from 'antd';
-// import ProDescriptionsText from './components/Text';
-import ProDescriptionsItem from './Item';
+import { Descriptions, Space } from 'antd';
+import toArray from 'rc-util/lib/Children/toArray';
+import Field, {
+  ProFieldValueType,
+  ProFieldValueEnumMap,
+  ProFieldValueEnumObj,
+  ProFieldFCMode,
+  ProRenderFieldFC,
+} from '@ant-design/pro-field';
+import { DescriptionsItemProps } from 'antd/lib/descriptions/Item';
+import { DescriptionsProps } from 'antd/lib/descriptions';
 
-export type ColumnEmptyText = string;
-
-/**
- * money 金额
- * option 操作 需要返回一个数组
- * date 日期 YYYY-MM-DD
- * dateRange 日期范围 YYYY-MM-DD[]
- * dateTime 日期和时间 YYYY-MM-DD HH:mm:ss
- * dateTimeRange 范围日期和时间 YYYY-MM-DD HH:mm:ss[]
- * time: 时间 HH:mm:ss
- * index：序列
- * progress: 进度条
- * percent: 百分比
- * digit 数值
- * avatar 头像
- * code 代码块
- * jsonCode json 的代码块，格式化了一下
- */
-export type ProColumnsValueType =
-  | 'money'
-  | 'textarea'
-  | 'option'
-  | 'date'
-  | 'dateRange'
-  | 'dateTimeRange'
-  | 'dateTime'
-  | 'time'
-  | 'text'
-  | 'index'
-  | 'indexBorder'
-  | 'progress'
-  | 'percent'
-  | 'digit'
-  | 'avatar'
-  | 'code'
-  | 'jsonCode';
-
-type BaseProDescriptionsFC = {
+export type ProDescriptionsProps = DescriptionsProps & {
   /**
-   * 值的类型
+   * 获取数据的方法
    */
-  text: React.ReactNode;
-  formItemProps?: any;
-  /**
-   *简约模式
-   */
-  plain?: boolean;
+  request?: () => Promise<Object>;
 };
 
-/**
- * render 第二个参数，里面包含了一些常用的参数
- */
-export type ProDescriptionsFCRenderProps = {
-  value?: any;
-  onChange?: (value: any) => void;
-} & BaseProDescriptionsFC;
+export type ProDescriptionsItemProps = DescriptionsItemProps &
+  ProRenderFieldFC & {
+    valueType?: ProFieldValueType;
+    // 隐藏这个字段，是个语法糖，方便一下权限的控制
+    hide?: boolean;
+    plain?: boolean;
+    mode?: ProFieldFCMode;
+    /**
+     * 从全局数据中取数据的key
+     */
+    dataIndex?: React.ReactText | React.ReactText[];
 
-type RenderProDescriptionsFC = {
-  render?: (
-    text: any,
-    props: Omit<ProDescriptionsFCRenderProps, 'value' | 'onChange'>,
-    dom: JSX.Element,
-  ) => JSX.Element;
-  renderFormItem?: (
-    text: any,
-    props: ProDescriptionsFCRenderProps,
-    dom: JSX.Element,
-  ) => JSX.Element;
-};
-
-/**
- * 默认的 ProDescriptions 需要实现的功能
- */
-export type ProDescriptionsFC<T> = React.FC<BaseProDescriptionsFC & RenderProDescriptionsFC & T>;
-
-// function return type
-export type ProColumnsValueObjectType = {
-  type: 'progress' | 'money' | 'percent';
-  status?: 'normal' | 'active' | 'success' | 'exception' | undefined;
-  locale?: string;
-  /** percent */
-  showSymbol?: boolean;
-  precision?: number;
-};
-
-/**
- * value type by function
- */
-export type ProColumnsValueTypeFunction<T> = (
-  item: T,
-) => ProColumnsValueType | ProColumnsValueObjectType;
-
-type RenderProps = Omit<ProDescriptionsFCRenderProps, 'text'> &
-  RenderProDescriptionsFC & {
-    emptyText?: React.ReactNode;
-    [key: string]: any;
+    /**
+     * 映射值的类型
+     */
+    valueEnum?: ProFieldValueEnumMap | ProFieldValueEnumObj;
   };
 
-/**
- * 根据不同的类型来转化数值
- * @param text
- * @param valueType
- */
-// const defaultRenderText = (
-//   text: string | number | React.ReactText[],
-//   valueType: ProColumnsValueType,
-//   props: RenderProps = { emptyText: '-' },
-// ): React.ReactNode => {
-//   return <ProDescriptionsText text={text as string} {...props} />;
-// };
-
-const ProDescriptions: React.ForwardRefRenderFunction<any, RenderProps> = props => {
-  return <Descriptions {...props} />;
+const ProDescriptionsItem: React.FC<ProDescriptionsItemProps> = (props) => {
+  return <Descriptions.Item {...props}>{props.children}</Descriptions.Item>;
 };
 
-export interface ProDescriptionsItemProps {
-  prefixCls?: string;
-  className?: string;
-  valueType?: ProColumnsValueType;
-  style?: React.CSSProperties;
-  label?: React.ReactNode;
-  text?: React.ReactNode;
-  children: React.ReactNode;
-  span?: number;
-}
-
-const Item = (props: ProDescriptionsItemProps) => {
-  const { valueType, text } = props;
-  console.log(valueType, 'valueType');
-  let finallyText = text;
-  if (valueType === 'money') {
-    finallyText = `¥${text}`;
-  }
-  return <Descriptions.Item {...props}>{finallyText}</Descriptions.Item>;
+const ProDescriptions: React.FC<ProDescriptionsProps> & {
+  Item: typeof ProDescriptionsItem;
+} = (props) => {
+  const options: JSX.Element[] = [];
+  // 因为 Descriptions 只是个语法糖，children 是不会执行的，所以需要这里处理一下
+  const mergeChildren = toArray(props.children).map((item) => {
+    const {
+      valueType,
+      children,
+      valueEnum,
+      render,
+      mode,
+      renderFormItem,
+      plain,
+      ...rest
+    } = item.props as ProDescriptionsItemProps;
+    if (!valueType) {
+      return item;
+    }
+    if (valueType === 'option') {
+      options.push(
+        <Field
+          valueEnum={valueEnum}
+          mode={mode || 'read'}
+          render={render}
+          renderFormItem={renderFormItem}
+          valueType={valueType}
+          plain={plain}
+          text={children}
+        />,
+      );
+      return null;
+    }
+    const field = (
+      <Descriptions.Item {...rest}>
+        <Field
+          valueEnum={valueEnum}
+          mode={mode || 'read'}
+          render={render}
+          renderFormItem={renderFormItem}
+          valueType={valueType}
+          plain={plain}
+          text={children}
+        />
+      </Descriptions.Item>
+    );
+    return field;
+  });
+  return (
+    <Descriptions extra={<Space>{options}</Space>} {...props}>
+      {mergeChildren}
+    </Descriptions>
+  );
 };
 
-ProDescriptions.Item = Item;
+ProDescriptions.Item = ProDescriptionsItem;
 
-export default React.forwardRef(ProDescriptions);
+export default ProDescriptions;

@@ -10,7 +10,11 @@ import FieldCode from './components/Code';
 import FieldTimePicker from './components/TimePicker';
 import FieldText from './components/Text';
 import FieldTextArea from './components/TextArea';
-import FiledSelect, { ValueEnumMap, ValueEnumObj, RequestData } from './components/Select';
+import FiledSelect, {
+  ProFieldValueEnumMap,
+  ProFieldValueEnumObj,
+  RequestData,
+} from './components/Select';
 
 export type ColumnEmptyText = string;
 
@@ -30,7 +34,7 @@ export type ColumnEmptyText = string;
  * code 代码块
  * jsonCode json 的代码块，格式化了一下
  */
-export type ProColumnsValueType =
+export type ProFieldValueType =
   | 'money'
   | 'textarea'
   | 'option'
@@ -49,15 +53,15 @@ export type ProColumnsValueType =
   | 'code'
   | 'jsonCode';
 
-export type FieldFCMode = 'read' | 'edit' | 'update';
+export type ProFieldFCMode = 'read' | 'edit' | 'update';
 
-type BaseFieldFC = {
+type ProBaseFieldFC = {
   /**
    * 值的类型
    */
   text: React.ReactNode;
   formItemProps?: any;
-  mode: FieldFCMode;
+  mode: ProFieldFCMode;
   /**
    *简约模式
    */
@@ -66,31 +70,31 @@ type BaseFieldFC = {
   /**
    * 映射值的类型
    */
-  valueEnum?: ValueEnumMap | ValueEnumObj;
+  valueEnum?: ProFieldValueEnumMap | ProFieldValueEnumObj;
 };
 
 /**
  * render 第二个参数，里面包含了一些常用的参数
  */
-export type FieldFCRenderProps = {
-  mode?: FieldFCMode;
+export type ProFieldFCRenderProps = {
+  mode?: ProFieldFCMode;
   value?: any;
   onChange?: (value: any) => void;
-} & BaseFieldFC;
+} & ProBaseFieldFC;
 
-type RenderFieldFC = {
+export type ProRenderFieldFC = {
   render?: (
     text: any,
-    props: Omit<FieldFCRenderProps, 'value' | 'onChange'>,
+    props: Omit<ProFieldFCRenderProps, 'value' | 'onChange'>,
     dom: JSX.Element,
   ) => JSX.Element;
-  renderFormItem?: (text: any, props: FieldFCRenderProps, dom: JSX.Element) => JSX.Element;
+  renderFormItem?: (text: any, props: ProFieldFCRenderProps, dom: JSX.Element) => JSX.Element;
 };
 
 /**
  * 默认的 Field 需要实现的功能
  */
-export type FieldFC<T> = React.ForwardRefRenderFunction<any, BaseFieldFC & RenderFieldFC & T>;
+export type FieldFC<T> = React.ForwardRefRenderFunction<any, ProBaseFieldFC & ProRenderFieldFC & T>;
 
 // function return type
 export type ProColumnsValueObjectType = {
@@ -108,10 +112,10 @@ export type ProColumnsValueObjectType = {
  */
 export type ProColumnsValueTypeFunction<T> = (
   item: T,
-) => ProColumnsValueType | ProColumnsValueObjectType;
+) => ProFieldValueType | ProColumnsValueObjectType;
 
-type RenderProps = Omit<FieldFCRenderProps, 'text'> &
-  RenderFieldFC & {
+type RenderProps = Omit<ProFieldFCRenderProps, 'text'> &
+  ProRenderFieldFC & {
     emptyText?: React.ReactNode;
     [key: string]: any;
   };
@@ -161,7 +165,7 @@ const defaultRenderTextByObject = (
  */
 const defaultRenderText = (
   text: string | number | React.ReactText[],
-  valueType: ProColumnsValueType,
+  valueType: ProFieldValueType,
   props: RenderProps = { mode: 'read', emptyText: '-' },
 ): React.ReactNode => {
   if (typeof valueType === 'object') {
@@ -266,7 +270,7 @@ const Field: React.ForwardRefRenderFunction<
   any,
   {
     text: string | number | React.ReactText[];
-    valueType: ProColumnsValueType;
+    valueType: ProFieldValueType;
   } & RenderProps
 > = ({ text, valueType, onChange, value, ...rest }, ref) => {
   return (
@@ -283,6 +287,8 @@ const Field: React.ForwardRefRenderFunction<
     </React.Fragment>
   );
 };
+
+export type { ProFieldValueEnumMap, ProFieldValueEnumObj };
 
 export {
   FieldPercent,

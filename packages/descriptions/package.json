@@ -32,5 +32,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@ant-design/pro-field": "^0.0.9"
   }
 }
