@@ -2,7 +2,7 @@ import React from 'react';
 import { ConfigConsumer, ConfigConsumerProps } from 'antd/lib/config-provider/context';
 import { Alert, Space } from 'antd';
 import './index.less';
-import { useIntl, IntlType } from '../intlContext';
+import { useIntl, IntlType } from '@ant-design/pro-provider';
 
 export interface TableAlertProps<T> {
   selectedRowKeys: (number | string)[];

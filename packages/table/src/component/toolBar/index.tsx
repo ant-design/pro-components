@@ -5,7 +5,7 @@ import { ConfigConsumer, ConfigConsumerProps } from 'antd/lib/config-provider/co
 import { SearchProps } from 'antd/lib/input';
 
 import ColumnSetting from '../columnSetting';
-import { useIntl, IntlType } from '../intlContext';
+import { useIntl, IntlType } from '@ant-design/pro-provider';
 import { UseFetchDataAction, RequestData } from '../../useFetchData';
 import './index.less';
 import FullScreenIcon from './FullscreenIcon';

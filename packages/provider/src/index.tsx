@@ -1,15 +1,25 @@
 import React, { useContext } from 'react';
-import zhCN from '../../locale/zh_CN';
-import enUS from '../../locale/en_US';
-import viVN from '../../locale/vi_VN';
-import itIT from '../../locale/it_IT';
-import jaJP from '../../locale/ja_JP';
-import esES from '../../locale/es_ES';
-import ruRU from '../../locale/ru_RU';
-import msMY from '../../locale/ms_MY';
-import zhTW from '../../locale/zh_TW';
-import frFR from '../../locale/fr_FR';
-import { getLang } from '../util';
+import { noteOnce } from 'rc-util/lib/warning';
+import zhCN from './locale/zh_CN';
+import enUS from './locale/en_US';
+import viVN from './locale/vi_VN';
+import itIT from './locale/it_IT';
+import esES from './locale/es_ES';
+import jaJP from './locale/ja_JP';
+import ruRU from './locale/ru_RU';
+import msMY from './locale/ms_MY';
+import zhTW from './locale/zh_TW';
+import frFR from './locale/fr_FR';
+
+export const getLang = (): string => {
+  const isNavigatorLanguageValid =
+    typeof navigator !== 'undefined' && typeof navigator.language === 'string';
+  const browserLang = isNavigatorLanguageValid
+    ? navigator.language.split('-').join('{{BaseSeparator}}')
+    : '';
+  const lang = typeof localStorage !== 'undefined' ? window.localStorage.getItem('umi_locale') : '';
+  return lang || browserLang || '';
+};
 
 export interface IntlType {
   locale: string;
@@ -69,15 +79,53 @@ const intlMap = {
 
 export { enUSIntl, zhCNIntl, viVNIntl, itITIntl, jaJPIntl, esESIntl, ruRUIntl, msMYIntl, zhTWIntl };
 
-const IntlContext = React.createContext<IntlType>(intlMap[getLang() || ''] || zhCNIntl);
+const IntlContext = React.createContext<{
+  intl: IntlType;
+}>({
+  intl: intlMap[getLang() || ''] || zhCNIntl,
+});
 
 const { Consumer: IntlConsumer, Provider: IntlProvider } = IntlContext;
 
 export { IntlConsumer, IntlProvider, createIntl };
 
 export function useIntl(): IntlType {
-  const intl = useContext(IntlContext);
-  return intl;
+  const context = useContext(IntlContext);
+
+  noteOnce(
+    !!context.intl,
+    `
+为了提升兼容性  
+<IntlProvider value={zhCNIntl}/>
+需要修改为:
+<IntlProvider
+  value={{
+    intl: zhCNIntl,
+  }}
+/>
+我们将会在下个版本中删除它
+    `,
+  );
+
+  noteOnce(
+    !!context.intl,
+    `
+To improve compatibility
+  <IntlProvider value={zhCNIntl}/>
+Need to be modified to:
+  <IntlProvider
+    value={{
+      intl: zhCNIntl,
+    }}
+  />
+We will remove it in the next version
+    `,
+  );
+
+  if (!context.intl) {
+    return (context as unknown) as IntlType;
+  }
+  return context.intl;
 }
 
 export default IntlContext;

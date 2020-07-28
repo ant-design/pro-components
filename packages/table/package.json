@@ -2,6 +2,19 @@
   "name": "@ant-design/pro-table",
   "version": "2.5.0-beta.0",
   "description": "🏆 Use Ant Design Table like a Pro!",
+  "keywords": [
+    "antd",
+    "admin",
+    "ant-design",
+    "ant-design-pro"
+  ],
+  "homepage": "https://github.com/ant-design/pro-components/tree/master/packages/table#readme",
+  "bugs": "http://github.com/umijs/plugins/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ant-design/pro-components"
+  },
+  "license": "MIT",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
@@ -10,28 +23,9 @@
     "es",
     "dist"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ant-design/pro-components"
-  },
-  "keywords": [
-    "antd",
-    "admin",
-    "ant-design",
-    "ant-design-pro"
-  ],
-  "authors": [
-    "chencheng <sorrycc@gmail.com> (https://github.com/sorrycc)",
-    "chenshuai2144 <qixian.cs@outlook.om> (https://github.com/chenshuai2144)"
-  ],
-  "license": "MIT",
-  "bugs": "http://github.com/umijs/plugins/issues",
-  "homepage": "https://github.com/ant-design/pro-components/tree/master/packages/table#readme",
-  "peerDependencies": {
-    "umi": "3.x"
-  },
   "dependencies": {
     "@ant-design/icons": "^4.1.0",
+    "@ant-design/pro-provider": "0.0.1",
     "antd": "^4.1.5",
     "classnames": "^2.2.6",
     "dnd-core": "^10.0.2",
@@ -47,7 +41,14 @@
     "use-media-antd-query": "1.0.2",
     "use-merge-value": "^1.0.1"
   },
+  "peerDependencies": {
+    "umi": "3.x"
+  },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "authors": [
+    "chencheng <sorrycc@gmail.com> (https://github.com/sorrycc)",
+    "chenshuai2144 <qixian.cs@outlook.om> (https://github.com/chenshuai2144)"
+  ]
 }

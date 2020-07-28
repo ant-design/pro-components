@@ -18,23 +18,17 @@ export interface BreadcrumbProps {
   menu?: ProSettings['menu'];
   breadcrumbMap?: Map<string, MenuDataItem>;
   formatMessage?: (message: MessageDescriptor) => string;
-  breadcrumbRender?: (
-    routers: AntdBreadcrumbProps['routes'],
-  ) => AntdBreadcrumbProps['routes'];
+  breadcrumbRender?: (routers: AntdBreadcrumbProps['routes']) => AntdBreadcrumbProps['routes'];
   itemRender?: AntdBreadcrumbProps['itemRender'];
 }
 
 // 渲染Breadcrumb 子节点
 // Render the Breadcrumb child node
-const defaultItemRender: AntdBreadcrumbProps['itemRender'] = ({
-  breadcrumbName,
-  path,
-}) => <a href={path}>{breadcrumbName}</a>;
+const defaultItemRender: AntdBreadcrumbProps['itemRender'] = ({ breadcrumbName, path }) => (
+  <a href={path}>{breadcrumbName}</a>
+);
 
-const renderItemLocal = (
-  item: MenuDataItem,
-  props: BreadcrumbProps,
-): string => {
+const renderItemLocal = (item: MenuDataItem, props: BreadcrumbProps): string => {
   const {
     formatMessage,
     menu = {
@@ -86,9 +80,7 @@ export const getBreadcrumbFromProps = (
 };
 
 // Generated according to props
-const conversionFromProps = (
-  props: BreadcrumbProps,
-): AntdBreadcrumbProps['routes'] => {
+const conversionFromProps = (props: BreadcrumbProps): AntdBreadcrumbProps['routes'] => {
   const { breadcrumbList = [] } = props;
   return breadcrumbList
     .map((item) => {
@@ -150,9 +142,7 @@ export type BreadcrumbListReturn = Pick<
  * 将参数转化为面包屑
  * Convert parameters into breadcrumbs
  */
-export const genBreadcrumbProps = (
-  props: BreadcrumbProps,
-): AntdBreadcrumbProps['routes'] => {
+export const genBreadcrumbProps = (props: BreadcrumbProps): AntdBreadcrumbProps['routes'] => {
   const { breadcrumbList } = props;
   const { location, breadcrumbMap } = getBreadcrumbFromProps(props);
   if (breadcrumbList && breadcrumbList.length) {
@@ -168,9 +158,7 @@ export const genBreadcrumbProps = (
 };
 
 // use breadcrumbRender to change routes
-export const getBreadcrumbProps = (
-  props: BreadcrumbProps,
-): BreadcrumbListReturn => {
+export const getBreadcrumbProps = (props: BreadcrumbProps): BreadcrumbListReturn => {
   const { breadcrumbRender, itemRender: propsItemRender } = props;
   const routesArray = genBreadcrumbProps(props);
   const itemRender = propsItemRender || defaultItemRender;

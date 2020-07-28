@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FullscreenExitOutlined, FullscreenOutlined } from '@ant-design/icons';
 import { Tooltip } from 'antd';
-import { useIntl } from '../intlContext';
+import { useIntl } from '@ant-design/pro-provider';
 
 const FullScreenIcon = () => {
   const intl = useIntl();

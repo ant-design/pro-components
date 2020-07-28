@@ -14,7 +14,6 @@ import ProTable, {
   ruRUIntl,
   msMYIntl,
   ActionType,
-  // @ts-ignore
 } from '@ant-design/pro-table';
 import request from 'umi-request';
 
@@ -106,7 +105,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     dataIndex: 'title',
     width: 100,
     valueType: 'money',
-    render: () => (Math.random() * 100).toFixed(2),
+    renderText: () => (Math.random() * 100).toFixed(2),
   },
   {
     title: 'Status',
@@ -153,10 +152,11 @@ const columns: ProColumns<GithubIssueItem>[] = [
     valueType: 'option',
     dataIndex: 'id',
     render: (text, row, _, action) => [
-      <a href={row.html_url} target="_blank" rel="noopener noreferrer">
+      <a href={row.html_url} key="show" target="_blank" rel="noopener noreferrer">
         show
       </a>,
       <TableDropdown
+        key="more"
         onSelect={() => action.reload()}
         menus={[
           { key: 'copy', name: 'copy' },
@@ -180,7 +180,11 @@ export default () => {
         onChange={(value) => setIntl(value)}
         options={Object.keys(intlMap).map((value) => ({ value, label: value }))}
       />
-      <IntlProvider value={intlMap[intl]}>
+      <IntlProvider
+        value={{
+          intl: intlMap[intl],
+        }}
+      >
         <ProTable<GithubIssueItem>
           columns={columns}
           actionRef={actionRef}
