@@ -2,7 +2,7 @@
 import React, { ReactNode, useEffect, useRef, ReactText, DependencyList, useCallback } from 'react';
 import isEqual from 'lodash.isequal';
 import { DataIndex } from 'rc-table/lib/interface';
-import TableStatus, { StatusType } from './status';
+import TableStatus, { BadgeColor, StatusType } from './status';
 import { ValueEnumObj, ValueEnumMap } from '../Table';
 
 /**
@@ -31,9 +31,8 @@ export const parsingText = (text: string | number, valueEnum?: ValueEnumMap, pur
     }
     const { status } = domText;
     const Status = TableStatus[status || 'Init'];
-    if (Status) {
-      return <Status>{domText.text}</Status>;
-    }
+    if (Status) return <Status>{domText.text}</Status>;
+    return <BadgeColor color={status}>{domText.text}</BadgeColor>;
   }
   return domText.text || domText;
 };
