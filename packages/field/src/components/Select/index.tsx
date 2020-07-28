@@ -126,7 +126,7 @@ export const ObjToMap = (
   return new Map(Object.entries(value));
 };
 
-export type RequestData = (
+export type ProFieldRequestData = (
   props: FieldSelectProps,
 ) => Promise<
   {
@@ -144,7 +144,7 @@ export type FieldSelectProps = {
   /**
    * 从服务器读取选项
    */
-  request?: RequestData;
+  request?: ProFieldRequestData;
 };
 
 const useFetchData = (

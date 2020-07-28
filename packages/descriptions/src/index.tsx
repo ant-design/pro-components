@@ -6,7 +6,8 @@ import Field, {
   ProFieldValueEnumMap,
   ProFieldValueEnumObj,
   ProFieldFCMode,
-  ProRenderFieldFC,
+  ProFieldRequestData,
+  ProRenderFieldProps,
 } from '@ant-design/pro-field';
 import { DescriptionsItemProps } from 'antd/lib/descriptions/Item';
 import { DescriptionsProps } from 'antd/lib/descriptions';
@@ -19,7 +20,7 @@ export type ProDescriptionsProps = DescriptionsProps & {
 };
 
 export type ProDescriptionsItemProps = DescriptionsItemProps &
-  ProRenderFieldFC & {
+  ProRenderFieldProps & {
     valueType?: ProFieldValueType;
     // 隐藏这个字段，是个语法糖，方便一下权限的控制
     hide?: boolean;
@@ -34,6 +35,10 @@ export type ProDescriptionsItemProps = DescriptionsItemProps &
      * 映射值的类型
      */
     valueEnum?: ProFieldValueEnumMap | ProFieldValueEnumObj;
+    /**
+     * 远程获取枚举值
+     */
+    request?: ProFieldRequestData;
   };
 
 const ProDescriptionsItem: React.FC<ProDescriptionsItemProps> = (props) => {
@@ -52,11 +57,12 @@ const ProDescriptions: React.FC<ProDescriptionsProps> & {
       valueEnum,
       render,
       mode,
+      request,
       renderFormItem,
       plain,
       ...rest
     } = item.props as ProDescriptionsItemProps;
-    if (!valueType) {
+    if (!valueType && !valueEnum && !request) {
       return item;
     }
     if (valueType === 'option') {
@@ -73,6 +79,7 @@ const ProDescriptions: React.FC<ProDescriptionsProps> & {
       );
       return null;
     }
+
     const field = (
       <Descriptions.Item {...rest}>
         <Field
@@ -82,6 +89,7 @@ const ProDescriptions: React.FC<ProDescriptionsProps> & {
           renderFormItem={renderFormItem}
           valueType={valueType}
           plain={plain}
+          request={request}
           text={children}
         />
       </Descriptions.Item>

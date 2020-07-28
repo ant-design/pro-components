@@ -40,7 +40,7 @@ export default () => {
         </ProDescriptions.Item>
         <ProDescriptions.Item
           label="远程选择框"
-          request={() => [
+          request={async () => [
             { label: '全部', value: 'all' },
             { label: '未解决', value: 'open' },
             { label: '已解决', value: 'closed' },

@@ -13,7 +13,7 @@ import FieldTextArea from './components/TextArea';
 import FiledSelect, {
   ProFieldValueEnumMap,
   ProFieldValueEnumObj,
-  RequestData,
+  ProFieldRequestData,
 } from './components/Select';
 
 export type ColumnEmptyText = string;
@@ -82,7 +82,7 @@ export type ProFieldFCRenderProps = {
   onChange?: (value: any) => void;
 } & ProBaseFieldFC;
 
-export type ProRenderFieldFC = {
+export type ProRenderFieldProps = {
   render?: (
     text: any,
     props: Omit<ProFieldFCRenderProps, 'value' | 'onChange'>,
@@ -94,7 +94,10 @@ export type ProRenderFieldFC = {
 /**
  * 默认的 Field 需要实现的功能
  */
-export type FieldFC<T> = React.ForwardRefRenderFunction<any, ProBaseFieldFC & ProRenderFieldFC & T>;
+export type FieldFC<T> = React.ForwardRefRenderFunction<
+  any,
+  ProBaseFieldFC & ProRenderFieldProps & T
+>;
 
 // function return type
 export type ProColumnsValueObjectType = {
@@ -104,7 +107,7 @@ export type ProColumnsValueObjectType = {
   /** percent */
   showSymbol?: boolean;
   precision?: number;
-  request?: RequestData;
+  request?: ProFieldRequestData;
 };
 
 /**
@@ -115,7 +118,7 @@ export type ProColumnsValueTypeFunction<T> = (
 ) => ProFieldValueType | ProColumnsValueObjectType;
 
 type RenderProps = Omit<ProFieldFCRenderProps, 'text'> &
-  ProRenderFieldFC & {
+  ProRenderFieldProps & {
     emptyText?: React.ReactNode;
     [key: string]: any;
   };
@@ -288,7 +291,7 @@ const Field: React.ForwardRefRenderFunction<
   );
 };
 
-export type { ProFieldValueEnumMap, ProFieldValueEnumObj };
+export type { ProFieldValueEnumMap, ProFieldRequestData, ProFieldValueEnumObj };
 
 export {
   FieldPercent,
