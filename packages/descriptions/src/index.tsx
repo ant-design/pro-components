@@ -50,7 +50,7 @@ const ProDescriptions: React.FC<ProDescriptionsProps> & {
 } = (props) => {
   const options: JSX.Element[] = [];
   // 因为 Descriptions 只是个语法糖，children 是不会执行的，所以需要这里处理一下
-  const mergeChildren = toArray(props.children).map((item) => {
+  const mergeChildren = toArray(props.children).map((item, index) => {
     const {
       valueType,
       children,
@@ -81,7 +81,7 @@ const ProDescriptions: React.FC<ProDescriptionsProps> & {
     }
 
     const field = (
-      <Descriptions.Item {...rest}>
+      <Descriptions.Item {...rest} key={rest.label?.toString() || index}>
         <Field
           valueEnum={valueEnum}
           mode={mode || 'read'}
