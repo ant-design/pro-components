@@ -1,6 +1,7 @@
 ---
 title: ProCard 标准卡片
 nav:
+  order: 4
   title: 卡片
   path: /card
 ---

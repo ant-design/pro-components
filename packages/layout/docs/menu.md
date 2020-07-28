@@ -1,7 +1,6 @@
 ---
 title: 菜单能力
-order: 9
-side: false
+order: 8
 group:
   path: /layout
 nav:

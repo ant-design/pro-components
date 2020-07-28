@@ -1,7 +1,6 @@
 ---
 title: Example 展示
-order: 1
-side: false
+order: 9
 group:
   path: /layout
 nav:
