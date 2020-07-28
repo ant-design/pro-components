@@ -1,6 +1,7 @@
 ---
 title: ProForm
 nav:
+  order: 2
   title: 表单
   path: /form
 ---

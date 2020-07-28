@@ -1,7 +1,6 @@
 ---
 title: 页脚
 order: 7
-side: false
 group:
   path: /layout
 nav:

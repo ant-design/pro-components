@@ -4,6 +4,7 @@ order: 0
 group:
   path: /table
 nav:
+  order: 3
   title: 表格
   path: /table
 hero:

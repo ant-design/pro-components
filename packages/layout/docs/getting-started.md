@@ -1,7 +1,6 @@
 ---
 title: 快速开始
 order: 1
-side: false
 group:
   path: /layout
   order: 0
