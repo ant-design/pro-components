@@ -22,9 +22,7 @@ export type HeaderViewProps = Partial<PureSettings> &
     headerTitleRender?: WithFalse<
       (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
     >;
-    headerContentRender?: WithFalse<
-      (props: HeaderViewProps) => React.ReactNode
-    >;
+    headerContentRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
     siderWidth?: number;
     hasSiderMenu?: boolean;
   };
@@ -77,13 +75,12 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
       headerRender,
       isMobile,
       prefixCls,
-      headerHeight
+      headerHeight,
     } = this.props;
     const needFixedHeader = fixedHeader || layout === 'mix';
     const isTop = layout === 'top';
 
-    const needSettingWidth =
-      needFixedHeader && hasSiderMenu && !isTop && !isMobile;
+    const needSettingWidth = needFixedHeader && hasSiderMenu && !isTop && !isMobile;
 
     const className = classNames(propsClassName, {
       [`${prefixCls}-fixed-header`]: needFixedHeader,

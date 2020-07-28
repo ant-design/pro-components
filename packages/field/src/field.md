@@ -1,7 +1,7 @@
 ---
 title: ProField
 nav:
-  title: 原子
+  title: 原子组件
   path: /field
 ---
 

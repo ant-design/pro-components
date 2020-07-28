@@ -21,7 +21,7 @@
   },
   "lint-staged": {
     "*.ts?(x)": [
-      "prettier --parser=typescript --write",
+      "prettier --write",
       "git add"
     ],
     "*.{js,jsx,less,md,json}": [

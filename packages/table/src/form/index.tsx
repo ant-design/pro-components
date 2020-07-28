@@ -7,6 +7,7 @@ import useMediaQuery from 'use-media-antd-query';
 import useMergeValue from 'use-merge-value';
 import { ConfigConsumer, ConfigConsumerProps } from 'antd/lib/config-provider';
 import { DownOutlined } from '@ant-design/icons';
+import { useIntl, IntlType } from '@ant-design/pro-provider';
 import classNames from 'classnames';
 
 import {
@@ -15,7 +16,6 @@ import {
   genColumnKey,
   ObjToMap,
 } from '../component/util';
-import { useIntl, IntlType } from '../component/intlContext';
 import Container from '../container';
 import { ProColumnsValueTypeFunction } from '../defaultRender';
 import { ProTableTypes } from '../Table';

@@ -14,13 +14,11 @@ export interface TagProps {
   onClick?: () => void;
 }
 
-const Tag: React.FC<TagProps> = React.forwardRef(
-  ({ color, check, ...rest }, ref) => (
-    <div {...rest} style={{ backgroundColor: color }} ref={ref as any}>
-      {check ? <CheckOutlined /> : ''}
-    </div>
-  ),
-);
+const Tag: React.FC<TagProps> = React.forwardRef(({ color, check, ...rest }, ref) => (
+  <div {...rest} style={{ backgroundColor: color }} ref={ref as any}>
+    {check ? <CheckOutlined /> : ''}
+  </div>
+));
 
 export interface ThemeColorProps {
   colors?: {
@@ -32,10 +30,10 @@ export interface ThemeColorProps {
   formatMessage: (data: { id: any; defaultMessage?: string }) => string;
 }
 
-const ThemeColor: React.ForwardRefRenderFunction<
-  HTMLDivElement,
-  ThemeColorProps
-> = ({ colors, value, onChange, formatMessage }, ref) => {
+const ThemeColor: React.ForwardRefRenderFunction<HTMLDivElement, ThemeColorProps> = (
+  { colors, value, onChange, formatMessage },
+  ref,
+) => {
   const colorList = colors || [];
   if (colorList.length < 1) {
     return null;
