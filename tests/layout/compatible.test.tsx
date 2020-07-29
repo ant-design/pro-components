@@ -2,17 +2,7 @@ import { mount } from 'enzyme';
 
 import React from 'react';
 import BasicLayout from '@ant-design/pro-layout';
-import { waitForComponentToPaint } from './util';
-
-beforeAll(() => {
-  Object.defineProperty(window, 'matchMedia', {
-    value: jest.fn(() => ({
-      matches: false,
-      addListener() {},
-      removeListener() {},
-    })),
-  });
-});
+import { waitForComponentToPaint } from '../util';
 
 it('🐲 layout=sidemenu', async () => {
   // @ts-expect-error
