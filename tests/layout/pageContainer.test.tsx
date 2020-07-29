@@ -12,8 +12,8 @@ describe('PageContainer', () => {
     Object.defineProperty(window, 'matchMedia', {
       value: jest.fn(() => ({
         matches: false,
-        addListener() { },
-        removeListener() { },
+        addListener() {},
+        removeListener() {},
       })),
     });
   });
