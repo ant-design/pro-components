@@ -2,6 +2,8 @@
 title: ProList
 order: 12
 sidemenu: false
+group:
+  path: /table
 nav:
   title: 列表
   path: /list
