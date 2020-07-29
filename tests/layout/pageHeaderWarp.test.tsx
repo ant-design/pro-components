@@ -6,13 +6,6 @@ import { waitForComponentToPaint } from '../util';
 
 describe('BasicLayout', () => {
   beforeAll(() => {
-    Object.defineProperty(window, 'matchMedia', {
-      value: jest.fn(() => ({
-        matches: false,
-        addListener() {},
-        removeListener() {},
-      })),
-    });
     Object.defineProperty(window, 'localStorage', {
       value: {
         getItem: jest.fn(() => 'zh-CN'),

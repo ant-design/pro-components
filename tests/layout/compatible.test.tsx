@@ -4,16 +4,6 @@ import React from 'react';
 import BasicLayout from '@ant-design/pro-layout';
 import { waitForComponentToPaint } from '../util';
 
-beforeAll(() => {
-  Object.defineProperty(window, 'matchMedia', {
-    value: jest.fn(() => ({
-      matches: false,
-      addListener() {},
-      removeListener() {},
-    })),
-  });
-});
-
 it('🐲 layout=sidemenu', async () => {
   // @ts-expect-error
   const wrapper = mount(<BasicLayout layout="sidemenu" />);

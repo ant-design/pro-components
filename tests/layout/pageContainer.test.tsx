@@ -8,15 +8,6 @@ import BasicLayout, {
 import { waitForComponentToPaint } from '../util';
 
 describe('PageContainer', () => {
-  beforeAll(() => {
-    Object.defineProperty(window, 'matchMedia', {
-      value: jest.fn(() => ({
-        matches: false,
-        addListener() {},
-        removeListener() {},
-      })),
-    });
-  });
 
   it('💄 base use', async () => {
     const html = render(<PageContainer title="期贤" />);

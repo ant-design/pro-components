@@ -4,19 +4,6 @@ import BasicLayout from '@ant-design/pro-layout';
 import { waitForComponentToPaint } from '../util';
 
 describe('settings.test', () => {
-  beforeAll(() => {
-    Object.defineProperty(window, 'matchMedia', {
-      value: jest.fn(() => ({
-        matches: false,
-        addListener() {
-          console.log('add');
-        },
-        removeListener() {
-          console.log('remove');
-        },
-      })),
-    });
-  });
 
   it('set title', async () => {
     const wrapper = mount(<BasicLayout title="test-title" />);
