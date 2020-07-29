@@ -11,27 +11,35 @@ import Actions from './Actions';
  */
 const BREAKPOINTS = {
   vertical: [
-    513, // 一列
-    785, // 两列
-    1062, // 三列，超出变四列
+    // 一列
+    513,
+    // 两列
+    785,
+    // 三列
+    1062,
+    // 超出变四列
   ],
   default: [
-    513, // 一列
-    701, // 两列
-    1063, // 三列，超出变四列
+    // 一列
+    513,
+    // 两列
+    701,
+    // 三列
+    1063,
+    // 超出变四列
   ],
 };
 
 /**
  * 合并用户和默认的配置
- * @param span
+ * @param layout
  * @param width
  */
 const getSpanConfig = (layout: FormProps['layout'], width: number): number => {
-  const colsInRow: number =
-    (BREAKPOINTS[layout || 'default'] || BREAKPOINTS.default).findIndex(
-      (item: number) => width < item + 16, // 16 = 2 * (ant-row -8px margin)
-    ) + 1 || 4;
+  const breakPoint = BREAKPOINTS[layout || 'default'].findIndex(
+    (item: number) => width < item + 16, // 16 = 2 * (ant-row -8px margin)
+  );
+  const colsInRow = breakPoint === -1 ? 4 : breakPoint + 1;
   return 24 / colsInRow;
 };
 
