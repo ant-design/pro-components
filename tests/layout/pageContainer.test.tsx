@@ -5,15 +5,15 @@ import BasicLayout, {
   BasicLayoutProps,
   FooterToolbar,
 } from '@ant-design/pro-layout';
-import { waitForComponentToPaint } from './util';
+import { waitForComponentToPaint } from '../util';
 
 describe('PageContainer', () => {
   beforeAll(() => {
     Object.defineProperty(window, 'matchMedia', {
       value: jest.fn(() => ({
         matches: false,
-        addListener() {},
-        removeListener() {},
+        addListener() { },
+        removeListener() { },
       })),
     });
   });

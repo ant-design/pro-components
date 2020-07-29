@@ -100,7 +100,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
                 let hidden: boolean = false;
                 if (collapsed) {
                   if (defaultColsNumber !== undefined) {
-                    if (index > defaultColsNumber) {
+                    if (index >= defaultColsNumber) {
                       hidden = true;
                     }
                   } else if (index >= rowNumber - 1) {
@@ -109,12 +109,13 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
                 }
                 const colSize = React.isValidElement(item) ? item.props?.colSize || 1 : 1;
                 const colSpan = Math.min(spanSize * colSize, 24);
-                if (24 - (totalSpan % 24) < colSpan) {
-                  // 如果当前行空余位置放不下，那么折行
-                  totalSpan += 24 - (totalSpan % 24);
+                if (!hidden) {
+                  if (24 - (totalSpan % 24) < colSpan) {
+                    // 如果当前行空余位置放不下，那么折行
+                    totalSpan += 24 - (totalSpan % 24);
+                  }
+                  totalSpan += colSpan;
                 }
-                totalSpan += colSpan;
-
                 itemsWithInfo.push({
                   span: colSpan,
                   element: item,

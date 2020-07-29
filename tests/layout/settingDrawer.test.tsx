@@ -2,15 +2,15 @@ import { mount, render } from 'enzyme';
 import React from 'react';
 import { SettingDrawer } from '@ant-design/pro-layout';
 import defaultSettings from './defaultSettings';
-import { waitForComponentToPaint } from './util';
+import { waitForComponentToPaint } from '../util';
 
 describe('settingDrawer.test', () => {
   beforeAll(() => {
     Object.defineProperty(window, 'matchMedia', {
       value: jest.fn(() => ({
         matches: false,
-        addListener() {},
-        removeListener() {},
+        addListener() { },
+        removeListener() { },
       })),
     });
     Object.defineProperty(window, 'localStorage', {
