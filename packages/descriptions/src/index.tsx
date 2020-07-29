@@ -11,6 +11,7 @@ import Field, {
 } from '@ant-design/pro-field';
 import { DescriptionsItemProps } from 'antd/lib/descriptions/Item';
 import { DescriptionsProps } from 'antd/lib/descriptions';
+import useFetchData from './useFetchData';
 
 export type ProDescriptionsProps = DescriptionsProps & {
   /**
@@ -38,16 +39,36 @@ export type ProDescriptionsItemProps = DescriptionsItemProps &
     /**
      * 远程获取枚举值
      */
-    request?: ProFieldRequestData;
+    request?: () => Promise<T>;
   };
 
-const ProDescriptionsItem: React.FC<ProDescriptionsItemProps> = (props) => {
+const ProDescriptionsItem: React.FC<ProDescriptionsItemProps> = props => {
   return <Descriptions.Item {...props}>{props.children}</Descriptions.Item>;
 };
 
 const ProDescriptions: React.FC<ProDescriptionsProps> & {
   Item: typeof ProDescriptionsItem;
-} = (props) => {
+} = props => {
+  const { request, ...rest1 } = props;
+
+  const action = useFetchData(async () => {
+    const msg = request ? await request() : {};
+    return msg;
+  });
+
+  if (request) {
+    const { dataSource } = action;
+
+    const requestChilren = Object.keys(dataSource).map((i, Index) => {
+      return (
+        <Descriptions.Item {...rest1} key={i || Index} label={i}>
+          {dataSource[i]}
+        </Descriptions.Item>
+      );
+    });
+    return <Descriptions {...props}>{requestChilren}</Descriptions>;
+  }
+
   const options: JSX.Element[] = [];
   // 因为 Descriptions 只是个语法糖，children 是不会执行的，所以需要这里处理一下
   const mergeChildren = toArray(props.children).map((item, index) => {
@@ -57,7 +78,7 @@ const ProDescriptions: React.FC<ProDescriptionsProps> & {
       valueEnum,
       render,
       mode,
-      request,
+      request: requestItem,
       renderFormItem,
       plain,
       ...rest
@@ -89,7 +110,7 @@ const ProDescriptions: React.FC<ProDescriptionsProps> & {
           renderFormItem={renderFormItem}
           valueType={valueType}
           plain={plain}
-          request={request}
+          request={requestItem}
           text={children}
         />
       </Descriptions.Item>

@@ -7,6 +7,17 @@ import { Button } from 'antd';
 export default () => {
   return (
     <>
+      <ProDescriptions
+        // column={2}
+        title="高级定义列表request"
+        request={async () => {
+          return Promise.resolve({
+            success: true,
+            data: { 文本1: '这是一段文本', 文本2: '文本222' },
+          });
+        }}
+      />
+
       <ProDescriptions column={2} title="高级定义列表">
         <ProDescriptions.Item label="文本" valueType="option">
           <Button type="primary">提交</Button>
@@ -59,7 +70,12 @@ export default () => {
           {moment().valueOf()}
         </ProDescriptions.Item>
         <ProDescriptions.Item label="日期区间" valueType="dateTimeRange">
-          {[moment().add(-1, 'd').valueOf(), moment().valueOf()]}
+          {[
+            moment()
+              .add(-1, 'd')
+              .valueOf(),
+            moment().valueOf(),
+          ]}
         </ProDescriptions.Item>
         <ProDescriptions.Item label="时间" valueType="time">
           {moment().valueOf()}

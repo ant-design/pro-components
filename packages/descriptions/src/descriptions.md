@@ -18,7 +18,14 @@ nav:
 ```typescript | pure
 import ProDescriptions from '@ant-design/pro-descriptions';
 
-return <ProDescriptions text="100" valueType="money" />;
+return (
+  <ProDescriptions column={2} title="高级定义列表">
+    <ProDescriptions.Item label="文本">这是一段文本</ProDescriptions.Item>
+    <ProDescriptions.Item label="金额" valueType="money">
+      100
+    </ProDescriptions.Item>
+  </ProDescriptions>
+);
 ```
 
 ### 参数
