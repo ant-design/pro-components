@@ -85,8 +85,6 @@ export { enUSIntl, zhCNIntl, viVNIntl, itITIntl, jaJPIntl, esESIntl, ruRUIntl, m
 
 const ConfigContext = React.createContext<{
   intl: IntlType;
-  postData?: (data: any) => any;
-  postParams?: (params: ParamsType) => ParamsType;
 }>({
   intl: intlMap[getLang() || ''] || zhCNIntl,
 });

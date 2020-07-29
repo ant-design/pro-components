@@ -1,16 +1,8 @@
 import './index.less';
 
-import React, {
-  useEffect,
-  CSSProperties,
-  useRef,
-  useState,
-  ReactNode,
-  useContext,
-  useCallback,
-} from 'react';
+import React, { useEffect, CSSProperties, useRef, useState, ReactNode, useCallback } from 'react';
 import { Table, ConfigProvider, Card, Space, Typography, Empty, Tooltip } from 'antd';
-import ConfigContext, {
+import {
   useIntl,
   ConfigProvider as ProConfigProvider,
   ConfigConsumer as ProConfigConsumer,
@@ -591,14 +583,6 @@ const defaultPostData = <T, U>(data: T, pipeline: (PostDataType<T> | undefined)[
   if (pipeline.filter((item) => item).length < 1) {
     return data;
   }
-  console.log(
-    pipeline.reduce((pre, postData) => {
-      if (postData) {
-        return postData(pre);
-      }
-      return pre;
-    }, data),
-  );
   return pipeline.reduce((pre, postData) => {
     if (postData) {
       return postData(pre);
@@ -736,7 +720,6 @@ const ProTable = <T extends {}, U extends ParamsType>(
   }>({});
   const rootRef = useRef<HTMLDivElement>(null);
   const fullScreen = useRef<() => void>();
-  const context = useContext(ConfigContext);
   const intl = useIntl();
 
   /**
@@ -761,25 +744,19 @@ const ProTable = <T extends {}, U extends ParamsType>(
         } as RequestData<T>;
       }
 
-      const actionParams = defaultPostData<ParamsType, U>(
-        {
-          current,
-          pageSize,
-          ...formSearch,
-          ...params,
-        },
-        [context.postParams],
-      );
+      const actionParams = {
+        current,
+        pageSize,
+        ...formSearch,
+        ...params,
+      };
+
       const response = await request((actionParams as unknown) as U, proSort, proFilter);
       const responseData = defaultPostData<T[], U>(response.data, [postData]);
       if (Array.isArray(response)) {
         return response;
       }
       const msgData = { ...response, data: responseData } as RequestData<T>;
-
-      if (context.postData) {
-        return context.postData(msgData);
-      }
       return msgData;
     },
     defaultData,

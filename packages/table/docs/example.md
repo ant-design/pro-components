@@ -12,12 +12,6 @@ nav:
 
 这里将会提供一些常用的功能示例，方便大家直接拷贝。
 
-## ConfigProvider 配置
-
-ConfigProvider 可以快速的设置全局 postData 等，方便设置 params 和 数据的转化
-
-<code src="../demos/provider.tsx" />
-
 ## 批量操作
 
 <code src="../demos/batchOption.tsx" />
