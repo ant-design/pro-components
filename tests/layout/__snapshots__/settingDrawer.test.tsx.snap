@@ -511,6 +511,7 @@ exports[`settingDrawer.test base user 1`] = `
               <div
                 class="ant-alert ant-alert-warning"
                 data-show="true"
+                role="alert"
                 style="margin-bottom:16px"
               >
                 <span
@@ -1082,6 +1083,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
               <div
                 class="ant-alert ant-alert-warning"
                 data-show="true"
+                role="alert"
                 style="margin-bottom:16px"
               >
                 <span
@@ -1686,6 +1688,7 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
               <div
                 class="ant-alert ant-alert-warning"
                 data-show="true"
+                role="alert"
                 style="margin-bottom:16px"
               >
                 <span
@@ -2832,6 +2835,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
               <div
                 class="ant-alert ant-alert-warning"
                 data-show="true"
+                role="alert"
                 style="margin-bottom:16px"
               >
                 <span
@@ -3436,6 +3440,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
               <div
                 class="ant-alert ant-alert-warning"
                 data-show="true"
+                role="alert"
                 style="margin-bottom:16px"
               >
                 <span
