@@ -4,7 +4,6 @@ import BasicLayout from '@ant-design/pro-layout';
 import { waitForComponentToPaint } from '../util';
 
 describe('settings.test', () => {
-
   it('set title', async () => {
     const wrapper = mount(<BasicLayout title="test-title" />);
     await waitForComponentToPaint(wrapper);

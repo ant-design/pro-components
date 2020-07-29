@@ -8,7 +8,6 @@ import BasicLayout, {
 import { waitForComponentToPaint } from '../util';
 
 describe('PageContainer', () => {
-
   it('💄 base use', async () => {
     const html = render(<PageContainer title="期贤" />);
     expect(html).toMatchSnapshot();

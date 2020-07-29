@@ -78,10 +78,7 @@ describe('QueryFilter', () => {
 
   it('responsive 1064', async () => {
     const wrapper = mount(
-      <QueryFilter
-        defaultCollapsed
-        style={{ width: 1064 }}
-      >
+      <QueryFilter defaultCollapsed style={{ width: 1064 }}>
         <ProFormText label="a" name="a" />
         <ProFormText label="b" name="b" />
         <ProFormText label="c" name="c" />

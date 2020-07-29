@@ -5,7 +5,6 @@ import BasicLayout, { BasicLayoutProps } from '@ant-design/pro-layout';
 import { waitForComponentToPaint } from '../util';
 
 describe('BasicLayout', () => {
-
   it('🥩 base use', async () => {
     const html = render(<BasicLayout />);
     expect(html).toMatchSnapshot();

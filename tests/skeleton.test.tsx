@@ -4,7 +4,6 @@ import React from 'react';
 import ProSkeleton from '../packages/skeleton/src/index';
 
 describe('skeleton', () => {
-
   it('🥩 list base use', async () => {
     const html = render(<ProSkeleton type="list" />);
     expect(html).toMatchSnapshot();
