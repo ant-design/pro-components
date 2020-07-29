@@ -1,11 +1,14 @@
 ---
 title: ProField
+sidemenu: false
 nav:
   title: 原子组件
   path: /field
 ---
 
 # ProField
+
+> 该组件为内部组件，请勿直接使用。
 
 原子信息组件，统一 ProForm、ProTable、ProList、Filter 等组件里面的字段定义。
 

@@ -1,9 +1,7 @@
 ---
 title: ProList
 order: 12
-side: false
-group:
-  path: /list
+sidemenu: false
 nav:
   title: 列表
   path: /list
