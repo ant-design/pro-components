@@ -1,5 +1,6 @@
 ---
 title: ProCard 标准卡片
+sidemenu: false
 nav:
   order: 4
   title: 卡片

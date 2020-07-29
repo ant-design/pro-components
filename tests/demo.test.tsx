@@ -68,16 +68,6 @@ function demoTest(component: string, options: Options = {}) {
 }
 
 describe('demos', () => {
-  beforeAll(() => {
-    Object.defineProperty(window, 'matchMedia', {
-      value: jest.fn(() => ({
-        matches: false,
-        addListener() {},
-        removeListener() {},
-      })),
-    });
-  });
-
   beforeEach(() => {
     const mockFormatExpression = {
       format: (value: string) => `￥ ${value.toString()}`,

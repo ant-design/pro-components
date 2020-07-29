@@ -1,5 +1,6 @@
 ---
 title: ProSkeleton
+sidemenu: false
 nav:
   title: 骨架屏
   path: /skeleton

@@ -1,33 +1,19 @@
 ---
-title: ProForm
+title: QueryFilter
+group:
+  path: /form
 nav:
-  order: 2
   title: 表单
   path: /form
 ---
 
-# ProForm
+# QueryFilter
 
-高级表单，提供一个更加快速的方案来构建表单。
-
-## 通用 API
-
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| onFinish | 提交表单且数据验证成功后回调事件，同 antd 4 `Form` 组件 API | `Function(e)` | - |
-| onReset | 点击重置按钮的回调，设置后重置按钮才会被渲染 | `Function(e)` | - |
-| submiterProps | TODO | TODO | - |
-| (...) | 支持除 `wrapperCol` \| `labelCol` \| `layout` 外的其他 antd `Form` 组件参数 | - | - |
-
-## ProForm 基础使用
-
-<code src="../demos/base.tsx" />
-
-## QueryFilter 查询过滤
+## 示例
 
 <code src="../demos/query-filter.tsx" />
 
-### API
+## API
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -48,11 +34,3 @@ nav:
 | `≧ 785px && < 1057px` | 3                                    |
 | `≧ 513px && < 785px`  | 2                                    |
 | `< 513px`             | 1（此时 label 与控件会强制上下布局） |
-
-## SearchFilter 搜索过滤
-
-<code src="../demos/search-filter.tsx" />
-
-## LightFilter 轻量筛选
-
-<code src="../demos/light-filter.tsx" />

@@ -26,6 +26,14 @@ const localStorageMock = (() => {
   };
 })();
 
+Object.defineProperty(window, 'matchMedia', {
+  value: jest.fn(() => ({
+    matches: false,
+    addListener() {},
+    removeListener() {},
+  })),
+});
+
 Object.defineProperty(window, 'localStorage', {
   value: localStorageMock,
 });

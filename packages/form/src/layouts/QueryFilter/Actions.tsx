@@ -2,18 +2,6 @@ import React from 'react';
 import { Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 
-/**
- * 默认的查询表单配置
- */
-const defaultColConfig = {
-  xs: 24,
-  sm: 24,
-  md: 12,
-  lg: 12,
-  xl: 8,
-  xxl: 6,
-};
-
 export interface ActionsProps {
   submiter: React.ReactNode;
   /**
@@ -23,7 +11,6 @@ export interface ActionsProps {
   setCollapsed: (collapse: boolean) => void;
   showCollapseButton: boolean;
   isForm?: boolean;
-  span?: number | typeof defaultColConfig;
   style?: React.CSSProperties;
   /**
    * 收起按钮的 render
