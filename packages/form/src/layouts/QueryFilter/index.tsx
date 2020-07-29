@@ -27,11 +27,11 @@ const BREAKPOINTS = {
  * @param span
  * @param width
  */
-const getSpanConfig = (
-  layout: FormProps['layout'],
-  width: number,
-): number => {
-  const colsInRow: number = (BREAKPOINTS[layout || 'default'] || BREAKPOINTS.default).findIndex((item: number) => width < item) + 1 || 4;
+const getSpanConfig = (layout: FormProps['layout'], width: number): number => {
+  const colsInRow: number =
+    (BREAKPOINTS[layout || 'default'] || BREAKPOINTS.default).findIndex(
+      (item: number) => width < item,
+    ) + 1 || 4;
   return 24 / colsInRow;
 };
 
@@ -109,9 +109,9 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
                 }
                 const colSize = React.isValidElement(item) ? item.props?.colSize || 1 : 1;
                 const colSpan = Math.min(spanSize * colSize, 24);
-                if (24 - totalSpan % 24 < colSpan) {
+                if (24 - (totalSpan % 24) < colSpan) {
                   // 如果当前行空余位置放不下，那么折行
-                  totalSpan += (24 - totalSpan % 24);
+                  totalSpan += 24 - (totalSpan % 24);
                 }
                 totalSpan += colSpan;
 
@@ -119,7 +119,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
                   span: colSpan,
                   element: item,
                   hidden,
-                })
+                });
               });
 
               return (
@@ -131,7 +131,11 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
                         key: index,
                       });
                     }
-                    return <Col key={index} span={item.span}>{item.element}</Col>;
+                    return (
+                      <Col key={index} span={item.span}>
+                        {item.element}
+                      </Col>
+                    );
                   })}
                   <Col
                     span={spanSize}
