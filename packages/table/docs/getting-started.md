@@ -108,7 +108,7 @@ const keyWords = "Ant Design"
 | index | 序号列 | - |
 | indexBorder | 带 border 的序号列 | - |
 | progress | 进度条 | - |
-| digit | 单纯的数字，form 转化时会转为 inputNumber | - |
+| digit | [格式化](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)数字展示，form 转化时会转为 inputNumber | - |
 
 valueType 还会影响查询表单的生成,不同的 valueType 对应不同的 antd 组件，对应关系如下：
 

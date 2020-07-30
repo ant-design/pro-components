@@ -6,6 +6,7 @@ group:
 nav:
   title: 布局
   path: /layout
+  order: 0
 ---
 
 ## 使用

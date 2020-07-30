@@ -6,6 +6,7 @@ group:
 nav:
   title: 表格
   path: /table
+  order: 2
 ---
 
 ## 示例
@@ -122,7 +123,7 @@ ref.current.clearSelected();
 | index | 序号列 | - |
 | indexBorder | 带 border 的序号列 | - |
 | progress | 进度条 | - |
-| digit | 单纯的数字，form 转化时会转为 inputNumber | - |
+| digit | [格式化](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)数字展示，form 转化时会转为 inputNumber | - |
 
 ## valueEnum
 
