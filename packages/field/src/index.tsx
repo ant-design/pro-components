@@ -162,7 +162,7 @@ const defaultRenderTextByObject = (
 const defaultRenderText = (
   text: string | number | React.ReactText[],
   valueType: ProColumnsValueType,
-  props: RenderProps = { mode: 'read', emptyText: '-' },
+  props: RenderProps,
 ): React.ReactNode => {
   if (typeof valueType === 'object') {
     return defaultRenderTextByObject(text, valueType, props);
@@ -246,8 +246,8 @@ const defaultRenderText = (
     return <FieldTextArea text={text as string} {...props} />;
   }
 
-  const { emptyText } = props;
-  if (emptyText !== false && props.mode === 'read') {
+  const { mode = 'read', emptyText } = props;
+  if (emptyText !== false && mode === 'read') {
     if (typeof text !== 'boolean' && typeof text !== 'number' && !text) {
       return emptyText || '-';
     }
