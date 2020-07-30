@@ -14,7 +14,7 @@ features:
     title: Ant Design
     desc: 与 Ant Design 设计体系一脉相承，无缝对接 antd 项目
   - icon: https://gw.alipayobjects.com/os/q/cms/images/k9ziip85/89434dcf-5f1d-4362-9ce0-ab8012a85924_w96_h96.png
-    title: 国际化
+    title: 国际 化
     desc: 提供完备的国际化语言支持，与 Ant Design 体系打通
   - icon: https://gw.alipayobjects.com/mdn/rms_05efff/afts/img/A*-3XMTrwP85wAAAAAAAAAAABkARQnAQ
     title: 预设样式
