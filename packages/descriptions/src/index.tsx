@@ -42,13 +42,13 @@ export type ProDescriptionsItemProps = DescriptionsItemProps &
     request?: () => Promise<T>;
   };
 
-const ProDescriptionsItem: React.FC<ProDescriptionsItemProps> = props => {
+const ProDescriptionsItem: React.FC<ProDescriptionsItemProps> = (props) => {
   return <Descriptions.Item {...props}>{props.children}</Descriptions.Item>;
 };
 
 const ProDescriptions: React.FC<ProDescriptionsProps> & {
   Item: typeof ProDescriptionsItem;
-} = props => {
+} = (props) => {
   const { request, ...rest1 } = props;
 
   const action = useFetchData(async () => {
