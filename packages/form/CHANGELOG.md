@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.0.0-beta.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.0.0-beta.7...@ant-design/pro-form@1.0.0-beta.8) (2020-07-30)
+
+
+### Bug Fixes
+
+* use rc-resize-observer for response logic and improve test coverage ([#44](https://github.com/ant-design/pro-components/issues/44)) ([15315e9](https://github.com/ant-design/pro-components/commit/15315e9fde969e6b80d9f9142e5b21f2d83afe56))
+
+
+
+
 
 # [1.0.0-beta.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.0.0-beta.6...@ant-design/pro-form@1.0.0-beta.7) (2020-07-25)
 
