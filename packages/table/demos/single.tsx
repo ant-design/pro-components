@@ -129,16 +129,17 @@ const columns: ProColumns<GithubIssueItem>[] = [
     title: '操作',
     valueType: 'option',
     render: (text, row, _, action) => [
-      <a href={row.html_url} target="_blank" rel="noopener noreferrer">
+      <a href={row.html_url} target="_blank" rel="noopener noreferrer" key="link">
         链路
       </a>,
-      <a href={row.html_url} target="_blank" rel="noopener noreferrer">
+      <a href={row.html_url} target="_blank" rel="noopener noreferrer" key="warning">
         报警
       </a>,
-      <a href={row.html_url} target="_blank" rel="noopener noreferrer">
+      <a href={row.html_url} target="_blank" rel="noopener noreferrer" key="view">
         查看
       </a>,
       <TableDropdown
+        key="actionGroup"
         onSelect={() => action.reload()}
         menus={[
           { key: 'copy', name: '复制' },
