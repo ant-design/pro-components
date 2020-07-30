@@ -1677,6 +1677,47 @@ Array [
               <span
                 class="ant-descriptions-item-label"
               >
+                空字符串
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                -
+              </span>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                头像
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  style="width:22px;height:22px;line-height:22px;font-size:18px"
+                >
+                  <img
+                    src="https://avatars2.githubusercontent.com/u/8186664?s=60&v=4"
+                  />
+                </span>
+              </span>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
                 文本
               </span>
               <span
@@ -1863,6 +1904,28 @@ Array [
               >
                 <div>
                   <div>
+                    2016-11-21
+                  </div>
+                  <div>
+                    2016-11-22
+                  </div>
+                </div>
+              </span>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                日期时间区间
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <div>
+                  <div>
                     2016-11-21 00:00:00
                   </div>
                   <div>
@@ -1871,6 +1934,10 @@ Array [
                 </div>
               </span>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -1888,10 +1955,6 @@ Array [
                 </span>
               </span>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -1917,9 +1980,13 @@ Array [
                 </pre>
               </span>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
-              colspan="1"
+              colspan="2"
             >
               <span
                 class="ant-descriptions-item-label"

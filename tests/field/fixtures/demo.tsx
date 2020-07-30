@@ -1,27 +1,15 @@
-import React, { useState } from 'react';
-import { Radio, Switch, Space, Descriptions } from 'antd';
+import React from 'react';
+import { Descriptions } from 'antd';
 import moment from 'moment';
 
 import Field, { FieldFCMode } from '@ant-design/pro-field';
 
-export default () => {
-  const [state, setState] = useState<FieldFCMode>('read');
-  const [plain, setPlain] = useState<boolean>(false);
+export default ({ state, plain }: { state: FieldFCMode; plain: boolean }) => {
   return (
     <>
-      <Space>
-        <Radio.Group onChange={(e) => setState(e.target.value as FieldFCMode)} value={state}>
-          <Radio value="read">只读</Radio>
-          <Radio value="edit">编辑</Radio>
-        </Radio.Group>
-        简约模式
-        <Switch checked={plain} onChange={(checked) => setPlain(checked)} />
-      </Space>
-      <br />
-      <br />
       <Descriptions column={2}>
-        <Descriptions.Item label="空字符串">
-          <Field text="" mode="read" />
+        <Descriptions.Item label="文本">
+          <Field text="这是一段文本" valueType="text" mode={state} plain={plain} />
         </Descriptions.Item>
         <Descriptions.Item label="头像">
           <Field
@@ -30,8 +18,20 @@ export default () => {
             valueType="avatar"
           />
         </Descriptions.Item>
-        <Descriptions.Item label="文本">
-          <Field text="这是一段文本" valueType="text" mode={state} plain={plain} />
+        <Descriptions.Item label="空字符串">
+          <Field text="" />
+        </Descriptions.Item>
+        <Descriptions.Item label="日期区间">
+          <Field
+            text={[moment().add(-1, 'd').valueOf(), moment().valueOf()]}
+            plain={plain}
+            valueType="dateRange"
+            mode={state}
+          />
+        </Descriptions.Item>
+        <Descriptions.Item label="index">
+          <Field text={0} valueType="index" mode={state} plain={plain} />
+          <Field text={0} valueType="indexBorder" mode={state} plain={plain} />
         </Descriptions.Item>
         <Descriptions.Item label="金额">
           <Field text="100" valueType="money" mode={state} plain={plain} />
@@ -85,11 +85,11 @@ export default () => {
           <Field
             text={[moment().add(-1, 'd').valueOf(), moment().valueOf()]}
             plain={plain}
-            valueType="dateRange"
+            valueType="dateTimeRange"
             mode={state}
           />
         </Descriptions.Item>
-        <Descriptions.Item label="日期时间区间">
+        <Descriptions.Item label="dateRange">
           <Field
             text={[moment().add(-1, 'd').valueOf(), moment().valueOf()]}
             plain={plain}

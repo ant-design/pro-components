@@ -1,3 +1,6 @@
+import MockDate from 'mockdate';
+import moment from 'moment';
+
 global.requestAnimationFrame =
   global.requestAnimationFrame ||
   function requestAnimationFrame(cb) {
@@ -41,3 +44,5 @@ Object.defineProperty(window, 'localStorage', {
 Object.defineProperty(window, 'cancelAnimationFrame', {
   value: () => null,
 });
+
+MockDate.set(moment('2016-11-22 15:22:44').valueOf());
