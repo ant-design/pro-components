@@ -17,14 +17,19 @@ import { ColumnFilterItem } from 'antd/es/table/interface';
 import { FormItemProps, FormProps, FormInstance } from 'antd/es/form';
 import { TableCurrentDataSource, SorterResult } from 'antd/lib/table/interface';
 import { ConfigConsumer, ConfigConsumerProps } from 'antd/lib/config-provider';
-
+import {
+  ProFieldEmptyText,
+  ProFieldValueType,
+  ProFieldValueEnumMap,
+  ProFieldValueEnumObj,
+} from '@ant-design/pro-field';
 import { noteOnce } from 'rc-util/lib/warning';
+
 import useFetchData, { UseFetchDataAction, RequestData } from './useFetchData';
 import Container, { useCounter } from './container';
 import Toolbar, { OptionConfig, ToolBarProps } from './component/toolBar';
 import Alert from './component/alert';
 import FormSearch, { SearchConfig, TableFormItem } from './form';
-import { StatusType } from './component/status';
 import get, {
   parsingText,
   parsingValueEnumToArray,
@@ -35,10 +40,7 @@ import get, {
   ObjToMap,
   reduceWidth,
 } from './component/util';
-import defaultRenderText, {
-  ProColumnsValueType,
-  ProColumnsValueTypeFunction,
-} from './defaultRender';
+import defaultRenderText, { ProColumnsValueTypeFunction } from './defaultRender';
 import { DensitySize } from './component/toolBar/DensityIcon';
 import ErrorBoundary from './component/ErrorBoundary';
 
@@ -59,24 +61,6 @@ export interface ColumnsState {
   show?: boolean;
   fixed?: 'right' | 'left' | undefined;
 }
-
-export type ValueEnumObj = {
-  [key: string]:
-    | {
-        text: ReactNode;
-        status: StatusType;
-      }
-    | ReactNode;
-};
-
-export type ValueEnumMap = Map<
-  React.ReactText,
-  | {
-      text: ReactNode;
-      status: StatusType;
-    }
-  | ReactNode
->;
 
 export interface ProColumnType<T = unknown>
   extends Omit<ColumnType<T>, 'render' | 'children' | 'title' | 'filters'>,
@@ -140,12 +124,12 @@ export interface ProColumnType<T = unknown>
   /**
    * 值的类型
    */
-  valueType?: ProColumnsValueType | ProColumnsValueTypeFunction<T>;
+  valueType?: ProFieldValueType | ProColumnsValueTypeFunction<T>;
 
   /**
    * 值的枚举，如果存在枚举，Search 中会生成 select
    */
-  valueEnum?: ValueEnumMap | ValueEnumObj;
+  valueEnum?: ProFieldValueEnumMap | ProFieldValueEnumObj;
 
   /**
    * 在查询表单中隐藏
@@ -343,7 +327,7 @@ export interface ProTableProps<T, U extends ParamsType>
   /**
    * 空值时显示
    */
-  columnEmptyText?: ColumnEmptyText;
+  columnEmptyText?: ProFieldEmptyText;
 
   /**
    * 是否手动触发请求
@@ -396,14 +380,12 @@ const mergePagination = <T, U>(
   };
 };
 
-export type ColumnEmptyText = string | false;
-
 interface ColumnRenderInterface<T> {
   item: ProColumns<T>;
   text: any;
   row: T;
   index: number;
-  columnEmptyText?: ColumnEmptyText;
+  columnEmptyText?: ProFieldEmptyText;
   counter: ReturnType<typeof useCounter>;
 }
 
@@ -515,7 +497,7 @@ const genColumnList = <T, U = {}>(
     [key: string]: ColumnsState;
   },
   counter: ReturnType<typeof useCounter>,
-  columnEmptyText?: ColumnEmptyText,
+  columnEmptyText?: ProFieldEmptyText,
 ): (ColumnsType<T>[number] & { index?: number })[] =>
   (columns
     .map((item, columnsIndex) => {

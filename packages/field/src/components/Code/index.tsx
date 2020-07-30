@@ -1,7 +1,7 @@
 import { Input } from 'antd';
 import React from 'react';
 
-import { FieldFC } from '../../index';
+import { ProFieldFC } from '../../index';
 
 const languageFormat = (text: string, language: string) => {
   if (typeof text !== 'string') {
@@ -22,7 +22,7 @@ const languageFormat = (text: string, language: string) => {
  * 这个组件为了显示简单的配置，复杂的请使用更加重型的组件
  * @param
  */
-const FieldCode: FieldFC<{
+const FieldCode: ProFieldFC<{
   text: string;
   language?: 'json' | 'text';
 }> = ({ text, mode, render, language = 'text', renderFormItem, plain, formItemProps }) => {

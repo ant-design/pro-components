@@ -2,9 +2,9 @@ import React from 'react';
 import { Descriptions } from 'antd';
 import moment from 'moment';
 
-import Field, { FieldFCMode } from '@ant-design/pro-field';
+import Field, { ProFieldFCMode } from '@ant-design/pro-field';
 
-export default ({ state, plain }: { state: FieldFCMode; plain: boolean }) => {
+export default ({ state, plain }: { state: ProFieldFCMode; plain: boolean }) => {
   return (
     <>
       <Descriptions column={2}>

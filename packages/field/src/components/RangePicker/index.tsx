@@ -2,13 +2,13 @@ import { DatePicker } from 'antd';
 import React from 'react';
 import moment from 'moment';
 
-import { FieldFC } from '../../index';
+import { ProFieldFC } from '../../index';
 
 /**
  * 日期范围选择组件
  * @param
  */
-const FieldRangePicker: FieldFC<{
+const FieldRangePicker: ProFieldFC<{
   text: string[];
   format: string;
   showTime?: boolean;
