@@ -53,9 +53,9 @@ const FieldProgress: ProFieldFC<{
     }
     return dom;
   }
-  
+
   if (mode === 'edit' || mode === 'update') {
-    const dom = <InputNumber ref={ref} {...formItemProps}  />;
+    const dom = <InputNumber ref={ref} {...formItemProps} />;
     if (renderFormItem) {
       return renderFormItem(text, { mode, ...formItemProps }, dom);
     }
