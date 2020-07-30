@@ -152,6 +152,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
 
 export default () => {
   const actionRef = useRef<ActionType>();
+
   return (
     <div
       style={{

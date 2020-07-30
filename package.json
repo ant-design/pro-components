@@ -31,6 +31,12 @@
       "git add"
     ]
   },
+  "size-limit": [
+    {
+      "path": "packages/**/dist/*.min.js",
+      "limit": "2 s"
+    }
+  ],
   "devDependencies": {
     "@ant-design/compatible": "^1.0.4",
     "@babel/core": "^7.8.3",
