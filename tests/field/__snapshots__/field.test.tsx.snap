@@ -2767,7 +2767,7 @@ exports[`Field 🥩 read and plain 1`] = `
               class="ant-descriptions-item-content"
             >
               <span>
-                CN¥ 100.00
+                ￥ 100
               </span>
             </span>
           </td>
@@ -3224,7 +3224,7 @@ exports[`Field 🥩 read ant no plain 1`] = `
               class="ant-descriptions-item-content"
             >
               <span>
-                CN¥ 100.00
+                ￥ 100
               </span>
             </span>
           </td>

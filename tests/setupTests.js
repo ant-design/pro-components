@@ -46,3 +46,8 @@ Object.defineProperty(window, 'cancelAnimationFrame', {
 });
 
 MockDate.set(moment('2016-11-22 15:22:44').valueOf());
+
+const mockFormatExpression = {
+  format: (value) => `￥ ${value.toString()}`,
+};
+Intl.NumberFormat = jest.fn().mockImplementation(() => mockFormatExpression);
