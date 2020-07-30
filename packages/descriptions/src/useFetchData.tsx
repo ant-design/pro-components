@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 export interface RequestData<T> {
-  data: T[];
+  data: any;
   success?: boolean;
   [key: string]: any;
 }

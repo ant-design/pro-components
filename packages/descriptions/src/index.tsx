@@ -18,6 +18,7 @@ export type ProDescriptionsProps = DescriptionsProps & {
    * 获取数据的方法
    */
   request?: () => Promise<Object>;
+  columns?: any;
 };
 
 export type ProDescriptionsItemProps = DescriptionsItemProps &
@@ -30,7 +31,8 @@ export type ProDescriptionsItemProps = DescriptionsItemProps &
     /**
      * 从全局数据中取数据的key
      */
-    dataIndex?: React.ReactText | React.ReactText[];
+    dataIndex?: string;
+    // dataIndex?: React.ReactText | React.ReactText[];
 
     /**
      * 映射值的类型
@@ -42,32 +44,19 @@ export type ProDescriptionsItemProps = DescriptionsItemProps &
     request?: () => Promise<T>;
   };
 
-const ProDescriptionsItem: React.FC<ProDescriptionsItemProps> = (props) => {
+const ProDescriptionsItem: React.FC<ProDescriptionsItemProps> = props => {
   return <Descriptions.Item {...props}>{props.children}</Descriptions.Item>;
 };
 
 const ProDescriptions: React.FC<ProDescriptionsProps> & {
   Item: typeof ProDescriptionsItem;
-} = (props) => {
-  const { request, ...rest1 } = props;
+} = props => {
+  const { request, columns } = props;
 
   const action = useFetchData(async () => {
     const msg = request ? await request() : {};
     return msg;
   });
-
-  if (request) {
-    const { dataSource } = action;
-
-    const requestChilren = Object.keys(dataSource).map((i, Index) => {
-      return (
-        <Descriptions.Item {...rest1} key={i || Index} label={i}>
-          {dataSource[i]}
-        </Descriptions.Item>
-      );
-    });
-    return <Descriptions {...props}>{requestChilren}</Descriptions>;
-  }
 
   const options: JSX.Element[] = [];
   // 因为 Descriptions 只是个语法糖，children 是不会执行的，所以需要这里处理一下
@@ -81,11 +70,31 @@ const ProDescriptions: React.FC<ProDescriptionsProps> & {
       request: requestItem,
       renderFormItem,
       plain,
-      ...rest
+      dataIndex,
+      ...restItem
     } = item.props as ProDescriptionsItemProps;
     if (!valueType && !valueEnum && !request) {
       return item;
     }
+
+    if (request && !columns && dataIndex) {
+      const { dataSource = {} } = action;
+      return (
+        <Descriptions.Item {...restItem} key={restItem.label?.toString() || index}>
+          <Field
+            valueEnum={valueEnum}
+            mode={mode || 'read'}
+            render={render}
+            renderFormItem={renderFormItem}
+            valueType={valueType}
+            plain={plain}
+            request={requestItem}
+            text={children || dataSource[dataIndex] || restItem.label}
+          />
+        </Descriptions.Item>
+      );
+    }
+
     if (valueType === 'option') {
       options.push(
         <Field
@@ -102,7 +111,7 @@ const ProDescriptions: React.FC<ProDescriptionsProps> & {
     }
 
     const field = (
-      <Descriptions.Item {...rest} key={rest.label?.toString() || index}>
+      <Descriptions.Item {...restItem} key={restItem.label?.toString() || index}>
         <Field
           valueEnum={valueEnum}
           mode={mode || 'read'}
