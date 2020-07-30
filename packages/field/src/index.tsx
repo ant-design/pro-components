@@ -278,13 +278,14 @@ const Field: React.ForwardRefRenderFunction<
   any,
   {
     text?: string | number | React.ReactText[];
-    valueType: ProFieldValueType | ProFieldValueObjectType;
+    valueType?: ProFieldValueType | ProFieldValueObjectType;
   } & RenderProps
-> = ({ text, valueType, onChange, value, ...rest }, ref) => {
+> = ({ text, valueType = 'text', onChange, value, ...rest }, ref) => {
   return (
     <React.Fragment>
       {defaultRenderText(text || '', valueType, {
         ...rest,
+        mode: rest.mode || 'read',
         ref,
         formItemProps: (value || onChange || rest?.formItemProps) && {
           ...rest?.formItemProps,

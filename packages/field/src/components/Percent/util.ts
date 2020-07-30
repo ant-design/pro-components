@@ -1,6 +1,6 @@
 /** 获取展示符号 */
 export function getSymbolByRealValue(realValue: number) {
-  return realValue > 0 ? '+' : '';
+  return realValue > 0 ? '+' : '-';
 }
 
 /** 获取颜色 */

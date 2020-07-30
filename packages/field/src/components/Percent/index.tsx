@@ -48,8 +48,8 @@ const FieldPercent: ProFieldFC<PercentPropInt> = (
     const dom = (
       <span style={style} ref={ref}>
         {prefix && <span>{prefix}</span>}
-        {showSymbol && <Fragment>{getSymbolByRealValue(realValue)}&nbsp;</Fragment>}
-        {getRealTextWithPrecision(realValue, precision)}
+        {showSymbol && <Fragment>{getSymbolByRealValue(realValue)} </Fragment>}
+        {getRealTextWithPrecision(Math.abs(realValue), precision)}
         {suffix && suffix}
       </span>
     );
