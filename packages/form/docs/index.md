@@ -6,6 +6,7 @@ group:
 nav:
   title: 表单
   path: /form
+  order: 1
 ---
 
 > 开发中，请勿用于生产环境。

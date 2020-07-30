@@ -30,7 +30,7 @@ ProTable 封装了一些常用的值类型来减少重复的 `render` 操作，�
 | index | 序号列 | - |
 | indexBorder | 带 border 的序号列 | - |
 | progress | 进度条 | - |
-| digit | 单纯的数字，form 转化时会转为 inputNumber | - |
+| digit | [格式化](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)数字展示，form 转化时会转为 inputNumber | - |
 | percent | 百分比 | +1.12 |
 | code | 代码块 | `const a = b` |
 | avatar | 头像 | 展示一个头像 |
