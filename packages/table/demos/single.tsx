@@ -1,6 +1,6 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
-import { Button, Drawer, Tag, Space } from 'antd';
+import { Button, Tag, Space } from 'antd';
 import ProTable, { ProColumns, TableDropdown, ActionType } from '@ant-design/pro-table';
 import request from 'umi-request';
 
@@ -129,16 +129,17 @@ const columns: ProColumns<GithubIssueItem>[] = [
     title: '操作',
     valueType: 'option',
     render: (text, row, _, action) => [
-      <a href={row.html_url} target="_blank" rel="noopener noreferrer">
+      <a href={row.html_url} target="_blank" rel="noopener noreferrer" key="link">
         链路
       </a>,
-      <a href={row.html_url} target="_blank" rel="noopener noreferrer">
+      <a href={row.html_url} target="_blank" rel="noopener noreferrer" key="warning">
         报警
       </a>,
-      <a href={row.html_url} target="_blank" rel="noopener noreferrer">
+      <a href={row.html_url} target="_blank" rel="noopener noreferrer" key="view">
         查看
       </a>,
       <TableDropdown
+        key="actionGroup"
         onSelect={() => action.reload()}
         menus={[
           { key: 'copy', name: '复制' },
@@ -151,7 +152,6 @@ const columns: ProColumns<GithubIssueItem>[] = [
 
 export default () => {
   const actionRef = useRef<ActionType>();
-  const [visible, setVisible] = useState(false);
   return (
     <div
       style={{
@@ -160,34 +160,6 @@ export default () => {
         padding: 24,
       }}
     >
-      <Drawer width={600} onClose={() => setVisible(false)} visible={visible}>
-        <Button
-          style={{
-            margin: 8,
-          }}
-          onClick={() => {
-            if (actionRef.current) {
-              actionRef.current.reload();
-            }
-          }}
-        >
-          刷新
-        </Button>
-        <Button
-          onClick={() => {
-            if (actionRef.current) {
-              actionRef.current.reset();
-            }
-          }}
-        >
-          重置
-        </Button>
-        <ProTable<GithubIssueItem>
-          columns={columns}
-          type="form"
-          onSubmit={(params) => console.log(params)}
-        />
-      </Drawer>
       <ProTable<GithubIssueItem>
         columns={columns}
         pagination={{
