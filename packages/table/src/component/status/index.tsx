@@ -16,14 +16,27 @@ const Status: {
   Processing: React.FC<StatusProps>;
   Default: React.FC<StatusProps>;
   Warning: React.FC<StatusProps>;
+  success: React.FC<StatusProps>;
+  error: React.FC<StatusProps>;
+  processing: React.FC<StatusProps>;
+  default: React.FC<StatusProps>;
+  warning: React.FC<StatusProps>;
 } = {
   Success: ({ children }) => <Badge status="success" text={children} />,
   Error: ({ children }) => <Badge status="error" text={children} />,
   Default: ({ children }) => <Badge status="default" text={children} />,
   Processing: ({ children }) => <Badge status="processing" text={children} />,
   Warning: ({ children }) => <Badge status="warning" text={children} />,
+  success: ({ children }) => <Badge status="success" text={children} />,
+  error: ({ children }) => <Badge status="error" text={children} />,
+  default: ({ children }) => <Badge status="default" text={children} />,
+  processing: ({ children }) => <Badge status="processing" text={children} />,
+  warning: ({ children }) => <Badge status="warning" text={children} />,
 };
 
 export type StatusType = keyof typeof Status;
 
 export default Status;
+export const BadgeColor: React.FC<StatusProps & { color: string }> = ({ color, children }) => (
+  <Badge color={color} text={children} />
+);

@@ -4,16 +4,6 @@ import React from 'react';
 import ProSkeleton from '../packages/skeleton/src/index';
 
 describe('skeleton', () => {
-  beforeAll(() => {
-    Object.defineProperty(window, 'matchMedia', {
-      value: jest.fn(() => ({
-        matches: false,
-        addListener() {},
-        removeListener() {},
-      })),
-    });
-  });
-
   it('🥩 list base use', async () => {
     const html = render(<ProSkeleton type="list" />);
     expect(html).toMatchSnapshot();

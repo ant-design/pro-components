@@ -2,17 +2,10 @@ import { render, mount } from 'enzyme';
 import React from 'react';
 import ProLayout, { PageContainer } from '@ant-design/pro-layout';
 import defaultProps from './defaultProps';
-import { waitForComponentToPaint } from './util';
+import { waitForComponentToPaint } from '../util';
 
 describe('BasicLayout', () => {
   beforeAll(() => {
-    Object.defineProperty(window, 'matchMedia', {
-      value: jest.fn(() => ({
-        matches: false,
-        addListener() {},
-        removeListener() {},
-      })),
-    });
     Object.defineProperty(window, 'localStorage', {
       value: {
         getItem: jest.fn(() => 'zh-CN'),

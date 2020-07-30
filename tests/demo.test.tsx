@@ -68,24 +68,6 @@ function demoTest(component: string, options: Options = {}) {
 }
 
 describe('demos', () => {
-  beforeAll(() => {
-    Object.defineProperty(window, 'matchMedia', {
-      value: jest.fn(() => ({
-        matches: false,
-        addListener() {},
-        removeListener() {},
-      })),
-    });
-  });
-
-  beforeEach(() => {
-    const mockFormatExpression = {
-      format: (value: string) => `￥ ${value.toString()}`,
-    };
-    // @ts-ignore
-    Intl.NumberFormat = jest.fn().mockImplementation(() => mockFormatExpression);
-  });
-
   const files = glob.sync(`./packages/*`) as string[];
   files.forEach((file) => {
     const component = file.split('/').pop();

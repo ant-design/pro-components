@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-field",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "原子信息组件，统一 ProForm、ProTable、ProList、Filter 等组件里面的字段定义。",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

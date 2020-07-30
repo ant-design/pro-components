@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-list",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "🏆 Use Ant Design List like a Pro!",
   "license": "MIT",
   "main": "lib/index.js",

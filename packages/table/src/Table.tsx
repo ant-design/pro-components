@@ -1,8 +1,14 @@
 import './index.less';
 
-import React, { useEffect, CSSProperties, useRef, useState, ReactNode } from 'react';
+import React, { useEffect, CSSProperties, useRef, useState, ReactNode, useCallback } from 'react';
 import { Table, ConfigProvider, Card, Space, Typography, Empty, Tooltip } from 'antd';
-import { IntlProvider, IntlConsumer, IntlType, useIntl } from '@ant-design/pro-provider';
+import {
+  useIntl,
+  ConfigProvider as ProConfigProvider,
+  ConfigConsumer as ProConfigConsumer,
+  IntlType,
+  ParamsType,
+} from '@ant-design/pro-provider';
 import classNames from 'classnames';
 import useMergeValue from 'use-merge-value';
 import { stringify } from 'use-json-comparison';
@@ -38,6 +44,9 @@ import ErrorBoundary from './component/ErrorBoundary';
 
 type TableRowSelection = TableProps<any>['rowSelection'];
 
+/**
+ * 操作类型
+ */
 export interface ActionType {
   reload: (resetPageIndex?: boolean) => void;
   reloadAndRest: () => void;
@@ -173,7 +182,7 @@ export type ProColumns<T = {}> = ProColumnGroupType<T> | ProColumnType<T>;
 // table 支持的变形，还未完全支持完毕
 export type ProTableTypes = 'form' | 'list' | 'table' | 'cardList' | undefined;
 
-export interface ProTableProps<T, U extends { [key: string]: any }>
+export interface ProTableProps<T, U extends ParamsType>
   extends Omit<TableProps<T>, 'columns' | 'rowSelection'> {
   columns?: ProColumns<T>[];
 
@@ -292,7 +301,7 @@ export interface ProTableProps<T, U extends { [key: string]: any }>
   /**
    * 格式化搜索表单提交数据
    */
-  beforeSearchSubmit?: (params: Partial<T>) => Partial<T>;
+  beforeSearchSubmit?: (params: Partial<U>) => Partial<U>;
   /**
    * 自定义 table 的 alert
    * 设置或者返回false 即可关闭
@@ -342,13 +351,13 @@ export interface ProTableProps<T, U extends { [key: string]: any }>
   manualRequest?: boolean;
 }
 
-const mergePagination = <T extends any[], U>(
+const mergePagination = <T, U>(
   pagination: TablePaginationConfig | boolean | undefined = {},
   action: UseFetchDataAction<RequestData<T>>,
   intl: IntlType,
 ): TablePaginationConfig | false | undefined => {
   if (pagination === false) {
-    return {};
+    return undefined;
   }
   let defaultPagination: TablePaginationConfig | {} = pagination || {};
   const { current, pageSize } = action;
@@ -563,156 +572,30 @@ const genColumnList = <T, U = {}>(
       index?: number;
     }[];
 
+type PostDataType<T> = (data: T) => T;
+
 /**
- * 🏆 Use Ant Design Table like a Pro!
- * 更快 更好 更方便
- * @param props
+ * 一个转化的 pipeline 列表
+ * @param data
+ * @param pipeline
  */
-const ProTable = <T extends {}, U extends object>(
-  props: ProTableProps<T, U> & {
-    defaultClassName: string;
-  },
-) => {
-  const {
-    request,
-    className: propsClassName,
-    params = {},
-    defaultData = [],
-    headerTitle,
-    postData,
-    pagination: propsPagination,
-    actionRef,
-    columns: propsColumns = [],
-    toolBarRender,
-    onLoad,
-    onRequestError,
-    style,
-    tableStyle,
-    tableClassName,
-    columnsStateMap,
-    onColumnsStateChange,
-    options,
-    search = true,
-    rowSelection: propsRowSelection = false,
-    beforeSearchSubmit = (searchParams: Partial<U>) => searchParams,
-    tableAlertRender,
-    defaultClassName,
-    formRef,
-    type = 'table',
-    onReset = () => {},
-    columnEmptyText = '-',
-    manualRequest = false,
-    ...rest
-  } = props;
-
-  const [selectedRowKeys, setSelectedRowKeys] = useMergeValue<React.ReactText[]>([], {
-    value: propsRowSelection ? propsRowSelection.selectedRowKeys : undefined,
-  });
-  const [formSearch, setFormSearch] = useState<{}>(() => rest.form?.initialValues);
-  const [selectedRows, setSelectedRows] = useState<T[]>([]);
-  const [dataSource, setDataSource] = useState<T[]>([]);
-  const [proFilter, setProFilter] = useState<{
-    [key: string]: React.ReactText[];
-  }>({});
-  const [proSort, setProSort] = useState<{
-    [key: string]: 'ascend' | 'descend';
-  }>({});
-  const rootRef = useRef<HTMLDivElement>(null);
-  const fullScreen = useRef<() => void>();
-
-  /**
-   * 需要初始化 不然默认可能报错
-   * 这里取了 defaultCurrent 和 current
-   * 为了保证不会重复刷新
-   */
-  const fetchPagination =
-    typeof propsPagination === 'object'
-      ? (propsPagination as TablePaginationConfig)
-      : { defaultCurrent: 1, defaultPageSize: 20, pageSize: 20, current: 1 };
-
-  const action = useFetchData(
-    async ({ pageSize, current }) => {
-      // 需要手动触发的首次请求
-      const needManualFirstReq = manualRequest && !formSearch;
-
-      if (!request || needManualFirstReq) {
-        return {
-          data: props.dataSource || [],
-          success: true,
-        } as RequestData<T>;
-      }
-
-      const response = await request(
-        {
-          current,
-          pageSize,
-          ...formSearch,
-          ...params,
-        } as U,
-        proSort,
-        proFilter,
-      );
-      if (postData) {
-        return { ...response, data: postData(response.data) };
-      }
-      return response;
-    },
-    defaultData,
-    {
-      defaultCurrent: fetchPagination.current || fetchPagination.defaultCurrent,
-      defaultPageSize: fetchPagination.pageSize || fetchPagination.defaultPageSize,
-      onLoad,
-      onRequestError,
-      effects: [stringify(params), stringify(formSearch), stringify(proFilter), stringify(proSort)],
-    },
-  );
-
-  useEffect(() => {
-    fullScreen.current = () => {
-      if (!rootRef.current || !document.fullscreenEnabled) {
-        return;
-      }
-      if (document.fullscreenElement) {
-        document.exitFullscreen();
-      } else {
-        rootRef.current.requestFullscreen();
-      }
-    };
-  }, [rootRef.current]);
-
-  action.fullScreen = fullScreen.current;
-
-  const intl = useIntl();
-
-  const pagination =
-    propsPagination !== false && mergePagination<T[], {}>(propsPagination, action, intl);
-
-  const counter = Container.useContainer();
-
-  const onCleanSelected = () => {
-    if (propsRowSelection && propsRowSelection.onChange) {
-      propsRowSelection.onChange([], []);
+const defaultPostData = <T, U>(data: T, pipeline: (PostDataType<T> | undefined)[]) => {
+  if (pipeline.filter((item) => item).length < 1) {
+    return data;
+  }
+  return pipeline.reduce((pre, postData) => {
+    if (postData) {
+      return postData(pre);
     }
-    setSelectedRowKeys([]);
-    setSelectedRows([]);
-  };
+    return pre;
+  }, data);
+};
 
-  useEffect(() => {
-    // 数据源更新时 取消所有选中项
-    // onCleanSelected();
-    setDataSource(request ? (action.dataSource as T[]) : props.dataSource || []);
-  }, [props.dataSource, action.dataSource]);
-
-  /**
-   *  保存一下 propsColumns
-   *  生成 form 需要用
-   */
-  useDeepCompareEffect(() => {
-    counter.setProColumns(propsColumns);
-  }, [propsColumns]);
-
-  counter.setAction(action);
-
+const useActionType = <T, U = any>(
+  actionRef: ProTableProps<T, any>['actionRef'],
+  counter: ReturnType<typeof useCounter>,
+  onCleanSelected: () => void,
+) => {
   /**
    * 这里生成action的映射，保证 action 总是使用的最新
    * 只需要渲染一次即可
@@ -775,9 +658,165 @@ const ProTable = <T extends {}, U extends object>(
       actionRef(userAction);
     }
     if (actionRef && typeof actionRef !== 'function') {
+      // eslint-disable-next-line no-param-reassign
       actionRef.current = userAction;
     }
   }, []);
+};
+
+/**
+ * 🏆 Use Ant Design Table like a Pro!
+ * 更快 更好 更方便
+ * @param props
+ */
+const ProTable = <T extends {}, U extends ParamsType>(
+  props: ProTableProps<T, U> & {
+    defaultClassName: string;
+  },
+) => {
+  const {
+    request,
+    className: propsClassName,
+    params = {},
+    defaultData = [],
+    headerTitle,
+    postData,
+    pagination: propsPagination,
+    actionRef,
+    columns: propsColumns = [],
+    toolBarRender,
+    onLoad,
+    onRequestError,
+    style,
+    tableStyle,
+    tableClassName,
+    columnsStateMap,
+    onColumnsStateChange,
+    options,
+    search = true,
+    rowSelection: propsRowSelection = false,
+    beforeSearchSubmit = (searchParams: Partial<U>) => searchParams,
+    tableAlertRender,
+    defaultClassName,
+    formRef,
+    type = 'table',
+    onReset = () => {},
+    columnEmptyText = '-',
+    manualRequest = false,
+    ...rest
+  } = props;
+
+  const [selectedRowKeys, setSelectedRowKeys] = useMergeValue<React.ReactText[]>([], {
+    value: propsRowSelection ? propsRowSelection.selectedRowKeys : undefined,
+  });
+  const [formSearch, setFormSearch] = useState<{}>(() => rest.form?.initialValues);
+  const [selectedRows, setSelectedRows] = useState<T[]>([]);
+  const [dataSource, setDataSource] = useState<T[]>([]);
+  const [proFilter, setProFilter] = useState<{
+    [key: string]: React.ReactText[];
+  }>({});
+  const [proSort, setProSort] = useState<{
+    [key: string]: 'ascend' | 'descend';
+  }>({});
+  const rootRef = useRef<HTMLDivElement>(null);
+  const fullScreen = useRef<() => void>();
+  const intl = useIntl();
+
+  /**
+   * 需要初始化 不然默认可能报错
+   * 这里取了 defaultCurrent 和 current
+   * 为了保证不会重复刷新
+   */
+  const fetchPagination =
+    typeof propsPagination === 'object'
+      ? (propsPagination as TablePaginationConfig)
+      : { defaultCurrent: 1, defaultPageSize: 20, pageSize: 20, current: 1 };
+
+  const action = useFetchData(
+    async ({ pageSize, current }) => {
+      // 需要手动触发的首次请求
+      const needManualFirstReq = manualRequest && !formSearch;
+
+      if (!request || needManualFirstReq) {
+        return {
+          data: props.dataSource || [],
+          success: true,
+        } as RequestData<T>;
+      }
+
+      const actionParams = {
+        current,
+        pageSize,
+        ...formSearch,
+        ...params,
+      };
+
+      const response = await request((actionParams as unknown) as U, proSort, proFilter);
+      const responseData = defaultPostData<T[], U>(response.data, [postData]);
+      if (Array.isArray(response)) {
+        return response;
+      }
+      const msgData = { ...response, data: responseData } as RequestData<T>;
+      return msgData;
+    },
+    defaultData,
+    {
+      defaultCurrent: fetchPagination.current || fetchPagination.defaultCurrent,
+      defaultPageSize: fetchPagination.pageSize || fetchPagination.defaultPageSize,
+      onLoad,
+      onRequestError,
+      effects: [stringify(params), stringify(formSearch), stringify(proFilter), stringify(proSort)],
+    },
+  );
+
+  useEffect(() => {
+    fullScreen.current = () => {
+      if (!rootRef.current || !document.fullscreenEnabled) {
+        return;
+      }
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      } else {
+        rootRef.current.requestFullscreen();
+      }
+    };
+  }, [rootRef.current]);
+
+  action.fullScreen = fullScreen.current;
+
+  const pagination = mergePagination<T, {}>(propsPagination, action, intl);
+
+  const counter = Container.useContainer();
+
+  const onCleanSelected = useCallback(() => {
+    if (propsRowSelection && propsRowSelection.onChange) {
+      propsRowSelection.onChange([], []);
+    }
+    setSelectedRowKeys([]);
+    setSelectedRows([]);
+  }, [setSelectedRowKeys, setSelectedRows]);
+
+  /**
+   * 绑定 action
+   */
+  useActionType(actionRef, counter, onCleanSelected);
+
+  /**
+   * 数据列表的更新
+   */
+  useEffect(() => {
+    setDataSource(request ? (action.dataSource as T[]) : props.dataSource || []);
+  }, [props.dataSource, action.dataSource]);
+
+  /**
+   *  保存一下 propsColumns
+   *  生成 form 需要用
+   */
+  useDeepCompareEffect(() => {
+    counter.setProColumns(propsColumns);
+  }, [propsColumns]);
+
+  counter.setAction(action);
 
   /**
    * Table Column 变化的时候更新一下，这个参数将会用于渲染
@@ -933,6 +972,7 @@ const ProTable = <T extends {}, U extends object>(
         toolBarRender={toolBarRender}
       />
     );
+
   const alertDom = propsRowSelection !== false && (
     <Alert<T>
       selectedRowKeys={selectedRowKeys}
@@ -1035,12 +1075,11 @@ const ProTable = <T extends {}, U extends object>(
             formRef={formRef}
             onSubmit={(value) => {
               if (type !== 'form') {
-                setFormSearch(
-                  beforeSearchSubmit({
-                    ...value,
-                    _timestamp: Date.now(),
-                  }),
-                );
+                const submitParams = {
+                  ...value,
+                  _timestamp: Date.now(),
+                };
+                setFormSearch(beforeSearchSubmit(submitParams));
                 // back first page
                 action.resetPageIndex();
               }
@@ -1090,15 +1129,15 @@ const ProviderWarp = <T, U extends { [key: string]: any } = {}>(props: ProTableP
   <Container.Provider initialState={props}>
     <ConfigConsumer>
       {({ getPrefixCls }: ConfigConsumerProps) => (
-        <IntlConsumer>
+        <ProConfigConsumer>
           {(value) => (
-            <IntlProvider value={value}>
+            <ProConfigProvider value={value}>
               <ErrorBoundary>
                 <ProTable defaultClassName={getPrefixCls('pro-table')} {...props} />
               </ErrorBoundary>
-            </IntlProvider>
+            </ProConfigProvider>
           )}
-        </IntlConsumer>
+        </ProConfigConsumer>
       )}
     </ConfigConsumer>
   </Container.Provider>

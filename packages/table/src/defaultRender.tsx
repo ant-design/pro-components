@@ -202,6 +202,10 @@ const defaultRenderText = <T, U>(
     return <IndexColumn border>{index + 1}</IndexColumn>;
   }
 
+  if (valueType === 'digit') {
+    return new Intl.NumberFormat().format(Number(text) as number);
+  }
+
   if (valueType === 'progress') {
     return (
       <Progress size="small" percent={text as number} status={getProgressStatus(text as number)} />

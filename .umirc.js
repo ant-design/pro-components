@@ -25,7 +25,7 @@ const tailPkgList = pkgList
 const isProduction = process.env.NODE_ENV === 'production';
 
 export default {
-  title: 'ProComponent',
+  title: 'ProComponents',
   mode: 'site',
   logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
   extraBabelPlugins: [
