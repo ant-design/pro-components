@@ -4,7 +4,7 @@ import { Button, Tag, Select } from 'antd';
 import ProTable, {
   ProColumns,
   TableDropdown,
-  IntlProvider,
+  ConfigProvider,
   zhCNIntl,
   enUSIntl,
   viVNIntl,
@@ -180,7 +180,7 @@ export default () => {
         onChange={(value) => setIntl(value)}
         options={Object.keys(intlMap).map((value) => ({ value, label: value }))}
       />
-      <IntlProvider
+      <ConfigProvider
         value={{
           intl: intlMap[intl],
         }}
@@ -209,7 +209,7 @@ export default () => {
             </Button>,
           ]}
         />
-      </IntlProvider>
+      </ConfigProvider>
     </>
   );
 };

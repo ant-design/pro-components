@@ -77,20 +77,24 @@ const intlMap = {
   'fr-FR': frFRIntl,
 };
 
+export type ParamsType = {
+  [key: string]: React.ReactText | React.ReactText[];
+};
+
 export { enUSIntl, zhCNIntl, viVNIntl, itITIntl, jaJPIntl, esESIntl, ruRUIntl, msMYIntl, zhTWIntl };
 
-const IntlContext = React.createContext<{
+const ConfigContext = React.createContext<{
   intl: IntlType;
 }>({
   intl: intlMap[getLang() || ''] || zhCNIntl,
 });
 
-const { Consumer: IntlConsumer, Provider: IntlProvider } = IntlContext;
+const { Consumer: ConfigConsumer, Provider: ConfigProvider } = ConfigContext;
 
-export { IntlConsumer, IntlProvider, createIntl };
+export { ConfigConsumer, ConfigProvider, createIntl };
 
 export function useIntl(): IntlType {
-  const context = useContext(IntlContext);
+  const context = useContext(ConfigContext);
 
   noteOnce(
     !!context.intl,
@@ -98,7 +102,7 @@ export function useIntl(): IntlType {
 为了提升兼容性  
 <IntlProvider value={zhCNIntl}/>
 需要修改为:
-<IntlProvider
+<ConfigProvider
   value={{
     intl: zhCNIntl,
   }}
@@ -113,7 +117,7 @@ export function useIntl(): IntlType {
 To improve compatibility
   <IntlProvider value={zhCNIntl}/>
 Need to be modified to:
-  <IntlProvider
+  <ConfigProvider
     value={{
       intl: zhCNIntl,
     }}
@@ -123,9 +127,9 @@ We will remove it in the next version
   );
 
   if (!context.intl) {
-    return (context as unknown) as IntlType;
+    return ((context as unknown) as IntlType) || intlMap[getLang() || ''] || zhCNIntl;
   }
-  return context.intl;
+  return context.intl || intlMap[getLang() || ''] || zhCNIntl;
 }
 
-export default IntlContext;
+export default ConfigContext;
