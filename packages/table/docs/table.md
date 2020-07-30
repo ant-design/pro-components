@@ -148,5 +148,4 @@ interface IValueEnum {
 | --- | --- | --- | --- |
 | tableAlertRender | 渲染 alert，当配置 `rowSelection`打开。 | `(keys:string[],rows:T[]) => React.ReactNode[]` | `已选择 ${selectedRowKeys.length} 项` |
 | rowSelection | 表格行是否可选择，[配置项](https://ant.design/components/table-cn/#rowSelection) | object | false |
-| tableAlertOptionRender | 自定义渲染 alert 操作区，设为 false 则不显示 |  `(props: { intl: IntlType; onCleanSelected: () => void }) => React.ReactNode`| false |
-
+| tableAlertOptionRender | 自定义渲染 alert 操作区，设为 false 则不显示 | `(props: { intl: IntlType; onCleanSelected: () => void }) => React.ReactNode` | false |
