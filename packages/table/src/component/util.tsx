@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import React, { ReactNode, useEffect, useRef, ReactText, DependencyList, useCallback } from 'react';
 import isEqual from 'lodash.isequal';
+import { ProFieldValueEnumObj, ProFieldValueEnumMap } from '@ant-design/pro-field';
 import { DataIndex } from 'rc-table/lib/interface';
 import TableStatus, { BadgeColor, StatusType } from './status';
-import { ValueEnumObj, ValueEnumMap } from '../Table';
 
 /**
  * 转化 text 和 valueEnum
@@ -12,7 +12,11 @@ import { ValueEnumObj, ValueEnumMap } from '../Table';
  * @param valueEnum
  * @param prue 纯净模式，不增加 status
  */
-export const parsingText = (text: string | number, valueEnum?: ValueEnumMap, pure?: boolean) => {
+export const parsingText = (
+  text: string | number,
+  valueEnum?: ProFieldValueEnumMap,
+  pure?: boolean,
+) => {
   if (!valueEnum) {
     return text;
   }
@@ -42,7 +46,7 @@ export const parsingText = (text: string | number, valueEnum?: ValueEnumMap, pur
  * @param valueEnum
  */
 export const parsingValueEnumToArray = (
-  valueEnum: ValueEnumMap | undefined = new Map(),
+  valueEnum: ProFieldValueEnumMap | undefined = new Map(),
 ): {
   value: string | number;
   text: string;
@@ -279,13 +283,13 @@ function getType(obj: any) {
 }
 
 export const ObjToMap = (
-  value: ValueEnumObj | ValueEnumMap | undefined,
-): ValueEnumMap | undefined => {
+  value: ProFieldValueEnumObj | ProFieldValueEnumMap | undefined,
+): ProFieldValueEnumMap | undefined => {
   if (!value) {
     return value;
   }
   if (getType(value) === 'map') {
-    return value as ValueEnumMap;
+    return value as ProFieldValueEnumMap;
   }
   return new Map(Object.entries(value));
 };

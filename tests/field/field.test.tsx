@@ -74,9 +74,7 @@ describe('Field', () => {
       );
       expect(html.text()).toBe('qixian');
     });
-
   });
-
 
   valueTypes.forEach((valueType) => {
     it(`🥩 valueType render ${valueType} when mode is error`, async () => {
