@@ -31,12 +31,6 @@
       "git add"
     ]
   },
-  "size-limit": [
-    {
-      "path": "packages/**/dist/*.min.js",
-      "limit": "2 s"
-    }
-  ],
   "devDependencies": {
     "@ant-design/compatible": "^1.0.4",
     "@babel/core": "^7.8.3",
@@ -128,75 +122,39 @@
   },
   "size-limit": [
     {
-      "path": "packages/card/lib/**/*.js",
+      "path": "packages/card/dist/*.min.js",
       "limit": "2 s"
     },
     {
-      "path": "packages/card/es/**/*.js",
+      "path": "packages/descriptions/dist/*.min.js",
       "limit": "2 s"
     },
     {
-      "path": "packages/descriptions/lib/**/*.js",
+      "path": "packages/field/dist/*.min.js",
       "limit": "2 s"
     },
     {
-      "path": "packages/descriptions/es/**/*.js",
+      "path": "packages/form/dist/*.min.js",
       "limit": "2 s"
     },
     {
-      "path": "packages/field/lib/**/*.js",
+      "path": "packages/layout/dist/*.min.js",
       "limit": "2 s"
     },
     {
-      "path": "packages/field/es/**/*.js",
+      "path": "packages/list/dist/*.min.js",
       "limit": "2 s"
     },
     {
-      "path": "packages/form/lib/**/*.js",
+      "path": "packages/provider/dist/*.min.js",
       "limit": "2 s"
     },
     {
-      "path": "packages/form/es/**/*.js",
+      "path": "packages/skeleton/dist/*.min.js",
       "limit": "2 s"
     },
     {
-      "path": "packages/layout/lib/**/*.js",
-      "limit": "2 s"
-    },
-    {
-      "path": "packages/layout/es/**/*.js",
-      "limit": "2 s"
-    },
-    {
-      "path": "packages/list/lib/**/*.js",
-      "limit": "2 s"
-    },
-    {
-      "path": "packages/list/es/**/*.js",
-      "limit": "2 s"
-    },
-    {
-      "path": "packages/provider/lib/**/*.js",
-      "limit": "2 s"
-    },
-    {
-      "path": "packages/provider/es/**/*.js",
-      "limit": "2 s"
-    },
-    {
-      "path": "packages/skeleton/lib/**/*.js",
-      "limit": "2 s"
-    },
-    {
-      "path": "packages/skeleton/es/**/*.js",
-      "limit": "2 s"
-    },
-    {
-      "path": "packages/table/lib/**/*.js",
-      "limit": "2 s"
-    },
-    {
-      "path": "packages/table/es/**/*.js",
+      "path": "packages/table/dist/*.min.js",
       "limit": "2 s"
     }
   ]
