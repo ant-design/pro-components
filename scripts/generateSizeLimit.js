@@ -28,5 +28,5 @@ componentsNames = componentsNames.filter(dir => ignoreDirPath.indexOf(dir) === -
     });
   });
 
-  await writePkg(cwd, { ...json, sizeLimit: sizeLimitConfig });
+  await writePkg(cwd, { ...json, 'size-limit': sizeLimitConfig });
 })();

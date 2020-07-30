@@ -120,7 +120,7 @@
   "dependencies": {
     "@umijs/plugin-analytics": "^0.2.2"
   },
-  "sizeLimit": [
+  "size-limit": [
     {
       "path": "packages/card/lib/**/*.js",
       "limit": "2 s"
