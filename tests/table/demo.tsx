@@ -122,7 +122,7 @@ export const columns: ProColumns[] = [
         reload
       </a>,
       <TableDropdown
-        onSelect={key => window.alert(key)}
+        onSelect={(key) => window.alert(key)}
         menus={[
           { key: 'copy', name: '复制' },
           { key: 'delete', name: '删除' },
