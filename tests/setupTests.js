@@ -57,8 +57,6 @@ const mockFormatExpression = {
 };
 Intl.NumberFormat = jest.fn().mockImplementation(() => mockFormatExpression);
 
-
-
 moment.tz.setDefault('UTC');
 
 Math.random = () => 0.8404419276253765;
