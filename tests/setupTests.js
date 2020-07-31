@@ -59,6 +59,6 @@ Intl.NumberFormat = jest.fn().mockImplementation(() => mockFormatExpression);
 
 Math.random = () => 0.8404419276253765;
 
-fetch.mockResponse(async (req, res) => {
+fetch.mockResponse(async () => {
   return { body: JSON.stringify(tableData) };
 });
