@@ -79,14 +79,27 @@ export default () => {
           <Field text="40" valueType="progress" mode={state} plain={plain} />
         </Descriptions.Item>
         <Descriptions.Item label="日期时间">
-          <Field text={moment().valueOf()} valueType="dateTime" mode={state} plain={plain} />
+          <Field
+            text={moment('2019-11-16 12:50:26').valueOf()}
+            valueType="dateTime"
+            mode={state}
+            plain={plain}
+          />
         </Descriptions.Item>
         <Descriptions.Item label="日期">
-          <Field text={moment().valueOf()} valueType="date" mode={state} plain={plain} />
+          <Field
+            text={moment('2019-11-16 12:50:26').valueOf()}
+            valueType="date"
+            mode={state}
+            plain={plain}
+          />
         </Descriptions.Item>
         <Descriptions.Item label="日期区间">
           <Field
-            text={[moment().add(-1, 'd').valueOf(), moment().valueOf()]}
+            text={[
+              moment('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
+              moment('2019-11-16 12:50:26').valueOf(),
+            ]}
             plain={plain}
             valueType="dateRange"
             mode={state}
@@ -94,14 +107,22 @@ export default () => {
         </Descriptions.Item>
         <Descriptions.Item label="日期时间区间">
           <Field
-            text={[moment().add(-1, 'd').valueOf(), moment().valueOf()]}
+            text={[
+              moment('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
+              moment('2019-11-16 12:50:26').valueOf(),
+            ]}
             plain={plain}
             valueType="dateTimeRange"
             mode={state}
           />
         </Descriptions.Item>
         <Descriptions.Item label="时间">
-          <Field text={moment().valueOf()} plain={plain} valueType="time" mode={state} />
+          <Field
+            text={moment('2019-11-16 12:50:26').valueOf()}
+            plain={plain}
+            valueType="time"
+            mode={state}
+          />
         </Descriptions.Item>
         <Descriptions.Item label="代码块">
           <Field
