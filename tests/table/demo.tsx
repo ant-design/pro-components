@@ -83,7 +83,7 @@ export const columns: ProColumns[] = [
     key: 'time',
     dataIndex: 'date',
     valueType: 'time',
-    renderText: () => 1596169064832,
+    renderText: () => moment('2019-11-16 12:50:26'),
   },
   {
     title: '状态',
