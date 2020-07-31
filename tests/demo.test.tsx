@@ -75,6 +75,7 @@ describe('demos', () => {
   files.forEach((file) => {
     const component = file.split('/').pop();
     if (!component) return;
+
     demoTest(component);
   });
 });

@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import ProTable, { ProColumns } from '@ant-design/pro-table';
 import { Space } from 'antd';
 
@@ -31,11 +32,11 @@ for (let i = 0; i < 2; i += 1) {
       'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
     name: `TradeCode ${i}`,
     status: valueEnum[Math.floor(Math.random() * 10) % 4],
-    updatedAt: Date.now() - Math.floor(Math.random() * 1000),
-    createdAt: Date.now() - Math.floor(Math.random() * 2000),
+    updatedAt: moment().valueOf() - Math.floor(Math.random() * 1000),
+    createdAt: moment().valueOf() - Math.floor(Math.random() * 2000),
     createdAtRange: [
-      Date.now() - Math.floor(Math.random() * 2000),
-      Date.now() - Math.floor(Math.random() * 2000),
+      moment().valueOf() - Math.floor(Math.random() * 2000),
+      moment().valueOf() - Math.floor(Math.random() * 2000),
     ],
     money: Math.floor(Math.random() * 2000) * i,
     progress: Math.ceil(Math.random() * 100) + 1,
