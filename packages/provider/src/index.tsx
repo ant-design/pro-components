@@ -84,7 +84,19 @@ export type ParamsType = {
   [key: string]: React.ReactText | React.ReactText[];
 };
 
-export { enUSIntl, zhCNIntl, viVNIntl, itITIntl, jaJPIntl, esESIntl, ruRUIntl, msMYIntl, zhTWIntl, frFRIntl, ptBRIntl };
+export {
+  enUSIntl,
+  zhCNIntl,
+  viVNIntl,
+  itITIntl,
+  jaJPIntl,
+  esESIntl,
+  ruRUIntl,
+  msMYIntl,
+  zhTWIntl,
+  frFRIntl,
+  ptBRIntl,
+};
 
 const ConfigContext = React.createContext<{
   intl: IntlType;

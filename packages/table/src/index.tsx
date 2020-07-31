@@ -13,7 +13,7 @@ import {
   msMYIntl,
   zhTWIntl,
   frFRIntl,
-  ptBRIntl
+  ptBRIntl,
 } from '@ant-design/pro-provider';
 
 import ProTable, { ProColumns, ActionType, ProTableProps, ColumnsState } from './Table';
@@ -56,7 +56,7 @@ export {
   msMYIntl,
   zhTWIntl,
   frFRIntl,
-  ptBRIntl
+  ptBRIntl,
 };
 
 export default ProTable;
