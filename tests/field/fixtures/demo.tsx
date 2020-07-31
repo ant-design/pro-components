@@ -19,7 +19,7 @@ export default ({ state, plain }: { state: ProFieldFCMode; plain: boolean }) => 
           />
         </Descriptions.Item>
         <Descriptions.Item label="空字符串">
-          <Field text="" />
+          <Field text="" mode="read" />
         </Descriptions.Item>
         <Descriptions.Item label="日期区间">
           <Field

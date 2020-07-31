@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import { Avatar } from 'antd';
+import { Moment } from 'moment';
 import FieldPercent from './components/Percent';
 import FieldIndexColumn from './components/IndexColumn';
 import FieldProgress from './components/Progress';
@@ -16,6 +17,8 @@ import FiledSelect, {
   RequestData,
 } from './components/Select';
 import FieldDigit from './components/Digit';
+
+export type ProFieldTextType = string | number | React.ReactText[] | Moment | Moment[] | null;
 
 export type { ProFieldValueEnumMap, ProFieldValueEnumObj };
 export type ProFieldEmptyText = string | false;
@@ -130,7 +133,7 @@ type RenderProps = Omit<ProFieldFCRenderProps, 'text'> &
  * @param valueType ProColumnsValueObjectType
  */
 const defaultRenderTextByObject = (
-  text: string | number | React.ReactText[],
+  text: ProFieldTextType,
   valueType: ProFieldValueObjectType,
   props: RenderProps = { mode: 'read', plain: false },
 ) => {
@@ -168,7 +171,7 @@ const defaultRenderTextByObject = (
  * @param valueType
  */
 const defaultRenderText = (
-  text: string | number | React.ReactText[],
+  text: ProFieldTextType,
   valueType: ProFieldValueType | ProFieldValueObjectType,
   props: RenderProps,
 ): React.ReactNode => {
@@ -277,7 +280,7 @@ export { defaultRenderText };
 const Field: React.ForwardRefRenderFunction<
   any,
   {
-    text?: string | number | React.ReactText[];
+    text?: ProFieldTextType;
     valueType?: ProFieldValueType | ProFieldValueObjectType;
   } & RenderProps
 > = ({ text, valueType = 'text', onChange, value, ...rest }, ref) => {
