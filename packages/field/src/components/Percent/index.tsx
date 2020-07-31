@@ -3,7 +3,7 @@ import { InputNumber } from 'antd';
 import toNumber from 'lodash.tonumber';
 
 import { getColorByRealValue, getSymbolByRealValue, getRealTextWithPrecision } from './util';
-import { FieldFC } from '../../index';
+import { ProFieldFC } from '../../index';
 
 export type PercentPropInt = {
   prefix?: ReactNode;
@@ -18,7 +18,7 @@ export type PercentPropInt = {
  * 百分比组件
  * @param  PercentPropInt
  */
-const FieldPercent: FieldFC<PercentPropInt> = (
+const FieldPercent: ProFieldFC<PercentPropInt> = (
   {
     text,
     prefix,
@@ -48,8 +48,8 @@ const FieldPercent: FieldFC<PercentPropInt> = (
     const dom = (
       <span style={style} ref={ref}>
         {prefix && <span>{prefix}</span>}
-        {showSymbol && <Fragment>{getSymbolByRealValue(realValue)}&nbsp;</Fragment>}
-        {getRealTextWithPrecision(realValue, precision)}
+        {showSymbol && <Fragment>{getSymbolByRealValue(realValue)} </Fragment>}
+        {getRealTextWithPrecision(Math.abs(realValue), precision)}
         {suffix && suffix}
       </span>
     );

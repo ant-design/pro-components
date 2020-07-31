@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import { Radio, Switch, Space, Descriptions } from 'antd';
 import moment from 'moment';
 
-import Field, { FieldFCMode } from '@ant-design/pro-field';
+import Field, { ProFieldFCMode } from '@ant-design/pro-field';
 
 export default () => {
-  const [state, setState] = useState<FieldFCMode>('read');
+  const [state, setState] = useState<ProFieldFCMode>('read');
   const [plain, setPlain] = useState<boolean>(false);
   return (
     <>
       <Space>
-        <Radio.Group onChange={(e) => setState(e.target.value as FieldFCMode)} value={state}>
+        <Radio.Group onChange={(e) => setState(e.target.value as ProFieldFCMode)} value={state}>
           <Radio value="read">只读</Radio>
           <Radio value="edit">编辑</Radio>
         </Radio.Group>
@@ -35,6 +35,9 @@ export default () => {
         </Descriptions.Item>
         <Descriptions.Item label="金额">
           <Field text="100" valueType="money" mode={state} plain={plain} />
+        </Descriptions.Item>
+        <Descriptions.Item label="数字">
+          <Field text="19897979797979" valueType="digit" mode={state} plain={plain} />
         </Descriptions.Item>
         <Descriptions.Item label="百分比">
           <Field text="100" valueType="percent" mode={state} plain={plain} />
