@@ -53,7 +53,9 @@ describe('PageContainer', () => {
           />
         }
       >
-        <button type="button">right</button>
+        <button key="button" type="button">
+          right
+        </button>
       </FooterToolbar>,
     );
     expect(html).toMatchSnapshot();
@@ -73,7 +75,9 @@ describe('PageContainer', () => {
           return 'home_toolbar';
         }}
       >
-        <button type="button">right</button>
+        <button key="button" type="button">
+          right
+        </button>
       </FooterToolbar>,
     );
     expect(html).toMatchSnapshot();

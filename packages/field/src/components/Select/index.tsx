@@ -1,9 +1,9 @@
 import React, { ReactNode, useState, useImperativeHandle, useEffect, useRef } from 'react';
 import { Select } from 'antd';
 import TableStatus, { StatusType } from './status';
-import { FieldFC } from '../../index';
+import { ProFieldFC } from '../../index';
 
-export type ValueEnumObj = {
+export type ProFieldValueEnumObj = {
   [key: string]:
     | {
         text: ReactNode;
@@ -12,7 +12,7 @@ export type ValueEnumObj = {
     | ReactNode;
 };
 
-export type ValueEnumMap = Map<
+export type ProFieldValueEnumMap = Map<
   React.ReactText,
   | {
       text: ReactNode;
@@ -28,7 +28,11 @@ export type ValueEnumMap = Map<
  * @param valueEnum
  * @param pure 纯净模式，不增加 status
  */
-export const parsingText = (text: string | number, valueEnum?: ValueEnumMap, pure?: boolean) => {
+export const parsingText = (
+  text: string | number,
+  valueEnum?: ProFieldValueEnumMap,
+  pure?: boolean,
+) => {
   if (!valueEnum) {
     return text;
   }
@@ -75,7 +79,7 @@ function getType(obj: any) {
  * @param valueEnum
  */
 export const parsingValueEnumToArray = (
-  valueEnum: ValueEnumMap | undefined = new Map(),
+  valueEnum: ProFieldValueEnumMap | undefined = new Map(),
 ): {
   value: string | number;
   text: string;
@@ -111,13 +115,13 @@ export const parsingValueEnumToArray = (
 };
 
 export const ObjToMap = (
-  value: ValueEnumObj | ValueEnumMap | undefined,
-): ValueEnumMap | undefined => {
+  value: ProFieldValueEnumObj | ProFieldValueEnumMap | undefined,
+): ProFieldValueEnumMap | undefined => {
   if (!value) {
     return value;
   }
   if (getType(value) === 'map') {
-    return value as ValueEnumMap;
+    return value as ProFieldValueEnumMap;
   }
   return new Map(Object.entries(value));
 };
@@ -135,7 +139,7 @@ export type FieldSelectProps = {
   /**
    * 值的枚举，如果存在枚举，Search 中会生成 select
    */
-  valueEnum?: ValueEnumMap | ValueEnumObj;
+  valueEnum?: ProFieldValueEnumMap | ProFieldValueEnumObj;
 
   /**
    * 从服务器读取选项
@@ -184,7 +188,7 @@ const useFetchData = (
  * 可以根据  valueEnum 来进行类型的设置
  * @param
  */
-const FieldSelect: FieldFC<FieldSelectProps> = (props, ref) => {
+const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
   const {
     mode,
     valueEnum,

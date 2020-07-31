@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import { ProColumns, TableStatus, TableDropdown } from '@ant-design/pro-table';
+import { Input } from 'antd';
 
 const data: {
   key: string | number;
@@ -69,6 +70,7 @@ export const columns: ProColumns[] = [
     key: 'date',
     dataIndex: 'date',
     valueType: 'date',
+    renderFormItem: () => <Input />,
   },
   {
     title: 'dateTime',
@@ -81,6 +83,7 @@ export const columns: ProColumns[] = [
     key: 'time',
     dataIndex: 'date',
     valueType: 'time',
+    renderText: () => 1596169064832,
   },
   {
     title: '状态',
@@ -119,7 +122,7 @@ export const columns: ProColumns[] = [
         reload
       </a>,
       <TableDropdown
-        onSelect={(key) => window.alert(key)}
+        onSelect={key => window.alert(key)}
         menus={[
           { key: 'copy', name: '复制' },
           { key: 'delete', name: '删除' },

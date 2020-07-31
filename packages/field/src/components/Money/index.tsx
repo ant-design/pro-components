@@ -1,6 +1,6 @@
 import React from 'react';
 import { InputNumber } from 'antd';
-import { FieldFC } from '../../index';
+import { ProFieldFC } from '../../index';
 
 const moneyIntl = new Intl.NumberFormat('zh-Hans-CN', {
   currency: 'CNY',
@@ -55,7 +55,7 @@ export type FieldMoneyProps = {
  *    moneySymbol?: string;
  * }
  */
-const FieldMoney: FieldFC<FieldMoneyProps> = (
+const FieldMoney: ProFieldFC<FieldMoneyProps> = (
   { text, mode: type, moneySymbol = '￥', locale = '', render, renderFormItem, formItemProps },
   ref,
 ) => {

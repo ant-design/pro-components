@@ -10,6 +10,7 @@ import ruRU from './locale/ru_RU';
 import msMY from './locale/ms_MY';
 import zhTW from './locale/zh_TW';
 import frFR from './locale/fr_FR';
+import ptBR from './locale/pt_BR';
 
 export const getLang = (): string => {
   const isNavigatorLanguageValid =
@@ -63,6 +64,7 @@ const ruRUIntl = createIntl('ru_RU', ruRU);
 const msMYIntl = createIntl('ms_MY', msMY);
 const zhTWIntl = createIntl('zh_TW', zhTW);
 const frFRIntl = createIntl('fr_FR', frFR);
+const ptBRIntl = createIntl('pt_BR', ptBR);
 
 const intlMap = {
   'zh-CN': zhCNIntl,
@@ -75,13 +77,26 @@ const intlMap = {
   'ms-MY': msMYIntl,
   'zh-TW': zhTWIntl,
   'fr-FR': frFRIntl,
+  'pt-BR': ptBRIntl,
 };
 
 export type ParamsType = {
   [key: string]: React.ReactText | React.ReactText[];
 };
 
-export { enUSIntl, zhCNIntl, viVNIntl, itITIntl, jaJPIntl, esESIntl, ruRUIntl, msMYIntl, zhTWIntl };
+export {
+  enUSIntl,
+  zhCNIntl,
+  viVNIntl,
+  itITIntl,
+  jaJPIntl,
+  esESIntl,
+  ruRUIntl,
+  msMYIntl,
+  zhTWIntl,
+  frFRIntl,
+  ptBRIntl,
+};
 
 const ConfigContext = React.createContext<{
   intl: IntlType;
