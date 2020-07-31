@@ -65,7 +65,7 @@ describe('Field', () => {
     it(`🥩 valueType render ${valueType}`, async () => {
       const html = render(
         <Field
-          text={moment().valueOf()}
+          text={moment('2019-11-16 12:50:26').valueOf()}
           mode="edit"
           // @ts-ignore
           valueType={valueType}
