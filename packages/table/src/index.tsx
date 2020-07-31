@@ -12,6 +12,8 @@ import {
   ruRUIntl,
   msMYIntl,
   zhTWIntl,
+  frFRIntl,
+  ptBRIntl,
 } from '@ant-design/pro-provider';
 
 import ProTable, { ProColumns, ActionType, ProTableProps, ColumnsState } from './Table';
@@ -53,6 +55,8 @@ export {
   ruRUIntl,
   msMYIntl,
   zhTWIntl,
+  frFRIntl,
+  ptBRIntl,
 };
 
 export default ProTable;

@@ -13,6 +13,9 @@ import ProTable, {
   esESIntl,
   ruRUIntl,
   msMYIntl,
+  zhTWIntl,
+  frFRIntl,
+  ptBRIntl,
   ActionType,
 } from '@ant-design/pro-table';
 import request from 'umi-request';
@@ -26,6 +29,9 @@ const intlMap = {
   esESIntl,
   ruRUIntl,
   msMYIntl,
+  zhTWIntl,
+  frFRIntl,
+  ptBRIntl,
 };
 
 interface GithubIssueItem {
