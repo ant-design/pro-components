@@ -1,8 +1,9 @@
 import React from 'react';
 import glob from 'glob';
-import { render } from 'enzyme';
+import { render, mount } from 'enzyme';
 import MockDate from 'mockdate';
 import moment from 'moment';
+import { waitTime } from './util';
 
 type CheerIO = ReturnType<typeof render>;
 type CheerIOElement = CheerIO[0];
@@ -53,15 +54,17 @@ function demoTest(component: string, options: Options = {}) {
     if (Array.isArray(options.skip) && options.skip.some((c) => file.includes(c))) {
       testMethod = test.skip;
     }
-    testMethod(`renders ${file} correctly`, () => {
+    testMethod(`renders ${file} correctly`, async () => {
       MockDate.set(moment('2016-11-22').valueOf());
       const Demo = require(`.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
-      const wrapper = render(<Demo />);
-
+      const wrapper = mount(<Demo />);
+      if (component === 'table') {
+        await waitTime(200);
+      }
       // Convert aria related content
-      ariaConvert(wrapper);
-
-      expect(wrapper).toMatchSnapshot();
+      const dom = wrapper.render();
+      ariaConvert(dom);
+      expect(dom).toMatchSnapshot();
       MockDate.reset();
     });
   });

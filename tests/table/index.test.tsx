@@ -3,9 +3,10 @@ import React from 'react';
 import { Input } from 'antd';
 import ProTable, { TableDropdown } from '@ant-design/pro-table';
 import { columns, request } from './demo';
+import { waitTime } from '../util';
 
 describe('BasicTable', () => {
-  it('🎏 base use', () => {
+  it('🎏 base use', async () => {
     const html = mount(
       <ProTable
         size="small"
@@ -33,11 +34,12 @@ describe('BasicTable', () => {
         ]}
       />,
     );
+    await waitTime(200);
     html.update();
     expect(html.render()).toMatchSnapshot();
   });
 
-  it('🎏 do not render Search ', () => {
+  it('🎏 do not render Search ', async () => {
     const html = mount(
       <ProTable
         size="small"
@@ -51,11 +53,12 @@ describe('BasicTable', () => {
         }}
       />,
     );
+    await waitTime(200);
     html.update();
     expect(html.render()).toMatchSnapshot();
   });
 
-  it('🎏  do not render default option', () => {
+  it('🎏  do not render default option', async () => {
     const html = mount(
       <ProTable
         size="small"
@@ -74,11 +77,12 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
+    await waitTime(200);
     html.update();
     expect(html.render()).toMatchSnapshot();
   });
 
-  it('🎏  do not render setting', () => {
+  it('🎏  do not render setting', async () => {
     const html = mount(
       <ProTable
         size="small"
@@ -97,6 +101,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
+    await waitTime(200);
     html.update();
     expect(html.render()).toMatchSnapshot();
   });
