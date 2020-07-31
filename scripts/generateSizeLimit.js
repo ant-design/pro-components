@@ -13,22 +13,22 @@ delete json['size-limit'];
 
 let componentsNames = fs.readdirSync(packagesDir);
 
-componentsNames = componentsNames.filter(dir => ignoreDirPath.indexOf(dir) === -1);
+componentsNames = componentsNames.filter((dir) => ignoreDirPath.indexOf(dir) === -1);
 
 (async () => {
   const sizeLimitConfig = [];
-  componentsNames.forEach(component => {
+  componentsNames.forEach((component) => {
     sizeLimitConfig.push({
       path: `packages/${component}/lib/**/*.js`,
       limit: '2 s',
       webpack: false,
-      running: false
+      running: false,
     });
     sizeLimitConfig.push({
       path: `packages/${component}/es/**/*.js`,
       limit: '2 s',
       webpack: false,
-      running: false
+      running: false,
     });
   });
 
