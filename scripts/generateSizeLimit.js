@@ -19,8 +19,16 @@ componentsNames = componentsNames.filter(dir => ignoreDirPath.indexOf(dir) === -
   const sizeLimitConfig = [];
   componentsNames.forEach(component => {
     sizeLimitConfig.push({
-      path: `packages/${component}/dist/*.min.js`,
-      limit: '2 s'
+      path: `packages/${component}/lib/**/*.js`,
+      limit: '2 s',
+      webpack: false,
+      running: false
+    });
+    sizeLimitConfig.push({
+      path: `packages/${component}/es/**/*.js`,
+      limit: '2 s',
+      webpack: false,
+      running: false
     });
   });
 

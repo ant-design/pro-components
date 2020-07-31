@@ -122,40 +122,112 @@
   },
   "size-limit": [
     {
-      "path": "packages/card/dist/*.min.js",
-      "limit": "2 s"
+      "path": "packages/card/lib/**/*.js",
+      "limit": "2 s",
+      "webpack": false,
+      "running": false
     },
     {
-      "path": "packages/descriptions/dist/*.min.js",
-      "limit": "2 s"
+      "path": "packages/card/es/**/*.js",
+      "limit": "2 s",
+      "webpack": false,
+      "running": false
     },
     {
-      "path": "packages/field/dist/*.min.js",
-      "limit": "2 s"
+      "path": "packages/descriptions/lib/**/*.js",
+      "limit": "2 s",
+      "webpack": false,
+      "running": false
     },
     {
-      "path": "packages/form/dist/*.min.js",
-      "limit": "2 s"
+      "path": "packages/descriptions/es/**/*.js",
+      "limit": "2 s",
+      "webpack": false,
+      "running": false
     },
     {
-      "path": "packages/layout/dist/*.min.js",
-      "limit": "2 s"
+      "path": "packages/field/lib/**/*.js",
+      "limit": "2 s",
+      "webpack": false,
+      "running": false
     },
     {
-      "path": "packages/list/dist/*.min.js",
-      "limit": "2 s"
+      "path": "packages/field/es/**/*.js",
+      "limit": "2 s",
+      "webpack": false,
+      "running": false
     },
     {
-      "path": "packages/provider/dist/*.min.js",
-      "limit": "2 s"
+      "path": "packages/form/lib/**/*.js",
+      "limit": "2 s",
+      "webpack": false,
+      "running": false
     },
     {
-      "path": "packages/skeleton/dist/*.min.js",
-      "limit": "2 s"
+      "path": "packages/form/es/**/*.js",
+      "limit": "2 s",
+      "webpack": false,
+      "running": false
     },
     {
-      "path": "packages/table/dist/*.min.js",
-      "limit": "2 s"
+      "path": "packages/layout/lib/**/*.js",
+      "limit": "2 s",
+      "webpack": false,
+      "running": false
+    },
+    {
+      "path": "packages/layout/es/**/*.js",
+      "limit": "2 s",
+      "webpack": false,
+      "running": false
+    },
+    {
+      "path": "packages/list/lib/**/*.js",
+      "limit": "2 s",
+      "webpack": false,
+      "running": false
+    },
+    {
+      "path": "packages/list/es/**/*.js",
+      "limit": "2 s",
+      "webpack": false,
+      "running": false
+    },
+    {
+      "path": "packages/provider/lib/**/*.js",
+      "limit": "2 s",
+      "webpack": false,
+      "running": false
+    },
+    {
+      "path": "packages/provider/es/**/*.js",
+      "limit": "2 s",
+      "webpack": false,
+      "running": false
+    },
+    {
+      "path": "packages/skeleton/lib/**/*.js",
+      "limit": "2 s",
+      "webpack": false,
+      "running": false
+    },
+    {
+      "path": "packages/skeleton/es/**/*.js",
+      "limit": "2 s",
+      "webpack": false,
+      "running": false
+    },
+    {
+      "path": "packages/table/lib/**/*.js",
+      "limit": "2 s",
+      "webpack": false,
+      "running": false
+    },
+    {
+      "path": "packages/table/es/**/*.js",
+      "limit": "2 s",
+      "webpack": false,
+      "running": false
     }
   ]
 }
