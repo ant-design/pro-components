@@ -1,5 +1,5 @@
 import MockDate from 'mockdate';
-import moment from 'moment';
+import moment from 'moment-timezone';
 import { enableFetchMocks } from 'jest-fetch-mock';
 
 import tableData from './table/mock.data.json';
@@ -58,9 +58,8 @@ const mockFormatExpression = {
 Intl.NumberFormat = jest.fn().mockImplementation(() => mockFormatExpression);
 
 
-jest.mock('moment', () => {
-  return () => jest.requireActual('moment')('2020-01-01T00:00:00.000Z');
-});
+
+moment.tz.setDefault('UTC');
 
 Math.random = () => 0.8404419276253765;
 
