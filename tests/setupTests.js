@@ -57,6 +57,11 @@ const mockFormatExpression = {
 };
 Intl.NumberFormat = jest.fn().mockImplementation(() => mockFormatExpression);
 
+
+jest.mock('moment', () => {
+  return () => jest.requireActual('moment')('2020-01-01T00:00:00.000Z');
+});
+
 Math.random = () => 0.8404419276253765;
 
 fetch.mockResponse(async () => {
