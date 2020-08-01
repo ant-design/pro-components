@@ -23,6 +23,8 @@ nav:
 | hideRequiredMark | 隐藏所有表单项的必选标记，**默认隐藏** | `boolean` | true |
 | defaultColsNumber | 自定义折叠状态下默认显示的表单控件数量，没有设置或小于 0，则显示一行控件; 数量大于等于控件数量则隐藏展开按钮 | `number` | - |
 | labelWidth | label 宽度 | `number` | - |
+| span | 表单项宽度 | `number[0 - 24]` | - |
+| split | 每一行是否有分割线 | `boolean` | - |
 
 ### 响应式断点规则
 
