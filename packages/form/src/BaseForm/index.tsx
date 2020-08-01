@@ -9,6 +9,7 @@ import { GroupProps, FieldProps } from '../interface';
 
 export interface CommonFormProps {
   submitterProps?: Omit<SubmitterProps, 'form'>;
+  hiddenActions?: boolean;
 }
 
 export interface BaseFormProps extends FormProps, CommonFormProps {
@@ -42,14 +43,15 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
     fieldProps,
     formItemProps,
     groupProps,
+    hiddenActions,
     form: userForm,
     ...rest
   } = props;
   const [form] = Form.useForm();
   const realForm = userForm || form;
   const items = React.Children.toArray(children);
-  const submitter = <Submitter {...submitterProps} form={realForm} />;
-  const content = contentRender ? contentRender(items, submitter) : items;
+  const submiter = hiddenActions ? null : <Submitter {...submitterProps} form={realForm} />;
+  const content = contentRender ? contentRender(items, submiter) : items;
   return (
     // 增加国际化的能力，与 table 组件可以统一
     <ConfigProviderWarp>

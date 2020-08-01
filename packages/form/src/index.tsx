@@ -11,10 +11,10 @@ import ProFormSwitch from './components/Switch';
 
 import ProForm from './layouts/ProForm';
 import QueryFilter from './layouts/QueryFilter';
-import SearchFilter from './layouts/SearchFilter';
 import LightFilter from './layouts/LightFilter';
 
 export {
+  // controls
   ProFormDatePicker,
   ProFormDateRangePicker,
   ProFormDateTimePicker,
@@ -25,8 +25,8 @@ export {
   ProFormCheckbox,
   ProFormRadio,
   ProFormDateTimeRangePicker,
+  // layouts
   QueryFilter,
-  SearchFilter,
   LightFilter,
 };
 

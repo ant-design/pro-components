@@ -75,13 +75,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
   });
   // use style.width as the defaultWidth for unit test
   const defaultWidth = typeof style?.width === 'number' ? style?.width : 1024;
-<<<<<<< HEAD
-  const [spanSize, setSpanSize] = useState<number>(
-    getSpanConfig(layout, (defaultWidth as number) + 16),
-  );
-=======
   const [spanSize, setSpanSize] = useState<number>(getSpanConfig(layout, defaultWidth + 16, span));
->>>>>>> feat: QueryFilter support span and split
   const showLength =
     defaultColsNumber !== undefined ? defaultColsNumber : Math.max(1, 24 / spanSize - 1);
 
@@ -168,7 +162,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
                 }
                 return colItem;
               })}
-              <Col
+              {submiter && <Col
                 span={spanSize}
                 offset={24 - spanSize - (totalSpan % 24)}
                 style={{
@@ -187,7 +181,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
                     marginBottom: 24,
                   }}
                 />
-              </Col>
+              </Col>}
             </Row>
           </RcResizeObserver>
         );
