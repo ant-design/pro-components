@@ -69,7 +69,13 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = (props) => {
         <TabPane tab="应用" key="applications" />
       </Tabs>
 
-      <QueryFilter hiddenActions span={24} split onChange={onFilterChange} className={styles.filter}>
+      <QueryFilter
+        hiddenActions
+        span={24}
+        split
+        onChange={onFilterChange}
+        className={styles.filter}
+      >
         <ProForm.Group title="姓名">
           <ProFormText name="name" />
         </ProForm.Group>

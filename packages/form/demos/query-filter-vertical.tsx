@@ -1,5 +1,11 @@
 import React from 'react';
-import { QueryFilter, ProFormText, ProFormDatePicker, ProFormRadio, ProFormCheckbox } from '@ant-design/pro-form';
+import {
+  QueryFilter,
+  ProFormText,
+  ProFormDatePicker,
+  ProFormRadio,
+  ProFormCheckbox,
+} from '@ant-design/pro-form';
 
 export default () => {
   return (
@@ -13,7 +19,11 @@ export default () => {
         <ProFormRadio.Button value="monthly">每月</ProFormRadio.Button>
         <ProFormRadio.Button value="yearly">每年</ProFormRadio.Button>
       </ProFormRadio.Group>
-      <ProFormCheckbox.Group name="checkbox" label="行业分布" options={['农业', '制造业', '互联网']} />
+      <ProFormCheckbox.Group
+        name="checkbox"
+        label="行业分布"
+        options={['农业', '制造业', '互联网']}
+      />
     </QueryFilter>
   );
 };
