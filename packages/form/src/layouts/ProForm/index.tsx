@@ -15,11 +15,11 @@ const ProForm: React.FC<ProFormProps> & {
   return (
     <BaseForm
       layout="vertical"
-      contentRender={(items, submiter) => {
+      contentRender={(items, submitter) => {
         return (
           <>
             {items}
-            {submiter}
+            {submitter}
           </>
         );
       }}

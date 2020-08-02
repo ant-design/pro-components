@@ -14,5 +14,5 @@ nav:
 | --- | --- | --- | --- |
 | onFinish | 提交表单且数据验证成功后回调事件，同 antd 4 `Form` 组件 API | `Function(e)` | - |
 | onReset | 点击重置按钮的回调，设置后重置按钮才会被渲染 | `Function(e)` | - |
-| submiterProps | TODO | TODO | - |
+| submitterProps | TODO | TODO | - |
 | (...) | 支持除 `wrapperCol` \| `labelCol` \| `layout` 外的其他 antd `Form` 组件参数 | - | - |
