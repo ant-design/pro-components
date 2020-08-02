@@ -22,25 +22,25 @@ const Group: React.FC<ProFormCheckboxGroupProps> = ({
       <CheckboxGroup {...restProps}>
         {options
           ? options.map((option) => {
-            if (typeof option === 'string') {
-              return <Checkbox value={option}>{option}</Checkbox>;
-            }
-            return (
-              <Checkbox
-                style={
-                  layout === 'vertical'
-                    ? {
-                      display: 'block',
-                      marginLeft: 0,
-                    }
-                    : undefined
-                }
-                value={option?.value}
-              >
-                {option?.label}
-              </Checkbox>
-            );
-          })
+              if (typeof option === 'string') {
+                return <Checkbox value={option}>{option}</Checkbox>;
+              }
+              return (
+                <Checkbox
+                  style={
+                    layout === 'vertical'
+                      ? {
+                          display: 'block',
+                          marginLeft: 0,
+                        }
+                      : undefined
+                  }
+                  value={option?.value}
+                >
+                  {option?.label}
+                </Checkbox>
+              );
+            })
           : children}
       </CheckboxGroup>
     </Form.Item>
