@@ -54,6 +54,7 @@ export interface QueryFilterProps extends FormProps, CommonFormProps {
   defaultColsNumber?: number;
   labelWidth?: number;
   split?: boolean;
+  span?: number;
 }
 
 const QueryFilter: React.FC<QueryFilterProps> = (props) => {
@@ -106,6 +107,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
           span: number;
           hidden: boolean;
           element: React.ReactNode;
+          key: string | number;
         }[] = [];
         // totalSpan 统计控件占的位置，计算 offset 保证查询按钮在最后一列
         let totalSpan = 0;
@@ -129,7 +131,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
           itemsWithInfo.push({
             span: colSpan,
             element: item,
-            key: item.props?.name || index,
+            key: React.isValidElement(item) ? item.props?.name || index : index,
             hidden,
           });
         });

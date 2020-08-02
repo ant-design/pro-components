@@ -7,7 +7,7 @@ import { ProFormItemProps } from '../../interface';
 
 export type ProFormCheckboxGroupProps = ProFormItemProps &
   CheckboxGroupProps & {
-    layout: 'horizontal' | 'vertical';
+    layout?: 'horizontal' | 'vertical';
   };
 
 const Group: React.FC<ProFormCheckboxGroupProps> = ({
@@ -22,25 +22,25 @@ const Group: React.FC<ProFormCheckboxGroupProps> = ({
       <CheckboxGroup {...restProps}>
         {options
           ? options.map((option) => {
-              if (typeof option === 'string') {
-                return <Checkbox value={option}>{option}</Checkbox>;
-              }
-              return (
-                <Checkbox
-                  style={
-                    layout === 'vertical'
-                      ? {
-                          display: 'block',
-                          marginLeft: 0,
-                        }
-                      : undefined
-                  }
-                  value={option?.value}
-                >
-                  {option?.label}
-                </Checkbox>
-              );
-            })
+            if (typeof option === 'string') {
+              return <Checkbox value={option}>{option}</Checkbox>;
+            }
+            return (
+              <Checkbox
+                style={
+                  layout === 'vertical'
+                    ? {
+                      display: 'block',
+                      marginLeft: 0,
+                    }
+                    : undefined
+                }
+                value={option?.value}
+              >
+                {option?.label}
+              </Checkbox>
+            );
+          })
           : children}
       </CheckboxGroup>
     </Form.Item>

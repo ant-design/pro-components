@@ -8,7 +8,7 @@ const RadioGroup = Radio.Group;
 
 export type ProFormRadioGroupProps = FormItemProps &
   RadioGroupProps & {
-    layout: 'horizontal' | 'vertical';
+    layout?: 'horizontal' | 'vertical';
   };
 
 const Group: React.FC<ProFormRadioGroupProps> = ({
