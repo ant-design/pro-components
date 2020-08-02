@@ -3,15 +3,15 @@ import { Form } from 'antd';
 import { FormProps } from 'antd/lib/form/Form';
 import { FormItemProps } from 'antd/lib/form';
 import FieldContext from '../FieldContext';
-import Submiter, { SubmiterProps } from '../components/Submiter';
+import Submitter, { SubmitterProps } from '../components/Submitter';
 import { GroupProps, FieldProps } from '../interface';
 
 export interface CommonFormProps {
-  submiterProps?: Omit<SubmiterProps, 'form'>;
+  submitterProps?: Omit<SubmitterProps, 'form'>;
 }
 
 export interface BaseFormProps extends FormProps, CommonFormProps {
-  contentRender?: (items: React.ReactNode[], submiter: React.ReactNode) => React.ReactNode;
+  contentRender?: (items: React.ReactNode[], submitter: React.ReactNode) => React.ReactNode;
   fieldProps?: FieldProps;
   formItemProps?: FormItemProps;
   groupProps?: GroupProps;
@@ -37,7 +37,7 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
   const {
     children,
     contentRender,
-    submiterProps,
+    submitterProps,
     fieldProps,
     formItemProps,
     groupProps,
@@ -47,8 +47,8 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
   const [form] = Form.useForm();
   const realForm = userForm || form;
   const items = React.Children.toArray(children);
-  const submiter = <Submiter {...submiterProps} form={realForm} />;
-  const content = contentRender ? contentRender(items, submiter) : items;
+  const submitter = <Submitter {...submitterProps} form={realForm} />;
+  const content = contentRender ? contentRender(items, submitter) : items;
   return (
     <FieldContext.Provider
       value={{

@@ -90,7 +90,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
           flex: labelWidth && `0 0 ${labelWidth}px`,
         },
       }}
-      contentRender={(items, submiter) => {
+      contentRender={(items, submitter) => {
         const itemsWithInfo: {
           span: number;
           hidden: boolean;
@@ -149,7 +149,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
               >
                 <Actions
                   showCollapseButton={items.length >= showLength}
-                  submiter={submiter}
+                  submitter={submitter}
                   collapsed={collapsed}
                   setCollapsed={setCollapsed}
                   style={{
