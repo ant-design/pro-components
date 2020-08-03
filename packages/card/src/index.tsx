@@ -150,9 +150,15 @@ const ProCard: ProCardType = (props) => {
                 marginRight: normalizedGutter[0],
               },
             );
+
             // 下方空隙
             const gutterBottomStyle = getStyle(normalizedGutter[1]! > 0, {
               marginBottom: normalizedGutter[1],
+            });
+
+            // 当 split 有值时，内部卡片 radius 设置为 0
+            const splitStyle = getStyle(split === 'vertical' || split === 'horizontal', {
+              borderRadius: 0,
             });
 
             return React.cloneElement(element, {
@@ -166,10 +172,8 @@ const ProCard: ProCardType = (props) => {
               style: {
                 ...gutterRightStyle,
                 ...gutterBottomStyle,
-                // 被嵌套时进入布局模式，内部卡片 radius 设置为 0
-                ...{
-                  borderRadius: 0,
-                },
+
+                ...splitStyle,
                 ...element.props.style,
               },
             });
