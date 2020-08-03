@@ -22,6 +22,13 @@ export interface SubmitterProps {
   onSubmit?: () => void;
   onReset?: () => void;
   searchConfig?: SearchConfig;
+
+  /**
+   * 自定义操作的渲染的渲染
+   */
+  actionsRender?:
+    | ((props: SubmitterProps, dom: JSX.Element[]) => React.ReactNode[] | false)
+    | false;
 }
 
 /**
@@ -29,34 +36,53 @@ export interface SubmitterProps {
  * @param props
  */
 const Submitter: React.FC<SubmitterProps> = (props) => {
-  const { form, onSubmit = () => {}, onReset = () => {}, searchConfig = {} } = props;
   const intl = useIntl();
+
+  if (props.actionsRender === false) {
+    return null;
+  }
+
+  const { form, onSubmit, actionsRender, onReset, searchConfig = {} } = props;
+
   const {
     submitText = intl.getMessage('tableForm.submit', '提交'),
     resetText = intl.getMessage('tableForm.reset', '重置'),
   } = searchConfig;
 
-  return (
-    <Space>
-      <Button
-        onClick={() => {
-          form.resetFields();
+  /**
+   * 默认的操作的逻辑
+   */
+  const dom = [
+    <Button
+      key="rest"
+      onClick={() => {
+        form.resetFields();
+        if (onReset) {
           onReset();
-        }}
-      >
-        {resetText}
-      </Button>
-      <Button
-        type="primary"
-        htmlType="submit"
-        onClick={() => {
+        }
+      }}
+    >
+      {resetText}
+    </Button>,
+    <Button
+      key="submit"
+      type="primary"
+      onClick={() => {
+        form.submit();
+        if (onSubmit) {
           onSubmit();
-        }}
-      >
-        {submitText}
-      </Button>
-    </Space>
-  );
+        }
+      }}
+    >
+      {submitText}
+    </Button>,
+  ];
+
+  const renderDom = actionsRender ? actionsRender(props, dom) : dom;
+  if (!renderDom || renderDom.length < 1) {
+    return null;
+  }
+  return <Space>{renderDom}</Space>;
 };
 
 export default Submitter;
