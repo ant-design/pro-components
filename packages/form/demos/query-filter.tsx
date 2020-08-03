@@ -1,6 +1,6 @@
 import React from 'react';
 import { Divider, Form } from 'antd';
-import { QueryFilter, ProFormText, ProFormDatePicker } from '../src';
+import { QueryFilter, ProFormText, ProFormDatePicker } from '@ant-design/pro-form';
 
 export default () => {
   const [form] = Form.useForm();
