@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { ConfigConsumer, ConfigConsumerProps } from 'antd/lib/config-provider/context';
-import { Spin, Tooltip, Grid } from 'antd';
+import { Tooltip, Grid, Row, Col } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import './style/index.less';
@@ -118,8 +118,8 @@ const ProCard: ProCardType = (props) => {
         const {
           className,
           style,
-          bodyStyle,
-          headStyle,
+          bodyStyle = {},
+          headStyle = {},
           title,
           extra,
           tip,
@@ -150,9 +150,15 @@ const ProCard: ProCardType = (props) => {
                 marginRight: normalizedGutter[0],
               },
             );
+
             // 下方空隙
             const gutterBottomStyle = getStyle(normalizedGutter[1]! > 0, {
               marginBottom: normalizedGutter[1],
+            });
+
+            // 当 split 有值时，内部卡片 radius 设置为 0
+            const splitStyle = getStyle(split === 'vertical' || split === 'horizontal', {
+              borderRadius: 0,
             });
 
             return React.cloneElement(element, {
@@ -166,10 +172,8 @@ const ProCard: ProCardType = (props) => {
               style: {
                 ...gutterRightStyle,
                 ...gutterBottomStyle,
-                // 被嵌套时进入布局模式，内部卡片 radius 设置为 0
-                ...{
-                  borderRadius: 0,
-                },
+
+                ...splitStyle,
                 ...element.props.style,
               },
             });
@@ -205,6 +209,7 @@ const ProCard: ProCardType = (props) => {
           [`${prefixCls}-span-${span}`]: typeof span === 'number' && span > 0 && span <= 24,
           [`${prefixCls}-border`]: bordered,
           [`${prefixCls}-contain-card`]: containProCard,
+          [`${prefixCls}-loading`]: loading,
         });
 
         const headerCls = classNames(`${prefixCls}-header`, {
@@ -212,17 +217,65 @@ const ProCard: ProCardType = (props) => {
         });
 
         const bodyCls = classNames(`${prefixCls}-body`, {
-          [`${prefixCls}-body-center`]: layout === 'center' || loading,
+          [`${prefixCls}-body-center`]: layout === 'center',
           [`${prefixCls}-body-column`]: split === 'horizontal',
         });
-
-        const loadingDOM = React.isValidElement(loading) ? loading : <Spin />;
 
         const tipDom = tip && (
           <Tooltip title={tip}>
             <QuestionCircleOutlined style={{ marginLeft: 8 }} />
           </Tooltip>
         );
+
+        const loadingBlockStyle =
+          bodyStyle.padding === 0 || bodyStyle.padding === '0px' ? { padding: 24 } : undefined;
+
+        const loadingBlock = (
+          <div className={`${prefixCls}-loading-content`} style={loadingBlockStyle}>
+            <Row gutter={8}>
+              <Col span={22}>
+                <div className={`${prefixCls}-loading-block`} />
+              </Col>
+            </Row>
+            <Row gutter={8}>
+              <Col span={8}>
+                <div className={`${prefixCls}-loading-block`} />
+              </Col>
+              <Col span={15}>
+                <div className={`${prefixCls}-loading-block`} />
+              </Col>
+            </Row>
+            <Row gutter={8}>
+              <Col span={6}>
+                <div className={`${prefixCls}-loading-block`} />
+              </Col>
+              <Col span={18}>
+                <div className={`${prefixCls}-loading-block`} />
+              </Col>
+            </Row>
+            <Row gutter={8}>
+              <Col span={13}>
+                <div className={`${prefixCls}-loading-block`} />
+              </Col>
+              <Col span={9}>
+                <div className={`${prefixCls}-loading-block`} />
+              </Col>
+            </Row>
+            <Row gutter={8}>
+              <Col span={4}>
+                <div className={`${prefixCls}-loading-block`} />
+              </Col>
+              <Col span={3}>
+                <div className={`${prefixCls}-loading-block`} />
+              </Col>
+              <Col span={16}>
+                <div className={`${prefixCls}-loading-block`} />
+              </Col>
+            </Row>
+          </div>
+        );
+
+        const loadingDOM = React.isValidElement(loading) ? loading : loadingBlock;
 
         return (
           <div className={cardCls} style={cardStyle}>

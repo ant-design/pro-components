@@ -2,43 +2,27 @@ import React from 'react';
 import ProCard from '../src/index';
 
 export default () => {
-  const evenStyle = {
-    backgroundColor: 'rgba(0,146,255,.75)',
-    color: '#fff',
-  };
-  const oddStyle = {
-    backgroundColor: '#0092ff',
-    color: '#fff',
-  };
   return (
     <>
-      <ProCard style={{ marginTop: 8 }}>
-        <ProCard colSpan={{ xs: 2, sm: 4, md: 6, lg: 8, xl: 10 }} layout="center" style={oddStyle}>
+      <ProCard style={{ marginTop: 8 }} gutter={8}>
+        <ProCard colSpan={{ xs: 2, sm: 4, md: 6, lg: 8, xl: 10 }} layout="center">
           Col
         </ProCard>
-        <ProCard
-          colSpan={{ xs: 20, sm: 16, md: 12, lg: 8, xl: 4 }}
-          layout="center"
-          style={evenStyle}
-        >
+        <ProCard colSpan={{ xs: 20, sm: 16, md: 12, lg: 8, xl: 4 }} layout="center">
           Col
         </ProCard>
-        <ProCard colSpan={{ xs: 2, sm: 4, md: 6, lg: 8, xl: 10 }} layout="center" style={oddStyle}>
+        <ProCard colSpan={{ xs: 2, sm: 4, md: 6, lg: 8, xl: 10 }} layout="center">
           Col
         </ProCard>
       </ProCard>
-      <ProCard style={{ marginTop: 8 }}>
-        <ProCard colSpan={{ xs: 2, sm: 4, md: 6, lg: 8, xl: 10 }} layout="center" style={oddStyle}>
+      <ProCard style={{ marginTop: 8 }} gutter={8}>
+        <ProCard colSpan={{ xs: 2, sm: 4, md: 6, lg: 8, xl: 10 }} layout="center">
           Col
         </ProCard>
-        <ProCard layout="center" style={evenStyle}>
-          Auto
-        </ProCard>
-        <ProCard layout="center" style={oddStyle}>
-          Auto
-        </ProCard>
+        <ProCard layout="center">Auto</ProCard>
+        <ProCard layout="center">Auto</ProCard>
       </ProCard>
-      <ProCard style={{ marginTop: 8 }}>
+      <ProCard style={{ marginTop: 8 }} gutter={8}>
         <ProCard
           colSpan={{
             xs: '50px',
@@ -48,21 +32,17 @@ export default () => {
             xl: '400px',
           }}
           layout="center"
-          style={oddStyle}
         >
           Col
         </ProCard>
-        <ProCard layout="center" style={evenStyle}>
-          Auto
-        </ProCard>
-        <ProCard layout="center" style={oddStyle}>
-          Auto
-        </ProCard>
+        <ProCard layout="center">Auto</ProCard>
+        <ProCard layout="center">Auto</ProCard>
       </ProCard>
 
-      <ProCard style={{ marginTop: 8 }}>
-        <ProCard style={oddStyle}>Auto</ProCard>
+      <ProCard style={{ marginTop: 8 }} gutter={8}>
+        <ProCard layout="center">Auto</ProCard>
         <ProCard
+          layout="center"
           colSpan={{
             xs: '10%',
             sm: '20%',
@@ -70,9 +50,8 @@ export default () => {
             lg: '40%',
             xl: '50%',
           }}
-          style={evenStyle}
         >
-          Col - %
+          Col - 百分比
         </ProCard>
       </ProCard>
     </>
