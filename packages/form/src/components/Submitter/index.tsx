@@ -26,9 +26,7 @@ export interface SubmitterProps {
   /**
    * 自定义操作的渲染的渲染
    */
-  render?:
-  | ((props: SubmitterProps, dom: JSX.Element[]) => React.ReactNode[] | false)
-  | false;
+  render?: ((props: SubmitterProps, dom: JSX.Element[]) => React.ReactNode[] | false) | false;
 }
 
 /**

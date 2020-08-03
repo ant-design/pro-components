@@ -3121,17 +3121,12 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
             >
               <button
                 class="ant-btn ant-btn-primary"
-                type="submit"
+                type="button"
               >
-                <button
-                  class="ant-btn ant-btn-primary"
-                  type="button"
-                >
-                  <span>
-                    提 交
-                  </span>
-                </button>
-              </div>
+                <span>
+                  提 交
+                </span>
+              </button>
             </div>
           </div>
         </div>
@@ -3309,41 +3304,7 @@ exports[`demos renders ./packages/form/demos/query-filter-collapsed.tsx correctl
           class="ant-form-item-control-input"
         >
           <div
-            class="ant-space-item"
-            style="margin-right: 8px;"
-          >
-            <div
-              class="ant-space ant-space-horizontal ant-space-align-center"
-            >
-              <div
-                class="ant-space-item"
-                style="margin-right: 8px;"
-              >
-                <button
-                  class="ant-btn"
-                  type="button"
-                >
-                  <span>
-                    重 置
-                  </span>
-                </button>
-              </div>
-              <div
-                class="ant-space-item"
-              >
-                <button
-                  class="ant-btn ant-btn-primary"
-                  type="button"
-                >
-                  <span>
-                    提 交
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div
-            class="ant-space-item"
+            class="ant-form-item-control-input-content"
           >
             <input
               class="ant-input"
@@ -3524,17 +3485,12 @@ exports[`demos renders ./packages/form/demos/query-filter-collapsed.tsx correctl
             >
               <button
                 class="ant-btn ant-btn-primary"
-                type="submit"
+                type="button"
               >
-                <button
-                  class="ant-btn ant-btn-primary"
-                  type="button"
-                >
-                  <span>
-                    提 交
-                  </span>
-                </button>
-              </div>
+                <span>
+                  提 交
+                </span>
+              </button>
             </div>
           </div>
         </div>
@@ -3976,7 +3932,7 @@ exports[`demos renders ./packages/form/demos/query-filter-vertical.tsx correctly
             >
               <button
                 class="ant-btn ant-btn-primary"
-                type="submit"
+                type="button"
               >
                 <span>
                   提 交
