@@ -2,6 +2,19 @@
   "name": "@ant-design/pro-layout",
   "version": "6.4.0-beta.1",
   "description": "@ant-design/pro-layout",
+  "keywords": [
+    "antd",
+    "admin",
+    "ant-design",
+    "ant-design-pro"
+  ],
+  "homepage": "https://github.com/ant-design/pro-components/tree/master/packages/layout#readme",
+  "bugs": "http://github.com/umijs/plugins/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ant-design/pro-components"
+  },
+  "license": "MIT",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
@@ -10,30 +23,9 @@
     "es",
     "dist"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ant-design/pro-components"
-  },
-  "keywords": [
-    "antd",
-    "admin",
-    "ant-design",
-    "ant-design-pro"
-  ],
-  "authors": [
-    "chencheng <sorrycc@gmail.com> (https://github.com/sorrycc)",
-    "chenshuai2144 <qixian.cs@outlook.om> (https://github.com/chenshuai2144)"
-  ],
-  "license": "MIT",
-  "bugs": "http://github.com/umijs/plugins/issues",
-  "homepage": "https://github.com/ant-design/pro-components/tree/master/packages/layout#readme",
-  "peerDependencies": {
-    "antd": "^4.x",
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
-  },
   "dependencies": {
     "@ant-design/icons": "^4.0.0",
+    "@ant-design/pro-provider": "0.0.2",
     "@umijs/route-utils": "^1.0.5",
     "antd": "^4.2.0",
     "classnames": "^2.2.6",
@@ -54,7 +46,16 @@
     "use-merge-value": "^1.0.1",
     "warning": "^4.0.3"
   },
+  "peerDependencies": {
+    "antd": "^4.x",
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "authors": [
+    "chencheng <sorrycc@gmail.com> (https://github.com/sorrycc)",
+    "chenshuai2144 <qixian.cs@outlook.om> (https://github.com/chenshuai2144)"
+  ]
 }
