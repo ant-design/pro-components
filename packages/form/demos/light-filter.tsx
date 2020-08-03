@@ -1,5 +1,5 @@
 import React from 'react';
-import { LightFilter, ProFormText } from '../src';
+import { LightFilter, ProFormText } from '@ant-design/pro-form';
 
 export default () => {
   return (

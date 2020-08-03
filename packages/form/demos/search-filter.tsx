@@ -1,5 +1,5 @@
 import React from 'react';
-import ProForm, { SearchFilter, ProFormText } from '../src';
+import ProForm, { SearchFilter, ProFormText } from '@ant-design/pro-form';
 
 export default () => {
   return (
