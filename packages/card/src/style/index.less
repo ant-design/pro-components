@@ -53,6 +53,21 @@
       }
       border-bottom: @border-width-base @border-style-base @border-color-split;
     }
+
+    &-collapse {
+      & {
+        padding-bottom: @padding-md;
+      }
+    }
+  }
+
+  &-collapsible-icon {
+    color: @icon-color-hover;
+    margin-left: 8px;
+
+    & svg {
+      transition: transform 0.24s;
+    }
   }
 
   &-title {
@@ -63,11 +78,17 @@
     display: block;
     padding: @padding-md;
     box-sizing: border-box;
+    transition: height @animation-duration-slow @ease-out;
+    overflow: hidden;
 
     &-center {
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+
+    &-collapse {
+      height: 0;
     }
   }
 

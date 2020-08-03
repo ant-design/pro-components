@@ -52,6 +52,12 @@ nav:
 
 <code src="../demos/headerBordered.tsx" background="#f0f2f5" />
 
+### 可折叠
+
+使用 `collapsible` 来控制卡片可折叠
+
+<code src="../demos/collapsible.tsx" background="#f0f2f5" />
+
 ### 内容居中
 
 <code src="../demos/layout.tsx" background="#f0f2f5" />
@@ -98,3 +104,6 @@ nav:
 |  split | 拆分卡片的方向 | `vertical` \| `horizontal`  | - |
 | bordered | 是否有边框 | `boolean` | false |
 | headerBordered | 页头是否有分割线 | `boolean` | false |
+| collapsible | 是否可折叠 | `boolean` | false |
+| defaultCollapsed | 默认折叠 | `boolean` | false |
+| onCollapse | 收起卡片的事件 | `(collapsed: boolean) => void;` | - |
