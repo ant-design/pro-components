@@ -24,6 +24,7 @@
     "dist"
   ],
   "dependencies": {
+    "@ant-design/pro-provider": "0.0.2",
     "@ant-design/icons": "^4.2.1",
     "@ant-design/pro-field": "0.0.11",
     "classnames": "^2.2.6",

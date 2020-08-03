@@ -1,6 +1,7 @@
 import React from 'react';
 import { FormInstance } from 'antd/es/form';
 import { Button, Space } from 'antd';
+import { useIntl } from '@ant-design/pro-provider';
 
 /**
  * 用于配置操作栏
@@ -29,8 +30,11 @@ export interface SubmitterProps {
  */
 const Submitter: React.FC<SubmitterProps> = (props) => {
   const { form, onSubmit = () => {}, onReset = () => {}, searchConfig = {} } = props;
-  // TODO i18n
-  const { submitText = '提交', resetText = '重置' } = searchConfig;
+  const intl = useIntl();
+  const {
+    submitText = intl.getMessage('tableForm.submit', '提交'),
+    resetText = intl.getMessage('tableForm.reset', '重置'),
+  } = searchConfig;
 
   return (
     <Space>
