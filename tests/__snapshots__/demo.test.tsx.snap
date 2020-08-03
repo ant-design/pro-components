@@ -2652,7 +2652,7 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
     >
       <button
         class="ant-btn ant-btn-primary"
-        type="submit"
+        type="button"
       >
         <span>
           提 交
@@ -3123,7 +3123,7 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
               >
                 <button
                   class="ant-btn ant-btn-primary"
-                  type="submit"
+                  type="button"
                 >
                   <span>
                     提 交
@@ -3543,7 +3543,7 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
               >
                 <button
                   class="ant-btn ant-btn-primary"
-                  type="submit"
+                  type="button"
                 >
                   <span>
                     提 交
@@ -3739,7 +3739,7 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
               >
                 <button
                   class="ant-btn ant-btn-primary"
-                  type="submit"
+                  type="button"
                 >
                   <span>
                     提 交
