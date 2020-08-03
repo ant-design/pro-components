@@ -2,13 +2,7 @@ import './index.less';
 
 import React, { useEffect, CSSProperties, useRef, useState, ReactNode, useCallback } from 'react';
 import { Table, ConfigProvider, Card, Space, Typography, Empty, Tooltip } from 'antd';
-import {
-  useIntl,
-  ConfigProvider as ProConfigProvider,
-  ConfigConsumer as ProConfigConsumer,
-  IntlType,
-  ParamsType,
-} from '@ant-design/pro-provider';
+import { useIntl, IntlType, ParamsType, ConfigProviderWarp } from '@ant-design/pro-provider';
 import classNames from 'classnames';
 import useMergeValue from 'use-merge-value';
 import { stringify } from 'use-json-comparison';
@@ -1111,15 +1105,11 @@ const ProviderWarp = <T, U extends { [key: string]: any } = {}>(props: ProTableP
   <Container.Provider initialState={props}>
     <ConfigConsumer>
       {({ getPrefixCls }: ConfigConsumerProps) => (
-        <ProConfigConsumer>
-          {(value) => (
-            <ProConfigProvider value={value}>
-              <ErrorBoundary>
-                <ProTable defaultClassName={getPrefixCls('pro-table')} {...props} />
-              </ErrorBoundary>
-            </ProConfigProvider>
-          )}
-        </ProConfigConsumer>
+        <ConfigProviderWarp>
+          <ErrorBoundary>
+            <ProTable defaultClassName={getPrefixCls('pro-table')} {...props} />
+          </ErrorBoundary>
+        </ConfigProviderWarp>
       )}
     </ConfigConsumer>
   </Container.Provider>

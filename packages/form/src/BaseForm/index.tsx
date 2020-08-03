@@ -2,6 +2,7 @@ import React from 'react';
 import { Form } from 'antd';
 import { FormProps } from 'antd/lib/form/Form';
 import { FormItemProps } from 'antd/lib/form';
+import { ConfigProviderWarp } from '@ant-design/pro-provider';
 import FieldContext from '../FieldContext';
 import Submitter, { SubmitterProps } from '../components/Submitter';
 import { GroupProps, FieldProps } from '../interface';
@@ -50,17 +51,20 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
   const submitter = <Submitter {...submitterProps} form={realForm} />;
   const content = contentRender ? contentRender(items, submitter) : items;
   return (
-    <FieldContext.Provider
-      value={{
-        fieldProps,
-        formItemProps,
-        groupProps,
-      }}
-    >
-      <Form form={realForm} {...rest}>
-        {content}
-      </Form>
-    </FieldContext.Provider>
+    // 增加国际化的能力，与 table 组件可以统一
+    <ConfigProviderWarp>
+      <FieldContext.Provider
+        value={{
+          fieldProps,
+          formItemProps,
+          groupProps,
+        }}
+      >
+        <Form form={realForm} {...rest}>
+          {content}
+        </Form>
+      </FieldContext.Provider>
+    </ConfigProviderWarp>
   );
 };
 
