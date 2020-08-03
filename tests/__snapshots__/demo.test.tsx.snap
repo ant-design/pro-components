@@ -105,8 +105,7 @@ exports[`demos renders ./packages/card/demos/bordered.tsx correctly 1`] = `
 exports[`demos renders ./packages/card/demos/colspan.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-pro-card ant-pro-card-span-24"
-    style="background-color: rgb(0, 146, 255); color: rgb(255, 255, 255);"
+    class="ant-pro-card"
   >
     <div
       class="ant-pro-card-body ant-pro-card-body-center"
@@ -115,18 +114,18 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-pro-card ant-pro-card-span-16"
-    style="background-color: rgba(0, 146, 255, 0.75); color: rgb(255, 255, 255);"
+    class="ant-pro-card ant-pro-card-span-12"
+    style="margin-top: 8px;"
   >
     <div
       class="ant-pro-card-body ant-pro-card-body-center"
     >
-      colSpan - 16
+      colSpan - 12
     </div>
   </div>,
   <div
     class="ant-pro-card ant-pro-card-span-8"
-    style="background-color: rgb(0, 146, 255); color: rgb(255, 255, 255);"
+    style="margin-top: 8px;"
   >
     <div
       class="ant-pro-card-body ant-pro-card-body-center"
@@ -143,7 +142,7 @@ Array [
     >
       <div
         class="ant-pro-card ant-pro-card-span-12"
-        style="border-radius: 0; background-color: rgb(0, 146, 255); color: rgb(255, 255, 255);"
+        style="margin-right: 8px;"
       >
         <div
           class="ant-pro-card-body ant-pro-card-body-center"
@@ -153,7 +152,7 @@ Array [
       </div>
       <div
         class="ant-pro-card ant-pro-card-span-6"
-        style="border-radius: 0; background-color: rgba(0, 146, 255, 0.75); color: rgb(255, 255, 255);"
+        style="margin-right: 8px;"
       >
         <div
           class="ant-pro-card-body ant-pro-card-body-center"
@@ -163,7 +162,6 @@ Array [
       </div>
       <div
         class="ant-pro-card ant-pro-card-span-6"
-        style="border-radius: 0; background-color: rgb(0, 146, 255); color: rgb(255, 255, 255);"
       >
         <div
           class="ant-pro-card-body ant-pro-card-body-center"
@@ -182,7 +180,7 @@ Array [
     >
       <div
         class="ant-pro-card ant-pro-card-span-8"
-        style="border-radius: 0; background-color: rgb(0, 146, 255); color: rgb(255, 255, 255);"
+        style="margin-right: 8px;"
       >
         <div
           class="ant-pro-card-body ant-pro-card-body-center"
@@ -192,22 +190,21 @@ Array [
       </div>
       <div
         class="ant-pro-card"
-        style="border-radius: 0; background-color: rgba(0, 146, 255, 0.75); color: rgb(255, 255, 255);"
+        style="margin-right: 8px;"
       >
         <div
           class="ant-pro-card-body ant-pro-card-body-center"
         >
-          auto
+          Auto
         </div>
       </div>
       <div
         class="ant-pro-card"
-        style="border-radius: 0; background-color: rgb(0, 146, 255); color: rgb(255, 255, 255);"
       >
         <div
           class="ant-pro-card-body ant-pro-card-body-center"
         >
-          auto
+          Auto
         </div>
       </div>
     </div>
@@ -221,7 +218,7 @@ Array [
     >
       <div
         class="ant-pro-card"
-        style="flex-basis: 200px; flex-shrink: 0; border-radius: 0; background-color: rgb(0, 146, 255); color: rgb(255, 255, 255);"
+        style="flex-basis: 200px; flex-shrink: 0; margin-right: 8px;"
       >
         <div
           class="ant-pro-card-body ant-pro-card-body-center"
@@ -231,22 +228,21 @@ Array [
       </div>
       <div
         class="ant-pro-card"
-        style="border-radius: 0; background-color: rgba(0, 146, 255, 0.75); color: rgb(255, 255, 255);"
+        style="margin-right: 8px;"
       >
         <div
           class="ant-pro-card-body ant-pro-card-body-center"
         >
-          auto
+          Auto
         </div>
       </div>
       <div
         class="ant-pro-card"
-        style="border-radius: 0; background-color: rgb(0, 146, 255); color: rgb(255, 255, 255);"
       >
         <div
           class="ant-pro-card-body ant-pro-card-body-center"
         >
-          auto
+          Auto
         </div>
       </div>
     </div>
@@ -260,17 +256,17 @@ Array [
     >
       <div
         class="ant-pro-card"
-        style="border-radius: 0; background-color: rgb(0, 146, 255); color: rgb(255, 255, 255);"
+        style="margin-right: 8px;"
       >
         <div
           class="ant-pro-card-body"
         >
-          auto
+          Auto
         </div>
       </div>
       <div
         class="ant-pro-card"
-        style="flex-basis: 30%; flex-shrink: 0; border-radius: 0; background-color: rgba(0, 146, 255, 0.75); color: rgb(255, 255, 255);"
+        style="flex-basis: 30%; flex-shrink: 0;"
       >
         <div
           class="ant-pro-card-body"
@@ -293,7 +289,7 @@ Array [
     >
       <div
         class="ant-pro-card"
-        style="flex-basis: 300px; flex-shrink: 0; margin-right: 16px; margin-bottom: 16px; border-radius: 0;"
+        style="flex-basis: 300px; flex-shrink: 0; margin-right: 16px; margin-bottom: 16px;"
       >
         <div
           class="ant-pro-card-header ant-pro-card-header-border"
@@ -315,7 +311,7 @@ Array [
       </div>
       <div
         class="ant-pro-card"
-        style="margin-right: 16px; margin-bottom: 16px; border-radius: 0;"
+        style="margin-right: 16px; margin-bottom: 16px;"
       >
         <div
           class="ant-pro-card-body"
@@ -325,7 +321,7 @@ Array [
       </div>
       <div
         class="ant-pro-card"
-        style="margin-bottom: 16px; border-radius: 0;"
+        style="margin-bottom: 16px;"
       >
         <div
           class="ant-pro-card-body"
@@ -343,7 +339,7 @@ Array [
     >
       <div
         class="ant-pro-card"
-        style="margin-bottom: 16px; border-radius: 0;"
+        style="margin-bottom: 16px;"
       >
         <div
           class="ant-pro-card-body"
@@ -353,7 +349,7 @@ Array [
       </div>
       <div
         class="ant-pro-card"
-        style="margin-bottom: 16px; border-radius: 0;"
+        style="margin-bottom: 16px;"
       >
         <div
           class="ant-pro-card-body"
@@ -363,7 +359,7 @@ Array [
       </div>
       <div
         class="ant-pro-card"
-        style="margin-bottom: 16px; border-radius: 0;"
+        style="margin-bottom: 16px;"
       >
         <div
           class="ant-pro-card-body"
@@ -381,7 +377,7 @@ Array [
     >
       <div
         class="ant-pro-card"
-        style="margin-right: 16px; border-radius: 0;"
+        style="margin-right: 16px;"
       >
         <div
           class="ant-pro-card-body"
@@ -391,7 +387,7 @@ Array [
       </div>
       <div
         class="ant-pro-card"
-        style="margin-right: 16px; border-radius: 0;"
+        style="margin-right: 16px;"
       >
         <div
           class="ant-pro-card-body"
@@ -401,7 +397,6 @@ Array [
       </div>
       <div
         class="ant-pro-card"
-        style="border-radius: 0;"
       >
         <div
           class="ant-pro-card-body"
@@ -508,50 +503,125 @@ exports[`demos renders ./packages/card/demos/layout.tsx correctly 1`] = `
 exports[`demos renders ./packages/card/demos/loading.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-pro-card"
+    class="ant-pro-card ant-pro-card-loading"
     style="width: 300px;"
   >
     <div
-      class="ant-pro-card-header"
+      class="ant-pro-card-body"
     >
       <div
-        class="ant-pro-card-title"
+        class="ant-pro-card-loading-content"
       >
-        默认 Loading
-      </div>
-      <div
-        class="ant-pro-card-extra"
-      >
-        extra
-      </div>
-    </div>
-    <div
-      class="ant-pro-card-body ant-pro-card-body-center"
-    >
-      <div
-        class="ant-spin ant-spin-spinning"
-      >
-        <span
-          class="ant-spin-dot ant-spin-dot-spin"
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
         >
-          <i
-            class="ant-spin-dot-item"
-          />
-          <i
-            class="ant-spin-dot-item"
-          />
-          <i
-            class="ant-spin-dot-item"
-          />
-          <i
-            class="ant-spin-dot-item"
-          />
-        </span>
+          <div
+            class="ant-col ant-col-22"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-card-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="ant-col ant-col-8"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-card-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-15"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-card-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="ant-col ant-col-6"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-card-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-18"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-card-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="ant-col ant-col-13"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-card-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-9"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-card-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="ant-col ant-col-4"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-card-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-3"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-card-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-16"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-card-loading-block"
+            />
+          </div>
+        </div>
       </div>
     </div>
   </div>,
   <div
-    class="ant-pro-card"
+    class="ant-pro-card ant-pro-card-loading"
     style="width: 300px; margin-top: 16px;"
   >
     <div
@@ -569,7 +639,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-pro-card-body ant-pro-card-body-center"
+      class="ant-pro-card-body"
     >
       <div>
         加载中
@@ -590,7 +660,7 @@ Array [
     >
       <div
         class="ant-pro-card"
-        style="border-radius: 0; background-color: rgb(0, 146, 255); color: rgb(255, 255, 255);"
+        style="margin-right: 8px;"
       >
         <div
           class="ant-pro-card-body ant-pro-card-body-center"
@@ -600,7 +670,7 @@ Array [
       </div>
       <div
         class="ant-pro-card"
-        style="border-radius: 0; background-color: rgba(0, 146, 255, 0.75); color: rgb(255, 255, 255);"
+        style="margin-right: 8px;"
       >
         <div
           class="ant-pro-card-body ant-pro-card-body-center"
@@ -610,7 +680,6 @@ Array [
       </div>
       <div
         class="ant-pro-card"
-        style="border-radius: 0; background-color: rgb(0, 146, 255); color: rgb(255, 255, 255);"
       >
         <div
           class="ant-pro-card-body ant-pro-card-body-center"
@@ -629,7 +698,7 @@ Array [
     >
       <div
         class="ant-pro-card"
-        style="border-radius: 0; background-color: rgb(0, 146, 255); color: rgb(255, 255, 255);"
+        style="margin-right: 8px;"
       >
         <div
           class="ant-pro-card-body ant-pro-card-body-center"
@@ -639,7 +708,7 @@ Array [
       </div>
       <div
         class="ant-pro-card"
-        style="border-radius: 0; background-color: rgba(0, 146, 255, 0.75); color: rgb(255, 255, 255);"
+        style="margin-right: 8px;"
       >
         <div
           class="ant-pro-card-body ant-pro-card-body-center"
@@ -649,7 +718,6 @@ Array [
       </div>
       <div
         class="ant-pro-card"
-        style="border-radius: 0; background-color: rgb(0, 146, 255); color: rgb(255, 255, 255);"
       >
         <div
           class="ant-pro-card-body ant-pro-card-body-center"
@@ -668,7 +736,7 @@ Array [
     >
       <div
         class="ant-pro-card"
-        style="border-radius: 0; background-color: rgb(0, 146, 255); color: rgb(255, 255, 255);"
+        style="margin-right: 8px;"
       >
         <div
           class="ant-pro-card-body ant-pro-card-body-center"
@@ -678,7 +746,7 @@ Array [
       </div>
       <div
         class="ant-pro-card"
-        style="border-radius: 0; background-color: rgba(0, 146, 255, 0.75); color: rgb(255, 255, 255);"
+        style="margin-right: 8px;"
       >
         <div
           class="ant-pro-card-body ant-pro-card-body-center"
@@ -688,7 +756,6 @@ Array [
       </div>
       <div
         class="ant-pro-card"
-        style="border-radius: 0; background-color: rgb(0, 146, 255); color: rgb(255, 255, 255);"
       >
         <div
           class="ant-pro-card-body ant-pro-card-body-center"
@@ -707,22 +774,21 @@ Array [
     >
       <div
         class="ant-pro-card"
-        style="border-radius: 0; background-color: rgb(0, 146, 255); color: rgb(255, 255, 255);"
+        style="margin-right: 8px;"
       >
         <div
-          class="ant-pro-card-body"
+          class="ant-pro-card-body ant-pro-card-body-center"
         >
           Auto
         </div>
       </div>
       <div
         class="ant-pro-card"
-        style="border-radius: 0; background-color: rgba(0, 146, 255, 0.75); color: rgb(255, 255, 255);"
       >
         <div
-          class="ant-pro-card-body"
+          class="ant-pro-card-body ant-pro-card-body-center"
         >
-          Col - %
+          Col - 百分比
         </div>
       </div>
     </div>
