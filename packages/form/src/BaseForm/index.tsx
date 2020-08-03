@@ -8,7 +8,7 @@ import Submitter, { SubmitterProps } from '../components/Submitter';
 import { GroupProps, FieldProps } from '../interface';
 
 export interface CommonFormProps {
-  submitterProps?: Omit<SubmitterProps, 'form'>;
+  submitter?: Omit<SubmitterProps, 'form'> | boolean;
   hiddenActions?: boolean;
 }
 
@@ -39,7 +39,7 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
   const {
     children,
     contentRender,
-    submitterProps,
+    submitter,
     fieldProps,
     formItemProps,
     groupProps,
@@ -50,8 +50,9 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
   const [form] = Form.useForm();
   const realForm = userForm || form;
   const items = React.Children.toArray(children);
-  const submiter = hiddenActions ? null : <Submitter {...submitterProps} form={realForm} />;
-  const content = contentRender ? contentRender(items, submiter) : items;
+  const submitterProps: Omit<SubmitterProps, 'form'> = typeof submitter === 'boolean' || !submitter ? {} : submitter;
+  const submitterNode = submitter === false ? null : <Submitter {...submitterProps} form={realForm} />;
+  const content = contentRender ? contentRender(items, submitterNode) : items;
   return (
     // 增加国际化的能力，与 table 组件可以统一
     <ConfigProviderWarp>

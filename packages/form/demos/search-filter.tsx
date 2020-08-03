@@ -70,7 +70,7 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = (props) => {
       </Tabs>
 
       <QueryFilter
-        hiddenActions
+        submitter={false}
         span={24}
         split
         onChange={onFilterChange}

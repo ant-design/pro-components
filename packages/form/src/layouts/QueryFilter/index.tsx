@@ -75,7 +75,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
     onChange: onCollapse,
   });
   // use style.width as the defaultWidth for unit test
-  const defaultWidth = typeof style?.width === 'number' ? style?.width : 1024;
+  const defaultWidth: number = (typeof style?.width === 'number' ? style?.width : 1024) as number;
   const [spanSize, setSpanSize] = useState<number>(getSpanConfig(layout, defaultWidth + 16, span));
   const showLength =
     defaultColsNumber !== undefined ? defaultColsNumber : Math.max(1, 24 / spanSize - 1);
