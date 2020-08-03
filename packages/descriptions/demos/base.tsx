@@ -26,13 +26,13 @@ export default () => {
         request={async () => {
           return Promise.resolve({
             success: true,
-            data: { id: '这是一段文本', date: '文本222', money: '12121' },
+            data: { id: '这是一段文本columns', date: '文本666', money: '1212100' },
           });
         }}
         columns={[
           {
             title: '标题',
-            dataIndex: 'title',
+            dataIndex: 'id',
             copyable: true,
             ellipsis: true,
             width: 200,
@@ -70,10 +70,16 @@ export default () => {
             // ),
           },
           {
-            title: '创建时间',
+            title: '时间',
             key: 'since',
-            dataIndex: 'created_at',
-            valueType: 'dateTime',
+            dataIndex: 'data',
+            valueType: 'date',
+          },
+          {
+            title: 'qian',
+            key: 'qian',
+            dataIndex: 'money',
+            valueType: 'money',
           },
         ]}
       />

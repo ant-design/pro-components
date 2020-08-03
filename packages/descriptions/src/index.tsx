@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Descriptions, Space } from 'antd';
 import toArray from 'rc-util/lib/Children/toArray';
 import Field, {
@@ -53,6 +53,9 @@ const ProDescriptions: React.FC<ProDescriptionsProps> & {
 } = props => {
   const { request, columns } = props;
 
+  const Ref = useRef(columns);
+  console.log(Ref, 'ref');
+
   const action = useFetchData(async () => {
     const msg = request ? await request() : {};
     return msg;
@@ -76,6 +79,8 @@ const ProDescriptions: React.FC<ProDescriptionsProps> & {
     if (!valueType && !valueEnum && !request) {
       return item;
     }
+    console.log(columns, 'ccc', Ref);
+    // 取不到columns的指
 
     if (request && !columns && dataIndex) {
       const { dataSource = {} } = action;
@@ -93,6 +98,36 @@ const ProDescriptions: React.FC<ProDescriptionsProps> & {
           />
         </Descriptions.Item>
       );
+    }
+
+    if (request && columns) {
+      const { dataSource = {} } = action;
+      const dataKeys = Object.keys(dataSource);
+      dataKeys.forEach((itemKey: any) => {
+        columns.map((itemC: any) => {
+          if (itemC.dataIndex === itemKey) {
+            return (
+              <Descriptions.Item
+                {...restItem}
+                key={itemC.title?.toString() || index}
+                label={itemC.title}
+              >
+                <Field
+                  valueEnum={valueEnum}
+                  mode={mode || 'read'}
+                  render={render}
+                  renderFormItem={renderFormItem}
+                  valueType={itemC.valueType}
+                  plain={plain}
+                  request={requestItem}
+                  text={children || dataSource[itemKey] || itemC.title}
+                />
+              </Descriptions.Item>
+            );
+          }
+          return null;
+        });
+      });
     }
 
     if (valueType === 'option') {
