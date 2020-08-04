@@ -2155,11 +2155,11 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
         title=""
       >
         <div
-          class="ant-space ant-space-horizontal ant-space-align-center"
+          class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-label-tip"
         >
           <div
             class="ant-space-item"
-            style="margin-right: 8px;"
+            style="margin-right: 4px;"
           >
             名称
           </div>
@@ -2168,7 +2168,7 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
           >
             <span
               aria-label="info-circle"
-              class="anticon anticon-info-circle"
+              class="anticon anticon-info-circle ant-pro-form-label-tip-icon"
               role="img"
             >
               <svg
@@ -2223,11 +2223,11 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
         title=""
       >
         <div
-          class="ant-space ant-space-horizontal ant-space-align-center"
+          class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-label-tip"
         >
           <div
             class="ant-space-item"
-            style="margin-right: 8px;"
+            style="margin-right: 4px;"
           >
             备注
           </div>
@@ -2236,7 +2236,7 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
           >
             <span
               aria-label="info-circle"
-              class="anticon anticon-info-circle"
+              class="anticon anticon-info-circle ant-pro-form-label-tip-icon"
               role="img"
             >
               <svg
@@ -18046,7 +18046,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              🐛[BUG]yarn install命令 antd2.4.5会报错
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -18199,7 +18203,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              🐛[BUG]无法创建工程npm create umi
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -18352,7 +18360,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              🧐[问题] build 后还存在 es6 的代码（Umi@2.13.13）
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -18505,7 +18517,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              2.3.1版本如何在业务页面修改头部状态
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -18658,7 +18674,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              hideChildrenInMenu设置后，子路由找不到了
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -18811,7 +18831,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              🐛[BUG]Umi UI 添加多个空白页，就会出错！把空白页都变成选中状态！
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -18964,7 +18988,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              🐛[BUG]第一次载入页面，菜单仅图标时，图标没有居中
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -19117,7 +19145,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              build(deps-dev): bump eslint from 6.8.0 to 7.1.0
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -19270,7 +19302,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              V4版本如何使用第三方的enhanceReduxMiddleware 🧐[问题]
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -19423,7 +19459,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              🐛[BUG] 官网预览页面，第一次点击二级菜单，其父级菜单会收起，之后再次点击二级菜单，父菜单正常
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -19565,7 +19605,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              🧐[问题] 从自建 block 仓库下载区块报错。
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -19718,7 +19762,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              🧐[问题] fetchCurrent接口报错，退出登录页，第一次点击登录，SecurityLayout不渲染，导致需要点击两次
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -19871,7 +19919,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              🐛[BUG] V5 左侧栏收缩时，点击图标无效。
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -20024,7 +20076,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              🧐[问题]不知道有没有大佬将这个模板迁移至Electron的例子
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -20177,7 +20233,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              npm run start 为什么不能打开浏览器
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -20330,7 +20390,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              🧐[问题]在重新npm install后运行npm start报出一些less找不到，但项目可以正常运行起来
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -20483,7 +20547,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              🐛[BUG]错误通知：http code 200
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -20636,7 +20704,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              🐛[BUG]线上预览项目好多布局错乱，不知道是antd的锅还是啥原因
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -20778,7 +20850,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              🐛[BUG] umi 偶尔出现没有导出成员
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -20931,7 +21007,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              🐛[BUG]请问大佬，为什么无论怎么选择，都无法切换成JS语言，怎么下都是TS,求解答
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
