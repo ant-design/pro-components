@@ -1,5 +1,10 @@
 import MockDate from 'mockdate';
-import moment from 'moment';
+import moment from 'moment-timezone';
+import { enableFetchMocks } from 'jest-fetch-mock';
+
+import tableData from './table/mock.data.json';
+
+enableFetchMocks();
 
 global.requestAnimationFrame =
   global.requestAnimationFrame ||
@@ -51,3 +56,11 @@ const mockFormatExpression = {
   format: (value) => `￥ ${value.toString()}`,
 };
 Intl.NumberFormat = jest.fn().mockImplementation(() => mockFormatExpression);
+
+moment.tz.setDefault('UTC');
+
+Math.random = () => 0.8404419276253765;
+
+fetch.mockResponse(async () => {
+  return { body: JSON.stringify(tableData) };
+});

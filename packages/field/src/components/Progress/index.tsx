@@ -2,7 +2,7 @@ import { Progress, InputNumber } from 'antd';
 import toNumber from 'lodash.tonumber';
 import React, { useMemo } from 'react';
 
-import { FieldFC } from '../../index';
+import { ProFieldFC } from '../../index';
 
 export function getProgressStatus(text: number): 'success' | 'exception' | 'normal' | 'active' {
   if (typeof text !== 'number') {
@@ -26,7 +26,7 @@ export function getProgressStatus(text: number): 'success' | 'exception' | 'norm
  * 进度条组件
  * @param
  */
-const FieldProgress: FieldFC<{
+const FieldProgress: ProFieldFC<{
   text: number | string;
 }> = ({ text, mode, render, plain, renderFormItem, formItemProps }, ref) => {
   const realValue = useMemo(
@@ -53,8 +53,9 @@ const FieldProgress: FieldFC<{
     }
     return dom;
   }
+
   if (mode === 'edit' || mode === 'update') {
-    const dom = <InputNumber ref={ref} {...formItemProps} defaultValue={realValue} />;
+    const dom = <InputNumber ref={ref} {...formItemProps} />;
     if (renderFormItem) {
       return renderFormItem(text, { mode, ...formItemProps }, dom);
     }

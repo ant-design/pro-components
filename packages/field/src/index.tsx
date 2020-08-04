@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import { Avatar } from 'antd';
+import { Moment } from 'moment';
 import FieldPercent from './components/Percent';
 import FieldIndexColumn from './components/IndexColumn';
 import FieldProgress from './components/Progress';
@@ -15,8 +16,11 @@ import FiledSelect, {
   ProFieldValueEnumObj,
   ProFieldRequestData,
 } from './components/Select';
+import FieldDigit from './components/Digit';
 
-export type ColumnEmptyText = string;
+export type ProFieldTextType = string | number | React.ReactText[] | Moment | Moment[] | null;
+
+export type ProFieldEmptyText = string | false;
 
 /**
  * money 金额
@@ -55,12 +59,16 @@ export type ProFieldValueType =
 
 export type ProFieldFCMode = 'read' | 'edit' | 'update';
 
-type ProBaseFieldFC = {
+type BaseProFieldFC = {
   /**
    * 值的类型
    */
   text: React.ReactNode;
+
   formItemProps?: any;
+  /**
+   * 模式类型
+   */
   mode: ProFieldFCMode;
   /**
    *简约模式
@@ -80,7 +88,7 @@ export type ProFieldFCRenderProps = {
   mode?: ProFieldFCMode;
   value?: any;
   onChange?: (value: any) => void;
-} & ProBaseFieldFC;
+} & BaseProFieldFC;
 
 export type ProRenderFieldProps = {
   render?: (
@@ -94,13 +102,13 @@ export type ProRenderFieldProps = {
 /**
  * 默认的 Field 需要实现的功能
  */
-export type FieldFC<T> = React.ForwardRefRenderFunction<
+export type ProFieldFC<T> = React.ForwardRefRenderFunction<
   any,
-  ProBaseFieldFC & ProRenderFieldProps & T
+  BaseProFieldFC & ProRenderFieldProps & T
 >;
 
 // function return type
-export type ProColumnsValueObjectType = {
+export type ProFieldValueObjectType = {
   type: 'progress' | 'money' | 'percent';
   status?: 'normal' | 'active' | 'success' | 'exception' | undefined;
   locale?: string;
@@ -113,9 +121,7 @@ export type ProColumnsValueObjectType = {
 /**
  * value type by function
  */
-export type ProColumnsValueTypeFunction<T> = (
-  item: T,
-) => ProFieldValueType | ProColumnsValueObjectType;
+export type ProFieldValueTypeFunction<T> = (item: T) => ProFieldValueType | ProFieldValueObjectType;
 
 type RenderProps = Omit<ProFieldFCRenderProps, 'text'> &
   ProRenderFieldProps & {
@@ -129,8 +135,8 @@ type RenderProps = Omit<ProFieldFCRenderProps, 'text'> &
  * @param valueType ProColumnsValueObjectType
  */
 const defaultRenderTextByObject = (
-  text: string | number | React.ReactText[],
-  valueType: ProColumnsValueObjectType,
+  text: ProFieldTextType,
+  valueType: ProFieldValueObjectType,
   props: RenderProps = { mode: 'read', plain: false },
 ) => {
   if (valueType.type === 'progress') {
@@ -167,8 +173,8 @@ const defaultRenderTextByObject = (
  * @param valueType
  */
 const defaultRenderText = (
-  text: string | number | React.ReactText[],
-  valueType: ProFieldValueType,
+  text: ProFieldTextType,
+  valueType: ProFieldValueType | ProFieldValueObjectType,
   props: RenderProps,
 ): React.ReactNode => {
   if (typeof valueType === 'object') {
@@ -237,7 +243,7 @@ const defaultRenderText = (
     return <FieldPercent text={text as number} {...props} />;
   }
 
-  if (valueType === 'avatar' && typeof text === 'string') {
+  if (valueType === 'avatar' && typeof text === 'string' && props.mode === 'read') {
     return <Avatar src={text as string} size={22} shape="circle" />;
   }
 
@@ -251,6 +257,10 @@ const defaultRenderText = (
 
   if (valueType === 'textarea') {
     return <FieldTextArea text={text as string} {...props} />;
+  }
+
+  if (valueType === 'digit') {
+    return <FieldDigit text={text as number} {...props} />;
   }
 
   const { mode = 'read', emptyText } = props;
@@ -272,14 +282,15 @@ export { defaultRenderText };
 const Field: React.ForwardRefRenderFunction<
   any,
   {
-    text: string | number | React.ReactText[];
-    valueType: ProFieldValueType;
+    text?: ProFieldTextType;
+    valueType?: ProFieldValueType | ProFieldValueObjectType;
   } & RenderProps
-> = ({ text, valueType, onChange, value, ...rest }, ref) => {
+> = ({ text, valueType = 'text', onChange, value, ...rest }, ref) => {
   return (
     <React.Fragment>
-      {defaultRenderText(text, valueType, {
+      {defaultRenderText(text || '', valueType, {
         ...rest,
+        mode: rest.mode || 'read',
         ref,
         formItemProps: (value || onChange || rest?.formItemProps) && {
           ...rest?.formItemProps,
@@ -306,4 +317,4 @@ export {
   FiledSelect,
 };
 
-export default React.forwardRef(Field);
+export default React.forwardRef(Field) as typeof Field;

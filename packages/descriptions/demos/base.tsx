@@ -136,12 +136,7 @@ export default () => {
           {moment().valueOf()}
         </ProDescriptions.Item>
         <ProDescriptions.Item label="日期区间" valueType="dateTimeRange">
-          {[
-            moment()
-              .add(-1, 'd')
-              .valueOf(),
-            moment().valueOf(),
-          ]}
+          {[moment().add(-1, 'd').valueOf(), moment().valueOf()]}
         </ProDescriptions.Item>
         <ProDescriptions.Item label="时间" valueType="time">
           {moment().valueOf()}

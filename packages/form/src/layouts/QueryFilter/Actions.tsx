@@ -3,7 +3,7 @@ import { Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 
 export interface ActionsProps {
-  submiter: React.ReactNode;
+  submitter: React.ReactNode;
   /**
    * 是否收起
    */
@@ -69,13 +69,13 @@ const Actions: React.FC<ActionsProps> = (props) => {
     collapsed = false,
     showCollapseButton,
     collapseRender = defaultCollapseRender,
-    submiter,
+    submitter,
     style,
   } = props;
 
   return (
     <Space style={style}>
-      {submiter}
+      {submitter}
       {showCollapseButton && (
         <a
           onClick={() => {

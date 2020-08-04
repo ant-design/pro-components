@@ -7,7 +7,7 @@ import { ProFormItemProps } from '../../interface';
 
 export type ProFormCheckboxGroupProps = ProFormItemProps &
   CheckboxGroupProps & {
-    layout: 'horizontal' | 'vertical';
+    layout?: 'horizontal' | 'vertical';
   };
 
 const Group: React.FC<ProFormCheckboxGroupProps> = ({

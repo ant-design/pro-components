@@ -1,12 +1,13 @@
-import { render } from 'enzyme';
+import { mount } from 'enzyme';
 import React from 'react';
 import { Input } from 'antd';
 import ProTable, { TableDropdown } from '@ant-design/pro-table';
 import { columns, request } from './demo';
+import { waitTime } from '../util';
 
 describe('BasicTable', () => {
-  it('🎏 base use', () => {
-    const html = render(
+  it('🎏 base use', async () => {
+    const html = mount(
       <ProTable
         size="small"
         columns={columns}
@@ -33,11 +34,13 @@ describe('BasicTable', () => {
         ]}
       />,
     );
-    expect(html).toMatchSnapshot();
+    await waitTime(200);
+    html.update();
+    expect(html.render()).toMatchSnapshot();
   });
 
-  it('🎏 do not render Search ', () => {
-    const html = render(
+  it('🎏 do not render Search ', async () => {
+    const html = mount(
       <ProTable
         size="small"
         columns={columns}
@@ -50,11 +53,13 @@ describe('BasicTable', () => {
         }}
       />,
     );
-    expect(html).toMatchSnapshot();
+    await waitTime(200);
+    html.update();
+    expect(html.render()).toMatchSnapshot();
   });
 
-  it('🎏  do not render default option', () => {
-    const html = render(
+  it('🎏  do not render default option', async () => {
+    const html = mount(
       <ProTable
         size="small"
         options={{
@@ -72,11 +77,13 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    expect(html).toMatchSnapshot();
+    await waitTime(200);
+    html.update();
+    expect(html.render()).toMatchSnapshot();
   });
 
-  it('🎏  do not render setting', () => {
-    const html = render(
+  it('🎏  do not render setting', async () => {
+    const html = mount(
       <ProTable
         size="small"
         options={{
@@ -94,6 +101,8 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    expect(html).toMatchSnapshot();
+    await waitTime(200);
+    html.update();
+    expect(html.render()).toMatchSnapshot();
   });
 });

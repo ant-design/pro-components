@@ -12,16 +12,20 @@ import {
   ruRUIntl,
   msMYIntl,
   zhTWIntl,
+  frFRIntl,
+  ptBRIntl,
 } from '@ant-design/pro-provider';
+import { ProFieldValueType } from '@ant-design/pro-field';
 
 import ProTable, { ProColumns, ActionType, ProTableProps, ColumnsState } from './Table';
 import IndexColumn from './component/indexColumn';
 import { RequestData } from './useFetchData';
 import TableDropdown from './component/dropdown';
 import TableStatus from './component/status';
-
 import Search from './form';
-import defaultRenderText, { ProColumnsValueType } from './defaultRender';
+import defaultRenderText from './defaultRender';
+
+type ProColumnsValueType = ProFieldValueType;
 
 export type {
   ProTableProps,
@@ -53,6 +57,8 @@ export {
   ruRUIntl,
   msMYIntl,
   zhTWIntl,
+  frFRIntl,
+  ptBRIntl,
 };
 
 export default ProTable;

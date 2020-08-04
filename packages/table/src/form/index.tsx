@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { FormInstance, FormItemProps, FormProps } from 'antd/es/form';
-import { Input, Form, Row, Col, TimePicker, InputNumber, DatePicker, Select } from 'antd';
+import { Form, Row, Col } from 'antd';
 import moment, { Moment } from 'moment';
 import RcResizeObserver from 'rc-resize-observer';
 import useMediaQuery from 'use-media-antd-query';
@@ -9,13 +9,9 @@ import { ConfigConsumer, ConfigConsumerProps } from 'antd/lib/config-provider';
 import { DownOutlined } from '@ant-design/icons';
 import { useIntl, IntlType } from '@ant-design/pro-provider';
 import classNames from 'classnames';
+import ProField from '@ant-design/pro-field';
 
-import {
-  parsingValueEnumToArray,
-  useDeepCompareEffect,
-  genColumnKey,
-  ObjToMap,
-} from '../component/util';
+import { useDeepCompareEffect, genColumnKey } from '../component/util';
 import Container from '../container';
 import { ProColumnsValueTypeFunction } from '../defaultRender';
 import { ProTableTypes } from '../Table';
@@ -147,7 +143,8 @@ export const FormInputRender: React.FC<{
   const { item, intl, form, type, ...rest } = props;
   const { valueType: itemValueType } = item;
   // if function， run it
-  const valueType = typeof itemValueType === 'function' ? itemValueType({}) : itemValueType;
+  const valueType =
+    (typeof itemValueType === 'function' ? itemValueType({}) : itemValueType) || 'text';
   /**
    * 自定义 render
    */
@@ -184,167 +181,74 @@ export const FormInputRender: React.FC<{
     const { valueEnum } = item;
     if (valueEnum) {
       return (
-        <Select
+        <ProField
+          valueEnum={valueEnum}
+          valueType={valueType}
           ref={ref}
+          plain={type !== 'form'}
+          mode="edit"
           allowClear
+          style={{
+            width: '100%',
+          }}
+          formItemProps={{
+            style: { width: '100%' },
+            ...item.formItemProps,
+          }}
           placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
           {...rest}
-          {...item.formItemProps}
-        >
-          {parsingValueEnumToArray(ObjToMap(valueEnum)).map(({ value, text }) => (
-            <Select.Option key={value} value={value}>
-              {text}
-            </Select.Option>
-          ))}
-        </Select>
+        />
       );
     }
-    return (
-      <Input
-        ref={ref}
-        placeholder={intl.getMessage('tableForm.inputPlaceholder', '请输入')}
-        {...rest}
-        {...item.formItemProps}
-      />
-    );
   }
-  if (valueType === 'date') {
+
+  if (valueType === 'dateTime' || valueType === 'date' || valueType === 'time') {
     return (
-      <DatePicker
+      <ProField
         ref={ref}
-        placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
-        style={{
-          width: '100%',
+        mode="edit"
+        valueType={valueType}
+        formItemProps={{
+          style: { width: '100%' },
+          placeholder: intl.getMessage('tableForm.selectPlaceholder', '请选择'),
+          ...item.formItemProps,
         }}
         {...rest}
-        {...item.formItemProps}
       />
     );
   }
 
-  if (valueType === 'dateTime') {
+  if (valueType === 'dateTimeRange' || valueType === 'dateRange') {
     return (
-      <DatePicker
+      <ProField
         ref={ref}
-        showTime
-        placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
-        style={{
-          width: '100%',
+        mode="edit"
+        valueType={valueType}
+        formItemProps={{
+          style: { width: '100%' },
+          placeholder: [
+            intl.getMessage('tableForm.selectPlaceholder', '请选择'),
+            intl.getMessage('tableForm.selectPlaceholder', '请选择'),
+          ],
+          ...item.formItemProps,
         }}
         {...rest}
-        {...item.formItemProps}
       />
     );
   }
 
-  if (valueType === 'dateRange') {
-    return (
-      <DatePicker.RangePicker
-        ref={ref}
-        placeholder={[
-          intl.getMessage('tableForm.selectPlaceholder', '请选择'),
-          intl.getMessage('tableForm.selectPlaceholder', '请选择'),
-        ]}
-        style={{
-          width: '100%',
-        }}
-        {...rest}
-        {...item.formItemProps}
-      />
-    );
-  }
-  if (valueType === 'dateTimeRange') {
-    return (
-      <DatePicker.RangePicker
-        ref={ref}
-        showTime
-        placeholder={[
-          intl.getMessage('tableForm.selectPlaceholder', '请选择'),
-          intl.getMessage('tableForm.selectPlaceholder', '请选择'),
-        ]}
-        style={{
-          width: '100%',
-        }}
-        {...rest}
-        {...item.formItemProps}
-      />
-    );
-  }
-
-  if (valueType === 'time') {
-    return (
-      <TimePicker
-        ref={ref}
-        placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
-        style={{
-          width: '100%',
-        }}
-        {...rest}
-        {...item.formItemProps}
-      />
-    );
-  }
-  if (valueType === 'digit') {
-    return (
-      <InputNumber
-        ref={ref}
-        placeholder={intl.getMessage('tableForm.inputPlaceholder', '请输入')}
-        style={{
-          width: '100%',
-        }}
-        {...rest}
-        {...item.formItemProps}
-      />
-    );
-  }
-  if (valueType === 'money') {
-    return (
-      <InputNumber
-        ref={ref}
-        min={0}
-        precision={2}
-        formatter={(value) => {
-          if (value) {
-            return `${intl.getMessage('moneySymbol', '￥')} ${value}`.replace(
-              /\B(?=(\d{3})+(?!\d))/g,
-              ',',
-            );
-          }
-          return '';
-        }}
-        parser={(value) =>
-          value
-            ? value.replace(
-                new RegExp(`\\${intl.getMessage('moneySymbol', '￥')}\\s?|(,*)`, 'g'),
-                '',
-              )
-            : ''
-        }
-        placeholder={intl.getMessage('tableForm.inputPlaceholder', '请输入')}
-        style={{
-          width: '100%',
-        }}
-        {...rest}
-        {...item.formItemProps}
-      />
-    );
-  }
-  if (valueType === 'textarea' && type === 'form') {
-    return (
-      <Input.TextArea
-        ref={ref}
-        placeholder={intl.getMessage('tableForm.inputPlaceholder', '请输入')}
-        {...rest}
-        {...item.formItemProps}
-      />
-    );
-  }
   return (
-    <Input
+    <ProField
+      mode="edit"
       ref={ref}
-      placeholder={intl.getMessage('tableForm.inputPlaceholder', '请输入')}
+      formItemProps={{
+        placeholder: intl.getMessage('tableForm.inputPlaceholder', '请输入'),
+        style: { width: '100%' },
+        ...item.formItemProps,
+      }}
+      valueType={valueType || 'text'}
+      plain={type !== 'form'}
       {...rest}
-      {...item.formItemProps}
     />
   );
 });
@@ -576,7 +480,7 @@ const getSpanConfig = (
   return config[size];
 };
 
-const FormSearch = <T, U = {}>({
+const FormSearch = <T, U = any>({
   onSubmit,
   formRef,
   dateFormatter = 'string',

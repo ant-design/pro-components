@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { Descriptions, Space } from 'antd';
 import toArray from 'rc-util/lib/Children/toArray';
 import Field, {
@@ -6,7 +6,6 @@ import Field, {
   ProFieldValueEnumMap,
   ProFieldValueEnumObj,
   ProFieldFCMode,
-  ProFieldRequestData,
   ProRenderFieldProps,
 } from '@ant-design/pro-field';
 import { DescriptionsItemProps } from 'antd/lib/descriptions/Item';
@@ -21,7 +20,7 @@ export type ProDescriptionsProps = DescriptionsProps & {
   columns?: any;
 };
 
-export type ProDescriptionsItemProps = DescriptionsItemProps &
+export type ProDescriptionsItemProps = Omit<DescriptionsItemProps, 'children'> &
   ProRenderFieldProps & {
     valueType?: ProFieldValueType;
     // 隐藏这个字段，是个语法糖，方便一下权限的控制
@@ -41,20 +40,19 @@ export type ProDescriptionsItemProps = DescriptionsItemProps &
     /**
      * 远程获取枚举值
      */
-    request?: () => Promise<T>;
+    request?: () => Promise<any>;
+
+    children?: React.ReactNode;
   };
 
-const ProDescriptionsItem: React.FC<ProDescriptionsItemProps> = props => {
+const ProDescriptionsItem: React.FC<ProDescriptionsItemProps> = (props) => {
   return <Descriptions.Item {...props}>{props.children}</Descriptions.Item>;
 };
 
 const ProDescriptions: React.FC<ProDescriptionsProps> & {
   Item: typeof ProDescriptionsItem;
-} = props => {
+} = (props) => {
   const { request, columns } = props;
-
-  const Ref = useRef(columns);
-  console.log(Ref, 'ref');
 
   const action = useFetchData(async () => {
     const msg = request ? await request() : {};
@@ -79,8 +77,7 @@ const ProDescriptions: React.FC<ProDescriptionsProps> & {
     if (!valueType && !valueEnum && !request) {
       return item;
     }
-    console.log(columns, 'ccc', Ref);
-    // 取不到columns的指
+    console.log(columns);
 
     if (request && !columns && dataIndex) {
       const { dataSource = {} } = action;
@@ -139,7 +136,7 @@ const ProDescriptions: React.FC<ProDescriptionsProps> & {
           renderFormItem={renderFormItem}
           valueType={valueType}
           plain={plain}
-          text={children}
+          text={children as string}
         />,
       );
       return null;
@@ -155,7 +152,7 @@ const ProDescriptions: React.FC<ProDescriptionsProps> & {
           valueType={valueType}
           plain={plain}
           request={requestItem}
-          text={children}
+          text={children as string}
         />
       </Descriptions.Item>
     );

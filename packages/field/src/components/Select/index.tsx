@@ -1,7 +1,7 @@
 import React, { ReactNode, useState, useImperativeHandle, useEffect, useRef } from 'react';
 import { Select } from 'antd';
 import TableStatus, { StatusType } from './status';
-import { FieldFC } from '../../index';
+import { ProFieldFC } from '../../index';
 
 export type ProFieldValueEnumObj = {
   [key: string]:
@@ -188,7 +188,7 @@ const useFetchData = (
  * 可以根据  valueEnum 来进行类型的设置
  * @param
  */
-const FieldSelect: FieldFC<FieldSelectProps> = (props, ref) => {
+const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
   const {
     mode,
     valueEnum,

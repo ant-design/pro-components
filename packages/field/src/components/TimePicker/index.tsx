@@ -2,13 +2,13 @@ import { DatePicker } from 'antd';
 import React from 'react';
 import moment from 'moment';
 
-import { FieldFC } from '../../index';
+import { ProFieldFC } from '../../index';
 
 /**
  * 日期选择组件
  * @param
  */
-const FieldTimePicker: FieldFC<{
+const FieldTimePicker: ProFieldFC<{
   text: string | number;
   format: string;
 }> = ({ text, mode, format = 'HH:mm:ss', render, renderFormItem, plain, formItemProps }, ref) => {
