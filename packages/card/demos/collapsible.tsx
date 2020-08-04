@@ -28,7 +28,6 @@ export default () => {
         }
         style={{ marginTop: 16 }}
         headerBordered
-        collapsible
         collapsed={collapsed}
       >
         内容
