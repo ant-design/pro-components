@@ -1,16 +1,24 @@
 import './index.less';
 
-import React, { useEffect, CSSProperties, useRef, useState, ReactNode, useCallback } from 'react';
+import React, {
+  useEffect,
+  useContext,
+  CSSProperties,
+  useRef,
+  useState,
+  ReactNode,
+  useCallback,
+} from 'react';
 import { Table, ConfigProvider, Card, Space, Typography, Empty, Tooltip } from 'antd';
 import { useIntl, IntlType, ParamsType, ConfigProviderWarp } from '@ant-design/pro-provider';
 import classNames from 'classnames';
-import useMergeValue from 'use-merge-value';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { stringify } from 'use-json-comparison';
 import { ColumnsType, TablePaginationConfig, TableProps, ColumnType } from 'antd/es/table';
 import { ColumnFilterItem } from 'antd/es/table/interface';
 import { FormItemProps, FormProps, FormInstance } from 'antd/es/form';
 import { TableCurrentDataSource, SorterResult } from 'antd/lib/table/interface';
-import { ConfigConsumer, ConfigConsumerProps } from 'antd/lib/config-provider';
+import { ConfigContext as AntdConfigContext } from 'antd/lib/config-provider';
 import {
   ProFieldEmptyText,
   ProFieldValueType,
@@ -682,7 +690,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     ...rest
   } = props;
 
-  const [selectedRowKeys, setSelectedRowKeys] = useMergeValue<React.ReactText[]>([], {
+  const [selectedRowKeys, setSelectedRowKeys] = useMergedState<React.ReactText[]>([], {
     value: propsRowSelection ? propsRowSelection.selectedRowKeys : undefined,
   });
   const [formSearch, setFormSearch] = useState<{}>(() => rest.form?.initialValues);
@@ -1101,18 +1109,17 @@ const ProTable = <T extends {}, U extends ParamsType>(
  * 更快 更好 更方便
  * @param props
  */
-const ProviderWarp = <T, U extends { [key: string]: any } = {}>(props: ProTableProps<T, U>) => (
-  <Container.Provider initialState={props}>
-    <ConfigConsumer>
-      {({ getPrefixCls }: ConfigConsumerProps) => (
-        <ConfigProviderWarp>
-          <ErrorBoundary>
-            <ProTable defaultClassName={getPrefixCls('pro-table')} {...props} />
-          </ErrorBoundary>
-        </ConfigProviderWarp>
-      )}
-    </ConfigConsumer>
-  </Container.Provider>
-);
+const ProviderWarp = <T, U extends { [key: string]: any } = {}>(props: ProTableProps<T, U>) => {
+  const { getPrefixCls } = useContext(AntdConfigContext);
+  return (
+    <Container.Provider initialState={props}>
+      <ConfigProviderWarp>
+        <ErrorBoundary>
+          <ProTable defaultClassName={getPrefixCls('pro-table')} {...props} />
+        </ErrorBoundary>
+      </ConfigProviderWarp>
+    </Container.Provider>
+  );
+};
 
 export default ProviderWarp;

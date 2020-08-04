@@ -1,8 +1,5 @@
 import React, { useContext } from 'react';
-import {
-  ConfigConsumer as AntdConfigConsumer,
-  ConfigConsumerProps as AntdConfigConsumerProps,
-} from 'antd/lib/config-provider';
+import { ConfigContext as AntdConfigContext } from 'antd/lib/config-provider';
 import { noteOnce } from 'rc-util/lib/warning';
 import zhCN from './locale/zh_CN';
 import enUS from './locale/en_US';
@@ -138,22 +135,21 @@ const findIntlKeyByAntdLocaleKey = (localeKey: string | undefined) => {
  *  如果没有配置 locale，这里组件会根据 antd 的 key 来自动选择
  * @param param0
  */
-const ConfigProviderWarp: React.FC<{}> = ({ children }) => (
-  <AntdConfigConsumer>
-    {({ locale }: AntdConfigConsumerProps) => (
-      <ConfigConsumer>
-        {(value) => {
-          const localeName = locale?.locale;
-          const key = findIntlKeyByAntdLocaleKey(localeName);
-          // antd 的 key 存在的时候以 antd 的为主
-          const intl =
-            localeName && value.intl.locale === 'default' ? intlMap[key] : value || intlMap[key];
-          return <ConfigProvider value={intl || zhCNIntl}>{children}</ConfigProvider>;
-        }}
-      </ConfigConsumer>
-    )}
-  </AntdConfigConsumer>
-);
+const ConfigProviderWarp: React.FC<{}> = ({ children }) => {
+  const { locale } = useContext(AntdConfigContext);
+  return (
+    <ConfigConsumer>
+      {(value) => {
+        const localeName = locale?.locale;
+        const key = findIntlKeyByAntdLocaleKey(localeName);
+        // antd 的 key 存在的时候以 antd 的为主
+        const intl =
+          localeName && value.intl.locale === 'default' ? intlMap[key] : value || intlMap[key];
+        return <ConfigProvider value={intl || zhCNIntl}>{children}</ConfigProvider>;
+      }}
+    </ConfigConsumer>
+  );
+};
 
 export { ConfigConsumer, ConfigProvider, ConfigProviderWarp, createIntl };
 

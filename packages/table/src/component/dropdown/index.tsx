@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import classnames from 'classnames';
 import { DownOutlined, EllipsisOutlined } from '@ant-design/icons';
 import { Dropdown, Menu, Button } from 'antd';
-import { ConfigConsumer, ConfigConsumerProps } from 'antd/lib/config-provider/context';
+import { ConfigContext } from 'antd/lib/config-provider/context';
 import './index.less';
 
 export interface DropdownProps {
@@ -25,51 +25,46 @@ const DropdownButton: React.FC<DropdownProps> = ({
   onSelect,
   className,
   style,
-}) => (
-  <ConfigConsumer>
-    {({ getPrefixCls }: ConfigConsumerProps) => {
-      const tempClassName = getPrefixCls('pro-table-dropdown');
-      const menu = (
-        <Menu onClick={(params) => onSelect && onSelect(params.key as string)}>
-          {menus.map((item) => (
-            <Menu.Item key={item.key}>{item.name}</Menu.Item>
-          ))}
-        </Menu>
-      );
-      return (
-        <Dropdown overlay={menu} className={classnames(tempClassName, className)}>
-          <Button style={style}>
-            {children} <DownOutlined />
-          </Button>
-        </Dropdown>
-      );
-    }}
-  </ConfigConsumer>
-);
+}) => {
+  const { getPrefixCls } = useContext(ConfigContext);
+
+  const tempClassName = getPrefixCls('pro-table-dropdown');
+  const menu = (
+    <Menu onClick={(params) => onSelect && onSelect(params.key as string)}>
+      {menus.map((item) => (
+        <Menu.Item key={item.key}>{item.name}</Menu.Item>
+      ))}
+    </Menu>
+  );
+  return (
+    <Dropdown overlay={menu} className={classnames(tempClassName, className)}>
+      <Button style={style}>
+        {children} <DownOutlined />
+      </Button>
+    </Dropdown>
+  );
+};
 
 const TableDropdown: React.FC<DropdownProps> & {
   Button: typeof DropdownButton;
-} = ({ className: propsClassName, style, onSelect, menus = [] }) => (
-  <ConfigConsumer>
-    {({ getPrefixCls }: ConfigConsumerProps) => {
-      const className = getPrefixCls('pro-table-dropdown');
-      const menu = (
-        <Menu onClick={(params) => onSelect && onSelect(params.key as string)}>
-          {menus.map((item) => (
-            <Menu.Item key={item.key}>{item.name}</Menu.Item>
-          ))}
-        </Menu>
-      );
-      return (
-        <Dropdown overlay={menu} className={classnames(className, propsClassName)}>
-          <a style={style}>
-            <EllipsisOutlined />
-          </a>
-        </Dropdown>
-      );
-    }}
-  </ConfigConsumer>
-);
+} = ({ className: propsClassName, style, onSelect, menus = [] }) => {
+  const { getPrefixCls } = useContext(ConfigContext);
+  const className = getPrefixCls('pro-table-dropdown');
+  const menu = (
+    <Menu onClick={(params) => onSelect && onSelect(params.key as string)}>
+      {menus.map((item) => (
+        <Menu.Item key={item.key}>{item.name}</Menu.Item>
+      ))}
+    </Menu>
+  );
+  return (
+    <Dropdown overlay={menu} className={classnames(className, propsClassName)}>
+      <a style={style}>
+        <EllipsisOutlined />
+      </a>
+    </Dropdown>
+  );
+};
 
 TableDropdown.Button = DropdownButton;
 
