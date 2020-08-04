@@ -45,19 +45,46 @@ export type ProDescriptionsItemProps = Omit<DescriptionsItemProps, 'children'> &
     children?: React.ReactNode;
   };
 
-const ProDescriptionsItem: React.FC<ProDescriptionsItemProps> = (props) => {
+const ProDescriptionsItem: React.FC<ProDescriptionsItemProps> = props => {
   return <Descriptions.Item {...props}>{props.children}</Descriptions.Item>;
 };
 
 const ProDescriptions: React.FC<ProDescriptionsProps> & {
   Item: typeof ProDescriptionsItem;
-} = (props) => {
+} = props => {
   const { request, columns } = props;
 
   const action = useFetchData(async () => {
     const msg = request ? await request() : {};
     return msg;
   });
+
+  if (request && columns && !props.children) {
+    const { dataSource = {} } = action;
+    const dataKeys = Object.keys(dataSource);
+    const dom: any[] = [];
+    dataKeys.forEach((itemKey: any, index: number) => {
+      columns.forEach((itemColumn: any) => {
+        if (itemColumn.dataIndex === itemKey) {
+          dom.push(
+            <Descriptions.Item key={itemColumn.title?.toString() || index} label={itemColumn.title}>
+              <Field
+                valueEnum={itemColumn.valueEnum}
+                mode="read"
+                // render={render}
+                // renderFormItem={renderFormItem}
+                valueType={itemColumn.valueType}
+                // plain={plain}
+                // request={itemColumn.request}
+                text={dataSource[itemKey] || itemColumn.title}
+              />
+            </Descriptions.Item>,
+          );
+        }
+      });
+    });
+    return <Descriptions {...props}>{dom}</Descriptions>;
+  }
 
   const options: JSX.Element[] = [];
   // 因为 Descriptions 只是个语法糖，children 是不会执行的，所以需要这里处理一下
@@ -77,7 +104,6 @@ const ProDescriptions: React.FC<ProDescriptionsProps> & {
     if (!valueType && !valueEnum && !request) {
       return item;
     }
-    console.log(columns);
 
     if (request && !columns && dataIndex) {
       const { dataSource = {} } = action;
@@ -95,36 +121,6 @@ const ProDescriptions: React.FC<ProDescriptionsProps> & {
           />
         </Descriptions.Item>
       );
-    }
-
-    if (request && columns) {
-      const { dataSource = {} } = action;
-      const dataKeys = Object.keys(dataSource);
-      dataKeys.forEach((itemKey: any) => {
-        columns.map((itemC: any) => {
-          if (itemC.dataIndex === itemKey) {
-            return (
-              <Descriptions.Item
-                {...restItem}
-                key={itemC.title?.toString() || index}
-                label={itemC.title}
-              >
-                <Field
-                  valueEnum={valueEnum}
-                  mode={mode || 'read'}
-                  render={render}
-                  renderFormItem={renderFormItem}
-                  valueType={itemC.valueType}
-                  plain={plain}
-                  request={requestItem}
-                  text={children || dataSource[itemKey] || itemC.title}
-                />
-              </Descriptions.Item>
-            );
-          }
-          return null;
-        });
-      });
     }
 
     if (valueType === 'option') {
