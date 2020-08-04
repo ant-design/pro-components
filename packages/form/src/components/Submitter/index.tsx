@@ -26,9 +26,7 @@ export interface SubmitterProps {
   /**
    * 自定义操作的渲染的渲染
    */
-  actionsRender?:
-    | ((props: SubmitterProps, dom: JSX.Element[]) => React.ReactNode[] | false)
-    | false;
+  render?: ((props: SubmitterProps, dom: JSX.Element[]) => React.ReactNode[] | false) | false;
 }
 
 /**
@@ -38,11 +36,11 @@ export interface SubmitterProps {
 const Submitter: React.FC<SubmitterProps> = (props) => {
   const intl = useIntl();
 
-  if (props.actionsRender === false) {
+  if (props.render === false) {
     return null;
   }
 
-  const { form, onSubmit, actionsRender, onReset, searchConfig = {} } = props;
+  const { form, onSubmit, render, onReset, searchConfig = {} } = props;
 
   const {
     submitText = intl.getMessage('tableForm.submit', '提交'),
@@ -78,7 +76,7 @@ const Submitter: React.FC<SubmitterProps> = (props) => {
     </Button>,
   ];
 
-  const renderDom = actionsRender ? actionsRender(props, dom) : dom;
+  const renderDom = render ? render(props, dom) : dom;
   if (!renderDom || renderDom.length < 1) {
     return null;
   }

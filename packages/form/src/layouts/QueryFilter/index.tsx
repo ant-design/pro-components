@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Row, Col } from 'antd';
+import { Row, Col, Divider } from 'antd';
 import { FormProps } from 'antd/lib/form/Form';
 import RcResizeObserver from 'rc-resize-observer';
 import useMergeValue from 'use-merge-value';
@@ -35,7 +35,10 @@ const BREAKPOINTS = {
  * @param layout
  * @param width
  */
-const getSpanConfig = (layout: FormProps['layout'], width: number): number => {
+const getSpanConfig = (layout: FormProps['layout'], width: number, span?: number): number => {
+  if (span) {
+    return span;
+  }
   const breakPoint = BREAKPOINTS[layout || 'default'].findIndex(
     (item: number) => width < item + 16, // 16 = 2 * (ant-row -8px margin)
   );
@@ -50,6 +53,8 @@ export interface QueryFilterProps extends FormProps, CommonFormProps {
   labelLayout?: 'default' | 'growth' | 'vertical';
   defaultColsNumber?: number;
   labelWidth?: number;
+  split?: boolean;
+  span?: number;
 }
 
 const QueryFilter: React.FC<QueryFilterProps> = (props) => {
@@ -58,9 +63,11 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
     defaultCollapsed = false,
     layout,
     defaultColsNumber,
+    span,
     onCollapse,
     labelWidth,
     style,
+    split,
     ...rest
   } = props;
   const [collapsed, setCollapsed] = useMergeValue<boolean>(defaultCollapsed, {
@@ -68,10 +75,8 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
     onChange: onCollapse,
   });
   // use style.width as the defaultWidth for unit test
-  const defaultWidth = typeof style?.width === 'number' ? style?.width : 1024;
-  const [spanSize, setSpanSize] = useState<number>(
-    getSpanConfig(layout, (defaultWidth as number) + 16),
-  );
+  const defaultWidth: number = (typeof style?.width === 'number' ? style?.width : 1024) as number;
+  const [spanSize, setSpanSize] = useState<number>(getSpanConfig(layout, defaultWidth + 16, span));
   const showLength =
     defaultColsNumber !== undefined ? defaultColsNumber : Math.max(1, 24 / spanSize - 1);
 
@@ -90,14 +95,23 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
           flex: labelWidth && `0 0 ${labelWidth}px`,
         },
       }}
+      groupProps={{
+        titleStyle: {
+          display: 'inline-block',
+          marginRight: 16,
+        },
+        titleRender: (title) => `${title}:`,
+      }}
       contentRender={(items, submitter) => {
         const itemsWithInfo: {
           span: number;
           hidden: boolean;
           element: React.ReactNode;
+          key: string | number;
         }[] = [];
         // totalSpan 统计控件占的位置，计算 offset 保证查询按钮在最后一列
         let totalSpan = 0;
+        let lastVisibleItemIndex = items.length - 1;
         items.forEach((item: React.ReactNode, index: number) => {
           let hidden: boolean = false;
           const colSize = React.isValidElement(item) ? item.props?.colSize || 1 : 1;
@@ -111,19 +125,24 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
               totalSpan += 24 - (totalSpan % 24);
             }
             totalSpan += colSpan;
+            lastVisibleItemIndex = index;
           }
 
           itemsWithInfo.push({
             span: colSpan,
             element: item,
+            key: React.isValidElement(item) ? item.props?.name || index : index,
             hidden,
           });
         });
 
+        // for split compute
+        let currentSpan = 0;
+
         return (
           <RcResizeObserver
             onResize={({ width }) => {
-              setSpanSize(getSpanConfig(layout, width));
+              setSpanSize(getSpanConfig(layout, width, span));
             }}
           >
             <Row gutter={16} justify="start">
@@ -131,35 +150,42 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
                 if (React.isValidElement(item.element) && item.hidden) {
                   return React.cloneElement(item.element, {
                     hidden: true,
-                    key: index,
+                    key: item.key,
                   });
                 }
-                return (
-                  <Col key={index} span={item.span}>
+                currentSpan += item.span;
+                const colItem = (
+                  <Col key={item.key} span={item.span}>
                     {item.element}
                   </Col>
                 );
+                if (split && currentSpan % 24 === 0 && index < lastVisibleItemIndex) {
+                  return [colItem, <Divider style={{ marginTop: -8, marginBottom: 16 }} dashed />];
+                }
+                return colItem;
               })}
-              <Col
-                span={spanSize}
-                offset={24 - spanSize - (totalSpan % 24)}
-                style={{
-                  textAlign: 'right',
-                }}
-              >
-                <Actions
-                  showCollapseButton={items.length >= showLength}
-                  submitter={submitter}
-                  collapsed={collapsed}
-                  setCollapsed={setCollapsed}
+              {submitter && (
+                <Col
+                  span={spanSize}
+                  offset={24 - spanSize - (totalSpan % 24)}
                   style={{
-                    // 当表单是垂直布局且提交按钮不是独自在一行的情况下需要设置一个 paddingTop 使得与控件对齐
-                    paddingTop: layout === 'vertical' && totalSpan % 24 ? 30 : 0,
-                    // marginBottom 是为了和 FormItem 统一让下方保留一个 24px 的距离
-                    marginBottom: 24,
+                    textAlign: 'right',
                   }}
-                />
-              </Col>
+                >
+                  <Actions
+                    showCollapseButton={items.length >= showLength}
+                    submitter={submitter}
+                    collapsed={collapsed}
+                    setCollapsed={setCollapsed}
+                    style={{
+                      // 当表单是垂直布局且提交按钮不是独自在一行的情况下需要设置一个 paddingTop 使得与控件对齐
+                      paddingTop: layout === 'vertical' && totalSpan % 24 ? 30 : 0,
+                      // marginBottom 是为了和 FormItem 统一让下方保留一个 24px 的距离
+                      marginBottom: 24,
+                    }}
+                  />
+                </Col>
+              )}
             </Row>
           </RcResizeObserver>
         );

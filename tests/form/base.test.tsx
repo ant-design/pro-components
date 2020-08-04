@@ -6,13 +6,7 @@ import { waitTime } from '../util';
 
 describe('ProForm', () => {
   it('submit props actionsRender=false', async () => {
-    const wrapper = mount(
-      <ProForm
-        submitterProps={{
-          actionsRender: false,
-        }}
-      />,
-    );
+    const wrapper = mount(<ProForm submitter={false} />);
     await waitTime();
     expect(wrapper.render()).toMatchSnapshot();
   });
@@ -20,8 +14,8 @@ describe('ProForm', () => {
   it('submit props actionsRender=()=>false', async () => {
     const wrapper = mount(
       <ProForm
-        submitterProps={{
-          actionsRender: () => false,
+        submitter={{
+          render: () => false,
         }}
       />,
     );
@@ -32,8 +26,8 @@ describe('ProForm', () => {
   it('submit props actionsRender=()=>[]', async () => {
     const wrapper = mount(
       <ProForm
-        submitterProps={{
-          actionsRender: () => [],
+        submitter={{
+          render: () => [],
         }}
       />,
     );
@@ -41,11 +35,11 @@ describe('ProForm', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('submit props actionsRender=()=>[]', async () => {
+  it('submit props render=()=>[]', async () => {
     const wrapper = mount(
       <ProForm
-        submitterProps={{
-          actionsRender: () => [
+        submitter={{
+          render: () => [
             <Button key="submit" type="primary">
               提交并发布
             </Button>,
@@ -57,13 +51,13 @@ describe('ProForm', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('actionsRender simulate onFinish', async () => {
+  it('submitter.render simulate onFinish', async () => {
     const onFinish = jest.fn();
     const wrapper = mount(
       <ProForm
         onFinish={onFinish}
-        submitterProps={{
-          actionsRender: ({ form }) => [
+        submitter={{
+          render: ({ form }) => [
             <Button
               id="submit"
               key="submit"

@@ -6,7 +6,19 @@ exports[`ProForm submit props actionsRender=()=>[] 1`] = `
 />
 `;
 
-exports[`ProForm submit props actionsRender=()=>[] 2`] = `
+exports[`ProForm submit props actionsRender=()=>false 1`] = `
+<form
+  class="ant-form ant-form-vertical"
+/>
+`;
+
+exports[`ProForm submit props actionsRender=false 1`] = `
+<form
+  class="ant-form ant-form-vertical"
+/>
+`;
+
+exports[`ProForm submit props render=()=>[] 1`] = `
 <form
   class="ant-form ant-form-vertical"
 >
@@ -27,16 +39,4 @@ exports[`ProForm submit props actionsRender=()=>[] 2`] = `
     </div>
   </div>
 </form>
-`;
-
-exports[`ProForm submit props actionsRender=()=>false 1`] = `
-<form
-  class="ant-form ant-form-vertical"
-/>
-`;
-
-exports[`ProForm submit props actionsRender=false 1`] = `
-<form
-  class="ant-form ant-form-vertical"
-/>
 `;
