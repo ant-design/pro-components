@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Dropdown } from 'antd';
-import { ConfigConsumer, ConfigConsumerProps } from 'antd/lib/config-provider';
+import { ConfigContext } from 'antd/lib/config-provider';
 import Footer, { FooterProps } from './Footer';
 import './index.less';
 
@@ -28,38 +28,32 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
     onVisibleChange,
     visible,
   } = props;
-
+  const { getPrefixCls } = useContext(ConfigContext);
+  const prefixCls = getPrefixCls('pro-form-dropdown');
   return (
-    <ConfigConsumer>
-      {({ getPrefixCls }: ConfigConsumerProps) => {
-        const prefixCls = getPrefixCls('pro-form-dropdown');
-        return (
-          <Dropdown
-            disabled={disabled}
-            trigger={['click']}
-            visible={visible}
-            onVisibleChange={onVisibleChange}
-            overlay={
-              <div className={`${prefixCls}-overlay`}>
-                <div
-                  className={`${prefixCls}-content`}
-                  onClick={(e) => {
-                    if (!hideWhenClick) {
-                      e.stopPropagation();
-                    }
-                  }}
-                >
-                  {children}
-                </div>
-                {footer && <Footer disabled={disabled} prefixCls={prefixCls} {...footer} />}
-              </div>
-            }
+    <Dropdown
+      disabled={disabled}
+      trigger={['click']}
+      visible={visible}
+      onVisibleChange={onVisibleChange}
+      overlay={
+        <div className={`${prefixCls}-overlay`}>
+          <div
+            className={`${prefixCls}-content`}
+            onClick={(e) => {
+              if (!hideWhenClick) {
+                e.stopPropagation();
+              }
+            }}
           >
-            <span className={`${prefixCls}-label`}>{label}</span>
-          </Dropdown>
-        );
-      }}
-    </ConfigConsumer>
+            {children}
+          </div>
+          {footer && <Footer disabled={disabled} prefixCls={prefixCls} {...footer} />}
+        </div>
+      }
+    >
+      <span className={`${prefixCls}-label`}>{label}</span>
+    </Dropdown>
   );
 };
 

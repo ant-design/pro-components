@@ -1,5 +1,5 @@
-import React from 'react';
-import { ConfigConsumer, ConfigConsumerProps } from 'antd/lib/config-provider/context';
+import React, { useContext } from 'react';
+import { ConfigContext } from 'antd/lib/config-provider/context';
 import { Alert, Space } from 'antd';
 import './index.less';
 import { useIntl, IntlType } from '@ant-design/pro-provider';
@@ -50,33 +50,28 @@ const TableAlert = <T, U = {}>({
       onCleanSelected,
       intl,
     });
+  const { getPrefixCls } = useContext(ConfigContext);
+  const className = getPrefixCls('pro-table-alert');
+  if (alertInfoRender === false) {
+    return null;
+  }
+  const dom = alertInfoRender({ intl, selectedRowKeys, selectedRows });
+  if (dom === false) {
+    return null;
+  }
   return (
-    <ConfigConsumer>
-      {({ getPrefixCls }: ConfigConsumerProps) => {
-        const className = getPrefixCls('pro-table-alert');
-        if (alertInfoRender === false) {
-          return null;
-        }
-        const dom = alertInfoRender({ intl, selectedRowKeys, selectedRows });
-        if (dom === false) {
-          return null;
-        }
-        return (
-          <div className={className}>
-            <Alert
-              message={
-                <div className={`${className}-info`}>
-                  <div className={`${className}-info-content`}>{dom}</div>
-                  {option && <div className={`${className}-info-option`}>{option}</div>}
-                </div>
-              }
-              type="info"
-              showIcon
-            />
+    <div className={className}>
+      <Alert
+        message={
+          <div className={`${className}-info`}>
+            <div className={`${className}-info-content`}>{dom}</div>
+            {option && <div className={`${className}-info-option`}>{option}</div>}
           </div>
-        );
-      }}
-    </ConfigConsumer>
+        }
+        type="info"
+        showIcon
+      />
+    </div>
   );
 };
 

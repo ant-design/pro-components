@@ -17331,7 +17331,7 @@ rc-util@^4.10.0, rc-util@^4.13.0, rc-util@^4.15.3, rc-util@^4.19.0:
     react-lifecycles-compat "^3.0.4"
     shallowequal "^1.1.0"
 
-rc-util@^5.0.0, rc-util@^5.0.1, rc-util@^5.0.4, rc-util@^5.0.5:
+rc-util@^5.0.0, rc-util@^5.0.1, rc-util@^5.0.4, rc-util@^5.0.5, rc-util@^5.0.6:
   version "5.0.6"
   resolved "https://registry.npm.taobao.org/rc-util/download/rc-util-5.0.6.tgz?cache=0&sync_timestamp=1595683988589&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Frc-util%2Fdownload%2Frc-util-5.0.6.tgz#2b828bc87a818a66384b813f76a561ad4609e9b0"
   integrity sha1-K4KLyHqBimY4S4E/dqVhrUYJ6bA=
@@ -21166,11 +21166,6 @@ use-media-antd-query@1.0.2, use-media-antd-query@^1.0.1, use-media-antd-query@^1
   integrity sha1-y9ob37mc0gsBIaNhw9EzHKSZulg=
   dependencies:
     react-responsive "^8.0.1"
-
-use-merge-value@^1.0.1, use-merge-value@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.npm.taobao.org/use-merge-value/download/use-merge-value-1.0.2.tgz#6da9de949a1ec9d08cbc2b43832fe2a214f502dc"
-  integrity sha1-banelJoeydCMvCtDgy/iohT1Atw=
 
 use-subscription@1.4.1:
   version "1.4.1"

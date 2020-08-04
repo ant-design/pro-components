@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Row, Col, Divider } from 'antd';
 import { FormProps } from 'antd/lib/form/Form';
 import RcResizeObserver from 'rc-resize-observer';
-import useMergeValue from 'use-merge-value';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import BaseForm, { CommonFormProps } from '../../BaseForm';
 import Actions from './Actions';
 
@@ -70,7 +70,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
     split,
     ...rest
   } = props;
-  const [collapsed, setCollapsed] = useMergeValue<boolean>(defaultCollapsed, {
+  const [collapsed, setCollapsed] = useMergedState<boolean>(defaultCollapsed, {
     value: controlCollapsed,
     onChange: onCollapse,
   });

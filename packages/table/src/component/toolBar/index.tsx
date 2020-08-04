@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { ReloadOutlined, SettingOutlined } from '@ant-design/icons';
 import { Divider, Space, Tooltip, Input } from 'antd';
-import { ConfigConsumer, ConfigConsumerProps } from 'antd/lib/config-provider/context';
+import { ConfigContext } from 'antd/lib/config-provider/context';
 import { SearchProps } from 'antd/lib/input';
+import { useIntl, IntlType } from '@ant-design/pro-provider';
 
 import ColumnSetting from '../columnSetting';
-import { useIntl, IntlType } from '@ant-design/pro-provider';
 import { UseFetchDataAction, RequestData } from '../../useFetchData';
 import './index.less';
 import FullScreenIcon from './FullscreenIcon';
@@ -134,9 +134,11 @@ const ToolBar = <T, U = {}>({
   },
   selectedRowKeys,
   selectedRows,
-  className,
   onSearch,
 }: ToolBarProps<T>) => {
+  const { getPrefixCls } = useContext(ConfigContext);
+  const className = getPrefixCls('pro-table-toolbar');
+
   const options = propsOptions
     ? {
         density: true,
@@ -203,13 +205,4 @@ const ToolBar = <T, U = {}>({
   );
 };
 
-const WarpToolBar = <T, U = {}>(props: ToolBarProps<T>) => (
-  <ConfigConsumer>
-    {({ getPrefixCls }: ConfigConsumerProps) => {
-      const className = getPrefixCls('pro-table-toolbar');
-      return <ToolBar className={className} {...props} />;
-    }}
-  </ConfigConsumer>
-);
-
-export default WarpToolBar;
+export default ToolBar;
