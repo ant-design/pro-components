@@ -54,7 +54,7 @@ nav:
 
 ### 可折叠
 
-使用 `collapsible` 来控制卡片可折叠
+你可以使用 `collapsible` 来控制卡片是否可折叠，通过 `defaultCollapsed` 属性配置是否默认折叠。
 
 <code src="../demos/collapsible.tsx" background="#f0f2f5" />
 

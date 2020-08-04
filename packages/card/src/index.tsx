@@ -102,7 +102,7 @@ const ProCard: ProCardType = (props) => {
     headerBordered,
     bordered,
     children,
-    collapsible,
+    collapsible = false,
     defaultCollapsed = false,
     onCollapse,
   } = props;
@@ -232,13 +232,13 @@ const ProCard: ProCardType = (props) => {
 
         const headerCls = classNames(`${prefixCls}-header`, {
           [`${prefixCls}-header-border`]: headerBordered,
-          [`${prefixCls}-header-collapse`]: collapse,
+          [`${prefixCls}-header-collapse`]: collapsible && collapse,
         });
 
         const bodyCls = classNames(`${prefixCls}-body`, {
           [`${prefixCls}-body-center`]: layout === 'center',
           [`${prefixCls}-body-column`]: split === 'horizontal',
-          [`${prefixCls}-body-collapse`]: collapse,
+          [`${prefixCls}-body-collapse`]: collapsible && collapse,
         });
 
         const tipDom = tip && (
