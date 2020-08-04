@@ -1,7 +1,8 @@
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode } from 'react';
 import { ConfigConsumer, ConfigConsumerProps } from 'antd/lib/config-provider/context';
 import { Tooltip, Grid, Row, Col } from 'antd';
 import { QuestionCircleOutlined, RightOutlined } from '@ant-design/icons';
+import useMergeValue from 'use-merge-value';
 import classNames from 'classnames';
 import './style/index.less';
 
@@ -76,6 +77,10 @@ export type ProCardProps = {
    */
   collapsible?: boolean;
   /**
+   * 受控 collapsed 属性
+   */
+  collapsed?: boolean;
+  /**
    * 配置默认是否折叠
    */
   defaultCollapsed?: boolean;
@@ -102,6 +107,7 @@ const ProCard: ProCardType = (props) => {
     headerBordered,
     bordered,
     children,
+    collapsed: controlCollapsed,
     collapsible = false,
     defaultCollapsed = false,
     onCollapse,
@@ -109,7 +115,10 @@ const ProCard: ProCardType = (props) => {
 
   const screens = useBreakpoint();
 
-  const [collapse, setCollapse] = useState(defaultCollapsed);
+  const [collapsed, setCollapsed] = useMergeValue<boolean>(defaultCollapsed, {
+    value: controlCollapsed,
+    onChange: onCollapse,
+  });
 
   // 顺序决定如何进行响应式取值，按最大响应值依次取值，请勿修改。
   const responsiveArray: Breakpoint[] = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
@@ -232,13 +241,13 @@ const ProCard: ProCardType = (props) => {
 
         const headerCls = classNames(`${prefixCls}-header`, {
           [`${prefixCls}-header-border`]: headerBordered,
-          [`${prefixCls}-header-collapse`]: collapsible && collapse,
+          [`${prefixCls}-header-collapse`]: collapsed,
         });
 
         const bodyCls = classNames(`${prefixCls}-body`, {
           [`${prefixCls}-body-center`]: layout === 'center',
           [`${prefixCls}-body-column`]: split === 'horizontal',
-          [`${prefixCls}-body-collapse`]: collapsible && collapse,
+          [`${prefixCls}-body-collapse`]: collapsed,
         });
 
         const tipDom = tip && (
@@ -297,21 +306,20 @@ const ProCard: ProCardType = (props) => {
 
         const loadingDOM = React.isValidElement(loading) ? loading : loadingBlock;
 
-        const collapsibleButton = collapsible && (
+        // 非受控情况下展示
+        const collapsibleButton = collapsible && controlCollapsed === undefined && (
           <RightOutlined
-            rotate={!collapse ? 90 : undefined}
+            rotate={!collapsed ? 90 : undefined}
             className={`${prefixCls}-collapsible-icon`}
             onClick={() => {
-              const antiCollapse = !collapse;
-              setCollapse(antiCollapse);
-              if (onCollapse) onCollapse(antiCollapse);
+              setCollapsed(!collapsed);
             }}
           />
         );
 
         return (
           <div className={cardCls} style={cardStyle}>
-            {(title || extra || collapsible) && (
+            {(title || extra || collapsibleButton) && (
               <div className={headerCls} style={headStyle}>
                 <div className={`${prefixCls}-title`}>
                   {title}

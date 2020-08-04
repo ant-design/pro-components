@@ -54,23 +54,32 @@ nav:
 
 ### 可折叠
 
-你可以使用 `collapsible` 来控制卡片是否可折叠，通过 `defaultCollapsed` 属性配置是否默认折叠。
+- 你可以使用 `collapsible` 来配置卡片是否可折叠，通过 `defaultCollapsed` 属性配置是否默认折叠。
+- 或者你可以通过 `collapsed` 属性受控进行自定义。
 
 <code src="../demos/collapsible.tsx" background="#f0f2f5" />
 
 ### 内容居中
 
+配置 `layout`属性为`center`控制内容垂直居中。
+
 <code src="../demos/layout.tsx" background="#f0f2f5" />
 
 ### 加载中
+
+配置 `loading`属性为`true`控制卡片加载中，也可以传入 DOM 给`loading`来自定义 loading 展示。
 
 <code src="../demos/loading.tsx" background="#f0f2f5" />
 
 ### 无标题
 
+头部没有内容时会自动隐藏。
+
 <code src="../demos/headless.tsx" background="#f0f2f5" />
 
 ### 带边框
+
+配置 `bordered` 属性控制是否卡片带边框。
 
 <code src="../demos/bordered.tsx" />
 
@@ -81,6 +90,8 @@ nav:
 <code src="../demos/tabs.tsx" background="#f0f2f5"/>
 
 ### 垂直 steps 卡片
+
+// 待实现
 
 <code src="../demos/steps-v.tsx" background="#f0f2f5"/>
 
@@ -104,6 +115,7 @@ nav:
 |  split | 拆分卡片的方向 | `vertical` \| `horizontal`  | - |
 | bordered | 是否有边框 | `boolean` | false |
 | headerBordered | 页头是否有分割线 | `boolean` | false |
-| collapsible | 是否可折叠 | `boolean` | false |
-| defaultCollapsed | 默认折叠 | `boolean` | false |
-| onCollapse | 收起卡片的事件 | `(collapsed: boolean) => void;` | - |
+| collapsed | 受控属性，是否折叠 | `boolean` | false |
+| collapsible | 配置是否可折叠，受控时无效 | `boolean` | false |
+| defaultCollapsed | 默认折叠, 受控时无效 | `boolean` | false |
+| onCollapse | 收起卡片的事件，受控时无效 | `(collapsed: boolean) => void;` | - |
