@@ -1,8 +1,10 @@
 ---
-title: ProDescriptions
+title: ProDescriptions - 定义列表
+group:
+  path: /
 nav:
-  title: 描述列表
-  path: /descriptions
+  title: 组件
+  path: /components
 ---
 
 # ProDescriptions
