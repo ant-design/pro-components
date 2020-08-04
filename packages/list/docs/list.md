@@ -1,13 +1,14 @@
 ---
-title: ProList
+title: ProList - 高级列表
 order: 12
-sidemenu: false
 group:
-  path: /table
+  path: /
 nav:
-  title: 列表
-  path: /list
+  title: 组件
+  path: /components
 ---
+
+# ProList
 
 ## 何时使用
 

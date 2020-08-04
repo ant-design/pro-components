@@ -1,9 +1,10 @@
 ---
-title: ProField
-sidemenu: false
+title: ProField - 原子组件
+group:
+  path: /
 nav:
-  title: 原子组件
-  path: /field
+  title: 组件
+  path: /components
 ---
 
 # ProField

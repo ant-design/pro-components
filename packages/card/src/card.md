@@ -1,9 +1,10 @@
 ---
 title: ProCard 标准卡片
-sidemenu: false
 nav:
-  title: ProCard
-  path: /card
+  title: 组件
+  path: /components
+group:
+  path: /
 ---
 
 # ProCard 标准卡片

@@ -21,7 +21,7 @@ export interface TableListItem {
 }
 const tableListDataSource: TableListItem[] = [];
 
-for (let i = 0; i < 20; i += 1) {
+for (let i = 0; i < 2; i += 1) {
   tableListDataSource.push({
     key: i,
     name: `TradeCode ${i}`,

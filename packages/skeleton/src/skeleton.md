@@ -1,9 +1,10 @@
 ---
-title: ProSkeleton
-sidemenu: false
+title: ProSkeleton - 骨架屏
+group:
+  path: /
 nav:
-  title: 骨架屏
-  path: /skeleton
+  title: 组件
+  path: /components
 ---
 
 # ProSkeleton

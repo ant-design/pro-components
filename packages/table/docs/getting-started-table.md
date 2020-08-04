@@ -1,11 +1,11 @@
 ---
-title: 快速开始
+title: ProTable - 快速开始
 order: 0
 group:
-  path: /table
+  path: /
 nav:
-  title: 表格
-  path: /table
+  title: 快速开始
+  path: /docs
 ---
 
 # 快速开始

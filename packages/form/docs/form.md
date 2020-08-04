@@ -1,14 +1,14 @@
 ---
-title: 简介
+title: ProForm - 高级表单
 order: 0
-sidemenu: false
 group:
-  path: /form
+  path: /
 nav:
-  title: 表单
-  path: /form
-  order: 1
+  title: 组件
+  path: /components
 ---
+
+# ProForm
 
 > 开发中，请勿用于生产环境。
 
