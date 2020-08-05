@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { ConfigConsumer, ConfigConsumerProps } from 'antd/lib/config-provider/context';
 import { Tooltip, Grid, Row, Col } from 'antd';
 import { QuestionCircleOutlined, RightOutlined } from '@ant-design/icons';
-import useMergeValue from 'use-merge-value';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import classNames from 'classnames';
 import './style/index.less';
 
@@ -115,7 +115,7 @@ const ProCard: ProCardType = (props) => {
 
   const screens = useBreakpoint();
 
-  const [collapsed, setCollapsed] = useMergeValue<boolean>(defaultCollapsed, {
+  const [collapsed, setCollapsed] = useMergedState<boolean>(defaultCollapsed, {
     value: controlCollapsed,
     onChange: onCollapse,
   });
