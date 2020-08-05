@@ -84,9 +84,13 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
   const [spanSize, setSpanSize] = useState<{
     span: number;
     layout: FormProps['layout'];
-  }>(getSpanConfig(layout, defaultWidth + 16, span));
+  }>(() => getSpanConfig(layout, defaultWidth + 16, span));
   const showLength =
     defaultColsNumber !== undefined ? defaultColsNumber : Math.max(1, 24 / spanSize.span - 1);
+  let labelFlexStyle;
+  if (labelWidth && spanSize.layout !== 'vertical') {
+    labelFlexStyle = `0 0 ${labelWidth}px`;
+  }
 
   return (
     <BaseForm
@@ -100,7 +104,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
       }}
       formItemProps={{
         labelCol: {
-          flex: labelWidth && spanSize.layout !== 'vertical' ? `0 0 ${labelWidth}px` : undefined,
+          flex: labelFlexStyle,
         },
       }}
       groupProps={{
