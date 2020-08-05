@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import Omit from 'omit.js';
 import { getFlatMenus } from '@umijs/route-utils';
 
-import { useDeepCompareEffect } from '../utils/utils';
+import { useDeepCompareEffect } from '@ant-design/pro-utils';
 import SiderMenu, { SiderMenuProps } from './SiderMenu';
 import MenuCounter from './Counter';
 

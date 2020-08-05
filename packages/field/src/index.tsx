@@ -11,10 +11,13 @@ import FieldCode from './components/Code';
 import FieldTimePicker from './components/TimePicker';
 import FieldText from './components/Text';
 import FieldTextArea from './components/TextArea';
+import FieldStatus from './components/Status';
 import FiledSelect, {
   ProFieldValueEnumMap,
   ProFieldValueEnumObj,
   RequestData,
+  proFieldParsingText,
+  proFieldParsingValueEnumToArray,
 } from './components/Select';
 import FieldDigit from './components/Digit';
 
@@ -310,7 +313,10 @@ export {
   FieldCode,
   FieldTimePicker,
   FieldText,
+  FieldStatus,
   FiledSelect,
+  proFieldParsingText,
+  proFieldParsingValueEnumToArray,
 };
 
 export default React.forwardRef(Field) as typeof Field;
