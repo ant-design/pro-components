@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Descriptions, Space } from 'antd';
 import toArray from 'rc-util/lib/Children/toArray';
 import Field, {
@@ -8,16 +8,27 @@ import Field, {
   ProFieldFCMode,
   ProRenderFieldProps,
 } from '@ant-design/pro-field';
+import get from 'rc-util/lib/utils/get';
+import { ProColumnType } from '@ant-design/pro-table';
 import { DescriptionsItemProps } from 'antd/lib/descriptions/Item';
 import { DescriptionsProps } from 'antd/lib/descriptions';
-import useFetchData from './useFetchData';
+import useFetchData, { RequestData } from './useFetchData';
 
-export type ProDescriptionsProps = DescriptionsProps & {
+export type ActionType = {
+  reload: () => void;
+};
+
+export type ProDescriptionsProps<T = {}> = DescriptionsProps & {
   /**
    * 获取数据的方法
    */
-  request?: () => Promise<Object>;
-  columns?: any;
+  request?: () => Promise<RequestData<T>>;
+  columns?: Omit<ProColumnType<T>, 'renderFormItem'>[];
+
+  /**
+   * 一些简单的操作
+   */
+  actionRef: React.MutableRefObject<ActionType | undefined>;
 };
 
 export type ProDescriptionsItemProps = Omit<DescriptionsItemProps, 'children'> &
@@ -49,41 +60,74 @@ const ProDescriptionsItem: React.FC<ProDescriptionsItemProps> = (props) => {
   return <Descriptions.Item {...props}>{props.children}</Descriptions.Item>;
 };
 
-const ProDescriptions: React.FC<ProDescriptionsProps> & {
-  Item: typeof ProDescriptionsItem;
-} = (props) => {
-  const { request, columns } = props;
+const ProDescriptions = <T, U>(props: ProDescriptionsProps<T>) => {
+  const { request, columns, actionRef, ...rest } = props;
 
-  const action = useFetchData(async () => {
-    const msg = request ? await request() : {};
-    return msg;
+  const action = useFetchData<RequestData<T>>(async () => {
+    const data = request ? await request() : { data: {} };
+    return data;
   });
+
+  /**
+   * 支持 reload 的功能
+   */
+  useEffect(() => {
+    if (actionRef) {
+      actionRef.current = { reload: action.reload };
+    }
+  }, [action]);
 
   if (request && columns && !props.children) {
     const { dataSource = {} } = action;
-    const dataKeys = Object.keys(dataSource);
-    const dom: any[] = [];
-    dataKeys.forEach((itemKey: any, index: number) => {
-      columns.forEach((itemColumn: any) => {
-        if (itemColumn.dataIndex === itemKey) {
-          dom.push(
-            <Descriptions.Item key={itemColumn.title?.toString() || index} label={itemColumn.title}>
-              <Field
-                valueEnum={itemColumn.valueEnum}
-                mode="read"
-                // render={render}
-                // renderFormItem={renderFormItem}
-                valueType={itemColumn.valueType}
-                // plain={plain}
-                // request={itemColumn.request}
-                text={dataSource[itemKey] || itemColumn.title}
-              />
-            </Descriptions.Item>,
-          );
-        }
-      });
+    const options: JSX.Element[] = [];
+    const dom = columns.map((itemColumn, index) => {
+      const { dataIndex, render } = itemColumn;
+      const data = get(dataSource, dataIndex as string[]);
+
+      //  如果 valueType 是 option 的话，应该删除掉
+      if (itemColumn.valueType === 'option') {
+        options.push(
+          <Field
+            mode="read"
+            render={(text) => (render ? render(text, data, index) : text)}
+            valueType="option"
+            text={data}
+          />,
+        );
+        return null;
+      }
+      // title 一定要存在，不然就不展示，因为我们不支持嵌套
+      if (!itemColumn.title) {
+        return null;
+      }
+      //  dataIndex 无所谓是否存在
+      // 有些时候不需要 dataIndex 可以直接 render
+      const valueType =
+        typeof itemColumn.valueType === 'function'
+          ? itemColumn.valueType(data)
+          : itemColumn.valueType;
+      return (
+        <Descriptions.Item
+          key={Array.isArray(dataIndex) ? dataIndex.join('.') : dataIndex}
+          label={itemColumn.title}
+        >
+          <Field
+            valueEnum={itemColumn.valueEnum}
+            mode="read"
+            render={(text) => (render ? render(text, data, index) : text)}
+            valueType={valueType}
+            // request={itemColumn.request}
+            text={data || itemColumn.title}
+          />
+        </Descriptions.Item>
+      );
     });
-    return <Descriptions {...props}>{dom}</Descriptions>;
+
+    return (
+      <Descriptions extra={<Space>{options}</Space>} {...rest}>
+        {dom}
+      </Descriptions>
+    );
   }
 
   const options: JSX.Element[] = [];
@@ -155,7 +199,7 @@ const ProDescriptions: React.FC<ProDescriptionsProps> & {
     return field;
   });
   return (
-    <Descriptions extra={<Space>{options}</Space>} {...props}>
+    <Descriptions extra={<Space>{options}</Space>} {...rest}>
       {mergeChildren}
     </Descriptions>
   );

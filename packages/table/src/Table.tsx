@@ -76,7 +76,7 @@ export interface ProColumnType<T = unknown>
     text: React.ReactNode,
     record: T,
     index: number,
-    action: UseFetchDataAction<RequestData<T>>,
+    action?: UseFetchDataAction<RequestData<T>>,
   ) => React.ReactNode | React.ReactNode[];
 
   /**

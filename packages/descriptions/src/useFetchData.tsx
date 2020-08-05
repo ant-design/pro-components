@@ -8,6 +8,7 @@ export interface RequestData<T> {
 export interface UseFetchDataAction<T extends RequestData<any>> {
   dataSource: T['data'] | T;
   loading: boolean | undefined;
+  reload: () => Promise<void>;
 }
 
 const useFetchData = <T extends RequestData<any>>(
@@ -49,6 +50,7 @@ const useFetchData = <T extends RequestData<any>>(
   return {
     dataSource: list,
     loading,
+    reload: () => fetchList(),
   };
 };
 
