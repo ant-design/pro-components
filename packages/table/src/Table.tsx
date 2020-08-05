@@ -12,6 +12,7 @@ import React, {
 import { Table, ConfigProvider, Card, Space, Typography, Empty, Tooltip } from 'antd';
 import { useIntl, IntlType, ParamsType, ConfigProviderWarp } from '@ant-design/pro-provider';
 import classNames from 'classnames';
+import get from 'rc-util/lib/utils/get';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { stringify } from 'use-json-comparison';
 import { ColumnsType, TablePaginationConfig, TableProps, ColumnType } from 'antd/es/table';
@@ -24,7 +25,10 @@ import {
   ProFieldValueType,
   ProFieldValueEnumMap,
   ProFieldValueEnumObj,
+  proFieldParsingText,
+  proFieldParsingValueEnumToArray,
 } from '@ant-design/pro-field';
+import { useDeepCompareEffect, LabelIconTip } from '@ant-design/pro-utils';
 import { noteOnce } from 'rc-util/lib/warning';
 
 import useFetchData, { UseFetchDataAction, RequestData } from './useFetchData';
@@ -32,16 +36,13 @@ import Container, { useCounter } from './container';
 import Toolbar, { OptionConfig, ToolBarProps } from './component/toolBar';
 import Alert from './component/alert';
 import FormSearch, { SearchConfig, TableFormItem } from './form';
-import get, {
-  parsingText,
-  parsingValueEnumToArray,
+import {
   checkUndefinedOrNull,
-  useDeepCompareEffect,
   genColumnKey,
   removeObjectNull,
-  ObjToMap,
   reduceWidth,
 } from './component/util';
+
 import defaultRenderText, { ProColumnsValueTypeFunction } from './defaultRender';
 import { DensitySize } from './component/toolBar/DensityIcon';
 import ErrorBoundary from './component/ErrorBoundary';
@@ -68,7 +69,9 @@ export interface ProColumnType<T = unknown>
   extends Omit<ColumnType<T>, 'render' | 'children' | 'title' | 'filters'>,
     Partial<Omit<FormItemProps, 'children'>> {
   index?: number;
-  title?: ReactNode | ((config: ProColumnType<T>, type: ProTableTypes) => ReactNode);
+  title?:
+    | ReactNode
+    | ((config: ProColumnType<T>, type: ProTableTypes, dom: ReactNode) => ReactNode);
   /**
    * 自定义 render
    */
@@ -157,6 +160,10 @@ export interface ProColumnType<T = unknown>
    * form 的排序
    */
   order?: number;
+  /**
+   *展示一个 icon，hover icon 的
+   */
+  tip?: string;
 }
 
 export interface ProColumnGroupType<RecordType> extends ProColumnType<RecordType> {
@@ -382,6 +389,9 @@ const mergePagination = <T, U>(
   };
 };
 
+/**
+ * 转化列的定义
+ */
 interface ColumnRenderInterface<T> {
   item: ProColumns<T>;
   text: any;
@@ -446,7 +456,7 @@ const columnRender = <T, U = any>({
   }
 
   const renderTextStr = renderText(
-    parsingText(text, ObjToMap(valueEnum)),
+    proFieldParsingText(text, valueEnum),
     row,
     index,
     action.current,
@@ -462,7 +472,7 @@ const columnRender = <T, U = any>({
   const dom: React.ReactNode = genEllipsis(
     genCopyable(textDom, item),
     item,
-    renderText(parsingText(text, ObjToMap(valueEnum), true), row, index, action.current),
+    renderText(proFieldParsingText(text, valueEnum, true), row, index, action.current),
   );
 
   if (item.render) {
@@ -503,13 +513,12 @@ const genColumnList = <T, U = {}>(
 ): (ColumnsType<T>[number] & { index?: number })[] =>
   (columns
     .map((item, columnsIndex) => {
-      const { key, dataIndex, title, filters = [] } = item;
+      const { key, dataIndex, valueEnum, title, filters = [] } = item;
       const columnKey = genColumnKey(key, dataIndex, columnsIndex);
       const config = columnKey ? map[columnKey] || { fixed: item.fixed } : { fixed: item.fixed };
-      const valueEnum = ObjToMap(item.valueEnum);
       const tempColumns = {
         onFilter: (value: string, record: T) => {
-          let recordElement = get(record, item.dataIndex || '');
+          let recordElement = get(record, item.dataIndex as string[]);
           if (typeof recordElement === 'number') {
             recordElement = recordElement.toString();
           }
@@ -518,11 +527,16 @@ const genColumnList = <T, U = {}>(
         },
         index: columnsIndex,
         ...item,
-        title: title && typeof title === 'function' ? title(item, 'table') : title,
+        title:
+          title && typeof title === 'function' ? (
+            title(item, 'table', <LabelIconTip label={title} tip={item.tip} />)
+          ) : (
+            <LabelIconTip label={title} tip={item.tip} />
+          ),
         valueEnum,
         filters:
           filters === true
-            ? parsingValueEnumToArray(valueEnum).filter(
+            ? proFieldParsingValueEnumToArray(valueEnum).filter(
                 (valueItem) => valueItem && valueItem.value !== 'all',
               )
             : filters,

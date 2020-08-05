@@ -2,6 +2,8 @@ import './index.less';
 
 import React, { Component } from 'react';
 import classNames from 'classnames';
+import { isBrowser } from '@ant-design/pro-utils';
+
 import { HeaderViewProps } from '../Header';
 import {
   defaultRenderLogo,
@@ -9,7 +11,6 @@ import {
   defaultRenderLogoAndTitle,
   defaultRenderCollapsedButton,
 } from '../SiderMenu/SiderMenu';
-import { isBrowser } from '../utils/utils';
 import { PureSettings } from '../defaultSettings';
 import TopNavHeader from '../TopNavHeader';
 import { MenuDataItem } from '../index';

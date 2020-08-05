@@ -1,8 +1,8 @@
+import { isBrowser } from '@ant-design/pro-utils';
 import zhLocal from './zh-CN';
 import zhTWLocal from './zh-TW';
 import enUSLocal from './en-US';
 import itITLocal from './it-IT';
-import { isBrowser } from '../utils/utils';
 
 const locales = {
   'zh-CN': zhLocal,
