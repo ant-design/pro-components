@@ -1,8 +1,9 @@
 import React, { ReactNode } from 'react';
 import { ConfigConsumer, ConfigConsumerProps } from 'antd/lib/config-provider/context';
-import { Tooltip, Grid, Row, Col } from 'antd';
-import { QuestionCircleOutlined, RightOutlined } from '@ant-design/icons';
+import { Grid, Row, Col } from 'antd';
+import { RightOutlined } from '@ant-design/icons';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { LabelIconTip } from '@ant-design/pro-utils';
 import classNames from 'classnames';
 import './style/index.less';
 
@@ -250,12 +251,6 @@ const ProCard: ProCardType = (props) => {
           [`${prefixCls}-body-collapse`]: collapsed,
         });
 
-        const tipDom = tip && (
-          <Tooltip title={tip}>
-            <QuestionCircleOutlined style={{ marginLeft: 8 }} />
-          </Tooltip>
-        );
-
         const loadingBlockStyle =
           bodyStyle.padding === 0 || bodyStyle.padding === '0px' ? { padding: 24 } : undefined;
 
@@ -322,8 +317,7 @@ const ProCard: ProCardType = (props) => {
             {(title || extra || collapsibleButton) && (
               <div className={headerCls} style={headStyle}>
                 <div className={`${prefixCls}-title`}>
-                  {title}
-                  {tipDom}
+                  <LabelIconTip label={title} tip={tip} />
                   {collapsibleButton}
                 </div>
                 <div className={`${prefixCls}-extra`}>{extra}</div>
