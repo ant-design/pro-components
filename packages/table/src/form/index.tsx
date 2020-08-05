@@ -10,8 +10,9 @@ import { DownOutlined } from '@ant-design/icons';
 import { useIntl, IntlType } from '@ant-design/pro-provider';
 import classNames from 'classnames';
 import ProField from '@ant-design/pro-field';
+import { useDeepCompareEffect } from '@ant-design/pro-utils';
 
-import { useDeepCompareEffect, genColumnKey } from '../component/util';
+import { genColumnKey } from '../component/util';
 import Container from '../container';
 import { ProColumnsValueTypeFunction } from '../defaultRender';
 import { ProTableTypes } from '../Table';

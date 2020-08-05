@@ -1,13 +1,25 @@
 import React, { ReactNode, useState, useImperativeHandle, useEffect, useRef } from 'react';
 import { Select } from 'antd';
-import TableStatus, { StatusType } from './status';
+import TableStatus, { ProFieldStatusType } from '../Status';
 import { ProFieldFC } from '../../index';
+
+export const ObjToMap = (
+  value: ProFieldValueEnumObj | ProFieldValueEnumMap | undefined,
+): ProFieldValueEnumMap | undefined => {
+  if (!value) {
+    return value;
+  }
+  if (getType(value) === 'map') {
+    return value as ProFieldValueEnumMap;
+  }
+  return new Map(Object.entries(value));
+};
 
 export type ProFieldValueEnumObj = {
   [key: string]:
     | {
         text: ReactNode;
-        status: StatusType;
+        status: ProFieldStatusType;
       }
     | ReactNode;
 };
@@ -16,7 +28,7 @@ export type ProFieldValueEnumMap = Map<
   React.ReactText,
   | {
       text: ReactNode;
-      status: StatusType;
+      status: ProFieldStatusType;
     }
   | ReactNode
 >;
@@ -28,11 +40,12 @@ export type ProFieldValueEnumMap = Map<
  * @param valueEnum
  * @param pure 纯净模式，不增加 status
  */
-export const parsingText = (
+export const proFieldParsingText = (
   text: string | number,
-  valueEnum?: ProFieldValueEnumMap,
+  valueEnumParams?: ProFieldValueEnumMap | ProFieldValueEnumObj,
   pure?: boolean,
 ) => {
+  const valueEnum = ObjToMap(valueEnumParams);
   if (!valueEnum) {
     return text;
   }
@@ -43,7 +56,7 @@ export const parsingText = (
 
   const domText = (valueEnum.get(text) || valueEnum.get(`${text}`)) as {
     text: ReactNode;
-    status: StatusType;
+    status: ProFieldStatusType;
   };
   if (domText.status) {
     if (pure) {
@@ -78,8 +91,8 @@ function getType(obj: any) {
  * 把 value 的枚举转化为数组
  * @param valueEnum
  */
-export const parsingValueEnumToArray = (
-  valueEnum: ProFieldValueEnumMap | undefined = new Map(),
+export const proFieldParsingValueEnumToArray = (
+  valueEnumParams: ProFieldValueEnumMap | ProFieldValueEnumObj | undefined = new Map(),
 ): {
   value: string | number;
   text: string;
@@ -88,6 +101,12 @@ export const parsingValueEnumToArray = (
     value: string | number;
     text: string;
   }[] = [];
+  const valueEnum = ObjToMap(valueEnumParams);
+
+  if (!valueEnum) {
+    return [];
+  }
+
   valueEnum.forEach((_, key) => {
     if (!valueEnum.has(key) && !valueEnum.has(`${key}`)) {
       return;
@@ -112,18 +131,6 @@ export const parsingValueEnumToArray = (
     });
   });
   return enumArray;
-};
-
-export const ObjToMap = (
-  value: ProFieldValueEnumObj | ProFieldValueEnumMap | undefined,
-): ProFieldValueEnumMap | undefined => {
-  if (!value) {
-    return value;
-  }
-  if (getType(value) === 'map') {
-    return value as ProFieldValueEnumMap;
-  }
-  return new Map(Object.entries(value));
 };
 
 export type RequestData = (
@@ -163,7 +170,7 @@ const useFetchData = (
       value: React.ReactText;
     }[]
   >(() =>
-    parsingValueEnumToArray(ObjToMap(props.valueEnum)).map(({ value, text }) => ({
+    proFieldParsingValueEnumToArray(ObjToMap(props.valueEnum)).map(({ value, text }) => ({
       label: text,
       value,
     })),
@@ -211,7 +218,7 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
   if (mode === 'read') {
     const dom = (
       <>
-        {parsingText(
+        {proFieldParsingText(
           rest.text,
           ObjToMap(valueEnum) ||
             ObjToMap(

@@ -15,6 +15,8 @@ import FiledSelect, {
   ProFieldValueEnumMap,
   ProFieldValueEnumObj,
   RequestData,
+  proFieldParsingText,
+  proFieldParsingValueEnumToArray,
 } from './components/Select';
 import FieldDigit from './components/Digit';
 
@@ -311,6 +313,8 @@ export {
   FieldTimePicker,
   FieldText,
   FiledSelect,
+  proFieldParsingText,
+  proFieldParsingValueEnumToArray,
 };
 
 export default React.forwardRef(Field) as typeof Field;

@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-utils",
-  "version": "1.0.0-beta.1",
+  "version": "0.0.1",
   "description": "@ant-design/pro-utils",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -31,6 +31,8 @@
     "access": "public"
   },
   "dependencies": {
+    "@types/lodash.isequal": "^4.5.5",
+    "lodash.isequal": "^4.5.0",
     "rc-util": "^5.0.6"
   }
 }

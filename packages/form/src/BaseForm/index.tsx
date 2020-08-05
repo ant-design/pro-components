@@ -4,9 +4,9 @@ import { FormProps } from 'antd/lib/form/Form';
 import { FormItemProps } from 'antd/lib/form';
 import { TooltipProps } from 'antd/lib/tooltip';
 import { ConfigProviderWarp } from '@ant-design/pro-provider';
+import { LabelIconTip } from '@ant-design/pro-utils';
 import FieldContext from '../FieldContext';
 import Submitter, { SubmitterProps } from '../components/Submitter';
-import LabelIconTip from '../components/LabelIconTip';
 import { GroupProps, FieldProps } from '../interface';
 
 export interface CommonFormProps {

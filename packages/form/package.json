@@ -27,6 +27,7 @@
     "@ant-design/icons": "^4.2.1",
     "@ant-design/pro-field": "0.0.11",
     "@ant-design/pro-provider": "0.0.2",
+    "@ant-design/pro-utils": "0.0.1",
     "classnames": "^2.2.6",
     "rc-resize-observer": "^0.2.3",
     "use-media-antd-query": "^1.0.2"
