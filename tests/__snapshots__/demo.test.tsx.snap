@@ -2155,11 +2155,11 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
         title=""
       >
         <div
-          class="ant-space ant-space-horizontal ant-space-align-center"
+          class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-label-tip"
         >
           <div
             class="ant-space-item"
-            style="margin-right: 8px;"
+            style="margin-right: 4px;"
           >
             名称
           </div>
@@ -2168,7 +2168,7 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
           >
             <span
               aria-label="info-circle"
-              class="anticon anticon-info-circle"
+              class="anticon anticon-info-circle ant-pro-form-label-tip-icon"
               role="img"
             >
               <svg
@@ -2223,11 +2223,11 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
         title=""
       >
         <div
-          class="ant-space ant-space-horizontal ant-space-align-center"
+          class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-label-tip"
         >
           <div
             class="ant-space-item"
-            style="margin-right: 8px;"
+            style="margin-right: 4px;"
           >
             备注
           </div>
@@ -2236,7 +2236,7 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
           >
             <span
               aria-label="info-circle"
-              class="anticon anticon-info-circle"
+              class="anticon anticon-info-circle ant-pro-form-label-tip-icon"
               role="img"
             >
               <svg

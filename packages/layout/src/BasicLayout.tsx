@@ -5,7 +5,7 @@ import { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/es/breadcrumb';
 import { Layout } from 'antd';
 import classNames from 'classnames';
 import warning from 'warning';
-import useMergeValue from 'use-merge-value';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { stringify } from 'use-json-comparison';
 import useAntdMediaQuery from 'use-media-antd-query';
 
@@ -228,7 +228,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
 
   const colSize = useAntdMediaQuery();
   const { routes = [] } = route;
-  const [menuInfoData, setMenuInfoData] = useMergeValue<{
+  const [menuInfoData, setMenuInfoData] = useMergedState<{
     breadcrumb?: {
       [key: string]: MenuDataItem;
     };
@@ -274,7 +274,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   // don't need padding in phone mode
   const hasLeftPadding = propsLayout !== 'top' && !isMobile;
 
-  const [collapsed, onCollapse] = useMergeValue<boolean>(false, {
+  const [collapsed, onCollapse] = useMergedState<boolean>(false, {
     value: props.collapsed,
     onChange: propsOnCollapse,
   });

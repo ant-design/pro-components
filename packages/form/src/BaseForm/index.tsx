@@ -11,7 +11,6 @@ import { GroupProps, FieldProps } from '../interface';
 
 export interface CommonFormProps {
   submitter?: Omit<SubmitterProps, 'form'> | boolean;
-  hiddenActions?: boolean;
 }
 
 export interface BaseFormProps extends FormProps, CommonFormProps {
@@ -52,7 +51,6 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
     fieldProps,
     formItemProps,
     groupProps,
-    hiddenActions,
     form: userForm,
     ...rest
   } = props;

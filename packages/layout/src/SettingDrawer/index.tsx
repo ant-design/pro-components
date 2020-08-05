@@ -11,7 +11,7 @@ import { createBrowserHistory } from 'history';
 import { stringify, parse } from 'qs';
 import React, { useState, useEffect, useRef } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
-import useMergeValue from 'use-merge-value';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'omit.js';
 import defaultSettings, { ProSettings } from '../defaultSettings';
 
@@ -365,12 +365,12 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   } = props;
   const firstRender = useRef<boolean>(true);
 
-  const [show, setShow] = useMergeValue(false, {
+  const [show, setShow] = useMergedState(false, {
     value: props.collapse,
     onChange: props.onCollapseChange,
   });
   const [language, setLanguage] = useState<string>(getLanguage());
-  const [settingState, setSettingState] = useMergeValue<Partial<ProSettings>>(
+  const [settingState, setSettingState] = useMergedState<Partial<ProSettings>>(
     () => getParamsFromUrl(propsSettings),
     {
       value: propsSettings,

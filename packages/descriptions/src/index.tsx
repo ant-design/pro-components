@@ -45,13 +45,13 @@ export type ProDescriptionsItemProps = Omit<DescriptionsItemProps, 'children'> &
     children?: React.ReactNode;
   };
 
-const ProDescriptionsItem: React.FC<ProDescriptionsItemProps> = props => {
+const ProDescriptionsItem: React.FC<ProDescriptionsItemProps> = (props) => {
   return <Descriptions.Item {...props}>{props.children}</Descriptions.Item>;
 };
 
 const ProDescriptions: React.FC<ProDescriptionsProps> & {
   Item: typeof ProDescriptionsItem;
-} = props => {
+} = (props) => {
   const { request, columns } = props;
 
   const action = useFetchData(async () => {
