@@ -20,6 +20,12 @@ export type ActionType = {
 
 export type ProDescriptionsProps<T = {}> = DescriptionsProps & {
   /**
+   * params 参数
+   * params 改变的时候会触发 reload
+   * todo
+   */
+  params: { [key: string]: any };
+  /**
    * 获取数据的方法
    */
   request?: () => Promise<RequestData<T>>;
