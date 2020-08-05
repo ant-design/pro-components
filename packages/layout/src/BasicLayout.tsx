@@ -359,7 +359,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     position: 'relative',
   };
 
-  // if is some layout children，don't need min height
+  // if is some layout children, don't need min height
   if (isChildrenLayout || (contentStyle && contentStyle.minHeight)) {
     genLayoutStyle.minHeight = 0;
   }
