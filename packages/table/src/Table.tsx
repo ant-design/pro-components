@@ -28,7 +28,7 @@ import {
   proFieldParsingText,
   proFieldParsingValueEnumToArray,
 } from '@ant-design/pro-field';
-import { useDeepCompareEffect } from '@ant-design/pro-utils';
+import { useDeepCompareEffect, LabelIconTip } from '@ant-design/pro-utils';
 import { noteOnce } from 'rc-util/lib/warning';
 
 import useFetchData, { UseFetchDataAction, RequestData } from './useFetchData';
@@ -69,7 +69,9 @@ export interface ProColumnType<T = unknown>
   extends Omit<ColumnType<T>, 'render' | 'children' | 'title' | 'filters'>,
     Partial<Omit<FormItemProps, 'children'>> {
   index?: number;
-  title?: ReactNode | ((config: ProColumnType<T>, type: ProTableTypes) => ReactNode);
+  title?:
+    | ReactNode
+    | ((config: ProColumnType<T>, type: ProTableTypes, dom: JSX.Element) => ReactNode);
   /**
    * 自定义 render
    */
@@ -161,7 +163,7 @@ export interface ProColumnType<T = unknown>
   /**
    *展示一个 icon，hover icon 的
    */
-  tip?: React.ReactNode;
+  tip?: string;
 }
 
 export interface ProColumnGroupType<RecordType> extends ProColumnType<RecordType> {
@@ -525,7 +527,12 @@ const genColumnList = <T, U = {}>(
         },
         index: columnsIndex,
         ...item,
-        title: title && typeof title === 'function' ? title(item, 'table') : title,
+        title:
+          title && typeof title === 'function' ? (
+            title(item, 'table', <LabelIconTip label={title} tip={item.tip} />)
+          ) : (
+            <LabelIconTip label={title} tip={item.tip} />
+          ),
         valueEnum,
         filters:
           filters === true

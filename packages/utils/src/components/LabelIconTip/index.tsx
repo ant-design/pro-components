@@ -11,7 +11,7 @@ import './index.less';
  */
 const LabelIconTip: React.FC<{
   label: React.ReactNode;
-  tip: string | TooltipProps;
+  tip?: string | TooltipProps;
 }> = (props) => {
   const { label, tip } = props;
   const { getPrefixCls } = useContext(ConfigContext);

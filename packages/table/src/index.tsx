@@ -15,13 +15,12 @@ import {
   frFRIntl,
   ptBRIntl,
 } from '@ant-design/pro-provider';
-import { ProFieldValueType } from '@ant-design/pro-field';
+import { FieldStatus, ProFieldValueType } from '@ant-design/pro-field';
 
 import ProTable, { ProColumns, ActionType, ProTableProps, ColumnsState } from './Table';
 import IndexColumn from './component/indexColumn';
 import { RequestData } from './useFetchData';
 import TableDropdown from './component/dropdown';
-import TableStatus from './component/status';
 import Search from './form';
 import defaultRenderText from './defaultRender';
 
@@ -40,7 +39,7 @@ export type {
 export {
   IndexColumn,
   TableDropdown,
-  TableStatus,
+  FieldStatus as TableStatus,
   Search,
   ConfigProvider as IntlProvider,
   ConfigProvider,
