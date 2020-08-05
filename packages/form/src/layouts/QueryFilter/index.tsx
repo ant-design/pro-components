@@ -31,7 +31,11 @@ const BREAKPOINTS = {
  * @param layout
  * @param width
  */
-const getSpanConfig = (layout: FormProps['layout'], width: number, span?: number): { span: number, layout: FormProps['layout'] } => {
+const getSpanConfig = (
+  layout: FormProps['layout'],
+  width: number,
+  span?: number,
+): { span: number; layout: FormProps['layout'] } => {
   if (span) {
     return {
       span,
@@ -78,8 +82,8 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
   // use style.width as the defaultWidth for unit test
   const defaultWidth: number = (typeof style?.width === 'number' ? style?.width : 1024) as number;
   const [spanSize, setSpanSize] = useState<{
-    span: number,
-    layout: FormProps['layout'],
+    span: number;
+    layout: FormProps['layout'];
   }>(getSpanConfig(layout, defaultWidth + 16, span));
   const showLength =
     defaultColsNumber !== undefined ? defaultColsNumber : Math.max(1, 24 / spanSize.span - 1);
@@ -96,7 +100,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
       }}
       formItemProps={{
         labelCol: {
-          flex: (labelWidth && spanSize.layout !== 'vertical') ? `0 0 ${labelWidth}px` : undefined,
+          flex: labelWidth && spanSize.layout !== 'vertical' ? `0 0 ${labelWidth}px` : undefined,
         },
       }}
       groupProps={{
