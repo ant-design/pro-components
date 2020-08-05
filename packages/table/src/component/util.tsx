@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import React, { useEffect, useRef, ReactText, DependencyList, useCallback } from 'react';
-import { ProFieldValueEnumObj, ProFieldValueEnumMap } from '@ant-design/pro-field';
+import React, { ReactText } from 'react';
 import { DataIndex } from 'rc-table/lib/interface';
 
 /**
