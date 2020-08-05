@@ -43077,7 +43077,7 @@ exports[`demos renders ./packages/table/demos/single.tsx correctly 1`] = `
                   >
                     <colgroup>
                       <col
-                        style="width: 82px; min-width: 82px;"
+                        style="width: 72px; min-width: 72px;"
                       />
                       <col
                         style="width: 30%; min-width: 30%;"
