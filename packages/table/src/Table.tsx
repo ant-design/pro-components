@@ -71,7 +71,7 @@ export interface ProColumnType<T = unknown>
   index?: number;
   title?:
     | ReactNode
-    | ((config: ProColumnType<T>, type: ProTableTypes, dom: JSX.Element) => ReactNode);
+    | ((config: ProColumnType<T>, type: ProTableTypes, dom: ReactNode) => ReactNode);
   /**
    * 自定义 render
    */

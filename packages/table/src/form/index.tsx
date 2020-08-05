@@ -300,7 +300,7 @@ export const proFormItemRender: (props: {
   // 支持 function 的 title
   const getTitle = () => {
     if (rest.title && typeof rest.title === 'function') {
-      return rest.title(item, 'form');
+      return rest.title(item, 'form', '');
     }
     return rest.title;
   };
