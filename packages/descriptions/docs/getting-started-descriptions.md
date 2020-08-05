@@ -10,87 +10,47 @@ nav:
 
 # 快速开始
 
-ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码的问题，所以在其中做了封装了很多常用的逻辑。这些封装可以简单的分类为预设行为与预设逻辑。
+ProDescriptions 的诞生是为了解决项目中需要写很多 Descriptions 的样板代码的问题，所以在其中做了封装了很多常用的逻辑。
 
-在 react 的中写一个 table 免不了需要定义一些 state，比如 page，pageNumber，pageSize。如果使用 dva 等数据流方案可能还需要写很多样板代码来请求数据。但是很多时候这些行为是高度雷同的，所以 ProTable 默认封装了请求网络，翻页，搜索和筛选的逻辑。
+在 react 中写一个 Descriptions 免不了需要定义一些雷同的属性。所以 ProDescriptions 默认封装了请求网络，columns 列展示的逻辑。
 
 ## 请求数据
 
-request 中封装了请求网络的行为，ProTable 会将 props.params 中的数据默认带入到请求中，如果接口恰好与我们的定义相同，实现一个查询会非常简单。
+request 中封装了请求网络的行为，ProDescriptions 会将 props.params 中的数据默认带入到请求中，如果接口恰好与我们的定义相同，实现一个查询会非常简单。
 
 ```tsx | pure
 import request from 'umi-request';
 
-const fetchData = (params, sort, filter) =>
+const fetchData = (params) =>
   request<{
-    data: T[];
+    data: T{};
   }>('https://proapi.azurewebsites.net/github/issues', {
     params,
-    sort,
-    filter,
   });
 
 const keyWords = "Ant Design"
 
-<ProTable<T,U> params={{ keyWords }} request={fetchData} />;
+<ProDescriptions<T,U> request={fetchData} />;
 ```
 
-我们约定 request 拥有三个参数，第一个 `params` 会自带 `pageSize` 和 `current`,并且将 props 中的 `params` 也会带入其中，第二个参数 `sort` 用与排序，第三个参数 `filter` 用于多选。他们的类型分别如下:
+我们约定 request 拥有一个参数， `params` 会自带 props 中的 `params` 。类型如下:
 
 ```tsx | pure
-(
-  params: U & {
-    pageSize?: number;
-    current?: number;
-  },
-  sort: {
-    [key: string]: 'ascend' | 'descend';
-  },
-  filter: { [key: string]: React.ReactText[] },
-) => RequestData;
+(params: U) => RequestData;
 ```
 
-> ProTable 会将第二个泛型认为是 `params` 的类型，保证各个环节都要完善的类型支持。
-
-对与请求回来的结果的 ProTable 也有一些约定，类型如下：
+对与请求回来的结果的 ProDescriptions 也有一些约定，类型如下：
 
 ```tsx | pure
 interface RequestData {
-  data: Datum[];
+  data: Datum{};
   success: boolean;
-  total: number;
 }
-```
-
-如果我们恰巧属性不同，也是可以做自定义的。request 只要是一个 `Promise<RequestData>` 接口，同样是上面的代码,我们可以自定义参数和返回值。看起来就像这样：
-
-```tsx | pure
-const fetchData =async (params, sort, filter) =>{
-  const msg =await  request<{
-    data: T[];
-  }>('https://proapi.azurewebsites.net/github/issues', {
-    params:{
-      pageNum:params.current,
-      size:params.pageSize
-    },
-    sort,
-    filter,
-  });
-  return {
-    data:msg.list,
-    total:msg.sum,
-    success:!msg.errorCode
-  }
-}
-
-const keyWords = "Ant Design"
-
-<ProTable<T,U> params={{ keyWords }} request={fetchData} />;
 ```
 
 ## 列配置
 
-列配置复杂把数据映射成为具体的 dom, ProTable 在 antd 的基础上进行了一些封装，支持了一些默认的行为作为 render 的语法糖，我们可以在列中配置 valueType 配置一个字符串。现在支持的值如下：
+列配置复杂把数据映射成为具体的 dom, ProDescriptions 在 antd 的基础上进行了一些封装，支持了一些默认的行为作为 render 的语法糖，我们可以在列中配置 valueType 配置一个字符串。现在支持的值如下：
 
 > 如果你的值的不是下面的类型，可以用 renderText 来进行修改，render 会覆盖掉 valueType。
 
@@ -143,12 +103,12 @@ const valueEnum = {
 
 ## ActionRef
 
-在进行了操作，或者 tab 切换等时候我们需要手动触发一下表单的更新，纯粹的 props 很难解决这个问题，所以我们提供一个 ref 来支持一些默认的操作。
+在进行了操作，或者 tab 切换等时候我们需要手动触发一下描述列表的更新，纯粹的 props 很难解决这个问题，所以我们提供一个 ref 来支持一些默认的操作。
 
 ```tsx | pure
 const ref = useRef<ActionType>();
 
-// 两秒刷新一次表格
+// 两秒刷新一次
 useEffect(() => {
   setInterval(() => {
     ref.current.reload();
@@ -156,10 +116,10 @@ useEffect(() => {
 }, []);
 
 // hooks 绑定
-<ProTable actionRef={ref} />;
+<ProDescriptions actionRef={ref} />;
 
 // class
-<ProTable actionRef={(ref) => (this.ref = ref)} />;
+<ProDescriptions actionRef={ref => (this.ref = ref)} />;
 ```
 
 `ActionRef` 还支持了一些别的行为,某些时候会减少的你的编码成本，但是 ref 会脱离 react 的生命周期，所以这些 action 都是不受控的。
@@ -167,109 +127,4 @@ useEffect(() => {
 ```tsx | pure
 // 刷新
 ref.current.reload();
-
-// 重置所有项并刷新
-ref.current.reloadAndRest();
-
-// 重置到默认值
-ref.current.reset();
-
-// 清空选中项
-ref.current.clearSelected();
 ```
-
-## 查询表单
-
-查询表单是 ProTable 的默认行为中最为复杂的一个，我们为其提供了部分配置和预设。如果你的查询表单非常复杂，或者其中使用了一些业务逻辑，建议使用 antd 的进行排版，并把数据通过 params 交给 ProTable，默认的查询表单是高度标准化的。
-
-![tableDemo](https://gw.alipayobjects.com/zos/antfincdn/P7jDHJ323a/4febb542-739c-49b7-8bb9-6a5fc2ca631c.png)
-
-### 控制展示
-
-很多时候查询表单是有一些配置的，默认的逻辑不能满足需求，我们支持通过 `formItemProps` 来进行一些简单的配置。比如 `placeholder` 或者增加一个 `addonAfter` 的。
-
-```tsx | pure
-{
-  formItemProps: {
-    placeholder:"请输入表格名",
-    addonAfter: <SettingOutlined />;
-  }
-}
-```
-
-> value 和 onChange 有特殊的含义,用于表单绑定，所以不能覆盖。
-
-有些时候表单中和 table 中的 title 也是不同的，我们支持配置 title 为 `function` 来支持根据情况显示不同 title。
-
-```tsx | pure
- title: (_, type) => (type === 'table' ? '状态' : '列表状态'),
-```
-
-我们可以在 props 中设置 form 配置来自定义表单的操作，比如说默认值。
-
-```tsx | pure
-form={{ initialValues: {...data}, labelCol: { span: 6 }, }}
-```
-
-### 自定义表单项
-
-很多时候内置的表单项无法满足我们的需求，这时候我们就需要来自定义一下默认的组件，`renderFormItem` 可以完成重写渲染逻辑，它会传入 item 和 props 来进行渲染，需要注意的是我们必须要将 props 中的 `value` 和 `onChange` 必须要被赋值，否则 form 无法绑定数据。
-
-为了做表单的联动 `renderFormItem` 增加了第三个参数，可以用 name 获得别的表单项数据并且做一些定制。
-
-```tsx | pure
-renderFormItem: (_, { type, defaultRender, ...rest }, form) => {
-  if (type === 'form') {
-    return null;
-  }
-  const status = form.getFieldValue('state');
-  if (status !== 'open') {
-    return <Input {...rest} placeholder="请输入" />;
-  }
-  return defaultRender(_);
-};
-```
-
-> renderFormItem 的性能不是很好，使用时要注意不要再其中做耗费时间较长的事情。
-
-## 操作栏
-
-操作栏可以承载一些常用的操作或者表格的标题，为了不与 antd 的 Table 的属性冲突，我们使用了 `headerTitle` 来定义了操作栏的标题,操作栏的标题是一个 ReactNode 你可以自定义它，如果需要可以放入一个 Tabs。
-
-`toolBarRender` 支持返回一个 ReactNode 的数组，我们会自动加入间距，toolBarRender 类型定义如下：
-
-```tsx |pure
-toolBarRender: (action, { selectedRowKeys, selectedRows }) => ReactNode[];
-```
-
-默认会返回当前选中的所有行和他们的 keys，用于批量操作。
-
-操作栏还自定义了一些默认的行为，默认支持了 `density` 密度调整, `fullScreen` 全屏，`reload` 刷新，`setting` table 设置。
-
-```tsx | pure
-export interface OptionConfig<T> {
-  density: boolean;
-  fullScreen: OptionsType<T>;
-  reload: OptionsType<T>;
-  setting: boolean;
-}
-```
-
-我们可以在 props 中配置 options={false} 来关掉操作栏。也可以分别设置，只保留你想要的。
-
-```tsx | pure
-options = {
-  fullScreen: false,
-  reload: false,
-  setting: false,
-  density: true,
-};
-```
-
-更多的功能查看查看具体的说明:
-
-- [API](/table/api)
-- [国际化](/table/intl)
-- [查询表单](/table/search)
-- [预设样式](/table/value-type)
-- [例子](/table/example)
