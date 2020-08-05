@@ -1,7 +1,7 @@
 import { createContainer } from 'unstated-next';
 import { useState, useRef } from 'react';
 import { ColumnType } from 'antd/es/table';
-import useMergeValue from 'use-merge-value';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import { RequestData, ProColumns } from './index';
 import { UseFetchDataAction } from './useFetchData';
@@ -24,12 +24,12 @@ function useCounter(props: UseCounterProps = {}) {
   const [sortKeyColumns, setSortKeyColumns] = useState<(string | number)[]>([]);
   const [proColumns, setProColumns] = useState<ProColumns<any>[]>([]);
 
-  const [tableSize, setTableSize] = useMergeValue<DensitySize>(props.size || 'middle', {
+  const [tableSize, setTableSize] = useMergedState<DensitySize>(props.size || 'middle', {
     value: props.size,
     onChange: props.onSizeChange,
   });
 
-  const [columnsMap, setColumnsMap] = useMergeValue<{
+  const [columnsMap, setColumnsMap] = useMergedState<{
     [key: string]: ColumnsState;
   }>(props.columnsStateMap || {}, {
     value: props.columnsStateMap,

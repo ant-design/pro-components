@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useIntl } from '@ant-design/pro-provider';
-import { ConfigConsumer, ConfigConsumerProps } from 'antd/lib/config-provider/context';
+import { ConfigContext } from 'antd/lib/config-provider';
 import { PushpinOutlined, SettingOutlined, VerticalAlignMiddleOutlined } from '@ant-design/icons';
 import { Checkbox, Popover, Tooltip } from 'antd';
 import { DndProvider } from 'react-dnd';
@@ -246,53 +246,48 @@ const ColumnSetting = <T, U = {}>(props: ColumnSettingProps<T>) => {
   const indeterminate = selectedKeys.length > 0 && selectedKeys.length !== localColumns.length;
 
   const intl = useIntl();
+  const { getPrefixCls } = useContext(ConfigContext);
+  const className = getPrefixCls('pro-table-column-setting');
+  const toolBarClassName = getPrefixCls('pro-table-toolbar');
   return (
-    <ConfigConsumer>
-      {({ getPrefixCls }: ConfigConsumerProps) => {
-        const className = getPrefixCls('pro-table-column-setting');
-        const toolBarClassName = getPrefixCls('pro-table-toolbar');
-        return (
-          <Popover
-            arrowPointAtCenter
-            title={
-              <div className={`${className}-title`}>
-                <Checkbox
-                  indeterminate={indeterminate}
-                  checked={selectedKeys.length === 0 && selectedKeys.length !== localColumns.length}
-                  onChange={(e) => {
-                    if (e.target.checked) {
-                      setAllSelectAction();
-                    } else {
-                      setAllSelectAction(false);
-                    }
-                  }}
-                >
-                  {intl.getMessage('tableToolBar.columnDisplay', '列展示')}
-                </Checkbox>
-                <a
-                  onClick={() => {
-                    setColumnsMap({});
-                    setSortKeyColumns([]);
-                  }}
-                >
-                  {intl.getMessage('tableToolBar.reset', '重置')}
-                </a>
-              </div>
-            }
-            overlayClassName={`${className}-overlay`}
-            trigger="click"
-            placement="bottomRight"
-            content={<GroupCheckboxList className={className} localColumns={localColumns} />}
+    <Popover
+      arrowPointAtCenter
+      title={
+        <div className={`${className}-title`}>
+          <Checkbox
+            indeterminate={indeterminate}
+            checked={selectedKeys.length === 0 && selectedKeys.length !== localColumns.length}
+            onChange={(e) => {
+              if (e.target.checked) {
+                setAllSelectAction();
+              } else {
+                setAllSelectAction(false);
+              }
+            }}
           >
-            <span className={`${toolBarClassName}-item-icon`}>
-              <Tooltip title={intl.getMessage('tableToolBar.columnSetting', '列设置')}>
-                <SettingOutlined />
-              </Tooltip>
-            </span>
-          </Popover>
-        );
-      }}
-    </ConfigConsumer>
+            {intl.getMessage('tableToolBar.columnDisplay', '列展示')}
+          </Checkbox>
+          <a
+            onClick={() => {
+              setColumnsMap({});
+              setSortKeyColumns([]);
+            }}
+          >
+            {intl.getMessage('tableToolBar.reset', '重置')}
+          </a>
+        </div>
+      }
+      overlayClassName={`${className}-overlay`}
+      trigger="click"
+      placement="bottomRight"
+      content={<GroupCheckboxList className={className} localColumns={localColumns} />}
+    >
+      <span className={`${toolBarClassName}-item-icon`}>
+        <Tooltip title={intl.getMessage('tableToolBar.columnSetting', '列设置')}>
+          <SettingOutlined />
+        </Tooltip>
+      </span>
+    </Popover>
   );
 };
 

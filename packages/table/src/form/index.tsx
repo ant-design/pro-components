@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useContext, useEffect, useRef, useCallback } from 'react';
 import { FormInstance, FormItemProps, FormProps } from 'antd/es/form';
 import { Form, Row, Col } from 'antd';
 import moment, { Moment } from 'moment';
 import RcResizeObserver from 'rc-resize-observer';
 import useMediaQuery from 'use-media-antd-query';
-import useMergeValue from 'use-merge-value';
-import { ConfigConsumer, ConfigConsumerProps } from 'antd/lib/config-provider';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { ConfigContext } from 'antd/lib/config-provider';
 import { DownOutlined } from '@ant-design/icons';
 import { useIntl, IntlType } from '@ant-design/pro-provider';
 import classNames from 'classnames';
@@ -500,7 +500,7 @@ const FormSearch = <T, U = any>({
   const { span } = searchConfig;
 
   const counter = Container.useContainer();
-  const [collapse, setCollapse] = useMergeValue<boolean>(true, {
+  const [collapse, setCollapse] = useMergedState<boolean>(true, {
     value: searchConfig.collapsed,
     onChange: searchConfig.onCollapse,
   });
@@ -621,99 +621,94 @@ const FormSearch = <T, U = any>({
         .filter((_, index) => (collapse && type !== 'form' ? index < (rowNumber - 1 || 1) : true))
         .filter((item) => !!item)
     : [];
+  const { getPrefixCls } = useContext(ConfigContext);
 
+  const className = getPrefixCls('pro-table-search');
+  const formClassName = getPrefixCls('pro-table-form');
   return (
-    <ConfigConsumer>
-      {({ getPrefixCls }: ConfigConsumerProps) => {
-        const className = getPrefixCls('pro-table-search');
-        const formClassName = getPrefixCls('pro-table-form');
-        return (
-          <div
-            className={classNames(className, {
-              [formClassName]: isForm,
-            })}
-            style={
-              isForm
-                ? undefined
-                : {
-                    height: formHeight,
-                  }
+    <div
+      className={classNames(className, {
+        [formClassName]: isForm,
+      })}
+      style={
+        isForm
+          ? undefined
+          : {
+              height: formHeight,
             }
-          >
-            <RcResizeObserver
-              onResize={({ height }) => {
-                if (type === 'form') {
-                  return;
+      }
+    >
+      <RcResizeObserver
+        onResize={({ height }) => {
+          if (type === 'form') {
+            return;
+          }
+          setFormHeight(height + 24);
+        }}
+      >
+        <div>
+          <Form
+            {...formConfig}
+            form={form}
+            onValuesChange={() => forceUpdate()}
+            initialValues={columnsList.reduce(
+              (pre, item) => {
+                const key = genColumnKey(item.key, item.dataIndex, item.index) || '';
+                if (item.initialValue) {
+                  return {
+                    ...pre,
+                    [key]: item.initialValue,
+                  };
                 }
-                setFormHeight(height + 24);
+                return pre;
+              },
+              { ...formConfig.initialValues },
+            )}
+          >
+            <Form.Item shouldUpdate noStyle>
+              {(formInstance) => {
+                setTimeout(() => {
+                  formInstanceRef.current = formInstance as FormInstance;
+                }, 0);
+                return null;
               }}
-            >
-              <div>
-                <Form
-                  {...formConfig}
-                  form={form}
-                  onValuesChange={() => forceUpdate()}
-                  initialValues={columnsList.reduce(
-                    (pre, item) => {
-                      const key = genColumnKey(item.key, item.dataIndex, item.index) || '';
-                      if (item.initialValue) {
-                        return {
-                          ...pre,
-                          [key]: item.initialValue,
-                        };
-                      }
-                      return pre;
-                    },
-                    { ...formConfig.initialValues },
-                  )}
-                >
-                  <Form.Item shouldUpdate noStyle>
-                    {(formInstance) => {
-                      setTimeout(() => {
-                        formInstanceRef.current = formInstance as FormInstance;
-                      }, 0);
-                      return null;
+            </Form.Item>
+            <Row gutter={16} justify="start">
+              <Form.Item label={isForm && ' '} shouldUpdate noStyle>
+                <>{domList}</>
+              </Form.Item>
+              <Col
+                {...colConfig}
+                offset={getOffset(domList.length, colSize)}
+                key="option"
+                className={classNames(`${className}-option`, {
+                  [`${className}-form-option`]: isForm,
+                })}
+              >
+                <Form.Item label={isForm && ' '}>
+                  <FormOption
+                    showCollapseButton={columnsList.length > rowNumber - 1 && !isForm}
+                    searchConfig={searchConfig}
+                    submit={submit}
+                    onReset={onReset}
+                    form={{
+                      ...form,
+                      submit: () => {
+                        submit();
+                        form.submit();
+                      },
                     }}
-                  </Form.Item>
-                  <Row gutter={16} justify="start">
-                    <Form.Item label={isForm && ' '} shouldUpdate noStyle>
-                      <>{domList}</>
-                    </Form.Item>
-                    <Col
-                      {...colConfig}
-                      offset={getOffset(domList.length, colSize)}
-                      key="option"
-                      className={classNames(`${className}-option`, {
-                        [`${className}-form-option`]: isForm,
-                      })}
-                    >
-                      <Form.Item label={isForm && ' '}>
-                        <FormOption
-                          showCollapseButton={columnsList.length > rowNumber - 1 && !isForm}
-                          searchConfig={searchConfig}
-                          submit={submit}
-                          onReset={onReset}
-                          form={{
-                            ...form,
-                            submit: () => {
-                              submit();
-                              form.submit();
-                            },
-                          }}
-                          type={type}
-                          collapse={collapse}
-                          setCollapse={setCollapse}
-                        />
-                      </Form.Item>
-                    </Col>
-                  </Row>
-                </Form>
-              </div>
-            </RcResizeObserver>
-          </div>
-        );
-      }}
-    </ConfigConsumer>
+                    type={type}
+                    collapse={collapse}
+                    setCollapse={setCollapse}
+                  />
+                </Form.Item>
+              </Col>
+            </Row>
+          </Form>
+        </div>
+      </RcResizeObserver>
+    </div>
   );
 };
 

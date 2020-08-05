@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { FormProps } from 'antd/lib/form/Form';
-import { ConfigConsumer, ConfigConsumerProps } from 'antd/lib/config-provider';
+import { ConfigContext } from 'antd/lib/config-provider/context';
 import { SizeType } from 'antd/es/config-provider/SizeContext';
 import classNames from 'classnames';
 import Label from '../../components/Label';
@@ -13,7 +13,7 @@ export interface LightFilterProps extends FormProps, CommonFormProps {
   collapseLabel?: React.ReactNode;
 }
 
-const LightFilterConatiner: React.FC<{
+const LightFilterContainer: React.FC<{
   items: React.ReactNode[];
   prefixCls: string;
   size?: SizeType;
@@ -87,26 +87,21 @@ const LightFilterConatiner: React.FC<{
 
 const LightFilter: React.FC<LightFilterProps> = (props) => {
   const { size, collapse, collapseLabel } = props;
+  const { getPrefixCls } = useContext(ConfigContext);
+  const prefixCls = getPrefixCls('pro-form');
   return (
-    <ConfigConsumer>
-      {({ getPrefixCls }: ConfigConsumerProps) => {
-        const prefixCls = getPrefixCls('pro-form');
-        return (
-          <BaseForm
-            contentRender={(items) => (
-              <LightFilterConatiner
-                prefixCls={prefixCls}
-                items={items}
-                size={size}
-                collapse={collapse}
-                collapseLabel={collapseLabel}
-              />
-            )}
-            {...props}
-          />
-        );
-      }}
-    </ConfigConsumer>
+    <BaseForm
+      contentRender={(items) => (
+        <LightFilterContainer
+          prefixCls={prefixCls}
+          items={items}
+          size={size}
+          collapse={collapse}
+          collapseLabel={collapseLabel}
+        />
+      )}
+      {...props}
+    />
   );
 };
 

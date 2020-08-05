@@ -1,13 +1,11 @@
 ---
-title: 快速开始
+title: ProLayout - 快速开始
 order: 1
 group:
-  path: /layout
-  order: 0
+  path: /
 nav:
-  title: 布局
-  path: /layout
-  order: 0
+  title: 快速开始
+  path: /docs
 ---
 
 Layout 作为协助进行页面级整体布局工具，在每个项目中都必不可少，而且在中后台中是非常雷同的。所以我们抽象了 ProLayout 来减少重复代码，并且吃掉其中的脏逻辑。

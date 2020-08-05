@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import classnames from 'classnames';
-import { ConfigConsumer, ConfigConsumerProps } from 'antd/lib/config-provider/context';
+import { ConfigContext } from 'antd/lib/config-provider/context';
 import './index.less';
 
 /**
@@ -10,23 +10,20 @@ import './index.less';
 const IndexColumn: React.ForwardRefRenderFunction<any, { border?: boolean; children: number }> = (
   { border = false, children },
   ref,
-) => (
-  <ConfigConsumer>
-    {({ getPrefixCls }: ConfigConsumerProps) => {
-      const className = getPrefixCls('pro-field-index-column');
-      return (
-        <div
-          ref={ref}
-          className={classnames(className, {
-            [`${className}-border`]: border,
-            'top-three': (children as number) > 2,
-          })}
-        >
-          {children}
-        </div>
-      );
-    }}
-  </ConfigConsumer>
-);
+) => {
+  const { getPrefixCls } = useContext(ConfigContext);
+  const className = getPrefixCls('pro-field-index-column');
+  return (
+    <div
+      ref={ref}
+      className={classnames(className, {
+        [`${className}-border`]: border,
+        'top-three': (children as number) > 2,
+      })}
+    >
+      {children}
+    </div>
+  );
+};
 
 export default React.forwardRef(IndexColumn);

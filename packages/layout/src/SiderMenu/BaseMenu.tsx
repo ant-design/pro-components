@@ -3,7 +3,7 @@ import Icon, { createFromIconfontCN } from '@ant-design/icons';
 import { Menu } from 'antd';
 import React, { useEffect, useState, useRef, useMemo } from 'react';
 import classNames from 'classnames';
-import useMergeValue from 'use-merge-value';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import { MenuMode, MenuProps } from 'antd/es/menu';
 import { MenuTheme } from 'antd/es/menu/MenuContext';
@@ -256,7 +256,7 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
   const { flatMenuKeys } = MenuCounter.useContainer();
   const [defaultOpenAll, setDefaultOpenAll] = useState(menu.defaultOpenAll);
 
-  const [openKeys, setOpenKeys] = useMergeValue<WithFalse<React.ReactText[] | undefined>>(
+  const [openKeys, setOpenKeys] = useMergedState<WithFalse<React.ReactText[] | undefined>>(
     () => {
       if (menu.defaultOpenAll) {
         return getOpenKeysFromMenuData(menuData) || [];
@@ -272,7 +272,7 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
     },
   );
 
-  const [selectedKeys, setSelectedKeys] = useMergeValue<string[] | undefined>([], {
+  const [selectedKeys, setSelectedKeys] = useMergedState<string[] | undefined>([], {
     value: propsSelectedKeys,
     onChange: onSelect
       ? (keys) => {
