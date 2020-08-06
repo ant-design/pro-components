@@ -91,7 +91,9 @@ const ProDescriptions = <T, U>(props: ProDescriptionsProps<T>) => {
     const options: JSX.Element[] = [];
     const dom = columns.map((itemColumn, index) => {
       const { dataIndex, render } = itemColumn;
-      const data = get(dataSource, dataIndex as string[]);
+      const data = Array.isArray(dataIndex)
+        ? get(dataSource, dataIndex as string[])
+        : dataSource[dataIndex as string];
 
       //  如果 valueType 是 option 的话，应该删除掉
       if (itemColumn.valueType === 'option') {
@@ -115,6 +117,7 @@ const ProDescriptions = <T, U>(props: ProDescriptionsProps<T>) => {
         typeof itemColumn.valueType === 'function'
           ? itemColumn.valueType(data)
           : itemColumn.valueType;
+
       return (
         <Descriptions.Item
           key={Array.isArray(dataIndex) ? dataIndex.join('.') : dataIndex}
