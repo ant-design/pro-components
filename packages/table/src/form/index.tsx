@@ -56,6 +56,10 @@ export interface SearchConfig {
    * 重置按钮的文本
    */
   resetText?: string;
+
+  /**
+   * 配置列数
+   */
   span?: number | typeof defaultColConfig;
   /**
    * 收起按钮的 render
