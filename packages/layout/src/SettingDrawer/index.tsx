@@ -5,6 +5,7 @@ import {
   NotificationOutlined,
   SettingOutlined,
 } from '@ant-design/icons';
+import { isBrowser } from '@ant-design/pro-utils';
 
 import { Button, Divider, Drawer, List, Switch, message, Alert } from 'antd';
 import { createBrowserHistory } from 'history';
@@ -18,7 +19,7 @@ import defaultSettings, { ProSettings } from '../defaultSettings';
 import BlockCheckbox from './BlockCheckbox';
 import ThemeColor from './ThemeColor';
 import getLocales, { getLanguage } from '../locales';
-import { isBrowser, genStringToTheme } from '../utils/utils';
+import { genStringToTheme } from '../utils/utils';
 import LayoutSetting, { renderLayoutSettingItem } from './LayoutChange';
 import RegionalSetting from './RegionalChange';
 

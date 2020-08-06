@@ -1,7 +1,9 @@
 import React, { ReactNode } from 'react';
 import { ConfigConsumer, ConfigConsumerProps } from 'antd/lib/config-provider/context';
-import { Tooltip, Grid, Row, Col } from 'antd';
-import { QuestionCircleOutlined } from '@ant-design/icons';
+import { Grid, Row, Col } from 'antd';
+import { RightOutlined } from '@ant-design/icons';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { LabelIconTip } from '@ant-design/pro-utils';
 import classNames from 'classnames';
 import './style/index.less';
 
@@ -71,30 +73,64 @@ export type ProCardProps = {
    * 是否有边框
    */
   bordered?: boolean;
+  /**
+   * 是否可折叠
+   */
+  collapsible?: boolean;
+  /**
+   * 受控 collapsed 属性
+   */
+  collapsed?: boolean;
+  /**
+   * 配置默认是否折叠
+   */
+  defaultCollapsed?: boolean;
+  /**
+   * 收起卡片的事件
+   */
+  onCollapse?: (collapsed: boolean) => void;
 };
 
 const ProCard: ProCardType = (props) => {
+  const {
+    className,
+    style,
+    bodyStyle = {},
+    headStyle = {},
+    title,
+    extra,
+    tip,
+    layout,
+    loading,
+    colSpan,
+    gutter = 0,
+    split,
+    headerBordered,
+    bordered,
+    children,
+    collapsed: controlCollapsed,
+    collapsible = false,
+    defaultCollapsed = false,
+    onCollapse,
+  } = props;
+
   const screens = useBreakpoint();
+
+  const [collapsed, setCollapsed] = useMergedState<boolean>(defaultCollapsed, {
+    value: controlCollapsed,
+    onChange: onCollapse,
+  });
 
   // 顺序决定如何进行响应式取值，按最大响应值依次取值，请勿修改。
   const responsiveArray: Breakpoint[] = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
 
   /**
-   * 根据条件返回 style，负责返回空对象
-   * @param withStyle 是否符合条件
-   * @param appendStyle 如果符合条件要返回的 style 属性
-   */
-  const getStyle = (withStyle: boolean, appendStyle: React.CSSProperties) => {
-    return withStyle ? appendStyle : {};
-  };
-
-  /**
    * 根据响应式获取 gutter, 参考 antd 实现
    * @param gutter gutter
    */
-  const getNormalizedGutter = (gutter: Gutter | Gutter[]) => {
+  const getNormalizedGutter = (gut: Gutter | Gutter[]) => {
     const results: [number, number] = [0, 0];
-    const normalizedGutter = Array.isArray(gutter) ? gutter : [gutter, 0];
+    const normalizedGutter = Array.isArray(gut) ? gut : [gut, 0];
     normalizedGutter.forEach((g, index) => {
       if (typeof g === 'object') {
         for (let i = 0; i < responsiveArray.length; i += 1) {
@@ -111,27 +147,19 @@ const ProCard: ProCardType = (props) => {
     return results;
   };
 
+  /**
+   * 根据条件返回 style，负责返回空对象
+   * @param withStyle 是否符合条件
+   * @param appendStyle 如果符合条件要返回的 style 属性
+   */
+  const getStyle = (withStyle: boolean, appendStyle: React.CSSProperties) => {
+    return withStyle ? appendStyle : {};
+  };
+
   return (
     <ConfigConsumer>
       {({ getPrefixCls }: ConfigConsumerProps) => {
         const prefixCls = getPrefixCls('pro-card');
-        const {
-          className,
-          style,
-          bodyStyle = {},
-          headStyle = {},
-          title,
-          extra,
-          tip,
-          layout,
-          loading,
-          colSpan,
-          gutter = 0,
-          split,
-          headerBordered,
-          bordered,
-          children,
-        } = props;
 
         const normalizedGutter = getNormalizedGutter(gutter);
 
@@ -214,18 +242,14 @@ const ProCard: ProCardType = (props) => {
 
         const headerCls = classNames(`${prefixCls}-header`, {
           [`${prefixCls}-header-border`]: headerBordered,
+          [`${prefixCls}-header-collapse`]: collapsed,
         });
 
         const bodyCls = classNames(`${prefixCls}-body`, {
           [`${prefixCls}-body-center`]: layout === 'center',
           [`${prefixCls}-body-column`]: split === 'horizontal',
+          [`${prefixCls}-body-collapse`]: collapsed,
         });
-
-        const tipDom = tip && (
-          <Tooltip title={tip}>
-            <QuestionCircleOutlined style={{ marginLeft: 8 }} />
-          </Tooltip>
-        );
 
         const loadingBlockStyle =
           bodyStyle.padding === 0 || bodyStyle.padding === '0px' ? { padding: 24 } : undefined;
@@ -277,13 +301,24 @@ const ProCard: ProCardType = (props) => {
 
         const loadingDOM = React.isValidElement(loading) ? loading : loadingBlock;
 
+        // 非受控情况下展示
+        const collapsibleButton = collapsible && controlCollapsed === undefined && (
+          <RightOutlined
+            rotate={!collapsed ? 90 : undefined}
+            className={`${prefixCls}-collapsible-icon`}
+            onClick={() => {
+              setCollapsed(!collapsed);
+            }}
+          />
+        );
+
         return (
           <div className={cardCls} style={cardStyle}>
-            {(title || extra) && (
+            {(title || extra || collapsibleButton) && (
               <div className={headerCls} style={headStyle}>
                 <div className={`${prefixCls}-title`}>
-                  {title}
-                  {tipDom}
+                  <LabelIconTip label={title} tip={tip} />
+                  {collapsibleButton}
                 </div>
                 <div className={`${prefixCls}-extra`}>{extra}</div>
               </div>

@@ -8,8 +8,9 @@ import warning from 'warning';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { stringify } from 'use-json-comparison';
 import useAntdMediaQuery from 'use-media-antd-query';
-
+import { useDeepCompareEffect, useDocumentTitle, isBrowser } from '@ant-design/pro-utils';
 import Omit from 'omit.js';
+
 import Header, { HeaderViewProps } from './Header';
 import { MenuDataItem, MessageDescriptor, Route, RouterTypes, WithFalse } from './typings';
 import { getPageTitleInfo, GetPageTitleProps } from './getPageTitle';
@@ -22,11 +23,9 @@ import SiderMenu from './SiderMenu';
 import { SiderMenuProps } from './SiderMenu/SiderMenu';
 import { getBreadcrumbProps } from './utils/getBreadcrumbProps';
 import getMenuData from './utils/getMenuData';
-import { isBrowser, useDeepCompareEffect } from './utils/utils';
 import PageLoading from './PageLoading';
 import MenuCounter from './SiderMenu/Counter';
 import WrapContent from './WrapContent';
-import { useDocumentTitle } from './utils/hooks';
 import compatibleLayout from './utils/compatibleLayout';
 
 export type BasicLayoutProps = Partial<RouterTypes<Route>> &
@@ -360,7 +359,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     position: 'relative',
   };
 
-  // if is some layout children，don't need min height
+  // if is some layout children, don't need min height
   if (isChildrenLayout || (contentStyle && contentStyle.minHeight)) {
     genLayoutStyle.minHeight = 0;
   }
@@ -381,7 +380,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   }, [stringify(props.location)]);
   const [hasFooterToolbar, setHasFooterToolbar] = useState(false);
 
-  useDocumentTitle(pageTitleInfo, props.title);
+  useDocumentTitle(pageTitleInfo, props.title || defaultSettings.title);
 
   return (
     <MenuCounter.Provider>

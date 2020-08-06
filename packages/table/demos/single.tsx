@@ -73,6 +73,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     dataIndex: 'title',
     copyable: true,
     ellipsis: true,
+    tip: '标题过长会自动收缩',
     rules: [
       {
         required: true,
@@ -154,36 +155,28 @@ export default () => {
   const actionRef = useRef<ActionType>();
 
   return (
-    <div
-      style={{
-        background: '#f5f5f5',
-        margin: -24,
-        padding: 24,
+    <ProTable<GithubIssueItem>
+      columns={columns}
+      pagination={{
+        showQuickJumper: true,
       }}
-    >
-      <ProTable<GithubIssueItem>
-        columns={columns}
-        pagination={{
-          showQuickJumper: true,
-        }}
-        actionRef={actionRef}
-        request={async (params = {}) =>
-          request<{
-            data: GithubIssueItem[];
-          }>('https://proapi.azurewebsites.net/github/issues', {
-            params,
-          })
-        }
-        rowKey="id"
-        dateFormatter="string"
-        headerTitle="高级表格"
-        toolBarRender={() => [
-          <Button key="3" type="primary">
-            <PlusOutlined />
-            新建
-          </Button>,
-        ]}
-      />
-    </div>
+      actionRef={actionRef}
+      request={async (params = {}) =>
+        request<{
+          data: GithubIssueItem[];
+        }>('https://proapi.azurewebsites.net/github/issues', {
+          params,
+        })
+      }
+      rowKey="id"
+      dateFormatter="string"
+      headerTitle="高级表格"
+      toolBarRender={() => [
+        <Button key="3" type="primary">
+          <PlusOutlined />
+          新建
+        </Button>,
+      ]}
+    />
   );
 };

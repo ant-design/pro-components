@@ -117,6 +117,7 @@ ref.current.clearSelected();
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | title | 与 antd 中基本相同，但是支持通过传入一个方法 | `ReactNode \| ((config: ProColumnType<T>, type: ProTableTypes) => ReactNode)` | - |
+| tip | 会在 title 之后展示一个 icon，hover 之后提示一些信息 | string | - |
 | renderText | 类似 table 的 render，但是必须返回 string，如果只是希望转化枚举，可以使用 [valueEnum](#valueEnum) | `(text: any,record: T,index: number,action: UseFetchDataAction<RequestData<T>>) => string` | - |
 | render | 类似 table 的 render，第一个参数变成了 dom,增加了第四个参数 action | `(text: React.ReactNode,record: T,index: number,action: UseFetchDataAction<RequestData<T>>) => React.ReactNode \| React.ReactNode[]` | - |
 | ellipsis | 是否自动缩略 | boolean | - |
@@ -287,15 +288,15 @@ const valueEnum = (row) =>
 
 #### 日期类
 
-<code src="../demos/valueTypeDate.tsx" />
+<code src="../demos/valueTypeDate.tsx" background="#f5f5f5"/>
 
 #### 数字类
 
-<code src="../demos/valueTypeNumber.tsx" />
+<code src="../demos/valueTypeNumber.tsx" background="#f5f5f5"/>
 
 #### 样式类
 
-<code src="../demos/valueType.tsx" />
+<code src="../demos/valueType.tsx" background="#f5f5f5"/>
 
 ## Table 搜索表单
 
@@ -401,15 +402,15 @@ renderFormItem: (_, { type, defaultRender, ...rest }, form) => {
   ) => JSX.Element | false | null;
 ```
 
-<code src="../demos/linkage_form.tsx" />
+<code src="../demos/linkage_form.tsx" background="#f5f5f5"/>
 
 #### 搜索表单例子
 
-<code src="../demos/search.tsx" />
+<code src="../demos/search.tsx" background="#f5f5f5"/>
 
 ## 操作栏
 
-<code src="../demos/search_option.tsx" />
+<code src="../demos/search_option.tsx" background="#f5f5f5"/>
 
 ## 国际化
 
@@ -465,46 +466,46 @@ const enUSIntl = createIntl('en_US', enUS);
 
 ### 国际化示例
 
-<code src="../demos/intl.tsx" />
+<code src="../demos/intl.tsx" background="#f5f5f5"/>
 
 ## 示例
 
 这里将会提供一些常用的功能示例，方便大家直接拷贝。
 
-### 示例
+### 基本使用
 
-<code src="../demos/single.tsx" />
+<code src="../demos/single.tsx" background="#f5f5f5"/>
 
 ### 批量操作
 
-<code src="../demos/batchOption.tsx" />
+<code src="../demos/batchOption.tsx" background="#f5f5f5"/>
 
 ### toolbar 搜索
 
-<code src="../demos/search.tsx" />
+<code src="../demos/search.tsx" background="#f5f5f5"/>
 
 ### form 操作
 
-<code src="../demos/form.tsx" />
+<code src="../demos/form.tsx" background="#f5f5f5"/>
 
 ### 使用 dataSource 和 loading
 
-<code src="../demos/dataSource.tsx" />
+<code src="../demos/dataSource.tsx" background="#f5f5f5"/>
 
 ### 受控的列显示隐藏
 
 可以默认隐藏某些栏，但是在操作栏中可以选择
 
-<code src="../demos/columnsStateMap.tsx" />
+<code src="../demos/columnsStateMap.tsx" background="#f5f5f5"/>
 
 ### 轮询
 
-<code src="../demos/pollinga.tsx" />
+<code src="../demos/pollinga.tsx" background="#f5f5f5"/>
 
 ### 嵌套表格
 
-<code src="../demos/table-nested.tsx" />
+<code src="../demos/table-nested.tsx" background="#f5f5f5"/>
 
 ### 自定义表格的主体
 
-<code src="../demos/renderTable.tsx" />
+<code src="../demos/renderTable.tsx" background="#f5f5f5"/>
