@@ -13,7 +13,12 @@ export interface UseFetchDataAction<T extends RequestData<any>> {
 
 const useFetchData = <T extends RequestData<any>>(
   getData: () => Promise<T>,
+  options?: {
+    effects?: any[];
+    onRequestError?: (e: Error) => void;
+  },
 ): UseFetchDataAction<T> => {
+  const { onRequestError, effects = [] } = options || {};
   const [list, setList] = useState<T['data']>({} as any);
   const [loading, setLoading] = useState<boolean | undefined>(undefined);
 
@@ -33,11 +38,11 @@ const useFetchData = <T extends RequestData<any>>(
       }
     } catch (e) {
       // 如果没有传递这个方法的话，需要把错误抛出去，以免吞掉错误
-      //   if (onRequestError === undefined) {
-      //     throw new Error(e);
-      //   } else {
-      //     onRequestError(e);
-      //   }
+      if (onRequestError === undefined) {
+        throw new Error(e);
+      } else {
+        onRequestError(e);
+      }
     } finally {
       setLoading(false);
     }
@@ -45,7 +50,7 @@ const useFetchData = <T extends RequestData<any>>(
 
   useEffect(() => {
     fetchList();
-  }, []);
+  }, [effects]);
 
   return {
     dataSource: list,

@@ -9,6 +9,7 @@ import Field, {
   ProRenderFieldProps,
 } from '@ant-design/pro-field';
 import get from 'rc-util/lib/utils/get';
+import { stringify } from 'use-json-comparison';
 import { ProColumnType } from '@ant-design/pro-table';
 import { DescriptionsItemProps } from 'antd/lib/descriptions/Item';
 import { DescriptionsProps } from 'antd/lib/descriptions';
@@ -25,16 +26,23 @@ export type ProDescriptionsProps<T = {}> = DescriptionsProps & {
    * todo
    */
   params: { [key: string]: any };
+
   /**
    * 获取数据的方法
    */
-  request?: () => Promise<RequestData<T>>;
+  request?: (params: { [key: string]: any }) => Promise<RequestData<T>>;
+
   columns?: Omit<ProColumnType<T>, 'renderFormItem'>[];
 
   /**
    * 一些简单的操作
    */
   actionRef: React.MutableRefObject<ActionType | undefined>;
+
+  /**
+   * 数据加载失败时触发
+   */
+  onRequestError?: (e: Error) => void;
 };
 
 export type ProDescriptionsItemProps = Omit<DescriptionsItemProps, 'children'> &
@@ -62,17 +70,23 @@ export type ProDescriptionsItemProps = Omit<DescriptionsItemProps, 'children'> &
     children?: React.ReactNode;
   };
 
-const ProDescriptionsItem: React.FC<ProDescriptionsItemProps> = (props) => {
+const ProDescriptionsItem: React.FC<ProDescriptionsItemProps> = props => {
   return <Descriptions.Item {...props}>{props.children}</Descriptions.Item>;
 };
 
 const ProDescriptions = <T, U>(props: ProDescriptionsProps<T>) => {
-  const { request, columns, actionRef, ...rest } = props;
+  const { request, columns, params = {}, actionRef, onRequestError, ...rest } = props;
 
-  const action = useFetchData<RequestData<T>>(async () => {
-    const data = request ? await request() : { data: {} };
-    return data;
-  });
+  const action = useFetchData<RequestData<T>>(
+    async () => {
+      const data = request ? await request(params) : { data: {} };
+      return data;
+    },
+    {
+      onRequestError,
+      effects: [stringify(params)],
+    },
+  );
 
   /**
    * 支持 reload 的功能
@@ -95,7 +109,7 @@ const ProDescriptions = <T, U>(props: ProDescriptionsProps<T>) => {
         options.push(
           <Field
             mode="read"
-            render={(text) => (render ? render(text, data, index) : text)}
+            render={text => (render ? render(text, data, index) : text)}
             valueType="option"
             text={data}
           />,
@@ -120,7 +134,7 @@ const ProDescriptions = <T, U>(props: ProDescriptionsProps<T>) => {
           <Field
             valueEnum={itemColumn.valueEnum}
             mode="read"
-            render={(text) => (render ? render(text, data, index) : text)}
+            render={text => (render ? render(text, data, index) : text)}
             valueType={valueType}
             // request={itemColumn.request}
             text={data || itemColumn.title}
