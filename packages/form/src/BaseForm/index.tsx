@@ -59,8 +59,10 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
   const items = React.Children.toArray(children);
   const submitterProps: Omit<SubmitterProps, 'form'> =
     typeof submitter === 'boolean' || !submitter ? {} : submitter;
+
   const submitterNode =
     submitter === false ? null : <Submitter {...submitterProps} form={realForm} />;
+
   const content = contentRender ? contentRender(items, submitterNode) : items;
   return (
     // 增加国际化的能力，与 table 组件可以统一
