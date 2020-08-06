@@ -1,10 +1,11 @@
 import React, { ReactNode } from 'react';
 import { ConfigConsumer, ConfigConsumerProps } from 'antd/lib/config-provider/context';
-import { Grid, Row, Col } from 'antd';
+import { Grid } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { LabelIconTip } from '@ant-design/pro-utils';
 import classNames from 'classnames';
+import CardLoading from './cardLoading';
 import './style/index.less';
 
 const { useBreakpoint } = Grid;
@@ -254,52 +255,11 @@ const ProCard: ProCardType = (props) => {
         const loadingBlockStyle =
           bodyStyle.padding === 0 || bodyStyle.padding === '0px' ? { padding: 24 } : undefined;
 
-        const loadingBlock = (
-          <div className={`${prefixCls}-loading-content`} style={loadingBlockStyle}>
-            <Row gutter={8}>
-              <Col span={22}>
-                <div className={`${prefixCls}-loading-block`} />
-              </Col>
-            </Row>
-            <Row gutter={8}>
-              <Col span={8}>
-                <div className={`${prefixCls}-loading-block`} />
-              </Col>
-              <Col span={15}>
-                <div className={`${prefixCls}-loading-block`} />
-              </Col>
-            </Row>
-            <Row gutter={8}>
-              <Col span={6}>
-                <div className={`${prefixCls}-loading-block`} />
-              </Col>
-              <Col span={18}>
-                <div className={`${prefixCls}-loading-block`} />
-              </Col>
-            </Row>
-            <Row gutter={8}>
-              <Col span={13}>
-                <div className={`${prefixCls}-loading-block`} />
-              </Col>
-              <Col span={9}>
-                <div className={`${prefixCls}-loading-block`} />
-              </Col>
-            </Row>
-            <Row gutter={8}>
-              <Col span={4}>
-                <div className={`${prefixCls}-loading-block`} />
-              </Col>
-              <Col span={3}>
-                <div className={`${prefixCls}-loading-block`} />
-              </Col>
-              <Col span={16}>
-                <div className={`${prefixCls}-loading-block`} />
-              </Col>
-            </Row>
-          </div>
+        const loadingDOM = React.isValidElement(loading) ? (
+          loading
+        ) : (
+          <CardLoading prefix={prefixCls} style={loadingBlockStyle} />
         );
-
-        const loadingDOM = React.isValidElement(loading) ? loading : loadingBlock;
 
         // 非受控情况下展示
         const collapsibleButton = collapsible && controlCollapsed === undefined && (
