@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { usePrevious, useDebounceFn } from './component/util';
+import { usePrevious, useDebounceFn } from '@ant-design/pro-utils';
 
 export interface RequestData<T> {
   data: T[];

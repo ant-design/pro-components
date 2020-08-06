@@ -1,14 +1,13 @@
 import { useEffect } from 'react';
-import { isBrowser } from './utils';
-import defaultSettings from '../defaultSettings';
+import isBrowser from '../../isBrowser';
 
-export function useDocumentTitle(
+function useDocumentTitle(
   titleInfo: {
     title: string;
     id: string;
     pageName: string;
   },
-  appDefaultTitle: string = defaultSettings.title,
+  appDefaultTitle: string,
 ) {
   const titleText = typeof titleInfo.pageName === 'string' ? titleInfo.title : appDefaultTitle;
   useEffect(() => {
@@ -17,3 +16,5 @@ export function useDocumentTitle(
     }
   }, [titleInfo.title]);
 }
+
+export default useDocumentTitle;
