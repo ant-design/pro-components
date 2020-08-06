@@ -11,31 +11,43 @@ exports[`demos renders ./packages/card/demos/basic.tsx correctly 1`] = `
     <div
       class="ant-pro-card-title"
     >
-      标题
-      <span
-        aria-label="question-circle"
-        class="anticon anticon-question-circle"
-        role="img"
-        style="margin-left: 8px;"
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center ant-pro-core-label-tip"
       >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="question-circle"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <div
+          class="ant-space-item"
+          style="margin-right: 4px;"
         >
-          <path
-            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-          />
-          <path
-            d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
-          />
-        </svg>
-      </span>
+          标题
+        </div>
+        <div
+          class="ant-space-item"
+        >
+          <span
+            aria-label="info-circle"
+            class="anticon anticon-info-circle ant-pro-core-label-tip-icon"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="info-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+              />
+              <path
+                d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
     </div>
     <div
       class="ant-pro-card-extra"
@@ -62,31 +74,43 @@ exports[`demos renders ./packages/card/demos/bordered.tsx correctly 1`] = `
     <div
       class="ant-pro-card-title"
     >
-      标题
-      <span
-        aria-label="question-circle"
-        class="anticon anticon-question-circle"
-        role="img"
-        style="margin-left: 8px;"
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center ant-pro-core-label-tip"
       >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="question-circle"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <div
+          class="ant-space-item"
+          style="margin-right: 4px;"
         >
-          <path
-            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-          />
-          <path
-            d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
-          />
-        </svg>
-      </span>
+          标题
+        </div>
+        <div
+          class="ant-space-item"
+        >
+          <span
+            aria-label="info-circle"
+            class="anticon anticon-info-circle ant-pro-core-label-tip-icon"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="info-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+              />
+              <path
+                d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
     </div>
     <div
       class="ant-pro-card-extra"
@@ -511,31 +535,43 @@ exports[`demos renders ./packages/card/demos/headerBordered.tsx correctly 1`] = 
     <div
       class="ant-pro-card-title"
     >
-      标题
-      <span
-        aria-label="question-circle"
-        class="anticon anticon-question-circle"
-        role="img"
-        style="margin-left: 8px;"
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center ant-pro-core-label-tip"
       >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="question-circle"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <div
+          class="ant-space-item"
+          style="margin-right: 4px;"
         >
-          <path
-            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-          />
-          <path
-            d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
-          />
-        </svg>
-      </span>
+          标题
+        </div>
+        <div
+          class="ant-space-item"
+        >
+          <span
+            aria-label="info-circle"
+            class="anticon anticon-info-circle ant-pro-core-label-tip-icon"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="info-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+              />
+              <path
+                d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
     </div>
     <div
       class="ant-pro-card-extra"
@@ -18137,7 +18173,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              🐛[BUG]yarn install命令 antd2.4.5会报错
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -18290,7 +18330,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              🐛[BUG]无法创建工程npm create umi
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -18443,7 +18487,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              🧐[问题] build 后还存在 es6 的代码（Umi@2.13.13）
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -18596,7 +18644,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              2.3.1版本如何在业务页面修改头部状态
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -18749,7 +18801,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              hideChildrenInMenu设置后，子路由找不到了
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -18902,7 +18958,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              🐛[BUG]Umi UI 添加多个空白页，就会出错！把空白页都变成选中状态！
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -19055,7 +19115,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              🐛[BUG]第一次载入页面，菜单仅图标时，图标没有居中
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -19208,7 +19272,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              build(deps-dev): bump eslint from 6.8.0 to 7.1.0
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -19361,7 +19429,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              V4版本如何使用第三方的enhanceReduxMiddleware 🧐[问题]
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -19514,7 +19586,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              🐛[BUG] 官网预览页面，第一次点击二级菜单，其父级菜单会收起，之后再次点击二级菜单，父菜单正常
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -19656,7 +19732,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              🧐[问题] 从自建 block 仓库下载区块报错。
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -19809,7 +19889,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              🧐[问题] fetchCurrent接口报错，退出登录页，第一次点击登录，SecurityLayout不渲染，导致需要点击两次
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -19962,7 +20046,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              🐛[BUG] V5 左侧栏收缩时，点击图标无效。
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -20115,7 +20203,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              🧐[问题]不知道有没有大佬将这个模板迁移至Electron的例子
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -20268,7 +20360,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              npm run start 为什么不能打开浏览器
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -20421,7 +20517,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              🧐[问题]在重新npm install后运行npm start报出一些less找不到，但项目可以正常运行起来
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -20574,7 +20674,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              🐛[BUG]错误通知：http code 200
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -20727,7 +20831,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              🐛[BUG]线上预览项目好多布局错乱，不知道是antd的锅还是啥原因
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -20869,7 +20977,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              🐛[BUG] umi 偶尔出现没有导出成员
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
@@ -21022,7 +21134,11 @@ exports[`demos renders ./packages/table/demos/batchOption.tsx correctly 1`] = `
                               class="ant-typography ant-typography-ellipsis"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              🐛[BUG]请问大佬，为什么无论怎么选择，都无法切换成JS语言，怎么下都是TS,求解答
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
                               <div
                                 aria-label="Copy"
                                 class="ant-typography-copy"
