@@ -8,6 +8,7 @@ import Field, {
   ProFieldFCMode,
   ProRenderFieldProps,
 } from '@ant-design/pro-field';
+import { LabelIconTip } from '@ant-design/pro-utils';
 import get from 'rc-util/lib/utils/get';
 import { ProColumnType } from '@ant-design/pro-table';
 import { DescriptionsItemProps } from 'antd/lib/descriptions/Item';
@@ -24,7 +25,7 @@ export type ProDescriptionsProps<T = {}> = DescriptionsProps & {
    * params 改变的时候会触发 reload
    * todo
    */
-  params: { [key: string]: any };
+  params?: { [key: string]: any };
   /**
    * 获取数据的方法
    */
@@ -34,7 +35,7 @@ export type ProDescriptionsProps<T = {}> = DescriptionsProps & {
   /**
    * 一些简单的操作
    */
-  actionRef: React.MutableRefObject<ActionType | undefined>;
+  actionRef?: React.MutableRefObject<ActionType | undefined>;
 };
 
 export type ProDescriptionsItemProps = Omit<DescriptionsItemProps, 'children'> &
@@ -60,6 +61,8 @@ export type ProDescriptionsItemProps = Omit<DescriptionsItemProps, 'children'> &
     request?: () => Promise<any>;
 
     children?: React.ReactNode;
+
+    tip?: string;
   };
 
 const ProDescriptionsItem: React.FC<ProDescriptionsItemProps> = (props) => {
@@ -115,7 +118,7 @@ const ProDescriptions = <T, U>(props: ProDescriptionsProps<T>) => {
       return (
         <Descriptions.Item
           key={Array.isArray(dataIndex) ? dataIndex.join('.') : dataIndex}
-          label={itemColumn.title}
+          label={<LabelIconTip label={itemColumn.title} tip={itemColumn.tip} />}
         >
           <Field
             valueEnum={itemColumn.valueEnum}
@@ -158,7 +161,11 @@ const ProDescriptions = <T, U>(props: ProDescriptionsProps<T>) => {
     if (request && !columns && dataIndex) {
       const { dataSource = {} } = action;
       return (
-        <Descriptions.Item {...restItem} key={restItem.label?.toString() || index}>
+        <Descriptions.Item
+          {...restItem}
+          key={restItem.label?.toString() || index}
+          label={<LabelIconTip label={restItem.label} tip={restItem.tip} />}
+        >
           <Field
             valueEnum={valueEnum}
             mode={mode || 'read'}
@@ -189,7 +196,11 @@ const ProDescriptions = <T, U>(props: ProDescriptionsProps<T>) => {
     }
 
     const field = (
-      <Descriptions.Item {...restItem} key={restItem.label?.toString() || index}>
+      <Descriptions.Item
+        {...restItem}
+        key={restItem.label?.toString() || index}
+        label={<LabelIconTip label={restItem.label} tip={restItem.tip} />}
+      >
         <Field
           valueEnum={valueEnum}
           mode={mode || 'read'}

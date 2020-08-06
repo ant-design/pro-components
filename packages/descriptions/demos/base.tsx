@@ -12,7 +12,7 @@ export default () => {
           <Button type="primary">提交</Button>
         </ProDescriptions.Item>
         <ProDescriptions.Item label="文本">这是一段文本</ProDescriptions.Item>
-        <ProDescriptions.Item label="金额" valueType="money">
+        <ProDescriptions.Item label="金额" tip="仅供参考，以实际为准" valueType="money">
           100
         </ProDescriptions.Item>
         <ProDescriptions.Item label="百分比" valueType="percent">
@@ -59,12 +59,7 @@ export default () => {
           {moment().valueOf()}
         </ProDescriptions.Item>
         <ProDescriptions.Item label="日期区间" valueType="dateTimeRange">
-          {[
-            moment()
-              .add(-1, 'd')
-              .valueOf(),
-            moment().valueOf(),
-          ]}
+          {[moment().add(-1, 'd').valueOf(), moment().valueOf()]}
         </ProDescriptions.Item>
         <ProDescriptions.Item label="时间" valueType="time">
           {moment().valueOf()}
