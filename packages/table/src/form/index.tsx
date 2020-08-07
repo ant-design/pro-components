@@ -379,8 +379,13 @@ const conversionValue = (
       return;
     }
 
-    // 如果是 moment 的对象的处理方式
     // 如果执行到这里，肯定是 ['date', 'dateRange', 'dateTimeRange', 'dateTime', 'time'] 之一
+    // 选择日期再清空之后会出现itemValue为 null 的情况，需要删除
+    if (!itemValue) {
+      return;
+    }
+
+    // 如果是 moment 的对象的处理方式
     if (moment.isMoment(itemValue) && dateFormatter) {
       if (dateFormatter === 'string') {
         const formatString = dateFormatterMap[valueType as 'dateTime'];
@@ -398,9 +403,10 @@ const conversionValue = (
       if (dateFormatter === 'string') {
         const formatString = dateFormatterMap[valueType as 'dateTime'];
         const [startValue, endValue] = itemValue;
+        // 后端需要日期/时间范围会有[null,date]或者[date,null]的情况
         tmpValue[key] = [
-          moment(startValue as Moment).format(formatString || 'YYYY-MM-DD HH:mm:ss'),
-          moment(endValue as Moment).format(formatString || 'YYYY-MM-DD HH:mm:ss'),
+          startValue && moment(startValue as Moment).format(formatString || 'YYYY-MM-DD HH:mm:ss'),
+          endValue && moment(endValue as Moment).format(formatString || 'YYYY-MM-DD HH:mm:ss'),
         ];
         return;
       }
