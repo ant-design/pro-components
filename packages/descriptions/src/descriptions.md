@@ -57,8 +57,8 @@ nav:
 | tip | 内容的补充描述 | string | - |
 | span | 包含列的数量 | number | 1 | - |
 | valueType | 格式化的类型 | ValueType | - |
-| valueEnum | 当前列值的枚举 [valueEnum](/components/table#valueenum) | `{[key:string|number]:any}` | - |
-| request | 从网络请求枚举数据 | `()=>Promise<{[key:string|number]:any}>` | - |
-| dataIndex | 返回数据的 key 与 ProDescriptions 的 request 配合使用，用于配置式的定义列表 | `React.Text | React.Text[]` | - |
+| valueEnum | 当前列值的枚举 [valueEnum](/components/table#valueenum) | `{[key:string`\|`number]:any}` | - |
+| request | 从网络请求枚举数据 | `()=>Promise<{[key:string`\|`number]:any}>` | - |
+| dataIndex | 返回数据的 key 与 ProDescriptions 的 request 配合使用，用于配置式的定义列表 | `React.Text` \| `React.Text[]` | - |
 
 > span 是 Description.Item 的数量。 span={2} 会占用两个 DescriptionItem 的宽度。

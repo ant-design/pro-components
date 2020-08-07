@@ -50,7 +50,7 @@ const useFetchData = <T extends RequestData<any>>(
 
   useEffect(() => {
     fetchList();
-  }, [effects]);
+  }, effects);
 
   return {
     dataSource: list,
