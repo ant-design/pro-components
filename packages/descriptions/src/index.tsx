@@ -24,9 +24,12 @@ export type ProDescriptionsProps<T = {}> = DescriptionsProps & {
   /**
    * params 参数
    * params 改变的时候会触发 reload
-   * todo
    */
   params?: { [key: string]: any };
+  /**
+   * 网络请求报错
+   */
+  onRequestError?: (e: Error) => void;
   /**
    * 获取数据的方法
    */
@@ -67,7 +70,7 @@ export type ProDescriptionsItemProps = Omit<DescriptionsItemProps, 'children'> &
     tip?: string;
   };
 
-const ProDescriptionsItem: React.FC<ProDescriptionsItemProps> = props => {
+const ProDescriptionsItem: React.FC<ProDescriptionsItemProps> = (props) => {
   return <Descriptions.Item {...props}>{props.children}</Descriptions.Item>;
 };
 
@@ -108,7 +111,7 @@ const ProDescriptions = <T, U>(props: ProDescriptionsProps<T>) => {
         options.push(
           <Field
             mode="read"
-            render={text => (render ? render(text, data, index) : text)}
+            render={(text) => (render ? render(text, data, index) : text)}
             valueType="option"
             text={data}
           />,
@@ -134,7 +137,7 @@ const ProDescriptions = <T, U>(props: ProDescriptionsProps<T>) => {
           <Field
             valueEnum={itemColumn.valueEnum}
             mode="read"
-            render={text => (render ? render(text, data, index) : text)}
+            render={(text) => (render ? render(text, data, index) : text)}
             valueType={valueType}
             // request={itemColumn.request}
             text={data || itemColumn.title}

@@ -348,10 +348,24 @@ Form 的列是根据 `valueType` 来生成不同的类型。
 | searchText | 查询按钮的文本 | string | 查询 |
 | resetText | 重置按钮的文本 | string | 重置 |
 | submitText | 提交按钮的文本 | string | 提交 |
+| span | 配置查询表单的列数 | [`number | ColConfig`](#ColConfig) | defaultColConfig |
 | collapseRender | 收起按钮的 render | `(collapsed: boolean,showCollapseButton?: boolean,) => React.ReactNode` | - |
 | collapsed | 是否收起 | boolean | - |
 | onCollapse | 收起按钮的事件 | `(collapsed: boolean) => void;` | - |
 | optionRender | 操作栏的 render | `(( searchConfig: Omit<SearchConfig, 'optionRender'>, props: Omit<FormOptionProps, 'searchConfig'>, ) => React.ReactNode) \| false;` | - |
+
+#### ColConfig
+
+```tsx
+const defaultColConfig = {
+  xs: 24,
+  sm: 24,
+  md: 12,
+  lg: 12,
+  xl: 8,
+  xxl: 6,
+};
+```
 
 #### Columns
 
