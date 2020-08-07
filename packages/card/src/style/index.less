@@ -127,8 +127,8 @@
 
 .loop-grid-columns(@index) when (@index > 0) {
   .@{pro-card-prefix-cls}-span-@{index} {
-    display: block;
     width: percentage((@index / @grid-columns));
+    flex-shrink: 0;
   }
   .loop-grid-columns((@index - 1));
 }
