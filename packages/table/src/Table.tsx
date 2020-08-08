@@ -374,7 +374,6 @@ const columnRender = <T, U = any>({
   if (!action.current) {
     return null;
   }
-
   const renderTextStr = renderText(
     proFieldParsingText(text, valueEnum),
     row,
@@ -433,8 +432,12 @@ const genColumnList = <T, U = {}>(
 ): (ColumnsType<T>[number] & { index?: number })[] =>
   (columns
     .map((item, columnsIndex) => {
-      const { key, dataIndex, valueEnum, title, filters = [] } = item;
+      const { key, dataIndex, valueEnum, valueType, title, filters = [] } = item;
       const columnKey = genColumnKey(key, dataIndex, columnsIndex);
+      const noNeedPro = !dataIndex && !valueEnum && !valueType;
+      if (noNeedPro) {
+        return item;
+      }
       const config = columnKey ? map[columnKey] || { fixed: item.fixed } : { fixed: item.fixed };
       const tempColumns = {
         onFilter: (value: string, record: T) => {
