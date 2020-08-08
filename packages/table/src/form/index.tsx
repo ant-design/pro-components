@@ -9,7 +9,7 @@ import { ConfigContext } from 'antd/lib/config-provider';
 import { DownOutlined } from '@ant-design/icons';
 import { useIntl, IntlType } from '@ant-design/pro-provider';
 import classNames from 'classnames';
-import ProField from '@ant-design/pro-field';
+import ProField, { ProFieldValueType } from '@ant-design/pro-field';
 import { useDeepCompareEffect, ProSchemaComponentTypes } from '@ant-design/pro-utils';
 
 import { genColumnKey } from '../component/util';
@@ -148,7 +148,9 @@ export const FormInputRender: React.FC<{
   const { valueType: itemValueType } = item;
   // if function， run it
   const valueType =
-    (typeof itemValueType === 'function' ? itemValueType({}) : itemValueType) || 'text';
+    ((typeof itemValueType === 'function'
+      ? (itemValueType({}) as ProFieldValueType)
+      : itemValueType) as ProFieldValueType) || 'text';
   /**
    * 自定义 render
    */
@@ -363,7 +365,7 @@ const conversionValue = (
 
   Object.keys(value).forEach((key) => {
     const column = proColumnsMap[key || 'null'] || {};
-    const valueType = column.valueType || 'text';
+    const valueType = (column.valueType as ProFieldValueType) || 'text';
     const itemValue = value[key];
 
     // 如果值是 "all"，或者不存在直接删除
