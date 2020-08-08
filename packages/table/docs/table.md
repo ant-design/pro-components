@@ -8,7 +8,7 @@ nav:
   path: /components
 ---
 
-# ProTable
+# ProTable - 高级表格
 
 ## 使用
 
@@ -43,7 +43,7 @@ render(
 
 ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，并且封装了一些行为。这里只列出与 antd Table 不同的 api。
 
-## Table
+### Table 表格的 props
 
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -72,19 +72,33 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | tableExtraRender | 自定义表格的主体函数 | `(props: ProTableProps<T, U>, dataSource: T[]) => React.ReactNode;` | - |
 | manualRequest | 是否需要手动触发首次请求, 配置为 `true` 时不可隐藏搜索表单 | `boolean` | false |
 
-### search
+#### Search 搜索表单
 
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | searchText | 查询按钮的文本 | string | 查询 |
 | resetText | 重置按钮的文本 | string | 重置 |
 | submitText | 提交按钮的文本 | string | 提交 |
+| span | 配置查询表单的列数 | [`number | ColConfig`](#ColConfig) | defaultColConfig |
 | collapseRender | 收起按钮的 render | `(collapsed: boolean,showCollapseButton?: boolean,) => React.ReactNode` | - |
 | collapsed | 是否收起 | boolean | - |
 | onCollapse | 收起按钮的事件 | `(collapsed: boolean) => void;` | - |
 | optionRender | 操作栏的 render | `(( searchConfig: Omit<SearchConfig, 'optionRender'>, props: Omit<FormOptionProps, 'searchConfig'>, ) => React.ReactNode) \| false;` | - |
 
-### actionRef
+#### ColConfig
+
+```tsx
+const defaultColConfig = {
+  xs: 24,
+  sm: 24,
+  md: 12,
+  lg: 12,
+  xl: 8,
+  xxl: 6,
+};
+```
+
+#### ActionRef 手动触发
 
 有时我们要手动触发 table 的 reload 等操作，可以使用 actionRef。
 
@@ -112,7 +126,7 @@ ref.current.reset();
 ref.current.clearSelected();
 ```
 
-## Columns
+### Columns 列定义
 
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -132,56 +146,11 @@ ref.current.clearSelected();
 | renderFormItem | 渲染查询表单的输入组件 | `(item,props:{value,onChange}) => React.ReactNode` | - |
 | formItemProps | 查询表单的 props，会透传给表单项 | `{ [prop: string]: any }` | - |
 
-### valueType
-
-现在支持的值如下
-
-| 类型 | 描述 | 示例 |
-| --- | --- | --- |
-| money | 转化值为金额 | ¥10,000.26 |
-| date | 日期 | 2019-11-16 |
-| dateRange | 日期区间 | 2019-11-16 2019-11-18 |
-| dateTime | 日期和时间 | 2019-11-16 12:50:00 |
-| dateTimeRange | 日期和时间区间 | 2019-11-16 12:50:00 2019-11-18 12:50:00 |
-| time | 时间 | 12:50:00 |
-| option | 操作项，会自动增加 marginRight，只支持一个数组,表单中会自动忽略 | `[<a>操作a</a>,<a>操作b</a>]` |
-| text | 默认值，不做任何处理 | - |
-| textarea | 与 text 相同， form 转化时会转为 textarea 组件 | - |
-| index | 序号列 | - |
-| indexBorder | 带 border 的序号列 | - |
-| progress | 进度条 | - |
-| digit | [格式化](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)数字展示，form 转化时会转为 inputNumber | - |
-
-### valueEnum
-
-当前列值的枚举
-
-```typescript | pure
-interface IValueEnum {
-  [key: string]:
-    | React.ReactNode
-    | {
-        text: React.ReactNode;
-        status: 'Success' | 'Error' | 'Processing' | 'Warning' | 'Default';
-      };
-}
-```
-
-## 批量操作
-
-与 antd 相同，批量操作需要设置 `rowSelection` 来开启，与 antd 不同的是，pro-table 提供了一个 alert 用于承载一些信息。你可以通过 `tableAlertRender` 来对它进行自定义。设置或者返回 false 即可关闭。
-
-| 属性 | 描述 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| tableAlertRender | 渲染 alert，当配置 `rowSelection`打开。 | `(keys:string[],rows:T[]) => React.ReactNode[]` | `已选择 ${selectedRowKeys.length} 项` |
-| rowSelection | 表格行是否可选择，[配置项](https://ant.design/components/table-cn/#rowSelection) | object | false |
-| tableAlertOptionRender | 自定义渲染 alert 操作区，设为 false 则不显示 | `(props: { intl: IntlType; onCleanSelected: () => void }) => React.ReactNode` | false |
-
-## 值类型
+### 值类型
 
 ProTable 封装了一些常用的值类型来减少重复的 `render` 操作，配置一个`valueType` 即可展示格式化响应的数据。
 
-### valueType
+#### valueType
 
 现在支持的值如下
 
@@ -204,7 +173,7 @@ ProTable 封装了一些常用的值类型来减少重复的 `render` 操作，�
 | code | 代码块 | `const a = b` |
 | avatar | 头像 | 展示一个头像 |
 
-### 传入 function
+#### 传入 function
 
 只有一个值并不能表现很多类型，`progress` 就是一个很好的例子。所以我们支持传入一个 function。你可以这样使用：
 
@@ -298,7 +267,32 @@ const valueEnum = (row) =>
 
 <code src="../demos/valueType.tsx" background="#f5f5f5"/>
 
-## Table 搜索表单
+### valueEnum
+
+当前列值的枚举
+
+```typescript | pure
+interface IValueEnum {
+  [key: string]:
+    | React.ReactNode
+    | {
+        text: React.ReactNode;
+        status: 'Success' | 'Error' | 'Processing' | 'Warning' | 'Default';
+      };
+}
+```
+
+## 批量操作
+
+与 antd 相同，批量操作需要设置 `rowSelection` 来开启，与 antd 不同的是，pro-table 提供了一个 alert 用于承载一些信息。你可以通过 `tableAlertRender` 来对它进行自定义。设置或者返回 false 即可关闭。
+
+| 属性 | 描述 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| tableAlertRender | 渲染 alert，当配置 `rowSelection`打开。 | `(keys:string[],rows:T[]) => React.ReactNode[]` | `已选择 ${selectedRowKeys.length} 项` |
+| rowSelection | 表格行是否可选择，[配置项](https://ant.design/components/table-cn/#rowSelection) | object | false |
+| tableAlertOptionRender | 自定义渲染 alert 操作区，设为 false 则不显示 | `(props: { intl: IntlType; onCleanSelected: () => void }) => React.ReactNode` | false |
+
+## 搜索表单
 
 ProTable 会根据列来生成一个 Form，用于筛选列表数据，最后的值会根据通过 `request` 的第一个参数返回，看起来就像。
 
@@ -328,56 +322,6 @@ Form 的列是根据 `valueType` 来生成不同的类型。
 | progress | 不展示 |
 
 设置了 `valueEnum` 的列将会生成 Select,Select 会自动插入一个全部选项，并且默认选中，但是值为 `all` 在查询时会被丢弃。
-
-### 相关 API
-
-#### ProTable
-
-| 属性 | 描述 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| onLoad | 数据加载完成后触发,会多次触发 | `(dataSource: T[]) => void` | - |
-| onRequestError | 数据加载失败时触发 | `(e: Error) => void` | - |
-| beforeSearchSubmit | 搜索之前进行一些修改 | `(params:T)=>T` | - |
-| search | 是否显示搜索表单，传入对象时为搜索表单的配置 | `boolean \| { span?: number \| DefaultColConfig,searchText?: string, resetText?: string, collapseRender?: (collapsed: boolean) => React.ReactNode, collapsed:boolean, onCollapse: (collapsed:boolean)=> void }` | true |
-| dateFormatter | moment 的格式化方式,默认会转化成 string | `"string" \| "number" \| false` | string |
-
-#### search
-
-| 属性 | 描述 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| searchText | 查询按钮的文本 | string | 查询 |
-| resetText | 重置按钮的文本 | string | 重置 |
-| submitText | 提交按钮的文本 | string | 提交 |
-| span | 配置查询表单的列数 | [`number | ColConfig`](#ColConfig) | defaultColConfig |
-| collapseRender | 收起按钮的 render | `(collapsed: boolean,showCollapseButton?: boolean,) => React.ReactNode` | - |
-| collapsed | 是否收起 | boolean | - |
-| onCollapse | 收起按钮的事件 | `(collapsed: boolean) => void;` | - |
-| optionRender | 操作栏的 render | `(( searchConfig: Omit<SearchConfig, 'optionRender'>, props: Omit<FormOptionProps, 'searchConfig'>, ) => React.ReactNode) \| false;` | - |
-
-#### ColConfig
-
-```tsx
-const defaultColConfig = {
-  xs: 24,
-  sm: 24,
-  md: 12,
-  lg: 12,
-  xl: 8,
-  xxl: 6,
-};
-```
-
-#### Columns
-
-| 属性 | 描述 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| valueEnum | 值的枚举，会自动转化把值当成 key 来取出要显示的内容 | [valueEnum](#valueEnum) | - |
-| valueType | 值的类型 | `'money' \| 'option' \| 'date' \| 'dateTime' \| 'time' \| 'text'\| 'index' \| 'indexBorder'` | 'text' |
-| hideInSearch | 在查询表单中不展示此项 | boolean | - |
-| hideInTable | 在 Table 中不展示此列 | boolean | - |
-| showFilters | 开启该列的表头的筛选菜单项，配合 valueEnum 使用 | boolean | false |
-| formItemProps | 查询表单的 props，会透传给表单项 | `{ [prop: string]: any }` | - |
-| renderFormItem | 渲染查询表单的输入组件 | `(item,props:{value,onChange}) => React.ReactNode` | - |
 
 ### 自定义表单项
 

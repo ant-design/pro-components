@@ -86,15 +86,13 @@ const expandedRowRender = () => {
       columns={[
         { title: 'Date', dataIndex: 'date', key: 'date' },
         { title: 'Name', dataIndex: 'name', key: 'name' },
-        {
-          title: 'Status',
-          key: 'state',
-        },
+
         { title: 'Upgrade Status', dataIndex: 'upgradeNum', key: 'upgradeNum' },
         {
           title: 'Action',
           dataIndex: 'operation',
           key: 'operation',
+          valueType: 'option',
           render: () => [<a>Pause</a>, <a>Stop</a>],
         },
       ]}
