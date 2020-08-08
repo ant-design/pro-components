@@ -1,37 +1,22 @@
 import React, { ReactNode, useState, useImperativeHandle, useEffect, useRef } from 'react';
 import { Select } from 'antd';
+import { ProSchemaValueEnumMap, ProSchemaValueEnumObj } from '@ant-design/pro-utils';
 import TableStatus, { ProFieldStatusType } from '../Status';
 import { ProFieldFC } from '../../index';
 
+export type ProFieldValueEnumType = ProSchemaValueEnumMap | ProSchemaValueEnumObj;
+
 export const ObjToMap = (
-  value: ProFieldValueEnumObj | ProFieldValueEnumMap | undefined,
-): ProFieldValueEnumMap | undefined => {
+  value: ProFieldValueEnumType | undefined,
+): ProSchemaValueEnumMap | undefined => {
   if (!value) {
     return value;
   }
   if (getType(value) === 'map') {
-    return value as ProFieldValueEnumMap;
+    return value as ProSchemaValueEnumMap;
   }
   return new Map(Object.entries(value));
 };
-
-export type ProFieldValueEnumObj = {
-  [key: string]:
-    | {
-        text: ReactNode;
-        status: ProFieldStatusType;
-      }
-    | ReactNode;
-};
-
-export type ProFieldValueEnumMap = Map<
-  React.ReactText,
-  | {
-      text: ReactNode;
-      status: ProFieldStatusType;
-    }
-  | ReactNode
->;
 
 /**
  * 转化 text 和 valueEnum
@@ -42,7 +27,7 @@ export type ProFieldValueEnumMap = Map<
  */
 export const proFieldParsingText = (
   text: string | number,
-  valueEnumParams?: ProFieldValueEnumMap | ProFieldValueEnumObj,
+  valueEnumParams?: ProFieldValueEnumType,
   pure?: boolean,
 ) => {
   const valueEnum = ObjToMap(valueEnumParams);
@@ -92,7 +77,7 @@ function getType(obj: any) {
  * @param valueEnum
  */
 export const proFieldParsingValueEnumToArray = (
-  valueEnumParams: ProFieldValueEnumMap | ProFieldValueEnumObj | undefined = new Map(),
+  valueEnumParams: ProFieldValueEnumType | undefined = new Map(),
 ): {
   value: string | number;
   text: string;
@@ -146,7 +131,7 @@ export type FieldSelectProps = {
   /**
    * 值的枚举，如果存在枚举，Search 中会生成 select
    */
-  valueEnum?: ProFieldValueEnumMap | ProFieldValueEnumObj;
+  valueEnum?: ProFieldValueEnumType;
 
   /**
    * 从服务器读取选项

@@ -12,6 +12,18 @@ import usePrevious from './hooks/usePrevious';
 import useDeepCompareEffect from './hooks/useDeepCompareEffect';
 import useDocumentTitle from './hooks/useDocumentTitle';
 
+/**
+ * type
+ */
+import {
+  ProSchema,
+  ProSchemaValueEnumMap,
+  ProSchemaValueEnumObj,
+  ProSchemaComponentTypes,
+} from './typing';
+
+export type { ProSchema, ProSchemaComponentTypes, ProSchemaValueEnumMap, ProSchemaValueEnumObj };
+
 export {
   LabelIconTip,
   useDocumentTitle,

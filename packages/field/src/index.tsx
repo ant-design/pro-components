@@ -14,8 +14,7 @@ import FieldText from './components/Text';
 import FieldTextArea from './components/TextArea';
 import FieldStatus from './components/Status';
 import FiledSelect, {
-  ProFieldValueEnumMap,
-  ProFieldValueEnumObj,
+  ProFieldValueEnumType,
   RequestData,
   proFieldParsingText,
   proFieldParsingValueEnumToArray,
@@ -24,7 +23,7 @@ import FieldDigit from './components/Digit';
 
 export type ProFieldTextType = string | number | React.ReactText[] | Moment | Moment[] | null;
 
-export type { ProFieldValueEnumMap, ProFieldValueEnumObj };
+export type { ProFieldValueEnumType };
 export type ProFieldEmptyText = string | false;
 
 /**
@@ -83,7 +82,7 @@ type BaseProFieldFC = {
   /**
    * 映射值的类型
    */
-  valueEnum?: ProFieldValueEnumMap | ProFieldValueEnumObj;
+  valueEnum?: ProFieldValueEnumType;
 };
 
 /**
