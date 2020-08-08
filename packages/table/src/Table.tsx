@@ -16,9 +16,13 @@ import get from 'rc-util/lib/utils/get';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { stringify } from 'use-json-comparison';
 import { ColumnsType, TablePaginationConfig, TableProps, ColumnType } from 'antd/lib/table';
-import { ColumnFilterItem } from 'antd/lib/table/interface';
 import { FormItemProps, FormProps, FormInstance } from 'antd/lib/form';
-import { TableCurrentDataSource, SorterResult, SortOrder } from 'antd/lib/table/interface';
+import {
+  TableCurrentDataSource,
+  SorterResult,
+  SortOrder,
+  ColumnFilterItem,
+} from 'antd/lib/table/interface';
 import { ConfigContext as AntdConfigContext } from 'antd/lib/config-provider';
 import {
   ProFieldEmptyText,
