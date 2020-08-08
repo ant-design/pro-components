@@ -76,7 +76,12 @@ export default () => {
               主操作
             </Button>,
           ]}
-          footer={[<Button>重置</Button>, <Button type="primary">提交</Button>]}
+          footer={[
+            <Button key="3">重置</Button>,
+            <Button key="2" type="primary">
+              提交
+            </Button>,
+          ]}
         >
           <div
             style={{
