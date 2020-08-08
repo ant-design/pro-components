@@ -45,7 +45,7 @@ const FieldCode: ProFieldFC<{
       </pre>
     );
     if (render) {
-      return render(code, { mode, ...formItemProps }, dom);
+      return render(code, { mode, ...formItemProps, ref }, dom);
     }
     return dom;
   }
@@ -55,11 +55,11 @@ const FieldCode: ProFieldFC<{
       dom = <Input {...formItemProps} ref={ref} />;
     }
     if (renderFormItem) {
-      return renderFormItem(code, { mode, ...formItemProps }, dom);
+      return renderFormItem(code, { mode, ...formItemProps, ref }, dom);
     }
     return dom;
   }
   return null;
 };
 
-export default FieldCode;
+export default React.forwardRef(FieldCode);
