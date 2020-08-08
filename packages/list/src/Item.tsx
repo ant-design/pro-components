@@ -2,9 +2,9 @@ import React from 'react';
 import { List, Skeleton, Avatar } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { AvatarProps } from 'antd/es/avatar';
-import { ListGridType } from 'antd/es/list';
-import { ExpandableConfig } from 'antd/es/table/interface';
+import { AvatarProps } from 'antd/lib/avatar';
+import { ListGridType } from 'antd/lib/list';
+import { ExpandableConfig } from 'antd/lib/table/interface';
 import classNames from 'classnames';
 
 import getPrefixCls from './util/getPrefixCls';

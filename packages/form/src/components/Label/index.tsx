@@ -1,7 +1,7 @@
 import React from 'react';
 import { DownOutlined, CloseOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
-import { SizeType } from 'antd/es/config-provider/SizeContext';
+import { SizeType } from 'antd/lib/config-provider/SizeContext';
 import './index.less';
 
 export interface LabelProps {
@@ -31,7 +31,7 @@ const Label: React.FC<LabelProps> = (props) => {
     className,
     style,
   } = props;
-  const prefixCls = `${customizePrefixCls}-lightfilter-label`;
+  const prefixCls = `${customizePrefixCls}-light-filter-label`;
   // TODO 国际化
   const locale = {
     itemUnit: '项',

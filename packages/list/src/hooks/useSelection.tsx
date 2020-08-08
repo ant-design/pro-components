@@ -10,9 +10,9 @@ import {
   SelectionItem,
   ExpandType,
   ColumnType,
-} from 'antd/es/table/interface';
+} from 'antd/lib/table/interface';
 import { Checkbox, Dropdown, Menu, Radio } from 'antd';
-import { CheckboxProps } from 'antd/es/checkbox';
+import { CheckboxProps } from 'antd/lib/checkbox';
 
 const EMPTY_LIST: any[] = [];
 

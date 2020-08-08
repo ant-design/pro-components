@@ -1,5 +1,5 @@
 import H from 'history';
-import { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/es/breadcrumb';
+import { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/lib/breadcrumb';
 import React from 'react';
 import pathToRegexp from 'path-to-regexp';
 import { isBrowser } from '@ant-design/pro-utils';

@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect, useRef, useCallback } from 'react';
-import { FormInstance, FormItemProps, FormProps } from 'antd/es/form';
+import { FormInstance, FormItemProps, FormProps } from 'antd/lib/form';
 import { Form, Row, Col } from 'antd';
 import moment, { Moment } from 'moment';
 import RcResizeObserver from 'rc-resize-observer';
@@ -10,12 +10,11 @@ import { DownOutlined } from '@ant-design/icons';
 import { useIntl, IntlType } from '@ant-design/pro-provider';
 import classNames from 'classnames';
 import ProField from '@ant-design/pro-field';
-import { useDeepCompareEffect } from '@ant-design/pro-utils';
+import { useDeepCompareEffect, ProSchemaComponentTypes } from '@ant-design/pro-utils';
 
 import { genColumnKey } from '../component/util';
 import Container from '../container';
 import { ProColumnsValueTypeFunction } from '../defaultRender';
-import { ProTableTypes } from '../Table';
 import { ProColumns, ProColumnsValueType } from '../index';
 import FormOption, { FormOptionProps } from './FormOption';
 import './index.less';
@@ -130,7 +129,7 @@ export interface TableFormItem<T> extends Omit<FormItemProps, 'children'> {
   onSubmit?: (value: T) => void;
   onReset?: () => void;
   form?: Omit<FormProps, 'form'>;
-  type?: ProTableTypes;
+  type?: ProSchemaComponentTypes;
   dateFormatter?: 'string' | 'number' | false;
   search?: boolean | SearchConfig;
   formRef?: React.MutableRefObject<FormInstance | undefined> | ((actionRef: FormInstance) => void);
@@ -140,7 +139,7 @@ export const FormInputRender: React.FC<{
   item: ProColumns<any>;
   value?: any;
   form?: FormInstance;
-  type: ProTableTypes;
+  type: ProSchemaComponentTypes;
   intl: IntlType;
   onChange?: (value: any) => void;
   onSelect?: (value: any) => void;
@@ -261,7 +260,7 @@ export const FormInputRender: React.FC<{
 export const proFormItemRender: (props: {
   item: ProColumns<any>;
   isForm: boolean;
-  type: ProTableTypes;
+  type: ProSchemaComponentTypes;
   intl: IntlType;
   formInstance?: FormInstance;
   colConfig:
@@ -379,8 +378,13 @@ const conversionValue = (
       return;
     }
 
-    // 如果是 moment 的对象的处理方式
     // 如果执行到这里，肯定是 ['date', 'dateRange', 'dateTimeRange', 'dateTime', 'time'] 之一
+    // 选择日期再清空之后会出现itemValue为 null 的情况，需要删除
+    if (!itemValue) {
+      return;
+    }
+
+    // 如果是 moment 的对象的处理方式
     if (moment.isMoment(itemValue) && dateFormatter) {
       if (dateFormatter === 'string') {
         const formatString = dateFormatterMap[valueType as 'dateTime'];
@@ -398,9 +402,10 @@ const conversionValue = (
       if (dateFormatter === 'string') {
         const formatString = dateFormatterMap[valueType as 'dateTime'];
         const [startValue, endValue] = itemValue;
+        // 后端需要日期/时间范围会有[null,date]或者[date,null]的情况
         tmpValue[key] = [
-          moment(startValue as Moment).format(formatString || 'YYYY-MM-DD HH:mm:ss'),
-          moment(endValue as Moment).format(formatString || 'YYYY-MM-DD HH:mm:ss'),
+          startValue && moment(startValue as Moment).format(formatString || 'YYYY-MM-DD HH:mm:ss'),
+          endValue && moment(endValue as Moment).format(formatString || 'YYYY-MM-DD HH:mm:ss'),
         ];
         return;
       }

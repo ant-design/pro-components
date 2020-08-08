@@ -1,34 +1,33 @@
 import './index.less';
 
-import React, {
-  useEffect,
-  useContext,
-  CSSProperties,
-  useRef,
-  useState,
-  ReactNode,
-  useCallback,
-} from 'react';
-import { Table, ConfigProvider, Card, Space, Typography, Empty, Tooltip } from 'antd';
+import React, { useEffect, useContext, CSSProperties, useRef, useState, useCallback } from 'react';
+import { Table, ConfigProvider, Card, Space, Empty } from 'antd';
 import { useIntl, IntlType, ParamsType, ConfigProviderWarp } from '@ant-design/pro-provider';
 import classNames from 'classnames';
 import get from 'rc-util/lib/utils/get';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { stringify } from 'use-json-comparison';
-import { ColumnsType, TablePaginationConfig, TableProps, ColumnType } from 'antd/es/table';
-import { ColumnFilterItem } from 'antd/es/table/interface';
-import { FormItemProps, FormProps, FormInstance } from 'antd/es/form';
-import { TableCurrentDataSource, SorterResult, SortOrder } from 'antd/lib/table/interface';
+import { ColumnsType, TablePaginationConfig, TableProps, ColumnType } from 'antd/lib/table';
+import { FormItemProps, FormProps } from 'antd/lib/form';
+import {
+  TableCurrentDataSource,
+  SorterResult,
+  SortOrder,
+  ColumnFilterItem,
+} from 'antd/lib/table/interface';
 import { ConfigContext as AntdConfigContext } from 'antd/lib/config-provider';
 import {
   ProFieldEmptyText,
   ProFieldValueType,
-  ProFieldValueEnumMap,
-  ProFieldValueEnumObj,
   proFieldParsingText,
   proFieldParsingValueEnumToArray,
 } from '@ant-design/pro-field';
-import { useDeepCompareEffect, LabelIconTip } from '@ant-design/pro-utils';
+import {
+  useDeepCompareEffect,
+  ProSchema,
+  ProSchemaComponentTypes,
+  LabelIconTip,
+} from '@ant-design/pro-utils';
 import { noteOnce } from 'rc-util/lib/warning';
 
 import useFetchData, { UseFetchDataAction, RequestData } from './useFetchData';
@@ -40,7 +39,8 @@ import {
   checkUndefinedOrNull,
   genColumnKey,
   removeObjectNull,
-  reduceWidth,
+  genCopyable,
+  genEllipsis,
 } from './component/util';
 
 import defaultRenderText, { ProColumnsValueTypeFunction } from './defaultRender';
@@ -65,115 +65,63 @@ export interface ColumnsState {
   fixed?: 'right' | 'left' | undefined;
 }
 
-export interface ProColumnType<T = unknown>
-  extends Omit<ColumnType<T>, 'render' | 'children' | 'title' | 'filters'>,
-    Partial<Omit<FormItemProps, 'children'>> {
-  index?: number;
-  title?:
-    | ReactNode
-    | ((config: ProColumnType<T>, type: ProTableTypes, dom: ReactNode) => ReactNode);
-  /**
-   * 自定义 render
-   */
-  render?: (
-    text: React.ReactNode,
-    record: T,
-    index: number,
-    action?: UseFetchDataAction<RequestData<T>>,
-  ) => React.ReactNode | React.ReactNode[];
+export type ExtraProColumnType<T> = Omit<
+  ColumnType<T>,
+  'render' | 'children' | 'title' | 'filters'
+> &
+  Partial<Omit<FormItemProps, 'children'>>;
 
-  /**
-   * 自定义 render，但是需要返回 string
-   */
-  renderText?: (
-    text: any,
-    record: T,
-    index: number,
-    action: UseFetchDataAction<RequestData<T>>,
-  ) => any;
+export type ProColumnType<T = unknown> = ProSchema<
+  T,
+  ProFieldValueType | ProColumnsValueTypeFunction<T>,
+  ExtraProColumnType<T> & {
+    index?: number;
 
-  /**
-   * 自定义搜索 form 的输入
-   */
-  renderFormItem?: (
-    item: ProColumns<T>,
-    config: {
-      value?: any;
-      onChange?: (value: any) => void;
-      onSelect?: (value: any) => void;
-      type: ProTableTypes;
-      defaultRender: (newItem: ProColumns<any>) => JSX.Element | null;
-    },
-    form: FormInstance,
-  ) => JSX.Element | false | null;
+    /**
+     * 搜索表单的默认值
+     */
+    initialValue?: any;
 
-  /**
-   * 搜索表单的 props
-   */
-  formItemProps?: { [prop: string]: any };
+    /**
+     * 是否缩略
+     */
+    ellipsis?: boolean;
+    /**
+     * 是否拷贝
+     */
+    copyable?: boolean;
+    /**
+     * 在查询表单中隐藏
+     */
+    hideInSearch?: boolean;
 
-  /**
-   * 搜索表单的默认值
-   */
-  initialValue?: any;
+    /**
+     * 在 table 中隐藏
+     */
+    hideInTable?: boolean;
 
-  /**
-   * 是否缩略
-   */
-  ellipsis?: boolean;
-  /**
-   * 是否拷贝
-   */
-  copyable?: boolean;
+    /**
+     * 在新建表单中删除
+     */
+    hideInForm?: boolean;
 
-  /**
-   * 值的类型
-   */
-  valueType?: ProFieldValueType | ProColumnsValueTypeFunction<T>;
+    /**
+     * 表头的筛选菜单项
+     */
+    filters?: boolean | ColumnFilterItem[];
 
-  /**
-   * 值的枚举，如果存在枚举，Search 中会生成 select
-   */
-  valueEnum?: ProFieldValueEnumMap | ProFieldValueEnumObj;
-
-  /**
-   * 在查询表单中隐藏
-   */
-  hideInSearch?: boolean;
-
-  /**
-   * 在 table 中隐藏
-   */
-  hideInTable?: boolean;
-
-  /**
-   * 在新建表单中删除
-   */
-  hideInForm?: boolean;
-
-  /**
-   * 表头的筛选菜单项
-   */
-  filters?: boolean | ColumnFilterItem[];
-
-  /**
-   * form 的排序
-   */
-  order?: number;
-  /**
-   *展示一个 icon，hover icon 的
-   */
-  tip?: string;
-}
+    /**
+     * form 的排序
+     */
+    order?: number;
+  }
+>;
 
 export interface ProColumnGroupType<RecordType> extends ProColumnType<RecordType> {
   children: ProColumns<RecordType>;
 }
 
 export type ProColumns<T = {}> = ProColumnGroupType<T> | ProColumnType<T>;
-
-// table 支持的变形，还未完全支持完毕
-export type ProTableTypes = 'form' | 'list' | 'table' | 'cardList' | undefined;
 
 export interface ProTableProps<T, U extends ParamsType>
   extends Omit<TableProps<T>, 'columns' | 'rowSelection'> {
@@ -321,7 +269,7 @@ export interface ProTableProps<T, U extends ParamsType>
   /**
    * 支持 ProTable 的类型
    */
-  type?: ProTableTypes;
+  type?: ProSchemaComponentTypes;
 
   /**
    * 提交表单时触发
@@ -402,42 +350,6 @@ interface ColumnRenderInterface<T> {
 }
 
 /**
- * 生成 Ellipsis 的 tooltip
- * @param dom
- * @param item
- * @param text
- */
-const genEllipsis = (dom: React.ReactNode, item: ProColumns<any>, text: string) => {
-  if (!item.ellipsis) {
-    return dom;
-  }
-  return (
-    <Tooltip title={text}>
-      <span>{dom}</span>
-    </Tooltip>
-  );
-};
-
-const genCopyable = (dom: React.ReactNode, item: ProColumns<any>) => {
-  if (item.copyable || item.ellipsis) {
-    return (
-      <Typography.Paragraph
-        style={{
-          width: reduceWidth(item.width),
-          margin: 0,
-          padding: 0,
-        }}
-        copyable={item.copyable}
-        ellipsis={item.ellipsis}
-      >
-        {dom}
-      </Typography.Paragraph>
-    );
-  }
-  return dom;
-};
-
-/**
  * 这个组件负责单元格的具体渲染
  * @param param0
  */
@@ -454,7 +366,6 @@ const columnRender = <T, U = any>({
   if (!action.current) {
     return null;
   }
-
   const renderTextStr = renderText(
     proFieldParsingText(text, valueEnum),
     row,
@@ -463,7 +374,7 @@ const columnRender = <T, U = any>({
   );
   const textDom = defaultRenderText<T, {}>(
     renderTextStr,
-    item.valueType || 'text',
+    (item.valueType as ProFieldValueType) || 'text',
     index,
     row,
     columnEmptyText,
@@ -476,7 +387,7 @@ const columnRender = <T, U = any>({
   );
 
   if (item.render) {
-    const renderDom = item.render(dom, row, index, action.current);
+    const renderDom = item.render(dom, row, index, action.current, item);
 
     // 如果是合并单元格的，直接返回对象
     if (
@@ -513,8 +424,12 @@ const genColumnList = <T, U = {}>(
 ): (ColumnsType<T>[number] & { index?: number })[] =>
   (columns
     .map((item, columnsIndex) => {
-      const { key, dataIndex, valueEnum, title, filters = [] } = item;
+      const { key, dataIndex, valueEnum, valueType, title, filters = [] } = item;
       const columnKey = genColumnKey(key, dataIndex, columnsIndex);
+      const noNeedPro = !dataIndex && !valueEnum && !valueType;
+      if (noNeedPro) {
+        return item;
+      }
       const config = columnKey ? map[columnKey] || { fixed: item.fixed } : { fixed: item.fixed };
       const tempColumns = {
         onFilter: (value: string, record: T) => {

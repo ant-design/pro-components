@@ -8,11 +8,13 @@ nav:
   path: /docs
 ---
 
+# ProLayout - 快速开始
+
 Layout 作为协助进行页面级整体布局工具，在每个项目中都必不可少，而且在中后台中是非常雷同的。所以我们抽象了 ProLayout 来减少重复代码，并且吃掉其中的脏逻辑。
 
 ## 布局
 
-Layout 的基础能力就是布局，在 ProLayout 中我们抽象了三种布局方式，分别的 `side`,`top` 和 `mix`。 我们可以使用 layout 属性来切换他们,在[这里](http://localhost:8000/_demos/base)可以做一个简单的尝试。
+Layout 的基础能力就是布局，在 ProLayout 中我们抽象了三种布局方式，分别的 `side`,`top` 和 `mix`。 我们可以使用 layout 属性来切换他们,在[这里](/_demos/base-2)可以做一个简单的尝试。
 
 ### side 模式
 

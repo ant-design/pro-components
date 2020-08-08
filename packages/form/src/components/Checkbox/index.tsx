@@ -1,67 +1,64 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Form, Checkbox } from 'antd';
+import classNames from 'classnames';
+import { ConfigContext as AntdConfigContext } from 'antd/lib/config-provider';
 import { CheckboxGroupProps, CheckboxProps } from 'antd/lib/checkbox';
-import CheckboxGroup from 'antd/lib/checkbox/Group';
 import { createField } from '../../BaseForm';
 import { ProFormItemProps } from '../../interface';
 
-export type ProFormCheckboxGroupProps = ProFormItemProps &
-  CheckboxGroupProps & {
-    layout?: 'horizontal' | 'vertical';
-  };
+import './index.less';
+
+export type ProFormCheckboxGroupProps = ProFormItemProps<CheckboxGroupProps> & {
+  layout?: 'horizontal' | 'vertical';
+  options: CheckboxGroupProps['options'];
+};
 
 const Group: React.FC<ProFormCheckboxGroupProps> = ({
-  value,
-  layout,
+  layout = 'horizontal',
   options,
   children,
+  fieldProps,
+  className,
   ...restProps
 }) => {
+  const { getPrefixCls } = useContext(AntdConfigContext);
+  const layoutClassName = getPrefixCls('pro-form-checkbox');
   return (
-    <Form.Item valuePropName="checked" {...restProps}>
-      <CheckboxGroup {...restProps}>
-        {options
-          ? options.map((option) => {
-              if (typeof option === 'string') {
-                return <Checkbox value={option}>{option}</Checkbox>;
-              }
-              return (
-                <Checkbox
-                  style={
-                    layout === 'vertical'
-                      ? {
-                          display: 'block',
-                          marginLeft: 0,
-                        }
-                      : undefined
-                  }
-                  value={option?.value}
-                >
-                  {option?.label}
-                </Checkbox>
-              );
-            })
-          : children}
-      </CheckboxGroup>
+    <Form.Item {...restProps}>
+      <Checkbox.Group
+        {...fieldProps}
+        className={classNames(fieldProps?.className, `${layoutClassName}-${layout}`)}
+        options={options?.map((option) => {
+          if (typeof option === 'string') {
+            return {
+              label: option,
+              value: option,
+            };
+          }
+          return option;
+        })}
+      />
     </Form.Item>
   );
 };
+
+export type ProFormCheckboxProps = ProFormItemProps<CheckboxProps>;
 
 /**
  * 多选框的
  * @param
  */
-const ProFormCheckbox: React.FC<ProFormItemProps & CheckboxProps> = ({ value, ...restProps }) => {
+const ProFormCheckbox: React.FC<ProFormCheckboxProps> = ({ fieldProps, ...restProps }) => {
   return (
     <Form.Item valuePropName="checked" {...restProps}>
-      <Checkbox {...restProps} />
+      <Checkbox {...fieldProps} />
     </Form.Item>
   );
 };
 
-const WrappedProFormCheckbox: React.ComponentType<ProFormItemProps & CheckboxProps> & {
+const WrappedProFormCheckbox: React.ComponentType<ProFormCheckboxProps> & {
   Group: React.ComponentType<ProFormCheckboxGroupProps>;
-} = createField<ProFormItemProps & CheckboxProps>(ProFormCheckbox) as any;
+} = createField<ProFormCheckboxProps>(ProFormCheckbox) as any;
 
 WrappedProFormCheckbox.Group = createField(Group);
 

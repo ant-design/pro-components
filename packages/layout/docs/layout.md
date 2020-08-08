@@ -309,54 +309,13 @@ ProLayout 提供了强大的 menu，但是这样必然会封装很多行为，�
 
 <code src="../demos/hideMenu.tsx" />
 
-### 相关 API 展示
-
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| title | layout 的 左上角 的 title | ReactNode | `'Ant Design Pro'` |
-| logo | layout 的 左上角 logo 的 url | ReactNode \| ()=>ReactNode | - |
-| loading | layout 的加载态 | boolean | - |
-| menuHeaderRender | 渲染 logo 和 title | ReactNode \| (logo,title)=>ReactNode | - |
-| menuRender | 自定义菜单的 render 方法 | (props: HeaderViewProps) => ReactNode | - |
-| layout | layout 的菜单模式,side：右侧导航，top：顶部导航 | 'side' \| 'top' | `'side'` |
-| breakpoint | 触发响应式布局的[断点](https://ant.design/components/grid-cn/#Col) | `Enum { 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' }` | `lg` |
-| menuItemRender | 自定义菜单项的 render 方法 | (itemProps: MenuDataItem) => ReactNode | - |
-| subMenuItemRender | 自定义拥有子菜单菜单项的 render 方法 | (itemProps: MenuDataItem) => ReactNode | - |
-| menu | 关于 menu 的配置，暂时只有 locale,locale 可以关闭 menu 的自带的全球化 | { locale: boolean, defaultOpenAll: boolean } | `{ locale: true }` |
-| iconfontUrl | 使用 [IconFont](https://ant.design/components/icon-cn/#components-icon-demo-iconfont) 的图标配置 | string | - |
-| siderWidth | 侧边菜单宽度 | number | 256 |
-| collapsed | 控制菜单的收起和展开 | boolean | true |
-| onCollapse | 菜单的折叠收起事件 | (collapsed: boolean) => void | - |
-| disableMobile | 禁止自动切换到移动页面 | boolean | false |
-| links | 显示在菜单右下角的快捷操作 | ReactNode[] | - |
-| menuProps | 传递到 antd menu 组件的 props, 参考 (https://ant.design/components/menu-cn/) | MenuProps | undefined |
-
-在 4.5.13 以后 Layout 通过 `menuProps` 支持 [Menu](https://ant.design/components/menu-cn/#Menu) 的大部分 props。
-
-## footer 的各种操作
-
-ProLayout 默认不提供页脚，要是和 Pro 官网相同的样式，需要自己引入一下页脚。
+## Example 展示
 
 ### 自定义页脚
 
+ProLayout 默认不提供页脚，要是和 Pro 官网相同的样式，需要自己引入一下页脚。
+
 <code src="../demos/footer.tsx" />
-
-### 相关 API 展示
-
-#### ProLayout
-
-| 参数         | 说明                     | 类型                                   | 默认值 |
-| ------------ | ------------------------ | -------------------------------------- | ------ |
-| footerRender | 自定义页脚的 render 方法 | (props: BasicLayoutProps) => ReactNode | -      |
-
-#### DefaultFooter
-
-| 参数      | 说明           | 类型                                               | 默认值 |
-| --------- | -------------- | -------------------------------------------------- | ------ |
-| links     | 默认自带的一些 | false \| `{key:string,title:string,href:string}[]` | -      |
-| copyright | 版权声明文字   | ReactNode                                          | -      |
-
-## Example 展示
 
 这里用于展示 ProLayout 的各种应用，如果你觉得你的用法能帮助到别人，欢迎 PR。
 

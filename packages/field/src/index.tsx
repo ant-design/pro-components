@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import { Avatar } from 'antd';
 import { Moment } from 'moment';
+import { pickProProps } from '@ant-design/pro-utils';
 import FieldPercent from './components/Percent';
 import FieldIndexColumn from './components/IndexColumn';
 import FieldProgress from './components/Progress';
@@ -13,8 +14,7 @@ import FieldText from './components/Text';
 import FieldTextArea from './components/TextArea';
 import FieldStatus from './components/Status';
 import FiledSelect, {
-  ProFieldValueEnumMap,
-  ProFieldValueEnumObj,
+  ProFieldValueEnumType,
   ProFieldRequestData,
   proFieldParsingText,
   proFieldParsingValueEnumToArray,
@@ -23,6 +23,7 @@ import FieldDigit from './components/Digit';
 
 export type ProFieldTextType = string | number | React.ReactText[] | Moment | Moment[] | null;
 
+export type { ProFieldValueEnumType };
 export type ProFieldEmptyText = string | false;
 
 /**
@@ -81,7 +82,7 @@ type BaseProFieldFC = {
   /**
    * 映射值的类型
    */
-  valueEnum?: ProFieldValueEnumMap | ProFieldValueEnumObj;
+  valueEnum?: ProFieldValueEnumType;
 };
 
 /**
@@ -142,6 +143,7 @@ const defaultRenderTextByObject = (
   valueType: ProFieldValueObjectType,
   props: RenderProps = { mode: 'read', plain: false },
 ) => {
+  const pickFormItemProps = pickProProps(props.formItemProps);
   if (valueType.type === 'progress') {
     return (
       <FieldProgress
@@ -149,13 +151,20 @@ const defaultRenderTextByObject = (
         text={text as number}
         formItemProps={{
           status: valueType.status ? valueType.status : undefined,
-          ...props.formItemProps,
+          ...pickFormItemProps,
         }}
       />
     );
   }
   if (valueType.type === 'money') {
-    return <FieldMoney {...props} text={text as number} locale={valueType.locale} />;
+    return (
+      <FieldMoney
+        {...props}
+        formItemProps={pickFormItemProps}
+        text={text as number}
+        locale={valueType.locale}
+      />
+    );
   }
   if (valueType.type === 'percent') {
     return (
@@ -164,6 +173,7 @@ const defaultRenderTextByObject = (
         text={text as number}
         showSymbol={valueType.showSymbol}
         precision={valueType.precision}
+        formItemProps={pickFormItemProps}
       />
     );
   }
@@ -289,23 +299,24 @@ const Field: React.ForwardRefRenderFunction<
     valueType?: ProFieldValueType | ProFieldValueObjectType;
   } & RenderProps
 > = ({ text, valueType = 'text', onChange, value, ...rest }, ref) => {
+  const formItemProps = (value || onChange || rest?.formItemProps) && {
+    ...rest?.formItemProps,
+    value,
+    onChange,
+  };
   return (
     <React.Fragment>
       {defaultRenderText(text || '', valueType, {
         ...rest,
         mode: rest.mode || 'read',
         ref,
-        formItemProps: (value || onChange || rest?.formItemProps) && {
-          ...rest?.formItemProps,
-          value,
-          onChange,
-        },
+        formItemProps: pickProProps(formItemProps),
       })}
     </React.Fragment>
   );
 };
 
-export type { ProFieldValueEnumMap, ProFieldRequestData, ProFieldValueEnumObj };
+export type { ProFieldRequestData };
 
 export {
   FieldPercent,

@@ -3,15 +3,12 @@ import { Descriptions, Space } from 'antd';
 import toArray from 'rc-util/lib/Children/toArray';
 import Field, {
   ProFieldValueType,
-  ProFieldValueEnumMap,
-  ProFieldValueEnumObj,
   ProFieldFCMode,
   ProRenderFieldProps,
 } from '@ant-design/pro-field';
-import { LabelIconTip } from '@ant-design/pro-utils';
+import { LabelIconTip, ProSchema } from '@ant-design/pro-utils';
 import get from 'rc-util/lib/utils/get';
 import { stringify } from 'use-json-comparison';
-import { ProColumnType } from '@ant-design/pro-table';
 import { DescriptionsItemProps } from 'antd/lib/descriptions/Item';
 import { DescriptionsProps } from 'antd/lib/descriptions';
 import useFetchData, { RequestData } from './useFetchData';
@@ -19,6 +16,23 @@ import useFetchData, { RequestData } from './useFetchData';
 export type ActionType = {
   reload: () => void;
 };
+
+export type ProDescriptionsItemProps<T = {}> = ProSchema<
+  T,
+  ProFieldValueType,
+  Omit<DescriptionsItemProps, 'children'> &
+    ProRenderFieldProps & {
+      // 隐藏这个字段，是个语法糖，方便一下权限的控制
+      hide?: boolean;
+      plain?: boolean;
+      mode?: ProFieldFCMode;
+      /**
+       * 远程获取枚举值
+       */
+      request?: () => Promise<any>;
+      children?: React.ReactNode;
+    }
+>;
 
 export type ProDescriptionsProps<T = {}> = DescriptionsProps & {
   /**
@@ -35,40 +49,13 @@ export type ProDescriptionsProps<T = {}> = DescriptionsProps & {
    */
   request?: (params: { [key: string]: any }) => Promise<RequestData<T>>;
 
-  columns?: Omit<ProColumnType<T>, 'renderFormItem'>[];
+  columns?: Omit<ProDescriptionsItemProps<T>, 'renderFormItem'>[];
 
   /**
    * 一些简单的操作
    */
   actionRef?: React.MutableRefObject<ActionType | undefined>;
 };
-
-export type ProDescriptionsItemProps = Omit<DescriptionsItemProps, 'children'> &
-  ProRenderFieldProps & {
-    valueType?: ProFieldValueType;
-    // 隐藏这个字段，是个语法糖，方便一下权限的控制
-    hide?: boolean;
-    plain?: boolean;
-    mode?: ProFieldFCMode;
-    /**
-     * 从全局数据中取数据的key
-     */
-    dataIndex?: string;
-    // dataIndex?: React.ReactText | React.ReactText[];
-
-    /**
-     * 映射值的类型
-     */
-    valueEnum?: ProFieldValueEnumMap | ProFieldValueEnumObj;
-    /**
-     * 远程获取枚举值
-     */
-    request?: () => Promise<any>;
-
-    children?: React.ReactNode;
-
-    tip?: string;
-  };
 
 const ProDescriptionsItem: React.FC<ProDescriptionsItemProps> = (props) => {
   return <Descriptions.Item {...props}>{props.children}</Descriptions.Item>;
@@ -111,7 +98,17 @@ const ProDescriptions = <T, U>(props: ProDescriptionsProps<T>) => {
         options.push(
           <Field
             mode="read"
-            render={(text) => (render ? render(text, data, index) : text)}
+            render={(text) =>
+              render
+                ? render(
+                    text,
+                    data,
+                    index,
+                    actionRef?.current || { reload: () => null },
+                    itemColumn,
+                  )
+                : text
+            }
             valueType="option"
             text={data}
           />,
@@ -137,7 +134,17 @@ const ProDescriptions = <T, U>(props: ProDescriptionsProps<T>) => {
           <Field
             valueEnum={itemColumn.valueEnum}
             mode="read"
-            render={(text) => (render ? render(text, data, index) : text)}
+            render={(text) =>
+              render
+                ? render(
+                    text,
+                    data,
+                    index,
+                    actionRef?.current || { reload: () => null },
+                    itemColumn,
+                  )
+                : text
+            }
             valueType={valueType}
             // request={itemColumn.request}
             text={data || itemColumn.title}
@@ -157,7 +164,6 @@ const ProDescriptions = <T, U>(props: ProDescriptionsProps<T>) => {
   // 因为 Descriptions 只是个语法糖，children 是不会执行的，所以需要这里处理一下
   const mergeChildren = toArray(props.children).map((item, index) => {
     const {
-      valueType,
       children,
       valueEnum,
       render,
@@ -168,12 +174,21 @@ const ProDescriptions = <T, U>(props: ProDescriptionsProps<T>) => {
       dataIndex,
       ...restItem
     } = item.props as ProDescriptionsItemProps;
+
+    //  dataIndex 无所谓是否存在
+    // 有些时候不需要 dataIndex 可以直接 render
+    const valueType =
+      typeof restItem.valueType === 'function' ? restItem.valueType({}) : restItem.valueType;
+
     if (!valueType && !valueEnum && !request) {
       return item;
     }
 
     if (request && !columns && dataIndex) {
       const { dataSource = {} } = action;
+      const data = Array.isArray(dataIndex)
+        ? get(dataSource, dataIndex as string[])
+        : dataSource[dataIndex as string];
       return (
         <Descriptions.Item
           {...restItem}
@@ -188,7 +203,7 @@ const ProDescriptions = <T, U>(props: ProDescriptionsProps<T>) => {
             valueType={valueType}
             plain={plain}
             request={requestItem}
-            text={children || dataSource[dataIndex] || restItem.label}
+            text={children || data || restItem.label}
           />
         </Descriptions.Item>
       );

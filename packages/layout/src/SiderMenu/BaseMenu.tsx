@@ -6,8 +6,8 @@ import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { isUrl, isImg } from '@ant-design/pro-utils';
 
-import { MenuMode, MenuProps } from 'antd/es/menu';
-import { MenuTheme } from 'antd/es/menu/MenuContext';
+import { MenuMode, MenuProps } from 'antd/lib/menu';
+import { MenuTheme } from 'antd/lib/menu/MenuContext';
 import defaultSettings, { PureSettings } from '../defaultSettings';
 import { getSelectedMenuKeys } from './SiderMenuUtils';
 import { getOpenKeysFromMenuData } from '../utils/utils';
