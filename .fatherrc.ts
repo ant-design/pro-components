@@ -3,7 +3,7 @@ import { join } from 'path';
 
 // utils must build before core
 // runtime must build before renderer-react
-const headPkgs: string[] = ['provider', 'field', 'utils'];
+const headPkgs: string[] = ['provider', 'utils', 'field'];
 const tailPkgs = readdirSync(join(__dirname, 'packages')).filter(
   (pkg) => pkg.charAt(0) !== '.' && !headPkgs.includes(pkg),
 );
