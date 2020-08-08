@@ -11,6 +11,6 @@ export interface FieldProps {
   style?: React.CSSProperties;
 }
 
-export interface ProFormItemProps extends FormItemProps {
-  fieldProps?: FieldProps;
+export interface ProFormItemProps<T = {}> extends FormItemProps {
+  fieldProps?: FieldProps & T;
 }

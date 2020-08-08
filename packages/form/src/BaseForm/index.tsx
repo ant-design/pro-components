@@ -4,10 +4,10 @@ import { FormProps } from 'antd/lib/form/Form';
 import { FormItemProps } from 'antd/lib/form';
 import { TooltipProps } from 'antd/lib/tooltip';
 import { ConfigProviderWarp } from '@ant-design/pro-provider';
-import { LabelIconTip } from '@ant-design/pro-utils';
+import { LabelIconTip, pickProProps } from '@ant-design/pro-utils';
 import FieldContext from '../FieldContext';
 import Submitter, { SubmitterProps } from '../components/Submitter';
-import { GroupProps, FieldProps } from '../interface';
+import { GroupProps, FieldProps, ProFormItemProps } from '../interface';
 
 export interface CommonFormProps {
   submitter?: Omit<SubmitterProps, 'form'> | boolean;
@@ -27,18 +27,31 @@ export interface ExtendsProps {
   tip?: string | TooltipProps;
 }
 
-export function createField<P extends FormItemProps = any>(
+export function createField<P extends ProFormItemProps = any>(
   Field: React.ComponentType<P> | React.ForwardRefExoticComponent<P>,
 ): React.ComponentType<P & ExtendsProps> {
   const FieldWithContext: React.FC<P> = (props: P & ExtendsProps) => {
-    const { label, tip, ...rest } = props;
-    let labelDom = label;
-    if (tip) {
-      labelDom = <LabelIconTip label={label} tip={tip} />;
-    }
+    const { label, tip, ...restProps } = props;
+
+    /**
+     * 从 context 中拿到的值
+     */
     const { fieldProps, formItemProps } = React.useContext(FieldContext);
 
-    return <Field fieldProps={fieldProps} {...formItemProps} {...(rest as P)} label={labelDom} />;
+    return (
+      <Field
+        fieldProps={pickProProps({
+          ...(fieldProps || {}),
+          ...(restProps.fieldProps || {}),
+        })}
+        {...formItemProps}
+        {...(pickProProps(restProps) as P)}
+        // title 是用于提升读屏的能力的，没有参与逻辑
+        title={label}
+        // 全局的提供一个 tip 功能，可以减少代码量
+        label={<LabelIconTip label={label} tip={tip} />}
+      />
+    );
   };
   return FieldWithContext;
 }

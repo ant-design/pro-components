@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect, useRef, useCallback } from 'react';
-import { FormInstance, FormItemProps, FormProps } from 'antd/es/form';
+import { FormInstance, FormItemProps, FormProps } from 'antd/lib/form';
 import { Form, Row, Col } from 'antd';
 import moment, { Moment } from 'moment';
 import RcResizeObserver from 'rc-resize-observer';

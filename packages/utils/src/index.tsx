@@ -3,6 +3,7 @@ import LabelIconTip from './components/LabelIconTip';
 import isBrowser from './isBrowser';
 import isImg from './isImg';
 import isUrl from './isUrl';
+import pickProProps from './pickProProps';
 /**
  * hooks
  */
@@ -19,5 +20,6 @@ export {
   isBrowser,
   usePrevious,
   useDebounceFn,
+  pickProProps,
   useDeepCompareEffect,
 };

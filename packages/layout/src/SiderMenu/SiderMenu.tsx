@@ -1,7 +1,7 @@
 import React, { CSSProperties } from 'react';
 import { Layout, Menu } from 'antd';
 import classNames from 'classnames';
-import { SiderProps } from 'antd/es/layout/Sider';
+import { SiderProps } from 'antd/lib/layout/Sider';
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
 
 import './index.less';

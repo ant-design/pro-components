@@ -1,6 +1,6 @@
 import { createContainer } from 'unstated-next';
 import { useState, useRef } from 'react';
-import { ColumnType } from 'antd/es/table';
+import { ColumnType } from 'antd/lib/table';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import { RequestData, ProColumns } from './index';

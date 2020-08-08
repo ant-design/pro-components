@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormInstance } from 'antd/es/form';
+import { FormInstance } from 'antd/lib/form';
 import { Button, Space } from 'antd';
 import { ProTableTypes } from '../Table';
 import { SearchConfig } from './index';

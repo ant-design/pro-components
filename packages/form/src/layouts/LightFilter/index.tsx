@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { FormProps } from 'antd/lib/form/Form';
 import { ConfigContext } from 'antd/lib/config-provider/context';
-import { SizeType } from 'antd/es/config-provider/SizeContext';
+import { SizeType } from 'antd/lib/config-provider/SizeContext';
 import classNames from 'classnames';
 import Label from '../../components/Label';
 import Dropdown from '../../components/Dropdown';
@@ -22,14 +22,15 @@ const LightFilterContainer: React.FC<{
 }> = (props) => {
   // TODO 确认表单级别的 disabled 要不要支持
   const { items, prefixCls, size, collapse, collapseLabel } = props;
+  const lightFilterClassName = `${prefixCls}-light-filter`;
   const outsideItems: React.ReactNode[] = [];
   const collapseItems: React.ReactNode[] = [];
+
   const [open, setOpen] = useState<boolean>(false);
   // TODO 国际化
   const locale = {
     more: '更多筛选',
   };
-
   items.forEach((item: any) => {
     // TODO 加上有 value 时显示到外面的逻辑，控件添加 secondary 属性
     const { secondary } = item.props || {};
@@ -41,12 +42,12 @@ const LightFilterContainer: React.FC<{
   });
 
   return (
-    <div className={classNames(`${prefixCls}-lightfilter`, `${prefixCls}-lightfilter-${size}`)}>
-      <div className={`${prefixCls}-lightfilter-container`}>
+    <div className={classNames(lightFilterClassName, `${lightFilterClassName}-${size}`)}>
+      <div className={`${lightFilterClassName}-container`}>
         {outsideItems.map((child: any) => {
-          const { field } = child.props;
+          const { key } = child;
           return (
-            <div className={`${prefixCls}-lightfilter-item`} key={field}>
+            <div className={`${lightFilterClassName}-item`} key={key}>
               {React.cloneElement(child, {
                 plain: true,
               })}
@@ -54,7 +55,7 @@ const LightFilterContainer: React.FC<{
           );
         })}
         {collapseItems.length ? (
-          <div className={`${prefixCls}-lightfilter-item`} key="more">
+          <div className={`${lightFilterClassName}-item`} key="more">
             <Dropdown
               padding={24}
               onVisibleChange={setOpen}
@@ -70,9 +71,9 @@ const LightFilterContainer: React.FC<{
               }}
             >
               {collapseItems.map((child: any) => {
-                const { field } = child.props;
+                const { key } = child;
                 return (
-                  <div className={`${prefixCls}-lightfilter-line`} key={field}>
+                  <div className={`${lightFilterClassName}-line`} key={key}>
                     {child}
                   </div>
                 );
