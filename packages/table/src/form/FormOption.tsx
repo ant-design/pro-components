@@ -1,12 +1,12 @@
 import React from 'react';
 import { FormInstance } from 'antd/lib/form';
 import { Button, Space } from 'antd';
-import { ProTableTypes } from '../Table';
+import { ProSchemaComponentTypes } from '@ant-design/pro-utils';
 import { SearchConfig } from './index';
 
 export interface FormOptionProps {
   searchConfig: SearchConfig;
-  type?: ProTableTypes;
+  type?: ProSchemaComponentTypes;
   form: FormInstance;
   submit: () => void;
   collapse: boolean;

@@ -10,12 +10,11 @@ import { DownOutlined } from '@ant-design/icons';
 import { useIntl, IntlType } from '@ant-design/pro-provider';
 import classNames from 'classnames';
 import ProField from '@ant-design/pro-field';
-import { useDeepCompareEffect } from '@ant-design/pro-utils';
+import { useDeepCompareEffect, ProSchemaComponentTypes } from '@ant-design/pro-utils';
 
 import { genColumnKey } from '../component/util';
 import Container from '../container';
 import { ProColumnsValueTypeFunction } from '../defaultRender';
-import { ProTableTypes } from '../Table';
 import { ProColumns, ProColumnsValueType } from '../index';
 import FormOption, { FormOptionProps } from './FormOption';
 import './index.less';
@@ -130,7 +129,7 @@ export interface TableFormItem<T> extends Omit<FormItemProps, 'children'> {
   onSubmit?: (value: T) => void;
   onReset?: () => void;
   form?: Omit<FormProps, 'form'>;
-  type?: ProTableTypes;
+  type?: ProSchemaComponentTypes;
   dateFormatter?: 'string' | 'number' | false;
   search?: boolean | SearchConfig;
   formRef?: React.MutableRefObject<FormInstance | undefined> | ((actionRef: FormInstance) => void);
@@ -140,7 +139,7 @@ export const FormInputRender: React.FC<{
   item: ProColumns<any>;
   value?: any;
   form?: FormInstance;
-  type: ProTableTypes;
+  type: ProSchemaComponentTypes;
   intl: IntlType;
   onChange?: (value: any) => void;
   onSelect?: (value: any) => void;
@@ -261,7 +260,7 @@ export const FormInputRender: React.FC<{
 export const proFormItemRender: (props: {
   item: ProColumns<any>;
   isForm: boolean;
-  type: ProTableTypes;
+  type: ProSchemaComponentTypes;
   intl: IntlType;
   formInstance?: FormInstance;
   colConfig:

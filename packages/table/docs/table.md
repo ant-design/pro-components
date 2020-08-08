@@ -374,9 +374,7 @@ renderFormItem: (_, { type, defaultRender, ...rest }, form) => {
 
 ProTable 内置了国际化的支持，作为一个文本量比较少的组件，我们可以自行实现国际化，成本也很低。
 
-### 代码示例
-
-全量的文本
+这里是全量的文本
 
 ```typescript | prue
 const enLocale = {
