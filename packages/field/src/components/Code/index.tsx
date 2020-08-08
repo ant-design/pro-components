@@ -49,9 +49,9 @@ const FieldCode: ProFieldFC<{
     return dom;
   }
   if (mode === 'edit' || mode === 'update') {
-    let dom = <Input.TextArea rows={5} {...formItemProps} defaultValue={code} />;
+    let dom = <Input.TextArea rows={5} {...formItemProps} />;
     if (plain) {
-      dom = <Input {...formItemProps} defaultValue={code} />;
+      dom = <Input {...formItemProps} />;
     }
     if (renderFormItem) {
       return renderFormItem(code, { mode, ...formItemProps }, dom);

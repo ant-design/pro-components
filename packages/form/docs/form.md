@@ -40,6 +40,10 @@ nav:
 
 <code src="../demos/light-filter.tsx" />
 
+### 混合使用
+
+<code src="../demos/components-other.tsx" />
+
 ## API
 
 ### ProForm
