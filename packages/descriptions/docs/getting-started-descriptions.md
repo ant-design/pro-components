@@ -119,7 +119,7 @@ useEffect(() => {
 <ProDescriptions actionRef={ref} />;
 
 // class
-<ProDescriptions actionRef={ref => (this.ref = ref)} />;
+<ProDescriptions actionRef={(ref) => (this.ref = ref)} />;
 ```
 
 `ActionRef` 还支持了一些别的行为,某些时候会减少的你的编码成本，但是 ref 会脱离 react 的生命周期，所以这些 action 都是不受控的。
