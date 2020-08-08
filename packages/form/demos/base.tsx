@@ -7,6 +7,7 @@ import ProForm, {
   ProFormTimePicker,
   ProFormDateTimeRangePicker,
   ProFormTextArea,
+  ProFormCheckbox,
 } from '@ant-design/pro-form';
 
 export default () => {
@@ -23,6 +24,12 @@ export default () => {
         <ProFormDateTimePicker name="dateTime" label="日期时间" />
         <ProFormDateRangePicker name="dateRange" label="日期区间" />
       </ProForm.Group>
+      <ProFormCheckbox.Group
+        name="checkbox"
+        layout="vertical"
+        label="行业分布"
+        options={['农业', '制造业', '互联网']}
+      />
       <ProFormDateTimeRangePicker name="dateTimeRange" label="日期时间区间" />
       <ProFormTimePicker name="time" label="时间选择" />
     </ProForm>

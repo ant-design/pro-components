@@ -2272,6 +2272,7 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
 >
   <div
     class="ant-row ant-form-item"
+    title="名称"
   >
     <div
       class="ant-col ant-form-item-label"
@@ -2340,6 +2341,7 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
   </div>
   <div
     class="ant-row ant-form-item"
+    title="备注"
   >
     <div
       class="ant-col ant-form-item-label"
@@ -2406,6 +2408,7 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
   </div>
   <div
     class="ant-row ant-form-item"
+    title="日期"
   >
     <div
       class="ant-col ant-form-item-label"
@@ -2413,7 +2416,7 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
       <label
         class=""
         for="date"
-        title="日期"
+        title=""
       >
         日期
       </label>
@@ -2486,6 +2489,7 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
       >
         <div
           class="ant-row ant-form-item"
+          title="日期时间"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -2493,7 +2497,7 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
             <label
               class=""
               for="dateTime"
-              title="日期时间"
+              title=""
             >
               日期时间
             </label>
@@ -2624,6 +2628,7 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
       >
         <div
           class="ant-row ant-form-item"
+          title="日期区间"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -2631,7 +2636,7 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
             <label
               class=""
               for="dateRange"
-              title="日期区间"
+              title=""
             >
               日期区间
             </label>
@@ -2761,6 +2766,97 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
   </div>
   <div
     class="ant-row ant-form-item"
+    title="行业分布"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class=""
+        for="checkbox"
+        title=""
+      >
+        行业分布
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <div
+            class="ant-checkbox-group ant-pro-form-checkbox-vertical"
+            id="checkbox"
+          >
+            <label
+              class="ant-checkbox-group-item ant-checkbox-wrapper"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                  value="农业"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+              <span>
+                农业
+              </span>
+            </label>
+            <label
+              class="ant-checkbox-group-item ant-checkbox-wrapper"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                  value="制造业"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+              <span>
+                制造业
+              </span>
+            </label>
+            <label
+              class="ant-checkbox-group-item ant-checkbox-wrapper"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                  value="互联网"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+              <span>
+                互联网
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+    title="日期时间区间"
   >
     <div
       class="ant-col ant-form-item-label"
@@ -2768,7 +2864,7 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
       <label
         class=""
         for="dateTimeRange"
-        title="日期时间区间"
+        title=""
       >
         日期时间区间
       </label>
@@ -2828,6 +2924,7 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
   </div>
   <div
     class="ant-row ant-form-item"
+    title="时间选择"
   >
     <div
       class="ant-col ant-form-item-label"
@@ -2835,7 +2932,7 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
       <label
         class=""
         for="time"
-        title="时间选择"
+        title=""
       >
         时间选择
       </label>
@@ -2904,11 +3001,11 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
       style="margin-right: 8px;"
     >
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-primary"
         type="button"
       >
         <span>
-          重 置
+          提 交
         </span>
       </button>
     </div>
@@ -2916,11 +3013,11 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn"
         type="button"
       >
         <span>
-          提 交
+          重 置
         </span>
       </button>
     </div>
@@ -2933,16 +3030,17 @@ exports[`demos renders ./packages/form/demos/light-filter.tsx correctly 1`] = `
   class="ant-form ant-form-horizontal"
 >
   <div
-    class="ant-pro-form-lightfilter ant-pro-form-lightfilter-undefined"
+    class="ant-pro-form-light-filter ant-pro-form-light-filter-undefined"
   >
     <div
-      class="ant-pro-form-lightfilter-container"
+      class="ant-pro-form-light-filter-container"
     >
       <div
-        class="ant-pro-form-lightfilter-item"
+        class="ant-pro-form-light-filter-item"
       >
         <div
           class="ant-row ant-form-item"
+          title="开始日期"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -2950,7 +3048,7 @@ exports[`demos renders ./packages/form/demos/light-filter.tsx correctly 1`] = `
             <label
               class=""
               for="name2"
-              title="开始日期"
+              title=""
             >
               开始日期
             </label>
@@ -2975,18 +3073,18 @@ exports[`demos renders ./packages/form/demos/light-filter.tsx correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-pro-form-lightfilter-item"
+        class="ant-pro-form-light-filter-item"
       >
         <span
           class="ant-pro-form-dropdown-label ant-dropdown-trigger"
         >
           <span
-            class="undefined-lightfilter-label undefined-lightfilter-label-default"
+            class="undefined-light-filter-label undefined-light-filter-label-default"
           >
             更多筛选
             <span
               aria-label="down"
-              class="anticon anticon-down undefined-lightfilter-label-icon undefined-lightfilter-label-arrow"
+              class="anticon anticon-down undefined-light-filter-label-icon undefined-light-filter-label-arrow"
               role="img"
             >
               <svg
@@ -3026,6 +3124,7 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
     >
       <div
         class="ant-row ant-form-item"
+        title="应用名称"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -3034,7 +3133,7 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
           <label
             class=""
             for="name"
-            title="应用名称"
+            title=""
           >
             应用名称
           </label>
@@ -3065,6 +3164,7 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
     >
       <div
         class="ant-row ant-form-item"
+        title="创建人"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -3073,7 +3173,7 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
           <label
             class=""
             for="creater"
-            title="创建人"
+            title=""
           >
             创建人
           </label>
@@ -3104,6 +3204,7 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
     >
       <div
         class="ant-row ant-form-item"
+        title="应用状态"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -3112,7 +3213,7 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
           <label
             class=""
             for="status"
-            title="应用状态"
+            title=""
           >
             应用状态
           </label>
@@ -3143,6 +3244,7 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
     >
       <div
         class="ant-row ant-form-item"
+        title="响应日期"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -3151,7 +3253,7 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
           <label
             class=""
             for="startdate"
-            title="响应日期"
+            title=""
           >
             响应日期
           </label>
@@ -3217,7 +3319,7 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
     >
       <div
         class="ant-row ant-form-item"
-        colsize="2"
+        title="创建时间"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -3226,7 +3328,7 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
           <label
             class=""
             for="create"
-            title="创建时间"
+            title=""
           >
             创建时间
           </label>
@@ -3443,6 +3545,7 @@ exports[`demos renders ./packages/form/demos/query-filter-collapsed.tsx correctl
     >
       <div
         class="ant-row ant-form-item"
+        title="应用名称"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -3450,7 +3553,7 @@ exports[`demos renders ./packages/form/demos/query-filter-collapsed.tsx correctl
           <label
             class=""
             for="name"
-            title="应用名称"
+            title=""
           >
             应用名称
           </label>
@@ -3481,6 +3584,7 @@ exports[`demos renders ./packages/form/demos/query-filter-collapsed.tsx correctl
     >
       <div
         class="ant-row ant-form-item"
+        title="创建时间"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -3488,7 +3592,7 @@ exports[`demos renders ./packages/form/demos/query-filter-collapsed.tsx correctl
           <label
             class=""
             for="createDate"
-            title="创建时间"
+            title=""
           >
             创建时间
           </label>
@@ -3550,6 +3654,7 @@ exports[`demos renders ./packages/form/demos/query-filter-collapsed.tsx correctl
     </div>
     <div
       class="ant-row ant-form-item ant-form-item-hidden"
+      title="应用状态"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -3557,7 +3662,7 @@ exports[`demos renders ./packages/form/demos/query-filter-collapsed.tsx correctl
         <label
           class=""
           for="status"
-          title="应用状态"
+          title=""
         >
           应用状态
         </label>
@@ -3583,6 +3688,7 @@ exports[`demos renders ./packages/form/demos/query-filter-collapsed.tsx correctl
     </div>
     <div
       class="ant-row ant-form-item ant-form-item-hidden"
+      title="响应日期"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -3590,7 +3696,7 @@ exports[`demos renders ./packages/form/demos/query-filter-collapsed.tsx correctl
         <label
           class=""
           for="replyDate"
-          title="响应日期"
+          title=""
         >
           响应日期
         </label>
@@ -3651,6 +3757,7 @@ exports[`demos renders ./packages/form/demos/query-filter-collapsed.tsx correctl
     </div>
     <div
       class="ant-row ant-form-item ant-form-item-hidden"
+      title="创建时间"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -3658,7 +3765,7 @@ exports[`demos renders ./packages/form/demos/query-filter-collapsed.tsx correctl
         <label
           class=""
           for="enddate"
-          title="创建时间"
+          title=""
         >
           创建时间
         </label>
@@ -3807,6 +3914,7 @@ exports[`demos renders ./packages/form/demos/query-filter-vertical.tsx correctly
     >
       <div
         class="ant-row ant-form-item"
+        title="这是一个超级超级长的名称"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -3814,7 +3922,7 @@ exports[`demos renders ./packages/form/demos/query-filter-vertical.tsx correctly
           <label
             class=""
             for="name"
-            title="这是一个超级超级长的名称"
+            title=""
           >
             这是一个超级超级长的名称
           </label>
@@ -3845,6 +3953,7 @@ exports[`demos renders ./packages/form/demos/query-filter-vertical.tsx correctly
     >
       <div
         class="ant-row ant-form-item"
+        title="创建时间"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -3852,7 +3961,7 @@ exports[`demos renders ./packages/form/demos/query-filter-vertical.tsx correctly
           <label
             class=""
             for="birth"
-            title="创建时间"
+            title=""
           >
             创建时间
           </label>
@@ -3918,6 +4027,7 @@ exports[`demos renders ./packages/form/demos/query-filter-vertical.tsx correctly
     >
       <div
         class="ant-row ant-form-item"
+        title="应用状态"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -3925,7 +4035,7 @@ exports[`demos renders ./packages/form/demos/query-filter-vertical.tsx correctly
           <label
             class=""
             for="sex"
-            title="应用状态"
+            title=""
           >
             应用状态
           </label>
@@ -3956,14 +4066,14 @@ exports[`demos renders ./packages/form/demos/query-filter-vertical.tsx correctly
     >
       <div
         class="ant-row ant-form-item"
-        fieldprops="[object Object]"
+        title="查询频度"
       >
         <div
           class="ant-col ant-form-item-label"
         >
           <label
             class=""
-            title="查询频度"
+            title=""
           >
             查询频度
           </label>
@@ -3979,6 +4089,7 @@ exports[`demos renders ./packages/form/demos/query-filter-vertical.tsx correctly
             >
               <div
                 class="ant-radio-group ant-radio-group-outline"
+                style="width: 100%;"
               >
                 <label
                   class="ant-radio-button-wrapper"
@@ -4068,7 +4179,7 @@ exports[`demos renders ./packages/form/demos/query-filter-vertical.tsx correctly
     >
       <div
         class="ant-row ant-form-item"
-        fieldprops="[object Object]"
+        title="行业分布"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -4076,7 +4187,7 @@ exports[`demos renders ./packages/form/demos/query-filter-vertical.tsx correctly
           <label
             class=""
             for="checkbox"
-            title="行业分布"
+            title=""
           >
             行业分布
           </label>
@@ -4091,22 +4202,18 @@ exports[`demos renders ./packages/form/demos/query-filter-vertical.tsx correctly
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-checkbox-group"
-                fieldprops="[object Object]"
+                class="ant-checkbox-group ant-pro-form-checkbox-horizontal"
                 id="checkbox"
-                label="行业分布"
-                labelcol="[object Object]"
-                name="checkbox"
+                style="width: 100%;"
               >
                 <label
-                  class="ant-checkbox-wrapper"
+                  class="ant-checkbox-group-item ant-checkbox-wrapper"
                 >
                   <span
                     class="ant-checkbox"
                   >
                     <input
                       class="ant-checkbox-input"
-                      name="checkbox"
                       type="checkbox"
                       value="农业"
                     />
@@ -4119,14 +4226,13 @@ exports[`demos renders ./packages/form/demos/query-filter-vertical.tsx correctly
                   </span>
                 </label>
                 <label
-                  class="ant-checkbox-wrapper"
+                  class="ant-checkbox-group-item ant-checkbox-wrapper"
                 >
                   <span
                     class="ant-checkbox"
                   >
                     <input
                       class="ant-checkbox-input"
-                      name="checkbox"
                       type="checkbox"
                       value="制造业"
                     />
@@ -4139,14 +4245,13 @@ exports[`demos renders ./packages/form/demos/query-filter-vertical.tsx correctly
                   </span>
                 </label>
                 <label
-                  class="ant-checkbox-wrapper"
+                  class="ant-checkbox-group-item ant-checkbox-wrapper"
                 >
                   <span
                     class="ant-checkbox"
                   >
                     <input
                       class="ant-checkbox-input"
-                      name="checkbox"
                       type="checkbox"
                       value="互联网"
                     />
@@ -4480,6 +4585,15 @@ exports[`demos renders ./packages/form/demos/search-filter.tsx correctly 1`] = `
                   class="ant-row ant-form-item"
                 >
                   <div
+                    class="ant-col ant-form-item-label"
+                  >
+                    <label
+                      class=""
+                      for="name"
+                      title=""
+                    />
+                  </div>
+                  <div
                     class="ant-col ant-form-item-control"
                   >
                     <div
@@ -4527,6 +4641,7 @@ exports[`demos renders ./packages/form/demos/search-filter.tsx correctly 1`] = `
               >
                 <div
                   class="ant-row ant-form-item"
+                  title="年龄"
                 >
                   <div
                     class="ant-col ant-form-item-label"
@@ -4534,7 +4649,7 @@ exports[`demos renders ./packages/form/demos/search-filter.tsx correctly 1`] = `
                     <label
                       class=""
                       for="age"
-                      title="年龄"
+                      title=""
                     >
                       年龄
                     </label>
@@ -4564,6 +4679,7 @@ exports[`demos renders ./packages/form/demos/search-filter.tsx correctly 1`] = `
               >
                 <div
                   class="ant-row ant-form-item"
+                  title="生日"
                 >
                   <div
                     class="ant-col ant-form-item-label"
@@ -4571,7 +4687,7 @@ exports[`demos renders ./packages/form/demos/search-filter.tsx correctly 1`] = `
                     <label
                       class=""
                       for="birth"
-                      title="生日"
+                      title=""
                     >
                       生日
                     </label>

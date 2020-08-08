@@ -1,7 +1,7 @@
 import './BasicLayout.less';
 
 import React, { CSSProperties, useContext, useEffect, useState } from 'react';
-import { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/es/breadcrumb';
+import { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/lib/breadcrumb';
 import { Layout } from 'antd';
 import classNames from 'classnames';
 import warning from 'warning';

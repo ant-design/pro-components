@@ -135,22 +135,22 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
             hidden,
           });
         });
-
         // for split compute
         let currentSpan = 0;
 
         return (
           <RcResizeObserver
+            key="resize-observer"
             onResize={({ width }) => {
               setSpanSize(getSpanConfig(layout, width, span));
             }}
           >
-            <Row gutter={16} justify="start">
+            <Row gutter={16} justify="start" key="resize-observer-row">
               {itemsWithInfo.map((item, index) => {
                 if (React.isValidElement(item.element) && item.hidden) {
                   return React.cloneElement(item.element, {
                     hidden: true,
-                    key: item.key,
+                    key: item.key || index,
                   });
                 }
                 currentSpan += item.span;
@@ -160,7 +160,10 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
                   </Col>
                 );
                 if (split && currentSpan % 24 === 0 && index < lastVisibleItemIndex) {
-                  return [colItem, <Divider style={{ marginTop: -8, marginBottom: 16 }} dashed />];
+                  return [
+                    colItem,
+                    <Divider key="line" style={{ marginTop: -8, marginBottom: 16 }} dashed />,
+                  ];
                 }
                 return colItem;
               })}

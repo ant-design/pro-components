@@ -15,6 +15,10 @@ const ProForm: React.FC<ProFormProps> & {
   return (
     <BaseForm
       layout="vertical"
+      submitter={{
+        // 反转按钮，在正常模式下，按钮应该是主按钮在前
+        render: (_, dom) => dom.reverse(),
+      }}
       contentRender={(items, submitter) => {
         return (
           <>

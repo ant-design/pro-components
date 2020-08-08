@@ -1,5 +1,5 @@
 ---
-title: ProCard 标准卡片
+title: ProCard - 标准卡片
 nav:
   title: 组件
   path: /components
