@@ -26,6 +26,7 @@ const { yParser } = require('@umijs/utils');
           type: 'git',
           url: 'https://github.com/ant-design/pro-components',
         },
+        browserslist: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 11'],
         keywords: ['antd', 'admin', 'ant-design', 'ant-design-pro'],
         authors: [
           'chencheng <sorrycc@gmail.com> (https://github.com/sorrycc)',

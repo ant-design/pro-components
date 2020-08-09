@@ -109,6 +109,12 @@
     "pre-commit": "pretty-quick --staged",
     "commit-msg": "node scripts/verifyCommit.js"
   },
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ],
   "size-limit": [
     {
       "path": "packages/card/lib/**/*.js",
