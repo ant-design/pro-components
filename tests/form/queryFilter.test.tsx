@@ -85,6 +85,18 @@ describe('QueryFilter', () => {
         <ProFormText label="d" name="d" />
       </QueryFilter>,
     );
+    expect(wrapper.find('.ant-row.ant-form-item-hidden').length).toEqual(2);
+  });
+
+  it('responsive 1064 with vertical', async () => {
+    const wrapper = mount(
+      <QueryFilter style={{ width: 1064 }} defaultCollapsed layout="vertical">
+        <ProFormText label="a" name="a" />
+        <ProFormText label="b" name="b" />
+        <ProFormText label="c" name="c" />
+        <ProFormText label="d" name="d" />
+      </QueryFilter>,
+    );
     expect(wrapper.find('.ant-row.ant-form-item-hidden').length).toEqual(1);
   });
 });
