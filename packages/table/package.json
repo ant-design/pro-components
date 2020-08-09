@@ -23,11 +23,17 @@
     "es",
     "dist"
   ],
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ],
   "dependencies": {
     "@ant-design/icons": "^4.1.0",
     "@ant-design/pro-field": "^0.0.9",
     "@ant-design/pro-provider": "0.0.2",
-    "@ant-design/pro-utils":"0.0.1",
+    "@ant-design/pro-utils": "0.0.1",
     "antd": "^4.1.5",
     "classnames": "^2.2.6",
     "dnd-core": "^10.0.2",

@@ -3,7 +3,7 @@ import React from 'react';
 import { Input } from 'antd';
 import ProTable, { TableDropdown } from '@ant-design/pro-table';
 import { columns, request } from './demo';
-import { waitTime } from '../util';
+import { waitTime, waitForComponentToPaint } from '../util';
 
 describe('BasicTable', () => {
   it('🎏 base use', async () => {
@@ -35,7 +35,7 @@ describe('BasicTable', () => {
       />,
     );
     await waitTime(200);
-    html.update();
+    await waitForComponentToPaint(html);
     expect(html.render()).toMatchSnapshot();
   });
 
@@ -53,8 +53,9 @@ describe('BasicTable', () => {
         }}
       />,
     );
+
     await waitTime(200);
-    html.update();
+    await waitForComponentToPaint(html);
     expect(html.render()).toMatchSnapshot();
   });
 
@@ -78,7 +79,7 @@ describe('BasicTable', () => {
       />,
     );
     await waitTime(200);
-    html.update();
+    await waitForComponentToPaint(html);
     expect(html.render()).toMatchSnapshot();
   });
 
@@ -102,7 +103,7 @@ describe('BasicTable', () => {
       />,
     );
     await waitTime(200);
-    html.update();
+    await waitForComponentToPaint(html);
     expect(html.render()).toMatchSnapshot();
   });
 });

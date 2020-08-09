@@ -1,8 +1,8 @@
 import { act } from 'react-dom/test-utils';
 
-export const waitForComponentToPaint = async (wrapper: any) => {
+export const waitForComponentToPaint = async (wrapper: any, time = 10) => {
   await act(async () => {
-    await new Promise((resolve) => setTimeout(resolve, 100));
+    await new Promise((resolve) => setTimeout(resolve, time));
     wrapper.update();
   });
 };

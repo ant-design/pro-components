@@ -2893,6 +2893,7 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
         >
           <input
             class="ant-input"
+            placeholder="请输入名称"
             type="text"
             value=""
           />
@@ -2962,6 +2963,7 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
         >
           <textarea
             class="ant-input"
+            placeholder="请输入备注"
           />
         </div>
       </div>
@@ -3083,7 +3085,7 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
                       placeholder="Start date"
                       readonly=""
                       size="21"
-                      value="2016-11-22 00:00:00"
+                      value=""
                     />
                   </div>
                   <div
@@ -3123,7 +3125,7 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
                       placeholder="End date"
                       readonly=""
                       size="21"
-                      value="2016-11-22 00:00:00"
+                      value=""
                     />
                   </div>
                   <div
@@ -3150,30 +3152,6 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
                       >
                         <path
                           d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                  <span
-                    class="ant-picker-clear"
-                  >
-                    <span
-                      aria-label="close-circle"
-                      class="anticon anticon-close-circle"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class=""
-                        data-icon="close-circle"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
                         />
                       </svg>
                     </span>
@@ -3222,7 +3200,7 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
                       placeholder="Start date"
                       readonly=""
                       size="21"
-                      value="2016-11-22 00:00:00"
+                      value=""
                     />
                   </div>
                   <div
@@ -3262,7 +3240,7 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
                       placeholder="End date"
                       readonly=""
                       size="21"
-                      value="2016-11-22 00:00:00"
+                      value=""
                     />
                   </div>
                   <div
@@ -3289,30 +3267,6 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
                       >
                         <path
                           d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                  <span
-                    class="ant-picker-clear"
-                  >
-                    <span
-                      aria-label="close-circle"
-                      class="anticon anticon-close-circle"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class=""
-                        data-icon="close-circle"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
                         />
                       </svg>
                     </span>
@@ -3515,7 +3469,7 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
             >
               <input
                 autocomplete="off"
-                placeholder="Select time"
+                placeholder="请选择"
                 readonly=""
                 size="10"
                 title=""
@@ -3584,6 +3538,1298 @@ exports[`demos renders ./packages/form/demos/base.tsx correctly 1`] = `
     </div>
   </div>
 </form>
+`;
+
+exports[`demos renders ./packages/form/demos/components-other.tsx correctly 1`] = `
+<div
+  style="padding: 24px;"
+>
+  <form
+    class="ant-form ant-form-vertical"
+    id="validate_other"
+  >
+    <div
+      class="ant-row ant-form-item"
+      title="Select"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class="ant-form-item-required"
+          for="validate_other_select"
+          title=""
+        >
+          Select
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              label="[object Object]"
+              name="select"
+              rules="[object Object]"
+              style="min-width: 100px;"
+              text=""
+              title="Select"
+            >
+              <div
+                class="ant-select-selector"
+              >
+                <span
+                  class="ant-select-selection-search"
+                >
+                  <input
+                    aria-activedescendant="validate_other_select_list_0"
+                    aria-autocomplete="list"
+                    aria-controls="validate_other_select_list"
+                    aria-haspopup="listbox"
+                    aria-owns="validate_other_select_list"
+                    autocomplete="off"
+                    class="ant-select-selection-search-input"
+                    id="validate_other_select"
+                    readonly=""
+                    role="combobox"
+                    style="opacity: 0;"
+                    unselectable="on"
+                    value=""
+                  />
+                </span>
+                <span
+                  class="ant-select-selection-placeholder"
+                >
+                  Please select a country
+                </span>
+              </div>
+              <span
+                aria-hidden="true"
+                class="ant-select-arrow"
+                style="user-select: none;"
+                unselectable="on"
+              >
+                <span
+                  aria-label="down"
+                  class="anticon anticon-down ant-select-suffix"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="down"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class="ant-form-item-required"
+          for="validate_other_select-multiple"
+          title="Select[multiple]"
+        >
+          Select[multiple]
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              class="ant-select ant-select-multiple ant-select-show-search"
+            >
+              <div
+                class="ant-select-selector"
+              >
+                <span
+                  class="ant-select-selection-search"
+                  style="width: 0px;"
+                >
+                  <input
+                    aria-activedescendant="validate_other_select-multiple_list_0"
+                    aria-autocomplete="list"
+                    aria-controls="validate_other_select-multiple_list"
+                    aria-haspopup="listbox"
+                    aria-owns="validate_other_select-multiple_list"
+                    autocomplete="off"
+                    class="ant-select-selection-search-input"
+                    id="validate_other_select-multiple"
+                    readonly=""
+                    role="combobox"
+                    style="opacity: 0;"
+                    unselectable="on"
+                    value=""
+                  />
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-selection-search-mirror"
+                  >
+                     
+                  </span>
+                </span>
+                <span
+                  class="ant-select-selection-placeholder"
+                >
+                  Please select favourite colors
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          title="InputNumber"
+        >
+          InputNumber
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              class="ant-input-number"
+              style="width: 100%;"
+            >
+              <div
+                class="ant-input-number-handler-wrap"
+              >
+                <span
+                  aria-label="Increase Value"
+                  class="ant-input-number-handler ant-input-number-handler-up"
+                  role="button"
+                  unselectable="on"
+                >
+                  <span
+                    aria-label="up"
+                    class="anticon anticon-up ant-input-number-handler-up-inner"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="up"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  aria-label="Decrease Value"
+                  class="ant-input-number-handler ant-input-number-handler-down"
+                  role="button"
+                  unselectable="on"
+                >
+                  <span
+                    aria-label="down"
+                    class="anticon anticon-down ant-input-number-handler-down-inner"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="down"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </div>
+              <div
+                class="ant-input-number-input-wrap"
+              >
+                <input
+                  aria-valuemax="10"
+                  aria-valuemin="1"
+                  aria-valuenow="3"
+                  autocomplete="off"
+                  class="ant-input-number-input"
+                  max="10"
+                  min="1"
+                  role="spinbutton"
+                  step="1"
+                  value="3.00"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-row ant-form-item"
+      title="Switch"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          for="validate_other_switch"
+          title=""
+        >
+          Switch
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <button
+              aria-checked="false"
+              class="ant-switch"
+              id="validate_other_switch"
+              role="switch"
+              type="button"
+            >
+              <div
+                class="ant-switch-handle"
+              />
+              <span
+                class="ant-switch-inner"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          for="validate_other_slider"
+          title="Slider"
+        >
+          Slider
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              class="ant-slider ant-slider-with-marks"
+            >
+              <div
+                class="ant-slider-rail"
+              />
+              <div
+                class="ant-slider-track"
+                style="left: 0%; width: 0%;"
+              />
+              <div
+                class="ant-slider-step"
+              >
+                <span
+                  class="ant-slider-dot ant-slider-dot-active"
+                  style="left: 0%;"
+                />
+                <span
+                  class="ant-slider-dot"
+                  style="left: 20%;"
+                />
+                <span
+                  class="ant-slider-dot"
+                  style="left: 40%;"
+                />
+                <span
+                  class="ant-slider-dot"
+                  style="left: 60%;"
+                />
+                <span
+                  class="ant-slider-dot"
+                  style="left: 80%;"
+                />
+                <span
+                  class="ant-slider-dot"
+                  style="left: 100%;"
+                />
+              </div>
+              <div
+                aria-disabled="false"
+                aria-valuemax="100"
+                aria-valuemin="0"
+                aria-valuenow="0"
+                class="ant-slider-handle"
+                role="slider"
+                style="left: 0%; transform: translateX(-50%);"
+                tabindex="0"
+              />
+              <div
+                class="ant-slider-mark"
+              >
+                <span
+                  class="ant-slider-mark-text ant-slider-mark-text-active"
+                  style="transform: translateX(-50%); left: 0%;"
+                >
+                  A
+                </span>
+                <span
+                  class="ant-slider-mark-text"
+                  style="transform: translateX(-50%); left: 20%;"
+                >
+                  B
+                </span>
+                <span
+                  class="ant-slider-mark-text"
+                  style="transform: translateX(-50%); left: 40%;"
+                >
+                  C
+                </span>
+                <span
+                  class="ant-slider-mark-text"
+                  style="transform: translateX(-50%); left: 60%;"
+                >
+                  D
+                </span>
+                <span
+                  class="ant-slider-mark-text"
+                  style="transform: translateX(-50%); left: 80%;"
+                >
+                  E
+                </span>
+                <span
+                  class="ant-slider-mark-text"
+                  style="transform: translateX(-50%); left: 100%;"
+                >
+                  F
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-row ant-form-item"
+      title="Radio.Group"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          for="validate_other_radio-group"
+          title=""
+        >
+          Radio.Group
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              class="ant-radio-group ant-radio-group-outline"
+              id="validate_other_radio-group"
+            >
+              <label
+                class="ant-radio-wrapper"
+              >
+                <span
+                  class="ant-radio"
+                >
+                  <input
+                    class="ant-radio-input"
+                    type="radio"
+                    value="a"
+                  />
+                  <span
+                    class="ant-radio-inner"
+                  />
+                </span>
+                <span>
+                  item 1
+                </span>
+              </label>
+              <label
+                class="ant-radio-wrapper"
+              >
+                <span
+                  class="ant-radio"
+                >
+                  <input
+                    class="ant-radio-input"
+                    type="radio"
+                    value="b"
+                  />
+                  <span
+                    class="ant-radio-inner"
+                  />
+                </span>
+                <span>
+                  item 2
+                </span>
+              </label>
+              <label
+                class="ant-radio-wrapper"
+              >
+                <span
+                  class="ant-radio"
+                >
+                  <input
+                    class="ant-radio-input"
+                    type="radio"
+                    value="c"
+                  />
+                  <span
+                    class="ant-radio-inner"
+                  />
+                </span>
+                <span>
+                  item 3
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          for="validate_other_radio-button"
+          title="Radio.Button"
+        >
+          Radio.Button
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              class="ant-radio-group ant-radio-group-outline"
+              id="validate_other_radio-button"
+            >
+              <label
+                class="ant-radio-button-wrapper"
+              >
+                <span
+                  class="ant-radio-button"
+                >
+                  <input
+                    class="ant-radio-button-input"
+                    type="radio"
+                    value="a"
+                  />
+                  <span
+                    class="ant-radio-button-inner"
+                  />
+                </span>
+                <span>
+                  item 1
+                </span>
+              </label>
+              <label
+                class="ant-radio-button-wrapper"
+              >
+                <span
+                  class="ant-radio-button"
+                >
+                  <input
+                    class="ant-radio-button-input"
+                    type="radio"
+                    value="b"
+                  />
+                  <span
+                    class="ant-radio-button-inner"
+                  />
+                </span>
+                <span>
+                  item 2
+                </span>
+              </label>
+              <label
+                class="ant-radio-button-wrapper"
+              >
+                <span
+                  class="ant-radio-button"
+                >
+                  <input
+                    class="ant-radio-button-input"
+                    type="radio"
+                    value="c"
+                  />
+                  <span
+                    class="ant-radio-button-inner"
+                  />
+                </span>
+                <span>
+                  item 3
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-row ant-form-item"
+      title="Checkbox.Group"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          for="validate_other_checkbox-group"
+          title=""
+        >
+          Checkbox.Group
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              class="ant-checkbox-group ant-pro-form-checkbox-horizontal"
+              id="validate_other_checkbox-group"
+            >
+              <label
+                class="ant-checkbox-group-item ant-checkbox-wrapper ant-checkbox-wrapper-checked"
+              >
+                <span
+                  class="ant-checkbox ant-checkbox-checked"
+                >
+                  <input
+                    checked=""
+                    class="ant-checkbox-input"
+                    type="checkbox"
+                    value="A"
+                  />
+                  <span
+                    class="ant-checkbox-inner"
+                  />
+                </span>
+                <span>
+                  A
+                </span>
+              </label>
+              <label
+                class="ant-checkbox-group-item ant-checkbox-wrapper ant-checkbox-wrapper-checked"
+              >
+                <span
+                  class="ant-checkbox ant-checkbox-checked"
+                >
+                  <input
+                    checked=""
+                    class="ant-checkbox-input"
+                    type="checkbox"
+                    value="B"
+                  />
+                  <span
+                    class="ant-checkbox-inner"
+                  />
+                </span>
+                <span>
+                  B
+                </span>
+              </label>
+              <label
+                class="ant-checkbox-group-item ant-checkbox-wrapper"
+              >
+                <span
+                  class="ant-checkbox"
+                >
+                  <input
+                    class="ant-checkbox-input"
+                    type="checkbox"
+                    value="C"
+                  />
+                  <span
+                    class="ant-checkbox-inner"
+                  />
+                </span>
+                <span>
+                  C
+                </span>
+              </label>
+              <label
+                class="ant-checkbox-group-item ant-checkbox-wrapper"
+              >
+                <span
+                  class="ant-checkbox"
+                >
+                  <input
+                    class="ant-checkbox-input"
+                    type="checkbox"
+                    value="D"
+                  />
+                  <span
+                    class="ant-checkbox-inner"
+                  />
+                </span>
+                <span>
+                  D
+                </span>
+              </label>
+              <label
+                class="ant-checkbox-group-item ant-checkbox-wrapper"
+              >
+                <span
+                  class="ant-checkbox"
+                >
+                  <input
+                    class="ant-checkbox-input"
+                    type="checkbox"
+                    value="E"
+                  />
+                  <span
+                    class="ant-checkbox-inner"
+                  />
+                </span>
+                <span>
+                  E
+                </span>
+              </label>
+              <label
+                class="ant-checkbox-group-item ant-checkbox-wrapper"
+              >
+                <span
+                  class="ant-checkbox"
+                >
+                  <input
+                    class="ant-checkbox-input"
+                    type="checkbox"
+                    value="F"
+                  />
+                  <span
+                    class="ant-checkbox-inner"
+                  />
+                </span>
+                <span>
+                  F
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          for="validate_other_rate"
+          title="Rate"
+        >
+          Rate
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <ul
+              class="ant-rate"
+              role="radiogroup"
+              tabindex="0"
+            >
+              <li
+                class="ant-rate-star ant-rate-star-full"
+              >
+                <div
+                  aria-checked="true"
+                  aria-posinset="1"
+                  aria-setsize="5"
+                  role="radio"
+                  tabindex="0"
+                >
+                  <div
+                    class="ant-rate-star-first"
+                  >
+                    <span
+                      aria-label="star"
+                      class="anticon anticon-star"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="star"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div
+                    class="ant-rate-star-second"
+                  >
+                    <span
+                      aria-label="star"
+                      class="anticon anticon-star"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="star"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </li>
+              <li
+                class="ant-rate-star ant-rate-star-full"
+              >
+                <div
+                  aria-checked="true"
+                  aria-posinset="2"
+                  aria-setsize="5"
+                  role="radio"
+                  tabindex="0"
+                >
+                  <div
+                    class="ant-rate-star-first"
+                  >
+                    <span
+                      aria-label="star"
+                      class="anticon anticon-star"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="star"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div
+                    class="ant-rate-star-second"
+                  >
+                    <span
+                      aria-label="star"
+                      class="anticon anticon-star"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="star"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </li>
+              <li
+                class="ant-rate-star ant-rate-star-full"
+              >
+                <div
+                  aria-checked="true"
+                  aria-posinset="3"
+                  aria-setsize="5"
+                  role="radio"
+                  tabindex="0"
+                >
+                  <div
+                    class="ant-rate-star-first"
+                  >
+                    <span
+                      aria-label="star"
+                      class="anticon anticon-star"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="star"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div
+                    class="ant-rate-star-second"
+                  >
+                    <span
+                      aria-label="star"
+                      class="anticon anticon-star"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="star"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </li>
+              <li
+                class="ant-rate-star ant-rate-star-zero"
+              >
+                <div
+                  aria-checked="true"
+                  aria-posinset="4"
+                  aria-setsize="5"
+                  role="radio"
+                  tabindex="0"
+                >
+                  <div
+                    class="ant-rate-star-first"
+                  >
+                    <span
+                      aria-label="star"
+                      class="anticon anticon-star"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="star"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div
+                    class="ant-rate-star-second"
+                  >
+                    <span
+                      aria-label="star"
+                      class="anticon anticon-star"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="star"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </li>
+              <li
+                class="ant-rate-star ant-rate-star-zero"
+              >
+                <div
+                  aria-checked="false"
+                  aria-posinset="5"
+                  aria-setsize="5"
+                  role="radio"
+                  tabindex="0"
+                >
+                  <div
+                    class="ant-rate-star-first"
+                  >
+                    <span
+                      aria-label="star"
+                      class="anticon anticon-star"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="star"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div
+                    class="ant-rate-star-second"
+                  >
+                    <span
+                      aria-label="star"
+                      class="anticon anticon-star"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="star"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          for="validate_other_upload"
+          title="Upload"
+        >
+          Upload
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <span
+              class=""
+            >
+              <div
+                class="ant-upload ant-upload-select ant-upload-select-picture"
+              >
+                <span
+                  class="ant-upload"
+                  role="button"
+                  tabindex="0"
+                >
+                  <input
+                    accept=""
+                    id="validate_other_upload"
+                    style="display: none;"
+                    type="file"
+                  />
+                  <button
+                    class="ant-btn"
+                    type="button"
+                  >
+                    <span
+                      aria-label="upload"
+                      class="anticon anticon-upload"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="upload"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M400 317.7h73.9V656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V317.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 163a8 8 0 00-12.6 0l-112 141.7c-4.1 5.3-.4 13 6.3 13zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                    <span>
+                       Click to upload
+                    </span>
+                  </button>
+                </span>
+              </div>
+              <div
+                class="ant-upload-list ant-upload-list-picture"
+              />
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-form-item-extra"
+        >
+          longgggggggggggggggggggggggggggggggggg
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          title="Dragger"
+        >
+          Dragger
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <span>
+              <div
+                class="ant-upload ant-upload-drag"
+              >
+                <span
+                  class="ant-upload ant-upload-btn"
+                  role="button"
+                  tabindex="0"
+                >
+                  <input
+                    accept=""
+                    id="validate_other_dragger"
+                    style="display: none;"
+                    type="file"
+                  />
+                  <div
+                    class="ant-upload-drag-container"
+                  >
+                    <p
+                      class="ant-upload-drag-icon"
+                    >
+                      <span
+                        aria-label="inbox"
+                        class="anticon anticon-inbox"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class=""
+                          data-icon="inbox"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="0 0 1024 1024"
+                          width="1em"
+                        >
+                          <path
+                            d="M885.2 446.3l-.2-.8-112.2-285.1c-5-16.1-19.9-27.2-36.8-27.2H281.2c-17 0-32.1 11.3-36.9 27.6L139.4 443l-.3.7-.2.8c-1.3 4.9-1.7 9.9-1 14.8-.1 1.6-.2 3.2-.2 4.8V830a60.9 60.9 0 0060.8 60.8h627.2c33.5 0 60.8-27.3 60.9-60.8V464.1c0-1.3 0-2.6-.1-3.7.4-4.9 0-9.6-1.3-14.1zm-295.8-43l-.3 15.7c-.8 44.9-31.8 75.1-77.1 75.1-22.1 0-41.1-7.1-54.8-20.6S436 441.2 435.6 419l-.3-15.7H229.5L309 210h399.2l81.7 193.3H589.4zm-375 76.8h157.3c24.3 57.1 76 90.8 140.4 90.8 33.7 0 65-9.4 90.3-27.2 22.2-15.6 39.5-37.4 50.7-63.6h156.5V814H214.4V480.1z"
+                          />
+                        </svg>
+                      </span>
+                    </p>
+                    <p
+                      class="ant-upload-text"
+                    >
+                      Click or drag file to this area to upload
+                    </p>
+                    <p
+                      class="ant-upload-hint"
+                    >
+                      Support for a single or bulk upload.
+                    </p>
+                  </div>
+                </span>
+              </div>
+              <div
+                class="ant-upload-list ant-upload-list-text"
+              />
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center"
+    >
+      <div
+        class="ant-space-item"
+        style="margin-right: 8px;"
+      >
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            提 交
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn"
+          type="button"
+        >
+          <span>
+            重 置
+          </span>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
 `;
 
 exports[`demos renders ./packages/form/demos/light-filter.tsx correctly 1`] = `
@@ -3915,7 +5161,7 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
                     placeholder="Start date"
                     readonly=""
                     size="21"
-                    value="2016-11-22 00:00:00"
+                    value=""
                   />
                 </div>
                 <div
@@ -3955,7 +5201,7 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
                     placeholder="End date"
                     readonly=""
                     size="21"
-                    value="2016-11-22 00:00:00"
+                    value=""
                   />
                 </div>
                 <div
@@ -3982,30 +5228,6 @@ exports[`demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
                     >
                       <path
                         d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-                      />
-                    </svg>
-                  </span>
-                </span>
-                <span
-                  class="ant-picker-clear"
-                >
-                  <span
-                    aria-label="close-circle"
-                    class="anticon anticon-close-circle"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="close-circle"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
                       />
                     </svg>
                   </span>
@@ -5666,7 +6888,7 @@ exports[`demos renders ./packages/layout/demos/DefaultOpenAllMenu.tsx correctly 
                     <div
                       aria-expanded="true"
                       aria-haspopup="true"
-                      aria-owns="/5f69e403896db7304f5eb60073cdb22b1bdb637a24e924cd41150fb3e60e1038$Menu"
+                      aria-owns="/4c7d247066d0b12b71fe9886bf4a8da2901de4fea4691e72e36f0b92cdae48a6$Menu"
                       class="ant-menu-submenu-title"
                       role="button"
                       style="padding-left: 32px;"
@@ -5679,7 +6901,7 @@ exports[`demos renders ./packages/layout/demos/DefaultOpenAllMenu.tsx correctly 
                     </div>
                     <ul
                       class="ant-menu ant-menu-sub ant-menu-inline"
-                      id="/5f69e403896db7304f5eb60073cdb22b1bdb637a24e924cd41150fb3e60e1038$Menu"
+                      id="/4c7d247066d0b12b71fe9886bf4a8da2901de4fea4691e72e36f0b92cdae48a6$Menu"
                       role="menu"
                     >
                       <li
@@ -5713,7 +6935,7 @@ exports[`demos renders ./packages/layout/demos/DefaultOpenAllMenu.tsx correctly 
                     <div
                       aria-expanded="true"
                       aria-haspopup="true"
-                      aria-owns="/afca0ed17dd38e6ee6c079bba4b5b1ed0ffe6a940e0de240c66785ffa87f97f1$Menu"
+                      aria-owns="/718bd35190d985457f72a264318c5a1e42614209fe8a2b8323459a5885e7c6a4$Menu"
                       class="ant-menu-submenu-title"
                       role="button"
                       style="padding-left: 32px;"
@@ -5726,7 +6948,7 @@ exports[`demos renders ./packages/layout/demos/DefaultOpenAllMenu.tsx correctly 
                     </div>
                     <ul
                       class="ant-menu ant-menu-sub ant-menu-inline"
-                      id="/afca0ed17dd38e6ee6c079bba4b5b1ed0ffe6a940e0de240c66785ffa87f97f1$Menu"
+                      id="/718bd35190d985457f72a264318c5a1e42614209fe8a2b8323459a5885e7c6a4$Menu"
                       role="menu"
                     >
                       <li
@@ -5749,53 +6971,6 @@ exports[`demos renders ./packages/layout/demos/DefaultOpenAllMenu.tsx correctly 
                           class="antd-menu-item-title"
                         >
                           _航旅交易_买家_日表
-                        </span>
-                      </li>
-                    </ul>
-                  </li>
-                  <li
-                    class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
-                    role="menuitem"
-                  >
-                    <div
-                      aria-expanded="true"
-                      aria-haspopup="true"
-                      aria-owns="/861c848299671aba566f67075a40feec304939b107ad2300c4f5f459c9d319f0$Menu"
-                      class="ant-menu-submenu-title"
-                      role="button"
-                      style="padding-left: 32px;"
-                      title="域买家维度交易3"
-                    >
-                      域买家维度交易3
-                      <i
-                        class="ant-menu-submenu-arrow"
-                      />
-                    </div>
-                    <ul
-                      class="ant-menu ant-menu-sub ant-menu-inline"
-                      id="/861c848299671aba566f67075a40feec304939b107ad2300c4f5f459c9d319f0$Menu"
-                      role="menu"
-                    >
-                      <li
-                        class="ant-menu-item ant-menu-item-only-child"
-                        role="menuitem"
-                        style="padding-left: 48px;"
-                      >
-                        <span
-                          class="antd-menu-item-title"
-                        >
-                          _交易_买家_月表2
-                        </span>
-                      </li>
-                      <li
-                        class="ant-menu-item ant-menu-item-only-child"
-                        role="menuitem"
-                        style="padding-left: 48px;"
-                      >
-                        <span
-                          class="antd-menu-item-title"
-                        >
-                          _航旅交易_买家_日表3
                         </span>
                       </li>
                     </ul>
@@ -25274,7 +26449,6 @@ Array [
                           <input
                             aria-valuemax="9007199254740991"
                             aria-valuemin="0"
-                            aria-valuenow=""
                             autocomplete="off"
                             class="ant-input-number-input"
                             max="9007199254740991"
@@ -40020,9 +41194,10 @@ exports[`demos renders ./packages/table/demos/search_option.tsx correctly 1`] = 
                           />
                         </span>
                         <span
-                          class="ant-select-selection-item"
-                          title=""
-                        />
+                          class="ant-select-selection-placeholder"
+                        >
+                          请选择
+                        </span>
                       </div>
                       <span
                         aria-hidden="true"
@@ -40047,33 +41222,6 @@ exports[`demos renders ./packages/table/demos/search_option.tsx correctly 1`] = 
                           >
                             <path
                               d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                            />
-                          </svg>
-                        </span>
-                      </span>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-clear"
-                        style="user-select: none;"
-                        unselectable="on"
-                      >
-                        <span
-                          aria-label="close-circle"
-                          class="anticon anticon-close-circle"
-                          role="img"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class=""
-                            data-icon="close-circle"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
                             />
                           </svg>
                         </span>

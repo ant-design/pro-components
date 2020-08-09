@@ -67,8 +67,9 @@
     "father-build": "^1.18.1",
     "gh-pages": "^3.1.0",
     "glob": "^7.1.6",
+    "jest": "^26.2.2",
     "jest-fetch-mock": "^3.0.3",
-    "jsdom": "^16.2.0",
+    "jsdom": "^16.4.0",
     "jsdom-global": "^3.0.2",
     "lerna": "^3.20.2",
     "less-loader": "^6.0.0",
@@ -108,6 +109,12 @@
     "pre-commit": "pretty-quick --staged",
     "commit-msg": "node scripts/verifyCommit.js"
   },
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ],
   "size-limit": [
     {
       "path": "packages/card/lib/**/*.js",

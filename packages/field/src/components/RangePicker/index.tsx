@@ -36,7 +36,6 @@ const FieldRangePicker: ProFieldFC<{
         format={format}
         showTime={showTime}
         bordered={plain === undefined ? true : !plain}
-        defaultValue={[moment(startText), moment(endText)]}
         {...formItemProps}
       />
     );

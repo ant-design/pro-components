@@ -21,6 +21,12 @@
     "lib",
     "src"
   ],
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ],
   "dependencies": {
     "@ant-design/pro-utils":"0.0.1",
     "@ant-design/icons": "^4.2.1",

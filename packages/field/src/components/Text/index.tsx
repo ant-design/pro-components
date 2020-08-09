@@ -27,7 +27,7 @@ const FieldText: ProFieldFC<{
     return <>{dom}</>;
   }
   if (mode === 'edit' || mode === 'update') {
-    const dom = <Input ref={inputRef} {...formItemProps} defaultValue={text} />;
+    const dom = <Input ref={inputRef} {...formItemProps} />;
     if (renderFormItem) {
       return renderFormItem(text, { mode, ...formItemProps }, dom);
     }

@@ -234,11 +234,10 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
         }}
         loading={loading}
         ref={inputRef}
-        defaultValue={rest.text}
         allowClear
         {...rest}
-        {...formItemProps}
         options={options}
+        {...formItemProps}
       >
         {children}
       </Select>

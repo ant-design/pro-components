@@ -2,6 +2,16 @@
   "name": "@ant-design/pro-list",
   "version": "0.0.6",
   "description": "🏆 Use Ant Design List like a Pro!",
+  "keywords": [
+    "antd",
+    "admin",
+    "ant-design",
+    "ant-design-pro"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ant-design/pro-components"
+  },
   "license": "MIT",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -12,15 +22,11 @@
     "src",
     "dist"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ant-design/pro-components"
-  },
-  "keywords": [
-    "antd",
-    "admin",
-    "ant-design",
-    "ant-design-pro"
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
   ],
   "dependencies": {
     "@ant-design/icons": "^4.0.0",
@@ -39,11 +45,11 @@
   "peerDependencies": {
     "umi": "3.x"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "authors": {
     "name": "chenshuai2144",
     "email": "qixian.cs@outlook.com"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }

@@ -23,6 +23,12 @@
     "es",
     "dist"
   ],
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ],
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
     "@ant-design/pro-field": "0.0.11",

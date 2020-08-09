@@ -70,7 +70,6 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
     const dom = (
       <InputNumber
         ref={ref}
-        defaultValue={text}
         min={0}
         precision={2}
         formatter={(value) => {
