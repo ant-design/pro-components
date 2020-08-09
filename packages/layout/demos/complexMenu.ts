@@ -31,7 +31,7 @@ export default [
           {
             id: 2,
             name: '_交易_买家_月表',
-            path: '/data_hui?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alifin_odps_birisk',
+            path: '/data_hui2',
           },
           {
             name: '_航旅交易_买家_日表',
@@ -45,25 +45,12 @@ export default [
         children: [
           {
             name: '_交易_买家_月表',
-            path: '/data_hui?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alifin_odps_birisk',
+            path: '/data_hui3',
           },
           {
             name: '_航旅交易_买家_日表',
-            path: '/data_hui?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
-          },
-        ],
-      },
-      {
-        name: '域买家维度交易3',
-        path: '/',
-        children: [
-          {
-            name: '_交易_买家_月表2',
-            path: '/data_hui?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alifin_odps_birisk',
-          },
-          {
-            name: '_航旅交易_买家_日表3',
-            path: '/data_hui?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
+            key: 'tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
+            path: '/data_hui4',
           },
         ],
       },

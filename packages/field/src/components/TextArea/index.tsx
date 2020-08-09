@@ -18,7 +18,7 @@ const FieldTextArea: ProFieldFC<{
     return dom;
   }
   if (mode === 'edit' || mode === 'update') {
-    const dom = <Input.TextArea ref={ref} {...formItemProps} defaultValue={text} />;
+    const dom = <Input.TextArea ref={ref} {...formItemProps} />;
     if (renderFormItem) {
       return renderFormItem(text, { mode, ...formItemProps }, dom);
     }

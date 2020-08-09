@@ -30,7 +30,6 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
     const dom = (
       <InputNumber
         ref={ref}
-        defaultValue={text}
         min={0}
         precision={2}
         style={{

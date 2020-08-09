@@ -13,10 +13,16 @@ import ProForm, {
 export default () => {
   return (
     <ProForm onFinish={(values) => console.log(values)}>
-      <ProFormText name="name" label="名称" tip="最长为 24 位，用于标定的唯一 id" />
+      <ProFormText
+        name="name"
+        label="名称"
+        tip="最长为 24 位，用于标定的唯一 id"
+        placeholder="请输入名称"
+      />
       <ProFormTextArea
         name="remark"
         label="备注"
+        placeholder="请输入备注"
         tip="最长为 24 位，用于标定的唯一 id,最长为 24 位，用于标定的唯一 id,最长为 24 位，用于标定的唯一 id"
       />
       <ProFormDatePicker name="date" label="日期" />
@@ -31,7 +37,7 @@ export default () => {
         options={['农业', '制造业', '互联网']}
       />
       <ProFormDateTimeRangePicker name="dateTimeRange" label="日期时间区间" />
-      <ProFormTimePicker name="time" label="时间选择" />
+      <ProFormTimePicker name="time" label="时间选择" placeholder="请选择" />
     </ProForm>
   );
 };

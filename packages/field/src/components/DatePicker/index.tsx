@@ -30,7 +30,6 @@ const FieldDatePicker: ProFieldFC<{
         format={format}
         ref={ref}
         bordered={plain === undefined ? true : !plain}
-        defaultValue={text ? moment(text) : undefined}
         {...formItemProps}
       />
     );

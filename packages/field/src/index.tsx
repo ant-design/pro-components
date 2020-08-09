@@ -279,7 +279,6 @@ const defaultRenderText = (
       return emptyText || '-';
     }
   }
-
   if (props.valueEnum || props.request) {
     return <FiledSelect text={text as string} {...props} />;
   }

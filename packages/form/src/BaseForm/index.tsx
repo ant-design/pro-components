@@ -31,21 +31,22 @@ export function createField<P extends ProFormItemProps = any>(
   Field: React.ComponentType<P> | React.ForwardRefExoticComponent<P>,
 ): React.ComponentType<P & ExtendsProps> {
   const FieldWithContext: React.FC<P> = (props: P & ExtendsProps) => {
-    const { label, tip, ...restProps } = props;
-
+    const { label, tip, placeholder, ...rest } = props;
     /**
      * 从 context 中拿到的值
      */
     const { fieldProps, formItemProps } = React.useContext(FieldContext);
-
+    // @ts-ignore
+    const restProps = Field.type === 'ProField' ? (rest as P) : (pickProProps(rest) as P);
     return (
       <Field
         fieldProps={pickProProps({
+          placeholder,
           ...(fieldProps || {}),
-          ...(restProps.fieldProps || {}),
+          ...(rest.fieldProps || {}),
         })}
         {...formItemProps}
-        {...(pickProProps(restProps) as P)}
+        {...restProps}
         // title 是用于提升读屏的能力的，没有参与逻辑
         title={label}
         // 全局的提供一个 tip 功能，可以减少代码量

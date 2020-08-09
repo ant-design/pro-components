@@ -72,7 +72,6 @@ const FieldPercent: ProFieldFC<PercentPropInt> = (
           value ? value.replace(new RegExp(`\\${prefix}\\s?|(,*)`, 'g'), '') : ''
         }
         {...formItemProps}
-        defaultValue={realValue}
       />
     );
     if (renderFormItem) {

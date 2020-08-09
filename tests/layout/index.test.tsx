@@ -211,7 +211,7 @@ describe('BasicLayout', () => {
 
   it('🥩 menuDataRender change date', async () => {
     const wrapper = mount(<BasicLayout menuDataRender={() => []} />);
-    await waitForComponentToPaint(wrapper);
+    await waitForComponentToPaint(wrapper, 100);
 
     expect(wrapper.render()).toMatchSnapshot();
 
@@ -235,7 +235,7 @@ describe('BasicLayout', () => {
         },
       ],
     });
-    await waitForComponentToPaint(wrapper);
+    await waitForComponentToPaint(wrapper, 100);
     expect(wrapper.render()).toMatchSnapshot();
   });
 

@@ -25,7 +25,6 @@ const FieldTimePicker: ProFieldFC<{
         ref={ref}
         format={format}
         bordered={plain === undefined ? true : !plain}
-        defaultValue={text ? moment(text) : undefined}
         {...formItemProps}
       />
     );

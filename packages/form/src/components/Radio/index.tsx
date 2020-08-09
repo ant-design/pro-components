@@ -8,17 +8,51 @@ const RadioGroup = Radio.Group;
 
 export type ProFormRadioGroupProps = ProFormItemProps<RadioGroupProps> & {
   layout?: 'horizontal' | 'vertical';
+  options?: Array<
+    | {
+        value: string;
+        label: React.ReactNode;
+        disable?: boolean;
+      }
+    | string
+  >;
 };
 
 const Group: React.FC<ProFormRadioGroupProps> = ({
   layout,
   children,
   fieldProps,
+  options,
   ...restProps
 }) => {
+  const renderChildren = () => {
+    if (options) {
+      return (
+        <>
+          {options.map((option) => {
+            if (typeof option === 'string') {
+              return (
+                <Radio key={option} value={option}>
+                  {option}
+                </Radio>
+              );
+            }
+            return (
+              <Radio disabled={option.disable} key={option.value} value={option.value}>
+                {option.label}
+              </Radio>
+            );
+          })}
+          {children}
+        </>
+      );
+    }
+    return children;
+  };
+
   return (
     <Form.Item valuePropName="checked" {...restProps}>
-      <RadioGroup {...fieldProps}>{children}</RadioGroup>
+      <RadioGroup {...fieldProps}>{renderChildren()}</RadioGroup>
     </Form.Item>
   );
 };

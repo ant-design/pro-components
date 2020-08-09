@@ -25,7 +25,7 @@ const languageFormat = (text: string, language: string) => {
 const FieldCode: ProFieldFC<{
   text: string;
   language?: 'json' | 'text';
-}> = ({ text, mode, render, language = 'text', renderFormItem, plain, formItemProps }) => {
+}> = ({ text, mode, render, language = 'text', renderFormItem, plain, formItemProps }, ref) => {
   const code = languageFormat(text, language);
   if (mode === 'read') {
     const dom = (
@@ -38,27 +38,28 @@ const FieldCode: ProFieldFC<{
           backgroundColor: '#f6f8fa',
           borderRadius: 3,
         }}
+        ref={ref}
         {...formItemProps}
       >
         <code>{code}</code>
       </pre>
     );
     if (render) {
-      return render(code, { mode, ...formItemProps }, dom);
+      return render(code, { mode, ...formItemProps, ref }, dom);
     }
     return dom;
   }
   if (mode === 'edit' || mode === 'update') {
-    let dom = <Input.TextArea rows={5} {...formItemProps} defaultValue={code} />;
+    let dom = <Input.TextArea rows={5} {...formItemProps} ref={ref} />;
     if (plain) {
-      dom = <Input {...formItemProps} defaultValue={code} />;
+      dom = <Input {...formItemProps} ref={ref} />;
     }
     if (renderFormItem) {
-      return renderFormItem(code, { mode, ...formItemProps }, dom);
+      return renderFormItem(code, { mode, ...formItemProps, ref }, dom);
     }
     return dom;
   }
   return null;
 };
 
-export default FieldCode;
+export default React.forwardRef(FieldCode);

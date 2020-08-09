@@ -1,24 +1,36 @@
 import React from 'react';
 // eslint-disable-next-line import/no-unresolved
-import ProField from '@ant-design/pro-field';
+import ProField, { ProFieldValueType } from '@ant-design/pro-field';
 import { Form } from 'antd';
-import { DatePickerProps } from 'antd/lib/date-picker';
+import { InputProps } from 'antd/lib/input';
+import { ProSchema, pickProProps } from '@ant-design/pro-utils';
+
 import { createField } from '../../BaseForm';
 import { ProFormItemProps } from '../../interface';
 
 /**
- * 日期选择组件
+ * 最普通的 Text 组件
  * @param
  */
-const ProFormDatePicker: React.ForwardRefRenderFunction<any, ProFormItemProps & DatePickerProps> = (
-  { value, fieldProps, ...restProps },
-  ref,
-) => {
-  return (
-    <Form.Item {...restProps}>
-      <ProField text={value} ref={ref} mode="edit" valueType="text" formItemProps={fieldProps} />
-    </Form.Item>
-  );
-};
+const ProFormText = React.forwardRef<
+  any,
+  ProSchema<string, ProFieldValueType, ProFormItemProps<InputProps>>
+>(({ fieldProps, hasFeedback, render, renderFormItem, ...restProps }, ref) => (
+  <Form.Item {...pickProProps(restProps)}>
+    <ProField
+      text={fieldProps?.value as string}
+      ref={ref}
+      mode="edit"
+      valueType="text"
+      formItemProps={fieldProps}
+      {...restProps}
+    />
+  </Form.Item>
+));
 
-export default createField<ProFormItemProps & DatePickerProps>(React.forwardRef(ProFormDatePicker));
+// @ts-ignore
+ProFormText.type = 'ProField';
+
+export default createField<ProSchema<string, ProFieldValueType, ProFormItemProps<InputProps>>>(
+  ProFormText,
+);
