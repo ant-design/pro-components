@@ -43,6 +43,7 @@ export interface ProCoreActionType {
  * 各个组件公共支持的 render
  */
 export type ProSchema<T, U, Extra> = {
+  key?: React.ReactText;
   dataIndex?: string | number | (string | number)[];
   /**
    * 选择如何渲染相应的模式
