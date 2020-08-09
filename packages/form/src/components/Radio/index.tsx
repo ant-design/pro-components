@@ -8,7 +8,7 @@ const RadioGroup = Radio.Group;
 
 export type ProFormRadioGroupProps = ProFormItemProps<RadioGroupProps> & {
   layout?: 'horizontal' | 'vertical';
-  options: Array<
+  options?: Array<
     | {
         value: string;
         label: React.ReactNode;
