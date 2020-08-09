@@ -18,6 +18,12 @@
     "es",
     "dist"
   ],
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ],
   "dependencies": {
     "classnames": "^2.2.6",
     "lodash.isequal": "^4.5.0",
