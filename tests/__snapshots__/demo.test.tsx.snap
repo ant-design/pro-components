@@ -6327,7 +6327,7 @@ exports[`demos renders ./packages/layout/demos/DefaultOpenAllMenu.tsx correctly 
                     <div
                       aria-expanded="true"
                       aria-haspopup="true"
-                      aria-owns="/5f69e403896db7304f5eb60073cdb22b1bdb637a24e924cd41150fb3e60e1038$Menu"
+                      aria-owns="/4c7d247066d0b12b71fe9886bf4a8da2901de4fea4691e72e36f0b92cdae48a6$Menu"
                       class="ant-menu-submenu-title"
                       role="button"
                       style="padding-left: 32px;"
@@ -6340,7 +6340,7 @@ exports[`demos renders ./packages/layout/demos/DefaultOpenAllMenu.tsx correctly 
                     </div>
                     <ul
                       class="ant-menu ant-menu-sub ant-menu-inline"
-                      id="/5f69e403896db7304f5eb60073cdb22b1bdb637a24e924cd41150fb3e60e1038$Menu"
+                      id="/4c7d247066d0b12b71fe9886bf4a8da2901de4fea4691e72e36f0b92cdae48a6$Menu"
                       role="menu"
                     >
                       <li
@@ -6374,7 +6374,7 @@ exports[`demos renders ./packages/layout/demos/DefaultOpenAllMenu.tsx correctly 
                     <div
                       aria-expanded="true"
                       aria-haspopup="true"
-                      aria-owns="/afca0ed17dd38e6ee6c079bba4b5b1ed0ffe6a940e0de240c66785ffa87f97f1$Menu"
+                      aria-owns="/718bd35190d985457f72a264318c5a1e42614209fe8a2b8323459a5885e7c6a4$Menu"
                       class="ant-menu-submenu-title"
                       role="button"
                       style="padding-left: 32px;"
@@ -6387,7 +6387,7 @@ exports[`demos renders ./packages/layout/demos/DefaultOpenAllMenu.tsx correctly 
                     </div>
                     <ul
                       class="ant-menu ant-menu-sub ant-menu-inline"
-                      id="/afca0ed17dd38e6ee6c079bba4b5b1ed0ffe6a940e0de240c66785ffa87f97f1$Menu"
+                      id="/718bd35190d985457f72a264318c5a1e42614209fe8a2b8323459a5885e7c6a4$Menu"
                       role="menu"
                     >
                       <li
@@ -6410,53 +6410,6 @@ exports[`demos renders ./packages/layout/demos/DefaultOpenAllMenu.tsx correctly 
                           class="antd-menu-item-title"
                         >
                           _航旅交易_买家_日表
-                        </span>
-                      </li>
-                    </ul>
-                  </li>
-                  <li
-                    class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
-                    role="menuitem"
-                  >
-                    <div
-                      aria-expanded="true"
-                      aria-haspopup="true"
-                      aria-owns="/861c848299671aba566f67075a40feec304939b107ad2300c4f5f459c9d319f0$Menu"
-                      class="ant-menu-submenu-title"
-                      role="button"
-                      style="padding-left: 32px;"
-                      title="域买家维度交易3"
-                    >
-                      域买家维度交易3
-                      <i
-                        class="ant-menu-submenu-arrow"
-                      />
-                    </div>
-                    <ul
-                      class="ant-menu ant-menu-sub ant-menu-inline"
-                      id="/861c848299671aba566f67075a40feec304939b107ad2300c4f5f459c9d319f0$Menu"
-                      role="menu"
-                    >
-                      <li
-                        class="ant-menu-item ant-menu-item-only-child"
-                        role="menuitem"
-                        style="padding-left: 48px;"
-                      >
-                        <span
-                          class="antd-menu-item-title"
-                        >
-                          _交易_买家_月表2
-                        </span>
-                      </li>
-                      <li
-                        class="ant-menu-item ant-menu-item-only-child"
-                        role="menuitem"
-                        style="padding-left: 48px;"
-                      >
-                        <span
-                          class="antd-menu-item-title"
-                        >
-                          _航旅交易_买家_日表3
                         </span>
                       </li>
                     </ul>
