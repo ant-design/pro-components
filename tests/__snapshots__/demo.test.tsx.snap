@@ -4803,24 +4803,23 @@ exports[`demos renders ./packages/form/demos/query-filter-collapsed.tsx correctl
     </div>
     <div
       class="ant-row ant-form-item ant-form-item-hidden"
+      title="创建时间"
     >
       <div
-        class="ant-row ant-form-item"
-        title="创建时间"
+        class="ant-col ant-form-item-label"
+        style="flex: 0 0 98px;"
       >
         <label
           class=""
           for="createDate"
-          title="创建时间"
+          title=""
         >
-          <label
-            class=""
-            for="createDate"
-            title=""
-          >
-            创建时间
-          </label>
-        </div>
+          创建时间
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
         <div
           class="ant-form-item-control-input"
         >
@@ -5809,6 +5808,7 @@ exports[`demos renders ./packages/form/demos/search-filter.tsx correctly 1`] = `
                 >
                   <div
                     class="ant-col ant-form-item-label"
+                    style="flex: 0 0 98px;"
                   >
                     <label
                       class=""
