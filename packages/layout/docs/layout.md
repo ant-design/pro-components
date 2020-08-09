@@ -8,9 +8,9 @@ nav:
   path: /components
 ---
 
-# ProLayout
+# ProLayout - 高级布局
 
-## 使用
+## 安装和初始化
 
 ```bash
 npm i @ant-design/pro-layout --save
@@ -23,12 +23,6 @@ import BasicLayout from '@ant-design/pro-layout';
 
 render(<BasicLayout />, document.getElementById('root'));
 ```
-
-## 示例
-
-[site](https://ant-design.github.io/ant-design-pro-layout/)
-
-# 基本使用
 
 ProLayout 与 umi 配合使用会有最好的效果，umi 会把 config.ts 中的路由帮我们自动注入到配置的 layout 中，这样我们就可以免去手写菜单的烦恼。
 
@@ -47,10 +41,6 @@ export interface MenuDataItem {
 ```
 
 ProLayout 会根据 `location.pathname` 来自动选中菜单，并且自动生成相应的面包屑。如果不想使用可以自己配置 `selectedKeys` 和 `openKeys` 来进行受控配置。
-
-## Demo
-
-<code src="../demos/base.tsx" />
 
 ## API
 
@@ -277,41 +267,43 @@ export interface Route {
 }
 ```
 
-## menu 的各种操作
+### 远程加载菜单
 
 ProLayout 提供了强大的 menu，但是这样必然会封装很多行为，导致需要一些特殊逻辑的用户感到不满。所以我们提供了很多的 API，期望可以满足绝大部分客户的方式。
 
-### 从服务器加载 menu
+#### 从服务器加载 menu
 
 从服务器加载 menu 主要使用的 API 是 `menuDataRender` 和 `menuRender`,`menuDataRender`可以控制当前的菜单数据，`menuRender`可以控制菜单的 dom 节点。
 
 <code src="../demos/dynamicMenu.tsx" />
 
-### 从服务器加载 menu 并且使用 icon
+#### 从服务器加载 menu 并且使用 icon
 
 这里主要是一个演示，我们需要准备一个枚举来进行 icon 的渲染，可以显著的减少打包的大小
 
 <code src="../demos/antd@4MenuIconFormServe.tsx" />
 
-### 从服务器加载 menu 并且使用旧版本 icon
+#### 从服务器加载 menu 并且使用旧版本 icon
 
 使用兼容包来实现，虽然比较简单，但是会造成打包太大
 
 <code src="../demos/antd@3MenuIconFormServe.tsx" />
 
-### 自定义 menu 的内容
+#### 自定义 menu 的内容
 
 通过 `menuItemRender`, `subMenuItemRender`,`title`,`logo`,`menuHeaderRender` 可以非常方便的自定义 menu 的样式。如果实在是不满意，可以使用 `menuRender` 完全的自定义。
 
 <code src="../demos/customizeMenu.tsx" />
 
-### 关闭时完全收起 menu
+#### 关闭时完全收起 menu
 
 <code src="../demos/hideMenu.tsx" />
 
 ## Example 展示
 
-### 自定义页脚
+<code src="../demos/base.tsx" />
+
+#### 自定义页脚
 
 ProLayout 默认不提供页脚，要是和 Pro 官网相同的样式，需要自己引入一下页脚。
 
@@ -319,30 +311,30 @@ ProLayout 默认不提供页脚，要是和 Pro 官网相同的样式，需要�
 
 这里用于展示 ProLayout 的各种应用，如果你觉得你的用法能帮助到别人，欢迎 PR。
 
-### 搜索菜单
+#### 搜索菜单
 
 <code src="../demos/searchMenu.tsx" />
 
-### 多个路由对应一个菜单项
+#### 多个路由对应一个菜单项
 
 <code src="../demos/MultipleMenuOnePath.tsx" />
 
-### 默认打开所有菜单
+#### 默认打开所有菜单
 
 <code src="../demos/DefaultOpenAllMenu.tsx" />
 
-### 带参数的面包屑
+#### 带参数的面包屑
 
 <code src="../demos/BreadcrumbsRepeat.tsx" />
 
-### IconFont
+#### IconFont
 
 <code src="../demos/IconFont.tsx" />
 
-### 嵌套布局
+#### 嵌套布局
 
 <code src="../demos/Nested.tsx" />
 
-### 另外一种嵌套布局
+#### 另外一种嵌套布局
 
 <code src="../demos/TopmenuNested.tsx" />

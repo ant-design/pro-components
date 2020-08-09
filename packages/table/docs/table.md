@@ -10,7 +10,7 @@ nav:
 
 # ProTable - 高级表格
 
-## 使用
+## 安装和初始化
 
 ```typescript | pure
 npm i @ant-design/pro-table --save
@@ -428,40 +428,40 @@ const enUSIntl = createIntl('en_US', enUS);
 
 这里将会提供一些常用的功能示例，方便大家直接拷贝。
 
-### 基本使用
+#### 基本使用
 
 <code src="../demos/single.tsx" background="#f5f5f5"/>
 
-### 批量操作
+#### 批量操作
 
 <code src="../demos/batchOption.tsx" background="#f5f5f5"/>
 
-### toolbar 搜索
+#### toolbar 搜索
 
 <code src="../demos/search.tsx" background="#f5f5f5"/>
 
-### form 操作
+#### form 操作
 
 <code src="../demos/form.tsx" background="#f5f5f5"/>
 
-### 使用 dataSource 和 loading
+#### 使用 dataSource 和 loading
 
 <code src="../demos/dataSource.tsx" background="#f5f5f5"/>
 
-### 受控的列显示隐藏
+#### 受控的列显示隐藏
 
 可以默认隐藏某些栏，但是在操作栏中可以选择
 
 <code src="../demos/columnsStateMap.tsx" background="#f5f5f5"/>
 
-### 轮询
+#### 轮询
 
 <code src="../demos/pollinga.tsx" background="#f5f5f5"/>
 
-### 嵌套表格
+#### 嵌套表格
 
 <code src="../demos/table-nested.tsx" background="#f5f5f5"/>
 
-### 自定义表格的主体
+#### 自定义表格的主体
 
 <code src="../demos/renderTable.tsx" background="#f5f5f5"/>
