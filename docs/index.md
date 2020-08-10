@@ -32,6 +32,19 @@ features:
 footer: Open-source MIT Licensed | Copyright © 2017-present
 ---
 
+## 组件看板
+
+| 组件 | 下载量 | 版本 |
+| --- | --- | --- |
+| pro-layout | [![](https://img.shields.io/npm/dw/@ant-design/pro-layout.svg)](https://www.npmjs.com/package/@ant-design/pro-layout) | [![npm package](https://img.shields.io/npm/v/@ant-design/pro-layout.svg?style=flat-square?style=flat-square)](https://www.npmjs.com/package/@ant-design/pro-layout) |
+| pro-table | [![](https://img.shields.io/npm/dw/@ant-design/pro-table.svg)](https://www.npmjs.com/package/@ant-design/pro-table) | [![npm package](https://img.shields.io/npm/v/@ant-design/pro-table.svg?style=flat-square?style=flat-square)](https://www.npmjs.com/package/@ant-design/pro-table) |
+| pro-field | [![](https://img.shields.io/npm/dw/@ant-design/pro-field.svg)](https://www.npmjs.com/package/@ant-design/pro-field) | [![npm package](https://img.shields.io/npm/v/@ant-design/pro-field.svg?style=flat-square?style=flat-square)](https://www.npmjs.com/package/@ant-design/pro-field) |
+| pro-form | [![](https://img.shields.io/npm/dw/@ant-design/pro-form.svg)](https://www.npmjs.com/package/@ant-design/pro-form) | [![npm package](https://img.shields.io/npm/v/@ant-design/pro-form.svg?style=flat-square?style=flat-square)](https://www.npmjs.com/package/@ant-design/pro-form) |
+| pro-skeleton | [![](https://img.shields.io/npm/dw/@ant-design/pro-skeleton.svg)](https://www.npmjs.com/package/@ant-design/pro-skeleton) | [![npm package](https://img.shields.io/npm/v/@ant-design/pro-skeleton.svg?style=flat-square?style=flat-square)](https://www.npmjs.com/package/@ant-design/pro-skeleton) |
+| pro-list | [![](https://img.shields.io/npm/dw/@ant-design/pro-list.svg)](https://www.npmjs.com/package/@ant-design/pro-list) | [![npm package](https://img.shields.io/npm/v/@ant-design/pro-list.svg?style=flat-square?style=flat-square)](https://www.npmjs.com/package/@ant-design/pro-list) |
+| pro-card | [![](https://img.shields.io/npm/dw/@ant-design/pro-card.svg)](https://www.npmjs.com/package/@ant-design/pro-card) | [![npm package](https://img.shields.io/npm/v/@ant-design/pro-card.svg?style=flat-square?style=flat-square)](https://www.npmjs.com/package/@ant-design/pro-card) |
+| pro-descriptions | [![](https://img.shields.io/npm/dw/@ant-design/pro-card.svg)](https://www.npmjs.com/package/@ant-design/pro-descriptions) | [![npm package](https://img.shields.io/npm/v/@ant-design/pro-descriptions.svg?style=flat-square?style=flat-square)](https://www.npmjs.com/package/@ant-design/pro-descriptions) |
+
 ## 🖥 浏览器兼容性
 
 - 现代浏览器和 Internet Explorer 11 (with [polyfills](https://stackoverflow.com/questions/57020976/polyfills-in-2019-for-ie11))
