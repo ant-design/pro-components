@@ -243,6 +243,7 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
     menu = { locale: true },
     iconfontUrl,
     splitMenus,
+    collapsed,
     selectedKeys: propsSelectedKeys,
     onSelect,
     openKeys: propsOpenKeys,
@@ -325,13 +326,15 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
       }
     });
     return () => window.cancelAnimationFrame && window.cancelAnimationFrame(animationFrameId);
-  }, [pathname]);
+  }, [pathname, collapsed]);
 
-  const openKeysProps = useMemo(() => getOpenKeysProps(openKeys, props), [
+  const openKeysProps = useMemo(() => getOpenKeysProps(openKeysRef.current, props), [
     openKeys,
     props.layout,
     props.collapsed,
   ]);
+
+  console.log(openKeys, openKeysRef.current, openKeysProps);
   const cls = classNames(className, {
     'top-nav-menu': mode === 'horizontal',
   });
@@ -383,7 +386,10 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
       selectedKeys={selectedKeys}
       style={style}
       className={cls}
-      onOpenChange={(keys) => setOpenKeys(keys as string[])}
+      onOpenChange={(keys) => {
+        setOpenKeys(keys as string[]);
+        openKeysRef.current = keys as string[];
+      }}
       {...props.menuProps}
     >
       {menuUtils.getNavMenuItems(finallyData, false)}
