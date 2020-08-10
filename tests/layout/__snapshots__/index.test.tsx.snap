@@ -584,9 +584,13 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
               style="padding-left: 16px;"
             >
               <span
-                class="ant-pro-menu-item-title"
+                class="ant-pro-menu-item"
               >
-                首页
+                <span
+                  class="ant-pro-menu-item-title"
+                >
+                  首页
+                </span>
               </span>
             </li>
             <li
@@ -614,9 +618,13 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
               style="padding-left: 16px;"
             >
               <span
-                class="ant-pro-menu-item-title"
+                class="ant-pro-menu-item"
               >
-                明细数据
+                <span
+                  class="ant-pro-menu-item-title"
+                >
+                  明细数据
+                </span>
               </span>
             </li>
             <li
@@ -625,9 +633,13 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
               style="padding-left: 16px;"
             >
               <span
-                class="ant-pro-menu-item-title"
+                class="ant-pro-menu-item"
               >
-                其他
+                <span
+                  class="ant-pro-menu-item-title"
+                >
+                  其他
+                </span>
               </span>
             </li>
           </ul>
