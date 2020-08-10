@@ -6313,13 +6313,12 @@ exports[`demos renders ./packages/layout/demos/DefaultOpenAllMenu.tsx correctly 
                 </span>
               </li>
               <li
-                class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+                class="ant-menu-submenu ant-menu-submenu-inline"
                 role="menuitem"
               >
                 <div
-                  aria-expanded="true"
+                  aria-expanded="false"
                   aria-haspopup="true"
-                  aria-owns="/data_hui$Menu"
                   class="ant-menu-submenu-title"
                   role="button"
                   style="padding-left: 16px;"
@@ -6330,131 +6329,15 @@ exports[`demos renders ./packages/layout/demos/DefaultOpenAllMenu.tsx correctly 
                     class="ant-menu-submenu-arrow"
                   />
                 </div>
-                <ul
-                  class="ant-menu ant-menu-sub ant-menu-inline"
-                  id="/data_hui$Menu"
-                  role="menu"
-                >
-                  <li
-                    class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
-                    role="menuitem"
-                  >
-                    <div
-                      aria-expanded="true"
-                      aria-haspopup="true"
-                      aria-owns="/4c7d247066d0b12b71fe9886bf4a8da2901de4fea4691e72e36f0b92cdae48a6$Menu"
-                      class="ant-menu-submenu-title"
-                      role="button"
-                      style="padding-left: 32px;"
-                      title="域买家维度交易"
-                    >
-                      域买家维度交易
-                      <i
-                        class="ant-menu-submenu-arrow"
-                      />
-                    </div>
-                    <ul
-                      class="ant-menu ant-menu-sub ant-menu-inline"
-                      id="/4c7d247066d0b12b71fe9886bf4a8da2901de4fea4691e72e36f0b92cdae48a6$Menu"
-                      role="menu"
-                    >
-                      <li
-                        class="ant-menu-item ant-menu-item-only-child"
-                        role="menuitem"
-                        style="padding-left: 48px;"
-                      >
-                        <span
-                          class="ant-pro-menu-item"
-                        >
-                          <span
-                            class="ant-pro-menu-item-title"
-                          >
-                            _交易_买家_月表
-                          </span>
-                        </span>
-                      </li>
-                      <li
-                        class="ant-menu-item ant-menu-item-only-child"
-                        role="menuitem"
-                        style="padding-left: 48px;"
-                      >
-                        <span
-                          class="ant-pro-menu-item"
-                        >
-                          <span
-                            class="ant-pro-menu-item-title"
-                          >
-                            _航旅交易_买家_日表
-                          </span>
-                        </span>
-                      </li>
-                    </ul>
-                  </li>
-                  <li
-                    class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
-                    role="menuitem"
-                  >
-                    <div
-                      aria-expanded="true"
-                      aria-haspopup="true"
-                      aria-owns="/718bd35190d985457f72a264318c5a1e42614209fe8a2b8323459a5885e7c6a4$Menu"
-                      class="ant-menu-submenu-title"
-                      role="button"
-                      style="padding-left: 32px;"
-                      title="域买家维度交易2"
-                    >
-                      域买家维度交易2
-                      <i
-                        class="ant-menu-submenu-arrow"
-                      />
-                    </div>
-                    <ul
-                      class="ant-menu ant-menu-sub ant-menu-inline"
-                      id="/718bd35190d985457f72a264318c5a1e42614209fe8a2b8323459a5885e7c6a4$Menu"
-                      role="menu"
-                    >
-                      <li
-                        class="ant-menu-item ant-menu-item-only-child"
-                        role="menuitem"
-                        style="padding-left: 48px;"
-                      >
-                        <span
-                          class="ant-pro-menu-item"
-                        >
-                          <span
-                            class="ant-pro-menu-item-title"
-                          >
-                            _交易_买家_月表
-                          </span>
-                        </span>
-                      </li>
-                      <li
-                        class="ant-menu-item ant-menu-item-only-child"
-                        role="menuitem"
-                        style="padding-left: 48px;"
-                      >
-                        <span
-                          class="ant-pro-menu-item"
-                        >
-                          <span
-                            class="ant-pro-menu-item-title"
-                          >
-                            _航旅交易_买家_日表
-                          </span>
-                        </span>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
+                <div />
               </li>
               <li
-                class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+                class="ant-menu-submenu ant-menu-submenu-inline"
                 role="menuitem"
               >
                 <div
-                  aria-expanded="true"
+                  aria-expanded="false"
                   aria-haspopup="true"
-                  aria-owns="/data_ming$Menu"
                   class="ant-menu-submenu-title"
                   role="button"
                   style="padding-left: 16px;"
@@ -6465,36 +6348,15 @@ exports[`demos renders ./packages/layout/demos/DefaultOpenAllMenu.tsx correctly 
                     class="ant-menu-submenu-arrow"
                   />
                 </div>
-                <ul
-                  class="ant-menu ant-menu-sub ant-menu-inline"
-                  id="/data_ming$Menu"
-                  role="menu"
-                >
-                  <li
-                    class="ant-menu-item ant-menu-item-only-child"
-                    role="menuitem"
-                    style="padding-left: 32px;"
-                  >
-                    <span
-                      class="ant-pro-menu-item"
-                    >
-                      <span
-                        class="ant-pro-menu-item-title"
-                      >
-                        概述导出
-                      </span>
-                    </span>
-                  </li>
-                </ul>
+                <div />
               </li>
               <li
-                class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+                class="ant-menu-submenu ant-menu-submenu-inline"
                 role="menuitem"
               >
                 <div
-                  aria-expanded="true"
+                  aria-expanded="false"
                   aria-haspopup="true"
-                  aria-owns="/other$Menu"
                   class="ant-menu-submenu-title"
                   role="button"
                   style="padding-left: 16px;"
@@ -6505,42 +6367,7 @@ exports[`demos renders ./packages/layout/demos/DefaultOpenAllMenu.tsx correctly 
                     class="ant-menu-submenu-arrow"
                   />
                 </div>
-                <ul
-                  class="ant-menu ant-menu-sub ant-menu-inline"
-                  id="/other$Menu"
-                  role="menu"
-                >
-                  <li
-                    class="ant-menu-item ant-menu-item-only-child"
-                    role="menuitem"
-                    style="padding-left: 32px;"
-                  >
-                    <span
-                      class="ant-pro-menu-item"
-                    >
-                      <span
-                        class="ant-pro-menu-item-title"
-                      >
-                        odps同步导入
-                      </span>
-                    </span>
-                  </li>
-                  <li
-                    class="ant-menu-item ant-menu-item-only-child"
-                    role="menuitem"
-                    style="padding-left: 32px;"
-                  >
-                    <span
-                      class="ant-pro-menu-item"
-                    >
-                      <span
-                        class="ant-pro-menu-item-title"
-                      >
-                        菜单导入
-                      </span>
-                    </span>
-                  </li>
-                </ul>
+                <div />
               </li>
             </ul>
           </div>
