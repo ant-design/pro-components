@@ -31149,42 +31149,10 @@ exports[`demos renders ./packages/table/demos/linkage_form.tsx correctly 1`] = `
                         >
                           <span>
                             <div
-                              class="ant-typography ant-typography-ellipsis"
+                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              <span
-                                aria-hidden="true"
-                              >
-                                🐛[BUG]yarn insta...
-                              </span>
-                              <div
-                                aria-label="Copy"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    class=""
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
+                              🐛[BUG]yarn install命令 antd2.4.5会报错
                             </div>
                           </span>
                         </td>
@@ -31295,42 +31263,10 @@ exports[`demos renders ./packages/table/demos/linkage_form.tsx correctly 1`] = `
                         >
                           <span>
                             <div
-                              class="ant-typography ant-typography-ellipsis"
+                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              <span
-                                aria-hidden="true"
-                              >
-                                🐛[BUG]无法创建工程npm ...
-                              </span>
-                              <div
-                                aria-label="Copy"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    class=""
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
+                              🐛[BUG]无法创建工程npm create umi
                             </div>
                           </span>
                         </td>
@@ -31441,42 +31377,10 @@ exports[`demos renders ./packages/table/demos/linkage_form.tsx correctly 1`] = `
                         >
                           <span>
                             <div
-                              class="ant-typography ant-typography-ellipsis"
+                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              <span
-                                aria-hidden="true"
-                              >
-                                🧐[问题] build 后还存在...
-                              </span>
-                              <div
-                                aria-label="Copy"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    class=""
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
+                              🧐[问题] build 后还存在 es6 的代码（Umi@2.13.13）
                             </div>
                           </span>
                         </td>
@@ -31587,38 +31491,10 @@ exports[`demos renders ./packages/table/demos/linkage_form.tsx correctly 1`] = `
                         >
                           <span>
                             <div
-                              class="ant-typography ant-typography-ellipsis"
+                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
                               2.3.1版本如何在业务页面修改头部状态
-                              <div
-                                aria-label="Copy"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    class=""
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
                             </div>
                           </span>
                         </td>
@@ -31729,42 +31605,10 @@ exports[`demos renders ./packages/table/demos/linkage_form.tsx correctly 1`] = `
                         >
                           <span>
                             <div
-                              class="ant-typography ant-typography-ellipsis"
+                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              <span
-                                aria-hidden="true"
-                              >
-                                hideChildrenInMen...
-                              </span>
-                              <div
-                                aria-label="Copy"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    class=""
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
+                              hideChildrenInMenu设置后，子路由找不到了
                             </div>
                           </span>
                         </td>
@@ -31875,42 +31719,10 @@ exports[`demos renders ./packages/table/demos/linkage_form.tsx correctly 1`] = `
                         >
                           <span>
                             <div
-                              class="ant-typography ant-typography-ellipsis"
+                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              <span
-                                aria-hidden="true"
-                              >
-                                🐛[BUG]Umi UI 添加多...
-                              </span>
-                              <div
-                                aria-label="Copy"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    class=""
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
+                              🐛[BUG]Umi UI 添加多个空白页，就会出错！把空白页都变成选中状态！
                             </div>
                           </span>
                         </td>
@@ -32021,42 +31833,10 @@ exports[`demos renders ./packages/table/demos/linkage_form.tsx correctly 1`] = `
                         >
                           <span>
                             <div
-                              class="ant-typography ant-typography-ellipsis"
+                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              <span
-                                aria-hidden="true"
-                              >
-                                🐛[BUG]第一次载入页面，菜单...
-                              </span>
-                              <div
-                                aria-label="Copy"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    class=""
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
+                              🐛[BUG]第一次载入页面，菜单仅图标时，图标没有居中
                             </div>
                           </span>
                         </td>
@@ -32167,42 +31947,10 @@ exports[`demos renders ./packages/table/demos/linkage_form.tsx correctly 1`] = `
                         >
                           <span>
                             <div
-                              class="ant-typography ant-typography-ellipsis"
+                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              <span
-                                aria-hidden="true"
-                              >
-                                build(deps-dev): ...
-                              </span>
-                              <div
-                                aria-label="Copy"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    class=""
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
+                              build(deps-dev): bump eslint from 6.8.0 to 7.1.0
                             </div>
                           </span>
                         </td>
@@ -32313,42 +32061,10 @@ exports[`demos renders ./packages/table/demos/linkage_form.tsx correctly 1`] = `
                         >
                           <span>
                             <div
-                              class="ant-typography ant-typography-ellipsis"
+                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              <span
-                                aria-hidden="true"
-                              >
-                                V4版本如何使用第三方的enhan...
-                              </span>
-                              <div
-                                aria-label="Copy"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    class=""
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
+                              V4版本如何使用第三方的enhanceReduxMiddleware 🧐[问题]
                             </div>
                           </span>
                         </td>
@@ -32459,42 +32175,10 @@ exports[`demos renders ./packages/table/demos/linkage_form.tsx correctly 1`] = `
                         >
                           <span>
                             <div
-                              class="ant-typography ant-typography-ellipsis"
+                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              <span
-                                aria-hidden="true"
-                              >
-                                🐛[BUG] 官网预览页面，第一...
-                              </span>
-                              <div
-                                aria-label="Copy"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    class=""
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
+                              🐛[BUG] 官网预览页面，第一次点击二级菜单，其父级菜单会收起，之后再次点击二级菜单，父菜单正常
                             </div>
                           </span>
                         </td>
@@ -32594,42 +32278,10 @@ exports[`demos renders ./packages/table/demos/linkage_form.tsx correctly 1`] = `
                         >
                           <span>
                             <div
-                              class="ant-typography ant-typography-ellipsis"
+                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              <span
-                                aria-hidden="true"
-                              >
-                                🧐[问题] 从自建 block ...
-                              </span>
-                              <div
-                                aria-label="Copy"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    class=""
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
+                              🧐[问题] 从自建 block 仓库下载区块报错。
                             </div>
                           </span>
                         </td>
@@ -32740,42 +32392,10 @@ exports[`demos renders ./packages/table/demos/linkage_form.tsx correctly 1`] = `
                         >
                           <span>
                             <div
-                              class="ant-typography ant-typography-ellipsis"
+                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              <span
-                                aria-hidden="true"
-                              >
-                                🧐[问题] fetchCurre...
-                              </span>
-                              <div
-                                aria-label="Copy"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    class=""
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
+                              🧐[问题] fetchCurrent接口报错，退出登录页，第一次点击登录，SecurityLayout不渲染，导致需要点击两次
                             </div>
                           </span>
                         </td>
@@ -32886,42 +32506,10 @@ exports[`demos renders ./packages/table/demos/linkage_form.tsx correctly 1`] = `
                         >
                           <span>
                             <div
-                              class="ant-typography ant-typography-ellipsis"
+                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              <span
-                                aria-hidden="true"
-                              >
-                                🐛[BUG] V5 左侧栏收缩时...
-                              </span>
-                              <div
-                                aria-label="Copy"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    class=""
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
+                              🐛[BUG] V5 左侧栏收缩时，点击图标无效。
                             </div>
                           </span>
                         </td>
@@ -33032,42 +32620,10 @@ exports[`demos renders ./packages/table/demos/linkage_form.tsx correctly 1`] = `
                         >
                           <span>
                             <div
-                              class="ant-typography ant-typography-ellipsis"
+                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              <span
-                                aria-hidden="true"
-                              >
-                                🧐[问题]不知道有没有大佬将这个...
-                              </span>
-                              <div
-                                aria-label="Copy"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    class=""
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
+                              🧐[问题]不知道有没有大佬将这个模板迁移至Electron的例子
                             </div>
                           </span>
                         </td>
@@ -33178,42 +32734,10 @@ exports[`demos renders ./packages/table/demos/linkage_form.tsx correctly 1`] = `
                         >
                           <span>
                             <div
-                              class="ant-typography ant-typography-ellipsis"
+                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              <span
-                                aria-hidden="true"
-                              >
-                                npm run start 为什么...
-                              </span>
-                              <div
-                                aria-label="Copy"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    class=""
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
+                              npm run start 为什么不能打开浏览器
                             </div>
                           </span>
                         </td>
@@ -33324,42 +32848,10 @@ exports[`demos renders ./packages/table/demos/linkage_form.tsx correctly 1`] = `
                         >
                           <span>
                             <div
-                              class="ant-typography ant-typography-ellipsis"
+                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              <span
-                                aria-hidden="true"
-                              >
-                                🧐[问题]在重新npm inst...
-                              </span>
-                              <div
-                                aria-label="Copy"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    class=""
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
+                              🧐[问题]在重新npm install后运行npm start报出一些less找不到，但项目可以正常运行起来
                             </div>
                           </span>
                         </td>
@@ -33470,42 +32962,10 @@ exports[`demos renders ./packages/table/demos/linkage_form.tsx correctly 1`] = `
                         >
                           <span>
                             <div
-                              class="ant-typography ant-typography-ellipsis"
+                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              <span
-                                aria-hidden="true"
-                              >
-                                🐛[BUG]错误通知：http ...
-                              </span>
-                              <div
-                                aria-label="Copy"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    class=""
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
+                              🐛[BUG]错误通知：http code 200
                             </div>
                           </span>
                         </td>
@@ -33616,42 +33076,10 @@ exports[`demos renders ./packages/table/demos/linkage_form.tsx correctly 1`] = `
                         >
                           <span>
                             <div
-                              class="ant-typography ant-typography-ellipsis"
+                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              <span
-                                aria-hidden="true"
-                              >
-                                🐛[BUG]线上预览项目好多布局...
-                              </span>
-                              <div
-                                aria-label="Copy"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    class=""
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
+                              🐛[BUG]线上预览项目好多布局错乱，不知道是antd的锅还是啥原因
                             </div>
                           </span>
                         </td>
@@ -33751,42 +33179,10 @@ exports[`demos renders ./packages/table/demos/linkage_form.tsx correctly 1`] = `
                         >
                           <span>
                             <div
-                              class="ant-typography ant-typography-ellipsis"
+                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              <span
-                                aria-hidden="true"
-                              >
-                                🐛[BUG] umi 偶尔出现没...
-                              </span>
-                              <div
-                                aria-label="Copy"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    class=""
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
+                              🐛[BUG] umi 偶尔出现没有导出成员
                             </div>
                           </span>
                         </td>
@@ -33897,42 +33293,10 @@ exports[`demos renders ./packages/table/demos/linkage_form.tsx correctly 1`] = `
                         >
                           <span>
                             <div
-                              class="ant-typography ant-typography-ellipsis"
+                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
                               style="width: 168px; margin: 0px; padding: 0px;"
                             >
-                              <span
-                                aria-hidden="true"
-                              >
-                                🐛[BUG]请问大佬，为什么无论...
-                              </span>
-                              <div
-                                aria-label="Copy"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    class=""
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
+                              🐛[BUG]请问大佬，为什么无论怎么选择，都无法切换成JS语言，怎么下都是TS,求解答
                             </div>
                           </span>
                         </td>

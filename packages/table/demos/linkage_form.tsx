@@ -71,7 +71,6 @@ const columns: ProColumns<GithubIssueItem>[] = [
   {
     title: '标题',
     dataIndex: 'title',
-    copyable: true,
     ellipsis: true,
     width: 200,
     hideInSearch: true,
