@@ -164,12 +164,13 @@ class MenuUtil {
     const { target } = item;
     // if local is true formatMessage all name。
     const name = this.getIntlName(item);
+    const { prefixCls } = this.props;
     const icon = isChildren ? null : getIcon(item.icon);
     let defaultItem = (
-      <>
+      <span className={`${prefixCls}-menu-item`}>
         {icon}
-        <span className="antd-menu-item-title">{name}</span>
-      </>
+        <span className={`${prefixCls}-menu-item-title`}>{name}</span>
+      </span>
     );
     const isHttpUrl = isUrl(itemPath);
 
@@ -242,6 +243,7 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
     menu = { locale: true },
     iconfontUrl,
     splitMenus,
+    collapsed,
     selectedKeys: propsSelectedKeys,
     onSelect,
     openKeys: propsOpenKeys,
@@ -324,13 +326,14 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
       }
     });
     return () => window.cancelAnimationFrame && window.cancelAnimationFrame(animationFrameId);
-  }, [pathname]);
+  }, [pathname, collapsed]);
 
-  const openKeysProps = useMemo(() => getOpenKeysProps(openKeys, props), [
+  const openKeysProps = useMemo(() => getOpenKeysProps(openKeysRef.current, props), [
     openKeys,
     props.layout,
     props.collapsed,
   ]);
+
   const cls = classNames(className, {
     'top-nav-menu': mode === 'horizontal',
   });
@@ -382,7 +385,10 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
       selectedKeys={selectedKeys}
       style={style}
       className={cls}
-      onOpenChange={(keys) => setOpenKeys(keys as string[])}
+      onOpenChange={(keys) => {
+        setOpenKeys(keys as string[]);
+        openKeysRef.current = keys as string[];
+      }}
       {...props.menuProps}
     >
       {menuUtils.getNavMenuItems(finallyData, false)}

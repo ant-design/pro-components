@@ -8,7 +8,7 @@ nav:
   path: /docs
 ---
 
-# 快速开始
+# ProDescriptions - 快速开始
 
 ProDescriptions 的诞生是为了解决项目中需要写很多 Descriptions 的样板代码的问题，所以在其中做了封装了很多常用的逻辑。
 

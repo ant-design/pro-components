@@ -7,7 +7,7 @@ nav:
   path: /components
 ---
 
-# ProDescriptions
+# ProDescriptions - 高级定义列表
 
 高级描述列表组件，提供一个更加方便快速的方案来构建描述列表。
 

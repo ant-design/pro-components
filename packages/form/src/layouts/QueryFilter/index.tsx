@@ -11,22 +11,18 @@ import Actions from './Actions';
  */
 const BREAKPOINTS = {
   vertical: [
-    // 一列
-    513,
-    // 两列
-    785,
-    // 三列
-    1062,
-    // 超出变四列
+    // [breakpoint, cols, layout]
+    [513, 1, 'vertical'],
+    [785, 2, 'vertical'],
+    [1057, 3, 'vertical'],
+    [Infinity, 4, 'vertical'],
   ],
   default: [
-    // 一列
-    513,
-    // 两列
-    701,
-    // 三列
-    1063,
-    // 超出变四列
+    [513, 1, 'vertical'],
+    [701, 2, 'vertical'],
+    [1062, 2, 'horizontal'],
+    [1352, 3, 'horizontal'],
+    [Infinity, 4, 'horizontal'],
   ],
 };
 
@@ -35,15 +31,24 @@ const BREAKPOINTS = {
  * @param layout
  * @param width
  */
-const getSpanConfig = (layout: FormProps['layout'], width: number, span?: number): number => {
+const getSpanConfig = (
+  layout: FormProps['layout'],
+  width: number,
+  span?: number,
+): { span: number; layout: FormProps['layout'] } => {
   if (span) {
-    return span;
+    return {
+      span,
+      layout,
+    };
   }
-  const breakPoint = BREAKPOINTS[layout || 'default'].findIndex(
-    (item: number) => width < item + 16, // 16 = 2 * (ant-row -8px margin)
+  const breakPoint = BREAKPOINTS[layout || 'default'].find(
+    (item: [number, number, FormProps['layout']]) => width < item[0] + 16, // 16 = 2 * (ant-row -8px margin)
   );
-  const colsInRow = breakPoint === -1 ? 4 : breakPoint + 1;
-  return 24 / colsInRow;
+  return {
+    span: 24 / breakPoint[1],
+    layout: breakPoint[2],
+  };
 };
 
 export interface QueryFilterProps extends FormProps, CommonFormProps {
@@ -65,7 +70,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
     defaultColsNumber,
     span,
     onCollapse,
-    labelWidth,
+    labelWidth = 98,
     style,
     split,
     ...rest
@@ -76,15 +81,22 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
   });
   // use style.width as the defaultWidth for unit test
   const defaultWidth: number = (typeof style?.width === 'number' ? style?.width : 1024) as number;
-  const [spanSize, setSpanSize] = useState<number>(getSpanConfig(layout, defaultWidth + 16, span));
+  const [spanSize, setSpanSize] = useState<{
+    span: number;
+    layout: FormProps['layout'];
+  }>(() => getSpanConfig(layout, defaultWidth + 16, span));
   const showLength =
-    defaultColsNumber !== undefined ? defaultColsNumber : Math.max(1, 24 / spanSize - 1);
+    defaultColsNumber !== undefined ? defaultColsNumber : Math.max(1, 24 / spanSize.span - 1);
+  let labelFlexStyle;
+  if (labelWidth && spanSize.layout !== 'vertical') {
+    labelFlexStyle = `0 0 ${labelWidth}px`;
+  }
 
   return (
     <BaseForm
       {...rest}
       style={style}
-      layout={layout}
+      layout={spanSize.layout}
       fieldProps={{
         style: {
           width: '100%',
@@ -92,7 +104,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
       }}
       formItemProps={{
         labelCol: {
-          flex: labelWidth && `0 0 ${labelWidth}px`,
+          flex: labelFlexStyle,
         },
       }}
       groupProps={{
@@ -115,7 +127,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
         items.forEach((item: React.ReactNode, index: number) => {
           let hidden: boolean = false;
           const colSize = React.isValidElement(item) ? item.props?.colSize || 1 : 1;
-          const colSpan = Math.min(spanSize * colSize, 24);
+          const colSpan = Math.min(spanSize.span * colSize, 24);
 
           if (collapsed && index >= showLength) {
             hidden = true;
@@ -169,8 +181,8 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
               })}
               {submitter && (
                 <Col
-                  span={spanSize}
-                  offset={24 - spanSize - (totalSpan % 24)}
+                  span={spanSize.span}
+                  offset={24 - spanSize.span - (totalSpan % 24)}
                   style={{
                     textAlign: 'right',
                   }}
