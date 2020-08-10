@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.0.0-beta.8...@ant-design/pro-form@1.0.0-beta.9) (2020-08-10)
+
+### Bug Fixes
+
+- **form:** improve QueryFilter responsive rules ([#96](https://github.com/ant-design/pro-components/issues/96)) ([8c88ba3](https://github.com/ant-design/pro-components/commit/8c88ba38789ca49f834048e4ecac6c792e9d7a7a))
+- serach filter demo style detail ([#94](https://github.com/ant-design/pro-components/issues/94)) ([0666697](https://github.com/ant-design/pro-components/commit/06666972e0c1b8c12f483e657df50380c3d2fb31))
+
+### Features
+
+- SearchFilter 合并到 QueryFilter ([#75](https://github.com/ant-design/pro-components/issues/75)) ([7b20381](https://github.com/ant-design/pro-components/commit/7b20381fae342d52d13e394d5144348f12f42339))
+
 # [1.0.0-beta.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.0.0-beta.7...@ant-design/pro-form@1.0.0-beta.8) (2020-07-30)
 
 ### Bug Fixes
