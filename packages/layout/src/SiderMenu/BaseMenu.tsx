@@ -334,7 +334,6 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
     props.collapsed,
   ]);
 
-  console.log(openKeys, openKeysRef.current, openKeysProps);
   const cls = classNames(className, {
     'top-nav-menu': mode === 'horizontal',
   });

@@ -4,6 +4,38 @@ import { enableFetchMocks } from 'jest-fetch-mock';
 
 import tableData from './table/mock.data.json';
 
+/* eslint-disable global-require */
+if (typeof window !== 'undefined') {
+  global.window.resizeTo = (width, height) => {
+    global.window.innerWidth = width || global.window.innerWidth;
+    global.window.innerHeight = height || global.window.innerHeight;
+    global.window.dispatchEvent(new Event('resize'));
+  };
+  global.window.scrollTo = () => {};
+  // ref: https://github.com/ant-design/ant-design/issues/18774
+  if (!window.matchMedia) {
+    Object.defineProperty(global.window, 'matchMedia', {
+      value: jest.fn(() => ({
+        matches: false,
+        addListener: jest.fn(),
+        removeListener: jest.fn(),
+      })),
+    });
+  }
+}
+
+const Enzyme = require('enzyme');
+
+Object.assign(Enzyme.ReactWrapper.prototype, {
+  findObserver() {
+    return this.find('ResizeObserver');
+  },
+  triggerResize() {
+    const ob = this.findObserver();
+    ob.instance().onResize([{ target: ob.getDOMNode() }]);
+  },
+});
+
 enableFetchMocks();
 
 global.requestAnimationFrame =
@@ -33,14 +65,6 @@ const localStorageMock = (() => {
     },
   };
 })();
-
-Object.defineProperty(window, 'matchMedia', {
-  value: jest.fn(() => ({
-    matches: false,
-    addListener() {},
-    removeListener() {},
-  })),
-});
 
 Object.defineProperty(window, 'localStorage', {
   value: localStorageMock,

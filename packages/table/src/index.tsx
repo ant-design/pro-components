@@ -17,7 +17,13 @@ import {
 } from '@ant-design/pro-provider';
 import { FieldStatus, ProFieldValueType } from '@ant-design/pro-field';
 
-import ProTable, { ProColumns, ActionType, ProTableProps, ColumnsState } from './Table';
+import ProTable, {
+  ProColumns,
+  ProColumnType,
+  ActionType,
+  ProTableProps,
+  ColumnsState,
+} from './Table';
 import IndexColumn from './component/indexColumn';
 import { RequestData } from './useFetchData';
 import TableDropdown from './component/dropdown';
@@ -33,6 +39,7 @@ export type {
   ProColumnsValueType,
   ProColumns,
   ActionType,
+  ProColumnType,
   RequestData,
 };
 

@@ -3,7 +3,7 @@ import glob from 'glob';
 import { render, mount } from 'enzyme';
 import MockDate from 'mockdate';
 import moment from 'moment';
-import { waitTime } from './util';
+import { waitForComponentToPaint } from './util';
 
 type CheerIO = ReturnType<typeof render>;
 type CheerIOElement = CheerIO[0];
@@ -58,9 +58,8 @@ function demoTest(component: string, options: Options = {}) {
       MockDate.set(moment('2016-11-22').valueOf());
       const Demo = require(`.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
       const wrapper = mount(<Demo />);
-      if (component === 'table') {
-        await waitTime(200);
-      }
+
+      await waitForComponentToPaint(wrapper, component === 'table' ? 1000 : 16);
       // Convert aria related content
       const dom = wrapper.render();
       ariaConvert(dom);
@@ -71,11 +70,49 @@ function demoTest(component: string, options: Options = {}) {
 }
 
 describe('demos', () => {
+  const LINE_STR_COUNT = 20;
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const logSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
+
+  // Mock offsetHeight
+  // @ts-expect-error
+  const originOffsetHeight = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'offsetHeight')
+    .get;
+  Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
+    get() {
+      let html = this.innerHTML;
+      html = html.replace(/<[^>]*>/g, '');
+      const lines = Math.ceil(html.length / LINE_STR_COUNT);
+      return lines * 16;
+    },
+  });
+
+  // Mock getComputedStyle
+  const originGetComputedStyle = window.getComputedStyle;
+  window.getComputedStyle = (ele) => {
+    const style = originGetComputedStyle(ele);
+    style.lineHeight = '16px';
+    return style;
+  };
+
+  afterEach(() => {
+    logSpy.mockReset();
+    errorSpy.mockReset();
+  });
+
+  afterAll(() => {
+    errorSpy.mockRestore();
+    logSpy.mockReset();
+    Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
+      get: originOffsetHeight,
+    });
+    window.getComputedStyle = originGetComputedStyle;
+  });
+
   const files = glob.sync(`./packages/*`) as string[];
   files.forEach((file) => {
     const component = file.split('/').pop();
     if (!component) return;
-
     demoTest(component);
   });
 });

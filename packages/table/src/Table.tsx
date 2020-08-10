@@ -1,14 +1,6 @@
 import './index.less';
 
-import React, {
-  useEffect,
-  useContext,
-  CSSProperties,
-  useRef,
-  useState,
-  ReactNode,
-  useCallback,
-} from 'react';
+import React, { useEffect, useContext, CSSProperties, useRef, useState, useCallback } from 'react';
 import { Table, ConfigProvider, Card, Space, Empty } from 'antd';
 import { useIntl, IntlType, ParamsType, ConfigProviderWarp } from '@ant-design/pro-provider';
 import classNames from 'classnames';
@@ -382,7 +374,7 @@ const columnRender = <T, U = any>({
   );
   const textDom = defaultRenderText<T, {}>(
     renderTextStr,
-    item.valueType || 'text',
+    (item.valueType as ProFieldValueType) || 'text',
     index,
     row,
     columnEmptyText,

@@ -28,6 +28,17 @@ export type ProSchemaComponentTypes =
   | 'cardList'
   | undefined;
 
+export type ProFieldRequestData<T, U = any> = (
+  params: U,
+  props: T,
+) => Promise<
+  {
+    label: React.ReactNode;
+    value: React.ReactText;
+    [key: string]: any;
+  }[]
+>;
+
 /**
  * 操作类型
  */
@@ -42,12 +53,13 @@ export interface ProCoreActionType {
 /**
  * 各个组件公共支持的 render
  */
-export type ProSchema<T, U, Extra> = {
+export type ProSchema<T = unknown, U = string, Extra = unknown> = {
+  key?: React.ReactText;
   dataIndex?: string | number | (string | number)[];
   /**
    * 选择如何渲染相应的模式
    */
-  valueType?: U;
+  valueType?: ((entity: T) => U) | U;
   title?:
     | ((
         schema: ProSchema<T, U, Extra>,
@@ -55,6 +67,12 @@ export type ProSchema<T, U, Extra> = {
         dom: React.ReactNode,
       ) => React.ReactNode)
     | React.ReactNode;
+
+  /**
+   *展示一个 icon，hover 是展示一些提示信息
+   */
+  tip?: string;
+
   render?: (
     dom: React.ReactNode,
     entity: T,
@@ -86,7 +104,14 @@ export type ProSchema<T, U, Extra> = {
   valueEnum?: ProSchemaValueEnumObj | ProSchemaValueEnumMap;
 
   /**
-   *展示一个 icon，hover 是展示一些提示信息
+   * 从服务器请求枚举
    */
-  tip?: string;
+  request?: ProFieldRequestData<ProSchema>;
+
+  /**
+   * 从服务器请求的参数，改变了会触发 reload
+   */
+  params?: {
+    [key: string]: any;
+  };
 } & Extra;
