@@ -1,5 +1,5 @@
 import React, { ReactNode, useState, useImperativeHandle, useEffect, useRef } from 'react';
-import { Select } from 'antd';
+import { Select, Spin } from 'antd';
 import { ProSchemaValueEnumMap, ProSchemaValueEnumObj } from '@ant-design/pro-utils';
 import TableStatus, { ProFieldStatusType } from '../Status';
 import { ProFieldFC } from '../../index';
@@ -125,6 +125,7 @@ export const proFieldParsingValueEnumToArray = (
 };
 
 export type ProFieldRequestData = (
+  params: any,
   props: FieldSelectProps,
 ) => Promise<
   {
@@ -132,6 +133,7 @@ export type ProFieldRequestData = (
     value: React.ReactText;
   }[]
 >;
+
 export type FieldSelectProps = {
   text: string;
   /**
@@ -143,6 +145,10 @@ export type FieldSelectProps = {
    * 从服务器读取选项
    */
   request?: ProFieldRequestData;
+  /**
+   * 重新触发的时机
+   */
+  params?: any;
 };
 
 const useFetchData = (
@@ -172,13 +178,13 @@ const useFetchData = (
       return;
     }
     setLoading(true);
-    const data = await props.request(props);
+    const data = await props.request(props.params, props);
     setOptions(data);
     setLoading(false);
   };
   useEffect(() => {
     fetchData();
-  }, [props]);
+  }, [props.params]);
   return [loading, options, fetchData];
 };
 
@@ -199,30 +205,29 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
     ...rest
   } = props;
   const inputRef = useRef();
-  const [loading, options, fetchData] = useFetchData(props);
 
+  const [loading, options, fetchData] = useFetchData(props);
   useImperativeHandle(ref, () => ({
     ...(inputRef.current || {}),
     fetchData: () => fetchData(),
   }));
 
   if (mode === 'read') {
+    if (loading) {
+      return <Spin />;
+    }
+    const optionsValueEnum = props.request
+      ? options.reduce((pre: any, cur) => {
+          return { ...pre, [cur.value]: cur.label };
+        }, {})
+      : undefined;
+
     const dom = (
-      <>
-        {proFieldParsingText(
-          rest.text,
-          ObjToMap(valueEnum) ||
-            ObjToMap(
-              options.reduce((pre: any, cur) => {
-                return { ...pre, [cur.value]: cur.label };
-              }, {}),
-            ),
-          plain,
-        )}
-      </>
+      <>{proFieldParsingText(rest.text, ObjToMap(optionsValueEnum || valueEnum), plain)}</>
     );
+
     if (render) {
-      return render(rest.text, { mode, ...formItemProps }, dom);
+      return render(rest.text, { mode, ...formItemProps }, dom) || null;
     }
     return dom;
   }
@@ -243,7 +248,7 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
       </Select>
     );
     if (renderFormItem) {
-      return renderFormItem(rest.text, { mode, ...formItemProps }, dom);
+      return renderFormItem(rest.text, { mode, ...formItemProps }, dom) || null;
     }
     return dom;
   }

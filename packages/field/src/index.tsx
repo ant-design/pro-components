@@ -95,12 +95,16 @@ export type ProFieldFCRenderProps = {
 } & BaseProFieldFC;
 
 export type ProRenderFieldProps = {
-  render?: (
-    text: any,
-    props: Omit<ProFieldFCRenderProps, 'value' | 'onChange'>,
-    dom: JSX.Element,
-  ) => JSX.Element;
-  renderFormItem?: (text: any, props: ProFieldFCRenderProps, dom: JSX.Element) => JSX.Element;
+  render?:
+    | ((
+        text: any,
+        props: Omit<ProFieldFCRenderProps, 'value' | 'onChange'>,
+        dom: JSX.Element,
+      ) => JSX.Element)
+    | undefined;
+  renderFormItem?:
+    | ((text: any, props: ProFieldFCRenderProps, dom: JSX.Element) => JSX.Element)
+    | undefined;
 };
 
 /**

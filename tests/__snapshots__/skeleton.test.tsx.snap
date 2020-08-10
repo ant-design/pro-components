@@ -1366,6 +1366,885 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
       style="margin: 0px;"
     />
   </div>
+  <div
+    class="ant-card"
+  >
+    <div
+      class="ant-card-body"
+    >
+      <div
+        class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+      >
+        <span
+          class="ant-skeleton-button ant-skeleton-button-sm"
+          style="width: 100px; margin-bottom: 16px;"
+        />
+      </div>
+      <div
+        style="display: flex; background: rgba(0, 0, 0, 0.02); padding: 24px 8px;"
+      >
+        <div
+          style="flex: 1; padding-left: 0px; padding-right: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 75px; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="flex: 1; padding-left: 20px; padding-right: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 75px; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="flex: 1; padding-left: 20px; padding-right: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 75px; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="flex: 3; padding-left: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 75px; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        style="padding: 0px 0px;"
+      >
+        <div
+          class="ant-divider ant-divider-horizontal"
+          role="separator"
+          style="margin: 0px;"
+        />
+      </div>
+      <div
+        style="display: flex; background: none; padding: 24px 8px;"
+      >
+        <div
+          style="flex: 1; padding-left: 20px; padding-right: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="flex: 1; padding-left: 20px; padding-right: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="flex: 1; padding-left: 20px; padding-right: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="flex: 3; padding-left: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        style="padding: 0px 0px;"
+      >
+        <div
+          class="ant-divider ant-divider-horizontal"
+          role="separator"
+          style="margin: 0px;"
+        />
+      </div>
+      <div
+        style="display: flex; background: none; padding: 24px 8px;"
+      >
+        <div
+          style="flex: 1; padding-left: 20px; padding-right: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="flex: 1; padding-left: 20px; padding-right: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="flex: 1; padding-left: 20px; padding-right: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="flex: 3; padding-left: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        style="padding: 0px 0px;"
+      >
+        <div
+          class="ant-divider ant-divider-horizontal"
+          role="separator"
+          style="margin: 0px;"
+        />
+      </div>
+      <div
+        style="display: flex; background: none; padding: 24px 8px;"
+      >
+        <div
+          style="flex: 1; padding-left: 20px; padding-right: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="flex: 1; padding-left: 20px; padding-right: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="flex: 1; padding-left: 20px; padding-right: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="flex: 3; padding-left: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        style="padding: 0px 0px;"
+      >
+        <div
+          class="ant-divider ant-divider-horizontal"
+          role="separator"
+          style="margin: 0px;"
+        />
+      </div>
+      <div
+        style="display: flex; background: none; padding: 24px 8px;"
+      >
+        <div
+          style="flex: 1; padding-left: 20px; padding-right: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="flex: 1; padding-left: 20px; padding-right: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="flex: 1; padding-left: 20px; padding-right: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="flex: 3; padding-left: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        style="padding: 0px 0px;"
+      >
+        <div
+          class="ant-divider ant-divider-horizontal"
+          role="separator"
+          style="margin: 0px;"
+        />
+      </div>
+      <div
+        style="display: flex; background: none; padding: 24px 8px;"
+      >
+        <div
+          style="flex: 1; padding-left: 20px; padding-right: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="flex: 1; padding-left: 20px; padding-right: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="flex: 1; padding-left: 20px; padding-right: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="flex: 3; padding-left: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        style="padding: 0px 0px;"
+      >
+        <div
+          class="ant-divider ant-divider-horizontal"
+          role="separator"
+          style="margin: 0px;"
+        />
+      </div>
+      <div
+        style="display: flex; background: none; padding: 24px 8px;"
+      >
+        <div
+          style="flex: 1; padding-left: 20px; padding-right: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="flex: 1; padding-left: 20px; padding-right: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="flex: 1; padding-left: 20px; padding-right: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="flex: 3; padding-left: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        style="padding: 0px 0px;"
+      >
+        <div
+          class="ant-divider ant-divider-horizontal"
+          role="separator"
+          style="margin: 0px;"
+        />
+      </div>
+      <div
+        style="display: flex; background: none; padding: 24px 8px;"
+      >
+        <div
+          style="flex: 1; padding-left: 20px; padding-right: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="flex: 1; padding-left: 20px; padding-right: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="flex: 1; padding-left: 20px; padding-right: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="flex: 3; padding-left: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        style="padding: 0px 0px;"
+      >
+        <div
+          class="ant-divider ant-divider-horizontal"
+          role="separator"
+          style="margin: 0px;"
+        />
+      </div>
+      <div
+        style="display: flex; background: none; padding: 24px 8px;"
+      >
+        <div
+          style="flex: 1; padding-left: 20px; padding-right: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="flex: 1; padding-left: 20px; padding-right: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="flex: 1; padding-left: 20px; padding-right: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="flex: 3; padding-left: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        style="padding: 0px 0px;"
+      >
+        <div
+          class="ant-divider ant-divider-horizontal"
+          role="separator"
+          style="margin: 0px;"
+        />
+      </div>
+      <div
+        style="display: flex; background: none; padding: 24px 8px;"
+      >
+        <div
+          style="flex: 1; padding-left: 20px; padding-right: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="flex: 1; padding-left: 20px; padding-right: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="flex: 1; padding-left: 20px; padding-right: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="flex: 3; padding-left: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        style="padding: 0px 0px;"
+      >
+        <div
+          class="ant-divider ant-divider-horizontal"
+          role="separator"
+          style="margin: 0px;"
+        />
+      </div>
+      <div
+        style="display: flex; background: none; padding: 24px 8px;"
+      >
+        <div
+          style="flex: 1; padding-left: 20px; padding-right: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="flex: 1; padding-left: 20px; padding-right: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="flex: 1; padding-left: 20px; padding-right: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="flex: 3; padding-left: 32px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100%; margin: 0px; height: 24px;"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        style="padding: 0px 0px;"
+      >
+        <div
+          class="ant-divider ant-divider-horizontal"
+          role="separator"
+          style="margin: 0px;"
+        />
+      </div>
+      <div
+        style="display: flex; justify-content: flex-end; padding-top: 16px;"
+      >
+        <div
+          class="ant-skeleton ant-skeleton-active"
+        >
+          <div
+            class="ant-skeleton-content"
+          >
+            <h3
+              class="ant-skeleton-title"
+              style="margin: 0px; height: 32px; float: right; max-width: 630px;"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 

@@ -6,7 +6,7 @@ import { PageHeaderSkeleton, Line } from '../List';
 export type DescriptionsPageSkeletonProps = {
   active?: boolean;
   pageHeader?: false;
-  table?: false | number;
+  list?: false | number;
 };
 
 const MediaQueryKeyEnum = {
@@ -267,7 +267,7 @@ export const DescriptionsSkeleton = ({ active }: { active: boolean }) => {
 const DescriptionsPageSkeleton: React.FC<DescriptionsPageSkeletonProps> = ({
   active = true,
   pageHeader,
-  table,
+  list,
 }) => {
   return (
     <div
@@ -277,8 +277,8 @@ const DescriptionsPageSkeleton: React.FC<DescriptionsPageSkeletonProps> = ({
     >
       {pageHeader !== false && <PageHeaderSkeleton active={active} />}
       <DescriptionsSkeleton active={active} />
-      <Line />
-      {table !== false && <TableSkeleton active={active} size={table} />}
+      {list !== false && <Line />}
+      {list !== false && <TableSkeleton active={active} size={list} />}
     </div>
   );
 };
