@@ -246,7 +246,6 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
     selectedKeys: propsSelectedKeys,
     onSelect,
     openKeys: propsOpenKeys,
-    prefixCls,
   } = props;
   const openKeysRef = useRef<string[]>([]);
   // 用于减少 defaultOpenKeys 计算的组件
