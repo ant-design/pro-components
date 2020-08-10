@@ -191,7 +191,7 @@ export const FormInputRender: React.FC<{
           valueEnum={valueEnum}
           valueType={valueType}
           ref={ref}
-          plain={type !== 'form'}
+          plain={type === 'form'}
           mode="edit"
           allowClear
           style={{
@@ -252,8 +252,9 @@ export const FormInputRender: React.FC<{
         style: { width: '100%' },
         ...item.formItemProps,
       }}
-      valueType={valueType || 'text'}
-      plain={type !== 'form'}
+      // valueType = textarea，但是在 查询表单这里，应该是个 input 框
+      valueType={!valueType && valueType !== 'textarea' ? valueType : 'text'}
+      plain={type === 'form'}
       {...rest}
     />
   );
