@@ -41,6 +41,12 @@ export const columns: ProColumns[] = [
     copyable: true,
   },
   {
+    title: 'Textarea',
+    dataIndex: 'name',
+    valueType: 'textarea',
+    copyable: true,
+  },
+  {
     title: 'sex',
     dataIndex: 'sex',
     copyable: true,
