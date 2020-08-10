@@ -584,7 +584,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
               style="padding-left: 16px;"
             >
               <span
-                class="antd-menu-item-title"
+                class="ant-pro-menu-item-title"
               >
                 首页
               </span>
@@ -614,7 +614,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
               style="padding-left: 16px;"
             >
               <span
-                class="antd-menu-item-title"
+                class="ant-pro-menu-item-title"
               >
                 明细数据
               </span>
@@ -625,7 +625,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
               style="padding-left: 16px;"
             >
               <span
-                class="antd-menu-item-title"
+                class="ant-pro-menu-item-title"
               >
                 其他
               </span>

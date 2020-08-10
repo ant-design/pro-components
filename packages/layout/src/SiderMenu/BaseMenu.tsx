@@ -164,12 +164,13 @@ class MenuUtil {
     const { target } = item;
     // if local is true formatMessage all name。
     const name = this.getIntlName(item);
+    const { prefixCls } = this.props;
     const icon = isChildren ? null : getIcon(item.icon);
     let defaultItem = (
-      <>
+      <span className={`${prefixCls}-menu-item`}>
         {icon}
-        <span className="antd-menu-item-title">{name}</span>
-      </>
+        <span className={`${prefixCls}-menu-item-title`}>{name}</span>
+      </span>
     );
     const isHttpUrl = isUrl(itemPath);
 
@@ -245,6 +246,7 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
     selectedKeys: propsSelectedKeys,
     onSelect,
     openKeys: propsOpenKeys,
+    prefixCls,
   } = props;
   const openKeysRef = useRef<string[]>([]);
   // 用于减少 defaultOpenKeys 计算的组件
