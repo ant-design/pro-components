@@ -6027,9 +6027,13 @@ exports[`demos renders ./packages/layout/demos/BreadcrumbsRepeat.tsx correctly 1
                 style="padding-left: 16px;"
               >
                 <span
-                  class="antd-menu-item-title"
+                  class="ant-pro-menu-item"
                 >
-                  欢迎
+                  <span
+                    class="ant-pro-menu-item-title"
+                  >
+                    欢迎
+                  </span>
                 </span>
               </li>
               <li
@@ -6061,9 +6065,13 @@ exports[`demos renders ./packages/layout/demos/BreadcrumbsRepeat.tsx correctly 1
                     style="padding-left: 32px;"
                   >
                     <span
-                      class="antd-menu-item-title"
+                      class="ant-pro-menu-item"
                     >
-                      申请单列表
+                      <span
+                        class="ant-pro-menu-item-title"
+                      >
+                        申请单列表
+                      </span>
                     </span>
                   </li>
                 </ul>
@@ -6295,19 +6303,22 @@ exports[`demos renders ./packages/layout/demos/DefaultOpenAllMenu.tsx correctly 
                 style="padding-left: 16px;"
               >
                 <span
-                  class="antd-menu-item-title"
+                  class="ant-pro-menu-item"
                 >
-                  首页
+                  <span
+                    class="ant-pro-menu-item-title"
+                  >
+                    首页
+                  </span>
                 </span>
               </li>
               <li
-                class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+                class="ant-menu-submenu ant-menu-submenu-inline"
                 role="menuitem"
               >
                 <div
-                  aria-expanded="true"
+                  aria-expanded="false"
                   aria-haspopup="true"
-                  aria-owns="/data_hui$Menu"
                   class="ant-menu-submenu-title"
                   role="button"
                   style="padding-left: 16px;"
@@ -6318,115 +6329,15 @@ exports[`demos renders ./packages/layout/demos/DefaultOpenAllMenu.tsx correctly 
                     class="ant-menu-submenu-arrow"
                   />
                 </div>
-                <ul
-                  class="ant-menu ant-menu-sub ant-menu-inline"
-                  id="/data_hui$Menu"
-                  role="menu"
-                >
-                  <li
-                    class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
-                    role="menuitem"
-                  >
-                    <div
-                      aria-expanded="true"
-                      aria-haspopup="true"
-                      aria-owns="/4c7d247066d0b12b71fe9886bf4a8da2901de4fea4691e72e36f0b92cdae48a6$Menu"
-                      class="ant-menu-submenu-title"
-                      role="button"
-                      style="padding-left: 32px;"
-                      title="域买家维度交易"
-                    >
-                      域买家维度交易
-                      <i
-                        class="ant-menu-submenu-arrow"
-                      />
-                    </div>
-                    <ul
-                      class="ant-menu ant-menu-sub ant-menu-inline"
-                      id="/4c7d247066d0b12b71fe9886bf4a8da2901de4fea4691e72e36f0b92cdae48a6$Menu"
-                      role="menu"
-                    >
-                      <li
-                        class="ant-menu-item ant-menu-item-only-child"
-                        role="menuitem"
-                        style="padding-left: 48px;"
-                      >
-                        <span
-                          class="antd-menu-item-title"
-                        >
-                          _交易_买家_月表
-                        </span>
-                      </li>
-                      <li
-                        class="ant-menu-item ant-menu-item-only-child"
-                        role="menuitem"
-                        style="padding-left: 48px;"
-                      >
-                        <span
-                          class="antd-menu-item-title"
-                        >
-                          _航旅交易_买家_日表
-                        </span>
-                      </li>
-                    </ul>
-                  </li>
-                  <li
-                    class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
-                    role="menuitem"
-                  >
-                    <div
-                      aria-expanded="true"
-                      aria-haspopup="true"
-                      aria-owns="/718bd35190d985457f72a264318c5a1e42614209fe8a2b8323459a5885e7c6a4$Menu"
-                      class="ant-menu-submenu-title"
-                      role="button"
-                      style="padding-left: 32px;"
-                      title="域买家维度交易2"
-                    >
-                      域买家维度交易2
-                      <i
-                        class="ant-menu-submenu-arrow"
-                      />
-                    </div>
-                    <ul
-                      class="ant-menu ant-menu-sub ant-menu-inline"
-                      id="/718bd35190d985457f72a264318c5a1e42614209fe8a2b8323459a5885e7c6a4$Menu"
-                      role="menu"
-                    >
-                      <li
-                        class="ant-menu-item ant-menu-item-only-child"
-                        role="menuitem"
-                        style="padding-left: 48px;"
-                      >
-                        <span
-                          class="antd-menu-item-title"
-                        >
-                          _交易_买家_月表
-                        </span>
-                      </li>
-                      <li
-                        class="ant-menu-item ant-menu-item-only-child"
-                        role="menuitem"
-                        style="padding-left: 48px;"
-                      >
-                        <span
-                          class="antd-menu-item-title"
-                        >
-                          _航旅交易_买家_日表
-                        </span>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
+                <div />
               </li>
               <li
-                class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+                class="ant-menu-submenu ant-menu-submenu-inline"
                 role="menuitem"
               >
                 <div
-                  aria-expanded="true"
+                  aria-expanded="false"
                   aria-haspopup="true"
-                  aria-owns="/data_ming$Menu"
                   class="ant-menu-submenu-title"
                   role="button"
                   style="padding-left: 16px;"
@@ -6437,32 +6348,15 @@ exports[`demos renders ./packages/layout/demos/DefaultOpenAllMenu.tsx correctly 
                     class="ant-menu-submenu-arrow"
                   />
                 </div>
-                <ul
-                  class="ant-menu ant-menu-sub ant-menu-inline"
-                  id="/data_ming$Menu"
-                  role="menu"
-                >
-                  <li
-                    class="ant-menu-item ant-menu-item-only-child"
-                    role="menuitem"
-                    style="padding-left: 32px;"
-                  >
-                    <span
-                      class="antd-menu-item-title"
-                    >
-                      概述导出
-                    </span>
-                  </li>
-                </ul>
+                <div />
               </li>
               <li
-                class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+                class="ant-menu-submenu ant-menu-submenu-inline"
                 role="menuitem"
               >
                 <div
-                  aria-expanded="true"
+                  aria-expanded="false"
                   aria-haspopup="true"
-                  aria-owns="/other$Menu"
                   class="ant-menu-submenu-title"
                   role="button"
                   style="padding-left: 16px;"
@@ -6473,34 +6367,7 @@ exports[`demos renders ./packages/layout/demos/DefaultOpenAllMenu.tsx correctly 
                     class="ant-menu-submenu-arrow"
                   />
                 </div>
-                <ul
-                  class="ant-menu ant-menu-sub ant-menu-inline"
-                  id="/other$Menu"
-                  role="menu"
-                >
-                  <li
-                    class="ant-menu-item ant-menu-item-only-child"
-                    role="menuitem"
-                    style="padding-left: 32px;"
-                  >
-                    <span
-                      class="antd-menu-item-title"
-                    >
-                      odps同步导入
-                    </span>
-                  </li>
-                  <li
-                    class="ant-menu-item ant-menu-item-only-child"
-                    role="menuitem"
-                    style="padding-left: 32px;"
-                  >
-                    <span
-                      class="antd-menu-item-title"
-                    >
-                      菜单导入
-                    </span>
-                  </li>
-                </ul>
+                <div />
               </li>
             </ul>
           </div>
@@ -6672,99 +6539,115 @@ exports[`demos renders ./packages/layout/demos/IconFont.tsx correctly 1`] = `
               style="width: 100%;"
             >
               <li
-                class="ant-menu-item"
+                class="ant-menu-item ant-menu-item-only-child"
                 role="menuitem"
                 style="padding-left: 16px;"
               >
                 <span
-                  class="anticon"
-                  role="img"
+                  class="ant-pro-menu-item"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    width="1em"
+                  <span
+                    class="anticon"
+                    role="img"
                   >
-                    <use
-                      href="#icon-shoucang1"
-                    />
-                  </svg>
-                </span>
-                <span
-                  class="antd-menu-item-title"
-                >
-                  收藏
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      width="1em"
+                    >
+                      <use
+                        href="#icon-shoucang1"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="ant-pro-menu-item-title"
+                  >
+                    收藏
+                  </span>
                 </span>
               </li>
               <li
-                class="ant-menu-item"
+                class="ant-menu-item ant-menu-item-only-child"
                 role="menuitem"
                 style="padding-left: 16px;"
               >
-                smile
                 <span
-                  class="antd-menu-item-title"
+                  class="ant-pro-menu-item"
                 >
-                  test
+                  smile
+                  <span
+                    class="ant-pro-menu-item-title"
+                  >
+                    test
+                  </span>
                 </span>
               </li>
               <li
-                class="ant-menu-item"
+                class="ant-menu-item ant-menu-item-only-child"
                 role="menuitem"
                 style="padding-left: 16px;"
               >
                 <span
-                  class="anticon"
-                  role="img"
+                  class="ant-pro-menu-item"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    width="1em"
+                  <span
+                    class="anticon"
+                    role="img"
                   >
-                    <use
-                      href="#icon-facebook"
-                    />
-                  </svg>
-                </span>
-                <span
-                  class="antd-menu-item-title"
-                >
-                  FaceBook
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      width="1em"
+                    >
+                      <use
+                        href="#icon-facebook"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="ant-pro-menu-item-title"
+                  >
+                    FaceBook
+                  </span>
                 </span>
               </li>
               <li
-                class="ant-menu-item"
+                class="ant-menu-item ant-menu-item-only-child"
                 role="menuitem"
                 style="padding-left: 16px;"
               >
                 <span
-                  class="anticon"
-                  role="img"
+                  class="ant-pro-menu-item"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    width="1em"
+                  <span
+                    class="anticon"
+                    role="img"
                   >
-                    <use
-                      href="#icon-twitter"
-                    />
-                  </svg>
-                </span>
-                <span
-                  class="antd-menu-item-title"
-                >
-                  Twitter
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      width="1em"
+                    >
+                      <use
+                        href="#icon-twitter"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="ant-pro-menu-item-title"
+                  >
+                    Twitter
+                  </span>
                 </span>
               </li>
             </ul>
@@ -6965,9 +6848,13 @@ exports[`demos renders ./packages/layout/demos/MultipleMenuOnePath.tsx correctly
                     style="padding-left: 32px;"
                   >
                     <span
-                      class="antd-menu-item-title"
+                      class="ant-pro-menu-item"
                     >
-                      产品配置
+                      <span
+                        class="ant-pro-menu-item-title"
+                      >
+                        产品配置
+                      </span>
                     </span>
                   </li>
                   <li
@@ -6976,9 +6863,13 @@ exports[`demos renders ./packages/layout/demos/MultipleMenuOnePath.tsx correctly
                     style="padding-left: 32px;"
                   >
                     <span
-                      class="antd-menu-item-title"
+                      class="ant-pro-menu-item"
                     >
-                      产品管理
+                      <span
+                        class="ant-pro-menu-item-title"
+                      >
+                        产品管理
+                      </span>
                     </span>
                   </li>
                   <li
@@ -6987,9 +6878,13 @@ exports[`demos renders ./packages/layout/demos/MultipleMenuOnePath.tsx correctly
                     style="padding-left: 32px;"
                   >
                     <span
-                      class="antd-menu-item-title"
+                      class="ant-pro-menu-item"
                     >
-                      产品模板管理
+                      <span
+                        class="ant-pro-menu-item-title"
+                      >
+                        产品模板管理
+                      </span>
                     </span>
                   </li>
                   <li
@@ -6998,9 +6893,13 @@ exports[`demos renders ./packages/layout/demos/MultipleMenuOnePath.tsx correctly
                     style="padding-left: 32px;"
                   >
                     <span
-                      class="antd-menu-item-title"
+                      class="ant-pro-menu-item"
                     >
-                      配置项模板管理
+                      <span
+                        class="ant-pro-menu-item-title"
+                      >
+                        配置项模板管理
+                      </span>
                     </span>
                   </li>
                   <li
@@ -7009,9 +6908,13 @@ exports[`demos renders ./packages/layout/demos/MultipleMenuOnePath.tsx correctly
                     style="padding-left: 32px;"
                   >
                     <span
-                      class="antd-menu-item-title"
+                      class="ant-pro-menu-item"
                     >
-                      元数据管理
+                      <span
+                        class="ant-pro-menu-item-title"
+                      >
+                        元数据管理
+                      </span>
                     </span>
                   </li>
                 </ul>
@@ -7299,9 +7202,13 @@ exports[`demos renders ./packages/layout/demos/Nested.tsx correctly 1`] = `
                 role="menuitem"
               >
                 <span
-                  class="antd-menu-item-title"
+                  class="ant-pro-menu-item"
                 >
-                  首页
+                  <span
+                    class="ant-pro-menu-item-title"
+                  >
+                    首页
+                  </span>
                 </span>
               </li>
               <li
@@ -7437,9 +7344,13 @@ exports[`demos renders ./packages/layout/demos/Nested.tsx correctly 1`] = `
                         style="padding-left: 16px;"
                       >
                         <span
-                          class="antd-menu-item-title"
+                          class="ant-pro-menu-item"
                         >
-                          首页
+                          <span
+                            class="ant-pro-menu-item-title"
+                          >
+                            首页
+                          </span>
                         </span>
                       </li>
                       <li
@@ -7743,9 +7654,13 @@ exports[`demos renders ./packages/layout/demos/TopmenuNested.tsx correctly 1`] =
                     role="menuitem"
                   >
                     <span
-                      class="antd-menu-item-title"
+                      class="ant-pro-menu-item"
                     >
-                      首页
+                      <span
+                        class="ant-pro-menu-item-title"
+                      >
+                        首页
+                      </span>
                     </span>
                   </li>
                   <li
@@ -7911,9 +7826,13 @@ exports[`demos renders ./packages/layout/demos/TopmenuNested.tsx correctly 1`] =
                         style="padding-left: 16px;"
                       >
                         <span
-                          class="antd-menu-item-title"
+                          class="ant-pro-menu-item"
                         >
-                          首页
+                          <span
+                            class="ant-pro-menu-item-title"
+                          >
+                            首页
+                          </span>
                         </span>
                       </li>
                       <li
@@ -8222,34 +8141,38 @@ exports[`demos renders ./packages/layout/demos/antd@3MenuIconFormServe.tsx corre
                 </div>
               </li>
               <li
-                class="ant-menu-item"
+                class="ant-menu-item ant-menu-item-only-child"
                 role="menuitem"
               >
                 <span
-                  aria-label="heart"
-                  class="anticon anticon-heart"
-                  role="img"
-                  type="heart"
+                  class="ant-pro-menu-item"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="heart"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
+                  <span
+                    aria-label="heart"
+                    class="anticon anticon-heart"
+                    role="img"
+                    type="heart"
                   >
-                    <path
-                      d="M923 283.6a260.04 260.04 0 00-56.9-82.8 264.4 264.4 0 00-84-55.5A265.34 265.34 0 00679.7 125c-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 00-56.9 82.8c-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5 0 201.2-356 429.3-356 429.3z"
-                    />
-                  </svg>
-                </span>
-                <span
-                  class="antd-menu-item-title"
-                >
-                  demo
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="heart"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M923 283.6a260.04 260.04 0 00-56.9-82.8 264.4 264.4 0 00-84-55.5A265.34 265.34 0 00679.7 125c-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 00-56.9 82.8c-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5 0 201.2-356 429.3-356 429.3z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="ant-pro-menu-item-title"
+                  >
+                    demo
+                  </span>
                 </span>
               </li>
             </ul>
@@ -8461,33 +8384,37 @@ exports[`demos renders ./packages/layout/demos/antd@4MenuIconFormServe.tsx corre
                 </div>
               </li>
               <li
-                class="ant-menu-item"
+                class="ant-menu-item ant-menu-item-only-child"
                 role="menuitem"
               >
                 <span
-                  aria-label="heart"
-                  class="anticon anticon-heart"
-                  role="img"
+                  class="ant-pro-menu-item"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="heart"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
+                  <span
+                    aria-label="heart"
+                    class="anticon anticon-heart"
+                    role="img"
                   >
-                    <path
-                      d="M923 283.6a260.04 260.04 0 00-56.9-82.8 264.4 264.4 0 00-84-55.5A265.34 265.34 0 00679.7 125c-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 00-56.9 82.8c-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5 0 201.2-356 429.3-356 429.3z"
-                    />
-                  </svg>
-                </span>
-                <span
-                  class="antd-menu-item-title"
-                >
-                  demo
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="heart"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M923 283.6a260.04 260.04 0 00-56.9-82.8 264.4 264.4 0 00-84-55.5A265.34 265.34 0 00679.7 125c-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 00-56.9 82.8c-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5 0 201.2-356 429.3-356 429.3z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="ant-pro-menu-item-title"
+                  >
+                    demo
+                  </span>
                 </span>
               </li>
             </ul>
@@ -8793,33 +8720,37 @@ Array [
               style="width: 100%;"
             >
               <li
-                class="ant-menu-item ant-menu-item-selected"
+                class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
                 role="menuitem"
               >
                 <span
-                  aria-label="smile"
-                  class="anticon anticon-smile"
-                  role="img"
+                  class="ant-pro-menu-item"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="smile"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
+                  <span
+                    aria-label="smile"
+                    class="anticon anticon-smile"
+                    role="img"
                   >
-                    <path
-                      d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
-                    />
-                  </svg>
-                </span>
-                <span
-                  class="antd-menu-item-title"
-                >
-                  欢迎
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="smile"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="ant-pro-menu-item-title"
+                  >
+                    欢迎
+                  </span>
                 </span>
               </li>
               <li
@@ -9164,29 +9095,33 @@ exports[`demos renders ./packages/layout/demos/base.tsx correctly 1`] = `
               >
                 <a>
                   <span
-                    aria-label="smile"
-                    class="anticon anticon-smile"
-                    role="img"
+                    class="ant-pro-menu-item"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="smile"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
+                    <span
+                      aria-label="smile"
+                      class="anticon anticon-smile"
+                      role="img"
                     >
-                      <path
-                        d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="antd-menu-item-title"
-                  >
-                    欢迎
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="smile"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="ant-pro-menu-item-title"
+                    >
+                      欢迎
+                    </span>
                   </span>
                 </a>
               </li>
@@ -10101,29 +10036,33 @@ Array [
                 <div>
                   0 
                   <span
-                    aria-label="smile"
-                    class="anticon anticon-smile"
-                    role="img"
+                    class="ant-pro-menu-item"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="smile"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
+                    <span
+                      aria-label="smile"
+                      class="anticon anticon-smile"
+                      role="img"
                     >
-                      <path
-                        d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="antd-menu-item-title"
-                  >
-                    欢迎
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="smile"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="ant-pro-menu-item-title"
+                    >
+                      欢迎
+                    </span>
                   </span>
                 </div>
               </li>
@@ -10591,33 +10530,37 @@ exports[`demos renders ./packages/layout/demos/footer.tsx correctly 1`] = `
             style="width: 100%;"
           >
             <li
-              class="ant-menu-item ant-menu-item-selected"
+              class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
               role="menuitem"
             >
               <span
-                aria-label="smile"
-                class="anticon anticon-smile"
-                role="img"
+                class="ant-pro-menu-item"
               >
-                <svg
-                  aria-hidden="true"
-                  class=""
-                  data-icon="smile"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="smile"
+                  class="anticon anticon-smile"
+                  role="img"
                 >
-                  <path
-                    d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
-                  />
-                </svg>
-              </span>
-              <span
-                class="antd-menu-item-title"
-              >
-                欢迎
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="smile"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="ant-pro-menu-item-title"
+                >
+                  欢迎
+                </span>
               </span>
             </li>
             <li
@@ -10916,33 +10859,37 @@ exports[`demos renders ./packages/layout/demos/hideMenu.tsx correctly 1`] = `
               style="width: 100%;"
             >
               <li
-                class="ant-menu-item ant-menu-item-selected"
+                class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
                 role="menuitem"
               >
                 <span
-                  aria-label="smile"
-                  class="anticon anticon-smile"
-                  role="img"
+                  class="ant-pro-menu-item"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="smile"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
+                  <span
+                    aria-label="smile"
+                    class="anticon anticon-smile"
+                    role="img"
                   >
-                    <path
-                      d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
-                    />
-                  </svg>
-                </span>
-                <span
-                  class="antd-menu-item-title"
-                >
-                  欢迎
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="smile"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="ant-pro-menu-item-title"
+                  >
+                    欢迎
+                  </span>
                 </span>
               </li>
               <li
@@ -11235,9 +11182,13 @@ exports[`demos renders ./packages/layout/demos/searchMenu.tsx correctly 1`] = `
                 style="padding-left: 16px;"
               >
                 <span
-                  class="antd-menu-item-title"
+                  class="ant-pro-menu-item"
                 >
-                  首页
+                  <span
+                    class="ant-pro-menu-item-title"
+                  >
+                    首页
+                  </span>
                 </span>
               </li>
               <li

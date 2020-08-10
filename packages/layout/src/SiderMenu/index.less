@@ -50,6 +50,12 @@
     display: none;
   }
 
+  ul.@{ant-prefix}-menu-sub {
+    li.@{ant-prefix}-menu-item .@{ant-prefix}-pro-menu-item {
+      padding-left: 8px;
+    }
+  }
+
   &-logo {
     position: relative;
     display: flex;
@@ -159,7 +165,7 @@
     }
 
     // hide menu item text in collapsed
-    .antd-menu-item-title {
+    .@{ant-prefix}-pro-menu-item-title {
       display: none;
     }
 
