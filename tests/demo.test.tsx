@@ -59,7 +59,7 @@ function demoTest(component: string, options: Options = {}) {
       const Demo = require(`.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
       const wrapper = mount(<Demo />);
 
-      await waitForComponentToPaint(wrapper, component === 'table' ? 200 : 16);
+      await waitForComponentToPaint(wrapper, component === 'table' ? 1000 : 16);
       // Convert aria related content
       const dom = wrapper.render();
       ariaConvert(dom);
