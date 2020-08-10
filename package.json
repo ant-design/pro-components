@@ -15,11 +15,18 @@
     "site": "dumi build",
     "size": "npm run build && size-limit",
     "start": "dumi dev",
+    "sync:tnpm": "node -e 'require(\"./scripts/syncTNPM\")()'",
     "test": "umi-test",
     "test:coverage": "umi-test --coverage",
     "test:update": "umi-test --updateSnapshot",
     "update:deps": "yarn upgrade-interactive --latest"
   },
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ],
   "devDependencies": {
     "@ant-design/compatible": "^1.0.4",
     "@babel/core": "^7.8.3",
@@ -109,12 +116,6 @@
     "pre-commit": "pretty-quick --staged",
     "commit-msg": "node scripts/verifyCommit.js"
   },
-  "browserslist": [
-    "last 2 versions",
-    "Firefox ESR",
-    "> 1%",
-    "ie >= 11"
-  ],
   "size-limit": [
     {
       "path": "packages/card/lib/**/*.js",
