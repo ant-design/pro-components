@@ -40,6 +40,7 @@ function useCounter(props: UseCounterProps = {}) {
     value: props.columnsStateMap,
     onChange: props.onColumnsStateChange,
   });
+
   return {
     action: actionRef,
     setAction: (newAction: UseFetchDataAction<RequestData<any>>) => {
