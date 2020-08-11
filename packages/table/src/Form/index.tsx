@@ -620,11 +620,15 @@ const FormSearch = <T, U = any>({
 
   const domList = formInstanceRef.current
     ? columnsList
-        .map((item) =>
+        .map((item, index) =>
           proFormItemRender({
             isForm,
             formInstance: formInstanceRef.current,
-            item,
+            item: {
+              key: item.dataIndex?.toString() || index,
+              index,
+              ...item,
+            },
             type,
             colConfig,
             intl,
