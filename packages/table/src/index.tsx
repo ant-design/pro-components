@@ -16,7 +16,7 @@ import {
   ptBRIntl,
 } from '@ant-design/pro-provider';
 import { ProCoreActionType } from '@ant-design/pro-utils';
-import { FieldStatus, ProFieldValueType } from '@ant-design/pro-field';
+import { FieldStatus, ProFieldValueType, FieldIndexColumn } from '@ant-design/pro-field';
 
 import ProTable, { ProColumns, ProColumnType, ProTableProps } from './Table';
 import { RequestData } from './useFetchData';
@@ -48,6 +48,7 @@ export {
   ConfigConsumer as IntlConsumer,
   ConfigConsumer,
   zhCNIntl,
+  FieldIndexColumn as IndexColumn,
   defaultRenderText,
   createIntl,
   enUSIntl,
