@@ -220,7 +220,7 @@ Array [
 exports[`demos renders ./packages/card/demos/colspan.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-pro-card"
+    class="ant-pro-card ant-pro-card-border"
   >
     <div
       class="ant-pro-card-body ant-pro-card-body-center"
@@ -229,7 +229,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-pro-card ant-pro-card-span-12"
+    class="ant-pro-card ant-pro-card-span-12 ant-pro-card-border"
     style="margin-top: 8px;"
   >
     <div
@@ -239,7 +239,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-pro-card ant-pro-card-span-8"
+    class="ant-pro-card ant-pro-card-span-8 ant-pro-card-border"
     style="margin-top: 8px;"
   >
     <div
@@ -253,10 +253,22 @@ Array [
     style="margin-top: 8px;"
   >
     <div
+      class="ant-pro-card-header"
+    >
+      <div
+        class="ant-pro-card-title"
+      >
+        24栅格
+      </div>
+      <div
+        class="ant-pro-card-extra"
+      />
+    </div>
+    <div
       class="ant-pro-card-body"
     >
       <div
-        class="ant-pro-card ant-pro-card-span-12"
+        class="ant-pro-card ant-pro-card-span-12 ant-pro-card-border"
         style="margin-right: 8px;"
       >
         <div
@@ -266,7 +278,7 @@ Array [
         </div>
       </div>
       <div
-        class="ant-pro-card ant-pro-card-span-6"
+        class="ant-pro-card ant-pro-card-span-6 ant-pro-card-border"
         style="margin-right: 8px;"
       >
         <div
@@ -276,7 +288,7 @@ Array [
         </div>
       </div>
       <div
-        class="ant-pro-card ant-pro-card-span-6"
+        class="ant-pro-card ant-pro-card-span-6 ant-pro-card-border"
       >
         <div
           class="ant-pro-card-body ant-pro-card-body-center"
@@ -291,48 +303,22 @@ Array [
     style="margin-top: 8px;"
   >
     <div
-      class="ant-pro-card-body"
+      class="ant-pro-card-header"
     >
       <div
-        class="ant-pro-card ant-pro-card-span-8"
-        style="margin-right: 8px;"
+        class="ant-pro-card-title"
       >
-        <div
-          class="ant-pro-card-body ant-pro-card-body-center"
-        >
-          colSpan-8
-        </div>
+        指定宽度px
       </div>
       <div
-        class="ant-pro-card"
-        style="margin-right: 8px;"
-      >
-        <div
-          class="ant-pro-card-body ant-pro-card-body-center"
-        >
-          Auto
-        </div>
-      </div>
-      <div
-        class="ant-pro-card"
-      >
-        <div
-          class="ant-pro-card-body ant-pro-card-body-center"
-        >
-          Auto
-        </div>
-      </div>
+        class="ant-pro-card-extra"
+      />
     </div>
-  </div>,
-  <div
-    class="ant-pro-card ant-pro-card-contain-card"
-    style="margin-top: 8px;"
-  >
     <div
       class="ant-pro-card-body"
     >
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-border"
         style="width: 200px; flex-shrink: 0; margin-right: 8px;"
       >
         <div
@@ -342,17 +328,7 @@ Array [
         </div>
       </div>
       <div
-        class="ant-pro-card"
-        style="margin-right: 8px;"
-      >
-        <div
-          class="ant-pro-card-body ant-pro-card-body-center"
-        >
-          Auto
-        </div>
-      </div>
-      <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-border"
       >
         <div
           class="ant-pro-card-body ant-pro-card-body-center"
@@ -367,10 +343,22 @@ Array [
     style="margin-top: 8px;"
   >
     <div
+      class="ant-pro-card-header"
+    >
+      <div
+        class="ant-pro-card-title"
+      >
+        指定宽度百分比
+      </div>
+      <div
+        class="ant-pro-card-extra"
+      />
+    </div>
+    <div
       class="ant-pro-card-body"
     >
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-border"
         style="margin-right: 8px;"
       >
         <div
@@ -380,7 +368,7 @@ Array [
         </div>
       </div>
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-border"
         style="width: 30%; flex-shrink: 0;"
       >
         <div
@@ -403,7 +391,7 @@ Array [
       class="ant-pro-card-body"
     >
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-border"
         style="width: 300px; flex-shrink: 0; margin-right: 16px; margin-bottom: 16px;"
       >
         <div
@@ -425,17 +413,7 @@ Array [
         </div>
       </div>
       <div
-        class="ant-pro-card"
-        style="margin-right: 16px; margin-bottom: 16px;"
-      >
-        <div
-          class="ant-pro-card-body"
-        >
-          Auto
-        </div>
-      </div>
-      <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-border"
         style="margin-bottom: 16px;"
       >
         <div
@@ -448,12 +426,13 @@ Array [
   </div>,
   <div
     class="ant-pro-card ant-pro-card-contain-card"
+    style="margin-top: 16px;"
   >
     <div
       class="ant-pro-card-body"
     >
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-border"
         style="margin-bottom: 16px;"
       >
         <div
@@ -463,7 +442,7 @@ Array [
         </div>
       </div>
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-border"
         style="margin-bottom: 16px;"
       >
         <div
@@ -473,7 +452,7 @@ Array [
         </div>
       </div>
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-border"
         style="margin-bottom: 16px;"
       >
         <div
@@ -486,12 +465,13 @@ Array [
   </div>,
   <div
     class="ant-pro-card ant-pro-card-contain-card"
+    style="margin-top: 16px;"
   >
     <div
       class="ant-pro-card-body"
     >
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-border"
         style="margin-right: 16px;"
       >
         <div
@@ -501,7 +481,7 @@ Array [
         </div>
       </div>
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-border"
         style="margin-right: 16px;"
       >
         <div
@@ -511,7 +491,7 @@ Array [
         </div>
       </div>
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-border"
       >
         <div
           class="ant-pro-card-body"
@@ -783,10 +763,22 @@ Array [
     style="margin-top: 8px;"
   >
     <div
+      class="ant-pro-card-header"
+    >
+      <div
+        class="ant-pro-card-title"
+      >
+        24栅格
+      </div>
+      <div
+        class="ant-pro-card-extra"
+      />
+    </div>
+    <div
       class="ant-pro-card-body"
     >
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-border"
         style="margin-right: 8px;"
       >
         <div
@@ -796,7 +788,7 @@ Array [
         </div>
       </div>
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-border"
         style="margin-right: 8px;"
       >
         <div
@@ -806,7 +798,7 @@ Array [
         </div>
       </div>
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-border"
       >
         <div
           class="ant-pro-card-body ant-pro-card-body-center"
@@ -821,10 +813,22 @@ Array [
     style="margin-top: 8px;"
   >
     <div
+      class="ant-pro-card-header"
+    >
+      <div
+        class="ant-pro-card-title"
+      >
+        指定宽度px
+      </div>
+      <div
+        class="ant-pro-card-extra"
+      />
+    </div>
+    <div
       class="ant-pro-card-body"
     >
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-border"
         style="margin-right: 8px;"
       >
         <div
@@ -834,17 +838,7 @@ Array [
         </div>
       </div>
       <div
-        class="ant-pro-card"
-        style="margin-right: 8px;"
-      >
-        <div
-          class="ant-pro-card-body ant-pro-card-body-center"
-        >
-          Auto
-        </div>
-      </div>
-      <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-border"
       >
         <div
           class="ant-pro-card-body ant-pro-card-body-center"
@@ -859,48 +853,22 @@ Array [
     style="margin-top: 8px;"
   >
     <div
-      class="ant-pro-card-body"
+      class="ant-pro-card-header"
     >
       <div
-        class="ant-pro-card"
-        style="margin-right: 8px;"
+        class="ant-pro-card-title"
       >
-        <div
-          class="ant-pro-card-body ant-pro-card-body-center"
-        >
-          Col
-        </div>
+        指定宽度百分比
       </div>
       <div
-        class="ant-pro-card"
-        style="margin-right: 8px;"
-      >
-        <div
-          class="ant-pro-card-body ant-pro-card-body-center"
-        >
-          Auto
-        </div>
-      </div>
-      <div
-        class="ant-pro-card"
-      >
-        <div
-          class="ant-pro-card-body ant-pro-card-body-center"
-        >
-          Auto
-        </div>
-      </div>
+        class="ant-pro-card-extra"
+      />
     </div>
-  </div>,
-  <div
-    class="ant-pro-card ant-pro-card-contain-card"
-    style="margin-top: 8px;"
-  >
     <div
       class="ant-pro-card-body"
     >
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-border"
         style="margin-right: 8px;"
       >
         <div
@@ -910,7 +878,7 @@ Array [
         </div>
       </div>
       <div
-        class="ant-pro-card"
+        class="ant-pro-card ant-pro-card-border"
       >
         <div
           class="ant-pro-card-body ant-pro-card-body-center"
@@ -925,7 +893,7 @@ Array [
 
 exports[`demos renders ./packages/card/demos/split.tsx correctly 1`] = `
 <div
-  class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card"
+  class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card ant-pro-card-split"
 >
   <div
     class="ant-pro-card-header ant-pro-card-header-border"
@@ -945,21 +913,21 @@ exports[`demos renders ./packages/card/demos/split.tsx correctly 1`] = `
     class="ant-pro-card-body"
   >
     <div
-      class="ant-pro-card ant-pro-card-split-vertical ant-pro-card-contain-card"
+      class="ant-pro-card ant-pro-card-split-vertical ant-pro-card-contain-card ant-pro-card-split"
       style="border-radius: 0;"
     >
       <div
         class="ant-pro-card-body ant-pro-card-body-column"
       >
         <div
-          class="ant-pro-card ant-pro-card-split-horizontal ant-pro-card-contain-card"
+          class="ant-pro-card ant-pro-card-split-horizontal ant-pro-card-contain-card ant-pro-card-split"
           style="border-radius: 0;"
         >
           <div
             class="ant-pro-card-body ant-pro-card-body-column"
           >
             <div
-              class="ant-pro-card ant-pro-card-split-horizontal ant-pro-card-contain-card"
+              class="ant-pro-card ant-pro-card-split-horizontal ant-pro-card-contain-card ant-pro-card-split"
               style="border-radius: 0;"
             >
               <div
@@ -1034,7 +1002,7 @@ exports[`demos renders ./packages/card/demos/split.tsx correctly 1`] = `
               </div>
             </div>
             <div
-              class="ant-pro-card ant-pro-card-contain-card"
+              class="ant-pro-card ant-pro-card-contain-card ant-pro-card-split"
               style="border-radius: 0;"
             >
               <div
@@ -1154,7 +1122,7 @@ exports[`demos renders ./packages/card/demos/split.tsx correctly 1`] = `
 
 exports[`demos renders ./packages/card/demos/split2.tsx correctly 1`] = `
 <div
-  class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card"
+  class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card ant-pro-card-split"
 >
   <div
     class="ant-pro-card-header ant-pro-card-header-border"
@@ -1175,7 +1143,7 @@ exports[`demos renders ./packages/card/demos/split2.tsx correctly 1`] = `
   >
     <div
       class="ant-pro-card ant-pro-card-split-vertical"
-      style="width: 30%; flex-shrink: 0; border-radius: 0;"
+      style="width: 300px; flex-shrink: 0; border-radius: 0;"
     >
       <div
         class="ant-pro-card-header"
@@ -1227,7 +1195,7 @@ exports[`demos renders ./packages/card/demos/split2.tsx correctly 1`] = `
 
 exports[`demos renders ./packages/card/demos/split23.tsx correctly 1`] = `
 <div
-  class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card"
+  class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card ant-pro-card-split"
 >
   <div
     class="ant-pro-card-body"
@@ -1286,7 +1254,7 @@ exports[`demos renders ./packages/card/demos/split23.tsx correctly 1`] = `
 
 exports[`demos renders ./packages/card/demos/steps-v.tsx correctly 1`] = `
 <div
-  class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card"
+  class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card ant-pro-card-split"
 >
   <div
     class="ant-pro-card-body"
