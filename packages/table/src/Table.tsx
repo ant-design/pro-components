@@ -47,7 +47,6 @@ import FormSearch, { SearchConfig, TableFormItem } from './Form';
 import {
   checkUndefinedOrNull,
   genColumnKey,
-  removeObjectNull,
   genCopyable,
   genEllipsis,
   mergePagination,
@@ -777,7 +776,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
         }
 
         // 制造筛选的数据
-        setProFilter(removeObjectNull(filters));
+        setProFilter(pickUndefined<any>(filters));
 
         // 制造一个排序的数据
         if (Array.isArray(sorter)) {

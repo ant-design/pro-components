@@ -29,20 +29,6 @@ export const genColumnKey = (key?: React.ReactText | undefined, index?: number):
 };
 
 /**
- * 删除对象中所有的空值
- * @param obj
- */
-export const removeObjectNull = (obj: { [key: string]: any }) => {
-  const newObj = {};
-  Object.keys(obj).forEach((key) => {
-    if (obj[key]) {
-      newObj[key] = obj[key];
-    }
-  });
-  return newObj;
-};
-
-/**
  * 减少 width，支持 string 和 number
  */
 export const reduceWidth = (width?: string | number): string | number | undefined => {
