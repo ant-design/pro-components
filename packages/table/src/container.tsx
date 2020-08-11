@@ -5,7 +5,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import { RequestData, ProColumns } from './index';
 import { UseFetchDataAction } from './useFetchData';
-import { DensitySize } from './component/toolBar/DensityIcon';
+import { DensitySize } from './component/ToolBar/DensityIcon';
 
 export type ColumnsState = {
   show?: boolean;
