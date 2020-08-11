@@ -201,7 +201,6 @@ const ProCard: ProCardType = (props) => {
               style: {
                 ...gutterRightStyle,
                 ...gutterBottomStyle,
-
                 ...splitStyle,
                 ...element.props.style,
               },
@@ -239,6 +238,7 @@ const ProCard: ProCardType = (props) => {
           [`${prefixCls}-border`]: bordered,
           [`${prefixCls}-contain-card`]: containProCard,
           [`${prefixCls}-loading`]: loading,
+          [`${prefixCls}-split`]: split === 'vertical' || split === 'horizontal',
         });
 
         const headerCls = classNames(`${prefixCls}-header`, {
