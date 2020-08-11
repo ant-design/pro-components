@@ -18,6 +18,10 @@
     border: @border-width-base @border-style-base @border-color-split;
   }
 
+  &-split > &-body {
+    padding: 0;
+  }
+
   &-split-vertical {
     border-right: @border-width-base @border-style-base @border-color-split;
   }
@@ -26,15 +30,10 @@
     border-bottom: @border-width-base @border-style-base @border-color-split;
   }
 
-  &-contain-card {
-    background-color: transparent;
-  }
-
   &-contain-card > &-body {
     display: flex;
     flex-direction: row;
     flex-grow: 1;
-    padding: 0;
   }
 
   &-contain-card > &-body-column {
@@ -127,8 +126,8 @@
 
 .loop-grid-columns(@index) when (@index > 0) {
   .@{pro-card-prefix-cls}-span-@{index} {
-    display: block;
     width: percentage((@index / @grid-columns));
+    flex-grow: 0;
   }
   .loop-grid-columns((@index - 1));
 }

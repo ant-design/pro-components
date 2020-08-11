@@ -10,7 +10,10 @@ import './style/index.less';
 
 const { useBreakpoint } = Grid;
 
-type ProCardType = React.FC<ProCardProps>;
+type ProCardType = React.FC<ProCardProps> & {
+  isProCard: boolean;
+};
+
 type ProCardChildType = React.ReactElement<ProCardProps, ProCardType>;
 
 type ColSpanType = number | string;
@@ -169,7 +172,7 @@ const ProCard: ProCardType = (props) => {
         const childrenArray = React.Children.toArray(children) as ProCardChildType[];
 
         const childrenModified = childrenArray.map((element, index) => {
-          if (element?.type?.displayName === 'ProCard') {
+          if (element?.type?.isProCard) {
             containProCard = true;
 
             // 右侧空隙
@@ -201,7 +204,6 @@ const ProCard: ProCardType = (props) => {
               style: {
                 ...gutterRightStyle,
                 ...gutterBottomStyle,
-
                 ...splitStyle,
                 ...element.props.style,
               },
@@ -225,7 +227,7 @@ const ProCard: ProCardType = (props) => {
 
         // 当 colSpan 为 30% 或 300px 时
         const colSpanStyle = getStyle(typeof span === 'string' && /\d%|\dpx/i.test(span), {
-          flexBasis: span as string,
+          width: span as string,
           flexShrink: 0,
         });
 
@@ -239,6 +241,7 @@ const ProCard: ProCardType = (props) => {
           [`${prefixCls}-border`]: bordered,
           [`${prefixCls}-contain-card`]: containProCard,
           [`${prefixCls}-loading`]: loading,
+          [`${prefixCls}-split`]: split === 'vertical' || split === 'horizontal',
         });
 
         const headerCls = classNames(`${prefixCls}-header`, {
@@ -293,6 +296,6 @@ const ProCard: ProCardType = (props) => {
   );
 };
 
-ProCard.displayName = 'ProCard';
+ProCard.isProCard = true;
 
 export default ProCard;
