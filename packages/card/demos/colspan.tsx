@@ -24,23 +24,9 @@ export default () => {
           colSpan-6
         </ProCard>
       </ProCard>
-      <ProCard style={{ marginTop: 8 }} gutter={8} title="自动宽度">
-        <ProCard colSpan={8} layout="center" bordered>
-          colSpan-8
-        </ProCard>
-        <ProCard layout="center" bordered>
-          Auto
-        </ProCard>
-        <ProCard layout="center" bordered>
-          Auto
-        </ProCard>
-      </ProCard>
       <ProCard style={{ marginTop: 8 }} gutter={8} title="指定宽度px">
         <ProCard colSpan="200px" layout="center" bordered>
           colSpan - 200px
-        </ProCard>
-        <ProCard layout="center" bordered>
-          Auto
         </ProCard>
         <ProCard layout="center" bordered>
           Auto
