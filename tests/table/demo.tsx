@@ -25,6 +25,7 @@ for (let i = 0; i < 46; i += 1) {
 export const columns: ProColumns[] = [
   {
     title: '序号',
+    key: 'index',
     dataIndex: 'index',
     valueType: 'index',
     width: 72,
@@ -37,6 +38,7 @@ export const columns: ProColumns[] = [
   },
   {
     title: 'Name',
+    key: 'name',
     dataIndex: 'name',
     copyable: true,
   },
@@ -50,6 +52,7 @@ export const columns: ProColumns[] = [
     title: 'sex',
     dataIndex: 'sex',
     copyable: true,
+    key: 'sex',
     filters: true,
     valueEnum: {
       man: '男',
@@ -58,6 +61,7 @@ export const columns: ProColumns[] = [
   },
   {
     title: 'Age',
+    key: 'age',
     dataIndex: 'age',
   },
   {
@@ -109,6 +113,7 @@ export const columns: ProColumns[] = [
   {
     title: 'option',
     valueType: 'option',
+    key: 'option',
     dataIndex: 'id',
     render: (text, row, index, action) => [
       <a

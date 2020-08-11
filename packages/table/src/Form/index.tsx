@@ -12,7 +12,7 @@ import classNames from 'classnames';
 import ProField, { ProFieldValueType } from '@ant-design/pro-field';
 import { useDeepCompareEffect, ProSchemaComponentTypes } from '@ant-design/pro-utils';
 
-import { genColumnKey } from '../component/util';
+import { genColumnKey } from '../utils';
 import Container from '../container';
 import { ProColumnsValueTypeFunction } from '../defaultRender';
 import { ProColumns, ProColumnsValueType } from '../index';
@@ -191,7 +191,7 @@ export const FormInputRender: React.FC<{
           valueEnum={valueEnum}
           valueType={valueType}
           ref={ref}
-          plain={type === 'form'}
+          plain={type !== 'form'}
           mode="edit"
           allowClear
           style={{
@@ -253,7 +253,7 @@ export const FormInputRender: React.FC<{
       }}
       // valueType = textarea，但是在 查询表单这里，应该是个 input 框
       valueType={!valueType || valueType === 'textarea' ? 'text' : valueType}
-      plain={type === 'form'}
+      plain={type !== 'form'}
       {...rest}
     />
   );
@@ -296,7 +296,7 @@ export const proFormItemRender: (props: {
     index,
     ...rest
   } = item;
-  const key = genColumnKey(rest.key, dataIndex, index);
+  const key = genColumnKey(rest.key, index);
   const dom = <FormInputRender item={item} type={type} intl={intl} form={formInstance} />;
   if (!dom) {
     return null;
@@ -575,7 +575,7 @@ const FormSearch = <T, U = any>({
   useDeepCompareEffect(() => {
     const tempMap = {};
     counter.proColumns.forEach((item) => {
-      tempMap[genColumnKey(item.key, item.dataIndex, item.index) || 'null'] = item;
+      tempMap[genColumnKey(item.key, item.index)] = item;
     });
     setProColumnsMap(tempMap);
   }, [counter.proColumns]);
@@ -620,11 +620,15 @@ const FormSearch = <T, U = any>({
 
   const domList = formInstanceRef.current
     ? columnsList
-        .map((item) =>
+        .map((item, index) =>
           proFormItemRender({
             isForm,
             formInstance: formInstanceRef.current,
-            item,
+            item: {
+              key: item.dataIndex?.toString() || index,
+              index,
+              ...item,
+            },
             type,
             colConfig,
             intl,
@@ -665,7 +669,7 @@ const FormSearch = <T, U = any>({
             onValuesChange={() => forceUpdate()}
             initialValues={columnsList.reduce(
               (pre, item) => {
-                const key = genColumnKey(item.key, item.dataIndex, item.index) || '';
+                const key = genColumnKey(item.key, item.index);
                 if (item.initialValue) {
                   return {
                     ...pre,

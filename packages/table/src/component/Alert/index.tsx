@@ -56,7 +56,7 @@ const TableAlert = <T, U = {}>({
     return null;
   }
   const dom = alertInfoRender({ intl, selectedRowKeys, selectedRows });
-  if (dom === false) {
+  if (dom === false || selectedRowKeys.length < 1) {
     return null;
   }
   return (

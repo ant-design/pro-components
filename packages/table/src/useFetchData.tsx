@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { usePrevious, useDebounceFn } from '@ant-design/pro-utils';
 
 export interface RequestData<T> {
@@ -39,10 +39,12 @@ const useFetchData = <T extends RequestData<any>>(
     effects?: any[];
     onLoad?: (dataSource: T['data']) => void;
     onRequestError?: (e: Error) => void;
+    manual: boolean;
   },
 ): UseFetchDataAction<T> => {
-  let isMount = true;
-  const { defaultPageSize = 20, defaultCurrent = 1, onLoad = () => null, onRequestError } =
+  // 用于标定组件是否解除挂载，如果解除了就不要 setState
+  const mountRef = useRef(true);
+  const { defaultPageSize = 20, defaultCurrent = 1, onLoad = () => null, manual, onRequestError } =
     options || {};
 
   const [list, setList] = useState<T['data']>(defaultData as any);
@@ -60,13 +62,22 @@ const useFetchData = <T extends RequestData<any>>(
   const prePageSize = usePrevious(pageInfo.pageSize);
 
   const { effects = [] } = options || {};
-
+  const setDataAndLoading = (newData: T[], dataTotal: number) => {
+    const { pageSize, page } = pageInfo;
+    setList(newData);
+    setLoading(false);
+    setPageInfo({
+      ...pageInfo,
+      total: dataTotal,
+      hasMore: dataTotal > pageSize * page,
+    });
+  };
   /**
    * 请求数据
    * @param isAppend 是否添加数据到后面
    */
   const fetchList = async (isAppend?: boolean) => {
-    if (loading || !isMount) {
+    if (loading || !mountRef.current) {
       return;
     }
     setLoading(true);
@@ -80,16 +91,10 @@ const useFetchData = <T extends RequestData<any>>(
         })) || {};
       if (success !== false) {
         if (isAppend && list) {
-          setList([...list, ...data]);
+          setDataAndLoading([...list, ...data], dataTotal);
         } else {
-          setList(data);
+          setDataAndLoading(data, dataTotal);
         }
-        // 判断是否可以继续翻页
-        setPageInfo({
-          ...pageInfo,
-          total: dataTotal,
-          hasMore: dataTotal > pageSize * page,
-        });
       }
       if (onLoad) {
         onLoad(data);
@@ -101,7 +106,6 @@ const useFetchData = <T extends RequestData<any>>(
       } else {
         onRequestError(e);
       }
-    } finally {
       setLoading(false);
     }
   };
@@ -160,12 +164,15 @@ const useFetchData = <T extends RequestData<any>>(
   };
 
   useEffect(() => {
+    if (manual) {
+      return () => null;
+    }
     fetchListDebounce.run();
     return () => {
       fetchListDebounce.cancel();
-      isMount = false;
+      mountRef.current = false;
     };
-  }, effects);
+  }, [...effects, manual]);
 
   return {
     dataSource: list,

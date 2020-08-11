@@ -24,7 +24,7 @@ export default {
   tableToolBar: {
     leftPin: '固定到左邊',
     rightPin: '固定到右邊',
-    noPin: '取消固定',
+    noPin: '不固定',
     leftFixedTitle: '固定在左側',
     rightFixedTitle: '固定在右側',
     noFixedTitle: '不固定',
