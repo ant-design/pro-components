@@ -9,6 +9,7 @@ import Container, { ColumnsState } from '../../container';
 import { ProColumns } from '../../Table';
 import DnDItem from './DndItem';
 import './index.less';
+import DragIcon from './DragIcon';
 import { genColumnKey } from '../../utils';
 
 interface ColumnSettingProps<T = any> {
@@ -57,6 +58,7 @@ const CheckboxListItem: React.FC<{
   const config = columnsMap[columnKey || 'null'] || { show: true };
   return (
     <span className={`${className}-list-item`} key={columnKey}>
+      <DragIcon />
       <Checkbox
         onChange={(e) => {
           if (columnKey) {
@@ -67,7 +69,6 @@ const CheckboxListItem: React.FC<{
             } else {
               newSetting.show = false;
             }
-
             const columnKeyMap = {
               ...columnsMap,
               [columnKey]: newSetting as ColumnsState,

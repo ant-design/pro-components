@@ -58,6 +58,6 @@ footer: Open-source MIT Licensed | Copyright © 2017-present
 
 我们非常欢迎你的贡献，你可以通过以下方式和我们一起共建 :smiley:：
 
-- 在你的公司或个人项目中使用 Ant Design Pro。
+- 在你的公司或个人项目中使用 Ant Design Pro，umi 和 ProComponents。
 - 通过 [Issue](http://github.com/ant-design/pro-components/issues) 报告 bug 或进行咨询。
-- 提交 [Pull Request](http://github.com/ant-design/pro-components/pulls) 改进 Pro 的代码。
+- 提交 [Pull Request](http://github.com/ant-design/pro-components/pulls) 改进 ProComponents 的代码。

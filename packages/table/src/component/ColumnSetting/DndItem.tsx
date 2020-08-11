@@ -87,7 +87,7 @@ const Card: React.FC<CardProps> = ({ id, end, move, children, index }) => {
     },
   });
 
-  const opacity = isDragging ? 0 : 1;
+  const opacity = isDragging ? 0.4 : 1;
   drag(drop(ref));
   return (
     <div ref={ref} style={{ opacity }}>
