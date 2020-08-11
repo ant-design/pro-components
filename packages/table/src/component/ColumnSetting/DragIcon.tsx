@@ -7,11 +7,11 @@ export default () => {
       role="img"
       aria-label="info-darg-icon"
       style={{
-        paddingRight: 8,
+        paddingRight: 6,
         cursor: 'move',
       }}
     >
-      <svg width="1em" height="1em" viewBox="0 0 16 16">
+      <svg width="1em" height="1em" viewBox="0 0 8 16">
         <g id="surface5">
           <path
             style={{

@@ -401,7 +401,7 @@ const genColumnList = <T, U = {}>(
   (columns
     .map((item, columnsIndex) => {
       const { key, dataIndex, valueEnum, valueType, filters = [] } = item;
-      const columnKey = genColumnKey(key, dataIndex, columnsIndex);
+      const columnKey = genColumnKey(key, columnsIndex);
       const noNeedPro = !dataIndex && !valueEnum && !valueType;
       if (noNeedPro) {
         return item;
@@ -599,10 +599,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     if (tableColumn && tableColumn.length > 0) {
       counter.setColumns(tableColumn);
       // 重新生成key的字符串用于排序
-      const columnKeys = tableColumn.map((item, index) => {
-        const key = genColumnKey(item.key, (item as ProColumnType).dataIndex, index) || `${index}`;
-        return key;
-      });
+      const columnKeys = tableColumn.map((item, index) => genColumnKey(item.key, index));
       counter.setSortKeyColumns(columnKeys);
     }
   }, [tableColumn]);
@@ -754,8 +751,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
       style={tableStyle}
       columns={counter.columns.filter((item) => {
         // 删掉不应该显示的
-        const { key, dataIndex } = item;
-        const columnKey = genColumnKey(key, dataIndex);
+        const columnKey = genColumnKey(item.key, item.index);
         if (!columnKey) {
           return true;
         }

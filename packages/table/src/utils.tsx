@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import React, { ReactText, useEffect } from 'react';
 import { Tooltip, Typography } from 'antd';
-import { DataIndex } from 'rc-table/lib/interface';
 import { TablePaginationConfig } from 'antd/lib/table';
 import { ProCoreActionType } from '@ant-design/pro-utils';
 import { IntlType } from '@ant-design/pro-provider';
@@ -22,19 +21,9 @@ export const checkUndefinedOrNull = (value: any) => value !== undefined && value
  * @param dataIndex 在对象中的数据
  * @param index 序列号，理论上唯一
  */
-export const genColumnKey = (
-  key?: React.ReactText | undefined,
-  dataIndex?: DataIndex,
-  index?: number,
-): string => {
+export const genColumnKey = (key?: React.ReactText | undefined, index?: number): string => {
   if (key) {
     return `${key}`;
-  }
-  if (!key && dataIndex) {
-    if (Array.isArray(dataIndex)) {
-      return dataIndex.join('-');
-    }
-    return dataIndex.toString();
   }
   return `${index}`;
 };

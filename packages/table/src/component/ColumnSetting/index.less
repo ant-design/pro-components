@@ -12,31 +12,42 @@
   }
   &-overlay {
     .ant-popover-inner-content {
-      padding: 12px 0;
+      padding: 0px;
+      padding-bottom: 8px;
     }
   }
 }
+
 .@{pro-column-setting-prefix-cls}-list {
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding-top: 8px;
+
+  &.@{pro-column-setting-prefix-cls}-list-group {
+    padding-top: 0;
+  }
+
   &-title {
     color: @text-color-secondary;
     font-size: 12px;
     padding-left: 24px;
+    margin-bottom: 6px;
+    margin-top: 6px;
   }
+
   &-item {
     display: flex;
     align-items: center;
     width: 100%;
     padding: 4px 16px;
-    padding-left: 4px;
+    padding-left: 0px;
     &-option {
       display: none;
       float: right;
       cursor: pointer;
       > span {
-        > i.anticon {
+        > span.anticon {
           color: @primary-color;
         }
       }

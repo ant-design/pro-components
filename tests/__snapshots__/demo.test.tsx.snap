@@ -23436,6 +23436,7 @@ Array [
                       style="table-layout: auto;"
                     >
                       <colgroup>
+                        <col />
                         <col
                           style="width: 100px; min-width: 100px;"
                         />
@@ -23453,6 +23454,11 @@ Array [
                         class="ant-table-thead"
                       >
                         <tr>
+                          <th
+                            class="ant-table-cell"
+                          >
+                            标题
+                          </th>
                           <th
                             class="ant-table-cell"
                           >
@@ -23523,6 +23529,11 @@ Array [
                           <td
                             class="ant-table-cell"
                           >
+                            TradeCode 0
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
                             <span
                               class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
@@ -23578,6 +23589,11 @@ Array [
                           class="ant-table-row ant-table-row-level-0"
                           data-row-key="1"
                         >
+                          <td
+                            class="ant-table-cell"
+                          >
+                            TradeCode 1
+                          </td>
                           <td
                             class="ant-table-cell"
                           >

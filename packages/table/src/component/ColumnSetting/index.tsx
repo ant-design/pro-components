@@ -1,10 +1,17 @@
 import React, { useContext } from 'react';
 import { useIntl } from '@ant-design/pro-provider';
 import { ConfigContext } from 'antd/lib/config-provider';
-import { PushpinOutlined, SettingOutlined, VerticalAlignMiddleOutlined } from '@ant-design/icons';
+import {
+  SettingOutlined,
+  VerticalAlignMiddleOutlined,
+  VerticalAlignTopOutlined,
+  VerticalAlignBottomOutlined,
+} from '@ant-design/icons';
 import { Checkbox, Popover, Tooltip } from 'antd';
 import { DndProvider } from 'react-dnd';
+import classNames from 'classnames';
 import Backend from 'react-dnd-html5-backend';
+
 import Container, { ColumnsState } from '../../container';
 import { ProColumns } from '../../Table';
 import DnDItem from './DndItem';
@@ -88,19 +95,15 @@ const CheckboxListItem: React.FC<{
         <ToolTipIcon
           columnKey={columnKey}
           fixed="left"
-          title={intl.getMessage('tableToolBar.leftPin', '固定到左边')}
+          title={intl.getMessage('tableToolBar.leftPin', '固定在列首')}
           show={fixed !== 'left'}
         >
-          <PushpinOutlined
-            style={{
-              transform: 'rotate(-90deg)',
-            }}
-          />
+          <VerticalAlignTopOutlined />
         </ToolTipIcon>
         <ToolTipIcon
           columnKey={columnKey}
           fixed={undefined}
-          title={intl.getMessage('tableToolBar.noPin', '取消固定')}
+          title={intl.getMessage('tableToolBar.noPin', '不固定')}
           show={!!fixed}
         >
           <VerticalAlignMiddleOutlined />
@@ -108,10 +111,10 @@ const CheckboxListItem: React.FC<{
         <ToolTipIcon
           columnKey={columnKey}
           fixed="right"
-          title={intl.getMessage('tableToolBar.rightPin', '固定到右边')}
+          title={intl.getMessage('tableToolBar.rightPin', '固定在列尾')}
           show={fixed !== 'right'}
         >
-          <PushpinOutlined />
+          <VerticalAlignBottomOutlined />
         </ToolTipIcon>
       </span>
     </span>
@@ -151,7 +154,7 @@ const CheckboxList: React.FC<{
   };
 
   const listDom = list.map(({ key, dataIndex, title, fixed, ...rest }, index) => {
-    const columnKey = genColumnKey(key, dataIndex, rest.index);
+    const columnKey = genColumnKey(key, rest.index);
     return (
       <DnDItem
         index={index}
@@ -206,7 +209,11 @@ const GroupCheckboxList: React.FC<{
   const showLeft = leftList && leftList.length > 0;
 
   return (
-    <div className={`${className}-list`}>
+    <div
+      className={classNames(`${className}-list`, {
+        [`${className}-list-group`]: showRight || showLeft,
+      })}
+    >
       <CheckboxList
         title={intl.getMessage('tableToolBar.leftFixedTitle', '固定在左侧')}
         list={leftList}
@@ -240,8 +247,8 @@ const ColumnSetting = <T, U = {}>(props: ColumnSettingProps<T>) => {
    */
   const setAllSelectAction = (show: boolean = true) => {
     const columnKeyMap = {};
-    localColumns.forEach(({ key, fixed, dataIndex, index }) => {
-      const columnKey = genColumnKey(key, dataIndex, index);
+    localColumns.forEach(({ key, fixed, index }) => {
+      const columnKey = genColumnKey(key, index);
       if (columnKey) {
         columnKeyMap[columnKey] = {
           show,
@@ -262,6 +269,7 @@ const ColumnSetting = <T, U = {}>(props: ColumnSettingProps<T>) => {
   const { getPrefixCls } = useContext(ConfigContext);
   const className = getPrefixCls('pro-table-column-setting');
   const toolBarClassName = getPrefixCls('pro-table-toolbar');
+
   return (
     <Popover
       arrowPointAtCenter

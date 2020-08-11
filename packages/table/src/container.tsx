@@ -24,7 +24,7 @@ export interface UseCounterProps {
 
 function useCounter(props: UseCounterProps = {}) {
   const actionRef = useRef<UseFetchDataAction<RequestData<any>>>();
-  const [columns, setColumns] = useState<ColumnType<any>[]>([]);
+  const [columns, setColumns] = useState<(ColumnType<any> & { index?: number })[]>([]);
   // 用于排序的数组
   const sortKeyColumns = useRef<string[]>([]);
   const [proColumns, setProColumns] = useState<ProColumns<any>[]>([]);

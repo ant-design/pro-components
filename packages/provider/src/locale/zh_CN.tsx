@@ -22,9 +22,9 @@ export default {
     },
   },
   tableToolBar: {
-    leftPin: '固定到左边',
-    rightPin: '固定到右边',
-    noPin: '取消固定',
+    leftPin: '固定在列首',
+    rightPin: '固定在列尾',
+    noPin: '不固定',
     leftFixedTitle: '固定在左侧',
     rightFixedTitle: '固定在右侧',
     noFixedTitle: '不固定',
