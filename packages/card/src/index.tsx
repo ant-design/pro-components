@@ -10,7 +10,10 @@ import './style/index.less';
 
 const { useBreakpoint } = Grid;
 
-type ProCardType = React.FC<ProCardProps>;
+type ProCardType = React.FC<ProCardProps> & {
+  isProCard: boolean;
+};
+
 type ProCardChildType = React.ReactElement<ProCardProps, ProCardType>;
 
 type ColSpanType = number | string;
@@ -169,7 +172,7 @@ const ProCard: ProCardType = (props) => {
         const childrenArray = React.Children.toArray(children) as ProCardChildType[];
 
         const childrenModified = childrenArray.map((element, index) => {
-          if (element?.type?.displayName === 'ProCard') {
+          if (element?.type?.isProCard) {
             containProCard = true;
 
             // 右侧空隙
@@ -293,6 +296,6 @@ const ProCard: ProCardType = (props) => {
   );
 };
 
-ProCard.displayName = 'ProCard';
+ProCard.isProCard = true;
 
 export default ProCard;
