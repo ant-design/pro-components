@@ -41,9 +41,9 @@ import {
 
 import useFetchData, { RequestData } from './useFetchData';
 import Container, { useCounter, ColumnsState } from './container';
-import Toolbar, { OptionConfig, ToolBarProps } from './component/toolBar';
-import Alert from './component/alert';
-import FormSearch, { SearchConfig, TableFormItem } from './form';
+import Toolbar, { OptionConfig, ToolBarProps } from './component/ToolBar';
+import Alert from './component/Alert';
+import FormSearch, { SearchConfig, TableFormItem } from './Form';
 import {
   checkUndefinedOrNull,
   genColumnKey,
@@ -56,7 +56,7 @@ import {
 } from './utils';
 
 import defaultRenderText, { ProColumnsValueTypeFunction } from './defaultRender';
-import { DensitySize } from './component/toolBar/DensityIcon';
+import { DensitySize } from './component/ToolBar/DensityIcon';
 import ErrorBoundary from './component/ErrorBoundary';
 
 type TableRowSelection = TableProps<any>['rowSelection'];
@@ -178,8 +178,8 @@ export interface ProTableProps<T, U extends ParamsType>
    * 初始化的参数，可以操作 table
    */
   actionRef?:
-    | React.MutableRefObject<ProCoreActionType | undefined>
-    | ((actionRef: ProCoreActionType) => void);
+  | React.MutableRefObject<ProCoreActionType | undefined>
+  | ((actionRef: ProCoreActionType) => void);
 
   /**
    * 操作自带的 form
@@ -246,19 +246,19 @@ export interface ProTableProps<T, U extends ParamsType>
    * 设置或者返回false 即可关闭
    */
   tableAlertRender?:
-    | ((props: {
-        intl: IntlType;
-        selectedRowKeys: (string | number)[];
-        selectedRows: T[];
-      }) => React.ReactNode)
-    | false;
+  | ((props: {
+    intl: IntlType;
+    selectedRowKeys: (string | number)[];
+    selectedRows: T[];
+  }) => React.ReactNode)
+  | false;
   /**
    * 自定义 table 的 alert 的操作
    * 设置或者返回false 即可关闭
    */
   tableAlertOptionRender?:
-    | ((props: { intl: IntlType; onCleanSelected: () => void }) => React.ReactNode)
-    | false;
+  | ((props: { intl: IntlType; onCleanSelected: () => void }) => React.ReactNode)
+  | false;
 
   rowSelection?: TableProps<T>['rowSelection'] | false;
 
@@ -417,19 +417,19 @@ const genColumnList = <T, U = {}>(
         filters:
           filters === true
             ? proFieldParsingValueEnumToArray(valueEnum).filter(
-                (valueItem) => valueItem && valueItem.value !== 'all',
-              )
+              (valueItem) => valueItem && valueItem.value !== 'all',
+            )
             : filters,
         ellipsis: false,
         fixed: config.fixed,
         width: item.width || (item.fixed ? 200 : undefined),
         children: (item as ProColumnGroupType<T>).children
           ? genColumnList(
-              (item as ProColumnGroupType<T>).children as ProColumns<T>[],
-              map,
-              counter,
-              columnEmptyText,
-            )
+            (item as ProColumnGroupType<T>).children as ProColumns<T>[],
+            map,
+            counter,
+            columnEmptyText,
+          )
           : undefined,
         render: (text: any, row: T, index: number) =>
           columnRender<T>({ item, text, row, index, columnEmptyText, counter }),
@@ -437,10 +437,10 @@ const genColumnList = <T, U = {}>(
       return pickUndefined(tempColumns);
     })
     .filter((item) => !item.hideInTable) as unknown) as Array<
-    ColumnsType<T>[number] & {
-      index?: number;
-    }
-  >;
+      ColumnsType<T>[number] & {
+        index?: number;
+      }
+    >;
 
 /**
  * 🏆 Use Ant Design Table like a Pro!
@@ -478,7 +478,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     defaultClassName,
     formRef,
     type = 'table',
-    onReset = () => {},
+    onReset = () => { },
     columnEmptyText = '-',
     manualRequest = false,
     ...rest
@@ -719,8 +719,8 @@ const ProTable = <T extends {}, U extends ParamsType>(
             const { name = 'keyword' } =
               options.search === true
                 ? {
-                    name: 'keyword',
-                  }
+                  name: 'keyword',
+                }
                 : options.search;
             setFormSearch({
               ...formSearch,

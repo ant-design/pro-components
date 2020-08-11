@@ -20,7 +20,7 @@ import { FieldStatus, ProFieldValueType } from '@ant-design/pro-field';
 
 import ProTable, { ProColumns, ProColumnType, ProTableProps } from './Table';
 import { RequestData } from './useFetchData';
-import TableDropdown from './component/dropdown';
+import TableDropdown from './component/Dropdown';
 import Search from './form';
 import defaultRenderText from './defaultRender';
 import { ColumnsState } from './container';

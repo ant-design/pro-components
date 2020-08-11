@@ -8,16 +8,16 @@ export interface TableAlertProps<T> {
   selectedRowKeys: (number | string)[];
   selectedRows: T[];
   alertInfoRender?:
-    | ((props: {
-        intl: IntlType;
-        selectedRowKeys: (number | string)[];
-        selectedRows: T[];
-      }) => React.ReactNode)
-    | false;
+  | ((props: {
+    intl: IntlType;
+    selectedRowKeys: (number | string)[];
+    selectedRows: T[];
+  }) => React.ReactNode)
+  | false;
   onCleanSelected: () => void;
   alertOptionRender?:
-    | false
-    | ((props: { intl: IntlType; onCleanSelected: () => void }) => React.ReactNode);
+  | false
+  | ((props: { intl: IntlType; onCleanSelected: () => void }) => React.ReactNode);
 }
 
 const defaultAlertOptionRender = (props: { intl: IntlType; onCleanSelected: () => void }) => {

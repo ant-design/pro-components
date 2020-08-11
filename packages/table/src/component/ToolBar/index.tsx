@@ -5,7 +5,7 @@ import { ConfigContext } from 'antd/lib/config-provider/context';
 import { SearchProps } from 'antd/lib/input';
 import { useIntl, IntlType } from '@ant-design/pro-provider';
 import { LabelIconTip } from '@ant-design/pro-utils';
-import ColumnSetting from '../columnSetting';
+import ColumnSetting from '../ColumnSetting';
 import { UseFetchDataAction, RequestData } from '../../useFetchData';
 import './index.less';
 import FullScreenIcon from './FullscreenIcon';
