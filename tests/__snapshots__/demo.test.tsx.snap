@@ -333,7 +333,7 @@ Array [
     >
       <div
         class="ant-pro-card"
-        style="flex-basis: 200px; flex-shrink: 0; margin-right: 8px;"
+        style="width: 200px; flex-shrink: 0; margin-right: 8px;"
       >
         <div
           class="ant-pro-card-body ant-pro-card-body-center"
@@ -381,7 +381,7 @@ Array [
       </div>
       <div
         class="ant-pro-card"
-        style="flex-basis: 30%; flex-shrink: 0;"
+        style="width: 30%; flex-shrink: 0;"
       >
         <div
           class="ant-pro-card-body"
@@ -404,7 +404,7 @@ Array [
     >
       <div
         class="ant-pro-card"
-        style="flex-basis: 300px; flex-shrink: 0; margin-right: 16px; margin-bottom: 16px;"
+        style="width: 300px; flex-shrink: 0; margin-right: 16px; margin-bottom: 16px;"
       >
         <div
           class="ant-pro-card-header ant-pro-card-header-border"
@@ -1175,7 +1175,7 @@ exports[`demos renders ./packages/card/demos/split2.tsx correctly 1`] = `
   >
     <div
       class="ant-pro-card ant-pro-card-split-vertical"
-      style="flex-basis: 30%; flex-shrink: 0; border-radius: 0;"
+      style="width: 30%; flex-shrink: 0; border-radius: 0;"
     >
       <div
         class="ant-pro-card-header"
@@ -1234,7 +1234,7 @@ exports[`demos renders ./packages/card/demos/split23.tsx correctly 1`] = `
   >
     <div
       class="ant-pro-card ant-pro-card-split-vertical"
-      style="flex-basis: 30%; flex-shrink: 0; border-radius: 0;"
+      style="width: 30%; flex-shrink: 0; border-radius: 0;"
     >
       <div
         class="ant-pro-card-header"
@@ -1293,7 +1293,7 @@ exports[`demos renders ./packages/card/demos/steps-v.tsx correctly 1`] = `
   >
     <div
       class="ant-pro-card ant-pro-card-split-vertical"
-      style="flex-basis: 25%; flex-shrink: 0; border-radius: 0;"
+      style="width: 25%; flex-shrink: 0; border-radius: 0;"
     >
       <div
         class="ant-pro-card-body"
