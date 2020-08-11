@@ -127,13 +127,7 @@ const ToolBar = <T, U = {}>({
   tip,
   toolBarRender,
   action,
-  options: propsOptions = {
-    density: true,
-    fullScreen: () => action.fullScreen && action.fullScreen(),
-    reload: () => action.reload(),
-    setting: true,
-    search: false,
-  },
+  options: propsOptions,
   selectedRowKeys,
   selectedRows,
   onSearch,
@@ -149,7 +143,7 @@ const ToolBar = <T, U = {}>({
     fullScreen: () => action.fullScreen && action.fullScreen(),
     ...(propsOptions || {}),
   };
-  const options = propsOptions ? defaultOptions : false;
+  const options = propsOptions !== false ? defaultOptions : false;
   const intl = useIntl();
   const optionDom =
     renderDefaultOption<T>(options, `${className}-item-icon`, {
