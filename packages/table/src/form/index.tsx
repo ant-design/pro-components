@@ -12,7 +12,7 @@ import classNames from 'classnames';
 import ProField, { ProFieldValueType } from '@ant-design/pro-field';
 import { useDeepCompareEffect, ProSchemaComponentTypes } from '@ant-design/pro-utils';
 
-import { genColumnKey } from '../component/util';
+import { genColumnKey } from '../utils';
 import Container from '../container';
 import { ProColumnsValueTypeFunction } from '../defaultRender';
 import { ProColumns, ProColumnsValueType } from '../index';

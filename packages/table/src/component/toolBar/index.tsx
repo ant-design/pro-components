@@ -4,7 +4,7 @@ import { Divider, Space, Tooltip, Input } from 'antd';
 import { ConfigContext } from 'antd/lib/config-provider/context';
 import { SearchProps } from 'antd/lib/input';
 import { useIntl, IntlType } from '@ant-design/pro-provider';
-
+import { LabelIconTip } from '@ant-design/pro-utils';
 import ColumnSetting from '../columnSetting';
 import { UseFetchDataAction, RequestData } from '../../useFetchData';
 import './index.less';
@@ -25,6 +25,7 @@ export type OptionsType<T = unknown> =
 
 export interface ToolBarProps<T = unknown> {
   headerTitle?: React.ReactNode;
+  tip?: string;
   toolBarRender?: (
     action: UseFetchDataAction<RequestData<T>>,
     rows: {
@@ -45,21 +46,21 @@ const getButtonText = <T, U = {}>({
 }: OptionConfig<T> & {
   intl: IntlType;
 }) => ({
-  fullScreen: {
-    text: intl.getMessage('tableToolBar.fullScreen', '全屏'),
-    icon: <FullScreenIcon />,
-  },
   reload: {
     text: intl.getMessage('tableToolBar.reload', '刷新'),
     icon: <ReloadOutlined />,
+  },
+  density: {
+    text: intl.getMessage('tableToolBar.density', '表格密度'),
+    icon: <DensityIcon />,
   },
   setting: {
     text: intl.getMessage('tableToolBar.columnSetting', '列设置'),
     icon: <SettingOutlined />,
   },
-  density: {
-    text: intl.getMessage('tableToolBar.density', '表格密度'),
-    icon: <DensityIcon />,
+  fullScreen: {
+    text: intl.getMessage('tableToolBar.fullScreen', '全屏'),
+    icon: <FullScreenIcon />,
   },
 });
 
@@ -123,6 +124,7 @@ const renderDefaultOption = <T, U = {}>(
 
 const ToolBar = <T, U = {}>({
   headerTitle,
+  tip,
   toolBarRender,
   action,
   options: propsOptions = {
@@ -139,24 +141,19 @@ const ToolBar = <T, U = {}>({
   const { getPrefixCls } = useContext(ConfigContext);
   const className = getPrefixCls('pro-table-toolbar');
 
-  const options = propsOptions
-    ? {
-        density: true,
-        fullScreen: () => action.fullScreen && action.fullScreen(),
-        reload: () => action.reload(),
-        setting: true,
-        search: false,
-        ...propsOptions,
-      }
-    : false;
+  const defaultOptions = {
+    reload: () => action.reload(),
+    density: true,
+    setting: true,
+    search: false,
+    fullScreen: () => action.fullScreen && action.fullScreen(),
+    ...(propsOptions || {}),
+  };
+  const options = propsOptions ? defaultOptions : false;
   const intl = useIntl();
   const optionDom =
     renderDefaultOption<T>(options, `${className}-item-icon`, {
-      fullScreen: () => action.fullScreen && action.fullScreen(),
-      reload: () => action.reload(),
-      density: true,
-      setting: true,
-      search: false,
+      ...defaultOptions,
       intl,
     }) || [];
   // 操作列表
@@ -172,7 +169,9 @@ const ToolBar = <T, U = {}>({
   };
   return (
     <div className={className}>
-      <div className={`${className}-title`}>{headerTitle}</div>
+      <div className={`${className}-title`}>
+        <LabelIconTip label={headerTitle} tip={tip} />
+      </div>
       <div className={`${className}-option`}>
         <Space>
           {options && options.search && (

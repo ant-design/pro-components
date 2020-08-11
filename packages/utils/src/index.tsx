@@ -4,6 +4,8 @@ import isBrowser from './isBrowser';
 import isImg from './isImg';
 import isUrl from './isUrl';
 import pickProProps from './pickProProps';
+import pickUndefined from './pickUndefined';
+
 /**
  * hooks
  */
@@ -20,14 +22,22 @@ import {
   ProSchemaValueEnumMap,
   ProSchemaValueEnumObj,
   ProSchemaComponentTypes,
+  ProCoreActionType,
 } from './typing';
 
-export type { ProSchema, ProSchemaComponentTypes, ProSchemaValueEnumMap, ProSchemaValueEnumObj };
+export type {
+  ProSchema,
+  ProCoreActionType,
+  ProSchemaComponentTypes,
+  ProSchemaValueEnumMap,
+  ProSchemaValueEnumObj,
+};
 
 export {
   LabelIconTip,
   useDocumentTitle,
   isImg,
+  pickUndefined,
   isUrl,
   isBrowser,
   usePrevious,

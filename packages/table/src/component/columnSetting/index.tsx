@@ -5,11 +5,11 @@ import { PushpinOutlined, SettingOutlined, VerticalAlignMiddleOutlined } from '@
 import { Checkbox, Popover, Tooltip } from 'antd';
 import { DndProvider } from 'react-dnd';
 import Backend from 'react-dnd-html5-backend';
-import Container from '../../container';
-import { ProColumns, ColumnsState } from '../../Table';
+import Container, { ColumnsState } from '../../container';
+import { ProColumns } from '../../Table';
 import DnDItem from './DndItem';
 import './index.less';
-import { genColumnKey } from '../util';
+import { genColumnKey } from '../../utils';
 
 interface ColumnSettingProps<T = any> {
   columns?: ProColumns<T>[];
@@ -67,10 +67,15 @@ const CheckboxListItem: React.FC<{
             } else {
               newSetting.show = false;
             }
+
             const columnKeyMap = {
               ...columnsMap,
               [columnKey]: newSetting as ColumnsState,
             };
+            // 如果没有值了，直接干掉他
+            if (Object.keys(newSetting).length === 0) {
+              delete columnKeyMap[columnKey];
+            }
             setColumnsMap(columnKeyMap);
           }
         }}
@@ -124,17 +129,23 @@ const CheckboxList: React.FC<{
     return null;
   }
   const move = (id: string, targetIndex: number) => {
+    const newMap = { ...columnsMap };
     const newColumns = [...sortKeyColumns];
-
     const findIndex = newColumns.findIndex((columnKey) => columnKey === id);
-
-    const key = newColumns[findIndex];
+    if (findIndex === undefined) {
+      return;
+    }
+    const index = newColumns[findIndex];
     newColumns.splice(findIndex, 1);
     if (targetIndex === 0) {
-      newColumns.unshift(key);
+      newColumns.unshift(index);
     } else {
-      newColumns.splice(targetIndex, 0, key);
+      newColumns.splice(targetIndex, 0, index);
     }
+    newColumns.forEach((key, order) => {
+      newMap[key] = { ...(newMap[key] || {}), order };
+    });
+    setColumnsMap(newMap);
     setSortKeyColumns(newColumns);
   };
 
@@ -143,7 +154,7 @@ const CheckboxList: React.FC<{
     return (
       <DnDItem
         index={index}
-        id={`${columnKey}_${rest.index}`}
+        id={`${columnKey}`}
         key={columnKey}
         end={(id, targetIndex) => {
           move(id, targetIndex);
@@ -220,6 +231,7 @@ const ColumnSetting = <T, U = {}>(props: ColumnSettingProps<T>) => {
   const counter = Container.useContainer();
   const localColumns: Omit<ProColumns<any> & { index?: number }, 'ellipsis'>[] =
     props.columns || counter.columns || [];
+
   const { columnsMap, setColumnsMap, setSortKeyColumns } = counter;
   /**
    * 设置全部选中，或全部未选中

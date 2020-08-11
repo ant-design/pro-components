@@ -6,7 +6,12 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { RequestData, ProColumns } from './index';
 import { UseFetchDataAction } from './useFetchData';
 import { DensitySize } from './component/toolBar/DensityIcon';
-import { ColumnsState } from './Table';
+
+export type ColumnsState = {
+  show?: boolean;
+  fixed?: 'right' | 'left' | undefined;
+  order?: number;
+};
 
 export interface UseCounterProps {
   columnsStateMap?: {
@@ -21,7 +26,7 @@ function useCounter(props: UseCounterProps = {}) {
   const actionRef = useRef<UseFetchDataAction<RequestData<any>>>();
   const [columns, setColumns] = useState<ColumnType<any>[]>([]);
   // 用于排序的数组
-  const [sortKeyColumns, setSortKeyColumns] = useState<(string | number)[]>([]);
+  const sortKeyColumns = useRef<string[]>([]);
   const [proColumns, setProColumns] = useState<ProColumns<any>[]>([]);
 
   const [tableSize, setTableSize] = useMergedState<DensitySize>(props.size || 'middle', {
@@ -40,8 +45,10 @@ function useCounter(props: UseCounterProps = {}) {
     setAction: (newAction: UseFetchDataAction<RequestData<any>>) => {
       actionRef.current = newAction;
     },
-    sortKeyColumns,
-    setSortKeyColumns,
+    sortKeyColumns: sortKeyColumns.current,
+    setSortKeyColumns: (keys: string[]) => {
+      sortKeyColumns.current = keys;
+    },
     columns,
     setColumns,
     columnsMap,
@@ -54,6 +61,8 @@ function useCounter(props: UseCounterProps = {}) {
 }
 
 const Counter = createContainer<ReturnType<typeof useCounter>, UseCounterProps>(useCounter);
+
+export type CounterType = typeof useCounter;
 
 export { useCounter };
 

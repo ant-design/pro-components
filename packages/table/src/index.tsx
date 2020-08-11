@@ -15,22 +15,19 @@ import {
   frFRIntl,
   ptBRIntl,
 } from '@ant-design/pro-provider';
+import { ProCoreActionType } from '@ant-design/pro-utils';
 import { FieldStatus, ProFieldValueType } from '@ant-design/pro-field';
 
-import ProTable, {
-  ProColumns,
-  ProColumnType,
-  ActionType,
-  ProTableProps,
-  ColumnsState,
-} from './Table';
-import IndexColumn from './component/indexColumn';
+import ProTable, { ProColumns, ProColumnType, ProTableProps } from './Table';
 import { RequestData } from './useFetchData';
 import TableDropdown from './component/dropdown';
 import Search from './form';
 import defaultRenderText from './defaultRender';
+import { ColumnsState } from './container';
 
 type ProColumnsValueType = ProFieldValueType;
+
+export type ActionType = ProCoreActionType;
 
 export type {
   ProTableProps,
@@ -38,13 +35,11 @@ export type {
   ColumnsState,
   ProColumnsValueType,
   ProColumns,
-  ActionType,
   ProColumnType,
   RequestData,
 };
 
 export {
-  IndexColumn,
   TableDropdown,
   FieldStatus as TableStatus,
   Search,
