@@ -6407,16 +6407,6 @@ exports[`demos renders ./packages/form/demos/search-filter.tsx correctly 1`] = `
                   class="ant-row ant-form-item"
                 >
                   <div
-                    class="ant-col ant-form-item-label"
-                    style="flex: 0 0 98px;"
-                  >
-                    <label
-                      class=""
-                      for="name"
-                      title=""
-                    />
-                  </div>
-                  <div
                     class="ant-col ant-form-item-control"
                   >
                     <div
@@ -6468,7 +6458,6 @@ exports[`demos renders ./packages/form/demos/search-filter.tsx correctly 1`] = `
                 >
                   <div
                     class="ant-col ant-form-item-label"
-                    style="flex: 0 0 98px;"
                   >
                     <label
                       class=""
@@ -6507,7 +6496,6 @@ exports[`demos renders ./packages/form/demos/search-filter.tsx correctly 1`] = `
                 >
                   <div
                     class="ant-col ant-form-item-label"
-                    style="flex: 0 0 98px;"
                   >
                     <label
                       class=""
