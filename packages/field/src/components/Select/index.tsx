@@ -221,10 +221,7 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
           return { ...pre, [cur.value]: cur.label };
         }, {})
       : undefined;
-
-    const dom = (
-      <>{proFieldParsingText(rest.text, ObjToMap(optionsValueEnum || valueEnum), plain)}</>
-    );
+    const dom = <>{proFieldParsingText(rest.text, ObjToMap(optionsValueEnum || valueEnum))}</>;
 
     if (render) {
       return render(rest.text, { mode, ...formItemProps }, dom) || null;

@@ -27,7 +27,6 @@ import { ConfigContext as AntdConfigContext } from 'antd/lib/config-provider';
 import {
   ProFieldEmptyText,
   ProFieldValueType,
-  proFieldParsingText,
   proFieldParsingValueEnumToArray,
 } from '@ant-design/pro-field';
 import {
@@ -314,22 +313,18 @@ const columnRender = <T, U = any>({
   counter,
 }: ColumnRenderInterface<T>): any => {
   const { action } = counter;
-  const { renderText = (val: any) => val, valueEnum = {} } = item;
+  const { renderText = (val: any) => val } = item;
   if (!action.current) {
     return null;
   }
-  const renderTextStr = renderText(
-    proFieldParsingText(text, valueEnum),
-    row,
-    index,
-    action.current,
-  );
+  const renderTextStr = renderText(text, row, index, action.current);
   const textDom = defaultRenderText<T, {}>(
     renderTextStr,
     (item.valueType as ProFieldValueType) || 'text',
     index,
     row,
     columnEmptyText,
+    item,
   );
 
   const dom: React.ReactNode = genEllipsis(

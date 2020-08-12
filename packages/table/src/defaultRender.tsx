@@ -4,6 +4,7 @@ import ProField, {
   ProFieldValueType,
   ProFieldValueObjectType,
 } from '@ant-design/pro-field';
+import { ProColumnType } from './index';
 
 /**
  * value type by function
@@ -23,9 +24,10 @@ const defaultRenderText = <T, U = any>(
   index: number,
   item?: T,
   columnEmptyText?: ProFieldEmptyText,
+  props?: ProColumnType<T>,
 ): React.ReactNode => {
   // 如果 valueType === text ，没必要多走一次 render
-  if (!valueType || valueType === 'text') {
+  if ((!valueType || valueType === 'text') && !props?.valueEnum) {
     return text;
   }
 
@@ -34,14 +36,16 @@ const defaultRenderText = <T, U = any>(
     if (!value) {
       return columnEmptyText;
     }
-    return defaultRenderText(text, value as ProFieldValueType, index);
+    return defaultRenderText(text, value as ProFieldValueType, index, props);
   }
-
   return (
     <ProField
+      {...props}
       text={text || index}
       mode="read"
       columnEmptyText={columnEmptyText}
+      render={undefined}
+      renderFormItem={undefined}
       valueType={valueType as ProFieldValueType}
     />
   );
