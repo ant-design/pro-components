@@ -11,12 +11,14 @@ const data: {
   money: number;
   sex: string;
   date: number;
+  status: number;
 }[] = [];
 for (let i = 0; i < 46; i += 1) {
   data.push({
     key: i,
     name: `Edward King ${i}`,
     age: 10 + i,
+    status: Math.floor(Math.random() * 10) % 4,
     sex: i / 2 > 1 ? 'man' : 'woman',
     money: parseFloat((10000.26 * (i + 1)).toFixed(2)),
     date: moment('2019-11-16 12:50:26').valueOf() + i * 1000 * 60 * 2,
@@ -58,6 +60,17 @@ export const columns: ProColumns[] = [
     valueEnum: {
       man: '男',
       woman: '女',
+    },
+  },
+  {
+    title: '状态',
+    dataIndex: 'status',
+    hideInForm: true,
+    valueEnum: {
+      0: { text: '关闭', status: 'Default' },
+      1: { text: '运行中', status: 'Processing' },
+      2: { text: '已上线', status: 'Success' },
+      3: { text: '异常', status: 'Error' },
     },
   },
   {

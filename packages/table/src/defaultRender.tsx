@@ -41,7 +41,7 @@ const defaultRenderText = <T, U = any>(
   return (
     <ProField
       {...props}
-      text={text || index}
+      text={text}
       mode="read"
       columnEmptyText={columnEmptyText}
       render={undefined}

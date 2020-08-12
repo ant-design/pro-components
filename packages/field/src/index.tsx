@@ -280,14 +280,15 @@ const defaultRenderText = (
     return <FieldDigit text={text as number} {...props} />;
   }
 
+  if (props.valueEnum || props.request) {
+    return <FiledSelect text={text as string} {...props} />;
+  }
+
   const { mode = 'read', emptyText } = props;
   if (emptyText !== false && mode === 'read') {
     if (typeof text !== 'boolean' && typeof text !== 'number' && !text) {
       return emptyText || '-';
     }
-  }
-  if (props.valueEnum || props.request) {
-    return <FiledSelect text={text as string} {...props} />;
   }
 
   return <FieldText text={text as string} {...props} />;
@@ -301,7 +302,7 @@ const Field: React.ForwardRefRenderFunction<
     text?: ProFieldTextType;
     valueType?: ProFieldValueType | ProFieldValueObjectType;
   } & RenderProps
-> = ({ text, valueType = 'text', onChange, value, ...rest }, ref) => {
+> = ({ text = '', valueType = 'text', onChange, value, ...rest }, ref) => {
   const formItemProps = (value || onChange || rest?.formItemProps) && {
     ...rest?.formItemProps,
     value,
@@ -309,7 +310,7 @@ const Field: React.ForwardRefRenderFunction<
   };
   return (
     <React.Fragment>
-      {defaultRenderText(text || '', valueType, {
+      {defaultRenderText(text, valueType, {
         ...rest,
         mode: rest.mode || 'read',
         ref,

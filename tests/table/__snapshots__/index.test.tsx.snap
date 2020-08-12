@@ -1830,6 +1830,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                       <col />
                       <col />
                       <col />
+                      <col />
                       <col
                         style="width: 100px; min-width: 100px;"
                       />
@@ -1900,6 +1901,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                               </span>
                             </span>
                           </div>
+                        </th>
+                        <th
+                          class="ant-table-cell"
+                        >
+                          状态
                         </th>
                         <th
                           class="ant-table-cell"
@@ -2053,6 +2059,9 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           女
                         </td>
+                        <td
+                          class="ant-table-cell"
+                        />
                         <td
                           class="ant-table-cell"
                         >
@@ -2315,6 +2324,22 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           女
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-processing"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              运行中
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -2582,6 +2607,22 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-success"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              已上线
+                            </span>
+                          </span>
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
                           12
                         </td>
                         <td
@@ -2841,6 +2882,22 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           男
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-error"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              异常
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -3108,6 +3165,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
+                          4
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
                           14
                         </td>
                         <td
@@ -3367,6 +3429,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           男
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          5
                         </td>
                         <td
                           class="ant-table-cell"
@@ -3634,6 +3701,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
+                          6
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
                           16
                         </td>
                         <td
@@ -3893,6 +3965,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           男
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          7
                         </td>
                         <td
                           class="ant-table-cell"
@@ -4160,6 +4237,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
+                          8
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
                           18
                         </td>
                         <td
@@ -4419,6 +4501,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           男
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          9
                         </td>
                         <td
                           class="ant-table-cell"
@@ -4686,6 +4773,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
+                          10
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
                           20
                         </td>
                         <td
@@ -4945,6 +5037,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           男
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          11
                         </td>
                         <td
                           class="ant-table-cell"
@@ -5212,6 +5309,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
+                          12
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
                           22
                         </td>
                         <td
@@ -5471,6 +5573,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           男
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          13
                         </td>
                         <td
                           class="ant-table-cell"
@@ -5738,6 +5845,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
+                          14
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
                           24
                         </td>
                         <td
@@ -5997,6 +6109,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           男
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          15
                         </td>
                         <td
                           class="ant-table-cell"
@@ -6264,6 +6381,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
+                          16
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
                           26
                         </td>
                         <td
@@ -6523,6 +6645,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           男
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          17
                         </td>
                         <td
                           class="ant-table-cell"
@@ -6790,6 +6917,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
+                          18
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
                           28
                         </td>
                         <td
@@ -7049,6 +7181,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           男
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          19
                         </td>
                         <td
                           class="ant-table-cell"
@@ -7572,6 +7709,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                       <col />
                       <col />
                       <col />
+                      <col />
                       <col
                         style="width: 100px; min-width: 100px;"
                       />
@@ -7642,6 +7780,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               </span>
                             </span>
                           </div>
+                        </th>
+                        <th
+                          class="ant-table-cell"
+                        >
+                          状态
                         </th>
                         <th
                           class="ant-table-cell"
@@ -7795,6 +7938,9 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         >
                           女
                         </td>
+                        <td
+                          class="ant-table-cell"
+                        />
                         <td
                           class="ant-table-cell"
                         >
@@ -8057,6 +8203,22 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           class="ant-table-cell"
                         >
                           女
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-processing"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              运行中
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -8324,6 +8486,22 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-success"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              已上线
+                            </span>
+                          </span>
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
                           12
                         </td>
                         <td
@@ -8583,6 +8761,22 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           class="ant-table-cell"
                         >
                           男
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-error"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              异常
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -8850,6 +9044,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
+                          4
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
                           14
                         </td>
                         <td
@@ -9109,6 +9308,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           class="ant-table-cell"
                         >
                           男
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          5
                         </td>
                         <td
                           class="ant-table-cell"
@@ -9376,6 +9580,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
+                          6
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
                           16
                         </td>
                         <td
@@ -9635,6 +9844,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           class="ant-table-cell"
                         >
                           男
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          7
                         </td>
                         <td
                           class="ant-table-cell"
@@ -9902,6 +10116,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
+                          8
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
                           18
                         </td>
                         <td
@@ -10161,6 +10380,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           class="ant-table-cell"
                         >
                           男
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          9
                         </td>
                         <td
                           class="ant-table-cell"
@@ -10428,6 +10652,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
+                          10
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
                           20
                         </td>
                         <td
@@ -10687,6 +10916,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           class="ant-table-cell"
                         >
                           男
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          11
                         </td>
                         <td
                           class="ant-table-cell"
@@ -10954,6 +11188,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
+                          12
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
                           22
                         </td>
                         <td
@@ -11213,6 +11452,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           class="ant-table-cell"
                         >
                           男
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          13
                         </td>
                         <td
                           class="ant-table-cell"
@@ -11480,6 +11724,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
+                          14
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
                           24
                         </td>
                         <td
@@ -11739,6 +11988,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           class="ant-table-cell"
                         >
                           男
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          15
                         </td>
                         <td
                           class="ant-table-cell"
@@ -12006,6 +12260,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
+                          16
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
                           26
                         </td>
                         <td
@@ -12265,6 +12524,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           class="ant-table-cell"
                         >
                           男
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          17
                         </td>
                         <td
                           class="ant-table-cell"
@@ -12532,6 +12796,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
+                          18
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
                           28
                         </td>
                         <td
@@ -12791,6 +13060,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           class="ant-table-cell"
                         >
                           男
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          19
                         </td>
                         <td
                           class="ant-table-cell"
