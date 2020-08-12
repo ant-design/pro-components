@@ -102,7 +102,7 @@ export const mergePagination = <T, U>(
   intl: IntlType,
 ): TablePaginationConfig | false | undefined => {
   if (pagination === false) {
-    return undefined;
+    return false;
   }
   let defaultPagination: TablePaginationConfig | {} = pagination || {};
   const { current, pageSize } = action;

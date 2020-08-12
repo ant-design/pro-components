@@ -3,7 +3,8 @@ import React from 'react';
 import { Input } from 'antd';
 import ProTable, { TableDropdown } from '@ant-design/pro-table';
 import { columns, request } from './demo';
-import { waitTime, waitForComponentToPaint } from '../util';
+import { waitForComponentToPaint } from '../util';
+import { act } from 'react-dom/test-utils';
 
 describe('BasicTable', () => {
   const LINE_STR_COUNT = 20;
@@ -63,8 +64,7 @@ describe('BasicTable', () => {
         ]}
       />,
     );
-    await waitTime(200);
-    await waitForComponentToPaint(html);
+    await waitForComponentToPaint(html, 200);
     expect(html.render()).toMatchSnapshot();
   });
 
@@ -83,8 +83,7 @@ describe('BasicTable', () => {
       />,
     );
 
-    await waitTime(200);
-    await waitForComponentToPaint(html);
+    await waitForComponentToPaint(html, 200);
     expect(html.render()).toMatchSnapshot();
   });
 
@@ -107,8 +106,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitTime(200);
-    await waitForComponentToPaint(html);
+    await waitForComponentToPaint(html, 200);
     expect(html.render()).toMatchSnapshot();
   });
 
@@ -131,8 +129,40 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitTime(200);
-    await waitForComponentToPaint(html);
+    await waitForComponentToPaint(html, 200);
     expect(html.render()).toMatchSnapshot();
+  });
+
+  it('🎏  do not render pagination', async () => {
+    const html = mount(
+      <ProTable
+        size="small"
+        options={{
+          fullScreen: true,
+          reload: true,
+          setting: false,
+        }}
+        columns={[
+          {
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+        ]}
+        pagination={false}
+        request={request}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 200);
+    expect(html.find('ul.ant-pagination').exists()).toBeFalsy();
+
+    act(() => {
+      html.setProps({
+        pagination: undefined,
+      });
+    });
+
+    await waitForComponentToPaint(html, 20);
+    expect(html.find('ul.ant-pagination').exists()).toBeTruthy();
   });
 });
