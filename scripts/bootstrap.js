@@ -19,6 +19,7 @@ const { yParser } = require('@umijs/utils');
         name,
         version,
         description: name,
+        module: 'es/index.js',
         main: 'lib/index.js',
         types: 'lib/index.d.ts',
         files: ['lib', 'src', 'dist', 'es'],

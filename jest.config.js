@@ -11,6 +11,7 @@ pkgList.forEach((shortName) => {
 });
 
 module.exports = {
+  collectCoverageFrom: ['packages/**/src/**/*.{ts,tsx}'],
   moduleNameMapper,
   testURL: 'http://localhost',
   verbose: true,
