@@ -9,6 +9,7 @@ const data: {
   age: string | number;
   address: string;
   money: number;
+  sex: string;
   date: number;
 }[] = [];
 for (let i = 0; i < 46; i += 1) {
@@ -16,6 +17,7 @@ for (let i = 0; i < 46; i += 1) {
     key: i,
     name: `Edward King ${i}`,
     age: 10 + i,
+    sex: i / 2 > 1 ? 'man' : 'woman',
     money: parseFloat((10000.26 * (i + 1)).toFixed(2)),
     date: moment('2019-11-16 12:50:26').valueOf() + i * 1000 * 60 * 2,
     address: `London, Park Lane no. ${i}`,
@@ -51,7 +53,6 @@ export const columns: ProColumns[] = [
   {
     title: 'sex',
     dataIndex: 'sex',
-    copyable: true,
     key: 'sex',
     filters: true,
     valueEnum: {

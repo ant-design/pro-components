@@ -64,7 +64,7 @@ export const genEllipsis = (dom: React.ReactNode, item: ProColumns<any>, text: s
   );
 };
 
-export const genCopyable = (dom: React.ReactNode, item: ProColumns<any>) => {
+export const genCopyable = (dom: React.ReactNode, item: ProColumns<any>, text: string) => {
   if (item.copyable || item.ellipsis) {
     return (
       <Typography.Paragraph
@@ -73,7 +73,14 @@ export const genCopyable = (dom: React.ReactNode, item: ProColumns<any>) => {
           margin: 0,
           padding: 0,
         }}
-        copyable={item.copyable}
+        copyable={
+          item.copyable
+            ? {
+                text,
+              }
+            : undefined
+        }
+        title={text}
         ellipsis={item.ellipsis}
       >
         {dom}
