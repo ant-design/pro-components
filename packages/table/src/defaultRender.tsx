@@ -31,6 +31,11 @@ const defaultRenderText = <T, U = any>(
     }
     return defaultRenderText(text, value as ProFieldValueType, index);
   }
+
+  // 如果 valueType === text ，没必要夺走一次 render
+  if (!valueType || valueType === 'text') {
+    return text;
+  }
   return (
     <ProField
       text={text || index}
