@@ -210,8 +210,17 @@ const ProDescriptions = <T extends {}>(props: ProDescriptionsProps<T>) => {
   );
   return (
     <Descriptions
-      extra={<Space>{options}</Space>}
       {...rest}
+      extra={
+        rest.extra ? (
+          <Space>
+            {options}
+            {rest.extra}
+          </Space>
+        ) : (
+          options
+        )
+      }
       title={<LabelIconTip label={rest.title} tip={rest.tip} />}
     >
       {children}
