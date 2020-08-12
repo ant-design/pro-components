@@ -11,10 +11,10 @@
   "license": "MIT",
   "author": "chenshuai2144",
   "main": "lib/index.js",
+  "module": "es/index.js",
   "types": "lib/index.d.ts",
   "files": [
     "lib",
-    "src",
     "es",
     "dist"
   ],
