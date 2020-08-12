@@ -167,6 +167,7 @@ const useFetchData = <T extends RequestData<any>>(
     if (manual) {
       return () => null;
     }
+    mountRef.current = true;
     fetchListDebounce.run();
     return () => {
       fetchListDebounce.cancel();

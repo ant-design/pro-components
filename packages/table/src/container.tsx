@@ -3,7 +3,7 @@ import { useState, useRef } from 'react';
 import { ColumnType } from 'antd/lib/table';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
-import { RequestData, ProColumns } from './index';
+import { RequestData, ProColumns, ProTableProps } from './index';
 import { UseFetchDataAction } from './useFetchData';
 import { DensitySize } from './component/ToolBar/DensityIcon';
 
@@ -25,6 +25,7 @@ export interface UseCounterProps {
 function useCounter(props: UseCounterProps = {}) {
   const actionRef = useRef<UseFetchDataAction<RequestData<any>>>();
   const [columns, setColumns] = useState<(ColumnType<any> & { index?: number })[]>([]);
+  const propsRef = useRef<ProTableProps<any, any>>();
   // 用于排序的数组
   const sortKeyColumns = useRef<string[]>([]);
   const [proColumns, setProColumns] = useState<ProColumns<any>[]>([]);
@@ -52,6 +53,7 @@ function useCounter(props: UseCounterProps = {}) {
     },
     columns,
     setColumns,
+    propsRef,
     columnsMap,
     setTableSize,
     tableSize,

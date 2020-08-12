@@ -46,7 +46,19 @@ describe('Table ColumnSetting', () => {
     });
     const overlay = html.find('.ant-pro-table-column-setting-overlay');
     expect(overlay.exists()).toBeTruthy();
+    act(() => {
+      const item = html.find('span.ant-pro-table-column-setting-list-item').first();
+      item
+        .find('.ant-pro-table-column-setting-list-item-option .anticon-vertical-align-top')
+        .simulate('click');
+    });
+
+    const titleList = html.find(
+      '.ant-pro-table-column-setting-overlay .ant-pro-table-column-setting-list-title',
+    );
+    expect(titleList.length).toBe(2);
   });
+
   it('🎏 columnSetting columnsStateMap props', async () => {
     const html = mount(
       <ProTable
