@@ -57,6 +57,21 @@ export default () => {
           dataIndex: 'money',
           valueType: 'money',
         },
+        {
+          title: '操作',
+          valueType: 'option',
+          render: () => [
+            <a target="_blank" rel="noopener noreferrer" key="link">
+              链路
+            </a>,
+            <a target="_blank" rel="noopener noreferrer" key="warning">
+              报警
+            </a>,
+            <a target="_blank" rel="noopener noreferrer" key="view">
+              查看
+            </a>,
+          ],
+        },
       ]}
     >
       <ProDescriptions.Item label="百分比" valueType="percent">

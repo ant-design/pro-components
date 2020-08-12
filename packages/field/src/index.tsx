@@ -13,6 +13,7 @@ import FieldTimePicker from './components/TimePicker';
 import FieldText from './components/Text';
 import FieldTextArea from './components/TextArea';
 import FieldStatus from './components/Status';
+import FieldOptions from './components/Options';
 import FiledSelect, {
   ProFieldValueEnumType,
   ProFieldRequestData,
@@ -282,6 +283,10 @@ const defaultRenderText = (
 
   if (props.valueEnum || props.request) {
     return <FiledSelect text={text as string} {...props} />;
+  }
+
+  if (valueType === 'option') {
+    return <FieldOptions text={text} {...props} />;
   }
 
   const { mode = 'read', emptyText } = props;

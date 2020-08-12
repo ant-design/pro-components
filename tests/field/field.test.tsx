@@ -33,7 +33,6 @@ describe('Field', () => {
   const valueTypes = [
     'money',
     'textarea',
-    'option',
     'date',
     'dateRange',
     'dateTimeRange',
@@ -63,6 +62,7 @@ describe('Field', () => {
 
   valueTypes.forEach((valueType) => {
     it(`🥩 valueType render ${valueType}`, async () => {
+      if (valueType === 'option') return;
       const html = render(
         <Field
           text={moment('2019-11-16 12:50:26').valueOf()}

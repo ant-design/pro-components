@@ -117,7 +117,7 @@ export const proFieldParsingValueEnumToArray = (
       return;
     }
     enumArray.push({
-      text: ((value || '') as unknown) as string,
+      text: (value as unknown) as string,
       value: key,
     });
   });
