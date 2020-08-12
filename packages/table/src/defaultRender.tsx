@@ -24,6 +24,11 @@ const defaultRenderText = <T, U = any>(
   item?: T,
   columnEmptyText?: ProFieldEmptyText,
 ): React.ReactNode => {
+  // 如果 valueType === text ，没必要多走一次 render
+  if (!valueType || valueType === 'text') {
+    return text;
+  }
+
   if (typeof valueType === 'function' && item) {
     const value = valueType(item);
     if (!value) {
@@ -31,6 +36,7 @@ const defaultRenderText = <T, U = any>(
     }
     return defaultRenderText(text, value as ProFieldValueType, index);
   }
+
   return (
     <ProField
       text={text || index}

@@ -333,9 +333,9 @@ const columnRender = <T, U = any>({
   );
 
   const dom: React.ReactNode = genEllipsis(
-    genCopyable(textDom, item),
+    genCopyable(textDom, item, renderTextStr),
     item,
-    renderText(proFieldParsingText(text, valueEnum, true), row, index, action.current),
+    renderTextStr,
   );
 
   if (item.render) {
