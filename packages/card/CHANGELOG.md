@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.0.0-beta.3...@ant-design/pro-card@1.0.0-beta.4) (2020-08-12)
+
+### Bug Fixes
+
+- **procard:** colspan not shrink ([#126](https://github.com/ant-design/pro-components/issues/126)) ([f109dce](https://github.com/ant-design/pro-components/commit/f109dcec3cbdbe04891df49f16f5ccd10680f3c0))
+
 # [1.0.0-beta.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.0.0-beta.2...@ant-design/pro-card@1.0.0-beta.3) (2020-08-10)
 
 ### Bug Fixes
