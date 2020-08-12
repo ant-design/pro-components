@@ -76,6 +76,7 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = (props) => {
       <QueryFilter
         submitter={false}
         span={24}
+        labelWidth="auto"
         split
         onChange={onFilterChange}
         className={styles.filter}

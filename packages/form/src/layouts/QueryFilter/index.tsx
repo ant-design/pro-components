@@ -57,7 +57,7 @@ export interface QueryFilterProps extends FormProps, CommonFormProps {
   onCollapse?: (collapsed: boolean) => void;
   labelLayout?: 'default' | 'growth' | 'vertical';
   defaultColsNumber?: number;
-  labelWidth?: number;
+  labelWidth?: number | 'auto';
   split?: boolean;
   span?: number;
 }
@@ -88,7 +88,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
   const showLength =
     defaultColsNumber !== undefined ? defaultColsNumber : Math.max(1, 24 / spanSize.span - 1);
   let labelFlexStyle;
-  if (labelWidth && spanSize.layout !== 'vertical') {
+  if (labelWidth && spanSize.layout !== 'vertical' && labelWidth !== 'auto') {
     labelFlexStyle = `0 0 ${labelWidth}px`;
   }
 

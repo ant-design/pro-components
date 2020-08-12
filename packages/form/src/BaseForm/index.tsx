@@ -50,7 +50,7 @@ export function createField<P extends ProFormItemProps = any>(
         // title 是用于提升读屏的能力的，没有参与逻辑
         title={label}
         // 全局的提供一个 tip 功能，可以减少代码量
-        label={<LabelIconTip label={label} tip={tip} />}
+        label={label && <LabelIconTip label={label} tip={tip} />}
       />
     );
   };
