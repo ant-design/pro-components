@@ -83,6 +83,10 @@ type BaseProFieldFC = {
    * 轻量模式
    */
   light?: boolean;
+  /**
+   * label
+   */
+  label?: React.ReactNode;
 
   /**
    * 映射值的类型

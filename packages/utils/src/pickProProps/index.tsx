@@ -1,4 +1,4 @@
-const proFieldProps = `valueType request mode plain renderFormItem render text formItemProps valueEnum`;
+const proFieldProps = `valueType request mode plain light renderFormItem render text formItemProps valueEnum`;
 
 const proFormProps = `fieldProps secondary colSize groupProps contentRender submitterProps submitter`;
 
@@ -12,5 +12,11 @@ export default function pickProProps(props: object) {
     }
     attrs[key] = props[key];
   });
+  // LightFilter not need label in FormItem
+  // @ts-expect-error
+  if (props.light === true) {
+    // @ts-expect-error
+    attrs.label = undefined;
+  }
   return attrs;
 }

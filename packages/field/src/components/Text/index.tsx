@@ -11,7 +11,7 @@ import { ProFieldFC } from '../../index';
  */
 const FieldText: ProFieldFC<{
   text: string;
-}> = ({ text, mode, light, render, renderFormItem, formItemProps }, ref) => {
+}> = ({ label, text, mode, light, render, renderFormItem, formItemProps }, ref) => {
   const intl = useIntl();
 
   const inputRef = useRef();
@@ -34,7 +34,7 @@ const FieldText: ProFieldFC<{
     const placeholder = intl.getMessage('tableForm.inputPlaceholder', '请输入')
     let dom;
     if (light) {
-      dom = <DropdownInput placeholder={placeholder} ref={inputRef} {...formItemProps} />
+      dom = <DropdownInput label={label} placeholder={placeholder} ref={inputRef} {...formItemProps} />
     } else {
       dom = <Input placeholder={placeholder} ref={inputRef} {...formItemProps} />;
     }
