@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table ColumnSetting 🎏 change text by renderText 1`] = `
+Array [
+  <td
+    className="ant-table-cell"
+    colSpan={null}
+    rowSpan={null}
+    style={Object {}}
+  >
+    Edward King 02144
+  </td>,
+  <td
+    className="ant-table-cell"
+    colSpan={null}
+    rowSpan={null}
+    style={Object {}}
+  >
+    Edward King 12144
+  </td>,
+  <td
+    className="ant-table-cell"
+    colSpan={null}
+    rowSpan={null}
+    style={Object {}}
+  >
+    Edward King 22144
+  </td>,
+  <td
+    className="ant-table-cell"
+    colSpan={null}
+    rowSpan={null}
+    style={Object {}}
+  >
+    Edward King 32144
+  </td>,
+  <td
+    className="ant-table-cell"
+    colSpan={null}
+    rowSpan={null}
+    style={Object {}}
+  >
+    Edward King 42144
+  </td>,
+  <td
+    className="ant-table-cell"
+    colSpan={null}
+    rowSpan={null}
+    style={Object {}}
+  >
+    Edward King 52144
+  </td>,
+  <td
+    className="ant-table-cell"
+    colSpan={null}
+    rowSpan={null}
+    style={Object {}}
+  >
+    Edward King 62144
+  </td>,
+  <td
+    className="ant-table-cell"
+    colSpan={null}
+    rowSpan={null}
+    style={Object {}}
+  >
+    Edward King 72144
+  </td>,
+  <td
+    className="ant-table-cell"
+    colSpan={null}
+    rowSpan={null}
+    style={Object {}}
+  >
+    Edward King 82144
+  </td>,
+  <td
+    className="ant-table-cell"
+    colSpan={null}
+    rowSpan={null}
+    style={Object {}}
+  >
+    Edward King 92144
+  </td>,
+  <td
+    className="ant-table-cell"
+    colSpan={null}
+    rowSpan={null}
+    style={Object {}}
+  >
+    Edward King 102144
+  </td>,
+  <td
+    className="ant-table-cell"
+    colSpan={null}
+    rowSpan={null}
+    style={Object {}}
+  >
+    Edward King 112144
+  </td>,
+  <td
+    className="ant-table-cell"
+    colSpan={null}
+    rowSpan={null}
+    style={Object {}}
+  >
+    Edward King 122144
+  </td>,
+  <td
+    className="ant-table-cell"
+    colSpan={null}
+    rowSpan={null}
+    style={Object {}}
+  >
+    Edward King 132144
+  </td>,
+  <td
+    className="ant-table-cell"
+    colSpan={null}
+    rowSpan={null}
+    style={Object {}}
+  >
+    Edward King 142144
+  </td>,
+  <td
+    className="ant-table-cell"
+    colSpan={null}
+    rowSpan={null}
+    style={Object {}}
+  >
+    Edward King 152144
+  </td>,
+  <td
+    className="ant-table-cell"
+    colSpan={null}
+    rowSpan={null}
+    style={Object {}}
+  >
+    Edward King 162144
+  </td>,
+  <td
+    className="ant-table-cell"
+    colSpan={null}
+    rowSpan={null}
+    style={Object {}}
+  >
+    Edward King 172144
+  </td>,
+  <td
+    className="ant-table-cell"
+    colSpan={null}
+    rowSpan={null}
+    style={Object {}}
+  >
+    Edward King 182144
+  </td>,
+  <td
+    className="ant-table-cell"
+    colSpan={null}
+    rowSpan={null}
+    style={Object {}}
+  >
+    Edward King 192144
+  </td>,
+]
+`;
