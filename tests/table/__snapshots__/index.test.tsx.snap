@@ -2061,7 +2061,20 @@ exports[`BasicTable 🎏 base use 1`] = `
                         </td>
                         <td
                           class="ant-table-cell"
-                        />
+                        >
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-default"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              关闭
+                            </span>
+                          </span>
+                        </td>
                         <td
                           class="ant-table-cell"
                         >
@@ -3165,7 +3178,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          4
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-default"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              关闭
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -3433,7 +3457,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          5
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-processing"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              运行中
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -3701,7 +3736,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          6
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-success"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              已上线
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -3969,7 +4015,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          7
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-error"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              异常
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -4237,7 +4294,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          8
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-default"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              关闭
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -4505,7 +4573,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          9
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-processing"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              运行中
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -4773,7 +4852,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          10
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-success"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              已上线
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -5041,7 +5131,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          11
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-error"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              异常
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -5309,7 +5410,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          12
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-default"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              关闭
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -5577,7 +5689,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          13
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-processing"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              运行中
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -5845,7 +5968,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          14
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-success"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              已上线
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -6113,7 +6247,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          15
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-error"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              异常
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -6381,7 +6526,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          16
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-default"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              关闭
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -6649,7 +6805,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          17
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-processing"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              运行中
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -6917,7 +7084,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          18
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-success"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              已上线
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -7185,7 +7363,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          19
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-error"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              异常
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -7940,7 +8129,20 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         </td>
                         <td
                           class="ant-table-cell"
-                        />
+                        >
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-default"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              关闭
+                            </span>
+                          </span>
+                        </td>
                         <td
                           class="ant-table-cell"
                         >
@@ -9044,7 +9246,18 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          4
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-default"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              关闭
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -9312,7 +9525,18 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          5
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-processing"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              运行中
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -9580,7 +9804,18 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          6
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-success"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              已上线
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -9848,7 +10083,18 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          7
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-error"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              异常
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -10116,7 +10362,18 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          8
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-default"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              关闭
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -10384,7 +10641,18 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          9
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-processing"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              运行中
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -10652,7 +10920,18 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          10
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-success"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              已上线
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -10920,7 +11199,18 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          11
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-error"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              异常
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -11188,7 +11478,18 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          12
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-default"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              关闭
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -11456,7 +11757,18 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          13
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-processing"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              运行中
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -11724,7 +12036,18 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          14
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-success"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              已上线
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -11992,7 +12315,18 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          15
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-error"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              异常
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -12260,7 +12594,18 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          16
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-default"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              关闭
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -12528,7 +12873,18 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          17
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-processing"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              运行中
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -12796,7 +13152,18 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          18
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-success"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              已上线
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -13064,7 +13431,18 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          19
+                          <span
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          >
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-error"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              异常
+                            </span>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"

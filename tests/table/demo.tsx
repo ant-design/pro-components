@@ -18,7 +18,7 @@ for (let i = 0; i < 46; i += 1) {
     key: i,
     name: `Edward King ${i}`,
     age: 10 + i,
-    status: Math.floor(Math.random() * 10) % 4,
+    status: Math.floor(i) % 4,
     sex: i / 2 > 1 ? 'man' : 'woman',
     money: parseFloat((10000.26 * (i + 1)).toFixed(2)),
     date: moment('2019-11-16 12:50:26').valueOf() + i * 1000 * 60 * 2,

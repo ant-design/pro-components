@@ -38,10 +38,11 @@ const defaultRenderText = <T, U = any>(
     }
     return defaultRenderText(text, value as ProFieldValueType, index, props);
   }
+
   return (
     <ProField
       {...props}
-      text={text}
+      text={valueType === 'index' || valueType === 'indexBorder' ? index : text}
       mode="read"
       columnEmptyText={columnEmptyText}
       render={undefined}

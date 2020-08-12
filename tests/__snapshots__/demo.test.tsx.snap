@@ -49826,7 +49826,18 @@ exports[`demos renders ./packages/table/demos/valueType.tsx correctly 1`] = `
                               style="width: 68px; margin: 0px; padding: 0px;"
                               title="0"
                             >
-                              2
+                              <span
+                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                              >
+                                <span
+                                  class="ant-badge-status-dot ant-badge-status-error"
+                                />
+                                <span
+                                  class="ant-badge-status-text"
+                                >
+                                  0异常
+                                </span>
+                              </span>
                             </div>
                           </span>
                         </td>
