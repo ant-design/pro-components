@@ -30,25 +30,25 @@ const ToolTipIcon: React.FC<{
   fixed: 'left' | 'right' | undefined;
 }> = ({ title, show, children, columnKey, fixed }) => {
   const { columnsMap, setColumnsMap } = Container.useContainer();
-  if (show) {
-    return (
-      <Tooltip title={title}>
-        <span
-          onClick={() => {
-            const config = columnsMap[columnKey || ''] || {};
-            const columnKeyMap = {
-              ...columnsMap,
-              [columnKey]: { ...config, fixed } as ColumnsState,
-            };
-            setColumnsMap(columnKeyMap);
-          }}
-        >
-          {children}
-        </span>
-      </Tooltip>
-    );
+  if (!show) {
+    return null;
   }
-  return null;
+  return (
+    <Tooltip title={title}>
+      <span
+        onClick={() => {
+          const config = columnsMap[columnKey] || {};
+          const columnKeyMap = {
+            ...columnsMap,
+            [columnKey]: { ...config, fixed } as ColumnsState,
+          };
+          setColumnsMap(columnKeyMap);
+        }}
+      >
+        {children}
+      </span>
+    </Tooltip>
+  );
 };
 
 const CheckboxListItem: React.FC<{
@@ -69,7 +69,7 @@ const CheckboxListItem: React.FC<{
       <Checkbox
         onChange={(e) => {
           if (columnKey) {
-            const tempConfig = columnsMap[columnKey || ''] || {};
+            const tempConfig = columnsMap[columnKey] || {};
             const newSetting = { ...tempConfig };
             if (e.target.checked) {
               delete newSetting.show;
