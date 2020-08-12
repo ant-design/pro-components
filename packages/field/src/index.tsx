@@ -76,9 +76,13 @@ type BaseProFieldFC = {
    */
   mode: ProFieldFCMode;
   /**
-   *简约模式
+   * 简约模式
    */
   plain?: boolean;
+  /**
+   * 轻量模式
+   */
+  light?: boolean;
 
   /**
    * 映射值的类型
@@ -146,7 +150,7 @@ type RenderProps = Omit<ProFieldFCRenderProps, 'text'> &
 const defaultRenderTextByObject = (
   text: ProFieldTextType,
   valueType: ProFieldValueObjectType,
-  props: RenderProps = { mode: 'read', plain: false },
+  props: RenderProps = { mode: 'read', plain: false, light: false },
 ) => {
   const pickFormItemProps = pickProProps(props.formItemProps);
   if (valueType.type === 'progress') {

@@ -17,7 +17,7 @@ const DropdownFooter: React.FC<DropdownFooterProps> = props => {
 
   return (
     <div
-      className={`${prefixCls}-footer`}
+      className={prefixCls}
       onClick={e => {
         if ((e.target as Element).getAttribute('data-type') !== 'confirm') {
           e.stopPropagation();

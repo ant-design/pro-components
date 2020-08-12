@@ -3,7 +3,7 @@ import { Dropdown } from 'antd';
 import { ConfigContext } from 'antd/lib/config-provider';
 import Footer, { DropdownFooterProps } from '../DropdownFooter';
 
-import './style/Dropdown.less';
+import './index.less';
 
 export interface DropdownProps {
   label?: React.ReactNode;

@@ -4,7 +4,7 @@ import { ConfigContext } from 'antd/lib/config-provider/context';
 import { SizeType } from 'antd/lib/config-provider/SizeContext';
 import classNames from 'classnames';
 import LightFilterLabel from '../../components/Label';
-import Dropdown from '../../components/Dropdown';
+import { FieldDropdown, } from '@ant-design/pro-utils';
 import BaseForm, { CommonFormProps } from '../../BaseForm';
 import './index.less';
 
@@ -49,14 +49,14 @@ const LightFilterContainer: React.FC<{
           return (
             <div className={`${lightFilterClassName}-item`} key={key}>
               {React.cloneElement(child, {
-                plain: true,
+                light: true,
               })}
             </div>
           );
         })}
         {collapseItems.length ? (
           <div className={`${lightFilterClassName}-item`} key="more">
-            <Dropdown
+            <FieldDropdown
               padding={24}
               onVisibleChange={setOpen}
               visible={open}
@@ -82,7 +82,7 @@ const LightFilterContainer: React.FC<{
                   </div>
                 );
               })}
-            </Dropdown>
+            </FieldDropdown>
           </div>
         ) : null}
       </div>
