@@ -1,7 +1,7 @@
 import { render, mount } from 'enzyme';
 import React from 'react';
 
-import ProSkeleton from '../packages/skeleton/src/index';
+import ProSkeleton from '../../packages/skeleton/src/index';
 
 describe('skeleton', () => {
   it('🥩 list base use', async () => {

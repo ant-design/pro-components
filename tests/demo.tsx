@@ -47,29 +47,6 @@ type Options = {
 };
 
 function demoTest(component: string, options: Options = {}) {
-  const files = glob.sync(`./packages/${component}/demos/*.tsx`);
-
-  files.forEach((file) => {
-    let testMethod = options.skip === true ? test.skip : test;
-    if (Array.isArray(options.skip) && options.skip.some((c) => file.includes(c))) {
-      testMethod = test.skip;
-    }
-    testMethod(`renders ${file} correctly`, async () => {
-      MockDate.set(moment('2016-11-22').valueOf());
-      const Demo = require(`.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
-      const wrapper = mount(<Demo />);
-
-      await waitForComponentToPaint(wrapper, component === 'table' ? 1000 : 16);
-      // Convert aria related content
-      const dom = wrapper.render();
-      ariaConvert(dom);
-      expect(dom).toMatchSnapshot();
-      MockDate.reset();
-    });
-  });
-}
-
-describe('demos', () => {
   const LINE_STR_COUNT = 20;
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
   const logSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
@@ -108,11 +85,28 @@ describe('demos', () => {
     });
     window.getComputedStyle = originGetComputedStyle;
   });
+  const files = glob.sync(`./packages/${component}/demos/*.tsx`);
 
-  const files = glob.sync(`./packages/*`) as string[];
-  files.forEach((file) => {
-    const component = file.split('/').pop();
-    if (!component) return;
-    demoTest(component);
+  describe(`${component} demos`, () => {
+    files.forEach((file) => {
+      let testMethod = options.skip === true ? test.skip : test;
+      if (Array.isArray(options.skip) && options.skip.some((c) => file.includes(c))) {
+        testMethod = test.skip;
+      }
+      testMethod(`renders ${file} correctly`, async () => {
+        MockDate.set(moment('2016-11-22').valueOf());
+        const Demo = require(`.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
+        const wrapper = mount(<Demo />);
+
+        await waitForComponentToPaint(wrapper, component === 'table' ? 1000 : 16);
+        // Convert aria related content
+        const dom = wrapper.render();
+        ariaConvert(dom);
+        expect(dom).toMatchSnapshot();
+        MockDate.reset();
+      });
+    });
   });
-});
+}
+
+export default demoTest;
