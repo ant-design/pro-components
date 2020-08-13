@@ -198,6 +198,14 @@ const defaultRenderText = (
   if (typeof valueType === 'object') {
     return defaultRenderTextByObject(text, valueType, props);
   }
+
+  const { mode = 'read', emptyText } = props;
+  if (emptyText !== false && mode === 'read' && valueType !== 'option') {
+    if (typeof text !== 'boolean' && typeof text !== 'number' && !text) {
+      return emptyText || '-';
+    }
+  }
+
   /**
    * 如果是金额的值
    */
@@ -287,13 +295,6 @@ const defaultRenderText = (
 
   if (valueType === 'option') {
     return <FieldOptions text={text} {...props} />;
-  }
-
-  const { mode = 'read', emptyText } = props;
-  if (emptyText !== false && mode === 'read') {
-    if (typeof text !== 'boolean' && typeof text !== 'number' && !text) {
-      return emptyText || '-';
-    }
   }
 
   return <FieldText text={text as string} {...props} />;

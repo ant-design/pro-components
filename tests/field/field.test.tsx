@@ -10,6 +10,20 @@ describe('Field', () => {
     expect(html).toMatchSnapshot();
   });
 
+  it('🥩 percent=0', async () => {
+    const html = render(
+      <Field
+        text={0}
+        valueType={{
+          type: 'percent',
+          showSymbol: true,
+        }}
+        mode="read"
+      />,
+    );
+    expect(html).toMatchSnapshot();
+  });
+
   it('🥩 edit ant no plain', async () => {
     const html = render(<Demo plain={false} state="edit" />);
     expect(html).toMatchSnapshot();
@@ -88,6 +102,19 @@ describe('Field', () => {
         />,
       );
       expect(html.text()).toBe('');
+    });
+  });
+
+  valueTypes.forEach((valueType) => {
+    it(`🥩 valueType render ${valueType} when text is null`, async () => {
+      const html = render(
+        <Field
+          text={null}
+          // @ts-ignore
+          valueType={valueType}
+        />,
+      );
+      expect(html.text()).toBe('-');
     });
   });
 

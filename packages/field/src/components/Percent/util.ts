@@ -1,5 +1,8 @@
 /** 获取展示符号 */
 export function getSymbolByRealValue(realValue: number) {
+  if (realValue === 0) {
+    return null;
+  }
   return realValue > 0 ? '+' : '-';
 }
 

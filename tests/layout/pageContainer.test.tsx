@@ -15,7 +15,14 @@ describe('PageContainer', () => {
 
   it('⚡️ support footer', async () => {
     const html = render(
-      <PageContainer title="期贤" footer={[<button type="button">right</button>]} />,
+      <PageContainer
+        title="期贤"
+        footer={[
+          <button type="button" key="button">
+            right
+          </button>,
+        ]}
+      />,
     );
     expect(html).toMatchSnapshot();
   });
