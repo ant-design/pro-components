@@ -2332,6 +2332,12 @@ exports[`Field 🥩 percent valueType is Object 1`] = `
 </div>
 `;
 
+exports[`Field 🥩 percent=0 1`] = `
+<span>
+   0.00%
+</span>
+`;
+
 exports[`Field 🥩 read and plain 1`] = `
 <div
   class="ant-descriptions"
