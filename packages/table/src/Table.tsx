@@ -316,11 +316,12 @@ const columnRender = <T, U = any>({
   if (!action.current) {
     return null;
   }
-  const { renderText = (val: any) => val } = item;
-  const renderTextStr = renderText(text, row, index, action.current);
+  const { renderText } = item;
+  const renderTextFun = renderText || ((val: any) => val )
+  const renderTextStr = renderTextFun(text, row, index, action.current);
   const textDom = defaultRenderText<T, {}>(
     renderTextStr,
-    (item.valueType as ProFieldValueType) || 'text',
+    renderText ? "text" : (item.valueType as ProFieldValueType) || 'text',
     index,
     row,
     columnEmptyText,
