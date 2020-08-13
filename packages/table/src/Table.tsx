@@ -404,7 +404,6 @@ const genColumnList = <T, U = {}>(
       const { propsRef } = counter;
       const config = columnKey ? map[columnKey] || { fixed: item.fixed } : { fixed: item.fixed };
       const tempColumns = {
-        key: columnsIndex,
         onFilter: propsRef.current?.request
           ? undefined
           : (value: string, row: T) => defaultOnFilter(value, row, dataIndex as string[]),
