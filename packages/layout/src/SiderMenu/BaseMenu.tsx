@@ -328,8 +328,8 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
     return () => window.cancelAnimationFrame && window.cancelAnimationFrame(animationFrameId);
   }, [pathname, collapsed]);
 
-  const openKeysProps = useMemo(() => getOpenKeysProps(openKeysRef.current, props), [
-    openKeys,
+  const openKeysProps = useMemo(() => getOpenKeysProps(openKeys, props), [
+    openKeys && openKeys.join(','),
     props.layout,
     props.collapsed,
   ]);
@@ -386,8 +386,8 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
       style={style}
       className={cls}
       onOpenChange={(keys) => {
-        setOpenKeys(keys as string[]);
         openKeysRef.current = keys as string[];
+        setOpenKeys(keys as string[]);
       }}
       {...props.menuProps}
     >
