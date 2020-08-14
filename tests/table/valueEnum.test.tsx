@@ -6,7 +6,7 @@ import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
 
 describe('Table valueEnum', () => {
-  it('🎏 change text by renderText', async () => {
+  it('🎏 dynamic enum test', async () => {
     const html = mount(
       <ProTable
         size="small"
