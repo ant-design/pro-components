@@ -2301,7 +2301,9 @@ exports[`layout demos renders ./packages/layout/demos/antd@3MenuIconFormServe.ts
                   class="ant-menu-submenu-title"
                   role="button"
                 >
-                  <span>
+                  <span
+                    class="ant-pro-menu-item"
+                  >
                     <span
                       aria-label="smile"
                       class="anticon anticon-smile"
@@ -2545,7 +2547,9 @@ exports[`layout demos renders ./packages/layout/demos/antd@4MenuIconFormServe.ts
                   class="ant-menu-submenu-title"
                   role="button"
                 >
-                  <span>
+                  <span
+                    class="ant-pro-menu-item"
+                  >
                     <span
                       aria-label="smile"
                       class="anticon anticon-smile"
@@ -2955,7 +2959,9 @@ Array [
                   class="ant-menu-submenu-title"
                   role="button"
                 >
-                  <span>
+                  <span
+                    class="ant-pro-menu-item"
+                  >
                     <span
                       aria-label="crown"
                       class="anticon anticon-crown"
@@ -2995,7 +3001,9 @@ Array [
                   class="ant-menu-submenu-title"
                   role="button"
                 >
-                  <span>
+                  <span
+                    class="ant-pro-menu-item"
+                  >
                     <span
                       aria-label="tablet"
                       class="anticon anticon-tablet"
@@ -3328,7 +3336,9 @@ exports[`layout demos renders ./packages/layout/demos/base.tsx correctly 1`] = `
                   role="button"
                   style="padding-left: 16px;"
                 >
-                  <span>
+                  <span
+                    class="ant-pro-menu-item"
+                  >
                     <span
                       aria-label="crown"
                       class="anticon anticon-crown"
@@ -3370,7 +3380,9 @@ exports[`layout demos renders ./packages/layout/demos/base.tsx correctly 1`] = `
                   role="button"
                   style="padding-left: 16px;"
                 >
-                  <span>
+                  <span
+                    class="ant-pro-menu-item"
+                  >
                     <span
                       aria-label="tablet"
                       class="anticon anticon-tablet"
@@ -4272,7 +4284,9 @@ Array [
                 >
                   <div>
                     0 
-                    <span>
+                    <span
+                      class="ant-pro-menu-item"
+                    >
                       <span
                         aria-label="crown"
                         class="anticon anticon-crown"
@@ -4317,7 +4331,9 @@ Array [
                 >
                   <div>
                     0 
-                    <span>
+                    <span
+                      class="ant-pro-menu-item"
+                    >
                       <span
                         aria-label="tablet"
                         class="anticon anticon-tablet"
@@ -4766,7 +4782,9 @@ exports[`layout demos renders ./packages/layout/demos/footer.tsx correctly 1`] =
                 class="ant-menu-submenu-title"
                 role="button"
               >
-                <span>
+                <span
+                  class="ant-pro-menu-item"
+                >
                   <span
                     aria-label="crown"
                     class="anticon anticon-crown"
@@ -4806,7 +4824,9 @@ exports[`layout demos renders ./packages/layout/demos/footer.tsx correctly 1`] =
                 class="ant-menu-submenu-title"
                 role="button"
               >
-                <span>
+                <span
+                  class="ant-pro-menu-item"
+                >
                   <span
                     aria-label="tablet"
                     class="anticon anticon-tablet"
@@ -5095,7 +5115,9 @@ exports[`layout demos renders ./packages/layout/demos/hideMenu.tsx correctly 1`]
                   class="ant-menu-submenu-title"
                   role="button"
                 >
-                  <span>
+                  <span
+                    class="ant-pro-menu-item"
+                  >
                     <span
                       aria-label="crown"
                       class="anticon anticon-crown"
@@ -5135,7 +5157,9 @@ exports[`layout demos renders ./packages/layout/demos/hideMenu.tsx correctly 1`]
                   class="ant-menu-submenu-title"
                   role="button"
                 >
-                  <span>
+                  <span
+                    class="ant-pro-menu-item"
+                  >
                     <span
                       aria-label="tablet"
                       class="anticon anticon-tablet"
