@@ -3,7 +3,7 @@ import { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/lib/breadcrumb';
 import React from 'react';
 import pathToRegexp from 'path-to-regexp';
 import { isBrowser } from '@ant-design/pro-utils';
-
+import { Link } from 'umi';
 import { ProSettings } from '../defaultSettings';
 import { MenuDataItem, MessageDescriptor } from '../typings';
 import { urlToList } from './pathTools';
@@ -23,11 +23,11 @@ export interface BreadcrumbProps {
   itemRender?: AntdBreadcrumbProps['itemRender'];
 }
 
-// 渲染Breadcrumb 子节点
+// 渲染Breadcrumb 子节点,使用Link标签
 // Render the Breadcrumb child node
-const defaultItemRender: AntdBreadcrumbProps['itemRender'] = ({ breadcrumbName, path }) => (
-  <a href={path}>{breadcrumbName}</a>
-);
+const defaultItemRender: AntdBreadcrumbProps['itemRender'] = ({ breadcrumbName, path }) => {
+  return <Link to={path}>{breadcrumbName}</Link>;
+};
 
 const renderItemLocal = (item: MenuDataItem, props: BreadcrumbProps): string => {
   const {
