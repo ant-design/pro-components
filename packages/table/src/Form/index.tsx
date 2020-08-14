@@ -14,7 +14,6 @@ import { useDeepCompareEffect, ProSchemaComponentTypes } from '@ant-design/pro-u
 
 import { genColumnKey } from '../utils';
 import Container from '../container';
-import { ProColumnsValueTypeFunction } from '../defaultRender';
 import { ProColumns, ProColumnsValueType } from '../index';
 import FormOption, { FormOptionProps } from './FormOption';
 import './index.less';
@@ -340,7 +339,7 @@ const dateFormatterMap = {
  * 判断 DataType 是不是日期类型
  * @param type
  */
-const isDateValueType = (type: ProColumnsValueType | ProColumnsValueTypeFunction<any>) => {
+const isDateValueType = (type: ProColumns<{}>['valueType']) => {
   let valueType: ProColumnsValueType = type as ProColumnsValueType;
   if (typeof type === 'function') {
     // 如果是 object 说明是进度条，直接返回 false
