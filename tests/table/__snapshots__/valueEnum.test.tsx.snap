@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Table valueEnum 🎏 change text by renderText 1`] = `
+exports[`Table valueEnum 🎏 dynamic enum test 1`] = `
 <div
   class="ant-select-dropdown ant-select-dropdown-placement-bottomLeft "
   style="min-width: 0; width: 0px; opacity: 0; left: -999px; top: -995px;"
