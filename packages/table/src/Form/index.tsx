@@ -135,7 +135,7 @@ export interface TableFormItem<T> extends Omit<FormItemProps, 'children'> {
   formRef?: React.MutableRefObject<FormInstance | undefined> | ((actionRef: FormInstance) => void);
 }
 
-export const FormInputRender: React.FC<{
+export const formInputRender: React.FC<{
   item: ProColumns<any>;
   value?: any;
   form?: FormInstance;
@@ -143,7 +143,7 @@ export const FormInputRender: React.FC<{
   intl: IntlType;
   onChange?: (value: any) => void;
   onSelect?: (value: any) => void;
-}> = React.forwardRef((props, ref: any) => {
+}> = (props, ref: any) => {
   const { item, intl, form, type, ...rest } = props;
   const { valueType: itemValueType } = item;
   // if function， run it
@@ -159,14 +159,13 @@ export const FormInputRender: React.FC<{
      *删除 renderFormItem 防止重复的 dom 渲染
      */
     const { renderFormItem, ...restItem } = item;
-    const defaultRender = (newItem: ProColumns<any>) => (
-      <FormInputRender
-        {...({
+    const defaultRender = (newItem: ProColumns<any>) =>
+      formInputRender({
+        ...({
           ...props,
           item: newItem,
-        } || null)}
-      />
-    );
+        } || null),
+      });
 
     // 自动注入 onChange 和 value,用户自己很有肯能忘记
     const dom = renderFormItem(
@@ -174,6 +173,7 @@ export const FormInputRender: React.FC<{
       { ...rest, type, defaultRender },
       form as any,
     ) as React.ReactElement;
+
     // 有可能不是不是一个组件
     if (!React.isValidElement(dom)) {
       return dom;
@@ -257,7 +257,7 @@ export const FormInputRender: React.FC<{
       {...rest}
     />
   );
-});
+};
 
 export const proFormItemRender: (props: {
   item: ProColumns<any>;
@@ -297,7 +297,12 @@ export const proFormItemRender: (props: {
     ...rest
   } = item;
   const key = genColumnKey(rest.key, index);
-  const dom = <FormInputRender item={item} type={type} intl={intl} form={formInstance} />;
+  const dom = formInputRender({
+    item,
+    type,
+    intl,
+    form: formInstance,
+  });
   if (!dom) {
     return null;
   }
@@ -314,7 +319,7 @@ export const proFormItemRender: (props: {
       <Form.Item
         labelAlign="right"
         label={getTitle()}
-        name={Array.isArray(dataIndex) ? dataIndex : key}
+        name={Array.isArray(dataIndex) ? dataIndex : dataIndex || key}
         {...(isForm && rest)}
       >
         {dom}
@@ -507,7 +512,7 @@ const FormSearch = <T, U = any>({
   const intl = useIntl();
 
   const [form] = Form.useForm();
-  const formInstanceRef = useRef<FormInstance | undefined>();
+  const formInstanceRef = useRef<FormInstance | undefined>(form as any);
   const searchConfig = getDefaultSearch(propsSearch, intl, type === 'form');
   const { span } = searchConfig;
 
@@ -519,6 +524,10 @@ const FormSearch = <T, U = any>({
   const [proColumnsMap, setProColumnsMap] = useState<{
     [key: string]: ProColumns<any>;
   }>({});
+
+  // 这么做是为了在用户修改了输入的时候触发一下子节点的render
+  const [, updateState] = React.useState();
+  const forceUpdate = useCallback(() => updateState({}), []);
 
   const windowSize = useMediaQuery();
   const [colSize, setColSize] = useState(getSpanConfig(span || 8, windowSize));
@@ -569,17 +578,23 @@ const FormSearch = <T, U = any>({
   }, []);
 
   useEffect(() => {
+    const newSize = getSpanConfig(span || 8, windowSize);
+    if (newSize === colSize) {
+      return;
+    }
     setColSize(getSpanConfig(span || 8, windowSize));
   }, [windowSize]);
 
   useDeepCompareEffect(() => {
+    if (counter.proColumns.length < 1) {
+      return;
+    }
     const tempMap = {};
     counter.proColumns.forEach((item) => {
       tempMap[genColumnKey(item.key, item.index)] = item;
     });
     setProColumnsMap(tempMap);
   }, [counter.proColumns]);
-
   const columnsList = counter.proColumns
     .filter((item) => {
       const { valueType } = item;
@@ -614,31 +629,25 @@ const FormSearch = <T, U = any>({
 
   const colConfig = typeof span === 'number' ? { span } : span;
 
-  // 这么做是为了在用户修改了输入的时候触发一下子节点的render
-  const [, updateState] = React.useState();
-  const forceUpdate = useCallback(() => updateState({}), []);
+  const domList = columnsList
+    .map((item, index) =>
+      proFormItemRender({
+        isForm,
+        formInstance: formInstanceRef.current,
+        item: {
+          key: item.dataIndex?.toString() || index,
+          index,
+          ...item,
+        },
+        type,
+        colConfig,
+        intl,
+      }),
+    )
+    .filter((_, index) => (collapse && type !== 'form' ? index < (rowNumber - 1 || 1) : true))
+    .filter((item) => !!item);
 
-  const domList = formInstanceRef.current
-    ? columnsList
-        .map((item, index) =>
-          proFormItemRender({
-            isForm,
-            formInstance: formInstanceRef.current,
-            item: {
-              key: item.dataIndex?.toString() || index,
-              index,
-              ...item,
-            },
-            type,
-            colConfig,
-            intl,
-          }),
-        )
-        .filter((_, index) => (collapse && type !== 'form' ? index < (rowNumber - 1 || 1) : true))
-        .filter((item) => !!item)
-    : [];
   const { getPrefixCls } = useContext(ConfigContext);
-
   const className = getPrefixCls('pro-table-search');
   const formClassName = getPrefixCls('pro-table-form');
   return (
@@ -666,10 +675,12 @@ const FormSearch = <T, U = any>({
           <Form
             {...formConfig}
             form={form}
-            onValuesChange={() => forceUpdate()}
+            onValuesChange={() => {
+              forceUpdate();
+            }}
             initialValues={columnsList.reduce(
               (pre, item) => {
-                const key = genColumnKey(item.key, item.index);
+                const key = item.key || (item.dataIndex as string);
                 if (item.initialValue) {
                   return {
                     ...pre,

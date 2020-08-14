@@ -16,9 +16,11 @@ describe('Table valueEnum', () => {
             dataIndex: 'status',
             hideInForm: true,
             valueEnum: {},
+            formItemProps: {
+              open: true,
+            },
           },
         ]}
-        search={false}
         request={async () => ({
           data: [
             {
@@ -44,10 +46,18 @@ describe('Table valueEnum', () => {
               2: { text: '已上线', status: 'Success' },
               3: { text: '异常', status: 'Error' },
             },
+            formItemProps: {
+              open: true,
+            },
           },
         ],
       });
     });
+    await waitForComponentToPaint(html, 200);
+    act(() => {
+      html.find('form.ant-form div.ant-select').simulate('click');
+    });
+    expect(html.find('div.ant-select-dropdown').render()).toMatchSnapshot();
     expect(html.find('td.ant-table-cell').text()).toBe('已上线');
   });
 });
