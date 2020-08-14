@@ -110,8 +110,11 @@ const columns: ProColumns<GithubIssueItem>[] = [
         return null;
       }
       const status = form.getFieldValue('state');
-      if (status !== 'open') {
+      if (status === 'open') {
         return <Input placeholder="请输入" />;
+      }
+      if (status === 'all') {
+        return false;
       }
       return defaultRender(_);
     },
@@ -167,7 +170,7 @@ export default () => (
     }
     rowKey="id"
     dateFormatter="string"
-    headerTitle="查询 Table"
+    headerTitle="自定义动态表格"
     search={{
       collapsed: false,
       optionRender: ({ searchText, resetText }, { form }) => (

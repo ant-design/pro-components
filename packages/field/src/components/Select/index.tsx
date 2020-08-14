@@ -172,6 +172,16 @@ const useFetchData = (
       value,
     })),
   );
+
+  useEffect(() => {
+    setOptions(
+      proFieldParsingValueEnumToArray(ObjToMap(props.valueEnum)).map(({ value, text }) => ({
+        label: text,
+        value,
+      })),
+    );
+  }, [props.valueEnum]);
+
   const [loading, setLoading] = useState<boolean>(false);
   const fetchData = async () => {
     if (!props.request) {
