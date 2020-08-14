@@ -30,7 +30,8 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "@ant-design/pro-field": "0.0.16"
+    "@ant-design/pro-field": "0.0.16",
+    "@ant-design/pro-skeleton":"1.0.0-beta.7"
   },
   "peerDependencies": {
     "umi": "3.x"

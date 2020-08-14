@@ -24,6 +24,22 @@ describe('Field', () => {
     expect(html).toMatchSnapshot();
   });
 
+  it('🥩 render 关闭 when text=0', async () => {
+    const html = render(
+      <Field
+        text={0}
+        mode="read"
+        valueEnum={{
+          0: { text: '关闭', status: 'Default' },
+          1: { text: '运行中', status: 'Processing' },
+          2: { text: '已上线', status: 'Success' },
+          3: { text: '异常', status: 'Error' },
+        }}
+      />,
+    );
+    expect(html.text()).toBe('关闭');
+  });
+
   it('🥩 edit ant no plain', async () => {
     const html = render(<Demo plain={false} state="edit" />);
     expect(html).toMatchSnapshot();

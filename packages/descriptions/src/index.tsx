@@ -62,7 +62,8 @@ const getDataFromConfig = (item: ProDescriptionsItemProps, entity: any) => {
     const data = Array.isArray(dataIndex)
       ? get(entity, dataIndex as string[])
       : entity[dataIndex as string];
-    if (data) {
+
+    if (data !== undefined || data !== null) {
       return data;
     }
   }
@@ -97,7 +98,7 @@ const conversionProProSchemaToDescriptionsItem = (
         : restItem.title;
 
     const defaultData = getDataFromConfig(item, entity);
-    const data = renderText ? renderText(defaultData, entity, index, action) : defaultData;
+    const text = renderText ? renderText(defaultData, entity, index, action) : defaultData;
 
     //  dataIndex 无所谓是否存在
     // 有些时候不需要 dataIndex 可以直接 render
@@ -130,7 +131,7 @@ const conversionProProSchemaToDescriptionsItem = (
           }
           valueType={valueType}
           plain={plain}
-          text={data}
+          text={text}
           request={request}
           params={request}
         />
