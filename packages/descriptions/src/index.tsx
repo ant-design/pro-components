@@ -1,7 +1,11 @@
 import React, { useEffect } from 'react';
 import { Descriptions, Space } from 'antd';
 import toArray from 'rc-util/lib/Children/toArray';
-import Field, { ProFieldValueType, ProFieldFCMode } from '@ant-design/pro-field';
+import Field, {
+  ProFieldValueType,
+  ProFieldFCMode,
+  ProFieldValueObjectType,
+} from '@ant-design/pro-field';
 import { LabelIconTip, ProSchema } from '@ant-design/pro-utils';
 import get from 'rc-util/lib/utils/get';
 import { stringify } from 'use-json-comparison';
@@ -17,7 +21,7 @@ export type ActionType = {
 export type ProDescriptionsItemProps<T = {}> = Omit<
   ProSchema<
     T,
-    ProFieldValueType,
+    ProFieldValueType | ProFieldValueObjectType,
     Omit<DescriptionsItemProps, 'children'> & {
       // 隐藏这个字段，是个语法糖，方便一下权限的控制
       hide?: boolean;
@@ -104,8 +108,8 @@ const conversionProProSchemaToDescriptionsItem = (
     // 有些时候不需要 dataIndex 可以直接 render
     const valueType =
       typeof restItem.valueType === 'function'
-        ? restItem.valueType(entity || {})
-        : restItem.valueType;
+        ? (restItem.valueType(entity || {}) as ProFieldValueType)
+        : (restItem.valueType as ProFieldValueType);
 
     const field = (
       <Descriptions.Item

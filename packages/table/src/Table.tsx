@@ -28,6 +28,7 @@ import {
   ProFieldEmptyText,
   ProFieldValueType,
   proFieldParsingValueEnumToArray,
+  ProFieldValueObjectType,
 } from '@ant-design/pro-field';
 import {
   useDeepCompareEffect,
@@ -53,7 +54,7 @@ import {
   postDataPipeline,
 } from './utils';
 
-import defaultRenderText, { ProColumnsValueTypeFunction } from './defaultRender';
+import defaultRenderText from './defaultRender';
 import { DensitySize } from './component/ToolBar/DensityIcon';
 import ErrorBoundary from './component/ErrorBoundary';
 
@@ -67,7 +68,7 @@ export type ExtraProColumnType<T> = Omit<
 
 export type ProColumnType<T = unknown> = ProSchema<
   T,
-  ProFieldValueType | ProColumnsValueTypeFunction<T>,
+  ProFieldValueType | ProFieldValueObjectType,
   ExtraProColumnType<T> & {
     index?: number;
 

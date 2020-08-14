@@ -23,6 +23,10 @@ const useFetchData = <T extends RequestData<any>>(
   const [entity, setEntity] = useState<T['data']>({} as any);
   const [loading, setLoading] = useState<boolean | undefined>(undefined);
 
+  const updateDataAndLoading = (data: T) => {
+    setEntity(data);
+    setLoading(false);
+  };
   /**
    * 请求数据
    */
@@ -35,8 +39,7 @@ const useFetchData = <T extends RequestData<any>>(
     try {
       const { data, success } = (await getData()) || {};
       if (success !== false) {
-        setEntity(data);
-        setLoading(false);
+        updateDataAndLoading(data);
       }
     } catch (e) {
       // 如果没有传递这个方法的话，需要把错误抛出去，以免吞掉错误
