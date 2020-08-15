@@ -10,9 +10,10 @@ import ProFormRadio from './components/Radio';
 import ProFormSwitch from './components/Switch';
 
 import ProForm from './layouts/ProForm';
-import QueryFilter from './layouts/QueryFilter';
+import QueryFilter, { BaseQueryFilterProps } from './layouts/QueryFilter';
 import LightFilter from './layouts/LightFilter';
 
+export type { BaseQueryFilterProps };
 export {
   // controls
   ProFormDatePicker,

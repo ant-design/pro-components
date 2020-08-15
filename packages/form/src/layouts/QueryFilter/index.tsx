@@ -1,11 +1,20 @@
-import React, { useState } from 'react';
+/* eslint-disable no-param-reassign */
+import React, { useState, ReactElement } from 'react';
 import { Row, Col, Divider } from 'antd';
 import { FormProps } from 'antd/lib/form/Form';
 import RcResizeObserver from 'rc-resize-observer';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import BaseForm, { CommonFormProps } from '../../BaseForm';
-import Actions from './Actions';
+import Actions, { ActionsProps } from './Actions';
 
+const CONFIG_SPAN_BREAKPOINTS = {
+  xs: 513,
+  sm: 513,
+  md: 785,
+  lg: 1057,
+  xl: 1057,
+  xxl: 1057,
+};
 /**
  * 配置表单列变化的容器宽度断点
  */
@@ -34,15 +43,19 @@ const BREAKPOINTS = {
 const getSpanConfig = (
   layout: FormProps['layout'],
   width: number,
-  span?: number,
+  span?: SpanConfig,
 ): { span: number; layout: FormProps['layout'] } => {
-  if (span) {
+  if (span && typeof span === 'number') {
     return {
       span,
       layout,
     };
   }
-  const breakPoint = BREAKPOINTS[layout || 'default'].find(
+  const spanConfig = span
+    ? Object.keys(span).map((key) => [CONFIG_SPAN_BREAKPOINTS[key], span[key], 'horizontal'])
+    : BREAKPOINTS[layout || 'default'];
+
+  const breakPoint = spanConfig.find(
     (item: [number, number, FormProps['layout']]) => width < item[0] + 16, // 16 = 2 * (ant-row -8px margin)
   );
   return {
@@ -51,16 +64,66 @@ const getSpanConfig = (
   };
 };
 
-export interface QueryFilterProps extends FormProps, CommonFormProps {
-  collapsed?: boolean;
+export type SpanConfig =
+  | number
+  | {
+      xs: number;
+      sm: number;
+      md: number;
+      lg: number;
+      xl: number;
+      xxl: number;
+    };
+
+export type BaseQueryFilterProps = Omit<ActionsProps, 'submitter' | 'setCollapsed' | 'isForm'> & {
   defaultCollapsed?: boolean;
-  onCollapse?: (collapsed: boolean) => void;
+
   labelLayout?: 'default' | 'growth' | 'vertical';
   defaultColsNumber?: number;
   labelWidth?: number | 'auto';
   split?: boolean;
-  span?: number;
-}
+  /**
+   * 配置列数
+   */
+  span?: SpanConfig;
+
+  /**
+   * 查询按钮的文本
+   */
+  searchText?: string;
+  /**
+   * 重置按钮的文本
+   */
+  resetText?: string;
+
+  form?: FormProps['form'];
+  /**
+   * 底部操作栏的 render
+   * searchConfig 基础的配置
+   * props 更加详细的配置
+   * {
+      type?: 'form' | 'list' | 'table' | 'cardList' | undefined;
+      form: FormInstance;
+      submit: () => void;
+      collapse: boolean;
+      setCollapse: (collapse: boolean) => void;
+      showCollapseButton: boolean;
+   * }
+   */
+  optionRender?:
+    | ((
+        searchConfig: Omit<BaseQueryFilterProps, 'submitter' | 'setCollapsed' | 'isForm'>,
+        props: Omit<BaseQueryFilterProps, 'searchConfig'>,
+        dom: React.ReactNode[],
+      ) => React.ReactNode[])
+    | false;
+};
+
+export type QueryFilterProps = FormProps &
+  CommonFormProps &
+  BaseQueryFilterProps & {
+    onReset?: () => void;
+  };
 
 const QueryFilter: React.FC<QueryFilterProps> = (props) => {
   const {
@@ -69,13 +132,15 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
     layout,
     defaultColsNumber,
     span,
+    onReset,
     onCollapse,
+    optionRender,
     labelWidth = 98,
     style,
     split,
     ...rest
   } = props;
-  const [collapsed, setCollapsed] = useMergedState<boolean>(defaultCollapsed, {
+  const [collapsed, setCollapsed] = useMergedState<boolean>(() => defaultCollapsed, {
     value: controlCollapsed,
     onChange: onCollapse,
   });
@@ -114,22 +179,40 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
         },
         titleRender: (title) => `${title}:`,
       }}
-      contentRender={(items, submitter) => {
+      contentRender={(items, renderSubmitter) => {
         const itemsWithInfo: {
           span: number;
           hidden: boolean;
           element: React.ReactNode;
           key: string | number;
         }[] = [];
+
+        let submitter = renderSubmitter;
+        if (submitter) {
+          submitter = React.cloneElement(submitter, {
+            searchConfig: {
+              resetText: rest.resetText,
+              submitText: rest.searchText,
+            },
+            render:
+              typeof optionRender === 'function'
+                ? (_: any, dom: React.ReactNode[]) => optionRender(props, props, dom)
+                : optionRender,
+            onReset,
+            ...submitter.props,
+          });
+        }
+
         // totalSpan 统计控件占的位置，计算 offset 保证查询按钮在最后一列
         let totalSpan = 0;
         let lastVisibleItemIndex = items.length - 1;
-        items.forEach((item: React.ReactNode, index: number) => {
-          let hidden: boolean = false;
-          const colSize = React.isValidElement(item) ? item.props?.colSize || 1 : 1;
+        items.forEach((item, index: number) => {
+          // 如果 formItem 自己配置了 hidden，默认使用它自己的
+          let hidden: boolean = (item as ReactElement<{ hidden: boolean }>)?.props?.hidden || false;
+          const colSize = React.isValidElement<any>(item) ? item?.props?.colSize || 1 : 1;
           const colSpan = Math.min(spanSize.span * colSize, 24);
 
-          if (collapsed && index >= showLength) {
+          if ((collapsed && index >= showLength) || hidden) {
             hidden = true;
           } else {
             if (24 - (totalSpan % 24) < colSpan) {
@@ -188,9 +271,9 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
                   }}
                 >
                   <Actions
-                    showCollapseButton={items.length >= showLength}
                     submitter={submitter}
                     collapsed={collapsed}
+                    {...rest}
                     setCollapsed={setCollapsed}
                     style={{
                       // 当表单是垂直布局且提交按钮不是独自在一行的情况下需要设置一个 paddingTop 使得与控件对齐
@@ -198,6 +281,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
                       // marginBottom 是为了和 FormItem 统一让下方保留一个 24px 的距离
                       marginBottom: 24,
                     }}
+                    collapseRender={items.length - 1 >= showLength ? undefined : false}
                   />
                 </Col>
               )}

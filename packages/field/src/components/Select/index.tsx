@@ -1,6 +1,8 @@
 import React, { ReactNode, useState, useImperativeHandle, useEffect, useRef } from 'react';
 import { Select, Spin } from 'antd';
 import { ProSchemaValueEnumMap, ProSchemaValueEnumObj } from '@ant-design/pro-utils';
+import { useIntl } from '@ant-design/pro-provider';
+
 import TableStatus, { ProFieldStatusType } from '../Status';
 import { ProFieldFC } from '../../index';
 
@@ -215,7 +217,7 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
     ...rest
   } = props;
   const inputRef = useRef();
-
+  const intl = useIntl();
   const [loading, options, fetchData] = useFetchData(props);
   useImperativeHandle(ref, () => ({
     ...(inputRef.current || {}),
@@ -247,6 +249,7 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
         loading={loading}
         ref={inputRef}
         allowClear
+        placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
         {...rest}
         options={options}
         {...formItemProps}

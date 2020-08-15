@@ -21,9 +21,12 @@ const ProFormText = React.forwardRef<
       text={fieldProps?.value as string}
       ref={ref}
       mode="edit"
-      formItemProps={fieldProps}
       valueType={(valueType as 'text') || 'text'}
       {...restProps}
+      formItemProps={{
+        ...fieldProps,
+        ...(restProps.formItemProps || {}),
+      }}
     />
   </Form.Item>
 ));
@@ -31,6 +34,13 @@ const ProFormText = React.forwardRef<
 // @ts-ignore
 ProFormText.type = 'ProField';
 
-export default createField<ProSchema<string, ProFieldValueType, ProFormItemProps<InputProps>>>(
-  ProFormText,
-);
+export default createField<
+  ProSchema<
+    string,
+    ProFieldValueType,
+    ProFormItemProps<InputProps> & {
+      ref?: any;
+      plain?: boolean;
+    }
+  >
+>(ProFormText);

@@ -173,25 +173,25 @@ export default () => (
     headerTitle="自定义动态表格"
     search={{
       collapsed: false,
-      optionRender: ({ searchText, resetText }, { form }) => (
-        <>
-          <a
-            onClick={() => {
-              form.submit();
-            }}
-          >
-            {searchText}
-          </a>{' '}
-          <a
-            onClick={() => {
-              form.resetFields();
-            }}
-          >
-            {resetText}
-          </a>{' '}
-          <a>导出</a>
-        </>
-      ),
+      optionRender: ({ searchText, resetText }, { form }) => [
+        <a
+          key="search"
+          onClick={() => {
+            form?.submit();
+          }}
+        >
+          {searchText}
+        </a>,
+        <a
+          key="rest"
+          onClick={() => {
+            form?.resetFields();
+          }}
+        >
+          {resetText}
+        </a>,
+        <a key="out">导出</a>,
+      ],
     }}
     toolBarRender={() => [
       <Button key="3" type="primary">

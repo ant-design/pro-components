@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { Form } from 'antd';
 import { FormProps } from 'antd/lib/form/Form';
 import { FormItemProps } from 'antd/lib/form';
@@ -14,7 +14,10 @@ export interface CommonFormProps {
 }
 
 export interface BaseFormProps extends FormProps, CommonFormProps {
-  contentRender?: (items: React.ReactNode[], submitter: React.ReactNode) => React.ReactNode;
+  contentRender?: (
+    items: React.ReactNode[],
+    submitter: ReactElement<Omit<SubmitterProps, 'form'>> | undefined,
+  ) => React.ReactNode;
   fieldProps?: FieldProps;
   formItemProps?: FormItemProps;
   groupProps?: GroupProps;
@@ -75,7 +78,7 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
     typeof submitter === 'boolean' || !submitter ? {} : submitter;
 
   const submitterNode =
-    submitter === false ? null : <Submitter {...submitterProps} form={realForm} />;
+    submitter === false ? undefined : <Submitter {...submitterProps} form={realForm} />;
 
   const content = contentRender ? contentRender(items, submitterNode) : items;
   return (

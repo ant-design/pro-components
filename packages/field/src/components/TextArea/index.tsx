@@ -1,5 +1,6 @@
 import { Input } from 'antd';
 import React from 'react';
+import { useIntl } from '@ant-design/pro-provider';
 
 import { ProFieldFC } from '../../index';
 
@@ -10,6 +11,7 @@ import { ProFieldFC } from '../../index';
 const FieldTextArea: ProFieldFC<{
   text: string;
 }> = ({ text, mode, render, renderFormItem, formItemProps }, ref) => {
+  const intl = useIntl();
   if (mode === 'read') {
     const dom = <span ref={ref}>{text || '-'}</span>;
     if (render) {
@@ -18,7 +20,13 @@ const FieldTextArea: ProFieldFC<{
     return dom;
   }
   if (mode === 'edit' || mode === 'update') {
-    const dom = <Input.TextArea ref={ref} {...formItemProps} />;
+    const dom = (
+      <Input.TextArea
+        placeholder={intl.getMessage('tableForm.inputPlaceholder', '请输入')}
+        ref={ref}
+        {...formItemProps}
+      />
+    );
     if (renderFormItem) {
       return renderFormItem(text, { mode, ...formItemProps }, dom);
     }

@@ -83,11 +83,11 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | collapseRender | 收起按钮的 render | `(collapsed: boolean,showCollapseButton?: boolean,) => React.ReactNode` | - |
 | collapsed | 是否收起 | boolean | - |
 | onCollapse | 收起按钮的事件 | `(collapsed: boolean) => void;` | - |
-| optionRender | 操作栏的 render | `(( searchConfig: Omit<SearchConfig, 'optionRender'>, props: Omit<FormOptionProps, 'searchConfig'>, ) => React.ReactNode) \| false;` | - |
+| optionRender | 操作栏的 render | `(( searchConfig: Omit<SearchConfig, 'optionRender'>, props: Omit<FormOptionProps, 'searchConfig'>, ) => React.ReactNode[]) \| false;` | - |
 
 #### ColConfig
 
-```tsx
+```tsx | pure
 const defaultColConfig = {
   xs: 24,
   sm: 24,
@@ -285,12 +285,6 @@ interface IValueEnum {
 ## 批量操作
 
 与 antd 相同，批量操作需要设置 `rowSelection` 来开启，与 antd 不同的是，pro-table 提供了一个 alert 用于承载一些信息。你可以通过 `tableAlertRender` 来对它进行自定义。设置或者返回 false 即可关闭。
-
-| 属性 | 描述 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| tableAlertRender | 渲染 alert，当配置 `rowSelection`打开。 | `(keys:string[],rows:T[]) => React.ReactNode[]` | `已选择 ${selectedRowKeys.length} 项` |
-| rowSelection | 表格行是否可选择，[配置项](https://ant.design/components/table-cn/#rowSelection) | object | false |
-| tableAlertOptionRender | 自定义渲染 alert 操作区，设为 false 则不显示 | `(props: { intl: IntlType; onCleanSelected: () => void }) => React.ReactNode` | false |
 
 ## 搜索表单
 

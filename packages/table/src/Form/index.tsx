@@ -1,128 +1,18 @@
 import React, { useState, useContext, useEffect, useRef, useCallback } from 'react';
 import { FormInstance, FormItemProps, FormProps } from 'antd/lib/form';
-import { Form, Row, Col } from 'antd';
+import { Form } from 'antd';
 import moment, { Moment } from 'moment';
-import RcResizeObserver from 'rc-resize-observer';
-import useMediaQuery from 'use-media-antd-query';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { ConfigContext } from 'antd/lib/config-provider';
-import { DownOutlined } from '@ant-design/icons';
 import { useIntl, IntlType } from '@ant-design/pro-provider';
+import ProForm, { QueryFilter, ProFormText, BaseQueryFilterProps } from '@ant-design/pro-form';
 import classNames from 'classnames';
-import ProField, { ProFieldValueType } from '@ant-design/pro-field';
+import { ProFieldValueType } from '@ant-design/pro-field';
+import { ConfigContext } from 'antd/lib/config-provider/context';
 import { useDeepCompareEffect, ProSchemaComponentTypes } from '@ant-design/pro-utils';
 
 import { genColumnKey } from '../utils';
 import Container from '../container';
 import { ProColumns, ProColumnsValueType } from '../index';
-import FormOption, { FormOptionProps } from './FormOption';
 import './index.less';
-
-/**
- * 默认的查询表单配置
- */
-const defaultColConfig = {
-  xs: 24,
-  sm: 24,
-  md: 12,
-  lg: 12,
-  xl: 8,
-  xxl: 6,
-};
-
-/**
- * 默认的新建表单配置
- */
-const defaultFormColConfig = {
-  xs: 24,
-  sm: 24,
-  md: 24,
-  lg: 24,
-  xl: 24,
-  xxl: 24,
-};
-
-/**
- * 用于配置操作栏
- */
-export interface SearchConfig {
-  /**
-   * 查询按钮的文本
-   */
-  searchText?: string;
-  /**
-   * 重置按钮的文本
-   */
-  resetText?: string;
-
-  /**
-   * 配置列数
-   */
-  span?: number | typeof defaultColConfig;
-  /**
-   * 收起按钮的 render
-   */
-  collapseRender?: (
-    collapsed: boolean,
-    /**
-     * 是否应该展示，有两种情况
-     * 列只有三列，不需要收起
-     * form 模式 不需要收起
-     */
-    showCollapseButton?: boolean,
-  ) => React.ReactNode;
-  /**
-   * 底部操作栏的 render
-   * searchConfig 基础的配置
-   * props 更加详细的配置
-   * {
-      type?: 'form' | 'list' | 'table' | 'cardList' | undefined;
-      form: FormInstance;
-      submit: () => void;
-      collapse: boolean;
-      setCollapse: (collapse: boolean) => void;
-      showCollapseButton: boolean;
-   * }
-   */
-  optionRender?:
-    | ((
-        searchConfig: Omit<SearchConfig, 'optionRender'>,
-        props: Omit<FormOptionProps, 'searchConfig'>,
-      ) => React.ReactNode)
-    | false;
-  /**
-   * 是否收起
-   */
-  collapsed?: boolean;
-  /**
-   * 收起按钮的事件
-   */
-  onCollapse?: (collapsed: boolean) => void;
-  /**
-   * 提交按钮的文本
-   */
-  submitText?: string;
-}
-
-/**
- * 获取最后一行的 offset，保证在最后一列
- * @param length
- * @param span
- */
-const getOffset = (length: number, span: number = 8) => {
-  const cols = 24 / span;
-  return (cols - 1 - (length % cols)) * span;
-};
-
-/**
- * 默认的设置
- */
-const defaultSearch: SearchConfig = {
-  searchText: '查询',
-  resetText: '重置',
-  span: defaultColConfig,
-  collapseRender: (collapsed: boolean) => (collapsed ? '展开' : '收起'),
-};
 
 export interface TableFormItem<T> extends Omit<FormItemProps, 'children'> {
   onSubmit?: (value: T) => void;
@@ -130,9 +20,11 @@ export interface TableFormItem<T> extends Omit<FormItemProps, 'children'> {
   form?: Omit<FormProps, 'form'>;
   type?: ProSchemaComponentTypes;
   dateFormatter?: 'string' | 'number' | false;
-  search?: boolean | SearchConfig;
+  search?: false | BaseQueryFilterProps;
   formRef?: React.MutableRefObject<FormInstance | undefined> | ((actionRef: FormInstance) => void);
 }
+
+export type SearchConfig = BaseQueryFilterProps;
 
 export const formInputRender: React.FC<{
   item: ProColumns<any>;
@@ -142,9 +34,10 @@ export const formInputRender: React.FC<{
   intl: IntlType;
   onChange?: (value: any) => void;
   onSelect?: (value: any) => void;
+  [key: string]: any;
 }> = (props, ref: any) => {
   const { item, intl, form, type, ...rest } = props;
-  const { valueType: itemValueType } = item;
+  const { valueType: itemValueType = 'text' } = item;
   // if function， run it
   const valueType =
     ((typeof itemValueType === 'function'
@@ -182,39 +75,19 @@ export const formInputRender: React.FC<{
     return React.cloneElement(dom, { ...rest, ...defaultProps });
   }
 
-  if (!valueType || valueType === 'text') {
-    const { valueEnum } = item;
-    if (valueEnum) {
-      return (
-        <ProField
-          valueEnum={valueEnum}
-          valueType={valueType}
-          ref={ref}
-          plain={type !== 'form'}
-          mode="edit"
-          allowClear
-          style={{
-            width: '100%',
-          }}
-          formItemProps={{
-            style: { width: '100%' },
-            ...item.formItemProps,
-          }}
-          placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
-          {...rest}
-        />
-      );
-    }
-  }
-
-  if (valueType === 'dateTime' || valueType === 'date' || valueType === 'time') {
+  if (
+    valueType === 'dateTime' ||
+    valueType === 'date' ||
+    valueType === 'time' ||
+    (valueType === 'text' && item.valueEnum)
+  ) {
     return (
-      <ProField
+      <ProFormText
         ref={ref}
-        mode="edit"
+        valueEnum={item.valueEnum}
         valueType={valueType}
         formItemProps={{
-          style: { width: '100%' },
+          allowClear: true,
           placeholder: intl.getMessage('tableForm.selectPlaceholder', '请选择'),
           ...item.formItemProps,
         }}
@@ -225,12 +98,10 @@ export const formInputRender: React.FC<{
 
   if (valueType === 'dateTimeRange' || valueType === 'dateRange') {
     return (
-      <ProField
+      <ProFormText
         ref={ref}
-        mode="edit"
         valueType={valueType}
         formItemProps={{
-          style: { width: '100%' },
           placeholder: [
             intl.getMessage('tableForm.selectPlaceholder', '请选择'),
             intl.getMessage('tableForm.selectPlaceholder', '请选择'),
@@ -242,14 +113,9 @@ export const formInputRender: React.FC<{
     );
   }
   return (
-    <ProField
-      mode="edit"
+    <ProFormText
       ref={ref}
-      formItemProps={{
-        placeholder: intl.getMessage('tableForm.inputPlaceholder', '请输入'),
-        style: { width: '100%' },
-        ...item.formItemProps,
-      }}
+      formItemProps={item.formItemProps}
       // valueType = textarea，但是在 查询表单这里，应该是个 input 框
       valueType={!valueType || valueType === 'textarea' ? 'text' : valueType}
       plain={type !== 'form'}
@@ -264,20 +130,7 @@ export const proFormItemRender: (props: {
   type: ProSchemaComponentTypes;
   intl: IntlType;
   formInstance?: FormInstance;
-  colConfig:
-    | {
-        lg: number;
-        md: number;
-        xxl: number;
-        xl: number;
-        sm: number;
-        xs: number;
-      }
-    | {
-        span: number;
-      }
-    | undefined;
-}) => null | JSX.Element = ({ item, intl, formInstance, type, isForm, colConfig }) => {
+}) => null | JSX.Element = ({ item, intl, formInstance, type }) => {
   const {
     valueType,
     dataIndex,
@@ -295,16 +148,6 @@ export const proFormItemRender: (props: {
     index,
     ...rest
   } = item;
-  const key = genColumnKey(rest.key, index);
-  const dom = formInputRender({
-    item,
-    type,
-    intl,
-    form: formInstance,
-  });
-  if (!dom) {
-    return null;
-  }
 
   // 支持 function 的 title
   const getTitle = () => {
@@ -313,18 +156,18 @@ export const proFormItemRender: (props: {
     }
     return rest.title;
   };
-  return (
-    <Col {...colConfig} key={key}>
-      <Form.Item
-        labelAlign="right"
-        label={getTitle()}
-        name={Array.isArray(dataIndex) ? dataIndex : dataIndex || key}
-        {...(isForm && rest)}
-      >
-        {dom}
-      </Form.Item>
-    </Col>
-  );
+  const dom = formInputRender({
+    item,
+    type,
+    intl,
+    form: formInstance,
+    label: getTitle(),
+  });
+  if (!dom) {
+    return null;
+  }
+
+  return dom;
 };
 
 const dateFormatterMap = {
@@ -430,80 +273,14 @@ const conversionValue = (
   return tmpValue;
 };
 
-const getDefaultSearch = (
-  search: boolean | SearchConfig | undefined,
-  intl: IntlType,
-  isForm: boolean,
-): SearchConfig => {
-  const config = {
-    collapseRender: (collapsed: boolean) => {
-      if (collapsed) {
-        return (
-          <>
-            {intl.getMessage('tableForm.collapsed', '展开')}
-            <DownOutlined
-              style={{
-                marginLeft: '0.5em',
-                transition: '0.3s all',
-                transform: `rotate(${collapsed ? 0 : 0.5}turn)`,
-              }}
-            />
-          </>
-        );
-      }
-      return (
-        <>
-          {intl.getMessage('tableForm.expand', '收起')}
-          <DownOutlined
-            style={{
-              marginLeft: '0.5em',
-              transition: '0.3s all',
-              transform: `rotate(${collapsed ? 0 : 0.5}turn)`,
-            }}
-          />
-        </>
-      );
-    },
-    searchText: intl.getMessage('tableForm.search', defaultSearch.searchText || '查询'),
-    resetText: intl.getMessage('tableForm.reset', defaultSearch.resetText || '重置'),
-    submitText: intl.getMessage('tableForm.submit', defaultSearch.submitText || '提交'),
-    span: isForm ? defaultFormColConfig : defaultColConfig,
-  };
-
-  if (search === undefined || search === true) {
-    return config;
-  }
-
-  return { ...config, ...search } as Required<SearchConfig>;
-};
-
-/**
- * 合并用户和默认的配置
- * @param span
- * @param size
- */
-const getSpanConfig = (
-  span: number | typeof defaultColConfig,
-  size: keyof typeof defaultColConfig,
-): number => {
-  if (typeof span === 'number') {
-    return span;
-  }
-  const config = {
-    ...defaultColConfig,
-    ...span,
-  };
-  return config[size];
-};
-
 const FormSearch = <T, U = any>({
   onSubmit,
   formRef,
   dateFormatter = 'string',
-  search: propsSearch,
   type,
-  form: formConfig = {},
   onReset,
+  search: searchConfig,
+  form: formConfig = {},
 }: TableFormItem<T>) => {
   /**
    * 为了支持 dom 的消失，支持了这个 api
@@ -512,14 +289,8 @@ const FormSearch = <T, U = any>({
 
   const [form] = Form.useForm();
   const formInstanceRef = useRef<FormInstance | undefined>(form as any);
-  const searchConfig = getDefaultSearch(propsSearch, intl, type === 'form');
-  const { span } = searchConfig;
 
   const counter = Container.useContainer();
-  const [collapse, setCollapse] = useMergedState<boolean>(true, {
-    value: searchConfig.collapsed,
-    onChange: searchConfig.onCollapse,
-  });
   const [proColumnsMap, setProColumnsMap] = useState<{
     [key: string]: ProColumns<any>;
   }>({});
@@ -527,11 +298,6 @@ const FormSearch = <T, U = any>({
   // 这么做是为了在用户修改了输入的时候触发一下子节点的render
   const [, updateState] = React.useState();
   const forceUpdate = useCallback(() => updateState({}), []);
-
-  const windowSize = useMediaQuery();
-  const [colSize, setColSize] = useState(getSpanConfig(span || 8, windowSize));
-  const [formHeight, setFormHeight] = useState<number | undefined>(88);
-  const rowNumber = 24 / colSize || 3;
 
   const isForm = type === 'form';
 
@@ -576,14 +342,6 @@ const FormSearch = <T, U = any>({
     }
   }, []);
 
-  useEffect(() => {
-    const newSize = getSpanConfig(span || 8, windowSize);
-    if (newSize === colSize) {
-      return;
-    }
-    setColSize(getSpanConfig(span || 8, windowSize));
-  }, [windowSize]);
-
   useDeepCompareEffect(() => {
     if (counter.proColumns.length < 1) {
       return;
@@ -594,6 +352,9 @@ const FormSearch = <T, U = any>({
     });
     setProColumnsMap(tempMap);
   }, [counter.proColumns]);
+
+  const { getPrefixCls } = useContext(ConfigContext);
+
   const columnsList = counter.proColumns
     .filter((item) => {
       const { valueType } = item;
@@ -626,8 +387,6 @@ const FormSearch = <T, U = any>({
       return 0;
     });
 
-  const colConfig = typeof span === 'number' ? { span } : span;
-
   const domList = columnsList
     .map((item, index) =>
       proFormItemRender({
@@ -639,101 +398,49 @@ const FormSearch = <T, U = any>({
           ...item,
         },
         type,
-        colConfig,
         intl,
       }),
     )
-    .filter((_, index) => (collapse && type !== 'form' ? index < (rowNumber - 1 || 1) : true))
     .filter((item) => !!item);
 
-  const { getPrefixCls } = useContext(ConfigContext);
   const className = getPrefixCls('pro-table-search');
   const formClassName = getPrefixCls('pro-table-form');
+  const FormCompetent = isForm ? ProForm : QueryFilter;
   return (
     <div
       className={classNames(className, {
         [formClassName]: isForm,
       })}
-      style={
-        isForm
-          ? undefined
-          : {
-              height: formHeight,
-            }
-      }
     >
-      <RcResizeObserver
-        onResize={({ height }) => {
-          if (type === 'form') {
-            return;
-          }
-          setFormHeight(height + 24);
+      <FormCompetent
+        {...(searchConfig || {})}
+        {...formConfig}
+        form={form}
+        onValuesChange={() => {
+          forceUpdate();
         }}
+        onReset={onReset}
+        onFinish={() => {
+          submit();
+        }}
+        defaultCollapsed
+        initialValues={columnsList.reduce(
+          (pre, item) => {
+            const key = item.key || (item.dataIndex as string);
+            if (item.initialValue) {
+              return {
+                ...pre,
+                [key]: item.initialValue,
+              };
+            }
+            return pre;
+          },
+          { ...formConfig.initialValues },
+        )}
+        labelWidth={searchConfig ? searchConfig?.labelWidth : 80}
       >
-        <div>
-          <Form
-            {...formConfig}
-            form={form}
-            onValuesChange={() => {
-              forceUpdate();
-            }}
-            initialValues={columnsList.reduce(
-              (pre, item) => {
-                const key = item.key || (item.dataIndex as string);
-                if (item.initialValue) {
-                  return {
-                    ...pre,
-                    [key]: item.initialValue,
-                  };
-                }
-                return pre;
-              },
-              { ...formConfig.initialValues },
-            )}
-          >
-            <Form.Item shouldUpdate noStyle>
-              {(formInstance) => {
-                setTimeout(() => {
-                  formInstanceRef.current = formInstance as FormInstance;
-                }, 0);
-                return null;
-              }}
-            </Form.Item>
-            <Row gutter={16} justify="start">
-              <Form.Item label={isForm && ' '} shouldUpdate noStyle>
-                <>{domList}</>
-              </Form.Item>
-              <Col
-                {...colConfig}
-                offset={getOffset(domList.length, colSize)}
-                key="option"
-                className={classNames(`${className}-option`, {
-                  [`${className}-form-option`]: isForm,
-                })}
-              >
-                <Form.Item label={isForm && ' '}>
-                  <FormOption
-                    showCollapseButton={columnsList.length > rowNumber - 1 && !isForm}
-                    searchConfig={searchConfig}
-                    submit={submit}
-                    onReset={onReset}
-                    form={{
-                      ...form,
-                      submit: () => {
-                        submit();
-                        form.submit();
-                      },
-                    }}
-                    type={type}
-                    collapse={collapse}
-                    setCollapse={setCollapse}
-                  />
-                </Form.Item>
-              </Col>
-            </Row>
-          </Form>
-        </div>
-      </RcResizeObserver>
+        {domList}
+      </FormCompetent>
     </div>
   );
 };

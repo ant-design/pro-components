@@ -5,6 +5,7 @@ import isImg from './isImg';
 import isUrl from './isUrl';
 import pickProProps from './pickProProps';
 import pickUndefined from './pickUndefined';
+import pickUndefinedAndArray from './pickUndefinedAndArray';
 
 /**
  * hooks
@@ -38,6 +39,7 @@ export {
   useDocumentTitle,
   isImg,
   pickUndefined,
+  pickUndefinedAndArray,
   isUrl,
   isBrowser,
   usePrevious,
