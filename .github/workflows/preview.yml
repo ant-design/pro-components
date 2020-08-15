@@ -13,5 +13,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           build: |
             yarn
-            npm run build
+            npm run site
           dist: dist
