@@ -22,12 +22,13 @@ export interface BaseMenuProps
   className?: string;
   collapsed?: boolean;
   splitMenus?: boolean;
-  handleOpenChange?: (openKeys: string[]) => void;
   isMobile?: boolean;
   menuData?: MenuDataItem[];
   mode?: MenuMode;
   onCollapse?: (collapsed: boolean) => void;
   openKeys?: WithFalse<string[]> | undefined;
+  handleOpenChange?: (openKeys: string[]) => void;
+
   /**
    * 要给菜单的props, 参考antd-menu的属性。https://ant.design/components/menu-cn/
    */
