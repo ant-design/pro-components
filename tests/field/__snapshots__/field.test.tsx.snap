@@ -107,6 +107,7 @@ exports[`Field 🥩 edit and plain 1`] = `
             >
               <input
                 class="ant-input"
+                placeholder="请输入"
                 type="text"
                 value=""
               />
@@ -505,7 +506,9 @@ exports[`Field 🥩 edit and plain 1`] = `
                   </span>
                   <span
                     class="ant-select-selection-placeholder"
-                  />
+                  >
+                    请选择
+                  </span>
                 </div>
                 <span
                   aria-hidden="true"
@@ -581,7 +584,9 @@ exports[`Field 🥩 edit and plain 1`] = `
                   </span>
                   <span
                     class="ant-select-selection-placeholder"
-                  />
+                  >
+                    请选择
+                  </span>
                 </div>
                 <span
                   aria-hidden="true"
@@ -1150,6 +1155,7 @@ exports[`Field 🥩 edit ant no plain 1`] = `
             >
               <input
                 class="ant-input"
+                placeholder="请输入"
                 type="text"
                 value=""
               />
@@ -1548,7 +1554,9 @@ exports[`Field 🥩 edit ant no plain 1`] = `
                   </span>
                   <span
                     class="ant-select-selection-placeholder"
-                  />
+                  >
+                    请选择
+                  </span>
                 </div>
                 <span
                   aria-hidden="true"
@@ -1624,7 +1632,9 @@ exports[`Field 🥩 edit ant no plain 1`] = `
                   </span>
                   <span
                     class="ant-select-selection-placeholder"
-                  />
+                  >
+                    请选择
+                  </span>
                 </div>
                 <span
                   aria-hidden="true"
