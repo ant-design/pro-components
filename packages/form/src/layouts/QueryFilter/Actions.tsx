@@ -32,7 +32,7 @@ export interface ActionsProps {
     | false;
 }
 
-const defaultCollapseRender: ActionsProps['collapseRender'] = (collapsed, props) => {
+const defaultCollapseRender: ActionsProps['collapseRender'] = (collapsed) => {
   if (collapsed) {
     return (
       <>
