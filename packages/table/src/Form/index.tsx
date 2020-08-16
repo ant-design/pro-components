@@ -46,6 +46,7 @@ export const formInputRender: React.FC<{
     ((typeof itemValueType === 'function'
       ? (itemValueType({}) as ProFieldValueType)
       : itemValueType) as ProFieldValueType) || 'text';
+
   /**
    * 自定义 render
    */
@@ -78,44 +79,6 @@ export const formInputRender: React.FC<{
     return React.cloneElement(dom, { ...rest, ...defaultProps });
   }
 
-  if (
-    valueType === 'dateTime' ||
-    valueType === 'date' ||
-    valueType === 'time' ||
-    (valueType === 'text' && item.valueEnum)
-  ) {
-    return (
-      <ProFormText
-        ref={ref}
-        name={item.dataIndex}
-        valueEnum={item.valueEnum}
-        valueType={valueType}
-        formItemProps={{
-          allowClear: true,
-          placeholder: intl.getMessage('tableForm.selectPlaceholder', '请选择'),
-          ...item.formItemProps,
-        }}
-        {...rest}
-      />
-    );
-  }
-
-  if (valueType === 'dateTimeRange' || valueType === 'dateRange') {
-    return (
-      <ProFormText
-        ref={ref}
-        valueType={valueType}
-        formItemProps={{
-          placeholder: [
-            intl.getMessage('tableForm.selectPlaceholder', '请选择'),
-            intl.getMessage('tableForm.selectPlaceholder', '请选择'),
-          ],
-          ...item.formItemProps,
-        }}
-        {...rest}
-      />
-    );
-  }
   return (
     <ProFormText
       ref={ref}

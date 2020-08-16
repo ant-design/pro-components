@@ -1,6 +1,7 @@
 import { DatePicker } from 'antd';
 import React from 'react';
 import moment from 'moment';
+import { useIntl } from '@ant-design/pro-provider';
 
 import { ProFieldFC } from '../../index';
 
@@ -16,6 +17,7 @@ const FieldDatePicker: ProFieldFC<{
   { text, mode, format = 'YYYY-MM-DD', render, renderFormItem, plain, showTime, formItemProps },
   ref,
 ) => {
+  const intl = useIntl();
   if (mode === 'read') {
     const dom = <span ref={ref}>{text ? moment(text).format(format) : '-'}</span>;
     if (render) {
@@ -29,6 +31,7 @@ const FieldDatePicker: ProFieldFC<{
         showTime={showTime}
         format={format}
         ref={ref}
+        placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
         bordered={plain === undefined ? true : !plain}
         {...formItemProps}
       />
