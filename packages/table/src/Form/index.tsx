@@ -82,6 +82,7 @@ export const formInputRender: React.FC<{
   return (
     <ProFormText
       ref={ref}
+      valueEnum={item.valueEnum}
       name={item.dataIndex}
       formItemProps={item.formItemProps}
       // valueType = textarea，但是在 查询表单这里，应该是个 input 框

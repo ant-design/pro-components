@@ -149,7 +149,7 @@ exports[`BasicTable 🎏  do not render default option 1`] = `
                     type="button"
                   >
                     <span>
-                      提 交
+                      查 询
                     </span>
                   </button>
                 </div>
@@ -825,7 +825,7 @@ exports[`BasicTable 🎏  do not render setting 1`] = `
                     type="button"
                   >
                     <span>
-                      提 交
+                      查 询
                     </span>
                   </button>
                 </div>
@@ -1439,6 +1439,7 @@ exports[`BasicTable 🎏 base use 1`] = `
             >
               <label
                 class=""
+                for="name"
                 title=""
               >
                 Name
@@ -1475,6 +1476,7 @@ exports[`BasicTable 🎏 base use 1`] = `
           >
             <label
               class=""
+              for="name"
               title=""
             >
               Textarea
@@ -1510,6 +1512,7 @@ exports[`BasicTable 🎏 base use 1`] = `
           >
             <label
               class=""
+              for="sex"
               title=""
             >
               sex
@@ -1529,6 +1532,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                   hidden=""
                   label="[object Object]"
                   labelcol="[object Object]"
+                  name="sex"
                   style="width: 100%;"
                   text=""
                   title="sex"
@@ -1540,14 +1544,14 @@ exports[`BasicTable 🎏 base use 1`] = `
                       class="ant-select-selection-search"
                     >
                       <input
-                        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+                        aria-activedescendant="sex_list_0"
                         aria-autocomplete="list"
-                        aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-controls="sex_list"
                         aria-haspopup="listbox"
-                        aria-owns="rc_select_TEST_OR_SSR_list"
+                        aria-owns="sex_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
-                        id="rc_select_TEST_OR_SSR"
+                        id="sex"
                         readonly=""
                         role="combobox"
                         style="opacity: 0;"
@@ -1603,6 +1607,7 @@ exports[`BasicTable 🎏 base use 1`] = `
           >
             <label
               class=""
+              for="status"
               title=""
             >
               状态
@@ -1622,6 +1627,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                   hidden=""
                   label="[object Object]"
                   labelcol="[object Object]"
+                  name="status"
                   style="width: 100%;"
                   text=""
                   title="状态"
@@ -1633,14 +1639,14 @@ exports[`BasicTable 🎏 base use 1`] = `
                       class="ant-select-selection-search"
                     >
                       <input
-                        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+                        aria-activedescendant="status_list_0"
                         aria-autocomplete="list"
-                        aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-controls="status_list"
                         aria-haspopup="listbox"
-                        aria-owns="rc_select_TEST_OR_SSR_list"
+                        aria-owns="status_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
-                        id="rc_select_TEST_OR_SSR"
+                        id="status"
                         readonly=""
                         role="combobox"
                         style="opacity: 0;"
@@ -1696,6 +1702,7 @@ exports[`BasicTable 🎏 base use 1`] = `
           >
             <label
               class=""
+              for="age"
               title=""
             >
               Age
@@ -1731,6 +1738,7 @@ exports[`BasicTable 🎏 base use 1`] = `
           >
             <label
               class=""
+              for="address"
               title=""
             >
               Address
@@ -1766,6 +1774,7 @@ exports[`BasicTable 🎏 base use 1`] = `
           >
             <label
               class=""
+              for="money"
               title=""
             >
               money
@@ -1879,6 +1888,7 @@ exports[`BasicTable 🎏 base use 1`] = `
           >
             <label
               class=""
+              for="date"
               title=""
             >
               dateTime
@@ -1894,7 +1904,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-picker"
+                  class="ant-picker ant-picker-borderless"
                   style="width: 100%;"
                 >
                   <div
@@ -1948,6 +1958,7 @@ exports[`BasicTable 🎏 base use 1`] = `
           >
             <label
               class=""
+              for="date"
               title=""
             >
               time
@@ -1963,7 +1974,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-picker"
+                  class="ant-picker ant-picker-borderless"
                   style="width: 100%;"
                 >
                   <div
@@ -1971,7 +1982,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                   >
                     <input
                       autocomplete="off"
-                      placeholder="请选择"
+                      placeholder="Select time"
                       readonly=""
                       size="10"
                       title=""
@@ -2020,6 +2031,7 @@ exports[`BasicTable 🎏 base use 1`] = `
           >
             <label
               class=""
+              for="status"
               title=""
             >
               状态
@@ -2081,7 +2093,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                     type="button"
                   >
                     <span>
-                      提 交
+                      查 询
                     </span>
                   </button>
                 </div>

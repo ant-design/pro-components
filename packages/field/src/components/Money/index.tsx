@@ -59,10 +59,11 @@ export type FieldMoneyProps = {
  * }
  */
 const FieldMoney: ProFieldFC<FieldMoneyProps> = (
-  { text, mode: type, moneySymbol = '￥', locale = '', render, renderFormItem, formItemProps },
+  { text, mode: type, locale = '', render, renderFormItem, formItemProps, ...rest },
   ref,
 ) => {
   const intl = useIntl();
+  const moneySymbol = intl.getMessage('moneySymbol', rest.moneySymbol || '￥');
   if (type === 'read') {
     const dom = <span ref={ref}>{getTextByLocale(locale || intl.locale, text)}</span>;
     if (render) {
@@ -78,20 +79,12 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
         precision={2}
         formatter={(value) => {
           if (value) {
-            return `${intl.getMessage('moneySymbol', moneySymbol)} ${value}`.replace(
-              /\B(?=(\d{3})+(?!\d))/g,
-              ',',
-            );
+            return `${moneySymbol} ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
           }
           return '';
         }}
         parser={(value) =>
-          value
-            ? value.replace(
-                new RegExp(`\\${intl.getMessage('moneySymbol', moneySymbol)}\\s?|(,*)`, 'g'),
-                '',
-              )
-            : ''
+          value ? value.replace(new RegExp(`\\${moneySymbol}\\s?|(,*)`, 'g'), '') : ''
         }
         style={{
           width: '100%',

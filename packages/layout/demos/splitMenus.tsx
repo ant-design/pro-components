@@ -1,6 +1,6 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
-import ProLayout from '@ant-design/pro-layout';
+import ProLayout, { SettingDrawer } from '@ant-design/pro-layout';
 import defaultProps from '../fixtures/defaultProps';
 
 export default () => {
@@ -33,6 +33,7 @@ export default () => {
           height: 500,
         }}
       />
+      <SettingDrawer collapse />
     </>
   );
 };

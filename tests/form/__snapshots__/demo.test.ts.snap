@@ -174,7 +174,7 @@ exports[`form demos renders ./packages/form/demos/base.tsx correctly 1`] = `
             >
               <input
                 autocomplete="off"
-                placeholder="Select date"
+                placeholder="请选择"
                 readonly=""
                 size="12"
                 title=""
@@ -255,7 +255,7 @@ exports[`form demos renders ./packages/form/demos/base.tsx correctly 1`] = `
                   >
                     <input
                       autocomplete="off"
-                      placeholder="Start date"
+                      placeholder="请选择"
                       readonly=""
                       size="21"
                       value=""
@@ -295,7 +295,7 @@ exports[`form demos renders ./packages/form/demos/base.tsx correctly 1`] = `
                   >
                     <input
                       autocomplete="off"
-                      placeholder="End date"
+                      placeholder="请选择"
                       readonly=""
                       size="21"
                       value=""
@@ -370,7 +370,7 @@ exports[`form demos renders ./packages/form/demos/base.tsx correctly 1`] = `
                   >
                     <input
                       autocomplete="off"
-                      placeholder="Start date"
+                      placeholder="请选择"
                       readonly=""
                       size="21"
                       value=""
@@ -410,7 +410,7 @@ exports[`form demos renders ./packages/form/demos/base.tsx correctly 1`] = `
                   >
                     <input
                       autocomplete="off"
-                      placeholder="End date"
+                      placeholder="请选择"
                       readonly=""
                       size="21"
                       value=""
@@ -574,7 +574,7 @@ exports[`form demos renders ./packages/form/demos/base.tsx correctly 1`] = `
             >
               <input
                 autocomplete="off"
-                placeholder="Select date"
+                placeholder="请选择"
                 readonly=""
                 size="21"
                 title=""
@@ -2253,7 +2253,7 @@ exports[`form demos renders ./packages/form/demos/query-filter.tsx correctly 1`]
                 >
                   <input
                     autocomplete="off"
-                    placeholder="Select date"
+                    placeholder="请选择"
                     readonly=""
                     size="12"
                     title=""
@@ -2328,7 +2328,7 @@ exports[`form demos renders ./packages/form/demos/query-filter.tsx correctly 1`]
                 >
                   <input
                     autocomplete="off"
-                    placeholder="Start date"
+                    placeholder="请选择"
                     readonly=""
                     size="21"
                     value=""
@@ -2368,7 +2368,7 @@ exports[`form demos renders ./packages/form/demos/query-filter.tsx correctly 1`]
                 >
                   <input
                     autocomplete="off"
-                    placeholder="End date"
+                    placeholder="请选择"
                     readonly=""
                     size="21"
                     value=""
@@ -2444,7 +2444,7 @@ exports[`form demos renders ./packages/form/demos/query-filter.tsx correctly 1`]
                 type="button"
               >
                 <span>
-                  提 交
+                  查 询
                 </span>
               </button>
             </div>
@@ -2567,7 +2567,7 @@ exports[`form demos renders ./packages/form/demos/query-filter-collapsed.tsx cor
               >
                 <input
                   autocomplete="off"
-                  placeholder="Select date"
+                  placeholder="请选择"
                   readonly=""
                   size="12"
                   title=""
@@ -2673,7 +2673,7 @@ exports[`form demos renders ./packages/form/demos/query-filter-collapsed.tsx cor
               >
                 <input
                   autocomplete="off"
-                  placeholder="Select date"
+                  placeholder="请选择"
                   readonly=""
                   size="12"
                   title=""
@@ -2743,7 +2743,7 @@ exports[`form demos renders ./packages/form/demos/query-filter-collapsed.tsx cor
               >
                 <input
                   autocomplete="off"
-                  placeholder="Select date"
+                  placeholder="请选择"
                   readonly=""
                   size="12"
                   title=""
@@ -2815,7 +2815,7 @@ exports[`form demos renders ./packages/form/demos/query-filter-collapsed.tsx cor
                 type="button"
               >
                 <span>
-                  提 交
+                  查 询
                 </span>
               </button>
             </div>
@@ -2940,7 +2940,7 @@ exports[`form demos renders ./packages/form/demos/query-filter-vertical.tsx corr
                 >
                   <input
                     autocomplete="off"
-                    placeholder="Select date"
+                    placeholder="请选择"
                     readonly=""
                     size="12"
                     title=""
@@ -3262,7 +3262,7 @@ exports[`form demos renders ./packages/form/demos/query-filter-vertical.tsx corr
                 type="button"
               >
                 <span>
-                  提 交
+                  查 询
                 </span>
               </button>
             </div>
@@ -3661,7 +3661,7 @@ exports[`form demos renders ./packages/form/demos/search-filter.tsx correctly 1`
                           >
                             <input
                               autocomplete="off"
-                              placeholder="Select date"
+                              placeholder="请选择"
                               readonly=""
                               size="12"
                               title=""
