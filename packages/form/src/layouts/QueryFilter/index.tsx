@@ -3,6 +3,8 @@ import React, { useState, ReactElement } from 'react';
 import { Row, Col, Divider } from 'antd';
 import { FormProps } from 'antd/lib/form/Form';
 import RcResizeObserver from 'rc-resize-observer';
+import { useIntl } from '@ant-design/pro-provider';
+
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import BaseForm, { CommonFormProps } from '../../BaseForm';
 import Actions, { ActionsProps } from './Actions';
@@ -112,7 +114,7 @@ export type BaseQueryFilterProps = Omit<ActionsProps, 'submitter' | 'setCollapse
    */
   optionRender?:
     | ((
-        searchConfig: Omit<BaseQueryFilterProps, 'submitter' | 'setCollapsed' | 'isForm'>,
+        searchConfig: Omit<BaseQueryFilterProps, 'submitter' | 'isForm'>,
         props: Omit<BaseQueryFilterProps, 'searchConfig'>,
         dom: React.ReactNode[],
       ) => React.ReactNode[])
@@ -140,6 +142,9 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
     split,
     ...rest
   } = props;
+
+  const intl = useIntl();
+
   const [collapsed, setCollapsed] = useMergedState<boolean>(() => defaultCollapsed, {
     value: controlCollapsed,
     onChange: onCollapse,
@@ -156,6 +161,9 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
   if (labelWidth && spanSize.layout !== 'vertical' && labelWidth !== 'auto') {
     labelFlexStyle = `0 0 ${labelWidth}px`;
   }
+
+  const resetText = rest.resetText || intl.getMessage('tableForm.reset', '重置');
+  const searchText = rest.searchText || intl.getMessage('tableForm.search', '搜索');
 
   return (
     <BaseForm
@@ -191,12 +199,21 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
         if (submitter) {
           submitter = React.cloneElement(submitter, {
             searchConfig: {
-              resetText: rest.resetText,
-              submitText: rest.searchText,
+              resetText,
+              submitText: searchText,
             },
             render:
               typeof optionRender === 'function'
-                ? (_: any, dom: React.ReactNode[]) => optionRender(props, props, dom)
+                ? (_: any, dom: React.ReactNode[]) =>
+                    optionRender(
+                      {
+                        ...props,
+                        resetText,
+                        searchText,
+                      },
+                      props,
+                      dom,
+                    )
                 : optionRender,
             onReset,
             ...submitter.props,

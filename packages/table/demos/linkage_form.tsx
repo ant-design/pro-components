@@ -173,6 +173,7 @@ export default () => (
     headerTitle="自定义动态表格"
     search={{
       collapsed: false,
+      labelWidth: 65,
       optionRender: ({ searchText, resetText }, { form }) => [
         <a
           key="search"

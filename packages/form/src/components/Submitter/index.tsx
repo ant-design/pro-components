@@ -35,7 +35,6 @@ export interface SubmitterProps {
  */
 const Submitter: React.FC<SubmitterProps> = (props) => {
   const intl = useIntl();
-
   if (props.render === false) {
     return null;
   }
