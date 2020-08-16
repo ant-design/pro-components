@@ -5,14 +5,14 @@ describe('utils', () => {
   it('📅 conversionSubmitValue string', async () => {
     const html = conversionSubmitValue(
       {
-        dataTime: moment(),
-        time: moment(),
+        dataTime: moment('2019-11-16 12:50:26'),
+        time: moment('2019-11-16 12:50:26'),
         name: 'qixian',
         money: 20,
-        dateTimeRange: [moment(), moment()],
-        dateRange: [moment(), moment()],
-        timeRange: [moment(), moment()],
-        timeRange2: [moment(), moment()],
+        dateTimeRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
+        dateRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
+        timeRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
+        timeRange2: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
       },
       'string',
       {
@@ -35,14 +35,14 @@ describe('utils', () => {
   it('📅 conversionSubmitValue number', async () => {
     const html = conversionSubmitValue(
       {
-        dataTime: moment(),
-        time: moment(),
+        dataTime: moment('2019-11-16 12:50:26'),
+        time: moment('2019-11-16 12:50:26'),
         name: 'qixian',
         money: 20,
-        dateTimeRange: [moment(), moment()],
-        dateRange: [moment(), moment()],
-        timeRange: [moment(), moment()],
-        timeRange2: [moment(), moment()],
+        dateTimeRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
+        dateRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
+        timeRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
+        timeRange2: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
       },
       'number',
       {
@@ -65,14 +65,14 @@ describe('utils', () => {
   it('📅 conversionSubmitValue moment', async () => {
     const html = conversionSubmitValue(
       {
-        dataTime: moment(),
-        time: moment(),
+        dataTime: moment('2019-11-16 12:50:26'),
+        time: moment('2019-11-16 12:50:26'),
         name: 'qixian',
         money: 20,
-        dateTimeRange: [moment(), moment()],
-        dateRange: [moment(), moment()],
-        timeRange: [moment(), moment()],
-        timeRange2: [moment(), moment()],
+        dateTimeRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
+        dateRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
+        timeRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
+        timeRange2: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
       },
       false,
       {
