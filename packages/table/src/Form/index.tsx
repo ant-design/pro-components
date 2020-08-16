@@ -1,17 +1,20 @@
-import React, { useState, useContext, useEffect, useRef, useCallback } from 'react';
+import React, { useContext, useEffect, useRef, useCallback } from 'react';
 import { FormInstance, FormItemProps, FormProps } from 'antd/lib/form';
 import { Form } from 'antd';
-import moment, { Moment } from 'moment';
 import { useIntl, IntlType } from '@ant-design/pro-provider';
 import ProForm, { QueryFilter, ProFormText, BaseQueryFilterProps } from '@ant-design/pro-form';
 import classNames from 'classnames';
 import { ProFieldValueType } from '@ant-design/pro-field';
 import { ConfigContext } from 'antd/lib/config-provider/context';
-import { useDeepCompareEffect, ProSchemaComponentTypes } from '@ant-design/pro-utils';
+import {
+  useDeepCompareEffect,
+  ProSchemaComponentTypes,
+  conversionSubmitValue,
+} from '@ant-design/pro-utils';
 
 import { genColumnKey } from '../utils';
 import Container from '../container';
-import { ProColumns, ProColumnsValueType } from '../index';
+import { ProColumns } from '../index';
 import './index.less';
 
 export interface TableFormItem<T> extends Omit<FormItemProps, 'children'> {
@@ -169,110 +172,6 @@ export const proFormItemRender: (props: {
 
   return dom;
 };
-
-const dateFormatterMap = {
-  time: 'HH:mm:ss',
-  date: 'YYYY-MM-DD',
-  dateTime: 'YYYY-MM-DD HH:mm:ss',
-  dateRange: 'YYYY-MM-DD',
-  dateTimeRange: 'YYYY-MM-DD HH:mm:ss',
-};
-
-/**
- * 判断 DataType 是不是日期类型
- * @param type
- */
-const isDateValueType = (type: ProColumns<{}>['valueType']) => {
-  let valueType: ProColumnsValueType = type as ProColumnsValueType;
-  if (typeof type === 'function') {
-    // 如果是 object 说明是进度条，直接返回 false
-    if (typeof type({}) === 'object') {
-      return false;
-    }
-    valueType = type({}) as ProColumnsValueType;
-  }
-  const dateTypes = ['date', 'dateRange', 'dateTimeRange', 'dateTime', 'time'];
-  return dateTypes.includes(valueType);
-};
-
-/**
- * 这里主要是来转化一下数据
- * 将 moment 转化为 string
- * 将 all 默认删除
- * @param value
- * @param dateFormatter
- * @param proColumnsMap
- */
-const conversionValue = (
-  value: any,
-  dateFormatter: string | boolean,
-  proColumnsMap: { [key: string]: ProColumns<any> },
-) => {
-  const tmpValue = {};
-
-  Object.keys(value).forEach((key) => {
-    const column = proColumnsMap[key || 'null'] || {};
-    const valueType = (column.valueType as ProFieldValueType) || 'text';
-    const itemValue = value[key];
-
-    // 如果值是 "all"，或者不存在直接删除
-    // 下拉框里选 all，会删除
-    if (itemValue === undefined || (itemValue === 'all' && column.valueEnum)) {
-      return;
-    }
-
-    // 如果是日期，再处理这些
-    if (!isDateValueType(valueType)) {
-      tmpValue[key] = itemValue;
-      return;
-    }
-
-    // 如果执行到这里，肯定是 ['date', 'dateRange', 'dateTimeRange', 'dateTime', 'time'] 之一
-    // 选择日期再清空之后会出现itemValue为 null 的情况，需要删除
-    if (!itemValue) {
-      return;
-    }
-
-    // 如果是 moment 的对象的处理方式
-    if (moment.isMoment(itemValue) && dateFormatter) {
-      if (dateFormatter === 'string') {
-        const formatString = dateFormatterMap[valueType as 'dateTime'];
-        tmpValue[key] = (itemValue as Moment).format(formatString || 'YYYY-MM-DD HH:mm:ss');
-        return;
-      }
-      if (dateFormatter === 'number') {
-        tmpValue[key] = (itemValue as Moment).valueOf();
-        return;
-      }
-    }
-
-    // 这里是日期数组
-    if (Array.isArray(itemValue) && itemValue.length === 2 && dateFormatter) {
-      if (dateFormatter === 'string') {
-        const formatString = dateFormatterMap[valueType as 'dateTime'];
-        const [startValue, endValue] = itemValue;
-        // 后端需要日期/时间范围会有[null,date]或者[date,null]的情况
-        tmpValue[key] = [
-          startValue && moment(startValue as Moment).format(formatString || 'YYYY-MM-DD HH:mm:ss'),
-          endValue && moment(endValue as Moment).format(formatString || 'YYYY-MM-DD HH:mm:ss'),
-        ];
-        return;
-      }
-      if (dateFormatter === 'number') {
-        const [startValue, endValue] = itemValue;
-        tmpValue[key] = [
-          moment(startValue as Moment).valueOf(),
-          moment(endValue as Moment).valueOf(),
-        ];
-      }
-    }
-
-    // 都没命中，原样返回
-    tmpValue[key] = itemValue;
-  });
-  return tmpValue;
-};
-
 const FormSearch = <T, U = any>({
   onSubmit,
   formRef,
@@ -291,8 +190,12 @@ const FormSearch = <T, U = any>({
   const formInstanceRef = useRef<FormInstance | undefined>(form as any);
 
   const counter = Container.useContainer();
-  const [proColumnsMap, setProColumnsMap] = useState<{
-    [key: string]: ProColumns<any>;
+
+  /**
+   * 保存 valueTypeRef，用于分辨是用什么方式格式化数据
+   */
+  const valueTypeRef = useRef<{
+    [key: string]: ProFieldValueType;
   }>({});
 
   // 这么做是为了在用户修改了输入的时候触发一下子节点的render
@@ -309,14 +212,14 @@ const FormSearch = <T, U = any>({
     if (!isForm) {
       const value = form.getFieldsValue();
       if (onSubmit) {
-        onSubmit(conversionValue(value, dateFormatter, proColumnsMap) as T);
+        onSubmit(conversionSubmitValue(value, dateFormatter, valueTypeRef.current) as T);
       }
       return;
     }
     try {
       const value = await form.validateFields();
       if (onSubmit) {
-        onSubmit(conversionValue(value, dateFormatter, proColumnsMap) as T);
+        onSubmit(conversionSubmitValue(value, dateFormatter, valueTypeRef.current) as T);
       }
     } catch (error) {
       // console.log(error)
@@ -348,9 +251,9 @@ const FormSearch = <T, U = any>({
     }
     const tempMap = {};
     counter.proColumns.forEach((item) => {
-      tempMap[genColumnKey(item.key, item.index)] = item;
+      tempMap[genColumnKey(item.key, item.index)] = item.valueType;
     });
-    setProColumnsMap(tempMap);
+    valueTypeRef.current = tempMap;
   }, [counter.proColumns]);
 
   const { getPrefixCls } = useContext(ConfigContext);

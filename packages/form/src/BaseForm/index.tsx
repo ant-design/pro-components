@@ -4,7 +4,7 @@ import { FormProps } from 'antd/lib/form/Form';
 import { FormItemProps } from 'antd/lib/form';
 import { TooltipProps } from 'antd/lib/tooltip';
 import { ConfigProviderWarp } from '@ant-design/pro-provider';
-import { LabelIconTip, pickProProps } from '@ant-design/pro-utils';
+import { LabelIconTip, pickProProps, conversionSubmitValue } from '@ant-design/pro-utils';
 import FieldContext from '../FieldContext';
 import Submitter, { SubmitterProps } from '../components/Submitter';
 import { GroupProps, FieldProps, ProFormItemProps } from '../interface';
@@ -19,6 +19,7 @@ export interface BaseFormProps extends FormProps, CommonFormProps {
     submitter: ReactElement<Omit<SubmitterProps, 'form'>> | undefined,
   ) => React.ReactNode;
   fieldProps?: FieldProps;
+  dateFormatter?: 'number' | 'string' | false;
   formItemProps?: FormItemProps;
   groupProps?: GroupProps;
 }
@@ -68,6 +69,7 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
     fieldProps,
     formItemProps,
     groupProps,
+    dateFormatter = 'string',
     form: userForm,
     ...rest
   } = props;
@@ -91,7 +93,15 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
           groupProps,
         }}
       >
-        <Form form={realForm} {...rest}>
+        <Form
+          form={realForm}
+          {...rest}
+          onFinish={(values) => {
+            if (rest.onFinish) {
+              rest.onFinish(conversionSubmitValue(values, dateFormatter, {}));
+            }
+          }}
+        >
           {content}
         </Form>
       </FieldContext.Provider>
