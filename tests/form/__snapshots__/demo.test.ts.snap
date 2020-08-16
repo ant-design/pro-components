@@ -2060,12 +2060,12 @@ exports[`form demos renders ./packages/form/demos/light-filter.tsx correctly 1`]
           class="ant-pro-form-dropdown-label ant-dropdown-trigger"
         >
           <span
-            class="undefined-light-filter-label undefined-light-filter-label-default"
+            class="ant-pro-form-light-filter-label ant-pro-form-light-filter-label-default"
           >
             更多筛选
             <span
               aria-label="down"
-              class="anticon anticon-down undefined-light-filter-label-icon undefined-light-filter-label-arrow"
+              class="anticon anticon-down ant-pro-form-light-filter-label-icon ant-pro-form-light-filter-label-arrow"
               role="img"
             >
               <svg

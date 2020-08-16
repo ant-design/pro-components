@@ -3,7 +3,7 @@ import { FormProps } from 'antd/lib/form/Form';
 import { ConfigContext } from 'antd/lib/config-provider/context';
 import { SizeType } from 'antd/lib/config-provider/SizeContext';
 import classNames from 'classnames';
-import Label from '../../components/Label';
+import LightFilterLabel from '../../components/Label';
 import Dropdown from '../../components/Dropdown';
 import BaseForm, { CommonFormProps } from '../../BaseForm';
 import './index.less';
@@ -60,7 +60,11 @@ const LightFilterContainer: React.FC<{
               padding={24}
               onVisibleChange={setOpen}
               visible={open}
-              label={collapseLabel || <Label size={size} label={locale.more} expanded={open} />}
+              label={
+                collapseLabel || (
+                  <LightFilterLabel size={size} label={locale.more} expanded={open} />
+                )
+              }
               footer={{
                 onConfirm: () => {
                   // TODO

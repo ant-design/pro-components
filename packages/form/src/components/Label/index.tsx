@@ -18,10 +18,10 @@ export interface LabelProps {
   style?: React.CSSProperties;
 }
 
-const Label: React.FC<LabelProps> = (props) => {
+const LightFilterLabel: React.FC<LabelProps> = (props) => {
   const {
     label,
-    prefixCls: customizePrefixCls,
+    prefixCls: customizePrefixCls = 'ant-pro-form',
     onClear,
     value,
     size = 'default',
@@ -85,4 +85,4 @@ const Label: React.FC<LabelProps> = (props) => {
   );
 };
 
-export default Label;
+export default LightFilterLabel;
