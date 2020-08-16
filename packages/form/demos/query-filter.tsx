@@ -8,7 +8,7 @@ import {
 
 export default () => {
   return (
-    <QueryFilter>
+    <QueryFilter onFinish={(values) => console.log(values)}>
       <ProFormText name="name" label="应用名称" />
       <ProFormText name="creater" label="创建人" />
       <ProFormText name="status" label="应用状态" />
