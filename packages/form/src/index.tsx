@@ -8,6 +8,9 @@ import ProFormTextArea from './components/TextArea';
 import ProFormCheckbox from './components/Checkbox';
 import ProFormRadio from './components/Radio';
 import ProFormSwitch from './components/Switch';
+import ProFormRate from './components/Rate';
+import ProFormSlider from './components/Slider';
+import ProFormUploadDragger from './components/UploadDragger';
 
 import ProForm from './layouts/ProForm';
 import QueryFilter, { BaseQueryFilterProps } from './layouts/QueryFilter';
@@ -25,6 +28,9 @@ export {
   ProFormSwitch,
   ProFormCheckbox,
   ProFormRadio,
+  ProFormRate,
+  ProFormUploadDragger,
+  ProFormSlider,
   ProFormDateTimeRangePicker,
   // layouts
   QueryFilter,

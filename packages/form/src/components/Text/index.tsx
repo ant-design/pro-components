@@ -1,8 +1,9 @@
 import React from 'react';
-// eslint-disable-next-line import/no-unresolved
+
 import ProField, { ProFieldValueType } from '@ant-design/pro-field';
 import { Form } from 'antd';
 import { InputProps } from 'antd/lib/input';
+import { SelectProps } from 'antd/lib/select';
 import { ProSchema, pickProProps } from '@ant-design/pro-utils';
 
 import { createField } from '../../BaseForm';
@@ -14,7 +15,7 @@ import { ProFormItemProps } from '../../interface';
  */
 const ProFormText = React.forwardRef<
   any,
-  ProSchema<string, ProFieldValueType, ProFormItemProps<InputProps>>
+  ProSchema<string, ProFieldValueType, ProFormItemProps<InputProps & SelectProps<string>>>
 >(({ fieldProps, hasFeedback, render, renderFormItem, valueType, ...restProps }, ref) => (
   <Form.Item {...pickProProps(restProps)}>
     <ProField
@@ -38,7 +39,7 @@ export default createField<
   ProSchema<
     string,
     ProFieldValueType,
-    ProFormItemProps<InputProps> & {
+    ProFormItemProps<InputProps & SelectProps<string>> & {
       ref?: any;
       plain?: boolean;
     }

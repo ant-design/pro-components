@@ -2,12 +2,7 @@ import React, { useState } from 'react';
 import { Button, Descriptions, Result, Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
-import ProLayout, {
-  PageContainer,
-  SettingDrawer,
-  ProSettings,
-  // eslint-disable-next-line import/no-unresolved
-} from '@ant-design/pro-layout';
+import ProLayout, { PageContainer, SettingDrawer, ProSettings } from '@ant-design/pro-layout';
 import defaultProps from '../fixtures/defaultProps';
 
 const content = (

@@ -816,6 +816,7 @@ exports[`form demos renders ./packages/form/demos/components-other.tsx correctly
     </div>
     <div
       class="ant-row ant-form-item"
+      title="Select[multiple]"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -823,7 +824,7 @@ exports[`form demos renders ./packages/form/demos/components-other.tsx correctly
         <label
           class="ant-form-item-required"
           for="validate_other_select-multiple"
-          title="Select[multiple]"
+          title=""
         >
           Select[multiple]
         </label>
@@ -838,14 +839,19 @@ exports[`form demos renders ./packages/form/demos/components-other.tsx correctly
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-select-multiple ant-select-show-search"
+              class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              label="[object Object]"
+              name="select-multiple"
+              rules="[object Object]"
+              style="min-width: 100px;"
+              text=""
+              title="Select[multiple]"
             >
               <div
                 class="ant-select-selector"
               >
                 <span
                   class="ant-select-selection-search"
-                  style="width: 0px;"
                 >
                   <input
                     aria-activedescendant="validate_other_select-multiple_list_0"
@@ -862,127 +868,122 @@ exports[`form demos renders ./packages/form/demos/components-other.tsx correctly
                     unselectable="on"
                     value=""
                   />
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-selection-search-mirror"
-                  >
-                     
-                  </span>
                 </span>
                 <span
                   class="ant-select-selection-placeholder"
                 >
-                  Please select favourite colors
+                  请选择
                 </span>
               </div>
+              <span
+                aria-hidden="true"
+                class="ant-select-arrow"
+                style="user-select: none;"
+                unselectable="on"
+              >
+                <span
+                  aria-label="down"
+                  class="anticon anticon-down ant-select-suffix"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="down"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                    />
+                  </svg>
+                </span>
+              </span>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div
-      class="ant-row ant-form-item"
+      class="ant-input-number"
+      style="width: 100%;"
     >
       <div
-        class="ant-col ant-form-item-label"
+        class="ant-input-number-handler-wrap"
       >
-        <label
-          class=""
-          title="InputNumber"
+        <span
+          aria-label="Increase Value"
+          class="ant-input-number-handler ant-input-number-handler-up"
+          role="button"
+          unselectable="on"
         >
-          InputNumber
-        </label>
+          <span
+            aria-label="up"
+            class="anticon anticon-up ant-input-number-handler-up-inner"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="up"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
+        <span
+          aria-label="Decrease Value"
+          class="ant-input-number-handler ant-input-number-handler-down"
+          role="button"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down ant-input-number-handler-down-inner"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
       <div
-        class="ant-col ant-form-item-control"
+        class="ant-input-number-input-wrap"
       >
-        <div
-          class="ant-form-item-control-input"
-        >
-          <div
-            class="ant-form-item-control-input-content"
-          >
-            <div
-              class="ant-input-number"
-              style="width: 100%;"
-            >
-              <div
-                class="ant-input-number-handler-wrap"
-              >
-                <span
-                  aria-label="Increase Value"
-                  class="ant-input-number-handler ant-input-number-handler-up"
-                  role="button"
-                  unselectable="on"
-                >
-                  <span
-                    aria-label="up"
-                    class="anticon anticon-up ant-input-number-handler-up-inner"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="up"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-                      />
-                    </svg>
-                  </span>
-                </span>
-                <span
-                  aria-label="Decrease Value"
-                  class="ant-input-number-handler ant-input-number-handler-down"
-                  role="button"
-                  unselectable="on"
-                >
-                  <span
-                    aria-label="down"
-                    class="anticon anticon-down ant-input-number-handler-down-inner"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="down"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                      />
-                    </svg>
-                  </span>
-                </span>
-              </div>
-              <div
-                class="ant-input-number-input-wrap"
-              >
-                <input
-                  aria-valuemax="10"
-                  aria-valuemin="1"
-                  aria-valuenow="3"
-                  autocomplete="off"
-                  class="ant-input-number-input"
-                  max="10"
-                  min="1"
-                  role="spinbutton"
-                  step="1"
-                  value="3.00"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+        <input
+          aria-valuemax="10"
+          aria-valuemin="1"
+          aria-valuenow="3"
+          autocomplete="off"
+          class="ant-input-number-input"
+          max="10"
+          min="1"
+          role="spinbutton"
+          step="1"
+          value="3.00"
+        />
       </div>
     </div>
     <div
@@ -1029,6 +1030,7 @@ exports[`form demos renders ./packages/form/demos/components-other.tsx correctly
     </div>
     <div
       class="ant-row ant-form-item"
+      title="Slider"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -1036,7 +1038,7 @@ exports[`form demos renders ./packages/form/demos/components-other.tsx correctly
         <label
           class=""
           for="validate_other_slider"
-          title="Slider"
+          title=""
         >
           Slider
         </label>
@@ -1473,6 +1475,7 @@ exports[`form demos renders ./packages/form/demos/components-other.tsx correctly
     </div>
     <div
       class="ant-row ant-form-item"
+      title="Rate"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -1480,7 +1483,7 @@ exports[`form demos renders ./packages/form/demos/components-other.tsx correctly
         <label
           class=""
           for="validate_other_rate"
-          title="Rate"
+          title=""
         >
           Rate
         </label>
@@ -1891,16 +1894,6 @@ exports[`form demos renders ./packages/form/demos/components-other.tsx correctly
       class="ant-row ant-form-item"
     >
       <div
-        class="ant-col ant-form-item-label"
-      >
-        <label
-          class=""
-          title="Dragger"
-        >
-          Dragger
-        </label>
-      </div>
-      <div
         class="ant-col ant-form-item-control"
       >
         <div
@@ -1954,12 +1947,12 @@ exports[`form demos renders ./packages/form/demos/components-other.tsx correctly
                     <p
                       class="ant-upload-text"
                     >
-                      Click or drag file to this area to upload
+                      Dragger
                     </p>
                     <p
                       class="ant-upload-hint"
                     >
-                      Support for a single or bulk upload.
+                      支持单次或批量上传
                     </p>
                   </div>
                 </span>

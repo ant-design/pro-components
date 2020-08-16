@@ -1,13 +1,16 @@
 import React from 'react';
 
-import { Form, Select, Radio, Slider, Button, Upload, Rate } from 'antd';
+import { Form, Radio, Button, Upload } from 'antd';
 import ProForm, {
   ProFormSwitch,
   ProFormText,
   ProFormRadio,
   ProFormCheckbox,
+  ProFormRate,
+  ProFormSlider,
+  ProFormUploadDragger,
 } from '@ant-design/pro-form';
-import { UploadOutlined, InboxOutlined } from '@ant-design/icons';
+import { UploadOutlined } from '@ant-design/icons';
 
 const Demo = () => (
   <div
@@ -36,44 +39,46 @@ const Demo = () => (
         rules={[{ required: true, message: 'Please select your country!' }]}
       />
 
-      <Form.Item
+      <ProFormText
         name="select-multiple"
         label="Select[multiple]"
+        hasFeedback
+        valueEnum={{
+          red: 'Red',
+          green: 'Green',
+          blue: 'Blue',
+        }}
+        fieldProps={{
+          mode: 'multiple',
+        }}
+        placeholder="Please select favourite colors"
         rules={[{ required: true, message: 'Please select your favourite colors!', type: 'array' }]}
-      >
-        <Select mode="multiple" placeholder="Please select favourite colors">
-          <Select.Option value="red">Red</Select.Option>
-          <Select.Option value="green">Green</Select.Option>
-          <Select.Option value="blue">Blue</Select.Option>
-        </Select>
-      </Form.Item>
+      />
 
-      <Form.Item label="InputNumber">
-        <ProFormText
-          valueType="digit"
-          name="input-number"
-          noStyle
-          formItemProps={{
-            min: 1,
-            max: 10,
-          }}
-        />
-      </Form.Item>
+      <ProFormText
+        label="InputNumber"
+        valueType="digit"
+        name="input-number"
+        noStyle
+        formItemProps={{
+          min: 1,
+          max: 10,
+        }}
+      />
 
       <ProFormSwitch name="switch" label="Switch" />
-
-      <Form.Item name="slider" label="Slider">
-        <Slider
-          marks={{
-            0: 'A',
-            20: 'B',
-            40: 'C',
-            60: 'D',
-            80: 'E',
-            100: 'F',
-          }}
-        />
-      </Form.Item>
+      <ProFormSlider
+        name="slider"
+        label="Slider"
+        marks={{
+          0: 'A',
+          20: 'B',
+          40: 'C',
+          60: 'D',
+          80: 'E',
+          100: 'F',
+        }}
+      />
       <ProFormRadio.Group
         name="radio-group"
         label="Radio.Group"
@@ -106,9 +111,7 @@ const Demo = () => (
         options={['A', 'B', 'C', 'D', 'E', 'F']}
       />
 
-      <Form.Item name="rate" label="Rate">
-        <Rate />
-      </Form.Item>
+      <ProFormRate name="rate" label="Rate" />
 
       <Form.Item
         name="upload"
@@ -122,18 +125,7 @@ const Demo = () => (
           </Button>
         </Upload>
       </Form.Item>
-
-      <Form.Item label="Dragger">
-        <Form.Item name="dragger" valuePropName="fileList" noStyle>
-          <Upload.Dragger name="files" action="/upload.do">
-            <p className="ant-upload-drag-icon">
-              <InboxOutlined />
-            </p>
-            <p className="ant-upload-text">Click or drag file to this area to upload</p>
-            <p className="ant-upload-hint">Support for a single or bulk upload.</p>
-          </Upload.Dragger>
-        </Form.Item>
-      </Form.Item>
+      <ProFormUploadDragger label="Dragger" name="dragger" />
     </ProForm>
   </div>
 );

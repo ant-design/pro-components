@@ -23,13 +23,13 @@ describe('utils', () => {
         timeRange: 'timeRange',
       },
     );
-    expect(html.dataTime).toBe('2016-11-22 07:22:44');
-    expect(html.time).toBe('07:22:44');
+    expect(html.dataTime).toBe('2019-11-16 12:50:26');
+    expect(html.time).toBe('12:50:26');
     expect(html.name).toBe('qixian');
     expect(html.money).toBe(20);
-    expect(html.dateTimeRange.join(',')).toBe('2016-11-22 07:22:44,2016-11-22 07:22:44');
-    expect(html.dateRange.join(',')).toBe('2016-11-22,2016-11-22');
-    expect(html.timeRange2.join(',')).toBe('2016-11-22 07:22:44,2016-11-22 07:22:44');
+    expect(html.dateTimeRange.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:50:26');
+    expect(html.dateRange.join(',')).toBe('2019-11-16,2019-11-16');
+    expect(html.timeRange2.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:50:26');
   });
 
   it('📅 conversionSubmitValue number', async () => {
@@ -53,13 +53,13 @@ describe('utils', () => {
         timeRange: 'timeRange',
       },
     );
-    expect(html.dataTime).toBe(1479799364000);
-    expect(html.time).toBe(1479799364000);
+    expect(html.dataTime).toBe(1573908626000);
+    expect(html.time).toBe(1573908626000);
     expect(html.name).toBe('qixian');
     expect(html.money).toBe(20);
-    expect(html.dateTimeRange.join(',')).toBe('1479799364000,1479799364000');
-    expect(html.dateRange.join(',')).toBe('1479799364000,1479799364000');
-    expect(html.timeRange2.join(',')).toBe('1479799364000,1479799364000');
+    expect(html.dateTimeRange.join(',')).toBe('1573908626000,1573908626000');
+    expect(html.dateRange.join(',')).toBe('1573908626000,1573908626000');
+    expect(html.timeRange2.join(',')).toBe('1573908626000,1573908626000');
   });
 
   it('📅 conversionSubmitValue moment', async () => {
@@ -83,19 +83,19 @@ describe('utils', () => {
         timeRange: 'timeRange',
       },
     );
-    expect(html.dataTime.valueOf()).toBe(1479799364000);
-    expect(html.time.valueOf()).toBe(1479799364000);
+    expect(html.dataTime.valueOf()).toBe(1573908626000);
+    expect(html.time.valueOf()).toBe(1573908626000);
     expect(html.name).toBe('qixian');
     expect(html.money).toBe(20);
 
     expect(html.dateTimeRange.map((item) => item.valueOf()).join(',')).toBe(
-      '1479799364000,1479799364000',
+      '1573908626000,1573908626000',
     );
     expect(html.dateTimeRange.map((item) => item.valueOf()).join(',')).toBe(
-      '1479799364000,1479799364000',
+      '1573908626000,1573908626000',
     );
     expect(html.dateTimeRange.map((item) => item.valueOf()).join(',')).toBe(
-      '1479799364000,1479799364000',
+      '1573908626000,1573908626000',
     );
   });
 });

@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 
-import ProLayout, {
-  PageContainer,
-  MenuDataItem,
-  // eslint-disable-next-line import/no-unresolved
-} from '@ant-design/pro-layout';
+import ProLayout, { PageContainer, MenuDataItem } from '@ant-design/pro-layout';
 import { Input } from 'antd';
 import complexMenu from './complexMenu';
 
