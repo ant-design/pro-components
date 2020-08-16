@@ -1816,7 +1816,7 @@ exports[`form demos renders ./packages/form/demos/components-other.tsx correctly
         <label
           class=""
           for="validate_other_upload"
-          title="Upload"
+          title=""
         >
           Upload
         </label>
@@ -1872,7 +1872,7 @@ exports[`form demos renders ./packages/form/demos/components-other.tsx correctly
                       </svg>
                     </span>
                     <span>
-                       Click to upload
+                      Upload
                     </span>
                   </button>
                 </span>

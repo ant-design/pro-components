@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Form, Radio, Button, Upload } from 'antd';
+import { Form, Radio } from 'antd';
 import ProForm, {
   ProFormSwitch,
   ProFormText,
@@ -8,9 +8,9 @@ import ProForm, {
   ProFormCheckbox,
   ProFormRate,
   ProFormSlider,
+  ProFormUploadButton,
   ProFormUploadDragger,
 } from '@ant-design/pro-form';
-import { UploadOutlined } from '@ant-design/icons';
 
 const Demo = () => (
   <div
@@ -113,18 +113,12 @@ const Demo = () => (
 
       <ProFormRate name="rate" label="Rate" />
 
-      <Form.Item
+      <ProFormUploadButton
         name="upload"
         label="Upload"
-        valuePropName="fileList"
+        action="/upload.do"
         extra="longgggggggggggggggggggggggggggggggggg"
-      >
-        <Upload name="logo" action="/upload.do" listType="picture">
-          <Button>
-            <UploadOutlined /> Click to upload
-          </Button>
-        </Upload>
-      </Form.Item>
+      />
       <ProFormUploadDragger label="Dragger" name="dragger" />
     </ProForm>
   </div>

@@ -1,14 +1,15 @@
 import React from 'react';
 import { Form, Upload } from 'antd';
-import { DraggerProps } from 'antd/lib/upload';
+import { DraggerProps, UploadProps } from 'antd/lib/upload';
 import { InboxOutlined } from '@ant-design/icons';
 import { ProFormItemProps } from '../../interface';
 import { createField } from '../../BaseForm';
 
 export type ProFormDraggerProps = ProFormItemProps<DraggerProps> & {
-  value?: DraggerProps['fileList'];
   icon?: React.ReactNode;
   title?: React.ReactNode;
+  action?: UploadProps['action'];
+  accept?: UploadProps['accept'];
   description?: React.ReactNode;
 };
 
@@ -18,12 +19,13 @@ export type ProFormDraggerProps = ProFormItemProps<DraggerProps> & {
  */
 const ProFormUploadDragger: React.ForwardRefRenderFunction<any, ProFormDraggerProps> = (
   {
-    value,
     fieldProps,
     title = '单击或拖动文件到此区域进行上传',
     icon = <InboxOutlined />,
     description = '支持单次或批量上传',
     label,
+    action,
+    accept,
     children,
     ...restProps
   },
@@ -31,8 +33,13 @@ const ProFormUploadDragger: React.ForwardRefRenderFunction<any, ProFormDraggerPr
 ) => {
   return (
     <Form.Item {...restProps}>
-      <Form.Item name={restProps.name} valuePropName="fileList" noStyle>
-        <Upload.Dragger name="files" {...fieldProps} ref={ref}>
+      <Form.Item
+        name={restProps.name}
+        valuePropName="fileList"
+        noStyle
+        getValueFromEvent={(value: { fileList: UploadProps['fileList'] }) => value.fileList}
+      >
+        <Upload.Dragger name="files" action={action} accept={accept} {...fieldProps} ref={ref}>
           <p className="ant-upload-drag-icon">{icon}</p>
           <p className="ant-upload-text">{title}</p>
           <p className="ant-upload-hint">{description}</p>
