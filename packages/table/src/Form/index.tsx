@@ -87,6 +87,7 @@ export const formInputRender: React.FC<{
     return (
       <ProFormText
         ref={ref}
+        name={item.dataIndex}
         valueEnum={item.valueEnum}
         valueType={valueType}
         formItemProps={{
@@ -118,6 +119,7 @@ export const formInputRender: React.FC<{
   return (
     <ProFormText
       ref={ref}
+      name={item.dataIndex}
       formItemProps={item.formItemProps}
       // valueType = textarea，但是在 查询表单这里，应该是个 input 框
       valueType={!valueType || valueType === 'textarea' ? 'text' : valueType}
@@ -172,6 +174,7 @@ export const proFormItemRender: (props: {
 
   return dom;
 };
+
 const FormSearch = <T, U = any>({
   onSubmit,
   formRef,
@@ -187,6 +190,7 @@ const FormSearch = <T, U = any>({
   const intl = useIntl();
 
   const [form] = Form.useForm();
+
   const formInstanceRef = useRef<FormInstance | undefined>(form as any);
 
   const counter = Container.useContainer();

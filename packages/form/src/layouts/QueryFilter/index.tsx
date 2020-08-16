@@ -151,12 +151,15 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
   });
   // use style.width as the defaultWidth for unit test
   const defaultWidth: number = (typeof style?.width === 'number' ? style?.width : 1024) as number;
+
   const [spanSize, setSpanSize] = useState<{
     span: number;
     layout: FormProps['layout'];
   }>(() => getSpanConfig(layout, defaultWidth + 16, span));
+
   const showLength =
     defaultColsNumber !== undefined ? defaultColsNumber : Math.max(1, 24 / spanSize.span - 1);
+
   let labelFlexStyle;
   if (labelWidth && spanSize.layout !== 'vertical' && labelWidth !== 'auto') {
     labelFlexStyle = `0 0 ${labelWidth}px`;
@@ -164,7 +167,6 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
 
   const resetText = rest.resetText || intl.getMessage('tableForm.reset', '重置');
   const searchText = rest.searchText || intl.getMessage('tableForm.search', '搜索');
-
   return (
     <BaseForm
       {...rest}

@@ -1,6 +1,6 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useRef } from 'react';
 import { Form } from 'antd';
-import { FormProps } from 'antd/lib/form/Form';
+import { FormProps, FormInstance } from 'antd/lib/form/Form';
 import { FormItemProps } from 'antd/lib/form';
 import { TooltipProps } from 'antd/lib/tooltip';
 import { ConfigProviderWarp } from '@ant-design/pro-provider';
@@ -22,6 +22,7 @@ export interface BaseFormProps extends FormProps, CommonFormProps {
   dateFormatter?: 'number' | 'string' | false;
   formItemProps?: FormItemProps;
   groupProps?: GroupProps;
+  formRef?: React.MutableRefObject<FormInstance>;
 }
 
 // 给控件扩展的通用的属性
@@ -73,14 +74,16 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
     form: userForm,
     ...rest
   } = props;
+
   const [form] = Form.useForm();
-  const realForm = userForm || form;
+  const formRef = useRef<FormInstance>(userForm || form);
+
   const items = React.Children.toArray(children);
   const submitterProps: Omit<SubmitterProps, 'form'> =
     typeof submitter === 'boolean' || !submitter ? {} : submitter;
 
   const submitterNode =
-    submitter === false ? undefined : <Submitter {...submitterProps} form={realForm} />;
+    submitter === false ? undefined : <Submitter {...submitterProps} form={userForm || form} />;
 
   const content = contentRender ? contentRender(items, submitterNode) : items;
   return (
@@ -94,7 +97,7 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
         }}
       >
         <Form
-          form={realForm}
+          form={userForm || form}
           {...rest}
           onFinish={(values) => {
             if (rest.onFinish) {
@@ -102,6 +105,18 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
             }
           }}
         >
+          <Form.Item noStyle shouldUpdate>
+            {(formInstance) => {
+              // 不 setTimeout 一下拿到的是比较旧的
+              setTimeout(() => {
+                // 支持 fromRef，这里 ref 里面可以随时拿到最新的值
+                if (rest.formRef) {
+                  rest.formRef.current = formInstance as FormInstance;
+                }
+                formRef.current = formInstance as FormInstance;
+              }, 0);
+            }}
+          </Form.Item>
           {content}
         </Form>
       </FieldContext.Provider>
