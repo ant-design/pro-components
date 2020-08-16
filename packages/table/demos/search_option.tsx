@@ -159,25 +159,23 @@ export default () => (
     search={{
       collapsed: false,
       optionRender: ({ searchText, resetText }, { form }) => {
-        return (
-          <>
-            <a
-              onClick={() => {
-                form.submit();
-              }}
-            >
-              {searchText}
-            </a>{' '}
-            <a
-              onClick={() => {
-                form.resetFields();
-              }}
-            >
-              {resetText}
-            </a>{' '}
-            <a>导出</a>
-          </>
-        );
+        return [
+          <a
+            onClick={() => {
+              form?.submit();
+            }}
+          >
+            {searchText}
+          </a>,
+          <a
+            onClick={() => {
+              form?.resetFields();
+            }}
+          >
+            {resetText}
+          </a>,
+          <a>导出</a>,
+        ];
       },
     }}
     toolBarRender={() => [

@@ -20822,19 +20822,7 @@ exports[`table demos renders ./packages/table/demos/search_option.tsx correctly 
                   class="ant-space-item"
                   style="margin-right: 8px;"
                 >
-                   
-                </div>
-                <div
-                  class="ant-space-item"
-                  style="margin-right: 8px;"
-                >
                   <a />
-                </div>
-                <div
-                  class="ant-space-item"
-                  style="margin-right: 8px;"
-                >
-                   
                 </div>
                 <div
                   class="ant-space-item"
