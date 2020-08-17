@@ -31,7 +31,6 @@ const Demo = () => (
       onFinish={(value) => console.log(value)}
     >
       <ProFormText name="name" label="name" />
-
       <ProFormSelect
         name="select"
         label="Select"
@@ -43,7 +42,6 @@ const Demo = () => (
         placeholder="Please select a country"
         rules={[{ required: true, message: 'Please select your country!' }]}
       />
-
       <ProFormSelect
         name="select-multiple"
         label="Select[multiple]"
@@ -57,9 +55,7 @@ const Demo = () => (
         placeholder="Please select favourite colors"
         rules={[{ required: true, message: 'Please select your favourite colors!', type: 'array' }]}
       />
-
       <ProFormDigit label="InputNumber" name="input-number" min={1} max={10} />
-
       <ProFormSwitch name="switch" label="Switch" />
       <ProFormSlider
         name="slider"
@@ -91,7 +87,6 @@ const Demo = () => (
           },
         ]}
       />
-
       <Form.Item name="radio-button" label="Radio.Button">
         <Radio.Group>
           <Radio.Button value="a">item 1</Radio.Button>
@@ -104,9 +99,7 @@ const Demo = () => (
         label="Checkbox.Group"
         options={['A', 'B', 'C', 'D', 'E', 'F']}
       />
-
       <ProFormRate name="rate" label="Rate" />
-
       <ProFormUploadButton
         name="upload"
         label="Upload"
