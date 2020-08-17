@@ -78,6 +78,10 @@ export type ProCardProps = {
    */
   bordered?: boolean;
   /**
+   * 幽灵模式，即是否取消卡片内容区域的 padding 和 背景颜色。
+   */
+  ghost?: boolean;
+  /**
    * 是否可折叠
    */
   collapsible?: boolean;
@@ -109,9 +113,10 @@ const ProCard: ProCardType = (props) => {
     colSpan,
     gutter = 0,
     split,
-    headerBordered,
-    bordered,
+    headerBordered = false,
+    bordered = false,
     children,
+    ghost = false,
     collapsed: controlCollapsed,
     collapsible = false,
     defaultCollapsed = false,
@@ -242,6 +247,7 @@ const ProCard: ProCardType = (props) => {
           [`${prefixCls}-contain-card`]: containProCard,
           [`${prefixCls}-loading`]: loading,
           [`${prefixCls}-split`]: split === 'vertical' || split === 'horizontal',
+          [`${prefixCls}-ghost`]: ghost,
         });
 
         const headerCls = classNames(`${prefixCls}-header`, {
@@ -253,6 +259,7 @@ const ProCard: ProCardType = (props) => {
           [`${prefixCls}-body-center`]: layout === 'center',
           [`${prefixCls}-body-column`]: split === 'horizontal',
           [`${prefixCls}-body-collapse`]: collapsed,
+          [`${prefixCls}-body-ghost`]: ghost,
         });
 
         const loadingBlockStyle =
