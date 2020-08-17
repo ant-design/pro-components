@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
-import { Button, Tag, Space } from 'antd';
+import { Button, Tabs, Tag, Space } from 'antd';
+import ProDescriptions from '@ant-design/pro-descriptions';
 import ProTable, { ProColumns, TableDropdown } from '@ant-design/pro-table';
 import request from 'umi-request';
 
@@ -97,6 +98,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     title: '排序方式',
     key: 'direction',
     hideInTable: true,
+    hideInDescriptions: true,
     dataIndex: 'direction',
     filters: true,
     valueEnum: {
@@ -143,24 +145,53 @@ const columns: ProColumns<GithubIssueItem>[] = [
   },
 ];
 
-export default () => (
-  <ProTable<GithubIssueItem>
-    columns={columns}
-    request={async (params = {}) =>
-      request<{
-        data: GithubIssueItem[];
-      }>('https://proapi.azurewebsites.net/github/issues', {
-        params,
-      })
-    }
-    rowKey="id"
-    dateFormatter="string"
-    headerTitle="查询 Table"
-    toolBarRender={() => [
-      <Button key="3" type="primary">
-        <PlusOutlined />
-        新建
-      </Button>,
-    ]}
-  />
-);
+export default () => {
+  const [type, setType] = useState('table');
+  return (
+    <>
+      <Tabs activeKey={type} onChange={(e) => setType(e)}>
+        <Tabs.TabPane tab="table" key="table" />
+        <Tabs.TabPane tab="form" key="form" />
+        <Tabs.TabPane tab="descriptions" key="descriptions" />
+      </Tabs>
+      {['table', 'form'].includes(type) && (
+        <ProTable<GithubIssueItem>
+          columns={columns}
+          type={type as 'table'}
+          request={async (params = {}) =>
+            request<{
+              data: GithubIssueItem[];
+            }>('https://proapi.azurewebsites.net/github/issues', {
+              params,
+            })
+          }
+          rowKey="id"
+          dateFormatter="string"
+          headerTitle="查询 Table"
+          toolBarRender={() => [
+            <Button key="3" type="primary">
+              <PlusOutlined />
+              新建
+            </Button>,
+          ]}
+        />
+      )}
+      {type === 'descriptions' && (
+        <ProDescriptions
+          columns={columns}
+          request={async (params) => {
+            const msg = await request<{
+              data: GithubIssueItem[];
+            }>('https://proapi.azurewebsites.net/github/issues', {
+              params,
+            });
+            return {
+              ...msg,
+              data: msg?.data[0],
+            };
+          }}
+        />
+      )}
+    </>
+  );
+};

@@ -8,29 +8,31 @@ export interface ActionsProps {
    * 是否收起
    */
   collapsed?: boolean;
+  /**
+   * 收起按钮的事件
+   */
+  onCollapse?: (collapsed: boolean) => void;
+
   setCollapsed: (collapse: boolean) => void;
-  showCollapseButton: boolean;
   isForm?: boolean;
   style?: React.CSSProperties;
   /**
    * 收起按钮的 render
    */
-  collapseRender?: (
-    collapsed: boolean,
-    /**
-     * 是否应该展示，有两种情况
-     * 列只有三列，不需要收起
-     * form 模式 不需要收起
-     */
-    showCollapseButton?: boolean,
-  ) => React.ReactNode;
-  /**
-   * 收起按钮的事件
-   */
-  onCollapse?: (collapsed: boolean) => void;
+  collapseRender?:
+    | ((
+        collapsed: boolean,
+        /**
+         * 是否应该展示，有两种情况
+         * 列只有三列，不需要收起
+         * form 模式 不需要收起
+         */
+        props: ActionsProps,
+      ) => React.ReactNode)
+    | false;
 }
 
-const defaultCollapseRender = (collapsed: boolean) => {
+const defaultCollapseRender: ActionsProps['collapseRender'] = (collapsed) => {
   if (collapsed) {
     return (
       <>
@@ -67,22 +69,20 @@ const Actions: React.FC<ActionsProps> = (props) => {
   const {
     setCollapsed,
     collapsed = false,
-    showCollapseButton,
     collapseRender = defaultCollapseRender,
     submitter,
     style,
   } = props;
-
   return (
     <Space style={style}>
       {submitter}
-      {showCollapseButton && (
+      {collapseRender !== false && (
         <a
           onClick={() => {
             setCollapsed(!collapsed);
           }}
         >
-          {collapseRender(collapsed)}
+          {collapseRender(collapsed, props)}
         </a>
       )}
     </Space>

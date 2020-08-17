@@ -174,7 +174,7 @@ exports[`form demos renders ./packages/form/demos/base.tsx correctly 1`] = `
             >
               <input
                 autocomplete="off"
-                placeholder="Select date"
+                placeholder="请选择"
                 readonly=""
                 size="12"
                 title=""
@@ -255,7 +255,7 @@ exports[`form demos renders ./packages/form/demos/base.tsx correctly 1`] = `
                   >
                     <input
                       autocomplete="off"
-                      placeholder="Start date"
+                      placeholder="请选择"
                       readonly=""
                       size="21"
                       value=""
@@ -295,7 +295,7 @@ exports[`form demos renders ./packages/form/demos/base.tsx correctly 1`] = `
                   >
                     <input
                       autocomplete="off"
-                      placeholder="End date"
+                      placeholder="请选择"
                       readonly=""
                       size="21"
                       value=""
@@ -370,7 +370,7 @@ exports[`form demos renders ./packages/form/demos/base.tsx correctly 1`] = `
                   >
                     <input
                       autocomplete="off"
-                      placeholder="Start date"
+                      placeholder="请选择"
                       readonly=""
                       size="21"
                       value=""
@@ -410,7 +410,7 @@ exports[`form demos renders ./packages/form/demos/base.tsx correctly 1`] = `
                   >
                     <input
                       autocomplete="off"
-                      placeholder="End date"
+                      placeholder="请选择"
                       readonly=""
                       size="21"
                       value=""
@@ -574,7 +574,7 @@ exports[`form demos renders ./packages/form/demos/base.tsx correctly 1`] = `
             >
               <input
                 autocomplete="off"
-                placeholder="Select date"
+                placeholder="请选择"
                 readonly=""
                 size="21"
                 title=""
@@ -723,6 +723,40 @@ exports[`form demos renders ./packages/form/demos/components-other.tsx correctly
   >
     <div
       class="ant-row ant-form-item"
+      title="name"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          for="validate_other_name"
+          title=""
+        >
+          name
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <input
+              class="ant-input"
+              placeholder="请输入"
+              type="text"
+              value="qixian"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-row ant-form-item"
       title="Select"
     >
       <div
@@ -747,12 +781,8 @@ exports[`form demos renders ./packages/form/demos/components-other.tsx correctly
           >
             <div
               class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-              label="[object Object]"
-              name="select"
-              rules="[object Object]"
               style="min-width: 100px;"
               text=""
-              title="Select"
             >
               <div
                 class="ant-select-selector"
@@ -816,6 +846,7 @@ exports[`form demos renders ./packages/form/demos/components-other.tsx correctly
     </div>
     <div
       class="ant-row ant-form-item"
+      title="Select[multiple]"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -823,7 +854,7 @@ exports[`form demos renders ./packages/form/demos/components-other.tsx correctly
         <label
           class="ant-form-item-required"
           for="validate_other_select-multiple"
-          title="Select[multiple]"
+          title=""
         >
           Select[multiple]
         </label>
@@ -838,14 +869,15 @@ exports[`form demos renders ./packages/form/demos/components-other.tsx correctly
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-select-multiple ant-select-show-search"
+              class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              style="min-width: 100px;"
+              text=""
             >
               <div
                 class="ant-select-selector"
               >
                 <span
                   class="ant-select-selection-search"
-                  style="width: 0px;"
                 >
                   <input
                     aria-activedescendant="validate_other_select-multiple_list_0"
@@ -862,12 +894,6 @@ exports[`form demos renders ./packages/form/demos/components-other.tsx correctly
                     unselectable="on"
                     value=""
                   />
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-selection-search-mirror"
-                  >
-                     
-                  </span>
                 </span>
                 <span
                   class="ant-select-selection-placeholder"
@@ -875,6 +901,33 @@ exports[`form demos renders ./packages/form/demos/components-other.tsx correctly
                   Please select favourite colors
                 </span>
               </div>
+              <span
+                aria-hidden="true"
+                class="ant-select-arrow"
+                style="user-select: none;"
+                unselectable="on"
+              >
+                <span
+                  aria-label="down"
+                  class="anticon anticon-down ant-select-suffix"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="down"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                    />
+                  </svg>
+                </span>
+              </span>
             </div>
           </div>
         </div>
@@ -882,13 +935,15 @@ exports[`form demos renders ./packages/form/demos/components-other.tsx correctly
     </div>
     <div
       class="ant-row ant-form-item"
+      title="InputNumber"
     >
       <div
         class="ant-col ant-form-item-label"
       >
         <label
           class=""
-          title="InputNumber"
+          for="validate_other_input-number"
+          title=""
         >
           InputNumber
         </label>
@@ -1029,6 +1084,7 @@ exports[`form demos renders ./packages/form/demos/components-other.tsx correctly
     </div>
     <div
       class="ant-row ant-form-item"
+      title="Slider"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -1036,7 +1092,7 @@ exports[`form demos renders ./packages/form/demos/components-other.tsx correctly
         <label
           class=""
           for="validate_other_slider"
-          title="Slider"
+          title=""
         >
           Slider
         </label>
@@ -1473,6 +1529,7 @@ exports[`form demos renders ./packages/form/demos/components-other.tsx correctly
     </div>
     <div
       class="ant-row ant-form-item"
+      title="Rate"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -1480,7 +1537,7 @@ exports[`form demos renders ./packages/form/demos/components-other.tsx correctly
         <label
           class=""
           for="validate_other_rate"
-          title="Rate"
+          title=""
         >
           Rate
         </label>
@@ -1813,7 +1870,7 @@ exports[`form demos renders ./packages/form/demos/components-other.tsx correctly
         <label
           class=""
           for="validate_other_upload"
-          title="Upload"
+          title=""
         >
           Upload
         </label>
@@ -1869,7 +1926,7 @@ exports[`form demos renders ./packages/form/demos/components-other.tsx correctly
                       </svg>
                     </span>
                     <span>
-                       Click to upload
+                      Upload
                     </span>
                   </button>
                 </span>
@@ -1890,16 +1947,6 @@ exports[`form demos renders ./packages/form/demos/components-other.tsx correctly
     <div
       class="ant-row ant-form-item"
     >
-      <div
-        class="ant-col ant-form-item-label"
-      >
-        <label
-          class=""
-          title="Dragger"
-        >
-          Dragger
-        </label>
-      </div>
       <div
         class="ant-col ant-form-item-control"
       >
@@ -1954,12 +2001,12 @@ exports[`form demos renders ./packages/form/demos/components-other.tsx correctly
                     <p
                       class="ant-upload-text"
                     >
-                      Click or drag file to this area to upload
+                      Dragger
                     </p>
                     <p
                       class="ant-upload-hint"
                     >
-                      Support for a single or bulk upload.
+                      支持单次或批量上传
                     </p>
                   </div>
                 </span>
@@ -2044,6 +2091,7 @@ exports[`form demos renders ./packages/form/demos/light-filter.tsx correctly 1`]
               >
                 <input
                   class="ant-input"
+                  placeholder="请输入"
                   type="text"
                   value=""
                 />
@@ -2059,12 +2107,12 @@ exports[`form demos renders ./packages/form/demos/light-filter.tsx correctly 1`]
           class="ant-pro-form-dropdown-label ant-dropdown-trigger"
         >
           <span
-            class="undefined-light-filter-label undefined-light-filter-label-default"
+            class="ant-pro-form-light-filter-label ant-pro-form-light-filter-label-default"
           >
             更多筛选
             <span
               aria-label="down"
-              class="anticon anticon-down undefined-light-filter-label-icon undefined-light-filter-label-arrow"
+              class="anticon anticon-down ant-pro-form-light-filter-label-icon ant-pro-form-light-filter-label-arrow"
               role="img"
             >
               <svg
@@ -2129,6 +2177,7 @@ exports[`form demos renders ./packages/form/demos/query-filter.tsx correctly 1`]
             >
               <input
                 class="ant-input"
+                placeholder="请输入"
                 style="width: 100%;"
                 type="text"
                 value=""
@@ -2169,6 +2218,7 @@ exports[`form demos renders ./packages/form/demos/query-filter.tsx correctly 1`]
             >
               <input
                 class="ant-input"
+                placeholder="请输入"
                 style="width: 100%;"
                 type="text"
                 value=""
@@ -2209,6 +2259,7 @@ exports[`form demos renders ./packages/form/demos/query-filter.tsx correctly 1`]
             >
               <input
                 class="ant-input"
+                placeholder="请输入"
                 style="width: 100%;"
                 type="text"
                 value=""
@@ -2256,7 +2307,7 @@ exports[`form demos renders ./packages/form/demos/query-filter.tsx correctly 1`]
                 >
                   <input
                     autocomplete="off"
-                    placeholder="Select date"
+                    placeholder="请选择"
                     readonly=""
                     size="12"
                     title=""
@@ -2331,7 +2382,7 @@ exports[`form demos renders ./packages/form/demos/query-filter.tsx correctly 1`]
                 >
                   <input
                     autocomplete="off"
-                    placeholder="Start date"
+                    placeholder="请选择"
                     readonly=""
                     size="21"
                     value=""
@@ -2371,7 +2422,7 @@ exports[`form demos renders ./packages/form/demos/query-filter.tsx correctly 1`]
                 >
                   <input
                     autocomplete="off"
-                    placeholder="End date"
+                    placeholder="请选择"
                     readonly=""
                     size="21"
                     value=""
@@ -2447,7 +2498,7 @@ exports[`form demos renders ./packages/form/demos/query-filter.tsx correctly 1`]
                 type="button"
               >
                 <span>
-                  提 交
+                  查 询
                 </span>
               </button>
             </div>
@@ -2526,6 +2577,7 @@ exports[`form demos renders ./packages/form/demos/query-filter-collapsed.tsx cor
             >
               <input
                 class="ant-input"
+                placeholder="请输入"
                 style="width: 100%;"
                 type="text"
                 value=""
@@ -2569,7 +2621,7 @@ exports[`form demos renders ./packages/form/demos/query-filter-collapsed.tsx cor
               >
                 <input
                   autocomplete="off"
-                  placeholder="Select date"
+                  placeholder="请选择"
                   readonly=""
                   size="12"
                   title=""
@@ -2632,6 +2684,7 @@ exports[`form demos renders ./packages/form/demos/query-filter-collapsed.tsx cor
           >
             <input
               class="ant-input"
+              placeholder="请输入"
               style="width: 100%;"
               type="text"
               value=""
@@ -2674,7 +2727,7 @@ exports[`form demos renders ./packages/form/demos/query-filter-collapsed.tsx cor
               >
                 <input
                   autocomplete="off"
-                  placeholder="Select date"
+                  placeholder="请选择"
                   readonly=""
                   size="12"
                   title=""
@@ -2744,7 +2797,7 @@ exports[`form demos renders ./packages/form/demos/query-filter-collapsed.tsx cor
               >
                 <input
                   autocomplete="off"
-                  placeholder="Select date"
+                  placeholder="请选择"
                   readonly=""
                   size="12"
                   title=""
@@ -2816,7 +2869,7 @@ exports[`form demos renders ./packages/form/demos/query-filter-collapsed.tsx cor
                 type="button"
               >
                 <span>
-                  提 交
+                  查 询
                 </span>
               </button>
             </div>
@@ -2894,6 +2947,7 @@ exports[`form demos renders ./packages/form/demos/query-filter-vertical.tsx corr
             >
               <input
                 class="ant-input"
+                placeholder="请输入"
                 style="width: 100%;"
                 type="text"
                 value=""
@@ -2940,7 +2994,7 @@ exports[`form demos renders ./packages/form/demos/query-filter-vertical.tsx corr
                 >
                   <input
                     autocomplete="off"
-                    placeholder="Select date"
+                    placeholder="请选择"
                     readonly=""
                     size="12"
                     title=""
@@ -3007,6 +3061,7 @@ exports[`form demos renders ./packages/form/demos/query-filter-vertical.tsx corr
             >
               <input
                 class="ant-input"
+                placeholder="请输入"
                 style="width: 100%;"
                 type="text"
                 value=""
@@ -3261,7 +3316,7 @@ exports[`form demos renders ./packages/form/demos/query-filter-vertical.tsx corr
                 type="button"
               >
                 <span>
-                  提 交
+                  查 询
                 </span>
               </button>
             </div>
@@ -3552,6 +3607,7 @@ exports[`form demos renders ./packages/form/demos/search-filter.tsx correctly 1`
                       >
                         <input
                           class="ant-input"
+                          placeholder="请输入"
                           style="width: 100%;"
                           type="text"
                           value=""
@@ -3613,6 +3669,7 @@ exports[`form demos renders ./packages/form/demos/search-filter.tsx correctly 1`
                       >
                         <input
                           class="ant-input"
+                          placeholder="请输入"
                           style="width: 100%;"
                           type="text"
                           value=""
@@ -3658,7 +3715,7 @@ exports[`form demos renders ./packages/form/demos/search-filter.tsx correctly 1`
                           >
                             <input
                               autocomplete="off"
-                              placeholder="Select date"
+                              placeholder="请选择"
                               readonly=""
                               size="12"
                               title=""

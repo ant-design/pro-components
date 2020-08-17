@@ -114,4 +114,8 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
   params?: {
     [key: string]: any;
   };
+  /**
+   * 隐藏在 descriptions
+   */
+  hideInDescriptions?: boolean;
 } & Extra;

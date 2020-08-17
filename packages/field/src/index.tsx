@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { Avatar } from 'antd';
 import { Moment } from 'moment';
-import { pickProProps } from '@ant-design/pro-utils';
+import { pickProProps, pickUndefined } from '@ant-design/pro-utils';
 import FieldPercent from './components/Percent';
 import FieldIndexColumn from './components/IndexColumn';
 import FieldProgress from './components/Progress';
@@ -164,10 +164,10 @@ const defaultRenderTextByObject = (
   if (valueType.type === 'money') {
     return (
       <FieldMoney
+        locale={valueType.locale}
         {...props}
         formItemProps={pickFormItemProps}
         text={text as number}
-        locale={valueType.locale}
       />
     );
   }
@@ -314,13 +314,14 @@ const Field: React.ForwardRefRenderFunction<
     value,
     onChange,
   };
+
   return (
     <React.Fragment>
       {defaultRenderText(text, valueType, {
         ...rest,
         mode: rest.mode || 'read',
         ref,
-        formItemProps: pickProProps(formItemProps),
+        formItemProps: pickUndefined(pickProProps(formItemProps)),
       })}
     </React.Fragment>
   );

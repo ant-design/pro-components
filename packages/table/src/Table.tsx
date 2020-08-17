@@ -35,7 +35,7 @@ import {
   ProSchema,
   ProSchemaComponentTypes,
   LabelIconTip,
-  pickUndefined,
+  pickUndefinedAndArray,
   ProCoreActionType,
 } from '@ant-design/pro-utils';
 
@@ -221,7 +221,7 @@ export interface ProTableProps<T, U extends ParamsType>
   /**
    * 是否显示搜索表单
    */
-  search?: boolean | SearchConfig;
+  search?: false | SearchConfig;
 
   /**
    * type="form" 和 搜索表单 的 Form 配置
@@ -432,7 +432,7 @@ const genColumnList = <T, U = {}>(
         render: (text: any, row: T, index: number) =>
           columnRender<T>({ item, text, row, index, columnEmptyText, counter }),
       };
-      return pickUndefined(tempColumns);
+      return pickUndefinedAndArray(tempColumns);
     })
     .filter((item) => !item.hideInTable) as unknown) as Array<
     ColumnsType<T>[number] & {
@@ -469,7 +469,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     columnsStateMap,
     onColumnsStateChange,
     options,
-    search = true,
+    search,
     rowSelection: propsRowSelection = false,
     beforeSearchSubmit = (searchParams: Partial<U>) => searchParams,
     tableAlertRender,
@@ -774,7 +774,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
           rest.onChange(changePagination, filters, sorter, extra);
         }
         // 制造筛选的数据
-        setProFilter(pickUndefined<any>(filters));
+        setProFilter(pickUndefinedAndArray<any>(filters));
 
         // 制造一个排序的数据
         if (Array.isArray(sorter)) {
@@ -820,7 +820,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
       getPopupContainer={() => ((rootRef.current || document.body) as any) as HTMLElement}
     >
       <div className={className} id="ant-design-pro-table" style={style} ref={rootRef}>
-        {(search || type === 'form') && (
+        {(search !== false || type === 'form') && (
           <FormSearch<U>
             {...rest}
             type={props.type}

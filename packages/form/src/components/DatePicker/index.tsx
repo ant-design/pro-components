@@ -1,5 +1,4 @@
 import React from 'react';
-// eslint-disable-next-line import/no-unresolved
 import ProField from '@ant-design/pro-field';
 import { Form } from 'antd';
 import { DatePickerProps } from 'antd/lib/date-picker';

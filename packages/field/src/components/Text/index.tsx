@@ -1,5 +1,6 @@
 import { Input } from 'antd';
 import React, { useRef, useImperativeHandle } from 'react';
+import { useIntl } from '@ant-design/pro-provider';
 
 import { ProFieldFC } from '../../index';
 
@@ -10,6 +11,8 @@ import { ProFieldFC } from '../../index';
 const FieldText: ProFieldFC<{
   text: string;
 }> = ({ text, mode, render, renderFormItem, formItemProps }, ref) => {
+  const intl = useIntl();
+
   const inputRef = useRef();
   useImperativeHandle(
     ref,
@@ -27,7 +30,13 @@ const FieldText: ProFieldFC<{
     return <>{dom}</>;
   }
   if (mode === 'edit' || mode === 'update') {
-    const dom = <Input ref={inputRef} {...formItemProps} />;
+    const dom = (
+      <Input
+        placeholder={intl.getMessage('tableForm.inputPlaceholder', '请输入')}
+        ref={inputRef}
+        {...formItemProps}
+      />
+    );
     if (renderFormItem) {
       return renderFormItem(text, { mode, ...formItemProps }, dom);
     }

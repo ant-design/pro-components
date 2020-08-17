@@ -8,11 +8,11 @@ nav:
   path: /components
 ---
 
-# ProForm
-
 > 开发中，请勿用于生产环境。
 
-高级表单，提供一个更加快速的方案来构建表单。
+# ProForm
+
+ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设置，帮助我们快速的开发 From 表单。使用方法与 From 大致相同，但是 ProForm 会自动格式化 date 的 moment 数据，你可以通过 dateFormatter 来关闭这个预设。
 
 ## 示例
 
@@ -48,11 +48,14 @@ nav:
 
 ### ProForm
 
+> antd 的 From api 查看[这里](https://ant.design/components/form-cn/)
+
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | onFinish | 提交表单且数据验证成功后回调事件，同 antd 4 `Form` 组件 API | `Function(e)` | - |
 | onReset | 点击重置按钮的回调，设置后重置按钮才会被渲染 | `Function(e)` | - |
 | submitter | 提交按钮相关配置 | `boolean` \| `SubmitterProps` | `true` |
+| dateFormatter | 自动格式数据，例如 moment 的表单,支持 string 和 number 两种模式 | `string\| number \|false` | string |
 | (...) | 支持除 `wrapperCol` \| `labelCol` \| `layout` 外的其他 antd `Form` 组件参数 | - | - |
 
 ### ProForm.Group

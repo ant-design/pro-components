@@ -1,9 +1,5 @@
 import React from 'react';
-import ProLayout, {
-  DefaultFooter,
-  PageContainer,
-  // eslint-disable-next-line import/no-unresolved
-} from '@ant-design/pro-layout';
+import ProLayout, { DefaultFooter, PageContainer } from '@ant-design/pro-layout';
 import defaultProps from '../fixtures/defaultProps';
 
 export default () => (

@@ -107,6 +107,7 @@ exports[`Field 🥩 edit and plain 1`] = `
             >
               <input
                 class="ant-input"
+                placeholder="请输入"
                 type="text"
                 value=""
               />
@@ -173,7 +174,7 @@ exports[`Field 🥩 edit and plain 1`] = `
                 >
                   <input
                     autocomplete="off"
-                    placeholder="Start date"
+                    placeholder="请选择"
                     readonly=""
                     size="12"
                     value=""
@@ -213,7 +214,7 @@ exports[`Field 🥩 edit and plain 1`] = `
                 >
                   <input
                     autocomplete="off"
-                    placeholder="End date"
+                    placeholder="请选择"
                     readonly=""
                     size="12"
                     value=""
@@ -505,7 +506,9 @@ exports[`Field 🥩 edit and plain 1`] = `
                   </span>
                   <span
                     class="ant-select-selection-placeholder"
-                  />
+                  >
+                    请选择
+                  </span>
                 </div>
                 <span
                   aria-hidden="true"
@@ -581,7 +584,9 @@ exports[`Field 🥩 edit and plain 1`] = `
                   </span>
                   <span
                     class="ant-select-selection-placeholder"
-                  />
+                  >
+                    请选择
+                  </span>
                 </div>
                 <span
                   aria-hidden="true"
@@ -728,7 +733,7 @@ exports[`Field 🥩 edit and plain 1`] = `
                 >
                   <input
                     autocomplete="off"
-                    placeholder="Select date"
+                    placeholder="请选择"
                     readonly=""
                     size="21"
                     title=""
@@ -782,7 +787,7 @@ exports[`Field 🥩 edit and plain 1`] = `
                 >
                   <input
                     autocomplete="off"
-                    placeholder="Select date"
+                    placeholder="请选择"
                     readonly=""
                     size="12"
                     title=""
@@ -840,7 +845,7 @@ exports[`Field 🥩 edit and plain 1`] = `
                 >
                   <input
                     autocomplete="off"
-                    placeholder="Start date"
+                    placeholder="请选择"
                     readonly=""
                     size="21"
                     value=""
@@ -880,7 +885,7 @@ exports[`Field 🥩 edit and plain 1`] = `
                 >
                   <input
                     autocomplete="off"
-                    placeholder="End date"
+                    placeholder="请选择"
                     readonly=""
                     size="21"
                     value=""
@@ -937,7 +942,7 @@ exports[`Field 🥩 edit and plain 1`] = `
                 >
                   <input
                     autocomplete="off"
-                    placeholder="Start date"
+                    placeholder="请选择"
                     readonly=""
                     size="21"
                     value=""
@@ -977,7 +982,7 @@ exports[`Field 🥩 edit and plain 1`] = `
                 >
                   <input
                     autocomplete="off"
-                    placeholder="End date"
+                    placeholder="请选择"
                     readonly=""
                     size="21"
                     value=""
@@ -1150,6 +1155,7 @@ exports[`Field 🥩 edit ant no plain 1`] = `
             >
               <input
                 class="ant-input"
+                placeholder="请输入"
                 type="text"
                 value=""
               />
@@ -1216,7 +1222,7 @@ exports[`Field 🥩 edit ant no plain 1`] = `
                 >
                   <input
                     autocomplete="off"
-                    placeholder="Start date"
+                    placeholder="请选择"
                     readonly=""
                     size="12"
                     value=""
@@ -1256,7 +1262,7 @@ exports[`Field 🥩 edit ant no plain 1`] = `
                 >
                   <input
                     autocomplete="off"
-                    placeholder="End date"
+                    placeholder="请选择"
                     readonly=""
                     size="12"
                     value=""
@@ -1548,7 +1554,9 @@ exports[`Field 🥩 edit ant no plain 1`] = `
                   </span>
                   <span
                     class="ant-select-selection-placeholder"
-                  />
+                  >
+                    请选择
+                  </span>
                 </div>
                 <span
                   aria-hidden="true"
@@ -1624,7 +1632,9 @@ exports[`Field 🥩 edit ant no plain 1`] = `
                   </span>
                   <span
                     class="ant-select-selection-placeholder"
-                  />
+                  >
+                    请选择
+                  </span>
                 </div>
                 <span
                   aria-hidden="true"
@@ -1771,7 +1781,7 @@ exports[`Field 🥩 edit ant no plain 1`] = `
                 >
                   <input
                     autocomplete="off"
-                    placeholder="Select date"
+                    placeholder="请选择"
                     readonly=""
                     size="21"
                     title=""
@@ -1825,7 +1835,7 @@ exports[`Field 🥩 edit ant no plain 1`] = `
                 >
                   <input
                     autocomplete="off"
-                    placeholder="Select date"
+                    placeholder="请选择"
                     readonly=""
                     size="12"
                     title=""
@@ -1883,7 +1893,7 @@ exports[`Field 🥩 edit ant no plain 1`] = `
                 >
                   <input
                     autocomplete="off"
-                    placeholder="Start date"
+                    placeholder="请选择"
                     readonly=""
                     size="21"
                     value=""
@@ -1923,7 +1933,7 @@ exports[`Field 🥩 edit ant no plain 1`] = `
                 >
                   <input
                     autocomplete="off"
-                    placeholder="End date"
+                    placeholder="请选择"
                     readonly=""
                     size="21"
                     value=""
@@ -1980,7 +1990,7 @@ exports[`Field 🥩 edit ant no plain 1`] = `
                 >
                   <input
                     autocomplete="off"
-                    placeholder="Start date"
+                    placeholder="请选择"
                     readonly=""
                     size="21"
                     value=""
@@ -2020,7 +2030,7 @@ exports[`Field 🥩 edit ant no plain 1`] = `
                 >
                   <input
                     autocomplete="off"
-                    placeholder="End date"
+                    placeholder="请选择"
                     readonly=""
                     size="21"
                     value=""
