@@ -299,23 +299,11 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-pro-card ant-pro-card-contain-card"
+    class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
     style="margin-top: 8px;"
   >
     <div
-      class="ant-pro-card-header"
-    >
-      <div
-        class="ant-pro-card-title"
-      >
-        指定宽度px
-      </div>
-      <div
-        class="ant-pro-card-extra"
-      />
-    </div>
-    <div
-      class="ant-pro-card-body"
+      class="ant-pro-card-body ant-pro-card-body-ghost"
     >
       <div
         class="ant-pro-card ant-pro-card-border"
@@ -339,23 +327,11 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-pro-card ant-pro-card-contain-card"
+    class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
     style="margin-top: 8px;"
   >
     <div
-      class="ant-pro-card-header"
-    >
-      <div
-        class="ant-pro-card-title"
-      >
-        指定宽度百分比
-      </div>
-      <div
-        class="ant-pro-card-extra"
-      />
-    </div>
-    <div
-      class="ant-pro-card-body"
+      class="ant-pro-card-body ant-pro-card-body-ghost"
     >
       <div
         class="ant-pro-card ant-pro-card-border"

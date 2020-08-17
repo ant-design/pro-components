@@ -18,6 +18,10 @@
     border: @border-width-base @border-style-base @border-color-split;
   }
 
+  &-ghost {
+    background-color: transparent;
+  }
+
   &-split > &-body {
     padding: 0;
   }
@@ -43,7 +47,6 @@
   &-header {
     display: flex;
     justify-content: space-between;
-    background-color: white;
     padding: @padding-md;
     padding-bottom: 0;
     &-border {
@@ -87,6 +90,11 @@
 
     &-collapse {
       display: none;
+    }
+
+    &-ghost {
+      padding: 0;
+      background-color: transparent;
     }
   }
 

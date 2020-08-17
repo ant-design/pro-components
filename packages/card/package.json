@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-card",
-  "version": "1.0.0-beta.6",
+  "version": "1.0.0",
   "description": "@ant-design/pro-card",
   "keywords": [
     "antd",
@@ -42,7 +42,7 @@
     "access": "public"
   },
   "authors": [
-    "chencheng <sorrycc@gmail.com> (https://github.com/sorrycc)",
+    "rdmclin2 <rdmclin2@gmail.com> (https://github.com/rdmclin2)",
     "chenshuai2144 <qixian.cs@outlook.com> (https://github.com/chenshuai2144)"
   ]
 }
