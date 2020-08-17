@@ -1904,7 +1904,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-picker ant-picker-borderless"
+                  class="ant-picker"
                   style="width: 100%;"
                 >
                   <div
@@ -1974,7 +1974,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-picker ant-picker-borderless"
+                  class="ant-picker"
                   style="width: 100%;"
                 >
                   <div

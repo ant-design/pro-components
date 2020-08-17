@@ -87,7 +87,6 @@ export const formInputRender: React.FC<{
       formItemProps={item.formItemProps}
       // valueType = textarea，但是在 查询表单这里，应该是个 input 框
       valueType={!valueType || valueType === 'textarea' ? 'text' : valueType}
-      plain={type !== 'form'}
       {...rest}
     />
   );

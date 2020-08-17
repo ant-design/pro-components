@@ -176,7 +176,7 @@ exports[`table demos renders ./packages/table/demos/batchOption.tsx correctly 1`
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-picker ant-picker-borderless"
+                  class="ant-picker"
                   style="width: 100%;"
                 >
                   <div
@@ -4795,7 +4795,7 @@ exports[`table demos renders ./packages/table/demos/dataSource.tsx correctly 1`]
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-picker ant-picker-borderless"
+                  class="ant-picker"
                   style="width: 100%;"
                 >
                   <div
@@ -5482,7 +5482,7 @@ exports[`table demos renders ./packages/table/demos/form.tsx correctly 1`] = `
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    class="ant-picker ant-picker-borderless"
+                    class="ant-picker"
                     style="width: 100%;"
                   >
                     <div
@@ -7414,7 +7414,7 @@ Array [
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    class="ant-picker ant-picker-borderless"
+                    class="ant-picker"
                     style="width: 100%;"
                   >
                     <div
@@ -11681,7 +11681,7 @@ exports[`table demos renders ./packages/table/demos/linkage_form.tsx correctly 1
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    class="ant-picker ant-picker-borderless"
+                    class="ant-picker"
                     style="width: 100%;"
                   >
                     <div
@@ -14800,7 +14800,7 @@ exports[`table demos renders ./packages/table/demos/pollinga.tsx correctly 1`] =
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-picker ant-picker-borderless"
+                  class="ant-picker"
                   style="width: 100%;"
                 >
                   <div
@@ -15751,7 +15751,7 @@ exports[`table demos renders ./packages/table/demos/renderTable.tsx correctly 1`
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-picker ant-picker-borderless"
+                  class="ant-picker"
                   style="width: 100%;"
                 >
                   <div
@@ -17103,7 +17103,7 @@ Array [
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    class="ant-picker ant-picker-borderless"
+                    class="ant-picker"
                     style="width: 100%;"
                   >
                     <div
@@ -20935,7 +20935,7 @@ exports[`table demos renders ./packages/table/demos/search_option.tsx correctly 
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    class="ant-picker ant-picker-borderless"
+                    class="ant-picker"
                     style="width: 100%;"
                   >
                     <div
@@ -24657,7 +24657,7 @@ exports[`table demos renders ./packages/table/demos/single.tsx correctly 1`] = `
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-picker ant-picker-borderless"
+                  class="ant-picker"
                   style="width: 100%;"
                 >
                   <div
@@ -29003,7 +29003,7 @@ exports[`table demos renders ./packages/table/demos/table-nested.tsx correctly 1
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-picker ant-picker-borderless"
+                  class="ant-picker"
                   style="width: 100%;"
                 >
                   <div
@@ -29751,11 +29751,10 @@ exports[`table demos renders ./packages/table/demos/valueType.tsx correctly 1`] 
               <div
                 class="ant-form-item-control-input-content"
               >
-                <input
+                <textarea
                   class="ant-input"
+                  rows="5"
                   style="width: 100%;"
-                  type="text"
-                  value=""
                 />
               </div>
             </div>
@@ -30908,7 +30907,7 @@ exports[`table demos renders ./packages/table/demos/valueTypeDate.tsx correctly 
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    class="ant-picker ant-picker-borderless"
+                    class="ant-picker"
                     style="width: 100%;"
                   >
                     <div
@@ -30979,7 +30978,7 @@ exports[`table demos renders ./packages/table/demos/valueTypeDate.tsx correctly 
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-picker ant-picker-range ant-picker-borderless"
+                  class="ant-picker ant-picker-range"
                   style="width: 100%;"
                 >
                   <div
@@ -31092,7 +31091,7 @@ exports[`table demos renders ./packages/table/demos/valueTypeDate.tsx correctly 
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-picker ant-picker-range ant-picker-borderless"
+                  class="ant-picker ant-picker-range"
                   style="width: 100%;"
                 >
                   <div
@@ -31205,7 +31204,7 @@ exports[`table demos renders ./packages/table/demos/valueTypeDate.tsx correctly 
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-picker ant-picker-borderless"
+                  class="ant-picker"
                   style="width: 100%;"
                 >
                   <div
@@ -31275,7 +31274,7 @@ exports[`table demos renders ./packages/table/demos/valueTypeDate.tsx correctly 
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-picker ant-picker-borderless"
+                  class="ant-picker"
                   style="width: 100%;"
                 >
                   <div
