@@ -18,7 +18,6 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = (props) => {
   const [searchText, setSearchText] = useState<string>();
   const [showFilter, setShowFilter] = useState<boolean>(true);
   const quickSearch = ['小程序开发', '入驻', 'ISV 权限'];
-
   return (
     <Card
       bodyStyle={{ paddingBottom: 0 }}

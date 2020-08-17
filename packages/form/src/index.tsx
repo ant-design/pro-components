@@ -12,6 +12,9 @@ import ProFormRate from './components/Rate';
 import ProFormSlider from './components/Slider';
 import ProFormUploadDragger from './components/UploadDragger';
 import ProFormUploadButton from './components/UploadButton';
+import ProFormField from './components/Field';
+import ProFormSelect from './components/Select';
+import ProFormDigit from './components/Digit';
 
 import ProForm from './layouts/ProForm';
 import QueryFilter, { BaseQueryFilterProps } from './layouts/QueryFilter';
@@ -27,6 +30,9 @@ export {
   ProFormText,
   ProFormTextArea,
   ProFormSwitch,
+  ProFormField,
+  ProFormSelect,
+  ProFormDigit,
   ProFormCheckbox,
   ProFormRadio,
   ProFormRate,

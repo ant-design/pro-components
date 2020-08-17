@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useCallback } from 'react';
 import { FormInstance, FormItemProps, FormProps } from 'antd/lib/form';
 import { Form } from 'antd';
 import { useIntl, IntlType } from '@ant-design/pro-provider';
-import ProForm, { QueryFilter, ProFormText, BaseQueryFilterProps } from '@ant-design/pro-form';
+import ProForm, { QueryFilter, ProFormField, BaseQueryFilterProps } from '@ant-design/pro-form';
 import classNames from 'classnames';
 import { ProFieldValueType } from '@ant-design/pro-field';
 import { ConfigContext } from 'antd/lib/config-provider/context';
@@ -80,7 +80,7 @@ export const formInputRender: React.FC<{
   }
 
   return (
-    <ProFormText
+    <ProFormField
       ref={ref}
       valueEnum={item.valueEnum}
       name={item.dataIndex}

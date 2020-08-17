@@ -1,47 +1,23 @@
 import React from 'react';
-
-import ProField, { ProFieldValueType } from '@ant-design/pro-field';
 import { Form } from 'antd';
 import { InputProps } from 'antd/lib/input';
-import { SelectProps } from 'antd/lib/select';
-import { ProSchema, pickProProps } from '@ant-design/pro-utils';
-
-import { createField } from '../../BaseForm';
+import ProField from '@ant-design/pro-field';
 import { ProFormItemProps } from '../../interface';
+import { createField } from '../../BaseForm';
 
 /**
- * 最普通的 Text 组件
+ * 文本选择组件
  * @param
  */
-const ProFormText = React.forwardRef<
-  any,
-  ProSchema<string, ProFieldValueType, ProFormItemProps<InputProps & SelectProps<string>>>
->(({ fieldProps, hasFeedback, render, renderFormItem, valueType, ...restProps }, ref) => (
-  <Form.Item {...pickProProps(restProps)}>
-    <ProField
-      text={fieldProps?.value as string}
-      ref={ref}
-      mode="edit"
-      valueType={(valueType as 'text') || 'text'}
-      {...restProps}
-      formItemProps={{
-        ...fieldProps,
-        ...(restProps.formItemProps || {}),
-      }}
-    />
-  </Form.Item>
-));
+const ProFormText: React.ForwardRefRenderFunction<any, ProFormItemProps<InputProps>> = (
+  { fieldProps, ...restProps },
+  ref,
+) => {
+  return (
+    <Form.Item {...restProps}>
+      <ProField mode="edit" valueType="text" {...restProps} formItemProps={fieldProps} ref={ref} />
+    </Form.Item>
+  );
+};
 
-// @ts-ignore
-ProFormText.type = 'ProField';
-
-export default createField<
-  ProSchema<
-    string,
-    ProFieldValueType,
-    ProFormItemProps<InputProps & SelectProps<string>> & {
-      ref?: any;
-      plain?: boolean;
-    }
-  >
->(ProFormText);
+export default createField<ProFormItemProps<InputProps>>(React.forwardRef(ProFormText));

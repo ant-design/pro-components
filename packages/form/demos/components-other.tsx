@@ -7,6 +7,8 @@ import ProForm, {
   ProFormRadio,
   ProFormCheckbox,
   ProFormRate,
+  ProFormSelect,
+  ProFormDigit,
   ProFormSlider,
   ProFormUploadButton,
   ProFormUploadDragger,
@@ -24,10 +26,13 @@ const Demo = () => (
         'input-number': 3,
         'checkbox-group': ['A', 'B'],
         rate: 3.5,
+        name: 'qixian',
       }}
       onFinish={(value) => console.log(value)}
     >
-      <ProFormText
+      <ProFormText name="name" label="name" />
+
+      <ProFormSelect
         name="select"
         label="Select"
         hasFeedback
@@ -39,7 +44,7 @@ const Demo = () => (
         rules={[{ required: true, message: 'Please select your country!' }]}
       />
 
-      <ProFormText
+      <ProFormSelect
         name="select-multiple"
         label="Select[multiple]"
         hasFeedback
@@ -48,23 +53,12 @@ const Demo = () => (
           green: 'Green',
           blue: 'Blue',
         }}
-        fieldProps={{
-          mode: 'multiple',
-        }}
+        mode="multiple"
         placeholder="Please select favourite colors"
         rules={[{ required: true, message: 'Please select your favourite colors!', type: 'array' }]}
       />
 
-      <ProFormText
-        label="InputNumber"
-        valueType="digit"
-        name="input-number"
-        noStyle
-        formItemProps={{
-          min: 1,
-          max: 10,
-        }}
-      />
+      <ProFormDigit label="InputNumber" name="input-number" min={1} max={10} />
 
       <ProFormSwitch name="switch" label="Switch" />
       <ProFormSlider
