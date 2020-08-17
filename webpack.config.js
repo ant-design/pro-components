@@ -134,7 +134,6 @@ tailPkgs.forEach((pkg) => {
         antd: 'antd',
         moment: 'moment',
       },
-      /^antd/,
     ],
     plugins: [
       new MiniCssExtractPlugin({
