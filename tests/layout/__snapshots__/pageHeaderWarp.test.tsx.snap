@@ -47,9 +47,12 @@ exports[`BasicLayout base use 1`] = `
                 class="ant-menu-submenu-title"
                 role="button"
                 style="padding-left:16px"
-                title="welcome"
               >
-                welcome
+                <span
+                  class="ant-pro-menu-item"
+                >
+                  welcome
+                </span>
                 <i
                   class="ant-menu-submenu-arrow"
                 />
@@ -200,9 +203,12 @@ exports[`BasicLayout content is text 1`] = `
                 class="ant-menu-submenu-title"
                 role="button"
                 style="padding-left:16px"
-                title="welcome"
               >
-                welcome
+                <span
+                  class="ant-pro-menu-item"
+                >
+                  welcome
+                </span>
                 <i
                   class="ant-menu-submenu-arrow"
                 />

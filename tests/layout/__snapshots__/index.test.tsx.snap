@@ -345,9 +345,12 @@ exports[`BasicLayout 🥩 menuDataRender change date 2`] = `
                 class="ant-menu-submenu-title"
                 role="button"
                 style="padding-left: 16px;"
-                title="首页"
               >
-                首页
+                <span
+                  class="ant-pro-menu-item"
+                >
+                  首页
+                </span>
                 <i
                   class="ant-menu-submenu-arrow"
                 />
@@ -603,9 +606,12 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
                 class="ant-menu-submenu-title"
                 role="button"
                 style="padding-left: 16px;"
-                title="汇总数据"
               >
-                汇总数据
+                <span
+                  class="ant-pro-menu-item"
+                >
+                  汇总数据
+                </span>
                 <i
                   class="ant-menu-submenu-arrow"
                 />
