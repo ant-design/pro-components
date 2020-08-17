@@ -491,8 +491,12 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
       return;
     }
 
-    browserHistory.replace({
+//     browserHistory.replace({
+//       search: stringify(diffParams),
+//     });
+     browserHistory.replace({
       search: stringify(diffParams),
+      hash:location.hash
     });
   }, [JSON.stringify(settingState)]);
   const baseClassName = `${prefixCls}-setting`;
