@@ -66,9 +66,12 @@ exports[`layout demos renders ./packages/layout/demos/BreadcrumbsRepeat.tsx corr
                   class="ant-menu-submenu-title"
                   role="button"
                   style="padding-left: 16px;"
-                  title="管理"
                 >
-                  管理
+                  <span
+                    class="ant-pro-menu-item"
+                  >
+                    管理
+                  </span>
                   <i
                     class="ant-menu-submenu-arrow"
                   />
@@ -342,9 +345,12 @@ exports[`layout demos renders ./packages/layout/demos/DefaultOpenAllMenu.tsx cor
                   class="ant-menu-submenu-title"
                   role="button"
                   style="padding-left: 16px;"
-                  title="汇总数据"
                 >
-                  汇总数据
+                  <span
+                    class="ant-pro-menu-item"
+                  >
+                    汇总数据
+                  </span>
                   <i
                     class="ant-menu-submenu-arrow"
                   />
@@ -365,9 +371,12 @@ exports[`layout demos renders ./packages/layout/demos/DefaultOpenAllMenu.tsx cor
                       class="ant-menu-submenu-title"
                       role="button"
                       style="padding-left: 32px;"
-                      title="域买家维度交易"
                     >
-                      域买家维度交易
+                      <span
+                        class="ant-pro-menu-item"
+                      >
+                        域买家维度交易
+                      </span>
                       <i
                         class="ant-menu-submenu-arrow"
                       />
@@ -420,9 +429,12 @@ exports[`layout demos renders ./packages/layout/demos/DefaultOpenAllMenu.tsx cor
                       class="ant-menu-submenu-title"
                       role="button"
                       style="padding-left: 32px;"
-                      title="域买家维度交易2"
                     >
-                      域买家维度交易2
+                      <span
+                        class="ant-pro-menu-item"
+                      >
+                        域买家维度交易2
+                      </span>
                       <i
                         class="ant-menu-submenu-arrow"
                       />
@@ -477,9 +489,12 @@ exports[`layout demos renders ./packages/layout/demos/DefaultOpenAllMenu.tsx cor
                   class="ant-menu-submenu-title"
                   role="button"
                   style="padding-left: 16px;"
-                  title="明细数据"
                 >
-                  明细数据
+                  <span
+                    class="ant-pro-menu-item"
+                  >
+                    明细数据
+                  </span>
                   <i
                     class="ant-menu-submenu-arrow"
                   />
@@ -517,9 +532,12 @@ exports[`layout demos renders ./packages/layout/demos/DefaultOpenAllMenu.tsx cor
                   class="ant-menu-submenu-title"
                   role="button"
                   style="padding-left: 16px;"
-                  title="其他"
                 >
-                  其他
+                  <span
+                    class="ant-pro-menu-item"
+                  >
+                    其他
+                  </span>
                   <i
                     class="ant-menu-submenu-arrow"
                   />
@@ -1022,9 +1040,12 @@ exports[`layout demos renders ./packages/layout/demos/MultipleMenuOnePath.tsx co
                   class="ant-menu-submenu-title"
                   role="button"
                   style="padding-left: 16px;"
-                  title="配置中心"
                 >
-                  配置中心
+                  <span
+                    class="ant-pro-menu-item"
+                  >
+                    配置中心
+                  </span>
                   <i
                     class="ant-menu-submenu-arrow"
                   />
@@ -1121,9 +1142,12 @@ exports[`layout demos renders ./packages/layout/demos/MultipleMenuOnePath.tsx co
                   class="ant-menu-submenu-title"
                   role="button"
                   style="padding-left: 16px;"
-                  title="资产"
                 >
-                  资产
+                  <span
+                    class="ant-pro-menu-item"
+                  >
+                    资产
+                  </span>
                   <i
                     class="ant-menu-submenu-arrow"
                   />
@@ -1140,9 +1164,12 @@ exports[`layout demos renders ./packages/layout/demos/MultipleMenuOnePath.tsx co
                   class="ant-menu-submenu-title"
                   role="button"
                   style="padding-left: 16px;"
-                  title="账单"
                 >
-                  账单
+                  <span
+                    class="ant-pro-menu-item"
+                  >
+                    账单
+                  </span>
                   <i
                     class="ant-menu-submenu-arrow"
                   />
@@ -1159,9 +1186,12 @@ exports[`layout demos renders ./packages/layout/demos/MultipleMenuOnePath.tsx co
                   class="ant-menu-submenu-title"
                   role="button"
                   style="padding-left: 16px;"
-                  title="CIF"
                 >
-                  CIF
+                  <span
+                    class="ant-pro-menu-item"
+                  >
+                    CIF
+                  </span>
                   <i
                     class="ant-menu-submenu-arrow"
                   />
@@ -1178,9 +1208,12 @@ exports[`layout demos renders ./packages/layout/demos/MultipleMenuOnePath.tsx co
                   class="ant-menu-submenu-title"
                   role="button"
                   style="padding-left: 16px;"
-                  title="小工具"
                 >
-                  小工具
+                  <span
+                    class="ant-pro-menu-item"
+                  >
+                    小工具
+                  </span>
                   <i
                     class="ant-menu-submenu-arrow"
                   />
@@ -1413,11 +1446,11 @@ exports[`layout demos renders ./packages/layout/demos/Nested.tsx correctly 1`] =
                   class="ant-menu-submenu-title"
                   role="button"
                 >
-                  <div
-                    class="ant-menu-inline-collapsed-noicon"
+                  <span
+                    class="ant-pro-menu-item"
                   >
-                    汇
-                  </div>
+                    汇总数据
+                  </span>
                   <i
                     class="ant-menu-submenu-arrow"
                   />
@@ -1433,11 +1466,11 @@ exports[`layout demos renders ./packages/layout/demos/Nested.tsx correctly 1`] =
                   class="ant-menu-submenu-title"
                   role="button"
                 >
-                  <div
-                    class="ant-menu-inline-collapsed-noicon"
+                  <span
+                    class="ant-pro-menu-item"
                   >
-                    明
-                  </div>
+                    明细数据
+                  </span>
                   <i
                     class="ant-menu-submenu-arrow"
                   />
@@ -1453,11 +1486,11 @@ exports[`layout demos renders ./packages/layout/demos/Nested.tsx correctly 1`] =
                   class="ant-menu-submenu-title"
                   role="button"
                 >
-                  <div
-                    class="ant-menu-inline-collapsed-noicon"
+                  <span
+                    class="ant-pro-menu-item"
                   >
-                    其
-                  </div>
+                    其他
+                  </span>
                   <i
                     class="ant-menu-submenu-arrow"
                   />
@@ -1555,9 +1588,12 @@ exports[`layout demos renders ./packages/layout/demos/Nested.tsx correctly 1`] =
                           class="ant-menu-submenu-title"
                           role="button"
                           style="padding-left: 16px;"
-                          title="汇总数据"
                         >
-                          汇总数据
+                          <span
+                            class="ant-pro-menu-item"
+                          >
+                            汇总数据
+                          </span>
                           <i
                             class="ant-menu-submenu-arrow"
                           />
@@ -1574,9 +1610,12 @@ exports[`layout demos renders ./packages/layout/demos/Nested.tsx correctly 1`] =
                           class="ant-menu-submenu-title"
                           role="button"
                           style="padding-left: 16px;"
-                          title="明细数据"
                         >
-                          明细数据
+                          <span
+                            class="ant-pro-menu-item"
+                          >
+                            明细数据
+                          </span>
                           <i
                             class="ant-menu-submenu-arrow"
                           />
@@ -1593,9 +1632,12 @@ exports[`layout demos renders ./packages/layout/demos/Nested.tsx correctly 1`] =
                           class="ant-menu-submenu-title"
                           role="button"
                           style="padding-left: 16px;"
-                          title="其他"
                         >
-                          其他
+                          <span
+                            class="ant-pro-menu-item"
+                          >
+                            其他
+                          </span>
                           <i
                             class="ant-menu-submenu-arrow"
                           />
@@ -1883,9 +1925,12 @@ exports[`layout demos renders ./packages/layout/demos/TopmenuNested.tsx correctl
                       aria-haspopup="true"
                       class="ant-menu-submenu-title"
                       role="button"
-                      title="汇总数据"
                     >
-                      汇总数据
+                      <span
+                        class="ant-pro-menu-item"
+                      >
+                        汇总数据
+                      </span>
                       <i
                         class="ant-menu-submenu-arrow"
                       />
@@ -1919,9 +1964,12 @@ exports[`layout demos renders ./packages/layout/demos/TopmenuNested.tsx correctl
                       aria-haspopup="true"
                       class="ant-menu-submenu-title"
                       role="button"
-                      title="明细数据"
                     >
-                      明细数据
+                      <span
+                        class="ant-pro-menu-item"
+                      >
+                        明细数据
+                      </span>
                       <i
                         class="ant-menu-submenu-arrow"
                       />
@@ -1955,9 +2003,12 @@ exports[`layout demos renders ./packages/layout/demos/TopmenuNested.tsx correctl
                       aria-haspopup="true"
                       class="ant-menu-submenu-title"
                       role="button"
-                      title="其他"
                     >
-                      其他
+                      <span
+                        class="ant-pro-menu-item"
+                      >
+                        其他
+                      </span>
                       <i
                         class="ant-menu-submenu-arrow"
                       />
@@ -2037,9 +2088,12 @@ exports[`layout demos renders ./packages/layout/demos/TopmenuNested.tsx correctl
                           class="ant-menu-submenu-title"
                           role="button"
                           style="padding-left: 16px;"
-                          title="汇总数据"
                         >
-                          汇总数据
+                          <span
+                            class="ant-pro-menu-item"
+                          >
+                            汇总数据
+                          </span>
                           <i
                             class="ant-menu-submenu-arrow"
                           />
@@ -2056,9 +2110,12 @@ exports[`layout demos renders ./packages/layout/demos/TopmenuNested.tsx correctl
                           class="ant-menu-submenu-title"
                           role="button"
                           style="padding-left: 16px;"
-                          title="明细数据"
                         >
-                          明细数据
+                          <span
+                            class="ant-pro-menu-item"
+                          >
+                            明细数据
+                          </span>
                           <i
                             class="ant-menu-submenu-arrow"
                           />
@@ -2075,9 +2132,12 @@ exports[`layout demos renders ./packages/layout/demos/TopmenuNested.tsx correctl
                           class="ant-menu-submenu-title"
                           role="button"
                           style="padding-left: 16px;"
-                          title="其他"
                         >
-                          其他
+                          <span
+                            class="ant-pro-menu-item"
+                          >
+                            其他
+                          </span>
                           <i
                             class="ant-menu-submenu-arrow"
                           />
@@ -5418,9 +5478,12 @@ exports[`layout demos renders ./packages/layout/demos/searchMenu.tsx correctly 1
                   class="ant-menu-submenu-title"
                   role="button"
                   style="padding-left: 16px;"
-                  title="汇总数据"
                 >
-                  汇总数据
+                  <span
+                    class="ant-pro-menu-item"
+                  >
+                    汇总数据
+                  </span>
                   <i
                     class="ant-menu-submenu-arrow"
                   />
@@ -5437,9 +5500,12 @@ exports[`layout demos renders ./packages/layout/demos/searchMenu.tsx correctly 1
                   class="ant-menu-submenu-title"
                   role="button"
                   style="padding-left: 16px;"
-                  title="明细数据"
                 >
-                  明细数据
+                  <span
+                    class="ant-pro-menu-item"
+                  >
+                    明细数据
+                  </span>
                   <i
                     class="ant-menu-submenu-arrow"
                   />
@@ -5456,9 +5522,12 @@ exports[`layout demos renders ./packages/layout/demos/searchMenu.tsx correctly 1
                   class="ant-menu-submenu-title"
                   role="button"
                   style="padding-left: 16px;"
-                  title="其他"
                 >
-                  其他
+                  <span
+                    class="ant-pro-menu-item"
+                  >
+                    其他
+                  </span>
                   <i
                     class="ant-menu-submenu-arrow"
                   />
