@@ -117,7 +117,7 @@ class MenuUtil {
           <span>{name}</span>
         </span>
       ) : (
-        name
+        <span className={`${prefixCls}-menu-item`}>{name}</span>
       );
 
       // subMenu only title render
