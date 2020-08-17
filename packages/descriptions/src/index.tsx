@@ -205,7 +205,12 @@ const ProDescriptions = <T extends {}>(props: ProDescriptionsProps<T>) => {
       }
       return item.props;
     });
-    return [...childrenColumns, ...(columns || [])];
+    return [...childrenColumns, ...(columns || [])].filter((item) => {
+      if (['index', 'indexBorder'].includes(item.valueType)) {
+        return false;
+      }
+      return !item.hideInDescriptions;
+    });
   };
 
   const { options, children } = conversionProProSchemaToDescriptionsItem(
