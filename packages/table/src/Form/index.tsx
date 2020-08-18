@@ -75,13 +75,21 @@ export const formInputRender: React.FC<{
       return dom;
     }
     const defaultProps = dom.props as any;
+    if (defaultProps.isDefaultDom) {
+      return dom;
+    }
     // 已用户的为主，不然过于 magic
-    return React.cloneElement(dom, { ...rest, ...defaultProps });
+    return (
+      <ProFormField {...rest} ref={ref} name={item.dataIndex}>
+        {React.cloneElement(dom, { ...rest, ...defaultProps })}
+      </ProFormField>
+    );
   }
 
   return (
     <ProFormField
       ref={ref}
+      isDefaultDom
       valueEnum={item.valueEnum}
       name={item.dataIndex}
       formItemProps={item.formItemProps}
