@@ -6,6 +6,7 @@ group:
 nav:
   title: 快速开始
   path: /docs
+  order: 0
 ---
 
 # ProDescriptions - 快速开始

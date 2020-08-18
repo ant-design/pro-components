@@ -36,5 +36,5 @@ functions/mock
 # screenshot
 screenshot
 .firebase
-packages/field/lib/index.js
 .eslintcache
+.changelog
