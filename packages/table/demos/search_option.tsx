@@ -129,7 +129,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     valueType: 'option',
     dataIndex: 'id',
     render: (text, row) => [
-      <a href={row.html_url} target="_blank" rel="noopener noreferrer">
+      <a href={row.html_url} key="show" target="_blank" rel="noopener noreferrer">
         查看
       </a>,
       <TableDropdown
@@ -161,6 +161,7 @@ export default () => (
       optionRender: ({ searchText, resetText }, { form }) => {
         return [
           <a
+            key="searchText"
             onClick={() => {
               form?.submit();
             }}
@@ -168,13 +169,14 @@ export default () => (
             {searchText}
           </a>,
           <a
+            key="resetText"
             onClick={() => {
               form?.resetFields();
             }}
           >
             {resetText}
           </a>,
-          <a>导出</a>,
+          <a key="out">导出</a>,
         ];
       },
     }}

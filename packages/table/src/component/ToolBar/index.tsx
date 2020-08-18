@@ -20,7 +20,7 @@ export interface OptionConfig<T> {
 }
 
 export type OptionsType<T = unknown> =
-  | ((e: React.MouseEvent<HTMLSpanElement>, action: UseFetchDataAction<RequestData<T>>) => void)
+  | ((e: React.MouseEvent<HTMLSpanElement>, action?: UseFetchDataAction<RequestData<T>>) => void)
   | boolean;
 
 export interface ToolBarProps<T = unknown> {
@@ -92,7 +92,16 @@ const renderDefaultOption = <T, U = {}>(
           <span
             key={key}
             className={className}
-            onClick={value === true ? defaultOptions[key] : value}
+            onClick={(e) => {
+              const defaultFc = defaultOptions[key];
+              if (value === true && defaultFc && typeof defaultFc === 'function') {
+                defaultFc(e);
+              }
+
+              if (typeof value === 'function') {
+                value();
+              }
+            }}
           >
             <FullScreenIcon />
           </span>

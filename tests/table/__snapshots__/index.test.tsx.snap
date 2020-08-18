@@ -1530,8 +1530,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                 <div
                   class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                   hidden=""
-                  label="[object Object]"
-                  labelcol="[object Object]"
                   name="sex"
                   style="width: 100%;"
                   text=""
@@ -1625,8 +1623,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                 <div
                   class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                   hidden=""
-                  label="[object Object]"
-                  labelcol="[object Object]"
                   name="status"
                   style="width: 100%;"
                   text=""

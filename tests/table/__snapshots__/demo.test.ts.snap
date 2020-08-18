@@ -46,8 +46,6 @@ exports[`table demos renders ./packages/table/demos/batchOption.tsx correctly 1`
                 >
                   <div
                     class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                    label="[object Object]"
-                    labelcol="[object Object]"
                     name="state"
                     style="width: 100%;"
                     text=""
@@ -4594,8 +4592,6 @@ exports[`table demos renders ./packages/table/demos/dataSource.tsx correctly 1`]
                 >
                   <div
                     class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                    label="[object Object]"
-                    labelcol="[object Object]"
                     name="status"
                     style="width: 100%;"
                     text=""
@@ -5384,8 +5380,6 @@ exports[`table demos renders ./packages/table/demos/form.tsx correctly 1`] = `
                 >
                   <div
                     class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                    label="[object Object]"
-                    labelcol="[object Object]"
                     name="status"
                     style="width: 100%;"
                     text=""
@@ -7285,8 +7279,6 @@ Array [
                   <div
                     class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     hidden=""
-                    label="[object Object]"
-                    labelcol="[object Object]"
                     name="state"
                     style="width: 100%;"
                     text=""
@@ -11443,8 +11435,6 @@ exports[`table demos renders ./packages/table/demos/linkage_form.tsx correctly 1
                 >
                   <div
                     class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                    label="[object Object]"
-                    labelcol="[object Object]"
                     name="state"
                     style="width: 100%;"
                     text=""
@@ -11542,8 +11532,6 @@ exports[`table demos renders ./packages/table/demos/linkage_form.tsx correctly 1
                 >
                   <div
                     class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                    label="[object Object]"
-                    labelcol="[object Object]"
                     name="direction"
                     style="width: 100%;"
                     text=""
@@ -14599,8 +14587,6 @@ exports[`table demos renders ./packages/table/demos/pollinga.tsx correctly 1`] =
                 >
                   <div
                     class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                    label="[object Object]"
-                    labelcol="[object Object]"
                     name="status"
                     style="width: 100%;"
                     text=""
@@ -15550,8 +15536,6 @@ exports[`table demos renders ./packages/table/demos/renderTable.tsx correctly 1`
                 >
                   <div
                     class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                    label="[object Object]"
-                    labelcol="[object Object]"
                     name="status"
                     style="width: 100%;"
                     text=""
@@ -16878,8 +16862,6 @@ Array [
                   >
                     <div
                       class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                      label="[object Object]"
-                      labelcol="[object Object]"
                       name="state"
                       style="width: 100%;"
                       text=""
@@ -16974,8 +16956,6 @@ Array [
                   <div
                     class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     hidden=""
-                    label="[object Object]"
-                    labelcol="[object Object]"
                     name="direction"
                     style="width: 100%;"
                     text=""
@@ -20697,8 +20677,6 @@ exports[`table demos renders ./packages/table/demos/search_option.tsx correctly 
                 >
                   <div
                     class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                    label="[object Object]"
-                    labelcol="[object Object]"
                     name="state"
                     style="width: 100%;"
                     text=""
@@ -20796,8 +20774,6 @@ exports[`table demos renders ./packages/table/demos/search_option.tsx correctly 
                 >
                   <div
                     class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                    label="[object Object]"
-                    labelcol="[object Object]"
                     name="direction"
                     style="width: 100%;"
                     text=""
@@ -24527,8 +24503,6 @@ exports[`table demos renders ./packages/table/demos/single.tsx correctly 1`] = `
                 >
                   <div
                     class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                    label="[object Object]"
-                    labelcol="[object Object]"
                     name="state"
                     style="width: 100%;"
                     text=""
@@ -28802,8 +28776,6 @@ exports[`table demos renders ./packages/table/demos/table-nested.tsx correctly 1
                 >
                   <div
                     class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                    label="[object Object]"
-                    labelcol="[object Object]"
                     name="status"
                     style="width: 100%;"
                     text=""
@@ -29658,8 +29630,6 @@ exports[`table demos renders ./packages/table/demos/valueType.tsx correctly 1`] 
                 >
                   <div
                     class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                    label="[object Object]"
-                    labelcol="[object Object]"
                     name="status"
                     style="width: 100%;"
                     text=""

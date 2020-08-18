@@ -178,6 +178,9 @@ export default () => {
       )}
       {type === 'descriptions' && (
         <ProDescriptions
+          style={{
+            background: '#fff',
+          }}
           columns={columns}
           request={async (params) => {
             const msg = await request<{
