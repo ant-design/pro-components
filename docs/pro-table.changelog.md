@@ -9,6 +9,16 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.5.15
+
+`2020-08-19`
+
+- 🐛 fix(table): do not pick mode props ([@chenshuai2144](https://github.com/chenshuai2144))[#245](https://github.com/ant-design/pro-components/pull/245)
+
+* 🐛 fix(table): reloadAndRest will reset filter and sort ([@chenshuai2144](https://github.com/chenshuai2144))[#239](https://github.com/ant-design/pro-components/pull/239)
+
+* 🐛 fix(table): fix table search key warning error ([@chenshuai2144](https://github.com/chenshuai2144))[#233](https://github.com/ant-design/pro-components/pull/233)
+
 ## @ant-design/pro-table@2.5.14
 
 `2020-08-18`
