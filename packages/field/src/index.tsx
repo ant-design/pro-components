@@ -105,15 +105,15 @@ export type ProFieldFCRenderProps = {
 
 export type ProRenderFieldProps = {
   render?:
-    | ((
-        text: any,
-        props: Omit<ProFieldFCRenderProps, 'value' | 'onChange'>,
-        dom: JSX.Element,
-      ) => JSX.Element)
-    | undefined;
+  | ((
+    text: any,
+    props: Omit<ProFieldFCRenderProps, 'value' | 'onChange'>,
+    dom: JSX.Element,
+  ) => JSX.Element)
+  | undefined;
   renderFormItem?:
-    | ((text: any, props: ProFieldFCRenderProps, dom: JSX.Element) => JSX.Element)
-    | undefined;
+  | ((text: any, props: ProFieldFCRenderProps, dom: JSX.Element) => JSX.Element)
+  | undefined;
 };
 
 /**
@@ -318,9 +318,10 @@ const Field: React.ForwardRefRenderFunction<
   } & RenderProps
 > = ({ text = '', valueType = 'text', onChange, value, ...rest }, ref) => {
   const formItemProps = (value || onChange || rest?.formItemProps) && {
-    ...rest?.formItemProps,
     value,
     onChange,
+    // formItemProps 优先级更高，在类似 LightFilter 场景下需要覆盖默认的 value 和 onChange
+    ...rest?.formItemProps,
   };
 
   return (
