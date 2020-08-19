@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { DownOutlined, CloseOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import { SizeType } from 'antd/lib/config-provider/SizeContext';
+import { ConfigContext } from 'antd/lib/config-provider';
 import './index.less';
 
-export interface LabelProps {
-  prefixCls?: string;
-  label: string;
+export interface FieldLabelProps {
+  label?: React.ReactNode;
   value?: string | string[];
   disabled?: boolean;
   onClear?: () => void;
@@ -18,39 +18,55 @@ export interface LabelProps {
   style?: React.CSSProperties;
 }
 
-const LightFilterLabel: React.FC<LabelProps> = (props) => {
+const FieldLabel: React.FC<FieldLabelProps> = (props) => {
   const {
     label,
-    prefixCls: customizePrefixCls = 'ant-pro-form',
     onClear,
     value,
-    size = 'default',
+    // TODO size support
+    size = 'middle',
     disabled,
     ellipsis,
     placeholder,
     className,
     style,
   } = props;
-  const prefixCls = `${customizePrefixCls}-light-filter-label`;
-  // TODO 国际化
-  const locale = {
-    itemUnit: '项',
-  };
+  const { getPrefixCls } = useContext(ConfigContext);
+  const prefixCls = getPrefixCls('pro-core-field-label');
 
-  const getTextByValue = (aLabel: string, aValue?: string | string[]): React.ReactNode => {
+  const getTextByValue = (
+    aLabel?: React.ReactNode | React.ReactNode[],
+    aValue?: string | string[],
+  ): React.ReactNode => {
     if (aValue && (!Array.isArray(aValue) || aValue.length)) {
       const str = Array.isArray(aValue) ? aValue.join(',') : aValue;
-      const prefix = aLabel ? `${aLabel}: ` : '';
+      const prefix = aLabel ? (
+        <>
+          {aLabel}
+          {': '}
+        </>
+      ) : (
+        ''
+      );
       if (!ellipsis) {
-        return <span>{`${prefix}${str}`}</span>;
+        return (
+          <span>
+            {prefix}
+            {str}
+          </span>
+        );
       }
       const tail =
         str.length > 16
-          ? `...${
-              Array.isArray(aValue) && aValue.length > 1 ? `${aValue.length}${locale.itemUnit}` : ''
-            }`
+          ? `...${Array.isArray(aValue) && aValue.length > 1 ? `${aValue.length}项` : ''}`
           : '';
-      return <span title={str}>{`${prefix}${str.substr(0, 16)}${tail}`}</span>;
+      return (
+        <span title={str}>
+          {prefix}
+          {str.substr(0, 16)}
+          {tail}
+        </span>
+      );
     }
     return placeholder || aLabel;
   };
@@ -85,4 +101,4 @@ const LightFilterLabel: React.FC<LabelProps> = (props) => {
   );
 };
 
-export default LightFilterLabel;
+export default FieldLabel;

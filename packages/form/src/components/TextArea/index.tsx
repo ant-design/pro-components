@@ -21,7 +21,7 @@ const ProFormTextArea: React.ForwardRefRenderFunction<any, ProFormItemProps<Text
         ref={ref}
         mode="edit"
         valueType="textarea"
-        formItemProps={fieldProps}
+        fieldProps={fieldProps}
       />
     </Form.Item>
   );

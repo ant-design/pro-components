@@ -1,10 +1,10 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { FormProps } from 'antd/lib/form/Form';
 import { ConfigContext } from 'antd/lib/config-provider/context';
 import { SizeType } from 'antd/lib/config-provider/SizeContext';
 import classNames from 'classnames';
-import LightFilterLabel from '../../components/Label';
-import Dropdown from '../../components/Dropdown';
+import { Form } from 'antd';
+import { FieldDropdown, FieldLabel } from '@ant-design/pro-utils';
 import BaseForm, { CommonFormProps } from '../../BaseForm';
 import './index.less';
 
@@ -17,24 +17,31 @@ const LightFilterContainer: React.FC<{
   items: React.ReactNode[];
   prefixCls: string;
   size?: SizeType;
+  values?: object;
+  onValuesChange: (values: object) => void;
   collapse?: boolean;
   collapseLabel?: React.ReactNode;
 }> = (props) => {
   // TODO 确认表单级别的 disabled 要不要支持
-  const { items, prefixCls, size, collapse, collapseLabel } = props;
+  const { items, prefixCls, size, collapse, collapseLabel, onValuesChange, values = {} } = props;
   const lightFilterClassName = `${prefixCls}-light-filter`;
   const outsideItems: React.ReactNode[] = [];
   const collapseItems: React.ReactNode[] = [];
 
   const [open, setOpen] = useState<boolean>(false);
+  const [moreValues, setMoreValues] = useState<object>(() => {
+    return { ...values };
+  });
+  useEffect(() => {
+    setMoreValues({ ...values });
+  }, [values]);
   // TODO 国际化
   const locale = {
     more: '更多筛选',
   };
   items.forEach((item: any) => {
-    // TODO 加上有 value 时显示到外面的逻辑，控件添加 secondary 属性
-    const { secondary } = item.props || {};
-    if (secondary || collapse) {
+    const { secondary, name } = item.props || {};
+    if ((secondary && !values[name]) || collapse) {
       collapseItems.push(item);
     } else {
       outsideItems.push(item);
@@ -49,40 +56,58 @@ const LightFilterContainer: React.FC<{
           return (
             <div className={`${lightFilterClassName}-item`} key={key}>
               {React.cloneElement(child, {
-                plain: true,
+                // proFieldProps 会直接作为 ProField 的 props 传递过去
+                proFieldProps: {
+                  light: true,
+                  label: child.props.label,
+                },
               })}
             </div>
           );
         })}
         {collapseItems.length ? (
           <div className={`${lightFilterClassName}-item`} key="more">
-            <Dropdown
+            <FieldDropdown
               padding={24}
               onVisibleChange={setOpen}
               visible={open}
               label={
-                collapseLabel || (
-                  <LightFilterLabel size={size} label={locale.more} expanded={open} />
-                )
+                collapseLabel || <FieldLabel size={size} label={locale.more} expanded={open} />
               }
               footer={{
                 onConfirm: () => {
-                  // TODO
+                  onValuesChange({
+                    ...moreValues,
+                  });
+                  setOpen(false);
                 },
                 onClear: () => {
-                  // TODO
+                  setMoreValues({});
                 },
               }}
             >
               {collapseItems.map((child: any) => {
                 const { key } = child;
+                const { name, fieldProps } = child.props;
                 return (
                   <div className={`${lightFilterClassName}-line`} key={key}>
-                    {child}
+                    {React.cloneElement(child, {
+                      fieldProps: {
+                        ...fieldProps,
+                        value: moreValues[name] || null,
+                        onChange: (e: any) => {
+                          setMoreValues({
+                            ...moreValues,
+                            [name]: e.target ? e.target.value : e,
+                          });
+                          return false;
+                        },
+                      },
+                    })}
                   </div>
                 );
               })}
-            </Dropdown>
+            </FieldDropdown>
           </div>
         ) : null}
       </div>
@@ -91,11 +116,17 @@ const LightFilterContainer: React.FC<{
 };
 
 const LightFilter: React.FC<LightFilterProps> = (props) => {
-  const { size, collapse, collapseLabel } = props;
+  const { size, collapse, collapseLabel, initialValues, onValuesChange, form: userForm } = props;
   const { getPrefixCls } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('pro-form');
+  const [form] = Form.useForm();
+  const realForm = userForm || form;
+  const [values, setValues] = useState<object>(() => {
+    return { ...initialValues };
+  });
   return (
     <BaseForm
+      form={realForm}
       contentRender={(items) => (
         <LightFilterContainer
           prefixCls={prefixCls}
@@ -103,9 +134,29 @@ const LightFilter: React.FC<LightFilterProps> = (props) => {
           size={size}
           collapse={collapse}
           collapseLabel={collapseLabel}
+          values={values}
+          onValuesChange={(newValues) => {
+            const newAllValues = {
+              ...values,
+              ...newValues,
+            };
+            setValues(newAllValues);
+            realForm.setFieldsValue(newAllValues);
+            realForm.submit();
+            if (onValuesChange) {
+              onValuesChange(newValues, newAllValues);
+            }
+          }}
         />
       )}
       {...props}
+      onValuesChange={(_, allValues) => {
+        setValues(allValues);
+        if (onValuesChange) {
+          onValuesChange(_, allValues);
+        }
+        realForm.submit();
+      }}
     />
   );
 };

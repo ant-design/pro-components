@@ -11,11 +11,11 @@ import { ProFieldFC } from '../../index';
 const FieldTimePicker: ProFieldFC<{
   text: string | number;
   format: string;
-}> = ({ text, mode, format = 'HH:mm:ss', render, renderFormItem, plain, formItemProps }, ref) => {
+}> = ({ text, mode, format = 'HH:mm:ss', render, renderFormItem, plain, fieldProps }, ref) => {
   if (mode === 'read') {
     const dom = <span ref={ref}>{text ? moment(text).format(format) : '-'}</span>;
     if (render) {
-      return render(text, { mode, ...formItemProps }, <span>{dom}</span>);
+      return render(text, { mode, ...fieldProps }, <span>{dom}</span>);
     }
     return dom;
   }
@@ -25,11 +25,11 @@ const FieldTimePicker: ProFieldFC<{
         ref={ref}
         format={format}
         bordered={plain === undefined ? true : !plain}
-        {...formItemProps}
+        {...fieldProps}
       />
     );
     if (renderFormItem) {
-      return renderFormItem(text, { mode, ...formItemProps }, dom);
+      return renderFormItem(text, { mode, ...fieldProps }, dom);
     }
     return dom;
   }

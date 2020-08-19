@@ -25,7 +25,7 @@ const languageFormat = (text: string, language: string) => {
 const FieldCode: ProFieldFC<{
   text: string;
   language?: 'json' | 'text';
-}> = ({ text, mode, render, language = 'text', renderFormItem, plain, formItemProps }, ref) => {
+}> = ({ text, mode, render, language = 'text', renderFormItem, plain, fieldProps }, ref) => {
   const code = languageFormat(text, language);
   if (mode === 'read') {
     const dom = (
@@ -39,23 +39,23 @@ const FieldCode: ProFieldFC<{
           borderRadius: 3,
         }}
         ref={ref}
-        {...formItemProps}
+        {...fieldProps}
       >
         <code>{code}</code>
       </pre>
     );
     if (render) {
-      return render(code, { mode, ...formItemProps, ref }, dom);
+      return render(code, { mode, ...fieldProps, ref }, dom);
     }
     return dom;
   }
   if (mode === 'edit' || mode === 'update') {
-    let dom = <Input.TextArea rows={5} {...formItemProps} ref={ref} />;
+    let dom = <Input.TextArea rows={5} {...fieldProps} ref={ref} />;
     if (plain) {
-      dom = <Input {...formItemProps} ref={ref} />;
+      dom = <Input {...fieldProps} ref={ref} />;
     }
     if (renderFormItem) {
-      return renderFormItem(code, { mode, ...formItemProps, ref }, dom);
+      return renderFormItem(code, { mode, ...fieldProps, ref }, dom);
     }
     return dom;
   }

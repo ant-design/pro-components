@@ -1,16 +1,13 @@
 import React, { useContext } from 'react';
 import { Dropdown } from 'antd';
 import { ConfigContext } from 'antd/lib/config-provider';
-import Footer, { FooterProps } from './Footer';
+import Footer, { DropdownFooterProps } from '../DropdownFooter';
+
 import './index.less';
 
 export interface DropdownProps {
-  /**
-   * 自定义前缀
-   */
-  prefixCls?: string;
   label?: React.ReactNode;
-  footer?: FooterProps;
+  footer?: DropdownFooterProps;
   hideWhenClick?: boolean;
   padding?: number;
   disabled?: boolean;
@@ -29,7 +26,8 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
     visible,
   } = props;
   const { getPrefixCls } = useContext(ConfigContext);
-  const prefixCls = getPrefixCls('pro-form-dropdown');
+  const prefixCls = getPrefixCls('pro-core-field-dropdown');
+
   return (
     <Dropdown
       disabled={disabled}
@@ -48,7 +46,7 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
           >
             {children}
           </div>
-          {footer && <Footer disabled={disabled} prefixCls={prefixCls} {...footer} />}
+          {footer && <Footer disabled={disabled} {...footer} />}
         </div>
       }
     >

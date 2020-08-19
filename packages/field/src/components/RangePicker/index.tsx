@@ -14,7 +14,7 @@ const FieldRangePicker: ProFieldFC<{
   format: string;
   showTime?: boolean;
 }> = (
-  { text, mode, format = 'YYYY-MM-DD', render, renderFormItem, plain, showTime, formItemProps },
+  { text, mode, format = 'YYYY-MM-DD', render, renderFormItem, plain, showTime, fieldProps },
   ref,
 ) => {
   const intl = useIntl();
@@ -27,7 +27,7 @@ const FieldRangePicker: ProFieldFC<{
       </div>
     );
     if (render) {
-      return render(text, { mode, ...formItemProps }, <span>{dom}</span>);
+      return render(text, { mode, ...fieldProps }, <span>{dom}</span>);
     }
     return dom;
   }
@@ -42,11 +42,11 @@ const FieldRangePicker: ProFieldFC<{
           intl.getMessage('tableForm.selectPlaceholder', '请选择'),
         ]}
         bordered={plain === undefined ? true : !plain}
-        {...formItemProps}
+        {...fieldProps}
       />
     );
     if (renderFormItem) {
-      return renderFormItem(text, { mode, ...formItemProps }, dom);
+      return renderFormItem(text, { mode, ...fieldProps }, dom);
     }
     return dom;
   }
