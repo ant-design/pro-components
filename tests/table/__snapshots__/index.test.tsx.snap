@@ -502,7 +502,7 @@ exports[`BasicTable 🎏  do not render default option 1`] = `
               <li
                 class="ant-pagination-total-text"
               >
-                第 1-20 条/总共 46 条
+                第 1-20 条/总共 200 条
               </li>
               <li
                 aria-disabled="true"
@@ -568,6 +568,78 @@ exports[`BasicTable 🎏  do not render default option 1`] = `
                   rel="nofollow"
                 >
                   3
+                </a>
+              </li>
+              <li
+                class="ant-pagination-item ant-pagination-item-4"
+                tabindex="0"
+                title="4"
+              >
+                <a
+                  rel="nofollow"
+                >
+                  4
+                </a>
+              </li>
+              <li
+                class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next"
+                tabindex="0"
+                title="5"
+              >
+                <a
+                  rel="nofollow"
+                >
+                  5
+                </a>
+              </li>
+              <li
+                class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
+                tabindex="0"
+                title="Next 5 Pages"
+              >
+                <a
+                  class="ant-pagination-item-link"
+                >
+                  <div
+                    class="ant-pagination-item-container"
+                  >
+                    <span
+                      aria-label="double-right"
+                      class="anticon anticon-double-right ant-pagination-item-link-icon"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="double-right"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1A7.98 7.98 0 00188 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5zm304 0L581.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H492c-6.7 0-10.4 7.7-6.3 12.9L751.1 512 485.7 851.1A7.98 7.98 0 00492 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="ant-pagination-item-ellipsis"
+                    >
+                      •••
+                    </span>
+                  </div>
+                </a>
+              </li>
+              <li
+                class="ant-pagination-item ant-pagination-item-10"
+                tabindex="0"
+                title="10"
+              >
+                <a
+                  rel="nofollow"
+                >
+                  10
                 </a>
               </li>
               <li
@@ -1236,7 +1308,7 @@ exports[`BasicTable 🎏  do not render setting 1`] = `
               <li
                 class="ant-pagination-total-text"
               >
-                第 1-20 条/总共 46 条
+                第 1-20 条/总共 200 条
               </li>
               <li
                 aria-disabled="true"
@@ -1302,6 +1374,78 @@ exports[`BasicTable 🎏  do not render setting 1`] = `
                   rel="nofollow"
                 >
                   3
+                </a>
+              </li>
+              <li
+                class="ant-pagination-item ant-pagination-item-4"
+                tabindex="0"
+                title="4"
+              >
+                <a
+                  rel="nofollow"
+                >
+                  4
+                </a>
+              </li>
+              <li
+                class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next"
+                tabindex="0"
+                title="5"
+              >
+                <a
+                  rel="nofollow"
+                >
+                  5
+                </a>
+              </li>
+              <li
+                class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
+                tabindex="0"
+                title="Next 5 Pages"
+              >
+                <a
+                  class="ant-pagination-item-link"
+                >
+                  <div
+                    class="ant-pagination-item-container"
+                  >
+                    <span
+                      aria-label="double-right"
+                      class="anticon anticon-double-right ant-pagination-item-link-icon"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="double-right"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1A7.98 7.98 0 00188 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5zm304 0L581.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H492c-6.7 0-10.4 7.7-6.3 12.9L751.1 512 485.7 851.1A7.98 7.98 0 00492 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="ant-pagination-item-ellipsis"
+                    >
+                      •••
+                    </span>
+                  </div>
+                </a>
+              </li>
+              <li
+                class="ant-pagination-item ant-pagination-item-10"
+                tabindex="0"
+                title="10"
+              >
+                <a
+                  rel="nofollow"
+                >
+                  10
                 </a>
               </li>
               <li
@@ -8130,16 +8274,16 @@ exports[`BasicTable 🎏 base use 1`] = `
               <li
                 class="ant-pagination-total-text"
               >
-                第 1-20 条/总共 46 条
+                第 181-200 条/总共 200 条
               </li>
               <li
-                aria-disabled="true"
-                class="ant-pagination-prev ant-pagination-disabled"
+                aria-disabled="false"
+                class="ant-pagination-prev"
+                tabindex="0"
                 title="Previous Page"
               >
                 <button
                   class="ant-pagination-item-link"
-                  disabled=""
                   tabindex="-1"
                   type="button"
                 >
@@ -8166,7 +8310,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                 </button>
               </li>
               <li
-                class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+                class="ant-pagination-item ant-pagination-item-1"
                 tabindex="0"
                 title="1"
               >
@@ -8177,35 +8321,107 @@ exports[`BasicTable 🎏 base use 1`] = `
                 </a>
               </li>
               <li
-                class="ant-pagination-item ant-pagination-item-2"
+                class="ant-pagination-jump-prev ant-pagination-jump-prev-custom-icon"
                 tabindex="0"
-                title="2"
+                title="Previous 5 Pages"
+              >
+                <a
+                  class="ant-pagination-item-link"
+                >
+                  <div
+                    class="ant-pagination-item-container"
+                  >
+                    <span
+                      aria-label="double-left"
+                      class="anticon anticon-double-left ant-pagination-item-link-icon"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="double-left"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M272.9 512l265.4-339.1c4.1-5.2.4-12.9-6.3-12.9h-77.3c-4.9 0-9.6 2.3-12.6 6.1L186.8 492.3a31.99 31.99 0 000 39.5l255.3 326.1c3 3.9 7.7 6.1 12.6 6.1H532c6.7 0 10.4-7.7 6.3-12.9L272.9 512zm304 0l265.4-339.1c4.1-5.2.4-12.9-6.3-12.9h-77.3c-4.9 0-9.6 2.3-12.6 6.1L490.8 492.3a31.99 31.99 0 000 39.5l255.3 326.1c3 3.9 7.7 6.1 12.6 6.1H836c6.7 0 10.4-7.7 6.3-12.9L576.9 512z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="ant-pagination-item-ellipsis"
+                    >
+                      •••
+                    </span>
+                  </div>
+                </a>
+              </li>
+              <li
+                class="ant-pagination-item ant-pagination-item-6 ant-pagination-item-after-jump-prev"
+                tabindex="0"
+                title="6"
               >
                 <a
                   rel="nofollow"
                 >
-                  2
+                  6
                 </a>
               </li>
               <li
-                class="ant-pagination-item ant-pagination-item-3"
+                class="ant-pagination-item ant-pagination-item-7"
                 tabindex="0"
-                title="3"
+                title="7"
               >
                 <a
                   rel="nofollow"
                 >
-                  3
+                  7
                 </a>
               </li>
               <li
-                aria-disabled="false"
-                class="ant-pagination-next"
+                class="ant-pagination-item ant-pagination-item-8"
                 tabindex="0"
+                title="8"
+              >
+                <a
+                  rel="nofollow"
+                >
+                  8
+                </a>
+              </li>
+              <li
+                class="ant-pagination-item ant-pagination-item-9"
+                tabindex="0"
+                title="9"
+              >
+                <a
+                  rel="nofollow"
+                >
+                  9
+                </a>
+              </li>
+              <li
+                class="ant-pagination-item ant-pagination-item-10 ant-pagination-item-active"
+                tabindex="0"
+                title="10"
+              >
+                <a
+                  rel="nofollow"
+                >
+                  10
+                </a>
+              </li>
+              <li
+                aria-disabled="true"
+                class="ant-pagination-next ant-pagination-disabled"
                 title="Next Page"
               >
                 <button
                   class="ant-pagination-item-link"
+                  disabled=""
                   tabindex="-1"
                   type="button"
                 >
@@ -14198,16 +14414,16 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
               <li
                 class="ant-pagination-total-text"
               >
-                第 1-20 条/总共 46 条
+                第 181-200 条/总共 200 条
               </li>
               <li
-                aria-disabled="true"
-                class="ant-pagination-prev ant-pagination-disabled"
+                aria-disabled="false"
+                class="ant-pagination-prev"
+                tabindex="0"
                 title="Previous Page"
               >
                 <button
                   class="ant-pagination-item-link"
-                  disabled=""
                   tabindex="-1"
                   type="button"
                 >
@@ -14234,7 +14450,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                 </button>
               </li>
               <li
-                class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+                class="ant-pagination-item ant-pagination-item-1"
                 tabindex="0"
                 title="1"
               >
@@ -14245,35 +14461,107 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                 </a>
               </li>
               <li
-                class="ant-pagination-item ant-pagination-item-2"
+                class="ant-pagination-jump-prev ant-pagination-jump-prev-custom-icon"
                 tabindex="0"
-                title="2"
+                title="Previous 5 Pages"
+              >
+                <a
+                  class="ant-pagination-item-link"
+                >
+                  <div
+                    class="ant-pagination-item-container"
+                  >
+                    <span
+                      aria-label="double-left"
+                      class="anticon anticon-double-left ant-pagination-item-link-icon"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="double-left"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M272.9 512l265.4-339.1c4.1-5.2.4-12.9-6.3-12.9h-77.3c-4.9 0-9.6 2.3-12.6 6.1L186.8 492.3a31.99 31.99 0 000 39.5l255.3 326.1c3 3.9 7.7 6.1 12.6 6.1H532c6.7 0 10.4-7.7 6.3-12.9L272.9 512zm304 0l265.4-339.1c4.1-5.2.4-12.9-6.3-12.9h-77.3c-4.9 0-9.6 2.3-12.6 6.1L490.8 492.3a31.99 31.99 0 000 39.5l255.3 326.1c3 3.9 7.7 6.1 12.6 6.1H836c6.7 0 10.4-7.7 6.3-12.9L576.9 512z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="ant-pagination-item-ellipsis"
+                    >
+                      •••
+                    </span>
+                  </div>
+                </a>
+              </li>
+              <li
+                class="ant-pagination-item ant-pagination-item-6 ant-pagination-item-after-jump-prev"
+                tabindex="0"
+                title="6"
               >
                 <a
                   rel="nofollow"
                 >
-                  2
+                  6
                 </a>
               </li>
               <li
-                class="ant-pagination-item ant-pagination-item-3"
+                class="ant-pagination-item ant-pagination-item-7"
                 tabindex="0"
-                title="3"
+                title="7"
               >
                 <a
                   rel="nofollow"
                 >
-                  3
+                  7
                 </a>
               </li>
               <li
-                aria-disabled="false"
-                class="ant-pagination-next"
+                class="ant-pagination-item ant-pagination-item-8"
                 tabindex="0"
+                title="8"
+              >
+                <a
+                  rel="nofollow"
+                >
+                  8
+                </a>
+              </li>
+              <li
+                class="ant-pagination-item ant-pagination-item-9"
+                tabindex="0"
+                title="9"
+              >
+                <a
+                  rel="nofollow"
+                >
+                  9
+                </a>
+              </li>
+              <li
+                class="ant-pagination-item ant-pagination-item-10 ant-pagination-item-active"
+                tabindex="0"
+                title="10"
+              >
+                <a
+                  rel="nofollow"
+                >
+                  10
+                </a>
+              </li>
+              <li
+                aria-disabled="true"
+                class="ant-pagination-next ant-pagination-disabled"
                 title="Next Page"
               >
                 <button
                   class="ant-pagination-item-link"
+                  disabled=""
                   tabindex="-1"
                   type="button"
                 >

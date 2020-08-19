@@ -3,7 +3,9 @@ import moment from 'moment';
 import { ProColumns, TableStatus, TableDropdown } from '@ant-design/pro-table';
 import { Input } from 'antd';
 
-const data: {
+const getData = (
+  size: number,
+): {
   key: string | number;
   name: string;
   age: string | number;
@@ -12,19 +14,32 @@ const data: {
   sex: string;
   date: number;
   status: number;
-}[] = [];
-for (let i = 0; i < 46; i += 1) {
-  data.push({
-    key: i,
-    name: `Edward King ${i}`,
-    age: 10 + i,
-    status: Math.floor(i) % 4,
-    sex: i / 2 > 1 ? 'man' : 'woman',
-    money: parseFloat((10000.26 * (i + 1)).toFixed(2)),
-    date: moment('2019-11-16 12:50:26').valueOf() + i * 1000 * 60 * 2,
-    address: `London, Park Lane no. ${i}`,
-  });
-}
+}[] => {
+  const data: {
+    key: string | number;
+    name: string;
+    age: string | number;
+    address: string;
+    money: number;
+    sex: string;
+    date: number;
+    status: number;
+  }[] = [];
+
+  for (let i = 0; i < size; i += 1) {
+    data.push({
+      key: i,
+      name: `Edward King ${i}`,
+      age: 10 + i,
+      status: Math.floor(i) % 4,
+      sex: i / 2 > 1 ? 'man' : 'woman',
+      money: parseFloat((10000.26 * (i + 1)).toFixed(2)),
+      date: moment('2019-11-16 12:50:26').valueOf() + i * 1000 * 60 * 2,
+      address: `London, Park Lane no. ${i}`,
+    });
+  }
+  return data;
+};
 
 export const columns: ProColumns[] = [
   {
@@ -157,7 +172,10 @@ export const columns: ProColumns[] = [
   },
 ];
 
-export const request = (): Promise<{
+export const request = (params?: {
+  pageSize?: number | undefined;
+  current?: number | undefined;
+}): Promise<{
   data: {
     key: string | number;
     name: string;
@@ -167,6 +185,7 @@ export const request = (): Promise<{
   success: true;
 }> =>
   Promise.resolve({
-    data,
+    data: getData(params?.pageSize || 46),
+    total: 200,
     success: true,
   });

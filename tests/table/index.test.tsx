@@ -2,10 +2,10 @@ import { mount } from 'enzyme';
 import React, { useRef } from 'react';
 import { Input, Button } from 'antd';
 import { act } from 'react-dom/test-utils';
+import { ProCoreActionType } from '@ant-design/pro-utils';
 import ProTable, { TableDropdown } from '@ant-design/pro-table';
 import { columns, request } from './demo';
 import { waitForComponentToPaint, waitTime } from '../util';
-import { ProCoreActionType } from '@ant-design/pro-utils';
 
 describe('BasicTable', () => {
   const LINE_STR_COUNT = 20;
