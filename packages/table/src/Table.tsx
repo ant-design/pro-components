@@ -486,7 +486,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     value: propsRowSelection ? propsRowSelection.selectedRowKeys : undefined,
   });
   const [formSearch, setFormSearch] = useState<{}>(() => rest.form?.initialValues);
-  const [selectedRows, setSelectedRows] = useState<T[]>([]);
+  const selectedRowsRef = useRef<T[]>([]);
   const [proFilter, setProFilter] = useState<{
     [key: string]: React.ReactText[];
   }>({});
@@ -570,8 +570,8 @@ const ProTable = <T extends {}, U extends ParamsType>(
       propsRowSelection.onChange([], []);
     }
     setSelectedRowKeys([]);
-    setSelectedRows([]);
-  }, [setSelectedRowKeys, setSelectedRows]);
+    selectedRowsRef.current = [];
+  }, [setSelectedRowKeys]);
 
   /**
    * 绑定 action
@@ -665,7 +665,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     if (Array.isArray(dataSource)) {
       // 根据当前选中和当前的所有数据计算选中的行
       // 因为防止翻页以后丢失，所有还增加了当前选择选中的
-      const rows = [...dataSource, ...selectedRows].filter((item, index) => {
+      const rows = [...dataSource, ...selectedRowsRef.current].filter((item, index) => {
         let rowKey = tableKey;
         if (!tableKey) {
           return (selectedRowKeys as any).includes(index);
@@ -681,11 +681,11 @@ const ProTable = <T extends {}, U extends ParamsType>(
         duplicateRemoveMap.set(rowKey, true);
         return (selectedRowKeys as any).includes(rowKey);
       });
-      setSelectedRows(rows);
+      selectedRowsRef.current = rows;
       return;
     }
-    setSelectedRows([]);
-  }, [selectedRowKeys.join('-'), action.loading, propsRowSelection === false]);
+    selectedRowsRef.current = [];
+  }, [selectedRowKeys?.join('-'), action.loading, propsRowSelection === false]);
 
   const rowSelection: TableRowSelection = {
     selectedRowKeys,
@@ -732,7 +732,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
             });
           }
         }}
-        selectedRows={selectedRows}
+        selectedRows={selectedRowsRef.current}
         selectedRowKeys={selectedRowKeys}
         toolBarRender={toolBarRender}
       />
@@ -741,7 +741,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
   const alertDom = propsRowSelection !== false && (
     <Alert<T>
       selectedRowKeys={selectedRowKeys}
-      selectedRows={selectedRows}
+      selectedRows={selectedRowsRef.current}
       onCleanSelected={onCleanSelected}
       alertOptionRender={rest.tableAlertOptionRender}
       alertInfoRender={tableAlertRender}
