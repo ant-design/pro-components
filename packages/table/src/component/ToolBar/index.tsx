@@ -88,7 +88,6 @@ const renderDefaultOption = <T, U = {}>(
         return <ColumnSetting key={key} />;
       }
       if (key === 'fullScreen') {
-        console.log(defaultOptions[key]);
         return (
           <span
             key={key}
@@ -142,16 +141,13 @@ const ToolBar = <T, U = {}>({
     setting: true,
     search: false,
     fullScreen: () => action.fullScreen && action.fullScreen(),
-    ...(propsOptions || {}),
   };
 
   const options =
     propsOptions !== false
       ? {
           ...defaultOptions,
-          // 因为 reload 可以能为 true，所以需要转化一下
-          // 不这样写需要更多类型
-          reload: defaultOptions.reload === true ? () => action.reload() : defaultOptions.reload,
+          ...(propsOptions || {}),
         }
       : false;
 
