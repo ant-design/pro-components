@@ -20,7 +20,7 @@ export interface OptionConfig<T> {
 }
 
 export type OptionsType<T = unknown> =
-  | ((e: React.MouseEvent<HTMLSpanElement>, action: UseFetchDataAction<RequestData<T>>) => void)
+  | ((e: React.MouseEvent<HTMLSpanElement>, action?: UseFetchDataAction<RequestData<T>>) => void)
   | boolean;
 
 export interface ToolBarProps<T = unknown> {
@@ -141,9 +141,16 @@ const ToolBar = <T, U = {}>({
     setting: true,
     search: false,
     fullScreen: () => action.fullScreen && action.fullScreen(),
-    ...(propsOptions || {}),
   };
-  const options = propsOptions !== false ? defaultOptions : false;
+
+  const options =
+    propsOptions !== false
+      ? {
+          ...defaultOptions,
+          ...(propsOptions || {}),
+        }
+      : false;
+
   const intl = useIntl();
   const optionDom =
     renderDefaultOption<T>(options, `${className}-item-icon`, {

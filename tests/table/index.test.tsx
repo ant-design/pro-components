@@ -1,10 +1,11 @@
 import { mount } from 'enzyme';
-import React from 'react';
-import { Input } from 'antd';
+import React, { useRef } from 'react';
+import { Input, Button } from 'antd';
 import { act } from 'react-dom/test-utils';
 import ProTable, { TableDropdown } from '@ant-design/pro-table';
 import { columns, request } from './demo';
-import { waitForComponentToPaint } from '../util';
+import { waitForComponentToPaint, waitTime } from '../util';
+import { ProCoreActionType } from '@ant-design/pro-utils';
 
 describe('BasicTable', () => {
   const LINE_STR_COUNT = 20;
@@ -164,5 +165,113 @@ describe('BasicTable', () => {
 
     await waitForComponentToPaint(html, 20);
     expect(html.find('ul.ant-pagination').exists()).toBeTruthy();
+  });
+
+  it('🎏  request test', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProTable
+        size="small"
+        options={{
+          fullScreen: true,
+          reload: true,
+          setting: false,
+        }}
+        columns={[
+          {
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+        ]}
+        request={async () => {
+          fn();
+          return {
+            data: [],
+          };
+        }}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 200);
+    expect(fn).toBeCalled();
+  });
+
+  it('🎏  reload request test', async () => {
+    const fn = jest.fn();
+    const Reload = () => {
+      const actionRef = useRef<ProCoreActionType>();
+      return (
+        <ProTable
+          actionRef={actionRef}
+          toolBarRender={() => [
+            <Button
+              onClick={() => {
+                actionRef.current?.reloadAndRest?.();
+              }}
+              key="reload"
+              id="reload"
+            >
+              刷新
+            </Button>,
+          ]}
+          size="small"
+          options={{
+            fullScreen: true,
+            reload: true,
+            setting: false,
+          }}
+          columns={[
+            {
+              dataIndex: 'money',
+              valueType: 'money',
+            },
+          ]}
+          request={async () => {
+            fn();
+            await waitTime(200);
+            return {
+              data: [],
+            };
+          }}
+          rowKey="key"
+        />
+      );
+    };
+    const html = mount(<Reload />);
+    await waitForComponentToPaint(html, 1200);
+
+    act(() => {
+      html.find('Button#reload').simulate('click');
+    });
+    act(() => {
+      html.find('Button#reload').simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 200);
+
+    // 因为有 loading 的控制，所有只会触发两次
+    expect(fn).toBeCalledTimes(2);
+  });
+
+  it('🎏  request error test', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+        ]}
+        request={async () => {
+          throw new Error('load error');
+        }}
+        onRequestError={fn}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 200);
+    expect(fn).toBeCalled();
   });
 });

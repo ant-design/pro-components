@@ -103,6 +103,9 @@ const columns: ProColumns<TableListItem>[] = [
     width: 100,
     ellipsis: true,
     filters: true,
+    formItemProps: {
+      mode: 'tags',
+    },
     valueEnum: {
       all: { text: '全部', status: 'Default' },
       close: { text: '关闭', status: 'Default' },
@@ -139,7 +142,7 @@ const columns: ProColumns<TableListItem>[] = [
     key: 'option',
     width: 120,
     valueType: 'option',
-    render: () => [<a>操作</a>, <a>删除</a>],
+    render: () => [<a key="a">操作</a>, <a key="b">删除</a>],
   },
 ];
 

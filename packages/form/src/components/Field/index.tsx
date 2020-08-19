@@ -23,8 +23,21 @@ export type ProFormFieldProps = ProSchema<
  * @param
  */
 const ProFormField = React.forwardRef<any, ProFormFieldProps>(
-  ({ fieldProps, children, render, renderFormItem, valueType, ...restProps }, ref) => (
-    <Form.Item {...pickProProps(restProps)}>
+  (
+    {
+      fieldProps,
+      children,
+      labelCol,
+      label,
+      isDefaultDom,
+      render,
+      renderFormItem,
+      valueType,
+      ...restProps
+    },
+    ref,
+  ) => (
+    <Form.Item label={label} labelCol={labelCol} {...pickProProps(restProps)}>
       {children || (
         <ProField
           text={fieldProps?.value as string}

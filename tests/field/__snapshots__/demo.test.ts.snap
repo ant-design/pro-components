@@ -294,6 +294,57 @@ Array [
               <span
                 class="ant-descriptions-item-label"
               >
+                百分比
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <div
+                  class="ant-space ant-space-horizontal ant-space-align-center"
+                >
+                  <div
+                    class="ant-space-item"
+                    style="margin-right: 8px;"
+                  >
+                    <span
+                      style="color: rgb(255, 77, 79);"
+                    >
+                      + 10.00%
+                    </span>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                    style="margin-right: 8px;"
+                  >
+                    <span
+                      style="color: rgb(89, 89, 89);"
+                    >
+                       0.00%
+                    </span>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                  >
+                    <span
+                      style="color: rgb(82, 196, 26);"
+                    >
+                      - 10.00%
+                    </span>
+                  </div>
+                </div>
+              </span>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
                 日期时间
               </span>
               <span
@@ -304,10 +355,6 @@ Array [
                 </span>
               </span>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -325,6 +372,10 @@ Array [
                 </span>
               </span>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -347,10 +398,6 @@ Array [
                 </div>
               </span>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -373,6 +420,10 @@ Array [
                 </div>
               </span>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -390,10 +441,6 @@ Array [
                 </span>
               </span>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -419,9 +466,13 @@ Array [
                 </pre>
               </span>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
-              colspan="1"
+              colspan="2"
             >
               <span
                 class="ant-descriptions-item-label"

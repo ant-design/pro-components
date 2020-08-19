@@ -105,15 +105,15 @@ export type ProFieldFCRenderProps = {
 
 export type ProRenderFieldProps = {
   render?:
-    | ((
-        text: any,
-        props: Omit<ProFieldFCRenderProps, 'value' | 'onChange'>,
-        dom: JSX.Element,
-      ) => JSX.Element)
-    | undefined;
+  | ((
+    text: any,
+    props: Omit<ProFieldFCRenderProps, 'value' | 'onChange'>,
+    dom: JSX.Element,
+  ) => JSX.Element)
+  | undefined;
   renderFormItem?:
-    | ((text: any, props: ProFieldFCRenderProps, dom: JSX.Element) => JSX.Element)
-    | undefined;
+  | ((text: any, props: ProFieldFCRenderProps, dom: JSX.Element) => JSX.Element)
+  | undefined;
 };
 
 /**
@@ -131,6 +131,7 @@ export type ProFieldValueObjectType = {
   locale?: string;
   /** percent */
   showSymbol?: boolean;
+  showColor?: boolean;
   precision?: number;
   request?: ProFieldRequestData;
 };
@@ -187,6 +188,7 @@ const defaultRenderTextByObject = (
         showSymbol={valueType.showSymbol}
         precision={valueType.precision}
         fieldProps={pickFormItemProps}
+        showColor={valueType.showColor}
       />
     );
   }

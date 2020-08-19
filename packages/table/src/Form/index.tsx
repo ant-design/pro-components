@@ -64,14 +64,14 @@ export const formInputRender: React.FC<{
         } || null),
       });
 
-    // 自动注入 onChange 和 value,用户自己很有肯能忘记
+    // 自动注入 onChange 和 value，用户自己很有可能忘记
     const dom = renderFormItem(
       restItem,
       { ...rest, type, defaultRender },
       form as any,
     ) as React.ReactElement;
 
-    // 有可能不是不是一个组件
+    // 有可能不是一个组件
     if (!React.isValidElement(dom)) {
       return dom;
     }
@@ -81,7 +81,12 @@ export const formInputRender: React.FC<{
     }
     // 已用户的为主，不然过于 magic
     return (
-      <ProFormField {...rest} ref={ref} name={item.dataIndex}>
+      <ProFormField
+        key={`${item.dataIndex || ''}-${item.key || ''}-${item.index}`}
+        {...rest}
+        ref={ref}
+        name={item.dataIndex}
+      >
         {React.cloneElement(dom, { ...rest, ...defaultProps })}
       </ProFormField>
     );
@@ -101,6 +106,7 @@ export const formInputRender: React.FC<{
       // valueType = textarea，但是在 查询表单这里，应该是个 input 框
       valueType={!valueType || valueType === 'textarea' ? 'text' : valueType}
       {...rest}
+      key={`${item.dataIndex || ''}-${item.key || ''}-${item.index}`}
     />
   );
 };

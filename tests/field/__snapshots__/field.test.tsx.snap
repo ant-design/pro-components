@@ -2343,7 +2343,9 @@ exports[`Field 🥩 percent valueType is Object 1`] = `
 `;
 
 exports[`Field 🥩 percent=0 1`] = `
-<span>
+<span
+  style="color:#595959"
+>
    0.00%
 </span>
 `;
