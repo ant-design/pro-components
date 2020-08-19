@@ -4,7 +4,6 @@ import moment from 'moment';
 import { useIntl } from '@ant-design/pro-provider';
 import { FieldLabel, parseValueToMoment } from '@ant-design/pro-utils';
 import { ConfigContext } from 'antd/lib/config-provider';
-
 import { ProFieldFC } from '../../index';
 import './index.less';
 

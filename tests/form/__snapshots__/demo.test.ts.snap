@@ -2201,7 +2201,7 @@ exports[`form demos renders ./packages/form/demos/light-filter.tsx correctly 1`]
                     </div>
                   </div>
                   <span
-                    class="ant-pro-core-field-label ant-pro-core-field-label-default ant-pro-core-field-label-active"
+                    class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active"
                   >
                     <span>
                       日期: 2020-08-19
