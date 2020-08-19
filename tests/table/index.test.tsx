@@ -238,7 +238,7 @@ describe('BasicTable', () => {
       );
     };
     const html = mount(<Reload />);
-    await waitForComponentToPaint(html, 300);
+    await waitForComponentToPaint(html, 1200);
 
     act(() => {
       html.find('Button#reload').simulate('click');
