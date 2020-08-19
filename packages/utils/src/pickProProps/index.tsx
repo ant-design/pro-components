@@ -1,4 +1,4 @@
-const proFieldProps = `valueType request mode plain renderFormItem render text formItemProps valueEnum`;
+const proFieldProps = `valueType request plain renderFormItem render text formItemProps valueEnum`;
 
 const proFormProps = `fieldProps isDefaultDom secondary colSize groupProps contentRender submitterProps submitter`;
 

@@ -117,7 +117,6 @@ describe('descriptions', () => {
 
     await waitForComponentToPaint(html);
 
-    // 因为有 loading 的控制，所有只会触发两次
     expect(fn).toBeCalledTimes(2);
   });
 
