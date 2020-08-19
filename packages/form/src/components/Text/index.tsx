@@ -10,12 +10,12 @@ import { createField } from '../../BaseForm';
  * @param
  */
 const ProFormText: React.ForwardRefRenderFunction<any, ProFormItemProps<InputProps>> = (
-  { fieldProps, ...restProps },
+  { fieldProps, proFieldProps, ...restProps },
   ref,
 ) => {
   return (
     <Form.Item {...restProps}>
-      <ProField mode="edit" valueType="text" {...restProps} formItemProps={fieldProps} ref={ref} />
+      <ProField mode="edit" valueType="text" formItemProps={fieldProps} ref={ref} {...proFieldProps} />
     </Form.Item>
   );
 };

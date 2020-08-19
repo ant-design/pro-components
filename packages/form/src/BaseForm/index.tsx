@@ -36,7 +36,7 @@ export function createField<P extends ProFormItemProps = any>(
   Field: React.ComponentType<P> | React.ForwardRefExoticComponent<P>,
 ): React.ComponentType<P & ExtendsProps> {
   const FieldWithContext: React.FC<P> = (props: P & ExtendsProps) => {
-    const { label, tip, placeholder, ...rest } = props;
+    const { label, tip, placeholder, proFieldProps, ...rest } = props;
     /**
      * 从 context 中拿到的值
      */
@@ -54,8 +54,11 @@ export function createField<P extends ProFormItemProps = any>(
         {...restProps}
         // title 是用于提升读屏的能力的，没有参与逻辑
         title={label}
+        // 是否以轻量模式显示
+        proFieldProps={proFieldProps}
         // 全局的提供一个 tip 功能，可以减少代码量
-        label={label && <LabelIconTip label={label} tip={tip} />}
+        // 轻量模式下不通过 FormItem 显示 label
+        label={label && proFieldProps?.light !== true ? <LabelIconTip label={label} tip={tip} /> : undefined}
       />
     );
   };

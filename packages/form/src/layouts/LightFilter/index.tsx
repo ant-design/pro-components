@@ -49,7 +49,11 @@ const LightFilterContainer: React.FC<{
           return (
             <div className={`${lightFilterClassName}-item`} key={key}>
               {React.cloneElement(child, {
-                light: true,
+                // proFieldProps 会直接座位 ProFiled 的 props 传递过去
+                proFieldProps: {
+                  light: true,
+                  label: child.props.label,
+                },
               })}
             </div>
           );
