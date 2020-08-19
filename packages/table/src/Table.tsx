@@ -526,6 +526,9 @@ const ProTable = <T extends {}, U extends ParamsType>(
         ...params,
       };
 
+      // eslint-disable-next-line no-underscore-dangle
+      delete (actionParams as any)._timestamp;
+
       const response = await request((actionParams as unknown) as U, proSort, proFilter);
       const responseData = postDataPipeline<T[], U>(response.data, [postData]);
       if (Array.isArray(response)) {
@@ -574,8 +577,11 @@ const ProTable = <T extends {}, U extends ParamsType>(
    * 绑定 action
    */
   useActionType(actionRef, counter, () => {
+    // 清空选中行
     onCleanSelected();
+    // 清空筛选
     setProFilter({});
+    // 清空排序
     setProSort({});
   });
   counter.setAction(action);
