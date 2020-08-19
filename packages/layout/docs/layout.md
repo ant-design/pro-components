@@ -252,7 +252,7 @@ export interface MenuDataItem {
 ### Route
 
 ```ts | pure
-// 可以通过 import { RouterTypes } from '@ant-design/pro-layout/typings'
+// 可以通过 import { RouterTypes } from '@ant-design/pro-layout/lib/typings';
 // 来获取这个类型
 export interface Route {
   path: string;
