@@ -75,11 +75,15 @@ describe('LightFilter', () => {
       name2: 'new value',
       name3: '2020-08-19',
     });
+
+    // DatePicker click
+    wrapper.find('.ant-pro-core-field-label').at(2).simulate('click');
+    wrapper.find('.ant-picker-cell-in-view').at(0).simulate('click');
     await waitTime();
     expect(onFinish).toHaveBeenCalledWith({
       name1: 'name1 update',
       name2: 'new value',
-      name3: '2020-08-19',
+      name3: '2020-08-01',
     });
   });
 });

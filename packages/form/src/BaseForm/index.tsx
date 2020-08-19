@@ -1,10 +1,11 @@
-import React, { ReactElement, useRef } from 'react';
+import React, { ReactElement, useRef, useEffect } from 'react';
 import { Form } from 'antd';
 import { FormProps, FormInstance } from 'antd/lib/form/Form';
 import { FormItemProps } from 'antd/lib/form';
 import { TooltipProps } from 'antd/lib/tooltip';
 import { ConfigProviderWarp } from '@ant-design/pro-provider';
 import { LabelIconTip, pickProProps, conversionSubmitValue } from '@ant-design/pro-utils';
+import { ProFieldValueType } from '@ant-design/pro-field';
 import FieldContext from '../FieldContext';
 import Submitter, { SubmitterProps } from '../components/Submitter';
 import { GroupProps, FieldProps, ProFormItemProps } from '../interface';
@@ -36,17 +37,29 @@ type ProFormComponent<P, ExtendsProps> = React.ComponentType<
   Omit<P & ExtendsProps, 'proFieldProps'>
 >;
 
+export type ProFormItemCreateConfig = {
+  valueType?: ProFieldValueType;
+};
+
 export function createField<P extends ProFormItemProps = any>(
   Field: React.ComponentType<P> | React.ForwardRefExoticComponent<P>,
+  config?: ProFormItemCreateConfig,
 ): ProFormComponent<P, ExtendsProps> {
   const FieldWithContext: React.FC<P> = (props: P & ExtendsProps) => {
     const { label, tip, placeholder, proFieldProps, ...rest } = props;
+    const { valueType } = config || {};
     /**
      * 从 context 中拿到的值
      */
-    const { fieldProps, formItemProps } = React.useContext(FieldContext);
+    const { fieldProps, formItemProps, setFieldValueType } = React.useContext(FieldContext);
+    useEffect(() => {
+      if (setFieldValueType && props.name) {
+        setFieldValueType(String(props.name), valueType);
+      }
+    }, []);
     // @ts-ignore
     const restProps = Field.type === 'ProField' ? (rest as P) : (pickProProps(rest) as P);
+
     return (
       <Field
         {...formItemProps}
@@ -89,6 +102,9 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
 
   const [form] = Form.useForm();
   const formRef = useRef<FormInstance>(userForm || form);
+  const fieldsValueType = useRef<{
+    [key: string]: ProFieldValueType;
+  }>({});
 
   const items = React.Children.toArray(children);
   const submitterProps: Omit<SubmitterProps, 'form'> =
@@ -98,6 +114,9 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
     submitter === false ? undefined : <Submitter {...submitterProps} form={userForm || form} />;
 
   const content = contentRender ? contentRender(items, submitterNode) : items;
+  const setFieldValueType = (name: string, type?: ProFieldValueType) => {
+    fieldsValueType.current[name] = type || 'text';
+  };
 
   return (
     // 增加国际化的能力，与 table 组件可以统一
@@ -107,6 +126,7 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
           fieldProps,
           formItemProps,
           groupProps,
+          setFieldValueType,
         }}
       >
         <Form
@@ -114,7 +134,7 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
           {...rest}
           onFinish={(values) => {
             if (rest.onFinish) {
-              rest.onFinish(conversionSubmitValue(values, dateFormatter, {}));
+              rest.onFinish(conversionSubmitValue(values, dateFormatter, fieldsValueType.current));
             }
           }}
         >
