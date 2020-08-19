@@ -6,8 +6,9 @@ export default () => {
     <LightFilter
       initialValues={{
         name1: 'yutingzhao1991',
+        name3: '2020-08-19',
       }}
-      onValuesChange={(_, values) => console.log(values)}
+      onFinish={values => console.log(values)}
     >
       <ProFormText name="name1" label="名称" />
       <ProFormText name="name2" label="地址" secondary />

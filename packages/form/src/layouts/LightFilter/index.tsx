@@ -145,6 +145,7 @@ const LightFilter: React.FC<LightFilterProps> = (props) => {
             };
             setValues(newAllValues);
             realForm.setFieldsValue(newAllValues);
+            realForm.submit();
             if (onValuesChange) {
               onValuesChange(newValues, newAllValues);
             }
@@ -157,6 +158,7 @@ const LightFilter: React.FC<LightFilterProps> = (props) => {
         if (onValuesChange) {
           onValuesChange(_, allValues);
         }
+        realForm.submit();
       }}
     />
   );

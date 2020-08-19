@@ -27,7 +27,7 @@ export interface InputFilterProps {
   className?: string;
 }
 
-const DropdownInput: React.FC<InputProps & InputFilterProps> = (props) => {
+const DropdownInput: React.ForwardRefRenderFunction<any, InputProps & InputFilterProps> = (props, ref) => {
   // collapse 是外层 LightFilter 设置
   const {
     prefixCls: customizePrefixCls,
@@ -88,6 +88,7 @@ const DropdownInput: React.FC<InputProps & InputFilterProps> = (props) => {
     >
       <div className={classNames(`${prefixCls}-container`, classNames)} style={style}>
         <Input
+          ref={ref}
           {...restProps}
           className={classNames(
             `${prefixCls}-input`,
@@ -115,4 +116,4 @@ const DropdownInput: React.FC<InputProps & InputFilterProps> = (props) => {
   );
 };
 
-export default DropdownInput;
+export default React.forwardRef(DropdownInput);

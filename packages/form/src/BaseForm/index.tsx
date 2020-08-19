@@ -32,9 +32,11 @@ export interface ExtendsProps {
   tip?: string | TooltipProps;
 }
 
+type ProFormComponent<P, ExtendsProps> = React.ComponentType<Omit<P & ExtendsProps, 'proFieldProps'>>
+
 export function createField<P extends ProFormItemProps = any>(
   Field: React.ComponentType<P> | React.ForwardRefExoticComponent<P>,
-): React.ComponentType<P & ExtendsProps> {
+): ProFormComponent<P, ExtendsProps> {
   const FieldWithContext: React.FC<P> = (props: P & ExtendsProps) => {
     const { label, tip, placeholder, proFieldProps, ...rest } = props;
     /**
@@ -46,7 +48,8 @@ export function createField<P extends ProFormItemProps = any>(
     return (
       <Field
         fieldProps={pickProProps({
-          placeholder,
+          // 轻量筛选模式下默认不显示 FormItem 的 label，label 设置为 placeholder
+          placeholder: proFieldProps?.light ? placeholder || label : placeholder,
           ...(fieldProps || {}),
           ...(rest.fieldProps || {}),
         })}
@@ -66,7 +69,7 @@ export function createField<P extends ProFormItemProps = any>(
       />
     );
   };
-  return FieldWithContext;
+  return FieldWithContext as ProFormComponent<P, ExtendsProps>;
 }
 
 const BaseForm: React.FC<BaseFormProps> = (props) => {
@@ -93,6 +96,7 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
     submitter === false ? undefined : <Submitter {...submitterProps} form={userForm || form} />;
 
   const content = contentRender ? contentRender(items, submitterNode) : items;
+
   return (
     // 增加国际化的能力，与 table 组件可以统一
     <ConfigProviderWarp>
