@@ -24,10 +24,9 @@ const FieldDatePicker: ProFieldFC<{
     const { getPrefixCls } = useContext(ConfigContext);
     const prefixCls = getPrefixCls('pro-field-date-picker');
     const [open, setOpen] = useState<boolean>(false);
-    const valueStr = text ? moment(text).format(format) : '-';
 
     if (mode === 'read') {
-      const dom = <span ref={ref}>{valueStr}</span>;
+      const dom = <span ref={ref}>{moment(text).format(format) || '-'}</span>;
       if (render) {
         return render(text, { mode, ...formItemProps }, <span>{dom}</span>);
       }
@@ -37,22 +36,24 @@ const FieldDatePicker: ProFieldFC<{
       let dom;
       const placeholder = intl.getMessage('tableForm.selectPlaceholder', '请选择');
       if (light) {
-        const { style, disabled, onChange, ...resetFormItemProps } = formItemProps;
+        const { style, disabled, value, onChange } = formItemProps;
+        const valueStr: string = value && moment(value).format(format) || '';
         dom = (
           <div
             style={style}
             className={`${prefixCls}-light`}
             onClick={() => {
-              if (!disabled) {
-                // antd 3 下 disable 的情况也会触发该事件，所以需要判断下 disabled
-                // https://yuque.antfin-inc.com/tech-ui/topics/761
-                setOpen(true);
-              }
+              setOpen(true);
             }}
           >
             <DatePicker
-              {...resetFormItemProps}
-              onChange={onChange}
+              {...formItemProps}
+              onChange={(v) => {
+                onChange(v);
+                setTimeout(() => {
+                  setOpen(false);
+                }, 0);
+              }}
               onOpenChange={setOpen}
               open={open}
             />

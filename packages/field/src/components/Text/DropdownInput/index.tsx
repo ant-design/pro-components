@@ -82,29 +82,30 @@ const DropdownInput: React.FC<InputProps & InputFilterProps> = props => {
           if (onChange) {
             onChange(tempValue);
           }
+          setOpen(false);
         },
       }}
     >
       <div className={classNames(`${prefixCls}-container`, classNames)} style={style}>
-      <Input
-        {...restProps}
-        className={classNames(`${prefixCls}-input`, {
-          [`${prefixCls}-collapse`]: collapse,
-        }, className)}
-        style={collapse ? style : undefined}
-        disabled={disabled}
-        value={collapse ? value : tempValue}
-        onChange={e => {
-          const val = e.target.value;
-          if (collapse) {
-            if (onChange) {
-              onChange(val);
+        <Input
+          {...restProps}
+          className={classNames(`${prefixCls}-input`, {
+            [`${prefixCls}-collapse`]: collapse,
+          }, className)}
+          style={collapse ? style : undefined}
+          disabled={disabled}
+          value={collapse ? value : tempValue}
+          onChange={e => {
+            const val = e.target.value;
+            if (collapse) {
+              if (onChange) {
+                onChange(val);
+              }
+            } else {
+              setTempValue(val);
             }
-          } else {
-            setTempValue(val);
-          }
-        }}
-      />
+          }}
+        />
       </div>
     </FieldDropdown>
   );
