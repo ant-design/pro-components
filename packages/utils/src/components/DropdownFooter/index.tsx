@@ -10,7 +10,7 @@ export interface DropdownFooterProps {
   disabled?: boolean;
 }
 
-const DropdownFooter: React.FC<DropdownFooterProps> = props => {
+const DropdownFooter: React.FC<DropdownFooterProps> = (props) => {
   const { onClear, onConfirm, disabled } = props;
   const { getPrefixCls } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('pro-core-dropdown-footer');
@@ -18,7 +18,7 @@ const DropdownFooter: React.FC<DropdownFooterProps> = props => {
   return (
     <div
       className={prefixCls}
-      onClick={e => {
+      onClick={(e) => {
         if ((e.target as Element).getAttribute('data-type') !== 'confirm') {
           e.stopPropagation();
         }
@@ -31,7 +31,7 @@ const DropdownFooter: React.FC<DropdownFooterProps> = props => {
         type="link"
         size="small"
         disabled={disabled}
-        onClick={e => {
+        onClick={(e) => {
           if (onClear) {
             onClear(e);
           }
@@ -40,7 +40,13 @@ const DropdownFooter: React.FC<DropdownFooterProps> = props => {
       >
         清除
       </Button>
-      <Button data-type="confirm" type="primary" size="small" onClick={onConfirm} disabled={disabled}>
+      <Button
+        data-type="confirm"
+        type="primary"
+        size="small"
+        onClick={onConfirm}
+        disabled={disabled}
+      >
         确认
       </Button>
     </div>

@@ -27,7 +27,7 @@ export interface InputFilterProps {
   className?: string;
 }
 
-const DropdownInput: React.FC<InputProps & InputFilterProps> = props => {
+const DropdownInput: React.FC<InputProps & InputFilterProps> = (props) => {
   // collapse 是外层 LightFilter 设置
   const {
     prefixCls: customizePrefixCls,
@@ -89,13 +89,17 @@ const DropdownInput: React.FC<InputProps & InputFilterProps> = props => {
       <div className={classNames(`${prefixCls}-container`, classNames)} style={style}>
         <Input
           {...restProps}
-          className={classNames(`${prefixCls}-input`, {
-            [`${prefixCls}-collapse`]: collapse,
-          }, className)}
+          className={classNames(
+            `${prefixCls}-input`,
+            {
+              [`${prefixCls}-collapse`]: collapse,
+            },
+            className,
+          )}
           style={collapse ? style : undefined}
           disabled={disabled}
           value={collapse ? value : tempValue}
-          onChange={e => {
+          onChange={(e) => {
             const val = e.target.value;
             if (collapse) {
               if (onChange) {

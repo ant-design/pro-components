@@ -15,7 +15,13 @@ const ProFormText: React.ForwardRefRenderFunction<any, ProFormItemProps<InputPro
 ) => {
   return (
     <Form.Item {...restProps}>
-      <ProField mode="edit" valueType="text" formItemProps={fieldProps} ref={ref} {...proFieldProps} />
+      <ProField
+        mode="edit"
+        valueType="text"
+        formItemProps={fieldProps}
+        ref={ref}
+        {...proFieldProps}
+      />
     </Form.Item>
   );
 };

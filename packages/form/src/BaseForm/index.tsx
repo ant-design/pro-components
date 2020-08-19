@@ -58,7 +58,11 @@ export function createField<P extends ProFormItemProps = any>(
         proFieldProps={proFieldProps}
         // 全局的提供一个 tip 功能，可以减少代码量
         // 轻量模式下不通过 FormItem 显示 label
-        label={label && proFieldProps?.light !== true ? <LabelIconTip label={label} tip={tip} /> : undefined}
+        label={
+          label && proFieldProps?.light !== true ? (
+            <LabelIconTip label={label} tip={tip} />
+          ) : undefined
+        }
       />
     );
   };

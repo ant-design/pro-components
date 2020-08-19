@@ -3,9 +3,12 @@ import { LightFilter, ProFormText, ProFormDatePicker } from '@ant-design/pro-for
 
 export default () => {
   return (
-    <LightFilter initialValues={{
-      name1: 'yutingzhao1991',
-    }} onValuesChange={(_, values) => console.log(values)}>
+    <LightFilter
+      initialValues={{
+        name1: 'yutingzhao1991',
+      }}
+      onValuesChange={(_, values) => console.log(values)}
+    >
       <ProFormText name="name1" label="名称" />
       <ProFormText name="name2" label="地址" secondary />
       <ProFormDatePicker name="name3" label="日期" />

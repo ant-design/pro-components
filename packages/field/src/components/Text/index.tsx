@@ -31,10 +31,12 @@ const FieldText: ProFieldFC<{
     return <>{dom}</>;
   }
   if (mode === 'edit' || mode === 'update') {
-    const placeholder = intl.getMessage('tableForm.inputPlaceholder', '请输入')
+    const placeholder = intl.getMessage('tableForm.inputPlaceholder', '请输入');
     let dom;
     if (light) {
-      dom = <DropdownInput label={label} placeholder={placeholder} ref={inputRef} {...formItemProps} />
+      dom = (
+        <DropdownInput label={label} placeholder={placeholder} ref={inputRef} {...formItemProps} />
+      );
     } else {
       dom = <Input placeholder={placeholder} ref={inputRef} {...formItemProps} />;
     }
