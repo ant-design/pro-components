@@ -14,4 +14,12 @@ export interface FieldProps {
 export interface ProFormItemProps<T = {}> extends FormItemProps {
   fieldProps?: FieldProps & T;
   placeholder?: string | string[];
+  secondary?: boolean;
+  /**
+   * 设置到 ProField 上面的 Props，内部属性
+   */
+  proFieldProps?: {
+    light?: boolean;
+    label?: React.ReactNode;
+  };
 }

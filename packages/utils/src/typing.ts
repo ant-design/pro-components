@@ -97,7 +97,7 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
    */
   renderText?: (text: any, record: T, index: number, action: ProCoreActionType) => any;
 
-  formItemProps?: any;
+  fieldProps?: any;
   /**
    * 映射值的类型
    */

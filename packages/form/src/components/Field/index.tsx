@@ -44,10 +44,7 @@ const ProFormField = React.forwardRef<any, ProFormFieldProps>(
           mode="edit"
           valueType={(valueType as 'text') || 'text'}
           {...restProps}
-          formItemProps={{
-            ...fieldProps,
-            ...(restProps.formItemProps || {}),
-          }}
+          fieldProps={fieldProps}
           ref={ref}
         />
       )}

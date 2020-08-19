@@ -16,7 +16,7 @@ describe('Table valueEnum', () => {
             dataIndex: 'status',
             hideInForm: true,
             valueEnum: {},
-            formItemProps: {
+            fieldProps: {
               open: true,
             },
           },

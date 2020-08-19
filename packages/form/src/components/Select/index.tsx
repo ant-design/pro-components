@@ -26,7 +26,7 @@ const ProFormSelect = React.forwardRef<any, ProFormSelectProps>(
           valueEnum={valueEnum}
           request={request}
           valueType="text"
-          formItemProps={{
+          fieldProps={{
             options,
             mode,
             ...fieldProps,

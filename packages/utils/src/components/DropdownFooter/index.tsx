@@ -1,30 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button } from 'antd';
+import { ConfigContext } from 'antd/lib/config-provider';
 
-import './Footer.less';
+import './index.less';
 
-export interface FooterProps {
-  /**
-   * 自定义前缀
-   */
-  prefixCls?: string;
+export interface DropdownFooterProps {
   onClear?: (e: React.MouseEvent) => void;
   onConfirm?: (e: React.MouseEvent) => void;
   disabled?: boolean;
 }
 
-const Footer: React.FC<FooterProps> = (props) => {
-  const { prefixCls, onClear, onConfirm, disabled } = props;
-
-  // TODO 国际化
-  const locale = {
-    clear: '清除',
-    confirm: '确认',
-  };
+const DropdownFooter: React.FC<DropdownFooterProps> = (props) => {
+  const { onClear, onConfirm, disabled } = props;
+  const { getPrefixCls } = useContext(ConfigContext);
+  const prefixCls = getPrefixCls('pro-core-dropdown-footer');
 
   return (
     <div
-      className={`${prefixCls}-footer`}
+      className={prefixCls}
       onClick={(e) => {
         if ((e.target as Element).getAttribute('data-type') !== 'confirm') {
           e.stopPropagation();
@@ -45,7 +38,7 @@ const Footer: React.FC<FooterProps> = (props) => {
           e.stopPropagation();
         }}
       >
-        {locale.clear}
+        清除
       </Button>
       <Button
         data-type="confirm"
@@ -54,10 +47,10 @@ const Footer: React.FC<FooterProps> = (props) => {
         onClick={onConfirm}
         disabled={disabled}
       >
-        {locale.confirm}
+        确认
       </Button>
     </div>
   );
 };
 
-export default Footer;
+export default DropdownFooter;

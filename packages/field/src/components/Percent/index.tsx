@@ -29,7 +29,7 @@ const FieldPercent: ProFieldFC<PercentPropInt> = (
     showColor = false,
     render,
     renderFormItem,
-    formItemProps,
+    fieldProps,
   },
   ref,
 ) => {
@@ -54,7 +54,7 @@ const FieldPercent: ProFieldFC<PercentPropInt> = (
       </span>
     );
     if (render) {
-      return render(text, { mode, ...formItemProps, prefix, precision, showSymbol, suffix }, dom);
+      return render(text, { mode, ...fieldProps, prefix, precision, showSymbol, suffix }, dom);
     }
     return dom;
   }
@@ -71,11 +71,11 @@ const FieldPercent: ProFieldFC<PercentPropInt> = (
         parser={(value) =>
           value ? value.replace(new RegExp(`\\${prefix}\\s?|(,*)`, 'g'), '') : ''
         }
-        {...formItemProps}
+        {...fieldProps}
       />
     );
     if (renderFormItem) {
-      return renderFormItem(text, { mode, ...formItemProps }, dom);
+      return renderFormItem(text, { mode, ...fieldProps }, dom);
     }
     return dom;
   }
