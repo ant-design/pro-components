@@ -70,7 +70,7 @@ type BaseProFieldFC = {
    */
   text: React.ReactNode;
 
-  formItemProps?: any;
+  fieldProps?: any;
   /**
    * 模式类型
    */
@@ -105,15 +105,15 @@ export type ProFieldFCRenderProps = {
 
 export type ProRenderFieldProps = {
   render?:
-    | ((
-        text: any,
-        props: Omit<ProFieldFCRenderProps, 'value' | 'onChange'>,
-        dom: JSX.Element,
-      ) => JSX.Element)
-    | undefined;
+  | ((
+    text: any,
+    props: Omit<ProFieldFCRenderProps, 'value' | 'onChange'>,
+    dom: JSX.Element,
+  ) => JSX.Element)
+  | undefined;
   renderFormItem?:
-    | ((text: any, props: ProFieldFCRenderProps, dom: JSX.Element) => JSX.Element)
-    | undefined;
+  | ((text: any, props: ProFieldFCRenderProps, dom: JSX.Element) => JSX.Element)
+  | undefined;
 };
 
 /**
@@ -156,13 +156,13 @@ const defaultRenderTextByObject = (
   valueType: ProFieldValueObjectType,
   props: RenderProps = { mode: 'read', plain: false, light: false },
 ) => {
-  const pickFormItemProps = pickProProps(props.formItemProps);
+  const pickFormItemProps = pickProProps(props.fieldProps);
   if (valueType.type === 'progress') {
     return (
       <FieldProgress
         {...props}
         text={text as number}
-        formItemProps={{
+        fieldProps={{
           status: valueType.status ? valueType.status : undefined,
           ...pickFormItemProps,
         }}
@@ -174,7 +174,7 @@ const defaultRenderTextByObject = (
       <FieldMoney
         locale={valueType.locale}
         {...props}
-        formItemProps={pickFormItemProps}
+        fieldProps={pickFormItemProps}
         text={text as number}
       />
     );
@@ -186,7 +186,7 @@ const defaultRenderTextByObject = (
         text={text as number}
         showSymbol={valueType.showSymbol}
         precision={valueType.precision}
-        formItemProps={pickFormItemProps}
+        fieldProps={pickFormItemProps}
       />
     );
   }
@@ -317,11 +317,11 @@ const Field: React.ForwardRefRenderFunction<
     valueType?: ProFieldValueType | ProFieldValueObjectType;
   } & RenderProps
 > = ({ text = '', valueType = 'text', onChange, value, ...rest }, ref) => {
-  const formItemProps = (value || onChange || rest?.formItemProps) && {
+  const fieldProps = (value || onChange || rest?.fieldProps) && {
     value,
     onChange,
-    // formItemProps 优先级更高，在类似 LightFilter 场景下需要覆盖默认的 value 和 onChange
-    ...rest?.formItemProps,
+    // fieldProps 优先级更高，在类似 LightFilter 场景下需要覆盖默认的 value 和 onChange
+    ...rest?.fieldProps,
   };
 
   return (
@@ -330,7 +330,7 @@ const Field: React.ForwardRefRenderFunction<
         ...rest,
         mode: rest.mode || 'read',
         ref,
-        formItemProps: pickUndefined(pickProProps(formItemProps)),
+        fieldProps: pickUndefined(pickProProps(fieldProps)),
       })}
     </React.Fragment>
   );

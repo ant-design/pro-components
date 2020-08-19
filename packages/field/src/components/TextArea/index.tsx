@@ -10,12 +10,12 @@ import { ProFieldFC } from '../../index';
  */
 const FieldTextArea: ProFieldFC<{
   text: string;
-}> = ({ text, mode, render, renderFormItem, formItemProps }, ref) => {
+}> = ({ text, mode, render, renderFormItem, fieldProps }, ref) => {
   const intl = useIntl();
   if (mode === 'read') {
     const dom = <span ref={ref}>{text || '-'}</span>;
     if (render) {
-      return render(text, { mode, ...formItemProps }, dom);
+      return render(text, { mode, ...fieldProps }, dom);
     }
     return dom;
   }
@@ -24,11 +24,11 @@ const FieldTextArea: ProFieldFC<{
       <Input.TextArea
         placeholder={intl.getMessage('tableForm.inputPlaceholder', '请输入')}
         ref={ref}
-        {...formItemProps}
+        {...fieldProps}
       />
     );
     if (renderFormItem) {
-      return renderFormItem(text, { mode, ...formItemProps }, dom);
+      return renderFormItem(text, { mode, ...fieldProps }, dom);
     }
     return dom;
   }

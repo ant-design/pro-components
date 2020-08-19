@@ -27,7 +27,7 @@ const FieldDatePicker: ProFieldFC<{
     renderFormItem,
     plain,
     showTime,
-    formItemProps,
+    fieldProps,
   },
   ref,
   ) => {
@@ -39,13 +39,13 @@ const FieldDatePicker: ProFieldFC<{
     if (mode === 'read') {
       const dom = <span ref={ref}>{moment(text).format(format) || '-'}</span>;
       if (render) {
-        return render(text, { mode, ...formItemProps }, <span>{dom}</span>);
+        return render(text, { mode, ...fieldProps }, <span>{dom}</span>);
       }
       return dom;
     }
     if (mode === 'edit' || mode === 'update') {
       let dom;
-      const { style, disabled, value, onChange, placeholder = intl.getMessage('tableForm.selectPlaceholder', '请选择') } = formItemProps;
+      const { style, disabled, value, onChange, placeholder = intl.getMessage('tableForm.selectPlaceholder', '请选择') } = fieldProps;
       const momentValue = parseValueToMoment(value, format) as moment.Moment;
 
       if (light) {
@@ -59,7 +59,7 @@ const FieldDatePicker: ProFieldFC<{
             }}
           >
             <DatePicker
-              {...formItemProps}
+              {...fieldProps}
               value={momentValue}
               onChange={(v) => {
                 onChange(v);
@@ -91,13 +91,13 @@ const FieldDatePicker: ProFieldFC<{
             placeholder={placeholder}
             ref={ref}
             bordered={plain === undefined ? true : !plain}
-            {...formItemProps}
+            {...fieldProps}
             value={momentValue}
           />
         );
       }
       if (renderFormItem) {
-        return renderFormItem(text, { mode, ...formItemProps }, dom);
+        return renderFormItem(text, { mode, ...fieldProps }, dom);
       }
       return dom;
     }

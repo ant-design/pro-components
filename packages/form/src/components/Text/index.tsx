@@ -18,7 +18,7 @@ const ProFormText: React.ForwardRefRenderFunction<any, ProFormItemProps<InputPro
       <ProField
         mode="edit"
         valueType="text"
-        formItemProps={fieldProps}
+        fieldProps={fieldProps}
         ref={ref}
         {...proFieldProps}
       />

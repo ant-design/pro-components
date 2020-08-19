@@ -156,13 +156,13 @@ export type FieldSelectProps = {
 const useFetchData = (
   props: FieldSelectProps,
 ): [
-  boolean,
-  {
-    label: React.ReactNode;
-    value: React.ReactText;
-  }[],
-  () => void,
-] => {
+    boolean,
+    {
+      label: React.ReactNode;
+      value: React.ReactText;
+    }[],
+    () => void,
+  ] => {
   const [options, setOptions] = useState<
     {
       label: React.ReactNode;
@@ -211,7 +211,7 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
     render,
     renderFormItem,
     request,
-    formItemProps,
+    fieldProps,
     plain,
     children,
     ...rest
@@ -230,13 +230,13 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
     }
     const optionsValueEnum = props.request
       ? options.reduce((pre: any, cur) => {
-          return { ...pre, [cur.value]: cur.label };
-        }, {})
+        return { ...pre, [cur.value]: cur.label };
+      }, {})
       : undefined;
     const dom = <>{proFieldParsingText(rest.text, ObjToMap(optionsValueEnum || valueEnum))}</>;
 
     if (render) {
-      return render(rest.text, { mode, ...formItemProps }, dom) || null;
+      return render(rest.text, { mode, ...fieldProps }, dom) || null;
     }
     return dom;
   }
@@ -252,13 +252,13 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
         placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
         {...rest}
         options={options}
-        {...formItemProps}
+        {...fieldProps}
       >
         {children}
       </Select>
     );
     if (renderFormItem) {
-      return renderFormItem(rest.text, { mode, ...formItemProps }, dom) || null;
+      return renderFormItem(rest.text, { mode, ...fieldProps }, dom) || null;
     }
     return dom;
   }

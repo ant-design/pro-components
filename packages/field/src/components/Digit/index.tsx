@@ -15,14 +15,14 @@ export type FieldDigitProps = {
  * }
  */
 const FieldDigit: ProFieldFC<FieldDigitProps> = (
-  { text, mode: type, render, renderFormItem, formItemProps },
+  { text, mode: type, render, renderFormItem, fieldProps },
   ref,
 ) => {
   if (type === 'read') {
     const digit = new Intl.NumberFormat().format(Number(text) as number);
     const dom = <span ref={ref}>{digit}</span>;
     if (render) {
-      return render(text, { mode: type, ...formItemProps }, dom);
+      return render(text, { mode: type, ...fieldProps }, dom);
     }
     return dom;
   }
@@ -35,11 +35,11 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
         style={{
           width: '100%',
         }}
-        {...formItemProps}
+        {...fieldProps}
       />
     );
     if (renderFormItem) {
-      return renderFormItem(text, { mode: type, ...formItemProps }, dom);
+      return renderFormItem(text, { mode: type, ...fieldProps }, dom);
     }
     return dom;
   }

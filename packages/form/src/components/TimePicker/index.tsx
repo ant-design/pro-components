@@ -19,7 +19,7 @@ const ProFormTimePicker: React.FC<ProFormItemProps<DatePickerProps>> = ({
       <ProField
         text={fieldProps?.value || ''}
         mode="edit"
-        formItemProps={fieldProps}
+        fieldProps={fieldProps}
         valueType="time"
       />
     </Form.Item>

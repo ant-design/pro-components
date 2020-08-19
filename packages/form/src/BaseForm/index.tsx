@@ -47,14 +47,14 @@ export function createField<P extends ProFormItemProps = any>(
     const restProps = Field.type === 'ProField' ? (rest as P) : (pickProProps(rest) as P);
     return (
       <Field
+        {...formItemProps}
+        {...restProps}
         fieldProps={pickProProps({
           // 轻量筛选模式下默认不显示 FormItem 的 label，label 设置为 placeholder
           placeholder: proFieldProps?.light ? placeholder || label : placeholder,
           ...(fieldProps || {}),
           ...(rest.fieldProps || {}),
         })}
-        {...formItemProps}
-        {...restProps}
         // title 是用于提升读屏的能力的，没有参与逻辑
         title={label}
         // 是否以轻量模式显示

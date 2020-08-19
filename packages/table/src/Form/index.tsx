@@ -11,6 +11,7 @@ import {
   ProSchemaComponentTypes,
   conversionSubmitValue,
 } from '@ant-design/pro-utils';
+import warningOnce from 'rc-util/lib/warning';
 
 import { genColumnKey } from '../utils';
 import Container from '../container';
@@ -39,7 +40,7 @@ export const formInputRender: React.FC<{
   onSelect?: (value: any) => void;
   [key: string]: any;
 }> = (props, ref: any) => {
-  const { item, intl, form, type, ...rest } = props;
+  const { item, intl, form, type, formItemProps, ...rest } = props;
   const { valueType: itemValueType = 'text' } = item;
   // if function， run it
   const valueType =
@@ -86,13 +87,17 @@ export const formInputRender: React.FC<{
     );
   }
 
+  // @ts-expect-error
+  warningOnce(item.formItemProps, `'formItemProps' will be deprecated, please use 'fieldProps'`);
+
   return (
     <ProFormField
       ref={ref}
       isDefaultDom
       valueEnum={item.valueEnum}
       name={item.dataIndex}
-      formItemProps={item.formItemProps}
+      // @ts-expect-error
+      fieldProps={item.fieldProps || item.formItemProps}
       // valueType = textarea，但是在 查询表单这里，应该是个 input 框
       valueType={!valueType || valueType === 'textarea' ? 'text' : valueType}
       {...rest}
@@ -120,7 +125,6 @@ export const proFormItemRender: (props: {
     order,
     initialValue,
     ellipsis,
-    formItemProps,
     index,
     ...rest
   } = item;

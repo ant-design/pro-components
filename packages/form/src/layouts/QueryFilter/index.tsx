@@ -69,13 +69,13 @@ const getSpanConfig = (
 export type SpanConfig =
   | number
   | {
-      xs: number;
-      sm: number;
-      md: number;
-      lg: number;
-      xl: number;
-      xxl: number;
-    };
+    xs: number;
+    sm: number;
+    md: number;
+    lg: number;
+    xl: number;
+    xxl: number;
+  };
 
 export type BaseQueryFilterProps = Omit<ActionsProps, 'submitter' | 'setCollapsed' | 'isForm'> & {
   defaultCollapsed?: boolean;
@@ -113,12 +113,12 @@ export type BaseQueryFilterProps = Omit<ActionsProps, 'submitter' | 'setCollapse
    * }
    */
   optionRender?:
-    | ((
-        searchConfig: Omit<BaseQueryFilterProps, 'submitter' | 'isForm'>,
-        props: Omit<BaseQueryFilterProps, 'searchConfig'>,
-        dom: React.ReactNode[],
-      ) => React.ReactNode[])
-    | false;
+  | ((
+    searchConfig: Omit<BaseQueryFilterProps, 'submitter' | 'isForm'>,
+    props: Omit<BaseQueryFilterProps, 'searchConfig'>,
+    dom: React.ReactNode[],
+  ) => React.ReactNode[])
+  | false;
 };
 
 export type QueryFilterProps = FormProps &
@@ -207,15 +207,15 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
             render:
               typeof optionRender === 'function'
                 ? (_: any, dom: React.ReactNode[]) =>
-                    optionRender(
-                      {
-                        ...props,
-                        resetText,
-                        searchText,
-                      },
-                      props,
-                      dom,
-                    )
+                  optionRender(
+                    {
+                      ...props,
+                      resetText,
+                      searchText,
+                    },
+                    props,
+                    dom,
+                  )
                 : optionRender,
             onReset,
             ...submitter.props,

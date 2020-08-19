@@ -59,7 +59,7 @@ export type FieldMoneyProps = {
  * }
  */
 const FieldMoney: ProFieldFC<FieldMoneyProps> = (
-  { text, mode: type, locale = '', render, renderFormItem, formItemProps, ...rest },
+  { text, mode: type, locale = '', render, renderFormItem, fieldProps, ...rest },
   ref,
 ) => {
   const intl = useIntl();
@@ -67,7 +67,7 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
   if (type === 'read') {
     const dom = <span ref={ref}>{getTextByLocale(locale || intl.locale, text)}</span>;
     if (render) {
-      return render(text, { mode: type, ...formItemProps }, dom);
+      return render(text, { mode: type, ...fieldProps }, dom);
     }
     return dom;
   }
@@ -89,11 +89,11 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
         style={{
           width: '100%',
         }}
-        {...formItemProps}
+        {...fieldProps}
       />
     );
     if (renderFormItem) {
-      return renderFormItem(text, { mode: type, ...formItemProps }, dom);
+      return renderFormItem(text, { mode: type, ...fieldProps }, dom);
     }
     return dom;
   }
