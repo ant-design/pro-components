@@ -8,7 +8,7 @@ export default () => {
         name1: 'yutingzhao1991',
         name3: '2020-08-19',
       }}
-      onFinish={values => console.log(values)}
+      onFinish={(values) => console.log(values)}
     >
       <ProFormText name="name1" label="名称" />
       <ProFormText name="name2" label="地址" secondary />

@@ -2082,7 +2082,7 @@ exports[`form demos renders ./packages/form/demos/light-filter.tsx correctly 1`]
                   class="ant-pro-core-field-dropdown-label ant-dropdown-trigger"
                 >
                   <span
-                    class="ant-pro-core-field-label ant-pro-core-field-label-default ant-pro-core-field-label-active"
+                    class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active"
                   >
                     <span
                       title="yutingzhao1991"
@@ -2281,12 +2281,12 @@ exports[`form demos renders ./packages/form/demos/light-filter.tsx correctly 1`]
           class="ant-pro-core-field-dropdown-label ant-dropdown-trigger"
         >
           <span
-            class="ant-pro-form-light-filter-label ant-pro-form-light-filter-label-default"
+            class="ant-pro-core-field-label ant-pro-core-field-label-middle"
           >
             更多筛选
             <span
               aria-label="down"
-              class="anticon anticon-down ant-pro-form-light-filter-label-icon ant-pro-form-light-filter-label-arrow"
+              class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
               role="img"
             >
               <svg

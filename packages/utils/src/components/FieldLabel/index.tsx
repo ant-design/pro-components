@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { DownOutlined, CloseOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
+import { SizeType } from 'antd/lib/config-provider/SizeContext';
 import { ConfigContext } from 'antd/lib/config-provider';
 import './index.less';
 
@@ -9,7 +10,7 @@ export interface FieldLabelProps {
   value?: string | string[];
   disabled?: boolean;
   onClear?: () => void;
-  size?: 'default' | 'small';
+  size?: SizeType;
   ellipsis?: boolean;
   placeholder?: string;
   expanded?: boolean;
@@ -22,7 +23,8 @@ const FieldLabel: React.FC<FieldLabelProps> = (props) => {
     label,
     onClear,
     value,
-    size = 'default',
+    // TODO size support
+    size = 'middle',
     disabled,
     ellipsis,
     placeholder,

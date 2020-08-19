@@ -32,7 +32,9 @@ export interface ExtendsProps {
   tip?: string | TooltipProps;
 }
 
-type ProFormComponent<P, ExtendsProps> = React.ComponentType<Omit<P & ExtendsProps, 'proFieldProps'>>
+type ProFormComponent<P, ExtendsProps> = React.ComponentType<
+  Omit<P & ExtendsProps, 'proFieldProps'>
+>;
 
 export function createField<P extends ProFormItemProps = any>(
   Field: React.ComponentType<P> | React.ForwardRefExoticComponent<P>,

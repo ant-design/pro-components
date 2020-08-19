@@ -4,8 +4,7 @@ import { ConfigContext } from 'antd/lib/config-provider/context';
 import { SizeType } from 'antd/lib/config-provider/SizeContext';
 import classNames from 'classnames';
 import { Form } from 'antd';
-import { FieldDropdown } from '@ant-design/pro-utils';
-import LightFilterLabel from '../../components/Label';
+import { FieldDropdown, FieldLabel } from '@ant-design/pro-utils';
 import BaseForm, { CommonFormProps } from '../../BaseForm';
 import './index.less';
 
@@ -73,9 +72,7 @@ const LightFilterContainer: React.FC<{
               onVisibleChange={setOpen}
               visible={open}
               label={
-                collapseLabel || (
-                  <LightFilterLabel size={size} label={locale.more} expanded={open} />
-                )
+                collapseLabel || <FieldLabel size={size} label={locale.more} expanded={open} />
               }
               footer={{
                 onConfirm: () => {

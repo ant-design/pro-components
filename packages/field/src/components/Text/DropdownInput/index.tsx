@@ -27,7 +27,10 @@ export interface InputFilterProps {
   className?: string;
 }
 
-const DropdownInput: React.ForwardRefRenderFunction<any, InputProps & InputFilterProps> = (props, ref) => {
+const DropdownInput: React.ForwardRefRenderFunction<any, InputProps & InputFilterProps> = (
+  props,
+  ref,
+) => {
   // collapse 是外层 LightFilter 设置
   const {
     prefixCls: customizePrefixCls,
