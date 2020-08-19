@@ -80,7 +80,7 @@ const FieldDatePicker: ProFieldFC<{
             label={label}
             disabled={disabled}
             placeholder={placeholder}
-            size="default" // TODO support size
+            size="middle" // TODO support size
             value={valueStr}
             onClear={() => {
               onChange(null);
