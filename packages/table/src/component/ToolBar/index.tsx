@@ -88,20 +88,12 @@ const renderDefaultOption = <T, U = {}>(
         return <ColumnSetting key={key} />;
       }
       if (key === 'fullScreen') {
+        console.log(defaultOptions[key]);
         return (
           <span
             key={key}
             className={className}
-            onClick={(e) => {
-              const defaultFc = defaultOptions[key];
-              if (value === true && defaultFc && typeof defaultFc === 'function') {
-                defaultFc(e);
-              }
-
-              if (typeof value === 'function') {
-                value();
-              }
-            }}
+            onClick={value === true ? defaultOptions[key] : value}
           >
             <FullScreenIcon />
           </span>
@@ -152,7 +144,17 @@ const ToolBar = <T, U = {}>({
     fullScreen: () => action.fullScreen && action.fullScreen(),
     ...(propsOptions || {}),
   };
-  const options = propsOptions !== false ? defaultOptions : false;
+
+  const options =
+    propsOptions !== false
+      ? {
+          ...defaultOptions,
+          // 因为 reload 可以能为 true，所以需要转化一下
+          // 不这样写需要更多类型
+          reload: defaultOptions.reload === true ? () => action.reload() : defaultOptions.reload,
+        }
+      : false;
+
   const intl = useIntl();
   const optionDom =
     renderDefaultOption<T>(options, `${className}-item-icon`, {

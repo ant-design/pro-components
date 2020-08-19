@@ -63,14 +63,14 @@ export const formInputRender: React.FC<{
         } || null),
       });
 
-    // 自动注入 onChange 和 value,用户自己很有肯能忘记
+    // 自动注入 onChange 和 value,用户自己很有可能忘记
     const dom = renderFormItem(
       restItem,
       { ...rest, type, defaultRender },
       form as any,
     ) as React.ReactElement;
 
-    // 有可能不是不是一个组件
+    // 有可能不是一个组件
     if (!React.isValidElement(dom)) {
       return dom;
     }
