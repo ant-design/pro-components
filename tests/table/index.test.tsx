@@ -206,7 +206,7 @@ describe('BasicTable', () => {
           toolBarRender={() => [
             <Button
               onClick={() => {
-                actionRef.current?.reload();
+                actionRef.current?.reloadAndRest?.();
               }}
               key="reload"
               id="reload"
