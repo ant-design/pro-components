@@ -123,6 +123,7 @@ export type ProFieldValueObjectType = {
   locale?: string;
   /** percent */
   showSymbol?: boolean;
+  showColor?: boolean;
   precision?: number;
   request?: ProFieldRequestData;
 };
@@ -178,6 +179,7 @@ const defaultRenderTextByObject = (
         text={text as number}
         showSymbol={valueType.showSymbol}
         precision={valueType.precision}
+        showColor={valueType.showColor}
         formItemProps={pickFormItemProps}
       />
     );

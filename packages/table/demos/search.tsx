@@ -131,10 +131,11 @@ const columns: ProColumns<GithubIssueItem>[] = [
     valueType: 'option',
     dataIndex: 'id',
     render: (text, row) => [
-      <a href={row.html_url} target="_blank" rel="noopener noreferrer">
+      <a href={row.html_url} key="show" target="_blank" rel="noopener noreferrer">
         查看
       </a>,
       <TableDropdown
+        key="more"
         onSelect={(key) => window.alert(key)}
         menus={[
           { key: 'copy', name: '复制' },
@@ -178,6 +179,9 @@ export default () => {
       )}
       {type === 'descriptions' && (
         <ProDescriptions
+          style={{
+            background: '#fff',
+          }}
           columns={columns}
           request={async (params) => {
             const msg = await request<{

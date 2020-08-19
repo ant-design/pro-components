@@ -139,7 +139,7 @@ const columns: ProColumns<TableListItem>[] = [
     key: 'option',
     width: 120,
     valueType: 'option',
-    render: () => [<a>操作</a>, <a>删除</a>],
+    render: () => [<a key="a">操作</a>, <a key="b">删除</a>],
   },
 ];
 

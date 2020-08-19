@@ -17,6 +17,7 @@ describe('Field', () => {
         valueType={{
           type: 'percent',
           showSymbol: true,
+          showColor: true,
         }}
         mode="read"
       />,

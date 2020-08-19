@@ -245,7 +245,9 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
           itemsWithInfo.push({
             span: colSpan,
             element: item,
-            key: React.isValidElement(item) ? item.props?.name || index : index,
+            key: React.isValidElement(item)
+              ? item.key || `${item.props?.name || index}-${index}}`
+              : index,
             hidden,
           });
         });

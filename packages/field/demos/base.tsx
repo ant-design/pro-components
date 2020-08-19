@@ -75,8 +75,40 @@ export default () => {
             ]}
           />
         </Descriptions.Item>
+
         <Descriptions.Item label="进度条">
           <Field text="40" valueType="progress" mode={state} plain={plain} />
+        </Descriptions.Item>
+        <Descriptions.Item label="百分比">
+          <Space>
+            <Field
+              text={10}
+              valueType={{
+                type: 'percent',
+                showSymbol: true,
+                showColor: true,
+              }}
+              mode="read"
+            />
+            <Field
+              text={0}
+              valueType={{
+                type: 'percent',
+                showSymbol: true,
+                showColor: true,
+              }}
+              mode="read"
+            />
+            <Field
+              text={-10}
+              valueType={{
+                type: 'percent',
+                showSymbol: true,
+                showColor: true,
+              }}
+              mode="read"
+            />
+          </Space>
         </Descriptions.Item>
         <Descriptions.Item label="日期时间">
           <Field
