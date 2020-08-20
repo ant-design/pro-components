@@ -186,11 +186,11 @@ ref.current.clearSelected();
 
 ### 控制展示
 
-很多时候查询表单是有一些配置的，默认的逻辑不能满足需求，我们支持通过 `formItemProps` 来进行一些简单的配置。比如 `placeholder` 或者增加一个 `addonAfter` 的。
+很多时候查询表单是有一些配置的，默认的逻辑不能满足需求，我们支持通过 `fieldProps` 来进行一些简单的配置。比如 `placeholder` 或者增加一个 `addonAfter` 的。
 
 ```tsx | pure
 {
-  formItemProps: {
+  fieldProps: {
     placeholder:"请输入表格名",
     addonAfter: <SettingOutlined />;
   }

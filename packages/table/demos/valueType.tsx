@@ -103,7 +103,7 @@ const columns: ProColumns<TableListItem>[] = [
     width: 100,
     ellipsis: true,
     filters: true,
-    formItemProps: {
+    fieldProps: {
       mode: 'tags',
     },
     valueEnum: {

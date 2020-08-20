@@ -146,7 +146,7 @@ ref.current.clearSelected();
 | filters | 表头的筛选菜单项，当值为 true 时，自动使用 valueEnum 生成 | `boolean \| object[]` | false |
 | order | 查询表单中的权重，权重大排序靠前 | number | - |
 | renderFormItem | 渲染查询表单的输入组件 | `(item,props:{value,onChange}) => React.ReactNode` | - |
-| formItemProps | 查询表单的 props，会透传给表单项 | `{ [prop: string]: any }` | - |
+| fieldProps | 查询表单的 props，会透传给表单项 | `{ [prop: string]: any }` | - |
 
 ### 值类型
 
@@ -321,9 +321,9 @@ Form 的列是根据 `valueType` 来生成不同的类型。
 
 ### 自定义表单项
 
-当内置的表单项无法满足我们的基本需求，这时候我们就需要来自定义一下默认的组件，我们可以通过 `formItemProps` 和 `renderFormItem` 配合来使用。
+当内置的表单项无法满足我们的基本需求，这时候我们就需要来自定义一下默认的组件，我们可以通过 `fieldProps` 和 `renderFormItem` 配合来使用。
 
-`formItemProps` 可以把 props 透传，可以设置 select 的样式和多选等问题。
+`fieldProps` 可以把 props 透传，可以设置 select 的样式和多选等问题。
 
 `renderFormItem` 可以完成重写渲染逻辑，传入 item 和 props 来进行渲染，需要注意的是我们必须要将 props 中的 `value` 和 `onChange` 必须要被赋值，否则 form 无法拿到参数。
 

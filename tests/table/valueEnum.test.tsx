@@ -46,7 +46,7 @@ describe('Table valueEnum', () => {
               2: { text: '已上线', status: 'Success' },
               3: { text: '异常', status: 'Error' },
             },
-            formItemProps: {
+            fieldProps: {
               open: true,
             },
           },
