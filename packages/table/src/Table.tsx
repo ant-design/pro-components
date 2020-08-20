@@ -558,8 +558,9 @@ const ProTable = <T extends {}, U extends ParamsType>(
         rootRef.current.requestFullscreen();
       }
     };
-    action.fullScreen = fullScreen.current;
   }, [rootRef.current]);
+
+  action.fullScreen = fullScreen.current;
 
   const pagination = mergePagination<T, {}>(propsPagination, action, intl);
 
@@ -644,14 +645,13 @@ const ProTable = <T extends {}, U extends ParamsType>(
    * 同步 Pagination，支持受控的 页码 和 pageSize
    */
   useDeepCompareEffect(() => {
-    if (propsPagination && propsPagination.current && propsPagination.pageSize) {
+    if (propsPagination && (propsPagination.current || propsPagination.pageSize)) {
       action.setPageInfo({
         pageSize: propsPagination.pageSize,
         page: propsPagination.current,
       });
     }
   }, [propsPagination && propsPagination.pageSize, propsPagination && propsPagination.current]);
-
   // 映射 selectedRowKeys 与 selectedRow
   useEffect(() => {
     if (action.loading !== false || propsRowSelection === false) {
