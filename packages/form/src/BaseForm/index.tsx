@@ -97,6 +97,7 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
     groupProps,
     dateFormatter = 'string',
     form: userForm,
+    formRef: propsFormRef,
     ...rest
   } = props;
 
@@ -117,7 +118,6 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
   const setFieldValueType = (name: string, type?: ProFieldValueType) => {
     fieldsValueType.current[name] = type || 'text';
   };
-
   return (
     // 增加国际化的能力，与 table 组件可以统一
     <ConfigProviderWarp>
@@ -143,8 +143,8 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
               // 不 setTimeout 一下拿到的是比较旧的
               setTimeout(() => {
                 // 支持 fromRef，这里 ref 里面可以随时拿到最新的值
-                if (rest.formRef) {
-                  rest.formRef.current = formInstance as FormInstance;
+                if (propsFormRef) {
+                  propsFormRef.current = formInstance as FormInstance;
                 }
                 formRef.current = formInstance as FormInstance;
               }, 0);

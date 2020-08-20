@@ -748,812 +748,6 @@ exports[`BasicTable 🎏  do not render default option 1`] = `
 </div>
 `;
 
-exports[`BasicTable 🎏  do not render setting 1`] = `
-<div
-  class="ant-pro-table"
-  id="ant-design-pro-table"
->
-  <div
-    class="ant-pro-table-search"
-  >
-    <form
-      class="ant-form ant-form-horizontal"
-    >
-      <div
-        class="ant-row ant-row-start"
-        style="margin-left: -8px; margin-right: -8px;"
-      >
-        <div
-          class="ant-col ant-col-12"
-          style="padding-left: 8px; padding-right: 8px;"
-        >
-          <div
-            class="ant-row ant-form-item"
-          >
-            <div
-              class="ant-col ant-form-item-control"
-            >
-              <div
-                class="ant-form-item-control-input"
-              >
-                <div
-                  class="ant-form-item-control-input-content"
-                >
-                  <div
-                    class="ant-input-number"
-                    style="width: 100%;"
-                  >
-                    <div
-                      class="ant-input-number-handler-wrap"
-                    >
-                      <span
-                        aria-label="Increase Value"
-                        class="ant-input-number-handler ant-input-number-handler-up"
-                        role="button"
-                        unselectable="on"
-                      >
-                        <span
-                          aria-label="up"
-                          class="anticon anticon-up ant-input-number-handler-up-inner"
-                          role="img"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class=""
-                            data-icon="up"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-                            />
-                          </svg>
-                        </span>
-                      </span>
-                      <span
-                        aria-label="Decrease Value"
-                        class="ant-input-number-handler ant-input-number-handler-down"
-                        role="button"
-                        unselectable="on"
-                      >
-                        <span
-                          aria-label="down"
-                          class="anticon anticon-down ant-input-number-handler-down-inner"
-                          role="img"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class=""
-                            data-icon="down"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                            />
-                          </svg>
-                        </span>
-                      </span>
-                    </div>
-                    <div
-                      class="ant-input-number-input-wrap"
-                    >
-                      <input
-                        aria-valuemax="9007199254740991"
-                        aria-valuemin="0"
-                        autocomplete="off"
-                        class="ant-input-number-input"
-                        max="9007199254740991"
-                        min="0"
-                        role="spinbutton"
-                        step="1"
-                        value=""
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="ant-col ant-col-12"
-          style="padding-left: 8px; padding-right: 8px; text-align: right;"
-        >
-          <div
-            class="ant-space ant-space-horizontal ant-space-align-center"
-            style="padding-top: 0px; margin-bottom: 24px;"
-          >
-            <div
-              class="ant-space-item"
-            >
-              <div
-                class="ant-space ant-space-horizontal ant-space-align-center"
-              >
-                <div
-                  class="ant-space-item"
-                  style="margin-right: 8px;"
-                >
-                  <button
-                    class="ant-btn"
-                    type="button"
-                  >
-                    <span>
-                      重 置
-                    </span>
-                  </button>
-                </div>
-                <div
-                  class="ant-space-item"
-                >
-                  <button
-                    class="ant-btn ant-btn-primary"
-                    type="button"
-                  >
-                    <span>
-                      查 询
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </form>
-  </div>
-  <div
-    class="ant-card"
-    style="height: 100%;"
-  >
-    <div
-      class="ant-card-body"
-      style="padding: 0px;"
-    >
-      <div
-        class="ant-pro-table-toolbar"
-      >
-        <div
-          class="ant-pro-table-toolbar-title"
-        />
-        <div
-          class="ant-pro-table-toolbar-option"
-        >
-          <div
-            class="ant-pro-table-toolbar-default-option"
-          >
-            <div
-              class="ant-space ant-space-horizontal ant-space-align-center"
-            >
-              <div
-                class="ant-space-item"
-                style="margin-right: 8px;"
-              >
-                <span
-                  class="ant-pro-table-toolbar-item-icon"
-                >
-                  <span
-                    aria-label="reload"
-                    class="anticon anticon-reload"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="reload"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M909.1 209.3l-56.4 44.1C775.8 155.1 656.2 92 521.9 92 290 92 102.3 279.5 102 511.5 101.7 743.7 289.8 932 521.9 932c181.3 0 335.8-115 394.6-276.1 1.5-4.2-.7-8.9-4.9-10.3l-56.7-19.5a8 8 0 00-10.1 4.8c-1.8 5-3.8 10-5.9 14.9-17.3 41-42.1 77.8-73.7 109.4A344.77 344.77 0 01655.9 829c-42.3 17.9-87.4 27-133.8 27-46.5 0-91.5-9.1-133.8-27A341.5 341.5 0 01279 755.2a342.16 342.16 0 01-73.7-109.4c-17.9-42.4-27-87.4-27-133.9s9.1-91.5 27-133.9c17.3-41 42.1-77.8 73.7-109.4 31.6-31.6 68.4-56.4 109.3-73.8 42.3-17.9 87.4-27 133.8-27 46.5 0 91.5 9.1 133.8 27a341.5 341.5 0 01109.3 73.8c9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47a8 8 0 003 14.1l175.6 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c-.1-6.6-7.8-10.3-13-6.2z"
-                      />
-                    </svg>
-                  </span>
-                </span>
-              </div>
-              <div
-                class="ant-space-item"
-                style="margin-right: 8px;"
-              >
-                <span
-                  class="ant-pro-table-toolbar-item-icon"
-                >
-                  <span
-                    aria-label="column-height"
-                    class="anticon anticon-column-height ant-dropdown-trigger"
-                    role="img"
-                    tabindex="-1"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="column-height"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M840 836H184c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h656c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8zm0-724H184c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h656c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8zM610.8 378c6 0 9.4-7 5.7-11.7L515.7 238.7a7.14 7.14 0 00-11.3 0L403.6 366.3a7.23 7.23 0 005.7 11.7H476v268h-62.8c-6 0-9.4 7-5.7 11.7l100.8 127.5c2.9 3.7 8.5 3.7 11.3 0l100.8-127.5c3.7-4.7.4-11.7-5.7-11.7H548V378h62.8z"
-                      />
-                    </svg>
-                  </span>
-                </span>
-              </div>
-              <div
-                class="ant-space-item"
-              >
-                <span
-                  class="ant-pro-table-toolbar-item-icon"
-                >
-                  <span
-                    aria-label="fullscreen"
-                    class="anticon anticon-fullscreen"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="fullscreen"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M290 236.4l43.9-43.9a8.01 8.01 0 00-4.7-13.6L169 160c-5.1-.6-9.5 3.7-8.9 8.9L179 329.1c.8 6.6 8.9 9.4 13.6 4.7l43.7-43.7L370 423.7c3.1 3.1 8.2 3.1 11.3 0l42.4-42.3c3.1-3.1 3.1-8.2 0-11.3L290 236.4zm352.7 187.3c3.1 3.1 8.2 3.1 11.3 0l133.7-133.6 43.7 43.7a8.01 8.01 0 0013.6-4.7L863.9 169c.6-5.1-3.7-9.5-8.9-8.9L694.8 179c-6.6.8-9.4 8.9-4.7 13.6l43.9 43.9L600.3 370a8.03 8.03 0 000 11.3l42.4 42.4zM845 694.9c-.8-6.6-8.9-9.4-13.6-4.7l-43.7 43.7L654 600.3a8.03 8.03 0 00-11.3 0l-42.4 42.3a8.03 8.03 0 000 11.3L734 787.6l-43.9 43.9a8.01 8.01 0 004.7 13.6L855 864c5.1.6 9.5-3.7 8.9-8.9L845 694.9zm-463.7-94.6a8.03 8.03 0 00-11.3 0L236.3 733.9l-43.7-43.7a8.01 8.01 0 00-13.6 4.7L160.1 855c-.6 5.1 3.7 9.5 8.9 8.9L329.2 845c6.6-.8 9.4-8.9 4.7-13.6L290 787.6 423.7 654c3.1-3.1 3.1-8.2 0-11.3l-42.4-42.4z"
-                      />
-                    </svg>
-                  </span>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="ant-table-wrapper"
-      >
-        <div
-          class="ant-spin-nested-loading"
-        >
-          <div
-            class="ant-spin-container"
-          >
-            <div
-              class="ant-table ant-table-small"
-            >
-              <div
-                class="ant-table-container"
-              >
-                <div
-                  class="ant-table-content"
-                >
-                  <table
-                    style="table-layout: auto;"
-                  >
-                    <colgroup />
-                    <thead
-                      class="ant-table-thead"
-                    >
-                      <tr>
-                        <th
-                          class="ant-table-cell"
-                        />
-                      </tr>
-                    </thead>
-                    <tbody
-                      class="ant-table-tbody"
-                    >
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="0"
-                      >
-                        <td
-                          class="ant-table-cell"
-                        >
-                          <span>
-                            ￥ 10000.26
-                          </span>
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="1"
-                      >
-                        <td
-                          class="ant-table-cell"
-                        >
-                          <span>
-                            ￥ 20000.52
-                          </span>
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="2"
-                      >
-                        <td
-                          class="ant-table-cell"
-                        >
-                          <span>
-                            ￥ 30000.78
-                          </span>
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="3"
-                      >
-                        <td
-                          class="ant-table-cell"
-                        >
-                          <span>
-                            ￥ 40001.04
-                          </span>
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="4"
-                      >
-                        <td
-                          class="ant-table-cell"
-                        >
-                          <span>
-                            ￥ 50001.3
-                          </span>
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="5"
-                      >
-                        <td
-                          class="ant-table-cell"
-                        >
-                          <span>
-                            ￥ 60001.56
-                          </span>
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="6"
-                      >
-                        <td
-                          class="ant-table-cell"
-                        >
-                          <span>
-                            ￥ 70001.82
-                          </span>
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="7"
-                      >
-                        <td
-                          class="ant-table-cell"
-                        >
-                          <span>
-                            ￥ 80002.08
-                          </span>
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="8"
-                      >
-                        <td
-                          class="ant-table-cell"
-                        >
-                          <span>
-                            ￥ 90002.34
-                          </span>
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="9"
-                      >
-                        <td
-                          class="ant-table-cell"
-                        >
-                          <span>
-                            ￥ 100002.6
-                          </span>
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="10"
-                      >
-                        <td
-                          class="ant-table-cell"
-                        >
-                          <span>
-                            ￥ 110002.86
-                          </span>
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="11"
-                      >
-                        <td
-                          class="ant-table-cell"
-                        >
-                          <span>
-                            ￥ 120003.12
-                          </span>
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="12"
-                      >
-                        <td
-                          class="ant-table-cell"
-                        >
-                          <span>
-                            ￥ 130003.38
-                          </span>
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="13"
-                      >
-                        <td
-                          class="ant-table-cell"
-                        >
-                          <span>
-                            ￥ 140003.64
-                          </span>
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="14"
-                      >
-                        <td
-                          class="ant-table-cell"
-                        >
-                          <span>
-                            ￥ 150003.9
-                          </span>
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="15"
-                      >
-                        <td
-                          class="ant-table-cell"
-                        >
-                          <span>
-                            ￥ 160004.16
-                          </span>
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="16"
-                      >
-                        <td
-                          class="ant-table-cell"
-                        >
-                          <span>
-                            ￥ 170004.42
-                          </span>
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="17"
-                      >
-                        <td
-                          class="ant-table-cell"
-                        >
-                          <span>
-                            ￥ 180004.68
-                          </span>
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="18"
-                      >
-                        <td
-                          class="ant-table-cell"
-                        >
-                          <span>
-                            ￥ 190004.94
-                          </span>
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="19"
-                      >
-                        <td
-                          class="ant-table-cell"
-                        >
-                          <span>
-                            ￥ 200005.2
-                          </span>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-            <ul
-              class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
-              unselectable="unselectable"
-            >
-              <li
-                class="ant-pagination-total-text"
-              >
-                第 1-20 条/总共 200 条
-              </li>
-              <li
-                aria-disabled="true"
-                class="ant-pagination-prev ant-pagination-disabled"
-                title="Previous Page"
-              >
-                <button
-                  class="ant-pagination-item-link"
-                  disabled=""
-                  tabindex="-1"
-                  type="button"
-                >
-                  <span
-                    aria-label="left"
-                    class="anticon anticon-left"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="left"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-                      />
-                    </svg>
-                  </span>
-                </button>
-              </li>
-              <li
-                class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-                tabindex="0"
-                title="1"
-              >
-                <a
-                  rel="nofollow"
-                >
-                  1
-                </a>
-              </li>
-              <li
-                class="ant-pagination-item ant-pagination-item-2"
-                tabindex="0"
-                title="2"
-              >
-                <a
-                  rel="nofollow"
-                >
-                  2
-                </a>
-              </li>
-              <li
-                class="ant-pagination-item ant-pagination-item-3"
-                tabindex="0"
-                title="3"
-              >
-                <a
-                  rel="nofollow"
-                >
-                  3
-                </a>
-              </li>
-              <li
-                class="ant-pagination-item ant-pagination-item-4"
-                tabindex="0"
-                title="4"
-              >
-                <a
-                  rel="nofollow"
-                >
-                  4
-                </a>
-              </li>
-              <li
-                class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next"
-                tabindex="0"
-                title="5"
-              >
-                <a
-                  rel="nofollow"
-                >
-                  5
-                </a>
-              </li>
-              <li
-                class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
-                tabindex="0"
-                title="Next 5 Pages"
-              >
-                <a
-                  class="ant-pagination-item-link"
-                >
-                  <div
-                    class="ant-pagination-item-container"
-                  >
-                    <span
-                      aria-label="double-right"
-                      class="anticon anticon-double-right ant-pagination-item-link-icon"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class=""
-                        data-icon="double-right"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1A7.98 7.98 0 00188 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5zm304 0L581.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H492c-6.7 0-10.4 7.7-6.3 12.9L751.1 512 485.7 851.1A7.98 7.98 0 00492 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
-                        />
-                      </svg>
-                    </span>
-                    <span
-                      class="ant-pagination-item-ellipsis"
-                    >
-                      •••
-                    </span>
-                  </div>
-                </a>
-              </li>
-              <li
-                class="ant-pagination-item ant-pagination-item-10"
-                tabindex="0"
-                title="10"
-              >
-                <a
-                  rel="nofollow"
-                >
-                  10
-                </a>
-              </li>
-              <li
-                aria-disabled="false"
-                class="ant-pagination-next"
-                tabindex="0"
-                title="Next Page"
-              >
-                <button
-                  class="ant-pagination-item-link"
-                  tabindex="-1"
-                  type="button"
-                >
-                  <span
-                    aria-label="right"
-                    class="anticon anticon-right"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="right"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                      />
-                    </svg>
-                  </span>
-                </button>
-              </li>
-              <li
-                class="ant-pagination-options"
-              >
-                <div
-                  class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
-                >
-                  <div
-                    class="ant-select-selector"
-                  >
-                    <span
-                      class="ant-select-selection-search"
-                    >
-                      <input
-                        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
-                        aria-autocomplete="list"
-                        aria-controls="rc_select_TEST_OR_SSR_list"
-                        aria-haspopup="listbox"
-                        aria-owns="rc_select_TEST_OR_SSR_list"
-                        autocomplete="off"
-                        class="ant-select-selection-search-input"
-                        id="rc_select_TEST_OR_SSR"
-                        readonly=""
-                        role="combobox"
-                        style="opacity: 0;"
-                        unselectable="on"
-                        value=""
-                      />
-                    </span>
-                    <span
-                      class="ant-select-selection-item"
-                      title="20 / page"
-                    >
-                      20 / page
-                    </span>
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-arrow"
-                    style="user-select: none;"
-                    unselectable="on"
-                  >
-                    <span
-                      aria-label="down"
-                      class="anticon anticon-down ant-select-suffix"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class=""
-                        data-icon="down"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`BasicTable 🎏 base use 1`] = `
 <div
   class="ant-pro-table"
@@ -14656,6 +13850,853 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
         </div>
       </div>
     </div>
+  </div>
+</div>
+`;
+
+exports[`BasicTable 🎏 do not render setting 1`] = `
+<div
+  class="ant-pro-table"
+  id="ant-design-pro-table"
+>
+  <div
+    class="ant-pro-table-search"
+  >
+    <form
+      class="ant-form ant-form-horizontal"
+    >
+      <div
+        class="ant-row ant-row-start"
+        style="margin-left: -8px; margin-right: -8px;"
+      >
+        <div
+          class="ant-col ant-col-12"
+          style="padding-left: 8px; padding-right: 8px;"
+        >
+          <div
+            class="ant-row ant-form-item"
+          >
+            <div
+              class="ant-col ant-form-item-control"
+            >
+              <div
+                class="ant-form-item-control-input"
+              >
+                <div
+                  class="ant-form-item-control-input-content"
+                >
+                  <div
+                    class="ant-input-number"
+                    style="width: 100%;"
+                  >
+                    <div
+                      class="ant-input-number-handler-wrap"
+                    >
+                      <span
+                        aria-label="Increase Value"
+                        class="ant-input-number-handler ant-input-number-handler-up"
+                        role="button"
+                        unselectable="on"
+                      >
+                        <span
+                          aria-label="up"
+                          class="anticon anticon-up ant-input-number-handler-up-inner"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class=""
+                            data-icon="up"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                      <span
+                        aria-label="Decrease Value"
+                        class="ant-input-number-handler ant-input-number-handler-down"
+                        role="button"
+                        unselectable="on"
+                      >
+                        <span
+                          aria-label="down"
+                          class="anticon anticon-down ant-input-number-handler-down-inner"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class=""
+                            data-icon="down"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </div>
+                    <div
+                      class="ant-input-number-input-wrap"
+                    >
+                      <input
+                        aria-valuemax="9007199254740991"
+                        aria-valuemin="0"
+                        autocomplete="off"
+                        class="ant-input-number-input"
+                        max="9007199254740991"
+                        min="0"
+                        role="spinbutton"
+                        step="1"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-col ant-col-12"
+          style="padding-left: 8px; padding-right: 8px; text-align: right;"
+        >
+          <div
+            class="ant-space ant-space-horizontal ant-space-align-center"
+            style="padding-top: 0px; margin-bottom: 24px;"
+          >
+            <div
+              class="ant-space-item"
+            >
+              <div
+                class="ant-space ant-space-horizontal ant-space-align-center"
+              >
+                <div
+                  class="ant-space-item"
+                  style="margin-right: 8px;"
+                >
+                  <button
+                    class="ant-btn"
+                    type="button"
+                  >
+                    <span>
+                      重 置
+                    </span>
+                  </button>
+                </div>
+                <div
+                  class="ant-space-item"
+                >
+                  <button
+                    class="ant-btn ant-btn-primary"
+                    type="button"
+                  >
+                    <span>
+                      查 询
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div
+    class="ant-card"
+    style="height: 100%;"
+  >
+    <div
+      class="ant-card-body"
+      style="padding: 0px;"
+    >
+      <div
+        class="ant-pro-table-toolbar"
+      >
+        <div
+          class="ant-pro-table-toolbar-title"
+        />
+        <div
+          class="ant-pro-table-toolbar-option"
+        >
+          <div
+            class="ant-pro-table-toolbar-default-option"
+          >
+            <div
+              class="ant-space ant-space-horizontal ant-space-align-center"
+            >
+              <div
+                class="ant-space-item"
+                style="margin-right: 8px;"
+              >
+                <span
+                  class="ant-pro-table-toolbar-item-icon"
+                >
+                  <span
+                    aria-label="reload"
+                    class="anticon anticon-reload"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="reload"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M909.1 209.3l-56.4 44.1C775.8 155.1 656.2 92 521.9 92 290 92 102.3 279.5 102 511.5 101.7 743.7 289.8 932 521.9 932c181.3 0 335.8-115 394.6-276.1 1.5-4.2-.7-8.9-4.9-10.3l-56.7-19.5a8 8 0 00-10.1 4.8c-1.8 5-3.8 10-5.9 14.9-17.3 41-42.1 77.8-73.7 109.4A344.77 344.77 0 01655.9 829c-42.3 17.9-87.4 27-133.8 27-46.5 0-91.5-9.1-133.8-27A341.5 341.5 0 01279 755.2a342.16 342.16 0 01-73.7-109.4c-17.9-42.4-27-87.4-27-133.9s9.1-91.5 27-133.9c17.3-41 42.1-77.8 73.7-109.4 31.6-31.6 68.4-56.4 109.3-73.8 42.3-17.9 87.4-27 133.8-27 46.5 0 91.5 9.1 133.8 27a341.5 341.5 0 01109.3 73.8c9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47a8 8 0 003 14.1l175.6 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c-.1-6.6-7.8-10.3-13-6.2z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </div>
+              <div
+                class="ant-space-item"
+                style="margin-right: 8px;"
+              >
+                <span
+                  class="ant-pro-table-toolbar-item-icon"
+                >
+                  <span
+                    aria-label="column-height"
+                    class="anticon anticon-column-height ant-dropdown-trigger"
+                    role="img"
+                    tabindex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="column-height"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M840 836H184c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h656c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8zm0-724H184c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h656c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8zM610.8 378c6 0 9.4-7 5.7-11.7L515.7 238.7a7.14 7.14 0 00-11.3 0L403.6 366.3a7.23 7.23 0 005.7 11.7H476v268h-62.8c-6 0-9.4 7-5.7 11.7l100.8 127.5c2.9 3.7 8.5 3.7 11.3 0l100.8-127.5c3.7-4.7.4-11.7-5.7-11.7H548V378h62.8z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </div>
+              <div
+                class="ant-space-item"
+              >
+                <span
+                  class="ant-pro-table-toolbar-item-icon"
+                >
+                  <span
+                    aria-label="fullscreen"
+                    class="anticon anticon-fullscreen"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="fullscreen"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M290 236.4l43.9-43.9a8.01 8.01 0 00-4.7-13.6L169 160c-5.1-.6-9.5 3.7-8.9 8.9L179 329.1c.8 6.6 8.9 9.4 13.6 4.7l43.7-43.7L370 423.7c3.1 3.1 8.2 3.1 11.3 0l42.4-42.3c3.1-3.1 3.1-8.2 0-11.3L290 236.4zm352.7 187.3c3.1 3.1 8.2 3.1 11.3 0l133.7-133.6 43.7 43.7a8.01 8.01 0 0013.6-4.7L863.9 169c.6-5.1-3.7-9.5-8.9-8.9L694.8 179c-6.6.8-9.4 8.9-4.7 13.6l43.9 43.9L600.3 370a8.03 8.03 0 000 11.3l42.4 42.4zM845 694.9c-.8-6.6-8.9-9.4-13.6-4.7l-43.7 43.7L654 600.3a8.03 8.03 0 00-11.3 0l-42.4 42.3a8.03 8.03 0 000 11.3L734 787.6l-43.9 43.9a8.01 8.01 0 004.7 13.6L855 864c5.1.6 9.5-3.7 8.9-8.9L845 694.9zm-463.7-94.6a8.03 8.03 0 00-11.3 0L236.3 733.9l-43.7-43.7a8.01 8.01 0 00-13.6 4.7L160.1 855c-.6 5.1 3.7 9.5 8.9 8.9L329.2 845c6.6-.8 9.4-8.9 4.7-13.6L290 787.6 423.7 654c3.1-3.1 3.1-8.2 0-11.3l-42.4-42.4z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-table-wrapper"
+      >
+        <div
+          class="ant-spin-nested-loading"
+        >
+          <div
+            class="ant-spin-container"
+          >
+            <div
+              class="ant-table ant-table-small"
+            >
+              <div
+                class="ant-table-container"
+              >
+                <div
+                  class="ant-table-content"
+                >
+                  <table
+                    style="table-layout: auto;"
+                  >
+                    <colgroup />
+                    <thead
+                      class="ant-table-thead"
+                    >
+                      <tr>
+                        <th
+                          class="ant-table-cell"
+                        />
+                      </tr>
+                    </thead>
+                    <tbody
+                      class="ant-table-tbody"
+                    >
+                      <tr
+                        class="ant-table-row ant-table-row-level-0"
+                        data-row-key="0"
+                      >
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <span>
+                            ￥ 10000.26
+                          </span>
+                        </td>
+                      </tr>
+                      <tr
+                        class="ant-table-row ant-table-row-level-0"
+                        data-row-key="1"
+                      >
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <span>
+                            ￥ 20000.52
+                          </span>
+                        </td>
+                      </tr>
+                      <tr
+                        class="ant-table-row ant-table-row-level-0"
+                        data-row-key="2"
+                      >
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <span>
+                            ￥ 30000.78
+                          </span>
+                        </td>
+                      </tr>
+                      <tr
+                        class="ant-table-row ant-table-row-level-0"
+                        data-row-key="3"
+                      >
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <span>
+                            ￥ 40001.04
+                          </span>
+                        </td>
+                      </tr>
+                      <tr
+                        class="ant-table-row ant-table-row-level-0"
+                        data-row-key="4"
+                      >
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <span>
+                            ￥ 50001.3
+                          </span>
+                        </td>
+                      </tr>
+                      <tr
+                        class="ant-table-row ant-table-row-level-0"
+                        data-row-key="5"
+                      >
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <span>
+                            ￥ 60001.56
+                          </span>
+                        </td>
+                      </tr>
+                      <tr
+                        class="ant-table-row ant-table-row-level-0"
+                        data-row-key="6"
+                      >
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <span>
+                            ￥ 70001.82
+                          </span>
+                        </td>
+                      </tr>
+                      <tr
+                        class="ant-table-row ant-table-row-level-0"
+                        data-row-key="7"
+                      >
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <span>
+                            ￥ 80002.08
+                          </span>
+                        </td>
+                      </tr>
+                      <tr
+                        class="ant-table-row ant-table-row-level-0"
+                        data-row-key="8"
+                      >
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <span>
+                            ￥ 90002.34
+                          </span>
+                        </td>
+                      </tr>
+                      <tr
+                        class="ant-table-row ant-table-row-level-0"
+                        data-row-key="9"
+                      >
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <span>
+                            ￥ 100002.6
+                          </span>
+                        </td>
+                      </tr>
+                      <tr
+                        class="ant-table-row ant-table-row-level-0"
+                        data-row-key="10"
+                      >
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <span>
+                            ￥ 110002.86
+                          </span>
+                        </td>
+                      </tr>
+                      <tr
+                        class="ant-table-row ant-table-row-level-0"
+                        data-row-key="11"
+                      >
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <span>
+                            ￥ 120003.12
+                          </span>
+                        </td>
+                      </tr>
+                      <tr
+                        class="ant-table-row ant-table-row-level-0"
+                        data-row-key="12"
+                      >
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <span>
+                            ￥ 130003.38
+                          </span>
+                        </td>
+                      </tr>
+                      <tr
+                        class="ant-table-row ant-table-row-level-0"
+                        data-row-key="13"
+                      >
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <span>
+                            ￥ 140003.64
+                          </span>
+                        </td>
+                      </tr>
+                      <tr
+                        class="ant-table-row ant-table-row-level-0"
+                        data-row-key="14"
+                      >
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <span>
+                            ￥ 150003.9
+                          </span>
+                        </td>
+                      </tr>
+                      <tr
+                        class="ant-table-row ant-table-row-level-0"
+                        data-row-key="15"
+                      >
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <span>
+                            ￥ 160004.16
+                          </span>
+                        </td>
+                      </tr>
+                      <tr
+                        class="ant-table-row ant-table-row-level-0"
+                        data-row-key="16"
+                      >
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <span>
+                            ￥ 170004.42
+                          </span>
+                        </td>
+                      </tr>
+                      <tr
+                        class="ant-table-row ant-table-row-level-0"
+                        data-row-key="17"
+                      >
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <span>
+                            ￥ 180004.68
+                          </span>
+                        </td>
+                      </tr>
+                      <tr
+                        class="ant-table-row ant-table-row-level-0"
+                        data-row-key="18"
+                      >
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <span>
+                            ￥ 190004.94
+                          </span>
+                        </td>
+                      </tr>
+                      <tr
+                        class="ant-table-row ant-table-row-level-0"
+                        data-row-key="19"
+                      >
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <span>
+                            ￥ 200005.2
+                          </span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <ul
+              class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+              unselectable="unselectable"
+            >
+              <li
+                class="ant-pagination-total-text"
+              >
+                第 1-20 条/总共 200 条
+              </li>
+              <li
+                aria-disabled="true"
+                class="ant-pagination-prev ant-pagination-disabled"
+                title="Previous Page"
+              >
+                <button
+                  class="ant-pagination-item-link"
+                  disabled=""
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-label="left"
+                    class="anticon anticon-left"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="left"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </li>
+              <li
+                class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+                tabindex="0"
+                title="1"
+              >
+                <a
+                  rel="nofollow"
+                >
+                  1
+                </a>
+              </li>
+              <li
+                class="ant-pagination-item ant-pagination-item-2"
+                tabindex="0"
+                title="2"
+              >
+                <a
+                  rel="nofollow"
+                >
+                  2
+                </a>
+              </li>
+              <li
+                class="ant-pagination-item ant-pagination-item-3"
+                tabindex="0"
+                title="3"
+              >
+                <a
+                  rel="nofollow"
+                >
+                  3
+                </a>
+              </li>
+              <li
+                class="ant-pagination-item ant-pagination-item-4"
+                tabindex="0"
+                title="4"
+              >
+                <a
+                  rel="nofollow"
+                >
+                  4
+                </a>
+              </li>
+              <li
+                class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next"
+                tabindex="0"
+                title="5"
+              >
+                <a
+                  rel="nofollow"
+                >
+                  5
+                </a>
+              </li>
+              <li
+                class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
+                tabindex="0"
+                title="Next 5 Pages"
+              >
+                <a
+                  class="ant-pagination-item-link"
+                >
+                  <div
+                    class="ant-pagination-item-container"
+                  >
+                    <span
+                      aria-label="double-right"
+                      class="anticon anticon-double-right ant-pagination-item-link-icon"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="double-right"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1A7.98 7.98 0 00188 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5zm304 0L581.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H492c-6.7 0-10.4 7.7-6.3 12.9L751.1 512 485.7 851.1A7.98 7.98 0 00492 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="ant-pagination-item-ellipsis"
+                    >
+                      •••
+                    </span>
+                  </div>
+                </a>
+              </li>
+              <li
+                class="ant-pagination-item ant-pagination-item-10"
+                tabindex="0"
+                title="10"
+              >
+                <a
+                  rel="nofollow"
+                >
+                  10
+                </a>
+              </li>
+              <li
+                aria-disabled="false"
+                class="ant-pagination-next"
+                tabindex="0"
+                title="Next Page"
+              >
+                <button
+                  class="ant-pagination-item-link"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-label="right"
+                    class="anticon anticon-right"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="right"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </li>
+              <li
+                class="ant-pagination-options"
+              >
+                <div
+                  class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
+                >
+                  <div
+                    class="ant-select-selector"
+                  >
+                    <span
+                      class="ant-select-selection-search"
+                    >
+                      <input
+                        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+                        aria-autocomplete="list"
+                        aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-haspopup="listbox"
+                        aria-owns="rc_select_TEST_OR_SSR_list"
+                        autocomplete="off"
+                        class="ant-select-selection-search-input"
+                        id="rc_select_TEST_OR_SSR"
+                        readonly=""
+                        role="combobox"
+                        style="opacity: 0;"
+                        unselectable="on"
+                        value=""
+                      />
+                    </span>
+                    <span
+                      class="ant-select-selection-item"
+                      title="20 / page"
+                    >
+                      20 / page
+                    </span>
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-arrow"
+                    style="user-select: none;"
+                    unselectable="on"
+                  >
+                    <span
+                      aria-label="down"
+                      class="anticon anticon-down ant-select-suffix"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="down"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`BasicTable 🎏 page error test 1`] = `
+<div
+  class="ant-result ant-result-error"
+>
+  <div
+    class="ant-result-icon"
+  >
+    <span
+      aria-label="close-circle"
+      class="anticon anticon-close-circle"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="close-circle"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+        />
+      </svg>
+    </span>
+  </div>
+  <div
+    class="ant-result-title"
+  >
+    Something went wrong.
+  </div>
+  <div
+    class="ant-result-extra"
+  >
+    test error
   </div>
 </div>
 `;

@@ -13,16 +13,6 @@ import zhTW from './locale/zh_TW';
 import frFR from './locale/fr_FR';
 import ptBR from './locale/pt_BR';
 
-export const getLang = (): string => {
-  const isNavigatorLanguageValid =
-    typeof navigator !== 'undefined' && typeof navigator.language === 'string';
-  const browserLang = isNavigatorLanguageValid
-    ? navigator.language.split('-').join('{{BaseSeparator}}')
-    : '';
-  const lang = typeof localStorage !== 'undefined' ? window.localStorage.getItem('umi_locale') : '';
-  return lang || browserLang || '';
-};
-
 export interface IntlType {
   locale: string;
   getMessage: (id: string, defaultMessage: string) => string;

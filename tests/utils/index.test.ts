@@ -1,5 +1,5 @@
-import { conversionSubmitValue } from '@ant-design/pro-utils';
-import moment from 'moment';
+import { conversionSubmitValue, parseValueToMoment } from '@ant-design/pro-utils';
+import moment, { Moment } from 'moment';
 
 describe('utils', () => {
   it('📅 conversionSubmitValue string', async () => {
@@ -96,6 +96,13 @@ describe('utils', () => {
     );
     expect(html.dateTimeRange.map((item) => item.valueOf()).join(',')).toBe(
       '1573908626000,1573908626000',
+    );
+  });
+
+  it('📅 parseValueToMoment moment', async () => {
+    const html = parseValueToMoment(['2019-11-16 12:50:26', '2019-11-16 12:50:26'], 'YYYY-MM-DD');
+    expect((html as Moment[]).map((item) => item.valueOf()).join(',')).toBe(
+      '1573862400000,1573862400000',
     );
   });
 });

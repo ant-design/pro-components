@@ -558,8 +558,9 @@ const ProTable = <T extends {}, U extends ParamsType>(
         rootRef.current.requestFullscreen();
       }
     };
-    action.fullScreen = fullScreen.current;
   }, [rootRef.current]);
+
+  action.fullScreen = fullScreen.current;
 
   const pagination = mergePagination<T, {}>(propsPagination, action, intl);
 
