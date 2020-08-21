@@ -539,6 +539,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
             prefixCls={baseClassName}
             list={themeList.themeList}
             value={navTheme}
+            configType="theme"
             key="navTheme"
             onChange={(value) => changeSetting('navTheme', value, hideLoading)}
           />
@@ -567,6 +568,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
             prefixCls={baseClassName}
             value={layout}
             key="layout"
+            configType="layout"
             list={[
               {
                 key: 'side',

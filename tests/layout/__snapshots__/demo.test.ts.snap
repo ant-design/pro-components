@@ -7018,7 +7018,7 @@ Array [
                   style="min-height: 42px;"
                 >
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item"
+                    class="ant-pro-setting-drawer-block-checkbox-item  ant-pro-setting-drawer-block-checkbox-theme-item"
                   >
                     <img
                       alt="light"
@@ -7051,7 +7051,7 @@ Array [
                     </div>
                   </div>
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item"
+                    class="ant-pro-setting-drawer-block-checkbox-item  ant-pro-setting-drawer-block-checkbox-theme-item"
                   >
                     <img
                       alt="dark"
@@ -7144,7 +7144,7 @@ Array [
                   style="min-height: 42px;"
                 >
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item"
+                    class="ant-pro-setting-drawer-block-checkbox-item  ant-pro-setting-drawer-block-checkbox-layout-item"
                   >
                     <img
                       alt="side"
@@ -7177,7 +7177,7 @@ Array [
                     </div>
                   </div>
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item"
+                    class="ant-pro-setting-drawer-block-checkbox-item  ant-pro-setting-drawer-block-checkbox-layout-item"
                   >
                     <img
                       alt="top"
@@ -7210,7 +7210,7 @@ Array [
                     </div>
                   </div>
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item"
+                    class="ant-pro-setting-drawer-block-checkbox-item  ant-pro-setting-drawer-block-checkbox-layout-item"
                   >
                     <img
                       alt="mix"
