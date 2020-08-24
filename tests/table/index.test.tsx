@@ -301,7 +301,7 @@ describe('BasicTable', () => {
         size="small"
         columns={[
           {
-            name: 'money',
+            title: 'money',
             dataIndex: 'money',
             valueType: 'money',
           },
@@ -332,7 +332,7 @@ describe('BasicTable', () => {
         size="small"
         columns={[
           {
-            name: 'money',
+            title: 'money',
             dataIndex: 'money',
             valueType: 'money',
           },
@@ -366,7 +366,7 @@ describe('BasicTable', () => {
         size="small"
         columns={[
           {
-            name: 'money',
+            title: 'money',
             dataIndex: 'money',
             valueType: 'money',
           },
