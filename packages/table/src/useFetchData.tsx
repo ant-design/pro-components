@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { usePrevious, useDebounceFn } from '@ant-design/pro-utils';
+import ReactDOM from 'react-dom';
 
 export interface RequestData<T> {
   data: T[];
@@ -57,21 +58,26 @@ const useFetchData = <T extends RequestData<any>>(
     pageSize: defaultPageSize,
   });
 
+  // Batching update  https://github.com/facebook/react/issues/14259
+  const setDataAndLoading = (newData: T[], dataTotal: number) => {
+    const { pageSize, page } = pageInfo;
+    ReactDOM.unstable_batchedUpdates(() => {
+      setList(newData);
+      setLoading(false);
+      setPageInfo({
+        ...pageInfo,
+        total: dataTotal,
+        hasMore: dataTotal > pageSize * page,
+      });
+    });
+  };
+
   // pre state
   const prePage = usePrevious(pageInfo.page);
   const prePageSize = usePrevious(pageInfo.pageSize);
 
   const { effects = [] } = options || {};
-  const setDataAndLoading = (newData: T[], dataTotal: number) => {
-    const { pageSize, page } = pageInfo;
-    setList(newData);
-    setLoading(false);
-    setPageInfo({
-      ...pageInfo,
-      total: dataTotal,
-      hasMore: dataTotal > pageSize * page,
-    });
-  };
+
   /**
    * 请求数据
    * @param isAppend 是否添加数据到后面

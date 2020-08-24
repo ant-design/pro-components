@@ -60,7 +60,7 @@
     "@umijs/test": "^3.2.10",
     "@umijs/test-utils": "^3.2.10",
     "@umijs/utils": "^3.2.11",
-    "antd": "^4.4.3",
+    "antd": "^4.6.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-import": "^1.12.2",
     "body-parser": "^1.18.2",

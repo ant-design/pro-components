@@ -139,9 +139,7 @@ export default () => (
       })
     }
     rowKey="id"
-    rowSelection={{
-      selectedRowKeys: ['624691229'],
-    }}
+    rowSelection={{}}
     tableAlertRender={({ selectedRowKeys, selectedRows }) =>
       `当前共选中 ${selectedRowKeys.length} 项，共有 ${selectedRows.reduce((pre, item) => {
         if (item.state === 'open') {

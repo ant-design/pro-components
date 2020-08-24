@@ -22,6 +22,7 @@ const ProFormUploadDragger: React.ForwardRefRenderFunction<any, ProFormDraggerPr
     fieldProps,
     title = '单击或拖动文件到此区域进行上传',
     icon = <InboxOutlined />,
+    proFieldProps,
     description = '支持单次或批量上传',
     label,
     action,
