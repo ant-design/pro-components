@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@0.0.19...@ant-design/pro-field@0.1.0) (2020-08-24)
+
+### Features
+
+- **form:** ProForm new Layout LightFilter support ([#173](https://github.com/ant-design/pro-components/issues/173)) ([e558c62](https://github.com/ant-design/pro-components/commit/e558c62a14e9d3b85050f790c72de96dbaa82321))
+
 ## [0.0.19](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@0.0.18...@ant-design/pro-field@0.0.19) (2020-08-19)
 
 **Note:** Version bump only for package @ant-design/pro-field
