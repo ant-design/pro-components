@@ -25,7 +25,7 @@ exports[`table demos renders ./packages/table/demos/batchOption.tsx correctly 1`
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
+              style="flex: 0 0 98px;"
             >
               <label
                 class=""
@@ -118,7 +118,7 @@ exports[`table demos renders ./packages/table/demos/batchOption.tsx correctly 1`
         >
           <div
             class="ant-col ant-form-item-label"
-            style="flex: 0 0 80px;"
+            style="flex: 0 0 98px;"
           >
             <label
               class=""
@@ -154,7 +154,7 @@ exports[`table demos renders ./packages/table/demos/batchOption.tsx correctly 1`
         >
           <div
             class="ant-col ant-form-item-label"
-            style="flex: 0 0 80px;"
+            style="flex: 0 0 98px;"
           >
             <label
               class=""
@@ -4571,7 +4571,7 @@ exports[`table demos renders ./packages/table/demos/dataSource.tsx correctly 1`]
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
+              style="flex: 0 0 98px;"
             >
               <label
                 class=""
@@ -4664,7 +4664,7 @@ exports[`table demos renders ./packages/table/demos/dataSource.tsx correctly 1`]
         >
           <div
             class="ant-col ant-form-item-label"
-            style="flex: 0 0 80px;"
+            style="flex: 0 0 98px;"
           >
             <label
               class=""
@@ -4776,7 +4776,7 @@ exports[`table demos renders ./packages/table/demos/dataSource.tsx correctly 1`]
         >
           <div
             class="ant-col ant-form-item-label"
-            style="flex: 0 0 80px;"
+            style="flex: 0 0 98px;"
           >
             <label
               class=""
@@ -7154,7 +7154,7 @@ Array [
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex: 0 0 98px;"
               >
                 <label
                   class=""
@@ -7267,7 +7267,7 @@ Array [
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
+              style="flex: 0 0 98px;"
             >
               <label
                 class=""
@@ -7360,7 +7360,7 @@ Array [
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
+              style="flex: 0 0 98px;"
             >
               <label
                 class=""
@@ -7396,7 +7396,7 @@ Array [
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
+              style="flex: 0 0 98px;"
             >
               <label
                 class=""
@@ -14576,7 +14576,7 @@ exports[`table demos renders ./packages/table/demos/pollinga.tsx correctly 1`] =
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
+              style="flex: 0 0 98px;"
             >
               <label
                 class=""
@@ -14669,7 +14669,7 @@ exports[`table demos renders ./packages/table/demos/pollinga.tsx correctly 1`] =
         >
           <div
             class="ant-col ant-form-item-label"
-            style="flex: 0 0 80px;"
+            style="flex: 0 0 98px;"
           >
             <label
               class=""
@@ -14781,7 +14781,7 @@ exports[`table demos renders ./packages/table/demos/pollinga.tsx correctly 1`] =
         >
           <div
             class="ant-col ant-form-item-label"
-            style="flex: 0 0 80px;"
+            style="flex: 0 0 98px;"
           >
             <label
               class=""
@@ -15530,7 +15530,7 @@ exports[`table demos renders ./packages/table/demos/renderTable.tsx correctly 1`
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
+              style="flex: 0 0 98px;"
             >
               <label
                 class=""
@@ -15623,7 +15623,7 @@ exports[`table demos renders ./packages/table/demos/renderTable.tsx correctly 1`
         >
           <div
             class="ant-col ant-form-item-label"
-            style="flex: 0 0 80px;"
+            style="flex: 0 0 98px;"
           >
             <label
               class=""
@@ -15735,7 +15735,7 @@ exports[`table demos renders ./packages/table/demos/renderTable.tsx correctly 1`
         >
           <div
             class="ant-col ant-form-item-label"
-            style="flex: 0 0 80px;"
+            style="flex: 0 0 98px;"
           >
             <label
               class=""
@@ -16861,7 +16861,7 @@ Array [
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex: 0 0 98px;"
               >
                 <label
                   class=""
@@ -16954,7 +16954,7 @@ Array [
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
+              style="flex: 0 0 98px;"
             >
               <label
                 class=""
@@ -17047,7 +17047,7 @@ Array [
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
+              style="flex: 0 0 98px;"
             >
               <label
                 class=""
@@ -17083,7 +17083,7 @@ Array [
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
+              style="flex: 0 0 98px;"
             >
               <label
                 class=""
@@ -24502,7 +24502,7 @@ exports[`table demos renders ./packages/table/demos/single.tsx correctly 1`] = `
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
+              style="flex: 0 0 98px;"
             >
               <label
                 class=""
@@ -24595,7 +24595,7 @@ exports[`table demos renders ./packages/table/demos/single.tsx correctly 1`] = `
         >
           <div
             class="ant-col ant-form-item-label"
-            style="flex: 0 0 80px;"
+            style="flex: 0 0 98px;"
           >
             <label
               class=""
@@ -24631,7 +24631,7 @@ exports[`table demos renders ./packages/table/demos/single.tsx correctly 1`] = `
         >
           <div
             class="ant-col ant-form-item-label"
-            style="flex: 0 0 80px;"
+            style="flex: 0 0 98px;"
           >
             <label
               class=""
@@ -28775,7 +28775,7 @@ exports[`table demos renders ./packages/table/demos/table-nested.tsx correctly 1
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
+              style="flex: 0 0 98px;"
             >
               <label
                 class=""
@@ -28868,7 +28868,7 @@ exports[`table demos renders ./packages/table/demos/table-nested.tsx correctly 1
         >
           <div
             class="ant-col ant-form-item-label"
-            style="flex: 0 0 80px;"
+            style="flex: 0 0 98px;"
           >
             <label
               class=""
@@ -28980,7 +28980,7 @@ exports[`table demos renders ./packages/table/demos/table-nested.tsx correctly 1
         >
           <div
             class="ant-col ant-form-item-label"
-            style="flex: 0 0 80px;"
+            style="flex: 0 0 98px;"
           >
             <label
               class=""
@@ -29634,7 +29634,7 @@ exports[`table demos renders ./packages/table/demos/valueType.tsx correctly 1`] 
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
+              style="flex: 0 0 98px;"
             >
               <label
                 class=""
@@ -29704,7 +29704,7 @@ exports[`table demos renders ./packages/table/demos/valueType.tsx correctly 1`] 
         >
           <div
             class="ant-col ant-form-item-label"
-            style="flex: 0 0 80px;"
+            style="flex: 0 0 98px;"
           >
             <label
               class=""
@@ -29740,7 +29740,7 @@ exports[`table demos renders ./packages/table/demos/valueType.tsx correctly 1`] 
         >
           <div
             class="ant-col ant-form-item-label"
-            style="flex: 0 0 80px;"
+            style="flex: 0 0 98px;"
           >
             <label
               class=""
@@ -30861,7 +30861,7 @@ exports[`table demos renders ./packages/table/demos/valueTypeDate.tsx correctly 
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
+              style="flex: 0 0 98px;"
             >
               <label
                 class=""
@@ -30932,7 +30932,7 @@ exports[`table demos renders ./packages/table/demos/valueTypeDate.tsx correctly 
         >
           <div
             class="ant-col ant-form-item-label"
-            style="flex: 0 0 80px;"
+            style="flex: 0 0 98px;"
           >
             <label
               class=""
@@ -31045,7 +31045,7 @@ exports[`table demos renders ./packages/table/demos/valueTypeDate.tsx correctly 
         >
           <div
             class="ant-col ant-form-item-label"
-            style="flex: 0 0 80px;"
+            style="flex: 0 0 98px;"
           >
             <label
               class=""
@@ -31158,7 +31158,7 @@ exports[`table demos renders ./packages/table/demos/valueTypeDate.tsx correctly 
         >
           <div
             class="ant-col ant-form-item-label"
-            style="flex: 0 0 80px;"
+            style="flex: 0 0 98px;"
           >
             <label
               class=""
@@ -31228,7 +31228,7 @@ exports[`table demos renders ./packages/table/demos/valueTypeDate.tsx correctly 
         >
           <div
             class="ant-col ant-form-item-label"
-            style="flex: 0 0 80px;"
+            style="flex: 0 0 98px;"
           >
             <label
               class=""
@@ -31954,7 +31954,7 @@ exports[`table demos renders ./packages/table/demos/valueTypeNumber.tsx correctl
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
+              style="flex: 0 0 98px;"
             >
               <label
                 class=""
@@ -32067,7 +32067,7 @@ exports[`table demos renders ./packages/table/demos/valueTypeNumber.tsx correctl
         >
           <div
             class="ant-col ant-form-item-label"
-            style="flex: 0 0 80px;"
+            style="flex: 0 0 98px;"
           >
             <label
               class=""
@@ -32179,7 +32179,7 @@ exports[`table demos renders ./packages/table/demos/valueTypeNumber.tsx correctl
         >
           <div
             class="ant-col ant-form-item-label"
-            style="flex: 0 0 80px;"
+            style="flex: 0 0 98px;"
           >
             <label
               class=""
@@ -32291,7 +32291,7 @@ exports[`table demos renders ./packages/table/demos/valueTypeNumber.tsx correctl
         >
           <div
             class="ant-col ant-form-item-label"
-            style="flex: 0 0 80px;"
+            style="flex: 0 0 98px;"
           >
             <label
               class=""
