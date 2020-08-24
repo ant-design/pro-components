@@ -9,6 +9,15 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.6.0
+
+`2020-08-24`
+
+- 🐛 fix(table): support value and onChange ([@chenshuai2144](https://github.com/chenshuai2144))[#286](https://github.com/ant-design/pro-components/pull/286)
+- 💄 UI: update td font-size to antd less var ([@Deturium](https://github.com/Deturium))[#281](https://github.com/ant-design/pro-components/pull/281)
+- 📖 docs: formItemProps rename to fieldProps [#93c2d8b8](https://github.com/ant-design/pro-components//commit/93c2d8b8)
+- ✅ tests: more test case ([@chenshuai2144](https://github.com/chenshuai2144))[#252](https://github.com/ant-design/pro-components/pull/252)
+
 ## @ant-design/pro-table@2.5.15
 
 `2020-08-19`
