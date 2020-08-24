@@ -223,7 +223,6 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
     ...(inputRef.current || {}),
     fetchData: () => fetchData(),
   }));
-
   if (mode === 'read') {
     if (loading) {
       return <Spin />;

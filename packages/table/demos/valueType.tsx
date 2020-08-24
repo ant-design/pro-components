@@ -95,7 +95,7 @@ const columns: ProColumns<TableListItem>[] = [
   {
     title: '状态',
     dataIndex: 'status',
-    initialValue: 'all',
+    initialValue: ['all'],
     // @ts-ignore
     sorter: {
       multiple: 3,
@@ -103,8 +103,10 @@ const columns: ProColumns<TableListItem>[] = [
     width: 100,
     ellipsis: true,
     filters: true,
+    rules: [{ required: true }],
     fieldProps: {
       mode: 'tags',
+      onChange: (value: string) => console.log(value),
     },
     valueEnum: {
       all: { text: '全部', status: 'Default' },

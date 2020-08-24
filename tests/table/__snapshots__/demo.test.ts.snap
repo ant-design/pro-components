@@ -29782,10 +29782,12 @@ exports[`table demos renders ./packages/table/demos/valueType.tsx correctly 1`] 
               <div
                 class="ant-form-item-control-input-content"
               >
-                <textarea
+                <input
                   class="ant-input"
-                  rows="5"
+                  placeholder="请输入"
                   style="width: 100%;"
+                  type="text"
+                  value=""
                 />
               </div>
             </div>

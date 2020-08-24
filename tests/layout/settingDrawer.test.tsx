@@ -124,7 +124,7 @@ describe('settingDrawer.test', () => {
     expect(onSettingChange).toBeCalledWith('dark');
   });
 
-  fit('theme color Change', async () => {
+  it('theme color Change', async () => {
     const onSettingChange = jest.fn();
     (window as any).umi_plugin_ant_themeVar = [
       { key: 'dark', fileName: 'dark.css', theme: 'dark' },

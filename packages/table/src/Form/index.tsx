@@ -92,20 +92,25 @@ export const formInputRender: React.FC<{
     );
   }
 
-  // @ts-expect-error
-  warningOnce(item.formItemProps, `'formItemProps' will be deprecated, please use 'fieldProps'`);
+  // @ts-ignore
+  warningOnce(!item.formItemProps, `'formItemProps' will be deprecated, please use 'fieldProps'`);
 
+  const { onChange, ...restFieldProps } = item.fieldProps || {};
   return (
     <ProFormField
       ref={ref}
       isDefaultDom
       valueEnum={item.valueEnum}
       name={item.dataIndex}
-      // @ts-expect-error
-      fieldProps={item.fieldProps || item.formItemProps}
+      onChange={onChange}
+      // @ts-ignore
+      fieldProps={restFieldProps || item.formItemProps}
       // valueType = textarea，但是在 查询表单这里，应该是个 input 框
-      valueType={!valueType || valueType === 'textarea' ? 'text' : valueType}
+      valueType={
+        !valueType || ['textarea', 'jsonCode', 'code'].includes(valueType) ? 'text' : valueType
+      }
       {...rest}
+      rules={type === 'form' ? rest.rules : undefined}
       key={`${item.dataIndex || ''}-${item.key || ''}-${item.index}`}
     />
   );
@@ -129,9 +134,13 @@ export const proFormItemRender: (props: {
     hideInTable,
     renderText,
     order,
+    width,
+    sorter,
+    formItemProps,
     initialValue,
     ellipsis,
     index,
+    filters,
     ...rest
   } = item;
 
@@ -148,6 +157,7 @@ export const proFormItemRender: (props: {
     intl,
     form: formInstance,
     label: getTitle(),
+    ...formItemProps,
   });
   if (!dom) {
     return null;
@@ -301,6 +311,7 @@ const FormSearch = <T, U = any>({
       })}
     >
       <FormCompetent
+        defaultCollapsed
         {...(searchConfig || {})}
         {...formConfig}
         form={form}
@@ -311,7 +322,6 @@ const FormSearch = <T, U = any>({
         onFinish={() => {
           submit();
         }}
-        defaultCollapsed
         initialValues={columnsList.reduce(
           (pre, item) => {
             const key = item.key || (item.dataIndex as string);
