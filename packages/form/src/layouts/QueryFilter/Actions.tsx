@@ -1,6 +1,7 @@
 import React from 'react';
 import { Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
+import { useIntl } from '@ant-design/pro-provider';
 
 export interface ActionsProps {
   submitter: React.ReactNode;
@@ -33,10 +34,12 @@ export interface ActionsProps {
 }
 
 const defaultCollapseRender: ActionsProps['collapseRender'] = (collapsed) => {
+  const intl = useIntl();
+
   if (collapsed) {
     return (
       <>
-        展开
+        {intl.getMessage('tableForm.collapsed', '展开')}
         <DownOutlined
           style={{
             marginLeft: '0.5em',
@@ -49,7 +52,7 @@ const defaultCollapseRender: ActionsProps['collapseRender'] = (collapsed) => {
   }
   return (
     <>
-      收起
+      {intl.getMessage('tableForm.expand', '收起')}
       <DownOutlined
         style={{
           marginLeft: '0.5em',
