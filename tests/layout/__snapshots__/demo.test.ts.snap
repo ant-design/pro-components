@@ -3638,33 +3638,41 @@ exports[`layout demos renders ./packages/layout/demos/base.tsx correctly 1`] = `
                                       class="ant-descriptions-item"
                                       colspan="1"
                                     >
-                                      <span
-                                        class="ant-descriptions-item-label"
+                                      <div
+                                        class="ant-descriptions-item-container"
                                       >
-                                        创建人
-                                      </span>
-                                      <span
-                                        class="ant-descriptions-item-content"
-                                      >
-                                        张三
-                                      </span>
+                                        <span
+                                          class="ant-descriptions-item-label"
+                                        >
+                                          创建人
+                                        </span>
+                                        <span
+                                          class="ant-descriptions-item-content"
+                                        >
+                                          张三
+                                        </span>
+                                      </div>
                                     </td>
                                     <td
                                       class="ant-descriptions-item"
                                       colspan="1"
                                     >
-                                      <span
-                                        class="ant-descriptions-item-label"
+                                      <div
+                                        class="ant-descriptions-item-container"
                                       >
-                                        联系方式
-                                      </span>
-                                      <span
-                                        class="ant-descriptions-item-content"
-                                      >
-                                        <a>
-                                          421421
-                                        </a>
-                                      </span>
+                                        <span
+                                          class="ant-descriptions-item-label"
+                                        >
+                                          联系方式
+                                        </span>
+                                        <span
+                                          class="ant-descriptions-item-content"
+                                        >
+                                          <a>
+                                            421421
+                                          </a>
+                                        </span>
+                                      </div>
                                     </td>
                                   </tr>
                                   <tr
@@ -3674,31 +3682,39 @@ exports[`layout demos renders ./packages/layout/demos/base.tsx correctly 1`] = `
                                       class="ant-descriptions-item"
                                       colspan="1"
                                     >
-                                      <span
-                                        class="ant-descriptions-item-label"
+                                      <div
+                                        class="ant-descriptions-item-container"
                                       >
-                                        创建时间
-                                      </span>
-                                      <span
-                                        class="ant-descriptions-item-content"
-                                      >
-                                        2017-01-10
-                                      </span>
+                                        <span
+                                          class="ant-descriptions-item-label"
+                                        >
+                                          创建时间
+                                        </span>
+                                        <span
+                                          class="ant-descriptions-item-content"
+                                        >
+                                          2017-01-10
+                                        </span>
+                                      </div>
                                     </td>
                                     <td
                                       class="ant-descriptions-item"
                                       colspan="1"
                                     >
-                                      <span
-                                        class="ant-descriptions-item-label"
+                                      <div
+                                        class="ant-descriptions-item-container"
                                       >
-                                        更新时间
-                                      </span>
-                                      <span
-                                        class="ant-descriptions-item-content"
-                                      >
-                                        2017-10-10
-                                      </span>
+                                        <span
+                                          class="ant-descriptions-item-label"
+                                        >
+                                          更新时间
+                                        </span>
+                                        <span
+                                          class="ant-descriptions-item-content"
+                                        >
+                                          2017-10-10
+                                        </span>
+                                      </div>
                                     </td>
                                   </tr>
                                   <tr
@@ -3708,16 +3724,20 @@ exports[`layout demos renders ./packages/layout/demos/base.tsx correctly 1`] = `
                                       class="ant-descriptions-item"
                                       colspan="2"
                                     >
-                                      <span
-                                        class="ant-descriptions-item-label"
+                                      <div
+                                        class="ant-descriptions-item-container"
                                       >
-                                        备注
-                                      </span>
-                                      <span
-                                        class="ant-descriptions-item-content"
-                                      >
-                                        中国浙江省杭州市西湖区古翠路
-                                      </span>
+                                        <span
+                                          class="ant-descriptions-item-label"
+                                        >
+                                          备注
+                                        </span>
+                                        <span
+                                          class="ant-descriptions-item-content"
+                                        >
+                                          中国浙江省杭州市西湖区古翠路
+                                        </span>
+                                      </div>
                                     </td>
                                   </tr>
                                 </tbody>

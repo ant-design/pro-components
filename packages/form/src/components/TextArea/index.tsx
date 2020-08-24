@@ -11,7 +11,7 @@ import { createField } from '../../BaseForm';
  * @param
  */
 const ProFormTextArea: React.ForwardRefRenderFunction<any, ProFormItemProps<TextAreaProps>> = (
-  { fieldProps, ...restProps },
+  { fieldProps, proFieldProps, ...restProps },
   ref,
 ) => {
   return (
@@ -22,6 +22,7 @@ const ProFormTextArea: React.ForwardRefRenderFunction<any, ProFormItemProps<Text
         mode="edit"
         valueType="textarea"
         fieldProps={fieldProps}
+        {...proFieldProps}
       />
     </Form.Item>
   );

@@ -21,6 +21,7 @@ export type ProFormRadioGroupProps = ProFormItemProps<RadioGroupProps> & {
 const Group: React.FC<ProFormRadioGroupProps> = ({
   layout,
   children,
+  proFieldProps,
   fieldProps,
   options,
   ...restProps
@@ -61,7 +62,11 @@ const Group: React.FC<ProFormRadioGroupProps> = ({
  * Radio
  * @param
  */
-const ProFormRadio: React.FC<ProFormItemProps<RadioProps>> = ({ fieldProps, ...restProps }) => {
+const ProFormRadio: React.FC<ProFormItemProps<RadioProps>> = ({
+  fieldProps,
+  proFieldProps,
+  ...restProps
+}) => {
   return (
     <Form.Item valuePropName="checked" {...restProps}>
       <Radio {...fieldProps} />

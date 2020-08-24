@@ -29,81 +29,86 @@ exports[`Table valueEnum 🎏 dynamic enum test 1`] = `
       </div>
     </div>
     <div
-      class=""
-      style="max-height: 256px; overflow-y: auto;"
+      class="rc-virtual-list"
+      style="position: relative;"
     >
-      <div>
-        <div
-          class=""
-          style="display: flex; flex-direction: column;"
-        >
+      <div
+        class="rc-virtual-list-holder"
+        style="max-height: 256px; overflow-y: auto;"
+      >
+        <div>
           <div
-            aria-selected="false"
-            class="ant-select-item ant-select-item-option ant-select-item-option-active"
-            label="关闭"
+            class="rc-virtual-list-holder-inner"
+            style="display: flex; flex-direction: column;"
           >
             <div
-              class="ant-select-item-option-content"
+              aria-selected="false"
+              class="ant-select-item ant-select-item-option ant-select-item-option-active"
+              label="关闭"
             >
-              关闭
+              <div
+                class="ant-select-item-option-content"
+              >
+                关闭
+              </div>
+              <span
+                aria-hidden="true"
+                class="ant-select-item-option-state"
+                style="user-select: none;"
+                unselectable="on"
+              />
             </div>
-            <span
-              aria-hidden="true"
-              class="ant-select-item-option-state"
-              style="user-select: none;"
-              unselectable="on"
-            />
-          </div>
-          <div
-            aria-selected="false"
-            class="ant-select-item ant-select-item-option"
-            label="运行中"
-          >
             <div
-              class="ant-select-item-option-content"
+              aria-selected="false"
+              class="ant-select-item ant-select-item-option"
+              label="运行中"
             >
-              运行中
+              <div
+                class="ant-select-item-option-content"
+              >
+                运行中
+              </div>
+              <span
+                aria-hidden="true"
+                class="ant-select-item-option-state"
+                style="user-select: none;"
+                unselectable="on"
+              />
             </div>
-            <span
-              aria-hidden="true"
-              class="ant-select-item-option-state"
-              style="user-select: none;"
-              unselectable="on"
-            />
-          </div>
-          <div
-            aria-selected="false"
-            class="ant-select-item ant-select-item-option"
-            label="已上线"
-          >
             <div
-              class="ant-select-item-option-content"
+              aria-selected="false"
+              class="ant-select-item ant-select-item-option"
+              label="已上线"
             >
-              已上线
+              <div
+                class="ant-select-item-option-content"
+              >
+                已上线
+              </div>
+              <span
+                aria-hidden="true"
+                class="ant-select-item-option-state"
+                style="user-select: none;"
+                unselectable="on"
+              />
             </div>
-            <span
-              aria-hidden="true"
-              class="ant-select-item-option-state"
-              style="user-select: none;"
-              unselectable="on"
-            />
-          </div>
-          <div
-            aria-selected="false"
-            class="ant-select-item ant-select-item-option"
-            label="异常"
-          >
             <div
-              class="ant-select-item-option-content"
+              aria-selected="false"
+              class="ant-select-item ant-select-item-option"
+              label="异常"
             >
-              异常
+              <div
+                class="ant-select-item-option-content"
+              >
+                异常
+              </div>
+              <span
+                aria-hidden="true"
+                class="ant-select-item-option-state"
+                style="user-select: none;"
+                unselectable="on"
+              />
             </div>
-            <span
-              aria-hidden="true"
-              class="ant-select-item-option-state"
-              style="user-select: none;"
-              unselectable="on"
-            />
           </div>
         </div>
       </div>

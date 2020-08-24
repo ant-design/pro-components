@@ -14,7 +14,7 @@ type ProFormDigit = ProFormItemProps<InputNumberProps> & {
  * @param
  */
 const ProFormDigit: React.ForwardRefRenderFunction<any, ProFormDigit> = (
-  { fieldProps, min, max, ...restProps },
+  { fieldProps, min, proFieldProps, max, ...restProps },
   ref,
 ) => {
   return (
@@ -29,6 +29,7 @@ const ProFormDigit: React.ForwardRefRenderFunction<any, ProFormDigit> = (
           ...fieldProps,
         }}
         ref={ref}
+        {...proFieldProps}
       />
     </Form.Item>
   );

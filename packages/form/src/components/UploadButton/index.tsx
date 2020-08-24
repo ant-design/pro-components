@@ -23,6 +23,7 @@ const ProFormUploadButton: React.ForwardRefRenderFunction<any, ProFormDraggerPro
     action,
     accept,
     listType,
+    proFieldProps,
     title = '单击上传',
     icon = <UploadOutlined />,
     ...restProps

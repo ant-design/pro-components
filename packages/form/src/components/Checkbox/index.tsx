@@ -19,6 +19,7 @@ const Group: React.FC<ProFormCheckboxGroupProps> = ({
   children,
   fieldProps,
   className,
+  proFieldProps,
   ...restProps
 }) => {
   const { getPrefixCls } = useContext(AntdConfigContext);
@@ -48,7 +49,11 @@ export type ProFormCheckboxProps = ProFormItemProps<CheckboxProps>;
  * 多选框的
  * @param
  */
-const ProFormCheckbox: React.FC<ProFormCheckboxProps> = ({ fieldProps, ...restProps }) => {
+const ProFormCheckbox: React.FC<ProFormCheckboxProps> = ({
+  fieldProps,
+  proFieldProps,
+  ...restProps
+}) => {
   return (
     <Form.Item valuePropName="checked" {...restProps}>
       <Checkbox {...fieldProps} />

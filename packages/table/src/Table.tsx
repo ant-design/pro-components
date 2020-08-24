@@ -488,14 +488,24 @@ const ProTable = <T extends {}, U extends ParamsType>(
   const [selectedRowKeys, setSelectedRowKeys] = useMergedState<React.ReactText[]>([], {
     value: propsRowSelection ? propsRowSelection.selectedRowKeys : undefined,
   });
+  const [selectedRows, setSelectedRows] = useMergedState<T[]>([]);
+
+  const setSelectedRowsAndKey = (keys: React.ReactText[], rows: T[]) => {
+    setSelectedRowKeys(keys);
+    setSelectedRows(rows);
+  };
+
   const [formSearch, setFormSearch] = useState<{}>(() => rest.form?.initialValues);
-  const selectedRowsRef = useRef<T[]>([]);
   const [proFilter, setProFilter] = useState<{
     [key: string]: React.ReactText[];
   }>({});
   const [proSort, setProSort] = useState<{
     [key: string]: SortOrder;
   }>({});
+
+  /**
+   * 获取 table 的 dom ref
+   */
   const rootRef = useRef<HTMLDivElement>(null);
   const fullScreen = useRef<() => void>();
   const intl = useIntl();
@@ -573,8 +583,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     if (propsRowSelection && propsRowSelection.onChange) {
       propsRowSelection.onChange([], []);
     }
-    setSelectedRowKeys([]);
-    selectedRowsRef.current = [];
+    setSelectedRowsAndKey([], []);
   }, [setSelectedRowKeys]);
 
   /**
@@ -655,40 +664,6 @@ const ProTable = <T extends {}, U extends ParamsType>(
       });
     }
   }, [propsPagination && propsPagination.pageSize, propsPagination && propsPagination.current]);
-  // 映射 selectedRowKeys 与 selectedRow
-  useEffect(() => {
-    if (action.loading !== false || propsRowSelection === false) {
-      return;
-    }
-    const tableKey = rest.rowKey;
-    const dataSource = request ? (action.dataSource as T[]) : props.dataSource || [];
-    // dataSource maybe is a null
-    // eg: api has 404 error
-    const duplicateRemoveMap = new Map();
-    if (Array.isArray(dataSource)) {
-      // 根据当前选中和当前的所有数据计算选中的行
-      // 因为防止翻页以后丢失，所有还增加了当前选择选中的
-      const rows = [...dataSource, ...selectedRowsRef.current].filter((item, index) => {
-        let rowKey = tableKey;
-        if (!tableKey) {
-          return (selectedRowKeys as any).includes(index);
-        }
-        if (typeof tableKey === 'function') {
-          rowKey = tableKey(item, index) as string;
-        } else {
-          rowKey = item[tableKey];
-        }
-        if (duplicateRemoveMap.has(rowKey)) {
-          return false;
-        }
-        duplicateRemoveMap.set(rowKey, true);
-        return (selectedRowKeys as any).includes(rowKey);
-      });
-      selectedRowsRef.current = rows;
-      return;
-    }
-    selectedRowsRef.current = [];
-  }, [selectedRowKeys?.join('-'), action.loading, propsRowSelection === false]);
 
   const rowSelection: TableRowSelection = {
     selectedRowKeys,
@@ -697,7 +672,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
       if (propsRowSelection && propsRowSelection.onChange) {
         propsRowSelection.onChange(keys, rows);
       }
-      setSelectedRowKeys([...keys]);
+      setSelectedRowsAndKey(keys, rows);
     },
   };
 
@@ -735,7 +710,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
             });
           }
         }}
-        selectedRows={selectedRowsRef.current}
+        selectedRows={selectedRows}
         selectedRowKeys={selectedRowKeys}
         toolBarRender={toolBarRender}
       />
@@ -744,7 +719,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
   const alertDom = propsRowSelection !== false && (
     <Alert<T>
       selectedRowKeys={selectedRowKeys}
-      selectedRows={selectedRowsRef.current}
+      selectedRows={selectedRows}
       onCleanSelected={onCleanSelected}
       alertOptionRender={rest.tableAlertOptionRender}
       alertInfoRender={tableAlertRender}
