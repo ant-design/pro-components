@@ -311,6 +311,7 @@ const FormSearch = <T, U = any>({
       })}
     >
       <FormCompetent
+        defaultCollapsed
         {...(searchConfig || {})}
         {...formConfig}
         form={form}
@@ -321,7 +322,6 @@ const FormSearch = <T, U = any>({
         onFinish={() => {
           submit();
         }}
-        defaultCollapsed
         initialValues={columnsList.reduce(
           (pre, item) => {
             const key = item.key || (item.dataIndex as string);
