@@ -1,7 +1,7 @@
 import React from 'react';
 import { Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
-import { useIntl } from '@ant-design/pro-provider';
+import { useIntl, IntlType } from '@ant-design/pro-provider';
 
 export interface ActionsProps {
   submitter: React.ReactNode;
@@ -29,13 +29,12 @@ export interface ActionsProps {
          * form 模式 不需要收起
          */
         props: ActionsProps,
+        intl: IntlType,
       ) => React.ReactNode)
     | false;
 }
 
-const defaultCollapseRender: ActionsProps['collapseRender'] = (collapsed) => {
-  const intl = useIntl();
-
+const defaultCollapseRender: ActionsProps['collapseRender'] = (collapsed, _, intl) => {
   if (collapsed) {
     return (
       <>
@@ -76,6 +75,9 @@ const Actions: React.FC<ActionsProps> = (props) => {
     submitter,
     style,
   } = props;
+
+  const intl = useIntl();
+
   return (
     <Space style={style}>
       {submitter}
@@ -85,7 +87,7 @@ const Actions: React.FC<ActionsProps> = (props) => {
             setCollapsed(!collapsed);
           }}
         >
-          {collapseRender(collapsed, props)}
+          {collapseRender(collapsed, props, intl)}
         </a>
       )}
     </Space>
