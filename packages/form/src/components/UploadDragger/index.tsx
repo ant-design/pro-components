@@ -17,21 +17,18 @@ export type ProFormDraggerProps = ProFormItemProps<DraggerProps> & {
  * 拖动上传组件
  * @param
  */
-const ProFormUploadDragger: React.ForwardRefRenderFunction<any, ProFormDraggerProps> = (
-  {
-    fieldProps,
-    title = '单击或拖动文件到此区域进行上传',
-    icon = <InboxOutlined />,
-    proFieldProps,
-    description = '支持单次或批量上传',
-    label,
-    action,
-    accept,
-    children,
-    ...restProps
-  },
-  ref,
-) => {
+const ProFormUploadDragger: React.ForwardRefRenderFunction<any, ProFormDraggerProps> = ({
+  fieldProps,
+  title = '单击或拖动文件到此区域进行上传',
+  icon = <InboxOutlined />,
+  proFieldProps,
+  description = '支持单次或批量上传',
+  label,
+  action,
+  accept,
+  children,
+  ...restProps
+}) => {
   return (
     <Form.Item {...restProps}>
       <Form.Item
@@ -40,7 +37,7 @@ const ProFormUploadDragger: React.ForwardRefRenderFunction<any, ProFormDraggerPr
         noStyle
         getValueFromEvent={(value: { fileList: UploadProps['fileList'] }) => value.fileList}
       >
-        <Upload.Dragger name="files" action={action} accept={accept} {...fieldProps} ref={ref}>
+        <Upload.Dragger name="files" action={action} accept={accept} {...fieldProps}>
           <p className="ant-upload-drag-icon">{icon}</p>
           <p className="ant-upload-text">{title}</p>
           <p className="ant-upload-hint">{description}</p>
