@@ -105,6 +105,7 @@ const columns: ProColumns<TableListItem>[] = [
     filters: true,
     fieldProps: {
       mode: 'tags',
+      onChange: (value) => console.log(value),
     },
     valueEnum: {
       all: { text: '全部', status: 'Default' },
