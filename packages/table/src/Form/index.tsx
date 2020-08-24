@@ -335,7 +335,7 @@ const FormSearch = <T, U = any>({
           },
           { ...formConfig.initialValues },
         )}
-        labelWidth={searchConfig ? searchConfig?.labelWidth : 80}
+        labelWidth={searchConfig ? searchConfig?.labelWidth : undefined}
       >
         {domList}
       </FormCompetent>
