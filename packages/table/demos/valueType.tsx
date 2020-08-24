@@ -95,7 +95,7 @@ const columns: ProColumns<TableListItem>[] = [
   {
     title: '状态',
     dataIndex: 'status',
-    initialValue: 'all',
+    initialValue: ['all'],
     // @ts-ignore
     sorter: {
       multiple: 3,

@@ -91,9 +91,8 @@ export const formInputRender: React.FC<{
       </ProFormField>
     );
   }
-
   // @ts-expect-error
-  warningOnce(item.formItemProps, `'formItemProps' will be deprecated, please use 'fieldProps'`);
+  warningOnce(!item.formItemProps, `'formItemProps' will be deprecated, please use 'fieldProps'`);
 
   return (
     <ProFormField
@@ -104,7 +103,9 @@ export const formInputRender: React.FC<{
       // @ts-expect-error
       fieldProps={item.fieldProps || item.formItemProps}
       // valueType = textarea，但是在 查询表单这里，应该是个 input 框
-      valueType={!valueType || valueType === 'textarea' ? 'text' : valueType}
+      valueType={
+        !valueType || ['textarea', 'jsonCode', 'code'].includes(valueType) ? 'text' : valueType
+      }
       {...rest}
       key={`${item.dataIndex || ''}-${item.key || ''}-${item.index}`}
     />
