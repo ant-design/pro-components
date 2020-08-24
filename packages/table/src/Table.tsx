@@ -63,8 +63,7 @@ type TableRowSelection = TableProps<any>['rowSelection'];
 export type ExtraProColumnType<T> = Omit<
   ColumnType<T>,
   'render' | 'children' | 'title' | 'filters'
-> &
-  Partial<Omit<FormItemProps, 'children'>>;
+>;
 
 export type ProColumnType<T = unknown> = ProSchema<
   T,
@@ -109,6 +108,10 @@ export type ProColumnType<T = unknown> = ProSchema<
      * form 的排序
      */
     order?: number;
+    /**
+     * 传给 Form.Item 的 props
+     */
+    formItemProps?: Partial<Omit<FormItemProps, 'children'>>;
   }
 >;
 

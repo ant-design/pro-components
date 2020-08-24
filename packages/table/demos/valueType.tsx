@@ -103,9 +103,10 @@ const columns: ProColumns<TableListItem>[] = [
     width: 100,
     ellipsis: true,
     filters: true,
+    rules: [{ required: true }],
     fieldProps: {
       mode: 'tags',
-      onChange: (value) => console.log(value),
+      onChange: (value: string) => console.log(value),
     },
     valueEnum: {
       all: { text: '全部', status: 'Default' },
