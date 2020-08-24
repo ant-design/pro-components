@@ -15,7 +15,7 @@ export type FieldDigitProps = {
  * }
  */
 const FieldDigit: ProFieldFC<FieldDigitProps> = (
-  { text, mode: type, render, renderFormItem, fieldProps },
+  { text, mode: type, render, renderFormItem, fieldProps, ...rest },
   ref,
 ) => {
   if (type === 'read') {
@@ -35,6 +35,7 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
         style={{
           width: '100%',
         }}
+        {...rest}
         {...fieldProps}
       />
     );

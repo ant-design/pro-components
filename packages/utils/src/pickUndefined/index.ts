@@ -1,6 +1,6 @@
 const pickUndefined = <T>(obj: T): T => {
   const newObj = {} as T;
-  Object.keys(obj).forEach((key) => {
+  Object.keys(obj || {}).forEach((key) => {
     if (obj[key] !== undefined) {
       newObj[key] = obj[key];
     }

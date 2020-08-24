@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import { Avatar } from 'antd';
 import { Moment } from 'moment';
 import { pickProProps, pickUndefined } from '@ant-design/pro-utils';
+import { useIntl } from '@ant-design/pro-provider';
 import FieldPercent from './components/Percent';
 import FieldIndexColumn from './components/IndexColumn';
 import FieldProgress from './components/Progress';
@@ -319,11 +320,12 @@ const Field: React.ForwardRefRenderFunction<
     valueType?: ProFieldValueType | ProFieldValueObjectType;
   } & RenderProps
 > = ({ text = '', valueType = 'text', onChange, value, ...rest }, ref) => {
+  const intl = useIntl();
   const fieldProps = (value || onChange || rest?.fieldProps) && {
     value,
     onChange,
     // fieldProps 优先级更高，在类似 LightFilter 场景下需要覆盖默认的 value 和 onChange
-    ...rest?.fieldProps,
+    ...pickUndefined(rest?.fieldProps),
   };
   return (
     <React.Fragment>
@@ -331,7 +333,8 @@ const Field: React.ForwardRefRenderFunction<
         ...rest,
         mode: rest.mode || 'read',
         ref,
-        fieldProps: pickUndefined(pickProProps(fieldProps)),
+        placeholder: intl.getMessage('tableForm.inputPlaceholder', '请输入'),
+        fieldProps: pickProProps(fieldProps),
       })}
     </React.Fragment>
   );

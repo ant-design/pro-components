@@ -89,6 +89,7 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
         style={{
           width: '100%',
         }}
+        {...rest}
         {...fieldProps}
       />
     );

@@ -4770,6 +4770,7 @@ exports[`table demos renders ./packages/table/demos/dataSource.tsx correctly 1`]
                 <div
                   class="ant-input-number"
                   style="width: 100%;"
+                  title="进度"
                 >
                   <div
                     class="ant-input-number-handler-wrap"
@@ -4837,10 +4838,14 @@ exports[`table demos renders ./packages/table/demos/dataSource.tsx correctly 1`]
                       aria-valuemin="-9007199254740991"
                       autocomplete="off"
                       class="ant-input-number-input"
+                      id="progress"
                       max="9007199254740991"
                       min="-9007199254740991"
+                      name="progress"
+                      placeholder="请输入"
                       role="spinbutton"
                       step="1"
+                      title="进度"
                       value=""
                     />
                   </div>
@@ -7255,6 +7260,7 @@ Array [
                     <div
                       class="ant-input-number"
                       style="width: 100%;"
+                      title="Money"
                     >
                       <div
                         class="ant-input-number-handler-wrap"
@@ -7322,10 +7328,14 @@ Array [
                           aria-valuemin="0"
                           autocomplete="off"
                           class="ant-input-number-input"
+                          id="title"
                           max="9007199254740991"
                           min="0"
+                          name="title"
+                          placeholder="请输入"
                           role="spinbutton"
                           step="1"
+                          title="Money"
                           value=""
                         />
                       </div>
@@ -14765,6 +14775,7 @@ exports[`table demos renders ./packages/table/demos/pollinga.tsx correctly 1`] =
                 <div
                   class="ant-input-number"
                   style="width: 100%;"
+                  title="进度"
                 >
                   <div
                     class="ant-input-number-handler-wrap"
@@ -14832,10 +14843,14 @@ exports[`table demos renders ./packages/table/demos/pollinga.tsx correctly 1`] =
                       aria-valuemin="-9007199254740991"
                       autocomplete="off"
                       class="ant-input-number-input"
+                      id="progress"
                       max="9007199254740991"
                       min="-9007199254740991"
+                      name="progress"
+                      placeholder="请输入"
                       role="spinbutton"
                       step="1"
+                      title="进度"
                       value=""
                     />
                   </div>
@@ -15714,6 +15729,7 @@ exports[`table demos renders ./packages/table/demos/renderTable.tsx correctly 1`
                 <div
                   class="ant-input-number"
                   style="width: 100%;"
+                  title="进度"
                 >
                   <div
                     class="ant-input-number-handler-wrap"
@@ -15781,10 +15797,14 @@ exports[`table demos renders ./packages/table/demos/renderTable.tsx correctly 1`
                       aria-valuemin="-9007199254740991"
                       autocomplete="off"
                       class="ant-input-number-input"
+                      id="progress"
                       max="9007199254740991"
                       min="-9007199254740991"
+                      name="progress"
+                      placeholder="请输入"
                       role="spinbutton"
                       step="1"
+                      title="进度"
                       value=""
                     />
                   </div>
@@ -28954,6 +28974,7 @@ exports[`table demos renders ./packages/table/demos/table-nested.tsx correctly 1
                 <div
                   class="ant-input-number"
                   style="width: 100%;"
+                  title="进度"
                 >
                   <div
                     class="ant-input-number-handler-wrap"
@@ -29021,10 +29042,14 @@ exports[`table demos renders ./packages/table/demos/table-nested.tsx correctly 1
                       aria-valuemin="-9007199254740991"
                       autocomplete="off"
                       class="ant-input-number-input"
+                      id="progress"
                       max="9007199254740991"
                       min="-9007199254740991"
+                      name="progress"
+                      placeholder="请输入"
                       role="spinbutton"
                       step="1"
+                      title="进度"
                       value=""
                     />
                   </div>
@@ -32035,6 +32060,7 @@ exports[`table demos renders ./packages/table/demos/valueTypeNumber.tsx correctl
                   <div
                     class="ant-input-number"
                     style="width: 100%;"
+                    title="进度"
                   >
                     <div
                       class="ant-input-number-handler-wrap"
@@ -32102,10 +32128,14 @@ exports[`table demos renders ./packages/table/demos/valueTypeNumber.tsx correctl
                         aria-valuemin="-9007199254740991"
                         autocomplete="off"
                         class="ant-input-number-input"
+                        id="progress"
                         max="9007199254740991"
                         min="-9007199254740991"
+                        name="progress"
+                        placeholder="请输入"
                         role="spinbutton"
                         step="1"
+                        title="进度"
                         value=""
                       />
                     </div>
@@ -32143,6 +32173,7 @@ exports[`table demos renders ./packages/table/demos/valueTypeNumber.tsx correctl
                 <div
                   class="ant-input-number"
                   style="width: 100%;"
+                  title="金额"
                 >
                   <div
                     class="ant-input-number-handler-wrap"
@@ -32210,10 +32241,14 @@ exports[`table demos renders ./packages/table/demos/valueTypeNumber.tsx correctl
                       aria-valuemin="0"
                       autocomplete="off"
                       class="ant-input-number-input"
+                      id="money"
                       max="9007199254740991"
                       min="0"
+                      name="money"
+                      placeholder="请输入"
                       role="spinbutton"
                       step="1"
+                      title="金额"
                       value=""
                     />
                   </div>
@@ -32250,6 +32285,7 @@ exports[`table demos renders ./packages/table/demos/valueTypeNumber.tsx correctl
                 <div
                   class="ant-input-number"
                   style="width: 100%;"
+                  title="数字"
                 >
                   <div
                     class="ant-input-number-handler-wrap"
@@ -32317,10 +32353,14 @@ exports[`table demos renders ./packages/table/demos/valueTypeNumber.tsx correctl
                       aria-valuemin="0"
                       autocomplete="off"
                       class="ant-input-number-input"
+                      id="money"
                       max="9007199254740991"
                       min="0"
+                      name="money"
+                      placeholder="请输入"
                       role="spinbutton"
                       step="1"
+                      title="数字"
                       value=""
                     />
                   </div>
@@ -32357,6 +32397,7 @@ exports[`table demos renders ./packages/table/demos/valueTypeNumber.tsx correctl
                 <div
                   class="ant-input-number"
                   style="width: 100%;"
+                  title="百分比"
                 >
                   <div
                     class="ant-input-number-handler-wrap"
@@ -32424,10 +32465,14 @@ exports[`table demos renders ./packages/table/demos/valueTypeNumber.tsx correctl
                       aria-valuemin="-9007199254740991"
                       autocomplete="off"
                       class="ant-input-number-input"
+                      id="percent"
                       max="9007199254740991"
                       min="-9007199254740991"
+                      name="percent"
+                      placeholder="请输入"
                       role="spinbutton"
                       step="1"
+                      title="百分比"
                       value=""
                     />
                   </div>

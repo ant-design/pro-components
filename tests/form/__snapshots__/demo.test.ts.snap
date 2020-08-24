@@ -940,6 +940,7 @@ exports[`form demos renders ./packages/form/demos/components-other.tsx correctly
             <div
               class="ant-input-number"
               style="width: 100%;"
+              title="InputNumber"
             >
               <div
                 class="ant-input-number-handler-wrap"
@@ -1008,10 +1009,14 @@ exports[`form demos renders ./packages/form/demos/components-other.tsx correctly
                   aria-valuenow="3"
                   autocomplete="off"
                   class="ant-input-number-input"
+                  id="validate_other_input-number"
                   max="10"
                   min="1"
+                  name="input-number"
+                  placeholder="请输入"
                   role="spinbutton"
                   step="1"
+                  title="InputNumber"
                   value="3.00"
                 />
               </div>

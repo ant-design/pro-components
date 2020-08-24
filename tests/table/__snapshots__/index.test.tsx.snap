@@ -101,8 +101,11 @@ exports[`BasicTable 🎏  do not render default option 1`] = `
                         aria-valuemin="0"
                         autocomplete="off"
                         class="ant-input-number-input"
+                        id="money"
                         max="9007199254740991"
                         min="0"
+                        name="money"
+                        placeholder="请输入"
                         role="spinbutton"
                         step="1"
                         value=""
@@ -1126,6 +1129,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                 <div
                   class="ant-input-number"
                   style="width: 100%;"
+                  title="money"
                 >
                   <div
                     class="ant-input-number-handler-wrap"
@@ -1193,10 +1197,14 @@ exports[`BasicTable 🎏 base use 1`] = `
                       aria-valuemin="0"
                       autocomplete="off"
                       class="ant-input-number-input"
+                      id="money"
                       max="9007199254740991"
                       min="0"
+                      name="money"
+                      placeholder="请输入"
                       role="spinbutton"
                       step="1"
+                      title="money"
                       value=""
                     />
                   </div>
@@ -13955,8 +13963,11 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
                         aria-valuemin="0"
                         autocomplete="off"
                         class="ant-input-number-input"
+                        id="money"
                         max="9007199254740991"
                         min="0"
+                        name="money"
+                        placeholder="请输入"
                         role="spinbutton"
                         step="1"
                         value=""
