@@ -48,4 +48,4 @@ const ProFormUploadDragger: React.ForwardRefRenderFunction<any, ProFormDraggerPr
   );
 };
 
-export default createField<ProFormDraggerProps>(React.forwardRef(ProFormUploadDragger));
+export default createField<ProFormDraggerProps>(ProFormUploadDragger);

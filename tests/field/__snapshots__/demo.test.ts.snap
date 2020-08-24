@@ -94,157 +94,46 @@ Array [
               class="ant-descriptions-item"
               colspan="1"
             >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                空字符串
-              </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                -
-              </span>
-            </td>
-            <td
-              class="ant-descriptions-item"
-              colspan="1"
-            >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                头像
-              </span>
-              <span
-                class="ant-descriptions-item-content"
+              <div
+                class="ant-descriptions-item-container"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
-                  style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                  class="ant-descriptions-item-label"
                 >
-                  <img
-                    src="https://avatars2.githubusercontent.com/u/8186664?s=60&v=4"
-                  />
+                  空字符串
                 </span>
-              </span>
-            </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
-            <td
-              class="ant-descriptions-item"
-              colspan="1"
-            >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                文本
-              </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                这是一段文本
-              </span>
-            </td>
-            <td
-              class="ant-descriptions-item"
-              colspan="1"
-            >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                金额
-              </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                <span>
-                  ￥ 100
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  -
                 </span>
-              </span>
-            </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
-            <td
-              class="ant-descriptions-item"
-              colspan="1"
-            >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                数字
-              </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                <span>
-                  ￥ 19897979797979
-                </span>
-              </span>
+              </div>
             </td>
             <td
               class="ant-descriptions-item"
               colspan="1"
             >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                百分比
-              </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                <span>
-                  100.00%
-                </span>
-              </span>
-            </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
-            <td
-              class="ant-descriptions-item"
-              colspan="1"
-            >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                选择框
-              </span>
-              <span
-                class="ant-descriptions-item-content"
+              <div
+                class="ant-descriptions-item-container"
               >
                 <span
-                  class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                  class="ant-descriptions-item-label"
+                >
+                  头像
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
                 >
                   <span
-                    class="ant-badge-status-dot ant-badge-status-error"
-                  />
-                  <span
-                    class="ant-badge-status-text"
+                    class="ant-avatar ant-avatar-circle ant-avatar-image"
+                    style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
                   >
-                    未解决
+                    <img
+                      src="https://avatars2.githubusercontent.com/u/8186664?s=60&v=4"
+                    />
                   </span>
                 </span>
-              </span>
-            </td>
-            <td
-              class="ant-descriptions-item"
-              colspan="1"
-            >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                远程选择框
-              </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                未解决
-              </span>
+              </div>
             </td>
           </tr>
           <tr
@@ -254,171 +143,282 @@ Array [
               class="ant-descriptions-item"
               colspan="1"
             >
-              <span
-                class="ant-descriptions-item-label"
+              <div
+                class="ant-descriptions-item-container"
               >
-                进度条
-              </span>
-              <span
-                class="ant-descriptions-item-content"
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  文本
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  这是一段文本
+                </span>
+              </div>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
               >
-                <div
-                  class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
-                  style="min-width: 100px;"
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  金额
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  <span>
+                    ￥ 100
+                  </span>
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  数字
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  <span>
+                    ￥ 19897979797979
+                  </span>
+                </span>
+              </div>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  百分比
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  <span>
+                    100.00%
+                  </span>
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  选择框
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  <span
+                    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                  >
+                    <span
+                      class="ant-badge-status-dot ant-badge-status-error"
+                    />
+                    <span
+                      class="ant-badge-status-text"
+                    >
+                      未解决
+                    </span>
+                  </span>
+                </span>
+              </div>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  远程选择框
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  未解决
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  进度条
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-progress-outer"
+                    class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+                    style="min-width: 100px;"
                   >
                     <div
-                      class="ant-progress-inner"
+                      class="ant-progress-outer"
                     >
                       <div
-                        class="ant-progress-bg"
-                        style="width: 40%; height: 6px;"
-                      />
+                        class="ant-progress-inner"
+                      >
+                        <div
+                          class="ant-progress-bg"
+                          style="width: 40%; height: 6px;"
+                        />
+                      </div>
+                    </div>
+                    <span
+                      class="ant-progress-text"
+                      title="40%"
+                    >
+                      40%
+                    </span>
+                  </div>
+                </span>
+              </div>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  百分比
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  <div
+                    class="ant-space ant-space-horizontal ant-space-align-center"
+                  >
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 8px;"
+                    >
+                      <span
+                        style="color: rgb(255, 77, 79);"
+                      >
+                        + 10.00%
+                      </span>
+                    </div>
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 8px;"
+                    >
+                      <span
+                        style="color: rgb(89, 89, 89);"
+                      >
+                         0.00%
+                      </span>
+                    </div>
+                    <div
+                      class="ant-space-item"
+                    >
+                      <span
+                        style="color: rgb(82, 196, 26);"
+                      >
+                        - 10.00%
+                      </span>
                     </div>
                   </div>
-                  <span
-                    class="ant-progress-text"
-                    title="40%"
-                  >
-                    40%
-                  </span>
-                </div>
-              </span>
+                </span>
+              </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
             >
-              <span
-                class="ant-descriptions-item-label"
+              <div
+                class="ant-descriptions-item-container"
               >
-                百分比
-              </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                <span
+                  class="ant-descriptions-item-label"
                 >
-                  <div
-                    class="ant-space-item"
-                    style="margin-right: 8px;"
-                  >
-                    <span
-                      style="color: rgb(255, 77, 79);"
-                    >
-                      + 10.00%
-                    </span>
-                  </div>
-                  <div
-                    class="ant-space-item"
-                    style="margin-right: 8px;"
-                  >
-                    <span
-                      style="color: rgb(89, 89, 89);"
-                    >
-                       0.00%
-                    </span>
-                  </div>
-                  <div
-                    class="ant-space-item"
-                  >
-                    <span
-                      style="color: rgb(82, 196, 26);"
-                    >
-                      - 10.00%
-                    </span>
-                  </div>
-                </div>
-              </span>
-            </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
-            <td
-              class="ant-descriptions-item"
-              colspan="1"
-            >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                日期时间
-              </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                <span>
-                  2019-11-16 12:50:26
+                  日期时间
                 </span>
-              </span>
-            </td>
-            <td
-              class="ant-descriptions-item"
-              colspan="1"
-            >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                日期
-              </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                <span>
-                  2019-11-16
-                </span>
-              </span>
-            </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
-            <td
-              class="ant-descriptions-item"
-              colspan="1"
-            >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                日期区间
-              </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                <div>
-                  <div>
-                    2019-11-15
-                  </div>
-                  <div>
-                    2019-11-16
-                  </div>
-                </div>
-              </span>
-            </td>
-            <td
-              class="ant-descriptions-item"
-              colspan="1"
-            >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                日期时间区间
-              </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                <div>
-                  <div>
-                    2019-11-15 12:50:26
-                  </div>
-                  <div>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  <span>
                     2019-11-16 12:50:26
-                  </div>
-                </div>
-              </span>
+                  </span>
+                </span>
+              </div>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  日期
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  <span>
+                    2019-11-16
+                  </span>
+                </span>
+              </div>
             </td>
           </tr>
           <tr
@@ -428,43 +428,107 @@ Array [
               class="ant-descriptions-item"
               colspan="1"
             >
-              <span
-                class="ant-descriptions-item-label"
+              <div
+                class="ant-descriptions-item-container"
               >
-                时间
-              </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                <span>
-                  12:50:26
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  日期区间
                 </span>
-              </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  <div>
+                    <div>
+                      2019-11-15
+                    </div>
+                    <div>
+                      2019-11-16
+                    </div>
+                  </div>
+                </span>
+              </div>
             </td>
             <td
               class="ant-descriptions-item"
               colspan="1"
             >
-              <span
-                class="ant-descriptions-item-label"
+              <div
+                class="ant-descriptions-item-container"
               >
-                代码块
-              </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                <pre
-                  style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
+                <span
+                  class="ant-descriptions-item-label"
                 >
-                  <code>
-                    
+                  日期时间区间
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  <div>
+                    <div>
+                      2019-11-15 12:50:26
+                    </div>
+                    <div>
+                      2019-11-16 12:50:26
+                    </div>
+                  </div>
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  时间
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  <span>
+                    12:50:26
+                  </span>
+                </span>
+              </div>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  代码块
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  <pre
+                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
+                  >
+                    <code>
+                      
             yarn run v1.22.0
             $ eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./packages
             Done in 9.70s.
           
-                  </code>
-                </pre>
-              </span>
+                    </code>
+                  </pre>
+                </span>
+              </div>
             </td>
           </tr>
           <tr
@@ -474,19 +538,22 @@ Array [
               class="ant-descriptions-item"
               colspan="2"
             >
-              <span
-                class="ant-descriptions-item-label"
+              <div
+                class="ant-descriptions-item-container"
               >
-                JSON 代码块
-              </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                <pre
-                  style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
+                <span
+                  class="ant-descriptions-item-label"
                 >
-                  <code>
-                    {
+                  JSON 代码块
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  <pre
+                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
+                  >
+                    <code>
+                      {
   "compilerOptions": {
     "target": "esnext",
     "moduleResolution": "node",
@@ -508,9 +575,10 @@ Array [
     ".eslintrc.js"
   ]
 }
-                  </code>
-                </pre>
-              </span>
+                    </code>
+                  </pre>
+                </span>
+              </div>
             </td>
           </tr>
         </tbody>

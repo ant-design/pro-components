@@ -73,300 +73,347 @@ exports[`descriptions demos renders ./packages/descriptions/demos/base.tsx corre
             class="ant-descriptions-item"
             colspan="1"
           >
-            <span
-              class="ant-descriptions-item-label"
-            >
-              文本
-            </span>
-            <span
-              class="ant-descriptions-item-content"
-            >
-              这是一段文本
-            </span>
-          </td>
-          <td
-            class="ant-descriptions-item"
-            colspan="1"
-          >
-            <span
-              class="ant-descriptions-item-label"
-            >
-              <div
-                class="ant-space ant-space-horizontal ant-space-align-center ant-pro-core-label-tip"
-              >
-                <div
-                  class="ant-space-item"
-                  style="margin-right: 4px;"
-                >
-                  金额
-                </div>
-                <div
-                  class="ant-space-item"
-                >
-                  <span
-                    aria-label="info-circle"
-                    class="anticon anticon-info-circle ant-pro-core-label-tip-icon"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="info-circle"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-                      />
-                      <path
-                        d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </div>
-            </span>
-            <span
-              class="ant-descriptions-item-content"
-            >
-              <span>
-                ￥ 100
-              </span>
-            </span>
-          </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <td
-            class="ant-descriptions-item"
-            colspan="1"
-          >
-            <span
-              class="ant-descriptions-item-label"
-            >
-              百分比
-            </span>
-            <span
-              class="ant-descriptions-item-content"
-            >
-              <span>
-                100.00%
-              </span>
-            </span>
-          </td>
-          <td
-            class="ant-descriptions-item"
-            colspan="1"
-          >
-            <span
-              class="ant-descriptions-item-label"
-            >
-              选择框
-            </span>
-            <span
-              class="ant-descriptions-item-content"
+            <div
+              class="ant-descriptions-item-container"
             >
               <span
-                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                class="ant-descriptions-item-label"
               >
-                <span
-                  class="ant-badge-status-dot ant-badge-status-error"
-                />
-                <span
-                  class="ant-badge-status-text"
-                >
-                  未解决
-                </span>
+                文本
               </span>
-            </span>
-          </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <td
-            class="ant-descriptions-item"
-            colspan="1"
-          >
-            <span
-              class="ant-descriptions-item-label"
-            >
-              远程选择框
-            </span>
-            <span
-              class="ant-descriptions-item-content"
-            >
-              已解决
-            </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                这是一段文本
+              </span>
+            </div>
           </td>
           <td
             class="ant-descriptions-item"
             colspan="1"
           >
-            <span
-              class="ant-descriptions-item-label"
+            <div
+              class="ant-descriptions-item-container"
             >
-              进度条
-            </span>
-            <span
-              class="ant-descriptions-item-content"
-            >
-              <div
-                class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
-                style="min-width: 100px;"
+              <span
+                class="ant-descriptions-item-label"
               >
                 <div
-                  class="ant-progress-outer"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-pro-core-label-tip"
                 >
                   <div
-                    class="ant-progress-inner"
+                    class="ant-space-item"
+                    style="margin-right: 4px;"
                   >
-                    <div
-                      class="ant-progress-bg"
-                      style="width: 40%; height: 6px;"
-                    />
+                    金额
+                  </div>
+                  <div
+                    class="ant-space-item"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle ant-pro-core-label-tip-icon"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
                   </div>
                 </div>
-                <span
-                  class="ant-progress-text"
-                  title="40%"
-                >
-                  40%
-                </span>
-              </div>
-            </span>
-          </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <td
-            class="ant-descriptions-item"
-            colspan="1"
-          >
-            <span
-              class="ant-descriptions-item-label"
-            >
-              日期时间
-            </span>
-            <span
-              class="ant-descriptions-item-content"
-            >
-              <span>
-                2016-11-22 00:00:00
               </span>
-            </span>
-          </td>
-          <td
-            class="ant-descriptions-item"
-            colspan="1"
-          >
-            <span
-              class="ant-descriptions-item-label"
-            >
-              日期
-            </span>
-            <span
-              class="ant-descriptions-item-content"
-            >
-              <span>
-                2016-11-22
-              </span>
-            </span>
-          </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <td
-            class="ant-descriptions-item"
-            colspan="1"
-          >
-            <span
-              class="ant-descriptions-item-label"
-            >
-              日期区间
-            </span>
-            <span
-              class="ant-descriptions-item-content"
-            >
-              <div>
-                <div>
-                  2016-11-21 00:00:00
-                </div>
-                <div>
-                  2016-11-22 00:00:00
-                </div>
-              </div>
-            </span>
-          </td>
-          <td
-            class="ant-descriptions-item"
-            colspan="1"
-          >
-            <span
-              class="ant-descriptions-item-label"
-            >
-              时间
-            </span>
-            <span
-              class="ant-descriptions-item-content"
-            >
-              <span>
-                00:00:00
-              </span>
-            </span>
-          </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <td
-            class="ant-descriptions-item"
-            colspan="1"
-          >
-            <span
-              class="ant-descriptions-item-label"
-            >
-              代码块
-            </span>
-            <span
-              class="ant-descriptions-item-content"
-            >
-              <pre
-                style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
+              <span
+                class="ant-descriptions-item-content"
               >
-                <code>
-                  
+                <span>
+                  ￥ 100
+                </span>
+              </span>
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                百分比
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <span>
+                  100.00%
+                </span>
+              </span>
+            </div>
+          </td>
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                选择框
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <span
+                  class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                >
+                  <span
+                    class="ant-badge-status-dot ant-badge-status-error"
+                  />
+                  <span
+                    class="ant-badge-status-text"
+                  >
+                    未解决
+                  </span>
+                </span>
+              </span>
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                远程选择框
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                已解决
+              </span>
+            </div>
+          </td>
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                进度条
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <div
+                  class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+                  style="min-width: 100px;"
+                >
+                  <div
+                    class="ant-progress-outer"
+                  >
+                    <div
+                      class="ant-progress-inner"
+                    >
+                      <div
+                        class="ant-progress-bg"
+                        style="width: 40%; height: 6px;"
+                      />
+                    </div>
+                  </div>
+                  <span
+                    class="ant-progress-text"
+                    title="40%"
+                  >
+                    40%
+                  </span>
+                </div>
+              </span>
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                日期时间
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <span>
+                  2016-11-22 00:00:00
+                </span>
+              </span>
+            </div>
+          </td>
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                日期
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <span>
+                  2016-11-22
+                </span>
+              </span>
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                日期区间
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <div>
+                  <div>
+                    2016-11-21 00:00:00
+                  </div>
+                  <div>
+                    2016-11-22 00:00:00
+                  </div>
+                </div>
+              </span>
+            </div>
+          </td>
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                时间
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <span>
+                  00:00:00
+                </span>
+              </span>
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                代码块
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <pre
+                  style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
+                >
+                  <code>
+                    
             yarn run v1.22.0
             $ eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./packages
             Done in 9.70s.
           
-                </code>
-              </pre>
-            </span>
+                  </code>
+                </pre>
+              </span>
+            </div>
           </td>
           <td
             class="ant-descriptions-item"
             colspan="1"
           >
-            <span
-              class="ant-descriptions-item-label"
+            <div
+              class="ant-descriptions-item-container"
             >
-              JSON 代码块
-            </span>
-            <span
-              class="ant-descriptions-item-content"
-            >
-              <pre
-                style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
+              <span
+                class="ant-descriptions-item-label"
               >
-                <code>
-                  {
+                JSON 代码块
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <pre
+                  style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
+                >
+                  <code>
+                    {
   "compilerOptions": {
     "target": "esnext",
     "moduleResolution": "node",
@@ -388,9 +435,10 @@ exports[`descriptions demos renders ./packages/descriptions/demos/base.tsx corre
     ".eslintrc.js"
   ]
 }
-                </code>
-              </pre>
-            </span>
+                  </code>
+                </pre>
+              </span>
+            </div>
           </td>
         </tr>
       </tbody>
@@ -419,7 +467,6 @@ exports[`descriptions demos renders ./packages/descriptions/demos/columns.tsx co
       >
         <div
           class="ant-space-item"
-          style="margin-right: 8px;"
         >
           <a
             rel="noopener noreferrer"
@@ -427,21 +474,12 @@ exports[`descriptions demos renders ./packages/descriptions/demos/columns.tsx co
           >
             链路
           </a>
-        </div>
-        <div
-          class="ant-space-item"
-          style="margin-right: 8px;"
-        >
           <a
             rel="noopener noreferrer"
             target="_blank"
           >
             报警
           </a>
-        </div>
-        <div
-          class="ant-space-item"
-        >
           <a
             rel="noopener noreferrer"
             target="_blank"
@@ -464,59 +502,71 @@ exports[`descriptions demos renders ./packages/descriptions/demos/columns.tsx co
             class="ant-descriptions-item"
             colspan="1"
           >
-            <span
-              class="ant-descriptions-item-label"
-            >
-              百分比
-            </span>
-            <span
-              class="ant-descriptions-item-content"
-            >
-              <span>
-                100.00%
-              </span>
-            </span>
-          </td>
-          <td
-            class="ant-descriptions-item"
-            colspan="1"
-          >
-            <span
-              class="ant-descriptions-item-label"
-            >
-              文本
-            </span>
-            <span
-              class="ant-descriptions-item-content"
-            >
-              这是一段文本columns
-            </span>
-          </td>
-          <td
-            class="ant-descriptions-item"
-            colspan="1"
-          >
-            <span
-              class="ant-descriptions-item-label"
-            >
-              状态
-            </span>
-            <span
-              class="ant-descriptions-item-content"
+            <div
+              class="ant-descriptions-item-container"
             >
               <span
-                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                class="ant-descriptions-item-label"
               >
-                <span
-                  class="ant-badge-status-dot ant-badge-status-default"
-                />
-                <span
-                  class="ant-badge-status-text"
-                >
-                  全部
+                百分比
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <span>
+                  100.00%
                 </span>
               </span>
-            </span>
+            </div>
+          </td>
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                文本
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                这是一段文本columns
+              </span>
+            </div>
+          </td>
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                状态
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <span
+                  class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                >
+                  <span
+                    class="ant-badge-status-dot ant-badge-status-default"
+                  />
+                  <span
+                    class="ant-badge-status-text"
+                  >
+                    全部
+                  </span>
+                </span>
+              </span>
+            </div>
           </td>
         </tr>
         <tr
@@ -526,50 +576,62 @@ exports[`descriptions demos renders ./packages/descriptions/demos/columns.tsx co
             class="ant-descriptions-item"
             colspan="1"
           >
-            <span
-              class="ant-descriptions-item-label"
+            <div
+              class="ant-descriptions-item-container"
             >
-              状态2
-            </span>
-            <span
-              class="ant-descriptions-item-content"
-            >
-              open
-            </span>
+              <span
+                class="ant-descriptions-item-label"
+              >
+                状态2
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                open
+              </span>
+            </div>
           </td>
           <td
             class="ant-descriptions-item"
             colspan="1"
           >
-            <span
-              class="ant-descriptions-item-label"
+            <div
+              class="ant-descriptions-item-container"
             >
-              时间
-            </span>
-            <span
-              class="ant-descriptions-item-content"
-            >
-              <span>
-                2020-08-09
+              <span
+                class="ant-descriptions-item-label"
+              >
+                时间
               </span>
-            </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <span>
+                  2020-08-09
+                </span>
+              </span>
+            </div>
           </td>
           <td
             class="ant-descriptions-item"
             colspan="1"
           >
-            <span
-              class="ant-descriptions-item-label"
+            <div
+              class="ant-descriptions-item-container"
             >
-              money
-            </span>
-            <span
-              class="ant-descriptions-item-content"
-            >
-              <span>
-                ￥ 1212100
+              <span
+                class="ant-descriptions-item-label"
+              >
+                money
               </span>
-            </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <span>
+                  ￥ 1212100
+                </span>
+              </span>
+            </div>
           </td>
         </tr>
       </tbody>
@@ -657,50 +719,62 @@ exports[`descriptions demos renders ./packages/descriptions/demos/request.tsx co
             class="ant-descriptions-item"
             colspan="1"
           >
-            <span
-              class="ant-descriptions-item-label"
+            <div
+              class="ant-descriptions-item-container"
             >
-              文本
-            </span>
-            <span
-              class="ant-descriptions-item-content"
-            >
-              这是一段文本
-            </span>
+              <span
+                class="ant-descriptions-item-label"
+              >
+                文本
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                这是一段文本
+              </span>
+            </div>
           </td>
           <td
             class="ant-descriptions-item"
             colspan="1"
           >
-            <span
-              class="ant-descriptions-item-label"
+            <div
+              class="ant-descriptions-item-container"
             >
-              日期
-            </span>
-            <span
-              class="ant-descriptions-item-content"
-            >
-              <span>
-                2020-07-30
+              <span
+                class="ant-descriptions-item-label"
+              >
+                日期
               </span>
-            </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <span>
+                  2020-07-30
+                </span>
+              </span>
+            </div>
           </td>
           <td
             class="ant-descriptions-item"
             colspan="1"
           >
-            <span
-              class="ant-descriptions-item-label"
+            <div
+              class="ant-descriptions-item-container"
             >
-              money
-            </span>
-            <span
-              class="ant-descriptions-item-content"
-            >
-              <span>
-                ￥ 12121
+              <span
+                class="ant-descriptions-item-label"
+              >
+                money
               </span>
-            </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <span>
+                  ￥ 12121
+                </span>
+              </span>
+            </div>
           </td>
         </tr>
       </tbody>

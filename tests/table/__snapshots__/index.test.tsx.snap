@@ -127,6 +127,7 @@ exports[`BasicTable 🎏  do not render default option 1`] = `
           >
             <div
               class="ant-space-item"
+              style="margin-right: 8px;"
             >
               <div
                 class="ant-space ant-space-horizontal ant-space-align-center"
@@ -158,6 +159,9 @@ exports[`BasicTable 🎏  do not render default option 1`] = `
                 </div>
               </div>
             </div>
+            <div
+              class="ant-space-item"
+            />
           </div>
         </div>
       </div>
@@ -13989,6 +13993,7 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
           >
             <div
               class="ant-space-item"
+              style="margin-right: 8px;"
             >
               <div
                 class="ant-space ant-space-horizontal ant-space-align-center"
@@ -14020,6 +14025,9 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
                 </div>
               </div>
             </div>
+            <div
+              class="ant-space-item"
+            />
           </div>
         </div>
       </div>

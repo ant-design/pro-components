@@ -317,7 +317,6 @@ exports[`table demos renders ./packages/table/demos/batchOption.tsx correctly 1`
           >
             <div
               class="ant-space-item"
-              style="margin-right: 8px;"
             >
               <div>
                 <button
@@ -350,20 +349,6 @@ exports[`table demos renders ./packages/table/demos/batchOption.tsx correctly 1`
                   </span>
                   <span>
                     新建
-                  </span>
-                </button>
-              </div>
-            </div>
-            <div
-              class="ant-space-item"
-            >
-              <div>
-                <button
-                  class="ant-btn"
-                  type="button"
-                >
-                  <span>
-                    批量删除
                   </span>
                 </button>
               </div>
@@ -497,75 +482,6 @@ exports[`table demos renders ./packages/table/demos/batchOption.tsx correctly 1`
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div
-        class="ant-pro-table-alert"
-      >
-        <div
-          class="ant-alert ant-alert-info"
-          data-show="true"
-          role="alert"
-        >
-          <span
-            aria-label="info-circle"
-            class="anticon anticon-info-circle ant-alert-icon"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="info-circle"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm32 664c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V456c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272zm-32-344a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-              />
-            </svg>
-          </span>
-          <span
-            class="ant-alert-message"
-          >
-            <div
-              class="ant-pro-table-alert-info"
-            >
-              <div
-                class="ant-pro-table-alert-info-content"
-              >
-                当前共选中 1 项，共有 0 项未解决 
-              </div>
-              <div
-                class="ant-pro-table-alert-info-option"
-              >
-                <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
-                >
-                  <div
-                    class="ant-space-item"
-                    style="margin-right: 8px;"
-                  >
-                    <a>
-                      自定义
-                    </a>
-                  </div>
-                  <div
-                    class="ant-space-item"
-                  >
-                    <a>
-                      清空
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </span>
-          <span
-            class="ant-alert-description"
-          />
         </div>
       </div>
       <div
