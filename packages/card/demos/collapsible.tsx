@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { RightOutlined } from '@ant-design/icons';
-import ProCard from '../src/index';
+import ProCard from '@ant-design/pro-card';
 
 export default () => {
   const [collapsed, setCollapsed] = useState(true);

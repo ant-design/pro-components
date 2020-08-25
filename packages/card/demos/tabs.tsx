@@ -1,6 +1,6 @@
 import React from 'react';
 import { Tabs } from 'antd';
-import ProCard from '../src/index';
+import ProCard from '@ant-design/pro-card';
 
 const { TabPane } = Tabs;
 

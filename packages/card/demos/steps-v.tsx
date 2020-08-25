@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Steps, Button, Space } from 'antd';
-import ProCard from '../src/index';
+import ProCard from '@ant-design/pro-card';
 
 const { Step } = Steps;
 
