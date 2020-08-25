@@ -18,43 +18,43 @@ nav:
 
 ### 基本使用
 
-<code src="../demos/base.tsx" />
+<code src="./demos/base.tsx" />
 
 ### 支持展开的列表
 
-<code src="../demos/expand.tsx" />
+<code src="./demos/expand.tsx" />
 
 ### 支持选中的列表
 
-<code src="../demos/selectedRow.tsx" />
+<code src="./demos/selectedRow.tsx" />
 
 ### 复杂的列表
 
-<code src="../demos/complex.tsx" />
+<code src="./demos/complex.tsx" />
 
 ### 各种 size
 
-<code src="../demos/size.tsx" />
+<code src="./demos/size.tsx" />
 
 ### 竖排样式
 
-<code src="../demos/layout.tsx" />
+<code src="./demos/layout.tsx" />
 
 ### 文段式场景
 
-<code src="../demos/group.tsx" />
+<code src="./demos/group.tsx" />
 
 ### 一些预设的模式
 
-<code src="../demos/special.tsx" />
+<code src="./demos/special.tsx" />
 
 ### 自定义表头
 
-<code src="../demos/headerRender.tsx" />
+<code src="./demos/headerRender.tsx" />
 
 ### 小菜单
 
-<code src="../demos/minMenu.tsx" />
+<code src="./demos/minMenu.tsx" />
 
 ## API
 

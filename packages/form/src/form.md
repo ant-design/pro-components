@@ -18,31 +18,31 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 
 ### 基本使用
 
-<code src="../demos/base.tsx" />
+<code src="./demos/base.tsx" />
 
 ### 查询筛选
 
-<code src="../demos/query-filter.tsx" />
+<code src="./demos/query-filter.tsx" />
 
 ### 查询筛选-默认收起
 
-<code src="../demos/query-filter-collapsed.tsx" />
+<code src="./demos/query-filter-collapsed.tsx" />
 
 ### 查询筛选-垂直布局
 
-<code src="../demos/query-filter-vertical.tsx" />
+<code src="./demos/query-filter-vertical.tsx" />
 
 ### 查询筛选-搜索
 
-<code src="../demos/search-filter.tsx" background="#f0f2f5"/>
+<code src="./demos/search-filter.tsx" background="#f0f2f5"/>
 
 ### 轻量筛选
 
-<code src="../demos/light-filter.tsx" />
+<code src="./demos/light-filter.tsx" />
 
 ### 混合使用
 
-<code src="../demos/components-other.tsx" />
+<code src="./demos/components-other.tsx" />
 
 ## API
 

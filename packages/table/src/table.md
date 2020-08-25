@@ -260,15 +260,15 @@ const valueEnum = (row) =>
 
 #### 日期类
 
-<code src="../demos/valueTypeDate.tsx" background="#f5f5f5"/>
+<code src="./demos/valueTypeDate.tsx" background="#f5f5f5"/>
 
 #### 数字类
 
-<code src="../demos/valueTypeNumber.tsx" background="#f5f5f5"/>
+<code src="./demos/valueTypeNumber.tsx" background="#f5f5f5"/>
 
 #### 样式类
 
-<code src="../demos/valueType.tsx" background="#f5f5f5"/>
+<code src="./demos/valueType.tsx" background="#f5f5f5"/>
 
 ### valueEnum
 
@@ -357,15 +357,15 @@ renderFormItem: (_, { type, defaultRender, ...rest }, form) => {
   ) => JSX.Element | false | null;
 ```
 
-<code src="../demos/linkage_form.tsx" background="#f5f5f5"/>
+<code src="./demos/linkage_form.tsx" background="#f5f5f5"/>
 
 #### 搜索表单例子
 
-<code src="../demos/search.tsx" background="#f5f5f5"/>
+<code src="./demos/search.tsx" background="#f5f5f5"/>
 
 ## 操作栏
 
-<code src="../demos/search_option.tsx" background="#f5f5f5"/>
+<code src="./demos/search_option.tsx" background="#f5f5f5"/>
 
 ## 国际化
 
@@ -419,7 +419,7 @@ const enUSIntl = createIntl('en_US', enUS);
 
 ### 国际化示例
 
-<code src="../demos/intl.tsx" background="#f5f5f5"/>
+<code src="./demos/intl.tsx" background="#f5f5f5"/>
 
 ## 示例
 
@@ -427,38 +427,38 @@ const enUSIntl = createIntl('en_US', enUS);
 
 #### 基本使用
 
-<code src="../demos/single.tsx" background="#f5f5f5"/>
+<code src="./demos/single.tsx" background="#f5f5f5"/>
 
 #### 批量操作
 
-<code src="../demos/batchOption.tsx" background="#f5f5f5"/>
+<code src="./demos/batchOption.tsx" background="#f5f5f5"/>
 
 #### toolbar 搜索
 
-<code src="../demos/search.tsx" background="#f5f5f5"/>
+<code src="./demos/search.tsx" background="#f5f5f5"/>
 
 #### form 操作
 
-<code src="../demos/form.tsx" background="#f5f5f5"/>
+<code src="./demos/form.tsx" background="#f5f5f5"/>
 
 #### 使用 dataSource 和 loading
 
-<code src="../demos/dataSource.tsx" background="#f5f5f5"/>
+<code src="./demos/dataSource.tsx" background="#f5f5f5"/>
 
 #### 受控的列显示隐藏
 
 可以默认隐藏某些栏，但是在操作栏中可以选择
 
-<code src="../demos/columnsStateMap.tsx" background="#f5f5f5"/>
+<code src="./demos/columnsStateMap.tsx" background="#f5f5f5"/>
 
 #### 轮询
 
-<code src="../demos/pollinga.tsx" background="#f5f5f5"/>
+<code src="./demos/pollinga.tsx" background="#f5f5f5"/>
 
 #### 嵌套表格
 
-<code src="../demos/table-nested.tsx" background="#f5f5f5"/>
+<code src="./demos/table-nested.tsx" background="#f5f5f5"/>
 
 #### 自定义表格的主体
 
-<code src="../demos/renderTable.tsx" background="#f5f5f5"/>
+<code src="./demos/renderTable.tsx" background="#f5f5f5"/>
