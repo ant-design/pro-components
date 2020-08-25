@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.6.0...@ant-design/pro-table@2.6.1) (2020-08-25)
+
+### Bug Fixes
+
+- **table:** use default value of labelWidth ([#290](https://github.com/ant-design/pro-components/issues/290)) ([c37e753](https://github.com/ant-design/pro-components/commit/c37e753f9cdca00b1d75716467cefa0f1c7cb3b5))
+
 # [2.6.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.5.15...@ant-design/pro-table@2.6.0) (2020-08-24)
 
 ### Features
