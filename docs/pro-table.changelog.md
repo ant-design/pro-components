@@ -9,6 +9,15 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.6.1
+
+`2020-08-25`
+
+- fix: use default value of labelWidth. ([@leohxj](https://github.com/leohxj))[#290](https://github.com/ant-design/pro-components/pull/290)
+- 🐛 fix(table): Fixes an issue that removes parameter 0. ([@chenshuai2144](https://github.com/chenshuai2144))[#292](https://github.com/ant-design/pro-components/pull/292)
+- 🐛 fix: actions intl message. ([@leohxj](https://github.com/leohxj))[#289](https://github.com/ant-design/pro-components/pull/289)
+- ⚡️ performance(table): Optimize performance to reduce render. ([@chenshuai2144](https://github.com/chenshuai2144))[#291](https://github.com/ant-design/pro-components/pull/291)
+
 ## @ant-design/pro-table@2.6.0
 
 `2020-08-24`
