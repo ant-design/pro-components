@@ -110,7 +110,7 @@ export const formInputRender: React.FC<{
         !valueType || ['textarea', 'jsonCode', 'code'].includes(valueType) ? 'text' : valueType
       }
       {...rest}
-      rules={type === 'form' ? rest.rules : undefined}
+      rules={type === 'form' ? item.rules : undefined}
       key={`${item.dataIndex || ''}-${item.key || ''}-${item.index}`}
     />
   );
