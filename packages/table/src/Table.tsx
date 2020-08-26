@@ -827,8 +827,8 @@ const ProTable = <T extends {}, U extends ParamsType>(
                 props.onSubmit(value);
               }
             }}
-            onReset={() => {
-              setFormSearch(beforeSearchSubmit({}));
+            onReset={(value) => {
+              setFormSearch(beforeSearchSubmit(value));
               // back first page
               action.resetPageIndex();
               onReset();

@@ -18,9 +18,9 @@ import Container from '../container';
 import { ProColumns } from '../index';
 import './index.less';
 
-export interface TableFormItem<T> extends Omit<FormItemProps, 'children'> {
+export interface TableFormItem<T> extends Omit<FormItemProps, 'children' | 'onReset'> {
   onSubmit?: (value: T) => void;
-  onReset?: () => void;
+  onReset?: (value: T) => void;
   form?: Omit<FormProps, 'form'>;
   type?: ProSchemaComponentTypes;
   dateFormatter?: 'string' | 'number' | false;
@@ -318,7 +318,12 @@ const FormSearch = <T, U = any>({
         onValuesChange={() => {
           forceUpdate();
         }}
-        onReset={onReset}
+        onReset={() => {
+          if (onReset) {
+            const value = form.getFieldsValue() as T;
+            onReset(value);
+          }
+        }}
         onFinish={() => {
           submit();
         }}
