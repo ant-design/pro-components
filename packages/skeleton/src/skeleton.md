@@ -23,15 +23,15 @@ return <Skeleton type="list" />;
 
 ### List
 
-<code src="../demos/list.tsx" />
+<code src="./demos/list.tsx" />
 
 ### 结果页
 
-<code src="../demos/result.tsx" />
+<code src="./demos/result.tsx" />
 
 ### 详情页
 
-<code src="../demos/descriptions.tsx" />
+<code src="./demos/descriptions.tsx" />
 
 ## API
 
