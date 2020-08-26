@@ -372,7 +372,7 @@ exports[`form demos renders ./packages/form/demos/base.tsx correctly 1`] = `
                       autocomplete="off"
                       placeholder="请选择"
                       readonly=""
-                      size="21"
+                      size="12"
                       value=""
                     />
                   </div>
@@ -412,7 +412,7 @@ exports[`form demos renders ./packages/form/demos/base.tsx correctly 1`] = `
                       autocomplete="off"
                       placeholder="请选择"
                       readonly=""
-                      size="21"
+                      size="12"
                       value=""
                     />
                   </div>
@@ -2738,7 +2738,7 @@ exports[`form demos renders ./packages/form/demos/query-filter.tsx correctly 1`]
                     autocomplete="off"
                     placeholder="请选择"
                     readonly=""
-                    size="21"
+                    size="12"
                     value=""
                   />
                 </div>
@@ -2778,7 +2778,7 @@ exports[`form demos renders ./packages/form/demos/query-filter.tsx correctly 1`]
                     autocomplete="off"
                     placeholder="请选择"
                     readonly=""
-                    size="21"
+                    size="12"
                     value=""
                   />
                 </div>
