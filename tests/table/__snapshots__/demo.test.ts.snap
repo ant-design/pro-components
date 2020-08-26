@@ -263,7 +263,9 @@ exports[`table demos renders ./packages/table/demos/batchOption.tsx correctly 1`
             <div
               class="ant-space-item"
             >
-              <a>
+              <a
+                class="ant-pro-form-collapse-button"
+              >
                 展开
                 <span
                   aria-label="down"
@@ -4885,7 +4887,9 @@ exports[`table demos renders ./packages/table/demos/dataSource.tsx correctly 1`]
             <div
               class="ant-space-item"
             >
-              <a>
+              <a
+                class="ant-pro-form-collapse-button"
+              >
                 展开
                 <span
                   aria-label="down"
@@ -5571,7 +5575,9 @@ exports[`table demos renders ./packages/table/demos/form.tsx correctly 1`] = `
             <div
               class="ant-space-item"
             >
-              <a>
+              <a
+                class="ant-pro-form-collapse-button"
+              >
                 收起
                 <span
                   aria-label="down"
@@ -7505,7 +7511,9 @@ Array [
               <div
                 class="ant-space-item"
               >
-                <a>
+                <a
+                  class="ant-pro-form-collapse-button"
+                >
                   展开
                   <span
                     aria-label="down"
@@ -11767,7 +11775,9 @@ exports[`table demos renders ./packages/table/demos/linkage_form.tsx correctly 1
             <div
               class="ant-space-item"
             >
-              <a>
+              <a
+                class="ant-pro-form-collapse-button"
+              >
                 收起
                 <span
                   aria-label="down"
@@ -14890,7 +14900,9 @@ exports[`table demos renders ./packages/table/demos/pollinga.tsx correctly 1`] =
             <div
               class="ant-space-item"
             >
-              <a>
+              <a
+                class="ant-pro-form-collapse-button"
+              >
                 展开
                 <span
                   aria-label="down"
@@ -15844,7 +15856,9 @@ exports[`table demos renders ./packages/table/demos/renderTable.tsx correctly 1`
             <div
               class="ant-space-item"
             >
-              <a>
+              <a
+                class="ant-pro-form-collapse-button"
+              >
                 展开
                 <span
                   aria-label="down"
@@ -17192,7 +17206,9 @@ Array [
               <div
                 class="ant-space-item"
               >
-                <a>
+                <a
+                  class="ant-pro-form-collapse-button"
+                >
                   展开
                   <span
                     aria-label="down"
@@ -21019,7 +21035,9 @@ exports[`table demos renders ./packages/table/demos/search_option.tsx correctly 
             <div
               class="ant-space-item"
             >
-              <a>
+              <a
+                class="ant-pro-form-collapse-button"
+              >
                 收起
                 <span
                   aria-label="down"
@@ -24740,7 +24758,9 @@ exports[`table demos renders ./packages/table/demos/single.tsx correctly 1`] = `
             <div
               class="ant-space-item"
             >
-              <a>
+              <a
+                class="ant-pro-form-collapse-button"
+              >
                 展开
                 <span
                   aria-label="down"
@@ -29089,7 +29109,9 @@ exports[`table demos renders ./packages/table/demos/table-nested.tsx correctly 1
             <div
               class="ant-space-item"
             >
-              <a>
+              <a
+                class="ant-pro-form-collapse-button"
+              >
                 展开
                 <span
                   aria-label="down"
@@ -29815,7 +29837,9 @@ exports[`table demos renders ./packages/table/demos/valueType.tsx correctly 1`] 
             <div
               class="ant-space-item"
             >
-              <a>
+              <a
+                class="ant-pro-form-collapse-button"
+              >
                 展开
                 <span
                   aria-label="down"
@@ -31340,7 +31364,9 @@ exports[`table demos renders ./packages/table/demos/valueTypeDate.tsx correctly 
             <div
               class="ant-space-item"
             >
-              <a>
+              <a
+                class="ant-pro-form-collapse-button"
+              >
                 展开
                 <span
                   aria-label="down"
@@ -32442,7 +32468,9 @@ exports[`table demos renders ./packages/table/demos/valueTypeNumber.tsx correctl
             <div
               class="ant-space-item"
             >
-              <a>
+              <a
+                class="ant-pro-form-collapse-button"
+              >
                 展开
                 <span
                   aria-label="down"
