@@ -28,7 +28,8 @@
     "classnames": "^2.2.6",
     "lodash.isequal": "^4.5.0",
     "lodash.tonumber": "^4.0.3",
-    "moment": "^2.27.0"
+    "moment": "^2.27.0",
+    "@ant-design/pro-provider": "0.0.6"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.10",
