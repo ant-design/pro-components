@@ -3,7 +3,7 @@ import { Button, Descriptions, Result, Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
 import ProLayout, { PageContainer, SettingDrawer, ProSettings } from '@ant-design/pro-layout';
-import defaultProps from '../fixtures/defaultProps';
+import defaultProps from './fixtures/defaultProps';
 
 const content = (
   <Descriptions size="small" column={2}>
