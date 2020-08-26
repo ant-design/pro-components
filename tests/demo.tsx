@@ -85,7 +85,7 @@ function demoTest(component: string, options: Options = {}) {
     });
     window.getComputedStyle = originGetComputedStyle;
   });
-  const files = glob.sync(`./packages/${component}/demos/*.tsx`);
+  const files = glob.sync(`./packages/${component}/src/demos/*.tsx`);
 
   describe(`${component} demos`, () => {
     files.forEach((file) => {

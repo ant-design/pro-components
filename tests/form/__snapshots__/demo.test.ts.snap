@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`form demos renders ./packages/form/demos/base.tsx correctly 1`] = `
+exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-vertical"
 >
@@ -713,7 +713,7 @@ exports[`form demos renders ./packages/form/demos/base.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`form demos renders ./packages/form/demos/components-other.tsx correctly 1`] = `
+exports[`form demos renders ./packages/form/src/demos/components-other.tsx correctly 1`] = `
 <div
   style="padding: 24px;"
 >
@@ -2037,7 +2037,7 @@ exports[`form demos renders ./packages/form/demos/components-other.tsx correctly
 </div>
 `;
 
-exports[`form demos renders ./packages/form/demos/components-test.tsx correctly 1`] = `
+exports[`form demos renders ./packages/form/src/demos/components-test.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-vertical"
   id="validate_other"
@@ -2232,7 +2232,7 @@ exports[`form demos renders ./packages/form/demos/components-test.tsx correctly 
 </form>
 `;
 
-exports[`form demos renders ./packages/form/demos/light-filter.tsx correctly 1`] = `
+exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
 >
@@ -2492,7 +2492,7 @@ exports[`form demos renders ./packages/form/demos/light-filter.tsx correctly 1`]
 </form>
 `;
 
-exports[`form demos renders ./packages/form/demos/query-filter.tsx correctly 1`] = `
+exports[`form demos renders ./packages/form/src/demos/query-filter.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
 >
@@ -2892,7 +2892,7 @@ exports[`form demos renders ./packages/form/demos/query-filter.tsx correctly 1`]
 </form>
 `;
 
-exports[`form demos renders ./packages/form/demos/query-filter-collapsed.tsx correctly 1`] = `
+exports[`form demos renders ./packages/form/src/demos/query-filter-collapsed.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
 >
@@ -3263,7 +3263,7 @@ exports[`form demos renders ./packages/form/demos/query-filter-collapsed.tsx cor
 </form>
 `;
 
-exports[`form demos renders ./packages/form/demos/query-filter-vertical.tsx correctly 1`] = `
+exports[`form demos renders ./packages/form/src/demos/query-filter-vertical.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-vertical"
 >
@@ -3710,7 +3710,7 @@ exports[`form demos renders ./packages/form/demos/query-filter-vertical.tsx corr
 </form>
 `;
 
-exports[`form demos renders ./packages/form/demos/search-filter.tsx correctly 1`] = `
+exports[`form demos renders ./packages/form/src/demos/search-filter.tsx correctly 1`] = `
 <div
   class="ant-card"
 >

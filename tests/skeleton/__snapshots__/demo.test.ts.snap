@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`card demos renders ./packages/card/demos/basic.tsx correctly 1`] = `
+exports[`card demos renders ./packages/card/src/demos/basic.tsx correctly 1`] = `
 <div
   class="ant-pro-card"
   style="width: 300px;"
@@ -63,7 +63,7 @@ exports[`card demos renders ./packages/card/demos/basic.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`card demos renders ./packages/card/demos/bordered.tsx correctly 1`] = `
+exports[`card demos renders ./packages/card/src/demos/bordered.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-card-border"
   style="width: 300px;"
@@ -126,7 +126,7 @@ exports[`card demos renders ./packages/card/demos/bordered.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`card demos renders ./packages/card/demos/collapsible.tsx correctly 1`] = `
+exports[`card demos renders ./packages/card/src/demos/collapsible.tsx correctly 1`] = `
 Array [
   <div
     class="ant-pro-card"
@@ -217,7 +217,7 @@ Array [
 ]
 `;
 
-exports[`card demos renders ./packages/card/demos/colspan.tsx correctly 1`] = `
+exports[`card demos renders ./packages/card/src/demos/colspan.tsx correctly 1`] = `
 Array [
   <div
     class="ant-pro-card ant-pro-card-border"
@@ -358,7 +358,7 @@ Array [
 ]
 `;
 
-exports[`card demos renders ./packages/card/demos/gutter.tsx correctly 1`] = `
+exports[`card demos renders ./packages/card/src/demos/gutter.tsx correctly 1`] = `
 Array [
   <div
     class="ant-pro-card ant-pro-card-contain-card"
@@ -480,7 +480,7 @@ Array [
 ]
 `;
 
-exports[`card demos renders ./packages/card/demos/headerBordered.tsx correctly 1`] = `
+exports[`card demos renders ./packages/card/src/demos/headerBordered.tsx correctly 1`] = `
 <div
   class="ant-pro-card"
   style="width: 300px;"
@@ -543,7 +543,7 @@ exports[`card demos renders ./packages/card/demos/headerBordered.tsx correctly 1
 </div>
 `;
 
-exports[`card demos renders ./packages/card/demos/headless.tsx correctly 1`] = `
+exports[`card demos renders ./packages/card/src/demos/headless.tsx correctly 1`] = `
 <div
   class="ant-pro-card"
   style="width: 300px;"
@@ -556,7 +556,7 @@ exports[`card demos renders ./packages/card/demos/headless.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`card demos renders ./packages/card/demos/layout.tsx correctly 1`] = `
+exports[`card demos renders ./packages/card/src/demos/layout.tsx correctly 1`] = `
 <div
   class="ant-pro-card"
   style="width: 300px;"
@@ -583,7 +583,7 @@ exports[`card demos renders ./packages/card/demos/layout.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`card demos renders ./packages/card/demos/loading.tsx correctly 1`] = `
+exports[`card demos renders ./packages/card/src/demos/loading.tsx correctly 1`] = `
 Array [
   <div
     class="ant-pro-card ant-pro-card-loading"
@@ -732,7 +732,7 @@ Array [
 ]
 `;
 
-exports[`card demos renders ./packages/card/demos/responsive.tsx correctly 1`] = `
+exports[`card demos renders ./packages/card/src/demos/responsive.tsx correctly 1`] = `
 Array [
   <div
     class="ant-pro-card ant-pro-card-contain-card"
@@ -867,7 +867,7 @@ Array [
 ]
 `;
 
-exports[`card demos renders ./packages/card/demos/split.tsx correctly 1`] = `
+exports[`card demos renders ./packages/card/src/demos/split.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card ant-pro-card-split"
 >
@@ -1096,7 +1096,7 @@ exports[`card demos renders ./packages/card/demos/split.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`card demos renders ./packages/card/demos/split2.tsx correctly 1`] = `
+exports[`card demos renders ./packages/card/src/demos/split2.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card ant-pro-card-split"
 >
@@ -1169,7 +1169,7 @@ exports[`card demos renders ./packages/card/demos/split2.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`card demos renders ./packages/card/demos/split23.tsx correctly 1`] = `
+exports[`card demos renders ./packages/card/src/demos/split23.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card ant-pro-card-split"
 >
@@ -1228,7 +1228,7 @@ exports[`card demos renders ./packages/card/demos/split23.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`card demos renders ./packages/card/demos/steps-v.tsx correctly 1`] = `
+exports[`card demos renders ./packages/card/src/demos/steps-v.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card ant-pro-card-split"
 >
@@ -1449,7 +1449,7 @@ exports[`card demos renders ./packages/card/demos/steps-v.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`card demos renders ./packages/card/demos/tabs.tsx correctly 1`] = `
+exports[`card demos renders ./packages/card/src/demos/tabs.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-card-border"
 >
@@ -1596,7 +1596,7 @@ exports[`card demos renders ./packages/card/demos/tabs.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`card demos renders ./packages/card/demos/tabs-v.tsx correctly 1`] = `
+exports[`card demos renders ./packages/card/src/demos/tabs-v.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-card-border"
 >

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`descriptions demos renders ./packages/descriptions/demos/base.tsx correctly 1`] = `
+exports[`descriptions demos renders ./packages/descriptions/src/demos/base.tsx correctly 1`] = `
 <div
   class="ant-descriptions"
 >
@@ -447,7 +447,7 @@ exports[`descriptions demos renders ./packages/descriptions/demos/base.tsx corre
 </div>
 `;
 
-exports[`descriptions demos renders ./packages/descriptions/demos/columns.tsx correctly 1`] = `
+exports[`descriptions demos renders ./packages/descriptions/src/demos/columns.tsx correctly 1`] = `
 <div
   class="ant-descriptions"
 >
@@ -640,7 +640,7 @@ exports[`descriptions demos renders ./packages/descriptions/demos/columns.tsx co
 </div>
 `;
 
-exports[`descriptions demos renders ./packages/descriptions/demos/request.tsx correctly 1`] = `
+exports[`descriptions demos renders ./packages/descriptions/src/demos/request.tsx correctly 1`] = `
 <div
   class="ant-descriptions"
 >
