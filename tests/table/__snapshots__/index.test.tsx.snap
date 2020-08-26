@@ -1477,7 +1477,9 @@ exports[`BasicTable 🎏 base use 1`] = `
             <div
               class="ant-space-item"
             >
-              <a>
+              <a
+                class="ant-pro-form-collapse-button"
+              >
                 展开
                 <span
                   aria-label="down"

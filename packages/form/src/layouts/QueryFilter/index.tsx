@@ -140,6 +140,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
     labelWidth = 98,
     style,
     split,
+    collapseRender,
     ...rest
   } = props;
 
@@ -254,6 +255,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
         // for split compute
         let currentSpan = 0;
 
+        const defaultRender = items.length - 1 >= showLength ? undefined : false;
         return (
           <RcResizeObserver
             key="resize-observer"
@@ -294,6 +296,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
                   <Actions
                     submitter={submitter}
                     collapsed={collapsed}
+                    collapseRender={collapseRender || defaultRender}
                     {...rest}
                     setCollapsed={setCollapsed}
                     style={{
@@ -302,7 +305,6 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
                       // marginBottom 是为了和 FormItem 统一让下方保留一个 24px 的距离
                       marginBottom: 24,
                     }}
-                    collapseRender={items.length - 1 >= showLength ? undefined : false}
                   />
                 </Col>
               )}

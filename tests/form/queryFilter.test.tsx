@@ -1,6 +1,7 @@
 import { mount } from 'enzyme';
 import React from 'react';
 import { QueryFilter, ProFormText } from '@ant-design/pro-form';
+import { act } from 'react-dom/test-utils';
 import { waitTime } from '../util';
 
 describe('QueryFilter', () => {
@@ -98,5 +99,30 @@ describe('QueryFilter', () => {
       </QueryFilter>,
     );
     expect(wrapper.find('.ant-row.ant-form-item-hidden').length).toEqual(1);
+  });
+
+  it('collapseRender should work', async () => {
+    const wrapper = mount(
+      <QueryFilter
+        style={{ width: 1064 }}
+        defaultCollapsed
+        layout="vertical"
+        collapseRender={(collapsed) => (collapsed ? 'open' : 'close')}
+      >
+        <ProFormText label="a" name="a" />
+        <ProFormText label="b" name="b" />
+        <ProFormText label="c" name="c" />
+        <ProFormText label="d" name="d" />
+      </QueryFilter>,
+    );
+    expect(wrapper.find('a.ant-pro-form-collapse-button').text()).toBe('open');
+
+    act(() => {
+      wrapper.setProps({
+        collapsed: false,
+      });
+    });
+    await waitTime(100);
+    expect(wrapper.find('a.ant-pro-form-collapse-button').text()).toBe('close');
   });
 });

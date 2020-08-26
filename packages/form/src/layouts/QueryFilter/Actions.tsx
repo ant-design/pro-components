@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { useIntl, IntlType } from '@ant-design/pro-provider';
+import { ConfigContext as AntdConfigContext } from 'antd/lib/config-provider';
 
 export interface ActionsProps {
   submitter: React.ReactNode;
@@ -75,7 +76,7 @@ const Actions: React.FC<ActionsProps> = (props) => {
     submitter,
     style,
   } = props;
-
+  const { getPrefixCls } = useContext(AntdConfigContext);
   const intl = useIntl();
 
   return (
@@ -83,6 +84,7 @@ const Actions: React.FC<ActionsProps> = (props) => {
       {submitter}
       {collapseRender !== false && (
         <a
+          className={getPrefixCls('pro-form-collapse-button')}
           onClick={() => {
             setCollapsed(!collapsed);
           }}
