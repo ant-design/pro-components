@@ -42,19 +42,11 @@ exports[`PageContainer ⚡️ support footer 1`] = `
     <div
       class="ant-pro-footer-bar-right"
     >
-      <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
+      <button
+        type="button"
       >
-        <div
-          class="ant-space-item"
-        >
-          <button
-            type="button"
-          >
-            right
-          </button>
-        </div>
-      </div>
+        right
+      </button>
     </div>
   </div>
 </div>
@@ -160,19 +152,11 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
                     <div
                       class="ant-pro-footer-bar-right"
                     >
-                      <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      <button
+                        type="button"
                       >
-                        <div
-                          class="ant-space-item"
-                        >
-                          <button
-                            type="button"
-                          >
-                            qixian
-                          </button>
-                        </div>
-                      </div>
+                        qixian
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -216,19 +200,11 @@ exports[`PageContainer 🐲 footer is null, do not render footerToolbar  1`] = `
     <div
       class="ant-pro-footer-bar-right"
     >
-      <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
+      <button
+        type="button"
       >
-        <div
-          class="ant-space-item"
-        >
-          <button
-            type="button"
-          >
-            qixian
-          </button>
-        </div>
-      </div>
+        qixian
+      </button>
     </div>
   </div>
 </div>
@@ -352,19 +328,11 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
             <div
               class="ant-pro-footer-bar-right"
             >
-              <div
-                class="ant-space ant-space-horizontal ant-space-align-center"
+              <button
+                type="button"
               >
-                <div
-                  class="ant-space-item"
-                >
-                  <button
-                    type="button"
-                  >
-                    qixian
-                  </button>
-                </div>
-              </div>
+                qixian
+              </button>
             </div>
           </div>
         </div>
@@ -425,19 +393,11 @@ exports[`PageContainer 🔥 footer bar support extra 1`] = `
   <div
     class="ant-pro-footer-bar-right"
   >
-    <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
+    <button
+      type="button"
     >
-      <div
-        class="ant-space-item"
-      >
-        <button
-          type="button"
-        >
-          right
-        </button>
-      </div>
-    </div>
+      right
+    </button>
   </div>
 </div>
 `;
@@ -510,19 +470,11 @@ exports[`PageContainer 🔥 support footer 1`] = `
     <div
       class="ant-pro-footer-bar-right"
     >
-      <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
+      <button
+        type="button"
       >
-        <div
-          class="ant-space-item"
-        >
-          <button
-            type="button"
-          >
-            right
-          </button>
-        </div>
-      </div>
+        right
+      </button>
     </div>
   </div>
 </div>
