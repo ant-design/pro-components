@@ -1,16 +1,16 @@
 ---
-title: ProTable - 高级表格
+title: ProTable
 order: 0
 group:
   path: /
 nav:
-  title: 组件
+  title: Components
   path: /components
 ---
 
-# ProTable - 高级表格
+# ProTable - Advanced Table
 
-## 安装和初始化
+## Installation and initialization
 
 ```typescript | pure
 npm i @ant-design/pro-table --save
@@ -32,7 +32,7 @@ render(
     }
     rowKey="id"
     dateFormatter="string"
-    headerTitle="高级表格"
+    headerTitle="Advanced Table"
   />,
   document.getElementById("root")
 );
@@ -40,18 +40,17 @@ render(
 ```
 
 ## API
+ProTable has a layer of encapsulation on [antd's Table](https://ant.design/components/table/#API), supports some presets, and encapsulates some behaviors. Only the APIs that are different from antd Table are listed here.
 
-ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，并且封装了一些行为。这里只列出与 antd Table 不同的 api。
+### Table props
 
-### Table 表格的 props
-
-| 属性 | 描述 | 类型 | 默认值 |
+| Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| request | 获取 `dataSource` 的方法 | `(params?: {pageSize: number;current: number;[key: string]: any;},sort,filter) => Promise<RequestData<T>>` | - |
+| request | How to get `dataSource` | `(params?: {pageSize: number;current: number;[key: string]: any;},sort,filter) => Promise<RequestData<T>>` | - |
 | postData | 对通过 `request` 获取的数据进行处理 | `(data: T[]) => T[]` | - |
-| defaultData | 默认的数据 | `T[]` | - |
+| defaultData | Default data | `T[]` | - |
 | actionRef | Table action 的引用，便于自定义触发 | `React.MutableRefObject<FormInstance>` \| `((actionRef: ActionType) => void)` | - |
-| formRef | 可以获取到查询表单的 form 实例，用于一些灵活的配置 | `React.MutableRefObject<ActionType>` \| `((actionRef: ActionType) => void)` | - |
+| formRef | You can get the form instance of the query form for some flexible configuration | `React.MutableRefObject<ActionType>` \| `((actionRef: ActionType) => void)` | - |
 | toolBarRender | 渲染工具栏，支持返回一个 dom 数组，会自动增加 margin-right | `(action: UseFetchDataAction<RequestData<T>>) => React.ReactNode[]` | - |
 | onLoad | 数据加载完成后触发,会多次触发 | `(dataSource: T[]) => void` | - |
 | onRequestError | 数据加载失败时触发 | `(e: Error) => void` | - |
@@ -73,7 +72,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | tableExtraRender | 自定义表格的主体函数 | `(props: ProTableProps<T, U>, dataSource: T[]) => React.ReactNode;` | - |
 | manualRequest | 是否需要手动触发首次请求, 配置为 `true` 时不可隐藏搜索表单 | `boolean` | false |
 
-#### Search 搜索表单
+#### Search form
 
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -101,7 +100,7 @@ const defaultColConfig = {
 };
 ```
 
-#### ActionRef 手动触发
+#### ActionRef 
 
 有时我们要手动触发 table 的 reload 等操作，可以使用 actionRef。
 
@@ -129,7 +128,7 @@ ref.current.reset();
 ref.current.clearSelected();
 ```
 
-### Columns 列定义
+### Columns 
 
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -260,15 +259,15 @@ const valueEnum = (row) =>
 
 #### 日期类
 
-<code src="./demos/valueTypeDate.tsx" background="#f5f5f5"/>
+<code src="../demos/valueTypeDate.tsx" background="#f5f5f5"/>
 
 #### 数字类
 
-<code src="./demos/valueTypeNumber.tsx" background="#f5f5f5"/>
+<code src="../demos/valueTypeNumber.tsx" background="#f5f5f5"/>
 
 #### 样式类
 
-<code src="./demos/valueType.tsx" background="#f5f5f5"/>
+<code src="../demos/valueType.tsx" background="#f5f5f5"/>
 
 ### valueEnum
 
@@ -357,15 +356,15 @@ renderFormItem: (_, { type, defaultRender, ...rest }, form) => {
   ) => JSX.Element | false | null;
 ```
 
-<code src="./demos/linkage_form.tsx" background="#f5f5f5"/>
+<code src="../demos/linkage_form.tsx" background="#f5f5f5"/>
 
 #### 搜索表单例子
 
-<code src="./demos/search.tsx" background="#f5f5f5"/>
+<code src="../demos/search.tsx" background="#f5f5f5"/>
 
 ## 操作栏
 
-<code src="./demos/search_option.tsx" background="#f5f5f5"/>
+<code src="../demos/search_option.tsx" background="#f5f5f5"/>
 
 ## 国际化
 
@@ -419,46 +418,46 @@ const enUSIntl = createIntl('en_US', enUS);
 
 ### 国际化示例
 
-<code src="./demos/intl.tsx" background="#f5f5f5"/>
+<code src="../demos/intl.tsx" background="#f5f5f5"/>
 
-## 示例
+## Примеры
 
 这里将会提供一些常用的功能示例，方便大家直接拷贝。
 
 #### 基本使用
 
-<code src="./demos/single.tsx" background="#f5f5f5"/>
+<code src="../demos/single.tsx" background="#f5f5f5"/>
 
 #### 批量操作
 
-<code src="./demos/batchOption.tsx" background="#f5f5f5"/>
+<code src="../demos/batchOption.tsx" background="#f5f5f5"/>
 
 #### toolbar 搜索
 
-<code src="./demos/search.tsx" background="#f5f5f5"/>
+<code src="../demos/search.tsx" background="#f5f5f5"/>
 
 #### form 操作
 
-<code src="./demos/form.tsx" background="#f5f5f5"/>
+<code src="../demos/form.tsx" background="#f5f5f5"/>
 
 #### 使用 dataSource 和 loading
 
-<code src="./demos/dataSource.tsx" background="#f5f5f5"/>
+<code src="../demos/dataSource.tsx" background="#f5f5f5"/>
 
 #### 受控的列显示隐藏
 
 可以默认隐藏某些栏，但是在操作栏中可以选择
 
-<code src="./demos/columnsStateMap.tsx" background="#f5f5f5"/>
+<code src="../demos/columnsStateMap.tsx" background="#f5f5f5"/>
 
 #### 轮询
 
-<code src="./demos/pollinga.tsx" background="#f5f5f5"/>
+<code src="../demos/pollinga.tsx" background="#f5f5f5"/>
 
 #### 嵌套表格
 
-<code src="./demos/table-nested.tsx" background="#f5f5f5"/>
+<code src="../demos/table-nested.tsx" background="#f5f5f5"/>
 
 #### 自定义表格的主体
 
-<code src="./demos/renderTable.tsx" background="#f5f5f5"/>
+<code src="../demos/renderTable.tsx" background="#f5f5f5"/>

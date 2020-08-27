@@ -56,4 +56,9 @@ export default {
   dynamicImport: {
     loading: '@ant-design/pro-skeleton',
   },
+  locales: [
+    ['zh-CN', '中文'],
+    ['en-US', 'English'],
+    ['ru-RU', 'Русский'],
+  ],
 };
