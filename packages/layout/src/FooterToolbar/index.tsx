@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useMemo, ReactNode } from 'react';
-import { Space } from 'antd';
 import classNames from 'classnames';
 
 import './index.less';
@@ -35,9 +34,7 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
   const dom = (
     <>
       <div className={`${baseClassName}-left`}>{extra}</div>
-      <div className={`${baseClassName}-right`}>
-        <Space>{children}</Space>
-      </div>
+      <div className={`${baseClassName}-right`}>{children}</div>
     </>
   );
 
