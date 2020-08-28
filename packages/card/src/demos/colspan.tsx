@@ -33,7 +33,9 @@ export default () => {
         </ProCard>
       </ProCard>
       <ProCard style={{ marginTop: 8 }} gutter={8} ghost>
-        <ProCard bordered>Auto</ProCard>
+        <ProCard bordered layout="center">
+          Auto
+        </ProCard>
         <ProCard colSpan="30%" bordered>
           colSpan - 30%
         </ProCard>
