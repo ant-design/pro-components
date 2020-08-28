@@ -36,7 +36,10 @@ const FieldDatePicker: ProFieldFC<{
   const [open, setOpen] = useState<boolean>(false);
 
   if (mode === 'read') {
-    const dom = <span ref={ref}>{moment(text).format(format) || '-'}</span>;
+    let momentText = text;
+    if (typeof text === 'number' && text.toString().length === 10)
+      momentText = (text as number) * 1000;
+    const dom = <span ref={ref}>{moment(momentText).format(format) || '-'}</span>;
     if (render) {
       return render(text, { mode, ...fieldProps }, <span>{dom}</span>);
     }

@@ -10,7 +10,7 @@ import { ProFieldFC } from '../../index';
  * @param
  */
 const FieldRangePicker: ProFieldFC<{
-  text: string[];
+  text: string[] | number[];
   format: string;
   showTime?: boolean;
 }> = (
@@ -18,8 +18,12 @@ const FieldRangePicker: ProFieldFC<{
   ref,
 ) => {
   const intl = useIntl();
-  const [startText, endText] = Array.isArray(text) ? text : [];
+  let [startText, endText] = Array.isArray(text) ? text : [];
   if (mode === 'read') {
+    if (typeof startText === 'number' && startText.toString().length === 10)
+      startText = Number(startText) * 1000;
+    if (typeof endText === 'number' && endText.toString().length === 10)
+      endText = Number(endText) * 1000;
     const dom = (
       <div ref={ref}>
         <div>{startText ? moment(startText).format(format) : '-'}</div>
