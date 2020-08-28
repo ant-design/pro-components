@@ -15,7 +15,7 @@ const CONFIG_SPAN_BREAKPOINTS = {
   md: 785,
   lg: 1057,
   xl: 1057,
-  xxl: 1057,
+  xxl: Infinity,
 };
 /**
  * 配置表单列变化的容器宽度断点
@@ -54,7 +54,7 @@ const getSpanConfig = (
     };
   }
   const spanConfig = span
-    ? Object.keys(span).map((key) => [CONFIG_SPAN_BREAKPOINTS[key], span[key], 'horizontal'])
+    ? Object.keys(span).map((key) => [CONFIG_SPAN_BREAKPOINTS[key], 24 / span[key], 'horizontal'])
     : BREAKPOINTS[layout || 'default'];
 
   const breakPoint = spanConfig.find(
