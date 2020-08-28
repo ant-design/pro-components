@@ -30,6 +30,27 @@ export default () => {
             valueType="avatar"
           />
         </Descriptions.Item>
+
+        <Descriptions.Item label="Boolean">
+          <Field
+            mode={state}
+            valueType={{
+              type: 'boolean',
+              checked: false,
+            }}
+          />
+        </Descriptions.Item>
+
+        <Descriptions.Item label="Boolean true">
+          <Field
+            mode={state}
+            valueType={{
+              type: 'boolean',
+              checked: true,
+            }}
+          />
+        </Descriptions.Item>
+
         <Descriptions.Item label="文本">
           <Field text="这是一段文本" valueType="text" mode={state} plain={plain} />
         </Descriptions.Item>
