@@ -3,7 +3,6 @@ import { Avatar } from 'antd';
 import { Moment } from 'moment';
 import { pickProProps, pickUndefined } from '@ant-design/pro-utils';
 import { useIntl } from '@ant-design/pro-provider';
-import FieldBoolean from './components/Boolean';
 import FieldPercent from './components/Percent';
 import FieldIndexColumn from './components/IndexColumn';
 import FieldProgress from './components/Progress';
@@ -46,7 +45,6 @@ export type ProFieldEmptyText = string | false;
  * jsonCode json 的代码块，格式化了一下
  */
 export type ProFieldValueType =
-  | 'boolean'
   | 'money'
   | 'textarea'
   | 'option'
@@ -129,7 +127,7 @@ export type ProFieldFC<T> = React.ForwardRefRenderFunction<
 
 // function return type
 export type ProFieldValueObjectType = {
-  type: 'progress' | 'money' | 'percent' | 'boolean';
+  type: 'progress' | 'money' | 'percent';
   status?: 'normal' | 'active' | 'success' | 'exception' | undefined;
   locale?: string;
   /** percent */
@@ -137,7 +135,6 @@ export type ProFieldValueObjectType = {
   showColor?: boolean;
   precision?: number;
   request?: ProFieldRequestData;
-  checked?: boolean;
 };
 
 /**
@@ -162,21 +159,6 @@ const defaultRenderTextByObject = (
   props: RenderProps = { mode: 'read', plain: false, light: false },
 ) => {
   const pickFormItemProps = pickProProps(props.fieldProps);
-
-  /**
-   *
-   */
-  if (valueType.type === 'boolean') {
-    return (
-      <FieldBoolean
-        {...props}
-        text={text as string}
-        fieldProps={{
-          checked: valueType.checked ? valueType.checked : false,
-        }}
-      />
-    );
-  }
   if (valueType.type === 'progress') {
     return (
       <FieldProgress
