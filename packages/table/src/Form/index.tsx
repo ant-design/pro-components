@@ -85,6 +85,7 @@ export const formInputRender: React.FC<{
         key={`${item.dataIndex || ''}-${item.key || ''}-${item.index}`}
         {...rest}
         ref={ref}
+        initialValue={item.initialValue}
         name={item.dataIndex}
       >
         {React.cloneElement(dom, { ...rest, ...defaultProps })}
@@ -96,6 +97,7 @@ export const formInputRender: React.FC<{
   warningOnce(!item.formItemProps, `'formItemProps' will be deprecated, please use 'fieldProps'`);
 
   const { onChange, ...restFieldProps } = item.fieldProps || {};
+
   return (
     <ProFormField
       ref={ref}
@@ -109,6 +111,7 @@ export const formInputRender: React.FC<{
       valueType={
         !valueType || ['textarea', 'jsonCode', 'code'].includes(valueType) ? 'text' : valueType
       }
+      initialValue={item.initialValue}
       {...rest}
       rules={type === 'form' ? rest.rules : undefined}
       key={`${item.dataIndex || ''}-${item.key || ''}-${item.index}`}
@@ -304,6 +307,7 @@ const FormSearch = <T, U = any>({
   const className = getPrefixCls('pro-table-search');
   const formClassName = getPrefixCls('pro-table-form');
   const FormCompetent = isForm ? ProForm : QueryFilter;
+
   return (
     <div
       className={classNames(className, {
@@ -327,19 +331,7 @@ const FormSearch = <T, U = any>({
         onFinish={() => {
           submit();
         }}
-        initialValues={columnsList.reduce(
-          (pre, item) => {
-            const key = item.key || (item.dataIndex as string);
-            if (item.initialValue) {
-              return {
-                ...pre,
-                [key]: item.initialValue,
-              };
-            }
-            return pre;
-          },
-          { ...formConfig.initialValues },
-        )}
+        initialValues={formConfig.initialValues}
         labelWidth={searchConfig ? searchConfig?.labelWidth : undefined}
       >
         {domList}

@@ -34,11 +34,17 @@ const ProFormField = React.forwardRef<any, ProFormFieldProps>(
       proFieldProps,
       renderFormItem,
       valueType,
+      initialValue,
       ...restProps
     },
     ref,
   ) => (
-    <Form.Item label={label} labelCol={labelCol} {...pickProProps(restProps)}>
+    <Form.Item
+      label={label}
+      labelCol={labelCol}
+      initialValue={initialValue}
+      {...pickProProps(restProps)}
+    >
       {children || (
         <ProField
           text={fieldProps?.value as string}
