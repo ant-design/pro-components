@@ -3,7 +3,7 @@ import ProCard from '@ant-design/pro-card';
 
 export default () => {
   return (
-    <ProCard split="vertical" bordered headerBordered>
+    <ProCard split="vertical">
       <ProCard title="左侧详情" colSpan="30%">
         左侧内容
       </ProCard>

@@ -32,6 +32,12 @@ group:
 
  <code src="./demos/colspan.tsx"  background="#f0f2f5" />
 
+### 圣杯布局
+
+利用栅格布局特性可以方便地做出非常常见的圣杯布局:
+
+<code src="./demos/holygrail.tsx" background="#f0f2f5"/>
+
 ### 响应式
 
 `colSpan` 支持 antd 定义的[栅格式响应布局](https://ant.design/components/grid-cn/#components-grid-demo-responsive)。预设六个响应尺寸：`xs` `sm` `md` `lg` `xl` `xxl`。如果要支持响应式，可以写成 `{ xs: 4, sm: 8, md: 10, lg: 12 }`
@@ -94,9 +100,11 @@ group:
 
 <code src="./demos/bordered.tsx" />
 
-### 圣杯布局
+### 竖向步骤示例
 
-<code src="./demos/holygrail.tsx" background="#f0f2f5"/>
+`Steps` 组件结合 `ProCard` 组件完成竖向步骤示例。
+
+<code src="./demos/steps-v.tsx" background="#f0f2f5" />
 
 ## API
 
