@@ -1,5 +1,5 @@
 ---
-title: ProCard - 标准卡片
+title: ProCard - 高级卡片
 nav:
   title: 组件
   path: /components
@@ -7,9 +7,9 @@ group:
   path: /
 ---
 
-# ProCard 标准卡片
+# ProCard 高级卡片
 
-标准容器卡片，提供标准卡片样式，以及栅格布局能力。
+页内容器卡片，提供标准卡片样式，卡片切分以及栅格布局能力。
 
 ## 何时使用
 
@@ -94,23 +94,9 @@ group:
 
 <code src="./demos/bordered.tsx" />
 
-### 基本 tabs 卡片
+### 圣杯布局
 
-// 待实现
-
-<code src="./demos/tabs.tsx" background="#f0f2f5"/>
-
-### 垂直 steps 卡片
-
-// 待实现
-
-<code src="./demos/steps-v.tsx" background="#f0f2f5"/>
-
-### 垂直 tabs 卡片
-
-// 待实现
-
-<code src="./demos/tabs-v.tsx" background="#f0f2f5"/>
+<code src="./demos/holygrail.tsx" background="#f0f2f5"/>
 
 ## API
 
