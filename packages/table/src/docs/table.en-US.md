@@ -40,7 +40,6 @@ render(
 ```
 
 ## API
-
 ProTable has a layer of encapsulation on [antd's Table](https://ant.design/components/table/#API), supports some presets, and encapsulates some behaviors. Only the APIs that are different from antd Table are listed here.
 
 ### Table props
@@ -101,7 +100,7 @@ const defaultColConfig = {
 };
 ```
 
-#### ActionRef
+#### ActionRef 
 
 有时我们要手动触发 table 的 reload 等操作，可以使用 actionRef。
 
@@ -129,7 +128,7 @@ ref.current.reset();
 ref.current.clearSelected();
 ```
 
-### Columns
+### Columns 
 
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
