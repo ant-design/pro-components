@@ -73,6 +73,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
   const className = classNames(baseClassName, propsClassName, {
     light: theme === 'light',
   });
+
   return (
     <div className={className} style={style}>
       <div ref={ref} className={`${baseClassName}-main ${contentWidth === 'Fixed' ? 'wide' : ''}`}>

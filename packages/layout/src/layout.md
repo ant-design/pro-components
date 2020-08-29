@@ -54,6 +54,7 @@ ProLayout 会根据 `location.pathname` 来自动选中菜单，并且自动生�
 | loading | layout 的加载态 | boolean | - |
 | menuHeaderRender | 渲染 logo 和 title | ReactNode \| (logo,title)=>ReactNode | - |
 | onMenuHeaderClick | menu 菜单的头部点击事件 | `(e: React.MouseEvent<HTMLDivElement>) => void` | - |
+| onTopMixMenuHeaderClick | mix 模式下顶部栏的头部点击事件 | `(e: React.MouseEvent<HTMLDivElement>) => void` | - |
 | contentStyle | layout 的 内容区 style | CSSProperties | - |
 | layout | layout 的菜单模式,side：右侧导航，top：顶部导航 | 'side' \| 'top' | `'side'` |
 | contentWidth | layout 的内容模式,Fluid：定宽 1200px，Fixed：自适应 | 'Fluid' \| 'Fixed' | `'Fluid'` |
@@ -70,7 +71,7 @@ ProLayout 会根据 `location.pathname` 来自动选中菜单，并且自动生�
 | onCollapse | 菜单的折叠收起事件 | (collapsed: boolean) => void | - |
 | onPageChange | 页面切换时触发 | (location: Location) => void | - |
 | headerRender | 自定义头的 render 方法 | (props: BasicLayoutProps) => ReactNode | - |
-| headerTitleRender | 自定义头标题的方法 | (props: BasicLayoutProps) => ReactNode | - |
+| headerTitleRender | 自定义头标题的方法,mix 模式下生效 | (props: BasicLayoutProps) => ReactNode | - |
 | headerContentRender | 自定义头内容的方法 | (props: BasicLayoutProps) => ReactNode | - |
 | rightContentRender | 自定义头右部的 render 方法 | (props: HeaderViewProps) => ReactNode | - |
 | collapsedButtonRender | 自定义 collapsed button 的方法 | (collapsed: boolean) => ReactNode | - |

@@ -1,7 +1,8 @@
 import { mount, render } from 'enzyme';
-
 import React from 'react';
+import { act } from 'react-test-renderer';
 import BasicLayout, { BasicLayoutProps } from '@ant-design/pro-layout';
+
 import { waitForComponentToPaint } from '../util';
 
 describe('BasicLayout', () => {
@@ -447,6 +448,39 @@ describe('BasicLayout', () => {
 
     expect(onPageChange).toBeCalled();
     wrapper.unmount();
+  });
+
+  it('🥩headerTitleRender ', async () => {
+    const wrapper = mount<BasicLayoutProps>(
+      <BasicLayout
+        headerTitleRender={() => <h2 id="mix-test">mix title</h2>}
+        layout="mix"
+        location={{
+          pathname: '/',
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper);
+    expect(wrapper.find('h2#mix-test').text()).toBe('mix title');
+  });
+
+  it('🥩 ', async () => {
+    const onMenuHeaderClick = jest.fn();
+    const wrapper = mount<BasicLayoutProps>(
+      <BasicLayout
+        onMenuHeaderClick={onMenuHeaderClick}
+        layout="mix"
+        location={{
+          pathname: '/',
+        }}
+      />,
+    );
+
+    await waitForComponentToPaint(wrapper);
+    act(() => {
+      wrapper.find('div.ant-pro-global-header-logo').simulate('click');
+    });
+    expect(onMenuHeaderClick).toBeCalled();
   });
 
   it('🥩 fixSider and collapsed should have different style', async () => {

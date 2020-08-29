@@ -36,6 +36,7 @@ export default () => {
         location={{
           pathname,
         }}
+        onMenuHeaderClick={(e) => console.log(e)}
         menuItemRender={(item, dom) => (
           <a
             onClick={() => {

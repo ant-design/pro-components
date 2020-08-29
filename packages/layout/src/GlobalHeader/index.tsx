@@ -24,6 +24,7 @@ export interface GlobalHeaderProps extends Partial<PureSettings> {
   className?: string;
   prefixCls?: string;
   menuData?: MenuDataItem[];
+  onMenuHeaderClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
   style?: React.CSSProperties;
   menuHeaderRender?: SiderMenuProps['menuHeaderRender'];
   collapsedButtonRender?: SiderMenuProps['collapsedButtonRender'];
@@ -52,6 +53,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps> = (props) => {
     collapsedButtonRender = defaultRenderCollapsedButton,
     rightContentRender,
     menuHeaderRender,
+    onMenuHeaderClick,
     className: propClassName,
     style,
     layout,
@@ -105,7 +107,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps> = (props) => {
       )}
       {layout === 'mix' && !isMobile && (
         <>
-          <div className={`${baseClassName}-logo`}>
+          <div className={`${baseClassName}-logo`} onClick={onMenuHeaderClick}>
             {defaultRenderLogoAndTitle({ ...props, collapsed: false }, 'headerTitleRender')}
           </div>
         </>
