@@ -43,7 +43,7 @@ export type ProFieldRequestData<T, U = any> = (
  * 操作类型
  */
 export interface ProCoreActionType {
-  reload: (resetPageIndex?: boolean) => void;
+  reload: () => void;
   reloadAndRest?: () => void;
   reset?: () => void;
   clearSelected?: () => void;

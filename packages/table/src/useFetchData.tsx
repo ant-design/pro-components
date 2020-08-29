@@ -11,7 +11,6 @@ export interface RequestData<T> {
 export interface UseFetchDataAction<T extends RequestData<any>> {
   dataSource: T['data'] | T;
   loading: boolean | undefined;
-  hasMore: boolean;
   current: number;
   pageSize: number;
   total: number;
@@ -24,7 +23,6 @@ export interface UseFetchDataAction<T extends RequestData<any>> {
 }
 
 interface PageInfo {
-  hasMore: boolean;
   page: number;
   pageSize: number;
   total: number;
@@ -53,7 +51,6 @@ const useFetchData = <T extends RequestData<any>>(
   const [loading, setLoading] = useState<boolean | undefined>(undefined);
 
   const [pageInfo, setPageInfo] = useState<PageInfo>({
-    hasMore: false,
     page: options?.current || options?.defaultCurrent || 1,
     total: 0,
     pageSize: options?.pageSize || options?.defaultPageSize || 20,
@@ -61,14 +58,12 @@ const useFetchData = <T extends RequestData<any>>(
 
   // Batching update  https://github.com/facebook/react/issues/14259
   const setDataAndLoading = (newData: T[], dataTotal: number) => {
-    const { pageSize, page } = pageInfo;
     ReactDOM.unstable_batchedUpdates(() => {
       setList(newData);
       setLoading(false);
       setPageInfo({
         ...pageInfo,
         total: dataTotal,
-        hasMore: dataTotal > pageSize * page,
       });
     });
   };
@@ -81,9 +76,8 @@ const useFetchData = <T extends RequestData<any>>(
 
   /**
    * 请求数据
-   * @param isAppend 是否添加数据到后面
    */
-  const fetchList = async (isAppend?: boolean) => {
+  const fetchList = async () => {
     if (loading || !mountRef.current) {
       return;
     }
@@ -117,7 +111,7 @@ const useFetchData = <T extends RequestData<any>>(
     }
   };
 
-  const fetchListDebounce = useDebounceFn(fetchList, [], 200);
+  const fetchListDebounce = useDebounceFn(fetchList, [], 10);
 
   /**
    * pageIndex 改变的时候自动刷新
@@ -180,12 +174,10 @@ const useFetchData = <T extends RequestData<any>>(
     loading,
     reload: async () => fetchListDebounce.run(),
     total: pageInfo.total,
-    hasMore: pageInfo.hasMore,
     resetPageIndex,
     current: pageInfo.page,
     reset: () => {
       setPageInfo({
-        hasMore: false,
         page: options?.defaultCurrent || 1,
         total: 0,
         pageSize: options?.defaultPageSize || 20,

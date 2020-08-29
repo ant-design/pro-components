@@ -232,6 +232,15 @@ describe('BasicTable', () => {
             >
               刷新
             </Button>,
+            <Button
+              onClick={() => {
+                actionRef.current?.reset?.();
+              }}
+              key="reset"
+              id="reset"
+            >
+              刷新
+            </Button>,
           ]}
           size="small"
           options={{
@@ -270,6 +279,14 @@ describe('BasicTable', () => {
 
     // 因为有 loading 的控制，所有只会触发两次
     expect(fn).toBeCalledTimes(2);
+
+    act(() => {
+      html.find('Button#reset').simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 1200);
+
+    expect(fn).toBeCalledTimes(3);
   });
 
   it('🎏 request error test', async () => {

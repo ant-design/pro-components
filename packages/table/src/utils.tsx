@@ -185,14 +185,15 @@ export const useActionType = <T, U = any>(
         await current.resetPageIndex();
         await current.reload();
       },
-      reset: () => {
+      reset: async () => {
         const {
           action: { current },
         } = counter;
         if (!current) {
           return;
         }
-        current.reset();
+        await current.reset();
+        await current.reload();
       },
       clearSelected: () => onCleanSelected(),
     };
