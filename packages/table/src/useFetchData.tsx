@@ -17,7 +17,6 @@ export interface UseFetchDataAction<T extends RequestData<any>> {
   total: number;
   cancel: () => void;
   reload: () => Promise<void>;
-  fetchMore: () => void;
   fullScreen?: () => void;
   resetPageIndex: () => void;
   reset: () => void;
@@ -102,11 +101,7 @@ const useFetchData = <T extends RequestData<any>>(
             : undefined,
         )) || {};
       if (success !== false) {
-        if (isAppend && list) {
-          setDataAndLoading([...list, ...data], dataTotal);
-        } else {
-          setDataAndLoading(data, dataTotal);
-        }
+        setDataAndLoading(data, dataTotal);
       }
       if (onLoad) {
         onLoad(data);
@@ -123,13 +118,6 @@ const useFetchData = <T extends RequestData<any>>(
   };
 
   const fetchListDebounce = useDebounceFn(fetchList, [], 200);
-
-  const fetchMore = () => {
-    // 如果没有更多的就忽略掉
-    if (pageInfo.hasMore) {
-      setPageInfo({ ...pageInfo, page: pageInfo.page + 1 });
-    }
-  };
 
   /**
    * pageIndex 改变的时候自动刷新
@@ -191,7 +179,6 @@ const useFetchData = <T extends RequestData<any>>(
     dataSource: list,
     loading,
     reload: async () => fetchListDebounce.run(),
-    fetchMore,
     total: pageInfo.total,
     hasMore: pageInfo.hasMore,
     resetPageIndex,
