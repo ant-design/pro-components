@@ -45,7 +45,6 @@ export type ProFieldRequestData<T, U = any> = (
 export interface ProCoreActionType {
   reload: (resetPageIndex?: boolean) => void;
   reloadAndRest?: () => void;
-  fetchMore?: () => void;
   reset?: () => void;
   clearSelected?: () => void;
 }

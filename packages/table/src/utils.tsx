@@ -185,15 +185,6 @@ export const useActionType = <T, U = any>(
         await current.resetPageIndex();
         await current.reload();
       },
-      fetchMore: async () => {
-        const {
-          action: { current },
-        } = counter;
-        if (!current) {
-          return;
-        }
-        await current.fetchMore();
-      },
       reset: () => {
         const {
           action: { current },
