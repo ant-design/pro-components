@@ -48,25 +48,16 @@ const useFetchData = <T extends RequestData<any>>(
 ): UseFetchDataAction<T> => {
   // 用于标定组件是否解除挂载，如果解除了就不要 setState
   const mountRef = useRef(true);
-  const {
-    defaultPageSize = 20,
-    current,
-    pageSize,
-    pagination,
-    defaultCurrent = 1,
-    onLoad = () => null,
-    manual,
-    onRequestError,
-  } = options || {};
+  const { pagination, onLoad = () => null, manual, onRequestError } = options || {};
 
   const [list, setList] = useState<T['data']>(defaultData as any);
   const [loading, setLoading] = useState<boolean | undefined>(undefined);
 
   const [pageInfo, setPageInfo] = useState<PageInfo>({
     hasMore: false,
-    page: current || defaultCurrent || 1,
+    page: options?.current || options?.defaultCurrent || 1,
     total: 0,
-    pageSize: pageSize || defaultPageSize || 20,
+    pageSize: options?.pageSize || options?.defaultPageSize || 20,
   });
 
   // Batching update  https://github.com/facebook/react/issues/14259
@@ -208,9 +199,9 @@ const useFetchData = <T extends RequestData<any>>(
     reset: () => {
       setPageInfo({
         hasMore: false,
-        page: defaultCurrent || 1,
+        page: options?.defaultCurrent || 1,
         total: 0,
-        pageSize: defaultPageSize,
+        pageSize: options?.defaultPageSize || 20,
       });
     },
     cancel: fetchListDebounce.cancel,
