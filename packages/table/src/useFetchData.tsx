@@ -35,6 +35,8 @@ const useFetchData = <T extends RequestData<any>>(
   getData: (params?: { pageSize: number; current: number }) => Promise<T>,
   defaultData?: Partial<T['data']>,
   options?: {
+    current?: number;
+    pageSize?: number;
     defaultCurrent?: number;
     defaultPageSize?: number;
     effects?: any[];
@@ -48,6 +50,8 @@ const useFetchData = <T extends RequestData<any>>(
   const mountRef = useRef(true);
   const {
     defaultPageSize = 20,
+    current,
+    pageSize,
     pagination,
     defaultCurrent = 1,
     onLoad = () => null,
@@ -60,9 +64,9 @@ const useFetchData = <T extends RequestData<any>>(
 
   const [pageInfo, setPageInfo] = useState<PageInfo>({
     hasMore: false,
-    page: defaultCurrent || 1,
+    page: current || defaultCurrent || 1,
     total: 0,
-    pageSize: defaultPageSize,
+    pageSize: pageSize || defaultPageSize || 20,
   });
 
   // Batching update  https://github.com/facebook/react/issues/14259
