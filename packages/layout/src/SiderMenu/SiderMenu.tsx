@@ -158,7 +158,11 @@ const SiderMenu: React.FC<SiderMenuProps> = (props) => {
         className={siderClassName}
       >
         {headerDom && (
-          <div className={`${baseClassName}-logo`} onClick={onMenuHeaderClick} id="logo">
+          <div
+            className={`${baseClassName}-logo`}
+            onClick={layout !== 'mix' ? onMenuHeaderClick : undefined}
+            id="logo"
+          >
             {headerDom}
           </div>
         )}
