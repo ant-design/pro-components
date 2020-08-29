@@ -102,4 +102,39 @@ describe('BasicTable', () => {
 
     expect(fn).toBeCalledWith(10);
   });
+
+  it('🎏 pagination=false, do not have pageParams', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+        ]}
+        request={(params) => {
+          fn(params.pageSize);
+          return request(params);
+        }}
+        pagination={false}
+        onRequestError={fn}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 200);
+
+    expect(fn).toBeCalledWith(undefined);
+
+    html.setProps({
+      pagination: {
+        pageSize: 10,
+      },
+    });
+
+    await waitForComponentToPaint(html, 1200);
+
+    expect(fn).toBeCalledWith(10);
+  });
 });

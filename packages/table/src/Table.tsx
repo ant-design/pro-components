@@ -521,7 +521,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
       : { defaultCurrent: 1, defaultPageSize: 20, pageSize: 20, current: 1 };
 
   const action = useFetchData(
-    async ({ pageSize, current }) => {
+    async (pageParams) => {
       // 需要手动触发的首次请求
       const needManualFirstReq = manualRequest && !formSearch;
 
@@ -533,8 +533,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
       }
 
       const actionParams = {
-        current,
-        pageSize,
+        ...(pageParams || {}),
         ...formSearch,
         ...params,
       };
@@ -553,6 +552,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     defaultData,
     {
       ...fetchPagination,
+      pagination: propsPagination !== false,
       onLoad,
       onRequestError,
       manual: !request,

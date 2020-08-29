@@ -32,7 +32,7 @@ interface PageInfo {
 }
 
 const useFetchData = <T extends RequestData<any>>(
-  getData: (params: { pageSize: number; current: number }) => Promise<T>,
+  getData: (params?: { pageSize: number; current: number }) => Promise<T>,
   defaultData?: Partial<T['data']>,
   options?: {
     defaultCurrent?: number;
@@ -41,12 +41,19 @@ const useFetchData = <T extends RequestData<any>>(
     onLoad?: (dataSource: T['data']) => void;
     onRequestError?: (e: Error) => void;
     manual: boolean;
+    pagination: boolean;
   },
 ): UseFetchDataAction<T> => {
   // 用于标定组件是否解除挂载，如果解除了就不要 setState
   const mountRef = useRef(true);
-  const { defaultPageSize = 20, defaultCurrent = 1, onLoad = () => null, manual, onRequestError } =
-    options || {};
+  const {
+    defaultPageSize = 20,
+    pagination,
+    defaultCurrent = 1,
+    onLoad = () => null,
+    manual,
+    onRequestError,
+  } = options || {};
 
   const [list, setList] = useState<T['data']>(defaultData as any);
   const [loading, setLoading] = useState<boolean | undefined>(undefined);
@@ -91,10 +98,14 @@ const useFetchData = <T extends RequestData<any>>(
 
     try {
       const { data, success, total: dataTotal = 0 } =
-        (await getData({
-          current: page,
-          pageSize,
-        })) || {};
+        (await getData(
+          pagination !== false
+            ? {
+                current: page,
+                pageSize,
+              }
+            : undefined,
+        )) || {};
       if (success !== false) {
         if (isAppend && list) {
           setDataAndLoading([...list, ...data], dataTotal);
