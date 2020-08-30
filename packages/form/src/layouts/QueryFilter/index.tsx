@@ -57,7 +57,7 @@ const getSpanConfig = (
     ? Object.keys(span).map((key) => [CONFIG_SPAN_BREAKPOINTS[key], 24 / span[key], 'horizontal'])
     : BREAKPOINTS[layout || 'default'];
 
-  const breakPoint = spanConfig.find(
+  const breakPoint = (spanConfig || BREAKPOINTS.default).find(
     (item: [number, number, FormProps['layout']]) => width < item[0] + 16, // 16 = 2 * (ant-row -8px margin)
   );
   return {
