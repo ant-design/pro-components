@@ -13,7 +13,7 @@ type Store = {
 export interface StepsFormProps<T = Store> extends FormProviderProps {
   onFinish: (values: T) => void;
   current?: number;
-  onCurrentChange: (current: number) => void;
+  onCurrentChange?: (current: number) => void;
 }
 
 export const StepsFormProvide = React.createContext<
