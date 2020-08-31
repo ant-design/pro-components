@@ -11,15 +11,34 @@ import ProForm, {
   ProFormCheckbox,
 } from '@ant-design/pro-form';
 
+const waitTime = (time: number = 100) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(true);
+    }, time);
+  });
+};
+
 export default () => {
   return (
     <StepsFrom onFinish={(values) => console.log(values)}>
-      <StepsFrom.StepForm name="base" title="基础信息">
+      <StepsFrom.StepForm
+        name="base"
+        title="基础信息"
+        validateMessages={{
+          required: '此项为必填项',
+        }}
+        onFinish={async () => {
+          await waitTime(2000);
+          return true;
+        }}
+      >
         <ProFormText
           name="name"
           label="名称"
           tip="最长为 24 位，用于标定的唯一 id"
           placeholder="请输入名称"
+          rules={[{ required: true }]}
         />
         <ProFormTextArea
           name="remark"

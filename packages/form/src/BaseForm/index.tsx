@@ -23,7 +23,12 @@ export interface BaseFormProps extends FormProps, CommonFormProps {
   dateFormatter?: 'number' | 'string' | false;
   formItemProps?: FormItemProps;
   groupProps?: GroupProps;
-  formRef?: React.MutableRefObject<FormInstance>;
+  formRef?: React.MutableRefObject<FormInstance | undefined>;
+  /**
+   * 给予一个在 form 外调用 格式化工具的能力
+   * 自动封装了 dateFormatter 和 fieldTypes
+   */
+  genSubmitValueRef?: React.MutableRefObject<((values: any) => any) | undefined>;
 }
 
 // 给控件扩展的通用的属性
@@ -97,6 +102,7 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
     groupProps,
     dateFormatter = 'string',
     form: userForm,
+    genSubmitValueRef,
     formRef: propsFormRef,
     ...rest
   } = props;
@@ -107,6 +113,16 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
     [key: string]: ProFieldValueType;
   }>({});
 
+  const setFieldValueType = (name: string, type?: ProFieldValueType) => {
+    fieldsValueType.current[name] = type || 'text';
+  };
+  if (genSubmitValueRef && genSubmitValueRef.current) {
+    genSubmitValueRef.current = setFieldValueType;
+  }
+
+  const genSubmitValue = (values: any): any =>
+    conversionSubmitValue(values, dateFormatter, fieldsValueType.current);
+
   const items = React.Children.toArray(children);
   const submitterProps: Omit<SubmitterProps, 'form'> =
     typeof submitter === 'boolean' || !submitter ? {} : submitter;
@@ -115,9 +131,7 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
     submitter === false ? undefined : <Submitter {...submitterProps} form={userForm || form} />;
 
   const content = contentRender ? contentRender(items, submitterNode) : items;
-  const setFieldValueType = (name: string, type?: ProFieldValueType) => {
-    fieldsValueType.current[name] = type || 'text';
-  };
+
   return (
     // 增加国际化的能力，与 table 组件可以统一
     <ConfigProviderWarp>
@@ -133,9 +147,10 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
           form={userForm || form}
           {...rest}
           onFinish={(values) => {
-            if (rest.onFinish) {
-              rest.onFinish(conversionSubmitValue(values, dateFormatter, fieldsValueType.current));
+            if (!rest.onFinish) {
+              return;
             }
+            rest.onFinish(genSubmitValue(values));
           }}
         >
           <Form.Item noStyle shouldUpdate>

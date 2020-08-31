@@ -51,6 +51,20 @@ const StepsForm: React.FC<StepsFormProps> & {
         if (props.onFormFinish) {
           props.onFormFinish(name, form);
         }
+
+        // 如果是最后一步
+        if (step === formArray.length - 1) {
+          if (!props.onFinish) {
+            return;
+          }
+          const values = Array.from(formDataRef.current.values()).reduce((pre, cur) => {
+            return {
+              ...pre,
+              ...cur,
+            };
+          }, {});
+          props.onFinish(values);
+        }
       }}
     >
       <Steps current={step}>
@@ -80,7 +94,7 @@ const StepsForm: React.FC<StepsFormProps> & {
           return React.cloneElement(item, {
             ...itemProps,
             name,
-            index,
+            step: index,
             key: name,
           });
         })}
