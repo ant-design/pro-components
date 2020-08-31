@@ -2,7 +2,10 @@ import React, { useRef, useCallback, useState, useEffect } from 'react';
 import { Form, Steps } from 'antd';
 import toArray from 'rc-util/lib/Children/toArray';
 import { FormProviderProps } from 'antd/lib/form/context';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+
 import StepForm, { StepFormProps } from './StepForm';
+import { normalize } from 'path';
 
 type Store = {
   [name: string]: any;
@@ -10,11 +13,13 @@ type Store = {
 
 export interface StepsFormProps<T = Store> extends FormProviderProps {
   onFinish: (values: T) => void;
+  current?: number;
+  onCurrentChange: (current: number) => void;
 }
 
 export const StepsFormProvide = React.createContext<
   | {
-      unRegForm: (name: string, props: StepFormProps) => void;
+      unRegForm: (name: string) => void;
       keyArray: string[];
       formMapRef: React.MutableRefObject<Map<string, StepFormProps>>;
       next: () => void;
@@ -30,19 +35,43 @@ const StepsForm: React.FC<StepsFormProps> & {
   const formDataRef = useRef(new Map<string, Store>());
   const formMapRef = useRef(new Map<string, StepFormProps>());
   const [formArray, setFormArray] = useState<string[]>([]);
-  const [step, setStep] = useState<number>(0);
 
+  /**
+   * 受控的方式来操作表单
+   */
+  const [step, setStep] = useMergedState<number>(0, {
+    value: props.current,
+    onChange: props.onCurrentChange,
+  });
+
+  /**
+   * 注册一个form进入，方便进行 props 的修改
+   */
   const regForm = useCallback((name: string, formProps: StepFormProps) => {
     formMapRef.current.set(name, formProps);
   }, []);
 
+  /**
+   * 接触挂载掉这个 form，同时步数 -1
+   */
   const unRegForm = useCallback((name: string) => {
     formMapRef.current.delete(name);
+    formDataRef.current.delete(name);
   }, []);
 
+  /**
+   * children 计算完成之后，重新生成一下当前的步骤列表
+   */
   useEffect(() => {
     setFormArray(Array.from(formMapRef.current.keys()));
   }, [Array.from(formMapRef.current.keys()).join(',')]);
+
+  /**
+   * 每次children 发生改变的时候重新计算一下
+   */
+  useEffect(() => {
+    formMapRef.current.clear();
+  }, [props.children]);
 
   return (
     <Form.Provider

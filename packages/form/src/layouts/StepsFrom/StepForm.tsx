@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from 'react';
+import React, { useContext, useRef, useState, useEffect } from 'react';
 import { FormProps, FormInstance } from 'antd/lib/form/Form';
 import { Button } from 'antd';
 
@@ -80,6 +80,17 @@ const StepForm: React.FC<StepFormProps> = ({ onFinish, step, ...restProps }) => 
       提交
     </Button>
   );
+
+  /**
+   * dom 不存在的时候接触挂载
+   */
+  useEffect(() => {
+    return () => {
+      if (restProps.name) {
+        context?.unRegForm(restProps.name);
+      }
+    };
+  }, []);
 
   return (
     <BaseForm
