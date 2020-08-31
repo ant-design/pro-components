@@ -20,7 +20,17 @@ type ProFormSelectProps = ProFormItemProps<SelectProps<any>> & {
  */
 const ProFormSelect = React.forwardRef<any, ProFormSelectProps>(
   (
-    { fieldProps, children, proFieldProps, mode, valueEnum, request, showSearch, options, ...restProps },
+    {
+      fieldProps,
+      children,
+      proFieldProps,
+      mode,
+      valueEnum,
+      request,
+      showSearch,
+      options,
+      ...restProps
+    },
     ref,
   ) => {
     return (

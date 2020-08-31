@@ -110,11 +110,16 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
         open={open}
         onDropdownVisibleChange={setOpen}
         prefixCls={customizePrefixCls}
-        options={keyword
-          ? options.filter((o) => {
-            return (String(o.label).toLowerCase().indexOf(keyword) !== -1 || o.value.toLowerCase().indexOf(keyword) !== -1);
-          })
-          : options}
+        options={
+          keyword
+            ? options.filter((o) => {
+                return (
+                  String(o.label).toLowerCase().indexOf(keyword) !== -1 ||
+                  o.value.toLowerCase().indexOf(keyword) !== -1
+                );
+              })
+            : options
+        }
       />
       <FieldLabel
         ellipsis

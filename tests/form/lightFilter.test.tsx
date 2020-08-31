@@ -88,7 +88,6 @@ describe('LightFilter', () => {
     });
   });
 
-
   it('single select', () => {
     const wrapper = mount(
       <LightFilter
@@ -96,11 +95,15 @@ describe('LightFilter', () => {
           name: 'Jack2',
         }}
       >
-        <ProFormSelect label="名称" name="name" valueEnum={{
-          'Jack': '杰克',
-          'Jack2': '杰克2',
-          'TechUI': 'TechUI',
-        }} />
+        <ProFormSelect
+          label="名称"
+          name="name"
+          valueEnum={{
+            Jack: '杰克',
+            Jack2: '杰克2',
+            TechUI: 'TechUI',
+          }}
+        />
       </LightFilter>,
     );
 
@@ -125,11 +128,16 @@ describe('LightFilter', () => {
           name: 'Jack2',
         }}
       >
-        <ProFormSelect showSearch label="名称" name="name" valueEnum={{
-          'Jack': '杰克',
-          'Jack2': '杰克2',
-          'TechUI': 'TechUI',
-        }} />
+        <ProFormSelect
+          showSearch
+          label="名称"
+          name="name"
+          valueEnum={{
+            Jack: '杰克',
+            Jack2: '杰克2',
+            TechUI: 'TechUI',
+          }}
+        />
       </LightFilter>,
     );
 
@@ -159,11 +167,17 @@ describe('LightFilter', () => {
           name: ['Jack2'],
         }}
       >
-        <ProFormSelect showSearch label="名称" name="name" mode="multiple" valueEnum={{
-          'Jack': '杰克',
-          'Jack2': '杰克2',
-          'TechUI': 'TechUI',
-        }} />
+        <ProFormSelect
+          showSearch
+          label="名称"
+          name="name"
+          mode="multiple"
+          valueEnum={{
+            Jack: '杰克',
+            Jack2: '杰克2',
+            TechUI: 'TechUI',
+          }}
+        />
       </LightFilter>,
     );
 
