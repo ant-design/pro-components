@@ -3,6 +3,7 @@ import { Select, Spin } from 'antd';
 import { ProSchemaValueEnumMap, ProSchemaValueEnumObj } from '@ant-design/pro-utils';
 import { useIntl } from '@ant-design/pro-provider';
 
+import LightSelect from './LightSelect';
 import TableStatus, { ProFieldStatusType } from '../Status';
 import { ProFieldFC } from '../../index';
 
@@ -156,13 +157,13 @@ export type FieldSelectProps = {
 const useFetchData = (
   props: FieldSelectProps,
 ): [
-  boolean,
-  {
-    label: React.ReactNode;
-    value: React.ReactText;
-  }[],
-  () => void,
-] => {
+    boolean,
+    {
+      label: React.ReactNode;
+      value: React.ReactText;
+    }[],
+    () => void,
+  ] => {
   const [options, setOptions] = useState<
     {
       label: React.ReactNode;
@@ -214,6 +215,7 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
     fieldProps,
     plain,
     children,
+    light,
     ...rest
   } = props;
   const inputRef = useRef();
@@ -229,8 +231,8 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
     }
     const optionsValueEnum = props.request
       ? options.reduce((pre: any, cur) => {
-          return { ...pre, [cur.value]: cur.label };
-        }, {})
+        return { ...pre, [cur.value]: cur.label };
+      }, {})
       : undefined;
     const dom = <>{proFieldParsingText(rest.text, ObjToMap(optionsValueEnum || valueEnum))}</>;
 
@@ -240,22 +242,35 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
     return dom;
   }
   if (mode === 'edit' || mode === 'update') {
-    const dom = (
-      <Select
-        style={{
-          minWidth: 100,
-        }}
-        loading={loading}
-        ref={inputRef}
-        allowClear
-        {...rest}
-        placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
-        options={options}
-        {...fieldProps}
-      >
-        {children}
-      </Select>
-    );
+    let dom;
+    if (light) {
+      dom = (
+        <LightSelect
+          loading={loading}
+          ref={inputRef}
+          allowClear
+          {...rest}
+          placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
+          options={options}
+          {...fieldProps}
+        />
+      );
+    } else {
+      dom = (
+        <Select
+          style={{
+            minWidth: 100,
+          }}
+          loading={loading}
+          ref={inputRef}
+          allowClear
+          {...rest}
+          placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
+          options={options}
+          {...fieldProps}
+        />
+      );
+    }
     if (renderFormItem) {
       return renderFormItem(rest.text, { mode, ...fieldProps }, dom) || null;
     }

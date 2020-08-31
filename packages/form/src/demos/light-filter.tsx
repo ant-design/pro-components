@@ -10,9 +10,14 @@ export default () => {
       }}
       onFinish={(values) => console.log(values)}
     >
-      <ProFormSelect name="sex" label="性别" valueEnum={{
+      <ProFormSelect name="sex" label="性别" showSearch valueEnum={{
         man: '男',
         woman: '女',
+      }} />
+      <ProFormSelect name="area" label="地区" mode="multiple" valueEnum={{
+        beijing: '北京',
+        shanghai: '上海',
+        hangzhou: '杭州',
       }} />
       <ProFormText name="name1" label="名称" />
       <ProFormText name="name2" label="地址" secondary />
