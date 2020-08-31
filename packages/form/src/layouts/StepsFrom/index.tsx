@@ -5,7 +5,6 @@ import { FormProviderProps } from 'antd/lib/form/context';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import StepForm, { StepFormProps } from './StepForm';
-import { normalize } from 'path';
 
 type Store = {
   [name: string]: any;
