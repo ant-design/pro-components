@@ -48,14 +48,15 @@ ProLayout 会根据 `location.pathname` 来自动选中菜单，并且自动生�
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| title | layout 的 左上角 的 title | ReactNode | `'Ant Design Pro'` |
-| logo | layout 的 左上角 logo 的 url | ReactNode \| ()=>ReactNode | - |
+| title | layout 的左上角 的 title | ReactNode | `'Ant Design Pro'` |
+| logo | layout 的左上角 logo 的 url | ReactNode \| ()=>ReactNode | - |
 | pure | 是否删除掉所有的自带界面 | boolean | - |
 | loading | layout 的加载态 | boolean | - |
+| location | 当前应用会话的位置信息。如果你的应用创建了自定义的 history，则需要显示指定 location 属性，详见 [issue](https://github.com/ant-design/pro-components/issues/327) | [history.location](https://reactrouter.com/web/api/history) | isBrowser ? window.location : undefined |
 | menuHeaderRender | 渲染 logo 和 title | ReactNode \| (logo,title)=>ReactNode | - |
 | onMenuHeaderClick | menu 菜单的头部点击事件 | `(e: React.MouseEvent<HTMLDivElement>) => void` | - |
 | onTopMixMenuHeaderClick | mix 模式下顶部栏的头部点击事件 | `(e: React.MouseEvent<HTMLDivElement>) => void` | - |
-| contentStyle | layout 的 内容区 style | CSSProperties | - |
+| contentStyle | layout 的内容区 style | CSSProperties | - |
 | layout | layout 的菜单模式,side：右侧导航，top：顶部导航 | 'side' \| 'top' | `'side'` |
 | contentWidth | layout 的内容模式,Fluid：定宽 1200px，Fixed：自适应 | 'Fluid' \| 'Fixed' | `'Fluid'` |
 | navTheme | 导航的主题 | 'light' \| 'dark' | `'dark'` |
