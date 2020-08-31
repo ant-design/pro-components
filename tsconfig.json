@@ -26,9 +26,9 @@
     }
   },
   "include": [
-    "**/src",
-    "**/docs",
-    "scripts",
+    "**/src/**/*",
+    "**/docs/**/*",
+    "scripts/**/*",
     "**/demos",
     ".eslintrc.js",
     "tests",

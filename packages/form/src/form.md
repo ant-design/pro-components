@@ -20,6 +20,10 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 
 <code src="./demos/base.tsx" />
 
+### 分步骤表单
+
+<code src="./demos/stepsFrom.tsx" />
+
 ### 查询筛选
 
 <code src="./demos/query-filter.tsx" />
