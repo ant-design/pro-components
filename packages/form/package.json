@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-form",
-  "version": "1.0.0-beta.20",
+  "version": "1.0.0-beta.21",
   "description": "@ant-design/pro-form",
   "keywords": [
     "antd",
@@ -33,7 +33,7 @@
     "@ant-design/icons": "^4.2.1",
     "@ant-design/pro-field": "0.1.2",
     "@ant-design/pro-provider": "0.0.6",
-    "@ant-design/pro-utils": "0.1.1",
+    "@ant-design/pro-utils": "0.1.2",
     "classnames": "^2.2.6",
     "rc-resize-observer": "^0.2.3",
     "use-media-antd-query": "^1.0.2"
