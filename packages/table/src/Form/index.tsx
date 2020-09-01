@@ -316,7 +316,6 @@ const FormSearch = <T, U = any>({
     >
       <FormCompetent
         defaultCollapsed
-        layout="inline"
         {...(searchConfig || {})}
         {...formConfig}
         form={form}
