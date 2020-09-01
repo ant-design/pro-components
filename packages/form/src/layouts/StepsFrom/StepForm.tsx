@@ -4,9 +4,11 @@ import { Button } from 'antd';
 
 import BaseForm, { CommonFormProps } from '../../BaseForm';
 import { StepsFormProvide } from './index';
+import { SubmitterProps } from '../../components/Submitter';
+
+const isBoolean = (val: any) => typeof val === 'boolean';
 
 export interface StepFormProps<T = any> extends FormProps, CommonFormProps {
-  // ProForm 基础表单，暂无特殊属性
   step?: number;
   onFinish?: (values: T) => Promise<boolean>;
 }
@@ -61,6 +63,21 @@ const StepForm: React.FC<StepFormProps> = ({ onFinish, step, ...restProps }) => 
     };
   }, []);
 
+  const propsSubmitter = isBoolean(restProps.submitter)
+    ? {}
+    : (restProps.submitter as SubmitterProps | undefined);
+
+  const getActionButton = () => {
+    const index = step || 0;
+    if (index < 1) {
+      return [next];
+    }
+    if (index + 1 === context?.keyArray.length) {
+      return [pre, submit];
+    }
+    return [pre, next];
+  };
+
   return (
     <BaseForm
       formRef={formRef}
@@ -86,19 +103,6 @@ const StepForm: React.FC<StepFormProps> = ({ onFinish, step, ...restProps }) => 
         context?.next();
       }}
       layout="vertical"
-      submitter={{
-        // 反转按钮，在正常模式下，按钮应该是主按钮在前
-        render: () => {
-          const index = step || 0;
-          if (index < 1) {
-            return [next];
-          }
-          if (index + 1 === context?.keyArray.length) {
-            return [pre, submit];
-          }
-          return [pre, next];
-        },
-      }}
       contentRender={(items, submitter) => {
         return (
           <>
@@ -108,6 +112,22 @@ const StepForm: React.FC<StepFormProps> = ({ onFinish, step, ...restProps }) => 
         );
       }}
       {...restProps}
+      submitter={
+        restProps.submitter === false
+          ? false
+          : {
+              ...(propsSubmitter || {}),
+              // 反转按钮，在正常模式下，按钮应该是主按钮在前
+              render: (submitterProps) => {
+                const dom = getActionButton();
+                const { render } = propsSubmitter as SubmitterProps;
+                if (render) {
+                  return render(submitterProps, dom);
+                }
+                return dom;
+              },
+            }
+      }
     />
   );
 };
