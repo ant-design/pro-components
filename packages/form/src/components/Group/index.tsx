@@ -19,7 +19,9 @@ const Group: React.FC<GroupProps> = (props) => {
       <div className={`${className}-title`} style={titleStyle}>
         {titleRender ? titleRender(title, props) : title}
       </div>
-      <Space size={32}>{children}</Space>
+      <Space className={`${className}-container`} size={32}>
+        {children}
+      </Space>
     </div>
   );
 };

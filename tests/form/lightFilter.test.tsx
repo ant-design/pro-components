@@ -1,6 +1,7 @@
 import { mount } from 'enzyme';
 import React from 'react';
-import { LightFilter, ProFormText, ProFormDatePicker } from '@ant-design/pro-form';
+import { LightFilter, ProFormText, ProFormDatePicker, ProFormSelect } from '@ant-design/pro-form';
+import KeyCode from 'rc-util/lib/KeyCode';
 import { waitTime } from '../util';
 
 describe('LightFilter', () => {
@@ -85,5 +86,116 @@ describe('LightFilter', () => {
       name2: 'new value',
       name3: '2020-08-01',
     });
+  });
+
+  it('single select', () => {
+    const wrapper = mount(
+      <LightFilter
+        initialValues={{
+          name: 'Jack2',
+        }}
+      >
+        <ProFormSelect
+          label="名称"
+          name="name"
+          valueEnum={{
+            Jack: '杰克',
+            Jack2: '杰克2',
+            TechUI: 'TechUI',
+          }}
+        />
+      </LightFilter>,
+    );
+
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('名称: 杰克2');
+    expect(wrapper.find('.ant-pro-core-field-label-arrow.anticon-down').length).toEqual(1);
+    wrapper.find('.ant-pro-core-field-label').simulate('click');
+    expect(wrapper.find('.ant-pro-core-field-label-arrow.anticon-down').length).toEqual(1);
+    wrapper.find('.ant-select-item').at(0).simulate('click');
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('名称: 杰克');
+
+    // close
+    wrapper.find('.ant-pro-core-field-label .anticon-close').simulate('click');
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('名称');
+
+    wrapper.unmount();
+  });
+
+  it('select showSearch', () => {
+    const wrapper = mount(
+      <LightFilter
+        initialValues={{
+          name: 'Jack2',
+        }}
+      >
+        <ProFormSelect
+          showSearch
+          label="名称"
+          name="name"
+          valueEnum={{
+            Jack: '杰克',
+            Jack2: '杰克2',
+            TechUI: 'TechUI',
+          }}
+        />
+      </LightFilter>,
+    );
+
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('名称: 杰克2');
+    expect(wrapper.find('.ant-pro-core-field-label-arrow.anticon-down').length).toEqual(1);
+    wrapper.find('.ant-pro-core-field-label').simulate('click');
+    expect(wrapper.find('.ant-pro-core-field-label-arrow.anticon-down').length).toEqual(1);
+    wrapper.find('.ant-input').simulate('change', {
+      target: {
+        value: 'tech',
+      },
+    });
+    wrapper.find('.ant-select-item').at(0).simulate('click');
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('名称: TechUI');
+
+    // close
+    wrapper.find('.ant-pro-core-field-label .anticon-close').simulate('click');
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('名称');
+
+    wrapper.unmount();
+  });
+
+  it('multiple select showSearch', () => {
+    const wrapper = mount(
+      <LightFilter
+        initialValues={{
+          name: ['Jack2'],
+        }}
+      >
+        <ProFormSelect
+          showSearch
+          label="名称"
+          name="name"
+          mode="multiple"
+          valueEnum={{
+            Jack: '杰克',
+            Jack2: '杰克2',
+            TechUI: 'TechUI',
+          }}
+        />
+      </LightFilter>,
+    );
+
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('名称: 杰克2');
+    expect(wrapper.find('.ant-pro-core-field-label-arrow.anticon-down').length).toEqual(1);
+    wrapper.find('.ant-pro-core-field-label').simulate('click');
+    expect(wrapper.find('.ant-pro-core-field-label-arrow.anticon-down').length).toEqual(1);
+    wrapper.find('.ant-input').simulate('change', {
+      target: {
+        value: 'tech',
+      },
+    });
+    wrapper.find('.ant-select-item').at(0).simulate('click');
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('名称: 杰克2,TechUI');
+    // press Backspace
+    wrapper.find('.ant-input').simulate('keyDown', { which: KeyCode.BACKSPACE });
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('名称: 杰克2,TechUI');
+
+    wrapper.unmount();
   });
 });

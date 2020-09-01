@@ -104,4 +104,42 @@ describe('BasicTable Search', () => {
 
     expect(fn).toBeCalledTimes(2);
   });
+
+  it('🎏 search span test', async () => {
+    const html = mount(
+      <ProTable
+        size="small"
+        search={{
+          defaultCollapsed: false,
+          span: {
+            xs: 12,
+            sm: 12,
+            md: 12,
+            lg: 12,
+            xl: 12,
+            xxl: 12,
+          },
+        }}
+        columns={[
+          {
+            title: '金额',
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+          },
+        ]}
+        request={(params) => {
+          return request(params);
+        }}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 200);
+
+    expect(html.find('.ant-col.ant-col-12').exists()).toBeTruthy();
+  });
 });
