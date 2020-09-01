@@ -112,8 +112,18 @@ const StepsForm: React.FC<StepsFormProps> & {
       <StepsFormProvide.Provider
         value={{
           keyArray: formArray,
-          next: () => setStep(step + 1),
-          pre: () => setStep(step - 1),
+          next: () => {
+            if (step > formArray.length - 2) {
+              return;
+            }
+            setStep(step + 1);
+          },
+          pre: () => {
+            if (step < 1) {
+              return;
+            }
+            setStep(step - 1);
+          },
           formMapRef,
           unRegForm,
           onFormFinish,
