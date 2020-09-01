@@ -157,13 +157,13 @@ export type FieldSelectProps = {
 const useFetchData = (
   props: FieldSelectProps,
 ): [
-  boolean,
-  {
-    label: React.ReactNode;
-    value: React.ReactText;
-  }[],
-  () => void,
-] => {
+    boolean,
+    {
+      label: React.ReactNode;
+      value: React.ReactText;
+    }[],
+    () => void,
+  ] => {
   const [options, setOptions] = useState<
     {
       label: React.ReactNode;
@@ -231,8 +231,8 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
     }
     const optionsValueEnum = props.request
       ? options.reduce((pre: any, cur) => {
-          return { ...pre, [cur.value]: cur.label };
-        }, {})
+        return { ...pre, [cur.value]: cur.label };
+      }, {})
       : undefined;
     const dom = <>{proFieldParsingText(rest.text, ObjToMap(optionsValueEnum || valueEnum))}</>;
 
