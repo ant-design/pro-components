@@ -1,0 +1,23 @@
+@import (reference) '~antd/lib/style/themes/default';
+
+@pro-field-select-light-select: ~'@{ant-prefix}-pro-field-select-light-select';
+
+.@{pro-field-select-light-select} {
+  .@{ant-prefix}-select {
+    position: absolute;
+    width: 153px;
+    height: 28px;
+    visibility: hidden;
+  }
+  .@{ant-prefix}-select-selector {
+    height: 28px;
+  }
+  &.@{pro-field-select-light-select}-searchble {
+    .@{ant-prefix}-select {
+      width: 200px;
+    }
+    .@{ant-prefix}-select-selector {
+      height: 28px;
+    }
+  }
+}
