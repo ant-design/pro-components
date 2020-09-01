@@ -77,6 +77,7 @@ export const genCopyable = (dom: React.ReactNode, item: ProColumns<any>, text: s
           item.copyable
             ? {
                 text,
+                tooltips: ['', ''],
               }
             : undefined
         }
