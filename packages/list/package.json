@@ -30,7 +30,6 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.0.0",
-    "antd": "^4.0.0",
     "classnames": "^2.2.6",
     "dnd-core": "^10.0.2",
     "lodash.isequal": "^4.5.0",
@@ -43,7 +42,8 @@
     "use-media-antd-query": "1.0.2"
   },
   "peerDependencies": {
-    "umi": "3.x"
+    "antd": "4.x",
+    "react": "^16.x"
   },
   "publishConfig": {
     "access": "public"
