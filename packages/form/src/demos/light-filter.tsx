@@ -1,5 +1,12 @@
 import React from 'react';
-import { LightFilter, ProFormText, ProFormDatePicker, ProFormSelect } from '@ant-design/pro-form';
+import {
+  LightFilter,
+  ProFormText,
+  ProFormDatePicker,
+  ProFormSelect,
+  ProFormDigit,
+  ProFormSwitch,
+} from '@ant-design/pro-form';
 
 export default () => {
   return (
@@ -29,7 +36,9 @@ export default () => {
           hangzhou: '杭州',
         }}
       />
+      <ProFormDigit name="count" label="数量" />
       <ProFormText name="name1" label="名称" />
+      <ProFormSwitch name="open" label="开关" />
       <ProFormText name="name2" label="地址" secondary />
       <ProFormDatePicker name="name3" label="日期" />
     </LightFilter>

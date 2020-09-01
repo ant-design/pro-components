@@ -1,7 +1,6 @@
 import React from 'react';
 
 import ProField from '@ant-design/pro-field';
-import { Form } from 'antd';
 import { DatePickerProps } from 'antd/lib/date-picker';
 import { ProFormItemProps } from '../../interface';
 import { createField } from '../../BaseForm';
@@ -13,18 +12,15 @@ import { createField } from '../../BaseForm';
 const ProFormDateTimeRangePicker: React.FC<ProFormItemProps<DatePickerProps>> = ({
   fieldProps,
   proFieldProps,
-  ...restProps
 }) => {
   return (
-    <Form.Item {...restProps}>
-      <ProField
-        {...proFieldProps}
-        text={fieldProps?.value}
-        mode="edit"
-        fieldProps={fieldProps}
-        valueType="dateTime"
-      />
-    </Form.Item>
+    <ProField
+      {...proFieldProps}
+      text={fieldProps?.value}
+      mode="edit"
+      fieldProps={fieldProps}
+      valueType="dateTime"
+    />
   );
 };
 

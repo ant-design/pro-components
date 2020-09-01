@@ -13,18 +13,15 @@ import { createField } from '../../BaseForm';
 const ProFormTimePicker: React.FC<ProFormItemProps<DatePickerProps>> = ({
   fieldProps,
   proFieldProps,
-  ...restProps
 }) => {
   return (
-    <Form.Item {...restProps}>
-      <ProField
-        text={fieldProps?.value || ''}
-        mode="edit"
-        fieldProps={fieldProps}
-        valueType="time"
-        {...proFieldProps}
-      />
-    </Form.Item>
+    <ProField
+      text={fieldProps?.value || ''}
+      mode="edit"
+      fieldProps={fieldProps}
+      valueType="time"
+      {...proFieldProps}
+    />
   );
 };
 

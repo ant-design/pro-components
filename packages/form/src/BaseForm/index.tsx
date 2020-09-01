@@ -8,6 +8,7 @@ import { LabelIconTip, pickProProps, conversionSubmitValue } from '@ant-design/p
 import { ProFieldValueType } from '@ant-design/pro-field';
 import FieldContext from '../FieldContext';
 import Submitter, { SubmitterProps } from '../components/Submitter';
+import LightWrapper from './LightWrapper';
 import { GroupProps, FieldProps, ProFormItemProps } from '../interface';
 
 export interface CommonFormProps {
@@ -39,7 +40,8 @@ type ProFormComponent<P, ExtendsProps> = React.ComponentType<
 
 export type ProFormItemCreateConfig = {
   valueType?: ProFieldValueType;
-};
+  customLightMode?: boolean;
+} & FormItemProps;
 
 export function createField<P extends ProFormItemProps = any>(
   Field: React.ComponentType<P> | React.ForwardRefExoticComponent<P>,
@@ -47,7 +49,7 @@ export function createField<P extends ProFormItemProps = any>(
 ): ProFormComponent<P, ExtendsProps> {
   const FieldWithContext: React.FC<P> = (props: P & ExtendsProps) => {
     const { label, tip, placeholder, proFieldProps, ...rest } = props;
-    const { valueType } = config || {};
+    const { valueType, customLightMode, valuePropName, ...restDefaultFormItemProps } = config || {};
     /**
      * 从 context 中拿到的值
      */
@@ -59,21 +61,26 @@ export function createField<P extends ProFormItemProps = any>(
     }, []);
     // @ts-ignore
     const restProps = Field.type === 'ProField' ? (rest as P) : (pickProProps(rest) as P);
+    const realFieldProps = pickProProps({
+      // 轻量筛选模式下默认不显示 FormItem 的 label，label 设置为 placeholder
+      placeholder: proFieldProps?.light ? placeholder || label : placeholder,
+      ...(fieldProps || {}),
+      ...(rest.fieldProps || {}),
+    });
 
-    return (
+    const field = (
       <Field
-        {...formItemProps}
         {...restProps}
-        fieldProps={pickProProps({
-          // 轻量筛选模式下默认不显示 FormItem 的 label，label 设置为 placeholder
-          placeholder: proFieldProps?.light ? placeholder || label : placeholder,
-          ...(fieldProps || {}),
-          ...(rest.fieldProps || {}),
-        })}
+        fieldProps={realFieldProps}
         // title 是用于提升读屏的能力的，没有参与逻辑
         title={label}
         // 是否以轻量模式显示
         proFieldProps={proFieldProps}
+      />
+    );
+
+    return (
+      <Form.Item
         // 全局的提供一个 tip 功能，可以减少代码量
         // 轻量模式下不通过 FormItem 显示 label
         label={
@@ -81,7 +88,21 @@ export function createField<P extends ProFormItemProps = any>(
             <LabelIconTip label={label} tip={tip} />
           ) : undefined
         }
-      />
+        valuePropName={valuePropName}
+        {...restDefaultFormItemProps}
+        {...formItemProps}
+        {...restProps}
+      >
+        <LightWrapper
+          {...realFieldProps}
+          light={proFieldProps?.light}
+          customLightMode={customLightMode}
+          label={label}
+          valuePropName={valuePropName}
+        >
+          {field}
+        </LightWrapper>
+      </Form.Item>
     );
   };
   return FieldWithContext as ProFormComponent<P, ExtendsProps>;

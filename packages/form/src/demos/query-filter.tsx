@@ -5,12 +5,13 @@ import {
   ProFormDatePicker,
   ProFormDateRangePicker,
   ProFormSelect,
+  ProFormDigit,
 } from '@ant-design/pro-form';
 
 export default () => {
   return (
     <QueryFilter onFinish={(values) => console.log(values)}>
-      <ProFormText name="name" label="应用名称" />
+      <ProFormText name="name" label="应用名称" rules={[{ required: true }]} />
       <ProFormText name="creater" label="创建人" />
       <ProFormSelect
         name="sex"

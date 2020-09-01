@@ -1,5 +1,5 @@
 import React from 'react';
-import { Rate, Form } from 'antd';
+import { Rate } from 'antd';
 import { RateProps } from 'antd/lib/rate';
 import { ProFormItemProps } from '../../interface';
 import { createField } from '../../BaseForm';
@@ -9,14 +9,10 @@ import { createField } from '../../BaseForm';
  * @param
  */
 const ProFormRate: React.ForwardRefRenderFunction<any, ProFormItemProps<RateProps>> = (
-  { fieldProps, proFieldProps, ...restProps },
+  { fieldProps },
   ref,
 ) => {
-  return (
-    <Form.Item {...restProps}>
-      <Rate {...fieldProps} ref={ref} />
-    </Form.Item>
-  );
+  return <Rate {...fieldProps} ref={ref} />;
 };
 
 export default createField<ProFormItemProps<RateProps>>(React.forwardRef(ProFormRate));

@@ -11,19 +11,17 @@ const valueType = 'text';
  * @param
  */
 const ProFormText: React.ForwardRefRenderFunction<any, ProFormItemProps<InputProps>> = (
-  { fieldProps, proFieldProps, ...restProps },
+  { fieldProps, proFieldProps },
   ref,
 ) => {
   return (
-    <Form.Item {...restProps}>
-      <ProField
-        mode="edit"
-        valueType={valueType}
-        fieldProps={fieldProps}
-        ref={ref}
-        {...proFieldProps}
-      />
-    </Form.Item>
+    <ProField
+      mode="edit"
+      valueType={valueType}
+      fieldProps={fieldProps}
+      ref={ref}
+      {...proFieldProps}
+    />
   );
 };
 

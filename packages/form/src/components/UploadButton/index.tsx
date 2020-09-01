@@ -18,37 +18,25 @@ export type ProFormDraggerProps = ProFormItemProps<UploadProps> & {
  * @param
  */
 const ProFormUploadButton: React.ForwardRefRenderFunction<any, ProFormDraggerProps> = (
-  {
-    fieldProps,
-    action,
-    accept,
-    listType,
-    proFieldProps,
-    title = '单击上传',
-    icon = <UploadOutlined />,
-    ...restProps
-  },
+  { fieldProps, action, accept, listType, title = '单击上传', icon = <UploadOutlined /> },
   ref,
 ) => (
-  <Form.Item
-    valuePropName="files"
-    {...restProps}
-    getValueFromEvent={(value: { fileList: UploadProps['fileList'] }) => value.fileList}
+  <Upload
+    action={action}
+    accept={accept}
+    ref={ref}
+    name="fileList"
+    listType={listType || 'picture'}
+    {...fieldProps}
   >
-    <Upload
-      action={action}
-      accept={accept}
-      ref={ref}
-      name="fileList"
-      listType={listType || 'picture'}
-      {...fieldProps}
-    >
-      <Button>
-        {icon}
-        {title}
-      </Button>
-    </Upload>
-  </Form.Item>
+    <Button>
+      {icon}
+      {title}
+    </Button>
+  </Upload>
 );
 
-export default createField<ProFormDraggerProps>(React.forwardRef(ProFormUploadButton));
+export default createField<ProFormDraggerProps>(React.forwardRef(ProFormUploadButton), {
+  valuePropName: 'files',
+  getValueFromEvent: (value: { fileList: UploadProps['fileList'] }) => value.fileList,
+});
