@@ -120,7 +120,7 @@ const StepForm: React.FC<StepFormProps> = ({ onFinish, step, ...restProps }) => 
               // 反转按钮，在正常模式下，按钮应该是主按钮在前
               render: (submitterProps) => {
                 const dom = getActionButton();
-                const { render } = propsSubmitter as SubmitterProps;
+                const { render } = (propsSubmitter as SubmitterProps) || {};
                 if (render) {
                   return render(submitterProps, dom);
                 }
