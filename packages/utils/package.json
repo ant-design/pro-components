@@ -34,6 +34,10 @@
     "lodash.isequal": "^4.5.0",
     "rc-util": "^5.0.6"
   },
+  "peerDependencies": {
+    "antd": "4.x",
+    "react": "^16.x"
+  },
   "publishConfig": {
     "access": "public"
   },
