@@ -38,6 +38,5 @@ const ProFormUploadDragger: React.ForwardRefRenderFunction<any, ProFormDraggerPr
 
 export default createField<ProFormDraggerProps>(ProFormUploadDragger, {
   valuePropName: 'fileList',
-  noStyle: true,
   getValueFromEvent: (value: { fileList: UploadProps['fileList'] }) => value.fileList,
 });

@@ -4,7 +4,12 @@ import { FormProps, FormInstance } from 'antd/lib/form/Form';
 import { FormItemProps } from 'antd/lib/form';
 import { TooltipProps } from 'antd/lib/tooltip';
 import { ConfigProviderWarp } from '@ant-design/pro-provider';
-import { LabelIconTip, pickProProps, conversionSubmitValue } from '@ant-design/pro-utils';
+import {
+  LabelIconTip,
+  pickProProps,
+  conversionSubmitValue,
+  pickProFormItemProps,
+} from '@ant-design/pro-utils';
 import { ProFieldValueType } from '@ant-design/pro-field';
 import FieldContext from '../FieldContext';
 import Submitter, { SubmitterProps } from '../components/Submitter';
@@ -49,7 +54,8 @@ export function createField<P extends ProFormItemProps = any>(
 ): ProFormComponent<P, ExtendsProps> {
   const FieldWithContext: React.FC<P> = (props: P & ExtendsProps) => {
     const { label, tip, placeholder, proFieldProps, ...rest } = props;
-    const { valueType, customLightMode, valuePropName, ...restDefaultFormItemProps } = config || {};
+    const { valueType, customLightMode, valuePropName = 'value', ...defaultFormItemProps } =
+      config || {};
     /**
      * 从 context 中拿到的值
      */
@@ -59,28 +65,28 @@ export function createField<P extends ProFormItemProps = any>(
         setFieldValueType(String(props.name), valueType);
       }
     }, []);
-    // @ts-ignore
-    const restProps = Field.type === 'ProField' ? (rest as P) : (pickProProps(rest) as P);
-    const realFieldProps = pickProProps({
+    // restFormItemProps is user props pass to Form.Item
+    const restFormItemProps = pickProFormItemProps(rest);
+    const realFieldProps = {
       // 轻量筛选模式下默认不显示 FormItem 的 label，label 设置为 placeholder
       placeholder: proFieldProps?.light ? placeholder || label : placeholder,
       ...(fieldProps || {}),
       ...(rest.fieldProps || {}),
-    });
+    };
 
     const field = (
       <Field
-        {...restProps}
+        {...(rest as P)} // ProXxx 上面的 props 透传给 Filed，可能包含 Field 自定义的 props，比如 ProFormSelect 的 request
         fieldProps={realFieldProps}
-        // title 是用于提升读屏的能力的，没有参与逻辑
-        title={label}
-        // 是否以轻量模式显示
         proFieldProps={proFieldProps}
       />
     );
 
     return (
       <Form.Item
+        // title 是用于提升读屏的能力的，没有参与逻辑
+        // @ts-expect-error
+        title={label}
         // 全局的提供一个 tip 功能，可以减少代码量
         // 轻量模式下不通过 FormItem 显示 label
         label={
@@ -89,9 +95,9 @@ export function createField<P extends ProFormItemProps = any>(
           ) : undefined
         }
         valuePropName={valuePropName}
-        {...restDefaultFormItemProps}
+        {...defaultFormItemProps}
         {...formItemProps}
-        {...restProps}
+        {...restFormItemProps}
       >
         <LightWrapper
           {...realFieldProps}

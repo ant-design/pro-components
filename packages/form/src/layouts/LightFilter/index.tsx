@@ -94,9 +94,8 @@ const LightFilterContainer: React.FC<{
                     {React.cloneElement(child, {
                       fieldProps: {
                         ...fieldProps,
-                        value: moreValues[name] || null,
+                        [child.props.valuePropName || 'value']: moreValues[name] || null,
                         onChange: (e: any) => {
-                          console.log('on change trigger');
                           setMoreValues({
                             ...moreValues,
                             [name]: e.target ? e.target.value : e,

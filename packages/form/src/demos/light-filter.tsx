@@ -38,7 +38,7 @@ export default () => {
       />
       <ProFormDigit name="count" label="数量" />
       <ProFormText name="name1" label="名称" />
-      <ProFormSwitch name="open" label="开关" />
+      <ProFormSwitch name="open" label="开关" secondary />
       <ProFormText name="name2" label="地址" secondary />
       <ProFormDatePicker name="name3" label="日期" />
     </LightFilter>

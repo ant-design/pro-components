@@ -9,7 +9,7 @@ import './index.less';
 export interface LightWrapperProps {
   label?: React.ReactNode;
   disabled?: boolean;
-  placeholder?: string;
+  placeholder?: React.ReactNode;
   size?: SizeType;
   onChange?: (value?: any) => void;
   style?: React.CSSProperties;
@@ -48,7 +48,9 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
               ...children.props,
               fieldProps: {
                 [valuePropName]: props[valuePropName],
+                // 这个 onChange 是 Form.Item 添加上的，要通过 fieldProps 透传给 ProField 调用
                 onChange,
+                // 优先使用 children.props.fieldProps，比如 LightFilter 中可能需要通过 fieldProps 覆盖 Form.Item 默认的 onChange
                 ...children.props.fieldProps,
               },
             })

@@ -250,7 +250,6 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
           ref={inputRef}
           allowClear
           {...rest}
-          placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
           options={options}
           {...fieldProps}
         />

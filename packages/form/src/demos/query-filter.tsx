@@ -5,7 +5,6 @@ import {
   ProFormDatePicker,
   ProFormDateRangePicker,
   ProFormSelect,
-  ProFormDigit,
 } from '@ant-design/pro-form';
 
 export default () => {

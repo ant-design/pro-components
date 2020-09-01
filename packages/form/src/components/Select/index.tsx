@@ -40,10 +40,6 @@ const ProFormSelect = React.forwardRef<any, ProFormSelectProps>(
   },
 );
 
-// 不这样写 valueEnum 和 request 会被 pick 掉
-// @ts-ignore
-ProFormSelect.type = 'ProField';
-
 export default createField<ProFormSelectProps>(ProFormSelect, {
   customLightMode: true,
 });

@@ -24,9 +24,6 @@ const ProFormDatePicker: React.FC<ProFormItemProps<DatePickerProps>> = ({
   );
 };
 
-// @ts-ignore
-ProFormDatePicker.type = 'ProField';
-
 export default createField<ProFormItemProps<DatePickerProps>>(ProFormDatePicker, {
   valueType,
   customLightMode: true,

@@ -12,7 +12,7 @@ export interface FieldLabelProps {
   onClear?: () => void;
   size?: SizeType;
   ellipsis?: boolean;
-  placeholder?: string;
+  placeholder?: React.ReactNode;
   expanded?: boolean;
   className?: string;
   style?: React.CSSProperties;
