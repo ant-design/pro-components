@@ -13,7 +13,6 @@ export interface StepFormProps<T = any> extends FormProps, CommonFormProps {
 
 const StepForm: React.FC<StepFormProps> = ({ onFinish, step, ...restProps }) => {
   const formRef = useRef<FormInstance | undefined>();
-  const genSubmitValueRef = useRef((values: any) => values);
   const context = useContext(StepsFormProvide);
   const [loading, setLoading] = useState(false);
   const next = (
@@ -22,23 +21,7 @@ const StepForm: React.FC<StepFormProps> = ({ onFinish, step, ...restProps }) => 
       type="primary"
       loading={loading}
       onClick={async () => {
-        try {
-          setLoading(true);
-          const data = await formRef.current?.validateFields();
-          if (onFinish) {
-            const success = await onFinish?.(genSubmitValueRef.current(data));
-            if (!success) {
-              return;
-            }
-          }
-          formRef.current?.submit();
-          context?.next();
-          return;
-        } catch (error) {
-          // eslint-disable-next-line no-console
-          console.error(error);
-        }
-        setLoading(false);
+        formRef.current?.submit();
       }}
     >
       下一步
@@ -58,23 +41,9 @@ const StepForm: React.FC<StepFormProps> = ({ onFinish, step, ...restProps }) => 
   const submit = (
     <Button
       key="submit"
+      type="primary"
       onClick={async () => {
-        try {
-          setLoading(true);
-          const data = await formRef.current?.validateFields();
-          if (onFinish) {
-            const success = await onFinish?.(genSubmitValueRef.current(data));
-            if (!success) {
-              return;
-            }
-          }
-          formRef.current?.submit();
-        } catch (error) {
-          // eslint-disable-next-line no-console
-          console.error(error);
-        } finally {
-          setLoading(false);
-        }
+        formRef.current?.submit();
       }}
     >
       提交
@@ -94,8 +63,28 @@ const StepForm: React.FC<StepFormProps> = ({ onFinish, step, ...restProps }) => 
 
   return (
     <BaseForm
-      genSubmitValueRef={genSubmitValueRef}
       formRef={formRef}
+      onFinish={async (values) => {
+        if (restProps.name) {
+          context?.onFormFinish(restProps.name, values);
+        }
+
+        if (onFinish) {
+          setLoading(true);
+          try {
+            const success = await onFinish?.(values);
+            if (success) {
+              context?.next();
+            }
+          } catch (error) {
+            // eslint-disable-next-line no-console
+            console.error(error);
+          }
+          setLoading(false);
+          return;
+        }
+        context?.next();
+      }}
       layout="vertical"
       submitter={{
         // 反转按钮，在正常模式下，按钮应该是主按钮在前

@@ -19,7 +19,9 @@ export interface StepsFormProps<T = Store> extends FormProviderProps {
 export const StepsFormProvide = React.createContext<
   | {
       unRegForm: (name: string) => void;
+      onFormFinish: (name: string, formData: any) => void;
       keyArray: string[];
+
       formMapRef: React.MutableRefObject<Map<string, StepFormProps>>;
       next: () => void;
       pre: () => void;
@@ -31,6 +33,7 @@ const StepsForm: React.FC<StepsFormProps> & {
   StepForm: typeof StepForm;
   useForm: typeof Form.useForm;
 } = (props) => {
+  const { current, onCurrentChange, onFinish, ...rest } = props;
   const formDataRef = useRef(new Map<string, Store>());
   const formMapRef = useRef(new Map<string, StepFormProps>());
   const [formArray, setFormArray] = useState<string[]>([]);
@@ -66,6 +69,30 @@ const StepsForm: React.FC<StepsFormProps> & {
   }, [Array.from(formMapRef.current.keys()).join(',')]);
 
   /**
+   * proForm处理了一下 from 的数据，在其中做了一些操作
+   * 如果使用 Provider 自带的，自带的数据处理就无法生效了
+   */
+  const onFormFinish = useCallback(
+    (name: string, formData: any) => {
+      formDataRef.current.set(name, formData);
+      // 如果是最后一步
+      if (step === formArray.length - 1) {
+        if (!props.onFinish) {
+          return;
+        }
+        const values = Array.from(formDataRef.current.values()).reduce((pre, cur) => {
+          return {
+            ...pre,
+            ...cur,
+          };
+        }, {});
+        props.onFinish(values);
+      }
+    },
+    [step],
+  );
+
+  /**
    * 每次children 发生改变的时候重新计算一下
    */
   useEffect(() => {
@@ -73,28 +100,7 @@ const StepsForm: React.FC<StepsFormProps> & {
   }, [props.children]);
 
   return (
-    <Form.Provider
-      onFormFinish={(name, form) => {
-        formDataRef.current.set(name, form.values);
-        if (props.onFormFinish) {
-          props.onFormFinish(name, form);
-        }
-
-        // 如果是最后一步
-        if (step === formArray.length - 1) {
-          if (!props.onFinish) {
-            return;
-          }
-          const values = Array.from(formDataRef.current.values()).reduce((pre, cur) => {
-            return {
-              ...pre,
-              ...cur,
-            };
-          }, {});
-          props.onFinish(values);
-        }
-      }}
-    >
+    <Form.Provider {...rest}>
       <Steps current={step}>
         {formArray.map((item) => {
           const itemProps = formMapRef.current.get(item);
@@ -108,6 +114,7 @@ const StepsForm: React.FC<StepsFormProps> & {
           pre: () => setStep(step - 1),
           formMapRef,
           unRegForm,
+          onFormFinish,
         }}
       >
         {toArray(props.children).map((item, index) => {
@@ -115,16 +122,23 @@ const StepsForm: React.FC<StepsFormProps> & {
           const name = itemProps.name || `${index}`;
           regForm(name, itemProps);
 
-          // 如果不是这一步，直接 false
-          if (step !== index) {
-            return null;
-          }
-          return React.cloneElement(item, {
-            ...itemProps,
-            name,
-            step: index,
-            key: name,
-          });
+          return (
+            <div
+              key={name}
+              style={{
+                // 如果不是这一步应该展示的表单，隐藏掉
+                // 用隐藏是为了方便做点动画
+                display: step !== index ? 'none' : undefined,
+              }}
+            >
+              {React.cloneElement(item, {
+                ...itemProps,
+                name,
+                step: index,
+                key: name,
+              })}
+            </div>
+          );
         })}
       </StepsFormProvide.Provider>
     </Form.Provider>

@@ -24,11 +24,6 @@ export interface BaseFormProps extends FormProps, CommonFormProps {
   formItemProps?: FormItemProps;
   groupProps?: GroupProps;
   formRef?: React.MutableRefObject<FormInstance | undefined>;
-  /**
-   * 给予一个在 form 外调用 格式化工具的能力
-   * 自动封装了 dateFormatter 和 fieldTypes
-   */
-  genSubmitValueRef?: React.MutableRefObject<((values: any) => any) | undefined>;
 }
 
 // 给控件扩展的通用的属性
@@ -59,7 +54,9 @@ export function createField<P extends ProFormItemProps = any>(
     const { fieldProps, formItemProps, setFieldValueType } = React.useContext(FieldContext);
     useEffect(() => {
       if (setFieldValueType && props.name) {
-        setFieldValueType(String(props.name), valueType);
+        // Field.type === 'ProField' 时 props 里面是有 valueType 的，所以要设置一下
+        // 写一个 ts 比较麻烦，用 any 顶一下
+        setFieldValueType(String(props.name), valueType || (rest as any).valueType || 'text');
       }
     }, []);
     // @ts-ignore
@@ -102,7 +99,6 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
     groupProps,
     dateFormatter = 'string',
     form: userForm,
-    genSubmitValueRef,
     formRef: propsFormRef,
     ...rest
   } = props;
@@ -116,9 +112,6 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
   const setFieldValueType = (name: string, type?: ProFieldValueType) => {
     fieldsValueType.current[name] = type || 'text';
   };
-  if (genSubmitValueRef && genSubmitValueRef.current) {
-    genSubmitValueRef.current = setFieldValueType;
-  }
 
   const genSubmitValue = (values: any): any =>
     conversionSubmitValue(values, dateFormatter, fieldsValueType.current);
