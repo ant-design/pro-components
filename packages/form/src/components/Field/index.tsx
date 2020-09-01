@@ -22,23 +22,33 @@ export type ProFormFieldProps = ProSchema<
  * @param
  */
 const ProFormField = React.forwardRef<any, ProFormFieldProps>(
-  ({ fieldProps, children, proFieldProps, valueType }, ref) => (
-    <>
-      {children || (
-        <ProField
-          text={fieldProps?.value as string}
-          mode="edit"
-          valueType={(valueType as 'text') || 'text'}
-          fieldProps={fieldProps}
-          {...proFieldProps}
-          ref={ref}
-        />
-      )}
-    </>
-  ),
+  ({
+    fieldProps,
+    children,
+    labelCol,
+    label,
+    isDefaultDom,
+    render,
+    proFieldProps,
+    renderFormItem,
+    valueType,
+    initialValue,
+    ...restProps
+  }, ref) => (
+      <>
+        {children || (
+          <ProField
+            text={fieldProps?.value as string}
+            mode="edit"
+            valueType={(valueType as 'text') || 'text'}
+            fieldProps={fieldProps}
+            {...proFieldProps}
+            {...restProps}
+            ref={ref}
+          />
+        )}
+      </>
+    ),
 );
-
-// @ts-ignore
-ProFormField.type = 'ProField';
 
 export default createField<ProFormFieldProps>(ProFormField);
