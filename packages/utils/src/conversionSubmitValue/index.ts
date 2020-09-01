@@ -63,7 +63,7 @@ const conversionSubmitValue = <T = any>(
   Object.keys(value).forEach((key) => {
     const valueType = valueTypeMap[key] || 'text';
     const itemValue = value[key];
-    if (itemValue === undefined) {
+    if (itemValue === undefined  || itemValue === null ) {
       return;
     }
     // 都没命中，原样返回
