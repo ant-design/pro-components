@@ -50,7 +50,7 @@ const getSpanConfig = (
   if (span && typeof span === 'number') {
     return {
       span,
-      layout: BREAKPOINTS[layout || 'default'] || BREAKPOINTS.default,
+      layout,
     };
   }
   const spanConfig = span
