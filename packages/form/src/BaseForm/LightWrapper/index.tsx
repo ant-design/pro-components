@@ -18,6 +18,7 @@ export interface LightWrapperProps {
   valuePropName?: string;
   customLightMode?: boolean;
   light?: boolean;
+  id?: string;
 }
 
 const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (props, ref) => {
@@ -33,6 +34,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
     light,
     customLightMode,
     placeholder,
+    id,
   } = props;
   const { getPrefixCls } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('pro-field-light-wrapper');
@@ -47,6 +49,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
               ref,
               ...children.props,
               fieldProps: {
+                id,
                 [valuePropName]: props[valuePropName],
                 // 这个 onChange 是 Form.Item 添加上的，要通过 fieldProps 透传给 ProField 调用
                 onChange,
@@ -103,6 +106,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
               fieldProps: {
                 className: `${prefixCls}-field`,
                 [valuePropName]: tempValue,
+                id,
                 onChange: (e: any) => {
                   setTempValue(e?.target ? e.target.value : e);
                 },

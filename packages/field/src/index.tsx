@@ -313,7 +313,7 @@ const defaultRenderText = (
 
 export { defaultRenderText };
 
-const Field: React.ForwardRefRenderFunction<
+const ProField: React.ForwardRefRenderFunction<
   any,
   {
     text?: ProFieldTextType;
@@ -358,4 +358,4 @@ export {
   proFieldParsingValueEnumToArray,
 };
 
-export default React.forwardRef(Field) as typeof Field;
+export default React.forwardRef(ProField) as typeof ProField;
