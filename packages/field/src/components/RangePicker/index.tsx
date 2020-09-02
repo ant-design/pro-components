@@ -4,6 +4,7 @@ import moment from 'moment';
 import { ConfigContext } from 'antd/lib/config-provider';
 import { FieldLabel } from '@ant-design/pro-utils';
 import { useIntl } from '@ant-design/pro-provider';
+import SizeContext from 'antd/lib/config-provider/SizeContext';
 
 import { ProFieldFC } from '../../index';
 
@@ -34,6 +35,7 @@ const FieldRangePicker: ProFieldFC<{
   ref,
 ) => {
   const intl = useIntl();
+  const size = useContext(SizeContext);
   const { getPrefixCls } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('pro-field-date-picker');
   const [startText, endText] = Array.isArray(text) ? text : [];
@@ -103,7 +105,7 @@ const FieldRangePicker: ProFieldFC<{
             label={label}
             disabled={disabled}
             placeholder={placeholder}
-            size="middle" // TODO support size
+            size={size}
             value={valueStr}
             onClear={() => {
               onChange(null);

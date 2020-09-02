@@ -1,4 +1,4 @@
-import React, { ReactElement, useRef, useEffect } from 'react';
+import React, { ReactElement, useRef, useEffect, useContext } from 'react';
 import { Form } from 'antd';
 import { FormProps, FormInstance } from 'antd/lib/form/Form';
 import { FormItemProps } from 'antd/lib/form';
@@ -6,6 +6,7 @@ import { TooltipProps } from 'antd/lib/tooltip';
 import { ConfigProviderWarp } from '@ant-design/pro-provider';
 import { LabelIconTip, conversionSubmitValue, pickProFormItemProps } from '@ant-design/pro-utils';
 import { ProFieldValueType } from '@ant-design/pro-field';
+import SizeContext from 'antd/lib/config-provider/SizeContext';
 import FieldContext from '../FieldContext';
 import Submitter, { SubmitterProps } from '../components/Submitter';
 import LightWrapper from './LightWrapper';
@@ -48,6 +49,7 @@ export function createField<P extends ProFormItemProps = any>(
   config?: ProFormItemCreateConfig,
 ): ProFormComponent<P, ExtendsProps> {
   const FieldWithContext: React.FC<P> = (props: P & ExtendsProps) => {
+    const size = useContext(SizeContext);
     const { label, tip, placeholder, proFieldProps, ...rest } = props;
     const { valueType, customLightMode, valuePropName = 'value', ...defaultFormItemProps } =
       config || {};
@@ -96,6 +98,7 @@ export function createField<P extends ProFormItemProps = any>(
       >
         <LightWrapper
           {...realFieldProps}
+          size={size}
           light={proFieldProps?.light}
           customLightMode={customLightMode}
           label={label}
@@ -151,29 +154,33 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
           setFieldValueType,
         }}
       >
-        <Form
-          form={userForm || form}
-          {...rest}
-          onFinish={(values) => {
-            if (rest.onFinish) {
-              rest.onFinish(conversionSubmitValue(values, dateFormatter, fieldsValueType.current));
-            }
-          }}
-        >
-          <Form.Item noStyle shouldUpdate>
-            {(formInstance) => {
-              // 不 setTimeout 一下拿到的是比较旧的
-              setTimeout(() => {
-                // 支持 fromRef，这里 ref 里面可以随时拿到最新的值
-                if (propsFormRef) {
-                  propsFormRef.current = formInstance as FormInstance;
-                }
-                formRef.current = formInstance as FormInstance;
-              }, 0);
+        <SizeContext.Provider value={rest.size}>
+          <Form
+            form={userForm || form}
+            {...rest}
+            onFinish={(values) => {
+              if (rest.onFinish) {
+                rest.onFinish(
+                  conversionSubmitValue(values, dateFormatter, fieldsValueType.current),
+                );
+              }
             }}
-          </Form.Item>
-          {content}
-        </Form>
+          >
+            <Form.Item noStyle shouldUpdate>
+              {(formInstance) => {
+                // 不 setTimeout 一下拿到的是比较旧的
+                setTimeout(() => {
+                  // 支持 fromRef，这里 ref 里面可以随时拿到最新的值
+                  if (propsFormRef) {
+                    propsFormRef.current = formInstance as FormInstance;
+                  }
+                  formRef.current = formInstance as FormInstance;
+                }, 0);
+              }}
+            </Form.Item>
+            {content}
+          </Form>
+        </SizeContext.Provider>
       </FieldContext.Provider>
     </ConfigProviderWarp>
   );
