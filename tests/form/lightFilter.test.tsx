@@ -1,6 +1,12 @@
 import { mount } from 'enzyme';
 import React from 'react';
-import { LightFilter, ProFormText, ProFormDatePicker, ProFormSelect } from '@ant-design/pro-form';
+import {
+  LightFilter,
+  ProFormText,
+  ProFormDatePicker,
+  ProFormSelect,
+  ProFormDateRangePicker,
+} from '@ant-design/pro-form';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { waitTime } from '../util';
 
@@ -195,6 +201,42 @@ describe('LightFilter', () => {
     // press Backspace
     wrapper.find('.ant-input').simulate('keyDown', { which: KeyCode.BACKSPACE });
     expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('名称: 杰克2,TechUI');
+
+    wrapper.unmount();
+  });
+
+  it('DateRangePicker', async () => {
+    const onFinish = jest.fn();
+    const wrapper = mount(
+      <LightFilter onFinish={onFinish}>
+        <ProFormDateRangePicker name="date" label="日期范围" />
+      </LightFilter>,
+    );
+
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('日期范围');
+    wrapper.find('.ant-pro-core-field-label').simulate('click');
+    wrapper.find('.ant-picker-cell-inner').at(2).simulate('click');
+    wrapper.find('.ant-picker-cell-inner').at(12).simulate('click');
+
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual(
+      '日期范围: 2016-11-01 ~ 2016-11-11',
+    );
+
+    await waitTime();
+    expect(onFinish).toHaveBeenCalledWith({ date: ['2016-11-01', '2016-11-11'] });
+
+    // close
+    wrapper.find('.ant-pro-core-field-label .anticon-close').simulate('click');
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('日期范围');
+
+    // 测试第二次再打开的情况
+    wrapper.find('.ant-pro-core-field-label').simulate('click');
+    wrapper.find('.ant-picker-cell-inner').at(2).simulate('click');
+    wrapper.find('.ant-picker-cell-inner').at(12).simulate('click');
+
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual(
+      '日期范围: 2016-11-01 ~ 2016-11-11',
+    );
 
     wrapper.unmount();
   });
