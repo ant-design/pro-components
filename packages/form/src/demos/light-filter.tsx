@@ -3,6 +3,7 @@ import {
   LightFilter,
   ProFormText,
   ProFormDatePicker,
+  ProFormDateRangePicker,
   ProFormSelect,
   ProFormDigit,
   ProFormSwitch,
@@ -41,6 +42,7 @@ export default () => {
       <ProFormSwitch name="open" label="开关" secondary />
       <ProFormText name="name2" label="地址" secondary />
       <ProFormDatePicker name="name3" label="日期" />
+      <ProFormDateRangePicker name="range" label="日期范围" />
     </LightFilter>
   );
 };

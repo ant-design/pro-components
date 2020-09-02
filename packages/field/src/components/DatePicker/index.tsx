@@ -45,7 +45,6 @@ const FieldDatePicker: ProFieldFC<{
   if (mode === 'edit' || mode === 'update') {
     let dom;
     const {
-      style,
       disabled,
       value,
       onChange,
@@ -57,7 +56,6 @@ const FieldDatePicker: ProFieldFC<{
       const valueStr: string = (momentValue && momentValue.format(format)) || '';
       dom = (
         <div
-          style={style}
           className={`${prefixCls}-light`}
           onClick={() => {
             setOpen(true);
