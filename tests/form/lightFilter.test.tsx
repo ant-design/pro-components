@@ -240,4 +240,44 @@ describe('LightFilter', () => {
 
     wrapper.unmount();
   });
+
+  it('collapse mode', async () => {
+    const onChange = jest.fn();
+    const wrapper = mount(
+      <LightFilter
+        onValuesChange={(values) => {
+          onChange(values.name);
+        }}
+        collapse
+        collapseLabel={<div className="collapselabel">open</div>}
+        initialValues={{
+          name: ['ant'],
+        }}
+      >
+        <ProFormSelect
+          label="名称"
+          name="name"
+          mode="multiple"
+          valueEnum={{
+            Bigfish: '大鱼',
+            ant: '蚂蚁',
+            TechUI: 'TechUI',
+            long: '这个是一个特别长特别长的选项，选择之后会截断',
+          }}
+        />
+        <ProFormDateRangePicker label="时间范围" name="range2" />
+      </LightFilter>,
+    );
+
+    wrapper.find('.collapselabel').simulate('click');
+    expect(wrapper.find('.ant-select-selection-item').text()).toEqual('蚂蚁');
+
+    // clear
+    wrapper.find('.ant-btn-link').simulate('click');
+    wrapper.find('.ant-btn-primary').simulate('click');
+
+    expect(onChange).toHaveBeenCalledWith(undefined);
+
+    wrapper.unmount();
+  });
 });
