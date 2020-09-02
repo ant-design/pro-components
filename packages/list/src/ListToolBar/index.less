@@ -1,0 +1,98 @@
+@import '~antd/es/style/themes/default.less';
+
+@pro-list-toolbar: ~'@{ant-prefix}-pro-listtoolbar';
+
+@pro-list-toolbar-line-height: 64px;
+@pro-list-toolbar-extra-line-height: 45px;
+
+.@{pro-list-toolbar} {
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  &-container {
+    display: flex;
+    justify-content: space-between;
+    height: @pro-list-toolbar-line-height;
+    padding: 0 @padding-lg;
+    line-height: @pro-list-toolbar-line-height;
+  }
+  &-title {
+    margin-right: @margin-xs;
+  }
+  &-default-title {
+    color: @heading-color;
+    font-size: @font-size-lg;
+    font-family: PingFangSC-Medium;
+    white-space: nowrap;
+  }
+  &-subtitle {
+    margin-right: @margin-xs;
+    white-space: nowrap;
+  }
+  &-default-subtitle {
+    color: @text-color-secondary;
+  }
+  &-search:not(:last-child) {
+    margin-right: @margin-md;
+  }
+  &-action-item {
+    margin-left: @margin-xs;
+  }
+  &-setting-item {
+    margin-left: @margin-md;
+  }
+  &-divider {
+    margin-right: -@margin-xs;
+    margin-left: @margin-xs;
+    .@{ant-prefix}-divider-vertical {
+      height: @pro-list-toolbar-line-height / 2;
+    }
+  }
+  &-left {
+    display: flex;
+    justify-content: flex-start;
+  }
+  &-right {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &-extra-line {
+    height: @pro-list-toolbar-extra-line-height;
+    padding: 0 @padding-lg;
+    line-height: @pro-list-toolbar-extra-line-height;
+
+    .@{pro-list-toolbar}-filter {
+      float: right;
+      height: @pro-list-toolbar-extra-line-height;
+    }
+  }
+
+  &-filter {
+    margin-left: @margin-xs;
+    &:not(:last-child) {
+      margin-right: @margin-md;
+    }
+  }
+
+  &-inlinemenu-item {
+    display: inline-block;
+    margin-right: @margin-lg;
+    cursor: pointer;
+    opacity: 0.75;
+
+    &-active {
+      font-weight: bold;
+      opacity: 1;
+    }
+  }
+  &-dropdownmenu-label {
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .@{ant-prefix}-tabs-bar {
+    margin-bottom: 0;
+    border-bottom: none;
+  }
+}

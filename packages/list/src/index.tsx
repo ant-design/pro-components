@@ -5,6 +5,7 @@ import { noteOnce } from 'rc-util/lib/warning';
 import { TableRowSelection, GetRowKey, ExpandableConfig } from 'antd/lib/table/interface';
 import { ListProps } from 'antd/lib/list';
 import ToolBar, { ToolBarProps } from './toolBar';
+import ListToolBar from './ListToolBar';
 import useSelection from './hooks/useSelection';
 import useLazyKVMap, { findAllChildrenKeys } from './hooks/useLazyKVMap';
 import usePagination from './hooks/usePagination';
@@ -273,5 +274,7 @@ function ProList<RecordType = any>(props: ProListProps<RecordType>) {
     </div>
   );
 }
+
+export { ListToolBar };
 
 export default ProList;
