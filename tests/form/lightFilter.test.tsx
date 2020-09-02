@@ -7,6 +7,7 @@ import {
   ProFormSelect,
   ProFormDateRangePicker,
   ProFormDateTimePicker,
+  ProFormTimePicker,
 } from '@ant-design/pro-form';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { waitTime } from '../util';
@@ -261,6 +262,25 @@ describe('LightFilter', () => {
 
     await waitTime();
     expect(onFinish).toHaveBeenCalledWith({ datetime: '2016-11-04 07:22:44' });
+    wrapper.unmount();
+  });
+
+  it('TimePicker', async () => {
+    const onFinish = jest.fn();
+    const wrapper = mount(
+      <LightFilter onFinish={onFinish}>
+        <ProFormTimePicker name="time" label="时间" />
+      </LightFilter>,
+    );
+
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('时间');
+    wrapper.find('.ant-pro-core-field-label').simulate('click');
+    wrapper.find('.ant-picker-now-btn').simulate('click');
+
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('时间: 07:22:44');
+
+    await waitTime();
+    expect(onFinish).toHaveBeenCalledWith({ time: '07:22:44' });
     wrapper.unmount();
   });
 

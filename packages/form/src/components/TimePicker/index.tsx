@@ -5,6 +5,7 @@ import { DatePickerProps } from 'antd/lib/date-picker';
 import { ProFormItemProps } from '../../interface';
 import { createField } from '../../BaseForm';
 
+const valueType = 'time';
 /**
  * 时间选择组件
  * @param
@@ -18,7 +19,7 @@ const ProFormTimePicker: React.FC<ProFormItemProps<DatePickerProps>> = ({
       text={fieldProps?.value || ''}
       mode="edit"
       fieldProps={fieldProps}
-      valueType="time"
+      valueType={valueType}
       {...proFieldProps}
     />
   );
@@ -26,4 +27,5 @@ const ProFormTimePicker: React.FC<ProFormItemProps<DatePickerProps>> = ({
 
 export default createField<ProFormItemProps<DatePickerProps>>(ProFormTimePicker, {
   customLightMode: true,
+  valueType,
 });
