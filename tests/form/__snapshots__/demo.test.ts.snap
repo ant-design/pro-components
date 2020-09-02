@@ -2061,7 +2061,7 @@ exports[`form demos renders ./packages/form/src/demos/components-test.tsx correc
 >
   <div
     class="ant-row ant-form-item"
-    title="点击上传"
+    title="Upload"
   >
     <div
       class="ant-col ant-form-item-label"
@@ -2145,7 +2145,7 @@ exports[`form demos renders ./packages/form/src/demos/components-test.tsx correc
   </div>
   <div
     class="ant-row ant-form-item"
-    title="拖动上传"
+    title="Dragger"
   >
     <div
       class="ant-col ant-form-item-label"
