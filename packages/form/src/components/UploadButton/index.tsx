@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Upload, Button } from 'antd';
+import { Upload, Button } from 'antd';
 import { UploadProps } from 'antd/lib/upload';
 import { UploadOutlined } from '@ant-design/icons';
 import { ProFormItemProps } from '../../interface';

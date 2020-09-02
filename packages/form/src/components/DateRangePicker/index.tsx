@@ -1,6 +1,5 @@
 import React from 'react';
 import ProField from '@ant-design/pro-field';
-import { Form } from 'antd';
 import { DatePickerProps } from 'antd/lib/date-picker';
 import { ProFormItemProps } from '../../interface';
 import { createField } from '../../BaseForm';

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Form } from 'antd';
 import { InputProps } from 'antd/lib/input';
 import ProField from '@ant-design/pro-field';
 import { ProFormItemProps } from '../../interface';
