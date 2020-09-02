@@ -24,4 +24,6 @@ const ProFormTimePicker: React.FC<ProFormItemProps<DatePickerProps>> = ({
   );
 };
 
-export default createField<ProFormItemProps<DatePickerProps>>(ProFormTimePicker);
+export default createField<ProFormItemProps<DatePickerProps>>(ProFormTimePicker, {
+  customLightMode: true,
+});

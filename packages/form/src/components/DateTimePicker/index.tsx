@@ -19,7 +19,7 @@ const ProFormDateTimePicker: React.FC<ProFormItemProps<DatePickerProps>> = ({
     <ProField
       text={fieldProps?.value}
       mode="edit"
-      formItemProps={fieldProps}
+      fieldProps={fieldProps}
       valueType={valueType}
       {...proFieldProps}
     />
@@ -28,4 +28,5 @@ const ProFormDateTimePicker: React.FC<ProFormItemProps<DatePickerProps>> = ({
 
 export default createField<ProFormItemProps<DatePickerProps>>(ProFormDateTimePicker, {
   valueType,
+  customLightMode: true,
 });

@@ -7,6 +7,7 @@ import {
   ProFormDigit,
   ProFormSwitch,
   ProFormDateRangePicker,
+  ProFormDateTimePicker,
 } from '@ant-design/pro-form';
 import { Radio } from 'antd';
 import { SizeType } from 'antd/lib/config-provider/SizeContext';
@@ -59,6 +60,7 @@ export default () => {
         <ProFormText name="name2" label="地址" secondary />
         <ProFormDatePicker name="name3" label="日期" />
         <ProFormDateRangePicker name="date" label="日期范围" />
+        <ProFormDateTimePicker name="time" label="日期时间" />
       </LightFilter>
     </div>
   );

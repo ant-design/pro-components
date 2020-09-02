@@ -65,9 +65,14 @@ const FieldDatePicker: ProFieldFC<{
         >
           <DatePicker
             {...fieldProps}
+            showTime={showTime}
+            format={format}
+            ref={ref}
             value={momentValue}
             onChange={(v) => {
-              onChange(v);
+              if (onChange) {
+                onChange(v);
+              }
               setTimeout(() => {
                 setOpen(false);
               }, 0);
@@ -82,7 +87,9 @@ const FieldDatePicker: ProFieldFC<{
             size={size}
             value={valueStr}
             onClear={() => {
-              onChange(null);
+              if (onChange) {
+                onChange(null);
+              }
             }}
             expanded={open}
           />
@@ -91,12 +98,12 @@ const FieldDatePicker: ProFieldFC<{
     } else {
       dom = (
         <DatePicker
+          {...fieldProps}
           showTime={showTime}
           format={format}
           placeholder={placeholder}
           ref={ref}
           bordered={plain === undefined ? true : !plain}
-          {...fieldProps}
           value={momentValue}
         />
       );
