@@ -1,8 +1,17 @@
 import React from 'react';
-import { Button, Table, Tag, Divider } from 'antd';
+import { Button, Tag, Divider } from 'antd';
+import ProTable, { ProColumns } from '@ant-design/pro-table';
 import { ListToolBar } from '@ant-design/pro-list';
 
-const columns = [
+interface ColumnItem {
+  key: string;
+  name: string;
+  age: number;
+  address: string;
+  tags: string[];
+}
+
+const columns: ProColumns<ColumnItem>[] = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -23,9 +32,9 @@ const columns = [
     title: 'Tags',
     key: 'tags',
     dataIndex: 'tags',
-    render: (tags) => (
+    render: (_, record) => (
       <span>
-        {tags.map((tag) => {
+        {record.tags.map((tag) => {
           let color = tag.length > 5 ? 'geekblue' : 'green';
           if (tag === 'loser') {
             color = 'volcano';
@@ -89,9 +98,11 @@ export default () => (
       }}
       actions={[<Button type="primary">批量导入</Button>]}
     />
-    <Table
+    <ProTable
       rowSelection={{ onChange: () => {} }}
       columns={columns}
+      options={false}
+      search={false}
       dataSource={data}
       pagination={false}
     />
