@@ -8431,308 +8431,323 @@ exports[`list demos renders ./packages/list/src/demos/table.tsx correctly 1`] = 
     </div>
   </div>
   <div
-    class="ant-table-wrapper"
+    class="ant-pro-table"
+    id="ant-design-pro-table"
   >
     <div
-      class="ant-spin-nested-loading"
+      class="ant-card"
+      style="height: 100%;"
     >
       <div
-        class="ant-spin-container"
+        class="ant-card-body"
+        style="padding: 0px;"
       >
         <div
-          class="ant-table"
+          class="ant-table-wrapper"
         >
           <div
-            class="ant-table-container"
+            class="ant-spin-nested-loading"
           >
             <div
-              class="ant-table-content"
+              class="ant-spin-container"
             >
-              <table
-                style="table-layout: auto;"
+              <div
+                class="ant-table ant-table-middle"
               >
-                <colgroup>
-                  <col
-                    class="ant-table-selection-col"
-                  />
-                </colgroup>
-                <thead
-                  class="ant-table-thead"
+                <div
+                  class="ant-table-container"
                 >
-                  <tr>
-                    <th
-                      class="ant-table-cell ant-table-selection-column"
+                  <div
+                    class="ant-table-content"
+                  >
+                    <table
+                      style="table-layout: auto;"
                     >
-                      <div
-                        class="ant-table-selection"
+                      <colgroup>
+                        <col
+                          class="ant-table-selection-col"
+                        />
+                      </colgroup>
+                      <thead
+                        class="ant-table-thead"
                       >
-                        <label
-                          class="ant-checkbox-wrapper"
-                        >
-                          <span
-                            class="ant-checkbox"
+                        <tr>
+                          <th
+                            class="ant-table-cell ant-table-selection-column"
                           >
-                            <input
-                              class="ant-checkbox-input"
-                              type="checkbox"
-                              value=""
-                            />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
-                          </span>
-                        </label>
-                      </div>
-                    </th>
-                    <th
-                      class="ant-table-cell"
-                    >
-                      Name
-                    </th>
-                    <th
-                      class="ant-table-cell"
-                    >
-                      Age
-                    </th>
-                    <th
-                      class="ant-table-cell"
-                    >
-                      Address
-                    </th>
-                    <th
-                      class="ant-table-cell"
-                    >
-                      Tags
-                    </th>
-                    <th
-                      class="ant-table-cell"
-                    >
-                      Action
-                    </th>
-                  </tr>
-                </thead>
-                <tbody
-                  class="ant-table-tbody"
-                >
-                  <tr
-                    class="ant-table-row ant-table-row-level-0"
-                    data-row-key="1"
-                  >
-                    <td
-                      class="ant-table-cell ant-table-selection-column"
-                    >
-                      <label
-                        class="ant-checkbox-wrapper"
+                            <div
+                              class="ant-table-selection"
+                            >
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                    value=""
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                            </div>
+                          </th>
+                          <th
+                            class="ant-table-cell"
+                          >
+                            Name
+                          </th>
+                          <th
+                            class="ant-table-cell"
+                          >
+                            Age
+                          </th>
+                          <th
+                            class="ant-table-cell"
+                          >
+                            Address
+                          </th>
+                          <th
+                            class="ant-table-cell"
+                          >
+                            Tags
+                          </th>
+                          <th
+                            class="ant-table-cell"
+                          >
+                            Action
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody
+                        class="ant-table-tbody"
                       >
-                        <span
-                          class="ant-checkbox"
+                        <tr
+                          class="ant-table-row ant-table-row-level-0"
+                          data-row-key="1"
                         >
-                          <input
-                            class="ant-checkbox-input"
-                            type="checkbox"
-                            value=""
-                          />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
-                        </span>
-                      </label>
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      <a>
-                        John Brown
-                      </a>
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      32
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      New York No. 1 Lake Park
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      <span>
-                        <span
-                          class="ant-tag ant-tag-green"
+                          <td
+                            class="ant-table-cell ant-table-selection-column"
+                          >
+                            <label
+                              class="ant-checkbox-wrapper"
+                            >
+                              <span
+                                class="ant-checkbox"
+                              >
+                                <input
+                                  class="ant-checkbox-input"
+                                  type="checkbox"
+                                  value=""
+                                />
+                                <span
+                                  class="ant-checkbox-inner"
+                                />
+                              </span>
+                            </label>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <a>
+                              John Brown
+                            </a>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            32
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            New York No. 1 Lake Park
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <span>
+                              <span
+                                class="ant-tag ant-tag-green"
+                              >
+                                NICE
+                              </span>
+                              <span
+                                class="ant-tag ant-tag-geekblue"
+                              >
+                                DEVELOPER
+                              </span>
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <span>
+                              <a>
+                                Invite John Brown
+                              </a>
+                              <div
+                                class="ant-divider ant-divider-vertical"
+                                role="separator"
+                              />
+                              <a>
+                                Delete
+                              </a>
+                            </span>
+                          </td>
+                        </tr>
+                        <tr
+                          class="ant-table-row ant-table-row-level-0"
+                          data-row-key="2"
                         >
-                          NICE
-                        </span>
-                        <span
-                          class="ant-tag ant-tag-geekblue"
+                          <td
+                            class="ant-table-cell ant-table-selection-column"
+                          >
+                            <label
+                              class="ant-checkbox-wrapper"
+                            >
+                              <span
+                                class="ant-checkbox"
+                              >
+                                <input
+                                  class="ant-checkbox-input"
+                                  type="checkbox"
+                                  value=""
+                                />
+                                <span
+                                  class="ant-checkbox-inner"
+                                />
+                              </span>
+                            </label>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <a>
+                              Jim Green
+                            </a>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            42
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            London No. 1 Lake Park
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <span>
+                              <span
+                                class="ant-tag ant-tag-volcano"
+                              >
+                                LOSER
+                              </span>
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <span>
+                              <a>
+                                Invite Jim Green
+                              </a>
+                              <div
+                                class="ant-divider ant-divider-vertical"
+                                role="separator"
+                              />
+                              <a>
+                                Delete
+                              </a>
+                            </span>
+                          </td>
+                        </tr>
+                        <tr
+                          class="ant-table-row ant-table-row-level-0"
+                          data-row-key="3"
                         >
-                          DEVELOPER
-                        </span>
-                      </span>
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      <span>
-                        <a>
-                          Invite John Brown
-                        </a>
-                        <div
-                          class="ant-divider ant-divider-vertical"
-                          role="separator"
-                        />
-                        <a>
-                          Delete
-                        </a>
-                      </span>
-                    </td>
-                  </tr>
-                  <tr
-                    class="ant-table-row ant-table-row-level-0"
-                    data-row-key="2"
-                  >
-                    <td
-                      class="ant-table-cell ant-table-selection-column"
-                    >
-                      <label
-                        class="ant-checkbox-wrapper"
-                      >
-                        <span
-                          class="ant-checkbox"
-                        >
-                          <input
-                            class="ant-checkbox-input"
-                            type="checkbox"
-                            value=""
-                          />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
-                        </span>
-                      </label>
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      <a>
-                        Jim Green
-                      </a>
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      42
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      London No. 1 Lake Park
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      <span>
-                        <span
-                          class="ant-tag ant-tag-volcano"
-                        >
-                          LOSER
-                        </span>
-                      </span>
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      <span>
-                        <a>
-                          Invite Jim Green
-                        </a>
-                        <div
-                          class="ant-divider ant-divider-vertical"
-                          role="separator"
-                        />
-                        <a>
-                          Delete
-                        </a>
-                      </span>
-                    </td>
-                  </tr>
-                  <tr
-                    class="ant-table-row ant-table-row-level-0"
-                    data-row-key="3"
-                  >
-                    <td
-                      class="ant-table-cell ant-table-selection-column"
-                    >
-                      <label
-                        class="ant-checkbox-wrapper"
-                      >
-                        <span
-                          class="ant-checkbox"
-                        >
-                          <input
-                            class="ant-checkbox-input"
-                            type="checkbox"
-                            value=""
-                          />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
-                        </span>
-                      </label>
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      <a>
-                        Joe Black
-                      </a>
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      32
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      Sidney No. 1 Lake Park
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      <span>
-                        <span
-                          class="ant-tag ant-tag-green"
-                        >
-                          COOL
-                        </span>
-                        <span
-                          class="ant-tag ant-tag-geekblue"
-                        >
-                          TEACHER
-                        </span>
-                      </span>
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      <span>
-                        <a>
-                          Invite Joe Black
-                        </a>
-                        <div
-                          class="ant-divider ant-divider-vertical"
-                          role="separator"
-                        />
-                        <a>
-                          Delete
-                        </a>
-                      </span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+                          <td
+                            class="ant-table-cell ant-table-selection-column"
+                          >
+                            <label
+                              class="ant-checkbox-wrapper"
+                            >
+                              <span
+                                class="ant-checkbox"
+                              >
+                                <input
+                                  class="ant-checkbox-input"
+                                  type="checkbox"
+                                  value=""
+                                />
+                                <span
+                                  class="ant-checkbox-inner"
+                                />
+                              </span>
+                            </label>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <a>
+                              Joe Black
+                            </a>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            32
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            Sidney No. 1 Lake Park
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <span>
+                              <span
+                                class="ant-tag ant-tag-green"
+                              >
+                                COOL
+                              </span>
+                              <span
+                                class="ant-tag ant-tag-geekblue"
+                              >
+                                TEACHER
+                              </span>
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <span>
+                              <a>
+                                Invite Joe Black
+                              </a>
+                              <div
+                                class="ant-divider ant-divider-vertical"
+                                role="separator"
+                              />
+                              <a>
+                                Delete
+                              </a>
+                            </span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
