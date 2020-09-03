@@ -7,12 +7,12 @@ import './index.less';
 
 export interface FieldLabelProps {
   label?: React.ReactNode;
-  value?: string | string[];
+  value?: any;
   disabled?: boolean;
   onClear?: () => void;
   size?: SizeType;
   ellipsis?: boolean;
-  placeholder?: string;
+  placeholder?: React.ReactNode;
   expanded?: boolean;
   className?: string;
   style?: React.CSSProperties;
@@ -39,7 +39,7 @@ const FieldLabel: React.FC<FieldLabelProps> = (props) => {
     aValue?: string | string[],
   ): React.ReactNode => {
     if (aValue && (!Array.isArray(aValue) || aValue.length)) {
-      const str = Array.isArray(aValue) ? aValue.join(',') : aValue;
+      const str = Array.isArray(aValue) ? aValue.join(',') : String(aValue);
       const prefix = aLabel ? (
         <>
           {aLabel}

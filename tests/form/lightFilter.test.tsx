@@ -1,6 +1,14 @@
 import { mount } from 'enzyme';
 import React from 'react';
-import { LightFilter, ProFormText, ProFormDatePicker, ProFormSelect } from '@ant-design/pro-form';
+import {
+  LightFilter,
+  ProFormText,
+  ProFormDatePicker,
+  ProFormSelect,
+  ProFormDateRangePicker,
+  ProFormDateTimePicker,
+  ProFormTimePicker,
+} from '@ant-design/pro-form';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { waitTime } from '../util';
 
@@ -195,6 +203,123 @@ describe('LightFilter', () => {
     // press Backspace
     wrapper.find('.ant-input').simulate('keyDown', { which: KeyCode.BACKSPACE });
     expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('名称: 杰克2,TechUI');
+
+    wrapper.unmount();
+  });
+
+  it('DateRangePicker', async () => {
+    const onFinish = jest.fn();
+    const wrapper = mount(
+      <LightFilter onFinish={onFinish}>
+        <ProFormDateRangePicker name="date" label="日期范围" />
+      </LightFilter>,
+    );
+
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('日期范围');
+    wrapper.find('.ant-pro-core-field-label').simulate('click');
+    wrapper.find('.ant-picker-cell-inner').at(2).simulate('click');
+    wrapper.find('.ant-picker-cell-inner').at(12).simulate('click');
+
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual(
+      '日期范围: 2016-11-01 ~ 2016-11-11',
+    );
+
+    await waitTime();
+    expect(onFinish).toHaveBeenCalledWith({ date: ['2016-11-01', '2016-11-11'] });
+
+    // close
+    wrapper.find('.ant-pro-core-field-label .anticon-close').simulate('click');
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('日期范围');
+
+    // 测试第二次再打开的情况
+    wrapper.find('.ant-pro-core-field-label').simulate('click');
+    wrapper.find('.ant-picker-cell-inner').at(2).simulate('click');
+    wrapper.find('.ant-picker-cell-inner').at(12).simulate('click');
+
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual(
+      '日期范围: 2016-11-01 ~ 2016-11-11',
+    );
+
+    wrapper.unmount();
+  });
+
+  it('DateTimePicker', async () => {
+    const onFinish = jest.fn();
+    const wrapper = mount(
+      <LightFilter onFinish={onFinish}>
+        <ProFormDateTimePicker name="datetime" label="日期时间" />
+      </LightFilter>,
+    );
+
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('日期时间');
+    wrapper.find('.ant-pro-core-field-label').simulate('click');
+    wrapper.find('.ant-picker-cell-inner').at(5).simulate('click');
+    wrapper.find('.ant-btn-primary').simulate('click');
+
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual(
+      '日期时间: 2016-11-04 07:22:44',
+    );
+
+    await waitTime();
+    expect(onFinish).toHaveBeenCalledWith({ datetime: '2016-11-04 07:22:44' });
+    wrapper.unmount();
+  });
+
+  it('TimePicker', async () => {
+    const onFinish = jest.fn();
+    const wrapper = mount(
+      <LightFilter onFinish={onFinish}>
+        <ProFormTimePicker name="time" label="时间" />
+      </LightFilter>,
+    );
+
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('时间');
+    wrapper.find('.ant-pro-core-field-label').simulate('click');
+    wrapper.find('.ant-picker-now-btn').simulate('click');
+
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('时间: 07:22:44');
+
+    await waitTime();
+    expect(onFinish).toHaveBeenCalledWith({ time: '07:22:44' });
+    wrapper.unmount();
+  });
+
+  it('collapse mode', async () => {
+    const onChange = jest.fn();
+    const wrapper = mount(
+      <LightFilter
+        onValuesChange={(values) => {
+          onChange(values.name);
+        }}
+        collapse
+        collapseLabel={<div className="collapselabel">open</div>}
+        initialValues={{
+          name: ['ant'],
+        }}
+      >
+        <ProFormSelect
+          label="名称"
+          name="name"
+          mode="multiple"
+          valueEnum={{
+            Bigfish: '大鱼',
+            ant: '蚂蚁',
+            TechUI: 'TechUI',
+            long: '这个是一个特别长特别长的选项，选择之后会截断',
+          }}
+        />
+        <ProFormDateRangePicker label="时间范围" name="range2" />
+      </LightFilter>,
+    );
+
+    wrapper.find('.collapselabel').simulate('click');
+    expect(wrapper.find('.ant-select-selection-item').text()).toEqual('蚂蚁');
+
+    // clear
+    wrapper.find('.ant-btn-link').simulate('click');
+    wrapper.find('.ant-btn-primary').simulate('click');
+
+    expect(onChange).toHaveBeenCalledWith(undefined);
 
     wrapper.unmount();
   });

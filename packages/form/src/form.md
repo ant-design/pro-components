@@ -40,6 +40,12 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 
 <code src="./demos/light-filter.tsx" />
 
+### 轻量筛选-折叠模式
+
+折叠模式下所有的选项都会默认折叠，不管是否有值，控件的 `secondary` 将不再有效。
+
+<code src="./demos/light-filter-collapse.tsx" />
+
 ### 混合使用
 
 <code src="./demos/components-other.tsx" />
@@ -326,6 +332,11 @@ QueryFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 | `≧ 513px && < 785px`  | 2                                |
 | `< 513px`             | 1                                |
 
-```
+### LightFilter
 
-```
+LightFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
+
+| 参数          | 说明                 | 类型        | 默认值                     |
+| ------------- | -------------------- | ----------- | -------------------------- |
+| collapse      | 是否默认折叠全部字段 | `boolean`   | `false`                    |
+| collapseLabel | 折叠区域的标签       | `ReactNode` | `更多筛选 <DownOutlined/>` |

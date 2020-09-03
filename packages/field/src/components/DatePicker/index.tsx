@@ -4,6 +4,7 @@ import moment from 'moment';
 import { useIntl } from '@ant-design/pro-provider';
 import { FieldLabel, parseValueToMoment } from '@ant-design/pro-utils';
 import { ConfigContext } from 'antd/lib/config-provider';
+import SizeContext from 'antd/lib/config-provider/SizeContext';
 import { ProFieldFC } from '../../index';
 import './index.less';
 
@@ -31,6 +32,7 @@ const FieldDatePicker: ProFieldFC<{
   ref,
 ) => {
   const intl = useIntl();
+  const size = useContext(SizeContext);
   const { getPrefixCls } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('pro-field-date-picker');
   const [open, setOpen] = useState<boolean>(false);
@@ -45,7 +47,6 @@ const FieldDatePicker: ProFieldFC<{
   if (mode === 'edit' || mode === 'update') {
     let dom;
     const {
-      style,
       disabled,
       value,
       onChange,
@@ -57,7 +58,6 @@ const FieldDatePicker: ProFieldFC<{
       const valueStr: string = (momentValue && momentValue.format(format)) || '';
       dom = (
         <div
-          style={style}
           className={`${prefixCls}-light`}
           onClick={() => {
             setOpen(true);
@@ -65,9 +65,14 @@ const FieldDatePicker: ProFieldFC<{
         >
           <DatePicker
             {...fieldProps}
+            showTime={showTime}
+            format={format}
+            ref={ref}
             value={momentValue}
             onChange={(v) => {
-              onChange(v);
+              if (onChange) {
+                onChange(v);
+              }
               setTimeout(() => {
                 setOpen(false);
               }, 0);
@@ -79,10 +84,12 @@ const FieldDatePicker: ProFieldFC<{
             label={label}
             disabled={disabled}
             placeholder={placeholder}
-            size="middle" // TODO support size
+            size={size}
             value={valueStr}
             onClear={() => {
-              onChange(null);
+              if (onChange) {
+                onChange(null);
+              }
             }}
             expanded={open}
           />
@@ -91,12 +98,12 @@ const FieldDatePicker: ProFieldFC<{
     } else {
       dom = (
         <DatePicker
+          {...fieldProps}
           showTime={showTime}
           format={format}
           placeholder={placeholder}
           ref={ref}
           bordered={plain === undefined ? true : !plain}
-          {...fieldProps}
           value={momentValue}
         />
       );

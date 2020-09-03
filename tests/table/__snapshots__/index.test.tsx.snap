@@ -808,6 +808,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                 >
                   <input
                     class="ant-input"
+                    id="name"
                     placeholder="请输入"
                     style="width: 100%;"
                     type="text"
@@ -845,6 +846,7 @@ exports[`BasicTable 🎏 base use 1`] = `
               >
                 <input
                   class="ant-input"
+                  id="name"
                   placeholder="请输入"
                   style="width: 100%;"
                   type="text"
@@ -885,7 +887,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                   name="sex"
                   style="width: 100%;"
                   text=""
-                  title="sex"
                 >
                   <div
                     class="ant-select-selector"
@@ -978,7 +979,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                   name="status"
                   style="width: 100%;"
                   text=""
-                  title="状态"
                 >
                   <div
                     class="ant-select-selector"
@@ -1067,6 +1067,7 @@ exports[`BasicTable 🎏 base use 1`] = `
               >
                 <input
                   class="ant-input"
+                  id="age"
                   placeholder="请输入"
                   style="width: 100%;"
                   type="text"
@@ -1103,6 +1104,7 @@ exports[`BasicTable 🎏 base use 1`] = `
               >
                 <input
                   class="ant-input"
+                  id="address"
                   placeholder="请输入"
                   style="width: 100%;"
                   type="text"
@@ -1140,7 +1142,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                 <div
                   class="ant-input-number"
                   style="width: 100%;"
-                  title="money"
                 >
                   <div
                     class="ant-input-number-handler-wrap"
@@ -1215,7 +1216,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                       placeholder="请输入"
                       role="spinbutton"
                       step="1"
-                      title="money"
                       value=""
                     />
                   </div>
@@ -1251,7 +1251,6 @@ exports[`BasicTable 🎏 base use 1`] = `
               >
                 <input
                   class="ant-input"
-                  id="date"
                   label="date"
                   type="text"
                   value=""
@@ -1294,6 +1293,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                   >
                     <input
                       autocomplete="off"
+                      id="date"
                       placeholder="请选择"
                       readonly=""
                       size="21"
@@ -1364,6 +1364,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                   >
                     <input
                       autocomplete="off"
+                      id="date"
                       placeholder="Select time"
                       readonly=""
                       size="10"
@@ -1430,6 +1431,7 @@ exports[`BasicTable 🎏 base use 1`] = `
               >
                 <input
                   class="ant-input"
+                  id="status"
                   placeholder="请输入"
                   style="width: 100%;"
                   type="text"

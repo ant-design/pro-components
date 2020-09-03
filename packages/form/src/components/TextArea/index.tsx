@@ -1,7 +1,6 @@
 import React from 'react';
 
 import ProField from '@ant-design/pro-field';
-import { Form } from 'antd';
 import { TextAreaProps } from 'antd/lib/input';
 import { ProFormItemProps } from '../../interface';
 import { createField } from '../../BaseForm';
@@ -11,20 +10,18 @@ import { createField } from '../../BaseForm';
  * @param
  */
 const ProFormTextArea: React.ForwardRefRenderFunction<any, ProFormItemProps<TextAreaProps>> = (
-  { fieldProps, proFieldProps, ...restProps },
+  { fieldProps, proFieldProps },
   ref,
 ) => {
   return (
-    <Form.Item {...restProps}>
-      <ProField
-        text={fieldProps?.value as string}
-        ref={ref}
-        mode="edit"
-        valueType="textarea"
-        fieldProps={fieldProps}
-        {...proFieldProps}
-      />
-    </Form.Item>
+    <ProField
+      text={fieldProps?.value as string}
+      ref={ref}
+      mode="edit"
+      valueType="textarea"
+      fieldProps={fieldProps}
+      {...proFieldProps}
+    />
   );
 };
 

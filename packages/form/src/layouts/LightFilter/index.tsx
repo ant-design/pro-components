@@ -82,7 +82,11 @@ const LightFilterContainer: React.FC<{
                   setOpen(false);
                 },
                 onClear: () => {
-                  setMoreValues({});
+                  const clearValues = {};
+                  Object.keys(moreValues).forEach((key) => {
+                    clearValues[key] = undefined;
+                  });
+                  setMoreValues(clearValues);
                 },
               }}
             >
@@ -94,11 +98,11 @@ const LightFilterContainer: React.FC<{
                     {React.cloneElement(child, {
                       fieldProps: {
                         ...fieldProps,
-                        value: moreValues[name] || null,
+                        [child.props.valuePropName || 'value']: moreValues[name],
                         onChange: (e: any) => {
                           setMoreValues({
                             ...moreValues,
-                            [name]: e.target ? e.target.value : e,
+                            [name]: e?.target ? e.target.value : e,
                           });
                           return false;
                         },
@@ -149,6 +153,10 @@ const LightFilter: React.FC<LightFilterProps> = (props) => {
           }}
         />
       )}
+      formItemProps={{
+        colon: false,
+        labelAlign: 'left',
+      }}
       {...props}
       onValuesChange={(_, allValues) => {
         setValues(allValues);

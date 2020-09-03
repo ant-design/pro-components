@@ -8,6 +8,7 @@ import isUrl from './isUrl';
 import pickProProps from './pickProProps';
 import pickUndefined from './pickUndefined';
 import pickUndefinedAndArray from './pickUndefinedAndArray';
+import pickProFormItemProps from './pickProFormItemProps';
 
 /**
  * hooks
@@ -48,6 +49,7 @@ export {
   isImg,
   pickUndefined,
   pickUndefinedAndArray,
+  pickProFormItemProps,
   isUrl,
   isBrowser,
   usePrevious,
