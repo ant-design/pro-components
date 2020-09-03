@@ -1,8 +1,6 @@
-import { ProColumnType } from '@ant-design/pro-table';
-
 const renameKeySubmitValue = <T = any>(
   values: T,
-  renameMap: { [key: string]: ProColumnType['renameKey'] },
+  renameMap: { [key: string]: string | [string] | [string, string] | undefined },
 ) => {
   const result = {} as T;
   Object.keys(values).forEach((key) => {

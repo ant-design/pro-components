@@ -88,6 +88,7 @@ export const formInputRender: React.FC<{
         {...rest}
         ref={ref}
         initialValue={item.initialValue}
+        // 优先设置key作为name
         name={item.key || item.dataIndex}
       >
         {React.cloneElement(dom, { ...rest, ...defaultProps })}
@@ -105,6 +106,7 @@ export const formInputRender: React.FC<{
       ref={ref}
       isDefaultDom
       valueEnum={item.valueEnum}
+      // 优先设置key作为name
       name={item.key || item.dataIndex}
       onChange={onChange}
       // @ts-ignore
