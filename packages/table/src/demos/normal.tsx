@@ -38,20 +38,19 @@ for (let i = 0; i < 100; i += 1) {
 const columns: ProColumns<TableListItem>[] = [
   {
     title: '应用名称',
-    width: 120,
+    width: 80,
     dataIndex: 'name',
     render: (_) => <a>{_}</a>,
   },
   {
     title: '容器数量',
-    width: 120,
     dataIndex: 'containers',
     align: 'right',
     sorter: (a, b) => a.containers - b.containers,
   },
   {
     title: '状态',
-    width: 120,
+    width: 80,
     dataIndex: 'status',
     initialValue: 'all',
     valueEnum: {
@@ -64,7 +63,7 @@ const columns: ProColumns<TableListItem>[] = [
   },
   {
     title: '创建者',
-    width: 120,
+    width: 80,
     dataIndex: 'creator',
     valueEnum: {
       all: { text: '全部' },

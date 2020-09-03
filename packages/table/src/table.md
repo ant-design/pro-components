@@ -39,7 +39,7 @@ render(
 
 ```
 
-## 示例
+## 代码示例
 
 这里将会提供一些常用的功能示例，方便大家直接拷贝。
 
@@ -71,7 +71,7 @@ render(
 
 <code src="./demos/form.tsx" background="#f5f5f5"/>
 
-### 使用 dataSource 和 loading
+### DataSource
 
 <code src="./demos/dataSource.tsx" background="#f5f5f5"/>
 
