@@ -1,6 +1,7 @@
 import React from 'react';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import { Tooltip, Input, Divider, Tabs } from 'antd';
+import { TabPaneProps } from 'antd/lib/tabs';
 import classNames from 'classnames';
 import { SearchProps } from 'antd/es/input';
 import getPrefixCls from '../util/getPrefixCls';
@@ -10,13 +11,19 @@ import './index.less';
 
 const { Search } = Input;
 
-interface ListToolBarSetting {
+export interface ListToolBarSetting {
   icon: React.ReactNode;
   tooltip?: string;
 }
 
-type TabPane = Parameters<typeof Tabs.TabPane>[0];
-interface ListToolBarTabs {
+/**
+ * antd 默认直接导出了 rc 组件中的 Tab.Pane 组件。
+ */
+type TabPane = TabPaneProps & {
+  key?: string;
+};
+
+export interface ListToolBarTabs {
   activeKey?: string;
   onChange?: (activeKey: string) => void;
   items?: TabPane[];
