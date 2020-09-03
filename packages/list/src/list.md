@@ -52,6 +52,10 @@ nav:
 
 <code src="./demos/headerRender.tsx" />
 
+### 分页器
+
+<code src="./demos/pagination.tsx" />
+
 ### 小菜单
 
 <code src="./demos/minMenu.tsx" />

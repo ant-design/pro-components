@@ -1,59 +1,64 @@
 import React from 'react';
-import { Button, Tag, Space } from 'antd';
-// @ts-ignore
-// eslint-disable-next-line import/no-extraneous-dependencies
-import ProList from '@ant-design/pro-list';
+import { Button, Badge, Statistic } from 'antd';
+import ProList, { ListToolBar } from '@ant-design/pro-list';
 
 const dataSource = ['语雀的天空', 'Ant Design', '蚂蚁金服体验科技', 'TechUI'];
-
-export default () => (
-  <>
+export default () => {
+  return (
     <ProList<string>
-      actions={[
-        <Button key="3" type="primary">
-          新建
-        </Button>,
-      ]}
-      rowKey="id"
-      title="基础列表"
-      headerRender={({ title }, defaultDom) => {
+      style={{
+        background: '#FFF',
+        marginBottom: 16,
+      }}
+      headerRender={() => {
+        const renderBadge = (count: number) => {
+          return (
+            <Badge
+              count={count}
+              style={{
+                marginTop: -4,
+                marginLeft: 4,
+                color: '#999',
+                backgroundColor: '#eee',
+              }}
+            />
+          );
+        };
         return (
-          <div>
-            {defaultDom}
-            <div style={{ padding: '8px 24px', display: 'flex', justifyContent: 'space-between' }}>
-              这是自定义的第二行: {title}
-              <Space>
-                <Button>Operation</Button>
-                <Button>Operation</Button>
-                <Button type="primary">下载</Button>
-              </Space>
-            </div>
-          </div>
+          <ListToolBar
+            menu={{
+              type: 'inline',
+              items: [
+                {
+                  label: <span>全部应用{renderBadge(101)}</span>,
+                  key: 'all',
+                },
+                {
+                  label: <span>我创建的应用{renderBadge(3)}</span>,
+                  key: 'todo',
+                },
+              ],
+            }}
+            search={{
+              placeholder: '搜索应用',
+            }}
+            actions={[<Button type="primary">新建应用</Button>]}
+          />
         );
       }}
-      showActions="hover"
+      rowKey="id"
       dataSource={dataSource}
       renderItem={(item) => ({
         title: item,
-        subTitle: (
-          <div>
-            <Tag color="blue">Ant Design</Tag>
-            <Tag
-              color="#5BD8A6"
-              style={{
-                marginRight: 8,
-              }}
-            >
-              TechUI
-            </Tag>
-          </div>
-        ),
-        actions: [<a>邀请</a>],
+        actions: [<a>编辑</a>, <a>复制</a>, <a>删除</a>],
         description:
           'Ant Design, a design language for background applications, is refined by Ant UED Team',
-        avatar:
-          'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+        children: (
+          <div style={{ textAlign: 'center' }}>
+            <Statistic title="模型数" value={2903} valueStyle={{ fontSize: 16 }} />
+          </div>
+        ),
       })}
     />
-  </>
-);
+  );
+};

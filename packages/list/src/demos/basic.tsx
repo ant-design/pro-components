@@ -1,5 +1,6 @@
 import React from 'react';
 import { ListToolBar } from '@ant-design/pro-list';
+import { SettingOutlined, FullscreenOutlined } from '@ant-design/icons';
 import { LightFilter, ProFormDatePicker } from '@ant-design/pro-form';
 import { Button } from 'antd';
 
@@ -24,7 +25,7 @@ export default () => (
         },
       }}
       filter={
-        <LightFilter>
+        <LightFilter style={{ marginTop: 16 }}>
           <ProFormDatePicker name="startdate" label="响应日期" />
         </LightFilter>
       }
@@ -40,11 +41,11 @@ export default () => (
       ]}
       settings={[
         {
-          icon: 'setting',
+          icon: <SettingOutlined />,
           tooltip: '设置',
         },
         {
-          icon: 'fullscreen',
+          icon: <FullscreenOutlined />,
           tooltip: '全屏',
         },
       ]}
