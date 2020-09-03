@@ -53,6 +53,7 @@ export default () => {
             beijing: '北京',
             shanghai: '上海',
             hangzhou: '杭州',
+            long: '这是一个很长的用来测试溢出的项目',
           }}
         />
         <ProFormDigit name="count" label="数量" />

@@ -3,6 +3,7 @@ import { DownOutlined, CloseOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import { SizeType } from 'antd/lib/config-provider/SizeContext';
 import { ConfigContext } from 'antd/lib/config-provider';
+import { useIntl } from '@ant-design/pro-provider';
 import './index.less';
 
 export interface FieldLabelProps {
@@ -23,7 +24,6 @@ const FieldLabel: React.FC<FieldLabelProps> = (props) => {
     label,
     onClear,
     value,
-    // TODO size support
     size = 'middle',
     disabled,
     ellipsis,
@@ -33,6 +33,7 @@ const FieldLabel: React.FC<FieldLabelProps> = (props) => {
   } = props;
   const { getPrefixCls } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('pro-core-field-label');
+  const intl = useIntl();
 
   const getTextByValue = (
     aLabel?: React.ReactNode | React.ReactNode[],
@@ -58,7 +59,11 @@ const FieldLabel: React.FC<FieldLabelProps> = (props) => {
       }
       const tail =
         str.length > 16
-          ? `...${Array.isArray(aValue) && aValue.length > 1 ? `${aValue.length}项` : ''}`
+          ? `...${
+              Array.isArray(aValue) && aValue.length > 1
+                ? `${aValue.length}${intl.getMessage('lightFilter.itemUnit', '项')}`
+                : ''
+            }`
           : '';
       return (
         <span title={str}>

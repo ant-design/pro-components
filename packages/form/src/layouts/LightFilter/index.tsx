@@ -5,6 +5,7 @@ import { SizeType } from 'antd/lib/config-provider/SizeContext';
 import classNames from 'classnames';
 import { Form } from 'antd';
 import { FieldDropdown, FieldLabel } from '@ant-design/pro-utils';
+import { useIntl } from '@ant-design/pro-provider';
 import BaseForm, { CommonFormProps } from '../../BaseForm';
 import './index.less';
 
@@ -22,8 +23,8 @@ const LightFilterContainer: React.FC<{
   collapse?: boolean;
   collapseLabel?: React.ReactNode;
 }> = (props) => {
-  // TODO 确认表单级别的 disabled 要不要支持
   const { items, prefixCls, size, collapse, collapseLabel, onValuesChange, values = {} } = props;
+  const intl = useIntl();
   const lightFilterClassName = `${prefixCls}-light-filter`;
   const outsideItems: React.ReactNode[] = [];
   const collapseItems: React.ReactNode[] = [];
@@ -35,10 +36,6 @@ const LightFilterContainer: React.FC<{
   useEffect(() => {
     setMoreValues({ ...values });
   }, [values]);
-  // TODO 国际化
-  const locale = {
-    more: '更多筛选',
-  };
   items.forEach((item: any) => {
     const { secondary, name } = item.props || {};
     if ((secondary && !values[name]) || collapse) {
@@ -72,7 +69,13 @@ const LightFilterContainer: React.FC<{
               onVisibleChange={setOpen}
               visible={open}
               label={
-                collapseLabel || <FieldLabel size={size} label={locale.more} expanded={open} />
+                collapseLabel || (
+                  <FieldLabel
+                    size={size}
+                    label={intl.getMessage('lightFilter.more', '更多筛选')}
+                    expanded={open}
+                  />
+                )
               }
               footer={{
                 onConfirm: () => {
