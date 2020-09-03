@@ -1,9 +1,6 @@
 import React from 'react';
 import { Button, Tag } from 'antd';
 import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
-
-// @ts-ignore
-// eslint-disable-next-line import/no-extraneous-dependencies
 import ProList from '@ant-design/pro-list';
 
 const IconText = ({ icon, text }: { icon: any; text: string }) => (

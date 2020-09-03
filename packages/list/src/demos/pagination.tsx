@@ -1,7 +1,5 @@
 import React from 'react';
 import { Button, Tag, Space } from 'antd';
-// @ts-ignore
-// eslint-disable-next-line import/no-extraneous-dependencies
 import ProList from '@ant-design/pro-list';
 
 const dataSource = ['语雀的天空', 'Ant Design', '蚂蚁金服体验科技', 'TechUI'];

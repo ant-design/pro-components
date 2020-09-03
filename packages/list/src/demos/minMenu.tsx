@@ -1,7 +1,5 @@
 import React from 'react';
 import { EllipsisOutlined } from '@ant-design/icons';
-// @ts-ignore
-// eslint-disable-next-line import/no-extraneous-dependencies
 import ProList from '@ant-design/pro-list';
 
 const dataSource = [
