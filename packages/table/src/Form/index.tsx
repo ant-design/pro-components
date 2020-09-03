@@ -6,16 +6,18 @@ import ProForm, { QueryFilter, ProFormField, BaseQueryFilterProps } from '@ant-d
 import classNames from 'classnames';
 import { ProFieldValueType } from '@ant-design/pro-field';
 import { ConfigContext } from 'antd/lib/config-provider/context';
+import { Store } from 'antd/lib/form/interface';
 import {
   useDeepCompareEffect,
   ProSchemaComponentTypes,
   conversionSubmitValue,
+  renameKeySubmitValue,
 } from '@ant-design/pro-utils';
 import warningOnce from 'rc-util/lib/warning';
 
 import { genColumnKey } from '../utils';
 import Container from '../container';
-import { ProColumns } from '../index';
+import { ProColumns, ProColumnType } from '../index';
 import './index.less';
 
 export interface TableFormItem<T> extends Omit<FormItemProps, 'children' | 'onReset'> {
@@ -86,7 +88,7 @@ export const formInputRender: React.FC<{
         {...rest}
         ref={ref}
         initialValue={item.initialValue}
-        name={item.dataIndex}
+        name={item.key || item.dataIndex}
       >
         {React.cloneElement(dom, { ...rest, ...defaultProps })}
       </ProFormField>
@@ -103,7 +105,7 @@ export const formInputRender: React.FC<{
       ref={ref}
       isDefaultDom
       valueEnum={item.valueEnum}
-      name={item.dataIndex}
+      name={item.key || item.dataIndex}
       onChange={onChange}
       // @ts-ignore
       fieldProps={restFieldProps || item.formItemProps}
@@ -196,11 +198,30 @@ const FormSearch = <T, U = any>({
     [key: string]: ProFieldValueType;
   }>({});
 
+  /**
+   * 保存 renameKeyRef，用于对表单key rename
+   */
+  const renameKeyRef = useRef<{
+    [key: string]: ProColumnType['renameKey'];
+  }>({});
+
   // 这么做是为了在用户修改了输入的时候触发一下子节点的render
   const [, updateState] = React.useState();
   const forceUpdate = useCallback(() => updateState({}), []);
 
   const isForm = type === 'form';
+
+  // 触发onSubmit
+  const triggerSubmit = (value: Store) => {
+    if (onSubmit) {
+      onSubmit(
+        renameKeySubmitValue(
+          conversionSubmitValue(value, dateFormatter, valueTypeRef.current) as T,
+          renameKeyRef.current,
+        ),
+      );
+    }
+  };
 
   /**
    *提交表单，根据两种模式不同，方法不相同
@@ -209,16 +230,12 @@ const FormSearch = <T, U = any>({
     // 如果不是表单模式，不用进行验证
     if (!isForm) {
       const value = form.getFieldsValue();
-      if (onSubmit) {
-        onSubmit(conversionSubmitValue(value, dateFormatter, valueTypeRef.current) as T);
-      }
+      triggerSubmit(value);
       return;
     }
     try {
       const value = await form.validateFields();
-      if (onSubmit) {
-        onSubmit(conversionSubmitValue(value, dateFormatter, valueTypeRef.current) as T);
-      }
+      triggerSubmit(value);
     } catch (error) {
       // console.log(error)
     }
@@ -248,9 +265,14 @@ const FormSearch = <T, U = any>({
       return;
     }
     const tempMap = {};
+    const renameKeyMap = {};
+
     counter.proColumns.forEach((item) => {
-      tempMap[genColumnKey(item.key, item.index)] = item.valueType;
+      const { dataIndex, key, index, valueType, renameKey } = item;
+      tempMap[genColumnKey(key, index)] = valueType;
+      renameKeyMap[genColumnKey((key || dataIndex) as string, index)] = renameKey;
     });
+    renameKeyRef.current = renameKeyMap;
     valueTypeRef.current = tempMap;
   }, [counter.proColumns]);
 

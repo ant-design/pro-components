@@ -14,10 +14,15 @@ import pickUndefinedAndArray from './pickUndefinedAndArray';
  */
 import useDebounceFn from './hooks/useDebounceFn';
 import usePrevious from './hooks/usePrevious';
-import conversionSubmitValue from './conversionSubmitValue';
-import parseValueToMoment from './parseValueToMoment';
 import useDeepCompareEffect from './hooks/useDeepCompareEffect';
 import useDocumentTitle from './hooks/useDocumentTitle';
+
+/**
+ * transform
+ */
+import conversionSubmitValue from './conversionSubmitValue';
+import renameKeySubmitValue from './renameKeySubmitValue';
+import parseValueToMoment from './parseValueToMoment';
 
 /**
  * type
@@ -41,6 +46,7 @@ export type {
 export {
   LabelIconTip,
   conversionSubmitValue,
+  renameKeySubmitValue,
   parseValueToMoment,
   FieldDropdown,
   FieldLabel,

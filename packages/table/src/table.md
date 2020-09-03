@@ -445,6 +445,10 @@ const enUSIntl = createIntl('en_US', enUS);
 
 <code src="./demos/dataSource.tsx" background="#f5f5f5"/>
 
+#### 重命名查询表单字段
+
+<code src="./demos/renameSubmit.tsx" background="#f5f5f5"/>
+
 #### 受控的列显示隐藏
 
 可以默认隐藏某些栏，但是在操作栏中可以选择
