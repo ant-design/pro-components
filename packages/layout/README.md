@@ -2,7 +2,7 @@
 
 > @ant-design/pro-layout.
 
-See our website [@ant-design/pro-layout](https://umijs.org/plugins/layout) for more information.
+See our website [@ant-design/pro-layout](https://umijs.org/plugins/plugin-layout) for more information.
 
 ## Install
 
