@@ -1,40 +1,28 @@
 import React from 'react';
 import { QuestionCircleOutlined } from '@ant-design/icons';
-import { Icon as LegacyIcon } from '@ant-design/compatible';
 import { Tooltip, Input, Divider, Tabs } from 'antd';
 import classNames from 'classnames';
 import { SearchProps } from 'antd/es/input';
 import getPrefixCls from '../util/getPrefixCls';
-import HeaderMenu, { HeaderMenuProps } from './HeaderMenu';
+import HeaderMenu, { ListToolBarHeaderMenuProps } from './HeaderMenu';
 
 import './index.less';
 
 const { Search } = Input;
 
-export interface FooterToolErrorType {
-  message: string;
-  field: string;
+interface ListToolBarSetting {
+  icon: React.ReactNode;
+  tooltip?: string;
 }
 
-export interface SearchAreaConfig {
-  placeholder?: string;
-  onSearch?: (value: string) => void;
-}
-
-export interface ListToolBarSetting {
-  icon: string;
-  tooltip: string;
-  key?: string;
-  onClick?: (key: string) => void;
-}
 type TabPane = Parameters<typeof Tabs.TabPane>[0];
-export interface ListToolBarTabs {
+interface ListToolBarTabs {
   activeKey?: string;
   onChange?: (activeKey: string) => void;
   items?: TabPane[];
 }
 
-export type ListToolBarMenu = HeaderMenuProps;
+export type ListToolBarMenu = ListToolBarHeaderMenuProps;
 
 export interface ListToolBarProps {
   prefixCls?: string;
@@ -134,19 +122,15 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
               ele = setting;
             } else {
               const settingConfig: ListToolBarSetting = setting as ListToolBarSetting;
-              const { icon, tooltip, onClick, key } = settingConfig;
-              ele = (
-                <Tooltip title={tooltip}>
-                  <LegacyIcon
-                    type={icon}
-                    onClick={() => {
-                      if (onClick) {
-                        onClick(key);
-                      }
-                    }}
-                  />
-                </Tooltip>
-              );
+              const { icon, tooltip } = settingConfig;
+              ele =
+                icon && tooltip ? (
+                  <Tooltip title={tooltip}>
+                    <span>{icon}</span>
+                  </Tooltip>
+                ) : (
+                  icon
+                );
             }
             return (
               <div key={index} className={`${prefixCls}-setting-item`}>

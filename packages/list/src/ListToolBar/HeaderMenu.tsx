@@ -5,23 +5,23 @@ import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import './index.less';
 
-export interface ListToolBarMenuItem {
+interface ListToolBarMenuItem {
   key: string;
   label: React.ReactNode;
 }
 
-export interface HeaderMenuProps {
+export interface ListToolBarHeaderMenuProps {
   type?: 'inline' | 'dropdown';
   activeKey?: string;
   items?: ListToolBarMenuItem[];
-  onChange?: (activeKey: string) => void;
+  onChange?: (activeKey: string | undefined) => void;
   prefixCls?: string;
 }
 
-const HeaderMenu: React.FC<HeaderMenuProps> = (props) => {
-  const { items = [], type = 'inline', prefixCls, activeKey: propActiveKey = '', onChange } = props;
+const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
+  const { items = [], type = 'inline', prefixCls, activeKey: propActiveKey, onChange } = props;
 
-  const [activeKey, setActiveKey] = useMergedState<string>(propActiveKey, {
+  const [activeKey, setActiveKey] = useMergedState<string | undefined>(propActiveKey, {
     value: propActiveKey,
     onChange,
   });
