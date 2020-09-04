@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import { Tooltip, Input, Divider, Tabs } from 'antd';
 import { TabPaneProps } from 'antd/lib/tabs';
 import classNames from 'classnames';
 import { SearchProps } from 'antd/es/input';
-import getPrefixCls from '../util/getPrefixCls';
+import { ConfigContext } from 'antd/lib/config-provider';
 import HeaderMenu, { ListToolBarHeaderMenuProps } from './HeaderMenu';
 
 import './index.less';
@@ -72,7 +72,8 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
   tabs = {},
   menu,
 }) => {
-  const prefixCls = getPrefixCls('listtoolbar', customizePrefixCls);
+  const { getPrefixCls } = useContext(ConfigContext);
+  const prefixCls = getPrefixCls('pro-core-toolbar', customizePrefixCls);
   const hasDivider = settings.length > 0 && (actions.length || search);
   const titleNode: React.ReactNode = getTitle(title, `${prefixCls}-default-title`);
   const subTitleNode: React.ReactNode = getTitle(subTitle, `${prefixCls}-default-subtitle`);

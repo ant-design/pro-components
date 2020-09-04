@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Badge, Statistic } from 'antd';
-import ProList, { ListToolBar } from '@ant-design/pro-list';
+import ProList from '@ant-design/pro-list';
+import { ListToolBar } from '@ant-design/pro-utils';
 
 const dataSource = ['语雀的天空', 'Ant Design', '蚂蚁金服体验科技', 'TechUI'];
 export default () => {

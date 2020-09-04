@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, List, Typography } from 'antd';
-import { ListToolBar } from '@ant-design/pro-list';
+import { ListToolBar } from '@ant-design/pro-utils';
 
 const data = [
   'Racing car sprays burning fuel into crowd.',

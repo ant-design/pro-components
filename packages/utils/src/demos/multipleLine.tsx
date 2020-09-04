@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Dropdown, Menu } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
-import { ListToolBar } from '@ant-design/pro-list';
+import { SettingOutlined, FullscreenOutlined, DownOutlined } from '@ant-design/icons';
+import { ListToolBar } from '@ant-design/pro-utils';
 import { LightFilter, ProFormDatePicker } from '@ant-design/pro-form';
 
 export default () => (
@@ -54,11 +54,11 @@ export default () => (
       ]}
       settings={[
         {
-          icon: 'setting',
+          icon: <SettingOutlined />,
           tooltip: '设置',
         },
         {
-          icon: 'fullscreen',
+          icon: <FullscreenOutlined />,
           tooltip: '全屏',
         },
       ]}

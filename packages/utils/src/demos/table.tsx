@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Tag, Divider } from 'antd';
 import ProTable, { ProColumns } from '@ant-design/pro-table';
-import { ListToolBar } from '@ant-design/pro-list';
+import { ListToolBar } from '@ant-design/pro-utils';
 
 interface ColumnItem {
   key: string;
