@@ -1,10 +1,12 @@
 export default {
   moneySymbol: '$',
-  lightFilter: {
-    more: 'More',
-    clear: 'Clear',
-    confirm: 'Confirm',
-    itemUnit: 'Items',
+  form: {
+    lightFilter: {
+      more: 'More',
+      clear: 'Clear',
+      confirm: 'Confirm',
+      itemUnit: 'Items',
+    },
   },
   tableForm: {
     search: 'Query',

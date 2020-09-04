@@ -1,10 +1,12 @@
 export default {
   moneySymbol: '￥',
-  lightFilter: {
-    more: '更多筛选',
-    clear: '清除全部',
-    confirm: '确认',
-    itemUnit: '项',
+  form: {
+    lightFilter: {
+      more: '更多筛选',
+      clear: '清除',
+      confirm: '确认',
+      itemUnit: '项',
+    },
   },
   tableForm: {
     search: '查询',

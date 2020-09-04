@@ -1,22 +1,23 @@
 import React from 'react';
 import { Slider } from 'antd';
-import { SliderSingleProps } from 'antd/lib/slider';
+import { SliderBaseProps } from 'antd/lib/slider';
 import { ProFormItemProps } from '../../interface';
 import { createField } from '../../BaseForm';
 
-export type ProFormSliderProps = ProFormItemProps<SliderSingleProps> & {
-  min?: SliderSingleProps['min'];
-  max?: SliderSingleProps['max'];
-  step?: SliderSingleProps['step'];
-  marks?: SliderSingleProps['marks'];
-  vertical?: SliderSingleProps['vertical'];
+export type ProFormSliderProps = ProFormItemProps<SliderBaseProps> & {
+  range?: boolean;
+  min?: SliderBaseProps['min'];
+  max?: SliderBaseProps['max'];
+  step?: SliderBaseProps['step'];
+  marks?: SliderBaseProps['marks'];
+  vertical?: SliderBaseProps['vertical'];
 };
 /**
  * 文本选择组件
  * @param
  */
 const ProFormSlider: React.ForwardRefRenderFunction<any, ProFormSliderProps> = (
-  { fieldProps, min, max, step, marks, vertical },
+  { fieldProps, min, max, step, marks, vertical, range },
   ref,
 ) => {
   return (
@@ -26,10 +27,18 @@ const ProFormSlider: React.ForwardRefRenderFunction<any, ProFormSliderProps> = (
       step={step}
       marks={marks}
       vertical={vertical}
+      range={range}
       {...fieldProps}
       ref={ref}
     />
   );
 };
 
-export default createField<ProFormSliderProps>(React.forwardRef(ProFormSlider));
+export default createField<ProFormSliderProps>(React.forwardRef(ProFormSlider), {
+  lightFilterLabelFormatter: (value) => {
+    if (Array.isArray(value)) {
+      return value.join('~');
+    }
+    return value;
+  },
+});

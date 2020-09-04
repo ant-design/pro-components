@@ -16,6 +16,7 @@ export interface FieldLabelProps {
   placeholder?: React.ReactNode;
   expanded?: boolean;
   className?: string;
+  formatter?: (value: any) => string;
   style?: React.CSSProperties;
 }
 
@@ -30,6 +31,7 @@ const FieldLabel: React.FC<FieldLabelProps> = (props) => {
     placeholder,
     className,
     style,
+    formatter,
   } = props;
   const { getPrefixCls } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('pro-core-field-label');
@@ -39,8 +41,18 @@ const FieldLabel: React.FC<FieldLabelProps> = (props) => {
     aLabel?: React.ReactNode | React.ReactNode[],
     aValue?: string | string[],
   ): React.ReactNode => {
-    if (aValue && (!Array.isArray(aValue) || aValue.length)) {
-      const str = Array.isArray(aValue) ? aValue.join(',') : String(aValue);
+    if (
+      aValue !== undefined &&
+      aValue !== null &&
+      aValue !== '' &&
+      (!Array.isArray(aValue) || aValue.length)
+    ) {
+      let str: string;
+      if (formatter) {
+        str = formatter(aValue);
+      } else {
+        str = Array.isArray(aValue) ? aValue.join(',') : String(aValue);
+      }
       const prefix = aLabel ? (
         <>
           {aLabel}
@@ -61,7 +73,7 @@ const FieldLabel: React.FC<FieldLabelProps> = (props) => {
         str.length > 16
           ? `...${
               Array.isArray(aValue) && aValue.length > 1
-                ? `${aValue.length}${intl.getMessage('lightFilter.itemUnit', '项')}`
+                ? `${aValue.length}${intl.getMessage('form.lightFilter.itemUnit', '项')}`
                 : ''
             }`
           : '';

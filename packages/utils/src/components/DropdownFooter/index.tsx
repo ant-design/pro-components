@@ -40,7 +40,7 @@ const DropdownFooter: React.FC<DropdownFooterProps> = (props) => {
           e.stopPropagation();
         }}
       >
-        {intl.getMessage('lightFilter.clear', '清除')}
+        {intl.getMessage('form.lightFilter.clear', '清除')}
       </Button>
       <Button
         data-type="confirm"
@@ -49,7 +49,7 @@ const DropdownFooter: React.FC<DropdownFooterProps> = (props) => {
         onClick={onConfirm}
         disabled={disabled}
       >
-        {intl.getMessage('lightFilter.confirm', '确认')}
+        {intl.getMessage('form.lightFilter.confirm', '确认')}
       </Button>
     </div>
   );

@@ -72,7 +72,7 @@ const LightFilterContainer: React.FC<{
                 collapseLabel || (
                   <FieldLabel
                     size={size}
-                    label={intl.getMessage('lightFilter.more', '更多筛选')}
+                    label={intl.getMessage('form.lightFilter.more', '更多筛选')}
                     expanded={open}
                   />
                 )

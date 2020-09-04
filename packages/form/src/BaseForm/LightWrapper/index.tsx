@@ -19,6 +19,7 @@ export interface LightWrapperProps {
   customLightMode?: boolean;
   light?: boolean;
   id?: string;
+  labelFormatter?: (value: any) => string;
 }
 
 const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (props, ref) => {
@@ -35,6 +36,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
     customLightMode,
     placeholder,
     id,
+    labelFormatter,
   } = props;
   const { getPrefixCls } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('pro-field-light-wrapper');
@@ -84,6 +86,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
           value={props[valuePropName]}
           disabled={disabled}
           expanded={open}
+          formatter={labelFormatter}
         />
       }
       footer={{
