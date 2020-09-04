@@ -184,6 +184,7 @@ describe('LightFilter', () => {
             Jack: '杰克',
             Jack2: '杰克2',
             TechUI: 'TechUI',
+            long: 'YES这是一个很长很长的测试阿aa阿ABCS',
           }}
         />
       </LightFilter>,
@@ -199,10 +200,20 @@ describe('LightFilter', () => {
       },
     });
     wrapper.find('.ant-select-item').at(0).simulate('click');
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('名称: 杰克2,TechUI');
+    wrapper.find('.ant-input').simulate('change', {
+      target: {
+        value: 'YES',
+      },
+    });
+    wrapper.find('.ant-select-item').at(0).simulate('click');
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual(
+      '名称: 杰克2,TechUI,YES这是...3项',
+    );
     // press Backspace
     wrapper.find('.ant-input').simulate('keyDown', { which: KeyCode.BACKSPACE });
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('名称: 杰克2,TechUI');
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual(
+      '名称: 杰克2,TechUI,YES这是...3项',
+    );
 
     wrapper.unmount();
   });

@@ -42,6 +42,7 @@ type ProFormComponent<P, ExtendsProps> = React.ComponentType<
 export type ProFormItemCreateConfig = {
   valueType?: ProFieldValueType;
   customLightMode?: boolean;
+  lightFilterLabelFormatter?: (value: any) => string;
 } & FormItemProps;
 
 export function createField<P extends ProFormItemProps = any>(
@@ -51,8 +52,13 @@ export function createField<P extends ProFormItemProps = any>(
   const FieldWithContext: React.FC<P> = (props: P & ExtendsProps) => {
     const size = useContext(SizeContext);
     const { label, tip, placeholder, proFieldProps, ...rest } = props;
-    const { valueType, customLightMode, valuePropName = 'value', ...defaultFormItemProps } =
-      config || {};
+    const {
+      valueType,
+      customLightMode,
+      lightFilterLabelFormatter,
+      valuePropName = 'value',
+      ...defaultFormItemProps
+    } = config || {};
     /**
      * 从 context 中拿到的值
      */
@@ -102,6 +108,7 @@ export function createField<P extends ProFormItemProps = any>(
           light={proFieldProps?.light}
           customLightMode={customLightMode}
           label={label}
+          labelFormatter={lightFilterLabelFormatter}
           valuePropName={valuePropName}
         >
           {field}

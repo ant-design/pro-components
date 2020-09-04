@@ -9,6 +9,7 @@ import {
   ProFormDateRangePicker,
   ProFormDateTimePicker,
   ProFormTimePicker,
+  ProFormSlider,
 } from '@ant-design/pro-form';
 import { Radio } from 'antd';
 import { SizeType } from 'antd/lib/config-provider/SizeContext';
@@ -32,6 +33,7 @@ export default () => {
         initialValues={{
           name1: 'yutingzhao1991',
           name3: '2020-08-19',
+          range: [20, 80],
         }}
         size={size}
         onFinish={(values) => console.log(values)}
@@ -53,9 +55,11 @@ export default () => {
             beijing: '北京',
             shanghai: '上海',
             hangzhou: '杭州',
+            long: '这是一个很长的用来测试溢出的项目',
           }}
         />
         <ProFormDigit name="count" label="数量" />
+        <ProFormSlider name="range" label="范围" range />
         <ProFormText name="name1" label="名称" />
         <ProFormSwitch name="open" label="开关" secondary />
         <ProFormText name="name2" label="地址" secondary />

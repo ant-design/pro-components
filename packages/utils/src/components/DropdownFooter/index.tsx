@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Button } from 'antd';
 import { ConfigContext } from 'antd/lib/config-provider';
+import { useIntl } from '@ant-design/pro-provider';
 
 import './index.less';
 
@@ -11,6 +12,7 @@ export interface DropdownFooterProps {
 }
 
 const DropdownFooter: React.FC<DropdownFooterProps> = (props) => {
+  const intl = useIntl();
   const { onClear, onConfirm, disabled } = props;
   const { getPrefixCls } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('pro-core-dropdown-footer');
@@ -38,7 +40,7 @@ const DropdownFooter: React.FC<DropdownFooterProps> = (props) => {
           e.stopPropagation();
         }}
       >
-        清除
+        {intl.getMessage('form.lightFilter.clear', '清除')}
       </Button>
       <Button
         data-type="confirm"
@@ -47,7 +49,7 @@ const DropdownFooter: React.FC<DropdownFooterProps> = (props) => {
         onClick={onConfirm}
         disabled={disabled}
       >
-        确认
+        {intl.getMessage('form.lightFilter.confirm', '确认')}
       </Button>
     </div>
   );
