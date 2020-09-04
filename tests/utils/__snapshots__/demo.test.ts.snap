@@ -143,6 +143,7 @@ exports[`utils demos renders ./packages/utils/src/demos/basic.tsx correctly 1`] 
                               >
                                 <input
                                   autocomplete="off"
+                                  id="startdate"
                                   placeholder="响应日期"
                                   readonly=""
                                   size="12"
@@ -1106,6 +1107,7 @@ exports[`utils demos renders ./packages/utils/src/demos/multipleLine.tsx correct
                             >
                               <input
                                 autocomplete="off"
+                                id="startdate"
                                 placeholder="响应日期"
                                 readonly=""
                                 size="12"
@@ -1273,6 +1275,7 @@ exports[`utils demos renders ./packages/utils/src/demos/no-title.tsx correctly 1
                             >
                               <input
                                 autocomplete="off"
+                                id="startdate"
                                 placeholder="响应日期"
                                 readonly=""
                                 size="12"
@@ -1999,6 +2002,7 @@ exports[`utils demos renders ./packages/utils/src/demos/tabs.tsx correctly 1`] =
                                   >
                                     <input
                                       autocomplete="off"
+                                      id="startdate"
                                       placeholder="响应日期"
                                       readonly=""
                                       size="12"
