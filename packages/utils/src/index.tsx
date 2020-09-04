@@ -2,7 +2,10 @@ import LabelIconTip from './components/LabelIconTip';
 import FieldDropdown from './components/FiledDropdown';
 import FieldLabel from './components/FieldLabel';
 import ListToolBar from './components/ListToolBar';
+<<<<<<< HEAD
 import BatchOperationBar from './components/BatchOperationBar';
+=======
+>>>>>>> feat: add ListToolBar to pro-utils
 
 import isBrowser from './isBrowser';
 import isImg from './isImg';
