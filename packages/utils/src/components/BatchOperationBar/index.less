@@ -1,0 +1,46 @@
+@import '~antd/es/style/themes/default.less';
+
+@pro-batchoperationbar: ~'@{ant-prefix}-pro-core-batch-operation';
+
+.@{pro-batchoperationbar} {
+  &-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: @padding-sm @padding-lg;
+    overflow: hidden;
+    background-color: #e6f7ff;
+    border: @border-width-base @border-style-base #91d5ff;
+    border-radius: @border-radius-base;
+  }
+  &-small {
+    padding: @padding-xs @padding-md;
+  }
+  &-large {
+    padding: @padding-md @padding-lg;
+  }
+  &-title {
+    margin-right: @padding-lg;
+  }
+  &-small &-title {
+    margin-right: @padding-md;
+  }
+  &-cancel {
+    margin-left: @padding-xs;
+    color: @primary-color;
+    cursor: pointer;
+  }
+  &-action-item {
+    margin-left: @padding-xs;
+  }
+  &-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  &-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}

@@ -53,6 +53,8 @@ nav:
 
 <code src="./demos/custom-title.tsx" />
 
+## API
+
 ### ListToolBar
 
 | 参数 | 说明 | 类型 | 默认值 |
@@ -71,7 +73,7 @@ nav:
 
 SearchProps 为 antd 的 [Input.Search](https://ant.design/components/input-cn/#Input.Search) 的属性。
 
-### ListToolBar[Setting]
+### Setting
 
 | 参数    | 说明         | 类型                  | 默认值 |
 | ------- | ------------ | --------------------- | ------ |
@@ -80,7 +82,7 @@ SearchProps 为 antd 的 [Input.Search](https://ant.design/components/input-cn/#
 | key     | 操作唯一标识 | string                | -      |
 | onClick | 设置被触发   | function(key: string) | -      |
 
-### ListToolBar[ListToolBarMenu]
+### ListToolBarMenu
 
 | 参数      | 说明           | 类型                                | 默认值     |
 | --------- | -------------- | ----------------------------------- | ---------- |
@@ -89,10 +91,53 @@ SearchProps 为 antd 的 [Input.Search](https://ant.design/components/input-cn/#
 | items     | 菜单项         | { key: string; label: ReactNode }[] | -          |
 | onChange  | 切换菜单的回调 | Function(activeKey) {}              | -          |
 
-### ListToolBar[ListToolBarTabs]
+### ListToolBarTabs
 
 | 参数      | 说明       | 类型                              | 默认值     |
 | --------- | ---------- | --------------------------------- | ---------- |
 | activeKey | 当前选中项 | string                            | -          |
 | items     | 菜单项     | { key: string; tab: ReactNode }[] | -          |
 | onChange  | 类型       | 'inline' \| 'dropdown'            | 'dropdown' |
+
+---
+
+## BatchOperationBar 批量操作工具栏
+
+批量操作工具栏是在一定条件下唤出的临时工具栏，当表格行被勾选后从列头上方挤出。
+
+## 何时使用
+
+当表格有配置批量操作选项，且此表格不是全页面场景时使用。如果是全页面的表格场景，请使用吸附在页面底部的工具条。
+
+## 代码演示
+
+### 基本使用
+
+<code src="./demos/batch-basic.tsx" />
+
+### 自定义选中文案
+
+<code src="./demos/batch-custom.tsx" />
+
+### 和 Table 一起使用
+
+<code src="./demos/batch-table.tsx" />
+
+### 全页面场景
+
+如果是全页面的表格场景，可以配合 [PageContainer](./page-container) 使得工具条吸附在页面底部。
+
+<code src="./demos/batch-page.tsx" />
+
+## API
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| size | 尺寸 | `'small'` \| `'default'` \| `'large'` | `'default'` |
+| selectedCount | 当前选中数 | number | 0 |
+| description | 描述 | ReactNode | - |
+| selectedText | 选中文案 | string | `已选 {selectedCount} 项` |
+| cancelText | 选中文案 | string | `取消选择` |
+| visible | 是否可见 | boolean | count 为 0 是默认为 `false` |
+| actions | 操作区 | ReactNode[] | - |
+| onCancel | 取消选择被点击 | `() => void` | - |
