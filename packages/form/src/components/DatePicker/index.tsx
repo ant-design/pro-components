@@ -1,30 +1,10 @@
-import React from 'react';
-import ProField from '@ant-design/pro-field';
-import { DatePickerProps } from 'antd/lib/date-picker';
-import { createField } from '../../BaseForm';
-import { ProFormItemProps } from '../../interface';
+import ProFormDatePicker from './DatePicker';
+import ProFormDatePickerWeek from './WeekPicker';
 
-const valueType = 'date';
-/**
- * 日期选择组件
- * @param
- */
-const ProFormDatePicker: React.FC<ProFormItemProps<DatePickerProps>> = ({
-  proFieldProps,
-  fieldProps,
-}) => {
-  return (
-    <ProField
-      text={fieldProps?.value}
-      mode="edit"
-      valueType={valueType}
-      fieldProps={fieldProps}
-      {...proFieldProps}
-    />
-  );
+const ExportComponent = ProFormDatePicker as typeof ProFormDatePicker & {
+  Week: typeof ProFormDatePickerWeek;
 };
 
-export default createField<ProFormItemProps<DatePickerProps>>(ProFormDatePicker, {
-  valueType,
-  customLightMode: true,
-});
+ExportComponent.Week = ProFormDatePickerWeek;
+
+export default ExportComponent;

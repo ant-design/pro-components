@@ -5,6 +5,7 @@ import { useIntl } from '@ant-design/pro-provider';
 import { FieldLabel, parseValueToMoment } from '@ant-design/pro-utils';
 import { ConfigContext } from 'antd/lib/config-provider';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
+import { DatePickerProps } from 'antd/lib/date-picker';
 import { ProFieldFC } from '../../index';
 import './index.less';
 
@@ -16,6 +17,7 @@ const FieldDatePicker: ProFieldFC<{
   text: string | number;
   format: string;
   showTime?: boolean;
+  picker?: DatePickerProps['picker'];
 }> = (
   {
     text,
@@ -28,6 +30,7 @@ const FieldDatePicker: ProFieldFC<{
     plain,
     showTime,
     fieldProps,
+    picker,
   },
   ref,
 ) => {
@@ -65,6 +68,7 @@ const FieldDatePicker: ProFieldFC<{
         >
           <DatePicker
             {...fieldProps}
+            picker={picker}
             showTime={showTime}
             format={format}
             ref={ref}
@@ -99,6 +103,7 @@ const FieldDatePicker: ProFieldFC<{
       dom = (
         <DatePicker
           {...fieldProps}
+          picker={picker}
           showTime={showTime}
           format={format}
           placeholder={placeholder}
