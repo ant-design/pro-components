@@ -1,0 +1,2100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`utils demos renders ./packages/utils/src/demos/basic.tsx correctly 1`] = `
+<div
+  style="width: 100%; box-shadow: 0 0 3px #ccc; overflow: auto;"
+>
+  <div
+    class="ant-pro-core-toolbar"
+    style="min-width: 800px;"
+  >
+    <div
+      class="ant-pro-core-toolbar-container"
+    >
+      <div
+        class="ant-pro-core-toolbar-left"
+      >
+        <div
+          class="ant-pro-core-toolbar-title"
+        >
+          <div
+            class="ant-pro-core-toolbar-default-title"
+          >
+            这里是标题
+          </div>
+        </div>
+        <div
+          class="ant-pro-core-toolbar-subtitle"
+        >
+          <div
+            class="ant-pro-core-toolbar-default-subtitle"
+          >
+            这里是子标题
+          </div>
+        </div>
+        <div
+          class="ant-pro-core-toolbar-subtitle"
+        >
+          <span
+            aria-label="question-circle"
+            class="anticon anticon-question-circle"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="question-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+              />
+              <path
+                d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div
+        class="ant-pro-core-toolbar-right"
+      >
+        <div
+          class="ant-pro-core-toolbar-search"
+        >
+          <span
+            class="ant-input-search ant-input-affix-wrapper"
+            style="width: 200px;"
+          >
+            <input
+              class="ant-input"
+              placeholder="搜索"
+              type="text"
+              value=""
+            />
+            <span
+              class="ant-input-suffix"
+            >
+              <span
+                aria-label="search"
+                class="anticon anticon-search ant-input-search-icon"
+                role="img"
+                tabindex="-1"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="search"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </span>
+        </div>
+        <div
+          class="ant-pro-core-toolbar-filter"
+        >
+          <form
+            class="ant-form ant-form-horizontal"
+            style="margin-top: 16px;"
+          >
+            <div
+              class="ant-pro-form-light-filter ant-pro-form-light-filter-undefined"
+            >
+              <div
+                class="ant-pro-form-light-filter-container"
+              >
+                <div
+                  class="ant-pro-form-light-filter-item"
+                >
+                  <div
+                    class="ant-row ant-form-item"
+                    title="响应日期"
+                  >
+                    <div
+                      class="ant-col ant-form-item-control"
+                    >
+                      <div
+                        class="ant-form-item-control-input"
+                      >
+                        <div
+                          class="ant-form-item-control-input-content"
+                        >
+                          <div
+                            class="ant-pro-field-date-picker-light"
+                          >
+                            <div
+                              class="ant-picker"
+                            >
+                              <div
+                                class="ant-picker-input"
+                              >
+                                <input
+                                  autocomplete="off"
+                                  placeholder="响应日期"
+                                  readonly=""
+                                  size="12"
+                                  title=""
+                                  value=""
+                                />
+                                <span
+                                  class="ant-picker-suffix"
+                                >
+                                  <span
+                                    aria-label="calendar"
+                                    class="anticon anticon-calendar"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class=""
+                                      data-icon="calendar"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
+                              </div>
+                            </div>
+                            <span
+                              class="ant-pro-core-field-label ant-pro-core-field-label-middle"
+                            >
+                              响应日期
+                              <span
+                                aria-label="down"
+                                class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
+                                role="img"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class=""
+                                  data-icon="down"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                  />
+                                </svg>
+                              </span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div
+          class="ant-pro-core-toolbar-action-item"
+        >
+          <button
+            class="ant-btn ant-btn-primary"
+            type="button"
+          >
+            <span>
+              添 加
+            </span>
+          </button>
+        </div>
+        <div
+          class="ant-pro-core-toolbar-divider"
+        >
+          <div
+            class="ant-divider ant-divider-vertical"
+            role="separator"
+          />
+        </div>
+        <div
+          class="ant-pro-core-toolbar-setting-item"
+        >
+          <span>
+            <span
+              aria-label="setting"
+              class="anticon anticon-setting"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="setting"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 009.3-35.2l-.9-2.6a443.74 443.74 0 00-79.7-137.9l-1.8-2.1a32.12 32.12 0 00-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 00-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 00-25.8 25.7l-15.8 85.4a351.86 351.86 0 00-99 57.4l-81.9-29.1a32 32 0 00-35.1 9.5l-1.8 2.1a446.02 446.02 0 00-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 00-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0035.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0025.8 25.7l2.7.5a449.4 449.4 0 00159 0l2.7-.5a32.05 32.05 0 0025.8-25.7l15.7-85a350 350 0 0099.7-57.6l81.3 28.9a32 32 0 0035.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 01-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 01-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 01512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 01400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 01624 502c0 29.9-11.7 58-32.8 79.2z"
+                />
+              </svg>
+            </span>
+          </span>
+        </div>
+        <div
+          class="ant-pro-core-toolbar-setting-item"
+        >
+          <span>
+            <span
+              aria-label="fullscreen"
+              class="anticon anticon-fullscreen"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="fullscreen"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M290 236.4l43.9-43.9a8.01 8.01 0 00-4.7-13.6L169 160c-5.1-.6-9.5 3.7-8.9 8.9L179 329.1c.8 6.6 8.9 9.4 13.6 4.7l43.7-43.7L370 423.7c3.1 3.1 8.2 3.1 11.3 0l42.4-42.3c3.1-3.1 3.1-8.2 0-11.3L290 236.4zm352.7 187.3c3.1 3.1 8.2 3.1 11.3 0l133.7-133.6 43.7 43.7a8.01 8.01 0 0013.6-4.7L863.9 169c.6-5.1-3.7-9.5-8.9-8.9L694.8 179c-6.6.8-9.4 8.9-4.7 13.6l43.9 43.9L600.3 370a8.03 8.03 0 000 11.3l42.4 42.4zM845 694.9c-.8-6.6-8.9-9.4-13.6-4.7l-43.7 43.7L654 600.3a8.03 8.03 0 00-11.3 0l-42.4 42.3a8.03 8.03 0 000 11.3L734 787.6l-43.9 43.9a8.01 8.01 0 004.7 13.6L855 864c5.1.6 9.5-3.7 8.9-8.9L845 694.9zm-463.7-94.6a8.03 8.03 0 00-11.3 0L236.3 733.9l-43.7-43.7a8.01 8.01 0 00-13.6 4.7L160.1 855c-.6 5.1 3.7 9.5 8.9 8.9L329.2 845c6.6-.8 9.4-8.9 4.7-13.6L290 787.6 423.7 654c3.1-3.1 3.1-8.2 0-11.3l-42.4-42.4z"
+                />
+              </svg>
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`utils demos renders ./packages/utils/src/demos/custom-title.tsx correctly 1`] = `
+<div
+  class="ant-pro-core-toolbar"
+  style="box-shadow: 0 0 3px #ccc;"
+>
+  <div
+    class="ant-pro-core-toolbar-container"
+  >
+    <div
+      class="ant-pro-core-toolbar-left"
+    >
+      <div
+        class="ant-pro-core-toolbar-title"
+      >
+        <span>
+          <strong>
+            我是自定义内容
+          </strong>
+          <span
+            class="ant-badge ant-badge-not-a-wrapper"
+          >
+            <sup
+              class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+              data-show="true"
+              style="background-color: rgb(82, 196, 26); margin-top: -3px; margin-left: 2px;"
+              title="109"
+            >
+              99+
+            </sup>
+          </span>
+        </span>
+      </div>
+    </div>
+    <div
+      class="ant-pro-core-toolbar-right"
+    >
+      <div
+        class="ant-pro-core-toolbar-action-item"
+      >
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            批量导入
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`utils demos renders ./packages/utils/src/demos/list.tsx correctly 1`] = `
+<div
+  class="ant-list ant-list-split ant-list-bordered ant-list-something-after-last-item"
+>
+  <div
+    class="ant-list-header"
+  >
+    <div
+      class="ant-pro-core-toolbar"
+      style="margin: -16px -24px;"
+    >
+      <div
+        class="ant-pro-core-toolbar-container"
+      >
+        <div
+          class="ant-pro-core-toolbar-left"
+        >
+          <div
+            class="ant-pro-core-toolbar-title"
+          >
+            <div
+              class="ant-pro-core-toolbar-default-title"
+            >
+              这里是标题
+            </div>
+          </div>
+          <div
+            class="ant-pro-core-toolbar-subtitle"
+          >
+            <div
+              class="ant-pro-core-toolbar-default-subtitle"
+            >
+              这里是子标题
+            </div>
+          </div>
+          <div
+            class="ant-pro-core-toolbar-subtitle"
+          >
+            <span
+              aria-label="question-circle"
+              class="anticon anticon-question-circle"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="question-circle"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                />
+                <path
+                  d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-pro-core-toolbar-right"
+        >
+          <div
+            class="ant-pro-core-toolbar-search"
+          >
+            <span
+              class="ant-input-search ant-input-affix-wrapper"
+              style="width: 200px;"
+            >
+              <input
+                class="ant-input"
+                placeholder="请输入订单号"
+                type="text"
+                value=""
+              />
+              <span
+                class="ant-input-suffix"
+              >
+                <span
+                  aria-label="search"
+                  class="anticon anticon-search ant-input-search-icon"
+                  role="img"
+                  tabindex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="search"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </span>
+          </div>
+          <div
+            class="ant-pro-core-toolbar-action-item"
+          >
+            <button
+              class="ant-btn ant-btn-primary"
+              type="button"
+            >
+              <span>
+                批量导入
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <ul
+        class="ant-list-items"
+      >
+        <li
+          class="ant-list-item ant-list-item-no-flex"
+        >
+          <span
+            class="ant-typography"
+          >
+            <mark>
+              [ITEM]
+            </mark>
+          </span>
+           Racing car sprays burning fuel into crowd.
+        </li>
+        <li
+          class="ant-list-item ant-list-item-no-flex"
+        >
+          <span
+            class="ant-typography"
+          >
+            <mark>
+              [ITEM]
+            </mark>
+          </span>
+           Japanese princess to wed commoner.
+        </li>
+        <li
+          class="ant-list-item ant-list-item-no-flex"
+        >
+          <span
+            class="ant-typography"
+          >
+            <mark>
+              [ITEM]
+            </mark>
+          </span>
+           Australian walks 100km after outback crash.
+        </li>
+        <li
+          class="ant-list-item ant-list-item-no-flex"
+        >
+          <span
+            class="ant-typography"
+          >
+            <mark>
+              [ITEM]
+            </mark>
+          </span>
+           Man charged over missing wedding girl.
+        </li>
+        <li
+          class="ant-list-item ant-list-item-no-flex"
+        >
+          <span
+            class="ant-typography"
+          >
+            <mark>
+              [ITEM]
+            </mark>
+          </span>
+           Los Angeles battles huge wildfires.
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    class="ant-list-footer"
+  >
+    <div>
+      Footer
+    </div>
+  </div>
+</div>
+`;
+
+exports[`utils demos renders ./packages/utils/src/demos/menu.tsx correctly 1`] = `
+<div>
+  <div
+    class="ant-pro-core-toolbar"
+    style="box-shadow: 0 0 3px #ccc; margin-bottom: 8px;"
+  >
+    <div
+      class="ant-pro-core-toolbar-container"
+    >
+      <div
+        class="ant-pro-core-toolbar-left"
+      >
+        <div
+          class="ant-pro-core-toolbar-menu ant-pro-core-toolbar-dropdownmenu"
+        >
+          <div
+            class="ant-pro-core-toolbar-dropdownmenu-label ant-dropdown-trigger"
+          >
+            全部事项
+            <span
+              aria-label="down"
+              class="anticon anticon-down"
+              role="img"
+              style="font-size: 14px; margin-left: 4px;"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="down"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-pro-core-toolbar-right"
+      >
+        <div
+          class="ant-pro-core-toolbar-search"
+        >
+          <span
+            class="ant-input-search ant-input-affix-wrapper"
+            style="width: 200px;"
+          >
+            <input
+              class="ant-input"
+              placeholder="请输入订单号"
+              type="text"
+              value=""
+            />
+            <span
+              class="ant-input-suffix"
+            >
+              <span
+                aria-label="search"
+                class="anticon anticon-search ant-input-search-icon"
+                role="img"
+                tabindex="-1"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="search"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-pro-core-toolbar"
+    style="box-shadow: 0 0 3px #ccc;"
+  >
+    <div
+      class="ant-pro-core-toolbar-container"
+    >
+      <div
+        class="ant-pro-core-toolbar-left"
+      >
+        <div
+          class="ant-pro-core-toolbar-menu ant-pro-core-toolbar-inlinemenu"
+        >
+          <div
+            class="ant-pro-core-toolbar-inlinemenu-item ant-pro-core-toolbar-inlinemenu-item-active"
+          >
+            <span>
+              全部事项
+              <span
+                class="ant-badge ant-badge-not-a-wrapper"
+              >
+                <sup
+                  class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+                  data-show="true"
+                  style="margin-top: -4px; margin-left: 4px; color: rgb(153, 153, 153); background-color: rgb(238, 238, 238);"
+                  title="101"
+                >
+                  99+
+                </sup>
+              </span>
+            </span>
+          </div>
+          <div
+            class="ant-pro-core-toolbar-inlinemenu-item"
+          >
+            <span>
+              代办事项
+              <span
+                class="ant-badge ant-badge-not-a-wrapper"
+              >
+                <sup
+                  class="ant-scroll-number ant-badge-count"
+                  data-show="true"
+                  style="margin-top: -4px; margin-left: 4px; color: rgb(153, 153, 153); background-color: rgb(238, 238, 238);"
+                  title="3"
+                >
+                  <span
+                    class="ant-scroll-number-only"
+                    style="transform: translateY(-1300%);"
+                  >
+                    <p
+                      class="ant-scroll-number-only-unit"
+                    >
+                      0
+                    </p>
+                    <p
+                      class="ant-scroll-number-only-unit"
+                    >
+                      1
+                    </p>
+                    <p
+                      class="ant-scroll-number-only-unit"
+                    >
+                      2
+                    </p>
+                    <p
+                      class="ant-scroll-number-only-unit"
+                    >
+                      3
+                    </p>
+                    <p
+                      class="ant-scroll-number-only-unit"
+                    >
+                      4
+                    </p>
+                    <p
+                      class="ant-scroll-number-only-unit"
+                    >
+                      5
+                    </p>
+                    <p
+                      class="ant-scroll-number-only-unit"
+                    >
+                      6
+                    </p>
+                    <p
+                      class="ant-scroll-number-only-unit"
+                    >
+                      7
+                    </p>
+                    <p
+                      class="ant-scroll-number-only-unit"
+                    >
+                      8
+                    </p>
+                    <p
+                      class="ant-scroll-number-only-unit"
+                    >
+                      9
+                    </p>
+                    <p
+                      class="ant-scroll-number-only-unit"
+                    >
+                      0
+                    </p>
+                    <p
+                      class="ant-scroll-number-only-unit"
+                    >
+                      1
+                    </p>
+                    <p
+                      class="ant-scroll-number-only-unit"
+                    >
+                      2
+                    </p>
+                    <p
+                      class="ant-scroll-number-only-unit current"
+                    >
+                      3
+                    </p>
+                    <p
+                      class="ant-scroll-number-only-unit"
+                    >
+                      4
+                    </p>
+                    <p
+                      class="ant-scroll-number-only-unit"
+                    >
+                      5
+                    </p>
+                    <p
+                      class="ant-scroll-number-only-unit"
+                    >
+                      6
+                    </p>
+                    <p
+                      class="ant-scroll-number-only-unit"
+                    >
+                      7
+                    </p>
+                    <p
+                      class="ant-scroll-number-only-unit"
+                    >
+                      8
+                    </p>
+                    <p
+                      class="ant-scroll-number-only-unit"
+                    >
+                      9
+                    </p>
+                    <p
+                      class="ant-scroll-number-only-unit"
+                    >
+                      0
+                    </p>
+                    <p
+                      class="ant-scroll-number-only-unit"
+                    >
+                      1
+                    </p>
+                    <p
+                      class="ant-scroll-number-only-unit"
+                    >
+                      2
+                    </p>
+                    <p
+                      class="ant-scroll-number-only-unit"
+                    >
+                      3
+                    </p>
+                    <p
+                      class="ant-scroll-number-only-unit"
+                    >
+                      4
+                    </p>
+                    <p
+                      class="ant-scroll-number-only-unit"
+                    >
+                      5
+                    </p>
+                    <p
+                      class="ant-scroll-number-only-unit"
+                    >
+                      6
+                    </p>
+                    <p
+                      class="ant-scroll-number-only-unit"
+                    >
+                      7
+                    </p>
+                    <p
+                      class="ant-scroll-number-only-unit"
+                    >
+                      8
+                    </p>
+                    <p
+                      class="ant-scroll-number-only-unit"
+                    >
+                      9
+                    </p>
+                  </span>
+                </sup>
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-pro-core-toolbar-right"
+      >
+        <div
+          class="ant-pro-core-toolbar-search"
+        >
+          <span
+            class="ant-input-search ant-input-affix-wrapper"
+            style="width: 200px;"
+          >
+            <input
+              class="ant-input"
+              placeholder="请输入订单号"
+              type="text"
+              value=""
+            />
+            <span
+              class="ant-input-suffix"
+            >
+              <span
+                aria-label="search"
+                class="anticon anticon-search ant-input-search-icon"
+                role="img"
+                tabindex="-1"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="search"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`utils demos renders ./packages/utils/src/demos/multipleLine.tsx correctly 1`] = `
+<div
+  style="box-shadow: 0 0 3px #ccc;"
+>
+  <div
+    class="ant-pro-core-toolbar"
+  >
+    <div
+      class="ant-pro-core-toolbar-container"
+    >
+      <div
+        class="ant-pro-core-toolbar-left"
+      >
+        <div
+          class="ant-pro-core-toolbar-title"
+        >
+          <div
+            class="ant-pro-core-toolbar-default-title"
+          >
+            两行的情况
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-pro-core-toolbar-right"
+      >
+        <div
+          class="ant-pro-core-toolbar-search"
+        >
+          <span
+            class="ant-input-search ant-input-affix-wrapper"
+            style="width: 200px;"
+          >
+            <input
+              class="ant-input"
+              placeholder="请输入订单号"
+              type="text"
+              value=""
+            />
+            <span
+              class="ant-input-suffix"
+            >
+              <span
+                aria-label="search"
+                class="anticon anticon-search ant-input-search-icon"
+                role="img"
+                tabindex="-1"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="search"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </span>
+        </div>
+        <div
+          class="ant-pro-core-toolbar-action-item"
+        >
+          <button
+            class="ant-btn ant-btn-primary"
+            type="button"
+          >
+            <span>
+              添 加
+            </span>
+          </button>
+        </div>
+        <div
+          class="ant-pro-core-toolbar-action-item"
+        >
+          <button
+            class="ant-btn ant-dropdown-trigger"
+            type="button"
+          >
+            <span>
+              移动自
+            </span>
+            <span
+              aria-label="down"
+              class="anticon anticon-down"
+              role="img"
+              style="margin-left: 8px;"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="down"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+        <div
+          class="ant-pro-core-toolbar-divider"
+        >
+          <div
+            class="ant-divider ant-divider-vertical"
+            role="separator"
+          />
+        </div>
+        <div
+          class="ant-pro-core-toolbar-setting-item"
+        >
+          <span>
+            <span
+              aria-label="setting"
+              class="anticon anticon-setting"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="setting"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 009.3-35.2l-.9-2.6a443.74 443.74 0 00-79.7-137.9l-1.8-2.1a32.12 32.12 0 00-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 00-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 00-25.8 25.7l-15.8 85.4a351.86 351.86 0 00-99 57.4l-81.9-29.1a32 32 0 00-35.1 9.5l-1.8 2.1a446.02 446.02 0 00-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 00-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0035.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0025.8 25.7l2.7.5a449.4 449.4 0 00159 0l2.7-.5a32.05 32.05 0 0025.8-25.7l15.7-85a350 350 0 0099.7-57.6l81.3 28.9a32 32 0 0035.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 01-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 01-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 01512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 01400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 01624 502c0 29.9-11.7 58-32.8 79.2z"
+                />
+              </svg>
+            </span>
+          </span>
+        </div>
+        <div
+          class="ant-pro-core-toolbar-setting-item"
+        >
+          <span>
+            <span
+              aria-label="fullscreen"
+              class="anticon anticon-fullscreen"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="fullscreen"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M290 236.4l43.9-43.9a8.01 8.01 0 00-4.7-13.6L169 160c-5.1-.6-9.5 3.7-8.9 8.9L179 329.1c.8 6.6 8.9 9.4 13.6 4.7l43.7-43.7L370 423.7c3.1 3.1 8.2 3.1 11.3 0l42.4-42.3c3.1-3.1 3.1-8.2 0-11.3L290 236.4zm352.7 187.3c3.1 3.1 8.2 3.1 11.3 0l133.7-133.6 43.7 43.7a8.01 8.01 0 0013.6-4.7L863.9 169c.6-5.1-3.7-9.5-8.9-8.9L694.8 179c-6.6.8-9.4 8.9-4.7 13.6l43.9 43.9L600.3 370a8.03 8.03 0 000 11.3l42.4 42.4zM845 694.9c-.8-6.6-8.9-9.4-13.6-4.7l-43.7 43.7L654 600.3a8.03 8.03 0 00-11.3 0l-42.4 42.3a8.03 8.03 0 000 11.3L734 787.6l-43.9 43.9a8.01 8.01 0 004.7 13.6L855 864c5.1.6 9.5-3.7 8.9-8.9L845 694.9zm-463.7-94.6a8.03 8.03 0 00-11.3 0L236.3 733.9l-43.7-43.7a8.01 8.01 0 00-13.6 4.7L160.1 855c-.6 5.1 3.7 9.5 8.9 8.9L329.2 845c6.6-.8 9.4-8.9 4.7-13.6L290 787.6 423.7 654c3.1-3.1 3.1-8.2 0-11.3l-42.4-42.4z"
+                />
+              </svg>
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-pro-core-toolbar-extra-line"
+    >
+      <div
+        class="ant-pro-core-toolbar-filter"
+      >
+        <form
+          class="ant-form ant-form-horizontal"
+          style="margin-top: 8px;"
+        >
+          <div
+            class="ant-pro-form-light-filter ant-pro-form-light-filter-undefined"
+          >
+            <div
+              class="ant-pro-form-light-filter-container"
+            >
+              <div
+                class="ant-pro-form-light-filter-item"
+              >
+                <div
+                  class="ant-row ant-form-item"
+                  title="响应日期"
+                >
+                  <div
+                    class="ant-col ant-form-item-control"
+                  >
+                    <div
+                      class="ant-form-item-control-input"
+                    >
+                      <div
+                        class="ant-form-item-control-input-content"
+                      >
+                        <div
+                          class="ant-pro-field-date-picker-light"
+                        >
+                          <div
+                            class="ant-picker"
+                          >
+                            <div
+                              class="ant-picker-input"
+                            >
+                              <input
+                                autocomplete="off"
+                                placeholder="响应日期"
+                                readonly=""
+                                size="12"
+                                title=""
+                                value=""
+                              />
+                              <span
+                                class="ant-picker-suffix"
+                              >
+                                <span
+                                  aria-label="calendar"
+                                  class="anticon anticon-calendar"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class=""
+                                    data-icon="calendar"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+                                    />
+                                  </svg>
+                                </span>
+                              </span>
+                            </div>
+                          </div>
+                          <span
+                            class="ant-pro-core-field-label ant-pro-core-field-label-middle"
+                          >
+                            响应日期
+                            <span
+                              aria-label="down"
+                              class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`utils demos renders ./packages/utils/src/demos/no-title.tsx correctly 1`] = `
+<div
+  class="ant-pro-core-toolbar"
+  style="box-shadow: 0 0 3px #ccc;"
+>
+  <div
+    class="ant-pro-core-toolbar-container"
+  >
+    <div
+      class="ant-pro-core-toolbar-left"
+    >
+      <div
+        class="ant-pro-core-toolbar-search"
+      >
+        <span
+          class="ant-input-search ant-input-affix-wrapper"
+          style="width: 200px;"
+        >
+          <input
+            class="ant-input"
+            placeholder="搜索"
+            type="text"
+            value=""
+          />
+          <span
+            class="ant-input-suffix"
+          >
+            <span
+              aria-label="search"
+              class="anticon anticon-search ant-input-search-icon"
+              role="img"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="search"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                />
+              </svg>
+            </span>
+          </span>
+        </span>
+      </div>
+    </div>
+    <div
+      class="ant-pro-core-toolbar-right"
+    >
+      <div
+        class="ant-pro-core-toolbar-filter"
+      >
+        <form
+          class="ant-form ant-form-horizontal"
+          style="margin-top: 16px;"
+        >
+          <div
+            class="ant-pro-form-light-filter ant-pro-form-light-filter-undefined"
+          >
+            <div
+              class="ant-pro-form-light-filter-container"
+            >
+              <div
+                class="ant-pro-form-light-filter-item"
+              >
+                <div
+                  class="ant-row ant-form-item"
+                  title="响应日期"
+                >
+                  <div
+                    class="ant-col ant-form-item-control"
+                  >
+                    <div
+                      class="ant-form-item-control-input"
+                    >
+                      <div
+                        class="ant-form-item-control-input-content"
+                      >
+                        <div
+                          class="ant-pro-field-date-picker-light"
+                        >
+                          <div
+                            class="ant-picker"
+                          >
+                            <div
+                              class="ant-picker-input"
+                            >
+                              <input
+                                autocomplete="off"
+                                placeholder="响应日期"
+                                readonly=""
+                                size="12"
+                                title=""
+                                value=""
+                              />
+                              <span
+                                class="ant-picker-suffix"
+                              >
+                                <span
+                                  aria-label="calendar"
+                                  class="anticon anticon-calendar"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class=""
+                                    data-icon="calendar"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+                                    />
+                                  </svg>
+                                </span>
+                              </span>
+                            </div>
+                          </div>
+                          <span
+                            class="ant-pro-core-field-label ant-pro-core-field-label-middle"
+                          >
+                            响应日期
+                            <span
+                              aria-label="down"
+                              class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div
+        class="ant-pro-core-toolbar-action-item"
+      >
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            添 加
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`utils demos renders ./packages/utils/src/demos/table.tsx correctly 1`] = `
+<div
+  style="border: 1px solid #eee;"
+>
+  <div
+    class="ant-pro-core-toolbar"
+  >
+    <div
+      class="ant-pro-core-toolbar-container"
+    >
+      <div
+        class="ant-pro-core-toolbar-left"
+      >
+        <div
+          class="ant-pro-core-toolbar-title"
+        >
+          <div
+            class="ant-pro-core-toolbar-default-title"
+          >
+            这里是标题
+          </div>
+        </div>
+        <div
+          class="ant-pro-core-toolbar-subtitle"
+        >
+          <div
+            class="ant-pro-core-toolbar-default-subtitle"
+          >
+            这里是子标题
+          </div>
+        </div>
+        <div
+          class="ant-pro-core-toolbar-subtitle"
+        >
+          <span
+            aria-label="question-circle"
+            class="anticon anticon-question-circle"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="question-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+              />
+              <path
+                d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div
+        class="ant-pro-core-toolbar-right"
+      >
+        <div
+          class="ant-pro-core-toolbar-search"
+        >
+          <span
+            class="ant-input-search ant-input-affix-wrapper"
+            style="width: 200px;"
+          >
+            <input
+              class="ant-input"
+              placeholder="请输入订单号"
+              type="text"
+              value=""
+            />
+            <span
+              class="ant-input-suffix"
+            >
+              <span
+                aria-label="search"
+                class="anticon anticon-search ant-input-search-icon"
+                role="img"
+                tabindex="-1"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="search"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </span>
+        </div>
+        <div
+          class="ant-pro-core-toolbar-action-item"
+        >
+          <button
+            class="ant-btn ant-btn-primary"
+            type="button"
+          >
+            <span>
+              批量导入
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-pro-table"
+    id="ant-design-pro-table"
+  >
+    <div
+      class="ant-card"
+      style="height: 100%;"
+    >
+      <div
+        class="ant-card-body"
+        style="padding: 0px;"
+      >
+        <div
+          class="ant-table-wrapper"
+        >
+          <div
+            class="ant-spin-nested-loading"
+          >
+            <div
+              class="ant-spin-container"
+            >
+              <div
+                class="ant-table ant-table-middle"
+              >
+                <div
+                  class="ant-table-container"
+                >
+                  <div
+                    class="ant-table-content"
+                  >
+                    <table
+                      style="table-layout: auto;"
+                    >
+                      <colgroup>
+                        <col
+                          class="ant-table-selection-col"
+                        />
+                      </colgroup>
+                      <thead
+                        class="ant-table-thead"
+                      >
+                        <tr>
+                          <th
+                            class="ant-table-cell ant-table-selection-column"
+                          >
+                            <div
+                              class="ant-table-selection"
+                            >
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                    value=""
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                            </div>
+                          </th>
+                          <th
+                            class="ant-table-cell"
+                          >
+                            Name
+                          </th>
+                          <th
+                            class="ant-table-cell"
+                          >
+                            Age
+                          </th>
+                          <th
+                            class="ant-table-cell"
+                          >
+                            Address
+                          </th>
+                          <th
+                            class="ant-table-cell"
+                          >
+                            Tags
+                          </th>
+                          <th
+                            class="ant-table-cell"
+                          >
+                            Action
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody
+                        class="ant-table-tbody"
+                      >
+                        <tr
+                          class="ant-table-row ant-table-row-level-0"
+                          data-row-key="1"
+                        >
+                          <td
+                            class="ant-table-cell ant-table-selection-column"
+                          >
+                            <label
+                              class="ant-checkbox-wrapper"
+                            >
+                              <span
+                                class="ant-checkbox"
+                              >
+                                <input
+                                  class="ant-checkbox-input"
+                                  type="checkbox"
+                                  value=""
+                                />
+                                <span
+                                  class="ant-checkbox-inner"
+                                />
+                              </span>
+                            </label>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <a>
+                              John Brown
+                            </a>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            32
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            New York No. 1 Lake Park
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <span>
+                              <span
+                                class="ant-tag ant-tag-green"
+                              >
+                                NICE
+                              </span>
+                              <span
+                                class="ant-tag ant-tag-geekblue"
+                              >
+                                DEVELOPER
+                              </span>
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <span>
+                              <a>
+                                Invite John Brown
+                              </a>
+                              <div
+                                class="ant-divider ant-divider-vertical"
+                                role="separator"
+                              />
+                              <a>
+                                Delete
+                              </a>
+                            </span>
+                          </td>
+                        </tr>
+                        <tr
+                          class="ant-table-row ant-table-row-level-0"
+                          data-row-key="2"
+                        >
+                          <td
+                            class="ant-table-cell ant-table-selection-column"
+                          >
+                            <label
+                              class="ant-checkbox-wrapper"
+                            >
+                              <span
+                                class="ant-checkbox"
+                              >
+                                <input
+                                  class="ant-checkbox-input"
+                                  type="checkbox"
+                                  value=""
+                                />
+                                <span
+                                  class="ant-checkbox-inner"
+                                />
+                              </span>
+                            </label>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <a>
+                              Jim Green
+                            </a>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            42
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            London No. 1 Lake Park
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <span>
+                              <span
+                                class="ant-tag ant-tag-volcano"
+                              >
+                                LOSER
+                              </span>
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <span>
+                              <a>
+                                Invite Jim Green
+                              </a>
+                              <div
+                                class="ant-divider ant-divider-vertical"
+                                role="separator"
+                              />
+                              <a>
+                                Delete
+                              </a>
+                            </span>
+                          </td>
+                        </tr>
+                        <tr
+                          class="ant-table-row ant-table-row-level-0"
+                          data-row-key="3"
+                        >
+                          <td
+                            class="ant-table-cell ant-table-selection-column"
+                          >
+                            <label
+                              class="ant-checkbox-wrapper"
+                            >
+                              <span
+                                class="ant-checkbox"
+                              >
+                                <input
+                                  class="ant-checkbox-input"
+                                  type="checkbox"
+                                  value=""
+                                />
+                                <span
+                                  class="ant-checkbox-inner"
+                                />
+                              </span>
+                            </label>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <a>
+                              Joe Black
+                            </a>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            32
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            Sidney No. 1 Lake Park
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <span>
+                              <span
+                                class="ant-tag ant-tag-green"
+                              >
+                                COOL
+                              </span>
+                              <span
+                                class="ant-tag ant-tag-geekblue"
+                              >
+                                TEACHER
+                              </span>
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <span>
+                              <a>
+                                Invite Joe Black
+                              </a>
+                              <div
+                                class="ant-divider ant-divider-vertical"
+                                role="separator"
+                              />
+                              <a>
+                                Delete
+                              </a>
+                            </span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`utils demos renders ./packages/utils/src/demos/tabs.tsx correctly 1`] = `
+<div
+  style="box-shadow: 0 0 3px #ccc;"
+>
+  <div
+    class="ant-pro-core-toolbar"
+  >
+    <div
+      class="ant-pro-core-toolbar-container"
+    >
+      <div
+        class="ant-pro-core-toolbar-left"
+      >
+        <div
+          class="ant-pro-core-toolbar-title"
+        >
+          <div
+            class="ant-pro-core-toolbar-default-title"
+          >
+            带标签的情况
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-pro-core-toolbar-right"
+      >
+        <div
+          class="ant-pro-core-toolbar-search"
+        >
+          <span
+            class="ant-input-search ant-input-affix-wrapper"
+            style="width: 200px;"
+          >
+            <input
+              class="ant-input"
+              placeholder="请输入订单号"
+              type="text"
+              value=""
+            />
+            <span
+              class="ant-input-suffix"
+            >
+              <span
+                aria-label="search"
+                class="anticon anticon-search ant-input-search-icon"
+                role="img"
+                tabindex="-1"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="search"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-pro-core-toolbar-extra-line"
+    >
+      <div
+        class="ant-tabs ant-tabs-top"
+      >
+        <div
+          class="ant-tabs-nav"
+          role="tablist"
+        >
+          <div
+            class="ant-tabs-nav-wrap"
+          >
+            <div
+              class="ant-tabs-nav-list"
+              style="transform: translate(0px, 0px);"
+            >
+              <div
+                class="ant-tabs-tab ant-tabs-tab-active"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-tab1"
+                  aria-selected="true"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-tab1"
+                  role="tab"
+                  tabindex="0"
+                >
+                  标签一
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-tab2"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-tab2"
+                  role="tab"
+                  tabindex="0"
+                >
+                  标签二
+                </div>
+              </div>
+              <div
+                class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+                style="left: 0px; width: 0px;"
+              />
+            </div>
+          </div>
+          <div
+            class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+          >
+            <button
+              aria-controls="rc-tabs-test-more-popup"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-hidden="true"
+              class="ant-tabs-nav-more"
+              id="rc-tabs-test-more"
+              style="visibility: hidden; order: 1;"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="ellipsis"
+                class="anticon anticon-ellipsis"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="ellipsis"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-tabs-extra-content"
+          >
+            <div
+              class="ant-pro-core-toolbar-filter"
+            >
+              <form
+                class="ant-form ant-form-horizontal"
+                style="margin-top: 8px;"
+              >
+                <div
+                  class="ant-pro-form-light-filter ant-pro-form-light-filter-undefined"
+                >
+                  <div
+                    class="ant-pro-form-light-filter-container"
+                  >
+                    <div
+                      class="ant-pro-form-light-filter-item"
+                    >
+                      <div
+                        class="ant-row ant-form-item"
+                        title="响应日期"
+                      >
+                        <div
+                          class="ant-col ant-form-item-control"
+                        >
+                          <div
+                            class="ant-form-item-control-input"
+                          >
+                            <div
+                              class="ant-form-item-control-input-content"
+                            >
+                              <div
+                                class="ant-pro-field-date-picker-light"
+                              >
+                                <div
+                                  class="ant-picker"
+                                >
+                                  <div
+                                    class="ant-picker-input"
+                                  >
+                                    <input
+                                      autocomplete="off"
+                                      placeholder="响应日期"
+                                      readonly=""
+                                      size="12"
+                                      title=""
+                                      value=""
+                                    />
+                                    <span
+                                      class="ant-picker-suffix"
+                                    >
+                                      <span
+                                        aria-label="calendar"
+                                        class="anticon anticon-calendar"
+                                        role="img"
+                                      >
+                                        <svg
+                                          aria-hidden="true"
+                                          class=""
+                                          data-icon="calendar"
+                                          fill="currentColor"
+                                          focusable="false"
+                                          height="1em"
+                                          viewBox="64 64 896 896"
+                                          width="1em"
+                                        >
+                                          <path
+                                            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+                                          />
+                                        </svg>
+                                      </span>
+                                    </span>
+                                  </div>
+                                </div>
+                                <span
+                                  class="ant-pro-core-field-label ant-pro-core-field-label-middle"
+                                >
+                                  响应日期
+                                  <span
+                                    aria-label="down"
+                                    class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class=""
+                                      data-icon="down"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-tabs-content-holder"
+        >
+          <div
+            class="ant-tabs-content ant-tabs-content-top"
+          >
+            <div
+              aria-hidden="false"
+              aria-labelledby="rc-tabs-test-tab-tab1"
+              class="ant-tabs-tabpane ant-tabs-tabpane-active"
+              id="rc-tabs-test-panel-tab1"
+              role="tabpanel"
+              tabindex="0"
+            />
+            <div
+              aria-hidden="true"
+              aria-labelledby="rc-tabs-test-tab-tab2"
+              class="ant-tabs-tabpane"
+              id="rc-tabs-test-panel-tab2"
+              role="tabpanel"
+              style="display: none;"
+              tabindex="-1"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
