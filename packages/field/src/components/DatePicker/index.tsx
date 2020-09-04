@@ -17,6 +17,7 @@ const FieldDatePicker: ProFieldFC<{
   text: string | number;
   format: string;
   showTime?: boolean;
+  bordered?: boolean;
   picker?: DatePickerProps['picker'];
 }> = (
   {
@@ -31,6 +32,7 @@ const FieldDatePicker: ProFieldFC<{
     showTime,
     fieldProps,
     picker,
+    bordered,
   },
   ref,
 ) => {
@@ -95,6 +97,7 @@ const FieldDatePicker: ProFieldFC<{
                 onChange(null);
               }
             }}
+            bordered={bordered}
             expanded={open}
           />
         </div>

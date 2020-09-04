@@ -30,6 +30,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
     disabled,
     style,
     className,
+    bordered,
     options = [],
     onSearch,
     ...restProps
@@ -128,6 +129,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
         placeholder={placeholder}
         disabled={disabled}
         expanded={open}
+        bordered={bordered}
         value={Array.isArray(value) ? value.map((v) => valueMap[v] || v) : valueMap[value] || value}
         onClear={() => {
           // @ts-expect-error

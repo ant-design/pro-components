@@ -31,6 +31,7 @@ export interface BaseFormProps extends FormProps, CommonFormProps {
 // 给控件扩展的通用的属性
 export interface ExtendsProps {
   secondary?: boolean;
+  bordered?: boolean;
   colSize?: number;
   tip?: string | TooltipProps;
 }
@@ -51,7 +52,7 @@ export function createField<P extends ProFormItemProps = any>(
 ): ProFormComponent<P, ExtendsProps> {
   const FieldWithContext: React.FC<P> = (props: P & ExtendsProps) => {
     const size = useContext(SizeContext);
-    const { label, tip, placeholder, proFieldProps, ...rest } = props;
+    const { label, tip, placeholder, proFieldProps, bordered, ...rest } = props;
     const {
       valueType,
       customLightMode,
@@ -104,6 +105,7 @@ export function createField<P extends ProFormItemProps = any>(
       >
         <LightWrapper
           {...realFieldProps}
+          bordered={bordered}
           size={size}
           light={proFieldProps?.light}
           customLightMode={customLightMode}

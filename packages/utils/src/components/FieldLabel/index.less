@@ -74,4 +74,20 @@
       font-size: 6px;
     }
   }
+
+  &-bordered {
+    border: @border-width-base solid @border-color-base;
+    border-radius: @border-radius-base;
+    height: 32px;
+    padding: 0 12px;
+  }
+
+  &-bordered&-small {
+    height: 24px;
+    padding: 0 8px;
+  }
+
+  &-bordered&-active {
+    background-color: @white;
+  }
 }
