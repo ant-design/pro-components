@@ -21,7 +21,7 @@ export default () => {
         }}
         placeholder="性别"
       />
-      <ProFormRadio.Group name="radio" placeholder="查询频度">
+      <ProFormRadio.Group name="radio">
         <ProFormRadio.Button value="weekly">每周</ProFormRadio.Button>
         <ProFormRadio.Button value="queterly">每季度</ProFormRadio.Button>
         <ProFormRadio.Button value="monthly">每月</ProFormRadio.Button>
