@@ -86,7 +86,7 @@ export const formInputRender: React.FC<{
         {...rest}
         ref={ref}
         initialValue={item.initialValue}
-        name={item.dataIndex}
+        name={item.key || item.dataIndex}
       >
         {React.cloneElement(dom, { ...rest, ...defaultProps })}
       </ProFormField>
@@ -103,7 +103,7 @@ export const formInputRender: React.FC<{
       ref={ref}
       isDefaultDom
       valueEnum={item.valueEnum}
-      name={item.dataIndex}
+      name={item.key || item.dataIndex}
       onChange={onChange}
       // @ts-ignore
       fieldProps={restFieldProps || item.formItemProps}
@@ -251,7 +251,8 @@ const FormSearch = <T, U = any>({
     }
     const tempMap = {};
     counter.proColumns.forEach((item) => {
-      tempMap[genColumnKey(item.key, item.index)] = item.valueType;
+      // 以key为主,理论上key唯一
+      tempMap[genColumnKey((item.key || item.dataIndex) as string, item.index)] = item.valueType;
     });
     valueTypeRef.current = tempMap;
   }, [counter.proColumns]);

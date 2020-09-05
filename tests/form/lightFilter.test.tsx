@@ -8,6 +8,7 @@ import {
   ProFormDateRangePicker,
   ProFormDateTimePicker,
   ProFormTimePicker,
+  ProFormRadio,
 } from '@ant-design/pro-form';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { waitTime } from '../util';
@@ -292,6 +293,37 @@ describe('LightFilter', () => {
 
     await waitTime();
     expect(onFinish).toHaveBeenCalledWith({ time: '07:22:44' });
+    wrapper.unmount();
+  });
+
+  it('ProFormRadio', async () => {
+    const onFinish = jest.fn();
+    const wrapper = mount(
+      <LightFilter
+        onFinish={onFinish}
+        initialValues={{
+          radio: 'queterly',
+        }}
+      >
+        <ProFormRadio.Group name="radio">
+          <ProFormRadio.Button value="weekly">每周</ProFormRadio.Button>
+          <ProFormRadio.Button value="queterly">每季度</ProFormRadio.Button>
+          <ProFormRadio.Button value="monthly">每月</ProFormRadio.Button>
+          <ProFormRadio.Button value="yearly">每年</ProFormRadio.Button>
+        </ProFormRadio.Group>
+      </LightFilter>,
+    );
+
+    expect(
+      wrapper.find('.ant-radio-button-wrapper.ant-radio-button-wrapper-checked').text(),
+    ).toEqual('每季度');
+    wrapper.find('.ant-radio-button-input').at(3).simulate('change');
+    wrapper.update();
+    await waitTime();
+    expect(
+      wrapper.find('.ant-radio-button-wrapper.ant-radio-button-wrapper-checked').text(),
+    ).toEqual('每年');
+    expect(onFinish).toHaveBeenCalledWith({ radio: 'yearly' });
     wrapper.unmount();
   });
 

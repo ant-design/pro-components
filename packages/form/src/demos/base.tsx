@@ -25,8 +25,9 @@ export default () => {
         placeholder="请输入备注"
         tip="最长为 24 位，用于标定的唯一 id,最长为 24 位，用于标定的唯一 id,最长为 24 位，用于标定的唯一 id"
       />
-      <ProFormDatePicker name="date" label="日期" />
-      <ProForm.Group title="这是一个分组">
+      <ProForm.Group title="日期相关分组">
+        <ProFormDatePicker name="date" label="日期" />
+        <ProFormDatePicker.Week name="dateWeek" label="周" />
         <ProFormDateTimePicker name="dateTime" label="日期时间" />
         <ProFormDateRangePicker name="dateRange" label="日期区间" />
       </ProForm.Group>

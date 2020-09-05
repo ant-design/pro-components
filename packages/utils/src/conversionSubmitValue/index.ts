@@ -4,6 +4,7 @@ const dateFormatterMap = {
   time: 'HH:mm:ss',
   timeRange: 'HH:mm:ss',
   date: 'YYYY-MM-DD',
+  dateWeek: 'YYYY-wo',
   dateRange: 'YYYY-MM-DD',
   dateTime: 'YYYY-MM-DD HH:mm:ss',
   dateTimeRange: 'YYYY-MM-DD HH:mm:ss',

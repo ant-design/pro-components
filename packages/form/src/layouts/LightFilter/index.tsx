@@ -12,6 +12,7 @@ import './index.less';
 export interface LightFilterProps extends FormProps, CommonFormProps {
   collapse?: boolean;
   collapseLabel?: React.ReactNode;
+  bordered?: boolean;
 }
 
 const LightFilterContainer: React.FC<{
@@ -22,8 +23,18 @@ const LightFilterContainer: React.FC<{
   onValuesChange: (values: object) => void;
   collapse?: boolean;
   collapseLabel?: React.ReactNode;
+  bordered?: boolean;
 }> = (props) => {
-  const { items, prefixCls, size, collapse, collapseLabel, onValuesChange, values = {} } = props;
+  const {
+    items,
+    prefixCls,
+    size,
+    collapse,
+    collapseLabel,
+    onValuesChange,
+    bordered,
+    values = {},
+  } = props;
   const intl = useIntl();
   const lightFilterClassName = `${prefixCls}-light-filter`;
   const outsideItems: React.ReactNode[] = [];
@@ -57,7 +68,9 @@ const LightFilterContainer: React.FC<{
                 proFieldProps: {
                   light: true,
                   label: child.props.label,
+                  bordered,
                 },
+                bordered,
               })}
             </div>
           );
@@ -123,7 +136,15 @@ const LightFilterContainer: React.FC<{
 };
 
 const LightFilter: React.FC<LightFilterProps> = (props) => {
-  const { size, collapse, collapseLabel, initialValues, onValuesChange, form: userForm } = props;
+  const {
+    size,
+    collapse,
+    collapseLabel,
+    initialValues,
+    onValuesChange,
+    form: userForm,
+    bordered,
+  } = props;
   const { getPrefixCls } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('pro-form');
   const [form] = Form.useForm();
@@ -139,6 +160,7 @@ const LightFilter: React.FC<LightFilterProps> = (props) => {
           prefixCls={prefixCls}
           items={items}
           size={size}
+          bordered={bordered}
           collapse={collapse}
           collapseLabel={collapseLabel}
           values={values}
