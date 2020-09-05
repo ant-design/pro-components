@@ -20,6 +20,10 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 
 <code src="./demos/base.tsx" />
 
+### 分步表单
+
+<code src="./demos/steps-from.tsx" />
+
 ### 查询筛选
 
 <code src="./demos/query-filter.tsx" />
@@ -344,4 +348,22 @@ LightFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 | ------------- | -------------------- | ----------- | -------------------------- |
 | collapse      | 是否默认折叠全部字段 | `boolean`   | `false`                    |
 | collapseLabel | 折叠区域的标签       | `ReactNode` | `更多筛选 <DownOutlined/>` |
-| bordered      | 是否带边框           | `boolean`   | `false`                    |
+
+### StepsFrom
+
+StepsFrom 本质上是一个 Provider ，增加步骤条和一些相关的 API。
+
+> Form.Provider 的文档可以看[这里](https://ant.design/components/form-cn/#Form.Provider),转化 moment 的值是 proFrom 提供的功能，所以 `onFormFinish` 和 `onFormChange` 其中的值都是未经转化的
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| current | 当前表单的步骤数，从 `0` 开始 | `number` | 0 |
+| onCurrentChange | current 发生改变的事件 | `(current:number)=>void` | - |
+| onFinish | 表单最后一步提交成功触发 | `(values:T)=>void` | - |
+| stepsProps | StepsFrom 自带的 Steps 的 props，使用方式与 [antd](https://ant.design/components/steps-cn/) 相同，但是去掉了 current 和 onChange | [props](https://ant.design/components/steps-cn/#API) | - |
+
+#### StepFrom
+
+与 ProFrom 完成相同，只是 onFinish 支持了 Promise，如果返回 `false`, 就会无法使用下一步。
+
+| onFinish | 表单提交成功触发 | `(values:T)=>Promise<false>` | - |

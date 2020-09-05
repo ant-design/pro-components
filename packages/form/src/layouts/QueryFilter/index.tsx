@@ -4,8 +4,8 @@ import { Row, Col, Divider } from 'antd';
 import { FormProps } from 'antd/lib/form/Form';
 import RcResizeObserver from 'rc-resize-observer';
 import { useIntl } from '@ant-design/pro-provider';
-
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
+
 import BaseForm, { CommonFormProps } from '../../BaseForm';
 import Actions, { ActionsProps } from './Actions';
 

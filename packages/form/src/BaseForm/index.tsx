@@ -25,7 +25,7 @@ export interface BaseFormProps extends FormProps, CommonFormProps {
   dateFormatter?: 'number' | 'string' | false;
   formItemProps?: FormItemProps;
   groupProps?: GroupProps;
-  formRef?: React.MutableRefObject<FormInstance>;
+  formRef?: React.MutableRefObject<FormInstance | undefined>;
 }
 
 // 给控件扩展的通用的属性
@@ -66,7 +66,9 @@ export function createField<P extends ProFormItemProps = any>(
     const { fieldProps, formItemProps, setFieldValueType } = React.useContext(FieldContext);
     useEffect(() => {
       if (setFieldValueType && props.name) {
-        setFieldValueType(String(props.name), valueType);
+        // Field.type === 'ProField' 时 props 里面是有 valueType 的，所以要设置一下
+        // 写一个 ts 比较麻烦，用 any 顶一下
+        setFieldValueType(String(props.name), valueType || (rest as any).valueType || 'text');
       }
     }, []);
     // restFormItemProps is user props pass to Form.Item
@@ -141,6 +143,10 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
     [key: string]: ProFieldValueType;
   }>({});
 
+  const setFieldValueType = (name: string, type?: ProFieldValueType) => {
+    fieldsValueType.current[name] = type || 'text';
+  };
+
   const items = React.Children.toArray(children);
   const submitterProps: Omit<SubmitterProps, 'form'> =
     typeof submitter === 'boolean' || !submitter ? {} : submitter;
@@ -149,9 +155,7 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
     submitter === false ? undefined : <Submitter {...submitterProps} form={userForm || form} />;
 
   const content = contentRender ? contentRender(items, submitterNode) : items;
-  const setFieldValueType = (name: string, type?: ProFieldValueType) => {
-    fieldsValueType.current[name] = type || 'text';
-  };
+
   return (
     // 增加国际化的能力，与 table 组件可以统一
     <ConfigProviderWarp>
