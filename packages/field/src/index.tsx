@@ -49,6 +49,7 @@ export type ProFieldValueType =
   | 'textarea'
   | 'option'
   | 'date'
+  | 'dateWeek'
   | 'dateRange'
   | 'dateTimeRange'
   | 'dateTime'
@@ -229,6 +230,13 @@ const defaultRenderText = (
    */
   if (valueType === 'date') {
     return <FieldDatePicker text={text as string} format="YYYY-MM-DD" {...props} />;
+  }
+
+  /**
+   *如果是周的值
+   */
+  if (valueType === 'dateWeek') {
+    return <FieldDatePicker text={text as string} format="YYYY-wo" picker="week" {...props} />;
   }
 
   /**
