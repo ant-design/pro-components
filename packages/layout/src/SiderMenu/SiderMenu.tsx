@@ -61,6 +61,7 @@ export interface SiderMenuProps
   menuHeaderRender?: WithFalse<
     (logo: React.ReactNode, title: React.ReactNode, props?: SiderMenuProps) => React.ReactNode
   >;
+  menuFooterRender?: WithFalse<(props?: SiderMenuProps) => React.ReactNode>;
   menuContentRender?: WithFalse<
     (props: SiderMenuProps, defaultDom: React.ReactNode) => React.ReactNode
   >;
@@ -82,6 +83,7 @@ const SiderMenu: React.FC<SiderMenuProps> = (props) => {
   const {
     collapsed,
     fixSiderbar,
+    menuFooterRender,
     onCollapse,
     theme,
     siderWidth = 208,
@@ -212,6 +214,9 @@ const SiderMenu: React.FC<SiderMenuProps> = (props) => {
             )}
           </Menu>
         </div>
+        {menuFooterRender && (
+          <div className={`${baseClassName}-footer`}>{menuFooterRender(props)}</div>
+        )}
       </Sider>
     </>
   );

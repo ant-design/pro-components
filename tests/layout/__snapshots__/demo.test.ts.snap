@@ -3510,6 +3510,23 @@ exports[`layout demos renders ./packages/layout/src/demos/base.tsx correctly 1`]
               </li>
             </ul>
           </div>
+          <div
+            class="ant-pro-sider-footer"
+          >
+            <a
+              href="https://preview.pro.ant.design/dashboard/analysis"
+              rel="noreferrer"
+              style="line-height: 48rpx; display: flex; height: 48px; color: rgba(255, 255, 255, 0.65); align-items: center;"
+              target="_blank"
+            >
+              <img
+                alt="pro-logo"
+                src="https://procomponents.ant.design/favicon.ico"
+                style="width: 16px; height: 16px; margin: 0px 10px 0px 16px;"
+              />
+              Preview Pro
+            </a>
+          </div>
         </div>
       </aside>
       <section
