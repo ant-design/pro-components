@@ -336,6 +336,15 @@ QueryFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 | `≧ 513px && < 785px`  | 2                                |
 | `< 513px`             | 1                                |
 
+### LightFilter
+
+LightFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
+
+| 参数          | 说明                 | 类型        | 默认值                     |
+| ------------- | -------------------- | ----------- | -------------------------- |
+| collapse      | 是否默认折叠全部字段 | `boolean`   | `false`                    |
+| collapseLabel | 折叠区域的标签       | `ReactNode` | `更多筛选 <DownOutlined/>` |
+
 ### StepsFrom
 
 StepsFrom 本质上是一个 Provider ，增加步骤条和一些相关的 API。
