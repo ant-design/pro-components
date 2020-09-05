@@ -810,7 +810,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
         {(search !== false || type === 'form') && (
           <FormSearch<U>
             {...rest}
-            type={props.type}
+            type={type}
             formRef={formRef}
             onSubmit={(value) => {
               if (type !== 'form') {

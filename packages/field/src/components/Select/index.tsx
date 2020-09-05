@@ -1,7 +1,15 @@
-import React, { ReactNode, useState, useImperativeHandle, useEffect, useRef } from 'react';
+import React, {
+  ReactNode,
+  useState,
+  useImperativeHandle,
+  useEffect,
+  useRef,
+  useContext,
+} from 'react';
 import { Select, Spin } from 'antd';
 import { ProSchemaValueEnumMap, ProSchemaValueEnumObj } from '@ant-design/pro-utils';
 import { useIntl } from '@ant-design/pro-provider';
+import SizeContext from 'antd/lib/config-provider/SizeContext';
 
 import LightSelect from './LightSelect';
 import TableStatus, { ProFieldStatusType } from '../Status';
@@ -221,6 +229,7 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
   const inputRef = useRef();
   const intl = useIntl();
   const [loading, options, fetchData] = useFetchData(props);
+  const size = useContext(SizeContext);
   useImperativeHandle(ref, () => ({
     ...(inputRef.current || {}),
     fetchData: () => fetchData(),
@@ -249,8 +258,8 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
           loading={loading}
           ref={inputRef}
           allowClear
+          size={size}
           {...rest}
-          placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
           options={options}
           {...fieldProps}
         />

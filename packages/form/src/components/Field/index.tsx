@@ -1,10 +1,9 @@
 import React from 'react';
 
 import ProField, { ProFieldValueType } from '@ant-design/pro-field';
-import { Form } from 'antd';
 import { InputProps } from 'antd/lib/input';
 import { SelectProps } from 'antd/lib/select';
-import { ProSchema, pickProProps } from '@ant-design/pro-utils';
+import { ProSchema } from '@ant-design/pro-utils';
 
 import { createField } from '../../BaseForm';
 import { ProFormItemProps } from '../../interface';
@@ -39,12 +38,7 @@ const ProFormField = React.forwardRef<any, ProFormFieldProps>(
     },
     ref,
   ) => (
-    <Form.Item
-      label={label}
-      labelCol={labelCol}
-      initialValue={initialValue}
-      {...pickProProps(restProps)}
-    >
+    <>
       {children || (
         <ProField
           text={fieldProps?.value as string}
@@ -56,11 +50,8 @@ const ProFormField = React.forwardRef<any, ProFormFieldProps>(
           ref={ref}
         />
       )}
-    </Form.Item>
+    </>
   ),
 );
-
-// @ts-ignore
-ProFormField.type = 'ProField';
 
 export default createField<ProFormFieldProps>(ProFormField);

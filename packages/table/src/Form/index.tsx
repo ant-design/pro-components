@@ -109,7 +109,9 @@ export const formInputRender: React.FC<{
       fieldProps={restFieldProps || item.formItemProps}
       // valueType = textarea，但是在 查询表单这里，应该是个 input 框
       valueType={
-        !valueType || ['textarea', 'jsonCode', 'code'].includes(valueType) ? 'text' : valueType
+        !valueType || (['textarea', 'jsonCode', 'code'].includes(valueType) && type === 'table')
+          ? 'text'
+          : valueType
       }
       initialValue={item.initialValue}
       {...rest}
@@ -316,7 +318,6 @@ const FormSearch = <T, U = any>({
     >
       <FormCompetent
         defaultCollapsed
-        layout="inline"
         {...(searchConfig || {})}
         {...formConfig}
         form={form}

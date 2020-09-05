@@ -34,7 +34,6 @@
     "@ant-design/pro-provider": "0.0.6",
     "@ant-design/pro-utils": "0.1.2",
     "@umijs/route-utils": "^1.0.5",
-    "antd": "^4.2.0",
     "classnames": "^2.2.6",
     "history": "^4.10.1",
     "memoize-one": "^5.1.1",

@@ -1,13 +1,15 @@
-import React, { ReactElement, useRef, useEffect } from 'react';
+import React, { ReactElement, useRef, useEffect, useContext } from 'react';
 import { Form } from 'antd';
 import { FormProps, FormInstance } from 'antd/lib/form/Form';
 import { FormItemProps } from 'antd/lib/form';
 import { TooltipProps } from 'antd/lib/tooltip';
 import { ConfigProviderWarp } from '@ant-design/pro-provider';
-import { LabelIconTip, pickProProps, conversionSubmitValue } from '@ant-design/pro-utils';
+import { LabelIconTip, conversionSubmitValue, pickProFormItemProps } from '@ant-design/pro-utils';
 import { ProFieldValueType } from '@ant-design/pro-field';
+import SizeContext from 'antd/lib/config-provider/SizeContext';
 import FieldContext from '../FieldContext';
 import Submitter, { SubmitterProps } from '../components/Submitter';
+import LightWrapper from './LightWrapper';
 import { GroupProps, FieldProps, ProFormItemProps } from '../interface';
 
 export interface CommonFormProps {
@@ -39,15 +41,24 @@ type ProFormComponent<P, ExtendsProps> = React.ComponentType<
 
 export type ProFormItemCreateConfig = {
   valueType?: ProFieldValueType;
-};
+  customLightMode?: boolean;
+  lightFilterLabelFormatter?: (value: any) => string;
+} & FormItemProps;
 
 export function createField<P extends ProFormItemProps = any>(
   Field: React.ComponentType<P> | React.ForwardRefExoticComponent<P>,
   config?: ProFormItemCreateConfig,
 ): ProFormComponent<P, ExtendsProps> {
   const FieldWithContext: React.FC<P> = (props: P & ExtendsProps) => {
+    const size = useContext(SizeContext);
     const { label, tip, placeholder, proFieldProps, ...rest } = props;
-    const { valueType } = config || {};
+    const {
+      valueType,
+      customLightMode,
+      lightFilterLabelFormatter,
+      valuePropName = 'value',
+      ...defaultFormItemProps
+    } = config || {};
     /**
      * 从 context 中拿到的值
      */
@@ -59,23 +70,28 @@ export function createField<P extends ProFormItemProps = any>(
         setFieldValueType(String(props.name), valueType || (rest as any).valueType || 'text');
       }
     }, []);
-    // @ts-ignore
-    const restProps = Field.type === 'ProField' ? (rest as P) : (pickProProps(rest) as P);
+    // restFormItemProps is user props pass to Form.Item
+    const restFormItemProps = pickProFormItemProps(rest);
+    const realFieldProps = {
+      // 轻量筛选模式下默认不显示 FormItem 的 label，label 设置为 placeholder
+      placeholder: proFieldProps?.light ? placeholder || label : placeholder,
+      ...(fieldProps || {}),
+      ...(rest.fieldProps || {}),
+    };
+
+    const field = (
+      <Field
+        {...(rest as P)} // ProXxx 上面的 props 透传给 Filed，可能包含 Field 自定义的 props，比如 ProFormSelect 的 request
+        fieldProps={realFieldProps}
+        proFieldProps={proFieldProps}
+      />
+    );
 
     return (
-      <Field
-        {...formItemProps}
-        {...restProps}
-        fieldProps={pickProProps({
-          // 轻量筛选模式下默认不显示 FormItem 的 label，label 设置为 placeholder
-          placeholder: proFieldProps?.light ? placeholder || label : placeholder,
-          ...(fieldProps || {}),
-          ...(rest.fieldProps || {}),
-        })}
+      <Form.Item
         // title 是用于提升读屏的能力的，没有参与逻辑
+        // @ts-expect-error
         title={label}
-        // 是否以轻量模式显示
-        proFieldProps={proFieldProps}
         // 全局的提供一个 tip 功能，可以减少代码量
         // 轻量模式下不通过 FormItem 显示 label
         label={
@@ -83,7 +99,23 @@ export function createField<P extends ProFormItemProps = any>(
             <LabelIconTip label={label} tip={tip} />
           ) : undefined
         }
-      />
+        valuePropName={valuePropName}
+        {...defaultFormItemProps}
+        {...formItemProps}
+        {...restFormItemProps}
+      >
+        <LightWrapper
+          {...realFieldProps}
+          size={size}
+          light={proFieldProps?.light}
+          customLightMode={customLightMode}
+          label={label}
+          labelFormatter={lightFilterLabelFormatter}
+          valuePropName={valuePropName}
+        >
+          {field}
+        </LightWrapper>
+      </Form.Item>
     );
   };
   return FieldWithContext as ProFormComponent<P, ExtendsProps>;
@@ -136,30 +168,33 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
           setFieldValueType,
         }}
       >
-        <Form
-          form={userForm || form}
-          {...rest}
-          onFinish={(values) => {
-            if (!rest.onFinish) {
-              return;
-            }
-            rest.onFinish(genSubmitValue(values));
-          }}
-        >
-          <Form.Item noStyle shouldUpdate>
-            {(formInstance) => {
-              // 不 setTimeout 一下拿到的是比较旧的
-              setTimeout(() => {
-                // 支持 fromRef，这里 ref 里面可以随时拿到最新的值
-                if (propsFormRef) {
-                  propsFormRef.current = formInstance as FormInstance;
-                }
-                formRef.current = formInstance as FormInstance;
-              }, 0);
+        <SizeContext.Provider value={rest.size}>
+          <Form
+            form={userForm || form}
+            {...rest}
+            onFinish={(values) => {
+              if (rest.onFinish) {
+                rest.onFinish(
+                  conversionSubmitValue(values, dateFormatter, fieldsValueType.current),
+                );
+              }
             }}
-          </Form.Item>
-          {content}
-        </Form>
+          >
+            <Form.Item noStyle shouldUpdate>
+              {(formInstance) => {
+                // 不 setTimeout 一下拿到的是比较旧的
+                setTimeout(() => {
+                  // 支持 fromRef，这里 ref 里面可以随时拿到最新的值
+                  if (propsFormRef) {
+                    propsFormRef.current = formInstance as FormInstance;
+                  }
+                  formRef.current = formInstance as FormInstance;
+                }, 0);
+              }}
+            </Form.Item>
+            {content}
+          </Form>
+        </SizeContext.Provider>
       </FieldContext.Provider>
     </ConfigProviderWarp>
   );

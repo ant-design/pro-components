@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Radio } from 'antd';
+import { Radio } from 'antd';
 import { RadioGroupProps, RadioProps } from 'antd/lib/radio';
 import { createField } from '../../BaseForm';
 import { ProFormItemProps } from '../../interface';
@@ -18,14 +18,7 @@ export type ProFormRadioGroupProps = ProFormItemProps<RadioGroupProps> & {
   >;
 };
 
-const Group: React.FC<ProFormRadioGroupProps> = ({
-  layout,
-  children,
-  proFieldProps,
-  fieldProps,
-  options,
-  ...restProps
-}) => {
+const Group: React.FC<ProFormRadioGroupProps> = ({ children, fieldProps, options }) => {
   const renderChildren = () => {
     if (options) {
       return (
@@ -51,36 +44,28 @@ const Group: React.FC<ProFormRadioGroupProps> = ({
     return children;
   };
 
-  return (
-    <Form.Item valuePropName="checked" {...restProps}>
-      <RadioGroup {...fieldProps}>{renderChildren()}</RadioGroup>
-    </Form.Item>
-  );
+  return <RadioGroup {...fieldProps}>{renderChildren()}</RadioGroup>;
 };
 
 /**
  * Radio
  * @param
  */
-const ProFormRadio: React.FC<ProFormItemProps<RadioProps>> = ({
-  fieldProps,
-  proFieldProps,
-  ...restProps
-}) => {
-  return (
-    <Form.Item valuePropName="checked" {...restProps}>
-      <Radio {...fieldProps} />
-    </Form.Item>
-  );
+const ProFormRadio: React.FC<ProFormItemProps<RadioProps>> = ({ fieldProps }) => {
+  return <Radio {...fieldProps} />;
 };
 
 // @ts-expect-error
 const WrappedProFormRadio: React.ComponentType<ProFormItemProps<RadioProps>> & {
   Group: React.ComponentType<ProFormRadioGroupProps>;
   Button: typeof Radio.Button;
-} = createField<ProFormItemProps<RadioProps>>(ProFormRadio);
+} = createField<ProFormItemProps<RadioProps>>(ProFormRadio, {
+  valuePropName: 'checked',
+});
 
-WrappedProFormRadio.Group = createField(Group);
+WrappedProFormRadio.Group = createField(Group, {
+  valuePropName: 'checked',
+});
 WrappedProFormRadio.Button = Radio.Button;
 
 export default WrappedProFormRadio;

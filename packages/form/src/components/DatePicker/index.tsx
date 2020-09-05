@@ -1,6 +1,5 @@
 import React from 'react';
 import ProField from '@ant-design/pro-field';
-import { Form } from 'antd';
 import { DatePickerProps } from 'antd/lib/date-picker';
 import { createField } from '../../BaseForm';
 import { ProFormItemProps } from '../../interface';
@@ -13,22 +12,19 @@ const valueType = 'date';
 const ProFormDatePicker: React.FC<ProFormItemProps<DatePickerProps>> = ({
   proFieldProps,
   fieldProps,
-  ...restProps
 }) => {
   return (
-    <Form.Item {...restProps}>
-      <ProField
-        text={fieldProps?.value}
-        mode="edit"
-        valueType={valueType}
-        fieldProps={fieldProps}
-        {...proFieldProps}
-      />
-    </Form.Item>
+    <ProField
+      text={fieldProps?.value}
+      mode="edit"
+      valueType={valueType}
+      fieldProps={fieldProps}
+      {...proFieldProps}
+    />
   );
 };
 
-// @ts-ignore
-ProFormDatePicker.type = 'ProField';
-
-export default createField<ProFormItemProps<DatePickerProps>>(ProFormDatePicker, { valueType });
+export default createField<ProFormItemProps<DatePickerProps>>(ProFormDatePicker, {
+  valueType,
+  customLightMode: true,
+});

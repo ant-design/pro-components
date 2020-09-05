@@ -74,14 +74,14 @@ Object.defineProperty(window, 'cancelAnimationFrame', {
   value: () => null,
 });
 
-MockDate.set(moment('2016-11-22 15:22:44').valueOf());
+moment.tz.setDefault('UTC');
+// 2016-11-22 15:22:44
+MockDate.set(1479799364000);
 
 const mockFormatExpression = {
   format: (value) => `￥ ${value.toString()}`,
 };
 Intl.NumberFormat = jest.fn().mockImplementation(() => mockFormatExpression);
-
-moment.tz.setDefault('UTC');
 
 Math.random = () => 0.8404419276253765;
 

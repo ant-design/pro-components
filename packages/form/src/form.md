@@ -44,6 +44,12 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 
 <code src="./demos/light-filter.tsx" />
 
+### 轻量筛选-折叠模式
+
+折叠模式下所有的选项都会默认折叠，不管是否有值，控件的 `secondary` 将不再有效。
+
+<code src="./demos/light-filter-collapse.tsx" />
+
 ### 混合使用
 
 <code src="./demos/components-other.tsx" />

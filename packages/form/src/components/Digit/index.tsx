@@ -1,5 +1,4 @@
 import React from 'react';
-import { Form } from 'antd';
 import { InputNumberProps } from 'antd/lib/input-number';
 import ProField from '@ant-design/pro-field';
 import { ProFormItemProps } from '../../interface';
@@ -14,24 +13,21 @@ type ProFormDigit = ProFormItemProps<InputNumberProps> & {
  * @param
  */
 const ProFormDigit: React.ForwardRefRenderFunction<any, ProFormDigit> = (
-  { fieldProps, min, proFieldProps, max, ...restProps },
+  { fieldProps, min, proFieldProps, max },
   ref,
 ) => {
   return (
-    <Form.Item {...restProps}>
-      <ProField
-        mode="edit"
-        valueType="digit"
-        {...restProps}
-        fieldProps={{
-          min,
-          max,
-          ...fieldProps,
-        }}
-        ref={ref}
-        {...proFieldProps}
-      />
-    </Form.Item>
+    <ProField
+      mode="edit"
+      valueType="digit"
+      fieldProps={{
+        min,
+        max,
+        ...fieldProps,
+      }}
+      ref={ref}
+      {...proFieldProps}
+    />
   );
 };
 
