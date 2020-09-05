@@ -68,6 +68,7 @@ const StepsForm: React.FC<StepsFormProps> & {
    * 注册一个form进入，方便进行 props 的修改
    */
   const regForm = useCallback((name: string, formProps: StepFormProps) => {
+    console.log(name, formProps);
     formMapRef.current.set(name, formProps);
   }, []);
 

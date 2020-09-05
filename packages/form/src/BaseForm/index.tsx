@@ -145,9 +145,6 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
     fieldsValueType.current[name] = type || 'text';
   };
 
-  const genSubmitValue = (values: any): any =>
-    conversionSubmitValue(values, dateFormatter, fieldsValueType.current);
-
   const items = React.Children.toArray(children);
   const submitterProps: Omit<SubmitterProps, 'form'> =
     typeof submitter === 'boolean' || !submitter ? {} : submitter;

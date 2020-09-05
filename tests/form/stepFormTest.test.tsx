@@ -2,11 +2,9 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { StepsForm, StepsFormProps, ProFormText } from '@ant-design/pro-form';
+import { waitTime } from '../util';
 
 describe('StepsFrom', () => {
-  beforeAll(() => {
-    jest.useFakeTimers();
-  });
   it('🐲 basic use', async () => {
     const html = mount(
       <StepsForm>
@@ -28,6 +26,8 @@ describe('StepsFrom', () => {
   });
 
   it('🐲 onFinish', async () => {
+    jest.useFakeTimers();
+
     const html = mount(
       <StepsForm>
         <StepsForm.StepForm name="base" title="表单1">
@@ -82,5 +82,52 @@ describe('StepsFrom', () => {
 
     expect(html.find('.ant-steps').exists()).toBeTruthy();
     expect(html.find('div#test').exists()).toBeTruthy();
+  });
+
+  fit('🐲 async onFinish', async () => {
+    const fn = jest.fn();
+    const currentFn = jest.fn();
+    const onFinish = jest.fn();
+
+    const html = mount<StepsFormProps>(
+      <StepsForm onCurrentChange={currentFn} onFinish={onFinish}>
+        <StepsForm.StepForm
+          name="base"
+          title="表单1"
+          onFinish={async (values) => {
+            fn(values);
+            return true;
+          }}
+        >
+          <ProFormText name="姓名" />
+        </StepsForm.StepForm>
+        <StepsForm.StepForm name="moreInfo" title="表单2">
+          <ProFormText name="邮箱" />
+        </StepsForm.StepForm>
+      </StepsForm>,
+    );
+
+    await waitTime(100);
+
+    act(() => {
+      html
+        .find('.ant-pro-form-steps-form-step-active button.ant-btn.ant-btn-primary')
+        .simulate('click');
+    });
+
+    await waitTime(1000);
+
+    expect(fn).toBeCalled();
+    expect(currentFn).toBeCalled();
+
+    act(() => {
+      html
+        .find('.ant-pro-form-steps-form-step')
+        .at(1)
+        .find('button.ant-btn.ant-btn-primary')
+        .simulate('click');
+    });
+
+    expect(onFinish).toBeCalled();
   });
 });
