@@ -5,7 +5,7 @@ import { StepsForm, StepsFormProps, ProFormText } from '@ant-design/pro-form';
 import { waitTime } from '../util';
 
 describe('StepsFrom', () => {
-  it('🐲 basic use', async () => {
+  it('🐲 basic use', () => {
     const html = mount(
       <StepsForm>
         <StepsForm.StepForm title="表单1">
@@ -25,39 +25,7 @@ describe('StepsFrom', () => {
     expect(html.find('div.ant-steps-item-title').at(2).text()).toBe('表单3');
   });
 
-  it('🐲 onFinish', async () => {
-    jest.useFakeTimers();
-
-    const html = mount(
-      <StepsForm>
-        <StepsForm.StepForm name="base" title="表单1">
-          <ProFormText name="姓名" />
-        </StepsForm.StepForm>
-        <StepsForm.StepForm name="moreInfo" title="表单2">
-          <ProFormText name="邮箱" />
-        </StepsForm.StepForm>
-        <StepsForm.StepForm name="extraInfo" title="表单3">
-          <ProFormText name="地址" />
-        </StepsForm.StepForm>
-      </StepsForm>,
-    );
-
-    act(() => {
-      jest.runAllTimers();
-    });
-
-    act(() => {
-      html
-        .find('.ant-pro-form-steps-form-step-active button.ant-btn.ant-btn-primary')
-        .simulate('click');
-    });
-
-    expect(
-      html.find('.ant-pro-form-steps-form-step-active button.ant-btn.ant-btn-primary').text(),
-    ).toBe('下一步');
-  });
-
-  it('🐲 renderSteps', async () => {
+  it('🐲 renderSteps', () => {
     const html = mount<StepsFormProps>(
       <StepsForm renderSteps={() => null}>
         <StepsForm.StepForm name="base" title="表单1">
@@ -84,7 +52,7 @@ describe('StepsFrom', () => {
     expect(html.find('div#test').exists()).toBeTruthy();
   });
 
-  fit('🐲 async onFinish', async () => {
+  it('🐲 async onFinish', async () => {
     const fn = jest.fn();
     const currentFn = jest.fn();
     const onFinish = jest.fn();
@@ -106,7 +74,6 @@ describe('StepsFrom', () => {
         </StepsForm.StepForm>
       </StepsForm>,
     );
-
     await waitTime(100);
 
     act(() => {
@@ -115,7 +82,7 @@ describe('StepsFrom', () => {
         .simulate('click');
     });
 
-    await waitTime(1000);
+    await waitTime(100);
 
     expect(fn).toBeCalled();
     expect(currentFn).toBeCalled();
@@ -127,7 +94,47 @@ describe('StepsFrom', () => {
         .find('button.ant-btn.ant-btn-primary')
         .simulate('click');
     });
-
+    await waitTime(100);
     expect(onFinish).toBeCalled();
+  });
+
+  it('🐲 submitter render=false', () => {
+    const html = mount<StepsFormProps>(
+      <StepsForm>
+        <StepsForm.StepForm
+          name="base"
+          title="表单1"
+          submitter={{
+            render: false,
+          }}
+        >
+          <ProFormText name="姓名" />
+        </StepsForm.StepForm>
+        <StepsForm.StepForm name="moreInfo" title="表单2">
+          <ProFormText name="邮箱" />
+        </StepsForm.StepForm>
+      </StepsForm>,
+    );
+
+    expect(
+      html.find('.ant-pro-form-steps-form-step-active button.ant-btn.ant-btn-primary').exists(),
+    ).toBeFalsy();
+  });
+
+  it('🐲 submitter=false', () => {
+    const html = mount<StepsFormProps>(
+      <StepsForm>
+        <StepsForm.StepForm name="base" title="表单1" submitter={false}>
+          <ProFormText name="姓名" />
+        </StepsForm.StepForm>
+        <StepsForm.StepForm name="moreInfo" title="表单2">
+          <ProFormText name="邮箱" />
+        </StepsForm.StepForm>
+      </StepsForm>,
+    );
+
+    expect(
+      html.find('.ant-pro-form-steps-form-step-active button.ant-btn.ant-btn-primary').exists(),
+    ).toBeFalsy();
   });
 });
