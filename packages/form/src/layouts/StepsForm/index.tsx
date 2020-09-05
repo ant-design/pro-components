@@ -19,6 +19,16 @@ interface StepsFormProps<T = Store> extends FormProviderProps {
   current?: number;
   stepsProps?: StepsProps;
   onCurrentChange?: (current: number) => void;
+  /**
+   * 自定义分布表单
+   */
+  renderSteps?: (
+    steps: Array<{
+      key: string;
+      title?: React.ReactNode;
+    }>,
+    defaultDom: React.ReactNode,
+  ) => React.ReactNode;
 }
 
 export const StepsFormProvide = React.createContext<
@@ -100,15 +110,27 @@ const StepsForm: React.FC<StepsFormProps> & {
     [step],
   );
 
+  const stepsDom = (
+    <Steps size="small" {...stepsProps} current={step} onChange={undefined}>
+      {formArray.map((item) => {
+        const itemProps = formMapRef.current.get(item);
+        return <Steps.Step key={item} title={itemProps?.title} />;
+      })}
+    </Steps>
+  );
+
   return (
     <div className={prefixCls}>
       <Form.Provider {...rest}>
-        <Steps {...stepsProps} current={step} onChange={undefined}>
-          {formArray.map((item) => {
-            const itemProps = formMapRef.current.get(item);
-            return <Steps.Step key={item} title={itemProps?.title} />;
-          })}
-        </Steps>
+        {props.renderSteps
+          ? props.renderSteps(
+              formArray.map((item) => ({
+                key: item,
+                title: formMapRef.current.get(item)?.title,
+              })),
+              stepsDom,
+            )
+          : stepsDom}
         <StepsFormProvide.Provider
           value={{
             keyArray: formArray,
