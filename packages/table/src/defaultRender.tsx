@@ -2,6 +2,8 @@ import React from 'react';
 import ProField, { ProFieldEmptyText, ProFieldValueType } from '@ant-design/pro-field';
 import { ProColumnType } from './index';
 
+const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
+
 /**
  * 根据不同的类型来转化数值
  * @param text
@@ -17,7 +19,8 @@ const defaultRenderText = <T, U = any>(
 ): React.ReactNode => {
   // 如果 valueType === text ，没必要多走一次 render
   if ((!valueType || valueType === 'text') && !props?.valueEnum) {
-    return text;
+    // 如果是''、null、undefined 显示columnEmptyText
+    return SHOW_EMPTY_TEXT_LIST.includes(text as any) ? columnEmptyText : text;
   }
 
   if (typeof valueType === 'function' && item) {
@@ -25,7 +28,8 @@ const defaultRenderText = <T, U = any>(
     if (!value) {
       return columnEmptyText;
     }
-    return defaultRenderText(text, value as ProFieldValueType, index, props);
+    // 防止valueType是函数,并且text是''、null、undefined跳过显式设置的columnEmptyText
+    return defaultRenderText(text, value as ProFieldValueType, index, item, columnEmptyText, props);
   }
 
   return (
@@ -33,7 +37,7 @@ const defaultRenderText = <T, U = any>(
       {...props}
       text={valueType === 'index' || valueType === 'indexBorder' ? index : text}
       mode="read"
-      columnEmptyText={columnEmptyText}
+      emptyText={columnEmptyText}
       render={undefined}
       renderFormItem={undefined}
       valueType={valueType as ProFieldValueType}
