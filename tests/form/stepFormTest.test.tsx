@@ -3,6 +3,7 @@ import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { StepsForm, StepsFormProps, ProFormText } from '@ant-design/pro-form';
 import { waitTime } from '../util';
+import { Button } from 'antd';
 
 describe('StepsFrom', () => {
   it('🐲 basic use', () => {
@@ -50,6 +51,33 @@ describe('StepsFrom', () => {
 
     expect(html.find('.ant-steps').exists()).toBeTruthy();
     expect(html.find('div#test').exists()).toBeTruthy();
+  });
+
+  it('🐲 pre button ', async () => {
+    const onCurrentChange = jest.fn();
+    const html = mount<StepsFormProps>(
+      <StepsForm
+        current={1}
+        onCurrentChange={(current) => {
+          onCurrentChange(current);
+        }}
+      >
+        <StepsForm.StepForm name="base" title="表单1">
+          <ProFormText name="姓名" />
+        </StepsForm.StepForm>
+        <StepsForm.StepForm name="moreInfo" title="表单2">
+          <ProFormText name="邮箱" />
+        </StepsForm.StepForm>
+        <StepsForm.StepForm name="extraInfo" title="表单3">
+          <ProFormText name="地址" />
+        </StepsForm.StepForm>
+      </StepsForm>,
+    );
+    await waitTime(100);
+    act(() => {
+      html.find('.ant-pro-form-steps-form-step-active button.ant-btn').at(0).simulate('click');
+    });
+    expect(onCurrentChange).toBeCalledWith(0);
   });
 
   it('🐲 async onFinish', async () => {
@@ -136,5 +164,32 @@ describe('StepsFrom', () => {
     expect(
       html.find('.ant-pro-form-steps-form-step-active button.ant-btn.ant-btn-primary').exists(),
     ).toBeFalsy();
+  });
+
+  it('🐲 submitter render function', () => {
+    const html = mount<StepsFormProps>(
+      <StepsForm>
+        <StepsForm.StepForm
+          name="base"
+          title="表单1"
+          submitter={{
+            render: () => {
+              return [
+                <Button id="next" key="next">
+                  下一步
+                </Button>,
+              ];
+            },
+          }}
+        >
+          <ProFormText name="姓名" />
+        </StepsForm.StepForm>
+        <StepsForm.StepForm name="moreInfo" title="表单2">
+          <ProFormText name="邮箱" />
+        </StepsForm.StepForm>
+      </StepsForm>,
+    );
+
+    expect(html.find('button#next').exists()).toBeTruthy();
   });
 });
