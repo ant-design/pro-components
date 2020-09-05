@@ -39,11 +39,73 @@ render(
 
 ```
 
+## 代码示例
+
+这里将会提供一些常用的功能示例，方便大家直接拷贝。
+
+### 查询表格
+
+<code src="./demos/single.tsx" background="#f5f5f5"/>
+
+### 普通表格
+
+<code src="./demos/normal.tsx" background="#f5f5f5"/>
+
+### 无标题栏
+
+<code src="./demos/no-title.tsx" background="#f5f5f5"/>
+
+### 嵌套表格
+
+<code src="./demos/table-nested.tsx" background="#f5f5f5"/>
+
+### 批量操作
+
+<code src="./demos/batchOption.tsx" background="#f5f5f5"/>
+
+### toolbar 搜索
+
+<code src="./demos/search.tsx" background="#f5f5f5"/>
+
+### form 操作
+
+<code src="./demos/form.tsx" background="#f5f5f5"/>
+
+### DataSource
+
+<code src="./demos/dataSource.tsx" background="#f5f5f5"/>
+
+### 受控的列显示隐藏
+
+可以默认隐藏某些栏，但是在操作栏中可以选择
+
+<code src="./demos/columnsStateMap.tsx" background="#f5f5f5"/>
+
+### 轮询
+
+<code src="./demos/pollinga.tsx" background="#f5f5f5"/>
+
+### 自定义表单项
+
+<code src="./demos/linkage_form.tsx" background="#f5f5f5"/>
+
+### 自定义搜索操作栏
+
+<code src="./demos/search_option.tsx" background="#f5f5f5"/>
+
+### 自定义表格主体
+
+<code src="./demos/renderTable.tsx" background="#f5f5f5"/>
+
+### 国际化示例
+
+<code src="./demos/intl.tsx" background="#f5f5f5"/>
+
 ## API
 
 ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，并且封装了一些行为。这里只列出与 antd Table 不同的 api。
 
-### Table 表格的 props
+### ProTable
 
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -285,11 +347,11 @@ interface IValueEnum {
 }
 ```
 
-## 批量操作
+### 批量操作
 
 与 antd 相同，批量操作需要设置 `rowSelection` 来开启，与 antd 不同的是，pro-table 提供了一个 alert 用于承载一些信息。你可以通过 `tableAlertRender` 来对它进行自定义。设置或者返回 false 即可关闭。
 
-## 搜索表单
+### 搜索表单
 
 ProTable 会根据列来生成一个 Form，用于筛选列表数据，最后的值会根据通过 `request` 的第一个参数返回，看起来就像。
 
@@ -357,17 +419,11 @@ renderFormItem: (_, { type, defaultRender, ...rest }, form) => {
   ) => JSX.Element | false | null;
 ```
 
-<code src="./demos/linkage_form.tsx" background="#f5f5f5"/>
-
-#### 搜索表单例子
+### 搜索表单例子
 
 <code src="./demos/search.tsx" background="#f5f5f5"/>
 
-## 操作栏
-
-<code src="./demos/search_option.tsx" background="#f5f5f5"/>
-
-## 国际化
+### 国际化
 
 ProTable 内置了国际化的支持，作为一个文本量比较少的组件，我们可以自行实现国际化，成本也很低。
 
@@ -416,49 +472,3 @@ const enUSIntl = createIntl('en_US', enUS);
   <ProTable />
 </IntlProvider>;
 ```
-
-### 国际化示例
-
-<code src="./demos/intl.tsx" background="#f5f5f5"/>
-
-## 示例
-
-这里将会提供一些常用的功能示例，方便大家直接拷贝。
-
-#### 基本使用
-
-<code src="./demos/single.tsx" background="#f5f5f5"/>
-
-#### 批量操作
-
-<code src="./demos/batchOption.tsx" background="#f5f5f5"/>
-
-#### toolbar 搜索
-
-<code src="./demos/search.tsx" background="#f5f5f5"/>
-
-#### form 操作
-
-<code src="./demos/form.tsx" background="#f5f5f5"/>
-
-#### 使用 dataSource 和 loading
-
-<code src="./demos/dataSource.tsx" background="#f5f5f5"/>
-
-#### 受控的列显示隐藏
-
-可以默认隐藏某些栏，但是在操作栏中可以选择
-
-<code src="./demos/columnsStateMap.tsx" background="#f5f5f5"/>
-
-#### 轮询
-
-<code src="./demos/pollinga.tsx" background="#f5f5f5"/>
-
-#### 嵌套表格
-
-<code src="./demos/table-nested.tsx" background="#f5f5f5"/>
-
-#### 自定义表格的主体
-
-<code src="./demos/renderTable.tsx" background="#f5f5f5"/>
