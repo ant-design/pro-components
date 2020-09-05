@@ -2,7 +2,6 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { StepsForm, ProFormText } from '@ant-design/pro-form';
-import { waitTime, waitForComponentToPaint } from '../util';
 
 describe('StepsFrom', () => {
   beforeAll(() => {
