@@ -19,7 +19,7 @@ import ProFormDigit from './components/Digit';
 import ProForm from './layouts/ProForm';
 import QueryFilter, { BaseQueryFilterProps } from './layouts/QueryFilter';
 import LightFilter from './layouts/LightFilter';
-import StepsFrom from './layouts/StepsFrom';
+import StepsForm from './layouts/StepsForm';
 
 export type { BaseQueryFilterProps };
 export {
@@ -44,7 +44,7 @@ export {
   // layouts
   QueryFilter,
   LightFilter,
-  StepsFrom,
+  StepsForm,
 };
 
 export default ProForm;

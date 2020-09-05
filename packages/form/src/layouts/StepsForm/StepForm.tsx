@@ -17,6 +17,7 @@ const StepForm: React.FC<StepFormProps> = ({ onFinish, step, ...restProps }) => 
   const formRef = useRef<FormInstance | undefined>();
   const context = useContext(StepsFormProvide);
   const [loading, setLoading] = useState(false);
+
   const next = (
     <Button
       key="next"
@@ -53,7 +54,7 @@ const StepForm: React.FC<StepFormProps> = ({ onFinish, step, ...restProps }) => 
   );
 
   /**
-   * dom 不存在的时候接触挂载
+   * dom 不存在的时候解除挂载
    */
   useEffect(() => {
     return () => {

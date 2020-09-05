@@ -1,18 +1,21 @@
-import React, { useRef, useCallback, useState, useEffect } from 'react';
+import React, { useRef, useCallback, useState, useEffect, useContext } from 'react';
 import { Form, Steps } from 'antd';
 import toArray from 'rc-util/lib/Children/toArray';
 import { FormProviderProps } from 'antd/lib/form/context';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { StepsProps } from 'antd/lib/steps';
+import classNames from 'classnames';
+import { ConfigContext } from 'antd/lib/config-provider';
 
 import StepForm, { StepFormProps } from './StepForm';
+import './index.less';
 
 type Store = {
   [name: string]: any;
 };
 
 interface StepsFormProps<T = Store> extends FormProviderProps {
-  onFinish: (values: T) => void;
+  onFinish?: (values: T) => void;
   current?: number;
   stepsProps?: StepsProps;
   onCurrentChange?: (current: number) => void;
@@ -35,6 +38,9 @@ const StepsForm: React.FC<StepsFormProps> & {
   StepForm: typeof StepForm;
   useForm: typeof Form.useForm;
 } = (props) => {
+  const { getPrefixCls } = useContext(ConfigContext);
+  const prefixCls = getPrefixCls('pro-form-steps-form');
+
   const { current, onCurrentChange, stepsProps, onFinish, ...rest } = props;
   const formDataRef = useRef(new Map<string, Store>());
   const formMapRef = useRef(new Map<string, StepFormProps>());
@@ -94,68 +100,62 @@ const StepsForm: React.FC<StepsFormProps> & {
     [step],
   );
 
-  /**
-   * 每次children 发生改变的时候重新计算一下
-   */
-  useEffect(() => {
-    formMapRef.current.clear();
-  }, [props.children]);
-
   return (
-    <Form.Provider {...rest}>
-      <Steps {...stepsProps} current={step} onChange={undefined}>
-        {formArray.map((item) => {
-          const itemProps = formMapRef.current.get(item);
-          return <Steps.Step key={item} title={itemProps?.title} />;
-        })}
-      </Steps>
-      <StepsFormProvide.Provider
-        value={{
-          keyArray: formArray,
-          next: () => {
-            if (step > formArray.length - 2) {
-              return;
-            }
-            setStep(step + 1);
-          },
-          pre: () => {
-            if (step < 1) {
-              return;
-            }
-            setStep(step - 1);
-          },
-          formMapRef,
-          unRegForm,
-          onFormFinish,
-        }}
-      >
-        {toArray(props.children).map((item, index) => {
-          const itemProps = item.props as StepFormProps;
-          const name = itemProps.name || `${index}`;
-          regForm(name, itemProps);
+    <div className={prefixCls}>
+      <Form.Provider {...rest}>
+        <Steps {...stepsProps} current={step} onChange={undefined}>
+          {formArray.map((item) => {
+            const itemProps = formMapRef.current.get(item);
+            return <Steps.Step key={item} title={itemProps?.title} />;
+          })}
+        </Steps>
+        <StepsFormProvide.Provider
+          value={{
+            keyArray: formArray,
+            next: () => {
+              if (step > formArray.length - 2) {
+                return;
+              }
+              setStep(step + 1);
+            },
+            pre: () => {
+              if (step < 1) {
+                return;
+              }
+              setStep(step - 1);
+            },
+            formMapRef,
+            unRegForm,
+            onFormFinish,
+          }}
+        >
+          {toArray(props.children).map((item, index) => {
+            const itemProps = item.props as StepFormProps;
+            const name = itemProps.name || `${index}`;
+            regForm(name, itemProps);
 
-          return (
-            <div
-              key={name}
-              style={{
-                // 如果不是这一步应该展示的表单，隐藏掉
-                // 用隐藏是为了方便做点动画
-                display: step !== index ? 'none' : undefined,
-              }}
-            >
-              {React.cloneElement(item, {
-                ...itemProps,
-                name,
-                step: index,
-                key: name,
-              })}
-            </div>
-          );
-        })}
-      </StepsFormProvide.Provider>
-    </Form.Provider>
+            return (
+              <div
+                className={classNames(`${prefixCls}-step`, {
+                  [`${prefixCls}-step-active`]: step === index,
+                })}
+                key={name}
+              >
+                {React.cloneElement(item, {
+                  ...itemProps,
+                  name,
+                  step: index,
+                  key: name,
+                })}
+              </div>
+            );
+          })}
+        </StepsFormProvide.Provider>
+      </Form.Provider>
+    </div>
   );
 };
+
 StepsForm.StepForm = StepForm;
 StepsForm.useForm = Form.useForm;
 
