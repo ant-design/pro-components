@@ -33,7 +33,7 @@ const defaultRenderText = <T, U = any>(
       {...props}
       text={valueType === 'index' || valueType === 'indexBorder' ? index : text}
       mode="read"
-      columnEmptyText={columnEmptyText}
+      emptyText={columnEmptyText}
       render={undefined}
       renderFormItem={undefined}
       valueType={valueType as ProFieldValueType}
