@@ -141,6 +141,8 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
     style,
     split,
     collapseRender,
+    resetText: propsResetText,
+    searchText: propsSearchText,
     ...rest
   } = props;
 
@@ -165,9 +167,9 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
   if (labelWidth && spanSize.layout !== 'vertical' && labelWidth !== 'auto') {
     labelFlexStyle = `0 0 ${labelWidth}px`;
   }
+  const resetText = propsResetText || intl.getMessage('tableForm.reset', '重置');
+  const searchText = propsSearchText || intl.getMessage('tableForm.search', '搜索');
 
-  const resetText = rest.resetText || intl.getMessage('tableForm.reset', '重置');
-  const searchText = rest.searchText || intl.getMessage('tableForm.search', '搜索');
   return (
     <BaseForm
       {...rest}
