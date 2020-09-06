@@ -18,7 +18,7 @@ const useUpdateEffect: typeof useEffect = (effect, deps) => {
 };
 
 function useDebounceFn<T extends any[]>(
-  fn: (...args: T) => any,
+  fn: (...args: T) => Promise<any>,
   deps: DependencyList | number,
   wait?: number,
 ): ReturnValue<T> {
@@ -38,11 +38,14 @@ function useDebounceFn<T extends any[]>(
   }, []);
 
   const run = useCallback(
-    (...args: any) => {
-      cancel();
-      timer.current = setTimeout(() => {
-        fnRef.current(...args);
-      }, hookWait);
+    async (...args: any) => {
+      return new Promise((resolve) => {
+        cancel();
+        timer.current = setTimeout(async () => {
+          await fnRef.current(...args);
+          resolve();
+        }, hookWait);
+      });
     },
     [hookWait, cancel],
   );
