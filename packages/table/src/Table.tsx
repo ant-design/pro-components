@@ -37,6 +37,7 @@ import {
   LabelIconTip,
   pickUndefinedAndArray,
   ProCoreActionType,
+  pickUndefined,
 } from '@ant-design/pro-utils';
 
 import useFetchData, { RequestData } from './useFetchData';
@@ -773,9 +774,9 @@ const ProTable = <T extends {}, U extends ParamsType>(
               [`${value.field}`]: value.order,
             };
           }, {});
-          setProSort(data);
+          setProSort(pickUndefined<any>(data));
         } else {
-          setProSort({ [`${sorter.field}`]: sorter.order as SortOrder });
+          setProSort(pickUndefined({ [`${sorter.field}`]: sorter.order as SortOrder }));
         }
       }}
     />
