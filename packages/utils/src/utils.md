@@ -62,7 +62,6 @@ nav:
 | title | 标题 | ReactNode \| string | - |
 | subTitle | 子标题 | ReactNode \| string | - |
 | description | 描述 | ReactNode \| string | - |
-| descriptionIcon | 描述图标 | string | 'question-circle' |
 | search | 查询区 | ReactNode \| SearchProps | - |
 | actions | 操作区 | ReactNode[] | - |
 | settings | 设置区 | (ReactNode \| Setting)[] | - |

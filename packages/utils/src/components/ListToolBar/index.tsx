@@ -31,6 +31,9 @@ export interface ListToolBarTabs {
 
 export type ListToolBarMenu = ListToolBarHeaderMenuProps;
 
+type SearchPropType = SearchProps | React.ReactNode;
+type SettingPropType = React.ReactNode | ListToolBarSetting;
+
 export interface ListToolBarProps {
   prefixCls?: string;
   className?: string;
@@ -38,15 +41,20 @@ export interface ListToolBarProps {
   title?: React.ReactNode;
   subTitle?: React.ReactNode;
   description?: React.ReactNode;
-  search?: SearchProps | React.ReactNode;
+  search?: SearchPropType;
   actions?: React.ReactNode[];
-  settings?: (React.ReactNode | ListToolBarSetting)[];
+  settings?: SettingPropType[];
   multipleLine?: boolean;
   filter?: React.ReactNode;
   tabs?: ListToolBarTabs;
   menu?: ListToolBarMenu;
 }
 
+/**
+ * 获取标题 DOM
+ * @param title 标题
+ * @param className 类名
+ */
 function getTitle(title: React.ReactNode, className: string) {
   if (!title) {
     return null;
@@ -55,6 +63,47 @@ function getTitle(title: React.ReactNode, className: string) {
     return title;
   }
   return <div className={className}>{title}</div>;
+}
+
+/**
+ * 获取搜索栏 DOM
+ * @param search 搜索框相关配置
+ */
+function getSearchInput(search: SearchPropType) {
+  if (React.isValidElement(search)) {
+    return search;
+  }
+
+  if (search) {
+    const searchProps: SearchProps = {
+      style: { width: 200 },
+      ...(search as SearchProps),
+    };
+    return <Search {...searchProps} />;
+  }
+  return null;
+}
+
+/**
+ * 获取配置区域 DOM Item
+ * @param setting 配置项
+ */
+function getSettingItem(setting: SettingPropType) {
+  if (React.isValidElement(setting)) {
+    return setting;
+  }
+  if (setting) {
+    const settingConfig: ListToolBarSetting = setting as ListToolBarSetting;
+    const { icon, tooltip } = settingConfig;
+    return icon && tooltip ? (
+      <Tooltip title={tooltip}>
+        <span>{icon}</span>
+      </Tooltip>
+    ) : (
+      icon
+    );
+  }
+  return null;
 }
 
 const ListToolBar: React.FC<ListToolBarProps> = ({
@@ -78,18 +127,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
   const titleNode: React.ReactNode = getTitle(title, `${prefixCls}-default-title`);
   const subTitleNode: React.ReactNode = getTitle(subTitle, `${prefixCls}-default-subtitle`);
 
-  let searchNode: React.ReactNode = null;
-  if (React.isValidElement(search)) {
-    searchNode = search;
-  } else if (search) {
-    const searchProps: SearchProps = {
-      placeholder: '搜索',
-      style: { width: 200 },
-      ...(search as SearchProps),
-    };
-    searchNode = <Search {...searchProps} />;
-  }
-
+  const searchNode: React.ReactNode = getSearchInput(search);
   const filtersNode = filter ? <div className={`${prefixCls}-filter`}>{filter}</div> : null;
   const hasTitle = menu || title || subTitle || description;
 
@@ -125,24 +163,10 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
             </div>
           )}
           {settings.map((setting, index) => {
-            let ele = null;
-            if (React.isValidElement(setting)) {
-              ele = setting;
-            } else {
-              const settingConfig: ListToolBarSetting = setting as ListToolBarSetting;
-              const { icon, tooltip } = settingConfig;
-              ele =
-                icon && tooltip ? (
-                  <Tooltip title={tooltip}>
-                    <span>{icon}</span>
-                  </Tooltip>
-                ) : (
-                  icon
-                );
-            }
+            const settingItem = getSettingItem(setting);
             return (
               <div key={index} className={`${prefixCls}-setting-item`}>
-                {ele}
+                {settingItem}
               </div>
             );
           })}
