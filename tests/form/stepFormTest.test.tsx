@@ -5,7 +5,7 @@ import { StepsForm, StepsFormProps, ProFormText } from '@ant-design/pro-form';
 import { waitTime } from '../util';
 import { Button } from 'antd';
 
-describe('StepsFrom', () => {
+describe('StepsForm', () => {
   it('🐲 basic use', () => {
     const html = mount(
       <StepsForm>
