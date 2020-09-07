@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@0.1.2...@ant-design/pro-field@0.2.0) (2020-09-07)
+
+### Features
+
+- **form:** new form component ProFormDatePicker.Week & LightFilter support bordered ([#385](https://github.com/ant-design/pro-components/issues/385)) ([c6bb939](https://github.com/ant-design/pro-components/commit/c6bb939c016e1d278485fe0cd3808c242b4eb117))
+
 ## [0.1.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@0.1.1...@ant-design/pro-field@0.1.2) (2020-08-26)
 
 **Note:** Version bump only for package @ant-design/pro-field

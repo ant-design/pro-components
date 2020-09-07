@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.7.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.6.3...@ant-design/pro-table@2.7.0) (2020-09-07)
+
+### Bug Fixes
+
+- **protable:** remove unused import ([ed5e6c4](https://github.com/ant-design/pro-components/commit/ed5e6c4ffcbcf2b2e40af2682ca9a2c84a1a44d3))
+
+### Features
+
+- add protable demos and adjust docs ([016a8fe](https://github.com/ant-design/pro-components/commit/016a8fe12d1ea672d5f46fdbaafa075974febdc0))
+
 ## [2.6.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.6.2...@ant-design/pro-table@2.6.3) (2020-08-31)
 
 **Note:** Version bump only for package @ant-design/pro-table
