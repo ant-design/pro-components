@@ -1,6 +1,7 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useContext } from 'react';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
+import { ConfigContext } from 'antd/lib/config-provider';
 
 import { SiderMenuProps, defaultRenderLogoAndTitle } from '../SiderMenu/SiderMenu';
 import './index.less';
@@ -64,27 +65,28 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
     style,
     layout,
   } = props;
-  const baseClassName = 'ant-pro-top-nav-header';
+  const { getPrefixCls } = useContext(ConfigContext);
+  const prefixCls = getPrefixCls('pro-top-nav-header');
   const headerDom = defaultRenderLogoAndTitle(
     { ...props, collapsed: false },
     layout === 'mix' ? 'headerTitleRender' : undefined,
   );
 
-  const className = classNames(baseClassName, propsClassName, {
+  const className = classNames(prefixCls, propsClassName, {
     light: theme === 'light',
   });
 
   return (
     <div className={className} style={style}>
-      <div ref={ref} className={`${baseClassName}-main ${contentWidth === 'Fixed' ? 'wide' : ''}`}>
+      <div ref={ref} className={`${prefixCls}-main ${contentWidth === 'Fixed' ? 'wide' : ''}`}>
         {headerDom && (
-          <div className={`${baseClassName}-main-left`} onClick={onMenuHeaderClick}>
-            <div className={`${baseClassName}-logo`} key="logo" id="logo">
+          <div className={`${prefixCls}-main-left`} onClick={onMenuHeaderClick}>
+            <div className={`${prefixCls}-logo`} key="logo" id="logo">
               {headerDom}
             </div>
           </div>
         )}
-        <div style={{ flex: 1 }} className={`${baseClassName}-menu`}>
+        <div style={{ flex: 1 }} className={`${prefixCls}-menu`}>
           <BaseMenu {...props} {...props.menuProps} />
         </div>
         {rightContentRender && <RightContent rightContentRender={rightContentRender} {...props} />}
