@@ -72,7 +72,6 @@ exports[`utils demos renders ./packages/utils/src/demos/basic.tsx correctly 1`] 
           >
             <input
               class="ant-input"
-              placeholder="搜索"
               type="text"
               value=""
             />
@@ -1200,7 +1199,6 @@ exports[`utils demos renders ./packages/utils/src/demos/no-title.tsx correctly 1
         >
           <input
             class="ant-input"
-            placeholder="搜索"
             type="text"
             value=""
           />
