@@ -251,8 +251,12 @@ const FormSearch = <T, U = any>({
     }
     const tempMap = {};
     counter.proColumns.forEach((item) => {
+      const { key, dataIndex, index, valueType } = item;
       // 以key为主,理论上key唯一
-      tempMap[genColumnKey((item.key || item.dataIndex) as string, item.index)] = item.valueType;
+      const finalKey = genColumnKey((key || dataIndex) as string, index);
+      // 如果是() => ValueType
+      const finalValueType = typeof valueType === 'function' ? valueType(item) : valueType;
+      tempMap[finalKey] = finalValueType;
     });
     valueTypeRef.current = tempMap;
   }, [counter.proColumns]);
