@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
-import { ConfigContext } from 'antd/lib/config-provider';
 
 import { SiderMenuProps, defaultRenderLogoAndTitle } from '../SiderMenu/SiderMenu';
 import './index.less';
