@@ -243,7 +243,6 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
     menuData,
     menu = { locale: true },
     iconfontUrl,
-    splitMenus,
     collapsed,
     selectedKeys: propsSelectedKeys,
     onSelect,
@@ -252,8 +251,6 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
   const openKeysRef = useRef<string[]>([]);
   // 用于减少 defaultOpenKeys 计算的组件
   const defaultOpenKeysRef = useRef<string[]>([]);
-  const [postMenuData, setPostMenuData] = useState(() => menuData);
-  const postMenuDataRef = useRef(postMenuData);
 
   const { pathname } = location;
 
@@ -291,7 +288,7 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
     if (menu.defaultOpenAll || propsOpenKeys === false || flatMenuKeys.length) {
       return;
     }
-    const keys = getSelectedMenuKeys(location.pathname || '/', postMenuDataRef.current || []);
+    const keys = getSelectedMenuKeys(location.pathname || '/', menuData || []);
     if (keys) {
       openKeysRef.current = keys;
       setOpenKeys(keys);
@@ -310,7 +307,7 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
 
   useEffect(() => {
     // if pathname can't match, use the nearest parent's key
-    const keys = getSelectedMenuKeys(location.pathname || '/', postMenuDataRef.current || []);
+    const keys = getSelectedMenuKeys(location.pathname || '/', menuData || []);
     const animationFrameId = requestAnimationFrame(() => {
       if (keys.join('-') !== (selectedKeys || []).join('-')) {
         setSelectedKeys(keys);
@@ -343,22 +340,6 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
 
   // sync props
   menuUtils.props = props;
-  /**
-   * 这里需要用 menuData
-   * 为了计算 splitMenus 需要用最全的 menuData
-   */
-  useEffect(() => {
-    if (splitMenus && openKeys) {
-      const keys = getSelectedMenuKeys(location.pathname || '/', menuData || []);
-      const [key] = keys;
-      if (key) {
-        const postData = menuData?.find((item) => item.key === key)?.children || [];
-        setPostMenuData(postData);
-        return;
-      }
-    }
-    setPostMenuData(menuData);
-  }, [pathname, splitMenus, flatMenuKeys.join('-')]);
 
   // 这次 openKeys === false 的时候的情况，这种情况下帮用户选中一次
   // 第二次以后不再关系，所以用了 defaultOpenKeys
@@ -370,12 +351,11 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
     }
   }
 
-  const finallyData = props.postMenuData ? props.postMenuData(postMenuData) : postMenuData;
+  const finallyData = props.postMenuData ? props.postMenuData(menuData) : menuData;
 
-  /**
-   * 记下最新的 menuData
-   */
-  postMenuDataRef.current = finallyData;
+  if (finallyData && finallyData?.length < 1) {
+    return null;
+  }
 
   return (
     <Menu
