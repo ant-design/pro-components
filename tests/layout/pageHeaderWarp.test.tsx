@@ -62,4 +62,27 @@ describe('BasicLayout', () => {
     const titleDom = wrapper.find('.ant-page-header-heading-title');
     expect(titleDom.text()).toEqual('name');
   });
+
+  it('with default prefixCls props TopNavHeader', async () => {
+    const wrapper = mount(
+      <ProLayout {...defaultProps} layout="top">
+        <PageContainer title="name" />
+      </ProLayout>,
+    );
+    await waitForComponentToPaint(wrapper);
+    const domHeader = wrapper.find('.ant-pro-top-nav-header-logo');
+    expect(domHeader.exists()).toBe(true);
+  });
+
+  it('without custom prefixCls props TopNavHeader', async () => {
+    const prefixCls = 'ant-oh-pro';
+    const wrapper = mount(
+      <ProLayout {...defaultProps} layout="top" prefixCls={prefixCls}>
+        <PageContainer title="name" />
+      </ProLayout>,
+    );
+    await waitForComponentToPaint(wrapper);
+    const domHeader = wrapper.find(`.${prefixCls}-top-nav-header-logo`);
+    expect(domHeader.exists()).toBe(true);
+  });
 });
