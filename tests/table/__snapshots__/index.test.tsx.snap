@@ -1251,7 +1251,9 @@ exports[`BasicTable 🎏 base use 1`] = `
               >
                 <input
                   class="ant-input"
+                  hidden=""
                   label="date"
+                  name="date"
                   type="text"
                   value=""
                 />
