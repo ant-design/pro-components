@@ -31,13 +31,7 @@ exports[`BasicLayout 🥩 base use 1`] = `
         </div>
         <div
           style="flex:1;overflow-y:auto;overflow-x:hidden"
-        >
-          <ul
-            class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
-            role="menu"
-            style="width:100%"
-          />
-        </div>
+        />
         <div
           class="ant-pro-sider-links"
         >
@@ -130,13 +124,7 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
         </div>
         <div
           style="flex:1;overflow-y:auto;overflow-x:hidden"
-        >
-          <ul
-            class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
-            role="menu"
-            style="width:100%"
-          />
-        </div>
+        />
         <div
           class="ant-pro-sider-links"
         >
@@ -230,13 +218,7 @@ exports[`BasicLayout 🥩 menuDataRender change date 1`] = `
         </div>
         <div
           style="flex: 1; overflow-y: auto; overflow-x: hidden;"
-        >
-          <ul
-            class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
-            role="menu"
-            style="width: 100%;"
-          />
-        </div>
+        />
         <div
           class="ant-pro-sider-links"
         >
@@ -451,13 +433,7 @@ exports[`BasicLayout 🥩 support loading 1`] = `
         </div>
         <div
           style="flex: 1; overflow-y: auto; overflow-x: hidden;"
-        >
-          <ul
-            class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
-            role="menu"
-            style="width: 100%;"
-          />
-        </div>
+        />
         <div
           class="ant-pro-sider-links"
         >

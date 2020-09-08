@@ -4653,13 +4653,7 @@ Array [
                 </div>
                 <div
                   class="ant-spin-container ant-spin-blur"
-                >
-                  <ul
-                    class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
-                    role="menu"
-                    style="width: 100%;"
-                  />
-                </div>
+                />
               </div>
             </div>
           </div>

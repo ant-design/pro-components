@@ -128,7 +128,7 @@ const renderSiderMenu = (props: BasicLayoutProps): React.ReactNode => {
     }
   }
 
-  if (menuData && menuData?.length < 1) {
+  if (menuData && menuData?.length < 1 && splitMenus) {
     return null;
   }
   if (layout === 'top' && !isMobile) {
