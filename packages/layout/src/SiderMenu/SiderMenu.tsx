@@ -152,7 +152,7 @@ const SiderMenu: React.FC<SiderMenuProps> = (props) => {
         collapsedWidth={48}
         style={{
           overflow: 'hidden',
-          paddingTop: layout === 'mix' ? headerHeight : undefined,
+          paddingTop: layout === 'mix' && !isMobile ? headerHeight : undefined,
           ...style,
         }}
         width={siderWidth}
