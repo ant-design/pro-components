@@ -65,7 +65,13 @@ describe('BasicLayout', () => {
 
   it('with default prefixCls props TopNavHeader', async () => {
     const wrapper = mount(
-      <ProLayout {...defaultProps} layout="top">
+      <ProLayout
+        {...defaultProps}
+        layout="mix"
+        splitMenus={true}
+        isMobile={false}
+        rightContentRender={() => <span />}
+      >
         <PageContainer title="name" />
       </ProLayout>,
     );
