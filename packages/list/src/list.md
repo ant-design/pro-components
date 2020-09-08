@@ -40,10 +40,6 @@ nav:
 
 <code src="./demos/layout.tsx" />
 
-### 文段式场景
-
-<code src="./demos/group.tsx" />
-
 ### 一些预设的模式
 
 <code src="./demos/special.tsx" />
@@ -55,6 +51,10 @@ nav:
 ### 分页器
 
 <code src="./demos/pagination.tsx" />
+
+### 待办事项
+
+<code src="./demos/TodoList/index.tsx" title="待办事项" tags='["工作台"]' thumbnail="https://gw.alipayobjects.com/mdn/rms_66ee3f/afts/img/A*f0zuSqAgK-AAAAAAAAAAAABkARQnAQ"/>
 
 ### 小菜单
 

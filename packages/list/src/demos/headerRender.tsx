@@ -4,13 +4,10 @@ import ProList from '@ant-design/pro-list';
 import { ListToolBar } from '@ant-design/pro-utils';
 
 const dataSource = ['语雀的天空', 'Ant Design', '蚂蚁金服体验科技', 'TechUI'];
+
 export default () => {
   return (
     <ProList<string>
-      style={{
-        background: '#FFF',
-        marginBottom: 16,
-      }}
       headerRender={() => {
         const renderBadge = (count: number) => {
           return (
