@@ -64,9 +64,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
     style,
     layout,
   } = props;
-  const prefixCls = props.prefixCls
-    ? `${props.prefixCls}-top-nav-header`
-    : 'ant-pro-top-nav-header';
+  const prefixCls = `${props.prefixCls || 'ant-pro'}-top-nav-header`;
   const headerDom = defaultRenderLogoAndTitle(
     { ...props, collapsed: false },
     layout === 'mix' ? 'headerTitleRender' : undefined,
