@@ -11,6 +11,7 @@ export interface LightWrapperProps {
   disabled?: boolean;
   placeholder?: React.ReactNode;
   size?: SizeType;
+  value?: any;
   onChange?: (value?: any) => void;
   style?: React.CSSProperties;
   className?: string;
@@ -39,7 +40,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
     id,
     labelFormatter,
     bordered,
-    ...rest
+    value,
   } = props;
 
   const { getPrefixCls } = useContext(ConfigContext);
@@ -51,8 +52,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
     if (React.isValidElement(children)) {
       return React.cloneElement(children, {
         ref,
-
-        ...rest,
+        value,
         onChange,
         ...children.props,
         fieldProps: {
