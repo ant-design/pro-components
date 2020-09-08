@@ -73,6 +73,7 @@ export function createField<P extends ProFormItemProps = any>(
     }, []);
     // restFormItemProps is user props pass to Form.Item
     const restFormItemProps = pickProFormItemProps(rest);
+
     const realFieldProps = {
       // 轻量筛选模式下默认不显示 FormItem 的 label，label 设置为 placeholder
       placeholder: proFieldProps?.light ? placeholder || label : placeholder,

@@ -39,31 +39,33 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
     id,
     labelFormatter,
     bordered,
+    ...rest
   } = props;
+
   const { getPrefixCls } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('pro-field-light-wrapper');
   const [tempValue, setTempValue] = useState<string | undefined>(props[valuePropName]);
   const [open, setOpen] = useState<boolean>(false);
 
   if (!light || customLightMode) {
-    return (
-      <React.Fragment>
-        {React.isValidElement(children)
-          ? React.cloneElement(children, {
-              ref,
-              ...children.props,
-              fieldProps: {
-                id,
-                [valuePropName]: props[valuePropName],
-                // 这个 onChange 是 Form.Item 添加上的，要通过 fieldProps 透传给 ProField 调用
-                onChange,
-                // 优先使用 children.props.fieldProps，比如 LightFilter 中可能需要通过 fieldProps 覆盖 Form.Item 默认的 onChange
-                ...children.props.fieldProps,
-              },
-            })
-          : children}
-      </React.Fragment>
-    );
+    if (React.isValidElement(children)) {
+      return React.cloneElement(children, {
+        ref,
+
+        ...rest,
+        onChange,
+        ...children.props,
+        fieldProps: {
+          id,
+          [valuePropName]: props[valuePropName],
+          // 这个 onChange 是 Form.Item 添加上的，要通过 fieldProps 透传给 ProField 调用
+          onChange,
+          // 优先使用 children.props.fieldProps，比如 LightFilter 中可能需要通过 fieldProps 覆盖 Form.Item 默认的 onChange
+          ...children.props.fieldProps,
+        },
+      });
+    }
+    return children as JSX.Element;
   }
 
   return (

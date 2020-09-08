@@ -37,21 +37,29 @@ const ProFormField = React.forwardRef<any, ProFormFieldProps>(
       ...restProps
     },
     ref,
-  ) => (
-    <>
-      {children || (
-        <ProField
-          text={fieldProps?.value as string}
-          mode="edit"
-          valueType={(valueType as 'text') || 'text'}
-          fieldProps={fieldProps}
-          {...proFieldProps}
-          {...restProps}
-          ref={ref}
-        />
-      )}
-    </>
-  ),
+  ) => {
+    // 防止 formItem 的值被吃掉
+    if (children) {
+      if (React.isValidElement(children)) {
+        return React.cloneElement(children, {
+          ...restProps,
+          ...children.props,
+        });
+      }
+      return children as JSX.Element;
+    }
+    return (
+      <ProField
+        text={fieldProps?.value as string}
+        mode="edit"
+        valueType={(valueType as 'text') || 'text'}
+        fieldProps={fieldProps}
+        {...proFieldProps}
+        {...restProps}
+        ref={ref}
+      />
+    );
+  },
 );
 
 export default createField<ProFormFieldProps>(ProFormField);
