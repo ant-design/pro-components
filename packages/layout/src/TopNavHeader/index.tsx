@@ -1,4 +1,4 @@
-import React, { useRef, useState, useContext } from 'react';
+import React, { useRef, useState } from 'react';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import { ConfigContext } from 'antd/lib/config-provider';
@@ -65,10 +65,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
     style,
     layout,
   } = props;
-  const { getPrefixCls } = useContext(ConfigContext);
-  const prefixCls = props.prefixCls
-    ? `${props.prefixCls}-top-nav-header`
-    : getPrefixCls('pro-top-nav-header');
+  const prefixCls = props.prefixCls || 'ant-pro-top-nav-header';
   const headerDom = defaultRenderLogoAndTitle(
     { ...props, collapsed: false },
     layout === 'mix' ? 'headerTitleRender' : undefined,
