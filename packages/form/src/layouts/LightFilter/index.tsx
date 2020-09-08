@@ -144,6 +144,7 @@ const LightFilter: React.FC<LightFilterProps> = (props) => {
     onValuesChange,
     form: userForm,
     bordered,
+    ...reset
   } = props;
   const { getPrefixCls } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('pro-form');
@@ -154,6 +155,8 @@ const LightFilter: React.FC<LightFilterProps> = (props) => {
   });
   return (
     <BaseForm
+      size={size}
+      initialValues={initialValues}
       form={realForm}
       contentRender={(items) => (
         <LightFilterContainer
@@ -182,7 +185,7 @@ const LightFilter: React.FC<LightFilterProps> = (props) => {
         colon: false,
         labelAlign: 'left',
       }}
-      {...props}
+      {...reset}
       onValuesChange={(_, allValues) => {
         setValues(allValues);
         if (onValuesChange) {

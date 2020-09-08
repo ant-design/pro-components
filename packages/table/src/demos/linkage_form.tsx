@@ -170,6 +170,11 @@ export default () => (
       })
     }
     rowKey="id"
+    form={{
+      onValuesChange: (values, all) => {
+        console.log(values, all);
+      },
+    }}
     dateFormatter="string"
     headerTitle="自定义动态表格"
     search={{
