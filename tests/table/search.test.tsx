@@ -114,6 +114,7 @@ describe('BasicTable Search', () => {
         size="small"
         search={{
           defaultCollapsed: false,
+          searchText: 'Search',
           span: {
             xs: 12,
             sm: 12,
