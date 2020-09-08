@@ -66,7 +66,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
     layout,
   } = props;
   const { getPrefixCls } = useContext(ConfigContext);
-  const prefixCls = props.prefixCls ? props.prefixCls + '-top-nav-header' : getPrefixCls('pro-top-nav-header');
+  const prefixCls = props.prefixCls ? `${props.prefixCls}-top-nav-header` : getPrefixCls('pro-top-nav-header');
   const headerDom = defaultRenderLogoAndTitle(
     { ...props, collapsed: false },
     layout === 'mix' ? 'headerTitleRender' : undefined,
