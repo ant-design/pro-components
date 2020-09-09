@@ -1,6 +1,6 @@
 import React from 'react';
 import ProForm, {
-  StepsForm,
+  StepsFrom,
   ProFormText,
   ProFormDatePicker,
   ProFormDateTimePicker,
@@ -22,8 +22,8 @@ const waitTime = (time: number = 100) => {
 export default () => {
   return (
     <>
-      <StepsForm onFinish={(values) => console.log(values)}>
-        <StepsForm.StepForm
+      <StepsFrom onFinish={(values) => console.log(values)}>
+        <StepsFrom.StepFrom
           name="base"
           title="基础信息"
           validateMessages={{
@@ -53,20 +53,20 @@ export default () => {
             <ProFormDateTimePicker name="dateTime" label="日期时间" />
             <ProFormDateRangePicker name="dateRange" label="日期区间" />
           </ProForm.Group>
-        </StepsForm.StepForm>
-        <StepsForm.StepForm name="checkbox" title="行业分布">
+        </StepsFrom.StepFrom>
+        <StepsFrom.StepFrom name="checkbox" title="行业分布">
           <ProFormCheckbox.Group
             name="checkbox"
             layout="vertical"
             label="行业分布"
             options={['农业', '制造业', '互联网']}
           />
-        </StepsForm.StepForm>
-        <StepsForm.StepForm name="time" title="时间选择">
+        </StepsFrom.StepFrom>
+        <StepsFrom.StepFrom name="time" title="时间选择">
           <ProFormDateTimeRangePicker name="dateTimeRange" label="日期时间区间" />
           <ProFormTimePicker name="time" label="时间选择" placeholder="请选择" />
-        </StepsForm.StepForm>
-      </StepsForm>
+        </StepsFrom.StepFrom>
+      </StepsFrom>
     </>
   );
 };

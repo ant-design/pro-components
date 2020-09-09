@@ -7,14 +7,14 @@ import { StepsProps } from 'antd/lib/steps';
 import classNames from 'classnames';
 import { ConfigContext } from 'antd/lib/config-provider';
 
-import StepForm, { StepFormProps } from './StepForm';
+import StepFrom, { StepFromProps } from './StepFrom';
 import './index.less';
 
 type Store = {
   [name: string]: any;
 };
 
-interface StepsFormProps<T = Store> extends FormProviderProps {
+interface StepsFromProps<T = Store> extends FormProviderProps {
   onFinish?: (values: T) => void;
   current?: number;
   stepsProps?: StepsProps;
@@ -31,21 +31,21 @@ interface StepsFormProps<T = Store> extends FormProviderProps {
   ) => React.ReactNode;
 }
 
-export const StepsFormProvide = React.createContext<
+export const StepsFromProvide = React.createContext<
   | {
       unRegForm: (name: string) => void;
       onFormFinish: (name: string, formData: any) => void;
       keyArray: string[];
 
-      formMapRef: React.MutableRefObject<Map<string, StepFormProps>>;
+      formMapRef: React.MutableRefObject<Map<string, StepFromProps>>;
       next: () => void;
       pre: () => void;
     }
   | undefined
 >(undefined);
 
-const StepsForm: React.FC<StepsFormProps> & {
-  StepForm: typeof StepForm;
+const StepsFrom: React.FC<StepsFromProps> & {
+  StepFrom: typeof StepFrom;
   useForm: typeof Form.useForm;
 } = (props) => {
   const { getPrefixCls } = useContext(ConfigContext);
@@ -53,7 +53,7 @@ const StepsForm: React.FC<StepsFormProps> & {
 
   const { current, onCurrentChange, stepsProps, onFinish, ...rest } = props;
   const formDataRef = useRef(new Map<string, Store>());
-  const formMapRef = useRef(new Map<string, StepFormProps>());
+  const formMapRef = useRef(new Map<string, StepFromProps>());
   const [formArray, setFormArray] = useState<string[]>([]);
 
   /**
@@ -67,7 +67,7 @@ const StepsForm: React.FC<StepsFormProps> & {
   /**
    * 注册一个form进入，方便进行 props 的修改
    */
-  const regForm = useCallback((name: string, formProps: StepFormProps) => {
+  const regForm = useCallback((name: string, formProps: StepFromProps) => {
     formMapRef.current.set(name, formProps);
   }, []);
 
@@ -131,7 +131,7 @@ const StepsForm: React.FC<StepsFormProps> & {
               stepsDom,
             )
           : stepsDom}
-        <StepsFormProvide.Provider
+        <StepsFromProvide.Provider
           value={{
             keyArray: formArray,
             next: () => {
@@ -152,7 +152,7 @@ const StepsForm: React.FC<StepsFormProps> & {
           }}
         >
           {toArray(props.children).map((item, index) => {
-            const itemProps = item.props as StepFormProps;
+            const itemProps = item.props as StepFromProps;
             const name = itemProps.name || `${index}`;
             regForm(name, itemProps);
 
@@ -172,15 +172,15 @@ const StepsForm: React.FC<StepsFormProps> & {
               </div>
             );
           })}
-        </StepsFormProvide.Provider>
+        </StepsFromProvide.Provider>
       </Form.Provider>
     </div>
   );
 };
 
-StepsForm.StepForm = StepForm;
-StepsForm.useForm = Form.useForm;
+StepsFrom.StepFrom = StepFrom;
+StepsFrom.useForm = Form.useForm;
 
-export type { StepFormProps, StepsFormProps };
+export type { StepFromProps, StepsFromProps };
 
-export default StepsForm;
+export default StepsFrom;

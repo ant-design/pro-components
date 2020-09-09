@@ -69,7 +69,8 @@ ProLayout 会根据 `location.pathname` 来自动选中菜单，并且自动生�
 | locale | 当前 layout 的语言设置 | 'zh-CN' \| 'zh-TW' \| 'en-US' | navigator.language |
 | settings | layout 的设置 | [`Settings`](#Settings) | [`Settings`](#Settings) | - |
 | siderWidth | 侧边菜单宽度 | number | 208 |
-| collapsed | 控制菜单的收起和展开 | boolean | true |
+| defaultCollapsed | 默认的菜单的收起和展开 | boolean | - |
+| collapsed | 控制菜单的收起和展开 | boolean | - |
 | onCollapse | 菜单的折叠收起事件 | (collapsed: boolean) => void | - |
 | onPageChange | 页面切换时触发 | (location: Location) => void | - |
 | headerRender | 自定义头的 render 方法 | (props: BasicLayoutProps) => ReactNode | - |

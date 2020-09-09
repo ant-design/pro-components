@@ -18,6 +18,7 @@ const SiderMenuWrapper: React.FC<SiderMenuProps> = (props) => {
     style,
     className,
     hide,
+    getContainer,
     prefixCls,
   } = props;
   const { setFlatMenuKeys } = MenuCounter.useContainer();
@@ -59,6 +60,7 @@ const SiderMenuWrapper: React.FC<SiderMenuProps> = (props) => {
         height: '100vh',
         ...style,
       }}
+      getContainer={getContainer}
       width={siderWidth}
       bodyStyle={{ height: '100vh', padding: 0, display: 'flex', flexDirection: 'row' }}
     >

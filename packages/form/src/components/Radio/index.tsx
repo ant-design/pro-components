@@ -43,7 +43,6 @@ const Group: React.FC<ProFormRadioGroupProps> = ({ children, fieldProps, options
     }
     return children;
   };
-
   return <RadioGroup {...fieldProps}>{renderChildren()}</RadioGroup>;
 };
 
@@ -66,6 +65,7 @@ const WrappedProFormRadio: React.ComponentType<ProFormItemProps<RadioProps>> & {
 WrappedProFormRadio.Group = createField(Group, {
   customLightMode: true,
 });
+
 WrappedProFormRadio.Button = Radio.Button;
 
 export default WrappedProFormRadio;

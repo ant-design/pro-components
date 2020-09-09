@@ -205,6 +205,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     route = {
       routes: [],
     },
+    defaultCollapsed,
     layout: defaultPropsLayout,
     style,
     disableContentMargin,
@@ -287,7 +288,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   // don't need padding in phone mode
   const hasLeftPadding = propsLayout !== 'top' && !isMobile;
 
-  const [collapsed, onCollapse] = useMergedState<boolean>(false, {
+  const [collapsed, onCollapse] = useMergedState<boolean>(defaultCollapsed || false, {
     value: props.collapsed,
     onChange: propsOnCollapse,
   });
