@@ -380,8 +380,6 @@ Form 的列是根据 `valueType` 来生成不同的类型。
 | index | 不展示 |
 | progress | 不展示 |
 
-设置了 `valueEnum` 的列将会生成 Select,Select 会自动插入一个全部选项，并且默认选中，但是值为 `all` 在查询时会被丢弃。
-
 ### 自定义表单项
 
 当内置的表单项无法满足我们的基本需求，这时候我们就需要来自定义一下默认的组件，我们可以通过 `fieldProps` 和 `renderFormItem` 配合来使用。
