@@ -74,7 +74,7 @@ export const genCopyable = (dom: React.ReactNode, item: ProColumns<any>, text: s
           padding: 0,
         }}
         copyable={
-          item.copyable
+          item.copyable && text
             ? {
                 text,
                 tooltips: ['', ''],
