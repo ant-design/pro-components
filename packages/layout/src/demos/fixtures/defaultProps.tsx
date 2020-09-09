@@ -4,7 +4,6 @@ import { SmileOutlined, CrownOutlined, TabletOutlined } from '@ant-design/icons'
 export default {
   route: {
     path: '/',
-
     routes: [
       {
         path: '/welcome',

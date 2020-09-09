@@ -19,6 +19,9 @@ export default () => {
         layout="mix"
         menuHeaderRender={false}
         splitMenus
+        location={{
+          pathname: '/welcome',
+        }}
         style={{
           height: 500,
         }}

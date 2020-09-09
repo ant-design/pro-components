@@ -236,10 +236,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     if (locales[id]) {
       return locales[id];
     }
-    if (defaultMessage) {
-      return defaultMessage as string;
-    }
-    return id;
+    return defaultMessage as string;
   };
 
   const colSize = useAntdMediaQuery();
