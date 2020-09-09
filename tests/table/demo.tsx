@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import { ProColumns, TableStatus, TableDropdown } from '@ant-design/pro-table';
-import { Input } from 'antd';
+import { Input, message } from 'antd';
 
 const getData = (
   size: number,
@@ -147,7 +147,7 @@ export const columns: ProColumns[] = [
     render: (text, row, index, action) => [
       <a
         onClick={() => {
-          window.alert('确认删除？');
+          message.info('确认删除');
           action.reload();
         }}
       >
@@ -155,14 +155,14 @@ export const columns: ProColumns[] = [
       </a>,
       <a
         onClick={() => {
-          window.alert('确认刷新？');
+          message.info('确认刷新');
           action.reload();
         }}
       >
         reload
       </a>,
       <TableDropdown
-        onSelect={(key) => window.alert(key)}
+        onSelect={(key) => message.info(key)}
         menus={[
           { key: 'copy', name: '复制' },
           { key: 'delete', name: '删除' },
