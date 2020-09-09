@@ -253,7 +253,7 @@ const defaultRenderText = (
    *如果是季度的值
    */
   if (valueType === 'dateQuarter') {
-    return <FieldDatePicker text={text as string} format="YYYY-QQ" picker="quarter" {...props} />;
+    return <FieldDatePicker text={text as string} format="YYYY-\QQ" picker="quarter" {...props} />;
   }
 
   /**
