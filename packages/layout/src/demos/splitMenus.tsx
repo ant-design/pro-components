@@ -32,6 +32,10 @@ export default () => {
         layout="mix"
         menuHeaderRender={() => null}
         splitMenus
+        location={{
+          pathname: '/welcome',
+        }}
+        openKeys={false}
         style={{
           height: 500,
         }}

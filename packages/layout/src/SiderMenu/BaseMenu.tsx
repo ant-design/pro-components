@@ -342,7 +342,8 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
   menuUtils.props = props;
 
   // 这次 openKeys === false 的时候的情况，这种情况下帮用户选中一次
-  // 第二次以后不再关系，所以用了 defaultOpenKeys
+  // 第二此不会使用，所以用了 defaultOpenKeys
+  // 这里返回 null，是为了让 defaultOpenKeys 生效
   if (props.openKeys === false && !props.handleOpenChange) {
     const keys = getSelectedMenuKeys(location.pathname || '/', menuData || []);
     defaultOpenKeysRef.current = keys;

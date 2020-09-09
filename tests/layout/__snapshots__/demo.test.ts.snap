@@ -6399,7 +6399,7 @@ Array [
               style="width: 100%;"
             >
               <li
-                class="ant-menu-item ant-menu-item-only-child"
+                class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
                 role="menuitem"
                 style="padding-left: 16px;"
               >
@@ -6624,7 +6624,7 @@ Array [
                     </div>
                   </li>
                   <li
-                    class="ant-menu-item ant-menu-item-only-child"
+                    class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
                     role="menuitem"
                   >
                     <span
