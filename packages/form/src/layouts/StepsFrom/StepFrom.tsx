@@ -3,19 +3,19 @@ import { FormProps, FormInstance } from 'antd/lib/form/Form';
 import { Button } from 'antd';
 
 import BaseForm, { CommonFormProps } from '../../BaseForm';
-import { StepsFormProvide } from './index';
+import { StepsFromProvide } from './index';
 import { SubmitterProps } from '../../components/Submitter';
 
 const isBoolean = (val: any) => typeof val === 'boolean';
 
-export interface StepFormProps<T = any> extends FormProps, CommonFormProps {
+export interface StepFromProps<T = any> extends FormProps, CommonFormProps {
   step?: number;
   onFinish?: (values: T) => Promise<boolean>;
 }
 
-const StepForm: React.FC<StepFormProps> = ({ onFinish, step, ...restProps }) => {
+const StepFrom: React.FC<StepFromProps> = ({ onFinish, step, ...restProps }) => {
   const formRef = useRef<FormInstance | undefined>();
-  const context = useContext(StepsFormProvide);
+  const context = useContext(StepsFromProvide);
   const [loading, setLoading] = useState(false);
 
   const next = (
@@ -136,4 +136,4 @@ const StepForm: React.FC<StepFormProps> = ({ onFinish, step, ...restProps }) => 
   );
 };
 
-export default StepForm;
+export default StepFrom;

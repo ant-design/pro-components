@@ -185,6 +185,11 @@ const LightFilter: React.FC<LightFilterProps> = (props) => {
         colon: false,
         labelAlign: 'left',
       }}
+      fieldProps={{
+        style: {
+          width: 'auto',
+        },
+      }}
       {...reset}
       onValuesChange={(_, allValues) => {
         setValues(allValues);
