@@ -17,6 +17,14 @@ export interface ProFormItemProps<T = {}> extends FormItemProps {
   secondary?: boolean;
   disabled?: boolean;
   /**
+   * - XS=144px 适用于短数字、短文本或选项。
+   * - S=216px 适用于较短字段录入、如姓名、电话、ID 等。
+   * - M=328px 标准宽度，适用于大部分字段长度。
+   * - L=440px 适用于较长字段录入，如长网址、标签组、文件路径等。
+   * - X=552px 适用于长文本录入，如长链接、描述、备注等，通常搭配自适应多行输入框或定高文本域使用。
+   */
+  width?: number | 's' | 'm' | 'x' | 'xs' | 'l';
+  /**
    * 设置到 ProField 上面的 Props，内部属性
    */
   proFieldProps?: {

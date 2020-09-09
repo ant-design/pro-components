@@ -9,6 +9,7 @@ import { ConfigContext } from 'antd/lib/config-provider';
 
 import StepFrom, { StepFromProps } from './StepFrom';
 import './index.less';
+import { ProFormProps } from '../ProForm';
 
 type Store = {
   [name: string]: any;
@@ -18,6 +19,7 @@ interface StepsFromProps<T = Store> extends FormProviderProps {
   onFinish?: (values: T) => void;
   current?: number;
   stepsProps?: StepsProps;
+  formProps?: ProFormProps;
   onCurrentChange?: (current: number) => void;
   /**
    * 自定义分布表单
@@ -51,7 +53,7 @@ const StepsFrom: React.FC<StepsFromProps> & {
   const { getPrefixCls } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('pro-form-steps-form');
 
-  const { current, onCurrentChange, stepsProps, onFinish, ...rest } = props;
+  const { current, onCurrentChange, stepsProps, onFinish, formProps, ...rest } = props;
   const formDataRef = useRef(new Map<string, Store>());
   const formMapRef = useRef(new Map<string, StepFromProps>());
   const [formArray, setFormArray] = useState<string[]>([]);
@@ -67,8 +69,8 @@ const StepsFrom: React.FC<StepsFromProps> & {
   /**
    * 注册一个form进入，方便进行 props 的修改
    */
-  const regForm = useCallback((name: string, formProps: StepFromProps) => {
-    formMapRef.current.set(name, formProps);
+  const regForm = useCallback((name: string, childrenFormProps: StepFromProps) => {
+    formMapRef.current.set(name, childrenFormProps);
   }, []);
 
   /**
@@ -111,7 +113,7 @@ const StepsFrom: React.FC<StepsFromProps> & {
   );
 
   const stepsDom = (
-    <Steps size="small" {...stepsProps} current={step} onChange={undefined}>
+    <Steps {...stepsProps} current={step} onChange={undefined}>
       {formArray.map((item) => {
         const itemProps = formMapRef.current.get(item);
         return <Steps.Step key={item} title={itemProps?.title} />;
@@ -164,6 +166,7 @@ const StepsFrom: React.FC<StepsFromProps> & {
                 key={name}
               >
                 {React.cloneElement(item, {
+                  ...formProps,
                   ...itemProps,
                   name,
                   step: index,
