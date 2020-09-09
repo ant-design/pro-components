@@ -20,6 +20,10 @@ export interface BaseMenuProps
     Omit<MenuProps, 'openKeys' | 'onOpenChange'>,
     Partial<PureSettings> {
   className?: string;
+  /**
+   *默认的是否展开，会受到 breakpoint 的影响
+   */
+  defaultCollapsed?: boolean;
   collapsed?: boolean;
   splitMenus?: boolean;
   isMobile?: boolean;

@@ -25,6 +25,9 @@ export default () => {
         style={{
           maxHeight: '100vh',
         }}
+        navTheme="light"
+        breakpoint={false}
+        defaultCollapsed
         pageTitleRender={false}
         menuDataRender={() => [
           {
@@ -48,7 +51,15 @@ export default () => {
           <Card>
             <ProForm
               submitter={{
-                render: (_, dom) => <FooterToolbar>{dom}</FooterToolbar>,
+                render: (_, dom) => (
+                  <FooterToolbar
+                    style={{
+                      height: 64,
+                    }}
+                  >
+                    {dom}
+                  </FooterToolbar>
+                ),
               }}
               onFinish={(values) => console.log(values)}
             >
