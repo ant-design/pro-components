@@ -660,8 +660,8 @@ const ProTable = <T extends {}, U extends ParamsType>(
   useDeepCompareEffect(() => {
     if (propsPagination && (propsPagination.current || propsPagination.pageSize)) {
       action.setPageInfo({
-        pageSize: propsPagination.pageSize || 20,
-        page: propsPagination.current || 1,
+        pageSize: propsPagination.pageSize || action.current,
+        page: propsPagination.current || action.pageSize,
       });
     }
   }, [propsPagination && propsPagination.pageSize, propsPagination && propsPagination.current]);
