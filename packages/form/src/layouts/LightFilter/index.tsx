@@ -187,7 +187,7 @@ const LightFilter: React.FC<LightFilterProps> = (props) => {
       }}
       fieldProps={{
         style: {
-          width: 'auto',
+          width: undefined,
         },
       }}
       {...reset}
