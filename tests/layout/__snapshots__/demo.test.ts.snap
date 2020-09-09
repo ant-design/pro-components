@@ -5772,7 +5772,7 @@ Array [
                   <span
                     class="ant-pro-menu-item-title"
                   >
-                    欢迎
+                    menu.欢迎
                   </span>
                 </span>
               </li>
@@ -5811,7 +5811,7 @@ Array [
                       </svg>
                     </span>
                     <span>
-                      管理页
+                      menu.管理页
                     </span>
                   </span>
                   <i
@@ -5855,7 +5855,7 @@ Array [
                       </svg>
                     </span>
                     <span>
-                      列表页
+                      menu.列表页
                     </span>
                   </span>
                   <i
@@ -5996,7 +5996,7 @@ Array [
                       <span
                         class="ant-pro-menu-item-title"
                       >
-                        欢迎
+                        menu.欢迎
                       </span>
                     </span>
                   </li>
@@ -6049,7 +6049,7 @@ Array [
                       <span
                         class="ant-pro-menu-item-title"
                       >
-                        管理页
+                        menu.管理页
                       </span>
                     </span>
                   </li>
@@ -6102,7 +6102,7 @@ Array [
                       <span
                         class="ant-pro-menu-item-title"
                       >
-                        列表页
+                        menu.列表页
                       </span>
                     </span>
                   </li>
