@@ -44,7 +44,9 @@ nav:
 
 <code src="./demos/special.tsx" />
 
-### 自定义表头
+### 使用 ListToolBar 自定义表头
+
+你可以使用 `toolBarProps` 透传列表工具栏属性进行自定义。
 
 <code src="./demos/headerRender.tsx" />
 
@@ -76,6 +78,7 @@ ProList 与 antd 的 [List](https://ant.design/components/list-cn/) 相比，主
 | title | 列表头部主标题 | ReactNode | - |
 | actions | 列表头部操作项 | React.ReactNode[] | - |
 | headerRender | 自定义列表头的 render 方法，替代 `<List />` 的 header 属性 | (props: {title, actions}, defaultDom: React.ReactNode) => ReactNode | - |
+| toolBarProps | 列表工具栏属性 | 与 ListToolBar 相同的配置, 注意会覆盖 `title` 和 `actions` 属性 | - |
 | listRenderItem | 这是 antd 的 renderItem 的别名 | (row,index)=> Node | - |
 
 ### ProList.Item

@@ -50,10 +50,10 @@ const TodoList: React.FC = () => {
   );
 
   return (
-    <div className={styles.container} style={{ marginBottom: 16 }}>
+    <div>
       <ProList
         dataSource={dataSource}
-        title={<span style={{ fontWeight: 'bold' }}>待办事项</span>}
+        title="待办事项"
         renderItem={(item) => ({
           title: item.title,
           subTitle: item.type,
