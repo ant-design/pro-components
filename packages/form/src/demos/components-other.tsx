@@ -118,6 +118,7 @@ const Demo = () => (
         <ProFormDatePicker.Year name="dateYear" label="年" />
         <ProFormDateTimePicker name="dateTime" label="日期时间" />
         <ProFormDateRangePicker name="dateRange" label="日期区间" />
+        <ProFormDateTimeRangePicker name="dateTimeRange" label="日期时间区间" />
       </ProForm.Group>
       <ProFormUploadDragger label="Dragger" name="dragger" />
     </ProForm>
