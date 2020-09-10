@@ -334,7 +334,7 @@ exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
               >
                 <div
                   class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                  style="width: 148px;"
+                  style="width: 104px;"
                   text=""
                 >
                   <div
@@ -427,7 +427,7 @@ exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
               >
                 <div
                   class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                  style="width: 148px;"
+                  style="width: 104px;"
                   text=""
                 >
                   <div
@@ -595,7 +595,7 @@ exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
             disabled=""
             id="mangerName"
             placeholder="请输入"
-            style="width: 148px;"
+            style="width: 104px;"
             type="text"
             value="启途"
           />
@@ -3435,7 +3435,7 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                       >
                                         <div
                                           class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                                          style="width: 148px;"
+                                          style="width: 104px;"
                                           text=""
                                         >
                                           <div
@@ -3556,7 +3556,7 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                       >
                                         <div
                                           class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                                          style="width: 148px;"
+                                          style="width: 104px;"
                                           text=""
                                         >
                                           <div
@@ -3724,7 +3724,7 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                     disabled=""
                                     id="mangerName"
                                     placeholder="请输入"
-                                    style="width: 148px;"
+                                    style="width: 104px;"
                                     type="text"
                                     value="启途"
                                   />
@@ -3769,7 +3769,7 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                       >
                                         <div
                                           class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                                          style="width: 148px;"
+                                          style="width: 104px;"
                                           text=""
                                         >
                                           <div
@@ -3891,7 +3891,7 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                       >
                                         <div
                                           class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                                          style="width: 148px;"
+                                          style="width: 104px;"
                                           text=""
                                         >
                                           <div
@@ -4190,7 +4190,7 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                 >
                                   <div
                                     class="ant-input-number"
-                                    style="width: 148px;"
+                                    style="width: 104px;"
                                   >
                                     <div
                                       class="ant-input-number-handler-wrap"
@@ -6214,7 +6214,7 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                 >
                   <div
                     class="ant-input-number"
-                    style="width: 148px;"
+                    style="width: 104px;"
                   >
                     <div
                       class="ant-input-number-handler-wrap"

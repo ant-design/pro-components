@@ -30,7 +30,7 @@ export interface BaseFormProps extends FormProps, CommonFormProps {
 
 const WIDTH_SIZE_ENUM = {
   // 适用于短数字，短文本或者选项
-  xs: 148,
+  xs: 104,
   // 适用于较短字段录入、如姓名、电话、ID 等。
   s: 216,
   // 标准宽度，适用于大部分字段长度。
