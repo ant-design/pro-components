@@ -4,7 +4,7 @@ import { Divider, Space, Tooltip, Input } from 'antd';
 import { ConfigContext } from 'antd/lib/config-provider/context';
 import { SearchProps } from 'antd/lib/input';
 import { useIntl, IntlType } from '@ant-design/pro-provider';
-import { LabelIconTip } from '@ant-design/pro-utils';
+import { LabelIconTip, ListToolBar, ListToolBarProps } from '@ant-design/pro-utils';
 import ColumnSetting from '../ColumnSetting';
 import { UseFetchDataAction, RequestData } from '../../useFetchData';
 import './index.less';
@@ -24,7 +24,7 @@ export type OptionsType<T = unknown> =
   | boolean;
 
 export interface ToolBarProps<T = unknown> {
-  headerTitle?: React.ReactNode;
+  headerTitle?: ListToolBarProps['title'];
   tip?: string;
   toolBarRender?: (
     action: UseFetchDataAction<RequestData<T>>,

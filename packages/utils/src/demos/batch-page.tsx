@@ -47,7 +47,7 @@ const data = [
 ];
 
 export default () => {
-  const [selectedRowKeys, setSelectedRowKeys] = React.useState(['1', '2']);
+  const [selectedRowKeys, setSelectedRowKeys] = React.useState([]);
   return (
     <div
       style={{

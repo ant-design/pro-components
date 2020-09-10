@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import { Tooltip, Input, Divider, Tabs } from 'antd';
+import LabelIconTip from '../LabelIconTip';
 import { TabPaneProps } from 'antd/lib/tabs';
 import classNames from 'classnames';
 import { SearchProps } from 'antd/es/input';
