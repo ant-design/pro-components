@@ -15,6 +15,7 @@ export interface ProFormItemProps<T = {}> extends FormItemProps {
   fieldProps?: FieldProps & T;
   placeholder?: string | string[];
   secondary?: boolean;
+  disabled?: boolean;
   /**
    * 设置到 ProField 上面的 Props，内部属性
    */

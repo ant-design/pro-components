@@ -27,6 +27,7 @@ import PageLoading from './PageLoading';
 import MenuCounter from './SiderMenu/Counter';
 import WrapContent from './WrapContent';
 import compatibleLayout from './utils/compatibleLayout';
+import { getSelectedMenuKeys } from './SiderMenu/SiderMenuUtils';
 
 export type BasicLayoutProps = Partial<RouterTypes<Route>> &
   SiderMenuProps &
@@ -110,8 +111,24 @@ const footerRender = (props: BasicLayoutProps): React.ReactNode => {
 };
 
 const renderSiderMenu = (props: BasicLayoutProps): React.ReactNode => {
-  const { layout, isMobile, menuRender } = props;
+  const { layout, isMobile, openKeys, splitMenus, location, menuRender } = props;
   if (props.menuRender === false || props.pure) {
+    return null;
+  }
+  let { menuData } = props;
+
+  /**
+   * 如果是分割菜单模式，需要专门实现一下
+   */
+  if (splitMenus && openKeys !== false) {
+    const keys = getSelectedMenuKeys(location?.pathname || '/', props.menuData || []);
+    const [key] = keys;
+    if (key) {
+      menuData = props.menuData?.find((item) => item.key === key)?.children || [];
+    }
+  }
+
+  if (menuData && menuData?.length < 1 && splitMenus) {
     return null;
   }
   if (layout === 'top' && !isMobile) {
@@ -121,7 +138,7 @@ const renderSiderMenu = (props: BasicLayoutProps): React.ReactNode => {
     return menuRender(props, <SiderMenu {...props} />);
   }
 
-  return <SiderMenu {...props} />;
+  return <SiderMenu {...props} menuData={menuData} />;
 };
 
 const defaultPageTitleRender = (
@@ -188,6 +205,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     route = {
       routes: [],
     },
+    defaultCollapsed,
     layout: defaultPropsLayout,
     style,
     disableContentMargin,
@@ -219,10 +237,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     if (locales[id]) {
       return locales[id];
     }
-    if (defaultMessage) {
-      return defaultMessage as string;
-    }
-    return id;
+    return defaultMessage as string;
   };
 
   const colSize = useAntdMediaQuery();
@@ -273,7 +288,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   // don't need padding in phone mode
   const hasLeftPadding = propsLayout !== 'top' && !isMobile;
 
-  const [collapsed, onCollapse] = useMergedState<boolean>(false, {
+  const [collapsed, onCollapse] = useMergedState<boolean>(defaultCollapsed || false, {
     value: props.collapsed,
     onChange: propsOnCollapse,
   });
@@ -304,7 +319,6 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     ...defaultProps,
     breadcrumbMap,
   });
-
   // render sider dom
   const siderMenuDom = renderSiderMenu({
     ...defaultProps,

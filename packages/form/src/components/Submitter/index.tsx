@@ -26,7 +26,9 @@ export interface SubmitterProps {
   /**
    * 自定义操作的渲染的渲染
    */
-  render?: ((props: SubmitterProps, dom: JSX.Element[]) => React.ReactNode[] | false) | false;
+  render?:
+    | ((props: SubmitterProps, dom: JSX.Element[]) => React.ReactNode[] | React.ReactNode | false)
+    | false;
 }
 
 /**
@@ -76,10 +78,16 @@ const Submitter: React.FC<SubmitterProps> = (props) => {
   ];
 
   const renderDom = render ? render(props, dom) : dom;
-  if (!renderDom || renderDom.length < 1) {
+  if (!renderDom) {
     return null;
   }
-  return <Space>{renderDom}</Space>;
+  if (Array.isArray(renderDom)) {
+    if (renderDom?.length < 1) {
+      return null;
+    }
+    return <Space>{renderDom}</Space>;
+  }
+  return renderDom as JSX.Element;
 };
 
 export default Submitter;

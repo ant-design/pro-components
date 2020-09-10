@@ -74,6 +74,7 @@ export interface SiderMenuProps
   style?: CSSProperties;
   links?: React.ReactNode[];
   onOpenChange?: (openKeys: WithFalse<string[]>) => void;
+  getContainer?: false;
 }
 
 export const defaultRenderCollapsedButton = (collapsed?: boolean) =>

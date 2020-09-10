@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
-import { Button, Tabs, Tag, Space } from 'antd';
+import { Button, Tabs, Tag, Space, message } from 'antd';
 import ProDescriptions from '@ant-design/pro-descriptions';
 import ProTable, { ProColumns, TableDropdown } from '@ant-design/pro-table';
 import request from 'umi-request';
@@ -136,7 +136,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
       </a>,
       <TableDropdown
         key="more"
-        onSelect={(key) => window.alert(key)}
+        onSelect={(key) => message.info(key)}
         menus={[
           { key: 'copy', name: '复制' },
           { key: 'delete', name: '删除' },

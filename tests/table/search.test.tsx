@@ -72,6 +72,7 @@ describe('BasicTable Search', () => {
 
   it('🎏 reset test', async () => {
     const fn = jest.fn();
+    const resetFn = jest.fn();
     const html = mount(
       <ProTable
         size="small"
@@ -87,6 +88,7 @@ describe('BasicTable Search', () => {
             dataIndex: 'name',
           },
         ]}
+        onReset={resetFn}
         request={(params) => {
           fn();
           return request(params);
@@ -103,6 +105,7 @@ describe('BasicTable Search', () => {
     await waitForComponentToPaint(html, 500);
 
     expect(fn).toBeCalledTimes(2);
+    expect(resetFn).toBeCalledTimes(1);
   });
 
   it('🎏 search span test', async () => {
@@ -111,6 +114,7 @@ describe('BasicTable Search', () => {
         size="small"
         search={{
           defaultCollapsed: false,
+          searchText: 'Search',
           span: {
             xs: 12,
             sm: 12,

@@ -20,6 +20,10 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 
 <code src="./demos/base.tsx" />
 
+### 固定页脚
+
+<code src="./demos/layout-base.tsx" />
+
 ### 分步表单
 
 <code src="./demos/steps-from.tsx" />
@@ -75,6 +79,25 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 ### ProForm 的 Field
 
 ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 组件的结合，我们可以帮他们当成一个 FromItem 来使用，并且支持各种 props。每个 Field 都支持 fieldProps 属性来支持设置输入组件的 props。 我们支持了 placeholder 的透传，你可以直接在组件上设置 placeholder。
+
+### 通用的属性
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| width | Field 的长度，我们归纳了常用的 Field 长度以及适合的场景，支持了一些枚举 "xs" , "s" , "m" , "l" , "x" | `number \| "xs" \| "s" \| "m" \| "l" \| "x"` | - |
+| tip | 会在 label 旁增加一个 icon，悬浮后展示配置的信息 | `string \| tooltipProps` |
+
+#### 宽度
+
+在某些场景下，我们需要根据页面展示效果对输入框进行自适应处理，除此以外一个表单区域应默认使用定宽规则。
+
+![](https://gw.alipayobjects.com/zos/antfincdn/CyJPTSL07y/1574664269794-254db9de-2574-4361-bcf1-b82c6db0c80a.png)
+
+- XS=104px 适用于短数字、短文本或选项。
+- S=216px 适用于较短字段录入、如姓名、电话、ID 等。
+- M=328px 标准宽度，适用于大部分字段长度。
+- L=440px 适用于较长字段录入，如长网址、标签组、文件路径等。
+- X=552px 适用于长文本录入，如长链接、描述、备注等，通常搭配自适应多行输入框或定高文本域使用。
 
 #### ProFormText
 
@@ -349,9 +372,9 @@ LightFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 | collapse      | 是否默认折叠全部字段 | `boolean`   | `false`                    |
 | collapseLabel | 折叠区域的标签       | `ReactNode` | `更多筛选 <DownOutlined/>` |
 
-### StepsForm
+### StepsFrom
 
-StepsForm 本质上是一个 Provider ，增加步骤条和一些相关的 API。
+StepsFrom 本质上是一个 Provider ，增加步骤条和一些相关的 API。
 
 > Form.Provider 的文档可以看[这里](https://ant.design/components/form-cn/#Form.Provider),转化 moment 的值是 proFrom 提供的功能，所以 `onFormFinish` 和 `onFormChange` 其中的值都是未经转化的
 
@@ -360,9 +383,9 @@ StepsForm 本质上是一个 Provider ，增加步骤条和一些相关的 API�
 | current | 当前表单的步骤数，从 `0` 开始 | `number` | 0 |
 | onCurrentChange | current 发生改变的事件 | `(current:number)=>void` | - |
 | onFinish | 表单最后一步提交成功触发 | `(values:T)=>void` | - |
-| stepsProps | StepsForm 自带的 Steps 的 props，使用方式与 [antd](https://ant.design/components/steps-cn/) 相同，但是去掉了 current 和 onChange | [props](https://ant.design/components/steps-cn/#API) | - |
+| stepsProps | StepsFrom 自带的 Steps 的 props，使用方式与 [antd](https://ant.design/components/steps-cn/) 相同，但是去掉了 current 和 onChange | [props](https://ant.design/components/steps-cn/#API) | - |
 
-#### StepForm
+#### StepFrom
 
 与 ProForm 完成相同，只是 onFinish 支持了 Promise，如果返回 `false`, 就会无法使用下一步。
 
