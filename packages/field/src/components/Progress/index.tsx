@@ -11,14 +11,13 @@ export function getProgressStatus(text: number): 'success' | 'exception' | 'norm
   if (text === 100) {
     return 'success';
   }
+  if (text < 0) {
+    return 'exception';
+  }
   if (text < 100) {
     return 'active';
   }
 
-  // magic
-  if (text < 0) {
-    return 'exception';
-  }
   return 'normal';
 }
 

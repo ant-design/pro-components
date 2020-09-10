@@ -50,6 +50,9 @@ export type ProFieldValueType =
   | 'option'
   | 'date'
   | 'dateWeek'
+  | 'dateMonth'
+  | 'dateQuarter'
+  | 'dateYear'
   | 'dateRange'
   | 'dateTimeRange'
   | 'dateTime'
@@ -237,6 +240,27 @@ const defaultRenderText = (
    */
   if (valueType === 'dateWeek') {
     return <FieldDatePicker text={text as string} format="YYYY-wo" picker="week" {...props} />;
+  }
+
+  /**
+   *如果是月的值
+   */
+  if (valueType === 'dateMonth') {
+    return <FieldDatePicker text={text as string} format="YYYY-MM" picker="month" {...props} />;
+  }
+
+  /**
+   *如果是季度的值
+   */
+  if (valueType === 'dateQuarter') {
+    return <FieldDatePicker text={text as string} format="YYYY-\QQ" picker="quarter" {...props} />;
+  }
+
+  /**
+   *如果是年的值
+   */
+  if (valueType === 'dateYear') {
+    return <FieldDatePicker text={text as string} format="YYYY" picker="year" {...props} />;
   }
 
   /**
