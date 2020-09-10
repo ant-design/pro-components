@@ -1,6 +1,8 @@
 import moment, { Moment } from 'moment';
 import isNil from '../isNil';
 
+type DateFormatter = 'number' | 'string' | false;
+
 const dateFormatterMap = {
   time: 'HH:mm:ss',
   timeRange: 'HH:mm:ss',
@@ -14,11 +16,7 @@ const dateFormatterMap = {
   dateTimeRange: 'YYYY-MM-DD HH:mm:ss',
 };
 
-const convertMoment = (
-  value: moment.Moment,
-  dateFormatter: 'number' | 'string' | false,
-  valueType: string = 'dateTime',
-) => {
+const convertMoment = (value: moment.Moment, dateFormatter: DateFormatter, valueType: string) => {
   if (moment.isMoment(value)) {
     if (dateFormatter === 'number') {
       return value.valueOf();
@@ -36,8 +34,8 @@ const convertMoment = (
  */
 const conversionMoment = (
   value: moment.Moment | moment.Moment[],
-  dateFormatter: 'number' | 'string' | false,
-  valueType: string = 'dateTime',
+  dateFormatter: DateFormatter,
+  valueType: string,
 ) => {
   if (!dateFormatter) {
     return value;
@@ -58,7 +56,7 @@ const conversionMoment = (
  */
 const conversionSubmitValue = <T = any>(
   value: T,
-  dateFormatter: 'number' | 'string' | false,
+  dateFormatter: DateFormatter,
   valueTypeMap: {
     [key: string]: string;
   },
