@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'antd';
-import ProForm, { ProFormText } from '@ant-design/pro-form';
+import ProForm, { ProFormText, ProFormDatePicker } from '@ant-design/pro-form';
 import { mount } from 'enzyme';
 import { waitTime } from '../util';
 
@@ -80,5 +80,36 @@ describe('ProForm', () => {
     await waitTime(100);
 
     expect(onFinish).toBeCalled();
+  });
+
+  it('DatePicker', async () => {
+    const onFinish = jest.fn();
+    const wrapper = mount(
+      <ProForm
+        onFinish={onFinish}
+        initialValues={{
+          date: '2020-09-10',
+          dateWeek: '2020-37th',
+          dateMonth: '2020-09',
+          dateQuarter: '2020-Q2',
+        }}
+      >
+        <ProFormDatePicker name="date" label="日期" fieldProps={{ open: true }} />
+        <ProFormDatePicker.Week name="dateWeek" label="周" />
+        <ProFormDatePicker.Month name="dateMonth" label="月" />
+        <ProFormDatePicker.Quarter name="dateQuarter" label="季度" />
+        <ProFormDatePicker.Year name="dateYear" label="年" />
+      </ProForm>,
+    );
+
+    wrapper.find('.ant-picker-cell').at(2).simulate('click');
+    wrapper.find('.ant-btn-primary').simulate('submit');
+    await waitTime();
+    expect(onFinish).toHaveBeenCalledWith({
+      date: '2020-09-01',
+      dateWeek: '2020-37th',
+      dateMonth: '2020-09',
+      dateQuarter: '2020-Q2',
+    });
   });
 });
