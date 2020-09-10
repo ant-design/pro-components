@@ -8,6 +8,9 @@
     "type": "git",
     "url": "https://github.com/ant-design/pro-components"
   },
+  "sideEffects": [
+    "*.less"
+  ],
   "license": "MIT",
   "author": "chenshuai2144",
   "main": "lib/index.js",

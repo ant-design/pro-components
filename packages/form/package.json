@@ -8,6 +8,9 @@
     "ant-design",
     "ant-design-pro"
   ],
+  "sideEffects": [
+    "*.less"
+  ],
   "homepage": "https://github.com/ant-design/pro-components/tree/master/packages/form#readme",
   "bugs": "https://github.com/ant-design/pro-components/issues",
   "repository": {

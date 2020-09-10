@@ -8,6 +8,9 @@
     "ant-design",
     "ant-design-pro"
   ],
+  "sideEffects": [
+    "*.less"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/ant-design/pro-components"
