@@ -157,7 +157,7 @@ describe('Table ColumnSetting', () => {
       icon.simulate('click');
     });
 
-    await waitForComponentToPaint(html, 2000);
+    await waitForComponentToPaint(html, 200);
 
     act(() => {
       html
@@ -170,16 +170,22 @@ describe('Table ColumnSetting', () => {
         });
     });
 
-    await waitForComponentToPaint(html, 2000);
+    await waitForComponentToPaint(html, 200);
+
+    expect(html.find('span.ant-checkbox.ant-checkbox-checked').length).toBe(0);
 
     act(() => {
       html
         .find('.ant-pro-table-column-setting-title .ant-checkbox-wrapper')
         .find('.ant-checkbox-input')
-        .simulate('change');
+        .simulate('change', {
+          target: {
+            checked: true,
+          },
+        });
     });
 
-    expect(html.find('span.ant-checkbox.ant-checkbox-checked').length).toBe(0);
+    expect(html.find('span.ant-checkbox.ant-checkbox-checked').length).toBe(2);
 
     expect(callBack).toBeCalled();
   });
