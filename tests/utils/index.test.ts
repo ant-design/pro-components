@@ -16,7 +16,7 @@ describe('utils', () => {
       },
       'string',
       {
-        value: 'dataTime',
+        dataTime: 'dataTime',
         time: 'time',
         name: 'text',
         dateRange: 'dateRange',
@@ -46,7 +46,7 @@ describe('utils', () => {
       },
       'number',
       {
-        value: 'dataTime',
+        dateTime: 'dataTime',
         time: 'time',
         name: 'text',
         dateRange: 'dateRange',
@@ -76,7 +76,7 @@ describe('utils', () => {
       },
       false,
       {
-        value: 'dataTime',
+        dateTime: 'dataTime',
         time: 'time',
         name: 'text',
         dateRange: 'dateRange',
