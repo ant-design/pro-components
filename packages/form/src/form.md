@@ -28,6 +28,10 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 
 <code src="./demos/steps-from.tsx" />
 
+### 分步表单-多卡片
+
+<code src="./demos/multi-card-step-form.tsx"  background="#f5f5f5"/>
+
 ### 查询筛选
 
 <code src="./demos/query-filter.tsx" />

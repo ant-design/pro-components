@@ -2,6 +2,10 @@ import { FormItemProps } from 'antd/lib/form';
 
 export interface GroupProps {
   title?: React.ReactNode;
+  /**
+   * 组件之前的间隔
+   */
+  size?: number;
   style?: React.CSSProperties;
   titleStyle?: React.CSSProperties;
   titleRender?: (title: React.ReactNode, props: GroupProps) => React.ReactNode;

@@ -51,15 +51,7 @@ export default () => {
           <Card>
             <ProForm
               submitter={{
-                render: (_, dom) => (
-                  <FooterToolbar
-                    style={{
-                      height: 64,
-                    }}
-                  >
-                    {dom}
-                  </FooterToolbar>
-                ),
+                render: (_, dom) => <FooterToolbar>{dom}</FooterToolbar>,
               }}
               onFinish={(values) => console.log(values)}
             >
@@ -152,7 +144,7 @@ export default () => {
                 title="上传文件"
               />
               <ProFormDigit width="xs" name="num" label="合同份数" initialValue={5} />
-              <ProFormTextArea width="l" label="合同备注说明" name="remark" />
+              <ProFormTextArea width="x" label="合同备注说明" name="remark" />
             </ProForm>
           </Card>
         </PageContainer>
