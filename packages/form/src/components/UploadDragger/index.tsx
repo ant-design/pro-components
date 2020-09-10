@@ -25,16 +25,14 @@ const ProFormUploadDragger: React.ForwardRefRenderFunction<any, ProFormDraggerPr
   action,
   accept,
   children,
-}) => {
-  return (
-    <Upload.Dragger name="files" action={action} accept={accept} {...fieldProps}>
-      <p className="ant-upload-drag-icon">{icon}</p>
-      <p className="ant-upload-text">{title}</p>
-      <p className="ant-upload-hint">{description}</p>
-      {children}
-    </Upload.Dragger>
-  );
-};
+}) => (
+  <Upload.Dragger name="files" action={action} accept={accept} {...fieldProps}>
+    <p className="ant-upload-drag-icon">{icon}</p>
+    <p className="ant-upload-text">{title}</p>
+    <p className="ant-upload-hint">{description}</p>
+    {children}
+  </Upload.Dragger>
+);
 
 export default createField<ProFormDraggerProps>(ProFormUploadDragger, {
   valuePropName: 'fileList',

@@ -10,6 +10,7 @@ import ProForm, {
   ProFormSelect,
   ProFormDigit,
   ProFormSlider,
+  ProFormDateTimeRangePicker,
   ProFormUploadButton,
   ProFormUploadDragger,
 } from '@ant-design/pro-form';
@@ -106,6 +107,7 @@ const Demo = () => (
         action="/upload.do"
         extra="longgggggggggggggggggggggggggggggggggg"
       />
+      <ProFormDateTimeRangePicker name="datetime" label="时间戳" />
       <ProFormUploadDragger label="Dragger" name="dragger" />
     </ProForm>
   </div>
