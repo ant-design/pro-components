@@ -15,6 +15,7 @@
     "site": "dumi build",
     "size": "npm run build && size-limit",
     "start": "dumi dev",
+    "tsc": "tsc -p ./tests/tsconfig.duplicate.json",
     "sync:tnpm": "node -e 'require(\"./scripts/syncTNPM\")()'",
     "test": "umi-test",
     "test:coverage": "umi-test --coverage",
