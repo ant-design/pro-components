@@ -129,4 +129,58 @@ describe('Table ColumnSetting', () => {
 
     expect(callBack).toBeCalled();
   });
+
+  it('🎏 columnSetting select all', async () => {
+    const callBack = jest.fn();
+    const html = mount(
+      <ProTable
+        size="small"
+        onColumnsStateChange={() => {
+          callBack();
+        }}
+        columns={[
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+            copyable: true,
+          },
+        ]}
+        request={request}
+        rowKey="key"
+      />,
+    );
+
+    await waitForComponentToPaint(html, 200);
+    act(() => {
+      const icon = html.find('span.ant-pro-table-toolbar-item-icon .anticon-setting');
+      icon.simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 2000);
+
+    act(() => {
+      html
+        .find('.ant-pro-table-column-setting-title .ant-checkbox-wrapper')
+        .find('.ant-checkbox-input')
+        .simulate('change', {
+          target: {
+            checked: false,
+          },
+        });
+    });
+
+    await waitForComponentToPaint(html, 2000);
+
+    act(() => {
+      html
+        .find('.ant-pro-table-column-setting-title .ant-checkbox-wrapper')
+        .find('.ant-checkbox-input')
+        .simulate('change');
+    });
+
+    expect(html.find('span.ant-checkbox.ant-checkbox-checked').length).toBe(0);
+
+    expect(callBack).toBeCalled();
+  });
 });
