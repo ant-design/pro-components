@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@0.2.0...@ant-design/pro-utils@0.3.0) (2020-09-10)
+
+### Features
+
+- **from:** support ProFormDatePicker.Month & Quarter & Year ([#436](https://github.com/ant-design/pro-components/issues/436)) ([dade507](https://github.com/ant-design/pro-components/commit/dade507a45b0b27aa7f00c103a09db1f0bd1264f))
+
 # [0.2.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@0.1.2...@ant-design/pro-utils@0.2.0) (2020-09-07)
 
 ### Features
