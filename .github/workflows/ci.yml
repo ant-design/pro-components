@@ -19,6 +19,7 @@ jobs:
       - run: yarn --ignore-engines
       - run: yarn run lint
       - run: yarn run tsc --noEmit
+      - run: yarn run tsc:duplicate
       - run: yarn run build
       - run: yarn run test
         env:
