@@ -26,6 +26,10 @@ const LabelIconTip: React.FC<{
 }> = (props) => {
   const { label, tip, subTitle } = props;
   const { getPrefixCls } = useContext(ConfigContext);
+
+  if (!tip && !subTitle) {
+    return <>{label}</>;
+  }
   const className = getPrefixCls('pro-core-label-tip');
   const subTitleNode = getTitle(subTitle, `${className}-subtitle`);
   const tooltipProps = typeof tip === 'string' ? { title: tip } : (tip as TooltipProps);
