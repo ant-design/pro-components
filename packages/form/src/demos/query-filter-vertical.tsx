@@ -9,11 +9,11 @@ import {
 
 export default () => {
   return (
-    <QueryFilter layout="vertical">
+    <QueryFilter layout="vertical" onFinish={console.log}>
       <ProFormText name="name" label="这是一个超级超级长的名称" />
       <ProFormDatePicker name="birth" label="创建时间" />
       <ProFormText name="sex" label="应用状态" />
-      <ProFormRadio.Group label="查询频度">
+      <ProFormRadio.Group name="freq" label="查询频度">
         <ProFormRadio.Button value="weekly">每周</ProFormRadio.Button>
         <ProFormRadio.Button value="queterly">每季度</ProFormRadio.Button>
         <ProFormRadio.Button value="monthly">每月</ProFormRadio.Button>

@@ -6659,6 +6659,7 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-vertical.tsx 
         >
           <label
             class=""
+            for="freq"
             title=""
           >
             查询频度
@@ -6675,6 +6676,7 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-vertical.tsx 
             >
               <div
                 class="ant-radio-group ant-radio-group-outline"
+                id="freq"
                 style="width: 100%;"
               >
                 <label
