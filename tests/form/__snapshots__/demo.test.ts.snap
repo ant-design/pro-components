@@ -4308,7 +4308,7 @@ exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    class="ant-pro-field-select-light-select ant-pro-field-select-light-select-searchble"
+                    class="ant-pro-field-select-light-select ant-pro-field-select-light-select-searchable"
                   >
                     <div
                       class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
@@ -5215,7 +5215,7 @@ exports[`form demos renders ./packages/form/src/demos/light-filter-bordered.tsx 
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-pro-field-select-light-select ant-pro-field-select-light-select-searchble"
+                  class="ant-pro-field-select-light-select ant-pro-field-select-light-select-searchable"
                 >
                   <div
                     class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
