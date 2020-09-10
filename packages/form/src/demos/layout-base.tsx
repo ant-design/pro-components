@@ -144,7 +144,7 @@ export default () => {
                 title="上传文件"
               />
               <ProFormDigit width="xs" name="num" label="合同份数" initialValue={5} />
-              <ProFormTextArea width="x" label="合同备注说明" name="remark" />
+              <ProFormTextArea width="xl" label="合同备注说明" name="remark" />
             </ProForm>
           </Card>
         </PageContainer>
