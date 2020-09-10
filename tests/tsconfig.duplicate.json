@@ -1,9 +1,7 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "noEmit": true,
+    "noEmit": true
   },
-  "include": [
-    "no-duplicated.ts"
-  ]
+  "include": ["no-duplicated.ts"]
 }
