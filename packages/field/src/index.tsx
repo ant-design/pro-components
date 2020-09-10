@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { Avatar } from 'antd';
 import { Moment } from 'moment';
-import { pickProProps, pickUndefined } from '@ant-design/pro-utils';
+import { pickProProps, omitUndefined } from '@ant-design/pro-utils';
 import { useIntl } from '@ant-design/pro-provider';
 import FieldPercent from './components/Percent';
 import FieldIndexColumn from './components/IndexColumn';
@@ -357,7 +357,7 @@ const ProField: React.ForwardRefRenderFunction<
     value,
     onChange,
     // fieldProps 优先级更高，在类似 LightFilter 场景下需要覆盖默认的 value 和 onChange
-    ...pickUndefined(rest?.fieldProps),
+    ...omitUndefined(rest?.fieldProps),
   };
   return (
     <React.Fragment>

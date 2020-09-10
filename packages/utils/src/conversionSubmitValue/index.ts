@@ -1,4 +1,5 @@
 import moment, { Moment } from 'moment';
+import isNil from '../isNil';
 
 const dateFormatterMap = {
   time: 'HH:mm:ss',
@@ -11,6 +12,20 @@ const dateFormatterMap = {
   dateRange: 'YYYY-MM-DD',
   dateTime: 'YYYY-MM-DD HH:mm:ss',
   dateTimeRange: 'YYYY-MM-DD HH:mm:ss',
+};
+
+const convertMoment = (
+  value: moment.Moment,
+  dateFormatter: 'number' | 'string' | false,
+  valueType: string = 'dateTime',
+) => {
+  if (moment.isMoment(value)) {
+    if (dateFormatter === 'number') {
+      return value.valueOf();
+    }
+    return value.format(dateFormatterMap[valueType] || 'YYYY-MM-DD HH:mm:ss');
+  }
+  return value;
 };
 
 /**
@@ -27,24 +42,10 @@ const conversionMoment = (
   if (!dateFormatter) {
     return value;
   }
-  if (moment.isMoment(value) && !Array.isArray(value)) {
-    if (dateFormatter === 'number') {
-      return value.valueOf();
-    }
-    return value.format(dateFormatterMap[valueType] || 'YYYY-MM-DD HH:mm:ss');
+  if (!Array.isArray(value)) {
+    return convertMoment(value, dateFormatter, valueType);
   }
-  if (Array.isArray(value)) {
-    return (value as moment.Moment[]).map((item) => {
-      if (moment.isMoment(item)) {
-        if (dateFormatter === 'number') {
-          return item.valueOf();
-        }
-        return item.format(dateFormatterMap[valueType] || 'YYYY-MM-DD HH:mm:ss');
-      }
-      return item;
-    });
-  }
-  return value;
+  return value.map((item) => convertMoment(item, dateFormatter, valueType));
 };
 
 /**
@@ -62,18 +63,18 @@ const conversionSubmitValue = <T = any>(
     [key: string]: string;
   },
 ): T => {
-  const tmpValue = {};
+  const tmpValue = {} as T;
 
   Object.keys(value).forEach((key) => {
     const valueType = valueTypeMap[key] || 'text';
     const itemValue = value[key];
-    if (itemValue === undefined || itemValue === null) {
+    if (isNil(itemValue)) {
       return;
     }
     // 都没命中，原样返回
     tmpValue[key] = conversionMoment(itemValue, dateFormatter, valueType);
   });
-  return tmpValue as T;
+  return tmpValue;
 };
 
 export default conversionSubmitValue;
