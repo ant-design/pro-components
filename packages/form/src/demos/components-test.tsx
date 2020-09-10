@@ -32,6 +32,9 @@ const Demo = () => {
         description="支持 text"
         label="Dragger"
         name="dragger"
+        fieldProps={{
+          showUploadList: true,
+        }}
       />
     </ProForm>
   );

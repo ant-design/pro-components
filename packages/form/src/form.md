@@ -28,6 +28,10 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 
 <code src="./demos/steps-from.tsx" />
 
+### 分步表单-多卡片
+
+<code src="./demos/multi-card-step-form.tsx"  background="#f5f5f5"/>
+
 ### 查询筛选
 
 <code src="./demos/query-filter.tsx" />
@@ -170,7 +174,7 @@ ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 �
 - S=216px 适用于较短字段录入、如姓名、电话、ID 等。
 - M=328px 标准宽度，适用于大部分字段长度。
 - L=440px 适用于较长字段录入，如长网址、标签组、文件路径等。
-- X=552px 适用于长文本录入，如长链接、描述、备注等，通常搭配自适应多行输入框或定高文本域使用。
+- XL=552px 适用于长文本录入，如长链接、描述、备注等，通常搭配自适应多行输入框或定高文本域使用。
 
 ### ProFormText
 

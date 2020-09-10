@@ -22,6 +22,7 @@ const FieldTextArea: ProFieldFC<{
   if (mode === 'edit' || mode === 'update') {
     const dom = (
       <Input.TextArea
+        rows={3}
         placeholder={intl.getMessage('tableForm.inputPlaceholder', '请输入')}
         ref={ref}
         {...fieldProps}
