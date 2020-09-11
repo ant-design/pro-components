@@ -1,5 +1,3 @@
-import './index.less';
-
 import React, {
   useEffect,
   useContext,
@@ -58,6 +56,8 @@ import {
 import defaultRenderText from './defaultRender';
 import { DensitySize } from './component/ToolBar/DensityIcon';
 import ErrorBoundary from './component/ErrorBoundary';
+
+import './index.less';
 
 type TableRowSelection = TableProps<any>['rowSelection'];
 
@@ -120,7 +120,7 @@ export interface ProColumnGroupType<RecordType> extends ProColumnType<RecordType
   children: ProColumns<RecordType>;
 }
 
-export type ProColumns<T = {}> = ProColumnGroupType<T> | ProColumnType<T>;
+export type ProColumns<T = any> = ProColumnGroupType<T> | ProColumnType<T>;
 
 export interface ProTableProps<T, U extends ParamsType>
   extends Omit<TableProps<T>, 'columns' | 'rowSelection'> {
