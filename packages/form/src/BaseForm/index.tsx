@@ -64,7 +64,16 @@ export function createField<P extends ProFormItemProps = any>(
 ): ProFormComponent<P, ExtendsProps> {
   const FieldWithContext: React.FC<P> = (props: P & ExtendsProps) => {
     const size = useContext(SizeContext);
-    const { label, tip, placeholder, width = 'm', proFieldProps, bordered, ...rest } = props;
+    const {
+      label,
+      tip,
+      subTitle,
+      placeholder,
+      width = 'm',
+      proFieldProps,
+      bordered,
+      ...rest
+    } = props;
     const {
       valueType,
       customLightMode,
@@ -116,7 +125,7 @@ export function createField<P extends ProFormItemProps = any>(
         // 轻量模式下不通过 FormItem 显示 label
         label={
           label && proFieldProps?.light !== true ? (
-            <LabelIconTip label={label} tip={tip} />
+            <LabelIconTip label={label} tip={tip} subTitle={subTitle} />
           ) : undefined
         }
         valuePropName={valuePropName}

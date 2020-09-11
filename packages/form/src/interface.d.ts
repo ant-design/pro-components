@@ -18,6 +18,7 @@ export interface FieldProps {
 export interface ProFormItemProps<T = {}> extends FormItemProps {
   fieldProps?: FieldProps & T;
   placeholder?: string | string[];
+  subTitle?: React.ReactNode;
   secondary?: boolean;
   disabled?: boolean;
   /**

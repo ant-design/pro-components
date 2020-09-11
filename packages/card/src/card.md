@@ -111,6 +111,7 @@ group:
 | 参数 | 说明 | 类型 | 默认值 |
 | :-- | :-- | :-- | :-- |
 |  title | 标题 | `React.ReactNode` | - |
+| subTitle | 副标题 | `React.ReactNode` | - |
 |  tip | 标题右侧图标 hover 提示信息 | `string` | - |
 |  extra | 右上角自定义区域 | `React.ReactNode` | - |
 |  layout | 内容布局，支持垂直居中 | `default` \| `center`  | default |
