@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@0.2.0...@ant-design/pro-field@0.3.0) (2020-09-10)
+
+### Bug Fixes
+
+- query filter demo bug & progress bug when value < 0 ([#448](https://github.com/ant-design/pro-components/issues/448)) ([e9b6afe](https://github.com/ant-design/pro-components/commit/e9b6afe918aa9e203664f046d83ba20d2498cb2d))
+
+### Features
+
+- **from:** support ProFormDatePicker.Month & Quarter & Year ([#436](https://github.com/ant-design/pro-components/issues/436)) ([dade507](https://github.com/ant-design/pro-components/commit/dade507a45b0b27aa7f00c103a09db1f0bd1264f))
+
 # [0.2.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@0.1.2...@ant-design/pro-field@0.2.0) (2020-09-07)
 
 ### Features

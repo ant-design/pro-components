@@ -4,7 +4,6 @@ import { SmileOutlined, CrownOutlined, TabletOutlined } from '@ant-design/icons'
 export default {
   route: {
     path: '/',
-
     routes: [
       {
         path: '/welcome',
@@ -51,19 +50,19 @@ export default {
             icon: <CrownOutlined />,
             routes: [
               {
-                path: '/list/sub-page',
+                path: 'sub-sub-page',
                 name: '一一级列表页面',
                 icon: <CrownOutlined />,
                 component: './Welcome',
               },
               {
-                path: '/list/sub-page2',
+                path: 'sub-sub-page2',
                 name: '一二级列表页面',
                 icon: <CrownOutlined />,
                 component: './Welcome',
               },
               {
-                path: '/list/sub-page3',
+                path: 'sub-sub-page3',
                 name: '一三级列表页面',
                 icon: <CrownOutlined />,
                 component: './Welcome',

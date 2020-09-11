@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.24](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.0.0-beta.23...@ant-design/pro-form@1.0.0-beta.24) (2020-09-10)
+
+### Bug Fixes
+
+- query filter demo bug & progress bug when value < 0 ([#448](https://github.com/ant-design/pro-components/issues/448)) ([e9b6afe](https://github.com/ant-design/pro-components/commit/e9b6afe918aa9e203664f046d83ba20d2498cb2d))
+
+### Features
+
+- **from:** support ProFormDatePicker.Month & Quarter & Year ([#436](https://github.com/ant-design/pro-components/issues/436)) ([dade507](https://github.com/ant-design/pro-components/commit/dade507a45b0b27aa7f00c103a09db1f0bd1264f))
+
+# [1.0.0-beta.23](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.0.0-beta.22...@ant-design/pro-form@1.0.0-beta.23) (2020-09-08)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
 # [1.0.0-beta.22](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.0.0-beta.21...@ant-design/pro-form@1.0.0-beta.22) (2020-09-07)
 
 ### Features

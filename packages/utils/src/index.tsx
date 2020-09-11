@@ -5,9 +5,10 @@ import FieldLabel from './components/FieldLabel';
 import isBrowser from './isBrowser';
 import isImg from './isImg';
 import isUrl from './isUrl';
+import isNil from './isNil';
 import pickProProps from './pickProProps';
-import pickUndefined from './pickUndefined';
-import pickUndefinedAndArray from './pickUndefinedAndArray';
+import omitUndefined from './omitUndefined';
+import omitUndefinedAndEmptyArr from './omitUndefinedAndEmptyArr';
 import pickProFormItemProps from './pickProFormItemProps';
 
 /**
@@ -51,8 +52,9 @@ export {
   FieldLabel,
   useDocumentTitle,
   isImg,
-  pickUndefined,
-  pickUndefinedAndArray,
+  isNil,
+  omitUndefined,
+  omitUndefinedAndEmptyArr,
   pickProFormItemProps,
   isUrl,
   isBrowser,

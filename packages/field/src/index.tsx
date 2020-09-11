@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { Avatar } from 'antd';
 import { Moment } from 'moment';
-import { pickProProps, pickUndefined } from '@ant-design/pro-utils';
+import { pickProProps, omitUndefined } from '@ant-design/pro-utils';
 import { useIntl } from '@ant-design/pro-provider';
 import FieldPercent from './components/Percent';
 import FieldIndexColumn from './components/IndexColumn';
@@ -50,6 +50,9 @@ export type ProFieldValueType =
   | 'option'
   | 'date'
   | 'dateWeek'
+  | 'dateMonth'
+  | 'dateQuarter'
+  | 'dateYear'
   | 'dateRange'
   | 'dateTimeRange'
   | 'dateTime'
@@ -240,6 +243,27 @@ const defaultRenderText = (
   }
 
   /**
+   *如果是月的值
+   */
+  if (valueType === 'dateMonth') {
+    return <FieldDatePicker text={text as string} format="YYYY-MM" picker="month" {...props} />;
+  }
+
+  /**
+   *如果是季度的值
+   */
+  if (valueType === 'dateQuarter') {
+    return <FieldDatePicker text={text as string} format="YYYY-\QQ" picker="quarter" {...props} />;
+  }
+
+  /**
+   *如果是年的值
+   */
+  if (valueType === 'dateYear') {
+    return <FieldDatePicker text={text as string} format="YYYY" picker="year" {...props} />;
+  }
+
+  /**
    *如果是日期范围的值
    */
   if (valueType === 'dateRange') {
@@ -333,7 +357,7 @@ const ProField: React.ForwardRefRenderFunction<
     value,
     onChange,
     // fieldProps 优先级更高，在类似 LightFilter 场景下需要覆盖默认的 value 和 onChange
-    ...pickUndefined(rest?.fieldProps),
+    ...omitUndefined(rest?.fieldProps),
   };
   return (
     <React.Fragment>

@@ -54,6 +54,7 @@ ProLayout 会根据 `location.pathname` 来自动选中菜单，并且自动生�
 | loading | layout 的加载态 | boolean | - |
 | location | 当前应用会话的位置信息。如果你的应用创建了自定义的 history，则需要显示指定 location 属性，详见 [issue](https://github.com/ant-design/pro-components/issues/327) | [history.location](https://reactrouter.com/web/api/history) | isBrowser ? window.location : undefined |
 | menuHeaderRender | 渲染 logo 和 title | ReactNode \| (logo,title)=>ReactNode | - |
+| menuFooterRender | 在 layout 底部渲染一个块 | `(menuProps)=>ReactNode` | - |
 | onMenuHeaderClick | menu 菜单的头部点击事件 | `(e: React.MouseEvent<HTMLDivElement>) => void` | - |
 | onTopMixMenuHeaderClick | mix 模式下顶部栏的头部点击事件 | `(e: React.MouseEvent<HTMLDivElement>) => void` | - |
 | contentStyle | layout 的内容区 style | CSSProperties | - |
@@ -67,8 +68,9 @@ ProLayout 会根据 `location.pathname` 来自动选中菜单，并且自动生�
 | iconfontUrl | 使用 [IconFont](https://ant.design/components/icon-cn/#components-icon-demo-iconfont) 的图标配置 | string | - |
 | locale | 当前 layout 的语言设置 | 'zh-CN' \| 'zh-TW' \| 'en-US' | navigator.language |
 | settings | layout 的设置 | [`Settings`](#Settings) | [`Settings`](#Settings) | - |
-| siderWidth | 侧边菜单宽度 | number | 256 |
-| collapsed | 控制菜单的收起和展开 | boolean | true |
+| siderWidth | 侧边菜单宽度 | number | 208 |
+| defaultCollapsed | 默认的菜单的收起和展开 | boolean | - |
+| collapsed | 控制菜单的收起和展开 | boolean | - |
 | onCollapse | 菜单的折叠收起事件 | (collapsed: boolean) => void | - |
 | onPageChange | 页面切换时触发 | (location: Location) => void | - |
 | headerRender | 自定义头的 render 方法 | (props: BasicLayoutProps) => ReactNode | - |

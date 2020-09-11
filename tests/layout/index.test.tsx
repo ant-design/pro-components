@@ -464,10 +464,11 @@ describe('BasicLayout', () => {
     expect(wrapper.find('h2#mix-test').text()).toBe('mix title');
   });
 
-  it('🥩 ', async () => {
+  it('🥩 onMenuHeaderClick', async () => {
     const onMenuHeaderClick = jest.fn();
     const wrapper = mount<BasicLayoutProps>(
       <BasicLayout
+        pageTitleRender={false}
         onMenuHeaderClick={onMenuHeaderClick}
         layout="mix"
         location={{
@@ -530,5 +531,24 @@ describe('BasicLayout', () => {
 
     dom = wrapper.find('header.ant-pro-fixed-header');
     expect(dom.props()?.style?.width).toBe('100%');
+  });
+
+  it('🥩 renderPageTitle return value should is string', async () => {
+    const renderPageTitle = jest.fn();
+    const wrapper = mount<BasicLayoutProps>(
+      <BasicLayout
+        // @ts-expect-error
+        pageTitleRender={() => {
+          renderPageTitle();
+          return 1221;
+        }}
+        location={{
+          pathname: '/',
+        }}
+      />,
+    );
+
+    await waitForComponentToPaint(wrapper);
+    expect(renderPageTitle).toBeCalled();
   });
 });

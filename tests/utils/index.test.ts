@@ -2,6 +2,7 @@ import {
   conversionSubmitValue,
   parseValueToMoment,
   transformKeySubmitValue,
+  isNil,
 } from '@ant-design/pro-utils';
 import moment, { Moment } from 'moment';
 
@@ -20,7 +21,7 @@ describe('utils', () => {
       },
       'string',
       {
-        value: 'dataTime',
+        dataTime: 'dataTime',
         time: 'time',
         name: 'text',
         dateRange: 'dateRange',
@@ -50,7 +51,7 @@ describe('utils', () => {
       },
       'number',
       {
-        value: 'dataTime',
+        dateTime: 'dataTime',
         time: 'time',
         name: 'text',
         dateRange: 'dateRange',
@@ -80,7 +81,7 @@ describe('utils', () => {
       },
       false,
       {
-        value: 'dataTime',
+        dateTime: 'dataTime',
         time: 'time',
         name: 'text',
         dateRange: 'dateRange',
@@ -213,5 +214,14 @@ describe('utils', () => {
     expect(html.money).toBe(20);
     expect(html.dateTimeRange.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:55:26');
     expect(html.dateRange.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:55:26');
+  });
+
+  it('📅 isNil', async () => {
+    expect(isNil(null)).toBe(true);
+    expect(isNil(undefined)).toBe(true);
+    expect(isNil(0)).toBe(false);
+    expect(isNil('')).toBe(false);
+    expect(isNil({})).toBe(false);
+    expect(isNil(true)).toBe(false);
   });
 });

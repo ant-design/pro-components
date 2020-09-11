@@ -1,6 +1,6 @@
 import React from 'react';
 import { PlusOutlined } from '@ant-design/icons';
-import { Button, Tag, Space, Input } from 'antd';
+import { Button, Tag, Space, Input, message } from 'antd';
 import ProTable, { ProColumns, TableDropdown } from '@ant-design/pro-table';
 import request from 'umi-request';
 
@@ -149,7 +149,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
       </a>,
       <TableDropdown
         key="show"
-        onSelect={(key) => window.alert(key)}
+        onSelect={(key) => message.info(key)}
         menus={[
           { key: 'copy', name: '复制' },
           { key: 'delete', name: '删除' },
@@ -170,6 +170,11 @@ export default () => (
       })
     }
     rowKey="id"
+    form={{
+      onValuesChange: (values, all) => {
+        console.log(values, all);
+      },
+    }}
     dateFormatter="string"
     headerTitle="自定义动态表格"
     search={{

@@ -7,9 +7,13 @@ import ProForm, {
   ProFormRadio,
   ProFormCheckbox,
   ProFormRate,
+  ProFormDatePicker,
   ProFormSelect,
   ProFormDigit,
+  ProFormDateTimePicker,
   ProFormSlider,
+  ProFormDateTimeRangePicker,
+  ProFormDateRangePicker,
   ProFormUploadButton,
   ProFormUploadDragger,
 } from '@ant-design/pro-form';
@@ -106,6 +110,16 @@ const Demo = () => (
         action="/upload.do"
         extra="longgggggggggggggggggggggggggggggggggg"
       />
+      <ProForm.Group title="日期相关分组">
+        <ProFormDatePicker name="date" label="日期" />
+        <ProFormDatePicker.Week name="dateWeek" label="周" />
+        <ProFormDatePicker.Month name="dateMonth" label="月" />
+        <ProFormDatePicker.Quarter name="dateQuarter" label="季度" />
+        <ProFormDatePicker.Year name="dateYear" label="年" />
+        <ProFormDateTimePicker name="dateTime" label="日期时间" />
+        <ProFormDateRangePicker name="dateRange" label="日期区间" />
+        <ProFormDateTimeRangePicker name="dateTimeRange" label="日期时间区间" />
+      </ProForm.Group>
       <ProFormUploadDragger label="Dragger" name="dragger" />
     </ProForm>
   </div>

@@ -7,7 +7,7 @@ import './index.less';
 
 const Group: React.FC<GroupProps> = (props) => {
   const { groupProps } = React.useContext(FieldContext);
-  const { children, style, title, titleStyle, titleRender } = {
+  const { children, style, title, size = 32, titleStyle, titleRender } = {
     ...groupProps,
     ...props,
   };
@@ -19,7 +19,7 @@ const Group: React.FC<GroupProps> = (props) => {
       <div className={`${className}-title`} style={titleStyle}>
         {titleRender ? titleRender(title, props) : title}
       </div>
-      <Space className={`${className}-container`} size={32}>
+      <Space className={`${className}-container`} size={size}>
         {children}
       </Space>
     </div>

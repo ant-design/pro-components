@@ -1,24 +1,24 @@
 ﻿import { mount } from 'enzyme';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { StepsForm, StepsFormProps, ProFormText } from '@ant-design/pro-form';
+import { StepsFrom, StepsFromProps, ProFormText } from '@ant-design/pro-form';
 import { waitTime } from '../util';
 import { Button } from 'antd';
 
 describe('StepsFrom', () => {
   it('🐲 basic use', () => {
     const html = mount(
-      <StepsForm>
-        <StepsForm.StepForm title="表单1">
+      <StepsFrom>
+        <StepsFrom.StepFrom title="表单1">
           <ProFormText name="姓名" />
-        </StepsForm.StepForm>
-        <StepsForm.StepForm title="表单2">
+        </StepsFrom.StepFrom>
+        <StepsFrom.StepFrom title="表单2">
           <ProFormText name="邮箱" />
-        </StepsForm.StepForm>
-        <StepsForm.StepForm title="表单3">
+        </StepsFrom.StepFrom>
+        <StepsFrom.StepFrom title="表单3">
           <ProFormText name="地址" />
-        </StepsForm.StepForm>
-      </StepsForm>,
+        </StepsFrom.StepFrom>
+      </StepsFrom>,
     );
     expect(html.find('span.ant-steps-icon').length).toBe(3);
     expect(html.find('div.ant-steps-item-title').at(0).text()).toBe('表单1');
@@ -27,18 +27,18 @@ describe('StepsFrom', () => {
   });
 
   it('🐲 renderSteps', () => {
-    const html = mount<StepsFormProps>(
-      <StepsForm renderSteps={() => null}>
-        <StepsForm.StepForm name="base" title="表单1">
+    const html = mount<StepsFromProps>(
+      <StepsFrom renderSteps={() => null}>
+        <StepsFrom.StepFrom name="base" title="表单1">
           <ProFormText name="姓名" />
-        </StepsForm.StepForm>
-        <StepsForm.StepForm name="moreInfo" title="表单2">
+        </StepsFrom.StepFrom>
+        <StepsFrom.StepFrom name="moreInfo" title="表单2">
           <ProFormText name="邮箱" />
-        </StepsForm.StepForm>
-        <StepsForm.StepForm name="extraInfo" title="表单3">
+        </StepsFrom.StepFrom>
+        <StepsFrom.StepFrom name="extraInfo" title="表单3">
           <ProFormText name="地址" />
-        </StepsForm.StepForm>
-      </StepsForm>,
+        </StepsFrom.StepFrom>
+      </StepsFrom>,
     );
 
     expect(html.find('.ant-steps').exists()).toBeFalsy();
@@ -55,23 +55,23 @@ describe('StepsFrom', () => {
 
   it('🐲 pre button ', async () => {
     const onCurrentChange = jest.fn();
-    const html = mount<StepsFormProps>(
-      <StepsForm
+    const html = mount<StepsFromProps>(
+      <StepsFrom
         current={1}
         onCurrentChange={(current) => {
           onCurrentChange(current);
         }}
       >
-        <StepsForm.StepForm name="base" title="表单1">
+        <StepsFrom.StepFrom name="base" title="表单1">
           <ProFormText name="姓名" />
-        </StepsForm.StepForm>
-        <StepsForm.StepForm name="moreInfo" title="表单2">
+        </StepsFrom.StepFrom>
+        <StepsFrom.StepFrom name="moreInfo" title="表单2">
           <ProFormText name="邮箱" />
-        </StepsForm.StepForm>
-        <StepsForm.StepForm name="extraInfo" title="表单3">
+        </StepsFrom.StepFrom>
+        <StepsFrom.StepFrom name="extraInfo" title="表单3">
           <ProFormText name="地址" />
-        </StepsForm.StepForm>
-      </StepsForm>,
+        </StepsFrom.StepFrom>
+      </StepsFrom>,
     );
     await waitTime(100);
     act(() => {
@@ -85,9 +85,9 @@ describe('StepsFrom', () => {
     const currentFn = jest.fn();
     const onFinish = jest.fn();
 
-    const html = mount<StepsFormProps>(
-      <StepsForm onCurrentChange={currentFn} onFinish={onFinish}>
-        <StepsForm.StepForm
+    const html = mount<StepsFromProps>(
+      <StepsFrom onCurrentChange={currentFn} onFinish={onFinish}>
+        <StepsFrom.StepFrom
           name="base"
           title="表单1"
           onFinish={async (values) => {
@@ -96,11 +96,11 @@ describe('StepsFrom', () => {
           }}
         >
           <ProFormText name="姓名" />
-        </StepsForm.StepForm>
-        <StepsForm.StepForm name="moreInfo" title="表单2">
+        </StepsFrom.StepFrom>
+        <StepsFrom.StepFrom name="moreInfo" title="表单2">
           <ProFormText name="邮箱" />
-        </StepsForm.StepForm>
-      </StepsForm>,
+        </StepsFrom.StepFrom>
+      </StepsFrom>,
     );
     await waitTime(100);
 
@@ -127,9 +127,9 @@ describe('StepsFrom', () => {
   });
 
   it('🐲 submitter render=false', () => {
-    const html = mount<StepsFormProps>(
-      <StepsForm>
-        <StepsForm.StepForm
+    const html = mount<StepsFromProps>(
+      <StepsFrom>
+        <StepsFrom.StepFrom
           name="base"
           title="表单1"
           submitter={{
@@ -137,11 +137,11 @@ describe('StepsFrom', () => {
           }}
         >
           <ProFormText name="姓名" />
-        </StepsForm.StepForm>
-        <StepsForm.StepForm name="moreInfo" title="表单2">
+        </StepsFrom.StepFrom>
+        <StepsFrom.StepFrom name="moreInfo" title="表单2">
           <ProFormText name="邮箱" />
-        </StepsForm.StepForm>
-      </StepsForm>,
+        </StepsFrom.StepFrom>
+      </StepsFrom>,
     );
 
     expect(
@@ -150,15 +150,15 @@ describe('StepsFrom', () => {
   });
 
   it('🐲 submitter=false', () => {
-    const html = mount<StepsFormProps>(
-      <StepsForm>
-        <StepsForm.StepForm name="base" title="表单1" submitter={false}>
+    const html = mount<StepsFromProps>(
+      <StepsFrom>
+        <StepsFrom.StepFrom name="base" title="表单1" submitter={false}>
           <ProFormText name="姓名" />
-        </StepsForm.StepForm>
-        <StepsForm.StepForm name="moreInfo" title="表单2">
+        </StepsFrom.StepFrom>
+        <StepsFrom.StepFrom name="moreInfo" title="表单2">
           <ProFormText name="邮箱" />
-        </StepsForm.StepForm>
-      </StepsForm>,
+        </StepsFrom.StepFrom>
+      </StepsFrom>,
     );
 
     expect(
@@ -167,9 +167,9 @@ describe('StepsFrom', () => {
   });
 
   it('🐲 submitter render function', () => {
-    const html = mount<StepsFormProps>(
-      <StepsForm>
-        <StepsForm.StepForm
+    const html = mount<StepsFromProps>(
+      <StepsFrom>
+        <StepsFrom.StepFrom
           name="base"
           title="表单1"
           submitter={{
@@ -183,11 +183,11 @@ describe('StepsFrom', () => {
           }}
         >
           <ProFormText name="姓名" />
-        </StepsForm.StepForm>
-        <StepsForm.StepForm name="moreInfo" title="表单2">
+        </StepsFrom.StepFrom>
+        <StepsFrom.StepFrom name="moreInfo" title="表单2">
           <ProFormText name="邮箱" />
-        </StepsForm.StepForm>
-      </StepsForm>,
+        </StepsFrom.StepFrom>
+      </StepsFrom>,
     );
 
     expect(html.find('button#next').exists()).toBeTruthy();

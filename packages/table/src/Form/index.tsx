@@ -356,8 +356,11 @@ const FormSearch = <T, U = any>({
         {...(searchConfig || {})}
         {...formConfig}
         form={form}
-        onValuesChange={() => {
+        onValuesChange={(change, all) => {
           forceUpdate();
+          if (formConfig.onValuesChange) {
+            formConfig.onValuesChange(change, all);
+          }
         }}
         onReset={() => {
           if (onReset) {

@@ -1,12 +1,15 @@
 {
   "name": "@ant-design/pro-table",
-  "version": "2.7.0",
+  "version": "2.7.2",
   "description": "🏆 Use Ant Design Table like a Pro!",
   "keywords": [
     "antd",
     "admin",
     "ant-design",
     "ant-design-pro"
+  ],
+  "sideEffects": [
+    "*.less"
   ],
   "homepage": "https://github.com/ant-design/pro-components/tree/master/packages/table#readme",
   "bugs": "http://github.com/umijs/plugins/issues",
@@ -31,10 +34,10 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.1.0",
-    "@ant-design/pro-field": "0.2.0",
-    "@ant-design/pro-form": "1.0.0-beta.22",
+    "@ant-design/pro-field": "0.3.0",
+    "@ant-design/pro-form": "1.0.0-beta.24",
     "@ant-design/pro-provider": "0.1.0",
-    "@ant-design/pro-utils": "0.2.0",
+    "@ant-design/pro-utils": "0.3.0",
     "classnames": "^2.2.6",
     "dnd-core": "^10.0.2",
     "moment": "^2.24.0",

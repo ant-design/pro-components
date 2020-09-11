@@ -1,4 +1,4 @@
-const pickUndefined = <T>(obj: T): T => {
+const omitUndefinedAndEmptyArr = <T>(obj: T): T => {
   const newObj = {} as T;
   Object.keys(obj || {}).forEach((key) => {
     if (obj[key] !== undefined && obj[key]?.length !== 0) {
@@ -8,4 +8,4 @@ const pickUndefined = <T>(obj: T): T => {
   return newObj;
 };
 
-export default pickUndefined;
+export default omitUndefinedAndEmptyArr;

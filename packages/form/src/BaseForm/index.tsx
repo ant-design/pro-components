@@ -28,6 +28,18 @@ export interface BaseFormProps extends FormProps, CommonFormProps {
   formRef?: React.MutableRefObject<FormInstance | undefined>;
 }
 
+const WIDTH_SIZE_ENUM = {
+  // 适用于短数字，短文本或者选项
+  xs: 104,
+  // 适用于较短字段录入、如姓名、电话、ID 等。
+  s: 216,
+  // 标准宽度，适用于大部分字段长度。
+  m: 328,
+  // 适用于较长字段录入，如长网址、标签组、文件路径等。
+  l: 440,
+  // 适用于长文本录入，如长链接、描述、备注等，通常搭配自适应多行输入框或定高文本域使用。
+  xl: 552,
+};
 // 给控件扩展的通用的属性
 export interface ExtendsProps {
   secondary?: boolean;
@@ -52,7 +64,7 @@ export function createField<P extends ProFormItemProps = any>(
 ): ProFormComponent<P, ExtendsProps> {
   const FieldWithContext: React.FC<P> = (props: P & ExtendsProps) => {
     const size = useContext(SizeContext);
-    const { label, tip, placeholder, proFieldProps, bordered, ...rest } = props;
+    const { label, tip, placeholder, width = 'm', proFieldProps, bordered, ...rest } = props;
     const {
       valueType,
       customLightMode,
@@ -73,11 +85,18 @@ export function createField<P extends ProFormItemProps = any>(
     }, []);
     // restFormItemProps is user props pass to Form.Item
     const restFormItemProps = pickProFormItemProps(rest);
+
     const realFieldProps = {
+      disabled: props.disabled,
       // 轻量筛选模式下默认不显示 FormItem 的 label，label 设置为 placeholder
       placeholder: proFieldProps?.light ? placeholder || label : placeholder,
       ...(fieldProps || {}),
       ...(rest.fieldProps || {}),
+      style: {
+        width: WIDTH_SIZE_ENUM[width as 'm'] || width,
+        ...rest.fieldProps?.style,
+        ...fieldProps?.style,
+      },
     };
 
     const field = (

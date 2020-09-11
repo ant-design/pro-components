@@ -74,6 +74,7 @@ export interface SiderMenuProps
   style?: CSSProperties;
   links?: React.ReactNode[];
   onOpenChange?: (openKeys: WithFalse<string[]>) => void;
+  getContainer?: false;
 }
 
 export const defaultRenderCollapsedButton = (collapsed?: boolean) =>
@@ -152,7 +153,7 @@ const SiderMenu: React.FC<SiderMenuProps> = (props) => {
         collapsedWidth={48}
         style={{
           overflow: 'hidden',
-          paddingTop: layout === 'mix' ? headerHeight : undefined,
+          paddingTop: layout === 'mix' && !isMobile ? headerHeight : undefined,
           ...style,
         }}
         width={siderWidth}
