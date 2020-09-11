@@ -1,4 +1,7 @@
 import moment, { Moment } from 'moment';
+import isNil from '../isNil';
+
+type DateFormatter = 'number' | 'string' | false;
 
 const dateFormatterMap = {
   time: 'HH:mm:ss',
@@ -13,6 +16,16 @@ const dateFormatterMap = {
   dateTimeRange: 'YYYY-MM-DD HH:mm:ss',
 };
 
+const convertMoment = (value: moment.Moment, dateFormatter: DateFormatter, valueType: string) => {
+  if (moment.isMoment(value)) {
+    if (dateFormatter === 'number') {
+      return value.valueOf();
+    }
+    return value.format(dateFormatterMap[valueType] || 'YYYY-MM-DD HH:mm:ss');
+  }
+  return value;
+};
+
 /**
  * 根据不同的格式转化 moment
  * @param value
@@ -21,30 +34,16 @@ const dateFormatterMap = {
  */
 const conversionMoment = (
   value: moment.Moment | moment.Moment[],
-  dateFormatter: 'number' | 'string' | false,
-  valueType: string = 'dateTime',
+  dateFormatter: DateFormatter,
+  valueType: string,
 ) => {
   if (!dateFormatter) {
     return value;
   }
-  if (moment.isMoment(value) && !Array.isArray(value)) {
-    if (dateFormatter === 'number') {
-      return value.valueOf();
-    }
-    return value.format(dateFormatterMap[valueType] || 'YYYY-MM-DD HH:mm:ss');
+  if (!Array.isArray(value)) {
+    return convertMoment(value, dateFormatter, valueType);
   }
-  if (Array.isArray(value)) {
-    return (value as moment.Moment[]).map((item) => {
-      if (moment.isMoment(item)) {
-        if (dateFormatter === 'number') {
-          return item.valueOf();
-        }
-        return item.format(dateFormatterMap[valueType] || 'YYYY-MM-DD HH:mm:ss');
-      }
-      return item;
-    });
-  }
-  return value;
+  return value.map((item) => convertMoment(item, dateFormatter, valueType));
 };
 
 /**
@@ -57,23 +56,23 @@ const conversionMoment = (
  */
 const conversionSubmitValue = <T = any>(
   value: T,
-  dateFormatter: 'number' | 'string' | false,
+  dateFormatter: DateFormatter,
   valueTypeMap: {
     [key: string]: string;
   },
 ): T => {
-  const tmpValue = {};
+  const tmpValue = {} as T;
 
   Object.keys(value).forEach((key) => {
     const valueType = valueTypeMap[key] || 'text';
     const itemValue = value[key];
-    if (itemValue === undefined || itemValue === null) {
+    if (isNil(itemValue)) {
       return;
     }
     // 都没命中，原样返回
     tmpValue[key] = conversionMoment(itemValue, dateFormatter, valueType);
   });
-  return tmpValue as T;
+  return tmpValue;
 };
 
 export default conversionSubmitValue;
