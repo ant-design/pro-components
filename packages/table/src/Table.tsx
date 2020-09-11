@@ -38,6 +38,7 @@ import {
   pickUndefinedAndArray,
   ProCoreActionType,
   pickUndefined,
+  SearchTransformKeyFn,
 } from '@ant-design/pro-utils';
 
 import useFetchData, { RequestData } from './useFetchData';
@@ -86,9 +87,16 @@ export type ProColumnType<T = unknown> = ProSchema<
      */
     copyable?: boolean;
     /**
+     * @deprecated use `search` instead
+     * 最新的vscode支持deprecated, 对已弃用的属性提供智能感知建议(添加一个删除线).
      * 在查询表单中隐藏
      */
     hideInSearch?: boolean;
+
+    /**
+     * 在查询表单中隐藏
+     */
+    search?: boolean | { transform: SearchTransformKeyFn };
 
     /**
      * 在 table 中隐藏
@@ -110,6 +118,7 @@ export type ProColumnType<T = unknown> = ProSchema<
      */
     order?: number;
     /**
+     * @deprecated use `fieldProps` instead
      * 传给 Form.Item 的 props
      */
     formItemProps?: Partial<Omit<FormItemProps, 'children'>>;

@@ -11,13 +11,14 @@ import {
   useDeepCompareEffect,
   ProSchemaComponentTypes,
   conversionSubmitValue,
-  renameKeySubmitValue,
+  transformKeySubmitValue,
+  SearchTransformKeyFn,
 } from '@ant-design/pro-utils';
 import warningOnce from 'rc-util/lib/warning';
 
 import { genColumnKey } from '../utils';
 import Container from '../container';
-import { ProColumns, ProColumnType } from '../index';
+import { ProColumns } from '../index';
 import './index.less';
 
 export interface TableFormItem<T> extends Omit<FormItemProps, 'children' | 'onReset'> {
@@ -138,6 +139,7 @@ export const proFormItemRender: (props: {
     render,
     hideInForm,
     hideInSearch,
+    search,
     hideInTable,
     renderText,
     order,
@@ -150,6 +152,9 @@ export const proFormItemRender: (props: {
     filters,
     ...rest
   } = item;
+
+  // @ts-ignore
+  warningOnce(item.hideInSearch, `'hideInSearch' will be deprecated, please use 'search'`);
 
   // 支持 function 的 title
   const getTitle = () => {
@@ -201,10 +206,10 @@ const FormSearch = <T, U = any>({
   }>({});
 
   /**
-   * 保存 renameKeyRef，用于对表单key rename
+   * 保存 transformKeyRef，用于对表单key transform
    */
-  const renameKeyRef = useRef<{
-    [key: string]: ProColumnType['renameKey'];
+  const transformKeyRef = useRef<{
+    [key: string]: SearchTransformKeyFn;
   }>({});
 
   // 这么做是为了在用户修改了输入的时候触发一下子节点的render
@@ -216,9 +221,9 @@ const FormSearch = <T, U = any>({
   // 触发onSubmit
   const triggerSubmit = (value: Store) => {
     if (onSubmit) {
-      const finalValue = renameKeySubmitValue(
+      const finalValue = transformKeySubmitValue(
         conversionSubmitValue(value, dateFormatter, valueTypeRef.current) as T,
-        renameKeyRef.current,
+        transformKeyRef.current,
       );
       onSubmit(finalValue);
     }
@@ -266,19 +271,24 @@ const FormSearch = <T, U = any>({
       return;
     }
     const tempMap = {};
-    const renameKeyMap = {};
+    const transformKeyMap = {};
 
     counter.proColumns.forEach((item) => {
-      const { key, dataIndex, index, valueType, renameKey } = item;
+      const { key, dataIndex, index, valueType, search } = item;
       // 以key为主,理论上key唯一
       const finalKey = genColumnKey((key || dataIndex) as string, index);
       // 如果是() => ValueType
       const finalValueType = typeof valueType === 'function' ? valueType(item) : valueType;
+
       tempMap[finalKey] = finalValueType;
-      renameKeyMap[finalKey] = renameKey;
+      transformKeyMap[finalKey] =
+        typeof search === 'boolean'
+          ? undefined
+          : (value: any, fieldName: string, target: any) =>
+              search?.transform(value, fieldName, target);
     });
     valueTypeRef.current = tempMap;
-    renameKeyRef.current = renameKeyMap;
+    transformKeyRef.current = transformKeyMap;
   }, [counter.proColumns]);
 
   const { getPrefixCls } = useContext(ConfigContext);
@@ -286,7 +296,7 @@ const FormSearch = <T, U = any>({
   const columnsList = counter.proColumns
     .filter((item) => {
       const { valueType } = item;
-      if (item.hideInSearch && type !== 'form') {
+      if ((item.hideInSearch || item.search === false) && type !== 'form') {
         return false;
       }
       if (type === 'form' && item.hideInForm) {

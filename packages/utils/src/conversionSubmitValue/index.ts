@@ -5,6 +5,9 @@ const dateFormatterMap = {
   timeRange: 'HH:mm:ss',
   date: 'YYYY-MM-DD',
   dateWeek: 'YYYY-wo',
+  dateMonth: 'YYYY-MM',
+  dateQuarter: 'YYYY-QQ',
+  dateYear: 'YYYY',
   dateRange: 'YYYY-MM-DD',
   dateTime: 'YYYY-MM-DD HH:mm:ss',
   dateTimeRange: 'YYYY-MM-DD HH:mm:ss',
@@ -55,14 +58,14 @@ const conversionMoment = (
 const conversionSubmitValue = <T = any>(
   value: T,
   dateFormatter: 'number' | 'string' | false,
-  valueTypeMap: {
+  dataFormatMap: {
     [key: string]: string;
   },
 ): T => {
   const tmpValue = {};
 
   Object.keys(value).forEach((key) => {
-    const valueType = valueTypeMap[key] || 'text';
+    const valueType = dataFormatMap[key] || 'text';
     const itemValue = value[key];
     if (itemValue === undefined || itemValue === null) {
       return;

@@ -19,6 +19,12 @@ export type ProSchemaValueEnumMap = Map<
   | ReactNode
 >;
 
+export type SearchTransformKeyFn = (
+  value: any,
+  field: string,
+  object: any,
+) => string | { [key: string]: any };
+
 // 支持的变形，还未完全支持完毕
 export type ProSchemaComponentTypes =
   | 'form'
@@ -117,9 +123,4 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
    * 隐藏在 descriptions
    */
   hideInDescriptions?: boolean;
-
-  /**
-   * 在表单中的key重命名
-   */
-  renameKey?: string | [string] | [string, string];
 } & Extra;
