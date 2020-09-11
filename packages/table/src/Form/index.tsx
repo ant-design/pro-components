@@ -96,9 +96,6 @@ export const formInputRender: React.FC<{
     );
   }
 
-  // @ts-ignore
-  warningOnce(!item.formItemProps, `'formItemProps' will be deprecated, please use 'fieldProps'`);
-
   const { onChange, ...restFieldProps } = item.fieldProps || {};
 
   return (
@@ -152,9 +149,6 @@ export const proFormItemRender: (props: {
     filters,
     ...rest
   } = item;
-
-  // @ts-ignore
-  warningOnce(item.hideInSearch, `'hideInSearch' will be deprecated, please use 'search'`);
 
   // 支持 function 的 title
   const getTitle = () => {
@@ -213,7 +207,7 @@ const FormSearch = <T, U = any>({
   }>({});
 
   // 这么做是为了在用户修改了输入的时候触发一下子节点的render
-  const [, updateState] = React.useState();
+  const [, updateState] = React.useState<any>();
   const forceUpdate = useCallback(() => updateState({}), []);
 
   const isForm = type === 'form';
@@ -274,7 +268,13 @@ const FormSearch = <T, U = any>({
     const transformKeyMap = {};
 
     counter.proColumns.forEach((item) => {
-      const { key, dataIndex, index, valueType, search } = item;
+      const { key, dataIndex, index, valueType, search, hideInSearch, formItemProps } = item;
+      warningOnce(
+        typeof hideInSearch !== 'boolean',
+        `'hideInSearch' will be deprecated, please use 'search'`,
+      );
+      warningOnce(!formItemProps, `'formItemProps' will be deprecated, please use 'fieldProps'`);
+
       // 以key为主,理论上key唯一
       const finalKey = genColumnKey((key || dataIndex) as string, index);
       // 如果是() => ValueType
@@ -282,7 +282,7 @@ const FormSearch = <T, U = any>({
 
       tempMap[finalKey] = finalValueType;
       transformKeyMap[finalKey] =
-        typeof search === 'boolean'
+        typeof search === 'boolean' || !search
           ? undefined
           : (value: any, fieldName: string, target: any) =>
               search?.transform(value, fieldName, target);

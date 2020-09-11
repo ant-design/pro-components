@@ -83,9 +83,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
       ],
     },
     width: '30%',
-    search: {
-      transform: (value, key, target) => 'new-title',
-    },
+    hideInSearch: true,
   },
   {
     title: '状态',
@@ -113,11 +111,6 @@ const columns: ProColumns<GithubIssueItem>[] = [
     title: '标签',
     dataIndex: 'labels',
     width: '10%',
-    search: {
-      transform: (value, key, target) => {
-        return key;
-      },
-    },
     render: (_, row) => (
       <Space>
         {row.labels.map(({ name, id, color }) => (
@@ -132,11 +125,8 @@ const columns: ProColumns<GithubIssueItem>[] = [
     title: '创建时间',
     key: 'since',
     dataIndex: 'created_at',
-    valueType: 'dateRange',
+    valueType: 'dateTime',
     width: '20%',
-    search: {
-      transform: (value) => ({ startTime: value[0], endTime: value[1] }),
-    },
   },
   {
     title: '操作',
