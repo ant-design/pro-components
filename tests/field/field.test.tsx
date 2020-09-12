@@ -62,6 +62,7 @@ describe('Field', () => {
   });
 
   const valueTypes = [
+    'password',
     'money',
     'textarea',
     'date',

@@ -13,6 +13,7 @@ import FieldCode from './components/Code';
 import FieldTimePicker from './components/TimePicker';
 import FieldText from './components/Text';
 import FieldTextArea from './components/TextArea';
+import FieldPassword from './components/Password';
 import FieldStatus from './components/Status';
 import FieldOptions from './components/Options';
 import FiledSelect, {
@@ -45,6 +46,7 @@ export type ProFieldEmptyText = string | false;
  * jsonCode json 的代码块，格式化了一下
  */
 export type ProFieldValueType =
+  | 'password'
   | 'money'
   | 'textarea'
   | 'option'
@@ -338,6 +340,10 @@ const defaultRenderText = (
 
   if (valueType === 'option') {
     return <FieldOptions text={text} {...props} />;
+  }
+
+  if (valueType === 'password') {
+    return <FieldPassword text={text as string} {...props} />;
   }
 
   return <FieldText text={text as string} {...props} />;

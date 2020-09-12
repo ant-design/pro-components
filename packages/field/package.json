@@ -28,6 +28,7 @@
     "ie >= 11"
   ],
   "dependencies": {
+    "@ant-design/icons": "^4.2.1",
     "@ant-design/pro-provider": "0.1.0",
     "classnames": "^2.2.6",
     "lodash.isequal": "^4.5.0",
