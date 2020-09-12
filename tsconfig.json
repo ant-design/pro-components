@@ -33,6 +33,7 @@
     ".eslintrc.js",
     "tests",
     "jest.config.js",
-    "**/fixtures"
+    "**/fixtures",
+    "./tests/no-duplicated.ts"
   ]
 }
