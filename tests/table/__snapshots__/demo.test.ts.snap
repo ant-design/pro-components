@@ -462,9 +462,9 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="简短备注文案"
                             >
                               简短备注文案
@@ -496,7 +496,7 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -647,10 +647,10 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                             >
                               <span
@@ -687,7 +687,7 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -838,9 +838,9 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="简短备注文案"
                             >
                               简短备注文案
@@ -872,7 +872,7 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -1023,10 +1023,10 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                             >
                               <span
@@ -1063,7 +1063,7 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -1214,9 +1214,9 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="简短备注文案"
                             >
                               简短备注文案
@@ -1248,7 +1248,7 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -1399,10 +1399,10 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                             >
                               <span
@@ -1439,7 +1439,7 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -1590,9 +1590,9 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="简短备注文案"
                             >
                               简短备注文案
@@ -1624,7 +1624,7 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -1775,10 +1775,10 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                             >
                               <span
@@ -1815,7 +1815,7 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -1966,9 +1966,9 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="简短备注文案"
                             >
                               简短备注文案
@@ -2000,7 +2000,7 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -2151,10 +2151,10 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                             >
                               <span
@@ -2191,7 +2191,7 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -2342,9 +2342,9 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="简短备注文案"
                             >
                               简短备注文案
@@ -2376,7 +2376,7 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -2527,10 +2527,10 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                             >
                               <span
@@ -2567,7 +2567,7 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -2718,9 +2718,9 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="简短备注文案"
                             >
                               简短备注文案
@@ -2752,7 +2752,7 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -2903,10 +2903,10 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                             >
                               <span
@@ -2943,7 +2943,7 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -3094,9 +3094,9 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="简短备注文案"
                             >
                               简短备注文案
@@ -3128,7 +3128,7 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -3279,10 +3279,10 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                             >
                               <span
@@ -3319,7 +3319,7 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -3470,9 +3470,9 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="简短备注文案"
                             >
                               简短备注文案
@@ -3504,7 +3504,7 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -3655,10 +3655,10 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                             >
                               <span
@@ -3695,7 +3695,7 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -3846,9 +3846,9 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="简短备注文案"
                             >
                               简短备注文案
@@ -3880,7 +3880,7 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -4031,10 +4031,10 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                             >
                               <span
@@ -4071,7 +4071,7 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -8390,10 +8390,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="🐛[BUG]yarn install命令 antd2.4.5会报错"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="🐛[BUG]yarn install命令 antd2.4.5会报错"
                               >
                                 <span
@@ -8430,7 +8430,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -8559,10 +8559,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="🐛[BUG]无法创建工程npm create umi"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="🐛[BUG]无法创建工程npm create umi"
                               >
                                 <span
@@ -8599,7 +8599,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -8728,10 +8728,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="🧐[问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="🧐[问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                               >
                                 <span
@@ -8768,7 +8768,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -8897,9 +8897,9 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="2.3.1版本如何在业务页面修改头部状态"
                               >
                                 2.3.1版本如何在业务页面修改头部状态
@@ -8931,7 +8931,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -9060,10 +9060,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="hideChildrenInMenu设置后，子路由找不到了"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="hideChildrenInMenu设置后，子路由找不到了"
                               >
                                 <span
@@ -9100,7 +9100,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -9229,10 +9229,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="🐛[BUG]Umi UI 添加多个空白页，就会出错！把空白页都变成选中状态！"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="🐛[BUG]Umi UI 添加多个空白页，就会出错！把空白页都变成选中状态！"
                               >
                                 <span
@@ -9269,7 +9269,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -9398,10 +9398,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="🐛[BUG]第一次载入页面，菜单仅图标时，图标没有居中"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="🐛[BUG]第一次载入页面，菜单仅图标时，图标没有居中"
                               >
                                 <span
@@ -9438,7 +9438,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -9567,10 +9567,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="build(deps-dev): bump eslint from 6.8.0 to 7.1.0"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="build(deps-dev): bump eslint from 6.8.0 to 7.1.0"
                               >
                                 <span
@@ -9607,7 +9607,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -9736,10 +9736,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="V4版本如何使用第三方的enhanceReduxMiddleware 🧐[问题]"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="V4版本如何使用第三方的enhanceReduxMiddleware 🧐[问题]"
                               >
                                 <span
@@ -9776,7 +9776,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -9905,10 +9905,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="🐛[BUG] 官网预览页面，第一次点击二级菜单，其父级菜单会收起，之后再次点击二级菜单，父菜单正常"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="🐛[BUG] 官网预览页面，第一次点击二级菜单，其父级菜单会收起，之后再次点击二级菜单，父菜单正常"
                               >
                                 <span
@@ -9945,7 +9945,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -10063,10 +10063,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="🧐[问题] 从自建 block 仓库下载区块报错。"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="🧐[问题] 从自建 block 仓库下载区块报错。"
                               >
                                 <span
@@ -10103,7 +10103,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -10232,10 +10232,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="🧐[问题] fetchCurrent接口报错，退出登录页，第一次点击登录，SecurityLayout不渲染，导致需要点击两次"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="🧐[问题] fetchCurrent接口报错，退出登录页，第一次点击登录，SecurityLayout不渲染，导致需要点击两次"
                               >
                                 <span
@@ -10272,7 +10272,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -10401,10 +10401,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="🐛[BUG] V5 左侧栏收缩时，点击图标无效。"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="🐛[BUG] V5 左侧栏收缩时，点击图标无效。"
                               >
                                 <span
@@ -10441,7 +10441,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -10570,10 +10570,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="🧐[问题]不知道有没有大佬将这个模板迁移至Electron的例子"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="🧐[问题]不知道有没有大佬将这个模板迁移至Electron的例子"
                               >
                                 <span
@@ -10610,7 +10610,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -10739,10 +10739,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="npm run start 为什么不能打开浏览器"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="npm run start 为什么不能打开浏览器"
                               >
                                 <span
@@ -10779,7 +10779,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -10908,10 +10908,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="🧐[问题]在重新npm install后运行npm start报出一些less找不到，但项目可以正常运行起来"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="🧐[问题]在重新npm install后运行npm start报出一些less找不到，但项目可以正常运行起来"
                               >
                                 <span
@@ -10948,7 +10948,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -11077,10 +11077,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="🐛[BUG]错误通知：http code 200"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="🐛[BUG]错误通知：http code 200"
                               >
                                 <span
@@ -11117,7 +11117,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -11246,10 +11246,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="🐛[BUG]线上预览项目好多布局错乱，不知道是antd的锅还是啥原因"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="🐛[BUG]线上预览项目好多布局错乱，不知道是antd的锅还是啥原因"
                               >
                                 <span
@@ -11286,7 +11286,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -11404,10 +11404,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="🐛[BUG] umi 偶尔出现没有导出成员"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="🐛[BUG] umi 偶尔出现没有导出成员"
                               >
                                 <span
@@ -11444,7 +11444,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -11573,10 +11573,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="🐛[BUG]请问大佬，为什么无论怎么选择，都无法切换成JS语言，怎么下都是TS,求解答"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="🐛[BUG]请问大佬，为什么无论怎么选择，都无法切换成JS语言，怎么下都是TS,求解答"
                               >
                                 <span
@@ -11613,7 +11613,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -12534,13 +12534,13 @@ exports[`table demos renders ./packages/table/src/demos/linkage_form.tsx correct
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🐛[BUG]yarn install命令 antd2.4.5会报错"
                             >
                               🐛[BUG]yarn install命令 antd2.4.5会报错
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -12649,13 +12649,13 @@ exports[`table demos renders ./packages/table/src/demos/linkage_form.tsx correct
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🐛[BUG]无法创建工程npm create umi"
                             >
                               🐛[BUG]无法创建工程npm create umi
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -12764,13 +12764,13 @@ exports[`table demos renders ./packages/table/src/demos/linkage_form.tsx correct
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🧐[问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                             >
                               🧐[问题] build 后还存在 es6 的代码（Umi@2.13.13）
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -12879,13 +12879,13 @@ exports[`table demos renders ./packages/table/src/demos/linkage_form.tsx correct
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="2.3.1版本如何在业务页面修改头部状态"
                             >
                               2.3.1版本如何在业务页面修改头部状态
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -12994,13 +12994,13 @@ exports[`table demos renders ./packages/table/src/demos/linkage_form.tsx correct
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="hideChildrenInMenu设置后，子路由找不到了"
                             >
                               hideChildrenInMenu设置后，子路由找不到了
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -13109,13 +13109,13 @@ exports[`table demos renders ./packages/table/src/demos/linkage_form.tsx correct
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🐛[BUG]Umi UI 添加多个空白页，就会出错！把空白页都变成选中状态！"
                             >
                               🐛[BUG]Umi UI 添加多个空白页，就会出错！把空白页都变成选中状态！
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -13224,13 +13224,13 @@ exports[`table demos renders ./packages/table/src/demos/linkage_form.tsx correct
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🐛[BUG]第一次载入页面，菜单仅图标时，图标没有居中"
                             >
                               🐛[BUG]第一次载入页面，菜单仅图标时，图标没有居中
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -13339,13 +13339,13 @@ exports[`table demos renders ./packages/table/src/demos/linkage_form.tsx correct
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="build(deps-dev): bump eslint from 6.8.0 to 7.1.0"
                             >
                               build(deps-dev): bump eslint from 6.8.0 to 7.1.0
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -13454,13 +13454,13 @@ exports[`table demos renders ./packages/table/src/demos/linkage_form.tsx correct
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="V4版本如何使用第三方的enhanceReduxMiddleware 🧐[问题]"
                             >
                               V4版本如何使用第三方的enhanceReduxMiddleware 🧐[问题]
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -13569,13 +13569,13 @@ exports[`table demos renders ./packages/table/src/demos/linkage_form.tsx correct
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🐛[BUG] 官网预览页面，第一次点击二级菜单，其父级菜单会收起，之后再次点击二级菜单，父菜单正常"
                             >
                               🐛[BUG] 官网预览页面，第一次点击二级菜单，其父级菜单会收起，之后再次点击二级菜单，父菜单正常
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -13673,13 +13673,13 @@ exports[`table demos renders ./packages/table/src/demos/linkage_form.tsx correct
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🧐[问题] 从自建 block 仓库下载区块报错。"
                             >
                               🧐[问题] 从自建 block 仓库下载区块报错。
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -13788,13 +13788,13 @@ exports[`table demos renders ./packages/table/src/demos/linkage_form.tsx correct
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🧐[问题] fetchCurrent接口报错，退出登录页，第一次点击登录，SecurityLayout不渲染，导致需要点击两次"
                             >
                               🧐[问题] fetchCurrent接口报错，退出登录页，第一次点击登录，SecurityLayout不渲染，导致需要点击两次
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -13903,13 +13903,13 @@ exports[`table demos renders ./packages/table/src/demos/linkage_form.tsx correct
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🐛[BUG] V5 左侧栏收缩时，点击图标无效。"
                             >
                               🐛[BUG] V5 左侧栏收缩时，点击图标无效。
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -14018,13 +14018,13 @@ exports[`table demos renders ./packages/table/src/demos/linkage_form.tsx correct
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🧐[问题]不知道有没有大佬将这个模板迁移至Electron的例子"
                             >
                               🧐[问题]不知道有没有大佬将这个模板迁移至Electron的例子
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -14133,13 +14133,13 @@ exports[`table demos renders ./packages/table/src/demos/linkage_form.tsx correct
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="npm run start 为什么不能打开浏览器"
                             >
                               npm run start 为什么不能打开浏览器
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -14248,13 +14248,13 @@ exports[`table demos renders ./packages/table/src/demos/linkage_form.tsx correct
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🧐[问题]在重新npm install后运行npm start报出一些less找不到，但项目可以正常运行起来"
                             >
                               🧐[问题]在重新npm install后运行npm start报出一些less找不到，但项目可以正常运行起来
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -14363,13 +14363,13 @@ exports[`table demos renders ./packages/table/src/demos/linkage_form.tsx correct
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🐛[BUG]错误通知：http code 200"
                             >
                               🐛[BUG]错误通知：http code 200
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -14478,13 +14478,13 @@ exports[`table demos renders ./packages/table/src/demos/linkage_form.tsx correct
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🐛[BUG]线上预览项目好多布局错乱，不知道是antd的锅还是啥原因"
                             >
                               🐛[BUG]线上预览项目好多布局错乱，不知道是antd的锅还是啥原因
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -14582,13 +14582,13 @@ exports[`table demos renders ./packages/table/src/demos/linkage_form.tsx correct
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🐛[BUG] umi 偶尔出现没有导出成员"
                             >
                               🐛[BUG] umi 偶尔出现没有导出成员
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -14697,13 +14697,13 @@ exports[`table demos renders ./packages/table/src/demos/linkage_form.tsx correct
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🐛[BUG]请问大佬，为什么无论怎么选择，都无法切换成JS语言，怎么下都是TS,求解答"
                             >
                               🐛[BUG]请问大佬，为什么无论怎么选择，都无法切换成JS语言，怎么下都是TS,求解答
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -16964,9 +16964,9 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="简短备注文案"
                             >
                               简短备注文案
@@ -16998,7 +16998,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -17109,10 +17109,10 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                             >
                               <span
@@ -17149,7 +17149,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -17260,9 +17260,9 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="简短备注文案"
                             >
                               简短备注文案
@@ -17294,7 +17294,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -17405,10 +17405,10 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                             >
                               <span
@@ -17445,7 +17445,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -17556,9 +17556,9 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="简短备注文案"
                             >
                               简短备注文案
@@ -17590,7 +17590,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -17701,10 +17701,10 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                             >
                               <span
@@ -17741,7 +17741,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -17852,9 +17852,9 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="简短备注文案"
                             >
                               简短备注文案
@@ -17886,7 +17886,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -17997,10 +17997,10 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                             >
                               <span
@@ -18037,7 +18037,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -18148,9 +18148,9 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="简短备注文案"
                             >
                               简短备注文案
@@ -18182,7 +18182,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -18293,10 +18293,10 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                             >
                               <span
@@ -18333,7 +18333,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -18444,9 +18444,9 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="简短备注文案"
                             >
                               简短备注文案
@@ -18478,7 +18478,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -18589,10 +18589,10 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                             >
                               <span
@@ -18629,7 +18629,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -18740,9 +18740,9 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="简短备注文案"
                             >
                               简短备注文案
@@ -18774,7 +18774,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -18885,10 +18885,10 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                             >
                               <span
@@ -18925,7 +18925,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -19036,9 +19036,9 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="简短备注文案"
                             >
                               简短备注文案
@@ -19070,7 +19070,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -19181,10 +19181,10 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                             >
                               <span
@@ -19221,7 +19221,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -19332,9 +19332,9 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="简短备注文案"
                             >
                               简短备注文案
@@ -19366,7 +19366,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -19477,10 +19477,10 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                             >
                               <span
@@ -19517,7 +19517,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -19628,9 +19628,9 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="简短备注文案"
                             >
                               简短备注文案
@@ -19662,7 +19662,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -19773,10 +19773,10 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                             >
                               <span
@@ -19813,7 +19813,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -23200,10 +23200,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="🐛[BUG]yarn install命令 antd2.4.5会报错"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="🐛[BUG]yarn install命令 antd2.4.5会报错"
                               >
                                 <span
@@ -23240,7 +23240,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -23349,10 +23349,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="🐛[BUG]无法创建工程npm create umi"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="🐛[BUG]无法创建工程npm create umi"
                               >
                                 <span
@@ -23389,7 +23389,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -23498,10 +23498,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="🧐[问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="🧐[问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                               >
                                 <span
@@ -23538,7 +23538,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -23647,9 +23647,9 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="2.3.1版本如何在业务页面修改头部状态"
                               >
                                 2.3.1版本如何在业务页面修改头部状态
@@ -23681,7 +23681,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -23790,10 +23790,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="hideChildrenInMenu设置后，子路由找不到了"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="hideChildrenInMenu设置后，子路由找不到了"
                               >
                                 <span
@@ -23830,7 +23830,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -23939,10 +23939,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="🐛[BUG]Umi UI 添加多个空白页，就会出错！把空白页都变成选中状态！"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="🐛[BUG]Umi UI 添加多个空白页，就会出错！把空白页都变成选中状态！"
                               >
                                 <span
@@ -23979,7 +23979,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -24088,10 +24088,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="🐛[BUG]第一次载入页面，菜单仅图标时，图标没有居中"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="🐛[BUG]第一次载入页面，菜单仅图标时，图标没有居中"
                               >
                                 <span
@@ -24128,7 +24128,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -24237,10 +24237,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="build(deps-dev): bump eslint from 6.8.0 to 7.1.0"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="build(deps-dev): bump eslint from 6.8.0 to 7.1.0"
                               >
                                 <span
@@ -24277,7 +24277,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -24386,10 +24386,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="V4版本如何使用第三方的enhanceReduxMiddleware 🧐[问题]"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="V4版本如何使用第三方的enhanceReduxMiddleware 🧐[问题]"
                               >
                                 <span
@@ -24426,7 +24426,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -24535,10 +24535,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="🐛[BUG] 官网预览页面，第一次点击二级菜单，其父级菜单会收起，之后再次点击二级菜单，父菜单正常"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="🐛[BUG] 官网预览页面，第一次点击二级菜单，其父级菜单会收起，之后再次点击二级菜单，父菜单正常"
                               >
                                 <span
@@ -24575,7 +24575,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -24673,10 +24673,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="🧐[问题] 从自建 block 仓库下载区块报错。"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="🧐[问题] 从自建 block 仓库下载区块报错。"
                               >
                                 <span
@@ -24713,7 +24713,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -24822,10 +24822,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="🧐[问题] fetchCurrent接口报错，退出登录页，第一次点击登录，SecurityLayout不渲染，导致需要点击两次"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="🧐[问题] fetchCurrent接口报错，退出登录页，第一次点击登录，SecurityLayout不渲染，导致需要点击两次"
                               >
                                 <span
@@ -24862,7 +24862,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -24971,10 +24971,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="🐛[BUG] V5 左侧栏收缩时，点击图标无效。"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="🐛[BUG] V5 左侧栏收缩时，点击图标无效。"
                               >
                                 <span
@@ -25011,7 +25011,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -25120,10 +25120,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="🧐[问题]不知道有没有大佬将这个模板迁移至Electron的例子"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="🧐[问题]不知道有没有大佬将这个模板迁移至Electron的例子"
                               >
                                 <span
@@ -25160,7 +25160,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -25269,10 +25269,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="npm run start 为什么不能打开浏览器"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="npm run start 为什么不能打开浏览器"
                               >
                                 <span
@@ -25309,7 +25309,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -25418,10 +25418,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="🧐[问题]在重新npm install后运行npm start报出一些less找不到，但项目可以正常运行起来"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="🧐[问题]在重新npm install后运行npm start报出一些less找不到，但项目可以正常运行起来"
                               >
                                 <span
@@ -25458,7 +25458,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -25567,10 +25567,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="🐛[BUG]错误通知：http code 200"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="🐛[BUG]错误通知：http code 200"
                               >
                                 <span
@@ -25607,7 +25607,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -25716,10 +25716,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="🐛[BUG]线上预览项目好多布局错乱，不知道是antd的锅还是啥原因"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="🐛[BUG]线上预览项目好多布局错乱，不知道是antd的锅还是啥原因"
                               >
                                 <span
@@ -25756,7 +25756,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -25854,10 +25854,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="🐛[BUG] umi 偶尔出现没有导出成员"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="🐛[BUG] umi 偶尔出现没有导出成员"
                               >
                                 <span
@@ -25894,7 +25894,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -26003,10 +26003,10 @@ Array [
                             class="ant-table-cell"
                           >
                             <span>
-                              <div
+                              <span
                                 aria-label="🐛[BUG]请问大佬，为什么无论怎么选择，都无法切换成JS语言，怎么下都是TS,求解答"
                                 class="ant-typography ant-typography-ellipsis"
-                                style="width: 168px; margin: 0px; padding: 0px;"
+                                style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title="🐛[BUG]请问大佬，为什么无论怎么选择，都无法切换成JS语言，怎么下都是TS,求解答"
                               >
                                 <span
@@ -26043,7 +26043,7 @@ Array [
                                     </svg>
                                   </span>
                                 </div>
-                              </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -27060,10 +27060,10 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="🐛[BUG]yarn install命令 antd2.4.5会报错"
                               class="ant-typography ant-typography-ellipsis"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🐛[BUG]yarn install命令 antd2.4.5会报错"
                             >
                               <span
@@ -27100,7 +27100,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -27209,10 +27209,10 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="🐛[BUG]无法创建工程npm create umi"
                               class="ant-typography ant-typography-ellipsis"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🐛[BUG]无法创建工程npm create umi"
                             >
                               <span
@@ -27249,7 +27249,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -27358,10 +27358,10 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="🧐[问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                               class="ant-typography ant-typography-ellipsis"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🧐[问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                             >
                               <span
@@ -27398,7 +27398,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -27507,9 +27507,9 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="2.3.1版本如何在业务页面修改头部状态"
                             >
                               2.3.1版本如何在业务页面修改头部状态
@@ -27541,7 +27541,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -27650,10 +27650,10 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="hideChildrenInMenu设置后，子路由找不到了"
                               class="ant-typography ant-typography-ellipsis"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="hideChildrenInMenu设置后，子路由找不到了"
                             >
                               <span
@@ -27690,7 +27690,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -27799,10 +27799,10 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="🐛[BUG]Umi UI 添加多个空白页，就会出错！把空白页都变成选中状态！"
                               class="ant-typography ant-typography-ellipsis"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🐛[BUG]Umi UI 添加多个空白页，就会出错！把空白页都变成选中状态！"
                             >
                               <span
@@ -27839,7 +27839,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -27948,10 +27948,10 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="🐛[BUG]第一次载入页面，菜单仅图标时，图标没有居中"
                               class="ant-typography ant-typography-ellipsis"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🐛[BUG]第一次载入页面，菜单仅图标时，图标没有居中"
                             >
                               <span
@@ -27988,7 +27988,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -28097,10 +28097,10 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="build(deps-dev): bump eslint from 6.8.0 to 7.1.0"
                               class="ant-typography ant-typography-ellipsis"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="build(deps-dev): bump eslint from 6.8.0 to 7.1.0"
                             >
                               <span
@@ -28137,7 +28137,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -28246,10 +28246,10 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="V4版本如何使用第三方的enhanceReduxMiddleware 🧐[问题]"
                               class="ant-typography ant-typography-ellipsis"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="V4版本如何使用第三方的enhanceReduxMiddleware 🧐[问题]"
                             >
                               <span
@@ -28286,7 +28286,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -28395,10 +28395,10 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="🐛[BUG] 官网预览页面，第一次点击二级菜单，其父级菜单会收起，之后再次点击二级菜单，父菜单正常"
                               class="ant-typography ant-typography-ellipsis"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🐛[BUG] 官网预览页面，第一次点击二级菜单，其父级菜单会收起，之后再次点击二级菜单，父菜单正常"
                             >
                               <span
@@ -28435,7 +28435,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -28533,10 +28533,10 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="🧐[问题] 从自建 block 仓库下载区块报错。"
                               class="ant-typography ant-typography-ellipsis"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🧐[问题] 从自建 block 仓库下载区块报错。"
                             >
                               <span
@@ -28573,7 +28573,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -28682,10 +28682,10 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="🧐[问题] fetchCurrent接口报错，退出登录页，第一次点击登录，SecurityLayout不渲染，导致需要点击两次"
                               class="ant-typography ant-typography-ellipsis"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🧐[问题] fetchCurrent接口报错，退出登录页，第一次点击登录，SecurityLayout不渲染，导致需要点击两次"
                             >
                               <span
@@ -28722,7 +28722,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -28831,10 +28831,10 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="🐛[BUG] V5 左侧栏收缩时，点击图标无效。"
                               class="ant-typography ant-typography-ellipsis"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🐛[BUG] V5 左侧栏收缩时，点击图标无效。"
                             >
                               <span
@@ -28871,7 +28871,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -28980,10 +28980,10 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="🧐[问题]不知道有没有大佬将这个模板迁移至Electron的例子"
                               class="ant-typography ant-typography-ellipsis"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🧐[问题]不知道有没有大佬将这个模板迁移至Electron的例子"
                             >
                               <span
@@ -29020,7 +29020,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -29129,10 +29129,10 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="npm run start 为什么不能打开浏览器"
                               class="ant-typography ant-typography-ellipsis"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="npm run start 为什么不能打开浏览器"
                             >
                               <span
@@ -29169,7 +29169,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -29278,10 +29278,10 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="🧐[问题]在重新npm install后运行npm start报出一些less找不到，但项目可以正常运行起来"
                               class="ant-typography ant-typography-ellipsis"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🧐[问题]在重新npm install后运行npm start报出一些less找不到，但项目可以正常运行起来"
                             >
                               <span
@@ -29318,7 +29318,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -29427,10 +29427,10 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="🐛[BUG]错误通知：http code 200"
                               class="ant-typography ant-typography-ellipsis"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🐛[BUG]错误通知：http code 200"
                             >
                               <span
@@ -29467,7 +29467,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -29576,10 +29576,10 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="🐛[BUG]线上预览项目好多布局错乱，不知道是antd的锅还是啥原因"
                               class="ant-typography ant-typography-ellipsis"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🐛[BUG]线上预览项目好多布局错乱，不知道是antd的锅还是啥原因"
                             >
                               <span
@@ -29616,7 +29616,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -29714,10 +29714,10 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="🐛[BUG] umi 偶尔出现没有导出成员"
                               class="ant-typography ant-typography-ellipsis"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🐛[BUG] umi 偶尔出现没有导出成员"
                             >
                               <span
@@ -29754,7 +29754,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -29863,10 +29863,10 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="🐛[BUG]请问大佬，为什么无论怎么选择，都无法切换成JS语言，怎么下都是TS,求解答"
                               class="ant-typography ant-typography-ellipsis"
-                              style="width: 168px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🐛[BUG]请问大佬，为什么无论怎么选择，都无法切换成JS语言，怎么下都是TS,求解答"
                             >
                               <span
@@ -29903,7 +29903,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -30856,10 +30856,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="🐛[BUG]yarn install命令 antd2.4.5会报错"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🐛[BUG]yarn install命令 antd2.4.5会报错"
                             >
                               <span
@@ -30896,7 +30896,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -31029,10 +31029,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="🐛[BUG]无法创建工程npm create umi"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🐛[BUG]无法创建工程npm create umi"
                             >
                               <span
@@ -31069,7 +31069,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -31202,10 +31202,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="🧐[问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🧐[问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                             >
                               <span
@@ -31242,7 +31242,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -31375,9 +31375,9 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="2.3.1版本如何在业务页面修改头部状态"
                             >
                               2.3.1版本如何在业务页面修改头部状态
@@ -31409,7 +31409,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -31542,10 +31542,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="hideChildrenInMenu设置后，子路由找不到了"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="hideChildrenInMenu设置后，子路由找不到了"
                             >
                               <span
@@ -31582,7 +31582,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -31715,10 +31715,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="🐛[BUG]Umi UI 添加多个空白页，就会出错！把空白页都变成选中状态！"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🐛[BUG]Umi UI 添加多个空白页，就会出错！把空白页都变成选中状态！"
                             >
                               <span
@@ -31755,7 +31755,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -31888,10 +31888,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="🐛[BUG]第一次载入页面，菜单仅图标时，图标没有居中"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🐛[BUG]第一次载入页面，菜单仅图标时，图标没有居中"
                             >
                               <span
@@ -31928,7 +31928,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -32061,10 +32061,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="build(deps-dev): bump eslint from 6.8.0 to 7.1.0"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="build(deps-dev): bump eslint from 6.8.0 to 7.1.0"
                             >
                               <span
@@ -32101,7 +32101,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -32234,10 +32234,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="V4版本如何使用第三方的enhanceReduxMiddleware 🧐[问题]"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="V4版本如何使用第三方的enhanceReduxMiddleware 🧐[问题]"
                             >
                               <span
@@ -32274,7 +32274,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -32407,10 +32407,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="🐛[BUG] 官网预览页面，第一次点击二级菜单，其父级菜单会收起，之后再次点击二级菜单，父菜单正常"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🐛[BUG] 官网预览页面，第一次点击二级菜单，其父级菜单会收起，之后再次点击二级菜单，父菜单正常"
                             >
                               <span
@@ -32447,7 +32447,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -32580,10 +32580,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="🧐[问题] 从自建 block 仓库下载区块报错。"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🧐[问题] 从自建 block 仓库下载区块报错。"
                             >
                               <span
@@ -32620,7 +32620,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -32753,10 +32753,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="🧐[问题] fetchCurrent接口报错，退出登录页，第一次点击登录，SecurityLayout不渲染，导致需要点击两次"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🧐[问题] fetchCurrent接口报错，退出登录页，第一次点击登录，SecurityLayout不渲染，导致需要点击两次"
                             >
                               <span
@@ -32793,7 +32793,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -32926,10 +32926,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="🐛[BUG] V5 左侧栏收缩时，点击图标无效。"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🐛[BUG] V5 左侧栏收缩时，点击图标无效。"
                             >
                               <span
@@ -32966,7 +32966,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -33099,10 +33099,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="🧐[问题]不知道有没有大佬将这个模板迁移至Electron的例子"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🧐[问题]不知道有没有大佬将这个模板迁移至Electron的例子"
                             >
                               <span
@@ -33139,7 +33139,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -33272,10 +33272,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="npm run start 为什么不能打开浏览器"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="npm run start 为什么不能打开浏览器"
                             >
                               <span
@@ -33312,7 +33312,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -33445,10 +33445,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="🧐[问题]在重新npm install后运行npm start报出一些less找不到，但项目可以正常运行起来"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🧐[问题]在重新npm install后运行npm start报出一些less找不到，但项目可以正常运行起来"
                             >
                               <span
@@ -33485,7 +33485,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -33618,10 +33618,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="🐛[BUG]错误通知：http code 200"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🐛[BUG]错误通知：http code 200"
                             >
                               <span
@@ -33658,7 +33658,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -33791,10 +33791,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="🐛[BUG]线上预览项目好多布局错乱，不知道是antd的锅还是啥原因"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🐛[BUG]线上预览项目好多布局错乱，不知道是antd的锅还是啥原因"
                             >
                               <span
@@ -33831,7 +33831,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -33964,10 +33964,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="🐛[BUG] umi 偶尔出现没有导出成员"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🐛[BUG] umi 偶尔出现没有导出成员"
                             >
                               <span
@@ -34004,7 +34004,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -34137,10 +34137,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               aria-label="🐛[BUG]请问大佬，为什么无论怎么选择，都无法切换成JS语言，怎么下都是TS,求解答"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="🐛[BUG]请问大佬，为什么无论怎么选择，都无法切换成JS语言，怎么下都是TS,求解答"
                             >
                               <span
@@ -34177,7 +34177,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                                   </svg>
                                 </span>
                               </div>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -37850,9 +37850,9 @@ exports[`table demos renders ./packages/table/src/demos/valueType.tsx correctly 
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="close"
                             >
                               <span
@@ -37867,7 +37867,7 @@ exports[`table demos renders ./packages/table/src/demos/valueType.tsx correctly 
                                   关闭
                                 </span>
                               </span>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -37968,9 +37968,9 @@ exports[`table demos renders ./packages/table/src/demos/valueType.tsx correctly 
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="close"
                             >
                               <span
@@ -37985,7 +37985,7 @@ exports[`table demos renders ./packages/table/src/demos/valueType.tsx correctly 
                                   关闭
                                 </span>
                               </span>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -38086,9 +38086,9 @@ exports[`table demos renders ./packages/table/src/demos/valueType.tsx correctly 
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="0"
                             >
                               <span
@@ -38103,7 +38103,7 @@ exports[`table demos renders ./packages/table/src/demos/valueType.tsx correctly 
                                   0异常
                                 </span>
                               </span>
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
