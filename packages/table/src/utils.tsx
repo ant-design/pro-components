@@ -29,25 +29,6 @@ export const genColumnKey = (key?: React.ReactText | undefined, index?: number):
 };
 
 /**
- * 减少 width，支持 string 和 number
- */
-export const reduceWidth = (width?: string | number): string | number | undefined => {
-  if (width === undefined) {
-    return width;
-  }
-  if (typeof width === 'string') {
-    if (!width.includes('calc')) {
-      return `calc(100% - ${width})`;
-    }
-    return width;
-  }
-  if (typeof width === 'number') {
-    return (width as number) - 32;
-  }
-  return width;
-};
-
-/**
  * 生成 Ellipsis 的 tooltip
  * @param dom
  * @param item
@@ -67,9 +48,9 @@ export const genEllipsis = (dom: React.ReactNode, item: ProColumns<any>, text: s
 export const genCopyable = (dom: React.ReactNode, item: ProColumns<any>, text: string) => {
   if (item.copyable || item.ellipsis) {
     return (
-      <Typography.Paragraph
+      <Typography.Text
         style={{
-          width: reduceWidth(item.width),
+          maxWidth: '100%',
           margin: 0,
           padding: 0,
         }}
@@ -85,7 +66,7 @@ export const genCopyable = (dom: React.ReactNode, item: ProColumns<any>, text: s
         ellipsis={item.ellipsis}
       >
         {dom}
-      </Typography.Paragraph>
+      </Typography.Text>
     );
   }
   return dom;
