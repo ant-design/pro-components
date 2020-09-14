@@ -8,8 +8,6 @@ nav:
   path: /components
 ---
 
-> 开发中，请勿用于生产环境。
-
 # ProForm
 
 ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设置，帮助我们快速的开发 From 表单。使用方法与 From 大致相同，但是 ProForm 会自动格式化 date 的 moment 数据，你可以通过 dateFormatter 来关闭这个预设。
