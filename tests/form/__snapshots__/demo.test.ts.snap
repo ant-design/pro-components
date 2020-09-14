@@ -38,6 +38,9 @@ exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
                 </div>
                 <div
                   class="ant-space-item"
+                />
+                <div
+                  class="ant-space-item"
                 >
                   <span
                     aria-label="info-circle"
@@ -3139,6 +3142,9 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                         </div>
                                         <div
                                           class="ant-space-item"
+                                        />
+                                        <div
+                                          class="ant-space-item"
                                         >
                                           <span
                                             aria-label="info-circle"
@@ -5886,6 +5892,9 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                   </div>
                   <div
                     class="ant-space-item"
+                  />
+                  <div
+                    class="ant-space-item"
                   >
                     <span
                       aria-label="info-circle"
@@ -6173,6 +6182,9 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                   >
                     XS号表单
                   </div>
+                  <div
+                    class="ant-space-item"
+                  />
                   <div
                     class="ant-space-item"
                   >
@@ -9234,6 +9246,9 @@ exports[`form demos renders ./packages/form/src/demos/steps-from.tsx correctly 1
                   >
                     实验名称
                   </div>
+                  <div
+                    class="ant-space-item"
+                  />
                   <div
                     class="ant-space-item"
                   >

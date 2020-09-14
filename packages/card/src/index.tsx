@@ -46,6 +46,10 @@ export type ProCardProps = {
    */
   title?: React.ReactNode;
   /**
+   * 副标题
+   */
+  subTitle?: React.ReactNode;
+  /**
    * 标题说明
    */
   tip?: string;
@@ -106,6 +110,7 @@ const ProCard: ProCardType = (props) => {
     bodyStyle = {},
     headStyle = {},
     title,
+    subTitle,
     extra,
     tip,
     layout,
@@ -287,7 +292,7 @@ const ProCard: ProCardType = (props) => {
             {(title || extra || collapsibleButton) && (
               <div className={headerCls} style={headStyle}>
                 <div className={`${prefixCls}-title`}>
-                  <LabelIconTip label={title} tip={tip} />
+                  <LabelIconTip label={title} tip={tip} subTitle={subTitle} />
                   {collapsibleButton}
                 </div>
                 <div className={`${prefixCls}-extra`}>{extra}</div>
