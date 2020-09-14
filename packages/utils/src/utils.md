@@ -76,7 +76,7 @@ SearchProps 为 antd 的 [Input.Search](https://ant.design/components/input-cn/#
 
 | 参数    | 说明         | 类型                  | 默认值 |
 | ------- | ------------ | --------------------- | ------ |
-| icon    | 图标         | string                | -      |
+| icon    | 图标         | ReactNode             | -      |
 | tooltip | tooltip 描述 | string                | -      |
 | key     | 操作唯一标识 | string                | -      |
 | onClick | 设置被触发   | function(key: string) | -      |

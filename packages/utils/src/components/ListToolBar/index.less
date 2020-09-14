@@ -16,31 +16,23 @@
     padding: 0 @padding-lg;
     line-height: @pro-list-toolbar-line-height;
   }
+
   &-title {
-    margin-right: @margin-xs;
-  }
-  &-default-title {
     color: @heading-color;
     font-size: @font-size-lg;
     font-family: PingFangSC-Medium;
-    white-space: nowrap;
   }
-  &-subtitle {
-    margin-right: @margin-xs;
-    white-space: nowrap;
-  }
-  &-default-subtitle {
-    color: @text-color-secondary;
-  }
+
   &-search:not(:last-child) {
     margin-right: @margin-md;
   }
-  &-action-item {
-    margin-left: @margin-xs;
-  }
+
   &-setting-item {
     margin-left: @margin-md;
+    font-size: @font-size-lg;
+    cursor: pointer;
   }
+
   &-divider {
     margin-right: -@margin-xs;
     margin-left: @margin-xs;
@@ -48,10 +40,12 @@
       height: @pro-list-toolbar-line-height / 2;
     }
   }
+
   &-left {
     display: flex;
     justify-content: flex-start;
   }
+
   &-right {
     display: flex;
     justify-content: flex-end;

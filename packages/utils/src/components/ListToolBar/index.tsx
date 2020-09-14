@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
-import { QuestionCircleOutlined } from '@ant-design/icons';
-import { Tooltip, Input, Divider, Tabs } from 'antd';
-import LabelIconTip from '../LabelIconTip';
+import { Tooltip, Space, Input, Divider, Tabs } from 'antd';
+import { LabelIconTip } from '@ant-design/pro-utils';
+import { useIntl } from '@ant-design/pro-provider';
+import { TooltipProps } from 'antd/lib/tooltip';
 import { TabPaneProps } from 'antd/lib/tabs';
 import classNames from 'classnames';
 import { SearchProps } from 'antd/es/input';
@@ -15,6 +16,8 @@ const { Search } = Input;
 export interface ListToolBarSetting {
   icon: React.ReactNode;
   tooltip?: string;
+  key?: string;
+  onClick?: (key?: string) => void;
 }
 
 /**
@@ -32,7 +35,7 @@ export interface ListToolBarTabs {
 
 export type ListToolBarMenu = ListToolBarHeaderMenuProps;
 
-type SearchPropType = SearchProps | React.ReactNode;
+type SearchPropType = SearchProps | React.ReactNode | boolean;
 type SettingPropType = React.ReactNode | ListToolBarSetting;
 
 export interface ListToolBarProps {
@@ -41,48 +44,15 @@ export interface ListToolBarProps {
   style?: React.CSSProperties;
   title?: React.ReactNode;
   subTitle?: React.ReactNode;
-  description?: React.ReactNode;
+  tip?: string | TooltipProps;
   search?: SearchPropType;
+  onSearch?: (keyWords: string) => void;
   actions?: React.ReactNode[];
   settings?: SettingPropType[];
   multipleLine?: boolean;
   filter?: React.ReactNode;
   tabs?: ListToolBarTabs;
   menu?: ListToolBarMenu;
-}
-
-/**
- * 获取标题 DOM
- * @param title 标题
- * @param className 类名
- */
-function getTitle(title: React.ReactNode, className: string) {
-  if (!title) {
-    return null;
-  }
-  if (React.isValidElement(title)) {
-    return title;
-  }
-  return <div className={className}>{title}</div>;
-}
-
-/**
- * 获取搜索栏 DOM
- * @param search 搜索框相关配置
- */
-function getSearchInput(search: SearchPropType) {
-  if (React.isValidElement(search)) {
-    return search;
-  }
-
-  if (search) {
-    const searchProps: SearchProps = {
-      style: { width: 200 },
-      ...(search as SearchProps),
-    };
-    return <Search {...searchProps} />;
-  }
-  return null;
 }
 
 /**
@@ -95,10 +65,19 @@ function getSettingItem(setting: SettingPropType) {
   }
   if (setting) {
     const settingConfig: ListToolBarSetting = setting as ListToolBarSetting;
-    const { icon, tooltip } = settingConfig;
+    const { icon, tooltip, onClick, key } = settingConfig;
     return icon && tooltip ? (
       <Tooltip title={tooltip}>
-        <span>{icon}</span>
+        <span
+          key={key}
+          onClick={() => {
+            if (onClick) {
+              onClick(key);
+            }
+          }}
+        >
+          {icon}
+        </span>
       </Tooltip>
     ) : (
       icon
@@ -111,10 +90,11 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
   prefixCls: customizePrefixCls,
   title,
   subTitle,
-  description,
+  tip,
   className,
   style,
   search,
+  onSearch,
   multipleLine = false,
   filter,
   actions = [],
@@ -122,42 +102,51 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
   tabs = {},
   menu,
 }) => {
+  const intl = useIntl();
+
+  /**
+   * 获取搜索栏 DOM
+   * @param search 搜索框相关配置
+   */
+  const getSearchInput = (searchObject: SearchPropType) => {
+    if (React.isValidElement(searchObject)) {
+      return searchObject;
+    }
+
+    if (searchObject) {
+      const searchProps: SearchProps = {
+        placeholder: intl.getMessage('tableForm.inputPlaceholder', '请输入'),
+        style: { width: 200 },
+        ...(searchObject as SearchProps),
+        onSearch,
+      };
+      return <Search {...searchProps} />;
+    }
+    return null;
+  };
+
   const { getPrefixCls } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('pro-core-toolbar', customizePrefixCls);
   const hasDivider = settings.length > 0 && (actions.length || search);
-  const titleNode: React.ReactNode = getTitle(title, `${prefixCls}-default-title`);
-  const subTitleNode: React.ReactNode = getTitle(subTitle, `${prefixCls}-default-subtitle`);
 
   const searchNode: React.ReactNode = getSearchInput(search);
   const filtersNode = filter ? <div className={`${prefixCls}-filter`}>{filter}</div> : null;
-  const hasTitle = menu || title || subTitle || description;
+  const hasTitle = menu || title || subTitle || tip;
 
   return (
     <div style={style} className={classNames(`${prefixCls}`, className)}>
       <div className={`${prefixCls}-container`}>
         <div className={`${prefixCls}-left`}>
           {menu && <HeaderMenu {...menu} prefixCls={prefixCls} />}
-          {titleNode && <div className={`${prefixCls}-title`}>{titleNode}</div>}
-          {subTitleNode && <div className={`${prefixCls}-subtitle`}>{subTitleNode}</div>}
-          {description && (
-            <div className={`${prefixCls}-subtitle`}>
-              <Tooltip title={description}>
-                <QuestionCircleOutlined />
-              </Tooltip>
-            </div>
-          )}
+          <div className={`${prefixCls}-title`}>
+            <LabelIconTip tip={tip} label={title} subTitle={subTitle} />
+          </div>
           {!hasTitle && searchNode && <div className={`${prefixCls}-search`}>{searchNode}</div>}
         </div>
         <div className={`${prefixCls}-right`}>
           {hasTitle && searchNode && <div className={`${prefixCls}-search`}>{searchNode}</div>}
           {!multipleLine && filtersNode}
-          {actions.map((action, index) => {
-            return (
-              <div key={index} className={`${prefixCls}-action-item`}>
-                {action}
-              </div>
-            );
-          })}
+          <Space>{actions}</Space>
           {hasDivider && (
             <div className={`${prefixCls}-divider`}>
               <Divider type="vertical" />
