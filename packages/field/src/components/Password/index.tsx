@@ -31,7 +31,7 @@ const FieldPassword: ProFieldFC<{
         <Space>
           <span>{visbile ? text : '＊ ＊ ＊ ＊ ＊'}</span>
           <a onClick={() => setVisbile(!visbile)}>
-            {visbile ? <EyeInvisibleOutlined /> : <EyeOutlined />}
+            {visbile ? <EyeOutlined /> : <EyeInvisibleOutlined />}
           </a>
         </Space>
       );
