@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.7.2...@ant-design/pro-table@2.7.3) (2020-09-14)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.7.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.7.1...@ant-design/pro-table@2.7.2) (2020-09-10)
+
+### Bug Fixes
+
+- **layout:** support using GlobalHeader prefixCls ([#411](https://github.com/ant-design/pro-components/issues/411)) ([d820fa3](https://github.com/ant-design/pro-components/commit/d820fa3aa75385b2262fe3e70101ab3664eea44f))
+
 ## [2.7.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.7.0...@ant-design/pro-table@2.7.1) (2020-09-08)
 
 **Note:** Version bump only for package @ant-design/pro-table

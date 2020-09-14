@@ -1,12 +1,15 @@
 {
   "name": "@ant-design/pro-layout",
-  "version": "6.4.15",
+  "version": "6.4.17",
   "description": "@ant-design/pro-layout",
   "keywords": [
     "antd",
     "admin",
     "ant-design",
     "ant-design-pro"
+  ],
+  "sideEffects": [
+    "*.less"
   ],
   "homepage": "https://github.com/ant-design/pro-components/tree/master/packages/layout#readme",
   "bugs": "http://github.com/umijs/plugins/issues",
@@ -32,7 +35,7 @@
   "dependencies": {
     "@ant-design/icons": "^4.0.0",
     "@ant-design/pro-provider": "0.1.0",
-    "@ant-design/pro-utils": "0.2.0",
+    "@ant-design/pro-utils": "0.3.1",
     "@umijs/route-utils": "^1.0.5",
     "classnames": "^2.2.6",
     "history": "^4.10.1",

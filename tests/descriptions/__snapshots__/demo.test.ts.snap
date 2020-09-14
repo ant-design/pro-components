@@ -21,6 +21,9 @@ exports[`descriptions demos renders ./packages/descriptions/src/demos/base.tsx c
         </div>
         <div
           class="ant-space-item"
+        />
+        <div
+          class="ant-space-item"
         >
           <span
             aria-label="info-circle"
@@ -107,6 +110,9 @@ exports[`descriptions demos renders ./packages/descriptions/src/demos/base.tsx c
                   >
                     金额
                   </div>
+                  <div
+                    class="ant-space-item"
+                  />
                   <div
                     class="ant-space-item"
                   >

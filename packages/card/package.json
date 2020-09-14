@@ -1,12 +1,15 @@
 {
   "name": "@ant-design/pro-card",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "@ant-design/pro-card",
   "keywords": [
     "antd",
     "admin",
     "ant-design",
     "ant-design-pro"
+  ],
+  "sideEffects": [
+    "*.less"
   ],
   "homepage": "https://github.com/ant-design/pro-components/tree/master/packages/card#readme",
   "bugs": "http://github.com/umijs/plugins/issues",
@@ -31,7 +34,7 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
-    "@ant-design/pro-utils": "0.2.0",
+    "@ant-design/pro-utils": "0.3.1",
     "classnames": "^2.2.6"
   },
   "peerDependencies": {

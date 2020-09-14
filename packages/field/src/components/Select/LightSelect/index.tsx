@@ -56,7 +56,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
       className={classNames(
         prefixCls,
         {
-          [`${prefixCls}-searchble`]: showSearch,
+          [`${prefixCls}-searchable`]: showSearch,
         },
         className,
       )}

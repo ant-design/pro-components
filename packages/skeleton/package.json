@@ -1,12 +1,15 @@
 {
   "name": "@ant-design/pro-skeleton",
-  "version": "1.0.0-beta.8",
+  "version": "1.0.0-beta.9",
   "description": "@ant-design/pro-skeleton",
   "keywords": [
     "antd",
     "admin",
     "ant-design",
     "ant-design-pro"
+  ],
+  "sideEffects": [
+    "*.less"
   ],
   "homepage": "https://github.com/ant-design/pro-components/tree/master/packages/skeleton#readme",
   "bugs": "http://github.com/umijs/plugins/issues",

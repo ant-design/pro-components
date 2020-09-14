@@ -1,12 +1,15 @@
 {
   "name": "@ant-design/pro-form",
-  "version": "1.0.0-beta.23",
+  "version": "1.0.0-beta.25",
   "description": "@ant-design/pro-form",
   "keywords": [
     "antd",
     "admin",
     "ant-design",
     "ant-design-pro"
+  ],
+  "sideEffects": [
+    "*.less"
   ],
   "homepage": "https://github.com/ant-design/pro-components/tree/master/packages/form#readme",
   "bugs": "https://github.com/ant-design/pro-components/issues",
@@ -31,9 +34,9 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
-    "@ant-design/pro-field": "0.2.0",
+    "@ant-design/pro-field": "0.3.1",
     "@ant-design/pro-provider": "0.1.0",
-    "@ant-design/pro-utils": "0.2.0",
+    "@ant-design/pro-utils": "0.3.1",
     "classnames": "^2.2.6",
     "rc-resize-observer": "^0.2.3",
     "use-media-antd-query": "^1.0.2"

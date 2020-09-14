@@ -1,12 +1,15 @@
 {
   "name": "@ant-design/pro-list",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "🏆 Use Ant Design List like a Pro!",
   "keywords": [
     "antd",
     "admin",
     "ant-design",
     "ant-design-pro"
+  ],
+  "sideEffects": [
+    "*.less"
   ],
   "repository": {
     "type": "git",

@@ -68,6 +68,7 @@ describe('BasicTable', () => {
 
   it('🎏 pagination pageSize test ', async () => {
     const fn = jest.fn();
+    const currentFn = jest.fn();
     const html = mount(
       <ProTable
         size="small"
@@ -79,6 +80,7 @@ describe('BasicTable', () => {
         ]}
         request={(params) => {
           fn(params.pageSize);
+          currentFn(params.current);
           return request(params);
         }}
         pagination={{
@@ -91,6 +93,7 @@ describe('BasicTable', () => {
     await waitForComponentToPaint(html, 200);
 
     expect(fn).toBeCalledWith(50);
+    expect(currentFn).toBeCalledWith(1);
 
     html.setProps({
       pagination: {
@@ -101,6 +104,46 @@ describe('BasicTable', () => {
     await waitForComponentToPaint(html, 1200);
 
     expect(fn).toBeCalledWith(10);
+  });
+
+  it('🎏 pagination current', async () => {
+    const fn = jest.fn();
+    const pageSizeFn = jest.fn();
+    const html = mount(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+        ]}
+        request={(params) => {
+          fn(params.current);
+          pageSizeFn(params.pageSize);
+          return request(params);
+        }}
+        pagination={{
+          current: 2,
+        }}
+        onRequestError={fn}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 200);
+
+    expect(fn).toBeCalledWith(2);
+    expect(pageSizeFn).toBeCalledWith(20);
+
+    html.setProps({
+      pagination: {
+        current: 3,
+      },
+    });
+
+    await waitForComponentToPaint(html, 1200);
+
+    expect(fn).toBeCalledWith(3);
   });
 
   it('🎏 pagination=false, do not have pageParams', async () => {

@@ -14,17 +14,15 @@ const valueType = 'dateTime';
 const ProFormDateTimePicker: React.FC<ProFormItemProps<DatePickerProps>> = ({
   fieldProps,
   proFieldProps,
-}) => {
-  return (
-    <ProField
-      text={fieldProps?.value}
-      mode="edit"
-      fieldProps={fieldProps}
-      valueType={valueType}
-      {...proFieldProps}
-    />
-  );
-};
+}) => (
+  <ProField
+    text={fieldProps?.value}
+    mode="edit"
+    fieldProps={fieldProps}
+    valueType={valueType}
+    {...proFieldProps}
+  />
+);
 
 export default createField<ProFormItemProps<DatePickerProps>>(ProFormDateTimePicker, {
   valueType,

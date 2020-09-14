@@ -1,5 +1,3 @@
-import './index.less';
-
 import React, {
   useEffect,
   useContext,
@@ -35,9 +33,10 @@ import {
   ProSchema,
   ProSchemaComponentTypes,
   LabelIconTip,
-  pickUndefinedAndArray,
+  omitUndefinedAndEmptyArr,
   ProCoreActionType,
-  pickUndefined,
+  isNil,
+  omitUndefined,
 } from '@ant-design/pro-utils';
 
 import useFetchData, { RequestData } from './useFetchData';
@@ -46,7 +45,6 @@ import Toolbar, { OptionConfig, ToolBarProps } from './component/ToolBar';
 import Alert from './component/Alert';
 import FormSearch, { SearchConfig, TableFormItem } from './Form';
 import {
-  checkUndefinedOrNull,
   genColumnKey,
   genCopyable,
   genEllipsis,
@@ -58,6 +56,8 @@ import {
 import defaultRenderText from './defaultRender';
 import { DensitySize } from './component/ToolBar/DensityIcon';
 import ErrorBoundary from './component/ErrorBoundary';
+
+import './index.less';
 
 type TableRowSelection = TableProps<any>['rowSelection'];
 
@@ -120,7 +120,7 @@ export interface ProColumnGroupType<RecordType> extends ProColumnType<RecordType
   children: ProColumns<RecordType>;
 }
 
-export type ProColumns<T = {}> = ProColumnGroupType<T> | ProColumnType<T>;
+export type ProColumns<T = any> = ProColumnGroupType<T> | ProColumnType<T>;
 
 export interface ProTableProps<T, U extends ParamsType>
   extends Omit<TableProps<T>, 'columns' | 'rowSelection'> {
@@ -356,7 +356,7 @@ const columnRender = <T, U = any>({
     }
     return renderDom as React.ReactNode;
   }
-  return checkUndefinedOrNull(dom) ? dom : null;
+  return !isNil(dom) ? dom : null;
 };
 
 /**
@@ -436,7 +436,7 @@ const genColumnList = <T, U = {}>(
         render: (text: any, row: T, index: number) =>
           columnRender<T>({ item, text, row, index, columnEmptyText, counter }),
       };
-      return pickUndefinedAndArray(tempColumns);
+      return omitUndefinedAndEmptyArr(tempColumns);
     })
     .filter((item) => !item.hideInTable) as unknown) as Array<
     ColumnsType<T>[number] & {
@@ -660,8 +660,8 @@ const ProTable = <T extends {}, U extends ParamsType>(
   useDeepCompareEffect(() => {
     if (propsPagination && (propsPagination.current || propsPagination.pageSize)) {
       action.setPageInfo({
-        pageSize: propsPagination.pageSize || action.current,
-        page: propsPagination.current || action.pageSize,
+        pageSize: propsPagination.pageSize || action.pageSize,
+        page: propsPagination.current || action.current,
       });
     }
   }, [propsPagination && propsPagination.pageSize, propsPagination && propsPagination.current]);
@@ -727,7 +727,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     />
   );
   const dataSource = request ? (action.dataSource as T[]) : props.dataSource || [];
-
+  console.log(counter.columns);
   const tableDom = (
     <Table<T>
       {...rest}
@@ -762,7 +762,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
           rest.onChange(changePagination, filters, sorter, extra);
         }
         // 制造筛选的数据
-        setProFilter(pickUndefinedAndArray<any>(filters));
+        setProFilter(omitUndefinedAndEmptyArr<any>(filters));
 
         // 制造一个排序的数据
         if (Array.isArray(sorter)) {
@@ -774,9 +774,9 @@ const ProTable = <T extends {}, U extends ParamsType>(
               [`${value.field}`]: value.order,
             };
           }, {});
-          setProSort(pickUndefined<any>(data));
+          setProSort(omitUndefined<any>(data));
         } else {
-          setProSort(pickUndefined({ [`${sorter.field}`]: sorter.order as SortOrder }));
+          setProSort(omitUndefined({ [`${sorter.field}`]: sorter.order as SortOrder }));
         }
       }}
     />

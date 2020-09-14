@@ -14,7 +14,7 @@ import { DescriptionsItemProps } from 'antd/lib/descriptions/Item';
 import { DescriptionsProps } from 'antd/lib/descriptions';
 import useFetchData, { RequestData } from './useFetchData';
 
-export type ActionType = {
+type ActionType = {
   reload: () => void;
 };
 

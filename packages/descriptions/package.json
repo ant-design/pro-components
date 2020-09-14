@@ -1,12 +1,15 @@
 {
   "name": "@ant-design/pro-descriptions",
-  "version": "1.0.15",
+  "version": "1.0.17",
   "description": "@ant-design/pro-descriptions",
   "keywords": [
     "antd",
     "admin",
     "ant-design",
     "ant-design-pro"
+  ],
+  "sideEffects": [
+    "*.less"
   ],
   "homepage": "https://github.com/ant-design/pro-components/tree/master/packages/descriptions#readme",
   "bugs": "http://github.com/umijs/plugins/issues",
@@ -30,8 +33,8 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "@ant-design/pro-field": "0.2.0",
-    "@ant-design/pro-skeleton": "1.0.0-beta.8"
+    "@ant-design/pro-field": "0.3.1",
+    "@ant-design/pro-skeleton": "1.0.0-beta.9"
   },
   "peerDependencies": {
     "umi": "3.x"
