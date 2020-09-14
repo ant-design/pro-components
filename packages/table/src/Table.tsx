@@ -727,7 +727,6 @@ const ProTable = <T extends {}, U extends ParamsType>(
     />
   );
   const dataSource = request ? (action.dataSource as T[]) : props.dataSource || [];
-  console.log(counter.columns);
   const tableDom = (
     <Table<T>
       {...rest}
