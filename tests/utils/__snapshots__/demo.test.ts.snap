@@ -15,9 +15,13 @@ Array [
       class="ant-space-item"
       style="margin-right: 4px;"
     >
-      <span>
-        副标题
-      </span>
+      <div
+        class="ant-pro-core-label-tip-subtitle"
+      >
+        <span>
+          副标题
+        </span>
+      </div>
     </div>
     <div
       class="ant-space-item"
