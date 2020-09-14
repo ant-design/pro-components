@@ -13,9 +13,8 @@ const FieldPassword: ProFieldFC<{
   text: string;
 }> = ({ text, mode, render, renderFormItem, fieldProps }, ref) => {
   const intl = useIntl();
-  const [visbile, setVisbile] = useState<boolean>(false);
-
   const inputRef = useRef();
+  const [visbile, setVisbile] = useState<boolean>(false);
 
   useImperativeHandle(
     ref,
@@ -30,14 +29,13 @@ const FieldPassword: ProFieldFC<{
     if (text) {
       dom = (
         <Space>
-          {visbile ? text : '* * * * * *'}
+          <span>{visbile ? text : '＊ ＊ ＊ ＊ ＊'}</span>
           <a onClick={() => setVisbile(!visbile)}>
             {visbile ? <EyeInvisibleOutlined /> : <EyeOutlined />}
           </a>
         </Space>
       );
     }
-
     if (render) {
       return render(text, { mode, ...fieldProps }, dom);
     }
