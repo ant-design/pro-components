@@ -5,7 +5,7 @@ import { TooltipProps } from 'antd/lib/tooltip';
 import { ConfigContext } from 'antd/lib/config-provider';
 import './index.less';
 
-function getTitle(title: React.ReactNode, className: string) {
+function getSubTitle(title: React.ReactNode, className: string) {
   if (!title) {
     return null;
   }
@@ -31,7 +31,7 @@ const LabelIconTip: React.FC<{
     return <>{label}</>;
   }
   const className = getPrefixCls('pro-core-label-tip');
-  const subTitleNode = getTitle(subTitle, `${className}-subtitle`);
+  const subTitleNode = getSubTitle(subTitle, `${className}-subtitle`);
   const tooltipProps = typeof tip === 'string' ? { title: tip } : (tip as TooltipProps);
 
   return (

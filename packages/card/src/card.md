@@ -110,15 +110,15 @@ group:
 
 | 参数 | 说明 | 类型 | 默认值 |
 | :-- | :-- | :-- | :-- |
-|  title | 标题 | `React.ReactNode` | - |
+| title | 标题 | `React.ReactNode` | - |
 | subTitle | 副标题 | `React.ReactNode` | - |
-|  tip | 标题右侧图标 hover 提示信息 | `string` | - |
-|  extra | 右上角自定义区域 | `React.ReactNode` | - |
-|  layout | 内容布局，支持垂直居中 | `default` \| `center`  | default |
-|  loading | 加载中，支持自定义 loading 样式 | `boolean` \| `ReactNode` | false |
+| tip | 标题右侧图标 hover 提示信息 | `string` | - |
+| extra | 右上角自定义区域 | `React.ReactNode` | - |
+| layout | 内容布局，支持垂直居中 | `default` \| `center`  | default |
+| loading | 加载中，支持自定义 loading 样式 | `boolean` \| `ReactNode` | false |
 | colSpan | 栅格布局宽度，24 栅格，支持指定宽度 px 或百分比, 支持响应式的对象写法 `{ xs: 8, sm: 16, md: 24}` | `number` \| `string` | 24 |
-|  gutter | 数字或使用数组形式同时设置 [水平间距, 垂直间距], 支持响应式的对象写法 `{ xs: 8, sm: 16, md: 24}` | `number` \| `array` | 0 |
-|  split | 拆分卡片的方向 | `vertical` \| `horizontal`  | - |
+| gutter | 数字或使用数组形式同时设置 [水平间距, 垂直间距], 支持响应式的对象写法 `{ xs: 8, sm: 16, md: 24}` | `number` \| `array` | 0 |
+| split | 拆分卡片的方向 | `vertical` \| `horizontal`  | - |
 | bordered | 是否有边框 | `boolean` | false |
 | ghost | 幽灵模式，即是否取消卡片内容区域的 padding 和 卡片的背景颜色。 | `boolean` | false |
 | headerBordered | 页头是否有分割线 | `boolean` | false |
