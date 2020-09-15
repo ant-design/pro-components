@@ -5,17 +5,17 @@ import ConfigProvider from 'antd/lib/config-provider';
 import ProTable, { ProColumns, TableDropdown, ActionType } from '@ant-design/pro-table';
 import request from 'umi-request';
 
-import enUSIntl from 'antd/es/locale/en_US';
-import zhCNIntl from 'antd/es/locale/zh_CN';
-import viVNIntl from 'antd/es/locale/vi_VN';
-import itITIntl from 'antd/es/locale/it_IT';
-import jaJPIntl from 'antd/es/locale/ja_JP';
-import esESIntl from 'antd/es/locale/es_ES';
-import ruRUIntl from 'antd/es/locale/ru_RU';
-import msMYIntl from 'antd/es/locale/ms_MY';
-import zhTWIntl from 'antd/es/locale/zh_TW';
-import frFRIntl from 'antd/es/locale/fr_FR';
-import ptBRIntl from 'antd/es/locale/pt_BR';
+import enUSIntl from 'antd/lib/locale/en_US';
+import zhCNIntl from 'antd/lib/locale/zh_CN';
+import viVNIntl from 'antd/lib/locale/vi_VN';
+import itITIntl from 'antd/lib/locale/it_IT';
+import jaJPIntl from 'antd/lib/locale/ja_JP';
+import esESIntl from 'antd/lib/locale/es_ES';
+import ruRUIntl from 'antd/lib/locale/ru_RU';
+import msMYIntl from 'antd/lib/locale/ms_MY';
+import zhTWIntl from 'antd/lib/locale/zh_TW';
+import frFRIntl from 'antd/lib/locale/fr_FR';
+import ptBRIntl from 'antd/lib/locale/pt_BR';
 
 const intlMap = {
   zhCNIntl,
