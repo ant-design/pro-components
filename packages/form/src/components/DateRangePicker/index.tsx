@@ -26,4 +26,5 @@ const ProFormDatePicker: React.FC<ProFormItemProps<DatePickerProps>> = ({
 export default createField<ProFormItemProps<DatePickerProps>>(ProFormDatePicker, {
   valueType,
   customLightMode: true,
+  ignoreFelidWidth: true,
 });

@@ -16,4 +16,5 @@ const ProFormSwitch: React.FC<ProFormSwitchProps> = ({ fieldProps }) => {
 
 export default createField<ProFormSwitchProps>(ProFormSwitch, {
   valuePropName: 'checked',
+  ignoreFelidWidth: true,
 });

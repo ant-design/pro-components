@@ -53,9 +53,23 @@ type ProFormComponent<P, ExtendsProps> = React.ComponentType<
 >;
 
 export type ProFormItemCreateConfig = {
+  /**
+   * 自定义类型
+   */
   valueType?: ProFieldValueType;
+  /**
+   * 自定义 lightMode
+   */
   customLightMode?: boolean;
+  /**
+   * light mode 自定义的 label 模式
+   */
   lightFilterLabelFormatter?: (value: any) => string;
+
+  /**
+   * 忽略默认的 felidWidth
+   */
+  ignoreFelidWidth?: true;
 } & FormItemProps;
 
 export function createField<P extends ProFormItemProps = any>(
@@ -64,12 +78,13 @@ export function createField<P extends ProFormItemProps = any>(
 ): ProFormComponent<P, ExtendsProps> {
   const FieldWithContext: React.FC<P> = (props: P & ExtendsProps) => {
     const size = useContext(SizeContext);
-    const { label, tip, placeholder, width = 'm', proFieldProps, bordered, ...rest } = props;
+    const { label, tip, placeholder, width, proFieldProps, bordered, ...rest } = props;
     const {
       valueType,
       customLightMode,
       lightFilterLabelFormatter,
       valuePropName = 'value',
+      ignoreFelidWidth,
       ...defaultFormItemProps
     } = config || {};
     /**
@@ -85,7 +100,7 @@ export function createField<P extends ProFormItemProps = any>(
     }, []);
     // restFormItemProps is user props pass to Form.Item
     const restFormItemProps = pickProFormItemProps(rest);
-
+    const myWidth = ignoreFelidWidth ? width : width || 'm';
     const realFieldProps = {
       disabled: props.disabled,
       // 轻量筛选模式下默认不显示 FormItem 的 label，label 设置为 placeholder
@@ -93,7 +108,8 @@ export function createField<P extends ProFormItemProps = any>(
       ...(fieldProps || {}),
       ...(rest.fieldProps || {}),
       style: {
-        width: WIDTH_SIZE_ENUM[width as 'm'] || width,
+        // 有些组件是不需要自带的 width
+        width: myWidth ? WIDTH_SIZE_ENUM[myWidth] || width : width,
         ...rest.fieldProps?.style,
         ...fieldProps?.style,
       },
