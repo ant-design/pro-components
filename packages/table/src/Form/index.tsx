@@ -200,7 +200,7 @@ const FormSearch = <T, U = any>({
 
   // 这么做是为了在用户修改了输入的时候触发一下子节点的render
   const [, updateState] = React.useState();
-  const forceUpdate = useCallback(() => updateState({}), []);
+  const forceUpdate = useCallback(() => updateState(undefined), []);
 
   const isForm = type === 'form';
 
