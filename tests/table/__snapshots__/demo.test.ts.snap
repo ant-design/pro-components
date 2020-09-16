@@ -11722,7 +11722,7 @@ Array [
                 <li
                   aria-disabled="true"
                   class="ant-pagination-prev ant-pagination-disabled"
-                  title="Previous Page"
+                  title="上一页"
                 >
                   <button
                     class="ant-pagination-item-link"
@@ -11778,7 +11778,7 @@ Array [
                   aria-disabled="false"
                   class="ant-pagination-next"
                   tabindex="0"
-                  title="Next Page"
+                  title="下一页"
                 >
                   <button
                     class="ant-pagination-item-link"
@@ -11837,9 +11837,9 @@ Array [
                       </span>
                       <span
                         class="ant-select-selection-item"
-                        title="20 / page"
+                        title="20 条/页"
                       >
-                        20 / page
+                        20 条/页
                       </span>
                     </div>
                     <span
