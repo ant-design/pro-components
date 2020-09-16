@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
-import { Space } from 'antd';
-import { ConfigContext } from 'antd/lib/config-provider';
+import { Space, ConfigProvider } from 'antd';
 import FieldContext from '../../FieldContext';
 import { GroupProps } from '../../interface';
 import './index.less';
@@ -11,7 +10,7 @@ const Group: React.FC<GroupProps> = (props) => {
     ...groupProps,
     ...props,
   };
-  const { getPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-form-group');
 
   return (

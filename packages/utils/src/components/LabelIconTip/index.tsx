@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import { InfoCircleOutlined } from '@ant-design/icons';
-import { Tooltip, Space } from 'antd';
+import { Tooltip, Space, ConfigProvider } from 'antd';
 import { TooltipProps } from 'antd/lib/tooltip';
-import { ConfigContext } from 'antd/lib/config-provider';
 import './index.less';
 
 /**
@@ -15,7 +14,7 @@ const LabelIconTip: React.FC<{
   tip?: string | TooltipProps;
 }> = (props) => {
   const { label, tip, subTitle } = props;
-  const { getPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
   if (!tip && !subTitle) {
     return <>{label}</>;

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { DownOutlined, CloseOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import { SizeType } from 'antd/lib/config-provider/SizeContext';
-import { ConfigContext } from 'antd/lib/config-provider';
+import { ConfigProvider } from 'antd';
 import { useIntl } from '@ant-design/pro-provider';
 import './index.less';
 
@@ -35,7 +35,7 @@ const FieldLabel: React.FC<FieldLabelProps> = (props) => {
     formatter,
     bordered,
   } = props;
-  const { getPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-core-field-label');
   const intl = useIntl();
 

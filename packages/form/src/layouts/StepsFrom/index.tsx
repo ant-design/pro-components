@@ -1,11 +1,10 @@
 import React, { useRef, useCallback, useState, useEffect, useContext } from 'react';
-import { Form, Steps } from 'antd';
+import { Form, Steps, ConfigProvider } from 'antd';
 import toArray from 'rc-util/lib/Children/toArray';
 import { FormProviderProps } from 'antd/lib/form/context';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { StepsProps } from 'antd/lib/steps';
 import classNames from 'classnames';
-import { ConfigContext } from 'antd/lib/config-provider';
 
 import StepFrom, { StepFromProps } from './StepFrom';
 import './index.less';
@@ -50,7 +49,7 @@ const StepsFrom: React.FC<StepsFromProps> & {
   StepFrom: typeof StepFrom;
   useForm: typeof Form.useForm;
 } = (props) => {
-  const { getPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-form-steps-form');
 
   const { current, onCurrentChange, stepsProps, onFinish, formProps, ...rest } = props;

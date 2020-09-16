@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
-import { Button } from 'antd';
-import { ConfigContext } from 'antd/lib/config-provider';
+import { Button, ConfigProvider } from 'antd';
 import { useIntl } from '@ant-design/pro-provider';
 
 import './index.less';
@@ -14,7 +13,7 @@ export interface DropdownFooterProps {
 const DropdownFooter: React.FC<DropdownFooterProps> = (props) => {
   const intl = useIntl();
   const { onClear, onConfirm, disabled } = props;
-  const { getPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-core-dropdown-footer');
 
   return (
