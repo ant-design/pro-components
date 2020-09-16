@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useIntl } from '@ant-design/pro-provider';
 import { ConfigContext } from 'antd/lib/config-provider';
 import {
@@ -10,6 +10,7 @@ import {
 import { Checkbox, Popover, Tooltip } from 'antd';
 import { DndProvider } from 'react-dnd';
 import classNames from 'classnames';
+import { cloneDeep } from "lodash";
 import Backend from 'react-dnd-html5-backend';
 
 import Container, { ColumnsState } from '../../container';
@@ -235,12 +236,19 @@ const GroupCheckboxList: React.FC<{
   );
 };
 
+let defaultColumnsMap: object = {};
+
 const ColumnSetting = <T, U = {}>(props: ColumnSettingProps<T>) => {
   const counter = Container.useContainer();
   const localColumns: Omit<ProColumns<any> & { index?: number }, 'ellipsis'>[] =
     props.columns || counter.columns || [];
 
   const { columnsMap, setColumnsMap, setSortKeyColumns } = counter;
+          
+  useEffect(() => {
+    defaultColumnsMap = cloneDeep(columnsMap);
+  }, []);
+          
   /**
    * 设置全部选中，或全部未选中
    * @param show
@@ -290,7 +298,7 @@ const ColumnSetting = <T, U = {}>(props: ColumnSettingProps<T>) => {
           </Checkbox>
           <a
             onClick={() => {
-              setColumnsMap({});
+              setColumnsMap(defaultColumnsMap);
               setSortKeyColumns([]);
             }}
           >
