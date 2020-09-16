@@ -11,7 +11,6 @@ import {
   ProSchemaComponentTypes,
   conversionSubmitValue,
 } from '@ant-design/pro-utils';
-import warningOnce from 'rc-util/lib/warning';
 
 import { genColumnKey } from '../utils';
 import Container from '../container';
