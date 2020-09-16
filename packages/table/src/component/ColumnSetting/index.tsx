@@ -236,7 +236,9 @@ const GroupCheckboxList: React.FC<{
   );
 };
 
-let defaultColumnsMap: object = {};
+let defaultColumnsMap: {
+  [key: string]: ColumnsState;
+} = {};
 
 const ColumnSetting = <T, U = {}>(props: ColumnSettingProps<T>) => {
   const counter = Container.useContainer();
