@@ -230,7 +230,7 @@ describe('utils', () => {
     wrapper.find('.ant-pro-core-toolbar-dropdownmenu-label').simulate('click');
     wrapper.find('.ant-dropdown-menu-item').at(1).simulate('click');
 
-    expect(onChange).toHaveBeenCalledWith('done');
+    expect(onChange).toHaveBeenCalledWith('done', undefined);
   });
 
   it('ListToolBar inline menu', () => {
@@ -254,6 +254,6 @@ describe('utils', () => {
       />,
     );
     wrapper.find('.ant-pro-core-toolbar-inlinemenu-item').at(1).simulate('click');
-    expect(onChange).toHaveBeenCalledWith('done');
+    expect(onChange).toHaveBeenCalledWith('done', undefined);
   });
 });
