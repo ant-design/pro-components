@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { Tooltip, Space, Input, Divider, Tabs } from 'antd';
-import { LabelIconTip } from '@ant-design/pro-utils';
 import { useIntl } from '@ant-design/pro-provider';
 import { TooltipProps } from 'antd/lib/tooltip';
 import { TabPaneProps } from 'antd/lib/tabs';
@@ -8,6 +7,7 @@ import classNames from 'classnames';
 import { SearchProps } from 'antd/es/input';
 import { ConfigContext } from 'antd/lib/config-provider';
 import HeaderMenu, { ListToolBarHeaderMenuProps } from './HeaderMenu';
+import LabelIconTip from '../LabelIconTip';
 
 import './index.less';
 
