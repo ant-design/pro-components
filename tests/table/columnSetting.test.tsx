@@ -99,7 +99,7 @@ describe('Table ColumnSetting', () => {
     expect(overlay.length).toBe(2);
   });
 
-  it('🎏 columnSetting columnsStateMap onchange', async () => {
+  it('🎏 columnSetting columnsStateMap onChange', async () => {
     const callBack = jest.fn();
     const html = mount(
       <ProTable

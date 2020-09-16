@@ -15,6 +15,7 @@ import ProFormUploadButton from './components/UploadButton';
 import ProFormField from './components/Field';
 import ProFormSelect from './components/Select';
 import ProFormDigit from './components/Digit';
+import ProFromFieldSet from './components/FieldSet';
 
 import ProForm, { ProFormProps } from './layouts/ProForm';
 import QueryFilter, { BaseQueryFilterProps } from './layouts/QueryFilter';
@@ -40,10 +41,12 @@ export {
   ProFormUploadButton,
   ProFormUploadDragger,
   ProFormSlider,
+  ProFromFieldSet,
   ProFormDateTimeRangePicker,
   // layouts
   QueryFilter,
   LightFilter,
+  ProForm,
   StepsFrom,
 };
 

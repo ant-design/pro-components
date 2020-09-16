@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Form, Radio } from 'antd';
+import { Form, Input, Radio } from 'antd';
 import ProForm, {
   ProFormSwitch,
   ProFormText,
@@ -16,6 +16,7 @@ import ProForm, {
   ProFormDateRangePicker,
   ProFormUploadButton,
   ProFormUploadDragger,
+  ProFromFieldSet,
 } from '@ant-design/pro-form';
 
 const Demo = () => (
@@ -110,6 +111,11 @@ const Demo = () => (
         action="/upload.do"
         extra="longgggggggggggggggggggggggggggggggggg"
       />
+      <ProFromFieldSet name="list" label="组件列表">
+        <Input placeholder="请输入" />
+        <Input placeholder="请输入" />
+        <Input placeholder="请输入" />
+      </ProFromFieldSet>
       <ProForm.Group title="日期相关分组">
         <ProFormDatePicker name="date" label="日期" />
         <ProFormDatePicker.Week name="dateWeek" label="周" />

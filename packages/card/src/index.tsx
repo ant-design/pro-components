@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import { ConfigConsumer, ConfigConsumerProps } from 'antd/lib/config-provider/context';
 import { Grid } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
+import toArray from 'rc-util/lib/Children/toArray';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { LabelIconTip } from '@ant-design/pro-utils';
 import classNames from 'classnames';
@@ -179,7 +180,7 @@ const ProCard: ProCardType = (props) => {
 
         // 判断是否套了卡片，如果套了的话将自身卡片内部内容的 padding 设置为0
         let containProCard;
-        const childrenArray = React.Children.toArray(children) as ProCardChildType[];
+        const childrenArray = toArray(children) as ProCardChildType[];
 
         const childrenModified = childrenArray.map((element, index) => {
           if (element?.type?.isProCard) {
