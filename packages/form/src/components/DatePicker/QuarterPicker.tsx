@@ -27,4 +27,5 @@ const ProFormDatePickerQuarter: React.FC<ProFormItemProps<DatePickerProps>> = ({
 export default createField<ProFormItemProps<DatePickerProps>>(ProFormDatePickerQuarter, {
   valueType,
   customLightMode: true,
+  ignoreFelidWidth: true,
 });

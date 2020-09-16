@@ -14,7 +14,7 @@ Layout 作为协助进行页面级整体布局工具，在每个项目中都必�
 
 ## 布局
 
-Layout 的基础能力就是布局，在 ProLayout 中我们抽象了三种布局方式，分别的 `side`,`top` 和 `mix`。 我们可以使用 layout 属性来切换他们,在[这里](/_demos/base-2)可以做一个简单的尝试。
+Layout 的基础能力就是布局，在 ProLayout 中我们抽象了三种布局方式，分别的 `side`,`top` 和 `mix`。 我们可以使用 layout 属性来切换他们,在[这里](/_demos/base-3)可以做一个简单的尝试。
 
 ### side 模式
 

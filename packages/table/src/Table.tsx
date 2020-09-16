@@ -247,7 +247,7 @@ export interface ProTableProps<T, U extends ParamsType>
   /**
    * 格式化搜索表单提交数据
    */
-  beforeSearchSubmit?: (params: Partial<U>) => Partial<U>;
+  beforeSearchSubmit?: (params: Partial<U>) => any;
   /**
    * 自定义 table 的 alert
    * 设置或者返回false 即可关闭
