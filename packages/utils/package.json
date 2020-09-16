@@ -35,6 +35,7 @@
   "dependencies": {
     "@types/lodash.isequal": "^4.5.5",
     "lodash.isequal": "^4.5.0",
+    "@ant-design/pro-provider": "0.1.0",
     "rc-util": "^5.0.6"
   },
   "peerDependencies": {

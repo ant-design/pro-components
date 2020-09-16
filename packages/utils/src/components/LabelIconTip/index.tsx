@@ -14,8 +14,8 @@ const LabelIconTip: React.FC<{
   tip?: string | TooltipProps;
 }> = (props) => {
   const { label, tip, subTitle } = props;
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   if (!tip && !subTitle) {
     return <>{label}</>;
   }

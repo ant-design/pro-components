@@ -127,7 +127,6 @@ exports[`BasicTable 🎏  do not render default option 1`] = `
           >
             <div
               class="ant-space-item"
-              style="margin-right: 8px;"
             >
               <div
                 class="ant-space ant-space-horizontal ant-space-align-center"
@@ -159,9 +158,6 @@ exports[`BasicTable 🎏  do not render default option 1`] = `
                 </div>
               </div>
             </div>
-            <div
-              class="ant-space-item"
-            />
           </div>
         </div>
       </div>
@@ -186,11 +182,7 @@ exports[`BasicTable 🎏  do not render default option 1`] = `
         >
           <div
             class="ant-space ant-space-horizontal ant-space-align-center"
-          >
-            <div
-              class="ant-space-item"
-            />
-          </div>
+          />
           <div
             class="ant-pro-table-toolbar-default-option"
           >
@@ -510,7 +502,7 @@ exports[`BasicTable 🎏  do not render default option 1`] = `
               </div>
             </div>
             <ul
-              class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+              class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
               unselectable="unselectable"
             >
               <li
@@ -693,7 +685,7 @@ exports[`BasicTable 🎏  do not render default option 1`] = `
                 class="ant-pagination-options"
               >
                 <div
-                  class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
+                  class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
                     class="ant-select-selector"
@@ -713,6 +705,7 @@ exports[`BasicTable 🎏  do not render default option 1`] = `
                         readonly=""
                         role="combobox"
                         style="opacity: 0;"
+                        type="search"
                         unselectable="on"
                         value=""
                       />
@@ -906,6 +899,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         readonly=""
                         role="combobox"
                         style="opacity: 0;"
+                        type="search"
                         unselectable="on"
                         value=""
                       />
@@ -998,6 +992,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         readonly=""
                         role="combobox"
                         style="opacity: 0;"
+                        type="search"
                         unselectable="on"
                         value=""
                       />
@@ -1542,14 +1537,11 @@ exports[`BasicTable 🎏 base use 1`] = `
           >
             <div
               class="ant-space-item"
-            />
-            <div
-              class="ant-space-item"
               style="margin-right: 8px;"
             >
               <div>
                 <span
-                  class="ant-input-search ant-input-affix-wrapper"
+                  class="ant-input-affix-wrapper ant-input-search"
                   style="width: 200px;"
                 >
                   <input
@@ -1826,7 +1818,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                               class="ant-table-filter-trigger-container"
                             >
                               <span
-                                class="ant-table-filter-trigger ant-dropdown-trigger"
+                                class="ant-dropdown-trigger ant-table-filter-trigger"
                                 role="button"
                                 tabindex="-1"
                               >
@@ -7490,7 +7482,7 @@ exports[`BasicTable 🎏 base use 1`] = `
               </div>
             </div>
             <ul
-              class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+              class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
               unselectable="unselectable"
             >
               <li
@@ -7673,7 +7665,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                 class="ant-pagination-options"
               >
                 <div
-                  class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
+                  class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
                     class="ant-select-selector"
@@ -7693,6 +7685,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         readonly=""
                         role="combobox"
                         style="opacity: 0;"
+                        type="search"
                         unselectable="on"
                         value=""
                       />
@@ -7766,11 +7759,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
         >
           <div
             class="ant-space ant-space-horizontal ant-space-align-center"
-          >
-            <div
-              class="ant-space-item"
-            />
-          </div>
+          />
           <div
             class="ant-pro-table-toolbar-default-option"
           >
@@ -7973,7 +7962,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               class="ant-table-filter-trigger-container"
                             >
                               <span
-                                class="ant-table-filter-trigger ant-dropdown-trigger"
+                                class="ant-dropdown-trigger ant-table-filter-trigger"
                                 role="button"
                                 tabindex="-1"
                               >
@@ -13637,7 +13626,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
               </div>
             </div>
             <ul
-              class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+              class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
               unselectable="unselectable"
             >
               <li
@@ -13820,7 +13809,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                 class="ant-pagination-options"
               >
                 <div
-                  class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
+                  class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
                     class="ant-select-selector"
@@ -13840,6 +13829,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         readonly=""
                         role="combobox"
                         style="opacity: 0;"
+                        type="search"
                         unselectable="on"
                         value=""
                       />
@@ -14016,7 +14006,6 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
           >
             <div
               class="ant-space-item"
-              style="margin-right: 8px;"
             >
               <div
                 class="ant-space ant-space-horizontal ant-space-align-center"
@@ -14048,9 +14037,6 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
                 </div>
               </div>
             </div>
-            <div
-              class="ant-space-item"
-            />
           </div>
         </div>
       </div>
@@ -14075,11 +14061,7 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
         >
           <div
             class="ant-space ant-space-horizontal ant-space-align-center"
-          >
-            <div
-              class="ant-space-item"
-            />
-          </div>
+          />
           <div
             class="ant-pro-table-toolbar-default-option"
           >
@@ -14457,7 +14439,7 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
               </div>
             </div>
             <ul
-              class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+              class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
               unselectable="unselectable"
             >
               <li
@@ -14640,7 +14622,7 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
                 class="ant-pagination-options"
               >
                 <div
-                  class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
+                  class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
                     class="ant-select-selector"
@@ -14660,6 +14642,7 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
                         readonly=""
                         role="combobox"
                         style="opacity: 0;"
+                        type="search"
                         unselectable="on"
                         value=""
                       />

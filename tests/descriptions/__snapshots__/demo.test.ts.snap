@@ -21,9 +21,6 @@ exports[`descriptions demos renders ./packages/descriptions/src/demos/base.tsx c
         </div>
         <div
           class="ant-space-item"
-        />
-        <div
-          class="ant-space-item"
         >
           <span
             aria-label="info-circle"
@@ -110,9 +107,6 @@ exports[`descriptions demos renders ./packages/descriptions/src/demos/base.tsx c
                   >
                     金额
                   </div>
-                  <div
-                    class="ant-space-item"
-                  />
                   <div
                     class="ant-space-item"
                   >
@@ -473,6 +467,7 @@ exports[`descriptions demos renders ./packages/descriptions/src/demos/columns.ts
       >
         <div
           class="ant-space-item"
+          style="margin-right: 8px;"
         >
           <a
             rel="noopener noreferrer"
@@ -480,12 +475,21 @@ exports[`descriptions demos renders ./packages/descriptions/src/demos/columns.ts
           >
             链路
           </a>
+        </div>
+        <div
+          class="ant-space-item"
+          style="margin-right: 8px;"
+        >
           <a
             rel="noopener noreferrer"
             target="_blank"
           >
             报警
           </a>
+        </div>
+        <div
+          class="ant-space-item"
+        >
           <a
             rel="noopener noreferrer"
             target="_blank"
