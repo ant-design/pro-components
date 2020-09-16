@@ -39,12 +39,12 @@ export type {
   ProSchemaComponentTypes,
   ProSchemaValueEnumMap,
   ProSchemaValueEnumObj,
+  ListToolBarProps,
 };
 
 export {
   LabelIconTip,
   ListToolBar,
-  ListToolBarProps,
   FieldDropdown,
   FieldLabel,
   conversionSubmitValue,

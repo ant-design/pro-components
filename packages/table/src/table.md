@@ -93,6 +93,12 @@ render(
 
 <code src="./demos/search_option.tsx" background="#f5f5f5"/>
 
+### 自定义工具栏渲染
+
+使用 `toolbarProps` 扩展配置工具栏渲染。
+
+<code src="./demos/listToolBar.tsx" background="#f5f5f5"/>
+
 ### 自定义表格主体
 
 <code src="./demos/renderTable.tsx" background="#f5f5f5"/>
@@ -132,6 +138,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | onReset | 重置表单时触发 | `() => void` | - |
 | columnEmptyText | 空值时的显示，不设置 则默认显示 `-` | `string \| false` | false |
 | tableRender | 自定义渲染表格函数 | `(props: ProTableProps<T, U>, defaultDom: JSX.Element, domList: { toolbar: JSX.Element \| undefined; alert: JSX.Element \| undefined; table: JSX.Element \| undefined;}) => React.ReactNode` | - |
+| toolbarProps | ListToolBar 配置项 | `ListToolBarProps` | - |
 | tableExtraRender | 自定义表格的主体函数 | `(props: ProTableProps<T, U>, dataSource: T[]) => React.ReactNode;` | - |
 | manualRequest | 是否需要手动触发首次请求, 配置为 `true` 时不可隐藏搜索表单 | `boolean` | false |
 

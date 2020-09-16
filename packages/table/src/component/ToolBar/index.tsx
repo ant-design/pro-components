@@ -25,6 +25,7 @@ export type OptionsType<T = unknown> =
 export interface ToolBarProps<T = unknown> {
   headerTitle?: ListToolBarProps['title'];
   tip?: string;
+  toolBarProps?: ListToolBarProps;
   toolBarRender?: (
     action: UseFetchDataAction<RequestData<T>>,
     rows: {
@@ -123,6 +124,7 @@ const ToolBar = <T, U = {}>({
   options: propsOptions,
   selectedRowKeys,
   selectedRows,
+  toolBarProps,
   onSearch,
 }: ToolBarProps<T>) => {
   const defaultOptions = {
@@ -157,6 +159,7 @@ const ToolBar = <T, U = {}>({
       onSearch={onSearch}
       actions={actions}
       settings={optionDom}
+      {...toolBarProps}
     />
   );
 };

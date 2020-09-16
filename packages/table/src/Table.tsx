@@ -37,6 +37,7 @@ import {
   ProCoreActionType,
   isNil,
   omitUndefined,
+  ListToolBarProps,
 } from '@ant-design/pro-utils';
 
 import useFetchData, { RequestData } from './useFetchData';
@@ -125,7 +126,10 @@ export type ProColumns<T = any> = ProColumnGroupType<T> | ProColumnType<T>;
 export interface ProTableProps<T, U extends ParamsType>
   extends Omit<TableProps<T>, 'columns' | 'rowSelection'> {
   columns?: ProColumns<T>[];
-
+  /**
+   * ListToolBar 属性
+   */
+  toolBarProps?: ListToolBarProps;
   params?: U;
 
   columnsStateMap?: {
@@ -483,6 +487,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     onReset = () => {},
     columnEmptyText = '-',
     manualRequest = false,
+    toolBarProps,
     ...rest
   } = props;
 
@@ -691,7 +696,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
 
   const className = classNames(defaultClassName, propsClassName);
   const toolbarDom = toolBarRender !== false &&
-    (options !== false || headerTitle || toolBarRender) && (
+    (options !== false || headerTitle || toolBarRender || toolBarProps) && (
       // if options= false & headerTitle=== false, hide Toolbar
       <Toolbar<T>
         options={options}
@@ -714,6 +719,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
         selectedRows={selectedRows}
         selectedRowKeys={selectedRowKeys}
         toolBarRender={toolBarRender}
+        toolBarProps={toolBarProps}
       />
     );
 
