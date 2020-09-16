@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { usePrevious, useDebounceFn } from '@ant-design/pro-utils';
+import { usePrevious, useDebounceFn, useDeepCompareEffect } from '@ant-design/pro-utils';
 import ReactDOM from 'react-dom';
 
 export interface RequestData<T> {
@@ -157,7 +157,7 @@ const useFetchData = <T extends RequestData<any>>(
     setPageInfo({ ...pageInfo, page: 1 });
   };
 
-  useEffect(() => {
+  useDeepCompareEffect(() => {
     if (manual) {
       return () => null;
     }

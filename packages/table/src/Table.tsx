@@ -397,8 +397,8 @@ const genColumnList = <T, U = {}>(
   },
   counter: ReturnType<typeof useCounter>,
   columnEmptyText?: ProFieldEmptyText,
-): (ColumnsType<T>[number] & { index?: number })[] =>
-  (columns
+): (ColumnsType<T>[number] & { index?: number })[] => {
+  return (columns
     .map((item, columnsIndex) => {
       const { key, dataIndex, valueEnum, valueType, filters = [] } = item;
       const columnKey = genColumnKey(key, columnsIndex);
@@ -443,6 +443,7 @@ const genColumnList = <T, U = {}>(
       index?: number;
     }
   >;
+};
 
 /**
  * 🏆 Use Ant Design Table like a Pro!
@@ -520,7 +521,6 @@ const ProTable = <T extends {}, U extends ParamsType>(
     typeof propsPagination === 'object'
       ? (propsPagination as TablePaginationConfig)
       : { defaultCurrent: 1, defaultPageSize: 20, pageSize: 20, current: 1 };
-
   const action = useFetchData(
     async (pageParams) => {
       // 需要手动触发的首次请求
@@ -762,7 +762,6 @@ const ProTable = <T extends {}, U extends ParamsType>(
         }
         // 制造筛选的数据
         setProFilter(omitUndefinedAndEmptyArr<any>(filters));
-
         // 制造一个排序的数据
         if (Array.isArray(sorter)) {
           const data = sorter.reduce<{
