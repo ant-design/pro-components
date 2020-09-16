@@ -16,7 +16,7 @@ const toolbar = (
     }}
     title="这里是标题"
     subTitle="这里是子标题"
-    description="这是一个段描述"
+    tip="这是一个段描述"
     search={{
       placeholder: '请输入订单号',
       onSearch: (value) => {

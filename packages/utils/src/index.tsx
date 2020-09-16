@@ -2,7 +2,6 @@ import LabelIconTip from './components/LabelIconTip';
 import FieldDropdown from './components/FiledDropdown';
 import FieldLabel from './components/FieldLabel';
 import ListToolBar, { ListToolBarProps } from './components/ListToolBar';
-import BatchOperationBar from './components/BatchOperationBar';
 
 import isBrowser from './isBrowser';
 import isImg from './isImg';
@@ -48,7 +47,6 @@ export {
   ListToolBarProps,
   FieldDropdown,
   FieldLabel,
-  BatchOperationBar,
   conversionSubmitValue,
   parseValueToMoment,
   useDocumentTitle,

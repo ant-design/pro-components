@@ -19,11 +19,11 @@ export interface ListToolBarHeaderMenuProps {
 }
 
 const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
-  const { items = [], type = 'inline', prefixCls, activeKey: propActiveKey, onChange } = props;
+  const { items = [], type = 'inline', prefixCls, activeKey: propActiveKey } = props;
 
   const [activeKey, setActiveKey] = useMergedState<React.Key>(propActiveKey as React.Key, {
     value: propActiveKey,
-    onChange,
+    onChange: props.onChange,
   });
 
   if (items.length < 1) {

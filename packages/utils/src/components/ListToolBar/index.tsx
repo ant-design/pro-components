@@ -117,8 +117,8 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
       const searchProps: SearchProps = {
         placeholder: intl.getMessage('tableForm.inputPlaceholder', '请输入'),
         style: { width: 200 },
-        ...(searchObject as SearchProps),
         onSearch,
+        ...(searchObject as SearchProps),
       };
       return <Search {...searchProps} />;
     }
