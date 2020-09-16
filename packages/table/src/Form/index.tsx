@@ -97,10 +97,10 @@ export const formInputRender: React.FC<{
   warningOnce(!item.formItemProps, `'formItemProps' will be deprecated, please use 'fieldProps'`);
 
   const { onChange, ...restFieldProps } = item.fieldProps || {};
-
   return (
     <ProFormField
       ref={ref}
+      tip={item.tip}
       isDefaultDom
       valueEnum={item.valueEnum}
       name={item.key || item.dataIndex}
