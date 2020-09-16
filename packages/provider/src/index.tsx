@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import { ConfigContext as AntdConfigContext } from 'antd/lib/config-provider';
+
+import { ConfigProvider as AntdConfigProvider } from 'antd';
 import { noteOnce } from 'rc-util/lib/warning';
 import zhCN from './locale/zh_CN';
 import enUS from './locale/en_US';
@@ -126,7 +127,7 @@ const findIntlKeyByAntdLocaleKey = (localeKey: string | undefined) => {
  * @param param0
  */
 const ConfigProviderWarp: React.FC<{}> = ({ children }) => {
-  const { locale } = useContext(AntdConfigContext);
+  const { locale } = useContext(AntdConfigProvider.ConfigContext);
   return (
     <ConfigConsumer>
       {(value) => {
