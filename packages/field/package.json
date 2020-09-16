@@ -30,6 +30,7 @@
   "dependencies": {
     "@ant-design/pro-provider": "0.1.0",
     "classnames": "^2.2.6",
+    "lodash.tonumber": "^4.0.3",
     "moment": "^2.27.0"
   },
   "devDependencies": {
