@@ -23,6 +23,7 @@ export interface PageContainerProps extends PageHeaderTabConfig, Omit<PageHeader
   prefixCls?: string;
   footer?: ReactNode[];
   ghost?: boolean;
+  header?: PageHeaderProps;
   pageHeaderRender?: (props: PageContainerProps) => React.ReactNode;
 }
 
@@ -86,7 +87,16 @@ const defaultPageHeaderRender = (
   props: PageContainerProps,
   value: RouteContextType & { prefixedClassName: string },
 ): React.ReactNode => {
-  const { title, content, pageHeaderRender, extraContent, style, prefixCls, ...restProps } = props;
+  const {
+    title,
+    content,
+    pageHeaderRender,
+    header,
+    extraContent,
+    style,
+    prefixCls,
+    ...restProps
+  } = props;
 
   if (pageHeaderRender) {
     return pageHeaderRender({ ...props, ...value });
@@ -104,6 +114,7 @@ const defaultPageHeaderRender = (
         ...restProps,
         prefixedClassName: value.prefixedClassName,
       })}
+      {...header}
       prefixCls={prefixCls}
     >
       {renderPageHeader(content, extraContent, value.prefixedClassName)}
