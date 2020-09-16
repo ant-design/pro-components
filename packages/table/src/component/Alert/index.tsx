@@ -4,20 +4,21 @@ import { Alert, Space } from 'antd';
 import './index.less';
 import { useIntl, IntlType } from '@ant-design/pro-provider';
 
+export type AlertRenderType =
+  | ((props: {
+      intl: IntlType;
+      selectedRowKeys: (number | string)[];
+      selectedRows: T[];
+      onCleanSelected: () => void;
+    }) => React.ReactNode)
+  | false;
+
 export interface TableAlertProps<T> {
   selectedRowKeys: (number | string)[];
   selectedRows: T[];
-  alertInfoRender?:
-    | ((props: {
-        intl: IntlType;
-        selectedRowKeys: (number | string)[];
-        selectedRows: T[];
-      }) => React.ReactNode)
-    | false;
+  alertInfoRender?: AlertRenderType;
   onCleanSelected: () => void;
-  alertOptionRender?:
-    | false
-    | ((props: { intl: IntlType; onCleanSelected: () => void }) => React.ReactNode);
+  alertOptionRender?: AlertRenderType;
 }
 
 const defaultAlertOptionRender = (props: { intl: IntlType; onCleanSelected: () => void }) => {
@@ -36,7 +37,7 @@ const TableAlert = <T, U = {}>({
   alertInfoRender = ({ intl }) => (
     <Space>
       {intl.getMessage('alert.selected', '已选择')}
-      <a style={{ fontWeight: 600 }}>{selectedRowKeys.length}</a>
+      {selectedRowKeys.length}
       {intl.getMessage('alert.item', '项')}&nbsp;&nbsp;
     </Space>
   ),
@@ -48,6 +49,8 @@ const TableAlert = <T, U = {}>({
     alertOptionRender &&
     alertOptionRender({
       onCleanSelected,
+      selectedRowKeys,
+      selectedRows,
       intl,
     });
   const { getPrefixCls } = useContext(ConfigContext);
@@ -55,7 +58,7 @@ const TableAlert = <T, U = {}>({
   if (alertInfoRender === false) {
     return null;
   }
-  const dom = alertInfoRender({ intl, selectedRowKeys, selectedRows });
+  const dom = alertInfoRender({ intl, selectedRowKeys, selectedRows, onCleanSelected });
   if (dom === false || selectedRowKeys.length < 1) {
     return null;
   }
@@ -69,7 +72,6 @@ const TableAlert = <T, U = {}>({
           </div>
         }
         type="info"
-        showIcon
       />
     </div>
   );

@@ -42,7 +42,7 @@ import {
 import useFetchData, { RequestData } from './useFetchData';
 import Container, { useCounter, ColumnsState } from './container';
 import Toolbar, { OptionConfig, ToolBarProps } from './component/ToolBar';
-import Alert from './component/Alert';
+import Alert, { AlertRenderType } from './component/Alert';
 import FormSearch, { SearchConfig, TableFormItem } from './Form';
 import {
   genColumnKey,
@@ -248,20 +248,12 @@ export interface ProTableProps<T, U extends ParamsType>
    * 自定义 table 的 alert
    * 设置或者返回false 即可关闭
    */
-  tableAlertRender?:
-    | ((props: {
-        intl: IntlType;
-        selectedRowKeys: (string | number)[];
-        selectedRows: T[];
-      }) => React.ReactNode)
-    | false;
+  tableAlertRender?: AlertRenderType;
   /**
    * 自定义 table 的 alert 的操作
    * 设置或者返回false 即可关闭
    */
-  tableAlertOptionRender?:
-    | ((props: { intl: IntlType; onCleanSelected: () => void }) => React.ReactNode)
-    | false;
+  tableAlertOptionRender?: AlertRenderType;
 
   rowSelection?: TableProps<T>['rowSelection'] | false;
 
