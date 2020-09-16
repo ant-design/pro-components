@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { useIntl } from '@ant-design/pro-provider';
 import { ConfigContext } from 'antd/lib/config-provider';
 import {
@@ -10,7 +10,6 @@ import {
 import { Checkbox, Popover, Tooltip } from 'antd';
 import { DndProvider } from 'react-dnd';
 import classNames from 'classnames';
-import { cloneDeep } from "lodash";
 import Backend from 'react-dnd-html5-backend';
 
 import Container, { ColumnsState } from '../../container';
@@ -236,11 +235,9 @@ const GroupCheckboxList: React.FC<{
   );
 };
 
-let defaultColumnsMap: {
-  [key: string]: ColumnsState;
-} = {};
 
 const ColumnSetting = <T, U = {}>(props: ColumnSettingProps<T>) => {
+  const columnRef = useRef({});
   const counter = Container.useContainer();
   const localColumns: Omit<ProColumns<any> & { index?: number }, 'ellipsis'>[] =
     props.columns || counter.columns || [];
@@ -248,7 +245,7 @@ const ColumnSetting = <T, U = {}>(props: ColumnSettingProps<T>) => {
   const { columnsMap, setColumnsMap, setSortKeyColumns } = counter;
           
   useEffect(() => {
-    defaultColumnsMap = cloneDeep(columnsMap);
+    columnRef.current = JSON.parse(JSON.stringify(columnsMap));
   }, []);
           
   /**
@@ -300,7 +297,7 @@ const ColumnSetting = <T, U = {}>(props: ColumnSettingProps<T>) => {
           </Checkbox>
           <a
             onClick={() => {
-              setColumnsMap(defaultColumnsMap);
+              setColumnsMap(columnRef.current);
               setSortKeyColumns([]);
             }}
           >
