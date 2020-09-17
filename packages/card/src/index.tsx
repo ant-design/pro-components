@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import { ConfigConsumer, ConfigConsumerProps } from 'antd/lib/config-provider/context';
 import { Grid, Tabs } from 'antd';
+import omit from 'omit.js';
 import { RightOutlined } from '@ant-design/icons';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { LabelIconTip } from '@ant-design/pro-utils';
@@ -317,7 +318,7 @@ const ProCard: ProCardType = (props) => {
             )}
             {tabs.items && Array.isArray(tabs.items) && tabs.items.length && (
               <div className={`${prefixCls}-tabs`}>
-                <Tabs onChange={tabs.onChange} {...tabs}>
+                <Tabs onChange={tabs.onChange} {...omit(tabs, ['items'])}>
                   {tabs.items.map((tab) => (
                     <Tabs.TabPane {...tab} />
                   ))}

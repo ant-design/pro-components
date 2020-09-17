@@ -42,4 +42,31 @@ describe('Field', () => {
     await waitForComponentToPaint(wrapper);
     expect(wrapper.find('.ant-pro-card-body-collapse').exists()).toBeFalsy();
   });
+
+  it('🥩 tabs onChange', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <ProCard
+        tabs={{
+          items: [
+            {
+              key: 'tab1',
+              tab: '入站规则',
+            },
+            {
+              key: 'tab2',
+              tab: '安全配置',
+            },
+          ],
+          onChange: fn,
+        }}
+      >
+        内容
+      </ProCard>,
+    );
+
+    wrapper.find('.ant-pro-card-tabs .ant-tabs-tab').at(1).simulate('click');
+
+    expect(fn).toHaveBeenCalledWith('tab2');
+  });
 });

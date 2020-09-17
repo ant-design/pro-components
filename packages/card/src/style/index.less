@@ -63,13 +63,13 @@
   }
 
   &-tabs {
-    padding: 0 @padding-md;
-    border-bottom: @border-width-base @border-style-base @border-color-split;
-
-    .@{ant-prefix}-tabs-nav {
-      margin-bottom: 0;
-      &::before {
-        border: none;
+    .@{ant-prefix}-tabs-top {
+      .@{ant-prefix}-tabs-nav {
+        margin-bottom: 0;
+      }
+      .@{ant-prefix}-tabs-nav-list {
+        padding: 0 @padding-md;
+        margin-top: @margin-xs;
       }
     }
   }
