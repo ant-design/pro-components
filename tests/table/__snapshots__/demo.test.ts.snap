@@ -29,9 +29,6 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
           >
             <div
               class="ant-space-item"
-            />
-            <div
-              class="ant-space-item"
               style="margin-right: 8px;"
             >
               <div>
@@ -4140,7 +4137,7 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
               </div>
             </div>
             <ul
-              class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+              class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
               unselectable="unselectable"
             >
               <li
@@ -4273,7 +4270,7 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                 class="ant-pagination-options"
               >
                 <div
-                  class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
+                  class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
                     class="ant-select-selector"
@@ -4293,6 +4290,7 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                         readonly=""
                         role="combobox"
                         style="opacity: 0;"
+                        type="search"
                         unselectable="on"
                         value=""
                       />
@@ -4375,13 +4373,10 @@ Array [
             >
               <div
                 class="ant-space-item"
-              />
-              <div
-                class="ant-space-item"
               >
                 <div>
                   <span
-                    class="ant-input-search ant-input-affix-wrapper"
+                    class="ant-input-affix-wrapper ant-input-search"
                   >
                     <input
                       class="ant-input"
@@ -4602,7 +4597,7 @@ Array [
                                 class="ant-table-filter-trigger-container"
                               >
                                 <span
-                                  class="ant-table-filter-trigger ant-dropdown-trigger"
+                                  class="ant-dropdown-trigger ant-table-filter-trigger"
                                   role="button"
                                   tabindex="-1"
                                 >
@@ -4772,7 +4767,7 @@ Array [
                 </div>
               </div>
               <ul
-                class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -4861,7 +4856,7 @@ Array [
                   class="ant-pagination-options"
                 >
                   <div
-                    class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
+                    class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                   >
                     <div
                       class="ant-select-selector"
@@ -4881,6 +4876,7 @@ Array [
                           readonly=""
                           role="combobox"
                           style="opacity: 0;"
+                          type="search"
                           unselectable="on"
                           value=""
                         />
@@ -4999,6 +4995,7 @@ exports[`table demos renders ./packages/table/src/demos/dataSource.tsx correctly
                           readonly=""
                           role="combobox"
                           style="opacity: 0;"
+                          type="search"
                           unselectable="on"
                           value=""
                         />
@@ -5352,9 +5349,6 @@ exports[`table demos renders ./packages/table/src/demos/dataSource.tsx correctly
           >
             <div
               class="ant-space-item"
-            />
-            <div
-              class="ant-space-item"
             >
               <div>
                 <button
@@ -5603,7 +5597,7 @@ exports[`table demos renders ./packages/table/src/demos/dataSource.tsx correctly
                               class="ant-table-filter-trigger-container"
                             >
                               <span
-                                class="ant-table-filter-trigger ant-dropdown-trigger"
+                                class="ant-dropdown-trigger ant-table-filter-trigger"
                                 role="button"
                                 tabindex="-1"
                               >
@@ -5824,6 +5818,7 @@ exports[`table demos renders ./packages/table/src/demos/form.tsx correctly 1`] =
                           readonly=""
                           role="combobox"
                           style="opacity: 0;"
+                          type="search"
                           unselectable="on"
                           value=""
                         />
@@ -6072,9 +6067,6 @@ exports[`table demos renders ./packages/table/src/demos/form.tsx correctly 1`] =
           >
             <div
               class="ant-space-item"
-            />
-            <div
-              class="ant-space-item"
             >
               <div>
                 <button
@@ -6146,7 +6138,7 @@ exports[`table demos renders ./packages/table/src/demos/form.tsx correctly 1`] =
                               class="ant-table-filter-trigger-container"
                             >
                               <span
-                                class="ant-table-filter-trigger ant-dropdown-trigger"
+                                class="ant-dropdown-trigger ant-table-filter-trigger"
                                 role="button"
                                 tabindex="-1"
                               >
@@ -7315,7 +7307,7 @@ exports[`table demos renders ./packages/table/src/demos/form.tsx correctly 1`] =
               </div>
             </div>
             <ul
-              class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+              class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
               unselectable="unselectable"
             >
               <li
@@ -7448,7 +7440,7 @@ exports[`table demos renders ./packages/table/src/demos/form.tsx correctly 1`] =
                 class="ant-pagination-options"
               >
                 <div
-                  class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
+                  class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
                     class="ant-select-selector"
@@ -7468,6 +7460,7 @@ exports[`table demos renders ./packages/table/src/demos/form.tsx correctly 1`] =
                         readonly=""
                         role="combobox"
                         style="opacity: 0;"
+                        type="search"
                         unselectable="on"
                         value=""
                       />
@@ -7541,6 +7534,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity: 0;"
+          type="search"
           unselectable="on"
           value=""
         />
@@ -7759,6 +7753,7 @@ Array [
                           readonly=""
                           role="combobox"
                           style="opacity: 0;"
+                          type="search"
                           unselectable="on"
                           value=""
                         />
@@ -8038,9 +8033,6 @@ Array [
             >
               <div
                 class="ant-space-item"
-              />
-              <div
-                class="ant-space-item"
               >
                 <div>
                   <button
@@ -8305,7 +8297,7 @@ Array [
                                 class="ant-table-filter-trigger-container"
                               >
                                 <span
-                                  class="ant-table-filter-trigger ant-dropdown-trigger"
+                                  class="ant-dropdown-trigger ant-table-filter-trigger"
                                   role="button"
                                   tabindex="-1"
                                 >
@@ -11711,7 +11703,7 @@ Array [
                 </div>
               </div>
               <ul
-                class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -11811,7 +11803,7 @@ Array [
                   class="ant-pagination-options"
                 >
                   <div
-                    class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
+                    class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                   >
                     <div
                       class="ant-select-selector"
@@ -11831,6 +11823,7 @@ Array [
                           readonly=""
                           role="combobox"
                           style="opacity: 0;"
+                          type="search"
                           unselectable="on"
                           value=""
                         />
@@ -11949,6 +11942,7 @@ exports[`table demos renders ./packages/table/src/demos/linkage_form.tsx correct
                           readonly=""
                           role="combobox"
                           style="opacity: 0;"
+                          type="search"
                           unselectable="on"
                           value=""
                         />
@@ -12237,9 +12231,6 @@ exports[`table demos renders ./packages/table/src/demos/linkage_form.tsx correct
           >
             <div
               class="ant-space-item"
-            />
-            <div
-              class="ant-space-item"
             >
               <div>
                 <button
@@ -12469,7 +12460,7 @@ exports[`table demos renders ./packages/table/src/demos/linkage_form.tsx correct
                               class="ant-table-filter-trigger-container"
                             >
                               <span
-                                class="ant-table-filter-trigger ant-dropdown-trigger"
+                                class="ant-dropdown-trigger ant-table-filter-trigger"
                                 role="button"
                                 tabindex="-1"
                               >
@@ -14801,7 +14792,7 @@ exports[`table demos renders ./packages/table/src/demos/linkage_form.tsx correct
               </div>
             </div>
             <ul
-              class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+              class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
               unselectable="unselectable"
             >
               <li
@@ -14901,7 +14892,7 @@ exports[`table demos renders ./packages/table/src/demos/linkage_form.tsx correct
                 class="ant-pagination-options"
               >
                 <div
-                  class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
+                  class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
                     class="ant-select-selector"
@@ -14921,6 +14912,7 @@ exports[`table demos renders ./packages/table/src/demos/linkage_form.tsx correct
                         readonly=""
                         role="combobox"
                         style="opacity: 0;"
+                        type="search"
                         unselectable="on"
                         value=""
                       />
@@ -16254,7 +16246,7 @@ exports[`table demos renders ./packages/table/src/demos/no-title.tsx correctly 1
               </div>
             </div>
             <ul
-              class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+              class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
               unselectable="unselectable"
             >
               <li
@@ -16387,7 +16379,7 @@ exports[`table demos renders ./packages/table/src/demos/no-title.tsx correctly 1
                 class="ant-pagination-options"
               >
                 <div
-                  class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
+                  class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
                     class="ant-select-selector"
@@ -16407,6 +16399,7 @@ exports[`table demos renders ./packages/table/src/demos/no-title.tsx correctly 1
                         readonly=""
                         role="combobox"
                         style="opacity: 0;"
+                        type="search"
                         unselectable="on"
                         value=""
                       />
@@ -16492,9 +16485,6 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
           <div
             class="ant-space ant-space-horizontal ant-space-align-center"
           >
-            <div
-              class="ant-space-item"
-            />
             <div
               class="ant-space-item"
               style="margin-right: 8px;"
@@ -19881,7 +19871,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
               </div>
             </div>
             <ul
-              class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+              class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
               unselectable="unselectable"
             >
               <li
@@ -20014,7 +20004,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                 class="ant-pagination-options"
               >
                 <div
-                  class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
+                  class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
                     class="ant-select-selector"
@@ -20034,6 +20024,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                         readonly=""
                         role="combobox"
                         style="opacity: 0;"
+                        type="search"
                         unselectable="on"
                         value=""
                       />
@@ -20160,6 +20151,7 @@ exports[`table demos renders ./packages/table/src/demos/pollinga.tsx correctly 1
                           readonly=""
                           role="combobox"
                           style="opacity: 0;"
+                          type="search"
                           unselectable="on"
                           value=""
                         />
@@ -20513,9 +20505,6 @@ exports[`table demos renders ./packages/table/src/demos/pollinga.tsx correctly 1
           >
             <div
               class="ant-space-item"
-            />
-            <div
-              class="ant-space-item"
             >
               <div>
                 <button
@@ -20742,7 +20731,7 @@ exports[`table demos renders ./packages/table/src/demos/pollinga.tsx correctly 1
                               class="ant-table-filter-trigger-container"
                             >
                               <span
-                                class="ant-table-filter-trigger ant-dropdown-trigger"
+                                class="ant-dropdown-trigger ant-table-filter-trigger"
                                 role="button"
                                 tabindex="-1"
                               >
@@ -20919,7 +20908,7 @@ exports[`table demos renders ./packages/table/src/demos/pollinga.tsx correctly 1
               </div>
             </div>
             <ul
-              class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+              class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
               unselectable="unselectable"
             >
               <li
@@ -21008,7 +20997,7 @@ exports[`table demos renders ./packages/table/src/demos/pollinga.tsx correctly 1
                 class="ant-pagination-options"
               >
                 <div
-                  class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
+                  class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
                     class="ant-select-selector"
@@ -21028,6 +21017,7 @@ exports[`table demos renders ./packages/table/src/demos/pollinga.tsx correctly 1
                         readonly=""
                         role="combobox"
                         style="opacity: 0;"
+                        type="search"
                         unselectable="on"
                         value=""
                       />
@@ -21145,6 +21135,7 @@ exports[`table demos renders ./packages/table/src/demos/renderTable.tsx correctl
                           readonly=""
                           role="combobox"
                           style="opacity: 0;"
+                          type="search"
                           unselectable="on"
                           value=""
                         />
@@ -21964,9 +21955,6 @@ exports[`table demos renders ./packages/table/src/demos/renderTable.tsx correctl
               >
                 <div
                   class="ant-space-item"
-                />
-                <div
-                  class="ant-space-item"
                 >
                   <div>
                     <button
@@ -22215,7 +22203,7 @@ exports[`table demos renders ./packages/table/src/demos/renderTable.tsx correctl
                                   class="ant-table-filter-trigger-container"
                                 >
                                   <span
-                                    class="ant-table-filter-trigger ant-dropdown-trigger"
+                                    class="ant-dropdown-trigger ant-table-filter-trigger"
                                     role="button"
                                     tabindex="-1"
                                   >
@@ -22531,6 +22519,7 @@ Array [
                             readonly=""
                             role="combobox"
                             style="opacity: 0;"
+                            type="search"
                             unselectable="on"
                             value=""
                           />
@@ -22652,6 +22641,7 @@ Array [
                           readonly=""
                           role="combobox"
                           style="opacity: 0;"
+                          type="search"
                           unselectable="on"
                           value=""
                         />
@@ -22903,9 +22893,6 @@ Array [
             >
               <div
                 class="ant-space-item"
-              />
-              <div
-                class="ant-space-item"
               >
                 <div>
                   <button
@@ -23135,7 +23122,7 @@ Array [
                                 class="ant-table-filter-trigger-container"
                               >
                                 <span
-                                  class="ant-table-filter-trigger ant-dropdown-trigger"
+                                  class="ant-dropdown-trigger ant-table-filter-trigger"
                                   role="button"
                                   tabindex="-1"
                                 >
@@ -26141,7 +26128,7 @@ Array [
                 </div>
               </div>
               <ul
-                class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+                class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
                 unselectable="unselectable"
               >
                 <li
@@ -26241,7 +26228,7 @@ Array [
                   class="ant-pagination-options"
                 >
                   <div
-                    class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
+                    class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                   >
                     <div
                       class="ant-select-selector"
@@ -26261,6 +26248,7 @@ Array [
                           readonly=""
                           role="combobox"
                           style="opacity: 0;"
+                          type="search"
                           unselectable="on"
                           value=""
                         />
@@ -26379,6 +26367,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           readonly=""
                           role="combobox"
                           style="opacity: 0;"
+                          type="search"
                           unselectable="on"
                           value=""
                         />
@@ -26503,6 +26492,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           readonly=""
                           role="combobox"
                           style="opacity: 0;"
+                          type="search"
                           unselectable="on"
                           value=""
                         />
@@ -26763,9 +26753,6 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
           >
             <div
               class="ant-space-item"
-            />
-            <div
-              class="ant-space-item"
             >
               <div>
                 <button
@@ -26995,7 +26982,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                               class="ant-table-filter-trigger-container"
                             >
                               <span
-                                class="ant-table-filter-trigger ant-dropdown-trigger"
+                                class="ant-dropdown-trigger ant-table-filter-trigger"
                                 role="button"
                                 tabindex="-1"
                               >
@@ -30001,7 +29988,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
               </div>
             </div>
             <ul
-              class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+              class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
               unselectable="unselectable"
             >
               <li
@@ -30101,7 +30088,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                 class="ant-pagination-options"
               >
                 <div
-                  class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
+                  class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
                     class="ant-select-selector"
@@ -30121,6 +30108,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                         readonly=""
                         role="combobox"
                         style="opacity: 0;"
+                        type="search"
                         unselectable="on"
                         value=""
                       />
@@ -30238,6 +30226,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           readonly=""
                           role="combobox"
                           style="opacity: 0;"
+                          type="search"
                           unselectable="on"
                           value=""
                         />
@@ -30518,9 +30507,6 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
           >
             <div
               class="ant-space-item"
-            />
-            <div
-              class="ant-space-item"
             >
               <div>
                 <button
@@ -30791,7 +30777,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               class="ant-table-filter-trigger-container"
                             >
                               <span
-                                class="ant-table-filter-trigger ant-dropdown-trigger"
+                                class="ant-dropdown-trigger ant-table-filter-trigger"
                                 role="button"
                                 tabindex="-1"
                               >
@@ -30859,7 +30845,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             <div
                               aria-label="🐛[BUG]yarn install命令 antd2.4.5会报错"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="width: calc(100% - 30%); margin: 0px; padding: 0px;"
                               title="🐛[BUG]yarn install命令 antd2.4.5会报错"
                             >
                               <span
@@ -31032,7 +31018,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             <div
                               aria-label="🐛[BUG]无法创建工程npm create umi"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="width: calc(100% - 30%); margin: 0px; padding: 0px;"
                               title="🐛[BUG]无法创建工程npm create umi"
                             >
                               <span
@@ -31205,7 +31191,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             <div
                               aria-label="🧐[问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="width: calc(100% - 30%); margin: 0px; padding: 0px;"
                               title="🧐[问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                             >
                               <span
@@ -31377,7 +31363,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           <span>
                             <div
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="width: calc(100% - 30%); margin: 0px; padding: 0px;"
                               title="2.3.1版本如何在业务页面修改头部状态"
                             >
                               2.3.1版本如何在业务页面修改头部状态
@@ -31545,7 +31531,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             <div
                               aria-label="hideChildrenInMenu设置后，子路由找不到了"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="width: calc(100% - 30%); margin: 0px; padding: 0px;"
                               title="hideChildrenInMenu设置后，子路由找不到了"
                             >
                               <span
@@ -31718,7 +31704,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             <div
                               aria-label="🐛[BUG]Umi UI 添加多个空白页，就会出错！把空白页都变成选中状态！"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="width: calc(100% - 30%); margin: 0px; padding: 0px;"
                               title="🐛[BUG]Umi UI 添加多个空白页，就会出错！把空白页都变成选中状态！"
                             >
                               <span
@@ -31891,7 +31877,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             <div
                               aria-label="🐛[BUG]第一次载入页面，菜单仅图标时，图标没有居中"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="width: calc(100% - 30%); margin: 0px; padding: 0px;"
                               title="🐛[BUG]第一次载入页面，菜单仅图标时，图标没有居中"
                             >
                               <span
@@ -32064,7 +32050,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             <div
                               aria-label="build(deps-dev): bump eslint from 6.8.0 to 7.1.0"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="width: calc(100% - 30%); margin: 0px; padding: 0px;"
                               title="build(deps-dev): bump eslint from 6.8.0 to 7.1.0"
                             >
                               <span
@@ -32237,7 +32223,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             <div
                               aria-label="V4版本如何使用第三方的enhanceReduxMiddleware 🧐[问题]"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="width: calc(100% - 30%); margin: 0px; padding: 0px;"
                               title="V4版本如何使用第三方的enhanceReduxMiddleware 🧐[问题]"
                             >
                               <span
@@ -32410,7 +32396,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             <div
                               aria-label="🐛[BUG] 官网预览页面，第一次点击二级菜单，其父级菜单会收起，之后再次点击二级菜单，父菜单正常"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="width: calc(100% - 30%); margin: 0px; padding: 0px;"
                               title="🐛[BUG] 官网预览页面，第一次点击二级菜单，其父级菜单会收起，之后再次点击二级菜单，父菜单正常"
                             >
                               <span
@@ -32583,7 +32569,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             <div
                               aria-label="🧐[问题] 从自建 block 仓库下载区块报错。"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="width: calc(100% - 30%); margin: 0px; padding: 0px;"
                               title="🧐[问题] 从自建 block 仓库下载区块报错。"
                             >
                               <span
@@ -32756,7 +32742,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             <div
                               aria-label="🧐[问题] fetchCurrent接口报错，退出登录页，第一次点击登录，SecurityLayout不渲染，导致需要点击两次"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="width: calc(100% - 30%); margin: 0px; padding: 0px;"
                               title="🧐[问题] fetchCurrent接口报错，退出登录页，第一次点击登录，SecurityLayout不渲染，导致需要点击两次"
                             >
                               <span
@@ -32929,7 +32915,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             <div
                               aria-label="🐛[BUG] V5 左侧栏收缩时，点击图标无效。"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="width: calc(100% - 30%); margin: 0px; padding: 0px;"
                               title="🐛[BUG] V5 左侧栏收缩时，点击图标无效。"
                             >
                               <span
@@ -33102,7 +33088,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             <div
                               aria-label="🧐[问题]不知道有没有大佬将这个模板迁移至Electron的例子"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="width: calc(100% - 30%); margin: 0px; padding: 0px;"
                               title="🧐[问题]不知道有没有大佬将这个模板迁移至Electron的例子"
                             >
                               <span
@@ -33275,7 +33261,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             <div
                               aria-label="npm run start 为什么不能打开浏览器"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="width: calc(100% - 30%); margin: 0px; padding: 0px;"
                               title="npm run start 为什么不能打开浏览器"
                             >
                               <span
@@ -33448,7 +33434,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             <div
                               aria-label="🧐[问题]在重新npm install后运行npm start报出一些less找不到，但项目可以正常运行起来"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="width: calc(100% - 30%); margin: 0px; padding: 0px;"
                               title="🧐[问题]在重新npm install后运行npm start报出一些less找不到，但项目可以正常运行起来"
                             >
                               <span
@@ -33621,7 +33607,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             <div
                               aria-label="🐛[BUG]错误通知：http code 200"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="width: calc(100% - 30%); margin: 0px; padding: 0px;"
                               title="🐛[BUG]错误通知：http code 200"
                             >
                               <span
@@ -33794,7 +33780,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             <div
                               aria-label="🐛[BUG]线上预览项目好多布局错乱，不知道是antd的锅还是啥原因"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="width: calc(100% - 30%); margin: 0px; padding: 0px;"
                               title="🐛[BUG]线上预览项目好多布局错乱，不知道是antd的锅还是啥原因"
                             >
                               <span
@@ -33967,7 +33953,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             <div
                               aria-label="🐛[BUG] umi 偶尔出现没有导出成员"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="width: calc(100% - 30%); margin: 0px; padding: 0px;"
                               title="🐛[BUG] umi 偶尔出现没有导出成员"
                             >
                               <span
@@ -34140,7 +34126,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             <div
                               aria-label="🐛[BUG]请问大佬，为什么无论怎么选择，都无法切换成JS语言，怎么下都是TS,求解答"
                               class="ant-typography ant-typography-ellipsis"
-                              style="margin: 0px; padding: 0px;"
+                              style="width: calc(100% - 30%); margin: 0px; padding: 0px;"
                               title="🐛[BUG]请问大佬，为什么无论怎么选择，都无法切换成JS语言，怎么下都是TS,求解答"
                             >
                               <span
@@ -34299,7 +34285,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
               </div>
             </div>
             <ul
-              class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+              class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
               unselectable="unselectable"
             >
               <li
@@ -34399,7 +34385,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                 class="ant-pagination-options"
               >
                 <div
-                  class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
+                  class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
                     class="ant-select-selector"
@@ -34419,6 +34405,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                         readonly=""
                         role="combobox"
                         style="opacity: 0;"
+                        type="search"
                         unselectable="on"
                         value=""
                       />
@@ -34504,9 +34491,6 @@ exports[`table demos renders ./packages/table/src/demos/table-nested.tsx correct
           <div
             class="ant-space ant-space-horizontal ant-space-align-center"
           >
-            <div
-              class="ant-space-item"
-            />
             <div
               class="ant-space-item"
               style="margin-right: 8px;"
@@ -36930,7 +36914,7 @@ exports[`table demos renders ./packages/table/src/demos/table-nested.tsx correct
               </div>
             </div>
             <ul
-              class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+              class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
               unselectable="unselectable"
             >
               <li
@@ -37063,7 +37047,7 @@ exports[`table demos renders ./packages/table/src/demos/table-nested.tsx correct
                 class="ant-pagination-options"
               >
                 <div
-                  class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
+                  class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
                     class="ant-select-selector"
@@ -37083,6 +37067,7 @@ exports[`table demos renders ./packages/table/src/demos/table-nested.tsx correct
                         readonly=""
                         role="combobox"
                         style="opacity: 0;"
+                        type="search"
                         unselectable="on"
                         value=""
                       />
@@ -37244,6 +37229,7 @@ exports[`table demos renders ./packages/table/src/demos/valueType.tsx correctly 
                           class="ant-select-selection-search-input"
                           id="status"
                           role="combobox"
+                          type="search"
                           value=""
                         />
                         <span
@@ -37459,11 +37445,7 @@ exports[`table demos renders ./packages/table/src/demos/valueType.tsx correctly 
         >
           <div
             class="ant-space ant-space-horizontal ant-space-align-center"
-          >
-            <div
-              class="ant-space-item"
-            />
-          </div>
+          />
           <div
             class="ant-pro-table-toolbar-default-option"
           >
@@ -37776,7 +37758,7 @@ exports[`table demos renders ./packages/table/src/demos/valueType.tsx correctly 
                               class="ant-table-filter-trigger-container"
                             >
                               <span
-                                class="ant-table-filter-trigger ant-dropdown-trigger"
+                                class="ant-dropdown-trigger ant-table-filter-trigger"
                                 role="button"
                                 tabindex="-1"
                               >
@@ -38184,7 +38166,7 @@ return { list: data.data, ...data };
               </div>
             </div>
             <ul
-              class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+              class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
               unselectable="unselectable"
             >
               <li
@@ -38367,7 +38349,7 @@ return { list: data.data, ...data };
                 class="ant-pagination-options"
               >
                 <div
-                  class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
+                  class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
                     class="ant-select-selector"
@@ -38387,6 +38369,7 @@ return { list: data.data, ...data };
                         readonly=""
                         role="combobox"
                         style="opacity: 0;"
+                        type="search"
                         unselectable="on"
                         value=""
                       />
@@ -38998,11 +38981,7 @@ exports[`table demos renders ./packages/table/src/demos/valueTypeDate.tsx correc
         >
           <div
             class="ant-space ant-space-horizontal ant-space-align-center"
-          >
-            <div
-              class="ant-space-item"
-            />
-          </div>
+          />
           <div
             class="ant-pro-table-toolbar-default-option"
           >
@@ -39291,7 +39270,7 @@ exports[`table demos renders ./packages/table/src/demos/valueTypeDate.tsx correc
               </div>
             </div>
             <ul
-              class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+              class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
               unselectable="unselectable"
             >
               <li
@@ -39474,7 +39453,7 @@ exports[`table demos renders ./packages/table/src/demos/valueTypeDate.tsx correc
                 class="ant-pagination-options"
               >
                 <div
-                  class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
+                  class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
                     class="ant-select-selector"
@@ -39494,6 +39473,7 @@ exports[`table demos renders ./packages/table/src/demos/valueTypeDate.tsx correc
                         readonly=""
                         role="combobox"
                         style="opacity: 0;"
+                        type="search"
                         unselectable="on"
                         value=""
                       />
@@ -40101,11 +40081,7 @@ exports[`table demos renders ./packages/table/src/demos/valueTypeNumber.tsx corr
         >
           <div
             class="ant-space ant-space-horizontal ant-space-align-center"
-          >
-            <div
-              class="ant-space-item"
-            />
-          </div>
+          />
           <div
             class="ant-pro-table-toolbar-default-option"
           >
@@ -40408,7 +40384,7 @@ exports[`table demos renders ./packages/table/src/demos/valueTypeNumber.tsx corr
               </div>
             </div>
             <ul
-              class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+              class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
               unselectable="unselectable"
             >
               <li
@@ -40591,7 +40567,7 @@ exports[`table demos renders ./packages/table/src/demos/valueTypeNumber.tsx corr
                 class="ant-pagination-options"
               >
                 <div
-                  class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
+                  class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
                     class="ant-select-selector"
@@ -40611,6 +40587,7 @@ exports[`table demos renders ./packages/table/src/demos/valueTypeNumber.tsx corr
                         readonly=""
                         role="combobox"
                         style="opacity: 0;"
+                        type="search"
                         unselectable="on"
                         value=""
                       />
