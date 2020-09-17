@@ -51,7 +51,7 @@ const StepsFrom: React.FC<StepsFromProps> & {
   useForm: typeof Form.useForm;
 } = (props) => {
   const { getPrefixCls } = useContext(ConfigContext);
-  const prefixCls = getPrefixCls('pro-form-steps-form');
+  const prefixCls = getPrefixCls('pro-steps-form');
 
   const { current, onCurrentChange, stepsProps, onFinish, formProps, ...rest } = props;
   const formDataRef = useRef(new Map<string, Store>());
@@ -116,7 +116,7 @@ const StepsFrom: React.FC<StepsFromProps> & {
     <div
       className={`${prefixCls}-steps-container`}
       style={{
-        width: formArray.length * 320,
+        maxWidth: Math.min(formArray.length * 320, 1160),
       }}
     >
       <Steps {...stepsProps} current={step} onChange={undefined}>
