@@ -171,4 +171,24 @@ describe('PageContainer', () => {
     await waitForComponentToPaint(wrapper);
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  it('🐲 header.footer is null, do not render footerToolbar ', async () => {
+    const wrapper = mount(
+      <PageContainer
+        footer={[
+          <button type="button" key="button">
+            qixian
+          </button>,
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(wrapper);
+    expect(wrapper.render()).toMatchSnapshot();
+
+    wrapper.setProps({
+      header: { footer: undefined },
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });

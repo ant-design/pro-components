@@ -47,6 +47,17 @@ const Demo = () => (
         rules={[{ required: true, message: 'Please select your country!' }]}
       />
       <ProFormSelect
+        hasFeedback
+        request={async () => [
+          { label: '全部', value: 'all' },
+          { label: '未解决', value: 'open' },
+          { label: '已解决', value: 'closed' },
+          { label: '解决中', value: 'processing' },
+        ]}
+        name="useMode"
+        label="合同约定生效方式"
+      />
+      <ProFormSelect
         name="select-multiple"
         label="Select[multiple]"
         hasFeedback

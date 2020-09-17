@@ -420,7 +420,7 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                         >
                           <div
                             class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
-                            style="min-width: 100px;"
+                            style="min-width: 100px; max-width: 320px;"
                           >
                             <div
                               class="ant-progress-outer"
@@ -605,7 +605,7 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                         >
                           <div
                             class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
-                            style="min-width: 100px;"
+                            style="min-width: 100px; max-width: 320px;"
                           >
                             <div
                               class="ant-progress-outer"
@@ -796,7 +796,7 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                         >
                           <div
                             class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
-                            style="min-width: 100px;"
+                            style="min-width: 100px; max-width: 320px;"
                           >
                             <div
                               class="ant-progress-outer"
@@ -981,7 +981,7 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                         >
                           <div
                             class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
-                            style="min-width: 100px;"
+                            style="min-width: 100px; max-width: 320px;"
                           >
                             <div
                               class="ant-progress-outer"
@@ -1172,7 +1172,7 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                         >
                           <div
                             class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
-                            style="min-width: 100px;"
+                            style="min-width: 100px; max-width: 320px;"
                           >
                             <div
                               class="ant-progress-outer"
@@ -15015,7 +15015,7 @@ exports[`table demos renders ./packages/table/src/demos/pollinga.tsx correctly 1
                         >
                           <div
                             class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
-                            style="min-width: 100px;"
+                            style="min-width: 100px; max-width: 320px;"
                           >
                             <div
                               class="ant-progress-outer"
@@ -15079,7 +15079,7 @@ exports[`table demos renders ./packages/table/src/demos/pollinga.tsx correctly 1
                         >
                           <div
                             class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
-                            style="min-width: 100px;"
+                            style="min-width: 100px; max-width: 320px;"
                           >
                             <div
                               class="ant-progress-outer"
@@ -32748,7 +32748,7 @@ exports[`table demos renders ./packages/table/src/demos/valueTypeNumber.tsx corr
                         >
                           <div
                             class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
-                            style="min-width: 100px;"
+                            style="min-width: 100px; max-width: 320px;"
                           >
                             <div
                               class="ant-progress-outer"
@@ -32801,7 +32801,7 @@ exports[`table demos renders ./packages/table/src/demos/valueTypeNumber.tsx corr
                         >
                           <div
                             class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
-                            style="min-width: 100px;"
+                            style="min-width: 100px; max-width: 320px;"
                           >
                             <div
                               class="ant-progress-outer"

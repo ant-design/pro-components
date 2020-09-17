@@ -159,9 +159,9 @@ export default () => {
         <Descriptions.Item label="代码块">
           <Field
             text={`
-            yarn run v1.22.0
-            $ eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./packages
-            Done in 9.70s.
+yarn run v1.22.0            
+$ eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./packages
+Done in 9.70s.
           `}
             valueType="code"
             mode={state}
