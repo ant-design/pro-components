@@ -48,20 +48,15 @@ describe('Field', () => {
     const wrapper = mount(
       <ProCard
         tabs={{
-          items: [
-            {
-              key: 'tab1',
-              tab: '入站规则',
-            },
-            {
-              key: 'tab2',
-              tab: '安全配置',
-            },
-          ],
           onChange: fn,
         }}
       >
-        内容
+        <ProCard.TabPane key="tab1" tab="产品一">
+          内容一
+        </ProCard.TabPane>
+        <ProCard.TabPane key="tab2" tab="产品二">
+          内容二
+        </ProCard.TabPane>
       </ProCard>,
     );
 
