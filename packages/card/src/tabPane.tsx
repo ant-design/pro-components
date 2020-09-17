@@ -12,7 +12,17 @@ export interface ProCardTabPaneProps extends TabPaneProps, ProCardProps {
 }
 
 const TabPane: React.FC<ProCardTabPaneProps> = (props) => {
-  const { key, tab, children, className, style, ...rest } = props;
+  const {
+    key,
+    tab,
+    tabKey,
+    disabled,
+    destroyInactiveTabPane,
+    children,
+    className,
+    style,
+    ...rest
+  } = props;
 
   return (
     <ConfigConsumer>
@@ -21,7 +31,16 @@ const TabPane: React.FC<ProCardTabPaneProps> = (props) => {
         const tabPaneClassName = classNames(prefixCls, className);
 
         return (
-          <Tabs.TabPane key={key} tab={tab} className={tabPaneClassName} style={style} {...rest}>
+          <Tabs.TabPane
+            key={key}
+            tabKey={tabKey}
+            tab={tab}
+            className={tabPaneClassName}
+            style={style}
+            disabled={disabled}
+            destroyInactiveTabPane={destroyInactiveTabPane}
+            {...rest}
+          >
             <ProCard {...rest}>{children}</ProCard>
           </Tabs.TabPane>
         );
