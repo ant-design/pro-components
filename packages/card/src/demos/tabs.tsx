@@ -1,23 +1,45 @@
-import React from 'react';
-import { Tabs } from 'antd';
+import React, { useState } from 'react';
 import ProCard from '@ant-design/pro-card';
 
-const { TabPane } = Tabs;
-
 export default () => {
+  const [tab, setTab] = useState('tab2');
+
   return (
-    <ProCard bordered>
-      <Tabs>
-        <TabPane tab="Tab 1" key="1">
-          Content of Tab 1
-        </TabPane>
-        <TabPane tab="Tab 2" key="2">
-          Content of Tab 2
-        </TabPane>
-        <TabPane tab="Tab 3" key="3">
-          Content of Tab 3
-        </TabPane>
-      </Tabs>
+    <ProCard
+      tabs={{
+        activeKey: tab,
+        items: [
+          {
+            key: 'tab1',
+            tab: '入站规则',
+          },
+          {
+            key: 'tab2',
+            tab: '安全配置',
+          },
+          {
+            key: 'tab3',
+            tab: '负载均衡',
+          },
+          {
+            key: 'tab4',
+            tab: '监控',
+          },
+          {
+            key: 'tab5',
+            tab: '事件',
+          },
+          {
+            key: 'tab6',
+            tab: 'YAML',
+          },
+        ],
+        onChange: (key) => {
+          setTab(key);
+        },
+      }}
+    >
+      标签内容 {tab}
     </ProCard>
   );
 };
