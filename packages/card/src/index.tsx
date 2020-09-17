@@ -29,7 +29,7 @@ type TabPane = TabPaneProps & {
   key?: string;
 };
 
-export interface ProCardTabs extends TabsProps {
+export interface ProCardTabsProps extends TabsProps {
   items?: TabPane[];
 }
 
@@ -117,7 +117,7 @@ export type ProCardProps = {
   /**
    * 标签栏配置
    */
-  tabs?: ProCardTabs;
+  tabs?: ProCardTabsProps;
 };
 
 const ProCard: ProCardType = (props) => {
@@ -143,7 +143,7 @@ const ProCard: ProCardType = (props) => {
     collapsible = false,
     defaultCollapsed = false,
     onCollapse,
-    tabs = {},
+    tabs,
   } = props;
 
   const screens = useBreakpoint();
@@ -316,7 +316,7 @@ const ProCard: ProCardType = (props) => {
                 <div className={`${prefixCls}-extra`}>{extra}</div>
               </div>
             )}
-            {tabs.items && Array.isArray(tabs.items) && tabs.items.length && (
+            {tabs && tabs.items && Array.isArray(tabs.items) && tabs.items.length && (
               <div className={`${prefixCls}-tabs`}>
                 <Tabs onChange={tabs.onChange} {...omit(tabs, ['items'])}>
                   {tabs.items.map((tab) => (
