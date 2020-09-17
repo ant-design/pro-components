@@ -40,7 +40,7 @@ const FieldProgress: ProFieldFC<{
       <Progress
         ref={ref}
         size="small"
-        style={{ minWidth: 100 }}
+        style={{ minWidth: 100, maxWidth: 320 }}
         percent={realValue}
         steps={plain ? 10 : undefined}
         status={getProgressStatus(realValue as number)}
