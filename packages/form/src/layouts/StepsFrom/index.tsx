@@ -113,12 +113,19 @@ const StepsFrom: React.FC<StepsFromProps> & {
   );
 
   const stepsDom = (
-    <Steps {...stepsProps} current={step} onChange={undefined}>
-      {formArray.map((item) => {
-        const itemProps = formMapRef.current.get(item);
-        return <Steps.Step key={item} title={itemProps?.title} />;
-      })}
-    </Steps>
+    <div
+      className={`${prefixCls}-steps-container`}
+      style={{
+        width: formArray.length * 320,
+      }}
+    >
+      <Steps {...stepsProps} current={step} onChange={undefined}>
+        {formArray.map((item) => {
+          const itemProps = formMapRef.current.get(item);
+          return <Steps.Step key={item} title={itemProps?.title} />;
+        })}
+      </Steps>
+    </div>
   );
 
   return (
