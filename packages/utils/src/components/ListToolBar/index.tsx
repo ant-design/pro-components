@@ -42,16 +42,49 @@ export interface ListToolBarProps {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
+  /**
+   * 标题
+   */
   title?: React.ReactNode;
+  /**
+   * 副标题
+   */
   subTitle?: React.ReactNode;
+  /**
+   * 标题提示
+   */
   tip?: string | TooltipProps;
+  /**
+   * 搜索输入栏相关配置
+   */
   search?: SearchPropType;
+  /**
+   * 搜索回调
+   */
   onSearch?: (keyWords: string) => void;
+  /**
+   * 工具栏右侧操作区
+   */
   actions?: React.ReactNode[];
+  /**
+   * 工作栏右侧设置区
+   */
   settings?: SettingPropType[];
+  /**
+   * 是否多行展示
+   */
   multipleLine?: boolean;
+  /**
+   * 过滤区，通常配合 LightFilter 使用
+   */
   filter?: React.ReactNode;
+  /**
+   * 标签页配置，仅当 `multipleLine` 为 true 时有效
+   */
   tabs?: ListToolBarTabs;
+  /**
+   * 菜单配置
+   */
   menu?: ListToolBarMenu;
 }
 
@@ -66,22 +99,23 @@ function getSettingItem(setting: SettingPropType) {
   if (setting) {
     const settingConfig: ListToolBarSetting = setting as ListToolBarSetting;
     const { icon, tooltip, onClick, key } = settingConfig;
-    return icon && tooltip ? (
-      <Tooltip title={tooltip}>
-        <span
-          key={key}
-          onClick={() => {
-            if (onClick) {
-              onClick(key);
-            }
-          }}
-        >
-          {icon}
-        </span>
-      </Tooltip>
-    ) : (
-      icon
-    );
+    if (icon && tooltip) {
+      return (
+        <Tooltip title={tooltip}>
+          <span
+            key={key}
+            onClick={() => {
+              if (onClick) {
+                onClick(key);
+              }
+            }}
+          >
+            {icon}
+          </span>
+        </Tooltip>
+      );
+    }
+    return icon;
   }
   return null;
 }
