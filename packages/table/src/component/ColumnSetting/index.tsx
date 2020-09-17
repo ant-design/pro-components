@@ -235,7 +235,6 @@ const GroupCheckboxList: React.FC<{
   );
 };
 
-
 const ColumnSetting = <T, U = {}>(props: ColumnSettingProps<T>) => {
   const columnRef = useRef({});
   const counter = Container.useContainer();
@@ -243,11 +242,11 @@ const ColumnSetting = <T, U = {}>(props: ColumnSettingProps<T>) => {
     props.columns || counter.columns || [];
 
   const { columnsMap, setColumnsMap, setSortKeyColumns } = counter;
-          
+
   useEffect(() => {
     columnRef.current = JSON.parse(JSON.stringify(columnsMap));
   }, []);
-          
+
   /**
    * 设置全部选中，或全部未选中
    * @param show
