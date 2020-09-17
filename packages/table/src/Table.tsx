@@ -8,7 +8,7 @@ import React, {
   useMemo,
 } from 'react';
 import { Table, ConfigProvider, Card, Space, Empty } from 'antd';
-import { useIntl, IntlType, ParamsType, ConfigProviderWarp } from '@ant-design/pro-provider';
+import { useIntl, ParamsType, ConfigProviderWarp } from '@ant-design/pro-provider';
 import classNames from 'classnames';
 import get from 'rc-util/lib/utils/get';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
