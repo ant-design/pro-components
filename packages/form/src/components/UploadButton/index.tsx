@@ -43,6 +43,8 @@ const ProFormUploadButton: React.ForwardRefRenderFunction<any, ProFormDraggerPro
       ref={ref}
       name="fileList"
       listType={listType || 'picture'}
+      fileList={value}
+      {...fieldProps}
       onChange={(info) => {
         if (onChange) {
           onChange(info);
@@ -51,8 +53,6 @@ const ProFormUploadButton: React.ForwardRefRenderFunction<any, ProFormDraggerPro
           fieldProps?.onChange(info);
         }
       }}
-      fileList={value}
-      {...fieldProps}
     >
       {showUploadButton && (
         <Button>
