@@ -248,12 +248,12 @@ export interface ProTableProps<T, U extends ParamsType>
    * 自定义 table 的 alert
    * 设置或者返回false 即可关闭
    */
-  tableAlertRender?: AlertRenderType;
+  tableAlertRender?: AlertRenderType<T>;
   /**
    * 自定义 table 的 alert 的操作
    * 设置或者返回false 即可关闭
    */
-  tableAlertOptionRender?: AlertRenderType;
+  tableAlertOptionRender?: AlertRenderType<T>;
 
   rowSelection?: TableProps<T>['rowSelection'] | false;
 

@@ -4,7 +4,7 @@ import { Alert, Space } from 'antd';
 import './index.less';
 import { useIntl, IntlType } from '@ant-design/pro-provider';
 
-export type AlertRenderType =
+export type AlertRenderType<T> =
   | ((props: {
       intl: IntlType;
       selectedRowKeys: (number | string)[];
@@ -16,9 +16,9 @@ export type AlertRenderType =
 export interface TableAlertProps<T> {
   selectedRowKeys: (number | string)[];
   selectedRows: T[];
-  alertInfoRender?: AlertRenderType;
+  alertInfoRender?: AlertRenderType<T>;
   onCleanSelected: () => void;
-  alertOptionRender?: AlertRenderType;
+  alertOptionRender?: AlertRenderType<T>;
 }
 
 const defaultAlertOptionRender = (props: { intl: IntlType; onCleanSelected: () => void }) => {
