@@ -1,19 +1,20 @@
 import React, { ReactNode } from 'react';
 import { ConfigConsumer, ConfigConsumerProps } from 'antd/lib/config-provider/context';
 import { Grid, Tabs } from 'antd';
-import omit from 'omit.js';
 import { RightOutlined } from '@ant-design/icons';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { LabelIconTip } from '@ant-design/pro-utils';
 import classNames from 'classnames';
 import { TabPaneProps, TabsProps } from 'antd/lib/tabs';
 import CardLoading from './cardLoading';
+import TabPane from './tabPane';
 import './style/index.less';
 
 const { useBreakpoint } = Grid;
 
 type ProCardType = React.FC<ProCardProps> & {
   isProCard: boolean;
+  TabPane: typeof TabPane;
 };
 
 type ProCardChildType = React.ReactElement<ProCardProps, ProCardType>;
@@ -29,9 +30,7 @@ type TabPane = TabPaneProps & {
   key?: string;
 };
 
-export interface ProCardTabsProps extends TabsProps {
-  items?: TabPane[];
-}
+export interface ProCardTabsProps extends TabsProps {}
 
 export type ProCardProps = {
   /**
@@ -316,18 +315,17 @@ const ProCard: ProCardType = (props) => {
                 <div className={`${prefixCls}-extra`}>{extra}</div>
               </div>
             )}
-            {tabs && tabs.items && Array.isArray(tabs.items) && tabs.items.length && (
+            {tabs ? (
               <div className={`${prefixCls}-tabs`}>
-                <Tabs onChange={tabs.onChange} {...omit(tabs, ['items'])}>
-                  {tabs.items.map((tab) => (
-                    <Tabs.TabPane {...tab} />
-                  ))}
+                <Tabs onChange={tabs.onChange} {...tabs}>
+                  {loading ? loadingDOM : children}
                 </Tabs>
               </div>
+            ) : (
+              <div className={bodyCls} style={bodyStyle}>
+                {loading ? loadingDOM : childrenModified}
+              </div>
             )}
-            <div className={bodyCls} style={bodyStyle}>
-              {loading ? loadingDOM : childrenModified}
-            </div>
           </div>
         );
       }}
@@ -336,5 +334,6 @@ const ProCard: ProCardType = (props) => {
 };
 
 ProCard.isProCard = true;
+ProCard.TabPane = TabPane;
 
 export default ProCard;

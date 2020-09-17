@@ -94,11 +94,17 @@ group:
 
 <code src="./demos/bordered.tsx" />
 
-### 标签栏
+### 页签
 
-配置 `tabs` 属性可以配置卡片的标签栏。
+配置 `tabs` 属性配合 `ProCard.TabPane` 子组件可以配置卡片的标签栏。
 
 <code src="./demos/tabs.tsx" background="#f0f2f5"/>
+
+### 卡片式页签
+
+配置 `tab` 的 `type` 为 `card` 来配置卡片式页签。
+
+<code src="./demos/tabs-card.tsx" background="#f0f2f5"/>
 
 ### 竖向步骤示例
 
@@ -130,13 +136,20 @@ group:
 
 ### ProCardTabs
 
-| 参数      | 说明         | 类型                                | 默认值 |
-| :-------- | :----------- | :---------------------------------- | :----- |
-| activeKey | 当前选中项   | string                              | -      |
-| items     | `TabPane` 项 | `{ key: string; tab: ReactNode }[]` | -      |
-| onChange  | 回调         | `(activeKey: string) => void;`      | -      |
+| 参数 | 说明 | 类型 | 默认值 |
+| :-- | :-- | :-- | :-- |
+| activeKey | 当前选中项 | string | - |
+| type | 页签的基本样式，可选 `line`、`card`、`editable-card` 类型 | string | inline |
+| onChange | 回调 | `(activeKey: string) => void;` | - |
 
 - 更多属性见 antd [Tab](https://ant.design/components/tabs-cn/#Tabs) API 描述。
-- item 更多属性见 antd [TabPane](https://ant.design/components/tabs-cn/#Tabs.TabPane)
 
-透传 antd [tabs](https://ant.design/components/tabs-cn/#Tabs) 属性
+### ProCard.TabPane
+
+支持 `ProCard` 所有属性及 [Tabs.TabPane](https://ant.design/components/tabs-cn/#Tabs.TabPane) 的所有属性。
+
+| 参数     | 说明             | 类型                 | 默认值 |
+| :------- | :--------------- | :------------------- | :----- |
+| key      | 对应 activeKey   | string               | -      |
+| tab      | 选项卡头显示文字 | `string | ReactNode` | -      |
+| disabled | 不可用           | boolean              | false  |

@@ -1,45 +1,44 @@
 import React, { useState } from 'react';
-import ProCard from '@ant-design/pro-card';
+import ProCard, { ProCardTabsProps } from '@ant-design/pro-card';
+import { Space, Select } from 'antd';
+
+const { Option } = Select;
 
 export default () => {
   const [tab, setTab] = useState('tab2');
+  const [tabPosition, setTabPosition] = useState<ProCardTabsProps['tabPosition']>('top');
 
   return (
-    <ProCard
-      tabs={{
-        activeKey: tab,
-        items: [
-          {
-            key: 'tab1',
-            tab: '入站规则',
+    <div>
+      <Space style={{ marginBottom: 16 }}>
+        Tab position：
+        <Select
+          value={tabPosition}
+          onChange={(value) => setTabPosition(value)}
+          dropdownMatchSelectWidth={false}
+        >
+          <Option value="top">top</Option>
+          <Option value="bottom">bottom</Option>
+          <Option value="left">left</Option>
+          <Option value="right">right</Option>
+        </Select>
+      </Space>
+      <ProCard
+        tabs={{
+          tabPosition,
+          activeKey: tab,
+          onChange: (key) => {
+            setTab(key);
           },
-          {
-            key: 'tab2',
-            tab: '安全配置',
-          },
-          {
-            key: 'tab3',
-            tab: '负载均衡',
-          },
-          {
-            key: 'tab4',
-            tab: '监控',
-          },
-          {
-            key: 'tab5',
-            tab: '事件',
-          },
-          {
-            key: 'tab6',
-            tab: 'YAML',
-          },
-        ],
-        onChange: (key) => {
-          setTab(key);
-        },
-      }}
-    >
-      标签内容 {tab}
-    </ProCard>
+        }}
+      >
+        <ProCard.TabPane key="tab1" tab="产品一">
+          内容一
+        </ProCard.TabPane>
+        <ProCard.TabPane key="tab2" tab="产品二">
+          内容二
+        </ProCard.TabPane>
+      </ProCard>
+    </div>
   );
 };
