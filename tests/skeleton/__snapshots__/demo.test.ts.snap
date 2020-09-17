@@ -1474,7 +1474,6 @@ exports[`card demos renders ./packages/card/src/demos/tabs.tsx correctly 1`] = `
   >
     <div
       class="ant-tabs ant-tabs-top"
-      items="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
     >
       <div
         class="ant-tabs-nav"

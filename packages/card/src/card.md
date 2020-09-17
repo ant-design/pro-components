@@ -96,6 +96,8 @@ group:
 
 ### 标签栏
 
+配置 `tabs` 属性可以配置卡片的标签栏。
+
 <code src="./demos/tabs.tsx" background="#f0f2f5"/>
 
 ### 竖向步骤示例
