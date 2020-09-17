@@ -100,6 +100,12 @@ group:
 
 <code src="./demos/bordered.tsx" />
 
+### 内部卡片
+
+可以放在卡片内部，展示多层级结构的信息。
+
+<code src="./demos/inner.tsx" />
+
 ### 竖向步骤示例
 
 `Steps` 组件结合 `ProCard` 组件完成竖向步骤示例。

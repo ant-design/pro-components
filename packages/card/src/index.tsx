@@ -62,6 +62,10 @@ export type ProCardProps = {
    */
   layout?: 'default' | 'center';
   /**
+   * 卡片类型
+   */
+  type?: 'inner';
+  /**
    * 加载中
    */
   loading?: boolean | ReactNode;
@@ -126,6 +130,7 @@ const ProCard: ProCardType = (props) => {
     collapsible = false,
     defaultCollapsed = false,
     onCollapse,
+    type,
   } = props;
 
   const screens = useBreakpoint();
@@ -253,6 +258,7 @@ const ProCard: ProCardType = (props) => {
           [`${prefixCls}-loading`]: loading,
           [`${prefixCls}-split`]: split === 'vertical' || split === 'horizontal',
           [`${prefixCls}-ghost`]: ghost,
+          [`${prefixCls}-type-${type}`]: type !== undefined,
         });
 
         const headerCls = classNames(`${prefixCls}-header`, {
