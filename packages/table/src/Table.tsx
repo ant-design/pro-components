@@ -129,7 +129,7 @@ export interface ProTableProps<T, U extends ParamsType>
   /**
    * ListToolBar 属性
    */
-  toolBarProps?: ListToolBarProps;
+  toolbar?: ListToolBarProps;
   params?: U;
 
   columnsStateMap?: {
@@ -488,7 +488,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     onReset = () => {},
     columnEmptyText = '-',
     manualRequest = false,
-    toolBarProps,
+    toolbar,
     ...rest
   } = props;
 
@@ -696,7 +696,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
 
   const className = classNames(defaultClassName, propsClassName);
   const toolbarDom = toolBarRender !== false &&
-    (options !== false || headerTitle || toolBarRender || toolBarProps) && (
+    (options !== false || headerTitle || toolBarRender || toolbar) && (
       // if options= false & headerTitle=== false, hide Toolbar
       <Toolbar<T>
         options={options}
@@ -719,7 +719,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
         selectedRows={selectedRows}
         selectedRowKeys={selectedRowKeys}
         toolBarRender={toolBarRender}
-        toolBarProps={toolBarProps}
+        toolbar={toolbar}
       />
     );
 
