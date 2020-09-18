@@ -258,7 +258,7 @@ const ProCard: ProCardType = (props) => {
           [`${prefixCls}-loading`]: loading,
           [`${prefixCls}-split`]: split === 'vertical' || split === 'horizontal',
           [`${prefixCls}-ghost`]: ghost,
-          [`${prefixCls}-type-${type}`]: type !== undefined,
+          [`${prefixCls}-type-${type}`]: type,
         });
 
         const headerCls = classNames(`${prefixCls}-header`, {
