@@ -99,7 +99,7 @@ export default () => {
           />
           <ProFormSelect
             label="Pod 调度策略"
-            name="remark"
+            name="remark2"
             initialValue="2"
             options={[
               {

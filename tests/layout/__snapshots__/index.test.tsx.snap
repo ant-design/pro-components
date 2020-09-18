@@ -9,7 +9,7 @@ exports[`BasicLayout 🥩 base use 1`] = `
     style="min-height:100%"
   >
     <aside
-      class="ant-pro-sider ant-pro-sider-layout-side ant-layout-sider ant-layout-sider-dark"
+      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side"
       style="overflow:hidden;flex:0 0 208px;max-width:208px;min-width:208px;width:208px"
     >
       <div
@@ -36,11 +36,11 @@ exports[`BasicLayout 🥩 base use 1`] = `
           class="ant-pro-sider-links"
         >
           <ul
-            class="ant-menu ant-pro-sider-link-menu ant-menu-dark ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
             role="menu"
           >
             <li
-              class="ant-menu-item ant-pro-sider-collapsed-button ant-menu-item-only-child"
+              class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
               role="menuitem"
               style="padding-left:16px"
             >
@@ -102,7 +102,7 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
     style="min-height:100%"
   >
     <aside
-      class="ant-pro-sider ant-pro-sider-layout-side ant-layout-sider ant-layout-sider-dark"
+      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side"
       style="overflow:hidden;flex:0 0 208px;max-width:208px;min-width:208px;width:208px"
     >
       <div
@@ -129,11 +129,11 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
           class="ant-pro-sider-links"
         >
           <ul
-            class="ant-menu ant-pro-sider-link-menu ant-menu-dark ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
             role="menu"
           >
             <li
-              class="ant-menu-item ant-pro-sider-collapsed-button ant-menu-item-only-child"
+              class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
               role="menuitem"
               style="padding-left:16px"
             >
@@ -196,7 +196,7 @@ exports[`BasicLayout 🥩 menuDataRender change date 1`] = `
     style="min-height: 100%;"
   >
     <aside
-      class="ant-pro-sider ant-pro-sider-layout-side ant-layout-sider ant-layout-sider-dark"
+      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side"
       style="overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px; width: 208px;"
     >
       <div
@@ -223,11 +223,11 @@ exports[`BasicLayout 🥩 menuDataRender change date 1`] = `
           class="ant-pro-sider-links"
         >
           <ul
-            class="ant-menu ant-pro-sider-link-menu ant-menu-dark ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
             role="menu"
           >
             <li
-              class="ant-menu-item ant-pro-sider-collapsed-button ant-menu-item-only-child"
+              class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
               role="menuitem"
               style="padding-left: 16px;"
             >
@@ -289,7 +289,7 @@ exports[`BasicLayout 🥩 menuDataRender change date 2`] = `
     style="min-height: 100%;"
   >
     <aside
-      class="ant-pro-sider ant-pro-sider-layout-side ant-layout-sider ant-layout-sider-dark"
+      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side"
       style="overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px; width: 208px;"
     >
       <div
@@ -313,7 +313,7 @@ exports[`BasicLayout 🥩 menuDataRender change date 2`] = `
           style="flex: 1; overflow-y: auto; overflow-x: hidden;"
         >
           <ul
-            class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
             role="menu"
             style="width: 100%;"
           >
@@ -345,11 +345,11 @@ exports[`BasicLayout 🥩 menuDataRender change date 2`] = `
           class="ant-pro-sider-links"
         >
           <ul
-            class="ant-menu ant-pro-sider-link-menu ant-menu-dark ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
             role="menu"
           >
             <li
-              class="ant-menu-item ant-pro-sider-collapsed-button ant-menu-item-only-child"
+              class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
               role="menuitem"
               style="padding-left: 16px;"
             >
@@ -411,7 +411,7 @@ exports[`BasicLayout 🥩 support loading 1`] = `
     style="min-height: 100%;"
   >
     <aside
-      class="ant-pro-sider ant-pro-sider-layout-side ant-layout-sider ant-layout-sider-dark"
+      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side"
       style="overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px; width: 208px;"
     >
       <div
@@ -438,11 +438,11 @@ exports[`BasicLayout 🥩 support loading 1`] = `
           class="ant-pro-sider-links"
         >
           <ul
-            class="ant-menu ant-pro-sider-link-menu ant-menu-dark ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
             role="menu"
           >
             <li
-              class="ant-menu-item ant-pro-sider-collapsed-button ant-menu-item-only-child"
+              class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
               role="menuitem"
               style="padding-left: 16px;"
             >
@@ -529,7 +529,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
     style="min-height: 100%;"
   >
     <aside
-      class="ant-pro-sider ant-pro-sider-layout-side ant-layout-sider ant-layout-sider-dark"
+      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side"
       style="overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px; width: 208px;"
     >
       <div
@@ -553,7 +553,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
           style="flex: 1; overflow-y: auto; overflow-x: hidden;"
         >
           <ul
-            class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
             role="menu"
             style="width: 100%;"
           >
@@ -630,11 +630,11 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
           class="ant-pro-sider-links"
         >
           <ul
-            class="ant-menu ant-pro-sider-link-menu ant-menu-dark ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
             role="menu"
           >
             <li
-              class="ant-menu-item ant-pro-sider-collapsed-button ant-menu-item-only-child"
+              class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
               role="menuitem"
               style="padding-left: 16px;"
             >
