@@ -59,7 +59,7 @@ ProLayout 会根据 `location.pathname` 来自动选中菜单，并且自动生�
 | onTopMixMenuHeaderClick | mix 模式下顶部栏的头部点击事件 | `(e: React.MouseEvent<HTMLDivElement>) => void` | - |
 | contentStyle | layout 的内容区 style | CSSProperties | - |
 | layout | layout 的菜单模式,side：右侧导航，top：顶部导航 | 'side' \| 'top' | `'side'` |
-| contentWidth | layout 的内容模式,Fluid：定宽 1200px，Fixed：自适应 | 'Fluid' \| 'Fixed' | `'Fluid'` |
+| contentWidth | layout 的内容模式,Fluid：自适应，Fixed：定宽 1200px | 'Fluid' \| 'Fixed' | `'Fluid'` |
 | navTheme | 导航的主题 | 'light' \| 'dark' | `'dark'` |
 | fixedHeader | 是否固定 header 到顶部 | boolean | `false` |
 | fixSiderbar | 是否固定导航 | boolean | `false` |

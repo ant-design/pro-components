@@ -175,6 +175,7 @@ exports[`settingDrawer.test base user 1`] = `
                                     readonly=""
                                     role="combobox"
                                     style="opacity:0"
+                                    type="search"
                                     unselectable="on"
                                     value=""
                                   />
@@ -747,6 +748,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                                     readonly=""
                                     role="combobox"
                                     style="opacity:0"
+                                    type="search"
                                     unselectable="on"
                                     value=""
                                   />
@@ -1352,6 +1354,7 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                                     readonly=""
                                     role="combobox"
                                     style="opacity:0"
+                                    type="search"
                                     unselectable="on"
                                     value=""
                                   />
@@ -1929,6 +1932,7 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                                     readonly=""
                                     role="combobox"
                                     style="opacity:0"
+                                    type="search"
                                     unselectable="on"
                                     value=""
                                   />
@@ -2499,6 +2503,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                                     readonly=""
                                     role="combobox"
                                     style="opacity:0"
+                                    type="search"
                                     unselectable="on"
                                     value=""
                                   />
@@ -3104,6 +3109,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                                     readonly=""
                                     role="combobox"
                                     style="opacity:0"
+                                    type="search"
                                     unselectable="on"
                                     value=""
                                   />

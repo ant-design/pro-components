@@ -13,29 +13,28 @@ export type ProFormCheckboxGroupProps = ProFormItemProps<CheckboxGroupProps> & {
   options: CheckboxGroupProps['options'];
 };
 
-const Group: React.FC<ProFormCheckboxGroupProps> = ({
-  layout = 'horizontal',
-  options,
-  fieldProps,
-}) => {
-  const { getPrefixCls } = useContext(AntdConfigContext);
-  const layoutClassName = getPrefixCls('pro-form-checkbox');
-  return (
-    <Checkbox.Group
-      {...fieldProps}
-      className={classNames(fieldProps?.className, `${layoutClassName}-${layout}`)}
-      options={options?.map((option) => {
-        if (typeof option === 'string') {
-          return {
-            label: option,
-            value: option,
-          };
-        }
-        return option;
-      })}
-    />
-  );
-};
+const Group: React.FC<ProFormCheckboxGroupProps> = React.forwardRef(
+  ({ layout = 'horizontal', options, fieldProps }, ref: any) => {
+    const { getPrefixCls } = useContext(AntdConfigContext);
+    const layoutClassName = getPrefixCls('pro-form-checkbox');
+    return (
+      <Checkbox.Group
+        ref={ref}
+        {...fieldProps}
+        className={classNames(fieldProps?.className, `${layoutClassName}-${layout}`)}
+        options={options?.map((option) => {
+          if (typeof option === 'string') {
+            return {
+              label: option,
+              value: option,
+            };
+          }
+          return option;
+        })}
+      />
+    );
+  },
+);
 
 export type ProFormCheckboxProps = ProFormItemProps<CheckboxProps>;
 

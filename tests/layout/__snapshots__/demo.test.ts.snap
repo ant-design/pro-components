@@ -12,7 +12,7 @@ exports[`layout demos renders ./packages/layout/src/demos/BreadcrumbsRepeat.tsx 
       style="min-height: 100%;"
     >
       <aside
-        class="ant-pro-sider ant-pro-sider-layout-side ant-layout-sider ant-layout-sider-dark"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side"
         style="overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px; width: 208px;"
       >
         <div
@@ -36,7 +36,7 @@ exports[`layout demos renders ./packages/layout/src/demos/BreadcrumbsRepeat.tsx 
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
               role="menu"
               style="width: 100%;"
             >
@@ -104,11 +104,11 @@ exports[`layout demos renders ./packages/layout/src/demos/BreadcrumbsRepeat.tsx 
             class="ant-pro-sider-links"
           >
             <ul
-              class="ant-menu ant-pro-sider-link-menu ant-menu-dark ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
               role="menu"
             >
               <li
-                class="ant-menu-item ant-pro-sider-collapsed-button ant-menu-item-only-child"
+                class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
                 role="menuitem"
                 style="padding-left: 16px;"
               >
@@ -291,7 +291,7 @@ exports[`layout demos renders ./packages/layout/src/demos/DefaultOpenAllMenu.tsx
       style="min-height: 100%;"
     >
       <aside
-        class="ant-pro-sider ant-pro-sider-layout-side ant-layout-sider ant-layout-sider-dark"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side"
         style="overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px; width: 208px;"
       >
         <div
@@ -315,7 +315,7 @@ exports[`layout demos renders ./packages/layout/src/demos/DefaultOpenAllMenu.tsx
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
               role="menu"
               style="width: 100%;"
             >
@@ -585,11 +585,11 @@ exports[`layout demos renders ./packages/layout/src/demos/DefaultOpenAllMenu.tsx
             class="ant-pro-sider-links"
           >
             <ul
-              class="ant-menu ant-pro-sider-link-menu ant-menu-dark ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
               role="menu"
             >
               <li
-                class="ant-menu-item ant-pro-sider-collapsed-button ant-menu-item-only-child"
+                class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
                 role="menuitem"
                 style="padding-left: 16px;"
               >
@@ -720,7 +720,7 @@ exports[`layout demos renders ./packages/layout/src/demos/IconFont.tsx correctly
       style="min-height: 100%;"
     >
       <aside
-        class="ant-pro-sider ant-pro-sider-layout-side ant-layout-sider ant-layout-sider-dark"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side"
         style="overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px; width: 208px;"
       >
         <div
@@ -744,7 +744,7 @@ exports[`layout demos renders ./packages/layout/src/demos/IconFont.tsx correctly
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
               role="menu"
               style="width: 100%;"
             >
@@ -866,11 +866,11 @@ exports[`layout demos renders ./packages/layout/src/demos/IconFont.tsx correctly
             class="ant-pro-sider-links"
           >
             <ul
-              class="ant-menu ant-pro-sider-link-menu ant-menu-dark ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
               role="menu"
             >
               <li
-                class="ant-menu-item ant-pro-sider-collapsed-button ant-menu-item-only-child"
+                class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
                 role="menuitem"
                 style="padding-left: 16px;"
               >
@@ -1001,7 +1001,7 @@ exports[`layout demos renders ./packages/layout/src/demos/MultipleMenuOnePath.ts
       style="min-height: 100%;"
     >
       <aside
-        class="ant-pro-sider ant-pro-sider-layout-side ant-layout-sider ant-layout-sider-dark"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side"
         style="overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px; width: 208px;"
       >
         <div
@@ -1025,7 +1025,7 @@ exports[`layout demos renders ./packages/layout/src/demos/MultipleMenuOnePath.ts
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
               role="menu"
               style="width: 100%;"
             >
@@ -1226,11 +1226,11 @@ exports[`layout demos renders ./packages/layout/src/demos/MultipleMenuOnePath.ts
             class="ant-pro-sider-links"
           >
             <ul
-              class="ant-menu ant-pro-sider-link-menu ant-menu-dark ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
               role="menu"
             >
               <li
-                class="ant-menu-item ant-pro-sider-collapsed-button ant-menu-item-only-child"
+                class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
                 role="menuitem"
                 style="padding-left: 16px;"
               >
@@ -1397,7 +1397,7 @@ exports[`layout demos renders ./packages/layout/src/demos/Nested.tsx correctly 1
       style="min-height: 100%;"
     >
       <aside
-        class="ant-pro-sider ant-pro-sider-layout-side ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed"
+        class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-layout-side"
         style="overflow: hidden; flex: 0 0 48px; max-width: 48px; min-width: 48px; width: 48px;"
       >
         <div
@@ -1418,7 +1418,7 @@ exports[`layout demos renders ./packages/layout/src/demos/Nested.tsx correctly 1
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-inline-collapsed ant-menu-root ant-menu-vertical"
+              class="ant-menu ant-menu-dark ant-menu-inline-collapsed ant-pro-sider-menu ant-menu-root ant-menu-vertical"
               role="menu"
               style="width: 100%;"
             >
@@ -1502,11 +1502,11 @@ exports[`layout demos renders ./packages/layout/src/demos/Nested.tsx correctly 1
             class="ant-pro-sider-links"
           >
             <ul
-              class="ant-menu ant-pro-sider-link-menu ant-menu-dark ant-menu-inline-collapsed ant-menu-root ant-menu-vertical"
+              class="ant-menu ant-menu-dark ant-menu-inline-collapsed ant-pro-sider-link-menu ant-menu-root ant-menu-vertical"
               role="menu"
             >
               <li
-                class="ant-menu-item ant-pro-sider-collapsed-button ant-menu-item-only-child"
+                class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
                 role="menuitem"
               >
                 <span
@@ -1549,7 +1549,7 @@ exports[`layout demos renders ./packages/layout/src/demos/Nested.tsx correctly 1
               style="min-height: 100%; height: 400px;"
             >
               <aside
-                class="ant-pro-sider ant-pro-sider-layout-side ant-pro-sider-light ant-layout-sider ant-layout-sider-light"
+                class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-layout-side ant-pro-sider-light"
                 style="overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px; width: 208px;"
               >
                 <div
@@ -1559,7 +1559,7 @@ exports[`layout demos renders ./packages/layout/src/demos/Nested.tsx correctly 1
                     style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                   >
                     <ul
-                      class="ant-menu ant-pro-sider-menu ant-menu-light ant-menu-root ant-menu-inline"
+                      class="ant-menu ant-menu-light ant-pro-sider-menu ant-menu-root ant-menu-inline"
                       role="menu"
                       style="width: 100%;"
                     >
@@ -1650,11 +1650,11 @@ exports[`layout demos renders ./packages/layout/src/demos/Nested.tsx correctly 1
                     class="ant-pro-sider-links"
                   >
                     <ul
-                      class="ant-menu ant-pro-sider-link-menu ant-menu-light ant-menu-root ant-menu-inline"
+                      class="ant-menu ant-menu-light ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
                       role="menu"
                     >
                       <li
-                        class="ant-menu-item ant-pro-sider-collapsed-button ant-menu-item-only-child"
+                        class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
                         role="menuitem"
                         style="padding-left: 16px;"
                       >
@@ -1861,7 +1861,7 @@ exports[`layout demos renders ./packages/layout/src/demos/TopmenuNested.tsx corr
                 style="flex: 1;"
               >
                 <ul
-                  class="ant-menu top-nav-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
+                  class="ant-menu ant-menu-dark top-nav-menu ant-menu-root ant-menu-horizontal"
                   role="menu"
                 >
                   <li
@@ -2049,7 +2049,7 @@ exports[`layout demos renders ./packages/layout/src/demos/TopmenuNested.tsx corr
               style="min-height: 100%;"
             >
               <aside
-                class="ant-pro-sider ant-pro-sider-layout-side ant-pro-sider-light ant-layout-sider ant-layout-sider-light"
+                class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-layout-side ant-pro-sider-light"
                 style="overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px; width: 208px;"
               >
                 <div
@@ -2059,7 +2059,7 @@ exports[`layout demos renders ./packages/layout/src/demos/TopmenuNested.tsx corr
                     style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                   >
                     <ul
-                      class="ant-menu ant-pro-sider-menu ant-menu-light ant-menu-root ant-menu-inline"
+                      class="ant-menu ant-menu-light ant-pro-sider-menu ant-menu-root ant-menu-inline"
                       role="menu"
                       style="width: 100%;"
                     >
@@ -2150,11 +2150,11 @@ exports[`layout demos renders ./packages/layout/src/demos/TopmenuNested.tsx corr
                     class="ant-pro-sider-links"
                   >
                     <ul
-                      class="ant-menu ant-pro-sider-link-menu ant-menu-light ant-menu-root ant-menu-inline"
+                      class="ant-menu ant-menu-light ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
                       role="menu"
                     >
                       <li
-                        class="ant-menu-item ant-pro-sider-collapsed-button ant-menu-item-only-child"
+                        class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
                         role="menuitem"
                         style="padding-left: 16px;"
                       >
@@ -2326,7 +2326,7 @@ exports[`layout demos renders ./packages/layout/src/demos/antd@3MenuIconFormServ
       style="min-height: 100%; height: 500px;"
     >
       <aside
-        class="ant-pro-sider ant-pro-sider-layout-side ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed"
+        class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-layout-side"
         style="overflow: hidden; flex: 0 0 48px; max-width: 48px; min-width: 48px; width: 48px;"
       >
         <div
@@ -2347,7 +2347,7 @@ exports[`layout demos renders ./packages/layout/src/demos/antd@3MenuIconFormServ
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-inline-collapsed ant-menu-root ant-menu-vertical"
+              class="ant-menu ant-menu-dark ant-menu-inline-collapsed ant-pro-sider-menu ant-menu-root ant-menu-vertical"
               role="menu"
               style="width: 100%;"
             >
@@ -2435,11 +2435,11 @@ exports[`layout demos renders ./packages/layout/src/demos/antd@3MenuIconFormServ
             class="ant-pro-sider-links"
           >
             <ul
-              class="ant-menu ant-pro-sider-link-menu ant-menu-dark ant-menu-inline-collapsed ant-menu-root ant-menu-vertical"
+              class="ant-menu ant-menu-dark ant-menu-inline-collapsed ant-pro-sider-link-menu ant-menu-root ant-menu-vertical"
               role="menu"
             >
               <li
-                class="ant-menu-item ant-pro-sider-collapsed-button ant-menu-item-only-child"
+                class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
                 role="menuitem"
               >
                 <span
@@ -2572,7 +2572,7 @@ exports[`layout demos renders ./packages/layout/src/demos/antd@4MenuIconFormServ
       style="min-height: 100%; height: 500px;"
     >
       <aside
-        class="ant-pro-sider ant-pro-sider-layout-side ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed"
+        class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-layout-side"
         style="overflow: hidden; flex: 0 0 48px; max-width: 48px; min-width: 48px; width: 48px;"
       >
         <div
@@ -2593,7 +2593,7 @@ exports[`layout demos renders ./packages/layout/src/demos/antd@4MenuIconFormServ
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-inline-collapsed ant-menu-root ant-menu-vertical"
+              class="ant-menu ant-menu-dark ant-menu-inline-collapsed ant-pro-sider-menu ant-menu-root ant-menu-vertical"
               role="menu"
               style="width: 100%;"
             >
@@ -2679,11 +2679,11 @@ exports[`layout demos renders ./packages/layout/src/demos/antd@4MenuIconFormServ
             class="ant-pro-sider-links"
           >
             <ul
-              class="ant-menu ant-pro-sider-link-menu ant-menu-dark ant-menu-inline-collapsed ant-menu-root ant-menu-vertical"
+              class="ant-menu ant-menu-dark ant-menu-inline-collapsed ant-pro-sider-link-menu ant-menu-root ant-menu-vertical"
               role="menu"
             >
               <li
-                class="ant-menu-item ant-pro-sider-collapsed-button ant-menu-item-only-child"
+                class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
                 role="menuitem"
               >
                 <span
@@ -2950,7 +2950,7 @@ Array [
       style="min-height: 100%; height: 500px;"
     >
       <aside
-        class="ant-pro-sider ant-pro-sider-layout-side ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed"
+        class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-layout-side"
         style="overflow: hidden; flex: 0 0 48px; max-width: 48px; min-width: 48px; width: 48px;"
       >
         <div
@@ -2971,7 +2971,7 @@ Array [
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-inline-collapsed ant-menu-root ant-menu-vertical"
+              class="ant-menu ant-menu-dark ant-menu-inline-collapsed ant-pro-sider-menu ant-menu-root ant-menu-vertical"
               role="menu"
               style="width: 100%;"
             >
@@ -3099,11 +3099,11 @@ Array [
             class="ant-pro-sider-links"
           >
             <ul
-              class="ant-menu ant-pro-sider-link-menu ant-menu-dark ant-menu-inline-collapsed ant-menu-root ant-menu-vertical"
+              class="ant-menu ant-menu-dark ant-menu-inline-collapsed ant-pro-sider-link-menu ant-menu-root ant-menu-vertical"
               role="menu"
             >
               <li
-                class="ant-menu-item ant-pro-sider-collapsed-button ant-menu-item-only-child"
+                class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
                 role="menuitem"
               >
                 <span
@@ -3320,7 +3320,7 @@ exports[`layout demos renders ./packages/layout/src/demos/base.tsx correctly 1`]
       style="min-height: 100%; max-height: 100vh;"
     >
       <aside
-        class="ant-pro-sider ant-pro-sider-layout-side ant-layout-sider ant-layout-sider-dark"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side"
         style="overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px; width: 208px;"
       >
         <div
@@ -3344,7 +3344,7 @@ exports[`layout demos renders ./packages/layout/src/demos/base.tsx correctly 1`]
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
               role="menu"
               style="width: 100%;"
             >
@@ -3479,11 +3479,11 @@ exports[`layout demos renders ./packages/layout/src/demos/base.tsx correctly 1`]
             class="ant-pro-sider-links"
           >
             <ul
-              class="ant-menu ant-pro-sider-link-menu ant-menu-dark ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
               role="menu"
             >
               <li
-                class="ant-menu-item ant-pro-sider-collapsed-button ant-menu-item-only-child"
+                class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
                 role="menuitem"
                 style="padding-left: 16px;"
               >
@@ -4287,7 +4287,7 @@ Array [
       style="min-height: 100%;"
     >
       <aside
-        class="ant-pro-sider ant-pro-sider-layout-side ant-layout-sider ant-layout-sider-dark"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side"
         style="overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px; width: 208px;"
       >
         <div
@@ -4313,7 +4313,7 @@ Array [
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
               role="menu"
               style="width: 100%;"
             >
@@ -4455,11 +4455,11 @@ Array [
             class="ant-pro-sider-links"
           >
             <ul
-              class="ant-menu ant-pro-sider-link-menu ant-menu-dark ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
               role="menu"
             >
               <li
-                class="ant-menu-item ant-pro-sider-collapsed-button ant-menu-item-only-child"
+                class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
                 role="menuitem"
                 style="padding-left: 16px;"
               >
@@ -4595,7 +4595,7 @@ Array [
       style="min-height: 100%; height: 400px; border: 1px solid #ddd;"
     >
       <aside
-        class="ant-pro-sider ant-pro-sider-layout-side ant-layout-sider ant-layout-sider-dark"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side"
         style="overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px; width: 208px;"
       >
         <div
@@ -4661,11 +4661,11 @@ Array [
             class="ant-pro-sider-links"
           >
             <ul
-              class="ant-menu ant-pro-sider-link-menu ant-menu-dark ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
               role="menu"
             >
               <li
-                class="ant-menu-item ant-pro-sider-collapsed-button ant-menu-item-only-child"
+                class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
                 role="menuitem"
                 style="padding-left: 16px;"
               >
@@ -4791,7 +4791,7 @@ exports[`layout demos renders ./packages/layout/src/demos/footer.tsx correctly 1
     style="min-height: 100%; height: 500px;"
   >
     <aside
-      class="ant-pro-sider ant-pro-sider-layout-side ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed"
+      class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-layout-side"
       style="overflow: hidden; flex: 0 0 48px; max-width: 48px; min-width: 48px; width: 48px;"
     >
       <div
@@ -4812,7 +4812,7 @@ exports[`layout demos renders ./packages/layout/src/demos/footer.tsx correctly 1
           style="flex: 1; overflow-y: auto; overflow-x: hidden;"
         >
           <ul
-            class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-inline-collapsed ant-menu-root ant-menu-vertical"
+            class="ant-menu ant-menu-dark ant-menu-inline-collapsed ant-pro-sider-menu ant-menu-root ant-menu-vertical"
             role="menu"
             style="width: 100%;"
           >
@@ -4940,11 +4940,11 @@ exports[`layout demos renders ./packages/layout/src/demos/footer.tsx correctly 1
           class="ant-pro-sider-links"
         >
           <ul
-            class="ant-menu ant-pro-sider-link-menu ant-menu-dark ant-menu-inline-collapsed ant-menu-root ant-menu-vertical"
+            class="ant-menu ant-menu-dark ant-menu-inline-collapsed ant-pro-sider-link-menu ant-menu-root ant-menu-vertical"
             role="menu"
           >
             <li
-              class="ant-menu-item ant-pro-sider-collapsed-button ant-menu-item-only-child"
+              class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
               role="menuitem"
             >
               <span
@@ -5124,7 +5124,7 @@ exports[`layout demos renders ./packages/layout/src/demos/hideMenu.tsx correctly
       style="background: rgb(255, 255, 255); box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35); transition: all 0.2s; overflow: hidden; width: 0px;"
     >
       <aside
-        class="ant-pro-sider ant-pro-sider-layout-side ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed"
+        class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-layout-side"
         style="overflow: hidden; flex: 0 0 48px; max-width: 48px; min-width: 48px; width: 48px;"
       >
         <div
@@ -5145,7 +5145,7 @@ exports[`layout demos renders ./packages/layout/src/demos/hideMenu.tsx correctly
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-inline-collapsed ant-menu-root ant-menu-vertical"
+              class="ant-menu ant-menu-dark ant-menu-inline-collapsed ant-pro-sider-menu ant-menu-root ant-menu-vertical"
               role="menu"
               style="width: 100%;"
             >
@@ -5273,11 +5273,11 @@ exports[`layout demos renders ./packages/layout/src/demos/hideMenu.tsx correctly
             class="ant-pro-sider-links"
           >
             <ul
-              class="ant-menu ant-pro-sider-link-menu ant-menu-dark ant-menu-inline-collapsed ant-menu-root ant-menu-vertical"
+              class="ant-menu ant-menu-dark ant-menu-inline-collapsed ant-pro-sider-link-menu ant-menu-root ant-menu-vertical"
               role="menu"
             >
               <li
-                class="ant-menu-item ant-pro-sider-collapsed-button ant-menu-item-only-child"
+                class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
                 role="menuitem"
               >
                 <span
@@ -5405,7 +5405,7 @@ exports[`layout demos renders ./packages/layout/src/demos/searchMenu.tsx correct
       style="min-height: 100%;"
     >
       <aside
-        class="ant-pro-sider ant-pro-sider-layout-side ant-layout-sider ant-layout-sider-dark"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side"
         style="overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px; width: 208px;"
       >
         <div
@@ -5429,7 +5429,7 @@ exports[`layout demos renders ./packages/layout/src/demos/searchMenu.tsx correct
             class="ant-pro-sider-extra false"
           >
             <span
-              class="ant-input-search ant-input-affix-wrapper"
+              class="ant-input-affix-wrapper ant-input-search"
             >
               <input
                 class="ant-input"
@@ -5467,7 +5467,7 @@ exports[`layout demos renders ./packages/layout/src/demos/searchMenu.tsx correct
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
               role="menu"
               style="width: 100%;"
             >
@@ -5558,11 +5558,11 @@ exports[`layout demos renders ./packages/layout/src/demos/searchMenu.tsx correct
             class="ant-pro-sider-links"
           >
             <ul
-              class="ant-menu ant-pro-sider-link-menu ant-menu-dark ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
               role="menu"
             >
               <li
-                class="ant-menu-item ant-pro-sider-collapsed-button ant-menu-item-only-child"
+                class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
                 role="menuitem"
                 style="padding-left: 16px;"
               >
@@ -5727,7 +5727,7 @@ Array [
       style="min-height: 100%; height: 500px;"
     >
       <aside
-        class="ant-pro-sider ant-pro-sider-layout-mix ant-layout-sider ant-layout-sider-dark"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-mix"
         style="overflow: hidden; padding-top: 48px; flex: 0 0 208px; max-width: 208px; min-width: 208px; width: 208px;"
       >
         <div
@@ -5737,7 +5737,7 @@ Array [
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
               role="menu"
               style="width: 100%;"
             >
@@ -5870,11 +5870,11 @@ Array [
             class="ant-pro-sider-links"
           >
             <ul
-              class="ant-menu ant-pro-sider-link-menu ant-menu-dark ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
               role="menu"
             >
               <li
-                class="ant-menu-item ant-pro-sider-collapsed-button ant-menu-item-only-child"
+                class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
                 role="menuitem"
                 style="padding-left: 16px;"
               >
@@ -5944,7 +5944,7 @@ Array [
                 style="flex: 1;"
               >
                 <ul
-                  class="ant-menu top-nav-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
+                  class="ant-menu ant-menu-dark top-nav-menu ant-menu-root ant-menu-horizontal"
                   role="menu"
                 >
                   <li
@@ -6184,7 +6184,7 @@ Array [
                 style="flex: 1;"
               >
                 <ul
-                  class="ant-menu top-nav-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
+                  class="ant-menu ant-menu-dark top-nav-menu ant-menu-root ant-menu-horizontal"
                   role="menu"
                 >
                   <li
@@ -6384,7 +6384,7 @@ Array [
       style="min-height: 100%; height: 500px;"
     >
       <aside
-        class="ant-pro-sider ant-pro-sider-layout-mix ant-layout-sider ant-layout-sider-dark"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-mix"
         style="overflow: hidden; padding-top: 48px; flex: 0 0 208px; max-width: 208px; min-width: 208px; width: 208px;"
       >
         <div
@@ -6394,7 +6394,7 @@ Array [
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-pro-sider-menu ant-menu-dark ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
               role="menu"
               style="width: 100%;"
             >
@@ -6527,11 +6527,11 @@ Array [
             class="ant-pro-sider-links"
           >
             <ul
-              class="ant-menu ant-pro-sider-link-menu ant-menu-dark ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
               role="menu"
             >
               <li
-                class="ant-menu-item ant-pro-sider-collapsed-button ant-menu-item-only-child"
+                class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
                 role="menuitem"
                 style="padding-left: 16px;"
               >
@@ -6601,7 +6601,7 @@ Array [
                 style="flex: 1;"
               >
                 <ul
-                  class="ant-menu top-nav-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
+                  class="ant-menu ant-menu-dark top-nav-menu ant-menu-root ant-menu-horizontal"
                   role="menu"
                 >
                   <li
@@ -7131,6 +7131,7 @@ Array [
                                     readonly=""
                                     role="combobox"
                                     style="opacity: 0;"
+                                    type="search"
                                     unselectable="on"
                                     value=""
                                   />

@@ -75,7 +75,7 @@ describe('StepsFrom', () => {
     );
     await waitTime(100);
     act(() => {
-      html.find('.ant-pro-form-steps-form-step-active button.ant-btn').at(0).simulate('click');
+      html.find('.ant-pro-steps-form-step-active button.ant-btn').at(0).simulate('click');
     });
     expect(onCurrentChange).toBeCalledWith(0);
   });
@@ -105,9 +105,7 @@ describe('StepsFrom', () => {
     await waitTime(100);
 
     act(() => {
-      html
-        .find('.ant-pro-form-steps-form-step-active button.ant-btn.ant-btn-primary')
-        .simulate('click');
+      html.find('.ant-pro-steps-form-step-active button.ant-btn.ant-btn-primary').simulate('click');
     });
 
     await waitTime(100);
@@ -117,7 +115,7 @@ describe('StepsFrom', () => {
 
     act(() => {
       html
-        .find('.ant-pro-form-steps-form-step')
+        .find('.ant-pro-steps-form-step')
         .at(1)
         .find('button.ant-btn.ant-btn-primary')
         .simulate('click');
@@ -145,7 +143,7 @@ describe('StepsFrom', () => {
     );
 
     expect(
-      html.find('.ant-pro-form-steps-form-step-active button.ant-btn.ant-btn-primary').exists(),
+      html.find('.ant-pro-steps-form-step-active button.ant-btn.ant-btn-primary').exists(),
     ).toBeFalsy();
   });
 
@@ -162,7 +160,7 @@ describe('StepsFrom', () => {
     );
 
     expect(
-      html.find('.ant-pro-form-steps-form-step-active button.ant-btn.ant-btn-primary').exists(),
+      html.find('.ant-pro-steps-form-step-active button.ant-btn.ant-btn-primary').exists(),
     ).toBeFalsy();
   });
 
