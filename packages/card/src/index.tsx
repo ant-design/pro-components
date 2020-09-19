@@ -52,6 +52,11 @@ export type ProCardProps = {
   /**
    * 标题说明
    */
+  tooltip?: string;
+
+  /**
+   * @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一
+   */
   tip?: string;
   /**
    * 右上角自定义区域
@@ -121,6 +126,7 @@ const ProCard: ProCardType = (props) => {
     loading,
     colSpan,
     gutter = 0,
+    tooltip,
     split,
     headerBordered = false,
     bordered = false,
@@ -298,7 +304,7 @@ const ProCard: ProCardType = (props) => {
             {(title || extra || collapsibleButton) && (
               <div className={headerCls} style={headStyle}>
                 <div className={`${prefixCls}-title`}>
-                  <LabelIconTip label={title} tip={tip} subTitle={subTitle} />
+                  <LabelIconTip label={title} tooltip={tooltip || tip} subTitle={subTitle} />
                   {collapsibleButton}
                 </div>
                 <div className={`${prefixCls}-extra`}>{extra}</div>

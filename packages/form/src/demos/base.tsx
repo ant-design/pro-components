@@ -5,7 +5,12 @@ export default () => {
   return (
     <ProForm onFinish={(values) => console.log(values)}>
       <ProForm.Group>
-        <ProFormText name="name" label="签约客户名称" tip="最长为 24 位" placeholder="请输入名称" />
+        <ProFormText
+          name="name"
+          label="签约客户名称"
+          tooltip="最长为 24 位"
+          placeholder="请输入名称"
+        />
         <ProFormText name="company" label="我方公司名称" placeholder="请输入名称" />
       </ProForm.Group>
       <ProForm.Group>

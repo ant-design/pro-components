@@ -70,6 +70,11 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
   /**
    *展示一个 icon，hover 是展示一些提示信息
    */
+  tooltip?: string;
+
+  /**
+   * @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一
+   */
   tip?: string;
 
   render?: (
