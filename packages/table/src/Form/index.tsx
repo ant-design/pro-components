@@ -96,7 +96,7 @@ export const formInputRender: React.FC<{
   return (
     <ProFormField
       ref={ref}
-      tip={item.tip}
+      tooltip={item.tooltip || item.tip}
       isDefaultDom
       valueEnum={item.valueEnum}
       name={item.key || item.dataIndex}
