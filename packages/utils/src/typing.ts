@@ -1,25 +1,24 @@
 import { FormInstance } from 'antd/lib/form';
 import { ReactNode } from 'react';
 
-export type ProSchemaValueEnumObj = {
-  [key: string]:
-    | {
-        text: ReactNode;
-        status: string;
-      }
-    | ReactNode;
+type ProSchemaValueEnumType = {
+  text: ReactNode;
+  status: string;
+  /**
+   * 是否禁用
+   */
+  disabled?: boolean;
 };
 
-export type ProSchemaValueEnumMap = Map<
-  React.ReactText,
-  | {
-      text: ReactNode;
-      status: string;
-    }
-  | ReactNode
->;
+export type ProSchemaValueEnumObj = {
+  [key: string]: ProSchemaValueEnumType | ReactNode;
+};
 
-// 支持的变形，还未完全支持完毕
+export type ProSchemaValueEnumMap = Map<React.ReactText, ProSchemaValueEnumType | ReactNode>;
+
+/**
+ * 支持的变形，还未完全支持完毕
+ */
 export type ProSchemaComponentTypes =
   | 'form'
   | 'list'

@@ -106,6 +106,10 @@ export const proFieldParsingValueEnumToArray = (
   const enumArray: {
     value: string | number;
     text: string;
+    /**
+     * 是否禁用
+     */
+    disabled?: boolean;
   }[] = [];
   const valueEnum = ObjToMap(valueEnumParams);
 
@@ -119,6 +123,7 @@ export const proFieldParsingValueEnumToArray = (
     }
     const value = (valueEnum.get(key) || valueEnum.get(`${key}`)) as {
       text: string;
+      disabled?: boolean;
     };
     if (!value) {
       return;
@@ -128,6 +133,7 @@ export const proFieldParsingValueEnumToArray = (
       enumArray.push({
         text: (value?.text as unknown) as string,
         value: key,
+        disabled: value.disabled,
       });
       return;
     }
@@ -190,10 +196,13 @@ const useFetchData = (
 
   useDeepCompareEffect(() => {
     setOptions(
-      proFieldParsingValueEnumToArray(ObjToMap(props.valueEnum)).map(({ value, text }) => ({
-        label: text,
-        value,
-      })),
+      proFieldParsingValueEnumToArray(ObjToMap(props.valueEnum)).map(
+        ({ value, text, ...rest }) => ({
+          label: text,
+          value,
+          ...rest,
+        }),
+      ),
     );
   }, [props.valueEnum]);
 

@@ -47,7 +47,7 @@ export default () => {
             text="open"
             mode={state}
             valueEnum={{
-              all: { text: '全部', status: 'Default' },
+              all: { text: '全部', disabled: true, status: 'Default' },
               open: {
                 text: '未解决',
                 status: 'Error',
