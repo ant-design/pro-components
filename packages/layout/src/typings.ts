@@ -19,6 +19,11 @@ export interface MenuDataItem {
   locale?: string | false;
   name?: string;
   key?: string;
+
+  /**
+   * disable 菜单选项
+   */
+  disabled?: boolean;
   path?: string;
   [key: string]: any;
   parentKeys?: string[];

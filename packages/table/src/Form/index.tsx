@@ -11,7 +11,6 @@ import {
   ProSchemaComponentTypes,
   conversionSubmitValue,
 } from '@ant-design/pro-utils';
-import warningOnce from 'rc-util/lib/warning';
 
 import { genColumnKey } from '../utils';
 import Container from '../container';
@@ -93,14 +92,11 @@ export const formInputRender: React.FC<{
     );
   }
 
-  // @ts-ignore
-  warningOnce(!item.formItemProps, `'formItemProps' will be deprecated, please use 'fieldProps'`);
-
   const { onChange, ...restFieldProps } = item.fieldProps || {};
-
   return (
     <ProFormField
       ref={ref}
+      tooltip={item.tooltip || item.tip}
       isDefaultDom
       valueEnum={item.valueEnum}
       name={item.key || item.dataIndex}
@@ -200,7 +196,7 @@ const FormSearch = <T, U = any>({
 
   // 这么做是为了在用户修改了输入的时候触发一下子节点的render
   const [, updateState] = React.useState();
-  const forceUpdate = useCallback(() => updateState({}), []);
+  const forceUpdate = useCallback(() => updateState(undefined), []);
 
   const isForm = type === 'form';
 
@@ -315,6 +311,11 @@ const FormSearch = <T, U = any>({
   const formClassName = getPrefixCls('pro-table-form');
   const FormCompetent = isForm ? ProForm : QueryFilter;
 
+  const queryFilterProps = {
+    labelWidth: searchConfig ? searchConfig?.labelWidth : undefined,
+    defaultCollapsed: true,
+    ...searchConfig,
+  };
   return (
     <div
       className={classNames(className, {
@@ -322,8 +323,7 @@ const FormSearch = <T, U = any>({
       })}
     >
       <FormCompetent
-        defaultCollapsed
-        {...(searchConfig || {})}
+        {...(!isForm ? queryFilterProps : {})}
         {...formConfig}
         form={form}
         onValuesChange={(change, all) => {
@@ -342,7 +342,6 @@ const FormSearch = <T, U = any>({
           submit();
         }}
         initialValues={formConfig.initialValues}
-        labelWidth={searchConfig ? searchConfig?.labelWidth : undefined}
       >
         {domList}
       </FormCompetent>

@@ -7,7 +7,11 @@ import React, {
   useContext,
 } from 'react';
 import { Select, Spin } from 'antd';
-import { ProSchemaValueEnumMap, ProSchemaValueEnumObj } from '@ant-design/pro-utils';
+import {
+  ProSchemaValueEnumMap,
+  ProSchemaValueEnumObj,
+  useDeepCompareEffect,
+} from '@ant-design/pro-utils';
 import { useIntl } from '@ant-design/pro-provider';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
 
@@ -102,6 +106,10 @@ export const proFieldParsingValueEnumToArray = (
   const enumArray: {
     value: string | number;
     text: string;
+    /**
+     * 是否禁用
+     */
+    disabled?: boolean;
   }[] = [];
   const valueEnum = ObjToMap(valueEnumParams);
 
@@ -115,6 +123,7 @@ export const proFieldParsingValueEnumToArray = (
     }
     const value = (valueEnum.get(key) || valueEnum.get(`${key}`)) as {
       text: string;
+      disabled?: boolean;
     };
     if (!value) {
       return;
@@ -124,6 +133,7 @@ export const proFieldParsingValueEnumToArray = (
       enumArray.push({
         text: (value?.text as unknown) as string,
         value: key,
+        disabled: value.disabled,
       });
       return;
     }
@@ -184,12 +194,15 @@ const useFetchData = (
     })),
   );
 
-  useEffect(() => {
+  useDeepCompareEffect(() => {
     setOptions(
-      proFieldParsingValueEnumToArray(ObjToMap(props.valueEnum)).map(({ value, text }) => ({
-        label: text,
-        value,
-      })),
+      proFieldParsingValueEnumToArray(ObjToMap(props.valueEnum)).map(
+        ({ value, text, ...rest }) => ({
+          label: text,
+          value,
+          ...rest,
+        }),
+      ),
     );
   }, [props.valueEnum]);
 
@@ -228,12 +241,15 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
   } = props;
   const inputRef = useRef();
   const intl = useIntl();
+
   const [loading, options, fetchData] = useFetchData(props);
+
   const size = useContext(SizeContext);
   useImperativeHandle(ref, () => ({
     ...(inputRef.current || {}),
     fetchData: () => fetchData(),
   }));
+
   if (mode === 'read') {
     if (loading) {
       return <Spin />;

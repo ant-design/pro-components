@@ -1,8 +1,13 @@
 ﻿@import (reference) '~antd/lib/style/themes/default';
 
-@pro-form-step-form-prefix-cls: ~'@{ant-prefix}-pro-form-steps-form';
+@pro-form-step-form-prefix-cls: ~'@{ant-prefix}-pro-steps-form';
 
 .@{pro-form-step-form-prefix-cls} {
+  &-steps-container {
+    max-width: 1160px;
+    margin: auto;
+  }
+
   &-step {
     margin-top: 32px;
     display: none;

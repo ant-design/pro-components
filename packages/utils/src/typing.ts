@@ -1,25 +1,24 @@
 import { FormInstance } from 'antd/lib/form';
 import { ReactNode } from 'react';
 
-export type ProSchemaValueEnumObj = {
-  [key: string]:
-    | {
-        text: ReactNode;
-        status: string;
-      }
-    | ReactNode;
+type ProSchemaValueEnumType = {
+  text: ReactNode;
+  status: string;
+  /**
+   * 是否禁用
+   */
+  disabled?: boolean;
 };
 
-export type ProSchemaValueEnumMap = Map<
-  React.ReactText,
-  | {
-      text: ReactNode;
-      status: string;
-    }
-  | ReactNode
->;
+export type ProSchemaValueEnumObj = {
+  [key: string]: ProSchemaValueEnumType | ReactNode;
+};
 
-// 支持的变形，还未完全支持完毕
+export type ProSchemaValueEnumMap = Map<React.ReactText, ProSchemaValueEnumType | ReactNode>;
+
+/**
+ * 支持的变形，还未完全支持完毕
+ */
 export type ProSchemaComponentTypes =
   | 'form'
   | 'list'
@@ -69,6 +68,11 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
 
   /**
    *展示一个 icon，hover 是展示一些提示信息
+   */
+  tooltip?: string;
+
+  /**
+   * @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一
    */
   tip?: string;
 

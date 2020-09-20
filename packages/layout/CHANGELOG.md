@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.4.18](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.4.17...@ant-design/pro-layout@6.4.18) (2020-09-14)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.4.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.4.16...@ant-design/pro-layout@6.4.17) (2020-09-14)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
 ## [6.4.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.4.15...@ant-design/pro-layout@6.4.16) (2020-09-10)
 
 ### Bug Fixes

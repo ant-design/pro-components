@@ -299,7 +299,7 @@ Array [
                 >
                   <div
                     class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
-                    style="min-width: 100px;"
+                    style="min-width: 100px; max-width: 320px;"
                   >
                     <div
                       class="ant-progress-outer"
@@ -584,9 +584,9 @@ Array [
                   >
                     <code>
                       
-            yarn run v1.22.0
-            $ eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./packages
-            Done in 9.70s.
+yarn run v1.22.0            
+$ eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./packages
+Done in 9.70s.
           
                     </code>
                   </pre>

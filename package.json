@@ -55,13 +55,14 @@
     "@types/react-responsive": "^8.0.1",
     "@types/react-router-dom": "^5.1.0",
     "@types/warning": "^3.0.0",
+    "@types/xhr-mock": "^2.0.0",
     "@umijs/babel-preset-umi": "^3.0.14",
     "@umijs/fabric": "^2.0.0",
     "@umijs/plugin-analytics": "^0.2.2",
     "@umijs/test": "^3.2.10",
     "@umijs/test-utils": "^3.2.10",
     "@umijs/utils": "^3.2.11",
-    "antd": "^4.6.0",
+    "antd": "^4.6.4",
     "babel-loader": "^8.1.0",
     "babel-plugin-import": "^1.12.2",
     "body-parser": "^1.18.2",
@@ -111,6 +112,7 @@
     "webpack-bundle-analyzer": "^3.6.0",
     "webpack-cli": "^3.3.10",
     "write-pkg": "^4.0.0",
+    "xhr-mock": "^2.5.1",
     "yorkie": "^2.0.0"
   },
   "gitHooks": {

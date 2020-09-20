@@ -2867,7 +2867,7 @@ exports[`Field 🥩 read and plain 1`] = `
               >
                 <div
                   class="ant-progress ant-progress-steps ant-progress-status-active ant-progress-show-info ant-progress-small"
-                  style="min-width:100px"
+                  style="min-width:100px;max-width:320px"
                 >
                   <div
                     class="ant-progress-steps-outer"
@@ -3129,13 +3129,13 @@ exports[`Field 🥩 read and plain 1`] = `
                 class="ant-descriptions-item-content"
               >
                 <pre
-                  style="padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f6f8fa;border-radius:3px"
+                  style="padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f6f8fa;border-radius:3px;width:min-content"
                 >
                   <code>
                     
-            yarn run v1.22.0
-            $ eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./packages
-            Done in 9.70s.
+yarn run v1.22.0
+$ eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./packages
+Done in 9.70s.
           
                   </code>
                 </pre>
@@ -3158,7 +3158,7 @@ exports[`Field 🥩 read and plain 1`] = `
                 class="ant-descriptions-item-content"
               >
                 <pre
-                  style="padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f6f8fa;border-radius:3px"
+                  style="padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f6f8fa;border-radius:3px;width:min-content"
                 >
                   <code>
                     {
@@ -3449,7 +3449,7 @@ exports[`Field 🥩 read ant no plain 1`] = `
               >
                 <div
                   class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
-                  style="min-width:100px"
+                  style="min-width:100px;max-width:320px"
                 >
                   <div
                     class="ant-progress-outer"
@@ -3679,13 +3679,13 @@ exports[`Field 🥩 read ant no plain 1`] = `
                 class="ant-descriptions-item-content"
               >
                 <pre
-                  style="padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f6f8fa;border-radius:3px"
+                  style="padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f6f8fa;border-radius:3px;width:min-content"
                 >
                   <code>
                     
-            yarn run v1.22.0
-            $ eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./packages
-            Done in 9.70s.
+yarn run v1.22.0
+$ eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./packages
+Done in 9.70s.
           
                   </code>
                 </pre>
@@ -3708,7 +3708,7 @@ exports[`Field 🥩 read ant no plain 1`] = `
                 class="ant-descriptions-item-content"
               >
                 <pre
-                  style="padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f6f8fa;border-radius:3px"
+                  style="padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f6f8fa;border-radius:3px;width:min-content"
                 >
                   <code>
                     {

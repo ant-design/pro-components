@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.0.9...@ant-design/pro-card@1.1.0) (2020-09-14)
+
+### Features
+
+- **core:** 为 LabelIconTip 添加 subTitle ([#454](https://github.com/ant-design/pro-components/issues/454)) ([92c095c](https://github.com/ant-design/pro-components/commit/92c095cf88c15a959109403cc6321ee1be70225a))
+
+## [1.0.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.0.8...@ant-design/pro-card@1.0.9) (2020-09-14)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
 ## [1.0.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.0.7...@ant-design/pro-card@1.0.8) (2020-09-10)
 
 **Note:** Version bump only for package @ant-design/pro-card

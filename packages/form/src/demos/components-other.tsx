@@ -32,6 +32,9 @@ const Demo = () => (
         rate: 3.5,
         name: 'qixian',
       }}
+      onValuesChange={(_, values) => {
+        console.log(values);
+      }}
       onFinish={(value) => console.log(value)}
     >
       <ProFormText name="name" label="name" />
@@ -45,6 +48,17 @@ const Demo = () => (
         }}
         placeholder="Please select a country"
         rules={[{ required: true, message: 'Please select your country!' }]}
+      />
+      <ProFormSelect
+        hasFeedback
+        request={async () => [
+          { label: '全部', value: 'all' },
+          { label: '未解决', value: 'open' },
+          { label: '已解决', value: 'closed' },
+          { label: '解决中', value: 'processing' },
+        ]}
+        name="useMode"
+        label="合同约定生效方式"
       />
       <ProFormSelect
         name="select-multiple"
@@ -107,6 +121,7 @@ const Demo = () => (
       <ProFormUploadButton
         name="upload"
         label="Upload"
+        max={2}
         action="/upload.do"
         extra="longgggggggggggggggggggggggggggggggggg"
       />
@@ -120,7 +135,7 @@ const Demo = () => (
         <ProFormDateRangePicker name="dateRange" label="日期区间" />
         <ProFormDateTimeRangePicker name="dateTimeRange" label="日期时间区间" />
       </ProForm.Group>
-      <ProFormUploadDragger label="Dragger" name="dragger" />
+      <ProFormUploadDragger max={4} label="Dragger" name="dragger" />
     </ProForm>
   </div>
 );
