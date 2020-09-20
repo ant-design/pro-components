@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@0.3.1...@ant-design/pro-utils@0.4.0) (2020-09-14)
+
+### Features
+
+- **core:** 为 LabelIconTip 添加 subTitle ([#454](https://github.com/ant-design/pro-components/issues/454)) ([92c095c](https://github.com/ant-design/pro-components/commit/92c095cf88c15a959109403cc6321ee1be70225a))
+
+## [0.3.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@0.3.0...@ant-design/pro-utils@0.3.1) (2020-09-14)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
 # [0.3.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@0.2.0...@ant-design/pro-utils@0.3.0) (2020-09-10)
 
 ### Features

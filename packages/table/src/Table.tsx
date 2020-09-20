@@ -243,7 +243,7 @@ export interface ProTableProps<T, U extends ParamsType>
   /**
    * 格式化搜索表单提交数据
    */
-  beforeSearchSubmit?: (params: Partial<U>) => Partial<U>;
+  beforeSearchSubmit?: (params: Partial<U>) => any;
   /**
    * 自定义 table 的 alert
    * 设置或者返回false 即可关闭
@@ -366,9 +366,9 @@ const columnRender = <T, U = any>({
 const renderColumnsTitle = (item: ProColumns<any>) => {
   const { title } = item;
   if (title && typeof title === 'function') {
-    return title(item, 'table', <LabelIconTip label={title} tip={item.tip} />);
+    return title(item, 'table', <LabelIconTip label={title} tooltip={item.tooltip || item.tip} />);
   }
-  return <LabelIconTip label={title} tip={item.tip} />;
+  return <LabelIconTip label={title} tooltip={item.tooltip || item.tip} />;
 };
 
 const defaultOnFilter = (value: string, record: any, dataIndex: string | string[]) => {
@@ -397,8 +397,8 @@ const genColumnList = <T, U = {}>(
   },
   counter: ReturnType<typeof useCounter>,
   columnEmptyText?: ProFieldEmptyText,
-): (ColumnsType<T>[number] & { index?: number })[] =>
-  (columns
+): (ColumnsType<T>[number] & { index?: number })[] => {
+  return (columns
     .map((item, columnsIndex) => {
       const { key, dataIndex, valueEnum, valueType, filters = [] } = item;
       const columnKey = genColumnKey(key, columnsIndex);
@@ -443,6 +443,7 @@ const genColumnList = <T, U = {}>(
       index?: number;
     }
   >;
+};
 
 /**
  * 🏆 Use Ant Design Table like a Pro!
@@ -520,7 +521,6 @@ const ProTable = <T extends {}, U extends ParamsType>(
     typeof propsPagination === 'object'
       ? (propsPagination as TablePaginationConfig)
       : { defaultCurrent: 1, defaultPageSize: 20, pageSize: 20, current: 1 };
-
   const action = useFetchData(
     async (pageParams) => {
       // 需要手动触发的首次请求
@@ -660,8 +660,8 @@ const ProTable = <T extends {}, U extends ParamsType>(
   useDeepCompareEffect(() => {
     if (propsPagination && (propsPagination.current || propsPagination.pageSize)) {
       action.setPageInfo({
-        pageSize: propsPagination.pageSize || action.current,
-        page: propsPagination.current || action.pageSize,
+        pageSize: propsPagination.pageSize || action.pageSize,
+        page: propsPagination.current || action.current,
       });
     }
   }, [propsPagination && propsPagination.pageSize, propsPagination && propsPagination.current]);
@@ -727,7 +727,6 @@ const ProTable = <T extends {}, U extends ParamsType>(
     />
   );
   const dataSource = request ? (action.dataSource as T[]) : props.dataSource || [];
-
   const tableDom = (
     <Table<T>
       {...rest}
@@ -763,7 +762,6 @@ const ProTable = <T extends {}, U extends ParamsType>(
         }
         // 制造筛选的数据
         setProFilter(omitUndefinedAndEmptyArr<any>(filters));
-
         // 制造一个排序的数据
         if (Array.isArray(sorter)) {
           const data = sorter.reduce<{

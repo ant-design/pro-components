@@ -1,24 +1,21 @@
 import React, { useRef, useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import { Button, Tag, Select } from 'antd';
-import ProTable, {
-  ProColumns,
-  TableDropdown,
-  ConfigProvider,
-  zhCNIntl,
-  enUSIntl,
-  viVNIntl,
-  itITIntl,
-  jaJPIntl,
-  esESIntl,
-  ruRUIntl,
-  msMYIntl,
-  zhTWIntl,
-  frFRIntl,
-  ptBRIntl,
-  ActionType,
-} from '@ant-design/pro-table';
+import ConfigProvider from 'antd/lib/config-provider';
+import ProTable, { ProColumns, TableDropdown, ActionType } from '@ant-design/pro-table';
 import request from 'umi-request';
+
+import enUSIntl from 'antd/lib/locale/en_US';
+import zhCNIntl from 'antd/lib/locale/zh_CN';
+import viVNIntl from 'antd/lib/locale/vi_VN';
+import itITIntl from 'antd/lib/locale/it_IT';
+import jaJPIntl from 'antd/lib/locale/ja_JP';
+import esESIntl from 'antd/lib/locale/es_ES';
+import ruRUIntl from 'antd/lib/locale/ru_RU';
+import msMYIntl from 'antd/lib/locale/ms_MY';
+import zhTWIntl from 'antd/lib/locale/zh_TW';
+import frFRIntl from 'antd/lib/locale/fr_FR';
+import ptBRIntl from 'antd/lib/locale/pt_BR';
 
 const intlMap = {
   zhCNIntl,
@@ -186,11 +183,7 @@ export default () => {
         onChange={(value) => setIntl(value)}
         options={Object.keys(intlMap).map((value) => ({ value, label: value }))}
       />
-      <ConfigProvider
-        value={{
-          intl: intlMap[intl],
-        }}
-      >
+      <ConfigProvider locale={intlMap[intl]}>
         <ProTable<GithubIssueItem>
           columns={columns}
           actionRef={actionRef}

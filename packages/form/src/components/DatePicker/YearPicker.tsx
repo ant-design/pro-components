@@ -9,22 +9,23 @@ const valueType = 'dateYear';
  * 周选择组件
  * @param
  */
-const ProFormDatePickerYear: React.FC<ProFormItemProps<DatePickerProps>> = ({
-  proFieldProps,
-  fieldProps,
-}) => {
-  return (
-    <ProField
-      text={fieldProps?.value}
-      mode="edit"
-      valueType={valueType}
-      fieldProps={fieldProps}
-      {...proFieldProps}
-    />
-  );
-};
+const ProFormDatePickerYear: React.FC<ProFormItemProps<DatePickerProps>> = React.forwardRef(
+  ({ proFieldProps, fieldProps }, ref: any) => {
+    return (
+      <ProField
+        ref={ref}
+        text={fieldProps?.value}
+        mode="edit"
+        valueType={valueType}
+        fieldProps={fieldProps}
+        {...proFieldProps}
+      />
+    );
+  },
+);
 
 export default createField<ProFormItemProps<DatePickerProps>>(ProFormDatePickerYear, {
   valueType,
   customLightMode: true,
+  ignoreFelidWidth: true,
 });

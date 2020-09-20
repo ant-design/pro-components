@@ -9,20 +9,21 @@ const valueType = 'dateWeek';
  * 周选择组件
  * @param
  */
-const ProFormDatePickerWeek: React.FC<ProFormItemProps<WeekPickerProps>> = ({
-  proFieldProps,
-  fieldProps,
-}) => (
+const ProFormDatePickerWeek: React.FC<ProFormItemProps<
+  WeekPickerProps
+>> = React.forwardRef(({ proFieldProps, fieldProps }, ref: any) => (
   <ProField
+    ref={ref}
     text={fieldProps?.value}
     mode="edit"
     valueType={valueType}
     fieldProps={fieldProps}
     {...proFieldProps}
   />
-);
+));
 
 export default createField<ProFormItemProps<WeekPickerProps>>(ProFormDatePickerWeek, {
   valueType,
   customLightMode: true,
+  ignoreFelidWidth: true,
 });

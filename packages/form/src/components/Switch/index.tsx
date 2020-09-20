@@ -10,10 +10,11 @@ export type ProFormSwitchProps = ProFormItemProps<SwitchProps>;
  * 单选 Switch
  * @param
  */
-const ProFormSwitch: React.FC<ProFormSwitchProps> = ({ fieldProps }) => {
-  return <Switch {...fieldProps} />;
-};
+const ProFormSwitch: React.FC<ProFormSwitchProps> = React.forwardRef(({ fieldProps }, ref: any) => {
+  return <Switch {...fieldProps} ref={ref} />;
+});
 
 export default createField<ProFormSwitchProps>(ProFormSwitch, {
   valuePropName: 'checked',
+  ignoreFelidWidth: true,
 });

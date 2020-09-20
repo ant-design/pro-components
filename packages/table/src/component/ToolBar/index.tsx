@@ -25,6 +25,10 @@ export type OptionsType<T = unknown> =
 
 export interface ToolBarProps<T = unknown> {
   headerTitle?: React.ReactNode;
+  tooltip?: string;
+  /**
+   * @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一
+   */
   tip?: string;
   toolBarRender?: (
     action: UseFetchDataAction<RequestData<T>>,
@@ -124,13 +128,14 @@ const renderDefaultOption = <T, U = {}>(
 
 const ToolBar = <T, U = {}>({
   headerTitle,
-  tip,
+  tooltip,
   toolBarRender,
   action,
   options: propsOptions,
   selectedRowKeys,
   selectedRows,
   onSearch,
+  ...rest
 }: ToolBarProps<T>) => {
   const { getPrefixCls } = useContext(ConfigContext);
   const className = getPrefixCls('pro-table-toolbar');
@@ -171,7 +176,7 @@ const ToolBar = <T, U = {}>({
   return (
     <div className={className}>
       <div className={`${className}-title`}>
-        <LabelIconTip label={headerTitle} tip={tip} />
+        <LabelIconTip label={headerTitle} tooltip={tooltip || rest.tip} />
       </div>
       <div className={`${className}-option`}>
         <Space>
