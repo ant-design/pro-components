@@ -1,17 +1,20 @@
 import React, { ReactNode } from 'react';
 import { ConfigConsumer, ConfigConsumerProps } from 'antd/lib/config-provider/context';
-import { Grid } from 'antd';
+import { Grid, Tabs } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { LabelIconTip } from '@ant-design/pro-utils';
 import classNames from 'classnames';
+import { TabPaneProps, TabsProps } from 'antd/lib/tabs';
 import CardLoading from './cardLoading';
+import TabPane from './tabPane';
 import './style/index.less';
 
 const { useBreakpoint } = Grid;
 
 type ProCardType = React.FC<ProCardProps> & {
   isProCard: boolean;
+  TabPane: typeof TabPane;
 };
 
 type ProCardChildType = React.ReactElement<ProCardProps, ProCardType>;
@@ -19,6 +22,15 @@ type ProCardChildType = React.ReactElement<ProCardProps, ProCardType>;
 type ColSpanType = number | string;
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type Gutter = number | Partial<Record<Breakpoint, number>>;
+
+/**
+ * antd 默认直接导出了 rc 组件中的 Tab.Pane 组件。
+ */
+type TabPane = TabPaneProps & {
+  key?: string;
+};
+
+export interface ProCardTabsProps extends TabsProps {}
 
 export type ProCardProps = {
   /**
@@ -110,6 +122,10 @@ export type ProCardProps = {
    * 收起卡片的事件
    */
   onCollapse?: (collapsed: boolean) => void;
+  /**
+   * 标签栏配置
+   */
+  tabs?: ProCardTabsProps;
 };
 
 const ProCard: ProCardType = (props) => {
@@ -136,6 +152,7 @@ const ProCard: ProCardType = (props) => {
     collapsible = false,
     defaultCollapsed = false,
     onCollapse,
+    tabs,
     type,
   } = props;
 
@@ -310,9 +327,17 @@ const ProCard: ProCardType = (props) => {
                 <div className={`${prefixCls}-extra`}>{extra}</div>
               </div>
             )}
-            <div className={bodyCls} style={bodyStyle}>
-              {loading ? loadingDOM : childrenModified}
-            </div>
+            {tabs ? (
+              <div className={`${prefixCls}-tabs`}>
+                <Tabs onChange={tabs.onChange} {...tabs}>
+                  {loading ? loadingDOM : children}
+                </Tabs>
+              </div>
+            ) : (
+              <div className={bodyCls} style={bodyStyle}>
+                {loading ? loadingDOM : childrenModified}
+              </div>
+            )}
           </div>
         );
       }}
@@ -321,5 +346,6 @@ const ProCard: ProCardType = (props) => {
 };
 
 ProCard.isProCard = true;
+ProCard.TabPane = TabPane;
 
 export default ProCard;
