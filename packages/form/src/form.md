@@ -182,6 +182,14 @@ ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 �
 <ProFormText name="text" label="名称" placeholder="请输入名称" fieldProps={inputProps} />
 ```
 
+### ProFormText.Password
+
+与 [Input.Password](https://ant.design/components/input-cn/#Input.Password) 相同。
+
+```tsx | pure
+<ProFormText.Password label="InputPassword" name="input-password" />
+```
+
 ### ProFormDatePicker
 
 与 [DatePicker](https://ant.design/components/date-picker-cn/) 相同。
