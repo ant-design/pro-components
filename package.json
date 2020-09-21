@@ -121,61 +121,31 @@
   },
   "size-limit": [
     {
-      "path": "packages/card/lib/**/*.js",
+      "path": "packages/card/dist/**/*.js",
       "limit": "2 s",
       "webpack": false,
       "running": false
     },
     {
-      "path": "packages/card/es/**/*.js",
+      "path": "packages/descriptions/dist/**/*.js",
       "limit": "2 s",
       "webpack": false,
       "running": false
     },
     {
-      "path": "packages/descriptions/lib/**/*.js",
+      "path": "packages/field/dist/**/*.js",
       "limit": "2 s",
       "webpack": false,
       "running": false
     },
     {
-      "path": "packages/descriptions/es/**/*.js",
+      "path": "packages/form/dist/**/*.js",
       "limit": "2 s",
       "webpack": false,
       "running": false
     },
     {
-      "path": "packages/field/lib/**/*.js",
-      "limit": "2 s",
-      "webpack": false,
-      "running": false
-    },
-    {
-      "path": "packages/field/es/**/*.js",
-      "limit": "2 s",
-      "webpack": false,
-      "running": false
-    },
-    {
-      "path": "packages/form/lib/**/*.js",
-      "limit": "2 s",
-      "webpack": false,
-      "running": false
-    },
-    {
-      "path": "packages/form/es/**/*.js",
-      "limit": "2 s",
-      "webpack": false,
-      "running": false
-    },
-    {
-      "path": "packages/layout/lib/**/*.js",
-      "limit": "2 s",
-      "webpack": false,
-      "running": false
-    },
-    {
-      "path": "packages/layout/es/**/*.js",
+      "path": "packages/layout/dist/**/*.js",
       "limit": "2 s",
       "webpack": false,
       "running": false
@@ -187,43 +157,19 @@
       "running": false
     },
     {
-      "path": "packages/list/es/**/*.js",
+      "path": "packages/provider/dist/**/*.js",
       "limit": "2 s",
       "webpack": false,
       "running": false
     },
     {
-      "path": "packages/provider/lib/**/*.js",
+      "path": "packages/skeleton/dist/**/*.js",
       "limit": "2 s",
       "webpack": false,
       "running": false
     },
     {
-      "path": "packages/provider/es/**/*.js",
-      "limit": "2 s",
-      "webpack": false,
-      "running": false
-    },
-    {
-      "path": "packages/skeleton/lib/**/*.js",
-      "limit": "2 s",
-      "webpack": false,
-      "running": false
-    },
-    {
-      "path": "packages/skeleton/es/**/*.js",
-      "limit": "2 s",
-      "webpack": false,
-      "running": false
-    },
-    {
-      "path": "packages/table/lib/**/*.js",
-      "limit": "2 s",
-      "webpack": false,
-      "running": false
-    },
-    {
-      "path": "packages/table/es/**/*.js",
+      "path": "packages/table/dist/**/*.js",
       "limit": "2 s",
       "webpack": false,
       "running": false
