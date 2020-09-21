@@ -41,7 +41,7 @@ nav:
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | title | 描述列表的标题，显示在最顶部 | ReactNode | - |
-| tip | 内容的补充描述，hover 后显示 | string | - |
+| tooltip | 内容的补充描述，hover 后显示 | string | - |
 | loading | 展示一个加载的骨架屏，骨架屏和 dom 不会一一对应 | boolean | - |
 | extra | 描述列表的操作区域，显示在右上方 | string \| ReactNode | - |
 | bordered | 是否展示边框 | boolean | false |
@@ -57,7 +57,7 @@ nav:
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | label | 内容的描述 | ReactNode | - |
-| tip | 内容的补充描述，hover 后显示 | string | - |
+| tooltip | 内容的补充描述，hover 后显示 | string | - |
 | span | 包含列的数量 | number | 1 | - |
 | valueType | 格式化的类型 | ValueType | - |
 | valueEnum | 当前列值的枚举 [valueEnum](/components/table#valueenum) | `{[key:string`\|`number]:any}` | - |

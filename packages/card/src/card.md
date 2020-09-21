@@ -106,6 +106,12 @@ group:
 
 <code src="./demos/tabs-card.tsx" background="#f0f2f5"/>
 
+### 内部卡片
+
+可以放在卡片内部，展示多层级结构的信息。
+
+<code src="./demos/inner.tsx" />
+
 ### 竖向步骤示例
 
 `Steps` 组件结合 `ProCard` 组件完成竖向步骤示例。
@@ -118,7 +124,7 @@ group:
 | :-- | :-- | :-- | :-- |
 | title | 标题 | `React.ReactNode` | - |
 | subTitle | 副标题 | `React.ReactNode` | - |
-| tip | 标题右侧图标 hover 提示信息 | `string` | - |
+| tooltip | 标题右侧图标 hover 提示信息 | `string` | - |
 | extra | 右上角自定义区域 | `React.ReactNode` | - |
 | layout | 内容布局，支持垂直居中 | `default` \| `center`  | default |
 | loading | 加载中，支持自定义 loading 样式 | `boolean` \| `ReactNode` | false |
