@@ -349,7 +349,12 @@ interface IValueEnum {
 
 ### 批量操作
 
-与 antd 相同，批量操作需要设置 `rowSelection` 来开启，与 antd 不同的是，pro-table 提供了一个 alert 用于承载一些信息。你可以通过 `tableAlertRender` 来对它进行自定义。设置或者返回 false 即可关闭。
+与 antd 相同，批量操作需要设置 `rowSelection` 来开启，与 antd 不同的是，pro-table 提供了一个 alert 用于承载一些信息。你可以通过 `tableAlertRender`和 `tableAlertOptionRender` 来对它进行自定义。设置或者返回 false 即可关闭。
+
+| 属性 | 描述 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| tableAlertRender | 自定义批量操作工具栏左侧信息区域, false 时不显示 | `({ selectedRowKeys: (string | number)[], selectedRows: T[], onCleanSelected: ()=>void }) => React.ReactNode) \| false;` | - |
+| tableAlertOptionRender | 自定义批量操作工具栏右侧选项区域, false 时不显示 | `({ selectedRowKeys: (string | number)[], selectedRows: T[], onCleanSelected: ()=>void }) => React.ReactNode) \| false;` | - |
 
 ### 搜索表单
 
