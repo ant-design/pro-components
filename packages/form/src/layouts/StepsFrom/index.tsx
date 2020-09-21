@@ -50,7 +50,7 @@ const StepsFrom: React.FC<StepsFromProps> & {
   useForm: typeof Form.useForm;
 } = (props) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const prefixCls = getPrefixCls('pro-form-steps-form');
+  const prefixCls = getPrefixCls('pro-steps-form');
 
   const { current, onCurrentChange, stepsProps, onFinish, formProps, ...rest } = props;
   const formDataRef = useRef(new Map<string, Store>());
@@ -112,12 +112,19 @@ const StepsFrom: React.FC<StepsFromProps> & {
   );
 
   const stepsDom = (
-    <Steps {...stepsProps} current={step} onChange={undefined}>
-      {formArray.map((item) => {
-        const itemProps = formMapRef.current.get(item);
-        return <Steps.Step key={item} title={itemProps?.title} />;
-      })}
-    </Steps>
+    <div
+      className={`${prefixCls}-steps-container`}
+      style={{
+        maxWidth: Math.min(formArray.length * 320, 1160),
+      }}
+    >
+      <Steps {...stepsProps} current={step} onChange={undefined}>
+        {formArray.map((item) => {
+          const itemProps = formMapRef.current.get(item);
+          return <Steps.Step key={item} title={itemProps?.title} />;
+        })}
+      </Steps>
+    </div>
   );
 
   return (

@@ -8,7 +8,7 @@ import React, {
   useMemo,
 } from 'react';
 import { Table, ConfigProvider, Card, Space, Empty } from 'antd';
-import { useIntl, IntlType, ParamsType, ConfigProviderWarp } from '@ant-design/pro-provider';
+import { useIntl, ParamsType, ConfigProviderWarp } from '@ant-design/pro-provider';
 import classNames from 'classnames';
 import get from 'rc-util/lib/utils/get';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -42,7 +42,7 @@ import {
 import useFetchData, { RequestData } from './useFetchData';
 import Container, { useCounter, ColumnsState } from './container';
 import Toolbar, { OptionConfig, ToolBarProps } from './component/ToolBar';
-import Alert from './component/Alert';
+import Alert, { AlertRenderType } from './component/Alert';
 import FormSearch, { SearchConfig, TableFormItem } from './Form';
 import {
   genColumnKey,
@@ -243,25 +243,17 @@ export interface ProTableProps<T, U extends ParamsType>
   /**
    * 格式化搜索表单提交数据
    */
-  beforeSearchSubmit?: (params: Partial<U>) => Partial<U>;
+  beforeSearchSubmit?: (params: Partial<U>) => any;
   /**
    * 自定义 table 的 alert
    * 设置或者返回false 即可关闭
    */
-  tableAlertRender?:
-    | ((props: {
-        intl: IntlType;
-        selectedRowKeys: (string | number)[];
-        selectedRows: T[];
-      }) => React.ReactNode)
-    | false;
+  tableAlertRender?: AlertRenderType<T>;
   /**
    * 自定义 table 的 alert 的操作
    * 设置或者返回false 即可关闭
    */
-  tableAlertOptionRender?:
-    | ((props: { intl: IntlType; onCleanSelected: () => void }) => React.ReactNode)
-    | false;
+  tableAlertOptionRender?: AlertRenderType<T>;
 
   rowSelection?: TableProps<T>['rowSelection'] | false;
 
@@ -366,9 +358,9 @@ const columnRender = <T, U = any>({
 const renderColumnsTitle = (item: ProColumns<any>) => {
   const { title } = item;
   if (title && typeof title === 'function') {
-    return title(item, 'table', <LabelIconTip label={title} tip={item.tip} />);
+    return title(item, 'table', <LabelIconTip label={title} tooltip={item.tooltip || item.tip} />);
   }
-  return <LabelIconTip label={title} tip={item.tip} />;
+  return <LabelIconTip label={title} tooltip={item.tooltip || item.tip} />;
 };
 
 const defaultOnFilter = (value: string, record: any, dataIndex: string | string[]) => {
@@ -397,8 +389,8 @@ const genColumnList = <T, U = {}>(
   },
   counter: ReturnType<typeof useCounter>,
   columnEmptyText?: ProFieldEmptyText,
-): (ColumnsType<T>[number] & { index?: number })[] =>
-  (columns
+): (ColumnsType<T>[number] & { index?: number })[] => {
+  return (columns
     .map((item, columnsIndex) => {
       const { key, dataIndex, valueEnum, valueType, filters = [] } = item;
       const columnKey = genColumnKey(key, columnsIndex);
@@ -443,6 +435,7 @@ const genColumnList = <T, U = {}>(
       index?: number;
     }
   >;
+};
 
 /**
  * 🏆 Use Ant Design Table like a Pro!
@@ -520,7 +513,6 @@ const ProTable = <T extends {}, U extends ParamsType>(
     typeof propsPagination === 'object'
       ? (propsPagination as TablePaginationConfig)
       : { defaultCurrent: 1, defaultPageSize: 20, pageSize: 20, current: 1 };
-
   const action = useFetchData(
     async (pageParams) => {
       // 需要手动触发的首次请求
@@ -762,7 +754,6 @@ const ProTable = <T extends {}, U extends ParamsType>(
         }
         // 制造筛选的数据
         setProFilter(omitUndefinedAndEmptyArr<any>(filters));
-
         // 制造一个排序的数据
         if (Array.isArray(sorter)) {
           const data = sorter.reduce<{

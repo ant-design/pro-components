@@ -11,22 +11,22 @@ import './index.less';
 const LabelIconTip: React.FC<{
   label: React.ReactNode;
   subTitle?: React.ReactNode;
-  tip?: string | TooltipProps;
+  tooltip?: string | TooltipProps;
 }> = (props) => {
-  const { label, tip, subTitle } = props;
-
+  const { label, tooltip, subTitle } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  if (!tip && !subTitle) {
+
+  if (!tooltip && !subTitle) {
     return <>{label}</>;
   }
   const className = getPrefixCls('pro-core-label-tip');
-  const tooltipProps = typeof tip === 'string' ? { title: tip } : (tip as TooltipProps);
+  const tooltipProps = typeof tooltip === 'string' ? { title: tooltip } : (tooltip as TooltipProps);
 
   return (
     <Space size={4} className={className}>
       {label}
       {subTitle && <div className={`${className}-subtitle`}>{subTitle}</div>}
-      {tip && (
+      {tooltip && (
         <Tooltip {...tooltipProps}>
           <InfoCircleOutlined className={`${className}-icon`} />
         </Tooltip>

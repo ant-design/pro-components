@@ -4,7 +4,7 @@ import FieldContext from '../../FieldContext';
 import { GroupProps } from '../../interface';
 import './index.less';
 
-const Group: React.FC<GroupProps> = (props) => {
+const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
   const { groupProps } = React.useContext(FieldContext);
   const { children, style, title, size = 32, titleStyle, titleRender } = {
     ...groupProps,
@@ -14,7 +14,7 @@ const Group: React.FC<GroupProps> = (props) => {
   const className = getPrefixCls('pro-form-group');
 
   return (
-    <div style={style}>
+    <div style={style} ref={ref}>
       <div className={`${className}-title`} style={titleStyle}>
         {titleRender ? titleRender(title, props) : title}
       </div>
@@ -23,6 +23,6 @@ const Group: React.FC<GroupProps> = (props) => {
       </Space>
     </div>
   );
-};
+});
 
 export default Group;

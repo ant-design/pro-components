@@ -45,6 +45,10 @@ export interface ExtendsProps {
   secondary?: boolean;
   bordered?: boolean;
   colSize?: number;
+  tooltip?: string;
+  /**
+   * @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一
+   */
   tip?: string | TooltipProps;
 }
 
@@ -78,7 +82,7 @@ export function createField<P extends ProFormItemProps = any>(
 ): ProFormComponent<P, ExtendsProps> {
   const FieldWithContext: React.FC<P> = (props: P & ExtendsProps) => {
     const size = useContext(SizeContext);
-    const { label, tip, placeholder, width, proFieldProps, bordered, ...rest } = props;
+    const { label, tip, tooltip, placeholder, width, proFieldProps, bordered, ...rest } = props;
     const {
       valueType,
       customLightMode,
@@ -132,7 +136,7 @@ export function createField<P extends ProFormItemProps = any>(
         // 轻量模式下不通过 FormItem 显示 label
         label={
           label && proFieldProps?.light !== true ? (
-            <LabelIconTip label={label} tip={tip} />
+            <LabelIconTip label={label} tooltip={tooltip || tip} />
           ) : undefined
         }
         valuePropName={valuePropName}
