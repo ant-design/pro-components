@@ -121,55 +121,55 @@
   },
   "size-limit": [
     {
-      "path": "packages/card/dist/**/*.js",
+      "path": "packages/card/dist/**/*.min.js",
       "limit": "2 s",
       "webpack": false,
       "running": false
     },
     {
-      "path": "packages/descriptions/dist/**/*.js",
+      "path": "packages/descriptions/dist/**/*.min.js",
       "limit": "2 s",
       "webpack": false,
       "running": false
     },
     {
-      "path": "packages/field/dist/**/*.js",
+      "path": "packages/field/dist/**/*.min.js",
       "limit": "2 s",
       "webpack": false,
       "running": false
     },
     {
-      "path": "packages/form/dist/**/*.js",
+      "path": "packages/form/dist/**/*.min.js",
       "limit": "2 s",
       "webpack": false,
       "running": false
     },
     {
-      "path": "packages/layout/dist/**/*.js",
+      "path": "packages/layout/dist/**/*.min.js",
       "limit": "2 s",
       "webpack": false,
       "running": false
     },
     {
-      "path": "packages/list/lib/**/*.js",
+      "path": "packages/list/lib/**/*.min.js",
       "limit": "2 s",
       "webpack": false,
       "running": false
     },
     {
-      "path": "packages/provider/dist/**/*.js",
+      "path": "packages/provider/dist/**/*.min.js",
       "limit": "2 s",
       "webpack": false,
       "running": false
     },
     {
-      "path": "packages/skeleton/dist/**/*.js",
+      "path": "packages/skeleton/dist/**/*.min.js",
       "limit": "2 s",
       "webpack": false,
       "running": false
     },
     {
-      "path": "packages/table/dist/**/*.js",
+      "path": "packages/table/dist/**/*.min.js",
       "limit": "2 s",
       "webpack": false,
       "running": false
