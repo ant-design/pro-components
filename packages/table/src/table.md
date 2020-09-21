@@ -353,8 +353,8 @@ interface IValueEnum {
 
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| tableAlertRender | 自定义批量操作工具栏的左侧部分, false 时不显示 | `({ selectedRowKeys: (string | number)[], selectedRows: T[], onCleanSelected: ()=>void }) => React.ReactNode) \| false;` | - |
-| tableAlertOptionRender | 自定义批量操作工具栏的右侧部分, false 时不显示 | `({ selectedRowKeys: (string | number)[], selectedRows: T[], onCleanSelected: ()=>void }) => React.ReactNode) \| false;` | - |
+| tableAlertRender | 自定义批量操作工具栏左侧信息区域, false 时不显示 | `({ selectedRowKeys: (string | number)[], selectedRows: T[], onCleanSelected: ()=>void }) => React.ReactNode) \| false;` | - |
+| tableAlertOptionRender | 自定义批量操作工具栏右侧选项区域, false 时不显示 | `({ selectedRowKeys: (string | number)[], selectedRows: T[], onCleanSelected: ()=>void }) => React.ReactNode) \| false;` | - |
 
 ### 搜索表单
 
