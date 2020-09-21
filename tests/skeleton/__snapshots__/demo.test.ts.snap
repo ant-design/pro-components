@@ -630,6 +630,72 @@ Array [
 ]
 `;
 
+exports[`card demos renders ./packages/card/src/demos/inner.tsx correctly 1`] = `
+<div
+  class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card"
+>
+  <div
+    class="ant-pro-card-header ant-pro-card-header-border"
+  >
+    <div
+      class="ant-pro-card-title"
+    >
+      卡片标题
+    </div>
+    <div
+      class="ant-pro-card-extra"
+    />
+  </div>
+  <div
+    class="ant-pro-card-body"
+  >
+    <div
+      class="ant-pro-card ant-pro-card-border ant-pro-card-type-inner"
+    >
+      <div
+        class="ant-pro-card-header ant-pro-card-header-border"
+      >
+        <div
+          class="ant-pro-card-title"
+        >
+          内部卡片标题
+        </div>
+        <div
+          class="ant-pro-card-extra"
+        />
+      </div>
+      <div
+        class="ant-pro-card-body"
+      >
+        内部卡片内容
+      </div>
+    </div>
+    <div
+      class="ant-pro-card ant-pro-card-border ant-pro-card-type-inner"
+      style="margin-left: 16px;"
+    >
+      <div
+        class="ant-pro-card-header ant-pro-card-header-border"
+      >
+        <div
+          class="ant-pro-card-title"
+        >
+          内部卡片标题
+        </div>
+        <div
+          class="ant-pro-card-extra"
+        />
+      </div>
+      <div
+        class="ant-pro-card-body"
+      >
+        内部卡片内容
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`card demos renders ./packages/card/src/demos/layout.tsx correctly 1`] = `
 <div
   class="ant-pro-card"

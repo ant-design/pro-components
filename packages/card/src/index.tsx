@@ -52,6 +52,11 @@ export type ProCardProps = {
   /**
    * 标题说明
    */
+  tooltip?: string;
+
+  /**
+   * @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一
+   */
   tip?: string;
   /**
    * 右上角自定义区域
@@ -61,6 +66,10 @@ export type ProCardProps = {
    * 布局，center 代表垂直居中
    */
   layout?: 'default' | 'center';
+  /**
+   * 卡片类型
+   */
+  type?: 'inner';
   /**
    * 加载中
    */
@@ -117,6 +126,7 @@ const ProCard: ProCardType = (props) => {
     loading,
     colSpan,
     gutter = 0,
+    tooltip,
     split,
     headerBordered = false,
     bordered = false,
@@ -126,6 +136,7 @@ const ProCard: ProCardType = (props) => {
     collapsible = false,
     defaultCollapsed = false,
     onCollapse,
+    type,
   } = props;
 
   const screens = useBreakpoint();
@@ -253,6 +264,7 @@ const ProCard: ProCardType = (props) => {
           [`${prefixCls}-loading`]: loading,
           [`${prefixCls}-split`]: split === 'vertical' || split === 'horizontal',
           [`${prefixCls}-ghost`]: ghost,
+          [`${prefixCls}-type-${type}`]: type,
         });
 
         const headerCls = classNames(`${prefixCls}-header`, {
@@ -292,7 +304,7 @@ const ProCard: ProCardType = (props) => {
             {(title || extra || collapsibleButton) && (
               <div className={headerCls} style={headStyle}>
                 <div className={`${prefixCls}-title`}>
-                  <LabelIconTip label={title} tip={tip} subTitle={subTitle} />
+                  <LabelIconTip label={title} tooltip={tooltip || tip} subTitle={subTitle} />
                   {collapsibleButton}
                 </div>
                 <div className={`${prefixCls}-extra`}>{extra}</div>

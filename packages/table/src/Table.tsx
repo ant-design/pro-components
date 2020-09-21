@@ -370,9 +370,9 @@ const columnRender = <T, U = any>({
 const renderColumnsTitle = (item: ProColumns<any>) => {
   const { title } = item;
   if (title && typeof title === 'function') {
-    return title(item, 'table', <LabelIconTip label={title} tip={item.tip} />);
+    return title(item, 'table', <LabelIconTip label={title} tooltip={item.tooltip || item.tip} />);
   }
-  return <LabelIconTip label={title} tip={item.tip} />;
+  return <LabelIconTip label={title} tooltip={item.tooltip || item.tip} />;
 };
 
 const defaultOnFilter = (value: string, record: any, dataIndex: string | string[]) => {

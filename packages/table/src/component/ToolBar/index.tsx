@@ -23,7 +23,11 @@ export type OptionsType<T = unknown> =
   | boolean;
 
 export interface ToolBarProps<T = unknown> {
-  headerTitle?: ListToolBarProps['title'];
+  headerTitle?: React.ReactNode;
+  tooltip?: string;
+  /**
+   * @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一
+   */
   tip?: string;
   toolbar?: ListToolBarProps;
   toolBarRender?: (
@@ -118,7 +122,7 @@ const renderDefaultOption = <T, U = {}>(
 
 const ToolBar = <T, U = {}>({
   headerTitle,
-  tip,
+  tooltip,
   toolBarRender,
   action,
   options: propsOptions,
@@ -126,6 +130,7 @@ const ToolBar = <T, U = {}>({
   selectedRows,
   toolbar,
   onSearch,
+  ...rest
 }: ToolBarProps<T>) => {
   const defaultOptions = {
     reload: () => action.reload(),
@@ -154,7 +159,7 @@ const ToolBar = <T, U = {}>({
   return (
     <ListToolBar
       title={headerTitle}
-      tip={tip}
+      tip={tooltip || rest.tip}
       search={options && options.search}
       onSearch={onSearch}
       actions={actions}
