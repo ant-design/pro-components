@@ -412,4 +412,37 @@ describe('BasicTable', () => {
 
     expect(fn).toBeCalledWith('middle');
   });
+
+  it('🎏 loading test', async () => {
+    const html = mount(
+      <ProTable
+        columns={[
+          {
+            title: 'money',
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+        ]}
+        request={async () => {
+          return new Promise((resolve) => {
+            setTimeout(() => {
+              resolve({ data: [] });
+            }, 5000);
+          });
+        }}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 1200);
+    expect(html.find('.ant-spin').exists()).toBeTruthy();
+
+    act(() => {
+      html.setProps({
+        loading: false,
+      });
+    });
+    await waitForComponentToPaint(html, 1200);
+    // props 指定为 false 后，无论 request 完成与否都不会出现 spin
+    expect(html.find('.ant-spin').exists()).toBeFalsy();
+  });
 });
