@@ -17348,7 +17348,15 @@ process@^0.11.10:
   resolved "https://registry.npm.taobao.org/process/download/process-0.11.10.tgz#7332300e840161bda3e69a1d1d91a7d4bc16f182"
   integrity sha1-czIwDoQBYb2j5podHZGn1LwW8YI=
 
-progress@^2.0.0, progress@^2.0.1:
+progress-bar-webpack-plugin@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.npm.taobao.org/progress-bar-webpack-plugin/download/progress-bar-webpack-plugin-2.1.0.tgz#f7f8c8c461f40b87a8ff168443f494289b07ee65"
+  integrity sha1-9/jIxGH0C4eo/xaEQ/SUKJsH7mU=
+  dependencies:
+    chalk "^3.0.0"
+    progress "^2.0.3"
+
+progress@^2.0.0, progress@^2.0.1, progress@^2.0.3:
   version "2.0.3"
   resolved "https://registry.npm.taobao.org/progress/download/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha1-foz42PW48jnBvGi+tOt4Vn1XLvg=
