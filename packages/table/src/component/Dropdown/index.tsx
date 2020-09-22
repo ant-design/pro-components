@@ -15,12 +15,12 @@ export interface DropdownProps {
 }
 
 /**
- * 默认的 index 列容器，提供一个好看的 index
+ * 一个简单的下拉菜单
  * @param param0
  */
 const DropdownButton: React.FC<DropdownProps> = ({
   children,
-  menus = [],
+  menus,
   onSelect,
   className,
   style,
@@ -30,7 +30,7 @@ const DropdownButton: React.FC<DropdownProps> = ({
   const tempClassName = getPrefixCls('pro-table-dropdown');
   const menu = (
     <Menu onClick={(params) => onSelect && onSelect(params.key as string)}>
-      {menus.map((item) => (
+      {menus?.map((item) => (
         <Menu.Item key={item.key}>{item.name}</Menu.Item>
       ))}
     </Menu>
