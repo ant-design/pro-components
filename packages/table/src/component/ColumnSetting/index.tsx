@@ -10,7 +10,7 @@ import {
 import { Checkbox, Popover, Tooltip } from 'antd';
 import { DndProvider } from 'react-dnd';
 import classNames from 'classnames';
-import Backend from 'react-dnd-html5-backend';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 
 import Container, { ColumnsState } from '../../container';
 import { ProColumns } from '../../Table';
@@ -136,7 +136,7 @@ const CheckboxList: React.FC<{
     const newMap = { ...columnsMap };
     const newColumns = [...sortKeyColumns];
     const findIndex = newColumns.findIndex((columnKey) => columnKey === id);
-    if (findIndex === undefined) {
+    if (findIndex < 0) {
       return;
     }
     const index = newColumns[findIndex];
@@ -176,7 +176,7 @@ const CheckboxList: React.FC<{
     );
   });
   return (
-    <DndProvider backend={Backend}>
+    <DndProvider backend={HTML5Backend}>
       {showTitle && <span className={`${className}-list-title`}>{listTitle}</span>}
       {listDom}
     </DndProvider>
@@ -241,10 +241,12 @@ const ColumnSetting = <T, U = {}>(props: ColumnSettingProps<T>) => {
   const localColumns: Omit<ProColumns<any> & { index?: number }, 'ellipsis'>[] =
     props.columns || counter.columns || [];
 
-  const { columnsMap, setColumnsMap, setSortKeyColumns } = counter;
+  const { columnsMap, setColumnsMap } = counter;
 
   useEffect(() => {
-    columnRef.current = JSON.parse(JSON.stringify(columnsMap));
+    if (columnsMap) {
+      columnRef.current = JSON.parse(JSON.stringify(columnsMap));
+    }
   }, []);
 
   /**
@@ -297,7 +299,6 @@ const ColumnSetting = <T, U = {}>(props: ColumnSettingProps<T>) => {
           <a
             onClick={() => {
               setColumnsMap(columnRef.current);
-              setSortKeyColumns([]);
             }}
           >
             {intl.getMessage('tableToolBar.reset', '重置')}
