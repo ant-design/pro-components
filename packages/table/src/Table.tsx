@@ -151,6 +151,11 @@ export interface ProTableProps<T, U extends ParamsType>
     },
   ) => React.ReactNode;
 
+  /**
+   * 渲染 table 视图，用于定制 ProList，不推荐直接使用
+   */
+  tableViewRender?: (props: TableProps<T>) => JSX.Element | undefined;
+
   tableExtraRender?: (props: ProTableProps<T, U>, dataSource: T[]) => React.ReactNode;
 
   /**
@@ -180,8 +185,8 @@ export interface ProTableProps<T, U extends ParamsType>
    * 初始化的参数，可以操作 table
    */
   actionRef?:
-    | React.MutableRefObject<ProCoreActionType | undefined>
-    | ((actionRef: ProCoreActionType) => void);
+  | React.MutableRefObject<ProCoreActionType | undefined>
+  | ((actionRef: ProCoreActionType) => void);
 
   /**
    * 操作自带的 form
@@ -410,19 +415,19 @@ const genColumnList = <T, U = {}>(
         filters:
           filters === true
             ? proFieldParsingValueEnumToArray(valueEnum).filter(
-                (valueItem) => valueItem && valueItem.value !== 'all',
-              )
+              (valueItem) => valueItem && valueItem.value !== 'all',
+            )
             : filters,
         ellipsis: false,
         fixed: config.fixed,
         width: item.width || (item.fixed ? 200 : undefined),
         children: (item as ProColumnGroupType<T>).children
           ? genColumnList(
-              (item as ProColumnGroupType<T>).children as ProColumns<T>[],
-              map,
-              counter,
-              columnEmptyText,
-            )
+            (item as ProColumnGroupType<T>).children as ProColumns<T>[],
+            map,
+            counter,
+            columnEmptyText,
+          )
           : undefined,
         render: (text: any, row: T, index: number) =>
           columnRender<T>({ item, text, row, index, columnEmptyText, counter }),
@@ -430,10 +435,10 @@ const genColumnList = <T, U = {}>(
       return omitUndefinedAndEmptyArr(tempColumns);
     })
     .filter((item) => !item.hideInTable) as unknown) as Array<
-    ColumnsType<T>[number] & {
-      index?: number;
-    }
-  >;
+      ColumnsType<T>[number] & {
+        index?: number;
+      }
+    >;
 };
 
 /**
@@ -472,7 +477,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     defaultClassName,
     formRef,
     type = 'table',
-    onReset = () => {},
+    onReset = () => { },
     columnEmptyText = '-',
     manualRequest = false,
     ...rest
@@ -693,8 +698,8 @@ const ProTable = <T extends {}, U extends ParamsType>(
             const { name = 'keyword' } =
               options.search === true
                 ? {
-                    name: 'keyword',
-                  }
+                  name: 'keyword',
+                }
                 : options.search;
             setFormSearch({
               ...formSearch,
@@ -719,58 +724,62 @@ const ProTable = <T extends {}, U extends ParamsType>(
   );
   const dataSource = request ? (action.dataSource as T[]) : props.dataSource || [];
   const loading = props.loading !== undefined ? props.loading : action.loading;
-  const tableDom = (
-    <Table<T>
-      {...rest}
-      size={counter.tableSize}
-      rowSelection={propsRowSelection === false ? undefined : rowSelection}
-      className={tableClassName}
-      style={tableStyle}
-      columns={counter.columns.filter((item) => {
-        // 删掉不应该显示的
-        const columnKey = genColumnKey(item.key, item.index);
-        if (!columnKey) {
-          return true;
-        }
-        const config = counter.columnsMap[columnKey];
-        if (config && config.show === false) {
-          return false;
-        }
+  const tableProps = {
+    ...rest,
+    size: counter.tableSize,
+    rowSelection: propsRowSelection === false ? undefined : rowSelection,
+    className: tableClassName,
+    style: tableStyle,
+    columns: counter.columns.filter((item) => {
+      // 删掉不应该显示的
+      const columnKey = genColumnKey(item.key, item.index);
+      if (!columnKey) {
         return true;
-      })}
-      loading={loading}
-      dataSource={request ? (action.dataSource as T[]) : props.dataSource || []}
-      pagination={pagination}
-      onChange={(
-        changePagination: TablePaginationConfig,
-        filters: {
-          [string: string]: React.ReactText[] | null;
-        },
-        sorter: SorterResult<T> | SorterResult<T>[],
-        extra: TableCurrentDataSource<T>,
-      ) => {
-        if (rest.onChange) {
-          rest.onChange(changePagination, filters, sorter, extra);
-        }
-        // 制造筛选的数据
-        setProFilter(omitUndefinedAndEmptyArr<any>(filters));
-        // 制造一个排序的数据
-        if (Array.isArray(sorter)) {
-          const data = sorter.reduce<{
-            [key: string]: any;
-          }>((pre, value) => {
-            return {
-              ...pre,
-              [`${value.field}`]: value.order,
-            };
-          }, {});
-          setProSort(omitUndefined<any>(data));
-        } else {
-          setProSort(omitUndefined({ [`${sorter.field}`]: sorter.order as SortOrder }));
-        }
-      }}
-    />
-  );
+      }
+      const config = counter.columnsMap[columnKey];
+      if (config && config.show === false) {
+        return false;
+      }
+      return true;
+    }),
+    loading,
+    dataSource: request ? (action.dataSource as T[]) : props.dataSource || [],
+    pagination,
+    onChange: (
+      changePagination: TablePaginationConfig,
+      filters: {
+        [string: string]: React.ReactText[] | null;
+      },
+      sorter: SorterResult<T> | SorterResult<T>[],
+      extra: TableCurrentDataSource<T>,
+    ) => {
+      if (rest.onChange) {
+        rest.onChange(changePagination, filters, sorter, extra);
+      }
+      // 制造筛选的数据
+      setProFilter(omitUndefinedAndEmptyArr<any>(filters));
+      // 制造一个排序的数据
+      if (Array.isArray(sorter)) {
+        const data = sorter.reduce<{
+          [key: string]: any;
+        }>((pre, value) => {
+          return {
+            ...pre,
+            [`${value.field}`]: value.order,
+          };
+        }, {});
+        setProSort(omitUndefined<any>(data));
+      } else {
+        setProSort(omitUndefined({ [`${sorter.field}`]: sorter.order as SortOrder }));
+      }
+    },
+  };
+
+  const tableDom = props.tableViewRender ? (
+    props.tableViewRender(tableProps)
+  ) : (
+      <Table<T> {...tableProps} />
+    );
   /**
    * table 区域的 dom，为了方便 render
    */

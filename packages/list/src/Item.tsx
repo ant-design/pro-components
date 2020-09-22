@@ -2,7 +2,6 @@ import React from 'react';
 import { List, Skeleton, Avatar } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { AvatarProps } from 'antd/lib/avatar';
 import { ListGridType } from 'antd/lib/list';
 import { ExpandableConfig } from 'antd/lib/table/interface';
 import classNames from 'classnames';
@@ -55,7 +54,7 @@ export interface ItemProps {
   };
   index?: number;
   selected?: boolean;
-  avatar?: string | AvatarProps;
+  avatar?: React.ReactNode;
   children?: React.ReactNode;
   actions?: React.ReactNode[];
   description?: React.ReactNode;
@@ -70,31 +69,6 @@ export interface ItemProps {
   showActions?: 'hover' | 'always';
   type?: 'new' | 'top' | 'inline' | 'subheader';
 }
-
-/**
- * 头像的语法糖，支持之传入 Avatar
- * @param param
- */
-const ProListItemAvatar: React.FC<{
-  className: string;
-  avatar: string | AvatarProps;
-}> = ({ className, avatar }) => {
-  if (!avatar) {
-    return null;
-  }
-  if (typeof avatar === 'string') {
-    return (
-      <div className={`${className}-avatar`}>
-        <Avatar size={22} src={avatar} />
-      </div>
-    );
-  }
-  return (
-    <div className={`${className}-avatar`}>
-      <Avatar size={22} {...avatar} />
-    </div>
-  );
-};
 
 function ProListItem(props: ItemProps) {
   const { prefixCls: customizePrefixCls } = props;
@@ -168,7 +142,7 @@ function ProListItem(props: ItemProps) {
                 })}
             </div>
             <List.Item.Meta
-              avatar={avatar && <ProListItemAvatar className={className} avatar={avatar} />}
+              avatar={avatar}
               title={
                 <div className={`${className}-header-title`}>
                   {title && <div className={`${className}-title`}>{title}</div>}
@@ -183,7 +157,6 @@ function ProListItem(props: ItemProps) {
           </div>
           {needExpanded && (children || expandedRowDom) && (
             <div className={`${className}-content`}>
-              {children}
               {expandedRowRender && rowSupportExpand && (
                 <div
                   className={expandedRowClassName && expandedRowClassName(item, index, indentSize)}
