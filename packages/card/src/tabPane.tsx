@@ -1,6 +1,5 @@
-import React from 'react';
-import { ConfigConsumer, ConfigConsumerProps } from 'antd/lib/config-provider/context';
-import { Tabs } from 'antd';
+import React, { useContext } from 'react';
+import { Tabs, ConfigProvider } from 'antd';
 import { TabPaneProps } from 'antd/lib/tabs';
 import classNames from 'classnames';
 
@@ -23,29 +22,23 @@ const TabPane: React.FC<ProCardTabPaneProps> = (props) => {
     style,
     ...rest
   } = props;
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const prefixCls = getPrefixCls('pro-card-tabpane');
+  const tabPaneClassName = classNames(prefixCls, className);
 
   return (
-    <ConfigConsumer>
-      {({ getPrefixCls }: ConfigConsumerProps) => {
-        const prefixCls = getPrefixCls('pro-card-tabpane');
-        const tabPaneClassName = classNames(prefixCls, className);
-
-        return (
-          <Tabs.TabPane
-            key={key}
-            tabKey={tabKey}
-            tab={tab}
-            className={tabPaneClassName}
-            style={style}
-            disabled={disabled}
-            destroyInactiveTabPane={destroyInactiveTabPane}
-            {...rest}
-          >
-            <ProCard {...rest}>{children}</ProCard>
-          </Tabs.TabPane>
-        );
-      }}
-    </ConfigConsumer>
+    <Tabs.TabPane
+      key={key}
+      tabKey={tabKey}
+      tab={tab}
+      className={tabPaneClassName}
+      style={style}
+      disabled={disabled}
+      destroyInactiveTabPane={destroyInactiveTabPane}
+      {...rest}
+    >
+      <ProCard {...rest}>{children}</ProCard>
+    </Tabs.TabPane>
   );
 };
 

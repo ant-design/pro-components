@@ -21,7 +21,6 @@ import {
   SortOrder,
   ColumnFilterItem,
 } from 'antd/lib/table/interface';
-import { ConfigContext as AntdConfigContext } from 'antd/lib/config-provider';
 import {
   ProFieldEmptyText,
   ProFieldValueType,
@@ -856,7 +855,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
  * @param props
  */
 const ProviderWarp = <T, U extends { [key: string]: any } = {}>(props: ProTableProps<T, U>) => {
-  const { getPrefixCls } = useContext(AntdConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   return (
     <Container.Provider initialState={props}>
       <ConfigProviderWarp>

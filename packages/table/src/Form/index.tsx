@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useRef, useCallback } from 'react';
 import { FormInstance, FormItemProps, FormProps } from 'antd/lib/form';
-import { Form } from 'antd';
+import { Form, ConfigProvider } from 'antd';
 import { useIntl, IntlType } from '@ant-design/pro-provider';
 import ProForm, { QueryFilter, ProFormField, BaseQueryFilterProps } from '@ant-design/pro-form';
 import classNames from 'classnames';
 import { ProFieldValueType } from '@ant-design/pro-field';
-import { ConfigContext } from 'antd/lib/config-provider/context';
+
 import {
   useDeepCompareEffect,
   ProSchemaComponentTypes,
@@ -257,7 +257,7 @@ const FormSearch = <T, U = any>({
     valueTypeRef.current = tempMap;
   }, [counter.proColumns]);
 
-  const { getPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
   const columnsList = counter.proColumns
     .filter((item) => {

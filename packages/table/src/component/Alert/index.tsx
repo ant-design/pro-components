@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
-import { ConfigContext } from 'antd/lib/config-provider/context';
-import { Alert, Space } from 'antd';
+import { Alert, Space, ConfigProvider } from 'antd';
 import './index.less';
 import { useIntl, IntlType } from '@ant-design/pro-provider';
 
@@ -53,7 +52,7 @@ const TableAlert = <T, U = {}>({
       selectedRows,
       intl,
     });
-  const { getPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-table-alert');
   if (alertInfoRender === false) {
     return null;

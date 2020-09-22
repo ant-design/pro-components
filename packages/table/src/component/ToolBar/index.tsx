@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { ReloadOutlined, SettingOutlined } from '@ant-design/icons';
-import { Divider, Space, Tooltip, Input } from 'antd';
-import { ConfigContext } from 'antd/lib/config-provider/context';
+import { Divider, Space, ConfigProvider, Tooltip, Input } from 'antd';
 import { SearchProps } from 'antd/lib/input';
 import { useIntl, IntlType } from '@ant-design/pro-provider';
 import { LabelIconTip } from '@ant-design/pro-utils';
@@ -137,7 +136,7 @@ const ToolBar = <T, U = {}>({
   onSearch,
   ...rest
 }: ToolBarProps<T>) => {
-  const { getPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-table-toolbar');
 
   const defaultOptions = {
