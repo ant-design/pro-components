@@ -1,13 +1,12 @@
 import React, { useContext, useEffect, useRef } from 'react';
 import { useIntl } from '@ant-design/pro-provider';
-import { ConfigContext } from 'antd/lib/config-provider';
 import {
   SettingOutlined,
   VerticalAlignMiddleOutlined,
   VerticalAlignTopOutlined,
   VerticalAlignBottomOutlined,
 } from '@ant-design/icons';
-import { Checkbox, Popover, Tooltip } from 'antd';
+import { Checkbox, Popover, ConfigProvider, Tooltip } from 'antd';
 import { DndProvider } from 'react-dnd';
 import classNames from 'classnames';
 import { HTML5Backend } from 'react-dnd-html5-backend';
@@ -274,7 +273,7 @@ const ColumnSetting = <T, U = {}>(props: ColumnSettingProps<T>) => {
   const indeterminate = selectedKeys.length > 0 && selectedKeys.length !== localColumns.length;
 
   const intl = useIntl();
-  const { getPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-table-column-setting');
   const toolBarClassName = getPrefixCls('pro-table-toolbar');
 

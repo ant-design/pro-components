@@ -17207,7 +17207,15 @@ process@^0.11.10:
   resolved "https://registry.npm.taobao.org/process/download/process-0.11.10.tgz#7332300e840161bda3e69a1d1d91a7d4bc16f182"
   integrity sha1-czIwDoQBYb2j5podHZGn1LwW8YI=
 
-progress@^2.0.0, progress@^2.0.1:
+progress-bar-webpack-plugin@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.npm.taobao.org/progress-bar-webpack-plugin/download/progress-bar-webpack-plugin-2.1.0.tgz#f7f8c8c461f40b87a8ff168443f494289b07ee65"
+  integrity sha1-9/jIxGH0C4eo/xaEQ/SUKJsH7mU=
+  dependencies:
+    chalk "^3.0.0"
+    progress "^2.0.3"
+
+progress@^2.0.0, progress@^2.0.1, progress@^2.0.3:
   version "2.0.3"
   resolved "https://registry.npm.taobao.org/progress/download/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha1-foz42PW48jnBvGi+tOt4Vn1XLvg=
@@ -17839,9 +17847,9 @@ rc-select@^11.1.1:
     warning "^4.0.3"
 
 rc-select@~11.2.0:
-  version "11.2.2"
-  resolved "https://registry.npm.taobao.org/rc-select/download/rc-select-11.2.2.tgz?cache=0&sync_timestamp=1600235453895&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Frc-select%2Fdownload%2Frc-select-11.2.2.tgz#ea929e01ece1a7254ed113ad2b376f9d36b6bc9a"
-  integrity sha1-6pKeAezhpyVO0ROtKzdvnTa2vJo=
+  version "11.2.1"
+  resolved "https://registry.npm.taobao.org/rc-select/download/rc-select-11.2.1.tgz?cache=0&sync_timestamp=1600076179089&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Frc-select%2Fdownload%2Frc-select-11.2.1.tgz#6758d99da3338e9b3451618a39eb0d92be2f89a6"
+  integrity sha1-Z1jZnaMzjps0UWGKOesNkr4viaY=
   dependencies:
     "@babel/runtime" "^7.10.1"
     classnames "2.x"
