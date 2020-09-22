@@ -123,55 +123,55 @@
   "size-limit": [
     {
       "path": "packages/card/dist/**/*.js",
-      "limit": "10s",
+      "limit": "10 s",
       "webpack": false,
       "running": false
     },
     {
       "path": "packages/descriptions/dist/**/*.js",
-      "limit": "10s",
+      "limit": "10 s",
       "webpack": false,
       "running": false
     },
     {
       "path": "packages/field/dist/**/*.js",
-      "limit": "10s",
+      "limit": "10 s",
       "webpack": false,
       "running": false
     },
     {
       "path": "packages/form/dist/**/*.js",
-      "limit": "10s",
+      "limit": "10 s",
       "webpack": false,
       "running": false
     },
     {
       "path": "packages/layout/dist/**/*.js",
-      "limit": "10s",
+      "limit": "10 s",
       "webpack": false,
       "running": false
     },
     {
       "path": "packages/list/lib/**/*.js",
-      "limit": "10s",
+      "limit": "10 s",
       "webpack": false,
       "running": false
     },
     {
       "path": "packages/provider/dist/**/*.js",
-      "limit": "10s",
+      "limit": "10 s",
       "webpack": false,
       "running": false
     },
     {
       "path": "packages/skeleton/dist/**/*.js",
-      "limit": "10s",
+      "limit": "10 s",
       "webpack": false,
       "running": false
     },
     {
       "path": "packages/table/dist/**/*.js",
-      "limit": "10s",
+      "limit": "10 s",
       "webpack": false,
       "running": false
     }
