@@ -108,6 +108,53 @@ describe('BasicTable Search', () => {
     expect(resetFn).toBeCalledTimes(1);
   });
 
+  it('🎏 manualRequest test', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            title: '金额',
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+          {
+            title: 'Name',
+            key: 'name',
+            children: [
+              {
+                title: '金额',
+                dataIndex: 'money',
+                valueType: 'money',
+              },
+              {
+                title: '姓名',
+                dataIndex: 'name',
+                valueType: 'money',
+              },
+            ],
+          },
+        ]}
+        manualRequest
+        request={(params) => {
+          fn();
+          return request(params);
+        }}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 200);
+
+    act(() => {
+      html.find('button.ant-btn').at(0).simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 500);
+
+    expect(fn).toBeCalledTimes(1);
+  });
+
   it('🎏 search span test', async () => {
     const html = mount(
       <ProTable

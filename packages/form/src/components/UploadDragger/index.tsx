@@ -48,6 +48,8 @@ const ProFormUploadDragger: React.FC<ProFormDraggerProps> = React.forwardRef(
         name="files"
         action={action}
         accept={accept}
+        fileList={value}
+        {...fieldProps}
         onChange={(info) => {
           if (onChange) {
             onChange(info);
@@ -56,8 +58,6 @@ const ProFormUploadDragger: React.FC<ProFormDraggerProps> = React.forwardRef(
             fieldProps?.onChange(info);
           }
         }}
-        fileList={value}
-        {...fieldProps}
         style={{ ...fieldProps?.style, display: !showUploadButton ? 'none' : undefined }}
       >
         <p className="ant-upload-drag-icon">{icon}</p>
