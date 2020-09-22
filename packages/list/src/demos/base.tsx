@@ -32,39 +32,50 @@ const dataSource = [
 ];
 
 export default () => (
-  <>
-    <ProList<any>
-      toolBarRender={() => {
-        return [
-          <Button key="3" type="primary">
-            新建
-          </Button>,
-        ];
-      }}
-      rowKey="id"
-      headerTitle="基础列表"
-      dataSource={dataSource}
-      metas={{
-        title: {
-          dataIndex: 'name',
+  <ProList<any>
+    toolBarRender={() => {
+      return [
+        <Button key="3" type="primary">
+          新建
+        </Button>,
+      ];
+    }}
+    rowKey="id"
+    headerTitle="基础列表"
+    dataSource={dataSource}
+    metas={{
+      title: {
+        dataIndex: 'name',
+      },
+      avatar: {
+        dataIndex: 'image',
+      },
+      description: {
+        dataIndex: 'desc',
+      },
+      subTitle: {
+        render: () => {
+          return (
+            <Space size={0}>
+              <Tag color="blue">Ant Design</Tag>
+              <Tag color="#5BD8A6">TechUI</Tag>
+            </Space>
+          );
         },
-        avatar: {
-          dataIndex: 'image',
-        },
-        description: {
-          dataIndex: 'desc',
-        },
-        subTitle: {
-          render: () => {
-            return (
-              <Space size={0}>
-                <Tag color="blue">Ant Design</Tag>
-                <Tag color="#5BD8A6">TechUI</Tag>
-              </Space>
-            );
-          },
-        },
-      }}
-    />
-  </>
+      },
+      actions: {
+        render: (text, row, _, action) => [
+          <a href={row.html_url} target="_blank" rel="noopener noreferrer" key="link">
+            链路
+          </a>,
+          <a href={row.html_url} target="_blank" rel="noopener noreferrer" key="warning">
+            报警
+          </a>,
+          <a href={row.html_url} target="_blank" rel="noopener noreferrer" key="view">
+            查看
+          </a>,
+        ],
+      },
+    }}
+  />
 );

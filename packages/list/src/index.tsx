@@ -6,6 +6,7 @@ import classNames from 'classnames';
 import ProTable, { ProTableProps, ProColumns } from '@ant-design/pro-table';
 import { ColumnType } from 'antd/es/table';
 import { ConfigContext as AntdConfigContext } from 'antd/lib/config-provider';
+import get from 'rc-util/lib/utils/get';
 import ProListItem from './Item';
 
 import './index.less';
@@ -95,8 +96,10 @@ function ProList<RecordType = any, U = any>(props: ProListProps<RecordType, U>) 
           columns?.forEach((column: ColumnType<RecordType>) => {
             PRO_LIST_KEYS.forEach((key) => {
               if (column.key === key) {
-                // TODO support more dataIndex situation
-                const rawData = item[(column.dataIndex as string) || key];
+                const dataIndex = column.dataIndex || key;
+                const rawData = Array.isArray(dataIndex)
+                  ? get(item, dataIndex as string[])
+                  : item[dataIndex];
                 listItemProps[key] = column.render ? column.render(rawData, item, index) : rawData;
               }
             });
