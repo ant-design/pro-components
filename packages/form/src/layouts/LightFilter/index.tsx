@@ -1,9 +1,8 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { FormProps } from 'antd/lib/form/Form';
-import { ConfigContext } from 'antd/lib/config-provider/context';
 import { SizeType } from 'antd/lib/config-provider/SizeContext';
 import classNames from 'classnames';
-import { Form } from 'antd';
+import { Form, ConfigProvider } from 'antd';
 import { FieldDropdown, FieldLabel } from '@ant-design/pro-utils';
 import { useIntl } from '@ant-design/pro-provider';
 import BaseForm, { CommonFormProps } from '../../BaseForm';
@@ -146,7 +145,7 @@ const LightFilter: React.FC<LightFilterProps> = (props) => {
     bordered,
     ...reset
   } = props;
-  const { getPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-form');
   const [form] = Form.useForm();
   const realForm = userForm || form;

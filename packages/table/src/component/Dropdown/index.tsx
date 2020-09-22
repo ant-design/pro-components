@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import classnames from 'classnames';
 import { DownOutlined, EllipsisOutlined } from '@ant-design/icons';
-import { Dropdown, Menu, Button } from 'antd';
-import { ConfigContext } from 'antd/lib/config-provider/context';
+import { Dropdown, Menu, Button, ConfigProvider } from 'antd';
 import './index.less';
 
 export interface DropdownProps {
@@ -26,7 +25,7 @@ const DropdownButton: React.FC<DropdownProps> = ({
   className,
   style,
 }) => {
-  const { getPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
   const tempClassName = getPrefixCls('pro-table-dropdown');
   const menu = (
@@ -48,7 +47,7 @@ const DropdownButton: React.FC<DropdownProps> = ({
 const TableDropdown: React.FC<DropdownProps> & {
   Button: typeof DropdownButton;
 } = ({ className: propsClassName, style, onSelect, menus = [] }) => {
-  const { getPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-table-dropdown');
   const menu = (
     <Menu onClick={(params) => onSelect && onSelect(params.key as string)}>
