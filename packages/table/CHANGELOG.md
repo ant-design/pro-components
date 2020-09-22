@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.8.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.7.4...@ant-design/pro-table@2.8.0) (2020-09-22)
+
+### Features
+
+- 优化 ProTable 批量操作工具栏 ([#532](https://github.com/ant-design/pro-components/issues/532)) ([8e8f69b](https://github.com/ant-design/pro-components/commit/8e8f69b7c16e0004b13cbd5d009d25ad3b56e29f))
+- **Table:** Fix column reset to default column display ([#525](https://github.com/ant-design/pro-components/issues/525)) ([af6ce53](https://github.com/ant-design/pro-components/commit/af6ce53a9f70dd92b889e7cd885f71c9e4315fab))
+
 ## [2.7.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.7.3...@ant-design/pro-table@2.7.4) (2020-09-14)
 
 **Note:** Version bump only for package @ant-design/pro-table
