@@ -21,6 +21,7 @@ export default () => {
         menuExtraRender={() => 'dom'}
         menuHeaderRender={false}
         splitMenus
+        breadcrumbList={[]}
         location={{
           pathname: '/welcome',
         }}

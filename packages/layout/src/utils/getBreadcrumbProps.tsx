@@ -144,12 +144,7 @@ export type BreadcrumbListReturn = Pick<
  * Convert parameters into breadcrumbs
  */
 export const genBreadcrumbProps = (props: BreadcrumbProps): AntdBreadcrumbProps['routes'] => {
-  const { breadcrumbList } = props;
   const { location, breadcrumbMap } = getBreadcrumbFromProps(props);
-  if (breadcrumbList && breadcrumbList.length) {
-    return conversionFromProps(props);
-  }
-
   // 根据 location 生成 面包屑
   // Generate breadcrumbs based on location
   if (location && location.pathname && breadcrumbMap) {
