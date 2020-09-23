@@ -1,19 +1,19 @@
-# @ant-design/from
+# @ant-design/form
 
-> @ant-design/from.
+> @ant-design/form.
 
-See our website [@ant-design/from](https://umijs.org/plugins/from) for more information.
+See our website [@ant-design/form](https://procomponents.ant.design/components/form) for more information.
 
 ## Install
 
 Using npm:
 
 ```bash
-$ npm install --save-dev @ant-design/from
+$ npm install --save-dev @ant-design/form
 ```
 
 or using yarn:
 
 ```bash
-$ yarn add @ant-design/from --dev
+$ yarn add @ant-design/form --dev
 ```
