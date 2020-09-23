@@ -3893,10 +3893,10 @@ exports[`layout demos renders ./packages/layout/src/demos/base.tsx correctly 1`]
                             class="ant-tabs-tab ant-tabs-tab-active"
                           >
                             <div
-                              aria-controls="rc-tabs-test-panel-base"
+                              aria-controls="rc-tabs-0-panel-base"
                               aria-selected="true"
                               class="ant-tabs-tab-btn"
-                              id="rc-tabs-test-tab-base"
+                              id="rc-tabs-0-tab-base"
                               role="tab"
                               tabindex="0"
                             >
@@ -3907,10 +3907,10 @@ exports[`layout demos renders ./packages/layout/src/demos/base.tsx correctly 1`]
                             class="ant-tabs-tab"
                           >
                             <div
-                              aria-controls="rc-tabs-test-panel-info"
+                              aria-controls="rc-tabs-0-panel-info"
                               aria-selected="false"
                               class="ant-tabs-tab-btn"
-                              id="rc-tabs-test-tab-info"
+                              id="rc-tabs-0-tab-info"
                               role="tab"
                               tabindex="0"
                             >
@@ -3927,12 +3927,12 @@ exports[`layout demos renders ./packages/layout/src/demos/base.tsx correctly 1`]
                         class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
                       >
                         <button
-                          aria-controls="rc-tabs-test-more-popup"
+                          aria-controls="rc-tabs-0-more-popup"
                           aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-hidden="true"
                           class="ant-tabs-nav-more"
-                          id="rc-tabs-test-more"
+                          id="rc-tabs-0-more"
                           style="visibility: hidden; order: 1;"
                           tabindex="-1"
                           type="button"
@@ -3968,17 +3968,17 @@ exports[`layout demos renders ./packages/layout/src/demos/base.tsx correctly 1`]
                       >
                         <div
                           aria-hidden="false"
-                          aria-labelledby="rc-tabs-test-tab-base"
+                          aria-labelledby="rc-tabs-0-tab-base"
                           class="ant-tabs-tabpane ant-tabs-tabpane-active"
-                          id="rc-tabs-test-panel-base"
+                          id="rc-tabs-0-panel-base"
                           role="tabpanel"
                           tabindex="0"
                         />
                         <div
                           aria-hidden="true"
-                          aria-labelledby="rc-tabs-test-tab-info"
+                          aria-labelledby="rc-tabs-0-tab-info"
                           class="ant-tabs-tabpane"
-                          id="rc-tabs-test-panel-info"
+                          id="rc-tabs-0-panel-info"
                           role="tabpanel"
                           style="display: none;"
                           tabindex="-1"
@@ -6738,7 +6738,7 @@ Array [
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  整体风格设置
+                  Page style setting
                 </h3>
                 <div
                   class="ant-pro-setting-drawer-block-checkbox"
@@ -6818,7 +6818,7 @@ Array [
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  主题色
+                  Theme Color
                 </h3>
                 <div
                   class="theme-color"
@@ -6864,7 +6864,7 @@ Array [
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  导航模式
+                  Navigation Mode
                 </h3>
                 <div
                   class="ant-pro-setting-drawer-block-checkbox"
@@ -6989,7 +6989,7 @@ Array [
                         <span
                           style="opacity: 1;"
                         >
-                          内容区域宽度
+                          Content Width
                         </span>
                         <ul
                           class="ant-list-item-action"
@@ -7006,14 +7006,14 @@ Array [
                                   class="ant-select-selection-search"
                                 >
                                   <input
-                                    aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+                                    aria-activedescendant="rc_select_1_list_0"
                                     aria-autocomplete="list"
-                                    aria-controls="rc_select_TEST_OR_SSR_list"
+                                    aria-controls="rc_select_1_list"
                                     aria-haspopup="listbox"
-                                    aria-owns="rc_select_TEST_OR_SSR_list"
+                                    aria-owns="rc_select_1_list"
                                     autocomplete="off"
                                     class="ant-select-selection-search-input"
-                                    id="rc_select_TEST_OR_SSR"
+                                    id="rc_select_1"
                                     readonly=""
                                     role="combobox"
                                     style="opacity: 0;"
@@ -7024,9 +7024,9 @@ Array [
                                 </span>
                                 <span
                                   class="ant-select-selection-item"
-                                  title="流式"
+                                  title="Fluid"
                                 >
-                                  流式
+                                  Fluid
                                 </span>
                               </div>
                               <span
@@ -7066,7 +7066,7 @@ Array [
                         <span
                           style="opacity: 1;"
                         >
-                          固定 Header
+                          Fixed Header
                         </span>
                         <ul
                           class="ant-list-item-action"
@@ -7094,7 +7094,7 @@ Array [
                         <span
                           style="opacity: 1;"
                         >
-                          固定侧边菜单
+                          Fixed Sidebar
                         </span>
                         <ul
                           class="ant-list-item-action"
@@ -7122,7 +7122,7 @@ Array [
                         <span
                           style="opacity: 0.5;"
                         >
-                          自动分割菜单
+                          Split Menus
                         </span>
                         <ul
                           class="ant-list-item-action"
@@ -7159,7 +7159,7 @@ Array [
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  内容区域
+                  Regional Settings
                 </h3>
                 <div
                   class="ant-list"
@@ -7179,7 +7179,7 @@ Array [
                           <span
                             style="opacity: 1;"
                           >
-                            顶栏
+                            Header
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -7207,7 +7207,7 @@ Array [
                           <span
                             style="opacity: 1;"
                           >
-                            页脚
+                            Footer
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -7235,7 +7235,7 @@ Array [
                           <span
                             style="opacity: 1;"
                           >
-                            菜单
+                            Menu
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -7263,7 +7263,7 @@ Array [
                           <span
                             style="opacity: 1;"
                           >
-                            菜单头
+                            Menu Header
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -7300,7 +7300,7 @@ Array [
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  其他设置
+                  Other Settings
                 </h3>
                 <div
                   class="ant-list"
@@ -7320,7 +7320,7 @@ Array [
                           <span
                             style="opacity: 1;"
                           >
-                            色弱模式
+                            Weak Mode
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -7380,7 +7380,7 @@ Array [
                 <span
                   class="ant-alert-message"
                 >
-                  配置栏只在开发环境用于预览，生产环境不会展现，请拷贝后手动修改配置文件
+                  Setting panel shows in development environment only, please manually modify
                 </span>
                 <span
                   class="ant-alert-description"
@@ -7411,7 +7411,7 @@ Array [
                   </svg>
                 </span>
                 <span>
-                   拷贝设置
+                   Copy Setting
                 </span>
               </button>
             </div>

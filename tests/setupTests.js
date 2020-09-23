@@ -4,6 +4,7 @@ import { enableFetchMocks } from 'jest-fetch-mock';
 
 import tableData from './table/mock.data.json';
 
+process.env.NODE_ENV = 'TEST';
 /* eslint-disable global-require */
 if (typeof window !== 'undefined') {
   global.window.resizeTo = (width, height) => {
