@@ -430,6 +430,8 @@ describe('BasicTable', () => {
     await waitForComponentToPaint(html, 1200);
 
     expect(postFn).toBeCalled();
+    // test useEffect render
+    html.unmount();
   });
 
   it('🎏 fullscreen icon test', async () => {
