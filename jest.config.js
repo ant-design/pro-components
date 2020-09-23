@@ -11,7 +11,11 @@ pkgList.forEach((shortName) => {
 });
 
 module.exports = {
-  collectCoverageFrom: ['packages/**/src/**/*.{ts,tsx}', '!packages/**/src/demos/**'],
+  collectCoverageFrom: [
+    'packages/**/src/**/*.{ts,tsx}',
+    '!packages/**/src/demos/**',
+    '!packages/**/src/component/ColumnSetting/DndItem.tsx',
+  ],
   moduleNameMapper,
   testURL: 'http://localhost',
   verbose: true,

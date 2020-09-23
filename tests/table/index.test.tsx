@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 import { Input, Button } from 'antd';
 import { act } from 'react-dom/test-utils';
 import { ProCoreActionType } from '@ant-design/pro-utils';
-import ProTable, { TableDropdown } from '@ant-design/pro-table';
+import ProTable, { ActionType, TableDropdown } from '@ant-design/pro-table';
 import { columns, request } from './demo';
 import { waitForComponentToPaint, waitTime } from '../util';
 
@@ -308,10 +308,37 @@ describe('BasicTable', () => {
       />,
     );
     await waitForComponentToPaint(html, 1200);
+
     expect(fn).toBeCalled();
   });
 
-  it('🎏  request reload', async () => {
+  it('🎏 actionRef should use', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+        ]}
+        actionRef={(ref) => {
+          ref.clearSelected?.();
+          fn(!!ref.reload);
+        }}
+        request={async () => {
+          throw new Error('load error');
+        }}
+        onRequestError={fn}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 1200);
+    expect(fn).toBeCalled();
+  });
+
+  it('🎏 request reload', async () => {
     const fn = jest.fn();
     const html = mount(
       <ProTable
@@ -340,6 +367,69 @@ describe('BasicTable', () => {
 
     await waitForComponentToPaint(html, 1200);
     expect(fn).toBeCalledTimes(2);
+  });
+
+  it('🎏 request reload', async () => {
+    const fn = jest.fn();
+    const actionRef = React.createRef<ActionType>();
+    const html = mount(
+      <ProTable
+        size="small"
+        // @ts-ignore
+        actionRef={actionRef}
+        columns={[
+          {
+            title: 'money',
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+        ]}
+        request={async () => {
+          fn();
+          return {
+            data: [],
+          };
+        }}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 1200);
+
+    act(() => {
+      if (actionRef?.current) {
+        actionRef?.current?.reload(true);
+      }
+    });
+
+    await waitForComponentToPaint(html, 1200);
+    expect(fn).toBeCalledTimes(2);
+  });
+
+  it('🎏 request should use postData', async () => {
+    const postFn = jest.fn();
+    const html = mount(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            title: 'money',
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+        ]}
+        postData={() => postFn()}
+        request={async () => {
+          return {
+            data: [],
+          };
+        }}
+        rowKey="key"
+      />,
+    );
+
+    await waitForComponentToPaint(html, 1200);
+
+    expect(postFn).toBeCalled();
   });
 
   it('🎏 fullscreen icon test', async () => {
