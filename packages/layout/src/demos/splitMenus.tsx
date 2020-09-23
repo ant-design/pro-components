@@ -34,6 +34,7 @@ export default () => {
         layout="mix"
         menuHeaderRender={() => null}
         splitMenus
+        fixSiderbar
         location={{
           pathname: '/welcome',
         }}

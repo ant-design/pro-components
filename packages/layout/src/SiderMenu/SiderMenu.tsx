@@ -87,7 +87,7 @@ const SiderMenu: React.FC<SiderMenuProps> = (props) => {
     menuFooterRender,
     onCollapse,
     theme,
-    siderWidth = 208,
+    siderWidth,
     isMobile,
     onMenuHeaderClick,
     breakpoint = 'lg',
@@ -97,7 +97,7 @@ const SiderMenu: React.FC<SiderMenuProps> = (props) => {
     collapsedButtonRender = defaultRenderCollapsedButton,
     links,
     menuContentRender,
-    prefixCls = 'ant-pro',
+    prefixCls,
     onOpenChange,
     headerHeight,
   } = props;
