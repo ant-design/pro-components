@@ -222,7 +222,7 @@ class MenuUtil {
  * @param BaseMenuProps
  */
 const getOpenKeysProps = (
-  openKeys: React.ReactText[] | false = [],
+  openKeys: React.ReactText[] | false,
   { layout, collapsed }: BaseMenuProps,
 ): {
   openKeys?: undefined | string[];
@@ -247,7 +247,7 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
     handleOpenChange,
     style,
     menuData,
-    menu = { locale: true },
+    menu,
     iconfontUrl,
     collapsed,
     selectedKeys: propsSelectedKeys,
@@ -261,11 +261,11 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
   const { pathname } = location;
 
   const { flatMenuKeys } = MenuCounter.useContainer();
-  const [defaultOpenAll, setDefaultOpenAll] = useState(menu.defaultOpenAll);
+  const [defaultOpenAll, setDefaultOpenAll] = useState(menu?.defaultOpenAll);
 
-  const [openKeys, setOpenKeys] = useMergedState<WithFalse<React.ReactText[] | undefined>>(
+  const [openKeys, setOpenKeys] = useMergedState<WithFalse<React.ReactText[]>>(
     () => {
-      if (menu.defaultOpenAll) {
+      if (menu?.defaultOpenAll) {
         return getOpenKeysFromMenuData(menuData) || [];
       }
       if (propsOpenKeys === false) {
@@ -291,7 +291,7 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
   });
 
   useEffect(() => {
-    if (menu.defaultOpenAll || propsOpenKeys === false || flatMenuKeys.length) {
+    if (menu?.defaultOpenAll || propsOpenKeys === false || flatMenuKeys.length) {
       return;
     }
     const keys = getSelectedMenuKeys(location.pathname || '/', menuData || []);
@@ -353,9 +353,6 @@ const BaseMenu: React.FC<BaseMenuProps> = (props) => {
   if (props.openKeys === false && !props.handleOpenChange) {
     const keys = getSelectedMenuKeys(location.pathname || '/', menuData || []);
     defaultOpenKeysRef.current = keys;
-    if (keys.length < 1) {
-      return null;
-    }
   }
 
   const finallyData = props.postMenuData ? props.postMenuData(menuData) : menuData;
