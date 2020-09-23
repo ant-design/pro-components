@@ -173,6 +173,22 @@ exports[`layout demos renders ./packages/layout/src/demos/BreadcrumbsRepeat.tsx 
                       class="ant-breadcrumb-link"
                     >
                       <a
+                        href="/"
+                      >
+                        主页
+                      </a>
+                    </span>
+                    <span
+                      class="ant-breadcrumb-separator"
+                    >
+                      /
+                    </span>
+                  </span>
+                  <span>
+                    <span
+                      class="ant-breadcrumb-link"
+                    >
+                      <a
                         href="/admin"
                       >
                         管理
@@ -6377,14 +6393,17 @@ Array [
     </section>
   </div>,
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar"
   >
     <section
       class="ant-layout ant-layout-has-sider"
       style="min-height: 100%; height: 500px;"
     >
+      <div
+        style="width: 208px; overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px;"
+      />
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-mix"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix"
         style="overflow: hidden; padding-top: 48px; flex: 0 0 208px; max-width: 208px; min-width: 208px; width: 208px;"
       >
         <div
