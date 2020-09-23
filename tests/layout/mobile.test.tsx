@@ -19,7 +19,7 @@ describe('mobile BasicLayout', () => {
   });
 
   it('📱 base use', async () => {
-    const html = render(<BasicLayout getContainer={false} />);
+    const html = render(<BasicLayout getContainer={false} onCollapse={() => {}} />);
     waitForComponentToPaint(html);
     expect(html).toMatchSnapshot();
   });

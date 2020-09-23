@@ -9,6 +9,7 @@ export default () => {
         {...defaultProps}
         layout="mix"
         splitMenus
+        onMenuHeaderClick={() => {}}
         formatMessage={({ id }) => id}
         style={{
           height: 500,
@@ -17,6 +18,7 @@ export default () => {
       <ProLayout
         {...defaultProps}
         layout="mix"
+        menuExtraRender={() => 'dom'}
         menuHeaderRender={false}
         splitMenus
         location={{
