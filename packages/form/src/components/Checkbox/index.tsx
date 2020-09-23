@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
-import { Checkbox } from 'antd';
+import { Checkbox, ConfigProvider } from 'antd';
 import classNames from 'classnames';
-import { ConfigContext as AntdConfigContext } from 'antd/lib/config-provider';
 import { CheckboxGroupProps, CheckboxProps } from 'antd/lib/checkbox';
 import { createField } from '../../BaseForm';
 import { ProFormItemProps } from '../../interface';
@@ -15,7 +14,7 @@ export type ProFormCheckboxGroupProps = ProFormItemProps<CheckboxGroupProps> & {
 
 const Group: React.FC<ProFormCheckboxGroupProps> = React.forwardRef(
   ({ layout = 'horizontal', options, fieldProps }, ref: any) => {
-    const { getPrefixCls } = useContext(AntdConfigContext);
+    const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
     const layoutClassName = getPrefixCls('pro-form-checkbox');
     return (
       <Checkbox.Group

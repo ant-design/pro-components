@@ -4436,7 +4436,6 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                           </div>
                           <div
                             class="ant-pro-footer-bar"
-                            style="width: calc(100% - 48px);"
                           >
                             <div
                               class="ant-pro-footer-bar-left"

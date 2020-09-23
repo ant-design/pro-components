@@ -8,7 +8,7 @@ import React, {
   useMemo,
 } from 'react';
 import { Table, ConfigProvider, Card, Space, Empty } from 'antd';
-import { useIntl, IntlType, ParamsType, ConfigProviderWarp } from '@ant-design/pro-provider';
+import { useIntl, ParamsType, ConfigProviderWarp } from '@ant-design/pro-provider';
 import classNames from 'classnames';
 import get from 'rc-util/lib/utils/get';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -21,7 +21,6 @@ import {
   SortOrder,
   ColumnFilterItem,
 } from 'antd/lib/table/interface';
-import { ConfigContext as AntdConfigContext } from 'antd/lib/config-provider';
 import {
   ProFieldEmptyText,
   ProFieldValueType,
@@ -42,7 +41,7 @@ import {
 import useFetchData, { RequestData } from './useFetchData';
 import Container, { useCounter, ColumnsState } from './container';
 import Toolbar, { OptionConfig, ToolBarProps } from './component/ToolBar';
-import Alert from './component/Alert';
+import Alert, { AlertRenderType } from './component/Alert';
 import FormSearch, { SearchConfig, TableFormItem } from './Form';
 import {
   genColumnKey,
@@ -248,20 +247,12 @@ export interface ProTableProps<T, U extends ParamsType>
    * 自定义 table 的 alert
    * 设置或者返回false 即可关闭
    */
-  tableAlertRender?:
-    | ((props: {
-        intl: IntlType;
-        selectedRowKeys: (string | number)[];
-        selectedRows: T[];
-      }) => React.ReactNode)
-    | false;
+  tableAlertRender?: AlertRenderType<T>;
   /**
    * 自定义 table 的 alert 的操作
    * 设置或者返回false 即可关闭
    */
-  tableAlertOptionRender?:
-    | ((props: { intl: IntlType; onCleanSelected: () => void }) => React.ReactNode)
-    | false;
+  tableAlertOptionRender?: AlertRenderType<T>;
 
   rowSelection?: TableProps<T>['rowSelection'] | false;
 
@@ -864,7 +855,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
  * @param props
  */
 const ProviderWarp = <T, U extends { [key: string]: any } = {}>(props: ProTableProps<T, U>) => {
-  const { getPrefixCls } = useContext(AntdConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   return (
     <Container.Provider initialState={props}>
       <ConfigProviderWarp>

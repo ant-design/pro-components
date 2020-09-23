@@ -10,7 +10,7 @@ export default {
     selectPlaceholder: '請選擇',
   },
   alert: {
-    clear: '清空',
+    clear: '取消選擇',
     selected: '已選擇',
     item: '項',
   },
