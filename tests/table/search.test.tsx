@@ -1,6 +1,7 @@
 import { mount } from 'enzyme';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
+import { Input } from 'antd';
 import ProTable from '@ant-design/pro-table';
 import { request } from './demo';
 import { waitForComponentToPaint } from '../util';
@@ -192,5 +193,47 @@ describe('BasicTable Search', () => {
     await waitForComponentToPaint(html, 200);
 
     expect(html.find('.ant-col.ant-col-12').exists()).toBeTruthy();
+  });
+
+  it('🎏 renderFormItem test', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProTable
+        size="small"
+        form={{
+          onValuesChange: (_, values) => {
+            fn(values.money);
+          },
+        }}
+        columns={[
+          {
+            title: '金额',
+            dataIndex: 'money',
+            valueType: 'money',
+            renderFormItem: () => <Input id="renderFormItem" />,
+          },
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+          },
+        ]}
+        request={(params) => {
+          return request(params);
+        }}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 200);
+
+    expect(html.find('#renderFormItem').exists()).toBeTruthy();
+    act(() => {
+      html.find('#renderFormItem input').simulate('change', {
+        target: {
+          value: '12',
+        },
+      });
+    });
+    expect(fn).toBeCalledWith('12');
   });
 });
