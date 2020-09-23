@@ -718,6 +718,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     />
   );
   const dataSource = request ? (action.dataSource as T[]) : props.dataSource || [];
+  const loading = props.loading !== undefined ? props.loading : action.loading;
   const tableDom = (
     <Table<T>
       {...rest}
@@ -737,7 +738,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
         }
         return true;
       })}
-      loading={action.loading || props.loading}
+      loading={loading}
       dataSource={request ? (action.dataSource as T[]) : props.dataSource || []}
       pagination={pagination}
       onChange={(
