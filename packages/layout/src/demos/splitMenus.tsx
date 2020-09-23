@@ -39,6 +39,7 @@ export default () => {
         location={{
           pathname: '/welcome',
         }}
+        contentWidth="Fixed"
         openKeys={false}
         style={{
           height: 500,
