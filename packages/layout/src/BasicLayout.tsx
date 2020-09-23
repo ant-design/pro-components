@@ -241,6 +241,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   };
 
   const colSize = useAntdMediaQuery();
+
   const { routes = [] } = route;
   const [menuInfoData, setMenuInfoData] = useMergedState<{
     breadcrumb?: {

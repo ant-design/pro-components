@@ -1,7 +1,6 @@
 ﻿import { mount, render } from 'enzyme';
 import React from 'react';
 import BasicLayout from '@ant-design/pro-layout';
-import { act } from 'react-dom/test-utils';
 
 import { waitForComponentToPaint } from '../util';
 
@@ -21,6 +20,11 @@ describe('mobile BasicLayout', () => {
         };
       }),
     });
+  });
+
+  afterAll(() => {
+    process.env.USE_MEDIA = 'md';
+    process.env.NODE_ENV = 'dev';
   });
 
   it('📱 base use', async () => {
