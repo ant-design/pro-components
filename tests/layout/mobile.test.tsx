@@ -1,4 +1,4 @@
-﻿import { render } from 'enzyme';
+﻿import { mount, render } from 'enzyme';
 import React from 'react';
 import BasicLayout from '@ant-design/pro-layout';
 
@@ -34,5 +34,46 @@ describe('mobile BasicLayout', () => {
     const html = render(<BasicLayout getContainer={false} layout="mix" collapsed={false} />);
     waitForComponentToPaint(html);
     expect(html).toMatchSnapshot();
+  });
+
+  it('📱 layout menuHeaderRender=false', async () => {
+    const html = render(
+      <BasicLayout collapsed getContainer={false} layout="mix" menuHeaderRender={false} />,
+    );
+    waitForComponentToPaint(html);
+    expect(html).toMatchSnapshot();
+  });
+
+  it('📱 layout menuHeaderRender', async () => {
+    const html = render(
+      <BasicLayout collapsed getContainer={false} layout="mix" menuHeaderRender={() => 'title'} />,
+    );
+    waitForComponentToPaint(html);
+    expect(html).toMatchSnapshot();
+  });
+
+  it('📱 layout menuHeaderRender', async () => {
+    const html = render(
+      <BasicLayout collapsed getContainer={false} layout="mix" menuHeaderRender={() => 'title'} />,
+    );
+    waitForComponentToPaint(html);
+    expect(html).toMatchSnapshot();
+  });
+
+  it('📱 layout menuHeaderRender', async () => {
+    const onCollapse = jest.fn();
+    const html = mount(
+      <BasicLayout
+        onCollapse={onCollapse}
+        collapsed
+        getContainer={false}
+        layout="mix"
+        menuHeaderRender={() => 'title'}
+      />,
+    );
+    waitForComponentToPaint(html);
+    html.find('.ant-pro-sider-collapsed-button').map((item) => item && item.simulate('click'));
+    expect(onCollapse).toHaveBeenCalled();
+    html.unmount();
   });
 });
