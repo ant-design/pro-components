@@ -68,7 +68,7 @@ describe('BasicLayout', () => {
       <ProLayout
         {...defaultProps}
         layout="mix"
-        splitMenus={true}
+        splitMenus
         isMobile={false}
         rightContentRender={() => <span />}
       >
@@ -90,5 +90,16 @@ describe('BasicLayout', () => {
     await waitForComponentToPaint(wrapper);
     const domHeader = wrapper.find(`.${prefixCls}-top-nav-header-logo`);
     expect(domHeader.exists()).toBe(true);
+  });
+
+  it('pageHeaderRender return false', async () => {
+    const wrapper = mount(
+      <ProLayout {...defaultProps} layout="top">
+        <PageContainer title="name" pageHeaderRender={() => null} />
+      </ProLayout>,
+    );
+    await waitForComponentToPaint(wrapper);
+    const domHeader = wrapper.find('ant-page-header');
+    expect(domHeader.exists()).toBeFalsy();
   });
 });
