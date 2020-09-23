@@ -5,11 +5,11 @@
 Using npm:
 
 ```bash
-$ npm install --save-dev @ant-design/pro-from
+$ npm install --save  @ant-design/pro-from
 ```
 
 or using yarn:
 
 ```bash
-$ yarn add @ant-design/pro-from --dev
+$ yarn add @ant-design/pro-from
 ```

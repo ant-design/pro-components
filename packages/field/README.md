@@ -1,19 +1,19 @@
-# @umijs/plugin-access
+# @umijs/plugin-field
 
 > Umi plugin for access management..
 
-See our website [@umijs/plugin-access](https://umijs.org/plugins/plugin-access) for more information.
+See our website [@ant-design/pro-field](https://procomponent.ant.design/) for more information.
 
 ## Install
 
 Using npm:
 
 ```bash
-$ npm install --save-dev @umijs/plugin-access
+$ npm install --save  @ant-design/pro-field
 ```
 
 or using yarn:
 
 ```bash
-$ yarn add @umijs/plugin-access --dev
+$ yarn add  @ant-design/pro-field
 ```

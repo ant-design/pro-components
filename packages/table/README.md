@@ -2,18 +2,18 @@
 
 > @ant-design/pro-table.
 
-See our website [@ant-design/pro-table](https://umijs.org/plugins/table) for more information.
+See our website [@ant-design/pro-table](https://procomponent.ant.design/) for more information.
 
 ## Install
 
 Using npm:
 
 ```bash
-$ npm install --save-dev @ant-design/pro-table
+$ npm install --save  @ant-design/pro-table
 ```
 
 or using yarn:
 
 ```bash
-$ yarn add @ant-design/pro-table --dev
+$ yarn add @ant-design/pro-table
 ```
