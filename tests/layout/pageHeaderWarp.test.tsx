@@ -3,6 +3,7 @@ import React from 'react';
 import ProLayout, { PageContainer } from '@ant-design/pro-layout';
 import defaultProps from './defaultProps';
 import { waitForComponentToPaint } from '../util';
+import { act } from 'react-test-renderer';
 
 describe('BasicLayout', () => {
   beforeAll(() => {
@@ -77,6 +78,20 @@ describe('BasicLayout', () => {
     );
     await waitForComponentToPaint(wrapper);
     const domHeader = wrapper.find('.ant-pro-top-nav-header-logo');
+
+    act(() => {
+      wrapper.setProps({
+        rightContentRender: () => (
+          <div
+            style={{
+              width: 200,
+            }}
+          >
+            xx
+          </div>
+        ),
+      });
+    });
     expect(domHeader.exists()).toBe(true);
   });
 
