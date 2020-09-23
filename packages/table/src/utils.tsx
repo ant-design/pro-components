@@ -86,7 +86,8 @@ export const mergePagination = <T, U>(
   if (pagination === false) {
     return false;
   }
-  let defaultPagination: TablePaginationConfig | {} = pagination || {};
+  const defaultPagination: TablePaginationConfig | {} =
+    typeof pagination === 'object' ? pagination : {};
   const { current, pageSize } = action;
 
   return {
