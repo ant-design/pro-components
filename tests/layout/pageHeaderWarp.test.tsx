@@ -1,6 +1,7 @@
 import { render, mount } from 'enzyme';
 import React from 'react';
 import ProLayout, { PageContainer } from '@ant-design/pro-layout';
+import { DownOutlined } from '@ant-design/icons';
 import defaultProps from './defaultProps';
 import { waitForComponentToPaint } from '../util';
 
@@ -101,5 +102,6 @@ describe('BasicLayout', () => {
     await waitForComponentToPaint(wrapper);
     const domHeader = wrapper.find('ant-page-header');
     expect(domHeader.exists()).toBeFalsy();
+    wrapper.unmount();
   });
 });
