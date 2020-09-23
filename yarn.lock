@@ -22188,10 +22188,17 @@ use-json-comparison@^1.0.3, use-json-comparison@^1.0.5:
   resolved "https://registry.npm.taobao.org/use-json-comparison/download/use-json-comparison-1.0.5.tgz#d41a72d65fcf4cf72acc85c8f3980e2173809d63"
   integrity sha1-1Bpy1l/PTPcqzIXI85gOIXOAnWM=
 
-use-media-antd-query@1.0.2, use-media-antd-query@^1.0.1, use-media-antd-query@^1.0.2:
+use-media-antd-query@1.0.2, use-media-antd-query@^1.0.2:
   version "1.0.2"
   resolved "https://registry.npm.taobao.org/use-media-antd-query/download/use-media-antd-query-1.0.2.tgz#cbda1bdfb99cd20b0121a361c3d1331ca499ba58"
   integrity sha1-y9ob37mc0gsBIaNhw9EzHKSZulg=
+  dependencies:
+    react-responsive "^8.0.1"
+
+use-media-antd-query@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.npm.taobao.org/use-media-antd-query/download/use-media-antd-query-1.0.3.tgz?cache=0&sync_timestamp=1600883947508&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fuse-media-antd-query%2Fdownload%2Fuse-media-antd-query-1.0.3.tgz#d9b86f4caf53056a33dc20145b7d376d88c5e50d"
+  integrity sha1-2bhvTK9TBWoz3CAUW303bYjF5Q0=
   dependencies:
     react-responsive "^8.0.1"
 

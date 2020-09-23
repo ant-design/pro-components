@@ -262,7 +262,6 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   if (menuDataRender) {
     renderMenuInfoData = getMenuData(routes, menu, formatMessage, menuDataRender);
   }
-
   const isMobile = (colSize === 'sm' || colSize === 'xs') && !props.disableMobile;
 
   const { breadcrumb = {}, breadcrumbMap, menuData = [] } = !menuDataRender
