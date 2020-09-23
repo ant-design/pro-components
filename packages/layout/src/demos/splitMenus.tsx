@@ -9,6 +9,7 @@ export default () => {
         {...defaultProps}
         layout="mix"
         splitMenus
+        headerRender={false}
         onMenuHeaderClick={() => {}}
         formatMessage={({ id }) => id}
         style={{
