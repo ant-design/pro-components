@@ -8903,10 +8903,10 @@ exports[`form demos renders ./packages/form/src/demos/search-filter.tsx correctl
               class="ant-tabs-tab ant-tabs-tab-active"
             >
               <div
-                aria-controls="rc-tabs-0-panel-articles"
+                aria-controls="rc-tabs-test-panel-articles"
                 aria-selected="true"
                 class="ant-tabs-tab-btn"
-                id="rc-tabs-0-tab-articles"
+                id="rc-tabs-test-tab-articles"
                 role="tab"
                 tabindex="0"
               >
@@ -8917,10 +8917,10 @@ exports[`form demos renders ./packages/form/src/demos/search-filter.tsx correctl
               class="ant-tabs-tab"
             >
               <div
-                aria-controls="rc-tabs-0-panel-projects"
+                aria-controls="rc-tabs-test-panel-projects"
                 aria-selected="false"
                 class="ant-tabs-tab-btn"
-                id="rc-tabs-0-tab-projects"
+                id="rc-tabs-test-tab-projects"
                 role="tab"
                 tabindex="0"
               >
@@ -8931,10 +8931,10 @@ exports[`form demos renders ./packages/form/src/demos/search-filter.tsx correctl
               class="ant-tabs-tab"
             >
               <div
-                aria-controls="rc-tabs-0-panel-applications"
+                aria-controls="rc-tabs-test-panel-applications"
                 aria-selected="false"
                 class="ant-tabs-tab-btn"
-                id="rc-tabs-0-tab-applications"
+                id="rc-tabs-test-tab-applications"
                 role="tab"
                 tabindex="0"
               >
@@ -8951,12 +8951,12 @@ exports[`form demos renders ./packages/form/src/demos/search-filter.tsx correctl
           class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
         >
           <button
-            aria-controls="rc-tabs-0-more-popup"
+            aria-controls="rc-tabs-test-more-popup"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-hidden="true"
             class="ant-tabs-nav-more"
-            id="rc-tabs-0-more"
+            id="rc-tabs-test-more"
             style="visibility: hidden; order: 1;"
             tabindex="-1"
             type="button"
@@ -9021,26 +9021,26 @@ exports[`form demos renders ./packages/form/src/demos/search-filter.tsx correctl
         >
           <div
             aria-hidden="false"
-            aria-labelledby="rc-tabs-0-tab-articles"
+            aria-labelledby="rc-tabs-test-tab-articles"
             class="ant-tabs-tabpane ant-tabs-tabpane-active"
-            id="rc-tabs-0-panel-articles"
+            id="rc-tabs-test-panel-articles"
             role="tabpanel"
             tabindex="0"
           />
           <div
             aria-hidden="true"
-            aria-labelledby="rc-tabs-0-tab-projects"
+            aria-labelledby="rc-tabs-test-tab-projects"
             class="ant-tabs-tabpane"
-            id="rc-tabs-0-panel-projects"
+            id="rc-tabs-test-panel-projects"
             role="tabpanel"
             style="display: none;"
             tabindex="-1"
           />
           <div
             aria-hidden="true"
-            aria-labelledby="rc-tabs-0-tab-applications"
+            aria-labelledby="rc-tabs-test-tab-applications"
             class="ant-tabs-tabpane"
-            id="rc-tabs-0-panel-applications"
+            id="rc-tabs-test-panel-applications"
             role="tabpanel"
             style="display: none;"
             tabindex="-1"
