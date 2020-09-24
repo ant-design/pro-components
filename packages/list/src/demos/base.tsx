@@ -1,7 +1,5 @@
 import React from 'react';
 import { Button, Tag, Space } from 'antd';
-// @ts-ignore
-// eslint-disable-next-line import/no-extraneous-dependencies
 import ProList from '@ant-design/pro-list';
 
 const dataSource = [
@@ -40,7 +38,7 @@ export default () => (
         </Button>,
       ];
     }}
-    rowKey="id"
+    rowKey="name"
     headerTitle="基础列表"
     dataSource={dataSource}
     showActions="hover"

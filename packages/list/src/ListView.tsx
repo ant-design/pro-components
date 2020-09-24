@@ -4,6 +4,9 @@ import { GetRowKey } from 'antd/lib/table/interface';
 import { ListProps } from 'antd/lib/list';
 import { ColumnType, TableProps } from 'antd/es/table';
 import get from 'rc-util/lib/utils/get';
+import useSelection from './hooks/useSelection';
+import useLazyKVMap from './hooks/useLazyKVMap';
+import usePagination from './hooks/usePagination';
 import ProListItem from './Item';
 import { PRO_LIST_KEYS } from './constans';
 
@@ -16,6 +19,8 @@ export interface ListViewProps<RecordType>
     Pick<TableProps<RecordType>, 'columns' | 'dataSource' | 'expandable'> {
   rowKey?: string | GetRowKey<RecordType>;
   showActions?: 'hover' | 'always';
+  rowSelection?: TableProps<RecordType>['rowSelection'];
+  prefixCls: string;
 }
 
 function ListView<RecordType>(props: ListViewProps<RecordType>) {
@@ -27,7 +32,10 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     split,
     rowKey,
     showActions,
+    prefixCls,
     expandable: expandableConfig,
+    rowSelection,
+    pagination,
   } = props;
 
   const getRowKey = React.useMemo<GetRowKey<RecordType>>((): GetRowKey<RecordType> => {
@@ -37,6 +45,50 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
 
     return (record: RecordType, index?: number) => (record as any)[rowKey as string] || index;
   }, [rowKey]);
+
+  const [getRecordByKey] = useLazyKVMap(dataSource, 'children', getRowKey);
+
+  // 合并分页的的配置
+  const [mergedPagination] = usePagination(dataSource.length, pagination, () => {
+    // console.log('run');
+  });
+  /**
+   * 根据分页来回去不同的数据，模拟 table
+   */
+  const pageData = React.useMemo<RecordType[]>(() => {
+    if (
+      pagination === false ||
+      !mergedPagination.pageSize ||
+      dataSource.length < mergedPagination.total!
+    ) {
+      return dataSource;
+    }
+
+    const { current = 1, pageSize = 10 } = mergedPagination;
+    const currentPageData = dataSource.slice((current - 1) * pageSize, current * pageSize);
+    return currentPageData;
+  }, [
+    !!pagination,
+    dataSource,
+    mergedPagination && mergedPagination.current,
+    mergedPagination && mergedPagination.pageSize,
+    mergedPagination && mergedPagination.total,
+  ]);
+
+  /**
+   * 提供和 table 一样的 rowSelection 配置
+   */
+  const [selectItemRender, selectedKeySet] = useSelection(rowSelection, {
+    getRowKey,
+    getRecordByKey,
+    prefixCls,
+    data: dataSource,
+    pageData,
+    expandType: 'row',
+    childrenColumnName: 'children',
+    locale: {},
+    expandIconColumnIndex: 0,
+  });
 
   // 提供和 Table 一样的 expand 支持
   const {
@@ -86,12 +138,20 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     [getRowKey, mergedExpandedKeys, dataSource, onExpand, onExpandedRowsChange],
   );
 
+  /**
+   * 这个是 选择框的 render 方法
+   * 为了兼容 antd 的 table,用了同样的渲染逻辑
+   * 所以看起来有点奇怪
+   */
+  const selectItemDom = selectItemRender();
+
   return (
     <List<RecordType>
       size={size}
       footer={footer}
       split={split}
       dataSource={dataSource}
+      pagination={pagination && mergedPagination}
       renderItem={(item, index) => {
         const listItemProps = {};
         columns?.forEach((column: ColumnType<RecordType>) => {
@@ -115,6 +175,10 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
             }}
             showActions={showActions}
             rowSupportExpand={!rowExpandable || (rowExpandable && rowExpandable(item))}
+            selected={selectedKeySet.has(getRowKey(item, index))}
+            checkbox={
+              selectItemDom && selectItemDom.render && selectItemDom?.render(item, item, index)
+            }
           />
         );
       }}

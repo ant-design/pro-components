@@ -38,6 +38,7 @@ export interface ProListProps<RecordType, U extends { [key: string]: any }>
       | 'options'
       | 'search'
       | 'expandable'
+      | 'rowSelection'
     >,
     AntdListProps<RecordType> {
   metas?: ProListMetas;
@@ -61,6 +62,7 @@ function ProList<RecordType = any, U = any>(props: ProListProps<RecordType, U>) 
     search = false,
     expandable,
     showActions,
+    rowSelection,
     ...rest
   } = props;
 
@@ -88,17 +90,19 @@ function ProList<RecordType = any, U = any>(props: ProListProps<RecordType, U>) 
     });
     return ret;
   }, [metas]);
+  const prefixCls = getPrefixCls('pro-list');
 
   return (
     <ProTable<RecordType>
       {...rest}
       search={search}
       options={options}
-      className={classNames(getPrefixCls('pro-list'), className)}
+      className={classNames(prefixCls, className)}
       columns={proTableColumns}
       rowKey={rowKey}
       tableViewRender={({ columns, dataSource }) => (
         <ListView
+          prefixCls={prefixCls}
           columns={columns}
           dataSource={dataSource}
           size={size}
@@ -106,7 +110,9 @@ function ProList<RecordType = any, U = any>(props: ProListProps<RecordType, U>) 
           split={split}
           rowKey={rowKey}
           expandable={expandable}
+          rowSelection={rowSelection === false ? undefined : rowSelection}
           showActions={showActions}
+          pagination={pagination}
         />
       )}
     />

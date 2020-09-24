@@ -1,7 +1,5 @@
 import React, { useState, ReactText } from 'react';
-import { Button, Progress, Tag, Space } from 'antd';
-// @ts-ignore
-// eslint-disable-next-line import/no-extraneous-dependencies
+import { Progress, Tag, Space } from 'antd';
 import ProList from '@ant-design/pro-list';
 
 const dataSource = [
@@ -32,7 +30,7 @@ export default () => {
 
   return (
     <ProList<{ title: string }>
-      rowKey="id"
+      rowKey="title"
       headerTitle="支持展开的列表"
       expandable={{ expandedRowKeys, onExpandedRowsChange: setExpandedRowKeys }}
       dataSource={dataSource}
