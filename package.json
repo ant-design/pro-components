@@ -69,7 +69,7 @@
     "chalk": "^4.1.0",
     "cross-env": "^7.0.0",
     "css-loader": "^3.4.2",
-    "dumi": "1.0.34",
+    "dumi": "^1.1.0-beta.23",
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.4.3",
     "eslint": "^7.2.0",
@@ -124,55 +124,55 @@
   "size-limit": [
     {
       "path": "packages/card/dist/**/*.js",
-      "limit": "10 s",
+      "limit": "100 s",
       "webpack": false,
       "running": false
     },
     {
       "path": "packages/descriptions/dist/**/*.js",
-      "limit": "10 s",
+      "limit": "100 s",
       "webpack": false,
       "running": false
     },
     {
       "path": "packages/field/dist/**/*.js",
-      "limit": "10 s",
+      "limit": "100 s",
       "webpack": false,
       "running": false
     },
     {
       "path": "packages/form/dist/**/*.js",
-      "limit": "10 s",
+      "limit": "100 s",
       "webpack": false,
       "running": false
     },
     {
       "path": "packages/layout/dist/**/*.js",
-      "limit": "10 s",
+      "limit": "100 s",
       "webpack": false,
       "running": false
     },
     {
       "path": "packages/list/lib/**/*.js",
-      "limit": "10 s",
+      "limit": "100 s",
       "webpack": false,
       "running": false
     },
     {
       "path": "packages/provider/dist/**/*.js",
-      "limit": "10 s",
+      "limit": "100 s",
       "webpack": false,
       "running": false
     },
     {
       "path": "packages/skeleton/dist/**/*.js",
-      "limit": "10 s",
+      "limit": "100 s",
       "webpack": false,
       "running": false
     },
     {
       "path": "packages/table/dist/**/*.js",
-      "limit": "10 s",
+      "limit": "100 s",
       "webpack": false,
       "running": false
     }

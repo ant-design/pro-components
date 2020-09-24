@@ -127,7 +127,7 @@ export default ({ state, plain }: { state: ProFieldFCMode; plain: boolean }) => 
         <Field
           text={`
 yarn run v1.22.0
-$ eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./packages
+$ eslint --format=pretty ./packages
 Done in 9.70s.
           `}
           valueType="code"

@@ -38,7 +38,7 @@ import {
   omitUndefined,
 } from '@ant-design/pro-utils';
 
-import useFetchData, { RequestData } from './useFetchData';
+import useFetchData, { RequestData, UseFetchDataAction } from './useFetchData';
 import Container, { useCounter, ColumnsState } from './container';
 import Toolbar, { OptionConfig, ToolBarProps } from './component/ToolBar';
 import Alert, { AlertRenderType } from './component/Alert';
@@ -116,7 +116,7 @@ export type ProColumnType<T = unknown> = ProSchema<
 >;
 
 export interface ProColumnGroupType<RecordType> extends ProColumnType<RecordType> {
-  children: ProColumns<RecordType>;
+  children: ProColumns<RecordType>[];
 }
 
 export type ProColumns<T = any> = ProColumnGroupType<T> | ProColumnType<T>;
@@ -309,11 +309,13 @@ const columnRender = <T, U = any>({
   counter,
 }: ColumnRenderInterface<T>): any => {
   const { action } = counter;
-  if (!action.current) {
-    return null;
-  }
   const { renderText = (val: any) => val } = item;
-  const renderTextStr = renderText(text, row, index, action.current);
+  const renderTextStr = renderText(
+    text,
+    row,
+    index,
+    action.current as UseFetchDataAction<RequestData<any>>,
+  );
   const textDom = defaultRenderText<T, {}>(
     renderTextStr,
     (item.valueType as ProFieldValueType) || 'text',
@@ -330,7 +332,13 @@ const columnRender = <T, U = any>({
   );
 
   if (item.render) {
-    const renderDom = item.render(dom, row, index, action.current, item);
+    const renderDom = item.render(
+      dom,
+      row,
+      index,
+      action.current as UseFetchDataAction<RequestData<any>>,
+      item,
+    );
 
     // 如果是合并单元格的，直接返回对象
     if (
@@ -481,6 +489,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
   const [selectedRowKeys, setSelectedRowKeys] = useMergedState<React.ReactText[]>([], {
     value: propsRowSelection ? propsRowSelection.selectedRowKeys : undefined,
   });
+
   const [selectedRows, setSelectedRows] = useMergedState<T[]>([]);
 
   const setSelectedRowsAndKey = (keys: React.ReactText[], rows: T[]) => {
@@ -504,6 +513,11 @@ const ProTable = <T extends {}, U extends ParamsType>(
   const intl = useIntl();
 
   /**
+   * 是否首次加载的指示器
+   */
+  const manualRequestRef = useRef<boolean>(manualRequest);
+
+  /**
    * 需要初始化 不然默认可能报错
    * 这里取了 defaultCurrent 和 current
    * 为了保证不会重复刷新
@@ -515,9 +529,8 @@ const ProTable = <T extends {}, U extends ParamsType>(
   const action = useFetchData(
     async (pageParams) => {
       // 需要手动触发的首次请求
-      const needManualFirstReq = manualRequest && !formSearch;
-
-      if (!request || needManualFirstReq) {
+      if (!request || manualRequestRef.current) {
+        manualRequestRef.current = false;
         return {
           data: props.dataSource || [],
           success: true,
@@ -729,9 +742,6 @@ const ProTable = <T extends {}, U extends ParamsType>(
       columns={counter.columns.filter((item) => {
         // 删掉不应该显示的
         const columnKey = genColumnKey(item.key, item.index);
-        if (!columnKey) {
-          return true;
-        }
         const config = counter.columnsMap[columnKey];
         if (config && config.show === false) {
           return false;
