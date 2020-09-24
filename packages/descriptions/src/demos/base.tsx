@@ -71,7 +71,7 @@ export default () => {
         <ProDescriptions.Item label="代码块" valueType="code">
           {`
 yarn run v1.22.0
-$ eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./packages
+$ eslint --format=pretty ./packages
 Done in 9.70s.
           `}
         </ProDescriptions.Item>

@@ -29,12 +29,15 @@ const GridContent: React.SFC<GridContentProps> = (props) => {
     prefixCls = 'ant-pro',
   } = props;
   const contentWidth = propsContentWidth || value.contentWidth;
-  let className = `${prefixCls}-grid-content`;
-  if (contentWidth === 'Fixed') {
-    className = `${prefixCls}-grid-content wide`;
-  }
+  const className = `${prefixCls}-grid-content`;
+
   return (
-    <div className={classNames(className, propsClassName)} style={style}>
+    <div
+      className={classNames(className, propsClassName, {
+        wide: contentWidth === 'Fixed',
+      })}
+      style={style}
+    >
       <div className={`${prefixCls}-grid-content-children`}>{children}</div>
     </div>
   );

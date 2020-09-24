@@ -38,7 +38,7 @@ import {
   omitUndefined,
 } from '@ant-design/pro-utils';
 
-import useFetchData, { RequestData } from './useFetchData';
+import useFetchData, { RequestData, UseFetchDataAction } from './useFetchData';
 import Container, { useCounter, ColumnsState } from './container';
 import Toolbar, { OptionConfig, ToolBarProps } from './component/ToolBar';
 import Alert, { AlertRenderType } from './component/Alert';
@@ -116,7 +116,7 @@ export type ProColumnType<T = unknown> = ProSchema<
 >;
 
 export interface ProColumnGroupType<RecordType> extends ProColumnType<RecordType> {
-  children: ProColumns<RecordType>;
+  children: ProColumns<RecordType>[];
 }
 
 export type ProColumns<T = any> = ProColumnGroupType<T> | ProColumnType<T>;
@@ -185,8 +185,8 @@ export interface ProTableProps<T, U extends ParamsType>
    * 初始化的参数，可以操作 table
    */
   actionRef?:
-  | React.MutableRefObject<ProCoreActionType | undefined>
-  | ((actionRef: ProCoreActionType) => void);
+    | React.MutableRefObject<ProCoreActionType | undefined>
+    | ((actionRef: ProCoreActionType) => void);
 
   /**
    * 操作自带的 form
@@ -314,11 +314,13 @@ const columnRender = <T, U = any>({
   counter,
 }: ColumnRenderInterface<T>): any => {
   const { action } = counter;
-  if (!action.current) {
-    return null;
-  }
   const { renderText = (val: any) => val } = item;
-  const renderTextStr = renderText(text, row, index, action.current);
+  const renderTextStr = renderText(
+    text,
+    row,
+    index,
+    action.current as UseFetchDataAction<RequestData<any>>,
+  );
   const textDom = defaultRenderText<T, {}>(
     renderTextStr,
     (item.valueType as ProFieldValueType) || 'text',
@@ -335,7 +337,13 @@ const columnRender = <T, U = any>({
   );
 
   if (item.render) {
-    const renderDom = item.render(dom, row, index, action.current, item);
+    const renderDom = item.render(
+      dom,
+      row,
+      index,
+      action.current as UseFetchDataAction<RequestData<any>>,
+      item,
+    );
 
     // 如果是合并单元格的，直接返回对象
     if (
@@ -415,19 +423,19 @@ const genColumnList = <T, U = {}>(
         filters:
           filters === true
             ? proFieldParsingValueEnumToArray(valueEnum).filter(
-              (valueItem) => valueItem && valueItem.value !== 'all',
-            )
+                (valueItem) => valueItem && valueItem.value !== 'all',
+              )
             : filters,
         ellipsis: false,
         fixed: config.fixed,
         width: item.width || (item.fixed ? 200 : undefined),
         children: (item as ProColumnGroupType<T>).children
           ? genColumnList(
-            (item as ProColumnGroupType<T>).children as ProColumns<T>[],
-            map,
-            counter,
-            columnEmptyText,
-          )
+              (item as ProColumnGroupType<T>).children as ProColumns<T>[],
+              map,
+              counter,
+              columnEmptyText,
+            )
           : undefined,
         render: (text: any, row: T, index: number) =>
           columnRender<T>({ item, text, row, index, columnEmptyText, counter }),
@@ -435,10 +443,10 @@ const genColumnList = <T, U = {}>(
       return omitUndefinedAndEmptyArr(tempColumns);
     })
     .filter((item) => !item.hideInTable) as unknown) as Array<
-      ColumnsType<T>[number] & {
-        index?: number;
-      }
-    >;
+    ColumnsType<T>[number] & {
+      index?: number;
+    }
+  >;
 };
 
 /**
@@ -477,7 +485,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     defaultClassName,
     formRef,
     type = 'table',
-    onReset = () => { },
+    onReset = () => {},
     columnEmptyText = '-',
     manualRequest = false,
     ...rest
@@ -486,6 +494,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
   const [selectedRowKeys, setSelectedRowKeys] = useMergedState<React.ReactText[]>([], {
     value: propsRowSelection ? propsRowSelection.selectedRowKeys : undefined,
   });
+
   const [selectedRows, setSelectedRows] = useMergedState<T[]>([]);
 
   const setSelectedRowsAndKey = (keys: React.ReactText[], rows: T[]) => {
@@ -509,6 +518,11 @@ const ProTable = <T extends {}, U extends ParamsType>(
   const intl = useIntl();
 
   /**
+   * 是否首次加载的指示器
+   */
+  const manualRequestRef = useRef<boolean>(manualRequest);
+
+  /**
    * 需要初始化 不然默认可能报错
    * 这里取了 defaultCurrent 和 current
    * 为了保证不会重复刷新
@@ -520,9 +534,8 @@ const ProTable = <T extends {}, U extends ParamsType>(
   const action = useFetchData(
     async (pageParams) => {
       // 需要手动触发的首次请求
-      const needManualFirstReq = manualRequest && !formSearch;
-
-      if (!request || needManualFirstReq) {
+      if (!request || manualRequestRef.current) {
+        manualRequestRef.current = false;
         return {
           data: props.dataSource || [],
           success: true,
@@ -698,8 +711,8 @@ const ProTable = <T extends {}, U extends ParamsType>(
             const { name = 'keyword' } =
               options.search === true
                 ? {
-                  name: 'keyword',
-                }
+                    name: 'keyword',
+                  }
                 : options.search;
             setFormSearch({
               ...formSearch,
@@ -733,9 +746,6 @@ const ProTable = <T extends {}, U extends ParamsType>(
     columns: counter.columns.filter((item) => {
       // 删掉不应该显示的
       const columnKey = genColumnKey(item.key, item.index);
-      if (!columnKey) {
-        return true;
-      }
       const config = counter.columnsMap[columnKey];
       if (config && config.show === false) {
         return false;
@@ -778,8 +788,8 @@ const ProTable = <T extends {}, U extends ParamsType>(
   const tableDom = props.tableViewRender ? (
     props.tableViewRender(tableProps)
   ) : (
-      <Table<T> {...tableProps} />
-    );
+    <Table<T> {...tableProps} />
+  );
   /**
    * table 区域的 dom，为了方便 render
    */

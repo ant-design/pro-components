@@ -72,7 +72,6 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
       collapsed,
       siderWidth = 208,
       hasSiderMenu,
-      headerRender,
       isMobile,
       prefixCls,
       headerHeight,
@@ -86,10 +85,6 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
       [`${prefixCls}-fixed-header`]: needFixedHeader,
       [`${prefixCls}-top-menu`]: isTop,
     });
-
-    if (headerRender === false) {
-      return null;
-    }
 
     const width =
       layout !== 'mix' && needSettingWidth
