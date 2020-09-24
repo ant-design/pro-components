@@ -1,12 +1,11 @@
-import React from 'react';
-import { List, Skeleton, Avatar } from 'antd';
+import React, { useContext } from 'react';
+import { List, Skeleton } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { ListGridType } from 'antd/lib/list';
 import { ExpandableConfig } from 'antd/lib/table/interface';
 import classNames from 'classnames';
-
-import getPrefixCls from './util/getPrefixCls';
+import { ConfigContext as AntdConfigContext } from 'antd/lib/config-provider';
 
 export interface RenderExpandIconProps {
   prefixCls: string;
@@ -55,12 +54,11 @@ export interface ItemProps {
   index?: number;
   selected?: boolean;
   avatar?: React.ReactNode;
-  children?: React.ReactNode;
+  extra?: React.ReactNode;
   actions?: React.ReactNode[];
   description?: React.ReactNode;
   loading?: boolean;
   style?: React.CSSProperties;
-  extra?: React.ReactNode;
   grid?: ListGridType;
   expand?: boolean;
   rowSupportExpand?: boolean;
@@ -72,13 +70,14 @@ export interface ItemProps {
 
 function ProListItem(props: ItemProps) {
   const { prefixCls: customizePrefixCls } = props;
-  const prefixCls = getPrefixCls('list', customizePrefixCls);
+  const { getPrefixCls } = useContext(AntdConfigContext);
+  const prefixCls = getPrefixCls('pro-list', customizePrefixCls);
   const defaultClassName = `${prefixCls}-row`;
 
   const {
     title,
     subTitle,
-    children,
+    extra,
     prefixCls: restPrefixCls,
     actions,
     item,
@@ -115,8 +114,9 @@ function ProListItem(props: ItemProps) {
     },
     propsClassName,
   );
-  const needExpanded = !expanded || Object.values(expandableConfig || {}).length === 0;
+  const needExpanded = expanded || Object.values(expandableConfig || {}).length === 0;
   const expandedRowDom = expandedRowRender && expandedRowRender(item, index, indentSize, expanded);
+
   return (
     <div className={className} style={style}>
       <List.Item
@@ -155,8 +155,9 @@ function ProListItem(props: ItemProps) {
               }
             />
           </div>
-          {needExpanded && (children || expandedRowDom) && (
+          {needExpanded && (extra || expandedRowDom) && (
             <div className={`${className}-content`}>
+              {extra}
               {expandedRowRender && rowSupportExpand && (
                 <div
                   className={expandedRowClassName && expandedRowClassName(item, index, indentSize)}

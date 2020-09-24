@@ -1,13 +1,11 @@
 import React, { useMemo, useContext } from 'react';
-import { List } from 'antd';
 import { ListProps } from 'antd/lib/list';
 import { ProFieldValueType } from '@ant-design/pro-field';
 import classNames from 'classnames';
 import ProTable, { ProTableProps, ProColumns } from '@ant-design/pro-table';
-import { ColumnType } from 'antd/es/table';
 import { ConfigContext as AntdConfigContext } from 'antd/lib/config-provider';
-import get from 'rc-util/lib/utils/get';
-import ProListItem from './Item';
+import ListView from './ListView';
+import { PRO_LIST_KEYS } from './constans';
 
 import './index.less';
 
@@ -25,13 +23,21 @@ export interface ProListMetas {
   subTitle?: ProListMeta;
   description?: ProListMeta;
   avatar?: ProListMeta;
+  extra?: ProListMeta;
   actions?: ProListMeta;
 }
 
 export interface ProListProps<RecordType, U extends { [key: string]: any }>
   extends Pick<
       ProTableProps<RecordType, U>,
-      'dataSource' | 'loading' | 'toolBarRender' | 'rowKey' | 'headerTitle' | 'options' | 'search'
+      | 'dataSource'
+      | 'loading'
+      | 'toolBarRender'
+      | 'rowKey'
+      | 'headerTitle'
+      | 'options'
+      | 'search'
+      | 'expandable'
     >,
     AntdListProps<RecordType> {
   metas?: ProListMetas;
@@ -40,8 +46,6 @@ export interface ProListProps<RecordType, U extends { [key: string]: any }>
 export type Key = React.Key;
 
 export type TriggerEventHandler<RecordType> = (record: RecordType) => void;
-
-const PRO_LIST_KEYS = ['title', 'subTitle', 'avatar', 'description', 'actions'];
 
 function ProList<RecordType = any, U = any>(props: ProListProps<RecordType, U>) {
   const {
@@ -54,19 +58,20 @@ function ProList<RecordType = any, U = any>(props: ProListProps<RecordType, U>) 
     className,
     options = false,
     search = false,
+    expandable,
     ...rest
   } = props;
 
   const { getPrefixCls } = useContext(AntdConfigContext);
 
-  const columns: ProColumns[] = useMemo(() => {
+  const proTableColumns: ProColumns[] = useMemo(() => {
     const ret: ProColumns[] = [];
     PRO_LIST_KEYS.forEach((key) => {
       if (!metas || !metas[key]) {
         return;
       }
       const meta = metas[key];
-      let valueType = meta.valueType;
+      let { valueType } = meta;
       if (!valueType) {
         // 给默认的 valueType
         if (key === 'avatar') {
@@ -81,34 +86,6 @@ function ProList<RecordType = any, U = any>(props: ProListProps<RecordType, U>) 
     });
     return ret;
   }, [metas]);
-  const tableViewRender: ProTableProps<RecordType, any>['tableViewRender'] = ({
-    dataSource,
-    columns,
-  }) => {
-    return (
-      <List<RecordType>
-        size={size}
-        footer={footer}
-        split={split}
-        dataSource={dataSource}
-        renderItem={(item, index) => {
-          const listItemProps = {};
-          columns?.forEach((column: ColumnType<RecordType>) => {
-            PRO_LIST_KEYS.forEach((key) => {
-              if (column.key === key) {
-                const dataIndex = column.dataIndex || key;
-                const rawData = Array.isArray(dataIndex)
-                  ? get(item, dataIndex as string[])
-                  : item[dataIndex];
-                listItemProps[key] = column.render ? column.render(rawData, item, index) : rawData;
-              }
-            });
-          });
-          return <ProListItem {...listItemProps} />;
-        }}
-      />
-    );
-  };
 
   return (
     <ProTable<RecordType>
@@ -116,9 +93,19 @@ function ProList<RecordType = any, U = any>(props: ProListProps<RecordType, U>) 
       search={search}
       options={options}
       className={classNames(getPrefixCls('pro-list'), className)}
-      columns={columns}
+      columns={proTableColumns}
       rowKey={rowKey}
-      tableViewRender={tableViewRender}
+      tableViewRender={({ columns, dataSource }) => (
+        <ListView
+          columns={columns}
+          dataSource={dataSource}
+          size={size}
+          footer={footer}
+          split={split}
+          rowKey={rowKey}
+          expandable={expandable}
+        />
+      )}
     />
   );
 }
