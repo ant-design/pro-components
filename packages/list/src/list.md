@@ -44,24 +44,18 @@ nav:
 
 ### ProList API
 
-ProList 与 antd 的 [List](https://ant.design/components/list-cn/) 相比，API 设计上更像 Table，使得可以通过配置化的方式快速定义数据项的展现形式。也使得 Table 和 List 的切换变得更加容易。
+ProList 与 antd 的 [List](https://ant.design/components/list-cn/) 相比，API 设计上更像 Table，使得可以通过配置化的方式快速定义数据项的展现形式。也使得 Table 和 List 的切换变得更加容易。另外 ProList 基于 ProTable 实现，除了 Table 相关的 API 以外 ProList 支持大部分 ProTable 的 API。
 
 | 参数 | 说明 | 类型 | 默认值 |
 | :-- | :-- | :-- | :-- |
 | dataSource | 与 antd 相同的[配置](https://ant.design/components/list-cn/#API) | `any[]` | `false` |
 | metas | 列表项配置，类似 Table 中的 columns | `Metas` | - |
+| rowKey | 行的 key，一般是行 id | `string` \| `(row,index)=>string` | `'id'` |
+| headerTitle | 列表头部主标题 | `React.ReactNode` | - |
+| loading | 是否加载中 | `boolean` \| `(item: any) => boolean` | `false` |
 | rowSelection | 与 antd 相同的[配置](https://ant.design/components/table-cn/#rowSelection) | `object` \|`boolean` | false |
 | expandable | 与 antd 相同的[配置](https://ant.design/components/table-cn/#expandable) | `object` \| `false` | - |
 | showActions | 何时展示 actions | `'hover'` \| `'always'` | `'always'` |
-| rowKey | 行的 key，一般是行 id | `string` \| `(row,index)=>string` | `'id'` |
-| title | 列表头部主标题 | `React.ReactNode` | - |
-| actions | 列表头部操作项 | `React.ReactNode[]` | - |
-| headerRender | 自定义列表头的 render 方法，替代 `<List />` 的 header 属性 | `(props: {title, actions}, defaultDom: React.ReactNode) => ReactNode` | - |
-| loading | 是否加载中 | `boolean` \| `(item: any) => boolean` | `false` |
-| expandedRowClassName | 多余展开的 css | string | - |
-| expand | 列表项是否展开 | boolean | - |
-| onExpand | 列表项展开收起的回调 | (expand: boolean) => void | - |
-| expandable | 列表项展开配置 | [object](https://ant.design/components/table-cn/#expandable) | - |
 
 ### Metas.[Meta] 通用 API
 
@@ -73,36 +67,50 @@ ProList 与 antd 的 [List](https://ant.design/components/list-cn/) 相比，API
 
 ### Metas.type
 
-| 参数 | 说明 | 类型 | 默认值 |
-| :--- | :--- | :--- | :----- |
-|      |      |      |        |
+对应 dataSource 的字段类型为 `'new'` \| `'top'` \| `'inline'`。
+
+| 参数      | 说明 | 类型 | 默认值   |
+| :-------- | :--- | :--- | :------- |
+| dataIndex | -    | -    | `'type'` |
 
 ### Metas.title
 
-| 参数 | 说明 | 类型 | 默认值 |
-| :--- | :--- | :--- | :----- |
-|      |      |      |        |
+| 参数      | 说明 | 类型 | 默认值    |
+| :-------- | :--- | :--- | :-------- |
+| dataIndex | -    | -    | `'title'` |
 
 ### Metas.subTitle
 
-| 参数 | 说明 | 类型 | 默认值 |
-| :--- | :--- | :--- | :----- |
-|      |      |      |        |
+| 参数      | 说明 | 类型 | 默认值       |
+| :-------- | :--- | :--- | :----------- |
+| dataIndex | -    | -    | `'subTitle'` |
 
 ### Metas.description
 
-| 参数 | 说明 | 类型 | 默认值 |
-| :--- | :--- | :--- | :----- |
-|      |      |      |        |
+| 参数      | 说明 | 类型 | 默认值          |
+| :-------- | :--- | :--- | :-------------- |
+| dataIndex | -    | -    | `'description'` |
 
 ### Metas.avatar
 
-| 参数 | 说明 | 类型 | 默认值 |
-| :--- | :--- | :--- | :----- |
-|      |      |      |        |
+| 参数      | 说明 | 类型 | 默认值     |
+| :-------- | :--- | :--- | :--------- |
+| dataIndex | -    | -    | `'avatar'` |
 
 ### Metas.actions
 
-| 参数 | 说明 | 类型 | 默认值 |
-| :--- | :--- | :--- | :----- |
-|      |      |      |        |
+| 参数      | 说明 | 类型 | 默认值      |
+| :-------- | :--- | :--- | :---------- |
+| dataIndex | -    | -    | `'actions'` |
+
+### Metas.content
+
+| 参数      | 说明 | 类型 | 默认值      |
+| :-------- | :--- | :--- | :---------- |
+| dataIndex | -    | -    | `'content'` |
+
+### Metas.extra
+
+| 参数      | 说明 | 类型 | 默认值    |
+| :-------- | :--- | :--- | :-------- |
+| dataIndex | -    | -    | `'extra'` |
