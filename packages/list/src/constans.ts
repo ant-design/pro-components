@@ -6,4 +6,5 @@ export const PRO_LIST_KEYS = [
   'extra',
   'content',
   'actions',
+  'type',
 ];

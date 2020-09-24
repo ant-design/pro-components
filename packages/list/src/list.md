@@ -36,21 +36,9 @@ nav:
 
 <code src="./demos/layout.tsx" />
 
-### 文段式场景
-
-<code src="./demos/group.tsx" />
-
 ### 一些预设的模式
 
 <code src="./demos/special.tsx" />
-
-### 自定义表头
-
-<code src="./demos/headerRender.tsx" />
-
-### 小菜单
-
-<code src="./demos/minMenu.tsx" />
 
 ## API
 
