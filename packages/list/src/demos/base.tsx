@@ -43,6 +43,7 @@ export default () => (
     rowKey="id"
     headerTitle="基础列表"
     dataSource={dataSource}
+    showActions="hover"
     metas={{
       title: {
         dataIndex: 'name',
@@ -64,7 +65,7 @@ export default () => (
         },
       },
       actions: {
-        render: (text, row, _, action) => [
+        render: (text, row) => [
           <a href={row.html_url} target="_blank" rel="noopener noreferrer" key="link">
             链路
           </a>,

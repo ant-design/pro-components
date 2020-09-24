@@ -15,6 +15,7 @@ export interface ListViewProps<RecordType>
   extends AntdListProps<RecordType>,
     Pick<TableProps<RecordType>, 'columns' | 'dataSource' | 'expandable'> {
   rowKey?: string | GetRowKey<RecordType>;
+  showActions?: 'hover' | 'always';
 }
 
 function ListView<RecordType>(props: ListViewProps<RecordType>) {
@@ -25,6 +26,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     footer,
     split,
     rowKey,
+    showActions,
     expandable: expandableConfig,
   } = props;
 
@@ -111,6 +113,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
             onExpand={() => {
               onTriggerExpand(item);
             }}
+            showActions={showActions}
             rowSupportExpand={!rowExpandable || (rowExpandable && rowExpandable(item))}
           />
         );

@@ -41,6 +41,7 @@ export interface ProListProps<RecordType, U extends { [key: string]: any }>
     >,
     AntdListProps<RecordType> {
   metas?: ProListMetas;
+  showActions?: 'hover' | 'always';
 }
 
 export type Key = React.Key;
@@ -59,6 +60,7 @@ function ProList<RecordType = any, U = any>(props: ProListProps<RecordType, U>) 
     options = false,
     search = false,
     expandable,
+    showActions,
     ...rest
   } = props;
 
@@ -104,6 +106,7 @@ function ProList<RecordType = any, U = any>(props: ProListProps<RecordType, U>) 
           split={split}
           rowKey={rowKey}
           expandable={expandable}
+          showActions={showActions}
         />
       )}
     />
