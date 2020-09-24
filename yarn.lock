@@ -53,30 +53,6 @@
     insert-css "^2.0.0"
     rc-util "^5.0.1"
 
-"@ant-design/pro-field@0.3.1":
-  version "0.3.1"
-  resolved "https://registry.npmjs.org/@ant-design/pro-field/-/pro-field-0.3.1.tgz#a1d78fe27d478bc90322e80f8c7e102b6c2bbc19"
-  integrity sha512-Q4hddj6X7E8WfRqwRZ/qbkx9j5WFvZ4EqUhlTwWLEwc7MsAByGOTqwCUyF6r0tSwyPyM5a0cZl1IcgJ/rpzcYw==
-  dependencies:
-    "@ant-design/pro-provider" "0.1.0"
-    classnames "^2.2.6"
-    lodash.isequal "^4.5.0"
-    lodash.tonumber "^4.0.3"
-    moment "^2.27.0"
-
-"@ant-design/pro-form@1.0.0-beta.26":
-  version "1.0.0-beta.26"
-  resolved "https://registry.npmjs.org/@ant-design/pro-form/-/pro-form-1.0.0-beta.26.tgz#c6eb53eee2df62a2950e13567feb4b4a97d0482a"
-  integrity sha512-k/kyyR4s/ZCsfou8zyhNAw5yAddEPcf/qMlLiz89wsjtuAWzmSFn1vhlV3yxOVmjpjfu59Afa1HhnrYvCs8pug==
-  dependencies:
-    "@ant-design/icons" "^4.2.1"
-    "@ant-design/pro-field" "0.3.1"
-    "@ant-design/pro-provider" "0.1.0"
-    "@ant-design/pro-utils" "0.4.0"
-    classnames "^2.2.6"
-    rc-resize-observer "^0.2.3"
-    use-media-antd-query "^1.0.2"
-
 "@ant-design/pro-form@1.0.0-beta.28":
   version "1.0.0-beta.28"
   resolved "https://registry.npmjs.org/@ant-design/pro-form/-/pro-form-1.0.0-beta.28.tgz#d3aeaf5cc69511d0a98841d742128fe66d85e344"
@@ -89,43 +65,6 @@
     classnames "^2.2.6"
     rc-resize-observer "^0.2.3"
     use-media-antd-query "^1.0.2"
-
-"@ant-design/pro-provider@0.1.0":
-  version "0.1.0"
-  resolved "https://registry.npmjs.org/@ant-design/pro-provider/-/pro-provider-0.1.0.tgz#e7e68ec67e6d306968d208b763db92030b4a2d31"
-  integrity sha512-BEdfpHV1+UloMN57ldEsoqlvISYka956KpX1vmcRLcFEdVclnE8/hOaETq0mlLXC2EkvkaMIk9qw3kBCK5jsJw==
-  dependencies:
-    rc-util "^5.0.1"
-
-"@ant-design/pro-table@2.7.4":
-  version "2.7.4"
-  resolved "https://registry.npmjs.org/@ant-design/pro-table/-/pro-table-2.7.4.tgz#b482491781eabb96959c316c8a5c2d4ff12e0180"
-  integrity sha512-aP7WN9zcma1neBm/SW4NJoW1ielhJGAUx8j9Ksou9dK7xA6rr+8zqWbfl2dvC+xOA729lgcViTi6bWViNAwSRA==
-  dependencies:
-    "@ant-design/icons" "^4.1.0"
-    "@ant-design/pro-field" "0.3.1"
-    "@ant-design/pro-form" "1.0.0-beta.26"
-    "@ant-design/pro-provider" "0.1.0"
-    "@ant-design/pro-utils" "0.4.0"
-    classnames "^2.2.6"
-    dnd-core "^10.0.2"
-    moment "^2.24.0"
-    rc-resize-observer "^0.2.1"
-    rc-util "^5.0.1"
-    react-dnd "^10.0.2"
-    react-dnd-html5-backend "^10.0.2"
-    unstated-next "^1.1.0"
-    use-json-comparison "^1.0.5"
-    use-media-antd-query "1.0.2"
-
-"@ant-design/pro-utils@0.4.0":
-  version "0.4.0"
-  resolved "https://registry.npmjs.org/@ant-design/pro-utils/-/pro-utils-0.4.0.tgz#5a94904f3887294d5e15c7eeec60db1974d8b586"
-  integrity sha512-IDQ2s8ekV9TIUWTrtTWDITv/q2QygSrRN05b00ggc8T1v0Obh5mJexZPgJvyqOxC8cWc9wT9kcg2DqO6Gi4dZw==
-  dependencies:
-    "@types/lodash.isequal" "^4.5.5"
-    lodash.isequal "^4.5.0"
-    rc-util "^5.0.6"
 
 "@ant-design/react-slick@~0.27.0":
   version "0.27.0"
