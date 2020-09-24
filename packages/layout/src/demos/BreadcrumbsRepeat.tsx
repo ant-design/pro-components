@@ -13,6 +13,13 @@ export default () => (
       location={{
         pathname: '/admin/process/edit/123',
       }}
+      breadcrumbRender={(routes) => [
+        {
+          path: '/',
+          breadcrumbName: '主页',
+        },
+        ...(routes || []),
+      ]}
       menuDataRender={() => [
         {
           path: '/welcome',

@@ -24,8 +24,13 @@ export function setup() {
 export const teardown = mock.teardown.bind(mock);
 
 describe('ProFormUpload', () => {
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
   beforeEach(() => setup());
-  afterEach(() => teardown());
+  afterEach(() => {
+    teardown();
+    errorSpy.mockReset();
+  });
 
   it('ProFormUploadButton support onChange', async () => {
     const fn = jest.fn();
@@ -57,13 +62,19 @@ describe('ProFormUpload', () => {
 
   it('ProFormUploadDragger support onChange', async () => {
     const fn = jest.fn();
+    const onChangeFn = jest.fn();
     const wrapper = mount(
       <ProForm
         onValuesChange={(_, values) => {
           fn(values.files);
         }}
       >
-        <ProFormUploadDragger action="http://upload.com" label="upload" name="files" />
+        <ProFormUploadDragger
+          onChange={() => onChangeFn()}
+          action="http://upload.com"
+          label="upload"
+          name="files"
+        />
       </ProForm>,
     );
 
@@ -76,6 +87,7 @@ describe('ProFormUpload', () => {
     });
     await waitTime(200);
     expect(fn).toBeCalled();
+    expect(onChangeFn).toBeCalled();
   });
 
   it('ProFormUploadDragger hide when max', async () => {

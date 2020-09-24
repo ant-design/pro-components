@@ -116,6 +116,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | request | 获取 `dataSource` 的方法 | `(params?: {pageSize: number;current: number;[key: string]: any;},sort,filter) => Promise<RequestData<T>>` | - |
+| params | 用于 request 查询的多余参数，一旦变化会触发重新加载 | object | - | - |
 | postData | 对通过 `request` 获取的数据进行处理 | `(data: T[]) => T[]` | - |
 | defaultData | 默认的数据 | `T[]` | - |
 | actionRef | Table action 的引用，便于自定义触发 | `React.MutableRefObject<FormInstance>` \| `((actionRef: ActionType) => void)` | - |
@@ -356,7 +357,12 @@ interface IValueEnum {
 
 ### 批量操作
 
-与 antd 相同，批量操作需要设置 `rowSelection` 来开启，与 antd 不同的是，pro-table 提供了一个 alert 用于承载一些信息。你可以通过 `tableAlertRender` 来对它进行自定义。设置或者返回 false 即可关闭。
+与 antd 相同，批量操作需要设置 `rowSelection` 来开启，与 antd 不同的是，pro-table 提供了一个 alert 用于承载一些信息。你可以通过 `tableAlertRender`和 `tableAlertOptionRender` 来对它进行自定义。设置或者返回 false 即可关闭。
+
+| 属性 | 描述 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| tableAlertRender | 自定义批量操作工具栏左侧信息区域, false 时不显示 | `({ selectedRowKeys: (string | number)[], selectedRows: T[], onCleanSelected: ()=>void }) => React.ReactNode) \| false;` | - |
+| tableAlertOptionRender | 自定义批量操作工具栏右侧选项区域, false 时不显示 | `({ selectedRowKeys: (string | number)[], selectedRows: T[], onCleanSelected: ()=>void }) => React.ReactNode) \| false;` | - |
 
 ### 搜索表单
 

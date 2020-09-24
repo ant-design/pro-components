@@ -8,7 +8,7 @@ import React, {
   useMemo,
 } from 'react';
 import { Table, ConfigProvider, Card, Space, Empty } from 'antd';
-import { useIntl, IntlType, ParamsType, ConfigProviderWarp } from '@ant-design/pro-provider';
+import { useIntl, ParamsType, ConfigProviderWarp } from '@ant-design/pro-provider';
 import classNames from 'classnames';
 import get from 'rc-util/lib/utils/get';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -21,7 +21,6 @@ import {
   SortOrder,
   ColumnFilterItem,
 } from 'antd/lib/table/interface';
-import { ConfigContext as AntdConfigContext } from 'antd/lib/config-provider';
 import {
   ProFieldEmptyText,
   ProFieldValueType,
@@ -40,10 +39,10 @@ import {
   ListToolBarProps,
 } from '@ant-design/pro-utils';
 
-import useFetchData, { RequestData } from './useFetchData';
+import useFetchData, { RequestData, UseFetchDataAction } from './useFetchData';
 import Container, { useCounter, ColumnsState } from './container';
 import Toolbar, { OptionConfig, ToolBarProps } from './component/ToolBar';
-import Alert from './component/Alert';
+import Alert, { AlertRenderType } from './component/Alert';
 import FormSearch, { SearchConfig, TableFormItem } from './Form';
 import {
   genColumnKey,
@@ -118,7 +117,7 @@ export type ProColumnType<T = unknown> = ProSchema<
 >;
 
 export interface ProColumnGroupType<RecordType> extends ProColumnType<RecordType> {
-  children: ProColumns<RecordType>;
+  children: ProColumns<RecordType>[];
 }
 
 export type ProColumns<T = any> = ProColumnGroupType<T> | ProColumnType<T>;
@@ -252,20 +251,12 @@ export interface ProTableProps<T, U extends ParamsType>
    * 自定义 table 的 alert
    * 设置或者返回false 即可关闭
    */
-  tableAlertRender?:
-    | ((props: {
-        intl: IntlType;
-        selectedRowKeys: (string | number)[];
-        selectedRows: T[];
-      }) => React.ReactNode)
-    | false;
+  tableAlertRender?: AlertRenderType<T>;
   /**
    * 自定义 table 的 alert 的操作
    * 设置或者返回false 即可关闭
    */
-  tableAlertOptionRender?:
-    | ((props: { intl: IntlType; onCleanSelected: () => void }) => React.ReactNode)
-    | false;
+  tableAlertOptionRender?: AlertRenderType<T>;
 
   rowSelection?: TableProps<T>['rowSelection'] | false;
 
@@ -322,11 +313,13 @@ const columnRender = <T, U = any>({
   counter,
 }: ColumnRenderInterface<T>): any => {
   const { action } = counter;
-  if (!action.current) {
-    return null;
-  }
   const { renderText = (val: any) => val } = item;
-  const renderTextStr = renderText(text, row, index, action.current);
+  const renderTextStr = renderText(
+    text,
+    row,
+    index,
+    action.current as UseFetchDataAction<RequestData<any>>,
+  );
   const textDom = defaultRenderText<T, {}>(
     renderTextStr,
     (item.valueType as ProFieldValueType) || 'text',
@@ -343,7 +336,13 @@ const columnRender = <T, U = any>({
   );
 
   if (item.render) {
-    const renderDom = item.render(dom, row, index, action.current, item);
+    const renderDom = item.render(
+      dom,
+      row,
+      index,
+      action.current as UseFetchDataAction<RequestData<any>>,
+      item,
+    );
 
     // 如果是合并单元格的，直接返回对象
     if (
@@ -495,6 +494,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
   const [selectedRowKeys, setSelectedRowKeys] = useMergedState<React.ReactText[]>([], {
     value: propsRowSelection ? propsRowSelection.selectedRowKeys : undefined,
   });
+
   const [selectedRows, setSelectedRows] = useMergedState<T[]>([]);
 
   const setSelectedRowsAndKey = (keys: React.ReactText[], rows: T[]) => {
@@ -518,6 +518,11 @@ const ProTable = <T extends {}, U extends ParamsType>(
   const intl = useIntl();
 
   /**
+   * 是否首次加载的指示器
+   */
+  const manualRequestRef = useRef<boolean>(manualRequest);
+
+  /**
    * 需要初始化 不然默认可能报错
    * 这里取了 defaultCurrent 和 current
    * 为了保证不会重复刷新
@@ -529,9 +534,8 @@ const ProTable = <T extends {}, U extends ParamsType>(
   const action = useFetchData(
     async (pageParams) => {
       // 需要手动触发的首次请求
-      const needManualFirstReq = manualRequest && !formSearch;
-
-      if (!request || needManualFirstReq) {
+      if (!request || manualRequestRef.current) {
+        manualRequestRef.current = false;
         return {
           data: props.dataSource || [],
           success: true,
@@ -733,6 +737,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     />
   );
   const dataSource = request ? (action.dataSource as T[]) : props.dataSource || [];
+  const loading = props.loading !== undefined ? props.loading : action.loading;
   const tableDom = (
     <Table<T>
       {...rest}
@@ -743,16 +748,13 @@ const ProTable = <T extends {}, U extends ParamsType>(
       columns={counter.columns.filter((item) => {
         // 删掉不应该显示的
         const columnKey = genColumnKey(item.key, item.index);
-        if (!columnKey) {
-          return true;
-        }
         const config = counter.columnsMap[columnKey];
         if (config && config.show === false) {
           return false;
         }
         return true;
       })}
-      loading={action.loading || props.loading}
+      loading={loading}
       dataSource={request ? (action.dataSource as T[]) : props.dataSource || []}
       pagination={pagination}
       onChange={(
@@ -870,7 +872,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
  * @param props
  */
 const ProviderWarp = <T, U extends { [key: string]: any } = {}>(props: ProTableProps<T, U>) => {
-  const { getPrefixCls } = useContext(AntdConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   return (
     <Container.Provider initialState={props}>
       <ConfigProviderWarp>

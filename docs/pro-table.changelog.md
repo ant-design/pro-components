@@ -9,6 +9,83 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.8.0
+
+`2020-09-22`
+
+- 📝 docs: add params docs for table [#608186df](https://github.com/ant-design/pro-components//commit/608186df)
+- 🐛 fix(provider): fix importLibToEs no work error ([@chenshuai2144](https://github.com/chenshuai2144))[#507](https://github.com/ant-design/pro-components/pull/507)
+- 🐛 fix(table): fix some style error ([@chenshuai2144](https://github.com/chenshuai2144))[#555](https://github.com/ant-design/pro-components/pull/555)
+- 💥 feat(Table): 优化 ProTable 批量操作工具栏 ([@rdmclin2](https://github.com/rdmclin2))[#532](https://github.com/ant-design/pro-components/pull/532)
+- 💥 feat(Table): Fix column reset to default column display ([@ceser-x](https://github.com/ceser-x))[#525](https://github.com/ant-design/pro-components/pull/525)
+- 🐛 fix(table): fix onCell no work error ([@chenshuai2144](https://github.com/chenshuai2144))[#528](https://github.com/ant-design/pro-components/pull/528)
+- ⚡️ performance(table): support fast isequal function ([@chenshuai2144](https://github.com/chenshuai2144))[#527](https://github.com/ant-design/pro-components/pull/527)
+- 💥 feat(table): layout support header Props ([@chenshuai2144](https://github.com/chenshuai2144))[#516](https://github.com/ant-design/pro-components/pull/516)
+- 🐛 fix(table): beforeSearchSubmit retrun value support any values ([@chenshuai2144](https://github.com/chenshuai2144))[#514](https://github.com/ant-design/pro-components/pull/514)
+- 🐛 fix(table): fix react dom props warning ([@chenshuai2144](https://github.com/chenshuai2144))[#512](https://github.com/ant-design/pro-components/pull/512)
+- 🐛 fix(table): fix tip no work in form mode ([@chenshuai2144](https://github.com/chenshuai2144))[#513](https://github.com/ant-design/pro-components/pull/513)
+- 🐛 fix(table): fix the problem that intl switching is not fulfilled ([@chenshuai2144](https://github.com/chenshuai2144))[#504](https://github.com/ant-design/pro-components/pull/504)
+
+## @ant-design/pro-table@2.7.4
+
+`2020-09-14`
+
+- 🚑 hotfix: remove console [#fd85fe6c](https://github.com/ant-design/pro-components//commit/fd85fe6c)
+- feat(core): 为 LabelIconTip 添加 subTitle ([@rdmclin2](https://github.com/rdmclin2))[#454](https://github.com/ant-design/pro-components/pull/454)
+
+## @ant-design/pro-table@2.7.3
+
+`2020-09-14`
+
+- 🐛 fix(table): better ellipsis function ([@chenshuai2144](https://github.com/chenshuai2144))[#483](https://github.com/ant-design/pro-components/pull/483)
+- 🐛 fix(table): fix table pageSize or current problem ([@chenshuai2144](https://github.com/chenshuai2144))[#482](https://github.com/ant-design/pro-components/pull/482)
+
+## @ant-design/pro-table@2.7.2
+
+`2020-09-10`
+
+- 🐛 fix(table): fix page info is undefined error ([@chenshuai2144](https://github.com/chenshuai2144))[#441](https://github.com/ant-design/pro-components/pull/441)
+- 🐛 fix(table): table text is null copy ([@hengkx](https://github.com/hengkx))[#427](https://github.com/ant-design/pro-components/pull/427)
+
+## @ant-design/pro-table@2.7.1
+
+`2020-09-08`
+
+- 🐛 fix(table): fix renderFormItem item no work bug ([@chenshuai2144](https://github.com/chenshuai2144))[#418](https://github.com/ant-design/pro-components/pull/418)
+
+## @ant-design/pro-table@2.7.0
+
+`2020-09-07`
+
+- 🐛 fix(table): 完善 columnEmptyText 空值不显示 ([@itsuki0927](https://github.com/itsuki0927))[#398](https://github.com/ant-design/pro-components/pull/398)
+- 🐛 fix(table): 修复 valueType 函数返回 date 等日期类型格式化异常 ([@itsuki0927](https://github.com/itsuki0927))[#399](https://github.com/ant-design/pro-components/pull/399)
+- 🐛 fix(table): fix sort has undefined key error ([@chenshuai2144](https://github.com/chenshuai2144))[#397](https://github.com/ant-design/pro-components/pull/397)
+- 🐛 fix(form): fix a problem with searchtext passing ([@chenshuai2144](https://github.com/chenshuai2144))[#396](https://github.com/ant-design/pro-components/pull/396)
+- 🐛 fix(table): fix reload no support wait ([@chenshuai2144](https://github.com/chenshuai2144))[#395](https://github.com/ant-design/pro-components/pull/395)
+- 🐛 fix(table): fix columnEmptyText no work error ([@chenshuai2144](https://github.com/chenshuai2144))[#394](https://github.com/ant-design/pro-components/pull/394)
+- 🐛 fix(protable): remove unused import [#ed5e6c4f](https://github.com/ant-design/pro-components//commit/ed5e6c4f)
+- 🐛 fix(table): if type=from, textarea should show textarea ([@chenshuai2144](https://github.com/chenshuai2144))[#366](https://github.com/ant-design/pro-components/pull/366)
+- 🐛 fix(table): close table copy's tooltip ([@chenshuai2144](https://github.com/chenshuai2144))[#365](https://github.com/ant-design/pro-components/pull/365)
+- 🐛 fix(table): fix request error don't setLoading error ([@chenshuai2144](https://github.com/chenshuai2144))[#368](https://github.com/ant-design/pro-components/pull/368)
+- 🐛 fix(table): fix search.span is number error ([@chenshuai2144](https://github.com/chenshuai2144))[#361](https://github.com/ant-design/pro-components/pull/361)
+
+## @ant-design/pro-table@2.6.3
+
+`2020-08-31`
+
+- fix(table): 修复 proTable search span 配置问题 ([@lushanyanYX](https://github.com/lushanyanYX))[#334](https://github.com/ant-design/pro-components/pull/334)
+- 🐛 fix(table): pagination=false, do not have pageParams ([@chenshuai2144](https://github.com/chenshuai2144))[#343](https://github.com/ant-design/pro-components/pull/343)
+- 💄 UI(table): strict css style rewrite ([@chenshuai2144](https://github.com/chenshuai2144))[#338](https://github.com/ant-design/pro-components/pull/338)
+- 🐛 fix(table): fix initialValue no work error ([@chenshuai2144](https://github.com/chenshuai2144))[#339](https://github.com/ant-design/pro-components/pull/339)
+
+## @ant-design/pro-table@2.6.2
+
+`2020-08-26`
+
+- 💄 UI(table): fix mobile style error ([@chenshuai2144](https://github.com/chenshuai2144))[#312](https://github.com/ant-design/pro-components/pull/312)
+
+- 🐛 fix(table): fix reset no use initvalues error ([@chenshuai2144](https://github.com/chenshuai2144))[#310](https://github.com/ant-design/pro-components/pull/310)
+
 ## @ant-design/pro-table@2.6.1
 
 `2020-08-25`
@@ -32,10 +109,8 @@ group:
 `2020-08-19`
 
 - 🐛 fix(table): do not pick mode props ([@chenshuai2144](https://github.com/chenshuai2144))[#245](https://github.com/ant-design/pro-components/pull/245)
-
-* 🐛 fix(table): reloadAndRest will reset filter and sort ([@chenshuai2144](https://github.com/chenshuai2144))[#239](https://github.com/ant-design/pro-components/pull/239)
-
-* 🐛 fix(table): fix table search key warning error ([@chenshuai2144](https://github.com/chenshuai2144))[#233](https://github.com/ant-design/pro-components/pull/233)
+- 🐛 fix(table): reloadAndRest will reset filter and sort ([@chenshuai2144](https://github.com/chenshuai2144))[#239](https://github.com/ant-design/pro-components/pull/239)
+- 🐛 fix(table): fix table search key warning error ([@chenshuai2144](https://github.com/chenshuai2144))[#233](https://github.com/ant-design/pro-components/pull/233)
 
 ## @ant-design/pro-table@2.5.14
 

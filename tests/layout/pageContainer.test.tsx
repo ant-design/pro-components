@@ -147,9 +147,10 @@ describe('PageContainer', () => {
     wrapper.setProps({
       layout: 'top',
     });
-
     expect(wrapper.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe('100%');
     expect(wrapper.render()).toMatchSnapshot();
+    // test useUseEffect render function
+    wrapper.unmount();
   });
 
   it('🐲 footer is null, do not render footerToolbar ', async () => {

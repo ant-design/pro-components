@@ -241,6 +241,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   };
 
   const colSize = useAntdMediaQuery();
+
   const { routes = [] } = route;
   const [menuInfoData, setMenuInfoData] = useMergedState<{
     breadcrumb?: {
@@ -262,7 +263,6 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   if (menuDataRender) {
     renderMenuInfoData = getMenuData(routes, menu, formatMessage, menuDataRender);
   }
-
   const isMobile = (colSize === 'sm' || colSize === 'xs') && !props.disableMobile;
 
   const { breadcrumb = {}, breadcrumbMap, menuData = [] } = !menuDataRender

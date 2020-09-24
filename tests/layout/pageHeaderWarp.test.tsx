@@ -3,6 +3,7 @@ import React from 'react';
 import ProLayout, { PageContainer } from '@ant-design/pro-layout';
 import defaultProps from './defaultProps';
 import { waitForComponentToPaint } from '../util';
+import { act } from 'react-test-renderer';
 
 describe('BasicLayout', () => {
   beforeAll(() => {
@@ -68,7 +69,7 @@ describe('BasicLayout', () => {
       <ProLayout
         {...defaultProps}
         layout="mix"
-        splitMenus={true}
+        splitMenus
         isMobile={false}
         rightContentRender={() => <span />}
       >
@@ -77,6 +78,20 @@ describe('BasicLayout', () => {
     );
     await waitForComponentToPaint(wrapper);
     const domHeader = wrapper.find('.ant-pro-top-nav-header-logo');
+
+    act(() => {
+      wrapper.setProps({
+        rightContentRender: () => (
+          <div
+            style={{
+              width: 200,
+            }}
+          >
+            xx
+          </div>
+        ),
+      });
+    });
     expect(domHeader.exists()).toBe(true);
   });
 
@@ -90,5 +105,17 @@ describe('BasicLayout', () => {
     await waitForComponentToPaint(wrapper);
     const domHeader = wrapper.find(`.${prefixCls}-top-nav-header-logo`);
     expect(domHeader.exists()).toBe(true);
+  });
+
+  it('pageHeaderRender return false', async () => {
+    const wrapper = mount(
+      <ProLayout {...defaultProps} layout="top">
+        <PageContainer title="name" pageHeaderRender={() => null} />
+      </ProLayout>,
+    );
+    await waitForComponentToPaint(wrapper);
+    const domHeader = wrapper.find('ant-page-header');
+    expect(domHeader.exists()).toBeFalsy();
+    wrapper.unmount();
   });
 });

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.28](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.0.0-beta.27...@ant-design/pro-form@1.0.0-beta.28) (2020-09-22)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+# [1.0.0-beta.27](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.0.0-beta.26...@ant-design/pro-form@1.0.0-beta.27) (2020-09-22)
+
+### Bug Fixes
+
+- DatePicker light mode dropdown style detail ([0fc2dc7](https://github.com/ant-design/pro-components/commit/0fc2dc7ba7836b432381bbe75a268ab1d57b54aa))
+
 # [1.0.0-beta.26](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.0.0-beta.25...@ant-design/pro-form@1.0.0-beta.26) (2020-09-14)
 
 **Note:** Version bump only for package @ant-design/pro-form

@@ -78,6 +78,29 @@ const columns: ProColumns<TableListItem>[] = [
     width: 120,
     dataIndex: 'createdAt',
     valueType: 'date',
+    render: (dom) => {
+      return {
+        children: <a>{dom}</a>,
+        props: {
+          colSpan: 5,
+        },
+      };
+    },
+  },
+  {
+    title: '创建时间',
+    key: 'since2',
+    width: 120,
+    dataIndex: 'createdAt',
+    valueType: 'dateMonth',
+    render: (dom) => {
+      return {
+        children: <a>{dom}</a>,
+        props: {
+          colSpan: 5,
+        },
+      };
+    },
   },
 ];
 

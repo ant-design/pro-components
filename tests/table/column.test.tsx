@@ -1,5 +1,6 @@
 import { mount } from 'enzyme';
 import React from 'react';
+import { ConfigProvider } from 'antd';
 import ProTable from '@ant-design/pro-table';
 import { request } from './demo';
 import { waitForComponentToPaint } from '../util';
@@ -25,6 +26,29 @@ describe('Table ColumnSetting', () => {
     await waitForComponentToPaint(html, 200);
     expect(callBack).toBeCalled();
     expect(callBack).toBeCalledWith('Edward King 0');
+  });
+
+  it('🎏 config provide render', async () => {
+    const callBack = jest.fn();
+    const html = mount(
+      <ConfigProvider prefixCls="qixian">
+        <ProTable
+          size="small"
+          columns={[
+            {
+              title: 'Name',
+              key: 'name',
+              dataIndex: 'name',
+              render: (text) => callBack(text),
+            },
+          ]}
+          request={request}
+          rowKey="key"
+        />
+      </ConfigProvider>,
+    );
+    await waitForComponentToPaint(html, 200);
+    expect(html.render()).toMatchSnapshot();
   });
 
   it('🎏 render text', async () => {

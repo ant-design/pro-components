@@ -86,11 +86,10 @@ export const mergePagination = <T, U>(
   if (pagination === false) {
     return false;
   }
-  let defaultPagination: TablePaginationConfig | {} = pagination || {};
+  const defaultPagination: TablePaginationConfig | {} =
+    typeof pagination === 'object' ? pagination : {};
   const { current, pageSize } = action;
-  if (pagination === true) {
-    defaultPagination = {};
-  }
+
   return {
     showTotal: (all, range) =>
       `${intl.getMessage('pagination.total.range', '第')} ${range[0]}-${range[1]} ${intl.getMessage(
@@ -104,15 +103,8 @@ export const mergePagination = <T, U>(
     pageSize,
     onChange: (page: number, newPageSize?: number) => {
       // pageSize 改变之后就没必要切换页码
-      if (newPageSize !== pageSize && current !== page) {
+      if (newPageSize !== pageSize || current !== page) {
         action.setPageInfo({ pageSize: newPageSize, page });
-      } else {
-        if (newPageSize !== pageSize) {
-          action.setPageInfo({ pageSize: newPageSize });
-        }
-        if (current !== page) {
-          action.setPageInfo({ page });
-        }
       }
 
       const { onChange } = pagination as TablePaginationConfig;
@@ -144,38 +136,30 @@ export const useActionType = <T, U = any>(
         const {
           action: { current },
         } = counter;
-        if (!current) {
-          return;
-        }
 
         // 如果为 true，回到第一页
         if (resetPageIndex) {
-          await current.resetPageIndex();
+          await current?.resetPageIndex();
         }
-        await current.reload();
+        await current?.reload();
       },
       reloadAndRest: async () => {
         const {
           action: { current },
         } = counter;
-        if (!current) {
-          return;
-        }
+
         // reload 之后大概率会切换数据，清空一下选择。
         onCleanSelected();
         // 如果为 true，回到第一页
-        await current.resetPageIndex();
-        await current.reload();
+        await current?.resetPageIndex();
+        await current?.reload();
       },
       reset: async () => {
         const {
           action: { current },
         } = counter;
-        if (!current) {
-          return;
-        }
-        await current.reset();
-        await current.reload();
+        await current?.reset();
+        await current?.reload();
       },
       clearSelected: () => onCleanSelected(),
     };

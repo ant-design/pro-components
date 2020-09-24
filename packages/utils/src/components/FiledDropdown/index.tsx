@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
-import { Dropdown } from 'antd';
-import { ConfigContext } from 'antd/lib/config-provider';
+import { Dropdown, ConfigProvider } from 'antd';
 import Footer, { DropdownFooterProps } from '../DropdownFooter';
 
 import './index.less';
@@ -25,7 +24,7 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
     onVisibleChange,
     visible,
   } = props;
-  const { getPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-core-field-dropdown');
 
   return (

@@ -6,6 +6,10 @@ import BasicLayout, { BasicLayoutProps } from '@ant-design/pro-layout';
 import { waitForComponentToPaint } from '../util';
 
 describe('BasicLayout', () => {
+  beforeAll(() => {
+    process.env.NODE_ENV = 'TEST';
+    process.env.USE_MEDIA = 'md';
+  });
   it('🥩 base use', async () => {
     const html = render(<BasicLayout />);
     expect(html).toMatchSnapshot();
