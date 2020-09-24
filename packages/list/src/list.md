@@ -40,6 +40,10 @@ nav:
 
 <code src="./demos/special.tsx" />
 
+### 翻页
+
+<code src="./demos/pagination.tsx" />
+
 ## API
 
 ### ProList API

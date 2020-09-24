@@ -2538,6 +2538,851 @@ exports[`list demos renders ./packages/list/src/demos/layout.tsx correctly 1`] =
 </div>
 `;
 
+exports[`list demos renders ./packages/list/src/demos/pagination.tsx correctly 1`] = `
+<div
+  class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
+  id="ant-design-pro-table"
+>
+  <div
+    class="ant-card"
+    style="height: 100%;"
+  >
+    <div
+      class="ant-card-body"
+      style="padding: 0px;"
+    >
+      <div
+        class="ant-pro-table-toolbar"
+      >
+        <div
+          class="ant-pro-table-toolbar-title"
+        >
+          翻页
+        </div>
+        <div
+          class="ant-pro-table-toolbar-option"
+        >
+          <div
+            class="ant-space ant-space-horizontal ant-space-align-center"
+          />
+          <div
+            class="ant-pro-table-toolbar-default-option"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-list ant-list-split ant-list-something-after-last-item"
+      >
+        <div
+          class="ant-spin-nested-loading"
+        >
+          <div
+            class="ant-spin-container"
+          >
+            <ul
+              class="ant-list-items"
+            >
+              <div
+                class="ant-pro-list-row"
+              >
+                <li
+                  class="ant-list-item"
+                >
+                  <div
+                    class="ant-pro-list-row-header"
+                  >
+                    <div
+                      class="ant-pro-list-row-header-option"
+                    />
+                    <div
+                      class="ant-list-item-meta"
+                    >
+                      <div
+                        class="ant-list-item-meta-avatar"
+                      >
+                        <span
+                          class="ant-avatar ant-avatar-circle ant-avatar-image"
+                          style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                        >
+                          <img
+                            src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                          />
+                        </span>
+                      </div>
+                      <div
+                        class="ant-list-item-meta-content"
+                      >
+                        <h4
+                          class="ant-list-item-meta-title"
+                        >
+                          <div
+                            class="ant-pro-list-row-header-title"
+                          >
+                            <div
+                              class="ant-pro-list-row-title"
+                            >
+                              语雀的天空
+                            </div>
+                            <div
+                              class="ant-pro-list-row-subTitle"
+                            >
+                              <span
+                                class="ant-tag ant-tag-has-color"
+                                style="background-color: rgb(91, 216, 166);"
+                              >
+                                语雀专栏
+                              </span>
+                            </div>
+                          </div>
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-pro-list-row-content"
+                  >
+                    <div
+                      style="flex: 1; display: flex; justify-content: flex-end;"
+                    >
+                      <div
+                        style="width: 200px;"
+                      >
+                        <div>
+                          发布中
+                        </div>
+                        <div
+                          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                        >
+                          <div
+                            class="ant-progress-outer"
+                          >
+                            <div
+                              class="ant-progress-inner"
+                            >
+                              <div
+                                class="ant-progress-bg"
+                                style="width: 80%; height: 8px;"
+                              />
+                            </div>
+                          </div>
+                          <span
+                            class="ant-progress-text"
+                            title="80%"
+                          >
+                            80%
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <ul
+                    class="ant-list-item-action"
+                  >
+                    <li>
+                      <a>
+                        邀请
+                      </a>
+                      <em
+                        class="ant-list-item-action-split"
+                      />
+                    </li>
+                    <li>
+                      <a>
+                        操作
+                      </a>
+                      <em
+                        class="ant-list-item-action-split"
+                      />
+                    </li>
+                    <li>
+                      <a>
+                        <span
+                          aria-label="ellipsis"
+                          class="anticon anticon-ellipsis"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class=""
+                            data-icon="ellipsis"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                            />
+                          </svg>
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </div>
+              <div
+                class="ant-pro-list-row"
+              >
+                <li
+                  class="ant-list-item"
+                >
+                  <div
+                    class="ant-pro-list-row-header"
+                  >
+                    <div
+                      class="ant-pro-list-row-header-option"
+                    />
+                    <div
+                      class="ant-list-item-meta"
+                    >
+                      <div
+                        class="ant-list-item-meta-avatar"
+                      >
+                        <span
+                          class="ant-avatar ant-avatar-circle ant-avatar-image"
+                          style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                        >
+                          <img
+                            src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                          />
+                        </span>
+                      </div>
+                      <div
+                        class="ant-list-item-meta-content"
+                      >
+                        <h4
+                          class="ant-list-item-meta-title"
+                        >
+                          <div
+                            class="ant-pro-list-row-header-title"
+                          >
+                            <div
+                              class="ant-pro-list-row-title"
+                            >
+                              Ant Design
+                            </div>
+                            <div
+                              class="ant-pro-list-row-subTitle"
+                            >
+                              <span
+                                class="ant-tag ant-tag-has-color"
+                                style="background-color: rgb(91, 216, 166);"
+                              >
+                                语雀专栏
+                              </span>
+                            </div>
+                          </div>
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-pro-list-row-content"
+                  >
+                    <div
+                      style="flex: 1; display: flex; justify-content: flex-end;"
+                    >
+                      <div
+                        style="width: 200px;"
+                      >
+                        <div>
+                          发布中
+                        </div>
+                        <div
+                          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                        >
+                          <div
+                            class="ant-progress-outer"
+                          >
+                            <div
+                              class="ant-progress-inner"
+                            >
+                              <div
+                                class="ant-progress-bg"
+                                style="width: 80%; height: 8px;"
+                              />
+                            </div>
+                          </div>
+                          <span
+                            class="ant-progress-text"
+                            title="80%"
+                          >
+                            80%
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <ul
+                    class="ant-list-item-action"
+                  >
+                    <li>
+                      <a>
+                        邀请
+                      </a>
+                      <em
+                        class="ant-list-item-action-split"
+                      />
+                    </li>
+                    <li>
+                      <a>
+                        操作
+                      </a>
+                      <em
+                        class="ant-list-item-action-split"
+                      />
+                    </li>
+                    <li>
+                      <a>
+                        <span
+                          aria-label="ellipsis"
+                          class="anticon anticon-ellipsis"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class=""
+                            data-icon="ellipsis"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                            />
+                          </svg>
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </div>
+              <div
+                class="ant-pro-list-row"
+              >
+                <li
+                  class="ant-list-item"
+                >
+                  <div
+                    class="ant-pro-list-row-header"
+                  >
+                    <div
+                      class="ant-pro-list-row-header-option"
+                    />
+                    <div
+                      class="ant-list-item-meta"
+                    >
+                      <div
+                        class="ant-list-item-meta-avatar"
+                      >
+                        <span
+                          class="ant-avatar ant-avatar-circle ant-avatar-image"
+                          style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                        >
+                          <img
+                            src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                          />
+                        </span>
+                      </div>
+                      <div
+                        class="ant-list-item-meta-content"
+                      >
+                        <h4
+                          class="ant-list-item-meta-title"
+                        >
+                          <div
+                            class="ant-pro-list-row-header-title"
+                          >
+                            <div
+                              class="ant-pro-list-row-title"
+                            >
+                              蚂蚁金服体验科技
+                            </div>
+                            <div
+                              class="ant-pro-list-row-subTitle"
+                            >
+                              <span
+                                class="ant-tag ant-tag-has-color"
+                                style="background-color: rgb(91, 216, 166);"
+                              >
+                                语雀专栏
+                              </span>
+                            </div>
+                          </div>
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-pro-list-row-content"
+                  >
+                    <div
+                      style="flex: 1; display: flex; justify-content: flex-end;"
+                    >
+                      <div
+                        style="width: 200px;"
+                      >
+                        <div>
+                          发布中
+                        </div>
+                        <div
+                          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                        >
+                          <div
+                            class="ant-progress-outer"
+                          >
+                            <div
+                              class="ant-progress-inner"
+                            >
+                              <div
+                                class="ant-progress-bg"
+                                style="width: 80%; height: 8px;"
+                              />
+                            </div>
+                          </div>
+                          <span
+                            class="ant-progress-text"
+                            title="80%"
+                          >
+                            80%
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <ul
+                    class="ant-list-item-action"
+                  >
+                    <li>
+                      <a>
+                        邀请
+                      </a>
+                      <em
+                        class="ant-list-item-action-split"
+                      />
+                    </li>
+                    <li>
+                      <a>
+                        操作
+                      </a>
+                      <em
+                        class="ant-list-item-action-split"
+                      />
+                    </li>
+                    <li>
+                      <a>
+                        <span
+                          aria-label="ellipsis"
+                          class="anticon anticon-ellipsis"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class=""
+                            data-icon="ellipsis"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                            />
+                          </svg>
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </div>
+              <div
+                class="ant-pro-list-row"
+              >
+                <li
+                  class="ant-list-item"
+                >
+                  <div
+                    class="ant-pro-list-row-header"
+                  >
+                    <div
+                      class="ant-pro-list-row-header-option"
+                    />
+                    <div
+                      class="ant-list-item-meta"
+                    >
+                      <div
+                        class="ant-list-item-meta-avatar"
+                      >
+                        <span
+                          class="ant-avatar ant-avatar-circle ant-avatar-image"
+                          style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                        >
+                          <img
+                            src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                          />
+                        </span>
+                      </div>
+                      <div
+                        class="ant-list-item-meta-content"
+                      >
+                        <h4
+                          class="ant-list-item-meta-title"
+                        >
+                          <div
+                            class="ant-pro-list-row-header-title"
+                          >
+                            <div
+                              class="ant-pro-list-row-title"
+                            >
+                              TechUI
+                            </div>
+                            <div
+                              class="ant-pro-list-row-subTitle"
+                            >
+                              <span
+                                class="ant-tag ant-tag-has-color"
+                                style="background-color: rgb(91, 216, 166);"
+                              >
+                                语雀专栏
+                              </span>
+                            </div>
+                          </div>
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-pro-list-row-content"
+                  >
+                    <div
+                      style="flex: 1; display: flex; justify-content: flex-end;"
+                    >
+                      <div
+                        style="width: 200px;"
+                      >
+                        <div>
+                          发布中
+                        </div>
+                        <div
+                          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                        >
+                          <div
+                            class="ant-progress-outer"
+                          >
+                            <div
+                              class="ant-progress-inner"
+                            >
+                              <div
+                                class="ant-progress-bg"
+                                style="width: 80%; height: 8px;"
+                              />
+                            </div>
+                          </div>
+                          <span
+                            class="ant-progress-text"
+                            title="80%"
+                          >
+                            80%
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <ul
+                    class="ant-list-item-action"
+                  >
+                    <li>
+                      <a>
+                        邀请
+                      </a>
+                      <em
+                        class="ant-list-item-action-split"
+                      />
+                    </li>
+                    <li>
+                      <a>
+                        操作
+                      </a>
+                      <em
+                        class="ant-list-item-action-split"
+                      />
+                    </li>
+                    <li>
+                      <a>
+                        <span
+                          aria-label="ellipsis"
+                          class="anticon anticon-ellipsis"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class=""
+                            data-icon="ellipsis"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                            />
+                          </svg>
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </div>
+              <div
+                class="ant-pro-list-row"
+              >
+                <li
+                  class="ant-list-item"
+                >
+                  <div
+                    class="ant-pro-list-row-header"
+                  >
+                    <div
+                      class="ant-pro-list-row-header-option"
+                    />
+                    <div
+                      class="ant-list-item-meta"
+                    >
+                      <div
+                        class="ant-list-item-meta-avatar"
+                      >
+                        <span
+                          class="ant-avatar ant-avatar-circle ant-avatar-image"
+                          style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                        >
+                          <img
+                            src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                          />
+                        </span>
+                      </div>
+                      <div
+                        class="ant-list-item-meta-content"
+                      >
+                        <h4
+                          class="ant-list-item-meta-title"
+                        >
+                          <div
+                            class="ant-pro-list-row-header-title"
+                          >
+                            <div
+                              class="ant-pro-list-row-title"
+                            >
+                              TechUI 2.0
+                            </div>
+                            <div
+                              class="ant-pro-list-row-subTitle"
+                            >
+                              <span
+                                class="ant-tag ant-tag-has-color"
+                                style="background-color: rgb(91, 216, 166);"
+                              >
+                                语雀专栏
+                              </span>
+                            </div>
+                          </div>
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-pro-list-row-content"
+                  >
+                    <div
+                      style="flex: 1; display: flex; justify-content: flex-end;"
+                    >
+                      <div
+                        style="width: 200px;"
+                      >
+                        <div>
+                          发布中
+                        </div>
+                        <div
+                          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                        >
+                          <div
+                            class="ant-progress-outer"
+                          >
+                            <div
+                              class="ant-progress-inner"
+                            >
+                              <div
+                                class="ant-progress-bg"
+                                style="width: 80%; height: 8px;"
+                              />
+                            </div>
+                          </div>
+                          <span
+                            class="ant-progress-text"
+                            title="80%"
+                          >
+                            80%
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <ul
+                    class="ant-list-item-action"
+                  >
+                    <li>
+                      <a>
+                        邀请
+                      </a>
+                      <em
+                        class="ant-list-item-action-split"
+                      />
+                    </li>
+                    <li>
+                      <a>
+                        操作
+                      </a>
+                      <em
+                        class="ant-list-item-action-split"
+                      />
+                    </li>
+                    <li>
+                      <a>
+                        <span
+                          aria-label="ellipsis"
+                          class="anticon anticon-ellipsis"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class=""
+                            data-icon="ellipsis"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                            />
+                          </svg>
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </div>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="ant-list-pagination"
+        >
+          <ul
+            class="ant-pagination"
+            unselectable="unselectable"
+          >
+            <li
+              aria-disabled="true"
+              class="ant-pagination-prev ant-pagination-disabled"
+              title="Previous Page"
+            >
+              <button
+                class="ant-pagination-item-link"
+                disabled=""
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  aria-label="left"
+                  class="anticon anticon-left"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="left"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </li>
+            <li
+              class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+              tabindex="0"
+              title="1"
+            >
+              <a
+                rel="nofollow"
+              >
+                1
+              </a>
+            </li>
+            <li
+              class="ant-pagination-item ant-pagination-item-2"
+              tabindex="0"
+              title="2"
+            >
+              <a
+                rel="nofollow"
+              >
+                2
+              </a>
+            </li>
+            <li
+              aria-disabled="false"
+              class="ant-pagination-next"
+              tabindex="0"
+              title="Next Page"
+            >
+              <button
+                class="ant-pagination-item-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  aria-label="right"
+                  class="anticon anticon-right"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="right"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`list demos renders ./packages/list/src/demos/selectedRow.tsx correctly 1`] = `
 <div
   class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
