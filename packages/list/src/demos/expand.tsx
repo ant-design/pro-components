@@ -1,5 +1,5 @@
 import React, { useState, ReactText } from 'react';
-import { Progress, Tag, Space } from 'antd';
+import { Button, Progress, Tag, Space } from 'antd';
 import ProList from '@ant-design/pro-list';
 
 const dataSource = [
@@ -32,6 +32,13 @@ export default () => {
     <ProList<{ title: string }>
       rowKey="title"
       headerTitle="支持展开的列表"
+      toolBarRender={() => {
+        return [
+          <Button key="3" type="primary">
+            新建
+          </Button>,
+        ];
+      }}
       expandable={{ expandedRowKeys, onExpandedRowsChange: setExpandedRowKeys }}
       dataSource={dataSource}
       metas={{

@@ -1,5 +1,5 @@
 import React, { useState, ReactText } from 'react';
-import { Progress } from 'antd';
+import { Progress, Button } from 'antd';
 import ProList from '@ant-design/pro-list';
 
 const dataSource = [
@@ -33,48 +33,53 @@ export default () => {
   };
 
   return (
-    <>
-      <ProList<{ title: string }>
-        metas={{
-          title: {},
-          description: {
-            render: () => {
-              return 'Ant Design, a design language for background applications, is refined by Ant UED Team';
-            },
+    <ProList<{ title: string }>
+      toolBarRender={() => {
+        return [
+          <Button key="3" type="primary">
+            新建
+          </Button>,
+        ];
+      }}
+      metas={{
+        title: {},
+        description: {
+          render: () => {
+            return 'Ant Design, a design language for background applications, is refined by Ant UED Team';
           },
-          avatar: {},
-          extra: {
-            render: () => (
+        },
+        avatar: {},
+        extra: {
+          render: () => (
+            <div
+              style={{
+                minWidth: 200,
+                flex: 1,
+                display: 'flex',
+                justifyContent: 'flex-end',
+              }}
+            >
               <div
                 style={{
-                  minWidth: 200,
-                  flex: 1,
-                  display: 'flex',
-                  justifyContent: 'flex-end',
+                  width: '200px',
                 }}
               >
-                <div
-                  style={{
-                    width: '200px',
-                  }}
-                >
-                  <div>发布中</div>
-                  <Progress percent={80} />
-                </div>
+                <div>发布中</div>
+                <Progress percent={80} />
               </div>
-            ),
+            </div>
+          ),
+        },
+        actions: {
+          render: () => {
+            return [<a>邀请</a>];
           },
-          actions: {
-            render: () => {
-              return [<a>邀请</a>];
-            },
-          },
-        }}
-        rowKey="id"
-        headerTitle="支持选中的列表"
-        rowSelection={rowSelection}
-        dataSource={dataSource}
-      />
-    </>
+        },
+      }}
+      rowKey="title"
+      headerTitle="支持选中的列表"
+      rowSelection={rowSelection}
+      dataSource={dataSource}
+    />
   );
 };

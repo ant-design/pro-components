@@ -32,10 +32,6 @@ nav:
 
 <code src="./demos/complex.tsx" />
 
-### 各种 size
-
-<code src="./demos/size.tsx" />
-
 ### 竖排样式
 
 <code src="./demos/layout.tsx" />

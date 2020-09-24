@@ -62,6 +62,7 @@ function ProList<RecordType = any, U = any>(props: ProListProps<RecordType, U>) 
     search = false,
     expandable,
     showActions,
+    bordered,
     rowSelection,
     ...rest
   } = props;
@@ -91,13 +92,17 @@ function ProList<RecordType = any, U = any>(props: ProListProps<RecordType, U>) 
     return ret;
   }, [metas]);
   const prefixCls = getPrefixCls('pro-list');
+  const listClassName = classNames(prefixCls, {
+    [`${prefixCls}-bordered`]: bordered,
+    [`${prefixCls}-no-split`]: !split,
+  });
 
   return (
     <ProTable<RecordType>
       {...rest}
       search={search}
       options={options}
-      className={classNames(prefixCls, className)}
+      className={classNames(prefixCls, className, listClassName)}
       columns={proTableColumns}
       rowKey={rowKey}
       tableViewRender={({ columns, dataSource }) => (
@@ -108,6 +113,7 @@ function ProList<RecordType = any, U = any>(props: ProListProps<RecordType, U>) 
           size={size}
           footer={footer}
           split={split}
+          bordered={bordered}
           rowKey={rowKey}
           expandable={expandable}
           rowSelection={rowSelection === false ? undefined : rowSelection}

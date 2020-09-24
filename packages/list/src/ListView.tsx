@@ -30,6 +30,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     size,
     footer,
     split,
+    bordered,
     rowKey,
     showActions,
     prefixCls,
@@ -150,6 +151,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
       size={size}
       footer={footer}
       split={split}
+      bordered={bordered}
       dataSource={dataSource}
       pagination={pagination && mergedPagination}
       renderItem={(item, index) => {
