@@ -24,6 +24,7 @@ export interface ProListMetas {
   description?: ProListMeta;
   avatar?: ProListMeta;
   extra?: ProListMeta;
+  content?: ProListMeta;
   actions?: ProListMeta;
 }
 
@@ -64,6 +65,7 @@ function ProList<RecordType = any, U = any>(props: ProListProps<RecordType, U>) 
     showActions,
     bordered,
     rowSelection,
+    itemLayout,
     ...rest
   } = props;
 
@@ -119,6 +121,7 @@ function ProList<RecordType = any, U = any>(props: ProListProps<RecordType, U>) 
           rowSelection={rowSelection === false ? undefined : rowSelection}
           showActions={showActions}
           pagination={pagination}
+          itemLayout={itemLayout}
         />
       )}
     />

@@ -27,16 +27,13 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
   const {
     dataSource = [],
     columns,
-    size,
-    footer,
-    split,
-    bordered,
     rowKey,
     showActions,
     prefixCls,
     expandable: expandableConfig,
     rowSelection,
     pagination,
+    ...rest
   } = props;
 
   const getRowKey = React.useMemo<GetRowKey<RecordType>>((): GetRowKey<RecordType> => {
@@ -148,10 +145,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
 
   return (
     <List<RecordType>
-      size={size}
-      footer={footer}
-      split={split}
-      bordered={bordered}
+      {...rest}
       dataSource={dataSource}
       pagination={pagination && mergedPagination}
       renderItem={(item, index) => {

@@ -59,7 +59,7 @@ export default () => {
           },
         },
         avatar: {},
-        extra: {
+        content: {
           render: () => (
             <div
               style={{

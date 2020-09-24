@@ -55,6 +55,7 @@ export interface ItemProps {
   selected?: boolean;
   avatar?: React.ReactNode;
   extra?: React.ReactNode;
+  content?: React.ReactNode;
   actions?: React.ReactNode[];
   description?: React.ReactNode;
   loading?: boolean;
@@ -77,7 +78,7 @@ function ProListItem(props: ItemProps) {
   const {
     title,
     subTitle,
-    extra,
+    content,
     prefixCls: restPrefixCls,
     actions,
     item,
@@ -155,9 +156,9 @@ function ProListItem(props: ItemProps) {
               }
             />
           </div>
-          {needExpanded && (extra || expandedRowDom) && (
+          {needExpanded && (content || expandedRowDom) && (
             <div className={`${className}-content`}>
-              {extra}
+              {content}
               {expandedRowRender && rowSupportExpand && (
                 <div
                   className={expandedRowClassName && expandedRowClassName(item, index, indentSize)}
