@@ -69,23 +69,6 @@ describe('mobile BasicLayout', () => {
     expect(html).toMatchSnapshot();
   });
 
-  it('📱 layout menuHeaderRender', async () => {
-    const onCollapse = jest.fn();
-    const html = mount(
-      <BasicLayout
-        onCollapse={onCollapse}
-        collapsed
-        getContainer={false}
-        layout="mix"
-        menuHeaderRender={() => 'title'}
-      />,
-    );
-    waitForComponentToPaint(html);
-    html.find('.ant-pro-sider-collapsed-button').map((item) => item && item.simulate('click'));
-    expect(onCollapse).toHaveBeenCalled();
-    html.unmount();
-  });
-
   it('📱 layout collapsedButtonRender', async () => {
     const onCollapse = jest.fn();
     const html = mount(
