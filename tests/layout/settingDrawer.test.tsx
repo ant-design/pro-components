@@ -9,9 +9,19 @@ describe('settingDrawer.test', () => {
   beforeAll(() => {
     process.env.NODE_ENV = 'TEST';
     process.env.USE_MEDIA = 'md';
-
-    window.location.search =
-      '?navTheme=realDark&layout=mix&primaryColor=daybreak&splitMenus=true&fixedHeader=true';
+    const mockResponse = jest.fn();
+    Object.defineProperty(window, 'location', {
+      value: {
+        assign: mockResponse,
+        hash: {
+          endsWith: mockResponse,
+          includes: mockResponse,
+        },
+        search:
+          '?navTheme=realDark&layout=mix&primaryColor=daybreak&splitMenus=true&fixedHeader=true',
+      },
+      writable: true,
+    });
 
     Object.defineProperty(window, 'localStorage', {
       value: {
@@ -51,6 +61,21 @@ describe('settingDrawer.test', () => {
       <SettingDrawer settings={defaultSettings} hideLoading getContainer={false} collapse />,
     );
     expect(html).toMatchSnapshot();
+  });
+
+  it('initState form query', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <SettingDrawer
+        getContainer={false}
+        collapse
+        onSettingChange={() => {
+          fn();
+        }}
+      />,
+    );
+    await waitForComponentToPaint(html);
+    expect(fn).toBeCalled();
   });
 
   it('hideCopyButton = true', () => {

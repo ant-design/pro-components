@@ -282,6 +282,7 @@ const initState = (
       primaryColor: string;
       navTheme: string;
     };
+
     const replaceSetting = {};
     Object.keys(params).forEach((key) => {
       if (defaultSettings[key] || defaultSettings[key] === undefined) {
@@ -291,6 +292,7 @@ const initState = (
         }
       }
     });
+
     if (onSettingChange) {
       onSettingChange({
         ...settings,
@@ -403,7 +405,6 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     if (!isBrowser()) {
       return () => null;
     }
-
     initState(settingState, setSettingState, props.publicPath);
     window.addEventListener('languagechange', onLanguageChange, {
       passive: true,
