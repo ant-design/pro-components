@@ -156,6 +156,9 @@ export default () => {
             mode={state}
           />
         </Descriptions.Item>
+        <Descriptions.Item label="密码">
+          <Field text="password" plain={plain} valueType="password" mode={state} />
+        </Descriptions.Item>
         <Descriptions.Item label="代码块">
           <Field
             text={`
