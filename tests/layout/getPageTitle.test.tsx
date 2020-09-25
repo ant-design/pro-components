@@ -121,4 +121,20 @@ describe('getPageTitle', () => {
     const title = getPageTitle({ ...pageProps, menu: undefined, title: 'Ant' });
     expect(title).toBe('one - Ant');
   });
+
+  it('title is null ', () => {
+    const title = getPageTitle({
+      ...pageProps,
+      title: undefined,
+    });
+    expect(title).toBe('one - Ant Design Pro');
+  });
+
+  it('breadcrumb is null ', () => {
+    const title = getPageTitle({
+      ...pageProps,
+      breadcrumb: {},
+    });
+    expect(title).toBe('Ant Design Pro');
+  });
 });
