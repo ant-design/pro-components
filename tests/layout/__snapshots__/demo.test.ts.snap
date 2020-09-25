@@ -6996,7 +6996,7 @@ Array [
                         >
                           <li>
                             <div
-                              class="ant-select ant-select-sm ant-select-single ant-select-show-arrow"
+                              class="ant-select ant-select-sm content-width ant-select-single ant-select-show-arrow"
                               style="width: 80px;"
                             >
                               <div
@@ -7074,7 +7074,7 @@ Array [
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch ant-switch-small"
+                              class="ant-switch ant-switch-small fixed-header"
                               role="switch"
                               type="button"
                             >
@@ -7102,7 +7102,7 @@ Array [
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch ant-switch-small"
+                              class="ant-switch ant-switch-small fix-siderbar"
                               role="switch"
                               type="button"
                             >
@@ -7130,7 +7130,7 @@ Array [
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch ant-switch-small ant-switch-disabled"
+                              class="ant-switch ant-switch-small split-menus ant-switch-disabled"
                               disabled=""
                               role="switch"
                               type="button"
@@ -7187,7 +7187,7 @@ Array [
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-header ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -7215,7 +7215,7 @@ Array [
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-footer ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -7243,7 +7243,7 @@ Array [
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-menu ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -7271,7 +7271,7 @@ Array [
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-menuHeader ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >

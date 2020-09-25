@@ -36,6 +36,7 @@ const LayoutSetting: React.FC<{
             <Select<string>
               value={contentWidth || 'Fixed'}
               size="small"
+              className="content-width"
               onSelect={(value) => changeSetting('contentWidth', value)}
               style={{ width: 80 }}
             >
@@ -64,6 +65,7 @@ const LayoutSetting: React.FC<{
           action: (
             <Switch
               size="small"
+              className="fixed-header"
               checked={!!fixedHeader}
               onChange={(checked) => changeSetting('fixedHeader', checked)}
             />
@@ -82,6 +84,7 @@ const LayoutSetting: React.FC<{
           action: (
             <Switch
               size="small"
+              className="fix-siderbar"
               checked={!!fixSiderbar}
               onChange={(checked) => changeSetting('fixSiderbar', checked)}
             />
@@ -94,6 +97,7 @@ const LayoutSetting: React.FC<{
             <Switch
               size="small"
               checked={!!splitMenus}
+              className="split-menus"
               onChange={(checked) => changeSetting('splitMenus', checked)}
             />
           ),

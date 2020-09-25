@@ -155,7 +155,7 @@ exports[`settingDrawer.test base user 1`] = `
                         >
                           <li>
                             <div
-                              class="ant-select ant-select-sm ant-select-single ant-select-show-arrow"
+                              class="ant-select ant-select-sm content-width ant-select-single ant-select-show-arrow"
                               style="width:80px"
                             >
                               <div
@@ -232,7 +232,7 @@ exports[`settingDrawer.test base user 1`] = `
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch ant-switch-small"
+                              class="ant-switch ant-switch-small fixed-header"
                               role="switch"
                               type="button"
                             >
@@ -260,7 +260,7 @@ exports[`settingDrawer.test base user 1`] = `
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch ant-switch-small"
+                              class="ant-switch ant-switch-small fix-siderbar"
                               role="switch"
                               type="button"
                             >
@@ -288,7 +288,7 @@ exports[`settingDrawer.test base user 1`] = `
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch ant-switch-small ant-switch-disabled"
+                              class="ant-switch ant-switch-small split-menus ant-switch-disabled"
                               disabled=""
                               role="switch"
                               type="button"
@@ -345,7 +345,7 @@ exports[`settingDrawer.test base user 1`] = `
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-header ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -373,7 +373,7 @@ exports[`settingDrawer.test base user 1`] = `
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-footer ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -401,7 +401,7 @@ exports[`settingDrawer.test base user 1`] = `
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-menu ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -429,7 +429,7 @@ exports[`settingDrawer.test base user 1`] = `
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-menuHeader ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -728,7 +728,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                         >
                           <li>
                             <div
-                              class="ant-select ant-select-sm ant-select-single ant-select-show-arrow"
+                              class="ant-select ant-select-sm content-width ant-select-single ant-select-show-arrow"
                               style="width:80px"
                             >
                               <div
@@ -805,7 +805,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch ant-switch-small"
+                              class="ant-switch ant-switch-small fixed-header"
                               role="switch"
                               type="button"
                             >
@@ -833,7 +833,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch ant-switch-small"
+                              class="ant-switch ant-switch-small fix-siderbar"
                               role="switch"
                               type="button"
                             >
@@ -861,7 +861,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch ant-switch-small ant-switch-disabled"
+                              class="ant-switch ant-switch-small split-menus ant-switch-disabled"
                               disabled=""
                               role="switch"
                               type="button"
@@ -918,7 +918,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-header ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -946,7 +946,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-footer ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -974,7 +974,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-menu ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -1002,7 +1002,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-menuHeader ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -1334,7 +1334,7 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                         >
                           <li>
                             <div
-                              class="ant-select ant-select-sm ant-select-single ant-select-show-arrow"
+                              class="ant-select ant-select-sm content-width ant-select-single ant-select-show-arrow"
                               style="width:80px"
                             >
                               <div
@@ -1411,7 +1411,7 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch ant-switch-small"
+                              class="ant-switch ant-switch-small fixed-header"
                               role="switch"
                               type="button"
                             >
@@ -1439,7 +1439,7 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch ant-switch-small"
+                              class="ant-switch ant-switch-small fix-siderbar"
                               role="switch"
                               type="button"
                             >
@@ -1467,7 +1467,7 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch ant-switch-small ant-switch-disabled"
+                              class="ant-switch ant-switch-small split-menus ant-switch-disabled"
                               disabled=""
                               role="switch"
                               type="button"
@@ -1524,7 +1524,7 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-header ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -1552,7 +1552,7 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-footer ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -1580,7 +1580,7 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-menu ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -1608,7 +1608,7 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-menuHeader ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -1912,7 +1912,7 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                         >
                           <li>
                             <div
-                              class="ant-select ant-select-sm ant-select-single ant-select-show-arrow"
+                              class="ant-select ant-select-sm content-width ant-select-single ant-select-show-arrow"
                               style="width:80px"
                             >
                               <div
@@ -1989,7 +1989,7 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch ant-switch-small"
+                              class="ant-switch ant-switch-small fixed-header"
                               role="switch"
                               type="button"
                             >
@@ -2017,7 +2017,7 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch ant-switch-small"
+                              class="ant-switch ant-switch-small fix-siderbar"
                               role="switch"
                               type="button"
                             >
@@ -2045,7 +2045,7 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch ant-switch-small ant-switch-disabled"
+                              class="ant-switch ant-switch-small split-menus ant-switch-disabled"
                               disabled=""
                               role="switch"
                               type="button"
@@ -2102,7 +2102,7 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-header ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -2130,7 +2130,7 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-footer ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -2158,7 +2158,7 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-menu ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -2186,7 +2186,7 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-menuHeader ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -2483,7 +2483,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                         >
                           <li>
                             <div
-                              class="ant-select ant-select-sm ant-select-single ant-select-show-arrow"
+                              class="ant-select ant-select-sm content-width ant-select-single ant-select-show-arrow"
                               style="width:80px"
                             >
                               <div
@@ -2560,7 +2560,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch ant-switch-small"
+                              class="ant-switch ant-switch-small fixed-header"
                               role="switch"
                               type="button"
                             >
@@ -2588,7 +2588,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch ant-switch-small"
+                              class="ant-switch ant-switch-small fix-siderbar"
                               role="switch"
                               type="button"
                             >
@@ -2616,7 +2616,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch ant-switch-small ant-switch-disabled"
+                              class="ant-switch ant-switch-small split-menus ant-switch-disabled"
                               disabled=""
                               role="switch"
                               type="button"
@@ -2673,7 +2673,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-header ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -2701,7 +2701,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-footer ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -2729,7 +2729,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-menu ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -2757,7 +2757,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-menuHeader ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -3089,7 +3089,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                         >
                           <li>
                             <div
-                              class="ant-select ant-select-sm ant-select-single ant-select-show-arrow"
+                              class="ant-select ant-select-sm content-width ant-select-single ant-select-show-arrow"
                               style="width:80px"
                             >
                               <div
@@ -3166,7 +3166,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                           <li>
                             <button
                               aria-checked="true"
-                              class="ant-switch ant-switch-small ant-switch-checked"
+                              class="ant-switch ant-switch-small fixed-header ant-switch-checked"
                               role="switch"
                               type="button"
                             >
@@ -3194,7 +3194,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch ant-switch-small"
+                              class="ant-switch ant-switch-small fix-siderbar"
                               role="switch"
                               type="button"
                             >
@@ -3222,7 +3222,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                           <li>
                             <button
                               aria-checked="true"
-                              class="ant-switch ant-switch-small ant-switch-checked"
+                              class="ant-switch ant-switch-small split-menus ant-switch-checked"
                               role="switch"
                               type="button"
                             >
@@ -3278,7 +3278,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-header ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -3306,7 +3306,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-footer ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -3334,7 +3334,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-menu ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
@@ -3362,7 +3362,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                             <li>
                               <button
                                 aria-checked="true"
-                                class="ant-switch ant-switch-small ant-switch-checked"
+                                class="ant-switch ant-switch-small regional-menuHeader ant-switch-checked"
                                 role="switch"
                                 type="button"
                               >
