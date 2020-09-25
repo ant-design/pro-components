@@ -156,6 +156,36 @@ describe('settingDrawer.test', () => {
     expect(onSettingChange).toBeCalledWith('dark');
   });
 
+  it('regional config change', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <SettingDrawer
+        onSettingChange={(s) => {
+          const renderKeys = ['header', 'footer', 'menu', 'menuHeader'].filter((key) => {
+            if (s[`${key}Render`] === false) {
+              return true;
+            }
+            return false;
+          });
+          fn(renderKeys);
+        }}
+        settings={defaultSettings}
+        getContainer={false}
+        collapse
+      />,
+    );
+    await waitForComponentToPaint(html, 2000);
+
+    act(() => {
+      ['header', 'footer', 'menu', 'menuHeader'].forEach((key) => {
+        if (html.find(`.regional-${key}`).exists()) {
+          html.find(`button.regional-${key}`).simulate('click');
+        }
+      });
+    });
+    expect(fn).toBeCalledWith(['header', 'footer', 'menu', 'menuHeader']);
+  });
+
   it('theme color Change', async () => {
     const onSettingChange = jest.fn();
     (window as any).umi_plugin_ant_themeVar = [
