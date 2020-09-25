@@ -67,7 +67,6 @@ const getPageTitleInfo = (
       locale: false,
     },
   } = props;
-
   const pageTitle = ignoreTile ? '' : title;
   const currRouterData = matchParamsPath(pathname, breadcrumb, breadcrumbMap);
   if (!currRouterData) {
