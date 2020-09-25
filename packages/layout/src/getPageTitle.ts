@@ -41,42 +41,6 @@ export interface GetPageTitleProps {
   formatMessage?: (data: { id: any; defaultMessage?: string }) => string;
 }
 
-const getPageTitle = (props: GetPageTitleProps, ignoreTile?: boolean) => {
-  const {
-    pathname = '/',
-    breadcrumb,
-    breadcrumbMap,
-    formatMessage,
-    title = 'Ant Design Pro',
-    menu = {
-      locale: false,
-    },
-  } = props;
-  const pageTitle = ignoreTile ? '' : title;
-  if (!pathname) {
-    return pageTitle;
-  }
-  const currRouterData = matchParamsPath(pathname, breadcrumb, breadcrumbMap);
-  if (!currRouterData) {
-    return pageTitle;
-  }
-  let pageName = currRouterData.name;
-  if (menu.locale !== false && currRouterData.locale && formatMessage) {
-    pageName = formatMessage({
-      id: currRouterData.locale || '',
-      defaultMessage: currRouterData.name,
-    });
-  }
-
-  if (!pageName) {
-    return pageTitle;
-  }
-  if (ignoreTile) {
-    return pageName;
-  }
-  return `${pageName} - ${title}`;
-};
-
 /**
  * 获取关于 pageTile 的所有信息方便包装
  * @param props
@@ -103,6 +67,7 @@ const getPageTitleInfo = (
       locale: false,
     },
   } = props;
+
   const pageTitle = ignoreTile ? '' : title;
   const currRouterData = matchParamsPath(pathname, breadcrumb, breadcrumbMap);
   if (!currRouterData) {
@@ -143,5 +108,9 @@ const getPageTitleInfo = (
 };
 
 export { getPageTitleInfo };
+
+const getPageTitle = (props: GetPageTitleProps, ignoreTile?: boolean) => {
+  return getPageTitleInfo(props, ignoreTile).title;
+};
 
 export default getPageTitle;
