@@ -248,6 +248,7 @@ describe('BasicLayout', () => {
     const onLogoClick = jest.fn();
     const wrapper = mount(
       <BasicLayout
+        siderWidth={undefined}
         logo={
           <div onClick={onLogoClick} id="test_log">
             Logo
