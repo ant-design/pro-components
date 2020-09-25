@@ -568,6 +568,21 @@ describe('BasicLayout', () => {
     );
 
     await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.setProps({
+        rightContentRender: () => (
+          <div
+            id="layout_right"
+            style={{
+              width: 120,
+            }}
+          >
+            right
+          </div>
+        ),
+      });
+    });
     expect(wrapper.find('#layout_right').exists()).toBeTruthy();
   });
 });
