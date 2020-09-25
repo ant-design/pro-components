@@ -331,6 +331,13 @@ const getParamsFromUrl = (settings?: MergerSettingsType<ProSettings>) => {
   if (window.location.search) {
     params = parse(window.location.search.replace('?', ''));
   }
+
+  Object.keys(params).forEach((key) => {
+    if (params[key] === 'true') {
+      params[key] = true;
+    }
+  });
+
   return {
     ...defaultSettings,
     ...(settings || {}),

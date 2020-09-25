@@ -129,6 +129,58 @@ describe('settingDrawer.test', () => {
     expect(onSettingChange).toBeCalledWith('top');
   });
 
+  it('fix-siderbar Change', async () => {
+    const onSettingChange = jest.fn();
+    const wrapper = mount(
+      <SettingDrawer
+        collapse
+        getContainer={false}
+        onSettingChange={(setting) => {
+          onSettingChange(setting.fixSiderbar);
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper);
+    act(() => {
+      wrapper.find('button.fix-siderbar').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(onSettingChange).toBeCalledWith(true);
+
+    act(() => {
+      wrapper.find('button.fix-siderbar').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(onSettingChange).toBeCalledWith(false);
+  });
+
+  it('fixed-header Change', async () => {
+    const onSettingChange = jest.fn();
+    const wrapper = mount(
+      <SettingDrawer
+        collapse
+        getContainer={false}
+        onSettingChange={(setting) => {
+          onSettingChange(setting.fixedHeader);
+        }}
+      />,
+    );
+
+    await waitForComponentToPaint(wrapper);
+    act(() => {
+      wrapper.find('button.fixed-header').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper);
+    expect(onSettingChange).toBeCalledWith(true);
+
+    act(() => {
+      wrapper.find('button.fixed-header').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(onSettingChange).toBeCalledWith(false);
+  });
+
   it('theme Change', async () => {
     const onSettingChange = jest.fn();
     const wrapper = mount(

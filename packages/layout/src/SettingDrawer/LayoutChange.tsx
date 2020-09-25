@@ -67,7 +67,9 @@ const LayoutSetting: React.FC<{
               size="small"
               className="fixed-header"
               checked={!!fixedHeader}
-              onChange={(checked) => changeSetting('fixedHeader', checked)}
+              onChange={(checked) => {
+                changeSetting('fixedHeader', checked);
+              }}
             />
           ),
         },
