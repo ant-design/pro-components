@@ -101,7 +101,6 @@ export const formInputRender: React.FC<{
       valueEnum={item.valueEnum}
       name={item.key || item.dataIndex}
       onChange={onChange}
-      // @ts-ignore
       fieldProps={restFieldProps || item.formItemProps}
       // valueType = textarea，但是在 查询表单这里，应该是个 input 框
       valueType={
