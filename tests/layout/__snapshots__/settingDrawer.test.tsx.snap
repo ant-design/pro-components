@@ -3165,8 +3165,8 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                         >
                           <li>
                             <button
-                              aria-checked="false"
-                              class="ant-switch ant-switch-small"
+                              aria-checked="true"
+                              class="ant-switch ant-switch-small ant-switch-checked"
                               role="switch"
                               type="button"
                             >
@@ -3212,7 +3212,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                         class="ant-list-item"
                       >
                         <span
-                          style="opacity:0.5"
+                          style="opacity:1"
                         >
                           Split Menus
                         </span>
@@ -3221,9 +3221,8 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                         >
                           <li>
                             <button
-                              aria-checked="false"
-                              class="ant-switch ant-switch-small ant-switch-disabled"
-                              disabled=""
+                              aria-checked="true"
+                              class="ant-switch ant-switch-small ant-switch-checked"
                               role="switch"
                               type="button"
                             >
