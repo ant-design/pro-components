@@ -8195,6 +8195,65 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
         </div>
       </div>
       <div
+        class="ant-pro-table-alert"
+      >
+        <div
+          class="ant-alert ant-alert-info ant-alert-no-icon"
+          data-show="true"
+          role="alert"
+        >
+          <span
+            class="ant-alert-message"
+          >
+            <div
+              class="ant-pro-table-alert-info"
+            >
+              <div
+                class="ant-pro-table-alert-info-content"
+              >
+                <div
+                  class="ant-space ant-space-horizontal ant-space-align-center"
+                >
+                  <div
+                    class="ant-space-item"
+                    style="margin-right: 8px;"
+                  >
+                    已选择
+                  </div>
+                  <div
+                    class="ant-space-item"
+                    style="margin-right: 8px;"
+                  >
+                    1
+                  </div>
+                  <div
+                    class="ant-space-item"
+                    style="margin-right: 8px;"
+                  >
+                    项
+                  </div>
+                  <div
+                    class="ant-space-item"
+                  >
+                      
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ant-pro-table-alert-info-option"
+              >
+                <a>
+                  取消选择
+                </a>
+              </div>
+            </div>
+          </span>
+          <span
+            class="ant-alert-description"
+          />
+        </div>
+      </div>
+      <div
         class="ant-table-wrapper"
       >
         <div
@@ -8217,6 +8276,9 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                   >
                     <colgroup>
                       <col
+                        class="ant-table-selection-col"
+                      />
+                      <col
                         style="width: 72px; min-width: 72px;"
                       />
                       <col
@@ -8235,6 +8297,30 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                       class="ant-table-thead"
                     >
                       <tr>
+                        <th
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <div
+                            class="ant-table-selection"
+                          >
+                            <label
+                              class="ant-checkbox-wrapper"
+                            >
+                              <span
+                                class="ant-checkbox ant-checkbox-indeterminate"
+                              >
+                                <input
+                                  class="ant-checkbox-input"
+                                  type="checkbox"
+                                  value=""
+                                />
+                                <span
+                                  class="ant-checkbox-inner"
+                                />
+                              </span>
+                            </label>
+                          </div>
+                        </th>
                         <th
                           class="ant-table-cell"
                         >
@@ -8352,6 +8438,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         class="ant-table-row ant-table-row-level-0"
                         data-row-key="0"
                       >
+                        <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
                         <td
                           class="ant-table-cell"
                         >
@@ -8628,9 +8734,30 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         </td>
                       </tr>
                       <tr
-                        class="ant-table-row ant-table-row-level-0"
+                        class="ant-table-row ant-table-row-level-0 ant-table-row-selected"
                         data-row-key="1"
                       >
+                        <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
+                          >
+                            <span
+                              class="ant-checkbox ant-checkbox-checked"
+                            >
+                              <input
+                                checked=""
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
                         <td
                           class="ant-table-cell"
                         >
@@ -8911,6 +9038,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         data-row-key="2"
                       >
                         <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
+                        <td
                           class="ant-table-cell"
                         >
                           <div
@@ -9189,6 +9336,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         class="ant-table-row ant-table-row-level-0"
                         data-row-key="3"
                       >
+                        <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
                         <td
                           class="ant-table-cell"
                         >
@@ -9469,6 +9636,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         data-row-key="4"
                       >
                         <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
+                        <td
                           class="ant-table-cell"
                         >
                           <div
@@ -9747,6 +9934,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         class="ant-table-row ant-table-row-level-0"
                         data-row-key="5"
                       >
+                        <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
                         <td
                           class="ant-table-cell"
                         >
@@ -10027,6 +10234,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         data-row-key="6"
                       >
                         <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
+                        <td
                           class="ant-table-cell"
                         >
                           <div
@@ -10305,6 +10532,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         class="ant-table-row ant-table-row-level-0"
                         data-row-key="7"
                       >
+                        <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
                         <td
                           class="ant-table-cell"
                         >
@@ -10585,6 +10832,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         data-row-key="8"
                       >
                         <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
+                        <td
                           class="ant-table-cell"
                         >
                           <div
@@ -10863,6 +11130,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         class="ant-table-row ant-table-row-level-0"
                         data-row-key="9"
                       >
+                        <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
                         <td
                           class="ant-table-cell"
                         >
@@ -11143,6 +11430,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         data-row-key="10"
                       >
                         <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
+                        <td
                           class="ant-table-cell"
                         >
                           <div
@@ -11421,6 +11728,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         class="ant-table-row ant-table-row-level-0"
                         data-row-key="11"
                       >
+                        <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
                         <td
                           class="ant-table-cell"
                         >
@@ -11701,6 +12028,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         data-row-key="12"
                       >
                         <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
+                        <td
                           class="ant-table-cell"
                         >
                           <div
@@ -11979,6 +12326,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         class="ant-table-row ant-table-row-level-0"
                         data-row-key="13"
                       >
+                        <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
                         <td
                           class="ant-table-cell"
                         >
@@ -12259,6 +12626,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         data-row-key="14"
                       >
                         <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
+                        <td
                           class="ant-table-cell"
                         >
                           <div
@@ -12537,6 +12924,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         class="ant-table-row ant-table-row-level-0"
                         data-row-key="15"
                       >
+                        <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
                         <td
                           class="ant-table-cell"
                         >
@@ -12817,6 +13224,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         data-row-key="16"
                       >
                         <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
+                        <td
                           class="ant-table-cell"
                         >
                           <div
@@ -13095,6 +13522,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         class="ant-table-row ant-table-row-level-0"
                         data-row-key="17"
                       >
+                        <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
                         <td
                           class="ant-table-cell"
                         >
@@ -13375,6 +13822,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         data-row-key="18"
                       >
                         <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
+                        <td
                           class="ant-table-cell"
                         >
                           <div
@@ -13653,6 +14120,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         class="ant-table-row ant-table-row-level-0"
                         data-row-key="19"
                       >
+                        <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
                         <td
                           class="ant-table-cell"
                         >

@@ -317,6 +317,7 @@ describe('BasicTable', () => {
 
   it('🎏 actionRef should use', async () => {
     const fn = jest.fn();
+    const onChangeFn = jest.fn();
     const html = mount(
       <ProTable
         size="small"
@@ -333,12 +334,16 @@ describe('BasicTable', () => {
         request={async () => {
           throw new Error('load error');
         }}
+        rowSelection={{
+          onChange: onChangeFn(),
+        }}
         onRequestError={fn}
         rowKey="key"
       />,
     );
     await waitForComponentToPaint(html, 1200);
     expect(fn).toBeCalled();
+    expect(onChangeFn).toBeCalled();
   });
 
   it('🎏 request reload', async () => {
