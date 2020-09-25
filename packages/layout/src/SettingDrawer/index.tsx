@@ -448,19 +448,17 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     }
     if (key === 'colorWeak' && value === true) {
       const dom = document.querySelector('body div') as HTMLDivElement;
-      if (!dom) {
-        return;
+      if (dom) {
+        dom.dataset.prosettingdrawer = dom.style.filter;
+        dom.style.filter = 'invert(80%)';
       }
-      dom.dataset.prosettingdrawer = dom.style.filter;
-      dom.style.filter = 'invert(80%)';
     }
     if (key === 'colorWeak' && value === false) {
       const dom = document.querySelector('body div') as HTMLDivElement;
-      if (!dom) {
-        return;
+      if (dom) {
+        dom.style.filter = dom.dataset.prosettingdrawer || 'none';
+        delete dom.dataset.prosettingdrawer;
       }
-      dom.style.filter = dom.dataset.prosettingdrawer || 'none';
-      delete dom.dataset.prosettingdrawer;
     }
     preStateRef.current = nextState;
     setSettingState(nextState);
@@ -615,8 +613,11 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
                 action: (
                   <Switch
                     size="small"
+                    className="color-weak"
                     checked={!!colorWeak}
-                    onChange={(checked) => changeSetting('colorWeak', checked)}
+                    onChange={(checked) => {
+                      changeSetting('colorWeak', checked);
+                    }}
                   />
                 ),
               },

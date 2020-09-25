@@ -156,6 +156,42 @@ describe('settingDrawer.test', () => {
     expect(onSettingChange).toBeCalledWith('dark');
   });
 
+  it('colorWeak Change', async () => {
+    const onSettingChange = jest.fn();
+    document.body.appendChild(document.createElement('div'));
+    const wrapper = mount(
+      <SettingDrawer
+        settings={defaultSettings}
+        collapse
+        getContainer={false}
+        onSettingChange={(setting) => {
+          onSettingChange(setting.colorWeak);
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper);
+    act(() => {
+      wrapper.find('button.color-weak').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(onSettingChange).toBeCalledWith(true);
+
+    act(() => {
+      wrapper.setProps({
+        settings: {
+          ...defaultSettings,
+          colorWeak: true,
+        },
+      });
+    });
+    await waitForComponentToPaint(wrapper, 200);
+    act(() => {
+      wrapper.find('button.color-weak').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(onSettingChange).toBeCalledWith(false);
+  });
+
   it('regional config change', async () => {
     const fn = jest.fn();
     const html = mount(

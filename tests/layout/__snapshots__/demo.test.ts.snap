@@ -7328,7 +7328,7 @@ Array [
                             <li>
                               <button
                                 aria-checked="false"
-                                class="ant-switch ant-switch-small"
+                                class="ant-switch ant-switch-small color-weak"
                                 role="switch"
                                 type="button"
                               >

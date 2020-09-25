@@ -486,7 +486,7 @@ exports[`settingDrawer.test base user 1`] = `
                             <li>
                               <button
                                 aria-checked="false"
-                                class="ant-switch ant-switch-small"
+                                class="ant-switch ant-switch-small color-weak"
                                 role="switch"
                                 type="button"
                               >
@@ -1059,7 +1059,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                             <li>
                               <button
                                 aria-checked="false"
-                                class="ant-switch ant-switch-small"
+                                class="ant-switch ant-switch-small color-weak"
                                 role="switch"
                                 type="button"
                               >
@@ -1665,7 +1665,7 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                             <li>
                               <button
                                 aria-checked="false"
-                                class="ant-switch ant-switch-small"
+                                class="ant-switch ant-switch-small color-weak"
                                 role="switch"
                                 type="button"
                               >
@@ -2243,7 +2243,7 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                             <li>
                               <button
                                 aria-checked="false"
-                                class="ant-switch ant-switch-small"
+                                class="ant-switch ant-switch-small color-weak"
                                 role="switch"
                                 type="button"
                               >
@@ -2814,7 +2814,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                             <li>
                               <button
                                 aria-checked="false"
-                                class="ant-switch ant-switch-small"
+                                class="ant-switch ant-switch-small color-weak"
                                 role="switch"
                                 type="button"
                               >
@@ -3419,7 +3419,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                             <li>
                               <button
                                 aria-checked="false"
-                                class="ant-switch ant-switch-small"
+                                class="ant-switch ant-switch-small color-weak"
                                 role="switch"
                                 type="button"
                               >
