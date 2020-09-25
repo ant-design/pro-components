@@ -6,7 +6,7 @@
   ],
   "scripts": {
     "bootstrap": "node ./scripts/bootstrap.js",
-    "build": "father-build && webpack --progress",
+    "build": "father-build && webpack",
     "deploy": "npm run site && gh-pages -d ./dist",
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./packages && npm run lint:prettier",
     "lint:prettier": "npm run prettier &&  git diff && prettier --version && prettier --check \"packages/**/**.{js,jsx,tsx,ts,less,md,json}\" --end-of-line auto",
