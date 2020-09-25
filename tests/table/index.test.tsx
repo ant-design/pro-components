@@ -468,6 +468,74 @@ describe('BasicTable', () => {
     expect(fn).toBeCalledTimes(1);
   });
 
+  it('🎏 fullscreen icon mock function', async () => {
+    const exitFullscreen = jest.fn();
+    document.exitFullscreen = async () => {
+      // @ts-ignore
+      document.fullscreenElement = null;
+      exitFullscreen();
+    };
+    Object.defineProperty(document, 'fullscreenEnabled', {
+      value: true,
+    });
+
+    Object.defineProperty(HTMLElement.prototype, 'requestFullscreen', {
+      value: () => {
+        // @ts-ignore
+        document.fullscreenElement = document.createElement('div');
+      },
+    });
+
+    const html = mount(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            title: 'money',
+            dataIndex: 'money',
+            valueType: 'money',
+            children: [
+              {
+                title: 'money',
+                dataIndex: 'money',
+                valueType: 'money',
+              },
+              {
+                title: 'name',
+                dataIndex: 'name',
+                valueType: 'text',
+              },
+            ],
+          },
+        ]}
+        request={async () => {
+          return {
+            data: [],
+          };
+        }}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 600);
+
+    act(() => {
+      html.find('.ant-pro-table-toolbar-item-icon span.anticon-fullscreen').simulate('click');
+    });
+    await waitForComponentToPaint(html, 1200);
+
+    expect(!!document.fullscreenElement).toBeTruthy();
+
+    act(() => {
+      html.find('.ant-pro-table-toolbar-item-icon span.anticon-fullscreen').simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 600);
+
+    expect(!!document.fullscreenElement).toBeFalsy();
+
+    expect(exitFullscreen).toBeCalled();
+  });
+
   it('🎏 size icon test', async () => {
     const fn = jest.fn();
     const html = mount(

@@ -570,6 +570,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
       if (!rootRef.current || !document.fullscreenEnabled) {
         return;
       }
+
       if (document.fullscreenElement) {
         document.exitFullscreen();
       } else {
