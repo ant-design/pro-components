@@ -537,4 +537,18 @@ describe('BasicTable', () => {
     // props 指定为 false 后，无论 request 完成与否都不会出现 spin
     expect(html.find('.ant-spin').exists()).toBeFalsy();
   });
+
+  it('🎏 columns = undefined', async () => {
+    const html = mount(
+      <ProTable
+        columns={undefined}
+        request={async () => {
+          return { data: [] };
+        }}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 1200);
+    expect(html.render()).toMatchSnapshot();
+  });
 });
