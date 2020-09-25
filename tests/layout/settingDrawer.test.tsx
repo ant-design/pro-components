@@ -239,6 +239,12 @@ describe('settingDrawer.test', () => {
         fileName: 'dark-purple.css',
         modifyVars: { '@primary-color': '#722ED1' },
       },
+      {
+        key: 'test',
+        theme: 'dark',
+        fileName: 'dark-test.css',
+        modifyVars: { '@primary-color': '#722ED1' },
+      },
     ];
     const wrapper = mount(
       <SettingDrawer
