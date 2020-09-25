@@ -76,6 +76,9 @@ describe('BasicTable', () => {
         columns={columns}
         request={request}
         rowKey="key"
+        rowSelection={{
+          selectedRowKeys: ['1'],
+        }}
         search={false}
         params={{ keyword: 'test' }}
         pagination={{
@@ -350,10 +353,18 @@ describe('BasicTable', () => {
             valueType: 'money',
           },
         ]}
+        rowSelection={{
+          selectedRowKeys: ['first'],
+        }}
+        tableAlertRender={false}
         request={async () => {
           fn();
           return {
-            data: [],
+            data: [
+              {
+                key: 'first',
+              },
+            ],
           };
         }}
         rowKey="key"

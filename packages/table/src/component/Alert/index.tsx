@@ -30,9 +30,9 @@ const defaultAlertOptionRender = (props: { intl: IntlType; onCleanSelected: () =
 };
 
 const TableAlert = <T, U = {}>({
-  selectedRowKeys = [],
+  selectedRowKeys,
   onCleanSelected,
-  selectedRows = [],
+  selectedRows,
   alertInfoRender = ({ intl }) => (
     <Space>
       {intl.getMessage('alert.selected', '已选择')}

@@ -28,7 +28,7 @@ const getData = (
 
   for (let i = 0; i < size; i += 1) {
     data.push({
-      key: i,
+      key: `${i}`,
       name: `Edward King ${i}`,
       age: 10 + i,
       status: Math.floor(i) % 4,
