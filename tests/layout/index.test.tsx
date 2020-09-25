@@ -555,4 +555,19 @@ describe('BasicLayout', () => {
     await waitForComponentToPaint(wrapper);
     expect(renderPageTitle).toBeCalled();
   });
+
+  it('🥩 rightContentRender should work in top', async () => {
+    const wrapper = mount<BasicLayoutProps>(
+      <BasicLayout
+        rightContentRender={() => <div id="layout_right">right</div>}
+        layout="top"
+        location={{
+          pathname: '/',
+        }}
+      />,
+    );
+
+    await waitForComponentToPaint(wrapper);
+    expect(wrapper.find('#layout_right').exists()).toBeTruthy();
+  });
 });
