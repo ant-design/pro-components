@@ -18,7 +18,7 @@ export default () => (
       }}
       title="这里是标题"
       subTitle="这里是子标题"
-      tip="这是一个段描述"
+      tooltip="这是一个段描述"
       search={{
         onSearch: (value) => {
           alert(value);
