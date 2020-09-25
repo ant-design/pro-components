@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { noteOnce } from 'rc-util/lib/warning';
 import { TableRowSelection, GetRowKey, ExpandableConfig } from 'antd/lib/table/interface';
 import { ListProps } from 'antd/lib/list';
-import { ListToolBar, ListToolBarProps } from '@ant-design/pro-utils';
+import ToolBar, { ToolBarProps } from './toolBar';
 import useSelection from './hooks/useSelection';
 import useLazyKVMap, { findAllChildrenKeys } from './hooks/useLazyKVMap';
 import usePagination from './hooks/usePagination';
@@ -17,17 +17,21 @@ type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 
 type WithFalse<T> = T | false;
 
-export interface ProListProps<RecordType> extends AntdListProps<RecordType> {
+export interface HeaderViewProps {
+  title?: React.ReactNode;
+  actions?: React.ReactNode[];
+}
+
+export interface ProListProps<RecordType>
+  extends Omit<ToolBarProps, 'locale'>,
+    AntdListProps<RecordType> {
   rowSelection?: TableRowSelection<RecordType>;
   rowKey?: string | GetRowKey<RecordType>;
   renderItem: (row: RecordType, index: number) => ItemProps;
   listRenderItem?: (row: RecordType, index: number) => React.ReactNode;
   headerRender?: WithFalse<
-    (props: ListToolBarProps, defaultDom: React.ReactNode) => React.ReactNode
+    (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
   >;
-  title?: ListToolBarProps['title'];
-  actions?: ListToolBarProps['actions'];
-  toolBarProps?: ListToolBarProps;
   expandable?: ExpandableConfig<RecordType>;
   showActions?: 'hover' | 'always';
 }
@@ -47,9 +51,6 @@ function ProList<RecordType = any>(props: ProListProps<RecordType>) {
     bordered,
     headerRender,
     split = true,
-    toolBarProps,
-    title,
-    actions,
     expandable: expandableConfig,
     ...rest
   } = props;
@@ -247,16 +248,12 @@ function ProList<RecordType = any>(props: ProListProps<RecordType>) {
       return null;
     }
 
-    const listToolBarProps = {
-      title,
-      actions,
-      ...toolBarProps, // 如果设定了，那么使用属性的进行覆盖
-    };
-
-    const defaultDom = (title || actions || toolBarProps) && <ListToolBar {...listToolBarProps} />;
+    const defaultDom = (rest.title || rest.actions) && (
+      <ToolBar className={`${prefixCls}-toolbar`} {...rest} />
+    );
 
     if (headerRender) {
-      return headerRender(listToolBarProps, defaultDom);
+      return headerRender({ title: rest.title, actions: rest.actions }, defaultDom);
     }
 
     return defaultDom;
