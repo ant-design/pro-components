@@ -88,7 +88,7 @@ export default () => {
           success: true,
         });
       }}
-      toolBarProps={{
+      toolbar={{
         multipleLine: true,
         filter: (
           <LightFilter style={{ marginTop: 8 }}>

@@ -51,9 +51,13 @@ export interface ListToolBarProps {
    */
   subTitle?: React.ReactNode;
   /**
-   * 标题提示
+   * @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一
    */
   tip?: string | TooltipProps;
+  /**
+   * 标题提示
+   */
+  tooltip?: string | TooltipProps;
   /**
    * 搜索输入栏相关配置
    */
@@ -125,6 +129,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
   title,
   subTitle,
   tip,
+  tooltip,
   className,
   style,
   search,
@@ -165,7 +170,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
 
   const searchNode: React.ReactNode = getSearchInput(search);
   const filtersNode = filter ? <div className={`${prefixCls}-filter`}>{filter}</div> : null;
-  const hasTitle = menu || title || subTitle || tip;
+  const hasTitle = menu || title || subTitle || tooltip || tip;
 
   return (
     <div style={style} className={classNames(`${prefixCls}`, className)}>
@@ -173,7 +178,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
         <div className={`${prefixCls}-left`}>
           {menu && <HeaderMenu {...menu} prefixCls={prefixCls} />}
           <div className={`${prefixCls}-title`}>
-            <LabelIconTip tip={tip} label={title} subTitle={subTitle} />
+            <LabelIconTip tooltip={tooltip || tip} label={title} subTitle={subTitle} />
           </div>
           {!hasTitle && searchNode && <div className={`${prefixCls}-search`}>{searchNode}</div>}
         </div>
