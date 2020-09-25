@@ -93,6 +93,12 @@ export const formInputRender: React.FC<{
   }
 
   const { onChange, ...restFieldProps } = item.fieldProps || {};
+
+  const finalValueType =
+    !valueType || (['textarea', 'jsonCode', 'code'].includes(valueType) && type === 'table')
+      ? 'text'
+      : (valueType as 'text');
+
   return (
     <ProFormField
       ref={ref}
@@ -103,11 +109,7 @@ export const formInputRender: React.FC<{
       onChange={onChange}
       fieldProps={restFieldProps || item.formItemProps}
       // valueType = textarea，但是在 查询表单这里，应该是个 input 框
-      valueType={
-        !valueType || (['textarea', 'jsonCode', 'code'].includes(valueType) && type === 'table')
-          ? 'text'
-          : valueType
-      }
+      valueType={finalValueType}
       initialValue={item.initialValue}
       {...rest}
       rules={type === 'form' ? rest.rules : undefined}

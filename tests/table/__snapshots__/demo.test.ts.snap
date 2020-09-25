@@ -345,31 +345,85 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
                       >
                         <td
                           style="padding: 0px; border: 0px; height: 0px;"
-                        />
+                        >
+                          <div
+                            style="height: 0px; overflow: hidden;"
+                          >
+                             
+                          </div>
+                        </td>
                         <td
                           style="padding: 0px; border: 0px; height: 0px;"
-                        />
+                        >
+                          <div
+                            style="height: 0px; overflow: hidden;"
+                          >
+                             
+                          </div>
+                        </td>
                         <td
                           style="padding: 0px; border: 0px; height: 0px;"
-                        />
+                        >
+                          <div
+                            style="height: 0px; overflow: hidden;"
+                          >
+                             
+                          </div>
+                        </td>
                         <td
                           style="padding: 0px; border: 0px; height: 0px;"
-                        />
+                        >
+                          <div
+                            style="height: 0px; overflow: hidden;"
+                          >
+                             
+                          </div>
+                        </td>
                         <td
                           style="padding: 0px; border: 0px; height: 0px;"
-                        />
+                        >
+                          <div
+                            style="height: 0px; overflow: hidden;"
+                          >
+                             
+                          </div>
+                        </td>
                         <td
                           style="padding: 0px; border: 0px; height: 0px;"
-                        />
+                        >
+                          <div
+                            style="height: 0px; overflow: hidden;"
+                          >
+                             
+                          </div>
+                        </td>
                         <td
                           style="padding: 0px; border: 0px; height: 0px;"
-                        />
+                        >
+                          <div
+                            style="height: 0px; overflow: hidden;"
+                          >
+                             
+                          </div>
+                        </td>
                         <td
                           style="padding: 0px; border: 0px; height: 0px;"
-                        />
+                        >
+                          <div
+                            style="height: 0px; overflow: hidden;"
+                          >
+                             
+                          </div>
+                        </td>
                         <td
                           style="padding: 0px; border: 0px; height: 0px;"
-                        />
+                        >
+                          <div
+                            style="height: 0px; overflow: hidden;"
+                          >
+                             
+                          </div>
+                        </td>
                       </tr>
                       <tr
                         class="ant-table-row ant-table-row-level-0"
