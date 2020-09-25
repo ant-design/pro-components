@@ -7,6 +7,12 @@ import { waitForComponentToPaint } from '../util';
 
 describe('settingDrawer.test', () => {
   beforeAll(() => {
+    process.env.NODE_ENV = 'TEST';
+    process.env.USE_MEDIA = 'md';
+
+    window.location.search =
+      '?navTheme=realDark&layout=mix&primaryColor=daybreak&splitMenus=true&fixedHeader=true';
+
     Object.defineProperty(window, 'localStorage', {
       value: {
         getItem: jest.fn(() => 'zh-CN'),

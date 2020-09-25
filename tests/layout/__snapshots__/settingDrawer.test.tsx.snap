@@ -64,7 +64,7 @@ exports[`settingDrawer.test base user 1`] = `
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  整体风格设置
+                  Page style setting
                 </h3>
                 <div
                   class="ant-pro-setting-drawer-block-checkbox"
@@ -77,7 +77,7 @@ exports[`settingDrawer.test base user 1`] = `
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  主题色
+                  Theme Color
                 </h3>
                 <div
                   class="theme-color"
@@ -123,7 +123,7 @@ exports[`settingDrawer.test base user 1`] = `
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  导航模式
+                  Navigation Mode
                 </h3>
                 <div
                   class="ant-pro-setting-drawer-block-checkbox"
@@ -148,7 +148,7 @@ exports[`settingDrawer.test base user 1`] = `
                         <span
                           style="opacity:1"
                         >
-                          内容区域宽度
+                          Content Width
                         </span>
                         <ul
                           class="ant-list-item-action"
@@ -182,9 +182,9 @@ exports[`settingDrawer.test base user 1`] = `
                                 </span>
                                 <span
                                   class="ant-select-selection-item"
-                                  title="流式"
+                                  title="Fluid"
                                 >
-                                  流式
+                                  Fluid
                                 </span>
                               </div>
                               <span
@@ -224,7 +224,7 @@ exports[`settingDrawer.test base user 1`] = `
                         <span
                           style="opacity:1"
                         >
-                          固定 Header
+                          Fixed Header
                         </span>
                         <ul
                           class="ant-list-item-action"
@@ -252,7 +252,7 @@ exports[`settingDrawer.test base user 1`] = `
                         <span
                           style="opacity:1"
                         >
-                          固定侧边菜单
+                          Fixed Sidebar
                         </span>
                         <ul
                           class="ant-list-item-action"
@@ -280,7 +280,7 @@ exports[`settingDrawer.test base user 1`] = `
                         <span
                           style="opacity:0.5"
                         >
-                          自动分割菜单
+                          Split Menus
                         </span>
                         <ul
                           class="ant-list-item-action"
@@ -317,7 +317,7 @@ exports[`settingDrawer.test base user 1`] = `
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  内容区域
+                  Regional Settings
                 </h3>
                 <div
                   class="ant-list"
@@ -337,7 +337,7 @@ exports[`settingDrawer.test base user 1`] = `
                           <span
                             style="opacity:1"
                           >
-                            顶栏
+                            Header
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -365,7 +365,7 @@ exports[`settingDrawer.test base user 1`] = `
                           <span
                             style="opacity:1"
                           >
-                            页脚
+                            Footer
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -393,7 +393,7 @@ exports[`settingDrawer.test base user 1`] = `
                           <span
                             style="opacity:1"
                           >
-                            菜单
+                            Menu
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -421,7 +421,7 @@ exports[`settingDrawer.test base user 1`] = `
                           <span
                             style="opacity:1"
                           >
-                            菜单头
+                            Menu Header
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -458,7 +458,7 @@ exports[`settingDrawer.test base user 1`] = `
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  其他设置
+                  Other Settings
                 </h3>
                 <div
                   class="ant-list"
@@ -478,7 +478,7 @@ exports[`settingDrawer.test base user 1`] = `
                           <span
                             style="opacity:1"
                           >
-                            色弱模式
+                            Weak Mode
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -538,7 +538,7 @@ exports[`settingDrawer.test base user 1`] = `
                 <span
                   class="ant-alert-message"
                 >
-                  配置栏只在开发环境用于预览，生产环境不会展现，请拷贝后手动修改配置文件
+                  Setting panel shows in development environment only, please manually modify
                 </span>
                 <span
                   class="ant-alert-description"
@@ -569,7 +569,7 @@ exports[`settingDrawer.test base user 1`] = `
                   </svg>
                 </span>
                 <span>
-                   拷贝设置
+                   Copy Setting
                 </span>
               </button>
             </div>
@@ -670,7 +670,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  整体风格设置
+                  Page style setting
                 </h3>
                 <div
                   class="ant-pro-setting-drawer-block-checkbox"
@@ -683,7 +683,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  主题色
+                  Theme Color
                 </h3>
               </div>
               <div
@@ -696,7 +696,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  导航模式
+                  Navigation Mode
                 </h3>
                 <div
                   class="ant-pro-setting-drawer-block-checkbox"
@@ -721,7 +721,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                         <span
                           style="opacity:1"
                         >
-                          内容区域宽度
+                          Content Width
                         </span>
                         <ul
                           class="ant-list-item-action"
@@ -755,9 +755,9 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                                 </span>
                                 <span
                                   class="ant-select-selection-item"
-                                  title="流式"
+                                  title="Fluid"
                                 >
-                                  流式
+                                  Fluid
                                 </span>
                               </div>
                               <span
@@ -797,7 +797,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                         <span
                           style="opacity:1"
                         >
-                          固定 Header
+                          Fixed Header
                         </span>
                         <ul
                           class="ant-list-item-action"
@@ -825,7 +825,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                         <span
                           style="opacity:1"
                         >
-                          固定侧边菜单
+                          Fixed Sidebar
                         </span>
                         <ul
                           class="ant-list-item-action"
@@ -853,7 +853,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                         <span
                           style="opacity:0.5"
                         >
-                          自动分割菜单
+                          Split Menus
                         </span>
                         <ul
                           class="ant-list-item-action"
@@ -890,7 +890,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  内容区域
+                  Regional Settings
                 </h3>
                 <div
                   class="ant-list"
@@ -910,7 +910,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                           <span
                             style="opacity:1"
                           >
-                            顶栏
+                            Header
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -938,7 +938,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                           <span
                             style="opacity:1"
                           >
-                            页脚
+                            Footer
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -966,7 +966,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                           <span
                             style="opacity:1"
                           >
-                            菜单
+                            Menu
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -994,7 +994,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                           <span
                             style="opacity:1"
                           >
-                            菜单头
+                            Menu Header
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -1031,7 +1031,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  其他设置
+                  Other Settings
                 </h3>
                 <div
                   class="ant-list"
@@ -1051,7 +1051,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                           <span
                             style="opacity:1"
                           >
-                            色弱模式
+                            Weak Mode
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -1111,7 +1111,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                 <span
                   class="ant-alert-message"
                 >
-                  配置栏只在开发环境用于预览，生产环境不会展现，请拷贝后手动修改配置文件
+                  Setting panel shows in development environment only, please manually modify
                 </span>
                 <span
                   class="ant-alert-description"
@@ -1142,7 +1142,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                   </svg>
                 </span>
                 <span>
-                   拷贝设置
+                   Copy Setting
                 </span>
               </button>
             </div>
@@ -1243,7 +1243,7 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  整体风格设置
+                  Page style setting
                 </h3>
                 <div
                   class="ant-pro-setting-drawer-block-checkbox"
@@ -1256,7 +1256,7 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  主题色
+                  Theme Color
                 </h3>
                 <div
                   class="theme-color"
@@ -1302,7 +1302,7 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  导航模式
+                  Navigation Mode
                 </h3>
                 <div
                   class="ant-pro-setting-drawer-block-checkbox"
@@ -1327,7 +1327,7 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                         <span
                           style="opacity:1"
                         >
-                          内容区域宽度
+                          Content Width
                         </span>
                         <ul
                           class="ant-list-item-action"
@@ -1361,9 +1361,9 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                                 </span>
                                 <span
                                   class="ant-select-selection-item"
-                                  title="流式"
+                                  title="Fluid"
                                 >
-                                  流式
+                                  Fluid
                                 </span>
                               </div>
                               <span
@@ -1403,7 +1403,7 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                         <span
                           style="opacity:1"
                         >
-                          固定 Header
+                          Fixed Header
                         </span>
                         <ul
                           class="ant-list-item-action"
@@ -1431,7 +1431,7 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                         <span
                           style="opacity:1"
                         >
-                          固定侧边菜单
+                          Fixed Sidebar
                         </span>
                         <ul
                           class="ant-list-item-action"
@@ -1459,7 +1459,7 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                         <span
                           style="opacity:0.5"
                         >
-                          自动分割菜单
+                          Split Menus
                         </span>
                         <ul
                           class="ant-list-item-action"
@@ -1496,7 +1496,7 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  内容区域
+                  Regional Settings
                 </h3>
                 <div
                   class="ant-list"
@@ -1516,7 +1516,7 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                           <span
                             style="opacity:1"
                           >
-                            顶栏
+                            Header
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -1544,7 +1544,7 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                           <span
                             style="opacity:1"
                           >
-                            页脚
+                            Footer
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -1572,7 +1572,7 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                           <span
                             style="opacity:1"
                           >
-                            菜单
+                            Menu
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -1600,7 +1600,7 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                           <span
                             style="opacity:1"
                           >
-                            菜单头
+                            Menu Header
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -1637,7 +1637,7 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  其他设置
+                  Other Settings
                 </h3>
                 <div
                   class="ant-list"
@@ -1657,7 +1657,7 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                           <span
                             style="opacity:1"
                           >
-                            色弱模式
+                            Weak Mode
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -1717,7 +1717,7 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                 <span
                   class="ant-alert-message"
                 >
-                  配置栏只在开发环境用于预览，生产环境不会展现，请拷贝后手动修改配置文件
+                  Setting panel shows in development environment only, please manually modify
                 </span>
                 <span
                   class="ant-alert-description"
@@ -1821,7 +1821,7 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  整体风格设置
+                  Page style setting
                 </h3>
                 <div
                   class="ant-pro-setting-drawer-block-checkbox"
@@ -1834,7 +1834,7 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  主题色
+                  Theme Color
                 </h3>
                 <div
                   class="theme-color"
@@ -1880,7 +1880,7 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  导航模式
+                  Navigation Mode
                 </h3>
                 <div
                   class="ant-pro-setting-drawer-block-checkbox"
@@ -1905,7 +1905,7 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                         <span
                           style="opacity:1"
                         >
-                          内容区域宽度
+                          Content Width
                         </span>
                         <ul
                           class="ant-list-item-action"
@@ -1939,9 +1939,9 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                                 </span>
                                 <span
                                   class="ant-select-selection-item"
-                                  title="流式"
+                                  title="Fluid"
                                 >
-                                  流式
+                                  Fluid
                                 </span>
                               </div>
                               <span
@@ -1981,7 +1981,7 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                         <span
                           style="opacity:1"
                         >
-                          固定 Header
+                          Fixed Header
                         </span>
                         <ul
                           class="ant-list-item-action"
@@ -2009,7 +2009,7 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                         <span
                           style="opacity:1"
                         >
-                          固定侧边菜单
+                          Fixed Sidebar
                         </span>
                         <ul
                           class="ant-list-item-action"
@@ -2037,7 +2037,7 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                         <span
                           style="opacity:0.5"
                         >
-                          自动分割菜单
+                          Split Menus
                         </span>
                         <ul
                           class="ant-list-item-action"
@@ -2074,7 +2074,7 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  内容区域
+                  Regional Settings
                 </h3>
                 <div
                   class="ant-list"
@@ -2094,7 +2094,7 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                           <span
                             style="opacity:1"
                           >
-                            顶栏
+                            Header
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -2122,7 +2122,7 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                           <span
                             style="opacity:1"
                           >
-                            页脚
+                            Footer
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -2150,7 +2150,7 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                           <span
                             style="opacity:1"
                           >
-                            菜单
+                            Menu
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -2178,7 +2178,7 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                           <span
                             style="opacity:1"
                           >
-                            菜单头
+                            Menu Header
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -2215,7 +2215,7 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  其他设置
+                  Other Settings
                 </h3>
                 <div
                   class="ant-list"
@@ -2235,7 +2235,7 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                           <span
                             style="opacity:1"
                           >
-                            色弱模式
+                            Weak Mode
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -2291,7 +2291,7 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                   </svg>
                 </span>
                 <span>
-                   拷贝设置
+                   Copy Setting
                 </span>
               </button>
             </div>
@@ -2392,7 +2392,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  整体风格设置
+                  Page style setting
                 </h3>
                 <div
                   class="ant-pro-setting-drawer-block-checkbox"
@@ -2405,7 +2405,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  主题色
+                  Theme Color
                 </h3>
                 <div
                   class="theme-color"
@@ -2451,7 +2451,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  导航模式
+                  Navigation Mode
                 </h3>
                 <div
                   class="ant-pro-setting-drawer-block-checkbox"
@@ -2476,7 +2476,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                         <span
                           style="opacity:1"
                         >
-                          内容区域宽度
+                          Content Width
                         </span>
                         <ul
                           class="ant-list-item-action"
@@ -2510,9 +2510,9 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                                 </span>
                                 <span
                                   class="ant-select-selection-item"
-                                  title="流式"
+                                  title="Fluid"
                                 >
-                                  流式
+                                  Fluid
                                 </span>
                               </div>
                               <span
@@ -2552,7 +2552,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                         <span
                           style="opacity:1"
                         >
-                          固定 Header
+                          Fixed Header
                         </span>
                         <ul
                           class="ant-list-item-action"
@@ -2580,7 +2580,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                         <span
                           style="opacity:1"
                         >
-                          固定侧边菜单
+                          Fixed Sidebar
                         </span>
                         <ul
                           class="ant-list-item-action"
@@ -2608,7 +2608,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                         <span
                           style="opacity:0.5"
                         >
-                          自动分割菜单
+                          Split Menus
                         </span>
                         <ul
                           class="ant-list-item-action"
@@ -2645,7 +2645,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  内容区域
+                  Regional Settings
                 </h3>
                 <div
                   class="ant-list"
@@ -2665,7 +2665,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                           <span
                             style="opacity:1"
                           >
-                            顶栏
+                            Header
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -2693,7 +2693,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                           <span
                             style="opacity:1"
                           >
-                            页脚
+                            Footer
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -2721,7 +2721,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                           <span
                             style="opacity:1"
                           >
-                            菜单
+                            Menu
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -2749,7 +2749,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                           <span
                             style="opacity:1"
                           >
-                            菜单头
+                            Menu Header
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -2786,7 +2786,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  其他设置
+                  Other Settings
                 </h3>
                 <div
                   class="ant-list"
@@ -2806,7 +2806,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                           <span
                             style="opacity:1"
                           >
-                            色弱模式
+                            Weak Mode
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -2866,7 +2866,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                 <span
                   class="ant-alert-message"
                 >
-                  配置栏只在开发环境用于预览，生产环境不会展现，请拷贝后手动修改配置文件
+                  Setting panel shows in development environment only, please manually modify
                 </span>
                 <span
                   class="ant-alert-description"
@@ -2897,7 +2897,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                   </svg>
                 </span>
                 <span>
-                   拷贝设置
+                   Copy Setting
                 </span>
               </button>
             </div>
@@ -2998,7 +2998,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  整体风格设置
+                  Page style setting
                 </h3>
                 <div
                   class="ant-pro-setting-drawer-block-checkbox"
@@ -3011,7 +3011,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  主题色
+                  Theme Color
                 </h3>
                 <div
                   class="theme-color"
@@ -3057,7 +3057,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  导航模式
+                  Navigation Mode
                 </h3>
                 <div
                   class="ant-pro-setting-drawer-block-checkbox"
@@ -3082,7 +3082,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                         <span
                           style="opacity:1"
                         >
-                          内容区域宽度
+                          Content Width
                         </span>
                         <ul
                           class="ant-list-item-action"
@@ -3116,9 +3116,9 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                                 </span>
                                 <span
                                   class="ant-select-selection-item"
-                                  title="流式"
+                                  title="Fluid"
                                 >
-                                  流式
+                                  Fluid
                                 </span>
                               </div>
                               <span
@@ -3158,7 +3158,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                         <span
                           style="opacity:1"
                         >
-                          固定 Header
+                          Fixed Header
                         </span>
                         <ul
                           class="ant-list-item-action"
@@ -3186,7 +3186,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                         <span
                           style="opacity:1"
                         >
-                          固定侧边菜单
+                          Fixed Sidebar
                         </span>
                         <ul
                           class="ant-list-item-action"
@@ -3214,7 +3214,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                         <span
                           style="opacity:0.5"
                         >
-                          自动分割菜单
+                          Split Menus
                         </span>
                         <ul
                           class="ant-list-item-action"
@@ -3251,7 +3251,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  内容区域
+                  Regional Settings
                 </h3>
                 <div
                   class="ant-list"
@@ -3271,7 +3271,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                           <span
                             style="opacity:1"
                           >
-                            顶栏
+                            Header
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -3299,7 +3299,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                           <span
                             style="opacity:1"
                           >
-                            页脚
+                            Footer
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -3327,7 +3327,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                           <span
                             style="opacity:1"
                           >
-                            菜单
+                            Menu
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -3355,7 +3355,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                           <span
                             style="opacity:1"
                           >
-                            菜单头
+                            Menu Header
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -3392,7 +3392,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                 <h3
                   class="ant-pro-setting-drawer-title"
                 >
-                  其他设置
+                  Other Settings
                 </h3>
                 <div
                   class="ant-list"
@@ -3412,7 +3412,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                           <span
                             style="opacity:1"
                           >
-                            色弱模式
+                            Weak Mode
                           </span>
                           <ul
                             class="ant-list-item-action"
@@ -3472,7 +3472,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                 <span
                   class="ant-alert-message"
                 >
-                  配置栏只在开发环境用于预览，生产环境不会展现，请拷贝后手动修改配置文件
+                  Setting panel shows in development environment only, please manually modify
                 </span>
                 <span
                   class="ant-alert-description"
@@ -3503,7 +3503,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                   </svg>
                 </span>
                 <span>
-                   拷贝设置
+                   Copy Setting
                 </span>
               </button>
             </div>
