@@ -587,7 +587,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
       propsRowSelection.onChange([], []);
     }
     setSelectedRowsAndKey([], []);
-  }, [setSelectedRowKeys]);
+  }, [setSelectedRowKeys, propsRowSelection]);
 
   /**
    * 绑定 action

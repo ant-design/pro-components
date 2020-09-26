@@ -318,6 +318,7 @@ describe('BasicTable', () => {
   it('🎏 actionRef should use', async () => {
     const fn = jest.fn();
     const onChangeFn = jest.fn();
+    const actionRef = React.createRef<ActionType>();
     const html = mount(
       <ProTable
         size="small"
@@ -328,20 +329,24 @@ describe('BasicTable', () => {
           },
         ]}
         actionRef={(ref) => {
-          ref.clearSelected?.();
-          fn(!!ref.reload);
+          // @ts-expect-error
+          actionRef.current = ref;
         }}
         request={async () => {
           throw new Error('load error');
         }}
         rowSelection={{
-          onChange: onChangeFn(),
+          onChange: onChangeFn,
         }}
         onRequestError={fn}
         rowKey="key"
       />,
     );
     await waitForComponentToPaint(html, 1200);
+
+    act(() => {
+      actionRef.current?.clearSelected?.();
+    });
     expect(fn).toBeCalled();
     expect(onChangeFn).toBeCalled();
   });
