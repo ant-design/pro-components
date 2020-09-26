@@ -413,7 +413,9 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-
+    act(() => {
+      actionRef.current?.reload(true);
+    });
     await waitForComponentToPaint(html, 1200);
     expect(fn).toBeCalledTimes(1);
   });
