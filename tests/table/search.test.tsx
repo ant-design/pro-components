@@ -44,7 +44,7 @@ describe('BasicTable Search', () => {
         columns={[
           {
             title: '金额',
-            dataIndex: ['name', 'money'],
+            dataIndex: 'money',
             valueType: 'money',
             order: 9,
           },

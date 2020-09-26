@@ -44,7 +44,7 @@ describe('BasicTable Search', () => {
           {
             title: 'Name',
             key: 'name',
-            dataIndex: 'name',
+            dataIndex: ['name', 'money'],
           },
           {
             title: '状态',
