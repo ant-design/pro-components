@@ -390,7 +390,7 @@ describe('BasicTable', () => {
     expect(fn).toBeCalledTimes(2);
   });
 
-  it('🎏 request reload', async () => {
+  it('🎏 request load array', async () => {
     const fn = jest.fn();
     const actionRef = React.createRef<ActionType>();
     const html = mount(
@@ -405,25 +405,17 @@ describe('BasicTable', () => {
             valueType: 'money',
           },
         ]}
+        // @ts-expect-error
         request={async () => {
           fn();
-          return {
-            data: [],
-          };
+          return [];
         }}
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
-
-    act(() => {
-      if (actionRef?.current) {
-        actionRef?.current?.reload(true);
-      }
-    });
 
     await waitForComponentToPaint(html, 1200);
-    expect(fn).toBeCalledTimes(2);
+    expect(fn).toBeCalledTimes(1);
   });
 
   it('🎏 request should use postData', async () => {
