@@ -51,8 +51,8 @@ describe('BasicTable', () => {
           fn(params.current);
           return request(params);
         }}
-        onChange={() => {
-          onChangeFn();
+        pagination={{
+          onChange: onChangeFn(),
         }}
         onRequestError={fn}
         rowKey="key"
