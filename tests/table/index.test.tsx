@@ -499,6 +499,9 @@ describe('BasicTable', () => {
       value: () => {
         // @ts-ignore
         document.fullscreenElement = document.createElement('div');
+
+        // @ts-ignore
+        document.onfullscreenchange?.();
       },
     });
 
