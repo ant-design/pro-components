@@ -283,12 +283,8 @@ const FormSearch = <T, U = any>({
       if (a && b) {
         return (b.order || 0) - (a.order || 0);
       }
-      if (a && a.order) {
-        return -1;
-      }
-      if (b && b.order) {
-        return 1;
-      }
+      if (a && a.order) return -1;
+      if (b && b.order) return 1;
       return 0;
     });
 
