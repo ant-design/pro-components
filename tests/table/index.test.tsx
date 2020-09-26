@@ -405,6 +405,7 @@ describe('BasicTable', () => {
             valueType: 'money',
           },
         ]}
+        postData={undefined}
         // @ts-expect-error
         request={async () => {
           fn();
