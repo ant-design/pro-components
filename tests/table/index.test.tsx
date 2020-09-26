@@ -545,7 +545,7 @@ describe('BasicTable', () => {
     expect(!!document.fullscreenElement).toBeTruthy();
 
     act(() => {
-      html.find('.ant-pro-table-toolbar-item-icon span.anticon-fullscreen').simulate('click');
+      html.find('.ant-pro-table-toolbar-item-icon span.anticon-fullscreen-exit').simulate('click');
     });
 
     await waitForComponentToPaint(html, 600);
