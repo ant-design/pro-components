@@ -181,6 +181,7 @@ const ToolBar = <T, U = {}>({
         <Space>
           {options && options.search && (
             <Input.Search
+              className={`${className}-option-search`}
               placeholder={intl.getMessage('tableForm.inputPlaceholder', '请输入')}
               style={{
                 width: 200,

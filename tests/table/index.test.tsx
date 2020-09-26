@@ -635,4 +635,83 @@ describe('BasicTable', () => {
     await waitForComponentToPaint(html, 1200);
     expect(html.render()).toMatchSnapshot();
   });
+
+  it('🎏 search = true', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProTable
+        columns={undefined}
+        options={{
+          search: true,
+        }}
+        request={async (params) => {
+          fn(params.keyword);
+          return { data: [] };
+        }}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 600);
+
+    act(() => {
+      html.find('.ant-pro-table-toolbar-option-search input').simulate('change', {
+        target: {
+          value: 'name',
+        },
+      });
+    });
+
+    act(() => {
+      html
+        .find('.ant-pro-table-toolbar-option-search input')
+        .simulate('keydown', { key: 'Enter', keyCode: 13 });
+    });
+
+    await waitForComponentToPaint(html, 600);
+
+    expect(fn).toBeCalledWith('name');
+  });
+
+  it('🎏 search = true, name = test', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProTable<
+        {},
+        {
+          test: string;
+        }
+      >
+        columns={undefined}
+        options={{
+          search: {
+            name: 'test',
+          },
+        }}
+        request={async (params) => {
+          fn(params.test);
+          return { data: [] };
+        }}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 600);
+
+    act(() => {
+      html.find('.ant-pro-table-toolbar-option-search input').simulate('change', {
+        target: {
+          value: 'name',
+        },
+      });
+    });
+
+    act(() => {
+      html
+        .find('.ant-pro-table-toolbar-option-search input')
+        .simulate('keydown', { key: 'Enter', keyCode: 13 });
+    });
+
+    await waitForComponentToPaint(html, 600);
+
+    expect(fn).toBeCalledWith('name');
+  });
 });
