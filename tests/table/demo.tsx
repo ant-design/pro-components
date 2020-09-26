@@ -3,7 +3,7 @@ import moment from 'moment';
 import { ProColumns, TableStatus, TableDropdown } from '@ant-design/pro-table';
 import { Input, message } from 'antd';
 
-const getData = (
+const getFetchData = (
   size: number,
 ): {
   key: string | number;
@@ -172,6 +172,8 @@ export const columns: ProColumns[] = [
   },
 ];
 
+export { getFetchData };
+
 export const request = (params?: {
   pageSize?: number | undefined;
   current?: number | undefined;
@@ -185,7 +187,7 @@ export const request = (params?: {
   success: true;
 }> =>
   Promise.resolve({
-    data: getData(params?.pageSize || 46),
+    data: getFetchData(params?.pageSize || 46),
     total: 200,
     success: true,
   });

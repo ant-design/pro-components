@@ -371,12 +371,9 @@ const renderColumnsTitle = (item: ProColumns<any>) => {
 };
 
 const defaultOnFilter = (value: string, record: any, dataIndex: string | string[]) => {
-  let recordElement = Array.isArray(dataIndex)
+  const recordElement = Array.isArray(dataIndex)
     ? get(record, dataIndex as string[])
     : record[dataIndex];
-  if (typeof recordElement === 'number') {
-    recordElement = recordElement.toString();
-  }
   const itemValue = String(recordElement) as string;
 
   return String(itemValue) === String(value);
