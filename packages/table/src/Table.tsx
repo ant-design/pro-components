@@ -707,7 +707,6 @@ const ProTable = <T extends {}, U extends ParamsType>(
         headerTitle={headerTitle}
         action={action}
         onSearch={(keyword) => {
-          console.log(keyword);
           if (options && options.search) {
             const { name = 'keyword' } =
               options.search === true

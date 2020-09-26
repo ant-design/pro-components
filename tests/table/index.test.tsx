@@ -390,6 +390,44 @@ describe('BasicTable', () => {
     expect(fn).toBeCalledTimes(2);
   });
 
+  it('🎏 onSizeChange load', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProTable
+        columns={[
+          {
+            title: 'money',
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+        ]}
+        onSizeChange={(size) => fn(size)}
+        request={async () => {
+          return {
+            data: [
+              {
+                key: 'first',
+              },
+            ],
+          };
+        }}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html);
+
+    act(() => {
+      html.find('.ant-pro-table-toolbar-item-icon span.anticon-column-height').simulate('click');
+    });
+    await waitForComponentToPaint(html);
+    act(() => {
+      html.find('.ant-dropdown-menu .ant-dropdown-menu-item').at(0).simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 1200);
+    expect(fn).toBeCalledWith('large');
+  });
+
   it('🎏 request load array', async () => {
     const fn = jest.fn();
     const actionRef = React.createRef<ActionType>();
