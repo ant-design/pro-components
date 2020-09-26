@@ -146,6 +146,6 @@ describe('BasicTable Search', () => {
     });
 
     await waitForComponentToPaint(html, 500);
-    expect(fn).toBeCalledTimes(5);
+    expect(fn).toBeCalledTimes(4);
   });
 });
