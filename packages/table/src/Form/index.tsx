@@ -44,7 +44,7 @@ export const formInputRender: React.FC<{
   // if function， run it
   const valueType =
     ((typeof itemValueType === 'function'
-      ? (itemValueType({}) as ProFieldValueType)
+      ? (itemValueType({}, type) as ProFieldValueType)
       : itemValueType) as ProFieldValueType) || 'text';
 
   /**
@@ -252,7 +252,7 @@ const FormSearch = <T, U = any>({
       // 以key为主,理论上key唯一
       const finalKey = genColumnKey((key || dataIndex) as string, index);
       // 如果是() => ValueType
-      const finalValueType = typeof valueType === 'function' ? valueType(item) : valueType;
+      const finalValueType = typeof valueType === 'function' ? valueType(item, type) : valueType;
       tempMap[finalKey] = finalValueType;
     });
     valueTypeRef.current = tempMap;
