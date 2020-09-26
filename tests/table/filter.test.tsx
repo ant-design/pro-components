@@ -108,6 +108,12 @@ describe('BasicTable Search', () => {
             sorter: (a, b) => a.money - b.money,
           },
           {
+            title: 'money',
+            key: 'money',
+            dataIndex: 'money',
+            sorter: (a, b) => a.money - b.money,
+          },
+          {
             title: '状态',
             dataIndex: 'status',
             hideInForm: true,
@@ -128,15 +134,18 @@ describe('BasicTable Search', () => {
     await waitForComponentToPaint(html, 200);
 
     act(() => {
-      html.find('span.ant-table-column-sorter-down').simulate('click');
+      html.find('span.ant-table-column-sorter-down').at(0).simulate('click');
+      html.find('span.ant-table-column-sorter-down').at(1).simulate('click');
     });
 
     await waitForComponentToPaint(html, 800);
+
     act(() => {
-      html.find('span.ant-table-column-sorter-down').simulate('click');
+      html.find('span.ant-table-column-sorter-down').at(0).simulate('click');
+      html.find('span.ant-table-column-sorter-down').at(1).simulate('click');
     });
 
     await waitForComponentToPaint(html, 500);
-    expect(fn).toBeCalledTimes(2);
+    expect(fn).toBeCalledTimes(5);
   });
 });
