@@ -3,10 +3,10 @@ export default {
   form: {
     lightFilter: {
       more: '더보기',
-      clear: 'Clear',
+      clear: '취소',
       confirm: '확인',
-      itemUnit: '건수'
-    }
+      itemUnit: '건수',
+    },
   },
   tableForm: {
     search: '조회',
@@ -15,19 +15,19 @@ export default {
     collapsed: '확장',
     expand: '닫기',
     inputPlaceholder: '입력해 주세요',
-    selectPlaceholder: '선택해 주세요'
+    selectPlaceholder: '선택해 주세요',
   },
   alert: {
     clear: '취소',
     selected: '선택',
-    item: '건'
+    item: '건',
   },
   pagination: {
     total: {
       range: ' ',
       total: '/ 총',
-      item: '건'
-    }
+      item: '건',
+    },
   },
   tableToolBar: {
     leftPin: '왼쪽으로 핀',
@@ -46,6 +46,6 @@ export default {
     densityDefault: '기본',
     densityLarger: '많은 여백',
     densityMiddle: '중건 여백',
-    densitySmall: '좁은 여백'
-  }
+    densitySmall: '좁은 여백',
+  },
 };
