@@ -94,4 +94,49 @@ describe('BasicTable Search', () => {
     await waitForComponentToPaint(html, 500);
     expect(fn).toBeCalledTimes(1);
   });
+
+  it('🎏 order test', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProTable<{ money: number }, {}>
+        size="small"
+        columns={[
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+            sorter: (a, b) => a.money - b.money,
+          },
+          {
+            title: '状态',
+            dataIndex: 'status',
+            hideInForm: true,
+            filters: true,
+            valueEnum: {
+              0: { text: '关闭', status: 'Default' },
+              1: { text: '运行中', status: 'Processing' },
+              2: { text: '已上线', status: 'Success' },
+              3: { text: '异常', status: 'Error' },
+            },
+          },
+        ]}
+        onChange={fn}
+        dataSource={getFetchData(60)}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 200);
+
+    act(() => {
+      html.find('span.ant-table-column-sorter-down').simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 800);
+    act(() => {
+      html.find('span.ant-table-column-sorter-down').simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 500);
+    expect(fn).toBeCalledTimes(2);
+  });
 });
