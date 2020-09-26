@@ -129,6 +129,14 @@ const columns: ProColumns<GithubIssueItem>[] = [
     width: '20%',
   },
   {
+    title: '创建时间',
+    key: 'since',
+    dataIndex: 'created_at',
+    // @ts-expect-error
+    valueType: () => undefined,
+    width: '20%',
+  },
+  {
     title: '操作',
     valueType: 'option',
     render: (text, row, _, action) => [
