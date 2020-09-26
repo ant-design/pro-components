@@ -57,10 +57,10 @@ export const formInputRender: React.FC<{
     const { renderFormItem, ...restItem } = item;
     const defaultRender = (newItem: ProColumns<any>) =>
       formInputRender({
-        ...({
+        ...{
           ...props,
           item: newItem,
-        } || null),
+        },
       });
 
     // 自动注入 onChange 和 value，用户自己很有可能忘记
