@@ -32,7 +32,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     prefixCls,
     expandable: expandableConfig,
     rowSelection,
-    pagination,
+    pagination = false, // List 的 pagination 默认是 false
     ...rest
   } = props;
 
@@ -47,9 +47,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
   const [getRecordByKey] = useLazyKVMap(dataSource, 'children', getRowKey);
 
   // 合并分页的的配置
-  const [mergedPagination] = usePagination(dataSource.length, pagination, () => {
-    // console.log('run');
-  });
+  const [mergedPagination] = usePagination(dataSource.length, pagination, () => {});
   /**
    * 根据分页来回去不同的数据，模拟 table
    */
@@ -146,7 +144,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
   return (
     <List<RecordType>
       {...rest}
-      dataSource={dataSource}
+      dataSource={pageData}
       pagination={pagination && mergedPagination}
       renderItem={(item, index) => {
         const listItemProps = {};
