@@ -102,21 +102,18 @@ export const mergePagination = <T, U>(
     current,
     pageSize,
     onChange: (page: number, newPageSize?: number) => {
+      const { onChange } = pagination as TablePaginationConfig;
+      onChange?.(page, newPageSize || 20);
       // pageSize 改变之后就没必要切换页码
       if (newPageSize !== pageSize || current !== page) {
         action.setPageInfo({ pageSize: newPageSize, page });
-      }
-
-      const { onChange } = pagination as TablePaginationConfig;
-      if (onChange) {
-        onChange(page, newPageSize || 20);
       }
     },
   };
 };
 
 /**
- * 八卦
+ * 获取用户的 action 信息
  * @param actionRef
  * @param counter
  * @param onCleanSelected
@@ -180,14 +177,11 @@ type PostDataType<T> = (data: T) => T;
  * @param data
  * @param pipeline
  */
-export const postDataPipeline = <T, U>(data: T, pipeline: (PostDataType<T> | undefined)[]) => {
+export const postDataPipeline = <T, U>(data: T, pipeline: PostDataType<T>[]) => {
   if (pipeline.filter((item) => item).length < 1) {
     return data;
   }
   return pipeline.reduce((pre, postData) => {
-    if (postData) {
-      return postData(pre);
-    }
-    return pre;
+    return postData(pre);
   }, data);
 };

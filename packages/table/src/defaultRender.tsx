@@ -26,10 +26,7 @@ const defaultRenderText = <T, U = any>(
   }
 
   if (typeof valueType === 'function' && item) {
-    const value = valueType(item, type);
-    if (!value) {
-      return columnEmptyText;
-    }
+    const value = valueType(item, type) || 'text';
     // 防止valueType是函数,并且text是''、null、undefined跳过显式设置的columnEmptyText
     return defaultRenderText(text, value as ProFieldValueType, index, item, columnEmptyText, props);
   }
