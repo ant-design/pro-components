@@ -14,23 +14,29 @@ exports[`list demos renders ./packages/list/src/demos/base.tsx correctly 1`] = `
       style="padding: 0px;"
     >
       <div
-        class="ant-pro-table-toolbar"
+        class="ant-pro-core-toolbar"
       >
         <div
-          class="ant-pro-table-toolbar-title"
-        >
-          基础列表
-        </div>
-        <div
-          class="ant-pro-table-toolbar-option"
+          class="ant-pro-core-toolbar-container"
         >
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center"
+            class="ant-pro-core-toolbar-left"
           >
             <div
-              class="ant-space-item"
+              class="ant-pro-core-toolbar-title"
             >
-              <div>
+              基础列表
+            </div>
+          </div>
+          <div
+            class="ant-pro-core-toolbar-right"
+          >
+            <div
+              class="ant-space ant-space-horizontal ant-space-align-center"
+            >
+              <div
+                class="ant-space-item"
+              >
                 <button
                   class="ant-btn ant-btn-primary"
                   type="button"
@@ -42,9 +48,6 @@ exports[`list demos renders ./packages/list/src/demos/base.tsx correctly 1`] = `
               </div>
             </div>
           </div>
-          <div
-            class="ant-pro-table-toolbar-default-option"
-          />
         </div>
       </div>
       <div
@@ -747,23 +750,29 @@ Array [
         style="padding: 0px;"
       >
         <div
-          class="ant-pro-table-toolbar"
+          class="ant-pro-core-toolbar"
         >
           <div
-            class="ant-pro-table-toolbar-title"
-          >
-            复杂的例子
-          </div>
-          <div
-            class="ant-pro-table-toolbar-option"
+            class="ant-pro-core-toolbar-container"
           >
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center"
+              class="ant-pro-core-toolbar-left"
             >
               <div
-                class="ant-space-item"
+                class="ant-pro-core-toolbar-title"
               >
-                <div>
+                复杂的例子
+              </div>
+            </div>
+            <div
+              class="ant-pro-core-toolbar-right"
+            >
+              <div
+                class="ant-space ant-space-horizontal ant-space-align-center"
+              >
+                <div
+                  class="ant-space-item"
+                >
                   <button
                     class="ant-btn ant-btn-primary"
                     type="button"
@@ -775,9 +784,6 @@ Array [
                 </div>
               </div>
             </div>
-            <div
-              class="ant-pro-table-toolbar-default-option"
-            />
           </div>
         </div>
         <div
@@ -1224,23 +1230,29 @@ exports[`list demos renders ./packages/list/src/demos/expand.tsx correctly 1`] =
       style="padding: 0px;"
     >
       <div
-        class="ant-pro-table-toolbar"
+        class="ant-pro-core-toolbar"
       >
         <div
-          class="ant-pro-table-toolbar-title"
-        >
-          支持展开的列表
-        </div>
-        <div
-          class="ant-pro-table-toolbar-option"
+          class="ant-pro-core-toolbar-container"
         >
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center"
+            class="ant-pro-core-toolbar-left"
           >
             <div
-              class="ant-space-item"
+              class="ant-pro-core-toolbar-title"
             >
-              <div>
+              支持展开的列表
+            </div>
+          </div>
+          <div
+            class="ant-pro-core-toolbar-right"
+          >
+            <div
+              class="ant-space ant-space-horizontal ant-space-align-center"
+            >
+              <div
+                class="ant-space-item"
+              >
                 <button
                   class="ant-btn ant-btn-primary"
                   type="button"
@@ -1252,9 +1264,6 @@ exports[`list demos renders ./packages/list/src/demos/expand.tsx correctly 1`] =
               </div>
             </div>
           </div>
-          <div
-            class="ant-pro-table-toolbar-default-option"
-          />
         </div>
       </div>
       <div
@@ -1732,23 +1741,29 @@ exports[`list demos renders ./packages/list/src/demos/layout.tsx correctly 1`] =
       style="padding: 0px;"
     >
       <div
-        class="ant-pro-table-toolbar"
+        class="ant-pro-core-toolbar"
       >
         <div
-          class="ant-pro-table-toolbar-title"
-        >
-          竖排样式
-        </div>
-        <div
-          class="ant-pro-table-toolbar-option"
+          class="ant-pro-core-toolbar-container"
         >
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center"
+            class="ant-pro-core-toolbar-left"
           >
             <div
-              class="ant-space-item"
+              class="ant-pro-core-toolbar-title"
             >
-              <div>
+              竖排样式
+            </div>
+          </div>
+          <div
+            class="ant-pro-core-toolbar-right"
+          >
+            <div
+              class="ant-space ant-space-horizontal ant-space-align-center"
+            >
+              <div
+                class="ant-space-item"
+              >
                 <button
                   class="ant-btn ant-btn-primary"
                   type="button"
@@ -1760,9 +1775,6 @@ exports[`list demos renders ./packages/list/src/demos/layout.tsx correctly 1`] =
               </div>
             </div>
           </div>
-          <div
-            class="ant-pro-table-toolbar-default-option"
-          />
         </div>
       </div>
       <div
@@ -2468,21 +2480,22 @@ exports[`list demos renders ./packages/list/src/demos/pagination.tsx correctly 1
       style="padding: 0px;"
     >
       <div
-        class="ant-pro-table-toolbar"
+        class="ant-pro-core-toolbar"
       >
         <div
-          class="ant-pro-table-toolbar-title"
-        >
-          翻页
-        </div>
-        <div
-          class="ant-pro-table-toolbar-option"
+          class="ant-pro-core-toolbar-container"
         >
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center"
-          />
+            class="ant-pro-core-toolbar-left"
+          >
+            <div
+              class="ant-pro-core-toolbar-title"
+            >
+              翻页
+            </div>
+          </div>
           <div
-            class="ant-pro-table-toolbar-default-option"
+            class="ant-pro-core-toolbar-right"
           />
         </div>
       </div>
@@ -3313,23 +3326,29 @@ exports[`list demos renders ./packages/list/src/demos/selectedRow.tsx correctly 
       style="padding: 0px;"
     >
       <div
-        class="ant-pro-table-toolbar"
+        class="ant-pro-core-toolbar"
       >
         <div
-          class="ant-pro-table-toolbar-title"
-        >
-          支持选中的列表
-        </div>
-        <div
-          class="ant-pro-table-toolbar-option"
+          class="ant-pro-core-toolbar-container"
         >
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center"
+            class="ant-pro-core-toolbar-left"
           >
             <div
-              class="ant-space-item"
+              class="ant-pro-core-toolbar-title"
             >
-              <div>
+              支持选中的列表
+            </div>
+          </div>
+          <div
+            class="ant-pro-core-toolbar-right"
+          >
+            <div
+              class="ant-space ant-space-horizontal ant-space-align-center"
+            >
+              <div
+                class="ant-space-item"
+              >
                 <button
                   class="ant-btn ant-btn-primary"
                   type="button"
@@ -3341,9 +3360,6 @@ exports[`list demos renders ./packages/list/src/demos/selectedRow.tsx correctly 
               </div>
             </div>
           </div>
-          <div
-            class="ant-pro-table-toolbar-default-option"
-          />
         </div>
       </div>
       <div
@@ -3861,23 +3877,29 @@ exports[`list demos renders ./packages/list/src/demos/special.tsx correctly 1`] 
       style="padding: 0px;"
     >
       <div
-        class="ant-pro-table-toolbar"
+        class="ant-pro-core-toolbar"
       >
         <div
-          class="ant-pro-table-toolbar-title"
-        >
-          预设的列状态
-        </div>
-        <div
-          class="ant-pro-table-toolbar-option"
+          class="ant-pro-core-toolbar-container"
         >
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center"
+            class="ant-pro-core-toolbar-left"
           >
             <div
-              class="ant-space-item"
+              class="ant-pro-core-toolbar-title"
             >
-              <div>
+              预设的列状态
+            </div>
+          </div>
+          <div
+            class="ant-pro-core-toolbar-right"
+          >
+            <div
+              class="ant-space ant-space-horizontal ant-space-align-center"
+            >
+              <div
+                class="ant-space-item"
+              >
                 <button
                   class="ant-btn ant-btn-primary"
                   type="button"
@@ -3889,9 +3911,6 @@ exports[`list demos renders ./packages/list/src/demos/special.tsx correctly 1`] 
               </div>
             </div>
           </div>
-          <div
-            class="ant-pro-table-toolbar-default-option"
-          />
         </div>
       </div>
       <div
