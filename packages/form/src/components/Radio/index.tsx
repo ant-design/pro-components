@@ -10,7 +10,7 @@ export type ProFormRadioGroupProps = ProFormItemProps<RadioGroupProps> & {
   layout?: 'horizontal' | 'vertical';
   options?: Array<
     | {
-        value: string;
+        value: React.ReactText;
         label: React.ReactNode;
         disable?: boolean;
       }

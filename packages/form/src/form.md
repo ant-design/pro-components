@@ -182,6 +182,14 @@ ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 �
 <ProFormText name="text" label="名称" placeholder="请输入名称" fieldProps={inputProps} />
 ```
 
+### ProFormText.Password
+
+与 [Input.Password](https://ant.design/components/input-cn/#Input.Password) 相同。
+
+```tsx | pure
+<ProFormText.Password label="InputPassword" name="input-password" />
+```
+
 ### ProFormDatePicker
 
 与 [DatePicker](https://ant.design/components/date-picker-cn/) 相同。
@@ -387,8 +395,20 @@ ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 �
 
 ### ProFormDigit
 
-与 [inputNumber](https://ant.design/components/input-number-cn/) 相同。它自带了一个格式化，有需要你可以关掉它。
+与 [inputNumber](https://ant.design/components/input-number-cn/) 相同。它自带了一个格式化(保留 2 位小数，最小值为 0)，有需要你可以关掉它。
 
 ```tsx | pure
 <ProFormDigit label="InputNumber" name="input-number" min={1} max={10} />
+```
+
+如果要修改小数位数：
+
+```tsx | pure
+<ProFormDigit
+  label="InputNumber"
+  name="input-number"
+  min={1}
+  max={10}
+  fieldProps={{ precision: 0 }}
+/>
 ```
