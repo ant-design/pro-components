@@ -37,7 +37,7 @@ function ariaConvert(wrapper: CheerIO) {
     (Array.isArray(children) ? children : [children]).forEach(process);
   }
 
-  wrapper.each((_: any, entry: any) => process(entry));
+  wrapper.each((_: any, entry: CheerIOElement) => process(entry));
 
   return wrapper;
 }

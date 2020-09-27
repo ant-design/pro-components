@@ -383,7 +383,7 @@ describe('BasicTable', () => {
     await waitForComponentToPaint(html, 1200);
 
     act(() => {
-      html.find('.ant-pro-table-toolbar-item-icon span.anticon-reload').simulate('click');
+      html.find('.ant-pro-core-toolbar-setting-item span.anticon-reload').simulate('click');
     });
 
     await waitForComponentToPaint(html, 1200);
@@ -417,7 +417,7 @@ describe('BasicTable', () => {
     await waitForComponentToPaint(html);
 
     act(() => {
-      html.find('.ant-pro-table-toolbar-item-icon span.anticon-column-height').simulate('click');
+      html.find('.ant-pro-core-toolbar-setting-item span.anticon-column-height').simulate('click');
     });
     await waitForComponentToPaint(html);
     act(() => {
@@ -514,7 +514,7 @@ describe('BasicTable', () => {
     await waitForComponentToPaint(html, 1200);
 
     act(() => {
-      html.find('.ant-pro-table-toolbar-item-icon span.anticon-fullscreen').simulate('click');
+      html.find('.ant-pro-core-toolbar-setting-item span.anticon-fullscreen').simulate('click');
     });
 
     await waitForComponentToPaint(html, 1200);
@@ -576,14 +576,16 @@ describe('BasicTable', () => {
     await waitForComponentToPaint(html, 600);
 
     act(() => {
-      html.find('.ant-pro-table-toolbar-item-icon span.anticon-fullscreen').simulate('click');
+      html.find('.ant-pro-core-toolbar-setting-item span.anticon-fullscreen').simulate('click');
     });
     await waitForComponentToPaint(html, 1200);
 
     expect(!!document.fullscreenElement).toBeTruthy();
 
     act(() => {
-      html.find('.ant-pro-table-toolbar-item-icon span.anticon-fullscreen-exit').simulate('click');
+      html
+        .find('.ant-pro-core-toolbar-setting-item span.anticon-fullscreen-exit')
+        .simulate('click');
     });
 
     await waitForComponentToPaint(html, 600);
@@ -619,7 +621,7 @@ describe('BasicTable', () => {
     await waitForComponentToPaint(html, 1200);
 
     act(() => {
-      html.find('.ant-pro-table-toolbar-item-icon span.anticon-column-height').simulate('click');
+      html.find('.ant-pro-core-toolbar-setting-item span.anticon-column-height').simulate('click');
     });
     await waitForComponentToPaint(html, 1200);
     act(() => {
@@ -695,7 +697,7 @@ describe('BasicTable', () => {
     await waitForComponentToPaint(html, 600);
 
     act(() => {
-      html.find('.ant-pro-table-toolbar-option-search input').simulate('change', {
+      html.find('.ant-pro-core-toolbar-search input').simulate('change', {
         target: {
           value: 'name',
         },
@@ -704,7 +706,7 @@ describe('BasicTable', () => {
 
     act(() => {
       html
-        .find('.ant-pro-table-toolbar-option-search input')
+        .find('.ant-pro-core-toolbar-search input')
         .simulate('keydown', { key: 'Enter', keyCode: 13 });
     });
 
@@ -738,7 +740,7 @@ describe('BasicTable', () => {
     await waitForComponentToPaint(html, 600);
 
     act(() => {
-      html.find('.ant-pro-table-toolbar-option-search input').simulate('change', {
+      html.find('.ant-pro-core-toolbar-search input').simulate('change', {
         target: {
           value: 'name',
         },
@@ -747,7 +749,7 @@ describe('BasicTable', () => {
 
     act(() => {
       html
-        .find('.ant-pro-table-toolbar-option-search input')
+        .find('.ant-pro-core-toolbar-search input')
         .simulate('keydown', { key: 'Enter', keyCode: 13 });
     });
 
