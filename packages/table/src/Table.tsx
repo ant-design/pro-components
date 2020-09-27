@@ -155,6 +155,11 @@ export interface ProTableProps<T, U extends ParamsType>
     },
   ) => React.ReactNode;
 
+  /**
+   * 渲染 table 视图，用于定制 ProList，不推荐直接使用
+   */
+  tableViewRender?: (props: TableProps<T>) => JSX.Element | undefined;
+
   tableExtraRender?: (props: ProTableProps<T, U>, dataSource: T[]) => React.ReactNode;
 
   /**
@@ -746,54 +751,58 @@ const ProTable = <T extends {}, U extends ParamsType>(
   );
   const dataSource = request ? (action.dataSource as T[]) : props.dataSource || [];
   const loading = props.loading !== undefined ? props.loading : action.loading;
-  const tableDom = (
-    <Table<T>
-      {...rest}
-      size={counter.tableSize}
-      rowSelection={propsRowSelection === false ? undefined : rowSelection}
-      className={tableClassName}
-      style={tableStyle}
-      columns={counter.columns.filter((item) => {
-        // 删掉不应该显示的
-        const columnKey = genColumnKey(item.key, item.index);
-        const config = counter.columnsMap[columnKey];
-        if (config && config.show === false) {
-          return false;
-        }
-        return true;
-      })}
-      loading={loading}
-      dataSource={request ? (action.dataSource as T[]) : props.dataSource || []}
-      pagination={pagination}
-      onChange={(
-        changePagination: TablePaginationConfig,
-        filters: {
-          [string: string]: React.ReactText[] | null;
-        },
-        sorter: SorterResult<T> | SorterResult<T>[],
-        extra: TableCurrentDataSource<T>,
-      ) => {
-        if (rest.onChange) {
-          rest.onChange(changePagination, filters, sorter, extra);
-        }
-        // 制造筛选的数据
-        setProFilter(omitUndefinedAndEmptyArr<any>(filters));
-        // 制造一个排序的数据
-        if (Array.isArray(sorter)) {
-          const data = sorter.reduce<{
-            [key: string]: any;
-          }>((pre, value) => {
-            return {
-              ...pre,
-              [`${value.field}`]: value.order,
-            };
-          }, {});
-          setProSort(omitUndefined<any>(data));
-        } else {
-          setProSort(omitUndefined({ [`${sorter.field}`]: sorter.order as SortOrder }));
-        }
-      }}
-    />
+  const tableProps = {
+    ...rest,
+    size: counter.tableSize,
+    rowSelection: propsRowSelection === false ? undefined : rowSelection,
+    className: tableClassName,
+    style: tableStyle,
+    columns: counter.columns.filter((item) => {
+      // 删掉不应该显示的
+      const columnKey = genColumnKey(item.key, item.index);
+      const config = counter.columnsMap[columnKey];
+      if (config && config.show === false) {
+        return false;
+      }
+      return true;
+    }),
+    loading,
+    dataSource: request ? (action.dataSource as T[]) : props.dataSource || [],
+    pagination,
+    onChange: (
+      changePagination: TablePaginationConfig,
+      filters: {
+        [string: string]: React.ReactText[] | null;
+      },
+      sorter: SorterResult<T> | SorterResult<T>[],
+      extra: TableCurrentDataSource<T>,
+    ) => {
+      if (rest.onChange) {
+        rest.onChange(changePagination, filters, sorter, extra);
+      }
+      // 制造筛选的数据
+      setProFilter(omitUndefinedAndEmptyArr<any>(filters));
+      // 制造一个排序的数据
+      if (Array.isArray(sorter)) {
+        const data = sorter.reduce<{
+          [key: string]: any;
+        }>((pre, value) => {
+          return {
+            ...pre,
+            [`${value.field}`]: value.order,
+          };
+        }, {});
+        setProSort(omitUndefined<any>(data));
+      } else {
+        setProSort(omitUndefined({ [`${sorter.field}`]: sorter.order as SortOrder }));
+      }
+    },
+  };
+
+  const tableDom = props.tableViewRender ? (
+    props.tableViewRender(tableProps)
+  ) : (
+    <Table<T> {...tableProps} />
   );
   /**
    * table 区域的 dom，为了方便 render
