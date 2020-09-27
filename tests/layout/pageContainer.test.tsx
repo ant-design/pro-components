@@ -6,6 +6,7 @@ import BasicLayout, {
   FooterToolbar,
 } from '@ant-design/pro-layout';
 import { waitForComponentToPaint } from '../util';
+import { act } from 'react-test-renderer';
 
 describe('PageContainer', () => {
   it('💄 base use', async () => {
@@ -191,5 +192,32 @@ describe('PageContainer', () => {
     });
     await waitForComponentToPaint(wrapper);
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('🐲  tabList and onTabChange is run', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <PageContainer
+        title="标题"
+        onTabChange={fn}
+        tabList={[
+          {
+            tab: '基本信息',
+            key: 'base',
+          },
+          {
+            tab: '详细信息',
+            key: 'info',
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-tabs-nav-list .ant-tabs-tab').at(1).simulate('click');
+    });
+
+    expect(fn).toBeCalledWith('info');
   });
 });
