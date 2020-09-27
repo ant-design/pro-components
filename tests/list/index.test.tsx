@@ -49,6 +49,44 @@ describe('BasicTable', () => {
     expect(html.find('.ant-pro-list-row-content').text()).toEqual('我是内容');
   });
 
+  it('🎏 expandable with expandedRowRender', async () => {
+    const Wrapper = () => {
+      const [expandedRowKeys, onExpandedRowsChange] = useState<ReactText[]>([]);
+      return (
+        <ProList
+          dataSource={[
+            {
+              name: '我是名称',
+              content: <div>我是内容</div>,
+            },
+          ]}
+          metas={{
+            title: {
+              dataIndex: 'name',
+            },
+            content: {},
+          }}
+          expandable={{
+            expandedRowKeys,
+            onExpandedRowsChange,
+            expandedRowClassName: () => {
+              return 'test-custom-class-name';
+            },
+            expandedRowRender: (record, index) => {
+              return <div>expand:{index}</div>;
+            },
+          }}
+        />
+      );
+    };
+    const html = mount(<Wrapper />);
+    expect(html.find('.ant-pro-list-row-description').length).toEqual(0);
+    html.find('.ant-pro-list-row-expand-icon').simulate('click');
+    expect(html.find('.ant-pro-list-row-content .test-custom-class-name').text()).toEqual(
+      'expand:0',
+    );
+  });
+
   it('🎏 rowSelection', async () => {
     const Wrapper = () => {
       const [selectedRowKeys, setSelectedRowKeys] = useState<ReactText[]>([]);
