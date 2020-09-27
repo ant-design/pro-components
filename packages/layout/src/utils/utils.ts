@@ -39,7 +39,7 @@ const invertKeyValues = (obj: Object) =>
  * @param val
  */
 export function genThemeToString(val?: string): string {
-  return val && themeConfig[val] ? themeConfig[val] : val;
+  return val && themeConfig[val] ? themeConfig[val] : undefined;
 }
 
 /**

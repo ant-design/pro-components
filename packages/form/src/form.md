@@ -76,7 +76,7 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 | onReset | 点击重置按钮的回调，设置后重置按钮才会被渲染 | `Function(e)` | - |
 | submitter | 提交按钮相关配置 | `boolean` \| `SubmitterProps` | `true` |
 | dateFormatter | 自动格式数据，例如 moment 的表单,支持 string 和 number 两种模式 | `string\| number \|false` | string |
-| (...) | 支持除 `wrapperCol` \| `labelCol` \| `layout` 外的其他 antd `Form` 组件参数 | - | - |
+| [(...)](https://ant.design/components/form-cn/) | 支持除 `wrapperCol` \| `labelCol` \| `layout` 外的其他 antd `Form` 组件参数 | - | - |
 
 ### ProForm.Group
 
@@ -180,6 +180,14 @@ ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 �
 
 ```tsx | pure
 <ProFormText name="text" label="名称" placeholder="请输入名称" fieldProps={inputProps} />
+```
+
+### ProFormText.Password
+
+与 [Input.Password](https://ant.design/components/input-cn/#Input.Password) 相同。
+
+```tsx | pure
+<ProFormText.Password label="InputPassword" name="input-password" />
 ```
 
 ### ProFormDatePicker
@@ -387,8 +395,20 @@ ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 �
 
 ### ProFormDigit
 
-与 [inputNumber](https://ant.design/components/input-number-cn/) 相同。它自带了一个格式化，有需要你可以关掉它。
+与 [inputNumber](https://ant.design/components/input-number-cn/) 相同。它自带了一个格式化(保留 2 位小数，最小值为 0)，有需要你可以关掉它。
 
 ```tsx | pure
 <ProFormDigit label="InputNumber" name="input-number" min={1} max={10} />
+```
+
+如果要修改小数位数：
+
+```tsx | pure
+<ProFormDigit
+  label="InputNumber"
+  name="input-number"
+  min={1}
+  max={10}
+  fieldProps={{ precision: 0 }}
+/>
 ```
