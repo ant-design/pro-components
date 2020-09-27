@@ -29,14 +29,9 @@ const getLanguage = (): string => {
 
 export { getLanguage };
 
-export default (
-  locale?: LocaleType,
-): {
+export default (): {
   [key: string]: string;
 } => {
-  if (locale) {
-    return locales[locale];
-  }
   const gLocale = getLanguage();
   if (locales[gLocale]) {
     return locales[gLocale];

@@ -57,7 +57,7 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
   /**
    * 选择如何渲染相应的模式
    */
-  valueType?: ((entity: T) => U) | U;
+  valueType?: ((entity: T, type: ProSchemaComponentTypes) => U) | U;
   title?:
     | ((
         schema: ProSchema<T, U, Extra>,

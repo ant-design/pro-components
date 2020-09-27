@@ -154,8 +154,8 @@ group:
 
 支持 `ProCard` 所有属性及 [Tabs.TabPane](https://ant.design/components/tabs-cn/#Tabs.TabPane) 的所有属性。
 
-| 参数     | 说明             | 类型                 | 默认值 |
-| :------- | :--------------- | :------------------- | :----- |
-| key      | 对应 activeKey   | string               | -      |
-| tab      | 选项卡头显示文字 | `string | ReactNode` | -      |
-| disabled | 不可用           | boolean              | false  |
+| 参数 | 说明 | 类型 | 默认值 |
+| :-- | :-- | :-- | :-- |
+| key | 对应 activeKey，用于标定是否选中和 dom 更新，一定不要重复，不然会造成表现异常 | `string` | - |
+| tab | 选项卡头显示文字 | `ReactNode` | - |
+| disabled | 不可用 | `boolean` | false |
