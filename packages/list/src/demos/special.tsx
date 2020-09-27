@@ -1,48 +1,49 @@
 import React, { useState, ReactText } from 'react';
 import { Button, Progress, Tag } from 'antd';
 import { EllipsisOutlined } from '@ant-design/icons';
-
-// @ts-ignore
-// eslint-disable-next-line import/no-extraneous-dependencies
 import ProList from '@ant-design/pro-list';
 
-const data = ['语雀的天空', 'Ant Design', '蚂蚁金服体验科技', 'TechUI'].map((item, index) => ({
-  title: item,
-  subTitle: <Tag color="#5BD8A6">语雀专栏</Tag>,
-  actions: [
-    <a>邀请</a>,
-    <a>操作</a>,
-    <a>
-      <EllipsisOutlined />
-    </a>,
-  ],
-  description: (
-    <div>
-      <div>一个 UI 设计体系</div>
-      <div>林外发布于 2019-06-25</div>
-    </div>
-  ),
-  type: index === 0 ? 'top' : undefined,
-  avatar: 'https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg',
-  children: (
-    <div
-      style={{
-        flex: 1,
-        display: 'flex',
-        justifyContent: 'flex-end',
-      }}
-    >
+const types = ['top', 'inline', 'new'];
+const data = ['语雀的天空（top）', 'Ant Design（inline）', '蚂蚁金服体验科技（new）', 'TechUI'].map(
+  (item, index) => ({
+    title: item,
+    subTitle: <Tag color="#5BD8A6">语雀专栏</Tag>,
+    actions: [
+      <a>邀请</a>,
+      <a>操作</a>,
+      <a>
+        <EllipsisOutlined />
+      </a>,
+    ],
+    description: (
+      <div>
+        <div>top 会有小角标</div>
+        <div>inline 标题字体是 normal</div>
+        <div>new 会有一个入场动画</div>
+      </div>
+    ),
+    type: types[index],
+    avatar: 'https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg',
+    content: (
       <div
         style={{
-          width: 200,
+          flex: 1,
+          display: 'flex',
+          justifyContent: 'flex-end',
         }}
       >
-        <div>发布中</div>
-        <Progress percent={80} />
+        <div
+          style={{
+            width: 200,
+          }}
+        >
+          <div>发布中</div>
+          <Progress percent={80} />
+        </div>
       </div>
-    </div>
-  ),
-}));
+    ),
+  }),
+);
 
 export default () => {
   const [expandedRowKeys, setExpandedRowKeys] = useState<ReactText[]>([]);
@@ -64,7 +65,16 @@ export default () => {
         avatar: string;
         children: JSX.Element;
       }>
-        actions={[
+        metas={{
+          title: {},
+          subTitle: {},
+          type: {},
+          description: {},
+          avatar: {},
+          content: {},
+          actions: {},
+        }}
+        toolBarRender={() => [
           <Button
             key="3"
             type="primary"
@@ -81,7 +91,7 @@ export default () => {
           </Button>,
         ]}
         rowKey="id"
-        title="预设的列状态"
+        headerTitle="预设的列状态"
         rowSelection={rowSelection}
         dataSource={dataSource}
         renderItem={(item) => item}

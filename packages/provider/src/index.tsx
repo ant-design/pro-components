@@ -13,6 +13,7 @@ import msMY from './locale/ms_MY';
 import zhTW from './locale/zh_TW';
 import frFR from './locale/fr_FR';
 import ptBR from './locale/pt_BR';
+import koKR from './locale/ko_KR';
 
 export interface IntlType {
   locale: string;
@@ -57,6 +58,7 @@ const msMYIntl = createIntl('ms_MY', msMY);
 const zhTWIntl = createIntl('zh_TW', zhTW);
 const frFRIntl = createIntl('fr_FR', frFR);
 const ptBRIntl = createIntl('pt_BR', ptBR);
+const koKRIntl = createIntl('ko_KR', koKR);
 
 const intlMap = {
   'zh-CN': zhCNIntl,
@@ -70,6 +72,7 @@ const intlMap = {
   'zh-TW': zhTWIntl,
   'fr-FR': frFRIntl,
   'pt-BR': ptBRIntl,
+  'ko-KR': koKRIntl,
 };
 
 const intlMapKeys = Object.keys(intlMap);
@@ -90,6 +93,7 @@ export {
   zhTWIntl,
   frFRIntl,
   ptBRIntl,
+  koKRIntl,
   intlMap,
   intlMapKeys,
 };

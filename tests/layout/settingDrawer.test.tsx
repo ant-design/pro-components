@@ -7,6 +7,22 @@ import { waitForComponentToPaint } from '../util';
 
 describe('settingDrawer.test', () => {
   beforeAll(() => {
+    process.env.NODE_ENV = 'TEST';
+    process.env.USE_MEDIA = 'md';
+    const mockResponse = jest.fn();
+    Object.defineProperty(window, 'location', {
+      value: {
+        assign: mockResponse,
+        hash: {
+          endsWith: mockResponse,
+          includes: mockResponse,
+        },
+        search:
+          '?navTheme=realDark&layout=mix&primaryColor=daybreak&splitMenus=true&fixedHeader=true',
+      },
+      writable: true,
+    });
+
     Object.defineProperty(window, 'localStorage', {
       value: {
         getItem: jest.fn(() => 'zh-CN'),
@@ -45,6 +61,22 @@ describe('settingDrawer.test', () => {
       <SettingDrawer settings={defaultSettings} hideLoading getContainer={false} collapse />,
     );
     expect(html).toMatchSnapshot();
+  });
+
+  it('initState form query', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <SettingDrawer
+        getContainer={false}
+        collapse
+        onSettingChange={() => {
+          fn();
+        }}
+      />,
+    );
+    await waitForComponentToPaint(html);
+    expect(fn).toBeCalled();
+    html.unmount();
   });
 
   it('hideCopyButton = true', () => {
@@ -97,6 +129,58 @@ describe('settingDrawer.test', () => {
     expect(onSettingChange).toBeCalledWith('top');
   });
 
+  it('fix-siderbar Change', async () => {
+    const onSettingChange = jest.fn();
+    const wrapper = mount(
+      <SettingDrawer
+        collapse
+        getContainer={false}
+        onSettingChange={(setting) => {
+          onSettingChange(setting.fixSiderbar);
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper);
+    act(() => {
+      wrapper.find('button.fix-siderbar').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(onSettingChange).toBeCalledWith(true);
+
+    act(() => {
+      wrapper.find('button.fix-siderbar').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(onSettingChange).toBeCalledWith(false);
+  });
+
+  it('fixed-header Change', async () => {
+    const onSettingChange = jest.fn();
+    const wrapper = mount(
+      <SettingDrawer
+        collapse
+        getContainer={false}
+        onSettingChange={(setting) => {
+          onSettingChange(setting.fixedHeader);
+        }}
+      />,
+    );
+
+    await waitForComponentToPaint(wrapper);
+    act(() => {
+      wrapper.find('button.fixed-header').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper);
+    expect(onSettingChange).toBeCalledWith(true);
+
+    act(() => {
+      wrapper.find('button.fixed-header').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(onSettingChange).toBeCalledWith(false);
+  });
+
   it('theme Change', async () => {
     const onSettingChange = jest.fn();
     const wrapper = mount(
@@ -122,6 +206,72 @@ describe('settingDrawer.test', () => {
     await waitForComponentToPaint(wrapper);
 
     expect(onSettingChange).toBeCalledWith('dark');
+  });
+
+  it('colorWeak Change', async () => {
+    const onSettingChange = jest.fn();
+    document.body.appendChild(document.createElement('div'));
+    const wrapper = mount(
+      <SettingDrawer
+        settings={defaultSettings}
+        collapse
+        getContainer={false}
+        onSettingChange={(setting) => {
+          onSettingChange(setting.colorWeak);
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper);
+    act(() => {
+      wrapper.find('button.color-weak').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(onSettingChange).toBeCalledWith(true);
+
+    act(() => {
+      wrapper.setProps({
+        settings: {
+          ...defaultSettings,
+          colorWeak: true,
+        },
+      });
+    });
+    await waitForComponentToPaint(wrapper, 200);
+    act(() => {
+      wrapper.find('button.color-weak').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(onSettingChange).toBeCalledWith(false);
+  });
+
+  it('regional config change', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <SettingDrawer
+        onSettingChange={(s) => {
+          const renderKeys = ['header', 'footer', 'menu', 'menuHeader'].filter((key) => {
+            if (s[`${key}Render`] === false) {
+              return true;
+            }
+            return false;
+          });
+          fn(renderKeys);
+        }}
+        settings={defaultSettings}
+        getContainer={false}
+        collapse
+      />,
+    );
+    await waitForComponentToPaint(html, 2000);
+
+    act(() => {
+      ['header', 'footer', 'menu', 'menuHeader'].forEach((key) => {
+        if (html.find(`.regional-${key}`).exists()) {
+          html.find(`button.regional-${key}`).simulate('click');
+        }
+      });
+    });
+    expect(fn).toBeCalledWith(['header', 'footer', 'menu', 'menuHeader']);
   });
 
   it('theme color Change', async () => {
@@ -175,6 +325,12 @@ describe('settingDrawer.test', () => {
         key: 'purple',
         theme: 'dark',
         fileName: 'dark-purple.css',
+        modifyVars: { '@primary-color': '#722ED1' },
+      },
+      {
+        key: 'test',
+        theme: 'dark',
+        fileName: 'dark-test.css',
         modifyVars: { '@primary-color': '#722ED1' },
       },
     ];

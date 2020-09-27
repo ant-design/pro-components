@@ -36,6 +36,7 @@ import {
   ProCoreActionType,
   isNil,
   omitUndefined,
+  ListToolBarProps,
 } from '@ant-design/pro-utils';
 
 import useFetchData, { RequestData, UseFetchDataAction } from './useFetchData';
@@ -124,7 +125,10 @@ export type ProColumns<T = any> = ProColumnGroupType<T> | ProColumnType<T>;
 export interface ProTableProps<T, U extends ParamsType>
   extends Omit<TableProps<T>, 'columns' | 'rowSelection'> {
   columns?: ProColumns<T>[];
-
+  /**
+   * ListToolBar 属性
+   */
+  toolbar?: ListToolBarProps;
   params?: U;
 
   columnsStateMap?: {
@@ -151,6 +155,11 @@ export interface ProTableProps<T, U extends ParamsType>
     },
   ) => React.ReactNode;
 
+  /**
+   * 渲染 table 视图，用于定制 ProList，不推荐直接使用
+   */
+  tableViewRender?: (props: TableProps<T>) => JSX.Element | undefined;
+
   tableExtraRender?: (props: ProTableProps<T, U>, dataSource: T[]) => React.ReactNode;
 
   /**
@@ -160,6 +169,7 @@ export interface ProTableProps<T, U extends ParamsType>
     params: U & {
       pageSize?: number;
       current?: number;
+      keyword?: string;
     },
     sort: {
       [key: string]: SortOrder;
@@ -293,6 +303,7 @@ interface ColumnRenderInterface<T> {
   row: T;
   index: number;
   columnEmptyText?: ProFieldEmptyText;
+  type: ProSchemaComponentTypes;
   counter: ReturnType<typeof useCounter>;
 }
 
@@ -307,6 +318,7 @@ const columnRender = <T, U = any>({
   index,
   columnEmptyText,
   counter,
+  type,
 }: ColumnRenderInterface<T>): any => {
   const { action } = counter;
   const { renderText = (val: any) => val } = item;
@@ -323,6 +335,7 @@ const columnRender = <T, U = any>({
     row,
     columnEmptyText,
     item,
+    type,
   );
 
   const dom: React.ReactNode = genEllipsis(
@@ -371,12 +384,9 @@ const renderColumnsTitle = (item: ProColumns<any>) => {
 };
 
 const defaultOnFilter = (value: string, record: any, dataIndex: string | string[]) => {
-  let recordElement = Array.isArray(dataIndex)
+  const recordElement = Array.isArray(dataIndex)
     ? get(record, dataIndex as string[])
     : record[dataIndex];
-  if (typeof recordElement === 'number') {
-    recordElement = recordElement.toString();
-  }
   const itemValue = String(recordElement) as string;
 
   return String(itemValue) === String(value);
@@ -395,7 +405,8 @@ const genColumnList = <T, U = {}>(
     [key: string]: ColumnsState;
   },
   counter: ReturnType<typeof useCounter>,
-  columnEmptyText?: ProFieldEmptyText,
+  columnEmptyText: ProFieldEmptyText,
+  type: ProSchemaComponentTypes,
 ): (ColumnsType<T>[number] & { index?: number })[] => {
   return (columns
     .map((item, columnsIndex) => {
@@ -430,10 +441,11 @@ const genColumnList = <T, U = {}>(
               map,
               counter,
               columnEmptyText,
+              type,
             )
           : undefined,
         render: (text: any, row: T, index: number) =>
-          columnRender<T>({ item, text, row, index, columnEmptyText, counter }),
+          columnRender<T>({ item, text, row, index, columnEmptyText, counter, type }),
       };
       return omitUndefinedAndEmptyArr(tempColumns);
     })
@@ -483,6 +495,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     onReset = () => {},
     columnEmptyText = '-',
     manualRequest = false,
+    toolbar,
     ...rest
   } = props;
 
@@ -547,7 +560,10 @@ const ProTable = <T extends {}, U extends ParamsType>(
       delete (actionParams as any)._timestamp;
 
       const response = await request((actionParams as unknown) as U, proSort, proFilter);
-      const responseData = postDataPipeline<T[], U>(response.data, [postData]);
+      const responseData = postDataPipeline<T[], U>(
+        response.data,
+        [postData].filter((item) => item) as any,
+      );
       if (Array.isArray(response)) {
         return response;
       }
@@ -570,6 +586,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
       if (!rootRef.current || !document.fullscreenEnabled) {
         return;
       }
+
       if (document.fullscreenElement) {
         document.exitFullscreen();
       } else {
@@ -589,7 +606,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
       propsRowSelection.onChange([], []);
     }
     setSelectedRowsAndKey([], []);
-  }, [setSelectedRowKeys]);
+  }, [setSelectedRowKeys, propsRowSelection]);
 
   /**
    * 绑定 action
@@ -613,7 +630,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
   }, [propsColumns]);
 
   const tableColumn = useMemo(
-    () => genColumnList<T>(propsColumns, counter.columnsMap, counter, columnEmptyText),
+    () => genColumnList<T>(propsColumns, counter.columnsMap, counter, columnEmptyText, type),
     [propsColumns],
   );
 
@@ -639,6 +656,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
       columnsMap,
       counter,
       columnEmptyText,
+      type,
     ).sort((a, b) => {
       const { fixed: aFixed, index: aIndex } = a;
       const { fixed: bFixed, index: bIndex } = b;
@@ -695,7 +713,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
 
   const className = classNames(defaultClassName, propsClassName);
   const toolbarDom = toolBarRender !== false &&
-    (options !== false || headerTitle || toolBarRender) && (
+    (options !== false || headerTitle || toolBarRender || toolbar) && (
       // if options= false & headerTitle=== false, hide Toolbar
       <Toolbar<T>
         options={options}
@@ -718,6 +736,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
         selectedRows={selectedRows}
         selectedRowKeys={selectedRowKeys}
         toolBarRender={toolBarRender}
+        toolbar={toolbar}
       />
     );
 
@@ -732,54 +751,58 @@ const ProTable = <T extends {}, U extends ParamsType>(
   );
   const dataSource = request ? (action.dataSource as T[]) : props.dataSource || [];
   const loading = props.loading !== undefined ? props.loading : action.loading;
-  const tableDom = (
-    <Table<T>
-      {...rest}
-      size={counter.tableSize}
-      rowSelection={propsRowSelection === false ? undefined : rowSelection}
-      className={tableClassName}
-      style={tableStyle}
-      columns={counter.columns.filter((item) => {
-        // 删掉不应该显示的
-        const columnKey = genColumnKey(item.key, item.index);
-        const config = counter.columnsMap[columnKey];
-        if (config && config.show === false) {
-          return false;
-        }
-        return true;
-      })}
-      loading={loading}
-      dataSource={request ? (action.dataSource as T[]) : props.dataSource || []}
-      pagination={pagination}
-      onChange={(
-        changePagination: TablePaginationConfig,
-        filters: {
-          [string: string]: React.ReactText[] | null;
-        },
-        sorter: SorterResult<T> | SorterResult<T>[],
-        extra: TableCurrentDataSource<T>,
-      ) => {
-        if (rest.onChange) {
-          rest.onChange(changePagination, filters, sorter, extra);
-        }
-        // 制造筛选的数据
-        setProFilter(omitUndefinedAndEmptyArr<any>(filters));
-        // 制造一个排序的数据
-        if (Array.isArray(sorter)) {
-          const data = sorter.reduce<{
-            [key: string]: any;
-          }>((pre, value) => {
-            return {
-              ...pre,
-              [`${value.field}`]: value.order,
-            };
-          }, {});
-          setProSort(omitUndefined<any>(data));
-        } else {
-          setProSort(omitUndefined({ [`${sorter.field}`]: sorter.order as SortOrder }));
-        }
-      }}
-    />
+  const tableProps = {
+    ...rest,
+    size: counter.tableSize,
+    rowSelection: propsRowSelection === false ? undefined : rowSelection,
+    className: tableClassName,
+    style: tableStyle,
+    columns: counter.columns.filter((item) => {
+      // 删掉不应该显示的
+      const columnKey = genColumnKey(item.key, item.index);
+      const config = counter.columnsMap[columnKey];
+      if (config && config.show === false) {
+        return false;
+      }
+      return true;
+    }),
+    loading,
+    dataSource: request ? (action.dataSource as T[]) : props.dataSource || [],
+    pagination,
+    onChange: (
+      changePagination: TablePaginationConfig,
+      filters: {
+        [string: string]: React.ReactText[] | null;
+      },
+      sorter: SorterResult<T> | SorterResult<T>[],
+      extra: TableCurrentDataSource<T>,
+    ) => {
+      if (rest.onChange) {
+        rest.onChange(changePagination, filters, sorter, extra);
+      }
+      // 制造筛选的数据
+      setProFilter(omitUndefinedAndEmptyArr<any>(filters));
+      // 制造一个排序的数据
+      if (Array.isArray(sorter)) {
+        const data = sorter.reduce<{
+          [key: string]: any;
+        }>((pre, value) => {
+          return {
+            ...pre,
+            [`${value.field}`]: value.order,
+          };
+        }, {});
+        setProSort(omitUndefined<any>(data));
+      } else {
+        setProSort(omitUndefined({ [`${sorter.field}`]: sorter.order as SortOrder }));
+      }
+    },
+  };
+
+  const tableDom = props.tableViewRender ? (
+    props.tableViewRender(tableProps)
+  ) : (
+    <Table<T> {...tableProps} />
   );
   /**
    * table 区域的 dom，为了方便 render

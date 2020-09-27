@@ -1,10 +1,29 @@
 import React, { useState, ReactText } from 'react';
-import { Button, Progress, Tag } from 'antd';
-// @ts-ignore
-// eslint-disable-next-line import/no-extraneous-dependencies
+import { Progress, Button } from 'antd';
 import ProList from '@ant-design/pro-list';
 
-const dataSource = ['语雀的天空', 'Ant Design', '蚂蚁金服体验科技', 'TechUI'];
+const dataSource = [
+  {
+    title: '语雀的天空',
+    avatar:
+      'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+  },
+  {
+    title: 'Ant Design',
+    avatar:
+      'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+  },
+  {
+    title: '蚂蚁金服体验科技',
+    avatar:
+      'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+  },
+  {
+    title: 'TechUI',
+    avatar:
+      'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+  },
+];
 
 export default () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState<ReactText[]>([]);
@@ -12,41 +31,29 @@ export default () => {
     selectedRowKeys,
     onChange: (keys: ReactText[]) => setSelectedRowKeys(keys),
   };
+
   return (
-    <>
-      <ProList<string>
-        actions={[
+    <ProList<{ title: string }>
+      toolBarRender={() => {
+        return [
           <Button key="3" type="primary">
             新建
           </Button>,
-        ]}
-        rowKey="id"
-        title="支持选中的列表"
-        rowSelection={rowSelection}
-        dataSource={dataSource}
-        renderItem={(item) => ({
-          title: item,
-          subTitle: (
-            <div>
-              <Tag color="blue">Ant Design</Tag>
-              <Tag
-                color="#5BD8A6"
-                style={{
-                  marginRight: 8,
-                }}
-              >
-                TechUI
-              </Tag>
-            </div>
-          ),
-          actions: [<a>邀请</a>],
-          description:
-            'Ant Design, a design language for background applications, is refined by Ant UED Team',
-          avatar:
-            'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
-          children: (
+        ];
+      }}
+      metas={{
+        title: {},
+        description: {
+          render: () => {
+            return 'Ant Design, a design language for background applications, is refined by Ant UED Team';
+          },
+        },
+        avatar: {},
+        extra: {
+          render: () => (
             <div
               style={{
+                minWidth: 200,
                 flex: 1,
                 display: 'flex',
                 justifyContent: 'flex-end',
@@ -54,7 +61,7 @@ export default () => {
             >
               <div
                 style={{
-                  width: 200,
+                  width: '200px',
                 }}
               >
                 <div>发布中</div>
@@ -62,8 +69,17 @@ export default () => {
               </div>
             </div>
           ),
-        })}
-      />
-    </>
+        },
+        actions: {
+          render: () => {
+            return [<a>邀请</a>];
+          },
+        },
+      }}
+      rowKey="title"
+      headerTitle="支持选中的列表"
+      rowSelection={rowSelection}
+      dataSource={dataSource}
+    />
   );
 };

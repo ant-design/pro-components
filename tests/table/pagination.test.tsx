@@ -37,6 +37,7 @@ describe('BasicTable', () => {
 
   it('🎏 pagination current test', async () => {
     const fn = jest.fn();
+    const onChangeFn = jest.fn();
     const html = mount(
       <ProTable
         size="small"
@@ -49,6 +50,9 @@ describe('BasicTable', () => {
         request={(params) => {
           fn(params.current);
           return request(params);
+        }}
+        pagination={{
+          onChange: onChangeFn(),
         }}
         onRequestError={fn}
         rowKey="key"

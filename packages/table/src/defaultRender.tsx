@@ -1,5 +1,6 @@
 import React from 'react';
 import ProField, { ProFieldEmptyText, ProFieldValueType } from '@ant-design/pro-field';
+import { ProSchemaComponentTypes } from '@ant-design/pro-utils';
 import { ProColumnType } from './index';
 
 const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
@@ -16,6 +17,7 @@ const defaultRenderText = <T, U = any>(
   item?: T,
   columnEmptyText?: ProFieldEmptyText,
   props?: ProColumnType<T>,
+  type?: ProSchemaComponentTypes,
 ): React.ReactNode => {
   // 如果 valueType === text ，没必要多走一次 render
   if ((!valueType || valueType === 'text') && !props?.valueEnum) {
@@ -24,10 +26,7 @@ const defaultRenderText = <T, U = any>(
   }
 
   if (typeof valueType === 'function' && item) {
-    const value = valueType(item);
-    if (!value) {
-      return columnEmptyText;
-    }
+    const value = valueType(item, type) || 'text';
     // 防止valueType是函数,并且text是''、null、undefined跳过显式设置的columnEmptyText
     return defaultRenderText(text, value as ProFieldValueType, index, item, columnEmptyText, props);
   }
