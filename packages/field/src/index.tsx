@@ -30,6 +30,7 @@ export type { ProFieldValueEnumType };
 export type ProFieldEmptyText = string | false;
 
 /**
+ * password 密码框
  * money 金额
  * option 操作 需要返回一个数组
  * date 日期 YYYY-MM-DD

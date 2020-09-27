@@ -1,23 +1,14 @@
 import React from 'react';
-import { Button, Tooltip } from 'antd';
-import { DownOutlined, QuestionCircleOutlined, EllipsisOutlined } from '@ant-design/icons';
+import { Button, Badge } from 'antd';
+import { DownOutlined, EllipsisOutlined } from '@ant-design/icons';
+import { LightFilter, ProFormDatePicker } from '@ant-design/pro-form';
 import ProTable, { ProColumns } from '@ant-design/pro-table';
-
-const valueEnum = {
-  0: 'close',
-  1: 'running',
-  2: 'online',
-  3: 'error',
-};
 
 export interface TableListItem {
   key: number;
   name: string;
   containers: number;
   creator: string;
-  status: string;
-  createdAt: number;
-  memo: string;
 }
 const tableListDataSource: TableListItem[] = [];
 
@@ -29,16 +20,12 @@ for (let i = 0; i < 5; i += 1) {
     name: 'AppName',
     containers: Math.floor(Math.random() * 20),
     creator: creators[Math.floor(Math.random() * creators.length)],
-    status: valueEnum[Math.floor(Math.random() * 10) % 4],
-    createdAt: Date.now() - Math.floor(Math.random() * 100000),
-    memo: i % 2 === 1 ? '很长很长很长很长很长很长很长的文字要展示但是要留下尾巴' : '简短备注文案',
   });
 }
 
 const columns: ProColumns<TableListItem>[] = [
   {
     title: '应用名称',
-    width: 80,
     dataIndex: 'name',
     render: (_) => <a>{_}</a>,
   },
@@ -49,21 +36,7 @@ const columns: ProColumns<TableListItem>[] = [
     sorter: (a, b) => a.containers - b.containers,
   },
   {
-    title: '状态',
-    width: 80,
-    dataIndex: 'status',
-    initialValue: 'all',
-    valueEnum: {
-      all: { text: '全部', status: 'Default' },
-      close: { text: '关闭', status: 'Default' },
-      running: { text: '运行中', status: 'Processing' },
-      online: { text: '已上线', status: 'Success' },
-      error: { text: '异常', status: 'Error' },
-    },
-  },
-  {
     title: '创建者',
-    width: 80,
     dataIndex: 'creator',
     valueEnum: {
       all: { text: '全部' },
@@ -75,29 +48,7 @@ const columns: ProColumns<TableListItem>[] = [
     },
   },
   {
-    title: (
-      <>
-        创建时间
-        <Tooltip placement="top" title="这是一段描述">
-          <QuestionCircleOutlined style={{ marginLeft: 4 }} />
-        </Tooltip>
-      </>
-    ),
-    width: 140,
-    key: 'since',
-    dataIndex: 'createdAt',
-    valueType: 'date',
-    sorter: (a, b) => a.createdAt - b.createdAt,
-  },
-  {
-    title: '备注',
-    dataIndex: 'memo',
-    ellipsis: true,
-    copyable: true,
-  },
-  {
     title: '操作',
-    width: 180,
     key: 'option',
     valueType: 'option',
     render: () => [
@@ -111,6 +62,20 @@ const columns: ProColumns<TableListItem>[] = [
   },
 ];
 
+const renderBadge = (count: number) => {
+  return (
+    <Badge
+      count={count}
+      style={{
+        marginTop: -4,
+        marginLeft: 4,
+        color: '#999',
+        backgroundColor: '#eee',
+      }}
+    />
+  );
+};
+
 export default () => {
   return (
     <ProTable<TableListItem>
@@ -123,13 +88,46 @@ export default () => {
           success: true,
         });
       }}
+      toolbar={{
+        multipleLine: true,
+        filter: (
+          <LightFilter style={{ marginTop: 8 }}>
+            <ProFormDatePicker name="startdate" label="响应日期" />
+          </LightFilter>
+        ),
+        tabs: {
+          items: [
+            {
+              key: 'tab1',
+              tab: '标签一',
+            },
+            {
+              key: 'tab2',
+              tab: '标签二',
+            },
+          ],
+        },
+        menu: {
+          type: 'inline',
+          items: [
+            {
+              label: <span>全部应用{renderBadge(101)}</span>,
+              key: 'all',
+            },
+            {
+              label: <span>我创建的应用{renderBadge(3)}</span>,
+              key: 'todo',
+            },
+          ],
+        },
+        actions: [<Button type="primary">新建应用</Button>],
+      }}
       rowKey="key"
       pagination={{
         showQuickJumper: true,
       }}
       search={false}
       dateFormatter="string"
-      headerTitle="表格标题"
       toolBarRender={() => [
         <Button>查看日志</Button>,
         <Button>

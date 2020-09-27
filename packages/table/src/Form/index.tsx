@@ -44,7 +44,7 @@ export const formInputRender: React.FC<{
   // if function， run it
   const valueType =
     ((typeof itemValueType === 'function'
-      ? (itemValueType({}) as ProFieldValueType)
+      ? (itemValueType({}, type) as ProFieldValueType)
       : itemValueType) as ProFieldValueType) || 'text';
 
   /**
@@ -57,10 +57,10 @@ export const formInputRender: React.FC<{
     const { renderFormItem, ...restItem } = item;
     const defaultRender = (newItem: ProColumns<any>) =>
       formInputRender({
-        ...({
+        ...{
           ...props,
           item: newItem,
-        } || null),
+        },
       });
 
     // 自动注入 onChange 和 value，用户自己很有可能忘记
@@ -93,6 +93,12 @@ export const formInputRender: React.FC<{
   }
 
   const { onChange, ...restFieldProps } = item.fieldProps || {};
+
+  const finalValueType =
+    !valueType || (['textarea', 'jsonCode', 'code'].includes(valueType) && type === 'table')
+      ? 'text'
+      : (valueType as 'text');
+
   return (
     <ProFormField
       ref={ref}
@@ -101,14 +107,9 @@ export const formInputRender: React.FC<{
       valueEnum={item.valueEnum}
       name={item.key || item.dataIndex}
       onChange={onChange}
-      // @ts-ignore
       fieldProps={restFieldProps || item.formItemProps}
       // valueType = textarea，但是在 查询表单这里，应该是个 input 框
-      valueType={
-        !valueType || (['textarea', 'jsonCode', 'code'].includes(valueType) && type === 'table')
-          ? 'text'
-          : valueType
-      }
+      valueType={finalValueType}
       initialValue={item.initialValue}
       {...rest}
       rules={type === 'form' ? rest.rules : undefined}
@@ -251,7 +252,7 @@ const FormSearch = <T, U = any>({
       // 以key为主,理论上key唯一
       const finalKey = genColumnKey((key || dataIndex) as string, index);
       // 如果是() => ValueType
-      const finalValueType = typeof valueType === 'function' ? valueType(item) : valueType;
+      const finalValueType = typeof valueType === 'function' ? valueType(item, type) : valueType;
       tempMap[finalKey] = finalValueType;
     });
     valueTypeRef.current = tempMap;
@@ -282,12 +283,8 @@ const FormSearch = <T, U = any>({
       if (a && b) {
         return (b.order || 0) - (a.order || 0);
       }
-      if (a && a.order) {
-        return -1;
-      }
-      if (b && b.order) {
-        return 1;
-      }
+      if (a && a.order) return -1;
+      if (b && b.order) return 1;
       return 0;
     });
 

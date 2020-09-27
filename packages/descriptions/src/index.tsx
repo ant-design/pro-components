@@ -112,7 +112,7 @@ const conversionProProSchemaToDescriptionsItem = (
     // 有些时候不需要 dataIndex 可以直接 render
     const valueType =
       typeof restItem.valueType === 'function'
-        ? (restItem.valueType(entity || {}) as ProFieldValueType)
+        ? (restItem.valueType(entity || {}, 'descriptions') as ProFieldValueType)
         : (restItem.valueType as ProFieldValueType);
 
     const field = (

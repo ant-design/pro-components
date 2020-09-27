@@ -275,7 +275,6 @@ const ColumnSetting = <T, U = {}>(props: ColumnSettingProps<T>) => {
   const intl = useIntl();
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-table-column-setting');
-  const toolBarClassName = getPrefixCls('pro-table-toolbar');
 
   return (
     <Popover
@@ -309,11 +308,9 @@ const ColumnSetting = <T, U = {}>(props: ColumnSettingProps<T>) => {
       placement="bottomRight"
       content={<GroupCheckboxList className={className} localColumns={localColumns} />}
     >
-      <span className={`${toolBarClassName}-item-icon`}>
-        <Tooltip title={intl.getMessage('tableToolBar.columnSetting', '列设置')}>
-          <SettingOutlined />
-        </Tooltip>
-      </span>
+      <Tooltip title={intl.getMessage('tableToolBar.columnSetting', '列设置')}>
+        <SettingOutlined />
+      </Tooltip>
     </Popover>
   );
 };
