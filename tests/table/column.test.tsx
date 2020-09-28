@@ -90,7 +90,7 @@ describe('Table ColumnSetting', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 200);
+    await waitForComponentToPaint(html, 1200);
     expect(html.find('td.ant-table-cell')).toMatchSnapshot();
   });
 });
