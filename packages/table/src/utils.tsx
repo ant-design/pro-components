@@ -62,7 +62,6 @@ export const genCopyable = (dom: React.ReactNode, item: ProColumns<any>, text: s
               }
             : undefined
         }
-        title={text}
         ellipsis={item.ellipsis}
       >
         {dom}
