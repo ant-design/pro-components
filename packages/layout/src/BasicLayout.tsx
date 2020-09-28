@@ -8,12 +8,7 @@ import warning from 'warning';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { stringify } from 'use-json-comparison';
 import useAntdMediaQuery from 'use-media-antd-query';
-import {
-  useDeepCompareEffect,
-  useDocumentTitle,
-  isBrowser,
-  omitUndefined,
-} from '@ant-design/pro-utils';
+import { useDeepCompareEffect, useDocumentTitle, isBrowser } from '@ant-design/pro-utils';
 import Omit from 'omit.js';
 import { getMatchMenu } from '@umijs/route-utils';
 
@@ -33,6 +28,7 @@ import PageLoading from './PageLoading';
 import MenuCounter from './SiderMenu/Counter';
 import WrapContent from './WrapContent';
 import compatibleLayout from './utils/compatibleLayout';
+import useCurrentMenuLayoutProps from './utils/useCurrentMenuLayoutProps';
 
 export type BasicLayoutProps = Partial<RouterTypes<Route>> &
   SiderMenuProps &
@@ -216,7 +212,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     menuDataRender,
     loading,
   } = props;
-  const [currentMenuLayoutProps, setCurrentMenuLayoutProps] = useState({});
+
   const formatMessage = ({
     id,
     defaultMessage,
@@ -268,28 +264,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
 
   // 当前选中的menu，一般不会为空
   const currentMenu = (matchMenus[matchMenus.length - 1] || {}) as ProSettings & MenuDataItem;
-
-  useEffect(() => {
-    setCurrentMenuLayoutProps(
-      omitUndefined({
-        layout: currentMenu.layout,
-        navTheme: currentMenu.navTheme,
-        menuRender: currentMenu.menuRender,
-        footerRender: currentMenu.footerRender,
-        menuHeaderRender: currentMenu.menuHeaderRender,
-        headerRender: currentMenu.headerRender,
-        fixSiderbar: currentMenu.fixSiderbar,
-      }),
-    );
-  }, [
-    currentMenu.layout,
-    currentMenu.navTheme,
-    currentMenu.menuRender,
-    currentMenu.footerRender,
-    currentMenu.menuHeaderRender,
-    currentMenu.headerRender,
-    currentMenu.fixSiderbar,
-  ]);
+  const currentMenuLayoutProps = useCurrentMenuLayoutProps(currentMenu);
 
   const { fixSiderbar, navTheme, layout: defaultPropsLayout, ...rest } = {
     ...props,
