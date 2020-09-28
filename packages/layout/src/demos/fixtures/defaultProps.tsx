@@ -21,6 +21,7 @@ export default {
           {
             path: '/admin/sub-page',
             name: '一级页面',
+            layout: 'top',
             icon: <CrownOutlined />,
             component: './Welcome',
           },
@@ -28,11 +29,14 @@ export default {
             path: '/admin/sub-page2',
             name: '二级页面',
             icon: <CrownOutlined />,
+            headerRender: false,
             component: './Welcome',
           },
           {
             path: '/admin/sub-page3',
             name: '三级页面',
+            layout: 'mix',
+            navTheme: 'light',
             icon: <CrownOutlined />,
             component: './Welcome',
           },

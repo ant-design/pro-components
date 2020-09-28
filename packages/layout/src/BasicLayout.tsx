@@ -10,11 +10,12 @@ import { stringify } from 'use-json-comparison';
 import useAntdMediaQuery from 'use-media-antd-query';
 import { useDeepCompareEffect, useDocumentTitle, isBrowser } from '@ant-design/pro-utils';
 import Omit from 'omit.js';
+import { getMatchMenu } from '@umijs/route-utils';
 
 import Header, { HeaderViewProps } from './Header';
 import { MenuDataItem, MessageDescriptor, Route, RouterTypes, WithFalse } from './typings';
 import { getPageTitleInfo, GetPageTitleProps } from './getPageTitle';
-import defaultSettings, { PureSettings } from './defaultSettings';
+import defaultSettings, { ProSettings, PureSettings } from './defaultSettings';
 import getLocales, { LocaleType } from './locales';
 import { BaseMenuProps } from './SiderMenu/BaseMenu';
 import Footer from './Footer';
@@ -27,7 +28,6 @@ import PageLoading from './PageLoading';
 import MenuCounter from './SiderMenu/Counter';
 import WrapContent from './WrapContent';
 import compatibleLayout from './utils/compatibleLayout';
-import { getSelectedMenuKeys } from './SiderMenu/SiderMenuUtils';
 
 export type BasicLayoutProps = Partial<RouterTypes<Route>> &
   SiderMenuProps &
@@ -93,11 +93,12 @@ const headerRender = (
   props: BasicLayoutProps & {
     hasSiderMenu: boolean;
   },
+  matchMenuKeys: string[],
 ): React.ReactNode => {
   if (props.headerRender === false || props.pure) {
     return null;
   }
-  return <Header {...props} />;
+  return <Header matchMenuKeys={matchMenuKeys} {...props} />;
 };
 
 const footerRender = (props: BasicLayoutProps): React.ReactNode => {
@@ -110,8 +111,11 @@ const footerRender = (props: BasicLayoutProps): React.ReactNode => {
   return null;
 };
 
-const renderSiderMenu = (props: BasicLayoutProps): React.ReactNode => {
-  const { layout, isMobile, openKeys, splitMenus, location, menuRender } = props;
+const renderSiderMenu = (
+  props: BasicLayoutProps,
+  matchMenuKeys: string[] = [],
+): React.ReactNode => {
+  const { layout, isMobile, openKeys, splitMenus, menuRender } = props;
   if (props.menuRender === false || props.pure) {
     return null;
   }
@@ -121,8 +125,7 @@ const renderSiderMenu = (props: BasicLayoutProps): React.ReactNode => {
    * 如果是分割菜单模式，需要专门实现一下
    */
   if (splitMenus && openKeys !== false && !isMobile) {
-    const keys = getSelectedMenuKeys(location?.pathname || '/', props.menuData || []);
-    const [key] = keys;
+    const [key] = matchMenuKeys;
     if (key) {
       menuData = props.menuData?.find((item) => item.key === key)?.children || [];
     }
@@ -132,13 +135,13 @@ const renderSiderMenu = (props: BasicLayoutProps): React.ReactNode => {
     return null;
   }
   if (layout === 'top' && !isMobile) {
-    return <SiderMenu {...props} hide />;
+    return <SiderMenu matchMenuKeys={matchMenuKeys} {...props} hide />;
   }
   if (menuRender) {
-    return menuRender(props, <SiderMenu {...props} />);
+    return menuRender(props, <SiderMenu matchMenuKeys={matchMenuKeys} {...props} />);
   }
 
-  return <SiderMenu {...props} menuData={menuData} />;
+  return <SiderMenu matchMenuKeys={matchMenuKeys} {...props} menuData={menuData} />;
 };
 
 const defaultPageTitleRender = (
@@ -199,14 +202,9 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     children,
     onCollapse: propsOnCollapse,
     location = { pathname: '/' },
-    fixSiderbar,
-    navTheme,
     contentStyle,
-    route = {
-      routes: [],
-    },
+    route,
     defaultCollapsed,
-    layout: defaultPropsLayout,
     style,
     disableContentMargin,
     siderWidth = 208,
@@ -214,10 +212,8 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     isChildrenLayout: propsIsChildrenLayout,
     menuDataRender,
     loading,
-    ...rest
   } = props;
-  const propsLayout = compatibleLayout(defaultPropsLayout);
-  const { prefixCls } = rest;
+  const [currentMenuLayoutProps, setCurrentMenuLayoutProps] = useState({});
   const formatMessage = ({
     id,
     defaultMessage,
@@ -240,16 +236,13 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     return defaultMessage as string;
   };
 
-  const colSize = useAntdMediaQuery();
-
-  const { routes = [] } = route;
   const [menuInfoData, setMenuInfoData] = useMergedState<{
     breadcrumb?: {
       [key: string]: MenuDataItem;
     };
     breadcrumbMap?: Map<string, MenuDataItem>;
     menuData?: MenuDataItem[];
-  }>(() => getMenuData(routes, menu, formatMessage, menuDataRender));
+  }>(() => getMenuData(route?.routes || [], menu, formatMessage, menuDataRender));
 
   let renderMenuInfoData: {
     breadcrumb?: {
@@ -258,23 +251,61 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     breadcrumbMap?: Map<string, MenuDataItem>;
     menuData?: MenuDataItem[];
   } = {};
-
   // 如果menuDataRender 存在，就应该每次都render一下，不然无法保证数据的同步
   if (menuDataRender) {
-    renderMenuInfoData = getMenuData(routes, menu, formatMessage, menuDataRender);
+    renderMenuInfoData = getMenuData(route?.routes || [], menu, formatMessage, menuDataRender);
   }
-  const isMobile = (colSize === 'sm' || colSize === 'xs') && !props.disableMobile;
 
   const { breadcrumb = {}, breadcrumbMap, menuData = [] } = !menuDataRender
     ? menuInfoData
     : renderMenuInfoData;
+
+  const matchMenus = getMatchMenu(location.pathname || '/', menuData);
+  const matchMenuKeys = matchMenus.map((item) => item.key || item.path || '');
+
+  // 当前选中的menu，一般不会为空
+  const currentMenu = (matchMenus[matchMenus.length - 1] || {}) as ProSettings & MenuDataItem;
+
+  useEffect(() => {
+    setCurrentMenuLayoutProps({
+      layout: currentMenu.layout,
+      navTheme: currentMenu.navTheme,
+      menuRender: currentMenu.menuRender,
+      footerRender: currentMenu.footerRender,
+      menuHeaderRender: currentMenu.menuHeaderRender,
+      headerRender: currentMenu.headerRender,
+      fixSiderbar: currentMenu.fixSiderbar,
+    });
+  }, [
+    currentMenu.layout,
+    currentMenu.navTheme,
+    currentMenu.menuRender,
+    currentMenu.footerRender,
+    currentMenu.menuHeaderRender,
+    currentMenu.headerRender,
+    currentMenu.fixSiderbar,
+  ]);
+
+  const { fixSiderbar, navTheme, layout: defaultPropsLayout, ...rest } = {
+    ...props,
+    ...currentMenuLayoutProps,
+  };
+
+  const propsLayout = compatibleLayout(defaultPropsLayout);
+
+  const { prefixCls } = rest;
+
+  const colSize = useAntdMediaQuery();
+
+  const isMobile = (colSize === 'sm' || colSize === 'xs') && !props.disableMobile;
+
   /**
    *  如果 menuRender 不存在，可以做一下性能优化
    *  只要 routers 没有更新就不需要重新计算
    */
   useDeepCompareEffect(() => {
     if (!menuDataRender) {
-      const infoData = getMenuData(routes, menu, formatMessage, menuDataRender);
+      const infoData = getMenuData(route?.routes || [], menu, formatMessage, menuDataRender);
       // 稍微慢一点 render，不然会造成性能问题，看起来像是菜单的卡顿
       const animationFrameId = requestAnimationFrame(() => {
         setMenuInfoData(infoData);
@@ -297,9 +328,10 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   const defaultProps = Omit(
     {
       ...props,
+      ...currentMenuLayoutProps,
       formatMessage,
       breadcrumb,
-      layout: compatibleLayout(props.layout) as 'side',
+      layout: propsLayout as 'side',
     },
     ['className', 'style'],
   );
@@ -319,26 +351,33 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     ...defaultProps,
     breadcrumbMap,
   });
+
   // render sider dom
-  const siderMenuDom = renderSiderMenu({
-    ...defaultProps,
-    menuData,
-    onCollapse,
-    isMobile,
-    theme: (navTheme || 'dark').toLocaleLowerCase().includes('dark') ? 'dark' : 'light',
-    collapsed,
-  });
+  const siderMenuDom = renderSiderMenu(
+    {
+      ...defaultProps,
+      menuData,
+      onCollapse,
+      isMobile,
+      theme: (navTheme || 'dark').toLocaleLowerCase().includes('dark') ? 'dark' : 'light',
+      collapsed,
+    },
+    matchMenuKeys,
+  );
 
   // render header dom
-  const headerDom = headerRender({
-    ...defaultProps,
-    hasSiderMenu: !!siderMenuDom,
-    menuData,
-    isMobile,
-    collapsed,
-    onCollapse,
-    theme: (navTheme || 'dark').toLocaleLowerCase().includes('dark') ? 'dark' : 'light',
-  });
+  const headerDom = headerRender(
+    {
+      ...defaultProps,
+      hasSiderMenu: !!siderMenuDom,
+      menuData,
+      isMobile,
+      collapsed,
+      onCollapse,
+      theme: (navTheme || 'dark').toLocaleLowerCase().includes('dark') ? 'dark' : 'light',
+    },
+    matchMenuKeys,
+  );
 
   // render footer dom
   const footerDom = footerRender({
@@ -392,8 +431,8 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
       onPageChange(props.location);
     }
   }, [stringify(props.location)]);
-  const [hasFooterToolbar, setHasFooterToolbar] = useState(false);
 
+  const [hasFooterToolbar, setHasFooterToolbar] = useState(false);
   useDocumentTitle(pageTitleInfo, props.title || defaultSettings.title);
 
   return (
@@ -414,6 +453,9 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
           hasFooterToolbar,
           setHasFooterToolbar,
           pageTitleInfo,
+          matchMenus,
+          matchMenuKeys,
+          currentMenu,
         }}
       >
         <div className={className}>
