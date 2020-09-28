@@ -143,7 +143,7 @@ exports[`layout demos renders ./packages/layout/src/demos/BreadcrumbsRepeat.tsx 
       >
         <header
           class="ant-layout-header"
-          style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 9;"
+          style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
         >
           <div
             class="ant-pro-global-header ant-pro-global-header-layout-side"
@@ -640,7 +640,7 @@ exports[`layout demos renders ./packages/layout/src/demos/DefaultOpenAllMenu.tsx
       >
         <header
           class="ant-layout-header"
-          style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 9;"
+          style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
         >
           <div
             class="ant-pro-global-header ant-pro-global-header-layout-side"
@@ -921,7 +921,7 @@ exports[`layout demos renders ./packages/layout/src/demos/IconFont.tsx correctly
       >
         <header
           class="ant-layout-header"
-          style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 9;"
+          style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
         >
           <div
             class="ant-pro-global-header ant-pro-global-header-layout-side"
@@ -1281,7 +1281,7 @@ exports[`layout demos renders ./packages/layout/src/demos/MultipleMenuOnePath.ts
       >
         <header
           class="ant-layout-header"
-          style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 9;"
+          style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
         >
           <div
             class="ant-pro-global-header ant-pro-global-header-layout-side"
@@ -1705,7 +1705,7 @@ exports[`layout demos renders ./packages/layout/src/demos/Nested.tsx correctly 1
               >
                 <header
                   class="ant-layout-header"
-                  style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 9;"
+                  style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
                 >
                   <div
                     class="ant-pro-global-header ant-pro-global-header-layout-side"
@@ -1846,7 +1846,7 @@ exports[`layout demos renders ./packages/layout/src/demos/TopmenuNested.tsx corr
       >
         <header
           class="ant-layout-header ant-pro-top-menu"
-          style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 9;"
+          style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
         >
           <div
             class="ant-pro-top-nav-header"
@@ -2205,7 +2205,7 @@ exports[`layout demos renders ./packages/layout/src/demos/TopmenuNested.tsx corr
               >
                 <header
                   class="ant-layout-header"
-                  style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 9;"
+                  style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
                 >
                   <div
                     class="ant-pro-global-header ant-pro-global-header-layout-side"
@@ -2489,7 +2489,7 @@ exports[`layout demos renders ./packages/layout/src/demos/antd@3MenuIconFormServ
       >
         <header
           class="ant-layout-header"
-          style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 9;"
+          style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
         >
           <div
             class="ant-pro-global-header ant-pro-global-header-layout-side"
@@ -2733,7 +2733,7 @@ exports[`layout demos renders ./packages/layout/src/demos/antd@4MenuIconFormServ
       >
         <header
           class="ant-layout-header"
-          style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 9;"
+          style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
         >
           <div
             class="ant-pro-global-header ant-pro-global-header-layout-side"
@@ -3153,7 +3153,7 @@ Array [
       >
         <header
           class="ant-layout-header"
-          style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 9;"
+          style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
         >
           <div
             class="ant-pro-global-header ant-pro-global-header-layout-side"
@@ -3551,7 +3551,7 @@ exports[`layout demos renders ./packages/layout/src/demos/base.tsx correctly 1`]
       >
         <header
           class="ant-layout-header"
-          style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 9;"
+          style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
         >
           <div
             class="ant-pro-global-header ant-pro-global-header-layout-side"
@@ -4600,7 +4600,7 @@ Array [
       >
         <header
           class="ant-layout-header"
-          style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 9;"
+          style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
         >
           <div
             class="ant-pro-global-header ant-pro-global-header-layout-side"
@@ -4806,7 +4806,7 @@ Array [
       >
         <header
           class="ant-layout-header"
-          style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 9;"
+          style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
         >
           <div
             class="ant-pro-global-header ant-pro-global-header-layout-side"
@@ -5084,7 +5084,7 @@ exports[`layout demos renders ./packages/layout/src/demos/footer.tsx correctly 1
     >
       <header
         class="ant-layout-header"
-        style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 9;"
+        style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       >
         <div
           class="ant-pro-global-header ant-pro-global-header-layout-side"
@@ -5418,7 +5418,7 @@ exports[`layout demos renders ./packages/layout/src/demos/hideMenu.tsx correctly
     >
       <header
         class="ant-layout-header"
-        style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 9;"
+        style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       >
         <div
           class="ant-pro-global-header ant-pro-global-header-layout-side"
@@ -5703,7 +5703,7 @@ exports[`layout demos renders ./packages/layout/src/demos/searchMenu.tsx correct
       >
         <header
           class="ant-layout-header"
-          style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 9;"
+          style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
         >
           <div
             class="ant-pro-global-header ant-pro-global-header-layout-side"

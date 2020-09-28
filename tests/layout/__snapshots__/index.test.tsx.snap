@@ -75,7 +75,7 @@ exports[`BasicLayout 🥩 base use 1`] = `
     >
       <header
         class="ant-layout-header"
-        style="padding:0;height:48px;line-height:48px;width:100%;z-index:9"
+        style="padding:0;height:48px;line-height:48px;width:100%;z-index:19"
       >
         <div
           class="ant-pro-global-header ant-pro-global-header-layout-side"
@@ -168,7 +168,7 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
     >
       <header
         class="ant-layout-header"
-        style="padding:0;height:48px;line-height:48px;width:100%;z-index:9"
+        style="padding:0;height:48px;line-height:48px;width:100%;z-index:19"
       >
         <div
           class="ant-pro-global-header ant-pro-global-header-layout-side"
@@ -262,7 +262,7 @@ exports[`BasicLayout 🥩 menuDataRender change date 1`] = `
     >
       <header
         class="ant-layout-header"
-        style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 9;"
+        style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       >
         <div
           class="ant-pro-global-header ant-pro-global-header-layout-side"
@@ -384,7 +384,7 @@ exports[`BasicLayout 🥩 menuDataRender change date 2`] = `
     >
       <header
         class="ant-layout-header"
-        style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 9;"
+        style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       >
         <div
           class="ant-pro-global-header ant-pro-global-header-layout-side"
@@ -477,7 +477,7 @@ exports[`BasicLayout 🥩 support loading 1`] = `
     >
       <header
         class="ant-layout-header"
-        style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 9;"
+        style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       >
         <div
           class="ant-pro-global-header ant-pro-global-header-layout-side"
@@ -669,7 +669,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
     >
       <header
         class="ant-layout-header"
-        style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 9;"
+        style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       >
         <div
           class="ant-pro-global-header ant-pro-global-header-layout-side"
