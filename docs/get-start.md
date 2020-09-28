@@ -37,7 +37,7 @@ import ProForm, { ProFormText } from '@ant-design/pro-form';
 export default () => {
   return (
     <ProForm
-      onFinish={(values) => {
+      onFinish={async (values) => {
         console.log(values);
       }}
     >
