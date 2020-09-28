@@ -28,7 +28,12 @@ describe('PageContainer', () => {
     expect(html).toMatchSnapshot();
   });
 
-  it('🔥 support footer', async () => {
+  it('⚡️ support fixedHeader', async () => {
+    const html = render(<PageContainer title="期贤" fixedHeader />);
+    expect(html).toMatchSnapshot();
+  });
+
+  it('🔥 support footer and breadcrumb', async () => {
     const html = render(
       <PageContainer
         title="期贤"

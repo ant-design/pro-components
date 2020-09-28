@@ -138,7 +138,7 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
     >
       <header
         class="ant-layout-header"
-        style="padding:0;height:48px;line-height:48px;width:100%;z-index:9"
+        style="padding:0;height:48px;line-height:48px;width:100%;z-index:19"
       >
         <div
           class="ant-pro-global-header ant-pro-global-header-layout-side"
@@ -328,7 +328,7 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
     >
       <header
         class="ant-layout-header"
-        style="padding:0;height:48px;line-height:48px;width:100%;z-index:9"
+        style="padding:0;height:48px;line-height:48px;width:100%;z-index:19"
       >
         <div
           class="ant-pro-global-header ant-pro-global-header-layout-side"

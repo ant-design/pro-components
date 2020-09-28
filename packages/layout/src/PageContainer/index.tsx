@@ -1,4 +1,4 @@
-import { PageHeader, Tabs } from 'antd';
+import { PageHeader, Tabs, Affix } from 'antd';
 import React, { useContext, ReactNode } from 'react';
 import classNames from 'classnames';
 import { TabsProps, TabPaneProps } from 'antd/lib/tabs';
@@ -15,6 +15,7 @@ export interface PageHeaderTabConfig {
   onTabChange?: TabsProps['onChange'];
   tabBarExtraContent?: TabsProps['tabBarExtraContent'];
   tabProps?: TabsProps;
+  fixedHeader?: boolean;
 }
 
 export interface PageContainerProps extends PageHeaderTabConfig, Omit<PageHeaderProps, 'title'> {
@@ -124,7 +125,7 @@ const defaultPageHeaderRender = (
 };
 
 const PageContainer: React.FC<PageContainerProps> = (props) => {
-  const { children, style, footer, ghost, prefixCls = 'ant-pro' } = props;
+  const { children, style, footer, ghost, fixedHeader, prefixCls = 'ant-pro' } = props;
   const value = useContext(RouteContext);
   const prefixedClassName = `${prefixCls}-page-container`;
 
@@ -132,15 +133,23 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
     [`${prefixCls}-page-container-ghost`]: ghost,
   });
 
+  const headerDom = (
+    <div className={`${prefixedClassName}-warp`}>
+      {defaultPageHeaderRender(props, {
+        ...value,
+        prefixCls: undefined,
+        prefixedClassName,
+      })}
+    </div>
+  );
+
   return (
     <div style={style} className={className}>
-      <div className={`${prefixedClassName}-warp`}>
-        {defaultPageHeaderRender(props, {
-          ...value,
-          prefixCls: undefined,
-          prefixedClassName,
-        })}
-      </div>
+      {fixedHeader ? (
+        <Affix offsetTop={value.hasHeader ? value.headerHeight : 0}>{headerDom}</Affix>
+      ) : (
+        headerDom
+      )}
       <GridContent>
         {children ? (
           <div>

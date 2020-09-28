@@ -114,7 +114,7 @@ class HeaderView extends Component<HeaderViewProps & PrivateSiderMenuProps, Head
             height: headerHeight,
             lineHeight: `${headerHeight}px`,
             width,
-            zIndex: layout === 'mix' ? 100 : 9,
+            zIndex: layout === 'mix' ? 100 : 19,
             right,
             ...style,
           }}
