@@ -44,6 +44,18 @@ describe('ProForm', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('📦 submit props actionsRender=false', async () => {
+    const wrapper = mount(
+      <ProForm
+        submitter={{
+          render: false,
+        }}
+      />,
+    );
+    await waitTime();
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
   it('📦 submit props actionsRender=()=>[]', async () => {
     const wrapper = mount(
       <ProForm
@@ -73,31 +85,50 @@ describe('ProForm', () => {
   });
 
   it('📦 submitter props support submitButtonProps', async () => {
+    const fn = jest.fn();
     const wrapper = mount(
       <ProForm
         submitter={{
           submitButtonProps: {
-            loading: true,
+            className: 'test_button',
+            onClick: () => {
+              fn();
+            },
           },
         }}
       />,
     );
     await waitTime();
     expect(wrapper.render()).toMatchSnapshot();
+
+    act(() => {
+      wrapper.find('button.test_button').simulate('click');
+    });
+
+    expect(fn).toBeCalled();
   });
 
   it('📦 submitter props support resetButtonProps', async () => {
+    const fn = jest.fn();
     const wrapper = mount(
       <ProForm
         submitter={{
           resetButtonProps: {
-            loading: true,
+            className: 'test_button',
+            onClick: () => {
+              fn();
+            },
           },
         }}
       />,
     );
     await waitTime();
     expect(wrapper.render()).toMatchSnapshot();
+
+    act(() => {
+      wrapper.find('button.test_button').simulate('click');
+    });
+    expect(fn).toBeCalled();
   });
 
   it('📦 submitter.render simulate onFinish', async () => {
