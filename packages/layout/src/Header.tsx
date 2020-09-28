@@ -71,7 +71,7 @@ class HeaderView extends Component<HeaderViewProps & PrivateSiderMenuProps, Head
       className: propsClassName,
       style,
       collapsed,
-      siderWidth = 208,
+      siderWidth,
       hasSiderMenu,
       isMobile,
       prefixCls,

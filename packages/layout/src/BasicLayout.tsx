@@ -116,10 +116,7 @@ const footerRender = (props: BasicLayoutProps): React.ReactNode => {
   return null;
 };
 
-const renderSiderMenu = (
-  props: BasicLayoutProps,
-  matchMenuKeys: string[] = [],
-): React.ReactNode => {
+const renderSiderMenu = (props: BasicLayoutProps, matchMenuKeys: string[]): React.ReactNode => {
   const { layout, isMobile, openKeys, splitMenus, menuRender } = props;
   if (props.menuRender === false || props.pure) {
     return null;
@@ -212,7 +209,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     defaultCollapsed,
     style,
     disableContentMargin,
-    siderWidth = 208,
+    siderWidth,
     menu,
     prefixCls,
     isChildrenLayout: propsIsChildrenLayout,
