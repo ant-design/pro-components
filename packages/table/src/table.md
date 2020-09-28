@@ -24,6 +24,10 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 
 <code src="./demos/normal.tsx" background="#f5f5f5"/>
 
+### 轻量筛选表格
+
+<code src="./demos/lightfilter.tsx" background="#f5f5f5"/>
+
 ### 无标题栏
 
 <code src="./demos/no-title.tsx" background="#f5f5f5"/>
@@ -221,6 +225,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
+| filterType | 过滤表单类型 | `'query'` \| `'light'` | `'query'` |
 | searchText | 查询按钮的文本 | string | 查询 |
 | resetText | 重置按钮的文本 | string | 重置 |
 | submitText | 提交按钮的文本 | string | 提交 |

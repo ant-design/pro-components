@@ -15,6 +15,8 @@ export interface ProListMeta<T = any> {
   dataIndex?: string | string[];
   valueType?: ProFieldValueType;
   render?: ProColumns['render'];
+  hideInSearch?: boolean;
+  title?: string;
 }
 
 export interface ProListMetas {

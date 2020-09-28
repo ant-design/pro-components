@@ -2,7 +2,12 @@ import React, { useContext, useEffect, useRef, useCallback } from 'react';
 import { FormInstance, FormItemProps, FormProps } from 'antd/lib/form';
 import { Form, ConfigProvider } from 'antd';
 import { useIntl, IntlType } from '@ant-design/pro-provider';
-import ProForm, { QueryFilter, ProFormField, BaseQueryFilterProps } from '@ant-design/pro-form';
+import ProForm, {
+  QueryFilter,
+  LightFilter,
+  ProFormField,
+  BaseQueryFilterProps,
+} from '@ant-design/pro-form';
 import classNames from 'classnames';
 import { ProFieldValueType } from '@ant-design/pro-field';
 
@@ -17,18 +22,20 @@ import Container from '../container';
 import { ProColumns } from '../index';
 import './index.less';
 
+export type SearchConfig = BaseQueryFilterProps & {
+  filterType: 'query' | 'light';
+};
+
 export interface TableFormItem<T> extends Omit<FormItemProps, 'children' | 'onReset'> {
   onSubmit?: (value: T, firstLoad: boolean) => void;
   onReset?: (value: T) => void;
   form?: Omit<FormProps, 'form'>;
   type?: ProSchemaComponentTypes;
   dateFormatter?: 'string' | 'number' | false;
-  search?: false | BaseQueryFilterProps;
+  search?: false | SearchConfig;
   formRef?: React.MutableRefObject<FormInstance | undefined> | ((actionRef: FormInstance) => void);
   submitButtonLoading?: boolean;
 }
-
-export type SearchConfig = BaseQueryFilterProps;
 
 export const formInputRender: React.FC<{
   item: ProColumns<any>;
@@ -314,7 +321,18 @@ const FormSearch = <T, U = any>({
 
   const className = getPrefixCls('pro-table-search');
   const formClassName = getPrefixCls('pro-table-form');
-  const FormCompetent = (isForm ? ProForm : QueryFilter) as typeof ProForm;
+  let FormCompetent;
+  let isLight: boolean = false;
+  if (!isForm && searchConfig !== false) {
+    if (searchConfig && searchConfig.filterType === 'light') {
+      FormCompetent = LightFilter;
+      isLight = true;
+    } else {
+      FormCompetent = QueryFilter;
+    }
+  } else {
+    FormCompetent = ProForm;
+  }
 
   const queryFilterProps = {
     labelWidth: searchConfig ? searchConfig?.labelWidth : undefined,
@@ -332,6 +350,7 @@ const FormSearch = <T, U = any>({
     <div
       className={classNames(className, {
         [formClassName]: isForm,
+        [getPrefixCls('pro-table-search-light')]: isLight,
       })}
     >
       <FormCompetent

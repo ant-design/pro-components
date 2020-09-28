@@ -61,6 +61,7 @@ export type ProFieldValueType =
   | 'dateTime'
   | 'time'
   | 'text'
+  | 'select'
   | 'index'
   | 'indexBorder'
   | 'progress'
@@ -335,7 +336,7 @@ const defaultRenderText = (
     return <FieldDigit text={text as number} {...props} />;
   }
 
-  if (props.valueEnum || props.request) {
+  if (valueType === 'select' || props.valueEnum || props.request) {
     return <FiledSelect text={text as string} {...props} />;
   }
 

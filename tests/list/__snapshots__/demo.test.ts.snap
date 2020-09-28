@@ -1727,6 +1727,624 @@ exports[`list demos renders ./packages/list/src/demos/expand.tsx correctly 1`] =
 </div>
 `;
 
+exports[`list demos renders ./packages/list/src/demos/filter.tsx correctly 1`] = `
+<div
+  class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
+  id="ant-design-pro-table"
+>
+  <div
+    class="ant-card"
+    style="height: 100%;"
+  >
+    <div
+      class="ant-card-body"
+      style="padding: 0px;"
+    >
+      <div
+        class="ant-pro-core-toolbar"
+      >
+        <div
+          class="ant-pro-core-toolbar-container"
+        >
+          <div
+            class="ant-pro-core-toolbar-left"
+          >
+            <div
+              class="ant-pro-core-toolbar-title"
+            >
+              基础列表
+            </div>
+          </div>
+          <div
+            class="ant-pro-core-toolbar-right"
+          >
+            <div
+              class="ant-pro-core-toolbar-filter"
+            >
+              <div
+                class="ant-pro-table-search ant-pro-table-search-light"
+              >
+                <form
+                  class="ant-form ant-form-horizontal"
+                  filtertype="light"
+                >
+                  <div
+                    class="ant-pro-form-light-filter ant-pro-form-light-filter-undefined"
+                  >
+                    <div
+                      class="ant-pro-form-light-filter-container"
+                    >
+                      <div
+                        class="ant-pro-form-light-filter-item"
+                      >
+                        <div
+                          class="ant-row ant-form-item"
+                          title="名称"
+                        >
+                          <div
+                            class="ant-col ant-form-item-control"
+                          >
+                            <div
+                              class="ant-form-item-control-input"
+                            >
+                              <div
+                                class="ant-form-item-control-input-content"
+                              >
+                                <span
+                                  class="ant-dropdown-trigger ant-pro-core-field-dropdown-label"
+                                >
+                                  <span
+                                    class="ant-pro-core-field-label ant-pro-core-field-label-middle"
+                                  >
+                                    名称
+                                    <span
+                                      aria-label="down"
+                                      class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
+                                      role="img"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        class=""
+                                        data-icon="down"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </span>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div
+              class="ant-space ant-space-horizontal ant-space-align-center"
+            >
+              <div
+                class="ant-space-item"
+              >
+                <button
+                  class="ant-btn ant-btn-primary"
+                  type="button"
+                >
+                  <span>
+                    新 建
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-list ant-list-split"
+      >
+        <div
+          class="ant-spin-nested-loading"
+        >
+          <div
+            class="ant-spin-container"
+          >
+            <ul
+              class="ant-list-items"
+            >
+              <div
+                class="ant-pro-list-row-show-action-hover ant-pro-list-row"
+              >
+                <li
+                  class="ant-list-item"
+                >
+                  <div
+                    class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
+                  >
+                    <div
+                      class="ant-pro-list-row-show-action-hover ant-pro-list-row-header-option"
+                    />
+                    <div
+                      class="ant-list-item-meta"
+                    >
+                      <div
+                        class="ant-list-item-meta-avatar"
+                      >
+                        <span
+                          class="ant-avatar ant-avatar-circle ant-avatar-image"
+                          style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                        >
+                          <img
+                            src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                          />
+                        </span>
+                      </div>
+                      <div
+                        class="ant-list-item-meta-content"
+                      >
+                        <h4
+                          class="ant-list-item-meta-title"
+                        >
+                          <div
+                            class="ant-pro-list-row-show-action-hover ant-pro-list-row-header-title"
+                          >
+                            <div
+                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-title"
+                            >
+                              语雀的天空
+                            </div>
+                            <div
+                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-subTitle"
+                            >
+                              <div
+                                class="ant-space ant-space-horizontal ant-space-align-center"
+                              >
+                                <div
+                                  class="ant-space-item"
+                                  style="margin-right: 0px;"
+                                >
+                                  <span
+                                    class="ant-tag ant-tag-blue"
+                                  >
+                                    Ant Design
+                                  </span>
+                                </div>
+                                <div
+                                  class="ant-space-item"
+                                >
+                                  <span
+                                    class="ant-tag ant-tag-has-color"
+                                    style="background-color: rgb(91, 216, 166);"
+                                  >
+                                    TechUI
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </h4>
+                        <div
+                          class="ant-list-item-meta-description"
+                        >
+                          <div
+                            class="ant-pro-list-row-show-action-hover ant-pro-list-row-description"
+                          >
+                            我是一条测试的描述
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <ul
+                    class="ant-list-item-action"
+                  >
+                    <li>
+                      <a
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        链路
+                      </a>
+                      <em
+                        class="ant-list-item-action-split"
+                      />
+                    </li>
+                    <li>
+                      <a
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        报警
+                      </a>
+                      <em
+                        class="ant-list-item-action-split"
+                      />
+                    </li>
+                    <li>
+                      <a
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        查看
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </div>
+              <div
+                class="ant-pro-list-row-show-action-hover ant-pro-list-row"
+              >
+                <li
+                  class="ant-list-item"
+                >
+                  <div
+                    class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
+                  >
+                    <div
+                      class="ant-pro-list-row-show-action-hover ant-pro-list-row-header-option"
+                    />
+                    <div
+                      class="ant-list-item-meta"
+                    >
+                      <div
+                        class="ant-list-item-meta-avatar"
+                      >
+                        <span
+                          class="ant-avatar ant-avatar-circle ant-avatar-image"
+                          style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                        >
+                          <img
+                            src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                          />
+                        </span>
+                      </div>
+                      <div
+                        class="ant-list-item-meta-content"
+                      >
+                        <h4
+                          class="ant-list-item-meta-title"
+                        >
+                          <div
+                            class="ant-pro-list-row-show-action-hover ant-pro-list-row-header-title"
+                          >
+                            <div
+                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-title"
+                            >
+                              Ant Design
+                            </div>
+                            <div
+                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-subTitle"
+                            >
+                              <div
+                                class="ant-space ant-space-horizontal ant-space-align-center"
+                              >
+                                <div
+                                  class="ant-space-item"
+                                  style="margin-right: 0px;"
+                                >
+                                  <span
+                                    class="ant-tag ant-tag-blue"
+                                  >
+                                    Ant Design
+                                  </span>
+                                </div>
+                                <div
+                                  class="ant-space-item"
+                                >
+                                  <span
+                                    class="ant-tag ant-tag-has-color"
+                                    style="background-color: rgb(91, 216, 166);"
+                                  >
+                                    TechUI
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </h4>
+                        <div
+                          class="ant-list-item-meta-description"
+                        >
+                          <div
+                            class="ant-pro-list-row-show-action-hover ant-pro-list-row-description"
+                          >
+                            我是一条测试的描述
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <ul
+                    class="ant-list-item-action"
+                  >
+                    <li>
+                      <a
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        链路
+                      </a>
+                      <em
+                        class="ant-list-item-action-split"
+                      />
+                    </li>
+                    <li>
+                      <a
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        报警
+                      </a>
+                      <em
+                        class="ant-list-item-action-split"
+                      />
+                    </li>
+                    <li>
+                      <a
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        查看
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </div>
+              <div
+                class="ant-pro-list-row-show-action-hover ant-pro-list-row"
+              >
+                <li
+                  class="ant-list-item"
+                >
+                  <div
+                    class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
+                  >
+                    <div
+                      class="ant-pro-list-row-show-action-hover ant-pro-list-row-header-option"
+                    />
+                    <div
+                      class="ant-list-item-meta"
+                    >
+                      <div
+                        class="ant-list-item-meta-avatar"
+                      >
+                        <span
+                          class="ant-avatar ant-avatar-circle ant-avatar-image"
+                          style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                        >
+                          <img
+                            src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                          />
+                        </span>
+                      </div>
+                      <div
+                        class="ant-list-item-meta-content"
+                      >
+                        <h4
+                          class="ant-list-item-meta-title"
+                        >
+                          <div
+                            class="ant-pro-list-row-show-action-hover ant-pro-list-row-header-title"
+                          >
+                            <div
+                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-title"
+                            >
+                              蚂蚁金服体验科技
+                            </div>
+                            <div
+                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-subTitle"
+                            >
+                              <div
+                                class="ant-space ant-space-horizontal ant-space-align-center"
+                              >
+                                <div
+                                  class="ant-space-item"
+                                  style="margin-right: 0px;"
+                                >
+                                  <span
+                                    class="ant-tag ant-tag-blue"
+                                  >
+                                    Ant Design
+                                  </span>
+                                </div>
+                                <div
+                                  class="ant-space-item"
+                                >
+                                  <span
+                                    class="ant-tag ant-tag-has-color"
+                                    style="background-color: rgb(91, 216, 166);"
+                                  >
+                                    TechUI
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </h4>
+                        <div
+                          class="ant-list-item-meta-description"
+                        >
+                          <div
+                            class="ant-pro-list-row-show-action-hover ant-pro-list-row-description"
+                          >
+                            我是一条测试的描述
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <ul
+                    class="ant-list-item-action"
+                  >
+                    <li>
+                      <a
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        链路
+                      </a>
+                      <em
+                        class="ant-list-item-action-split"
+                      />
+                    </li>
+                    <li>
+                      <a
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        报警
+                      </a>
+                      <em
+                        class="ant-list-item-action-split"
+                      />
+                    </li>
+                    <li>
+                      <a
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        查看
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </div>
+              <div
+                class="ant-pro-list-row-show-action-hover ant-pro-list-row"
+              >
+                <li
+                  class="ant-list-item"
+                >
+                  <div
+                    class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
+                  >
+                    <div
+                      class="ant-pro-list-row-show-action-hover ant-pro-list-row-header-option"
+                    />
+                    <div
+                      class="ant-list-item-meta"
+                    >
+                      <div
+                        class="ant-list-item-meta-avatar"
+                      >
+                        <span
+                          class="ant-avatar ant-avatar-circle ant-avatar-image"
+                          style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                        >
+                          <img
+                            src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                          />
+                        </span>
+                      </div>
+                      <div
+                        class="ant-list-item-meta-content"
+                      >
+                        <h4
+                          class="ant-list-item-meta-title"
+                        >
+                          <div
+                            class="ant-pro-list-row-show-action-hover ant-pro-list-row-header-title"
+                          >
+                            <div
+                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-title"
+                            >
+                              TechUI
+                            </div>
+                            <div
+                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-subTitle"
+                            >
+                              <div
+                                class="ant-space ant-space-horizontal ant-space-align-center"
+                              >
+                                <div
+                                  class="ant-space-item"
+                                  style="margin-right: 0px;"
+                                >
+                                  <span
+                                    class="ant-tag ant-tag-blue"
+                                  >
+                                    Ant Design
+                                  </span>
+                                </div>
+                                <div
+                                  class="ant-space-item"
+                                >
+                                  <span
+                                    class="ant-tag ant-tag-has-color"
+                                    style="background-color: rgb(91, 216, 166);"
+                                  >
+                                    TechUI
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </h4>
+                        <div
+                          class="ant-list-item-meta-description"
+                        >
+                          <div
+                            class="ant-pro-list-row-show-action-hover ant-pro-list-row-description"
+                          >
+                            我是一条测试的描述
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <ul
+                    class="ant-list-item-action"
+                  >
+                    <li>
+                      <a
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        链路
+                      </a>
+                      <em
+                        class="ant-list-item-action-split"
+                      />
+                    </li>
+                    <li>
+                      <a
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        报警
+                      </a>
+                      <em
+                        class="ant-list-item-action-split"
+                      />
+                    </li>
+                    <li>
+                      <a
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        查看
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`list demos renders ./packages/list/src/demos/layout.tsx correctly 1`] = `
 <div
   class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"

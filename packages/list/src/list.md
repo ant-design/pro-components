@@ -28,6 +28,10 @@ nav:
 
 <code src="./demos/selectedRow.tsx" />
 
+### 带筛选的列表
+
+<code src="./demos/filter.tsx" />
+
 ### 复杂的列表
 
 <code src="./demos/complex.tsx" />
