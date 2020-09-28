@@ -10,38 +10,11 @@ nav:
 
 # ProTable - 高级表格
 
-## 安装和初始化
+## 何时使用
 
-```typescript | pure
-npm i @ant-design/pro-table --save
-// or
-yarn add @ant-design/pro-table
-import ProTable from '@ant-design/pro-table';
+ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码的问题，所以在其中做了封装了很多常用的逻辑。这些封装可以简单的分类为预设行为与预设逻辑。
 
-
-render(
-  <ProTable
-    columns={columns}
-    actionRef={actionRef}
-    request={async (params = {}) =>
-      request<{
-        data: GithubIssueItem[];
-      }>("https://proapi.azurewebsites.net/github/issues", {
-        params,
-      })
-    }
-    rowKey="id"
-    dateFormatter="string"
-    headerTitle="高级表格"
-  />,
-  document.getElementById("root")
-);
-
-```
-
-## 代码示例
-
-这里将会提供一些常用的功能示例，方便大家直接拷贝。
+## 代码演示
 
 ### 查询表格
 
@@ -87,6 +60,41 @@ render(
 
 ### 自定义表单项
 
+当内置的表单项无法满足我们的基本需求，这时候我们就需要来自定义一下默认的组件，我们可以通过 `fieldProps` 和 `renderFormItem` 配合来使用。
+
+`fieldProps` 可以把 props 透传，可以设置 select 的样式和多选等问题。
+
+`renderFormItem` 可以完成重写渲染逻辑，传入 item 和 props 来进行渲染，需要注意的是我们必须要将 props 中的 `value` 和 `onChange` 必须要被赋值，否则 form 无法拿到参数。
+
+```tsx | pure
+renderFormItem: (_, { type, defaultRender, ...rest }, form) => {
+  if (type === 'form') {
+    return null;
+  }
+  const status = form.getFieldValue('state');
+  if (status !== 'open') {
+    return <Input {...rest} placeholder="请输入" />;
+  }
+  return defaultRender(_);
+};
+```
+
+`renderFormItem` 的定义, 具体的值可以打开控制台查看。
+
+```tsx | pure
+ renderFormItem?: (
+    item: ProColumns<T>,
+    config: {
+      value?: any;
+      onChange?: (value: any) => void;
+      onSelect?: (value: any) => void;
+      type: ProTableTypes;
+      defaultRender: (newItem: ProColumns<any>) => JSX.Element | null;
+    },
+    form: FormInstance,
+  ) => JSX.Element | false | null;
+```
+
 <code src="./demos/linkage_form.tsx" background="#f5f5f5"/>
 
 ### 自定义搜索操作栏
@@ -105,7 +113,73 @@ render(
 
 ### 国际化示例
 
+ProTable 内置了国际化的支持，作为一个文本量比较少的组件，我们可以自行实现国际化，成本也很低。
+
+这里是全量的文本
+
+```typescript | prue
+const enLocale = {
+  tableFrom: {
+    search: 'Query',
+    reset: 'Reset',
+    submit: 'Submit',
+    collapsed: 'Expand',
+    expand: 'Collapse',
+    inputPlaceholder: 'Please enter',
+    selectPlaceholder: 'Please select',
+  },
+  alert: {
+    clear: 'Clear',
+  },
+  tableToolBar: {
+    leftPin: 'Pin to left',
+    rightPin: 'Pin to right',
+    noPin: 'Unpinned',
+    leftFixedTitle: 'Fixed the left',
+    rightFixedTitle: 'Fixed the right',
+    noFixedTitle: 'Not Fixed',
+    reset: 'Reset',
+    columnDisplay: 'Column Display',
+    columnSetting: 'Settings',
+    fullScreen: 'Full Screen',
+    exitFullScreen: 'Exit Full Screen',
+    reload: 'Refresh',
+    density: 'Density',
+    densityDefault: 'Default',
+    densityLarger: 'Larger',
+    densityMiddle: 'Middle',
+    densitySmall: 'Compact',
+  },
+};
+
+// 生成 intl 对象
+const enUSIntl = createIntl('en_US', enUS);
+
+// 使用
+<IntlProvider value={enUSIntl}>
+  <ProTable />
+</IntlProvider>;
+```
+
 <code src="./demos/intl.tsx" background="#f5f5f5"/>
+
+### 搜索表单例子
+
+<code src="./demos/search.tsx" background="#f5f5f5"/>
+
+### 值类型示例
+
+#### 日期类
+
+<code src="./demos/valueTypeDate.tsx" background="#f5f5f5"/>
+
+#### 数字类
+
+<code src="./demos/valueTypeNumber.tsx" background="#f5f5f5"/>
+
+#### 样式类
+
+<code src="./demos/valueType.tsx" background="#f5f5f5"/>
 
 ## API
 
@@ -219,11 +293,9 @@ ref.current.clearSelected();
 | renderFormItem | 渲染查询表单的输入组件 | `(item,props:{value,onChange}) => React.ReactNode` | - |
 | fieldProps | 查询表单的 props，会透传给表单项 | `{ [prop: string]: any }` | - |
 
-### 值类型
+### valueType 值类型
 
 ProTable 封装了一些常用的值类型来减少重复的 `render` 操作，配置一个`valueType` 即可展示格式化响应的数据。
-
-#### valueType
 
 现在支持的值如下
 
@@ -326,20 +398,6 @@ const valueEnum = (row) =>
 
 > 这里值得注意的是在 from 中并没有 row，所以传入了一个 null，你可以根据这个来判断要在 from 中显示什么选项。
 
-### 值类型示例
-
-#### 日期类
-
-<code src="./demos/valueTypeDate.tsx" background="#f5f5f5"/>
-
-#### 数字类
-
-<code src="./demos/valueTypeNumber.tsx" background="#f5f5f5"/>
-
-#### 样式类
-
-<code src="./demos/valueType.tsx" background="#f5f5f5"/>
-
 ### valueEnum
 
 当前列值的枚举
@@ -392,94 +450,3 @@ Form 的列是根据 `valueType` 来生成不同的类型。
 | option | 不展示 |
 | index | 不展示 |
 | progress | 不展示 |
-
-### 自定义表单项
-
-当内置的表单项无法满足我们的基本需求，这时候我们就需要来自定义一下默认的组件，我们可以通过 `fieldProps` 和 `renderFormItem` 配合来使用。
-
-`fieldProps` 可以把 props 透传，可以设置 select 的样式和多选等问题。
-
-`renderFormItem` 可以完成重写渲染逻辑，传入 item 和 props 来进行渲染，需要注意的是我们必须要将 props 中的 `value` 和 `onChange` 必须要被赋值，否则 form 无法拿到参数。
-
-```tsx | pure
-renderFormItem: (_, { type, defaultRender, ...rest }, form) => {
-  if (type === 'form') {
-    return null;
-  }
-  const status = form.getFieldValue('state');
-  if (status !== 'open') {
-    return <Input {...rest} placeholder="请输入" />;
-  }
-  return defaultRender(_);
-};
-```
-
-`renderFormItem` 的定义, 具体的值可以打开控制台查看。
-
-```tsx | pure
- renderFormItem?: (
-    item: ProColumns<T>,
-    config: {
-      value?: any;
-      onChange?: (value: any) => void;
-      onSelect?: (value: any) => void;
-      type: ProTableTypes;
-      defaultRender: (newItem: ProColumns<any>) => JSX.Element | null;
-    },
-    form: FormInstance,
-  ) => JSX.Element | false | null;
-```
-
-### 搜索表单例子
-
-<code src="./demos/search.tsx" background="#f5f5f5"/>
-
-### 国际化
-
-ProTable 内置了国际化的支持，作为一个文本量比较少的组件，我们可以自行实现国际化，成本也很低。
-
-这里是全量的文本
-
-```typescript | prue
-const enLocale = {
-  tableFrom: {
-    search: 'Query',
-    reset: 'Reset',
-    submit: 'Submit',
-    collapsed: 'Expand',
-    expand: 'Collapse',
-    inputPlaceholder: 'Please enter',
-    selectPlaceholder: 'Please select',
-  },
-  alert: {
-    clear: 'Clear',
-  },
-  tableToolBar: {
-    leftPin: 'Pin to left',
-    rightPin: 'Pin to right',
-    noPin: 'Unpinned',
-    leftFixedTitle: 'Fixed the left',
-    rightFixedTitle: 'Fixed the right',
-    noFixedTitle: 'Not Fixed',
-    reset: 'Reset',
-    columnDisplay: 'Column Display',
-    columnSetting: 'Settings',
-    fullScreen: 'Full Screen',
-    exitFullScreen: 'Exit Full Screen',
-    reload: 'Refresh',
-    density: 'Density',
-    densityDefault: 'Default',
-    densityLarger: 'Larger',
-    densityMiddle: 'Middle',
-    densitySmall: 'Compact',
-  },
-};
-
-// 生成 intl 对象
-const enUSIntl = createIntl('en_US', enUS);
-
-// 使用
-<IntlProvider value={enUSIntl}>
-  <ProTable />
-</IntlProvider>;
-```
