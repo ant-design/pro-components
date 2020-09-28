@@ -308,12 +308,19 @@ const FormSearch = <T, U = any>({
 
   const className = getPrefixCls('pro-table-search');
   const formClassName = getPrefixCls('pro-table-form');
-  const FormCompetent = isForm ? ProForm : QueryFilter;
+  const FormCompetent = (isForm ? ProForm : QueryFilter) as typeof ProForm;
 
   const queryFilterProps = {
     labelWidth: searchConfig ? searchConfig?.labelWidth : undefined,
     defaultCollapsed: true,
     ...searchConfig,
+  };
+  const loadingProps: any = {
+    submitter: {
+      submitButtonProps: {
+        loading: submitButtonLoading,
+      },
+    },
   };
   return (
     <div
@@ -322,11 +329,7 @@ const FormSearch = <T, U = any>({
       })}
     >
       <FormCompetent
-        submitter={{
-          submitButtonProps: {
-            loading: submitButtonLoading,
-          },
-        }}
+        {...loadingProps}
         {...(!isForm ? queryFilterProps : {})}
         {...formConfig}
         form={form}
