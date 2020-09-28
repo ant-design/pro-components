@@ -79,11 +79,6 @@ describe('ProForm', () => {
           submitButtonProps: {
             loading: true,
           },
-          render: () => [
-            <Button key="submit" type="primary">
-              提交并发布
-            </Button>,
-          ],
         }}
       />,
     );
@@ -98,11 +93,6 @@ describe('ProForm', () => {
           resetButtonProps: {
             loading: true,
           },
-          render: () => [
-            <Button key="submit" type="primary">
-              提交并发布
-            </Button>,
-          ],
         }}
       />,
     );
