@@ -8,7 +8,12 @@ import warning from 'warning';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { stringify } from 'use-json-comparison';
 import useAntdMediaQuery from 'use-media-antd-query';
-import { useDeepCompareEffect, useDocumentTitle, isBrowser } from '@ant-design/pro-utils';
+import {
+  useDeepCompareEffect,
+  useDocumentTitle,
+  isBrowser,
+  omitUndefined,
+} from '@ant-design/pro-utils';
 import Omit from 'omit.js';
 import { getMatchMenu } from '@umijs/route-utils';
 
@@ -209,6 +214,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     disableContentMargin,
     siderWidth = 208,
     menu,
+    prefixCls,
     isChildrenLayout: propsIsChildrenLayout,
     menuDataRender,
     loading,
@@ -267,15 +273,17 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   const currentMenu = (matchMenus[matchMenus.length - 1] || {}) as ProSettings & MenuDataItem;
 
   useEffect(() => {
-    setCurrentMenuLayoutProps({
-      layout: currentMenu.layout,
-      navTheme: currentMenu.navTheme,
-      menuRender: currentMenu.menuRender,
-      footerRender: currentMenu.footerRender,
-      menuHeaderRender: currentMenu.menuHeaderRender,
-      headerRender: currentMenu.headerRender,
-      fixSiderbar: currentMenu.fixSiderbar,
-    });
+    setCurrentMenuLayoutProps(
+      omitUndefined({
+        layout: currentMenu.layout,
+        navTheme: currentMenu.navTheme,
+        menuRender: currentMenu.menuRender,
+        footerRender: currentMenu.footerRender,
+        menuHeaderRender: currentMenu.menuHeaderRender,
+        headerRender: currentMenu.headerRender,
+        fixSiderbar: currentMenu.fixSiderbar,
+      }),
+    );
   }, [
     currentMenu.layout,
     currentMenu.navTheme,
@@ -292,8 +300,6 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   };
 
   const propsLayout = compatibleLayout(defaultPropsLayout);
-
-  const { prefixCls } = rest;
 
   const colSize = useAntdMediaQuery();
 
@@ -399,7 +405,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     [`${baseClassName}-top-menu`]: propsLayout === 'top',
     [`${baseClassName}-is-children`]: isChildrenLayout,
     [`${baseClassName}-fix-siderbar`]: fixSiderbar,
-    [`${baseClassName}-mobile`]: isMobile,
+    [`${baseClassName}-${propsLayout}`]: propsLayout,
   });
 
   /**

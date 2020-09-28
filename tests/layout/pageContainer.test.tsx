@@ -5,8 +5,8 @@ import BasicLayout, {
   BasicLayoutProps,
   FooterToolbar,
 } from '@ant-design/pro-layout';
-import { waitForComponentToPaint } from '../util';
 import { act } from 'react-test-renderer';
+import { waitForComponentToPaint } from '../util';
 
 describe('PageContainer', () => {
   it('💄 base use', async () => {
