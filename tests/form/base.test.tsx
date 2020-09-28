@@ -1,17 +1,38 @@
 import React from 'react';
 import { Button } from 'antd';
 import ProForm, { ProFormText, ProFormDatePicker } from '@ant-design/pro-form';
+import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
-import { waitTime } from '../util';
+import { waitTime, waitForComponentToPaint } from '../util';
 
 describe('ProForm', () => {
-  it('submit props actionsRender=false', async () => {
+  it('📦 submit props actionsRender=false', async () => {
     const wrapper = mount(<ProForm submitter={false} />);
     await waitTime();
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('submit props actionsRender=()=>false', async () => {
+  it('📦 onFinish should simulate button loading', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <ProForm
+        onFinish={async () => {
+          fn();
+          await waitTime(2000);
+        }}
+      />,
+    );
+
+    await waitForComponentToPaint(wrapper, 200);
+    act(() => {
+      wrapper.find('button.ant-btn-primary').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper, 200);
+    expect(wrapper.find('.ant-btn-loading').exists()).toBe(true);
+    expect(fn).toBeCalled();
+  });
+
+  it('📦 submit props actionsRender=()=>false', async () => {
     const wrapper = mount(
       <ProForm
         submitter={{
@@ -23,7 +44,7 @@ describe('ProForm', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('submit props actionsRender=()=>[]', async () => {
+  it('📦 submit props actionsRender=()=>[]', async () => {
     const wrapper = mount(
       <ProForm
         submitter={{
@@ -35,7 +56,7 @@ describe('ProForm', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('submit props render=()=>[]', async () => {
+  it('📦 submit props render=()=>[]', async () => {
     const wrapper = mount(
       <ProForm
         submitter={{
@@ -51,7 +72,45 @@ describe('ProForm', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('submitter.render simulate onFinish', async () => {
+  it('📦 submitter props support submitButtonProps', async () => {
+    const wrapper = mount(
+      <ProForm
+        submitter={{
+          submitButtonProps: {
+            loading: true,
+          },
+          render: () => [
+            <Button key="submit" type="primary">
+              提交并发布
+            </Button>,
+          ],
+        }}
+      />,
+    );
+    await waitTime();
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('📦 submitter props support resetButtonProps', async () => {
+    const wrapper = mount(
+      <ProForm
+        submitter={{
+          resetButtonProps: {
+            loading: true,
+          },
+          render: () => [
+            <Button key="submit" type="primary">
+              提交并发布
+            </Button>,
+          ],
+        }}
+      />,
+    );
+    await waitTime();
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('📦 submitter.render simulate onFinish', async () => {
     const onFinish = jest.fn();
     const wrapper = mount(
       <ProForm
@@ -82,7 +141,7 @@ describe('ProForm', () => {
     expect(onFinish).toBeCalled();
   });
 
-  it('DatePicker', async () => {
+  it('📦 DatePicker', async () => {
     const onFinish = jest.fn();
     const wrapper = mount(
       <ProForm

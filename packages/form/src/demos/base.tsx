@@ -1,9 +1,24 @@
 import React from 'react';
+import { message } from 'antd';
 import ProForm, { ProFormText, ProFormDateRangePicker, ProFormSelect } from '@ant-design/pro-form';
+
+const waitTime = (time: number = 100) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(true);
+    }, time);
+  });
+};
 
 export default () => {
   return (
-    <ProForm onFinish={(values) => console.log(values)}>
+    <ProForm
+      onFinish={async (values) => {
+        await waitTime(2000);
+        console.log(values);
+        message.success('提交成功！');
+      }}
+    >
       <ProForm.Group>
         <ProFormText
           name="name"

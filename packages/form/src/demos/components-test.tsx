@@ -20,7 +20,7 @@ const Demo = () => {
       }}
       // @ts-expect-error
       formRef={formRef}
-      onFinish={(value) => console.log(value)}
+      onFinish={async (value) => console.log(value)}
     >
       <ProFormUploadButton
         name="upload"
