@@ -120,7 +120,7 @@ const renderSiderMenu = (props: BasicLayoutProps): React.ReactNode => {
   /**
    * 如果是分割菜单模式，需要专门实现一下
    */
-  if (splitMenus && openKeys !== false) {
+  if (splitMenus && openKeys !== false && !isMobile) {
     const keys = getSelectedMenuKeys(location?.pathname || '/', props.menuData || []);
     const [key] = keys;
     if (key) {
