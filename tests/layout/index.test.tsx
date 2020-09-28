@@ -586,4 +586,60 @@ describe('BasicLayout', () => {
     });
     expect(wrapper.find('#layout_right').exists()).toBeTruthy();
   });
+
+  it('🥩 support get config form menuItem', async () => {
+    const wrapper = mount(
+      <BasicLayout
+        location={{
+          pathname: '/home/overview',
+        }}
+        menuDataRender={() => [
+          {
+            path: '/home/overview',
+            name: '概述',
+            exact: true,
+            layout: 'side',
+          },
+          {
+            path: '/home/search',
+            name: '搜索',
+            exact: true,
+            layout: 'mix',
+            navTheme: 'light',
+          },
+          {
+            path: '/home',
+            name: '首页',
+            layout: 'top',
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 100);
+    expect(
+      wrapper.find('.ant-design-pro').props().className?.includes('ant-pro-basicLayout-side'),
+    ).toBeTruthy();
+
+    wrapper.setProps({
+      location: {
+        pathname: '/home/search',
+      },
+    });
+
+    await waitForComponentToPaint(wrapper, 100);
+    expect(
+      wrapper.find('.ant-design-pro').props().className?.includes('ant-pro-basicLayout-mix'),
+    ).toBeTruthy();
+
+    wrapper.setProps({
+      location: {
+        pathname: '/home',
+      },
+    });
+    await waitForComponentToPaint(wrapper, 100);
+
+    expect(
+      wrapper.find('.ant-design-pro').props().className?.includes('ant-pro-basicLayout-top'),
+    ).toBeTruthy();
+  });
 });

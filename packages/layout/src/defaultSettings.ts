@@ -13,6 +13,11 @@ export interface PureSettings {
    * theme for nav menu
    */
   navTheme: MenuTheme | 'realDark' | undefined;
+
+  /**
+   *  顶部菜单的颜色，mix 模式下生效
+   */
+  headerTheme?: MenuTheme;
   /**
    * nav menu position: `side` or `top`
    */

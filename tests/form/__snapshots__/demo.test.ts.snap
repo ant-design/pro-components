@@ -3012,7 +3012,7 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
   style="transform: rotate(0); overflow-x: hidden;"
 >
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-mix"
   >
     <section
       class="ant-layout ant-layout-has-sider"

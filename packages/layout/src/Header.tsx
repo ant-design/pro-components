@@ -7,6 +7,7 @@ import GlobalHeader, { GlobalHeaderProps } from './GlobalHeader';
 import { PureSettings } from './defaultSettings';
 import TopNavHeader from './TopNavHeader';
 import { WithFalse } from './typings';
+import { PrivateSiderMenuProps } from './SiderMenu/SiderMenu';
 
 const { Header } = Layout;
 
@@ -31,7 +32,7 @@ interface HeaderViewState {
   visible: boolean;
 }
 
-class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
+class HeaderView extends Component<HeaderViewProps & PrivateSiderMenuProps, HeaderViewState> {
   renderContent = () => {
     const {
       isMobile,
@@ -70,7 +71,7 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
       className: propsClassName,
       style,
       collapsed,
-      siderWidth = 208,
+      siderWidth,
       hasSiderMenu,
       isMobile,
       prefixCls,
@@ -86,6 +87,9 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
       [`${prefixCls}-top-menu`]: isTop,
     });
 
+    /**
+     * 计算侧边栏的宽度，不然导致左边的样式会出问题
+     */
     const width =
       layout !== 'mix' && needSettingWidth
         ? `calc(100% - ${collapsed ? 48 : siderWidth}px)`

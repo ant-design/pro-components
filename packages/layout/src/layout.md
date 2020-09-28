@@ -124,7 +124,8 @@ ProLayout 默认不提供页脚，要是和 Pro 官网相同的样式，需要�
 | contentStyle | layout 的内容区 style | CSSProperties | - |
 | layout | layout 的菜单模式,side：右侧导航，top：顶部导航 | 'side' \| 'top' | `'side'` |
 | contentWidth | layout 的内容模式,Fluid：自适应，Fixed：定宽 1200px | 'Fluid' \| 'Fixed' | `'Fluid'` |
-| navTheme | 导航的主题 | 'light' \| 'dark' | `'dark'` |
+| navTheme | 导航的主题，side 和 mix 模式下是左侧菜单的主题，top 模式下是顶部菜单 | 'light' \| 'dark' | `'dark'` |
+| headerTheme | 顶部导航的主题，mix 模式生效 | 'light' \| 'dark' | `'dark'` |
 | fixedHeader | 是否固定 header 到顶部 | boolean | `false` |
 | fixSiderbar | 是否固定导航 | boolean | `false` |
 | breakpoint | 触发响应式布局的[断点](https://ant.design/components/grid-cn/#Col) | `Enum { 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' }` | `lg` |
