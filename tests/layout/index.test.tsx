@@ -587,7 +587,7 @@ describe('BasicLayout', () => {
     expect(wrapper.find('#layout_right').exists()).toBeTruthy();
   });
 
-  fit('🥩 support get config form menuItem', async () => {
+  it('🥩 support get config form menuItem', async () => {
     const wrapper = mount(
       <BasicLayout
         location={{

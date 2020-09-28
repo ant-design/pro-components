@@ -339,6 +339,8 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     ['className', 'style'],
   );
 
+  console.log(defaultProps);
+
   // gen page title
   const pageTitleInfo = defaultPageTitleRender(
     {
