@@ -186,7 +186,7 @@ export type BasicLayoutContext = { [K in 'location']: BasicLayoutProps[K] } & {
 const getPaddingLeft = (
   hasLeftPadding: boolean,
   collapsed: boolean | undefined,
-  siderWidth: number,
+  siderWidth: number = 208,
 ): number | undefined => {
   if (hasLeftPadding) {
     return collapsed ? 48 : siderWidth;
