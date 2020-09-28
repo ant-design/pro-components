@@ -833,6 +833,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
       <div className={className} id="ant-design-pro-table" style={style} ref={rootRef}>
         {(search !== false || type === 'form') && (
           <FormSearch<U>
+            submitButtonLoading={action.loading}
             {...rest}
             type={type}
             formRef={formRef}

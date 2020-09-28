@@ -25,6 +25,7 @@ export interface TableFormItem<T> extends Omit<FormItemProps, 'children' | 'onRe
   dateFormatter?: 'string' | 'number' | false;
   search?: false | BaseQueryFilterProps;
   formRef?: React.MutableRefObject<FormInstance | undefined> | ((actionRef: FormInstance) => void);
+  submitButtonLoading?: boolean;
 }
 
 export type SearchConfig = BaseQueryFilterProps;
@@ -174,6 +175,7 @@ const FormSearch = <T, U = any>({
   dateFormatter = 'string',
   type,
   onReset,
+  submitButtonLoading,
   search: searchConfig,
   form: formConfig = {},
 }: TableFormItem<T>) => {
@@ -306,12 +308,19 @@ const FormSearch = <T, U = any>({
 
   const className = getPrefixCls('pro-table-search');
   const formClassName = getPrefixCls('pro-table-form');
-  const FormCompetent = isForm ? ProForm : QueryFilter;
+  const FormCompetent = (isForm ? ProForm : QueryFilter) as typeof ProForm;
 
   const queryFilterProps = {
     labelWidth: searchConfig ? searchConfig?.labelWidth : undefined,
     defaultCollapsed: true,
     ...searchConfig,
+  };
+  const loadingProps: any = {
+    submitter: {
+      submitButtonProps: {
+        loading: submitButtonLoading,
+      },
+    },
   };
   return (
     <div
@@ -320,6 +329,7 @@ const FormSearch = <T, U = any>({
       })}
     >
       <FormCompetent
+        {...loadingProps}
         {...(!isForm ? queryFilterProps : {})}
         {...formConfig}
         form={form}
@@ -335,7 +345,7 @@ const FormSearch = <T, U = any>({
             onReset(value);
           }
         }}
-        onFinish={() => {
+        onFinish={async () => {
           submit();
         }}
         initialValues={formConfig.initialValues}

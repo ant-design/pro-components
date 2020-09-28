@@ -53,7 +53,7 @@ export default () => {
               submitter={{
                 render: (_, dom) => <FooterToolbar>{dom}</FooterToolbar>,
               }}
-              onFinish={(values) => console.log(values)}
+              onFinish={async (values) => console.log(values)}
             >
               <ProForm.Group>
                 <ProFormText

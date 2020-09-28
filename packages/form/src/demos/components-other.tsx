@@ -35,7 +35,7 @@ const Demo = () => (
       onValuesChange={(_, values) => {
         console.log(values);
       }}
-      onFinish={(value) => console.log(value)}
+      onFinish={async (value) => console.log(value)}
     >
       <ProFormText name="name" label="name" />
       <ProFormSelect

@@ -1,9 +1,9 @@
 ﻿import { mount } from 'enzyme';
 import React from 'react';
+import { Button } from 'antd';
 import { act } from 'react-dom/test-utils';
 import { StepsFrom, StepsFromProps, ProFormText } from '@ant-design/pro-form';
 import { waitTime } from '../util';
-import { Button } from 'antd';
 
 describe('StepsFrom', () => {
   it('🐲 basic use', () => {
