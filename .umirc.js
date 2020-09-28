@@ -56,4 +56,33 @@ export default {
   dynamicImport: {
     loading: '@ant-design/pro-skeleton',
   },
+  externals:
+    process.env.NODE_ENV === 'development'
+      ? {
+          react: 'window.React',
+          'react-dom': 'window.ReactDOM',
+          moment: 'window.moment',
+          antd: 'window.antd',
+        }
+      : {},
+  targets: {
+    chrome: 80,
+    firefox: false,
+    safari: false,
+    edge: false,
+    ios: false,
+  },
+  links:
+    process.env.NODE_ENV === 'development'
+      ? ['https://gw.alipayobjects.com/os/lib/antd/4.6.6/dist/antd.css']
+      : [],
+  scripts:
+    process.env.NODE_ENV === 'development'
+      ? [
+          'https://gw.alipayobjects.com/os/lib/react/16.13.1/umd/react.development.js',
+          'https://gw.alipayobjects.com/os/lib/react-dom/16.13.1/umd/react-dom.development.js',
+          'https://gw.alipayobjects.com/os/lib/moment/2.29.0/min/moment-with-locales.js',
+          'https://gw.alipayobjects.com/os/lib/antd/4.6.6/dist/antd-with-locales.js',
+        ]
+      : [],
 };
