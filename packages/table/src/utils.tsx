@@ -40,7 +40,7 @@ export const genEllipsis = (dom: React.ReactNode, item: ProColumns<any>, text: s
   }
   return (
     <Tooltip title={text}>
-      <span>{dom}</span>
+      <>{dom}</>
     </Tooltip>
   );
 };
