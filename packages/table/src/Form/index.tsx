@@ -18,7 +18,7 @@ import { ProColumns } from '../index';
 import './index.less';
 
 export interface TableFormItem<T> extends Omit<FormItemProps, 'children' | 'onReset'> {
-  onSubmit?: (value: T) => void;
+  onSubmit?: (value: T, firstLoad: boolean) => void;
   onReset?: (value: T) => void;
   form?: Omit<FormProps, 'form'>;
   type?: ProSchemaComponentTypes;
@@ -195,7 +195,7 @@ const FormSearch = <T, U = any>({
    */
   const valueTypeRef = useRef<{
     [key: string]: ProFieldValueType;
-  }>({});
+  }>();
 
   // 这么做是为了在用户修改了输入的时候触发一下子节点的render
   const [, updateState] = React.useState();
@@ -206,22 +206,23 @@ const FormSearch = <T, U = any>({
   /**
    *提交表单，根据两种模式不同，方法不相同
    */
-  const submit = async () => {
+  const submit = async (firstLoad: boolean) => {
+    let value;
     // 如果不是表单模式，不用进行验证
     if (!isForm) {
-      const value = form.getFieldsValue();
-      if (onSubmit) {
-        onSubmit(conversionSubmitValue(value, dateFormatter, valueTypeRef.current) as T);
+      value = form.getFieldsValue();
+    } else {
+      try {
+        value = await form.validateFields();
+      } catch (error) {
+        // console.log(error)
       }
-      return;
     }
-    try {
-      const value = await form.validateFields();
-      if (onSubmit) {
-        onSubmit(conversionSubmitValue(value, dateFormatter, valueTypeRef.current) as T);
-      }
-    } catch (error) {
-      // console.log(error)
+    if (onSubmit) {
+      onSubmit(
+        conversionSubmitValue(value, dateFormatter, valueTypeRef.current || {}) as T,
+        firstLoad,
+      );
     }
   };
 
@@ -237,7 +238,7 @@ const FormSearch = <T, U = any>({
       formRef.current = {
         ...form,
         submit: () => {
-          submit();
+          submit(false);
           form.submit();
         },
       };
@@ -257,6 +258,11 @@ const FormSearch = <T, U = any>({
       const finalValueType = typeof valueType === 'function' ? valueType(item, type) : valueType;
       tempMap[finalKey] = finalValueType;
     });
+    if (!valueTypeRef.current && type !== 'form') {
+      setTimeout(() => {
+        submit(true);
+      }, 0);
+    }
     valueTypeRef.current = tempMap;
   }, [counter.proColumns]);
 
@@ -345,8 +351,8 @@ const FormSearch = <T, U = any>({
             onReset(value);
           }
         }}
-        onFinish={async () => {
-          submit();
+        onFinish={() => {
+          submit(false);
         }}
         initialValues={formConfig.initialValues}
       >
