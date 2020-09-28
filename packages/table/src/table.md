@@ -10,83 +10,11 @@ nav:
 
 # ProTable - 高级表格
 
+## 何时使用
+
 ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码的问题，所以在其中做了封装了很多常用的逻辑。这些封装可以简单的分类为预设行为与预设逻辑。
 
-在 React 的中写一个 table 免不了需要定义一些 state，比如 page，pageNumber，pageSize。如果使用 dva 等数据流方案可能还需要写很多样板代码来请求数据。但是很多时候这些行为是高度雷同的，所以 ProTable 默认封装了请求网络，翻页，搜索和筛选的逻辑。
-
-另外 ProTable 的 request 中封装了请求网络的行为，ProTable 会将 props.params 中的数据默认带入到请求中，如果接口恰好与我们的定义相同，实现一个查询会非常简单。
-
-```tsx | pure
-import request from 'umi-request';
-
-const fetchData = (params, sort, filter) =>
-  request<{
-    data: T[];
-  }>('https://proapi.azurewebsites.net/github/issues', {
-    params,
-    sort,
-    filter,
-  });
-
-const keyWords = "Ant Design"
-
-<ProTable<T,U> params={{ keyWords }} request={fetchData} />;
-```
-
-我们约定 request 拥有三个参数，第一个 `params` 会自带 `pageSize` 和 `current`,并且将 props 中的 `params` 也会带入其中，第二个参数 `sort` 用与排序，第三个参数 `filter` 用于多选。他们的类型分别如下:
-
-```tsx | pure
-(
-  params: U & {
-    pageSize?: number;
-    current?: number;
-  },
-  sort: {
-    [key: string]: 'ascend' | 'descend';
-  },
-  filter: { [key: string]: React.ReactText[] },
-) => RequestData;
-```
-
-> ProTable 会将第二个泛型认为是 `params` 的类型，保证各个环节都要完善的类型支持。
-
-对与请求回来的结果的 ProTable 也有一些约定，类型如下：
-
-```tsx | pure
-interface RequestData {
-  data: Datum[];
-  success: boolean;
-  total: number;
-}
-```
-
-如果我们恰巧属性不同，也是可以做自定义的。request 只要是一个 `Promise<RequestData>` 接口，同样是上面的代码,我们可以自定义参数和返回值。看起来就像这样：
-
-```tsx | pure
-const fetchData =async (params, sort, filter) =>{
-  const msg =await  request<{
-    data: T[];
-  }>('https://proapi.azurewebsites.net/github/issues', {
-    params:{
-      pageNum:params.current,
-      size:params.pageSize
-    },
-    sort,
-    filter,
-  });
-  return {
-    data:msg.list,
-    total:msg.sum,
-    success:!msg.errorCode
-  }
-}
-
-const keyWords = "Ant Design"
-
-<ProTable<T,U> params={{ keyWords }} request={fetchData} />;
-```
-
-## 示例
+## 代码演示
 
 ### 查询表格
 

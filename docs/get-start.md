@@ -13,7 +13,7 @@ nav:
 当前 ProComponents 每一个组件都是一个独立的包，你需要在你的项目中安装对应的 npm 包并使用。
 
 ```shell
-$ tnpm i @ant-design/pro-table --save
+$ npm i @ant-design/pro-table --save
 ```
 
 当前 ProComponents 提供了如下组件可直接使用：

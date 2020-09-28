@@ -10,6 +10,8 @@ nav:
 
 # ProDescriptions - 高级定义列表
 
+## 何时使用
+
 高级描述列表组件，提供一个更加方便快速的方案来构建描述列表。
 
 ProDescriptions 的诞生是为了解决项目中需要写很多 Descriptions 的样板代码的问题，所以在其中做了封装了很多常用的逻辑。在 React 中写一个 Descriptions 免不了需要定义一些雷同的属性。所以 ProDescriptions 默认封装了请求网络，columns 列展示的逻辑。
@@ -46,7 +48,7 @@ interface RequestData {
 }
 ```
 
-## 示例
+## 代码演示
 
 ### 基础定义列表
 
