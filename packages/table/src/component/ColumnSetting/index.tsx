@@ -1,16 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { useIntl } from '@ant-design/pro-provider';
-import { ConfigContext } from 'antd/lib/config-provider';
 import {
   SettingOutlined,
   VerticalAlignMiddleOutlined,
   VerticalAlignTopOutlined,
   VerticalAlignBottomOutlined,
 } from '@ant-design/icons';
-import { Checkbox, Popover, Tooltip } from 'antd';
+import { Checkbox, Popover, ConfigProvider, Tooltip } from 'antd';
 import { DndProvider } from 'react-dnd';
 import classNames from 'classnames';
-import Backend from 'react-dnd-html5-backend';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 
 import Container, { ColumnsState } from '../../container';
 import { ProColumns } from '../../Table';
@@ -136,7 +135,7 @@ const CheckboxList: React.FC<{
     const newMap = { ...columnsMap };
     const newColumns = [...sortKeyColumns];
     const findIndex = newColumns.findIndex((columnKey) => columnKey === id);
-    if (findIndex === undefined) {
+    if (findIndex < 0) {
       return;
     }
     const index = newColumns[findIndex];
@@ -176,7 +175,7 @@ const CheckboxList: React.FC<{
     );
   });
   return (
-    <DndProvider backend={Backend}>
+    <DndProvider backend={HTML5Backend}>
       {showTitle && <span className={`${className}-list-title`}>{listTitle}</span>}
       {listDom}
     </DndProvider>
@@ -236,11 +235,19 @@ const GroupCheckboxList: React.FC<{
 };
 
 const ColumnSetting = <T, U = {}>(props: ColumnSettingProps<T>) => {
+  const columnRef = useRef({});
   const counter = Container.useContainer();
   const localColumns: Omit<ProColumns<any> & { index?: number }, 'ellipsis'>[] =
     props.columns || counter.columns || [];
 
-  const { columnsMap, setColumnsMap, setSortKeyColumns } = counter;
+  const { columnsMap, setColumnsMap } = counter;
+
+  useEffect(() => {
+    if (columnsMap) {
+      columnRef.current = JSON.parse(JSON.stringify(columnsMap));
+    }
+  }, []);
+
   /**
    * 设置全部选中，或全部未选中
    * @param show
@@ -266,9 +273,8 @@ const ColumnSetting = <T, U = {}>(props: ColumnSettingProps<T>) => {
   const indeterminate = selectedKeys.length > 0 && selectedKeys.length !== localColumns.length;
 
   const intl = useIntl();
-  const { getPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-table-column-setting');
-  const toolBarClassName = getPrefixCls('pro-table-toolbar');
 
   return (
     <Popover
@@ -290,8 +296,7 @@ const ColumnSetting = <T, U = {}>(props: ColumnSettingProps<T>) => {
           </Checkbox>
           <a
             onClick={() => {
-              setColumnsMap({});
-              setSortKeyColumns([]);
+              setColumnsMap(columnRef.current);
             }}
           >
             {intl.getMessage('tableToolBar.reset', '重置')}
@@ -303,11 +308,9 @@ const ColumnSetting = <T, U = {}>(props: ColumnSettingProps<T>) => {
       placement="bottomRight"
       content={<GroupCheckboxList className={className} localColumns={localColumns} />}
     >
-      <span className={`${toolBarClassName}-item-icon`}>
-        <Tooltip title={intl.getMessage('tableToolBar.columnSetting', '列设置')}>
-          <SettingOutlined />
-        </Tooltip>
-      </span>
+      <Tooltip title={intl.getMessage('tableToolBar.columnSetting', '列设置')}>
+        <SettingOutlined />
+      </Tooltip>
     </Popover>
   );
 };

@@ -47,7 +47,7 @@ export default () => {
             text="open"
             mode={state}
             valueEnum={{
-              all: { text: '全部', status: 'Default' },
+              all: { text: '全部', disabled: true, status: 'Default' },
               open: {
                 text: '未解决',
                 status: 'Error',
@@ -156,12 +156,15 @@ export default () => {
             mode={state}
           />
         </Descriptions.Item>
+        <Descriptions.Item label="密码">
+          <Field text="password" plain={plain} valueType="password" mode={state} />
+        </Descriptions.Item>
         <Descriptions.Item label="代码块">
           <Field
             text={`
-            yarn run v1.22.0
-            $ eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./packages
-            Done in 9.70s.
+yarn run v1.22.0            
+$ eslint --format=pretty ./packages
+Done in 9.70s.
           `}
             valueType="code"
             mode={state}

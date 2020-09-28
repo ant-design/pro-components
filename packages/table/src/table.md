@@ -93,6 +93,12 @@ render(
 
 <code src="./demos/search_option.tsx" background="#f5f5f5"/>
 
+### 自定义工具栏渲染
+
+使用 `toolbar`属性扩展配置工具栏渲染。
+
+<code src="./demos/listToolBar.tsx" background="#f5f5f5"/>
+
 ### 自定义表格主体
 
 <code src="./demos/renderTable.tsx" background="#f5f5f5"/>
@@ -110,6 +116,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | request | 获取 `dataSource` 的方法 | `(params?: {pageSize: number;current: number;[key: string]: any;},sort,filter) => Promise<RequestData<T>>` | - |
+| params | 用于 request 查询的多余参数，一旦变化会触发重新加载 | object | - | - |
 | postData | 对通过 `request` 获取的数据进行处理 | `(data: T[]) => T[]` | - |
 | defaultData | 默认的数据 | `T[]` | - |
 | actionRef | Table action 的引用，便于自定义触发 | `React.MutableRefObject<FormInstance>` \| `((actionRef: ActionType) => void)` | - |
@@ -132,6 +139,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | onReset | 重置表单时触发 | `() => void` | - |
 | columnEmptyText | 空值时的显示，不设置 则默认显示 `-` | `string \| false` | false |
 | tableRender | 自定义渲染表格函数 | `(props: ProTableProps<T, U>, defaultDom: JSX.Element, domList: { toolbar: JSX.Element \| undefined; alert: JSX.Element \| undefined; table: JSX.Element \| undefined;}) => React.ReactNode` | - |
+| toolbar | 透传 ProUtils 中的 ListToolBar 配置项 | `ListToolBarProps` | - |
 | tableExtraRender | 自定义表格的主体函数 | `(props: ProTableProps<T, U>, dataSource: T[]) => React.ReactNode;` | - |
 | manualRequest | 是否需要手动触发首次请求, 配置为 `true` 时不可隐藏搜索表单 | `boolean` | false |
 
@@ -196,7 +204,7 @@ ref.current.clearSelected();
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | title | 与 antd 中基本相同，但是支持通过传入一个方法 | `ReactNode \| ((config: ProColumnType<T>, type: ProTableTypes) => ReactNode)` | - |
-| tip | 会在 title 之后展示一个 icon，hover 之后提示一些信息 | string | - |
+| tooltip | 会在 title 之后展示一个 icon，hover 之后提示一些信息 | string | - |
 | renderText | 类似 table 的 render，但是必须返回 string，如果只是希望转化枚举，可以使用 [valueEnum](#valueEnum) | `(text: any,record: T,index: number,action: UseFetchDataAction<RequestData<T>>) => string` | - |
 | render | 类似 table 的 render，第一个参数变成了 dom,增加了第四个参数 action | `(text: React.ReactNode,record: T,index: number,action: UseFetchDataAction<RequestData<T>>) => React.ReactNode \| React.ReactNode[]` | - |
 | ellipsis | 是否自动缩略 | boolean | - |
@@ -349,7 +357,12 @@ interface IValueEnum {
 
 ### 批量操作
 
-与 antd 相同，批量操作需要设置 `rowSelection` 来开启，与 antd 不同的是，pro-table 提供了一个 alert 用于承载一些信息。你可以通过 `tableAlertRender` 来对它进行自定义。设置或者返回 false 即可关闭。
+与 antd 相同，批量操作需要设置 `rowSelection` 来开启，与 antd 不同的是，pro-table 提供了一个 alert 用于承载一些信息。你可以通过 `tableAlertRender`和 `tableAlertOptionRender` 来对它进行自定义。设置或者返回 false 即可关闭。
+
+| 属性 | 描述 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| tableAlertRender | 自定义批量操作工具栏左侧信息区域, false 时不显示 | `({ selectedRowKeys: (string | number)[], selectedRows: T[], onCleanSelected: ()=>void }) => React.ReactNode) \| false;` | - |
+| tableAlertOptionRender | 自定义批量操作工具栏右侧选项区域, false 时不显示 | `({ selectedRowKeys: (string | number)[], selectedRows: T[], onCleanSelected: ()=>void }) => React.ReactNode) \| false;` | - |
 
 ### 搜索表单
 

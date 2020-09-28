@@ -8,8 +8,6 @@ nav:
   path: /components
 ---
 
-> 开发中，请勿用于生产环境。
-
 # ProForm
 
 ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设置，帮助我们快速的开发 From 表单。使用方法与 From 大致相同，但是 ProForm 会自动格式化 date 的 moment 数据，你可以通过 dateFormatter 来关闭这个预设。
@@ -78,7 +76,7 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 | onReset | 点击重置按钮的回调，设置后重置按钮才会被渲染 | `Function(e)` | - |
 | submitter | 提交按钮相关配置 | `boolean` \| `SubmitterProps` | `true` |
 | dateFormatter | 自动格式数据，例如 moment 的表单,支持 string 和 number 两种模式 | `string\| number \|false` | string |
-| (...) | 支持除 `wrapperCol` \| `labelCol` \| `layout` 外的其他 antd `Form` 组件参数 | - | - |
+| [(...)](https://ant.design/components/form-cn/) | 支持除 `wrapperCol` \| `labelCol` \| `layout` 外的其他 antd `Form` 组件参数 | - | - |
 
 ### ProForm.Group
 
@@ -162,7 +160,7 @@ ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 �
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | width | Field 的长度，我们归纳了常用的 Field 长度以及适合的场景，支持了一些枚举 "xs" , "s" , "m" , "l" , "x" | `number \| "xs" \| "s" \| "m" \| "l" \| "x"` | - |
-| tip | 会在 label 旁增加一个 icon，悬浮后展示配置的信息 | `string \| tooltipProps` |
+| tooltip | 会在 label 旁增加一个 icon，悬浮后展示配置的信息 | `string \| tooltipProps` |
 
 ### 宽度
 
@@ -182,6 +180,14 @@ ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 �
 
 ```tsx | pure
 <ProFormText name="text" label="名称" placeholder="请输入名称" fieldProps={inputProps} />
+```
+
+### ProFormText.Password
+
+与 [Input.Password](https://ant.design/components/input-cn/#Input.Password) 相同。
+
+```tsx | pure
+<ProFormText.Password label="InputPassword" name="input-password" />
 ```
 
 ### ProFormDatePicker
@@ -389,8 +395,20 @@ ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 �
 
 ### ProFormDigit
 
-与 [inputNumber](https://ant.design/components/input-number-cn/) 相同。它自带了一个格式化，有需要你可以关掉它。
+与 [inputNumber](https://ant.design/components/input-number-cn/) 相同。它自带了一个格式化(保留 2 位小数，最小值为 0)，有需要你可以关掉它。
 
 ```tsx | pure
 <ProFormDigit label="InputNumber" name="input-number" min={1} max={10} />
+```
+
+如果要修改小数位数：
+
+```tsx | pure
+<ProFormDigit
+  label="InputNumber"
+  name="input-number"
+  min={1}
+  max={10}
+  fieldProps={{ precision: 0 }}
+/>
 ```

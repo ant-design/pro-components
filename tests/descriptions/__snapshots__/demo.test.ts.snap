@@ -240,7 +240,7 @@ exports[`descriptions demos renders ./packages/descriptions/src/demos/base.tsx c
               >
                 <div
                   class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
-                  style="min-width: 100px;"
+                  style="min-width: 100px; max-width: 320px;"
                 >
                   <div
                     class="ant-progress-outer"
@@ -385,9 +385,9 @@ exports[`descriptions demos renders ./packages/descriptions/src/demos/base.tsx c
                 >
                   <code>
                     
-            yarn run v1.22.0
-            $ eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./packages
-            Done in 9.70s.
+yarn run v1.22.0
+$ eslint --format=pretty ./packages
+Done in 9.70s.
           
                   </code>
                 </pre>
@@ -467,6 +467,7 @@ exports[`descriptions demos renders ./packages/descriptions/src/demos/columns.ts
       >
         <div
           class="ant-space-item"
+          style="margin-right: 8px;"
         >
           <a
             rel="noopener noreferrer"
@@ -474,12 +475,21 @@ exports[`descriptions demos renders ./packages/descriptions/src/demos/columns.ts
           >
             链路
           </a>
+        </div>
+        <div
+          class="ant-space-item"
+          style="margin-right: 8px;"
+        >
           <a
             rel="noopener noreferrer"
             target="_blank"
           >
             报警
           </a>
+        </div>
+        <div
+          class="ant-space-item"
+        >
           <a
             rel="noopener noreferrer"
             target="_blank"

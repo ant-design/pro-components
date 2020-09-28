@@ -80,24 +80,6 @@ export const getBreadcrumbFromProps = (
   };
 };
 
-// Generated according to props
-const conversionFromProps = (props: BreadcrumbProps): AntdBreadcrumbProps['routes'] => {
-  const { breadcrumbList = [] } = props;
-  return breadcrumbList
-    .map((item) => {
-      const { title, href } = item;
-      // For application that has configured router base
-      // @ts-ignore
-      const { routerBase = '/' } = isBrowser() ? window : {};
-      const realPath = routerBase === '/' ? href : `${routerBase}${href}`;
-      return {
-        path: realPath,
-        breadcrumbName: title,
-      };
-    })
-    .filter((item) => item.path);
-};
-
 const conversionFromLocation = (
   routerLocation: BreadcrumbProps['location'] = { pathname: '/' },
   breadcrumbMap: Map<string, MenuDataItem>,
@@ -144,11 +126,7 @@ export type BreadcrumbListReturn = Pick<
  * Convert parameters into breadcrumbs
  */
 export const genBreadcrumbProps = (props: BreadcrumbProps): AntdBreadcrumbProps['routes'] => {
-  const { breadcrumbList } = props;
   const { location, breadcrumbMap } = getBreadcrumbFromProps(props);
-  if (breadcrumbList && breadcrumbList.length) {
-    return conversionFromProps(props);
-  }
 
   // 根据 location 生成 面包屑
   // Generate breadcrumbs based on location

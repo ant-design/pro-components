@@ -6,10 +6,10 @@
   ],
   "scripts": {
     "bootstrap": "node ./scripts/bootstrap.js",
-    "build": "father-build && webpack --progress",
+    "build": "father-build && webpack",
     "deploy": "npm run site && gh-pages -d ./dist",
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./packages && npm run lint:prettier",
-    "lint:prettier": "prettier --check \"**/**.{js,jsx,tsx,ts,less,md,json}\" --end-of-line auto",
+    "lint:prettier": "npm run prettier &&  git diff && prettier --version && prettier --check \"packages/**/**.{js,jsx,tsx,ts,less,md,json}\" --end-of-line auto",
     "prettier": "prettier --write \"**/**.{js,jsx,tsx,ts,less,md,json}\"",
     "release": "npm run test && node ./scripts/release.js",
     "site": "dumi build",
@@ -55,20 +55,21 @@
     "@types/react-responsive": "^8.0.1",
     "@types/react-router-dom": "^5.1.0",
     "@types/warning": "^3.0.0",
+    "@types/xhr-mock": "^2.0.0",
     "@umijs/babel-preset-umi": "^3.0.14",
     "@umijs/fabric": "^2.0.0",
     "@umijs/plugin-analytics": "^0.2.2",
     "@umijs/test": "^3.2.10",
     "@umijs/test-utils": "^3.2.10",
     "@umijs/utils": "^3.2.11",
-    "antd": "^4.6.0",
+    "antd": "^4.6.4",
     "babel-loader": "^8.1.0",
     "babel-plugin-import": "^1.12.2",
     "body-parser": "^1.18.2",
     "chalk": "^4.1.0",
     "cross-env": "^7.0.0",
     "css-loader": "^3.4.2",
-    "dumi": "1.0.34",
+    "dumi": "^1.0.0",
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.4.3",
     "eslint": "^7.2.0",
@@ -80,6 +81,7 @@
     "jsdom": "^16.4.0",
     "jsdom-global": "^3.0.2",
     "lerna": "^3.20.2",
+    "lerna-changelog": "^1.0.1",
     "less-loader": "^6.0.0",
     "lint-staged": "^10.0.2",
     "mini-css-extract-plugin": "^0.9.0",
@@ -90,8 +92,9 @@
     "npm-run-all": "^4.1.5",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "pify": "^5.0.0",
-    "prettier": "^2.0.1",
+    "prettier": "^2.1.2",
     "pretty-quick": "^2.0.1",
+    "progress-bar-webpack-plugin": "^2.1.0",
     "query-string": "^6.11.1",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
@@ -111,6 +114,7 @@
     "webpack-bundle-analyzer": "^3.6.0",
     "webpack-cli": "^3.3.10",
     "write-pkg": "^4.0.0",
+    "xhr-mock": "^2.5.1",
     "yorkie": "^2.0.0"
   },
   "gitHooks": {
@@ -119,110 +123,56 @@
   },
   "size-limit": [
     {
-      "path": "packages/card/lib/**/*.js",
-      "limit": "2 s",
+      "path": "packages/card/dist/**/*.js",
+      "limit": "100 s",
       "webpack": false,
       "running": false
     },
     {
-      "path": "packages/card/es/**/*.js",
-      "limit": "2 s",
+      "path": "packages/descriptions/dist/**/*.js",
+      "limit": "100 s",
       "webpack": false,
       "running": false
     },
     {
-      "path": "packages/descriptions/lib/**/*.js",
-      "limit": "2 s",
+      "path": "packages/field/dist/**/*.js",
+      "limit": "100 s",
       "webpack": false,
       "running": false
     },
     {
-      "path": "packages/descriptions/es/**/*.js",
-      "limit": "2 s",
+      "path": "packages/form/dist/**/*.js",
+      "limit": "100 s",
       "webpack": false,
       "running": false
     },
     {
-      "path": "packages/field/lib/**/*.js",
-      "limit": "2 s",
-      "webpack": false,
-      "running": false
-    },
-    {
-      "path": "packages/field/es/**/*.js",
-      "limit": "2 s",
-      "webpack": false,
-      "running": false
-    },
-    {
-      "path": "packages/form/lib/**/*.js",
-      "limit": "2 s",
-      "webpack": false,
-      "running": false
-    },
-    {
-      "path": "packages/form/es/**/*.js",
-      "limit": "2 s",
-      "webpack": false,
-      "running": false
-    },
-    {
-      "path": "packages/layout/lib/**/*.js",
-      "limit": "2 s",
-      "webpack": false,
-      "running": false
-    },
-    {
-      "path": "packages/layout/es/**/*.js",
-      "limit": "2 s",
+      "path": "packages/layout/dist/**/*.js",
+      "limit": "100 s",
       "webpack": false,
       "running": false
     },
     {
       "path": "packages/list/lib/**/*.js",
-      "limit": "2 s",
+      "limit": "100 s",
       "webpack": false,
       "running": false
     },
     {
-      "path": "packages/list/es/**/*.js",
-      "limit": "2 s",
+      "path": "packages/provider/dist/**/*.js",
+      "limit": "100 s",
       "webpack": false,
       "running": false
     },
     {
-      "path": "packages/provider/lib/**/*.js",
-      "limit": "2 s",
+      "path": "packages/skeleton/dist/**/*.js",
+      "limit": "100 s",
       "webpack": false,
       "running": false
     },
     {
-      "path": "packages/provider/es/**/*.js",
-      "limit": "2 s",
-      "webpack": false,
-      "running": false
-    },
-    {
-      "path": "packages/skeleton/lib/**/*.js",
-      "limit": "2 s",
-      "webpack": false,
-      "running": false
-    },
-    {
-      "path": "packages/skeleton/es/**/*.js",
-      "limit": "2 s",
-      "webpack": false,
-      "running": false
-    },
-    {
-      "path": "packages/table/lib/**/*.js",
-      "limit": "2 s",
-      "webpack": false,
-      "running": false
-    },
-    {
-      "path": "packages/table/es/**/*.js",
-      "limit": "2 s",
+      "path": "packages/table/dist/**/*.js",
+      "limit": "100 s",
       "webpack": false,
       "running": false
     }

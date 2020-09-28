@@ -10,20 +10,21 @@ const valueType = 'dateRange';
  * 日期区间选择组件
  * @param
  */
-const ProFormDatePicker: React.FC<ProFormItemProps<DatePickerProps>> = ({
-  fieldProps,
-  proFieldProps,
-}) => (
+const ProFormDatePicker: React.FC<ProFormItemProps<
+  DatePickerProps
+>> = React.forwardRef(({ fieldProps, proFieldProps }, ref) => (
   <ProField
+    ref={ref}
     text={fieldProps?.value}
     mode="edit"
     fieldProps={fieldProps}
     valueType={valueType}
     {...proFieldProps}
   />
-);
+));
 
 export default createField<ProFormItemProps<DatePickerProps>>(ProFormDatePicker, {
   valueType,
   customLightMode: true,
+  ignoreFelidWidth: true,
 });

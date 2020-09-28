@@ -1,23 +1,20 @@
 import { FormInstance } from 'antd/lib/form';
 import { ReactNode } from 'react';
 
-export type ProSchemaValueEnumObj = {
-  [key: string]:
-    | {
-        text: ReactNode;
-        status: string;
-      }
-    | ReactNode;
+type ProSchemaValueEnumType = {
+  text: ReactNode;
+  status: string;
+  /**
+   * 是否禁用
+   */
+  disabled?: boolean;
 };
 
-export type ProSchemaValueEnumMap = Map<
-  React.ReactText,
-  | {
-      text: ReactNode;
-      status: string;
-    }
-  | ReactNode
->;
+export type ProSchemaValueEnumObj = {
+  [key: string]: ProSchemaValueEnumType | ReactNode;
+};
+
+export type ProSchemaValueEnumMap = Map<React.ReactText, ProSchemaValueEnumType | ReactNode>;
 
 export type SearchTransformKeyFn = (
   value: any,
@@ -26,6 +23,9 @@ export type SearchTransformKeyFn = (
 ) => string | { [key: string]: any };
 
 // 支持的变形，还未完全支持完毕
+/**
+ * 支持的变形，还未完全支持完毕
+ */
 export type ProSchemaComponentTypes =
   | 'form'
   | 'list'
@@ -49,7 +49,7 @@ export type ProFieldRequestData<T, U = any> = (
  * 操作类型
  */
 export interface ProCoreActionType {
-  reload: () => void;
+  reload: (resetPageIndex?: boolean) => void;
   reloadAndRest?: () => void;
   reset?: () => void;
   clearSelected?: () => void;
@@ -64,7 +64,7 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
   /**
    * 选择如何渲染相应的模式
    */
-  valueType?: ((entity: T) => U) | U;
+  valueType?: ((entity: T, type: ProSchemaComponentTypes) => U) | U;
   title?:
     | ((
         schema: ProSchema<T, U, Extra>,
@@ -75,6 +75,11 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
 
   /**
    *展示一个 icon，hover 是展示一些提示信息
+   */
+  tooltip?: string;
+
+  /**
+   * @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一
    */
   tip?: string;
 

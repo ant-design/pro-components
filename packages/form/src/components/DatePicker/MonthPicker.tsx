@@ -9,22 +9,23 @@ const valueType = 'dateMonth';
  * 周选择组件
  * @param
  */
-const ProFormDatePickerMonth: React.FC<ProFormItemProps<MonthPickerProps>> = ({
-  proFieldProps,
-  fieldProps,
-}) => {
-  return (
-    <ProField
-      text={fieldProps?.value}
-      mode="edit"
-      valueType={valueType}
-      fieldProps={fieldProps}
-      {...proFieldProps}
-    />
-  );
-};
+const ProFormDatePickerMonth: React.FC<ProFormItemProps<MonthPickerProps>> = React.forwardRef(
+  ({ proFieldProps, fieldProps }, ref) => {
+    return (
+      <ProField
+        ref={ref}
+        text={fieldProps?.value}
+        mode="edit"
+        valueType={valueType}
+        fieldProps={fieldProps}
+        {...proFieldProps}
+      />
+    );
+  },
+);
 
 export default createField<ProFormItemProps<MonthPickerProps>>(ProFormDatePickerMonth, {
   valueType,
   customLightMode: true,
+  ignoreFelidWidth: true,
 });

@@ -34,7 +34,7 @@ const tableListDataSource: TableListItem[] = [];
 
 const creators = ['付小小', '曲丽丽', '林东东', '陈帅帅', '兼某某'];
 
-for (let i = 0; i < 100; i += 1) {
+for (let i = 0; i < 5; i += 1) {
   tableListDataSource.push({
     key: i,
     name: 'AppName',
@@ -131,9 +131,14 @@ export default () => {
     <ProTable<TableListItem>
       columns={columns}
       rowSelection={{}}
-      tableAlertRender={({ selectedRowKeys, selectedRows }) => (
+      tableAlertRender={({ selectedRowKeys, selectedRows, onCleanSelected }) => (
         <Space size={24}>
-          <span>已选 {selectedRowKeys.length} 项</span>
+          <span>
+            已选 {selectedRowKeys.length} 项
+            <a style={{ marginLeft: 8 }} onClick={onCleanSelected}>
+              取消选择
+            </a>
+          </span>
           <span>{`容器数量: ${selectedRows.reduce(
             (pre, item) => pre + item.containers,
             0,
@@ -144,17 +149,11 @@ export default () => {
           )} 次`}</span>
         </Space>
       )}
-      tableAlertOptionRender={(props) => {
-        const { onCleanSelected } = props;
+      tableAlertOptionRender={() => {
         return (
           <Space>
-            <Button type="link" onClick={onCleanSelected}>
-              取消选择
-            </Button>
-            <Button danger type="link">
-              批量删除
-            </Button>
-            <Button type="link">导出数据</Button>
+            <a>批量删除</a>
+            <a>导出数据</a>
           </Space>
         );
       }}

@@ -9,22 +9,23 @@ const valueType = 'dateQuarter';
  * 周选择组件
  * @param
  */
-const ProFormDatePickerQuarter: React.FC<ProFormItemProps<DatePickerProps>> = ({
-  proFieldProps,
-  fieldProps,
-}) => {
-  return (
-    <ProField
-      text={fieldProps?.value}
-      mode="edit"
-      valueType={valueType}
-      fieldProps={fieldProps}
-      {...proFieldProps}
-    />
-  );
-};
+const ProFormDatePickerQuarter: React.FC<ProFormItemProps<DatePickerProps>> = React.forwardRef(
+  ({ proFieldProps, fieldProps }, ref: any) => {
+    return (
+      <ProField
+        ref={ref}
+        text={fieldProps?.value}
+        mode="edit"
+        valueType={valueType}
+        fieldProps={fieldProps}
+        {...proFieldProps}
+      />
+    );
+  },
+);
 
 export default createField<ProFormItemProps<DatePickerProps>>(ProFormDatePickerQuarter, {
   valueType,
   customLightMode: true,
+  ignoreFelidWidth: true,
 });

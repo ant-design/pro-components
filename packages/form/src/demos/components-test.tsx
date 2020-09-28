@@ -1,7 +1,11 @@
 import React, { useRef } from 'react';
 
 import { SmileOutlined } from '@ant-design/icons';
-import ProForm, { ProFormUploadButton, ProFormUploadDragger } from '@ant-design/pro-form';
+import ProForm, {
+  ProFormSwitch,
+  ProFormUploadButton,
+  ProFormUploadDragger,
+} from '@ant-design/pro-form';
 
 const Demo = () => {
   const formRef = useRef();
@@ -26,6 +30,7 @@ const Demo = () => {
         action="/upload.do"
         extra="longgggggggggggggggggggggggggggggggggg"
       />
+      <ProFormSwitch width="l" label="是否打开" />
       <ProFormUploadDragger
         title="拖动上传"
         icon={<SmileOutlined />}

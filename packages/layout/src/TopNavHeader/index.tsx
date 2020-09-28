@@ -34,9 +34,6 @@ const RightContent: React.FC<TopNavHeaderProps> = ({ rightContentRender, ...prop
       >
         <ResizeObserver
           onResize={({ width }: { width: number }) => {
-            if (!width) {
-              return;
-            }
             setRightSize(width);
           }}
         >

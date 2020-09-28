@@ -127,7 +127,6 @@ exports[`BasicTable 🎏  do not render default option 1`] = `
           >
             <div
               class="ant-space-item"
-              style="margin-right: 8px;"
             >
               <div
                 class="ant-space ant-space-horizontal ant-space-align-center"
@@ -159,9 +158,6 @@ exports[`BasicTable 🎏  do not render default option 1`] = `
                 </div>
               </div>
             </div>
-            <div
-              class="ant-space-item"
-            />
           </div>
         </div>
       </div>
@@ -176,56 +172,47 @@ exports[`BasicTable 🎏  do not render default option 1`] = `
       style="padding: 0px;"
     >
       <div
-        class="ant-pro-table-toolbar"
+        class="ant-pro-core-toolbar"
       >
         <div
-          class="ant-pro-table-toolbar-title"
-        />
-        <div
-          class="ant-pro-table-toolbar-option"
+          class="ant-pro-core-toolbar-container"
         >
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center"
+            class="ant-pro-core-toolbar-left"
           >
             <div
-              class="ant-space-item"
+              class="ant-pro-core-toolbar-title"
             />
           </div>
           <div
-            class="ant-pro-table-toolbar-default-option"
+            class="ant-pro-core-toolbar-right"
           >
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center"
+              class="ant-pro-core-toolbar-setting-item"
             >
-              <div
-                class="ant-space-item"
-              >
+              <span>
                 <span
-                  class="ant-pro-table-toolbar-item-icon"
+                  aria-label="column-height"
+                  class="anticon anticon-column-height ant-dropdown-trigger"
+                  role="img"
+                  tabindex="-1"
                 >
-                  <span
-                    aria-label="column-height"
-                    class="anticon anticon-column-height ant-dropdown-trigger"
-                    role="img"
-                    tabindex="-1"
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="column-height"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="column-height"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M840 836H184c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h656c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8zm0-724H184c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h656c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8zM610.8 378c6 0 9.4-7 5.7-11.7L515.7 238.7a7.14 7.14 0 00-11.3 0L403.6 366.3a7.23 7.23 0 005.7 11.7H476v268h-62.8c-6 0-9.4 7-5.7 11.7l100.8 127.5c2.9 3.7 8.5 3.7 11.3 0l100.8-127.5c3.7-4.7.4-11.7-5.7-11.7H548V378h62.8z"
-                      />
-                    </svg>
-                  </span>
+                    <path
+                      d="M840 836H184c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h656c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8zm0-724H184c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h656c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8zM610.8 378c6 0 9.4-7 5.7-11.7L515.7 238.7a7.14 7.14 0 00-11.3 0L403.6 366.3a7.23 7.23 0 005.7 11.7H476v268h-62.8c-6 0-9.4 7-5.7 11.7l100.8 127.5c2.9 3.7 8.5 3.7 11.3 0l100.8-127.5c3.7-4.7.4-11.7-5.7-11.7H548V378h62.8z"
+                    />
+                  </svg>
                 </span>
-              </div>
+              </span>
             </div>
           </div>
         </div>
@@ -510,7 +497,7 @@ exports[`BasicTable 🎏  do not render default option 1`] = `
               </div>
             </div>
             <ul
-              class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+              class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
               unselectable="unselectable"
             >
               <li
@@ -693,7 +680,7 @@ exports[`BasicTable 🎏  do not render default option 1`] = `
                 class="ant-pagination-options"
               >
                 <div
-                  class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
+                  class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
                     class="ant-select-selector"
@@ -713,6 +700,7 @@ exports[`BasicTable 🎏  do not render default option 1`] = `
                         readonly=""
                         role="combobox"
                         style="opacity: 0;"
+                        type="search"
                         unselectable="on"
                         value=""
                       />
@@ -906,6 +894,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         readonly=""
                         role="combobox"
                         style="opacity: 0;"
+                        type="search"
                         unselectable="on"
                         value=""
                       />
@@ -998,6 +987,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         readonly=""
                         role="combobox"
                         style="opacity: 0;"
+                        type="search"
                         unselectable="on"
                         value=""
                       />
@@ -1529,27 +1519,30 @@ exports[`BasicTable 🎏 base use 1`] = `
       style="padding: 0px;"
     >
       <div
-        class="ant-pro-table-toolbar"
+        class="ant-pro-core-toolbar"
       >
         <div
-          class="ant-pro-table-toolbar-title"
-        />
-        <div
-          class="ant-pro-table-toolbar-option"
+          class="ant-pro-core-toolbar-container"
         >
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center"
+            class="ant-pro-core-toolbar-left"
           >
             <div
-              class="ant-space-item"
+              class="ant-pro-core-toolbar-title"
             />
+          </div>
+          <div
+            class="ant-pro-core-toolbar-right"
+          >
             <div
-              class="ant-space-item"
-              style="margin-right: 8px;"
+              class="ant-space ant-space-horizontal ant-space-align-center"
             >
-              <div>
+              <div
+                class="ant-space-item"
+                style="margin-right: 8px;"
+              >
                 <span
-                  class="ant-input-search ant-input-affix-wrapper"
+                  class="ant-input-affix-wrapper ant-input-search"
                   style="width: 200px;"
                 >
                   <input
@@ -1584,11 +1577,9 @@ exports[`BasicTable 🎏 base use 1`] = `
                   </span>
                 </span>
               </div>
-            </div>
-            <div
-              class="ant-space-item"
-            >
-              <div>
+              <div
+                class="ant-space-item"
+              >
                 <button
                   class="ant-btn ant-dropdown-trigger ant-pro-table-dropdown"
                   type="button"
@@ -1619,133 +1610,117 @@ exports[`BasicTable 🎏 base use 1`] = `
                 </button>
               </div>
             </div>
-          </div>
-          <div
-            class="ant-pro-table-toolbar-default-option"
-          >
             <div
-              class="ant-divider ant-divider-vertical"
-              role="separator"
-            />
-            <div
-              class="ant-space ant-space-horizontal ant-space-align-center"
+              class="ant-pro-core-toolbar-divider"
             >
               <div
-                class="ant-space-item"
-                style="margin-right: 8px;"
-              >
+                class="ant-divider ant-divider-vertical"
+                role="separator"
+              />
+            </div>
+            <div
+              class="ant-pro-core-toolbar-setting-item"
+            >
+              <span>
                 <span
-                  class="ant-pro-table-toolbar-item-icon"
+                  aria-label="reload"
+                  class="anticon anticon-reload"
+                  role="img"
                 >
-                  <span
-                    aria-label="reload"
-                    class="anticon anticon-reload"
-                    role="img"
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="reload"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="reload"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M909.1 209.3l-56.4 44.1C775.8 155.1 656.2 92 521.9 92 290 92 102.3 279.5 102 511.5 101.7 743.7 289.8 932 521.9 932c181.3 0 335.8-115 394.6-276.1 1.5-4.2-.7-8.9-4.9-10.3l-56.7-19.5a8 8 0 00-10.1 4.8c-1.8 5-3.8 10-5.9 14.9-17.3 41-42.1 77.8-73.7 109.4A344.77 344.77 0 01655.9 829c-42.3 17.9-87.4 27-133.8 27-46.5 0-91.5-9.1-133.8-27A341.5 341.5 0 01279 755.2a342.16 342.16 0 01-73.7-109.4c-17.9-42.4-27-87.4-27-133.9s9.1-91.5 27-133.9c17.3-41 42.1-77.8 73.7-109.4 31.6-31.6 68.4-56.4 109.3-73.8 42.3-17.9 87.4-27 133.8-27 46.5 0 91.5 9.1 133.8 27a341.5 341.5 0 01109.3 73.8c9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47a8 8 0 003 14.1l175.6 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c-.1-6.6-7.8-10.3-13-6.2z"
-                      />
-                    </svg>
-                  </span>
+                    <path
+                      d="M909.1 209.3l-56.4 44.1C775.8 155.1 656.2 92 521.9 92 290 92 102.3 279.5 102 511.5 101.7 743.7 289.8 932 521.9 932c181.3 0 335.8-115 394.6-276.1 1.5-4.2-.7-8.9-4.9-10.3l-56.7-19.5a8 8 0 00-10.1 4.8c-1.8 5-3.8 10-5.9 14.9-17.3 41-42.1 77.8-73.7 109.4A344.77 344.77 0 01655.9 829c-42.3 17.9-87.4 27-133.8 27-46.5 0-91.5-9.1-133.8-27A341.5 341.5 0 01279 755.2a342.16 342.16 0 01-73.7-109.4c-17.9-42.4-27-87.4-27-133.9s9.1-91.5 27-133.9c17.3-41 42.1-77.8 73.7-109.4 31.6-31.6 68.4-56.4 109.3-73.8 42.3-17.9 87.4-27 133.8-27 46.5 0 91.5 9.1 133.8 27a341.5 341.5 0 01109.3 73.8c9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47a8 8 0 003 14.1l175.6 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c-.1-6.6-7.8-10.3-13-6.2z"
+                    />
+                  </svg>
                 </span>
-              </div>
-              <div
-                class="ant-space-item"
-                style="margin-right: 8px;"
-              >
+              </span>
+            </div>
+            <div
+              class="ant-pro-core-toolbar-setting-item"
+            >
+              <span>
                 <span
-                  class="ant-pro-table-toolbar-item-icon"
+                  aria-label="column-height"
+                  class="anticon anticon-column-height ant-dropdown-trigger"
+                  role="img"
+                  tabindex="-1"
                 >
-                  <span
-                    aria-label="column-height"
-                    class="anticon anticon-column-height ant-dropdown-trigger"
-                    role="img"
-                    tabindex="-1"
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="column-height"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="column-height"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M840 836H184c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h656c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8zm0-724H184c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h656c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8zM610.8 378c6 0 9.4-7 5.7-11.7L515.7 238.7a7.14 7.14 0 00-11.3 0L403.6 366.3a7.23 7.23 0 005.7 11.7H476v268h-62.8c-6 0-9.4 7-5.7 11.7l100.8 127.5c2.9 3.7 8.5 3.7 11.3 0l100.8-127.5c3.7-4.7.4-11.7-5.7-11.7H548V378h62.8z"
-                      />
-                    </svg>
-                  </span>
+                    <path
+                      d="M840 836H184c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h656c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8zm0-724H184c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h656c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8zM610.8 378c6 0 9.4-7 5.7-11.7L515.7 238.7a7.14 7.14 0 00-11.3 0L403.6 366.3a7.23 7.23 0 005.7 11.7H476v268h-62.8c-6 0-9.4 7-5.7 11.7l100.8 127.5c2.9 3.7 8.5 3.7 11.3 0l100.8-127.5c3.7-4.7.4-11.7-5.7-11.7H548V378h62.8z"
+                    />
+                  </svg>
                 </span>
-              </div>
-              <div
-                class="ant-space-item"
-                style="margin-right: 8px;"
+              </span>
+            </div>
+            <div
+              class="ant-pro-core-toolbar-setting-item"
+            >
+              <span
+                aria-label="setting"
+                class="anticon anticon-setting"
+                role="img"
+                tabindex="-1"
               >
-                <span
-                  class="ant-pro-table-toolbar-item-icon"
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="setting"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <span
-                    aria-label="setting"
-                    class="anticon anticon-setting"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="setting"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 009.3-35.2l-.9-2.6a443.74 443.74 0 00-79.7-137.9l-1.8-2.1a32.12 32.12 0 00-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 00-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 00-25.8 25.7l-15.8 85.4a351.86 351.86 0 00-99 57.4l-81.9-29.1a32 32 0 00-35.1 9.5l-1.8 2.1a446.02 446.02 0 00-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 00-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0035.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0025.8 25.7l2.7.5a449.4 449.4 0 00159 0l2.7-.5a32.05 32.05 0 0025.8-25.7l15.7-85a350 350 0 0099.7-57.6l81.3 28.9a32 32 0 0035.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 01-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 01-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 01512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 01400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 01624 502c0 29.9-11.7 58-32.8 79.2z"
-                      />
-                    </svg>
-                  </span>
-                </span>
-              </div>
-              <div
-                class="ant-space-item"
-              >
+                  <path
+                    d="M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 009.3-35.2l-.9-2.6a443.74 443.74 0 00-79.7-137.9l-1.8-2.1a32.12 32.12 0 00-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 00-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 00-25.8 25.7l-15.8 85.4a351.86 351.86 0 00-99 57.4l-81.9-29.1a32 32 0 00-35.1 9.5l-1.8 2.1a446.02 446.02 0 00-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 00-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0035.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0025.8 25.7l2.7.5a449.4 449.4 0 00159 0l2.7-.5a32.05 32.05 0 0025.8-25.7l15.7-85a350 350 0 0099.7-57.6l81.3 28.9a32 32 0 0035.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 01-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 01-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 01512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 01400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 01624 502c0 29.9-11.7 58-32.8 79.2z"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div
+              class="ant-pro-core-toolbar-setting-item"
+            >
+              <span>
                 <span
-                  class="ant-pro-table-toolbar-item-icon"
+                  aria-label="fullscreen"
+                  class="anticon anticon-fullscreen"
+                  role="img"
                 >
-                  <span
-                    aria-label="fullscreen"
-                    class="anticon anticon-fullscreen"
-                    role="img"
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="fullscreen"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="fullscreen"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M290 236.4l43.9-43.9a8.01 8.01 0 00-4.7-13.6L169 160c-5.1-.6-9.5 3.7-8.9 8.9L179 329.1c.8 6.6 8.9 9.4 13.6 4.7l43.7-43.7L370 423.7c3.1 3.1 8.2 3.1 11.3 0l42.4-42.3c3.1-3.1 3.1-8.2 0-11.3L290 236.4zm352.7 187.3c3.1 3.1 8.2 3.1 11.3 0l133.7-133.6 43.7 43.7a8.01 8.01 0 0013.6-4.7L863.9 169c.6-5.1-3.7-9.5-8.9-8.9L694.8 179c-6.6.8-9.4 8.9-4.7 13.6l43.9 43.9L600.3 370a8.03 8.03 0 000 11.3l42.4 42.4zM845 694.9c-.8-6.6-8.9-9.4-13.6-4.7l-43.7 43.7L654 600.3a8.03 8.03 0 00-11.3 0l-42.4 42.3a8.03 8.03 0 000 11.3L734 787.6l-43.9 43.9a8.01 8.01 0 004.7 13.6L855 864c5.1.6 9.5-3.7 8.9-8.9L845 694.9zm-463.7-94.6a8.03 8.03 0 00-11.3 0L236.3 733.9l-43.7-43.7a8.01 8.01 0 00-13.6 4.7L160.1 855c-.6 5.1 3.7 9.5 8.9 8.9L329.2 845c6.6-.8 9.4-8.9 4.7-13.6L290 787.6 423.7 654c3.1-3.1 3.1-8.2 0-11.3l-42.4-42.4z"
-                      />
-                    </svg>
-                  </span>
+                    <path
+                      d="M290 236.4l43.9-43.9a8.01 8.01 0 00-4.7-13.6L169 160c-5.1-.6-9.5 3.7-8.9 8.9L179 329.1c.8 6.6 8.9 9.4 13.6 4.7l43.7-43.7L370 423.7c3.1 3.1 8.2 3.1 11.3 0l42.4-42.3c3.1-3.1 3.1-8.2 0-11.3L290 236.4zm352.7 187.3c3.1 3.1 8.2 3.1 11.3 0l133.7-133.6 43.7 43.7a8.01 8.01 0 0013.6-4.7L863.9 169c.6-5.1-3.7-9.5-8.9-8.9L694.8 179c-6.6.8-9.4 8.9-4.7 13.6l43.9 43.9L600.3 370a8.03 8.03 0 000 11.3l42.4 42.4zM845 694.9c-.8-6.6-8.9-9.4-13.6-4.7l-43.7 43.7L654 600.3a8.03 8.03 0 00-11.3 0l-42.4 42.3a8.03 8.03 0 000 11.3L734 787.6l-43.9 43.9a8.01 8.01 0 004.7 13.6L855 864c5.1.6 9.5-3.7 8.9-8.9L845 694.9zm-463.7-94.6a8.03 8.03 0 00-11.3 0L236.3 733.9l-43.7-43.7a8.01 8.01 0 00-13.6 4.7L160.1 855c-.6 5.1 3.7 9.5 8.9 8.9L329.2 845c6.6-.8 9.4-8.9 4.7-13.6L290 787.6 423.7 654c3.1-3.1 3.1-8.2 0-11.3l-42.4-42.4z"
+                    />
+                  </svg>
                 </span>
-              </div>
+              </span>
             </div>
           </div>
         </div>
@@ -1826,7 +1801,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                               class="ant-table-filter-trigger-container"
                             >
                               <span
-                                class="ant-table-filter-trigger ant-dropdown-trigger"
+                                class="ant-dropdown-trigger ant-table-filter-trigger"
                                 role="button"
                                 tabindex="-1"
                               >
@@ -1929,9 +1904,9 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 0"
                           >
                             Edward King 0
@@ -1963,14 +1938,14 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 0"
                           >
                             <span>
@@ -2004,7 +1979,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -2036,13 +2011,13 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 0"
                             >
                               London, Park Lane no. 0
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -2208,9 +2183,9 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 1"
                           >
                             Edward King 1
@@ -2242,14 +2217,14 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 1"
                           >
                             <span>
@@ -2283,7 +2258,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -2315,13 +2290,13 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 1"
                             >
                               London, Park Lane no. 1
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -2487,9 +2462,9 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 2"
                           >
                             Edward King 2
@@ -2521,14 +2496,14 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 2"
                           >
                             <span>
@@ -2562,7 +2537,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -2594,13 +2569,13 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 2"
                             >
                               London, Park Lane no. 2
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -2766,9 +2741,9 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 3"
                           >
                             Edward King 3
@@ -2800,14 +2775,14 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 3"
                           >
                             <span>
@@ -2841,7 +2816,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -2873,13 +2848,13 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 3"
                             >
                               London, Park Lane no. 3
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -3045,9 +3020,9 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 4"
                           >
                             Edward King 4
@@ -3079,14 +3054,14 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 4"
                           >
                             <span>
@@ -3120,7 +3095,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -3152,13 +3127,13 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 4"
                             >
                               London, Park Lane no. 4
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -3324,9 +3299,9 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 5"
                           >
                             Edward King 5
@@ -3358,14 +3333,14 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 5"
                           >
                             <span>
@@ -3399,7 +3374,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -3431,13 +3406,13 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 5"
                             >
                               London, Park Lane no. 5
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -3603,9 +3578,9 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 6"
                           >
                             Edward King 6
@@ -3637,14 +3612,14 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 6"
                           >
                             <span>
@@ -3678,7 +3653,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -3710,13 +3685,13 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 6"
                             >
                               London, Park Lane no. 6
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -3882,9 +3857,9 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 7"
                           >
                             Edward King 7
@@ -3916,14 +3891,14 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 7"
                           >
                             <span>
@@ -3957,7 +3932,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -3989,13 +3964,13 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 7"
                             >
                               London, Park Lane no. 7
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -4161,9 +4136,9 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 8"
                           >
                             Edward King 8
@@ -4195,14 +4170,14 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 8"
                           >
                             <span>
@@ -4236,7 +4211,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -4268,13 +4243,13 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 8"
                             >
                               London, Park Lane no. 8
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -4440,9 +4415,9 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 9"
                           >
                             Edward King 9
@@ -4474,14 +4449,14 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 9"
                           >
                             <span>
@@ -4515,7 +4490,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -4547,13 +4522,13 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 9"
                             >
                               London, Park Lane no. 9
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -4719,9 +4694,9 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 10"
                           >
                             Edward King 10
@@ -4753,14 +4728,14 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 10"
                           >
                             <span>
@@ -4794,7 +4769,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -4826,13 +4801,13 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 10"
                             >
                               London, Park Lane no. 10
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -4998,9 +4973,9 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 11"
                           >
                             Edward King 11
@@ -5032,14 +5007,14 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 11"
                           >
                             <span>
@@ -5073,7 +5048,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -5105,13 +5080,13 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 11"
                             >
                               London, Park Lane no. 11
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -5277,9 +5252,9 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 12"
                           >
                             Edward King 12
@@ -5311,14 +5286,14 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 12"
                           >
                             <span>
@@ -5352,7 +5327,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -5384,13 +5359,13 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 12"
                             >
                               London, Park Lane no. 12
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -5556,9 +5531,9 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 13"
                           >
                             Edward King 13
@@ -5590,14 +5565,14 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 13"
                           >
                             <span>
@@ -5631,7 +5606,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -5663,13 +5638,13 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 13"
                             >
                               London, Park Lane no. 13
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -5835,9 +5810,9 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 14"
                           >
                             Edward King 14
@@ -5869,14 +5844,14 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 14"
                           >
                             <span>
@@ -5910,7 +5885,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -5942,13 +5917,13 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 14"
                             >
                               London, Park Lane no. 14
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -6114,9 +6089,9 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 15"
                           >
                             Edward King 15
@@ -6148,14 +6123,14 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 15"
                           >
                             <span>
@@ -6189,7 +6164,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -6221,13 +6196,13 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 15"
                             >
                               London, Park Lane no. 15
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -6393,9 +6368,9 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 16"
                           >
                             Edward King 16
@@ -6427,14 +6402,14 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 16"
                           >
                             <span>
@@ -6468,7 +6443,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -6500,13 +6475,13 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 16"
                             >
                               London, Park Lane no. 16
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -6672,9 +6647,9 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 17"
                           >
                             Edward King 17
@@ -6706,14 +6681,14 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 17"
                           >
                             <span>
@@ -6747,7 +6722,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -6779,13 +6754,13 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 17"
                             >
                               London, Park Lane no. 17
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -6951,9 +6926,9 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 18"
                           >
                             Edward King 18
@@ -6985,14 +6960,14 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 18"
                           >
                             <span>
@@ -7026,7 +7001,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -7058,13 +7033,13 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 18"
                             >
                               London, Park Lane no. 18
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -7230,9 +7205,9 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 19"
                           >
                             Edward King 19
@@ -7264,14 +7239,14 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 19"
                           >
                             <span>
@@ -7305,7 +7280,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -7337,13 +7312,13 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 19"
                             >
                               London, Park Lane no. 19
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -7490,7 +7465,7 @@ exports[`BasicTable 🎏 base use 1`] = `
               </div>
             </div>
             <ul
-              class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+              class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
               unselectable="unselectable"
             >
               <li
@@ -7673,7 +7648,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                 class="ant-pagination-options"
               >
                 <div
-                  class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
+                  class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
                     class="ant-select-selector"
@@ -7693,6 +7668,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         readonly=""
                         role="combobox"
                         style="opacity: 0;"
+                        type="search"
                         unselectable="on"
                         value=""
                       />
@@ -7742,6 +7718,299 @@ exports[`BasicTable 🎏 base use 1`] = `
 </div>
 `;
 
+exports[`BasicTable 🎏 columns = undefined 1`] = `
+<div
+  class="ant-pro-table"
+  id="ant-design-pro-table"
+>
+  <div
+    class="ant-pro-table-search"
+  >
+    <form
+      class="ant-form ant-form-horizontal"
+    >
+      <div
+        class="ant-row ant-row-start"
+        style="margin-left: -8px; margin-right: -8px;"
+      >
+        <div
+          class="ant-col ant-col-12 ant-col-offset-12"
+          style="padding-left: 8px; padding-right: 8px; text-align: right;"
+        >
+          <div
+            class="ant-space ant-space-horizontal ant-space-align-center"
+            style="padding-top: 0px; margin-bottom: 24px;"
+          >
+            <div
+              class="ant-space-item"
+            >
+              <div
+                class="ant-space ant-space-horizontal ant-space-align-center"
+              >
+                <div
+                  class="ant-space-item"
+                  style="margin-right: 8px;"
+                >
+                  <button
+                    class="ant-btn"
+                    type="button"
+                  >
+                    <span>
+                      重 置
+                    </span>
+                  </button>
+                </div>
+                <div
+                  class="ant-space-item"
+                >
+                  <button
+                    class="ant-btn ant-btn-primary"
+                    type="button"
+                  >
+                    <span>
+                      查 询
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div
+    class="ant-card"
+    style="height: 100%;"
+  >
+    <div
+      class="ant-card-body"
+      style="padding: 0px;"
+    >
+      <div
+        class="ant-pro-core-toolbar"
+      >
+        <div
+          class="ant-pro-core-toolbar-container"
+        >
+          <div
+            class="ant-pro-core-toolbar-left"
+          >
+            <div
+              class="ant-pro-core-toolbar-title"
+            />
+          </div>
+          <div
+            class="ant-pro-core-toolbar-right"
+          >
+            <div
+              class="ant-pro-core-toolbar-setting-item"
+            >
+              <span>
+                <span
+                  aria-label="reload"
+                  class="anticon anticon-reload"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="reload"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M909.1 209.3l-56.4 44.1C775.8 155.1 656.2 92 521.9 92 290 92 102.3 279.5 102 511.5 101.7 743.7 289.8 932 521.9 932c181.3 0 335.8-115 394.6-276.1 1.5-4.2-.7-8.9-4.9-10.3l-56.7-19.5a8 8 0 00-10.1 4.8c-1.8 5-3.8 10-5.9 14.9-17.3 41-42.1 77.8-73.7 109.4A344.77 344.77 0 01655.9 829c-42.3 17.9-87.4 27-133.8 27-46.5 0-91.5-9.1-133.8-27A341.5 341.5 0 01279 755.2a342.16 342.16 0 01-73.7-109.4c-17.9-42.4-27-87.4-27-133.9s9.1-91.5 27-133.9c17.3-41 42.1-77.8 73.7-109.4 31.6-31.6 68.4-56.4 109.3-73.8 42.3-17.9 87.4-27 133.8-27 46.5 0 91.5 9.1 133.8 27a341.5 341.5 0 01109.3 73.8c9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47a8 8 0 003 14.1l175.6 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c-.1-6.6-7.8-10.3-13-6.2z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </div>
+            <div
+              class="ant-pro-core-toolbar-setting-item"
+            >
+              <span>
+                <span
+                  aria-label="column-height"
+                  class="anticon anticon-column-height ant-dropdown-trigger"
+                  role="img"
+                  tabindex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="column-height"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M840 836H184c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h656c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8zm0-724H184c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h656c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8zM610.8 378c6 0 9.4-7 5.7-11.7L515.7 238.7a7.14 7.14 0 00-11.3 0L403.6 366.3a7.23 7.23 0 005.7 11.7H476v268h-62.8c-6 0-9.4 7-5.7 11.7l100.8 127.5c2.9 3.7 8.5 3.7 11.3 0l100.8-127.5c3.7-4.7.4-11.7-5.7-11.7H548V378h62.8z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </div>
+            <div
+              class="ant-pro-core-toolbar-setting-item"
+            >
+              <span
+                aria-label="setting"
+                class="anticon anticon-setting"
+                role="img"
+                tabindex="-1"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="setting"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 009.3-35.2l-.9-2.6a443.74 443.74 0 00-79.7-137.9l-1.8-2.1a32.12 32.12 0 00-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 00-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 00-25.8 25.7l-15.8 85.4a351.86 351.86 0 00-99 57.4l-81.9-29.1a32 32 0 00-35.1 9.5l-1.8 2.1a446.02 446.02 0 00-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 00-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0035.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0025.8 25.7l2.7.5a449.4 449.4 0 00159 0l2.7-.5a32.05 32.05 0 0025.8-25.7l15.7-85a350 350 0 0099.7-57.6l81.3 28.9a32 32 0 0035.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 01-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 01-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 01512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 01400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 01624 502c0 29.9-11.7 58-32.8 79.2z"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div
+              class="ant-pro-core-toolbar-setting-item"
+            >
+              <span>
+                <span
+                  aria-label="fullscreen"
+                  class="anticon anticon-fullscreen"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="fullscreen"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M290 236.4l43.9-43.9a8.01 8.01 0 00-4.7-13.6L169 160c-5.1-.6-9.5 3.7-8.9 8.9L179 329.1c.8 6.6 8.9 9.4 13.6 4.7l43.7-43.7L370 423.7c3.1 3.1 8.2 3.1 11.3 0l42.4-42.3c3.1-3.1 3.1-8.2 0-11.3L290 236.4zm352.7 187.3c3.1 3.1 8.2 3.1 11.3 0l133.7-133.6 43.7 43.7a8.01 8.01 0 0013.6-4.7L863.9 169c.6-5.1-3.7-9.5-8.9-8.9L694.8 179c-6.6.8-9.4 8.9-4.7 13.6l43.9 43.9L600.3 370a8.03 8.03 0 000 11.3l42.4 42.4zM845 694.9c-.8-6.6-8.9-9.4-13.6-4.7l-43.7 43.7L654 600.3a8.03 8.03 0 00-11.3 0l-42.4 42.3a8.03 8.03 0 000 11.3L734 787.6l-43.9 43.9a8.01 8.01 0 004.7 13.6L855 864c5.1.6 9.5-3.7 8.9-8.9L845 694.9zm-463.7-94.6a8.03 8.03 0 00-11.3 0L236.3 733.9l-43.7-43.7a8.01 8.01 0 00-13.6 4.7L160.1 855c-.6 5.1 3.7 9.5 8.9 8.9L329.2 845c6.6-.8 9.4-8.9 4.7-13.6L290 787.6 423.7 654c3.1-3.1 3.1-8.2 0-11.3l-42.4-42.4z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-table-wrapper"
+      >
+        <div
+          class="ant-spin-nested-loading"
+        >
+          <div
+            class="ant-spin-container"
+          >
+            <div
+              class="ant-table ant-table-middle ant-table-empty"
+            >
+              <div
+                class="ant-table-container"
+              >
+                <div
+                  class="ant-table-content"
+                >
+                  <table
+                    style="table-layout: auto;"
+                  >
+                    <colgroup />
+                    <thead
+                      class="ant-table-thead"
+                    >
+                      <tr>
+                        <th
+                          class="ant-table-cell"
+                        />
+                      </tr>
+                    </thead>
+                    <tbody
+                      class="ant-table-tbody"
+                    >
+                      <tr
+                        class="ant-table-placeholder"
+                      >
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <div
+                            class="ant-empty ant-empty-normal"
+                          >
+                            <div
+                              class="ant-empty-image"
+                            >
+                              <svg
+                                class="ant-empty-img-simple"
+                                height="41"
+                                viewBox="0 0 64 41"
+                                width="64"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <g
+                                  fill="none"
+                                  fill-rule="evenodd"
+                                  transform="translate(0 1)"
+                                >
+                                  <ellipse
+                                    class="ant-empty-img-simple-ellipse"
+                                    cx="32"
+                                    cy="33"
+                                    rx="32"
+                                    ry="7"
+                                  />
+                                  <g
+                                    class="ant-empty-img-simple-g"
+                                    fill-rule="nonzero"
+                                  >
+                                    <path
+                                      d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                                    />
+                                    <path
+                                      class="ant-empty-img-simple-path"
+                                      d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                    />
+                                  </g>
+                                </g>
+                              </svg>
+                            </div>
+                            <p
+                              class="ant-empty-description"
+                            >
+                              No Data
+                            </p>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`BasicTable 🎏 do not render Search  1`] = `
 <div
   class="ant-pro-table"
@@ -7756,145 +8025,185 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
       style="padding: 0px;"
     >
       <div
-        class="ant-pro-table-toolbar"
+        class="ant-pro-core-toolbar"
       >
         <div
-          class="ant-pro-table-toolbar-title"
-        />
-        <div
-          class="ant-pro-table-toolbar-option"
+          class="ant-pro-core-toolbar-container"
         >
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center"
+            class="ant-pro-core-toolbar-left"
           >
             <div
-              class="ant-space-item"
+              class="ant-pro-core-toolbar-title"
             />
           </div>
           <div
-            class="ant-pro-table-toolbar-default-option"
+            class="ant-pro-core-toolbar-right"
           >
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center"
+              class="ant-pro-core-toolbar-setting-item"
             >
-              <div
-                class="ant-space-item"
-                style="margin-right: 8px;"
-              >
+              <span>
                 <span
-                  class="ant-pro-table-toolbar-item-icon"
+                  aria-label="reload"
+                  class="anticon anticon-reload"
+                  role="img"
                 >
-                  <span
-                    aria-label="reload"
-                    class="anticon anticon-reload"
-                    role="img"
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="reload"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="reload"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M909.1 209.3l-56.4 44.1C775.8 155.1 656.2 92 521.9 92 290 92 102.3 279.5 102 511.5 101.7 743.7 289.8 932 521.9 932c181.3 0 335.8-115 394.6-276.1 1.5-4.2-.7-8.9-4.9-10.3l-56.7-19.5a8 8 0 00-10.1 4.8c-1.8 5-3.8 10-5.9 14.9-17.3 41-42.1 77.8-73.7 109.4A344.77 344.77 0 01655.9 829c-42.3 17.9-87.4 27-133.8 27-46.5 0-91.5-9.1-133.8-27A341.5 341.5 0 01279 755.2a342.16 342.16 0 01-73.7-109.4c-17.9-42.4-27-87.4-27-133.9s9.1-91.5 27-133.9c17.3-41 42.1-77.8 73.7-109.4 31.6-31.6 68.4-56.4 109.3-73.8 42.3-17.9 87.4-27 133.8-27 46.5 0 91.5 9.1 133.8 27a341.5 341.5 0 01109.3 73.8c9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47a8 8 0 003 14.1l175.6 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c-.1-6.6-7.8-10.3-13-6.2z"
-                      />
-                    </svg>
-                  </span>
+                    <path
+                      d="M909.1 209.3l-56.4 44.1C775.8 155.1 656.2 92 521.9 92 290 92 102.3 279.5 102 511.5 101.7 743.7 289.8 932 521.9 932c181.3 0 335.8-115 394.6-276.1 1.5-4.2-.7-8.9-4.9-10.3l-56.7-19.5a8 8 0 00-10.1 4.8c-1.8 5-3.8 10-5.9 14.9-17.3 41-42.1 77.8-73.7 109.4A344.77 344.77 0 01655.9 829c-42.3 17.9-87.4 27-133.8 27-46.5 0-91.5-9.1-133.8-27A341.5 341.5 0 01279 755.2a342.16 342.16 0 01-73.7-109.4c-17.9-42.4-27-87.4-27-133.9s9.1-91.5 27-133.9c17.3-41 42.1-77.8 73.7-109.4 31.6-31.6 68.4-56.4 109.3-73.8 42.3-17.9 87.4-27 133.8-27 46.5 0 91.5 9.1 133.8 27a341.5 341.5 0 01109.3 73.8c9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47a8 8 0 003 14.1l175.6 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c-.1-6.6-7.8-10.3-13-6.2z"
+                    />
+                  </svg>
                 </span>
-              </div>
-              <div
-                class="ant-space-item"
-                style="margin-right: 8px;"
-              >
+              </span>
+            </div>
+            <div
+              class="ant-pro-core-toolbar-setting-item"
+            >
+              <span>
                 <span
-                  class="ant-pro-table-toolbar-item-icon"
+                  aria-label="column-height"
+                  class="anticon anticon-column-height ant-dropdown-trigger"
+                  role="img"
+                  tabindex="-1"
                 >
-                  <span
-                    aria-label="column-height"
-                    class="anticon anticon-column-height ant-dropdown-trigger"
-                    role="img"
-                    tabindex="-1"
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="column-height"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="column-height"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M840 836H184c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h656c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8zm0-724H184c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h656c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8zM610.8 378c6 0 9.4-7 5.7-11.7L515.7 238.7a7.14 7.14 0 00-11.3 0L403.6 366.3a7.23 7.23 0 005.7 11.7H476v268h-62.8c-6 0-9.4 7-5.7 11.7l100.8 127.5c2.9 3.7 8.5 3.7 11.3 0l100.8-127.5c3.7-4.7.4-11.7-5.7-11.7H548V378h62.8z"
-                      />
-                    </svg>
-                  </span>
+                    <path
+                      d="M840 836H184c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h656c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8zm0-724H184c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h656c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8zM610.8 378c6 0 9.4-7 5.7-11.7L515.7 238.7a7.14 7.14 0 00-11.3 0L403.6 366.3a7.23 7.23 0 005.7 11.7H476v268h-62.8c-6 0-9.4 7-5.7 11.7l100.8 127.5c2.9 3.7 8.5 3.7 11.3 0l100.8-127.5c3.7-4.7.4-11.7-5.7-11.7H548V378h62.8z"
+                    />
+                  </svg>
                 </span>
-              </div>
-              <div
-                class="ant-space-item"
-                style="margin-right: 8px;"
+              </span>
+            </div>
+            <div
+              class="ant-pro-core-toolbar-setting-item"
+            >
+              <span
+                aria-label="setting"
+                class="anticon anticon-setting"
+                role="img"
+                tabindex="-1"
               >
-                <span
-                  class="ant-pro-table-toolbar-item-icon"
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="setting"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <span
-                    aria-label="setting"
-                    class="anticon anticon-setting"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="setting"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 009.3-35.2l-.9-2.6a443.74 443.74 0 00-79.7-137.9l-1.8-2.1a32.12 32.12 0 00-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 00-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 00-25.8 25.7l-15.8 85.4a351.86 351.86 0 00-99 57.4l-81.9-29.1a32 32 0 00-35.1 9.5l-1.8 2.1a446.02 446.02 0 00-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 00-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0035.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0025.8 25.7l2.7.5a449.4 449.4 0 00159 0l2.7-.5a32.05 32.05 0 0025.8-25.7l15.7-85a350 350 0 0099.7-57.6l81.3 28.9a32 32 0 0035.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 01-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 01-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 01512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 01400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 01624 502c0 29.9-11.7 58-32.8 79.2z"
-                      />
-                    </svg>
-                  </span>
-                </span>
-              </div>
-              <div
-                class="ant-space-item"
-              >
+                  <path
+                    d="M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 009.3-35.2l-.9-2.6a443.74 443.74 0 00-79.7-137.9l-1.8-2.1a32.12 32.12 0 00-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 00-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 00-25.8 25.7l-15.8 85.4a351.86 351.86 0 00-99 57.4l-81.9-29.1a32 32 0 00-35.1 9.5l-1.8 2.1a446.02 446.02 0 00-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 00-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0035.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0025.8 25.7l2.7.5a449.4 449.4 0 00159 0l2.7-.5a32.05 32.05 0 0025.8-25.7l15.7-85a350 350 0 0099.7-57.6l81.3 28.9a32 32 0 0035.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 01-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 01-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 01512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 01400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 01624 502c0 29.9-11.7 58-32.8 79.2z"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div
+              class="ant-pro-core-toolbar-setting-item"
+            >
+              <span>
                 <span
-                  class="ant-pro-table-toolbar-item-icon"
+                  aria-label="fullscreen"
+                  class="anticon anticon-fullscreen"
+                  role="img"
                 >
-                  <span
-                    aria-label="fullscreen"
-                    class="anticon anticon-fullscreen"
-                    role="img"
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="fullscreen"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="fullscreen"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M290 236.4l43.9-43.9a8.01 8.01 0 00-4.7-13.6L169 160c-5.1-.6-9.5 3.7-8.9 8.9L179 329.1c.8 6.6 8.9 9.4 13.6 4.7l43.7-43.7L370 423.7c3.1 3.1 8.2 3.1 11.3 0l42.4-42.3c3.1-3.1 3.1-8.2 0-11.3L290 236.4zm352.7 187.3c3.1 3.1 8.2 3.1 11.3 0l133.7-133.6 43.7 43.7a8.01 8.01 0 0013.6-4.7L863.9 169c.6-5.1-3.7-9.5-8.9-8.9L694.8 179c-6.6.8-9.4 8.9-4.7 13.6l43.9 43.9L600.3 370a8.03 8.03 0 000 11.3l42.4 42.4zM845 694.9c-.8-6.6-8.9-9.4-13.6-4.7l-43.7 43.7L654 600.3a8.03 8.03 0 00-11.3 0l-42.4 42.3a8.03 8.03 0 000 11.3L734 787.6l-43.9 43.9a8.01 8.01 0 004.7 13.6L855 864c5.1.6 9.5-3.7 8.9-8.9L845 694.9zm-463.7-94.6a8.03 8.03 0 00-11.3 0L236.3 733.9l-43.7-43.7a8.01 8.01 0 00-13.6 4.7L160.1 855c-.6 5.1 3.7 9.5 8.9 8.9L329.2 845c6.6-.8 9.4-8.9 4.7-13.6L290 787.6 423.7 654c3.1-3.1 3.1-8.2 0-11.3l-42.4-42.4z"
-                      />
-                    </svg>
-                  </span>
+                    <path
+                      d="M290 236.4l43.9-43.9a8.01 8.01 0 00-4.7-13.6L169 160c-5.1-.6-9.5 3.7-8.9 8.9L179 329.1c.8 6.6 8.9 9.4 13.6 4.7l43.7-43.7L370 423.7c3.1 3.1 8.2 3.1 11.3 0l42.4-42.3c3.1-3.1 3.1-8.2 0-11.3L290 236.4zm352.7 187.3c3.1 3.1 8.2 3.1 11.3 0l133.7-133.6 43.7 43.7a8.01 8.01 0 0013.6-4.7L863.9 169c.6-5.1-3.7-9.5-8.9-8.9L694.8 179c-6.6.8-9.4 8.9-4.7 13.6l43.9 43.9L600.3 370a8.03 8.03 0 000 11.3l42.4 42.4zM845 694.9c-.8-6.6-8.9-9.4-13.6-4.7l-43.7 43.7L654 600.3a8.03 8.03 0 00-11.3 0l-42.4 42.3a8.03 8.03 0 000 11.3L734 787.6l-43.9 43.9a8.01 8.01 0 004.7 13.6L855 864c5.1.6 9.5-3.7 8.9-8.9L845 694.9zm-463.7-94.6a8.03 8.03 0 00-11.3 0L236.3 733.9l-43.7-43.7a8.01 8.01 0 00-13.6 4.7L160.1 855c-.6 5.1 3.7 9.5 8.9 8.9L329.2 845c6.6-.8 9.4-8.9 4.7-13.6L290 787.6 423.7 654c3.1-3.1 3.1-8.2 0-11.3l-42.4-42.4z"
+                    />
+                  </svg>
                 </span>
-              </div>
+              </span>
             </div>
           </div>
+        </div>
+      </div>
+      <div
+        class="ant-pro-table-alert"
+      >
+        <div
+          class="ant-alert ant-alert-info ant-alert-no-icon"
+          data-show="true"
+          role="alert"
+        >
+          <span
+            class="ant-alert-message"
+          >
+            <div
+              class="ant-pro-table-alert-info"
+            >
+              <div
+                class="ant-pro-table-alert-info-content"
+              >
+                <div
+                  class="ant-space ant-space-horizontal ant-space-align-center"
+                >
+                  <div
+                    class="ant-space-item"
+                    style="margin-right: 8px;"
+                  >
+                    已选择
+                  </div>
+                  <div
+                    class="ant-space-item"
+                    style="margin-right: 8px;"
+                  >
+                    1
+                  </div>
+                  <div
+                    class="ant-space-item"
+                    style="margin-right: 8px;"
+                  >
+                    项
+                  </div>
+                  <div
+                    class="ant-space-item"
+                  >
+                      
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ant-pro-table-alert-info-option"
+              >
+                <a>
+                  取消选择
+                </a>
+              </div>
+            </div>
+          </span>
+          <span
+            class="ant-alert-description"
+          />
         </div>
       </div>
       <div
@@ -7920,6 +8229,9 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                   >
                     <colgroup>
                       <col
+                        class="ant-table-selection-col"
+                      />
+                      <col
                         style="width: 72px; min-width: 72px;"
                       />
                       <col
@@ -7938,6 +8250,30 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                       class="ant-table-thead"
                     >
                       <tr>
+                        <th
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <div
+                            class="ant-table-selection"
+                          >
+                            <label
+                              class="ant-checkbox-wrapper"
+                            >
+                              <span
+                                class="ant-checkbox ant-checkbox-indeterminate"
+                              >
+                                <input
+                                  class="ant-checkbox-input"
+                                  type="checkbox"
+                                  value=""
+                                />
+                                <span
+                                  class="ant-checkbox-inner"
+                                />
+                              </span>
+                            </label>
+                          </div>
+                        </th>
                         <th
                           class="ant-table-cell"
                         >
@@ -7973,7 +8309,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               class="ant-table-filter-trigger-container"
                             >
                               <span
-                                class="ant-table-filter-trigger ant-dropdown-trigger"
+                                class="ant-dropdown-trigger ant-table-filter-trigger"
                                 role="button"
                                 tabindex="-1"
                               >
@@ -8056,6 +8392,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         data-row-key="0"
                       >
                         <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
+                        <td
                           class="ant-table-cell"
                         >
                           <div
@@ -8076,9 +8432,9 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 0"
                           >
                             Edward King 0
@@ -8110,14 +8466,14 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 0"
                           >
                             <span>
@@ -8151,7 +8507,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -8183,13 +8539,13 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 0"
                             >
                               London, Park Lane no. 0
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -8331,9 +8687,30 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         </td>
                       </tr>
                       <tr
-                        class="ant-table-row ant-table-row-level-0"
+                        class="ant-table-row ant-table-row-level-0 ant-table-row-selected"
                         data-row-key="1"
                       >
+                        <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
+                          >
+                            <span
+                              class="ant-checkbox ant-checkbox-checked"
+                            >
+                              <input
+                                checked=""
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
                         <td
                           class="ant-table-cell"
                         >
@@ -8355,9 +8732,9 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 1"
                           >
                             Edward King 1
@@ -8389,14 +8766,14 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 1"
                           >
                             <span>
@@ -8430,7 +8807,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -8462,13 +8839,13 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 1"
                             >
                               London, Park Lane no. 1
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -8614,6 +8991,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         data-row-key="2"
                       >
                         <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
+                        <td
                           class="ant-table-cell"
                         >
                           <div
@@ -8634,9 +9031,9 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 2"
                           >
                             Edward King 2
@@ -8668,14 +9065,14 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 2"
                           >
                             <span>
@@ -8709,7 +9106,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -8741,13 +9138,13 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 2"
                             >
                               London, Park Lane no. 2
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -8893,6 +9290,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         data-row-key="3"
                       >
                         <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
+                        <td
                           class="ant-table-cell"
                         >
                           <div
@@ -8913,9 +9330,9 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 3"
                           >
                             Edward King 3
@@ -8947,14 +9364,14 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 3"
                           >
                             <span>
@@ -8988,7 +9405,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -9020,13 +9437,13 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 3"
                             >
                               London, Park Lane no. 3
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -9172,6 +9589,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         data-row-key="4"
                       >
                         <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
+                        <td
                           class="ant-table-cell"
                         >
                           <div
@@ -9192,9 +9629,9 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 4"
                           >
                             Edward King 4
@@ -9226,14 +9663,14 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 4"
                           >
                             <span>
@@ -9267,7 +9704,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -9299,13 +9736,13 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 4"
                             >
                               London, Park Lane no. 4
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -9451,6 +9888,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         data-row-key="5"
                       >
                         <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
+                        <td
                           class="ant-table-cell"
                         >
                           <div
@@ -9471,9 +9928,9 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 5"
                           >
                             Edward King 5
@@ -9505,14 +9962,14 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 5"
                           >
                             <span>
@@ -9546,7 +10003,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -9578,13 +10035,13 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 5"
                             >
                               London, Park Lane no. 5
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -9730,6 +10187,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         data-row-key="6"
                       >
                         <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
+                        <td
                           class="ant-table-cell"
                         >
                           <div
@@ -9750,9 +10227,9 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 6"
                           >
                             Edward King 6
@@ -9784,14 +10261,14 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 6"
                           >
                             <span>
@@ -9825,7 +10302,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -9857,13 +10334,13 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 6"
                             >
                               London, Park Lane no. 6
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -10009,6 +10486,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         data-row-key="7"
                       >
                         <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
+                        <td
                           class="ant-table-cell"
                         >
                           <div
@@ -10029,9 +10526,9 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 7"
                           >
                             Edward King 7
@@ -10063,14 +10560,14 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 7"
                           >
                             <span>
@@ -10104,7 +10601,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -10136,13 +10633,13 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 7"
                             >
                               London, Park Lane no. 7
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -10288,6 +10785,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         data-row-key="8"
                       >
                         <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
+                        <td
                           class="ant-table-cell"
                         >
                           <div
@@ -10308,9 +10825,9 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 8"
                           >
                             Edward King 8
@@ -10342,14 +10859,14 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 8"
                           >
                             <span>
@@ -10383,7 +10900,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -10415,13 +10932,13 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 8"
                             >
                               London, Park Lane no. 8
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -10567,6 +11084,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         data-row-key="9"
                       >
                         <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
+                        <td
                           class="ant-table-cell"
                         >
                           <div
@@ -10587,9 +11124,9 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 9"
                           >
                             Edward King 9
@@ -10621,14 +11158,14 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 9"
                           >
                             <span>
@@ -10662,7 +11199,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -10694,13 +11231,13 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 9"
                             >
                               London, Park Lane no. 9
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -10846,6 +11383,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         data-row-key="10"
                       >
                         <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
+                        <td
                           class="ant-table-cell"
                         >
                           <div
@@ -10866,9 +11423,9 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 10"
                           >
                             Edward King 10
@@ -10900,14 +11457,14 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 10"
                           >
                             <span>
@@ -10941,7 +11498,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -10973,13 +11530,13 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 10"
                             >
                               London, Park Lane no. 10
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -11125,6 +11682,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         data-row-key="11"
                       >
                         <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
+                        <td
                           class="ant-table-cell"
                         >
                           <div
@@ -11145,9 +11722,9 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 11"
                           >
                             Edward King 11
@@ -11179,14 +11756,14 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 11"
                           >
                             <span>
@@ -11220,7 +11797,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -11252,13 +11829,13 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 11"
                             >
                               London, Park Lane no. 11
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -11404,6 +11981,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         data-row-key="12"
                       >
                         <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
+                        <td
                           class="ant-table-cell"
                         >
                           <div
@@ -11424,9 +12021,9 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 12"
                           >
                             Edward King 12
@@ -11458,14 +12055,14 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 12"
                           >
                             <span>
@@ -11499,7 +12096,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -11531,13 +12128,13 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 12"
                             >
                               London, Park Lane no. 12
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -11683,6 +12280,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         data-row-key="13"
                       >
                         <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
+                        <td
                           class="ant-table-cell"
                         >
                           <div
@@ -11703,9 +12320,9 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 13"
                           >
                             Edward King 13
@@ -11737,14 +12354,14 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 13"
                           >
                             <span>
@@ -11778,7 +12395,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -11810,13 +12427,13 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 13"
                             >
                               London, Park Lane no. 13
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -11962,6 +12579,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         data-row-key="14"
                       >
                         <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
+                        <td
                           class="ant-table-cell"
                         >
                           <div
@@ -11982,9 +12619,9 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 14"
                           >
                             Edward King 14
@@ -12016,14 +12653,14 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 14"
                           >
                             <span>
@@ -12057,7 +12694,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -12089,13 +12726,13 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 14"
                             >
                               London, Park Lane no. 14
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -12241,6 +12878,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         data-row-key="15"
                       >
                         <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
+                        <td
                           class="ant-table-cell"
                         >
                           <div
@@ -12261,9 +12918,9 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 15"
                           >
                             Edward King 15
@@ -12295,14 +12952,14 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 15"
                           >
                             <span>
@@ -12336,7 +12993,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -12368,13 +13025,13 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 15"
                             >
                               London, Park Lane no. 15
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -12520,6 +13177,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         data-row-key="16"
                       >
                         <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
+                        <td
                           class="ant-table-cell"
                         >
                           <div
@@ -12540,9 +13217,9 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 16"
                           >
                             Edward King 16
@@ -12574,14 +13251,14 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 16"
                           >
                             <span>
@@ -12615,7 +13292,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -12647,13 +13324,13 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 16"
                             >
                               London, Park Lane no. 16
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -12799,6 +13476,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         data-row-key="17"
                       >
                         <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
+                        <td
                           class="ant-table-cell"
                         >
                           <div
@@ -12819,9 +13516,9 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 17"
                           >
                             Edward King 17
@@ -12853,14 +13550,14 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 17"
                           >
                             <span>
@@ -12894,7 +13591,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -12926,13 +13623,13 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 17"
                             >
                               London, Park Lane no. 17
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -13078,6 +13775,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         data-row-key="18"
                       >
                         <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
+                        <td
                           class="ant-table-cell"
                         >
                           <div
@@ -13098,9 +13815,9 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 18"
                           >
                             Edward King 18
@@ -13132,14 +13849,14 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 18"
                           >
                             <span>
@@ -13173,7 +13890,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -13205,13 +13922,13 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 18"
                             >
                               London, Park Lane no. 18
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -13357,6 +14074,26 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         data-row-key="19"
                       >
                         <td
+                          class="ant-table-cell ant-table-selection-column"
+                        >
+                          <label
+                            class="ant-checkbox-wrapper"
+                          >
+                            <span
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                                value=""
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </td>
+                        <td
                           class="ant-table-cell"
                         >
                           <div
@@ -13377,9 +14114,9 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 19"
                           >
                             Edward King 19
@@ -13411,14 +14148,14 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <div
+                          <span
                             class="ant-typography"
-                            style="margin: 0px; padding: 0px;"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
                             title="Edward King 19"
                           >
                             <span>
@@ -13452,7 +14189,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 </svg>
                               </span>
                             </div>
-                          </div>
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -13484,13 +14221,13 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           class="ant-table-cell"
                         >
                           <span>
-                            <div
+                            <span
                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="width: 68px; margin: 0px; padding: 0px;"
+                              style="max-width: 100%; margin: 0px; padding: 0px;"
                               title="London, Park Lane no. 19"
                             >
                               London, Park Lane no. 19
-                            </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -13637,7 +14374,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
               </div>
             </div>
             <ul
-              class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+              class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
               unselectable="unselectable"
             >
               <li
@@ -13820,7 +14557,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                 class="ant-pagination-options"
               >
                 <div
-                  class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
+                  class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
                     class="ant-select-selector"
@@ -13840,6 +14577,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         readonly=""
                         role="combobox"
                         style="opacity: 0;"
+                        type="search"
                         unselectable="on"
                         value=""
                       />
@@ -14016,7 +14754,6 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
           >
             <div
               class="ant-space-item"
-              style="margin-right: 8px;"
             >
               <div
                 class="ant-space ant-space-horizontal ant-space-align-center"
@@ -14048,9 +14785,6 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
                 </div>
               </div>
             </div>
-            <div
-              class="ant-space-item"
-            />
           </div>
         </div>
       </div>
@@ -14065,114 +14799,99 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
       style="padding: 0px;"
     >
       <div
-        class="ant-pro-table-toolbar"
+        class="ant-pro-core-toolbar"
       >
         <div
-          class="ant-pro-table-toolbar-title"
-        />
-        <div
-          class="ant-pro-table-toolbar-option"
+          class="ant-pro-core-toolbar-container"
         >
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center"
+            class="ant-pro-core-toolbar-left"
           >
             <div
-              class="ant-space-item"
+              class="ant-pro-core-toolbar-title"
             />
           </div>
           <div
-            class="ant-pro-table-toolbar-default-option"
+            class="ant-pro-core-toolbar-right"
           >
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center"
+              class="ant-pro-core-toolbar-setting-item"
             >
-              <div
-                class="ant-space-item"
-                style="margin-right: 8px;"
-              >
+              <span>
                 <span
-                  class="ant-pro-table-toolbar-item-icon"
+                  aria-label="reload"
+                  class="anticon anticon-reload"
+                  role="img"
                 >
-                  <span
-                    aria-label="reload"
-                    class="anticon anticon-reload"
-                    role="img"
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="reload"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="reload"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M909.1 209.3l-56.4 44.1C775.8 155.1 656.2 92 521.9 92 290 92 102.3 279.5 102 511.5 101.7 743.7 289.8 932 521.9 932c181.3 0 335.8-115 394.6-276.1 1.5-4.2-.7-8.9-4.9-10.3l-56.7-19.5a8 8 0 00-10.1 4.8c-1.8 5-3.8 10-5.9 14.9-17.3 41-42.1 77.8-73.7 109.4A344.77 344.77 0 01655.9 829c-42.3 17.9-87.4 27-133.8 27-46.5 0-91.5-9.1-133.8-27A341.5 341.5 0 01279 755.2a342.16 342.16 0 01-73.7-109.4c-17.9-42.4-27-87.4-27-133.9s9.1-91.5 27-133.9c17.3-41 42.1-77.8 73.7-109.4 31.6-31.6 68.4-56.4 109.3-73.8 42.3-17.9 87.4-27 133.8-27 46.5 0 91.5 9.1 133.8 27a341.5 341.5 0 01109.3 73.8c9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47a8 8 0 003 14.1l175.6 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c-.1-6.6-7.8-10.3-13-6.2z"
-                      />
-                    </svg>
-                  </span>
+                    <path
+                      d="M909.1 209.3l-56.4 44.1C775.8 155.1 656.2 92 521.9 92 290 92 102.3 279.5 102 511.5 101.7 743.7 289.8 932 521.9 932c181.3 0 335.8-115 394.6-276.1 1.5-4.2-.7-8.9-4.9-10.3l-56.7-19.5a8 8 0 00-10.1 4.8c-1.8 5-3.8 10-5.9 14.9-17.3 41-42.1 77.8-73.7 109.4A344.77 344.77 0 01655.9 829c-42.3 17.9-87.4 27-133.8 27-46.5 0-91.5-9.1-133.8-27A341.5 341.5 0 01279 755.2a342.16 342.16 0 01-73.7-109.4c-17.9-42.4-27-87.4-27-133.9s9.1-91.5 27-133.9c17.3-41 42.1-77.8 73.7-109.4 31.6-31.6 68.4-56.4 109.3-73.8 42.3-17.9 87.4-27 133.8-27 46.5 0 91.5 9.1 133.8 27a341.5 341.5 0 01109.3 73.8c9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47a8 8 0 003 14.1l175.6 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c-.1-6.6-7.8-10.3-13-6.2z"
+                    />
+                  </svg>
                 </span>
-              </div>
-              <div
-                class="ant-space-item"
-                style="margin-right: 8px;"
-              >
+              </span>
+            </div>
+            <div
+              class="ant-pro-core-toolbar-setting-item"
+            >
+              <span>
                 <span
-                  class="ant-pro-table-toolbar-item-icon"
+                  aria-label="column-height"
+                  class="anticon anticon-column-height ant-dropdown-trigger"
+                  role="img"
+                  tabindex="-1"
                 >
-                  <span
-                    aria-label="column-height"
-                    class="anticon anticon-column-height ant-dropdown-trigger"
-                    role="img"
-                    tabindex="-1"
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="column-height"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="column-height"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M840 836H184c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h656c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8zm0-724H184c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h656c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8zM610.8 378c6 0 9.4-7 5.7-11.7L515.7 238.7a7.14 7.14 0 00-11.3 0L403.6 366.3a7.23 7.23 0 005.7 11.7H476v268h-62.8c-6 0-9.4 7-5.7 11.7l100.8 127.5c2.9 3.7 8.5 3.7 11.3 0l100.8-127.5c3.7-4.7.4-11.7-5.7-11.7H548V378h62.8z"
-                      />
-                    </svg>
-                  </span>
+                    <path
+                      d="M840 836H184c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h656c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8zm0-724H184c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h656c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8zM610.8 378c6 0 9.4-7 5.7-11.7L515.7 238.7a7.14 7.14 0 00-11.3 0L403.6 366.3a7.23 7.23 0 005.7 11.7H476v268h-62.8c-6 0-9.4 7-5.7 11.7l100.8 127.5c2.9 3.7 8.5 3.7 11.3 0l100.8-127.5c3.7-4.7.4-11.7-5.7-11.7H548V378h62.8z"
+                    />
+                  </svg>
                 </span>
-              </div>
-              <div
-                class="ant-space-item"
-              >
+              </span>
+            </div>
+            <div
+              class="ant-pro-core-toolbar-setting-item"
+            >
+              <span>
                 <span
-                  class="ant-pro-table-toolbar-item-icon"
+                  aria-label="fullscreen"
+                  class="anticon anticon-fullscreen"
+                  role="img"
                 >
-                  <span
-                    aria-label="fullscreen"
-                    class="anticon anticon-fullscreen"
-                    role="img"
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="fullscreen"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="fullscreen"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M290 236.4l43.9-43.9a8.01 8.01 0 00-4.7-13.6L169 160c-5.1-.6-9.5 3.7-8.9 8.9L179 329.1c.8 6.6 8.9 9.4 13.6 4.7l43.7-43.7L370 423.7c3.1 3.1 8.2 3.1 11.3 0l42.4-42.3c3.1-3.1 3.1-8.2 0-11.3L290 236.4zm352.7 187.3c3.1 3.1 8.2 3.1 11.3 0l133.7-133.6 43.7 43.7a8.01 8.01 0 0013.6-4.7L863.9 169c.6-5.1-3.7-9.5-8.9-8.9L694.8 179c-6.6.8-9.4 8.9-4.7 13.6l43.9 43.9L600.3 370a8.03 8.03 0 000 11.3l42.4 42.4zM845 694.9c-.8-6.6-8.9-9.4-13.6-4.7l-43.7 43.7L654 600.3a8.03 8.03 0 00-11.3 0l-42.4 42.3a8.03 8.03 0 000 11.3L734 787.6l-43.9 43.9a8.01 8.01 0 004.7 13.6L855 864c5.1.6 9.5-3.7 8.9-8.9L845 694.9zm-463.7-94.6a8.03 8.03 0 00-11.3 0L236.3 733.9l-43.7-43.7a8.01 8.01 0 00-13.6 4.7L160.1 855c-.6 5.1 3.7 9.5 8.9 8.9L329.2 845c6.6-.8 9.4-8.9 4.7-13.6L290 787.6 423.7 654c3.1-3.1 3.1-8.2 0-11.3l-42.4-42.4z"
-                      />
-                    </svg>
-                  </span>
+                    <path
+                      d="M290 236.4l43.9-43.9a8.01 8.01 0 00-4.7-13.6L169 160c-5.1-.6-9.5 3.7-8.9 8.9L179 329.1c.8 6.6 8.9 9.4 13.6 4.7l43.7-43.7L370 423.7c3.1 3.1 8.2 3.1 11.3 0l42.4-42.3c3.1-3.1 3.1-8.2 0-11.3L290 236.4zm352.7 187.3c3.1 3.1 8.2 3.1 11.3 0l133.7-133.6 43.7 43.7a8.01 8.01 0 0013.6-4.7L863.9 169c.6-5.1-3.7-9.5-8.9-8.9L694.8 179c-6.6.8-9.4 8.9-4.7 13.6l43.9 43.9L600.3 370a8.03 8.03 0 000 11.3l42.4 42.4zM845 694.9c-.8-6.6-8.9-9.4-13.6-4.7l-43.7 43.7L654 600.3a8.03 8.03 0 00-11.3 0l-42.4 42.3a8.03 8.03 0 000 11.3L734 787.6l-43.9 43.9a8.01 8.01 0 004.7 13.6L855 864c5.1.6 9.5-3.7 8.9-8.9L845 694.9zm-463.7-94.6a8.03 8.03 0 00-11.3 0L236.3 733.9l-43.7-43.7a8.01 8.01 0 00-13.6 4.7L160.1 855c-.6 5.1 3.7 9.5 8.9 8.9L329.2 845c6.6-.8 9.4-8.9 4.7-13.6L290 787.6 423.7 654c3.1-3.1 3.1-8.2 0-11.3l-42.4-42.4z"
+                    />
+                  </svg>
                 </span>
-              </div>
+              </span>
             </div>
           </div>
         </div>
@@ -14457,7 +15176,7 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
               </div>
             </div>
             <ul
-              class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+              class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
               unselectable="unselectable"
             >
               <li
@@ -14640,7 +15359,7 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
                 class="ant-pagination-options"
               >
                 <div
-                  class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
+                  class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
                     class="ant-select-selector"
@@ -14660,6 +15379,7 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
                         readonly=""
                         role="combobox"
                         style="opacity: 0;"
+                        type="search"
                         unselectable="on"
                         value=""
                       />

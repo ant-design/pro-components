@@ -80,13 +80,13 @@ See our website [${name}](https://umijs.org/plugins/${shortName}) for more infor
 Using npm:
 
 \`\`\`bash
-$ npm install --save-dev ${name}
+$ npm install --save ${name}
 \`\`\`
 
 or using yarn:
 
 \`\`\`bash
-$ yarn add ${name} --dev
+$ yarn add ${name}
 \`\`\`
 `,
       );

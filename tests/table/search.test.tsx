@@ -1,6 +1,7 @@
 import { mount } from 'enzyme';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
+import { Input } from 'antd';
 import ProTable from '@ant-design/pro-table';
 import { request } from './demo';
 import { waitForComponentToPaint } from '../util';
@@ -45,11 +46,13 @@ describe('BasicTable Search', () => {
             title: '金额',
             dataIndex: 'money',
             valueType: 'money',
+            order: 9,
           },
           {
             title: 'Name',
             key: 'name',
             dataIndex: 'name',
+            order: 1,
           },
         ]}
         onSubmit={fn}
@@ -106,6 +109,98 @@ describe('BasicTable Search', () => {
 
     expect(fn).toBeCalledTimes(2);
     expect(resetFn).toBeCalledTimes(1);
+  });
+
+  it('🎏 manualRequest test', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            title: '金额',
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+          {
+            title: 'Name',
+            key: 'name',
+            children: [
+              {
+                title: '金额',
+                dataIndex: 'money',
+                valueType: 'money',
+              },
+              {
+                title: '姓名',
+                dataIndex: 'name',
+                valueType: 'money',
+              },
+            ],
+          },
+        ]}
+        manualRequest
+        request={(params) => {
+          fn();
+          return request(params);
+        }}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 200);
+
+    act(() => {
+      html.find('button.ant-btn').at(0).simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 500);
+
+    expect(fn).toBeCalledTimes(1);
+  });
+
+  it('🎏 manualRequest test', async () => {
+    const fn = jest.fn();
+    const ref = React.createRef<any>();
+    const html = mount(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            title: '金额',
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+          {
+            title: 'Name',
+            key: 'name',
+            children: [
+              {
+                title: '金额',
+                dataIndex: 'money',
+                valueType: 'money',
+              },
+              {
+                title: '姓名',
+                dataIndex: 'name',
+                valueType: 'money',
+              },
+            ],
+          },
+        ]}
+        formRef={ref}
+        manualRequest
+        request={(params) => {
+          fn();
+          return request(params);
+        }}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 200);
+    ref.current?.submit();
+    await waitForComponentToPaint(html, 500);
+
+    expect(fn).toBeCalledTimes(1);
   });
 
   it('🎏 search span test', async () => {
@@ -171,7 +266,7 @@ describe('BasicTable Search', () => {
             dataIndex: 'dateRange',
             initialValue: ['2020-09-11', '2020-09-22'],
             search: {
-              transform: (value) => ({ startTime: value[0], endTime: value[1] }),
+              transform: (value: any) => ({ startTime: value[0], endTime: value[1] }),
             },
           },
         ]}
@@ -195,5 +290,47 @@ describe('BasicTable Search', () => {
     expect(formValues.startTime).toBe('2020-09-11');
     expect(formValues.endTime).toBe('2020-09-22');
     expect(fn).toBeCalledTimes(1);
+  });
+
+  it('🎏 renderFormItem test', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProTable
+        size="small"
+        form={{
+          onValuesChange: (_, values) => {
+            fn(values.money);
+          },
+        }}
+        columns={[
+          {
+            title: '金额',
+            dataIndex: 'money',
+            valueType: 'money',
+            renderFormItem: () => <Input id="renderFormItem" />,
+          },
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+          },
+        ]}
+        request={(params) => {
+          return request(params);
+        }}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 200);
+
+    expect(html.find('#renderFormItem').exists()).toBeTruthy();
+    act(() => {
+      html.find('#renderFormItem input').simulate('change', {
+        target: {
+          value: '12',
+        },
+      });
+    });
+    expect(fn).toBeCalledWith('12');
   });
 });

@@ -1,12 +1,13 @@
 import React, { useContext, useEffect, useRef, useCallback } from 'react';
 import { FormInstance, FormItemProps, FormProps } from 'antd/lib/form';
-import { Form } from 'antd';
+import { Form, ConfigProvider } from 'antd';
 import { useIntl, IntlType } from '@ant-design/pro-provider';
 import ProForm, { QueryFilter, ProFormField, BaseQueryFilterProps } from '@ant-design/pro-form';
 import classNames from 'classnames';
 import { ProFieldValueType } from '@ant-design/pro-field';
-import { ConfigContext } from 'antd/lib/config-provider/context';
+// import { ConfigContext } from 'antd/lib/config-provider/context';
 import { Store } from 'antd/lib/form/interface';
+
 import {
   useDeepCompareEffect,
   ProSchemaComponentTypes,
@@ -14,12 +15,12 @@ import {
   transformKeySubmitValue,
   SearchTransformKeyFn,
 } from '@ant-design/pro-utils';
-import warningOnce from 'rc-util/lib/warning';
 
 import { genColumnKey } from '../utils';
 import Container from '../container';
 import { ProColumns } from '../index';
 import './index.less';
+import warningOnce from 'rc-util/lib/warning';
 
 export interface TableFormItem<T> extends Omit<FormItemProps, 'children' | 'onReset'> {
   onSubmit?: (value: T) => void;
@@ -48,7 +49,7 @@ export const formInputRender: React.FC<{
   // if function， run it
   const valueType =
     ((typeof itemValueType === 'function'
-      ? (itemValueType({}) as ProFieldValueType)
+      ? (itemValueType({}, type) as ProFieldValueType)
       : itemValueType) as ProFieldValueType) || 'text';
 
   /**
@@ -61,10 +62,10 @@ export const formInputRender: React.FC<{
     const { renderFormItem, ...restItem } = item;
     const defaultRender = (newItem: ProColumns<any>) =>
       formInputRender({
-        ...({
+        ...{
           ...props,
           item: newItem,
-        } || null),
+        },
       });
 
     // 自动注入 onChange 和 value，用户自己很有可能忘记
@@ -98,21 +99,22 @@ export const formInputRender: React.FC<{
 
   const { onChange, ...restFieldProps } = item.fieldProps || {};
 
+  const finalValueType =
+    !valueType || (['textarea', 'jsonCode', 'code'].includes(valueType) && type === 'table')
+      ? 'text'
+      : (valueType as 'text');
+
   return (
     <ProFormField
       ref={ref}
+      tooltip={item.tooltip || item.tip}
       isDefaultDom
       valueEnum={item.valueEnum}
       name={item.key || item.dataIndex}
       onChange={onChange}
-      // @ts-ignore
       fieldProps={restFieldProps || item.formItemProps}
       // valueType = textarea，但是在 查询表单这里，应该是个 input 框
-      valueType={
-        !valueType || (['textarea', 'jsonCode', 'code'].includes(valueType) && type === 'table')
-          ? 'text'
-          : valueType
-      }
+      valueType={finalValueType}
       initialValue={item.initialValue}
       {...rest}
       rules={type === 'form' ? rest.rules : undefined}
@@ -207,8 +209,8 @@ const FormSearch = <T, U = any>({
   }>({});
 
   // 这么做是为了在用户修改了输入的时候触发一下子节点的render
-  const [, updateState] = React.useState<any>();
-  const forceUpdate = useCallback(() => updateState({}), []);
+  const [, updateState] = React.useState();
+  const forceUpdate = useCallback(() => updateState(undefined), []);
 
   const isForm = type === 'form';
 
@@ -278,8 +280,7 @@ const FormSearch = <T, U = any>({
       // 以key为主,理论上key唯一
       const finalKey = genColumnKey((key || dataIndex) as string, index);
       // 如果是() => ValueType
-      const finalValueType = typeof valueType === 'function' ? valueType(item) : valueType;
-
+      const finalValueType = typeof valueType === 'function' ? valueType(item, type) : valueType;
       tempMap[finalKey] = finalValueType;
       transformKeyMap[finalKey] =
         typeof search === 'boolean' || !search
@@ -291,7 +292,7 @@ const FormSearch = <T, U = any>({
     transformKeyRef.current = transformKeyMap;
   }, [counter.proColumns]);
 
-  const { getPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
   const columnsList = counter.proColumns
     .filter((item) => {
@@ -316,12 +317,8 @@ const FormSearch = <T, U = any>({
       if (a && b) {
         return (b.order || 0) - (a.order || 0);
       }
-      if (a && a.order) {
-        return -1;
-      }
-      if (b && b.order) {
-        return 1;
-      }
+      if (a && a.order) return -1;
+      if (b && b.order) return 1;
       return 0;
     });
 
@@ -345,6 +342,11 @@ const FormSearch = <T, U = any>({
   const formClassName = getPrefixCls('pro-table-form');
   const FormCompetent = isForm ? ProForm : QueryFilter;
 
+  const queryFilterProps = {
+    labelWidth: searchConfig ? searchConfig?.labelWidth : undefined,
+    defaultCollapsed: true,
+    ...searchConfig,
+  };
   return (
     <div
       className={classNames(className, {
@@ -352,8 +354,7 @@ const FormSearch = <T, U = any>({
       })}
     >
       <FormCompetent
-        defaultCollapsed
-        {...(searchConfig || {})}
+        {...(!isForm ? queryFilterProps : {})}
         {...formConfig}
         form={form}
         onValuesChange={(change, all) => {
@@ -372,7 +373,6 @@ const FormSearch = <T, U = any>({
           submit();
         }}
         initialValues={formConfig.initialValues}
-        labelWidth={searchConfig ? searchConfig?.labelWidth : undefined}
       >
         {domList}
       </FormCompetent>

@@ -2,18 +2,18 @@
 
 > @ant-design/pro-descriptions.
 
-See our website [@ant-design/pro-descriptions](https://umijs.org/plugins/descriptions) for more information.
+See our website [@ant-design/pro-descriptions](https://procomponent.ant.design/) for more information.
 
 ## Install
 
 Using npm:
 
 ```bash
-$ npm install --save-dev @ant-design/pro-descriptions
+$ npm install --save  @ant-design/pro-descriptions
 ```
 
 or using yarn:
 
 ```bash
-$ yarn add @ant-design/pro-descriptions --dev
+$ yarn add @ant-design/pro-descriptions
 ```

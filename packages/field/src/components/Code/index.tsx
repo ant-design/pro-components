@@ -37,6 +37,7 @@ const FieldCode: ProFieldFC<{
           lineHeight: 1.45,
           backgroundColor: '#f6f8fa',
           borderRadius: 3,
+          width: 'min-content',
         }}
         ref={ref}
         {...fieldProps}

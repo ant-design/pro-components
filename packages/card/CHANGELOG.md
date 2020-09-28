@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.2.0...@ant-design/pro-card@1.2.1) (2020-09-22)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+# [1.2.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.1.0...@ant-design/pro-card@1.2.0) (2020-09-22)
+
+### Features
+
+- Procard 支持 tabs 集成 ([#536](https://github.com/ant-design/pro-components/issues/536)) ([92df391](https://github.com/ant-design/pro-components/commit/92df391b800d756fe2390821f61ab73f6e31f527))
+- **card:** 卡片支持类型为内部卡片 ([#538](https://github.com/ant-design/pro-components/issues/538)) ([9675562](https://github.com/ant-design/pro-components/commit/9675562ae28abae6c966063846f24668f45efbf4))
+
+# [1.1.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.0.9...@ant-design/pro-card@1.1.0) (2020-09-14)
+
+### Features
+
+- **core:** 为 LabelIconTip 添加 subTitle ([#454](https://github.com/ant-design/pro-components/issues/454)) ([92c095c](https://github.com/ant-design/pro-components/commit/92c095cf88c15a959109403cc6321ee1be70225a))
+
+## [1.0.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.0.8...@ant-design/pro-card@1.0.9) (2020-09-14)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
 ## [1.0.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.0.7...@ant-design/pro-card@1.0.8) (2020-09-10)
 
 **Note:** Version bump only for package @ant-design/pro-card

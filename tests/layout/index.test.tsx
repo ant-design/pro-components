@@ -6,6 +6,10 @@ import BasicLayout, { BasicLayoutProps } from '@ant-design/pro-layout';
 import { waitForComponentToPaint } from '../util';
 
 describe('BasicLayout', () => {
+  beforeAll(() => {
+    process.env.NODE_ENV = 'TEST';
+    process.env.USE_MEDIA = 'md';
+  });
   it('🥩 base use', async () => {
     const html = render(<BasicLayout />);
     expect(html).toMatchSnapshot();
@@ -244,6 +248,7 @@ describe('BasicLayout', () => {
     const onLogoClick = jest.fn();
     const wrapper = mount(
       <BasicLayout
+        siderWidth={undefined}
         logo={
           <div onClick={onLogoClick} id="test_log">
             Logo
@@ -550,5 +555,35 @@ describe('BasicLayout', () => {
 
     await waitForComponentToPaint(wrapper);
     expect(renderPageTitle).toBeCalled();
+  });
+
+  it('🥩 rightContentRender should work in top', async () => {
+    const wrapper = mount<BasicLayoutProps>(
+      <BasicLayout
+        rightContentRender={() => <div id="layout_right">right</div>}
+        layout="top"
+        location={{
+          pathname: '/',
+        }}
+      />,
+    );
+
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.setProps({
+        rightContentRender: () => (
+          <div
+            id="layout_right"
+            style={{
+              width: 120,
+            }}
+          >
+            right
+          </div>
+        ),
+      });
+    });
+    expect(wrapper.find('#layout_right').exists()).toBeTruthy();
   });
 });

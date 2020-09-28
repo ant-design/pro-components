@@ -1,5 +1,5 @@
 ---
-title: ProCard - 高级卡片
+title: ProCard - 标准卡片
 nav:
   title: 组件
   path: /components
@@ -7,7 +7,7 @@ group:
   path: /
 ---
 
-# ProCard 高级卡片
+# ProCard 标准卡片
 
 页内容器卡片，提供标准卡片样式，卡片切分以及栅格布局能力。
 
@@ -31,12 +31,6 @@ group:
 当嵌套子卡片时, 组件会自动切换为 `flex` 弹性盒布局。你还可以通过配置 `ghost` 属性为 `true` 方便页内布局。
 
  <code src="./demos/colspan.tsx"  background="#f0f2f5" />
-
-### 圣杯布局
-
-利用栅格布局特性可以方便地做出非常常见的圣杯布局:
-
-<code src="./demos/holygrail.tsx" background="#f0f2f5"/>
 
 ### 响应式
 
@@ -100,6 +94,24 @@ group:
 
 <code src="./demos/bordered.tsx" />
 
+### 页签
+
+配置 `tabs` 属性配合 `ProCard.TabPane` 子组件可以配置卡片的标签栏。
+
+<code src="./demos/tabs.tsx" background="#f0f2f5"/>
+
+### 卡片式页签
+
+配置 `tab` 的 `type` 为 `card` 来配置卡片式页签。
+
+<code src="./demos/tabs-card.tsx" background="#f0f2f5"/>
+
+### 内部卡片
+
+可以放在卡片内部，展示多层级结构的信息。
+
+<code src="./demos/inner.tsx" />
+
 ### 竖向步骤示例
 
 `Steps` 组件结合 `ProCard` 组件完成竖向步骤示例。
@@ -110,14 +122,15 @@ group:
 
 | 参数 | 说明 | 类型 | 默认值 |
 | :-- | :-- | :-- | :-- |
-|  title | 标题 | `React.ReactNode` | - |
-|  tip | 标题右侧图标 hover 提示信息 | `string` | - |
-|  extra | 右上角自定义区域 | `React.ReactNode` | - |
-|  layout | 内容布局，支持垂直居中 | `default` \| `center`  | default |
-|  loading | 加载中，支持自定义 loading 样式 | `boolean` \| `ReactNode` | false |
+| title | 标题 | `React.ReactNode` | - |
+| subTitle | 副标题 | `React.ReactNode` | - |
+| tooltip | 标题右侧图标 hover 提示信息 | `string` | - |
+| extra | 右上角自定义区域 | `React.ReactNode` | - |
+| layout | 内容布局，支持垂直居中 | `default` \| `center`  | default |
+| loading | 加载中，支持自定义 loading 样式 | `boolean` \| `ReactNode` | false |
 | colSpan | 栅格布局宽度，24 栅格，支持指定宽度 px 或百分比, 支持响应式的对象写法 `{ xs: 8, sm: 16, md: 24}` | `number` \| `string` | 24 |
-|  gutter | 数字或使用数组形式同时设置 [水平间距, 垂直间距], 支持响应式的对象写法 `{ xs: 8, sm: 16, md: 24}` | `number` \| `array` | 0 |
-|  split | 拆分卡片的方向 | `vertical` \| `horizontal`  | - |
+| gutter | 数字或使用数组形式同时设置 [水平间距, 垂直间距], 支持响应式的对象写法 `{ xs: 8, sm: 16, md: 24}` | `number` \| `array` | 0 |
+| split | 拆分卡片的方向 | `vertical` \| `horizontal`  | - |
 | bordered | 是否有边框 | `boolean` | false |
 | ghost | 幽灵模式，即是否取消卡片内容区域的 padding 和 卡片的背景颜色。 | `boolean` | false |
 | headerBordered | 页头是否有分割线 | `boolean` | false |
@@ -125,3 +138,24 @@ group:
 | collapsible | 配置是否可折叠，受控时无效 | `boolean` | false |
 | defaultCollapsed | 默认折叠, 受控时无效 | `boolean` | false |
 | onCollapse | 收起卡片的事件，受控时无效 | `(collapsed: boolean) => void;` | - |
+| tabs | 标签页配置 | 见下面 ProCardTabs | - |
+
+### ProCardTabs
+
+| 参数 | 说明 | 类型 | 默认值 |
+| :-- | :-- | :-- | :-- |
+| activeKey | 当前选中项 | string | - |
+| type | 页签的基本样式，可选 `line`、`card`、`editable-card` 类型 | string | inline |
+| onChange | 回调 | `(activeKey: string) => void;` | - |
+
+- 更多属性见 antd [Tab](https://ant.design/components/tabs-cn/#Tabs) API 描述。
+
+### ProCard.TabPane
+
+支持 `ProCard` 所有属性及 [Tabs.TabPane](https://ant.design/components/tabs-cn/#Tabs.TabPane) 的所有属性。
+
+| 参数 | 说明 | 类型 | 默认值 |
+| :-- | :-- | :-- | :-- |
+| key | 对应 activeKey，用于标定是否选中和 dom 更新，一定不要重复，不然会造成表现异常 | `string` | - |
+| tab | 选项卡头显示文字 | `ReactNode` | - |
+| disabled | 不可用 | `boolean` | false |

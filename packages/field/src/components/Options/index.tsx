@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
-import { Space } from 'antd';
-import { ConfigContext } from 'antd/lib/config-provider/context';
+import { Space, ConfigProvider } from 'antd';
 import { ProFieldFC } from '../../index';
 
 /**
@@ -8,7 +7,7 @@ import { ProFieldFC } from '../../index';
  * @param param0
  */
 const FieldOptions: ProFieldFC<{}> = ({ text, mode: type, render, fieldProps }) => {
-  const { getPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-field-option');
 
   if (render) {
