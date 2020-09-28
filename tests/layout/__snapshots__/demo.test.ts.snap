@@ -6039,7 +6039,7 @@ Array [
           style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 100; right: 0px;"
         >
           <div
-            class="ant-pro-top-nav-header"
+            class="ant-pro-top-nav-header light"
           >
             <div
               class="ant-pro-top-nav-header-main "
@@ -6067,7 +6067,7 @@ Array [
                 style="flex: 1;"
               >
                 <ul
-                  class="ant-menu ant-menu-dark top-nav-menu ant-menu-root ant-menu-horizontal"
+                  class="ant-menu ant-menu-light top-nav-menu ant-menu-root ant-menu-horizontal"
                   role="menu"
                 >
                   <li

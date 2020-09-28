@@ -59,6 +59,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
     style,
     layout,
     children,
+    headerTheme = 'dark',
     splitMenus,
     menuData,
     prefixCls,
@@ -79,8 +80,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
         {...props}
         splitMenus={false}
         menuData={noChildrenMenuData}
-        navTheme="dark"
-        theme="dark"
+        theme={headerTheme as 'light' | 'dark'}
       />
     );
   }
