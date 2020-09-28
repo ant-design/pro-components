@@ -2,7 +2,7 @@
 
 exports[`mobile BasicLayout 📱 base use 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-mobile"
+  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-side"
 >
   <section
     class="ant-layout ant-layout-has-sider"
@@ -192,7 +192,7 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
 
 exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-mobile"
+  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-side"
 >
   <section
     class="ant-layout ant-layout-has-sider"
@@ -382,7 +382,7 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
 
 exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-mobile"
+  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-mix"
 >
   <section
     class="ant-layout ant-layout-has-sider"
@@ -559,7 +559,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
 
 exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-mobile"
+  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-mix"
 >
   <section
     class="ant-layout ant-layout-has-sider"
@@ -736,7 +736,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
 
 exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-mobile"
+  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-mix"
 >
   <section
     class="ant-layout ant-layout-has-sider"
@@ -906,7 +906,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
 
 exports[`mobile BasicLayout 📱 layout=mix 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-mobile"
+  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-mix"
 >
   <section
     class="ant-layout ant-layout-has-sider"
@@ -1086,7 +1086,7 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
 
 exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-mobile"
+  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-mix"
 >
   <section
     class="ant-layout ant-layout-has-sider"

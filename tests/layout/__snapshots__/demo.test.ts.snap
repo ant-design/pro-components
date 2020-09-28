@@ -5,7 +5,7 @@ exports[`layout demos renders ./packages/layout/src/demos/BreadcrumbsRepeat.tsx 
   style="height: 400px; overflow: auto;"
 >
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
   >
     <section
       class="ant-layout ant-layout-has-sider"
@@ -300,7 +300,7 @@ exports[`layout demos renders ./packages/layout/src/demos/DefaultOpenAllMenu.tsx
   style="height: 400px; overflow: auto;"
 >
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
   >
     <section
       class="ant-layout ant-layout-has-sider"
@@ -729,7 +729,7 @@ exports[`layout demos renders ./packages/layout/src/demos/IconFont.tsx correctly
   style="height: 400px; overflow: auto;"
 >
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
   >
     <section
       class="ant-layout ant-layout-has-sider"
@@ -1010,7 +1010,7 @@ exports[`layout demos renders ./packages/layout/src/demos/MultipleMenuOnePath.ts
   style="height: 400px; overflow: auto;"
 >
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
   >
     <section
       class="ant-layout ant-layout-has-sider"
@@ -1406,7 +1406,7 @@ exports[`layout demos renders ./packages/layout/src/demos/Nested.tsx correctly 1
   style="height: 400px; overflow: auto;"
 >
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
   >
     <section
       class="ant-layout ant-layout-has-sider"
@@ -1558,7 +1558,7 @@ exports[`layout demos renders ./packages/layout/src/demos/Nested.tsx correctly 1
           class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-content-disable-margin"
         >
           <div
-            class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-is-children"
+            class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-is-children ant-pro-basicLayout-side"
           >
             <section
               class="ant-layout ant-layout-has-sider"
@@ -1834,7 +1834,7 @@ exports[`layout demos renders ./packages/layout/src/demos/TopmenuNested.tsx corr
   style="height: 400px; overflow: auto;"
 >
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-top-menu"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-top-menu ant-pro-basicLayout-top"
   >
     <section
       class="ant-layout ant-layout-has-sider"
@@ -2058,7 +2058,7 @@ exports[`layout demos renders ./packages/layout/src/demos/TopmenuNested.tsx corr
           class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-pro-basicLayout-content-disable-margin"
         >
           <div
-            class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-is-children"
+            class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-is-children ant-pro-basicLayout-side"
           >
             <section
               class="ant-layout ant-layout-has-sider"
@@ -2335,7 +2335,7 @@ exports[`layout demos renders ./packages/layout/src/demos/antd@3MenuIconFormServ
   style="transform: rotate(0); overflow-x: hidden;"
 >
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
   >
     <section
       class="ant-layout ant-layout-has-sider"
@@ -2581,7 +2581,7 @@ exports[`layout demos renders ./packages/layout/src/demos/antd@4MenuIconFormServ
   style="transform: rotate(0); overflow-x: hidden;"
 >
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
   >
     <section
       class="ant-layout ant-layout-has-sider"
@@ -2959,7 +2959,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
   >
     <section
       class="ant-layout ant-layout-has-sider"
@@ -3329,7 +3329,7 @@ exports[`layout demos renders ./packages/layout/src/demos/base.tsx correctly 1`]
   style="transform: rotate(0); overflow-x: hidden;"
 >
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
   >
     <section
       class="ant-layout ant-layout-has-sider"
@@ -4386,7 +4386,7 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
   >
     <section
       class="ant-layout ant-layout-has-sider"
@@ -4694,7 +4694,7 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
   >
     <section
       class="ant-layout ant-layout-has-sider"
@@ -4890,7 +4890,7 @@ Array [
 
 exports[`layout demos renders ./packages/layout/src/demos/footer.tsx correctly 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-md"
+  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
 >
   <section
     class="ant-layout ant-layout-has-sider"
@@ -5220,7 +5220,7 @@ exports[`layout demos renders ./packages/layout/src/demos/footer.tsx correctly 1
 
 exports[`layout demos renders ./packages/layout/src/demos/hideMenu.tsx correctly 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-md"
+  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
 >
   <section
     class="ant-layout ant-layout-has-sider"
@@ -5504,7 +5504,7 @@ exports[`layout demos renders ./packages/layout/src/demos/searchMenu.tsx correct
   style="height: 400px; overflow: auto;"
 >
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
   >
     <section
       class="ant-layout ant-layout-has-sider"
@@ -5826,7 +5826,7 @@ exports[`layout demos renders ./packages/layout/src/demos/searchMenu.tsx correct
 exports[`layout demos renders ./packages/layout/src/demos/splitMenus.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-mix"
   >
     <section
       class="ant-layout ant-layout-has-sider"
@@ -6020,7 +6020,7 @@ Array [
     </section>
   </div>,
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-mix"
   >
     <section
       class="ant-layout ant-layout-has-sider"
@@ -6260,7 +6260,7 @@ Array [
     </section>
   </div>,
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix"
   >
     <section
       class="ant-layout ant-layout-has-sider"
