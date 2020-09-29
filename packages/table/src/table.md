@@ -314,6 +314,7 @@ ProTable 封装了一些常用的值类型来减少重复的 `render` 操作，�
 | time | 时间 | 12:50:00 |
 | option | 操作项，会自动增加 marginRight，只支持一个数组,表单中会自动忽略 | `[<a>操作a</a>,<a>操作b</a>]` |
 | text | 默认值，不做任何处理 | - |
+| select | 选择 | - |
 | textarea | 与 text 相同， form 转化时会转为 textarea 组件 | - |
 | index | 序号列 | - |
 | indexBorder | 带 border 的序号列 | - |

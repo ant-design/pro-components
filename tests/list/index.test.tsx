@@ -2,6 +2,7 @@ import { mount } from 'enzyme';
 import React, { useState, ReactText } from 'react';
 import ProList from '@ant-design/pro-list';
 import PaginationDemo from '../../packages/list/src/demos/pagination';
+import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('BasicTable', () => {
   it('🎏 base use', async () => {
@@ -186,5 +187,59 @@ describe('BasicTable', () => {
     expect(html.find('.ant-list-item').length).toEqual(5);
     html.find('.ant-pagination-item').at(1).simulate('click');
     expect(html.find('.ant-list-item').length).toEqual(2);
+  });
+
+  it('🎏 filter and request', async () => {
+    const onRequest = jest.fn();
+    const html = mount(
+      <ProList<any, { title: string }>
+        metas={{
+          title: {
+            title: '标题',
+          },
+        }}
+        request={(params, sort, filter) => {
+          if (params.title) {
+            onRequest(params, sort, filter);
+          }
+          return Promise.resolve({
+            success: true,
+            data: [
+              {
+                title: '测试标题1',
+              },
+              {
+                title: '测试标题2',
+              },
+            ],
+          });
+        }}
+        pagination={{
+          pageSize: 5,
+        }}
+        search={{
+          filterType: 'light',
+        }}
+      />,
+    );
+    await waitForComponentToPaint(html);
+    expect(html.find('.ant-pro-list-row-title').length).toEqual(2);
+    html.find('.ant-pro-core-field-label').simulate('click');
+    html.find('.ant-input').simulate('change', {
+      target: {
+        value: 'test',
+      },
+    });
+    html.find('.ant-btn.ant-btn-primary').simulate('click');
+    await waitTime();
+    expect(onRequest).toHaveBeenCalledWith(
+      {
+        current: 1,
+        pageSize: 20,
+        title: 'test',
+      },
+      {},
+      {},
+    );
   });
 });
