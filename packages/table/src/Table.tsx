@@ -88,7 +88,6 @@ export type ProColumnType<T = unknown> = ProSchema<
     copyable?: boolean;
     /**
      * @deprecated use `search` instead
-     * 最新的vscode支持deprecated, 对已弃用的属性提供智能感知建议(添加一个删除线).
      * 在查询表单中隐藏
      */
     hideInSearch?: boolean;
