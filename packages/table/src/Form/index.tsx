@@ -23,7 +23,7 @@ import { ProColumns } from '../index';
 import './index.less';
 
 export type SearchConfig = BaseQueryFilterProps & {
-  filterType: 'query' | 'light';
+  filterType?: 'query' | 'light';
 };
 
 export interface TableFormItem<T> extends Omit<FormItemProps, 'children' | 'onReset'> {
