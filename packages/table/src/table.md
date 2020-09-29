@@ -459,47 +459,47 @@ Form 的列是根据 `valueType` 来生成不同的类型。
 | index | 不展示 |
 | progress | 不展示 |
 
-## ListToolBar
+### ListToolBar
 
 列表和表格的工具栏。
 
-### 基本使用
+#### 基本使用
 
 <code src="./demos/ListToolBar/basic.tsx" />
 
-### 无标题的情况
+#### 无标题的情况
 
 没有标题的情况下搜索框会前置。
 
 <code src="./demos/ListToolBar/no-title.tsx" />
 
-### 双行
+#### 双行
 
 <code src="./demos/ListToolBar/multipleLine.tsx" />
 
-### 标签
+#### 标签
 
 <code src="./demos/ListToolBar/tabs.tsx" />
 
-### 菜单
+#### 菜单
 
 <code src="./demos/ListToolBar/menu.tsx" />
 
-### 和 Table 一起使用
+#### 和 Table 一起使用
 
 <code src="./demos/ListToolBar/table.tsx" />
 
-### 和 List 一起使用
+#### 和 List 一起使用
 
 <code src="./demos/ListToolBar/list.tsx" />
 
-### 自定义 title
+#### 自定义 title
 
 <code src="./demos/ListToolBar/custom-title.tsx" />
 
-## API
+#### API
 
-### ListToolBar
+#### ListToolBar
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -516,7 +516,7 @@ Form 的列是根据 `valueType` 来生成不同的类型。
 
 SearchProps 为 antd 的 [Input.Search](https://ant.design/components/input-cn/#Input.Search) 的属性。
 
-### Setting
+#### Setting
 
 | 参数    | 说明         | 类型                  | 默认值 |
 | ------- | ------------ | --------------------- | ------ |
@@ -525,7 +525,7 @@ SearchProps 为 antd 的 [Input.Search](https://ant.design/components/input-cn/#
 | key     | 操作唯一标识 | string                | -      |
 | onClick | 设置被触发   | function(key: string) | -      |
 
-### ListToolBarMenu
+#### ListToolBarMenu
 
 | 参数      | 说明           | 类型                                | 默认值     |
 | --------- | -------------- | ----------------------------------- | ---------- |
@@ -534,7 +534,7 @@ SearchProps 为 antd 的 [Input.Search](https://ant.design/components/input-cn/#
 | items     | 菜单项         | { key: string; label: ReactNode }[] | -          |
 | onChange  | 切换菜单的回调 | Function(activeKey) {}              | -          |
 
-### ListToolBarTabs
+#### ListToolBarTabs
 
 | 参数      | 说明       | 类型                              | 默认值     |
 | --------- | ---------- | --------------------------------- | ---------- |
