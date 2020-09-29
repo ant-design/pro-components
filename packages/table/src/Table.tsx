@@ -519,7 +519,8 @@ const ProTable = <T extends {}, U extends ParamsType>(
     setSelectedRows(rows);
   };
 
-  const [formSearch, setFormSearch] = useState<{}>(() => rest.form?.initialValues);
+  const [formSearch, setFormSearch] = useState<{} | undefined>(undefined);
+
   const [proFilter, setProFilter] = useState<{
     [key: string]: React.ReactText[];
   }>({});
@@ -585,7 +586,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
       pagination: propsPagination !== false,
       onLoad,
       onRequestError,
-      manual: !request,
+      manual: !request || (!formSearch && search !== false),
       effects: [stringify(params), stringify(formSearch), stringify(proFilter), stringify(proSort)],
     },
   );
@@ -689,10 +690,15 @@ const ProTable = <T extends {}, U extends ParamsType>(
    * 同步 Pagination，支持受控的 页码 和 pageSize
    */
   useDeepCompareEffect(() => {
-    if (propsPagination && (propsPagination.current || propsPagination.pageSize)) {
+    const { current, pageSize } = propsPagination || {};
+    if (
+      propsPagination &&
+      (current || pageSize) &&
+      (pageSize !== action.pageSize || current !== action.current)
+    ) {
       action.setPageInfo({
-        pageSize: propsPagination.pageSize || action.pageSize,
-        page: propsPagination.current || action.current,
+        pageSize: pageSize || action.pageSize,
+        page: current || action.current,
       });
     }
   }, [propsPagination && propsPagination.pageSize, propsPagination && propsPagination.current]);
@@ -842,21 +848,25 @@ const ProTable = <T extends {}, U extends ParamsType>(
       <div className={className} id="ant-design-pro-table" style={style} ref={rootRef}>
         {(search !== false || type === 'form') && (
           <FormSearch<U>
+            submitButtonLoading={action.loading}
             {...rest}
             type={type}
             formRef={formRef}
-            onSubmit={(value) => {
+            onSubmit={(value, firstLoad) => {
               if (type !== 'form') {
                 const submitParams = {
                   ...value,
                   _timestamp: Date.now(),
                 };
                 setFormSearch(beforeSearchSubmit(submitParams));
-                // back first page
-                action.resetPageIndex();
+                if (!firstLoad) {
+                  // back first page
+                  action.resetPageIndex();
+                }
               }
-
-              if (props.onSubmit) {
+              // 不是第一次提交就不触发，第一次提交是 js 触发的
+              // 为了解决 https://github.com/ant-design/pro-components/issues/579
+              if (props.onSubmit && !firstLoad) {
                 props.onSubmit(value);
               }
             }}

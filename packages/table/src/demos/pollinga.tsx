@@ -90,7 +90,6 @@ const columns: ProColumns<TableListItem>[] = [
   {
     title: '创建时间',
     key: 'since2',
-    width: 120,
     dataIndex: 'createdAt',
     valueType: 'dateMonth',
     render: (dom) => {

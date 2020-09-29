@@ -134,9 +134,10 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 200);
+    await waitForComponentToPaint(html, 1200);
 
     expect(fn).toBeCalledWith(2);
+
     expect(pageSizeFn).toBeCalledWith(20);
 
     html.setProps({

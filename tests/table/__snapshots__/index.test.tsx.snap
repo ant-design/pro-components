@@ -1907,7 +1907,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 0"
                           >
                             Edward King 0
                             <div
@@ -1946,7 +1945,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 0"
                           >
                             <span>
                               Edward King 0
@@ -2010,14 +2008,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 0"
-                            >
-                              London, Park Lane no. 0
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 0
                           </span>
                         </td>
                         <td
@@ -2186,7 +2181,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 1"
                           >
                             Edward King 1
                             <div
@@ -2225,7 +2219,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 1"
                           >
                             <span>
                               Edward King 1
@@ -2289,14 +2282,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 1"
-                            >
-                              London, Park Lane no. 1
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 1
                           </span>
                         </td>
                         <td
@@ -2465,7 +2455,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 2"
                           >
                             Edward King 2
                             <div
@@ -2504,7 +2493,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 2"
                           >
                             <span>
                               Edward King 2
@@ -2568,14 +2556,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 2"
-                            >
-                              London, Park Lane no. 2
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 2
                           </span>
                         </td>
                         <td
@@ -2744,7 +2729,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 3"
                           >
                             Edward King 3
                             <div
@@ -2783,7 +2767,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 3"
                           >
                             <span>
                               Edward King 3
@@ -2847,14 +2830,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 3"
-                            >
-                              London, Park Lane no. 3
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 3
                           </span>
                         </td>
                         <td
@@ -3023,7 +3003,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 4"
                           >
                             Edward King 4
                             <div
@@ -3062,7 +3041,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 4"
                           >
                             <span>
                               Edward King 4
@@ -3126,14 +3104,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 4"
-                            >
-                              London, Park Lane no. 4
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 4
                           </span>
                         </td>
                         <td
@@ -3302,7 +3277,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 5"
                           >
                             Edward King 5
                             <div
@@ -3341,7 +3315,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 5"
                           >
                             <span>
                               Edward King 5
@@ -3405,14 +3378,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 5"
-                            >
-                              London, Park Lane no. 5
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 5
                           </span>
                         </td>
                         <td
@@ -3581,7 +3551,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 6"
                           >
                             Edward King 6
                             <div
@@ -3620,7 +3589,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 6"
                           >
                             <span>
                               Edward King 6
@@ -3684,14 +3652,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 6"
-                            >
-                              London, Park Lane no. 6
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 6
                           </span>
                         </td>
                         <td
@@ -3860,7 +3825,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 7"
                           >
                             Edward King 7
                             <div
@@ -3899,7 +3863,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 7"
                           >
                             <span>
                               Edward King 7
@@ -3963,14 +3926,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 7"
-                            >
-                              London, Park Lane no. 7
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 7
                           </span>
                         </td>
                         <td
@@ -4139,7 +4099,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 8"
                           >
                             Edward King 8
                             <div
@@ -4178,7 +4137,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 8"
                           >
                             <span>
                               Edward King 8
@@ -4242,14 +4200,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 8"
-                            >
-                              London, Park Lane no. 8
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 8
                           </span>
                         </td>
                         <td
@@ -4418,7 +4373,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 9"
                           >
                             Edward King 9
                             <div
@@ -4457,7 +4411,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 9"
                           >
                             <span>
                               Edward King 9
@@ -4521,14 +4474,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 9"
-                            >
-                              London, Park Lane no. 9
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 9
                           </span>
                         </td>
                         <td
@@ -4697,7 +4647,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 10"
                           >
                             Edward King 10
                             <div
@@ -4736,7 +4685,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 10"
                           >
                             <span>
                               Edward King 10
@@ -4800,14 +4748,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 10"
-                            >
-                              London, Park Lane no. 10
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 10
                           </span>
                         </td>
                         <td
@@ -4976,7 +4921,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 11"
                           >
                             Edward King 11
                             <div
@@ -5015,7 +4959,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 11"
                           >
                             <span>
                               Edward King 11
@@ -5079,14 +5022,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 11"
-                            >
-                              London, Park Lane no. 11
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 11
                           </span>
                         </td>
                         <td
@@ -5255,7 +5195,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 12"
                           >
                             Edward King 12
                             <div
@@ -5294,7 +5233,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 12"
                           >
                             <span>
                               Edward King 12
@@ -5358,14 +5296,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 12"
-                            >
-                              London, Park Lane no. 12
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 12
                           </span>
                         </td>
                         <td
@@ -5534,7 +5469,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 13"
                           >
                             Edward King 13
                             <div
@@ -5573,7 +5507,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 13"
                           >
                             <span>
                               Edward King 13
@@ -5637,14 +5570,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 13"
-                            >
-                              London, Park Lane no. 13
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 13
                           </span>
                         </td>
                         <td
@@ -5813,7 +5743,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 14"
                           >
                             Edward King 14
                             <div
@@ -5852,7 +5781,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 14"
                           >
                             <span>
                               Edward King 14
@@ -5916,14 +5844,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 14"
-                            >
-                              London, Park Lane no. 14
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 14
                           </span>
                         </td>
                         <td
@@ -6092,7 +6017,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 15"
                           >
                             Edward King 15
                             <div
@@ -6131,7 +6055,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 15"
                           >
                             <span>
                               Edward King 15
@@ -6195,14 +6118,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 15"
-                            >
-                              London, Park Lane no. 15
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 15
                           </span>
                         </td>
                         <td
@@ -6371,7 +6291,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 16"
                           >
                             Edward King 16
                             <div
@@ -6410,7 +6329,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 16"
                           >
                             <span>
                               Edward King 16
@@ -6474,14 +6392,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 16"
-                            >
-                              London, Park Lane no. 16
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 16
                           </span>
                         </td>
                         <td
@@ -6650,7 +6565,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 17"
                           >
                             Edward King 17
                             <div
@@ -6689,7 +6603,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 17"
                           >
                             <span>
                               Edward King 17
@@ -6753,14 +6666,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 17"
-                            >
-                              London, Park Lane no. 17
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 17
                           </span>
                         </td>
                         <td
@@ -6929,7 +6839,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 18"
                           >
                             Edward King 18
                             <div
@@ -6968,7 +6877,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 18"
                           >
                             <span>
                               Edward King 18
@@ -7032,14 +6940,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 18"
-                            >
-                              London, Park Lane no. 18
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 18
                           </span>
                         </td>
                         <td
@@ -7208,7 +7113,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 19"
                           >
                             Edward King 19
                             <div
@@ -7247,7 +7151,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 19"
                           >
                             <span>
                               Edward King 19
@@ -7311,14 +7214,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 19"
-                            >
-                              London, Park Lane no. 19
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 19
                           </span>
                         </td>
                         <td
@@ -8435,7 +8335,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 0"
                           >
                             Edward King 0
                             <div
@@ -8474,7 +8373,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 0"
                           >
                             <span>
                               Edward King 0
@@ -8538,14 +8436,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 0"
-                            >
-                              London, Park Lane no. 0
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 0
                           </span>
                         </td>
                         <td
@@ -8735,7 +8630,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 1"
                           >
                             Edward King 1
                             <div
@@ -8774,7 +8668,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 1"
                           >
                             <span>
                               Edward King 1
@@ -8838,14 +8731,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 1"
-                            >
-                              London, Park Lane no. 1
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 1
                           </span>
                         </td>
                         <td
@@ -9034,7 +8924,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 2"
                           >
                             Edward King 2
                             <div
@@ -9073,7 +8962,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 2"
                           >
                             <span>
                               Edward King 2
@@ -9137,14 +9025,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 2"
-                            >
-                              London, Park Lane no. 2
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 2
                           </span>
                         </td>
                         <td
@@ -9333,7 +9218,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 3"
                           >
                             Edward King 3
                             <div
@@ -9372,7 +9256,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 3"
                           >
                             <span>
                               Edward King 3
@@ -9436,14 +9319,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 3"
-                            >
-                              London, Park Lane no. 3
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 3
                           </span>
                         </td>
                         <td
@@ -9632,7 +9512,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 4"
                           >
                             Edward King 4
                             <div
@@ -9671,7 +9550,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 4"
                           >
                             <span>
                               Edward King 4
@@ -9735,14 +9613,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 4"
-                            >
-                              London, Park Lane no. 4
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 4
                           </span>
                         </td>
                         <td
@@ -9931,7 +9806,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 5"
                           >
                             Edward King 5
                             <div
@@ -9970,7 +9844,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 5"
                           >
                             <span>
                               Edward King 5
@@ -10034,14 +9907,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 5"
-                            >
-                              London, Park Lane no. 5
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 5
                           </span>
                         </td>
                         <td
@@ -10230,7 +10100,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 6"
                           >
                             Edward King 6
                             <div
@@ -10269,7 +10138,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 6"
                           >
                             <span>
                               Edward King 6
@@ -10333,14 +10201,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 6"
-                            >
-                              London, Park Lane no. 6
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 6
                           </span>
                         </td>
                         <td
@@ -10529,7 +10394,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 7"
                           >
                             Edward King 7
                             <div
@@ -10568,7 +10432,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 7"
                           >
                             <span>
                               Edward King 7
@@ -10632,14 +10495,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 7"
-                            >
-                              London, Park Lane no. 7
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 7
                           </span>
                         </td>
                         <td
@@ -10828,7 +10688,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 8"
                           >
                             Edward King 8
                             <div
@@ -10867,7 +10726,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 8"
                           >
                             <span>
                               Edward King 8
@@ -10931,14 +10789,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 8"
-                            >
-                              London, Park Lane no. 8
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 8
                           </span>
                         </td>
                         <td
@@ -11127,7 +10982,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 9"
                           >
                             Edward King 9
                             <div
@@ -11166,7 +11020,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 9"
                           >
                             <span>
                               Edward King 9
@@ -11230,14 +11083,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 9"
-                            >
-                              London, Park Lane no. 9
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 9
                           </span>
                         </td>
                         <td
@@ -11426,7 +11276,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 10"
                           >
                             Edward King 10
                             <div
@@ -11465,7 +11314,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 10"
                           >
                             <span>
                               Edward King 10
@@ -11529,14 +11377,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 10"
-                            >
-                              London, Park Lane no. 10
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 10
                           </span>
                         </td>
                         <td
@@ -11725,7 +11570,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 11"
                           >
                             Edward King 11
                             <div
@@ -11764,7 +11608,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 11"
                           >
                             <span>
                               Edward King 11
@@ -11828,14 +11671,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 11"
-                            >
-                              London, Park Lane no. 11
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 11
                           </span>
                         </td>
                         <td
@@ -12024,7 +11864,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 12"
                           >
                             Edward King 12
                             <div
@@ -12063,7 +11902,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 12"
                           >
                             <span>
                               Edward King 12
@@ -12127,14 +11965,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 12"
-                            >
-                              London, Park Lane no. 12
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 12
                           </span>
                         </td>
                         <td
@@ -12323,7 +12158,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 13"
                           >
                             Edward King 13
                             <div
@@ -12362,7 +12196,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 13"
                           >
                             <span>
                               Edward King 13
@@ -12426,14 +12259,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 13"
-                            >
-                              London, Park Lane no. 13
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 13
                           </span>
                         </td>
                         <td
@@ -12622,7 +12452,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 14"
                           >
                             Edward King 14
                             <div
@@ -12661,7 +12490,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 14"
                           >
                             <span>
                               Edward King 14
@@ -12725,14 +12553,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 14"
-                            >
-                              London, Park Lane no. 14
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 14
                           </span>
                         </td>
                         <td
@@ -12921,7 +12746,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 15"
                           >
                             Edward King 15
                             <div
@@ -12960,7 +12784,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 15"
                           >
                             <span>
                               Edward King 15
@@ -13024,14 +12847,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 15"
-                            >
-                              London, Park Lane no. 15
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 15
                           </span>
                         </td>
                         <td
@@ -13220,7 +13040,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 16"
                           >
                             Edward King 16
                             <div
@@ -13259,7 +13078,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 16"
                           >
                             <span>
                               Edward King 16
@@ -13323,14 +13141,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 16"
-                            >
-                              London, Park Lane no. 16
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 16
                           </span>
                         </td>
                         <td
@@ -13519,7 +13334,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 17"
                           >
                             Edward King 17
                             <div
@@ -13558,7 +13372,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 17"
                           >
                             <span>
                               Edward King 17
@@ -13622,14 +13435,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 17"
-                            >
-                              London, Park Lane no. 17
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 17
                           </span>
                         </td>
                         <td
@@ -13818,7 +13628,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 18"
                           >
                             Edward King 18
                             <div
@@ -13857,7 +13666,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 18"
                           >
                             <span>
                               Edward King 18
@@ -13921,14 +13729,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 18"
-                            >
-                              London, Park Lane no. 18
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 18
                           </span>
                         </td>
                         <td
@@ -14117,7 +13922,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 19"
                           >
                             Edward King 19
                             <div
@@ -14156,7 +13960,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           <span
                             class="ant-typography"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
-                            title="Edward King 19"
                           >
                             <span>
                               Edward King 19
@@ -14220,14 +14023,11 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title="London, Park Lane no. 19"
-                            >
-                              London, Park Lane no. 19
-                            </span>
+                          <span
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                          >
+                            London, Park Lane no. 19
                           </span>
                         </td>
                         <td

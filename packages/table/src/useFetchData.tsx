@@ -82,8 +82,8 @@ const useFetchData = <T extends RequestData<any>>(
       return;
     }
     setLoading(true);
-    const { pageSize, page } = pageInfo;
 
+    const { pageSize, page } = pageInfo;
     try {
       const { data, success, total: dataTotal = 0 } =
         (await getData(

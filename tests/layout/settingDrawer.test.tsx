@@ -262,7 +262,7 @@ describe('settingDrawer.test', () => {
         collapse
       />,
     );
-    await waitForComponentToPaint(html, 2000);
+    await waitForComponentToPaint(html, 200);
 
     act(() => {
       ['header', 'footer', 'menu', 'menuHeader'].forEach((key) => {

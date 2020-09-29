@@ -21,6 +21,8 @@ export default () => {
         layout="mix"
         menuExtraRender={() => 'dom'}
         menuHeaderRender={false}
+        headerTheme="light"
+        navTheme="light"
         splitMenus
         location={{
           pathname: '/welcome',

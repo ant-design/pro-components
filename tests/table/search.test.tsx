@@ -1,5 +1,6 @@
 import { mount } from 'enzyme';
 import React from 'react';
+import MockDate from 'mockdate';
 import { act } from 'react-dom/test-utils';
 import { Input } from 'antd';
 import ProTable from '@ant-design/pro-table';
@@ -62,7 +63,7 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 200);
+    await waitForComponentToPaint(html, 1200);
 
     act(() => {
       html.find('button.ant-btn.ant-btn-primary').simulate('click');
@@ -111,7 +112,7 @@ describe('BasicTable Search', () => {
     expect(resetFn).toBeCalledTimes(1);
   });
 
-  it('🎏 manualRequest test', async () => {
+  it('🎏 manualRequest test by button', async () => {
     const fn = jest.fn();
     const html = mount(
       <ProTable
@@ -147,7 +148,7 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 200);
+    await waitForComponentToPaint(html, 1200);
 
     act(() => {
       html.find('button.ant-btn').at(0).simulate('click');
@@ -196,11 +197,13 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 200);
+    await waitForComponentToPaint(html, 2000);
+    MockDate.set(1479799364001);
     ref.current?.submit();
-    await waitForComponentToPaint(html, 500);
-
+    await waitForComponentToPaint(html, 1200);
     expect(fn).toBeCalledTimes(1);
+
+    MockDate.set(1479799364000);
   });
 
   it('🎏 search span test', async () => {

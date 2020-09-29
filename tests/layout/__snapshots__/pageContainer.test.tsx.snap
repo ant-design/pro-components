@@ -1,5 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`PageContainer ⚡️ support fixedHeader 1`] = `
+<div
+  class="ant-pro-page-container"
+>
+  <div>
+    <div
+      class=""
+    >
+      <div
+        class="ant-pro-page-container-warp"
+      >
+        <div
+          class="ant-page-header ant-page-header-ghost"
+        >
+          <div
+            class="ant-page-header-heading"
+          >
+            <div
+              class="ant-page-header-heading-left"
+            >
+              <span
+                class="ant-page-header-heading-title"
+                title="期贤"
+              >
+                期贤
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-pro-grid-content"
+  >
+    <div
+      class="ant-pro-grid-content-children"
+    />
+  </div>
+</div>
+`;
+
 exports[`PageContainer ⚡️ support footer 1`] = `
 <div
   class="ant-pro-page-container"
@@ -54,7 +96,7 @@ exports[`PageContainer ⚡️ support footer 1`] = `
 
 exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-top-menu"
+  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-top-menu ant-pro-basicLayout-top"
 >
   <section
     class="ant-layout ant-layout-has-sider"
@@ -66,7 +108,7 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
     >
       <header
         class="ant-layout-header ant-pro-top-menu"
-        style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 9;"
+        style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       >
         <div
           class="ant-pro-top-nav-header"
@@ -228,7 +270,7 @@ exports[`PageContainer 🐲 footer is null, do not render footerToolbar  2`] = `
 
 exports[`PageContainer 🐲 footer should know width 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-top-menu"
+  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-top-menu ant-pro-basicLayout-top"
 >
   <section
     class="ant-layout ant-layout-has-sider"
@@ -240,7 +282,7 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
     >
       <header
         class="ant-layout-header ant-pro-top-menu"
-        style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 9;"
+        style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       >
         <div
           class="ant-pro-top-nav-header"
@@ -474,7 +516,7 @@ exports[`PageContainer 🔥 footer bar support renderContent 1`] = `
 </div>
 `;
 
-exports[`PageContainer 🔥 support footer 1`] = `
+exports[`PageContainer 🔥 support footer and breadcrumb 1`] = `
 <div
   class="ant-pro-page-container"
 >

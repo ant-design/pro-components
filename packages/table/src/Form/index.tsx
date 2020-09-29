@@ -5,8 +5,7 @@ import { useIntl, IntlType } from '@ant-design/pro-provider';
 import ProForm, { QueryFilter, ProFormField, BaseQueryFilterProps } from '@ant-design/pro-form';
 import classNames from 'classnames';
 import { ProFieldValueType } from '@ant-design/pro-field';
-// import { ConfigContext } from 'antd/lib/config-provider/context';
-import { Store } from 'antd/lib/form/interface';
+import warningOnce from 'rc-util/lib/warning';
 
 import {
   useDeepCompareEffect,
@@ -20,16 +19,16 @@ import { genColumnKey } from '../utils';
 import Container from '../container';
 import { ProColumns } from '../index';
 import './index.less';
-import warningOnce from 'rc-util/lib/warning';
 
 export interface TableFormItem<T> extends Omit<FormItemProps, 'children' | 'onReset'> {
-  onSubmit?: (value: T) => void;
+  onSubmit?: (value: T, firstLoad: boolean) => void;
   onReset?: (value: T) => void;
   form?: Omit<FormProps, 'form'>;
   type?: ProSchemaComponentTypes;
   dateFormatter?: 'string' | 'number' | false;
   search?: false | BaseQueryFilterProps;
   formRef?: React.MutableRefObject<FormInstance | undefined> | ((actionRef: FormInstance) => void);
+  submitButtonLoading?: boolean;
 }
 
 export type SearchConfig = BaseQueryFilterProps;
@@ -180,6 +179,7 @@ const FormSearch = <T, U = any>({
   dateFormatter = 'string',
   type,
   onReset,
+  submitButtonLoading,
   search: searchConfig,
   form: formConfig = {},
 }: TableFormItem<T>) => {
@@ -199,7 +199,7 @@ const FormSearch = <T, U = any>({
    */
   const valueTypeRef = useRef<{
     [key: string]: ProFieldValueType;
-  }>({});
+  }>();
 
   /**
    * 保存 transformKeyRef，用于对表单key transform
@@ -214,32 +214,30 @@ const FormSearch = <T, U = any>({
 
   const isForm = type === 'form';
 
-  // 触发onSubmit
-  const triggerSubmit = (value: Store) => {
-    if (onSubmit) {
+  /**
+   *提交表单，根据两种模式不同，方法不相同
+   */
+  const submit = async (firstLoad: boolean) => {
+    let value;
+    // 如果不是表单模式，不用进行验证
+    if (!isForm) {
+      value = form.getFieldsValue();
+    } else {
+      try {
+        value = await form.validateFields();
+      } catch (error) {
+        // console.log(error)
+      }
+    }
+    if (onSubmit && valueTypeRef.current) {
+      // 转化值
+      // moment -> string
+      // key: [value, value] -> { key:value, key: value }
       const finalValue = transformKeySubmitValue(
         conversionSubmitValue(value, dateFormatter, valueTypeRef.current) as T,
         transformKeyRef.current,
       );
-      onSubmit(finalValue);
-    }
-  };
-
-  /**
-   *提交表单，根据两种模式不同，方法不相同
-   */
-  const submit = async () => {
-    // 如果不是表单模式，不用进行验证
-    if (!isForm) {
-      const value = form.getFieldsValue();
-      triggerSubmit(value);
-      return;
-    }
-    try {
-      const value = await form.validateFields();
-      triggerSubmit(value);
-    } catch (error) {
-      // console.log(error)
+      onSubmit(finalValue, firstLoad);
     }
   };
 
@@ -255,7 +253,7 @@ const FormSearch = <T, U = any>({
       formRef.current = {
         ...form,
         submit: () => {
-          submit();
+          submit(false);
           form.submit();
         },
       };
@@ -288,6 +286,13 @@ const FormSearch = <T, U = any>({
           : (value: any, fieldName: string, target: any) =>
               search?.transform(value, fieldName, target);
     });
+    // 触发一个 submit，之所以这里触发是为了保证 value 都被 format了
+    if (!valueTypeRef.current && type !== 'form') {
+      // 下面才去赋值，所以用 setTimeout 延时一下，略微性能好一点
+      setTimeout(() => {
+        submit(true);
+      }, 0);
+    }
     valueTypeRef.current = tempMap;
     transformKeyRef.current = transformKeyMap;
   }, [counter.proColumns]);
@@ -340,12 +345,19 @@ const FormSearch = <T, U = any>({
 
   const className = getPrefixCls('pro-table-search');
   const formClassName = getPrefixCls('pro-table-form');
-  const FormCompetent = isForm ? ProForm : QueryFilter;
+  const FormCompetent = (isForm ? ProForm : QueryFilter) as typeof ProForm;
 
   const queryFilterProps = {
     labelWidth: searchConfig ? searchConfig?.labelWidth : undefined,
     defaultCollapsed: true,
     ...searchConfig,
+  };
+  const loadingProps: any = {
+    submitter: {
+      submitButtonProps: {
+        loading: submitButtonLoading,
+      },
+    },
   };
   return (
     <div
@@ -354,6 +366,7 @@ const FormSearch = <T, U = any>({
       })}
     >
       <FormCompetent
+        {...loadingProps}
         {...(!isForm ? queryFilterProps : {})}
         {...formConfig}
         form={form}
@@ -370,7 +383,7 @@ const FormSearch = <T, U = any>({
           }
         }}
         onFinish={() => {
-          submit();
+          submit(false);
         }}
         initialValues={formConfig.initialValues}
       >
