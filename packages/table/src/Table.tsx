@@ -86,8 +86,9 @@ export type ProColumnType<T = unknown> = ProSchema<
      * 是否拷贝
      */
     copyable?: boolean;
+
     /**
-     * @deprecated use `search` instead
+     * @deprecated use `search=false` instead
      * 在查询表单中隐藏
      */
     hideInSearch?: boolean;
@@ -95,7 +96,15 @@ export type ProColumnType<T = unknown> = ProSchema<
     /**
      * 在查询表单中隐藏
      */
-    search?: boolean | { transform: SearchTransformKeyFn };
+    search?:
+      | boolean
+      | {
+          /**
+           * 转化值的key, 一般用于事件区间的转化
+           * @deprecated transform: (value: any) => ({ startTime: value[0], endTime: value[1] }),
+           */
+          transform: SearchTransformKeyFn;
+        };
 
     /**
      * 在 table 中隐藏
@@ -120,18 +129,6 @@ export type ProColumnType<T = unknown> = ProSchema<
      * 传给 Form.Item 的 props
      */
     formItemProps?: Partial<Omit<FormItemProps, 'children'>>;
-
-    /**
-     * 转化值的key, 一般用于事件区间的转化
-     *  {
-     *     title: '时间区间',
-     *     key: 'dateTimeRange',
-     *     dataIndex: 'createdAtRange',
-     *     valueType: 'dateTimeRange',
-     *     transform: (value: any) => ({ startTime: value[0], endTime: value[1] }),
-     *   },
-     */
-    transform?: (value: any) => any;
   }
 >;
 
