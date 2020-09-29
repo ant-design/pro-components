@@ -34,6 +34,7 @@ import {
   LabelIconTip,
   omitUndefinedAndEmptyArr,
   ProCoreActionType,
+  SearchTransformKeyFn,
   isNil,
   omitUndefined,
   ListToolBarProps,
@@ -85,10 +86,25 @@ export type ProColumnType<T = unknown> = ProSchema<
      * 是否拷贝
      */
     copyable?: boolean;
+
     /**
+     * @deprecated use `search=false` instead
      * 在查询表单中隐藏
      */
     hideInSearch?: boolean;
+
+    /**
+     * 在查询表单中隐藏
+     */
+    search?:
+      | boolean
+      | {
+          /**
+           * 转化值的key, 一般用于事件区间的转化
+           * @deprecated transform: (value: any) => ({ startTime: value[0], endTime: value[1] }),
+           */
+          transform: SearchTransformKeyFn;
+        };
 
     /**
      * 在 table 中隐藏

@@ -10,11 +10,14 @@ import ProForm, {
 } from '@ant-design/pro-form';
 import classNames from 'classnames';
 import { ProFieldValueType } from '@ant-design/pro-field';
+import warningOnce from 'rc-util/lib/warning';
 
 import {
   useDeepCompareEffect,
   ProSchemaComponentTypes,
   conversionSubmitValue,
+  transformKeySubmitValue,
+  SearchTransformKeyFn,
 } from '@ant-design/pro-utils';
 
 import { genColumnKey } from '../utils';
@@ -141,6 +144,7 @@ export const proFormItemRender: (props: {
     render,
     hideInForm,
     hideInSearch,
+    search,
     hideInTable,
     renderText,
     order,
@@ -204,6 +208,13 @@ const FormSearch = <T, U = any>({
     [key: string]: ProFieldValueType;
   }>();
 
+  /**
+   * 保存 transformKeyRef，用于对表单key transform
+   */
+  const transformKeyRef = useRef<{
+    [key: string]: SearchTransformKeyFn;
+  }>({});
+
   // 这么做是为了在用户修改了输入的时候触发一下子节点的render
   const [, updateState] = React.useState();
   const forceUpdate = useCallback(() => updateState(undefined), []);
@@ -225,11 +236,15 @@ const FormSearch = <T, U = any>({
         // console.log(error)
       }
     }
-    if (onSubmit) {
-      onSubmit(
-        conversionSubmitValue(value, dateFormatter, valueTypeRef.current || {}) as T,
-        firstLoad,
+    if (onSubmit && valueTypeRef.current) {
+      // 转化值
+      // moment -> string
+      // key: [value, value] -> { key:value, key: value }
+      const finalValue = transformKeySubmitValue(
+        conversionSubmitValue(value, dateFormatter, valueTypeRef.current) as T,
+        transformKeyRef.current,
       );
+      onSubmit(finalValue, firstLoad);
     }
   };
 
@@ -257,20 +272,34 @@ const FormSearch = <T, U = any>({
       return;
     }
     const tempMap = {};
+    const transformKeyMap = {};
+
     counter.proColumns.forEach((item) => {
-      const { key, dataIndex, index, valueType } = item;
+      const { key, dataIndex, index, valueType, search, hideInSearch } = item;
+      warningOnce(
+        typeof hideInSearch !== 'boolean',
+        `'hideInSearch' will be deprecated, please use 'search'`,
+      );
       // 以key为主,理论上key唯一
       const finalKey = genColumnKey((key || dataIndex) as string, index);
       // 如果是() => ValueType
       const finalValueType = typeof valueType === 'function' ? valueType(item, type) : valueType;
       tempMap[finalKey] = finalValueType;
+      transformKeyMap[finalKey] =
+        typeof search === 'boolean' || !search
+          ? undefined
+          : (value: any, fieldName: string, target: any) =>
+              search?.transform(value, fieldName, target);
     });
+    // 触发一个 submit，之所以这里触发是为了保证 value 都被 format了
     if (!valueTypeRef.current && type !== 'form') {
+      // 下面才去赋值，所以用 setTimeout 延时一下，略微性能好一点
       setTimeout(() => {
         submit(true);
       }, 0);
     }
     valueTypeRef.current = tempMap;
+    transformKeyRef.current = transformKeyMap;
   }, [counter.proColumns]);
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -278,7 +307,7 @@ const FormSearch = <T, U = any>({
   const columnsList = counter.proColumns
     .filter((item) => {
       const { valueType } = item;
-      if (item.hideInSearch && type !== 'form') {
+      if ((item.hideInSearch || item.search === false) && type !== 'form') {
         return false;
       }
       if (type === 'form' && item.hideInForm) {
@@ -334,11 +363,14 @@ const FormSearch = <T, U = any>({
     FormCompetent = ProForm;
   }
 
+  // 传给 QueryFilter 的配置
   const queryFilterProps = {
     labelWidth: searchConfig ? searchConfig?.labelWidth : undefined,
     defaultCollapsed: true,
     ...searchConfig,
   };
+
+  // 传给每个表单的配置，理论上大家都需要
   const loadingProps: any = {
     submitter: {
       submitButtonProps: {

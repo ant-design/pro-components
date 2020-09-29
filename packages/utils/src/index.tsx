@@ -19,6 +19,7 @@ import pickProFormItemProps from './pickProFormItemProps';
 import useDebounceFn from './hooks/useDebounceFn';
 import usePrevious from './hooks/usePrevious';
 import conversionSubmitValue from './conversionSubmitValue';
+import transformKeySubmitValue from './transformKeySubmitValue';
 import parseValueToMoment from './parseValueToMoment';
 import useDeepCompareEffect from './hooks/useDeepCompareEffect';
 import useDocumentTitle from './hooks/useDocumentTitle';
@@ -32,6 +33,7 @@ import {
   ProSchemaValueEnumObj,
   ProSchemaComponentTypes,
   ProCoreActionType,
+  SearchTransformKeyFn,
 } from './typing';
 
 export type {
@@ -40,6 +42,7 @@ export type {
   ProSchemaComponentTypes,
   ProSchemaValueEnumMap,
   ProSchemaValueEnumObj,
+  SearchTransformKeyFn,
   ListToolBarProps,
 };
 
@@ -48,6 +51,7 @@ export {
   ListToolBar,
   FieldDropdown,
   FieldLabel,
+  transformKeySubmitValue,
   conversionSubmitValue,
   parseValueToMoment,
   useDocumentTitle,

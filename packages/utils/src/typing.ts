@@ -16,6 +16,13 @@ export type ProSchemaValueEnumObj = {
 
 export type ProSchemaValueEnumMap = Map<React.ReactText, ProSchemaValueEnumType | ReactNode>;
 
+export type SearchTransformKeyFn = (
+  value: any,
+  field: string,
+  object: any,
+) => string | { [key: string]: any };
+
+// 支持的变形，还未完全支持完毕
 /**
  * 支持的变形，还未完全支持完毕
  */

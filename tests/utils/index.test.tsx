@@ -1,10 +1,11 @@
 import {
   conversionSubmitValue,
   parseValueToMoment,
+  transformKeySubmitValue,
   isNil,
   ListToolBar,
 } from '@ant-design/pro-utils';
-import { SettingOutlined, FullscreenOutlined, DownOutlined } from '@ant-design/icons';
+import { SettingOutlined, FullscreenOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import * as React from 'react';
 import { mount } from 'enzyme';
@@ -113,6 +114,111 @@ describe('utils', () => {
     expect((html as Moment[]).map((item) => item.valueOf()).join(',')).toBe(
       '1573862400000,1573862400000',
     );
+  });
+  it('📅 transformKeySubmitValue return string', async () => {
+    const html = transformKeySubmitValue(
+      {
+        dataTime: '2019-11-16 12:50:26',
+        time: '2019-11-16 12:50:26',
+        name: 'qixian',
+        money: 20,
+        dateTimeRange: ['2019-11-16 12:50:26', '2019-11-16 12:55:26'],
+        dateRange: ['2019-11-16 12:50:26', '2019-11-16 12:55:26'],
+      },
+      {
+        dataTime: () => 'new-dataTime',
+        time: () => 'new-time',
+        name: () => 'new-name',
+        money: () => 'new-money',
+      },
+    );
+    const htmlKeys = Object.keys(html).sort();
+    expect(htmlKeys).toEqual(
+      ['new-dataTime', 'new-time', 'new-name', 'new-money', 'dateTimeRange', 'dateRange'].sort(),
+    );
+    expect(htmlKeys).not.toEqual(
+      ['dataTime', 'time', 'name', 'money', 'dateTimeRange', 'dateRange'].sort(),
+    );
+    expect((html as any)['new-dataTime']).toBe('2019-11-16 12:50:26');
+    expect((html as any)['new-time']).toBe('2019-11-16 12:50:26');
+    expect((html as any)['new-name']).toBe('qixian');
+    expect((html as any)['new-money']).toBe(20);
+    expect(html.dateTimeRange.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:55:26');
+    expect(html.dateRange.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:55:26');
+  });
+
+  it('📅 transformKeySubmitValue return object', async () => {
+    const html = transformKeySubmitValue(
+      {
+        dataTime: '2019-11-16 12:50:26',
+        time: '2019-11-16 12:50:26',
+        name: 'qixian',
+        money: 20,
+        dateTimeRange: ['2019-11-16 12:50:26', '2019-11-16 12:55:26'],
+        dateRange: ['2019-11-16 12:50:26', '2019-11-16 12:55:26'],
+      },
+      {
+        dateTimeRange: (value: any) => ({
+          dateTimeRange1: value[0],
+          dateTimeRange2: value[1],
+        }),
+        dateRange: (value: any) => ({
+          dateRange1: value[0],
+          dateRange2: value[1],
+        }),
+      },
+    );
+    const htmlKeys = Object.keys(html).sort();
+    expect(htmlKeys).toEqual(
+      [
+        'dateTimeRange1',
+        'dateTimeRange2',
+        'dateRange1',
+        'dateRange2',
+        'dataTime',
+        'time',
+        'name',
+        'money',
+      ].sort(),
+    );
+    expect(htmlKeys).not.toEqual(
+      ['dataTime', 'time', 'name', 'money', 'dateTimeRange', 'dateRange'].sort(),
+    );
+    expect(html.dataTime).toBe('2019-11-16 12:50:26');
+    expect(html.time).toBe('2019-11-16 12:50:26');
+    expect(html.name).toBe('qixian');
+    expect(html.money).toBe(20);
+    expect((html as any).dateTimeRange1).toBe('2019-11-16 12:50:26');
+    expect((html as any).dateTimeRange2).toBe('2019-11-16 12:55:26');
+    expect((html as any).dateRange1).toBe('2019-11-16 12:50:26');
+    expect((html as any).dateRange2).toBe('2019-11-16 12:55:26');
+  });
+
+  it('📅 transformKeySubmitValue return array', async () => {
+    const html = transformKeySubmitValue(
+      {
+        dataTime: '2019-11-16 12:50:26',
+        time: '2019-11-16 12:50:26',
+        name: 'qixian',
+        money: 20,
+        dateTimeRange: ['2019-11-16 12:50:26', '2019-11-16 12:55:26'],
+        dateRange: ['2019-11-16 12:50:26', '2019-11-16 12:55:26'],
+      },
+      {
+        dataTime: () => ['new-dataTime'],
+        time: () => ['new-time'],
+      },
+    );
+    const htmlKeys = Object.keys(html).sort();
+    expect(htmlKeys).toEqual(
+      ['dataTime', 'time', 'name', 'money', 'dateTimeRange', 'dateRange'].sort(),
+    );
+    expect(html.dataTime).toBe('2019-11-16 12:50:26');
+    expect(html.time).toBe('2019-11-16 12:50:26');
+    expect(html.name).toBe('qixian');
+    expect(html.money).toBe(20);
+    expect(html.dateTimeRange.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:55:26');
+    expect(html.dateRange.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:55:26');
   });
 
   it('📅 isNil', async () => {

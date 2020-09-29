@@ -245,6 +245,56 @@ describe('BasicTable Search', () => {
     expect(html.find('.ant-col.ant-col-12').exists()).toBeTruthy();
   });
 
+  it('🎏 transform test', async () => {
+    const fn = jest.fn();
+    let formValues = { origin: '', status: '', startTime: '', endTime: '' };
+    const html = mount(
+      <ProTable
+        columns={[
+          {
+            title: 'origin',
+            dataIndex: 'origin',
+            initialValue: 'origin',
+          },
+          {
+            title: 'state',
+            dataIndex: 'state',
+            initialValue: 'state',
+            search: {
+              transform: () => 'status',
+            },
+          },
+          {
+            title: 'createdAt',
+            dataIndex: 'dateRange',
+            initialValue: ['2020-09-11', '2020-09-22'],
+            search: {
+              transform: (value: any) => ({ startTime: value[0], endTime: value[1] }),
+            },
+          },
+        ]}
+        request={(params) => request(params)}
+        onSubmit={(values) => {
+          fn(values);
+          formValues = values as any;
+        }}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 200);
+
+    act(() => {
+      html.find('button.ant-btn.ant-btn-primary').simulate('click');
+    });
+    await waitForComponentToPaint(html, 500);
+
+    expect(formValues.origin).toBe('origin');
+    expect(formValues.status).toBe('state');
+    expect(formValues.startTime).toBe('2020-09-11');
+    expect(formValues.endTime).toBe('2020-09-22');
+    expect(fn).toBeCalledTimes(1);
+  });
+
   it('🎏 renderFormItem test', async () => {
     const fn = jest.fn();
     const html = mount(
