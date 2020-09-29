@@ -227,7 +227,7 @@ describe('BasicTable', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(html);
+    await waitForComponentToPaint(html, 100);
     expect(html.find('.ant-pro-list-row-title').length).toEqual(2);
     html.find('.ant-pro-core-field-label').simulate('click');
     html.find('.ant-input').simulate('change', {
