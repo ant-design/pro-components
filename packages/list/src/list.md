@@ -18,31 +18,35 @@ nav:
 
 ### 基本使用
 
-<code src="./demos/base.tsx" />
+<code src="./demos/base.tsx" background="#f5f5f5" />
 
 ### 支持展开的列表
 
-<code src="./demos/expand.tsx" />
+<code src="./demos/expand.tsx" background="#f5f5f5" />
 
 ### 支持选中的列表
 
-<code src="./demos/selectedRow.tsx" />
+<code src="./demos/selectedRow.tsx" background="#f5f5f5" />
 
-### 复杂的列表
+### 带筛选和异步请求的列表
 
-<code src="./demos/complex.tsx" />
+<code src="./demos/filter.tsx" background="#f5f5f5" />
+
+### 大小和分割线
+
+<code src="./demos/size.tsx" background="#f5f5f5" />
 
 ### 竖排样式
 
-<code src="./demos/layout.tsx" />
+<code src="./demos/layout.tsx" background="#f5f5f5" />
 
 ### 一些预设的模式
 
-<code src="./demos/special.tsx" />
+<code src="./demos/special.tsx" background="#f5f5f5" />
 
 ### 翻页
 
-<code src="./demos/pagination.tsx" />
+<code src="./demos/pagination.tsx" background="#f5f5f5" />
 
 ## API
 
@@ -57,6 +61,7 @@ ProList 与 antd 的 [List](https://ant.design/components/list-cn/) 相比，API
 | rowKey | 行的 key，一般是行 id | `string` \| `(row,index)=>string` | `'id'` |
 | headerTitle | 列表头部主标题 | `React.ReactNode` | - |
 | loading | 是否加载中 | `boolean` \| `(item: any) => boolean` | `false` |
+| split | 是否有分割线 | `boolean` | `false` |
 | rowSelection | 与 antd 相同的[配置](https://ant.design/components/table-cn/#rowSelection) | `object` \|`boolean` | false |
 | expandable | 与 antd 相同的[配置](https://ant.design/components/table-cn/#expandable) | `object` \| `false` | - |
 | showActions | 何时展示 actions | `'hover'` \| `'always'` | `'always'` |

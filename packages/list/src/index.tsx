@@ -1,21 +1,19 @@
 import React, { useMemo, useContext } from 'react';
 import { ListProps } from 'antd/lib/list';
-import { ProFieldValueType } from '@ant-design/pro-field';
 import classNames from 'classnames';
 import ProTable, { ProTableProps, ProColumns } from '@ant-design/pro-table';
+import { ParamsType } from '@ant-design/pro-provider';
 import { ConfigContext as AntdConfigContext } from 'antd/lib/config-provider';
 import ListView from './ListView';
-import { PRO_LIST_KEYS } from './constans';
 
 import './index.less';
 
 type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 
-export interface ProListMeta<T = any> {
-  dataIndex?: string | string[];
-  valueType?: ProFieldValueType;
-  render?: ProColumns['render'];
-}
+type ProListMeta = Pick<
+  ProColumns,
+  'dataIndex' | 'valueType' | 'render' | 'hideInSearch' | 'title' | 'valueEnum'
+>;
 
 export interface ProListMetas {
   type?: ProListMeta;
@@ -26,9 +24,10 @@ export interface ProListMetas {
   extra?: ProListMeta;
   content?: ProListMeta;
   actions?: ProListMeta;
+  [key: string]: ProListMeta | undefined;
 }
 
-export interface ProListProps<RecordType, U extends { [key: string]: any }>
+export interface ProListProps<RecordType, U extends ParamsType>
   extends Pick<
       ProTableProps<RecordType, U>,
       | 'dataSource'
@@ -40,6 +39,7 @@ export interface ProListProps<RecordType, U extends { [key: string]: any }>
       | 'search'
       | 'expandable'
       | 'rowSelection'
+      | 'request'
     >,
     AntdListProps<RecordType> {
   metas?: ProListMetas;
@@ -50,7 +50,9 @@ export type Key = React.Key;
 
 export type TriggerEventHandler<RecordType> = (record: RecordType) => void;
 
-function ProList<RecordType = any, U = any>(props: ProListProps<RecordType, U>) {
+function ProList<RecordType, U extends { [key: string]: any } = {}>(
+  props: ProListProps<RecordType, U>,
+) {
   const {
     metas,
     split,
@@ -63,7 +65,6 @@ function ProList<RecordType = any, U = any>(props: ProListProps<RecordType, U>) 
     search = false,
     expandable,
     showActions,
-    bordered,
     rowSelection,
     itemLayout,
     ...rest
@@ -73,12 +74,12 @@ function ProList<RecordType = any, U = any>(props: ProListProps<RecordType, U>) 
 
   const proTableColumns: ProColumns[] = useMemo(() => {
     const ret: ProColumns[] = [];
-    PRO_LIST_KEYS.forEach((key) => {
+    Object.keys(metas || {}).forEach((key) => {
       if (!metas || !metas[key]) {
         return;
       }
       const meta = metas[key];
-      let { valueType } = meta;
+      let { valueType } = meta || {};
       if (!valueType) {
         // 给默认的 valueType
         if (key === 'avatar') {
@@ -95,19 +96,18 @@ function ProList<RecordType = any, U = any>(props: ProListProps<RecordType, U>) 
   }, [metas]);
   const prefixCls = getPrefixCls('pro-list');
   const listClassName = classNames(prefixCls, {
-    [`${prefixCls}-bordered`]: bordered,
     [`${prefixCls}-no-split`]: !split,
   });
 
   return (
-    <ProTable<RecordType>
+    <ProTable<RecordType, U>
       {...rest}
       search={search}
       options={options}
       className={classNames(prefixCls, className, listClassName)}
       columns={proTableColumns}
       rowKey={rowKey}
-      tableViewRender={({ columns, dataSource }) => (
+      tableViewRender={({ columns, dataSource, loading }) => (
         <ListView
           prefixCls={prefixCls}
           columns={columns}
@@ -115,13 +115,13 @@ function ProList<RecordType = any, U = any>(props: ProListProps<RecordType, U>) 
           size={size}
           footer={footer}
           split={split}
-          bordered={bordered}
           rowKey={rowKey}
           expandable={expandable}
           rowSelection={rowSelection === false ? undefined : rowSelection}
           showActions={showActions}
           pagination={pagination}
           itemLayout={itemLayout}
+          loading={loading}
         />
       )}
     />

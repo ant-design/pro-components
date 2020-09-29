@@ -7,6 +7,7 @@ import isBrowser from './isBrowser';
 import isImg from './isImg';
 import isUrl from './isUrl';
 import isNil from './isNil';
+import isDropdownValueType from './isDropdownValueType';
 import pickProProps from './pickProProps';
 import omitUndefined from './omitUndefined';
 import omitUndefinedAndEmptyArr from './omitUndefinedAndEmptyArr';
@@ -52,6 +53,7 @@ export {
   useDocumentTitle,
   isImg,
   isNil,
+  isDropdownValueType,
   omitUndefined,
   omitUndefinedAndEmptyArr,
   pickProFormItemProps,

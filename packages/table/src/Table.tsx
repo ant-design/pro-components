@@ -190,8 +190,8 @@ export interface ProTableProps<T, U extends ParamsType>
    * 初始化的参数，可以操作 table
    */
   actionRef?:
-    | React.MutableRefObject<ProCoreActionType | undefined>
-    | ((actionRef: ProCoreActionType) => void);
+  | React.MutableRefObject<ProCoreActionType | undefined>
+  | ((actionRef: ProCoreActionType) => void);
 
   /**
    * 操作自带的 form
@@ -429,20 +429,20 @@ const genColumnList = <T, U = {}>(
         filters:
           filters === true
             ? proFieldParsingValueEnumToArray(valueEnum).filter(
-                (valueItem) => valueItem && valueItem.value !== 'all',
-              )
+              (valueItem) => valueItem && valueItem.value !== 'all',
+            )
             : filters,
         ellipsis: false,
         fixed: config.fixed,
         width: item.width || (item.fixed ? 200 : undefined),
         children: (item as ProColumnGroupType<T>).children
           ? genColumnList(
-              (item as ProColumnGroupType<T>).children as ProColumns<T>[],
-              map,
-              counter,
-              columnEmptyText,
-              type,
-            )
+            (item as ProColumnGroupType<T>).children as ProColumns<T>[],
+            map,
+            counter,
+            columnEmptyText,
+            type,
+          )
           : undefined,
         render: (text: any, row: T, index: number) =>
           columnRender<T>({ item, text, row, index, columnEmptyText, counter, type }),
@@ -450,10 +450,10 @@ const genColumnList = <T, U = {}>(
       return omitUndefinedAndEmptyArr(tempColumns);
     })
     .filter((item) => !item.hideInTable) as unknown) as Array<
-    ColumnsType<T>[number] & {
-      index?: number;
-    }
-  >;
+      ColumnsType<T>[number] & {
+        index?: number;
+      }
+    >;
 };
 
 /**
@@ -492,7 +492,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     defaultClassName,
     formRef,
     type = 'table',
-    onReset = () => {},
+    onReset = () => { },
     columnEmptyText = '-',
     manualRequest = false,
     toolbar,
@@ -718,8 +718,52 @@ const ProTable = <T extends {}, U extends ParamsType>(
   }
 
   const className = classNames(defaultClassName, propsClassName);
+
+  const searchNode = (search !== false || type === 'form') && (
+    <FormSearch<U>
+      submitButtonLoading={action.loading}
+      {...rest}
+      type={type}
+      formRef={formRef}
+      onSubmit={(value, firstLoad) => {
+        if (type !== 'form') {
+          const submitParams = {
+            ...value,
+            _timestamp: Date.now(),
+          };
+          setFormSearch(beforeSearchSubmit(submitParams));
+          if (!firstLoad) {
+            // back first page
+            action.resetPageIndex();
+          }
+        }
+        // 不是第一次提交就不触发，第一次提交是 js 触发的
+        // 为了解决 https://github.com/ant-design/pro-components/issues/579
+        if (props.onSubmit && !firstLoad) {
+          props.onSubmit(value);
+        }
+      }}
+      onReset={(value) => {
+        setFormSearch(beforeSearchSubmit(value));
+        // back first page
+        action.resetPageIndex();
+        onReset();
+      }}
+      dateFormatter={rest.dateFormatter}
+      search={search}
+    />
+  );
+  const isLightFilter: boolean = search !== false && search?.filterType === 'light';
+
+  const toolbarProps =
+    toolbar || isLightFilter
+      ? {
+        filter: searchNode,
+        ...toolbar,
+      }
+      : undefined;
   const toolbarDom = toolBarRender !== false &&
-    (options !== false || headerTitle || toolBarRender || toolbar) && (
+    (options !== false || headerTitle || toolBarRender || toolbarProps) && (
       // if options= false & headerTitle=== false, hide Toolbar
       <Toolbar<T>
         options={options}
@@ -730,8 +774,8 @@ const ProTable = <T extends {}, U extends ParamsType>(
             const { name = 'keyword' } =
               options.search === true
                 ? {
-                    name: 'keyword',
-                  }
+                  name: 'keyword',
+                }
                 : options.search;
             setFormSearch({
               ...formSearch,
@@ -742,7 +786,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
         selectedRows={selectedRows}
         selectedRowKeys={selectedRowKeys}
         toolBarRender={toolBarRender}
-        toolbar={toolbar}
+        toolbar={toolbarProps}
       />
     );
 
@@ -808,8 +852,8 @@ const ProTable = <T extends {}, U extends ParamsType>(
   const tableDom = props.tableViewRender ? (
     props.tableViewRender(tableProps)
   ) : (
-    <Table<T> {...tableProps} />
-  );
+      <Table<T> {...tableProps} />
+    );
   /**
    * table 区域的 dom，为了方便 render
    */
@@ -837,40 +881,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
       getPopupContainer={() => ((rootRef.current || document.body) as any) as HTMLElement}
     >
       <div className={className} id="ant-design-pro-table" style={style} ref={rootRef}>
-        {(search !== false || type === 'form') && (
-          <FormSearch<U>
-            submitButtonLoading={action.loading}
-            {...rest}
-            type={type}
-            formRef={formRef}
-            onSubmit={(value, firstLoad) => {
-              if (type !== 'form') {
-                const submitParams = {
-                  ...value,
-                  _timestamp: Date.now(),
-                };
-                setFormSearch(beforeSearchSubmit(submitParams));
-                if (!firstLoad) {
-                  // back first page
-                  action.resetPageIndex();
-                }
-              }
-              // 不是第一次提交就不触发，第一次提交是 js 触发的
-              // 为了解决 https://github.com/ant-design/pro-components/issues/579
-              if (props.onSubmit && !firstLoad) {
-                props.onSubmit(value);
-              }
-            }}
-            onReset={(value) => {
-              setFormSearch(beforeSearchSubmit(value));
-              // back first page
-              action.resetPageIndex();
-              onReset();
-            }}
-            dateFormatter={rest.dateFormatter}
-            search={search}
-          />
-        )}
+        {isLightFilter ? null : searchNode}
         {/* 渲染一个额外的区域，用于一些自定义 */}
         {type !== 'form' && props.tableExtraRender && (
           <div className={`${className}-extra`}>{props.tableExtraRender(props, dataSource)}</div>

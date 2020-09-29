@@ -42,35 +42,29 @@ export default () => {
       metas={{
         title: {},
         description: {
-          render: () => {
-            return (
-              <>
-                <Tag>语雀专栏</Tag>
-                <Tag>设计语言</Tag>
-                <Tag>蚂蚁金服</Tag>
-              </>
-            );
-          },
+          render: () => (
+            <>
+              <Tag>语雀专栏</Tag>
+              <Tag>设计语言</Tag>
+              <Tag>蚂蚁金服</Tag>
+            </>
+          ),
         },
         actions: {
-          render: () => {
-            return [
-              <IconText icon={StarOutlined} text="156" key="list-vertical-star-o" />,
-              <IconText icon={LikeOutlined} text="156" key="list-vertical-like-o" />,
-              <IconText icon={MessageOutlined} text="2" key="list-vertical-message" />,
-            ];
-          },
+          render: () => [
+            <IconText icon={StarOutlined} text="156" key="list-vertical-star-o" />,
+            <IconText icon={LikeOutlined} text="156" key="list-vertical-like-o" />,
+            <IconText icon={MessageOutlined} text="2" key="list-vertical-message" />,
+          ],
         },
         extra: {
-          render: () => {
-            return (
-              <img
-                width={272}
-                alt="logo"
-                src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
-              />
-            );
-          },
+          render: () => (
+            <img
+              width={272}
+              alt="logo"
+              src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
+            />
+          ),
         },
         content: {
           render: () => {
