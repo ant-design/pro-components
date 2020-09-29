@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@0.4.1...@ant-design/pro-utils@0.5.0) (2020-09-29)
+
+### Features
+
+- ProTable & ProList support LightFilter ([#622](https://github.com/ant-design/pro-components/issues/622)) ([ce925c1](https://github.com/ant-design/pro-components/commit/ce925c191330956dadbad752b25ad4c7481d9663))
+
 ## [0.4.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@0.4.0...@ant-design/pro-utils@0.4.1) (2020-09-22)
 
 **Note:** Version bump only for package @ant-design/pro-utils

@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.5.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.4.19...@ant-design/pro-layout@6.5.0) (2020-09-29)
+
+### Features
+
+- support get layout config from router ([#612](https://github.com/ant-design/pro-components/issues/612)) ([442096c](https://github.com/ant-design/pro-components/commit/442096c0d664c47cf82189707aa4fd0b05e61444))
+
 ## [6.4.19](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.4.18...@ant-design/pro-layout@6.4.19) (2020-09-22)
 
 **Note:** Version bump only for package @ant-design/pro-layout

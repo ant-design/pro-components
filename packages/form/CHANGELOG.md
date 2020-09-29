@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.30](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.0.0-beta.28...@ant-design/pro-form@1.0.0-beta.30) (2020-09-29)
+
+### Bug Fixes
+
+- **from:** 修改 ProFormRadio 中 options 中 value 的类型：string -> React.ReactText ([e644058](https://github.com/ant-design/pro-components/commit/e644058e06298b5c594398bf353c136dabf988d2))
+
+### Features
+
+- ProTable & ProList support LightFilter ([#622](https://github.com/ant-design/pro-components/issues/622)) ([ce925c1](https://github.com/ant-design/pro-components/commit/ce925c191330956dadbad752b25ad4c7481d9663))
+- **field:** 支持密码类型 ([#475](https://github.com/ant-design/pro-components/issues/475)) ([b5a3bd2](https://github.com/ant-design/pro-components/commit/b5a3bd2493a0476ab9186e3fd279742e9bf79458))
+
 # [1.0.0-beta.28](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.0.0-beta.27...@ant-design/pro-form@1.0.0-beta.28) (2020-09-22)
 
 **Note:** Version bump only for package @ant-design/pro-form

@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.9.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.8.1...@ant-design/pro-table@2.9.0) (2020-09-29)
+
+### Bug Fixes
+
+- **table:** 修改 protable 组件，使用 ellipsis 属性时，同时出现 tooltips 和 title 两种提示 ([#598](https://github.com/ant-design/pro-components/issues/598)) ([170853b](https://github.com/ant-design/pro-components/commit/170853b9ac28407bad70732d8e6bc9356bbf3b1e))
+- **table:** 将 table 的 loading 属性改为全受控 ([#563](https://github.com/ant-design/pro-components/issues/563)) ([291401d](https://github.com/ant-design/pro-components/commit/291401d1d88ea2bb46fc5bac1ce558aaaff9e682))
+
+### Features
+
+- ProTable & ProList support LightFilter ([#622](https://github.com/ant-design/pro-components/issues/622)) ([ce925c1](https://github.com/ant-design/pro-components/commit/ce925c191330956dadbad752b25ad4c7481d9663))
+- **list:** new ProList 1.x! ([#556](https://github.com/ant-design/pro-components/issues/556)) ([f0da2aa](https://github.com/ant-design/pro-components/commit/f0da2aa3bde891b1f51cc3d60769074b3a858038))
+
 ## [2.8.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.8.0...@ant-design/pro-table@2.8.1) (2020-09-22)
 
 **Note:** Version bump only for package @ant-design/pro-table
