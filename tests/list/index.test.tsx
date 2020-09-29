@@ -151,6 +151,7 @@ describe('BasicTable', () => {
       const [selectedRowKeys, setSelectedRowKeys] = useState<ReactText[]>([]);
       const rowSelection = {
         selectedRowKeys,
+        selections: true,
         onChange: (keys: ReactText[]) => setSelectedRowKeys(keys),
       };
       return (
@@ -187,6 +188,9 @@ describe('BasicTable', () => {
     expect(html.find('.ant-list-item').length).toEqual(5);
     html.find('.ant-pagination-item').at(1).simulate('click');
     expect(html.find('.ant-list-item').length).toEqual(2);
+    html.find('.ant-select-selector').simulate('mousedown');
+    html.find('.ant-select-item-option').at(3).simulate('click');
+    expect(html.find('.ant-list-item').length).toEqual(5);
   });
 
   it('🎏 filter and request', async () => {
@@ -216,6 +220,7 @@ describe('BasicTable', () => {
         }}
         pagination={{
           pageSize: 5,
+          onShowSizeChange: () => {},
         }}
         search={{
           filterType: 'light',

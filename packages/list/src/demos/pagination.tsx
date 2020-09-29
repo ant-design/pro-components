@@ -46,7 +46,8 @@ export default () => {
   return (
     <ProList<any>
       pagination={{
-        pageSize: 5,
+        defaultPageSize: 5,
+        showSizeChanger: true,
       }}
       metas={{
         title: {},

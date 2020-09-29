@@ -65,7 +65,6 @@ function ProList<RecordType, U extends { [key: string]: any } = {}>(
     search = false,
     expandable,
     showActions,
-    bordered,
     rowSelection,
     itemLayout,
     ...rest
@@ -97,7 +96,6 @@ function ProList<RecordType, U extends { [key: string]: any } = {}>(
   }, [metas]);
   const prefixCls = getPrefixCls('pro-list');
   const listClassName = classNames(prefixCls, {
-    [`${prefixCls}-bordered`]: bordered,
     [`${prefixCls}-no-split`]: !split,
   });
 
@@ -117,7 +115,6 @@ function ProList<RecordType, U extends { [key: string]: any } = {}>(
           size={size}
           footer={footer}
           split={split}
-          bordered={bordered}
           rowKey={rowKey}
           expandable={expandable}
           rowSelection={rowSelection === false ? undefined : rowSelection}

@@ -29,8 +29,8 @@ export default () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState<ReactText[]>([]);
   const [expandedRowKeys, setExpandedRowKeys] = useState<ReactText[]>([]);
   const [size, setSize] = useState<'small' | 'default' | 'large' | undefined>('default');
-  const [split, setSplit] = useState<string>('有');
-  const [bordered, setBordered] = useState<string>('有');
+  const [split, setSplit] = useState<0 | 1>(1);
+  const [bordered, setBordered] = useState<0 | 1>(0);
   const rowSelection = {
     selectedRowKeys,
     onChange: (keys: ReactText[]) => setSelectedRowKeys(keys),
@@ -48,29 +48,25 @@ export default () => {
         }))}
       />{' '}
       分割线：
-      <Select<string>
+      <Select<0 | 1>
         value={split}
         onChange={(value) => setSplit(value)}
-        options={['有', '无'].map((selectSize) => ({
-          value: selectSize,
-          label: selectSize,
-        }))}
+        options={[
+          {
+            value: 1,
+            label: '有',
+          },
+          {
+            value: 0,
+            label: '无',
+          },
+        ]}
       />{' '}
-      边框线：
-      <Select<string>
-        value={bordered}
-        onChange={(value) => setBordered(value)}
-        options={['有', '无'].map((selectSize) => ({
-          value: selectSize,
-          label: selectSize,
-        }))}
-      />
       <br />
       <br />
       <ProList<{ title: string }>
         size={size}
-        split={split === '有'}
-        bordered={bordered === '有'}
+        split={split === 1}
         toolBarRender={() => {
           return [
             <Button key="3" type="primary">
@@ -115,7 +111,7 @@ export default () => {
         }}
         expandable={{ expandedRowKeys, onExpandedRowsChange: setExpandedRowKeys }}
         rowKey="title"
-        headerTitle="复杂的例子"
+        headerTitle="大小和分割线"
         rowSelection={rowSelection}
         dataSource={dataSource}
       />
