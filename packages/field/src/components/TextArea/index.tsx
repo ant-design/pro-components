@@ -13,7 +13,11 @@ const FieldTextArea: ProFieldFC<{
 }> = ({ text, mode, render, renderFormItem, fieldProps }, ref) => {
   const intl = useIntl();
   if (mode === 'read') {
-    const dom = <span ref={ref}>{text || '-'}</span>;
+    const dom = (
+      <div ref={ref} {...fieldProps}>
+        {text || '-'}
+      </div>
+    );
     if (render) {
       return render(text, { mode, ...fieldProps }, dom);
     }

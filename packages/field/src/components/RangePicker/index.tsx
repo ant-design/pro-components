@@ -46,7 +46,7 @@ const FieldRangePicker: ProFieldFC<{
 
   if (mode === 'read') {
     const dom = (
-      <div ref={ref}>
+      <div ref={ref} {...fieldProps}>
         <div>{parsedStartText || '-'}</div>
         <div>{parsedEndText || '-'}</div>
       </div>

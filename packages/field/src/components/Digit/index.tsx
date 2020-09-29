@@ -20,7 +20,11 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
 ) => {
   if (type === 'read') {
     const digit = new Intl.NumberFormat().format(Number(text) as number);
-    const dom = <span ref={ref}>{digit}</span>;
+    const dom = (
+      <div ref={ref} {...fieldProps}>
+        {digit}
+      </div>
+    );
     if (render) {
       return render(text, { mode: type, ...fieldProps }, dom);
     }

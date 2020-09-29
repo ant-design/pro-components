@@ -65,7 +65,11 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
   const intl = useIntl();
   const moneySymbol = intl.getMessage('moneySymbol', rest.moneySymbol || '￥');
   if (type === 'read') {
-    const dom = <span ref={ref}>{getTextByLocale(locale || intl.locale, text)}</span>;
+    const dom = (
+      <div ref={ref} {...fieldProps}>
+        {getTextByLocale(locale || intl.locale, text)}
+      </div>
+    );
     if (render) {
       return render(text, { mode: type, ...fieldProps }, dom);
     }

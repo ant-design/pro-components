@@ -221,7 +221,7 @@ const defaultRenderText = (
   const { mode = 'read', emptyText } = props;
   if (emptyText !== false && mode === 'read' && valueType !== 'option') {
     if (typeof text !== 'boolean' && typeof text !== 'number' && !text) {
-      return emptyText || '-';
+      return <div style={...props.style}>{emptyText || '-'}</div>;
     }
   }
 

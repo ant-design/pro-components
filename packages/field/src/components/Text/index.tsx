@@ -27,7 +27,7 @@ const FieldText: ProFieldFC<{
     if (render) {
       return render(text, { mode, ...fieldProps }, <>{dom}</>);
     }
-    return <>{dom}</>;
+    return <div {...fieldProps}>{dom}</div>;
   }
   if (mode === 'edit' || mode === 'update') {
     const placeholder = intl.getMessage('tableForm.inputPlaceholder', '请输入');

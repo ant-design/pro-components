@@ -23,7 +23,11 @@ const FieldTimePicker: ProFieldFC<{
   const prefixCls = getPrefixCls('pro-field-date-picker');
 
   if (mode === 'read') {
-    const dom = <span ref={ref}>{valueStr || '-'}</span>;
+    const dom = (
+      <div ref={ref} {...fieldProps}>
+        {valueStr || '-'}
+      </div>
+    );
     if (render) {
       return render(text, { mode, ...fieldProps }, <span>{dom}</span>);
     }
