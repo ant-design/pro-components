@@ -30,7 +30,6 @@ export default () => {
   const [expandedRowKeys, setExpandedRowKeys] = useState<ReactText[]>([]);
   const [size, setSize] = useState<'small' | 'default' | 'large' | undefined>('default');
   const [split, setSplit] = useState<0 | 1>(1);
-  const [bordered, setBordered] = useState<0 | 1>(0);
   const rowSelection = {
     selectedRowKeys,
     onChange: (keys: ReactText[]) => setSelectedRowKeys(keys),
