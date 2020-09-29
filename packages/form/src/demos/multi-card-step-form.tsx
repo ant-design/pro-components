@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import ProForm, {
-  StepsFrom,
+  StepsForm,
   ProFormText,
   ProFormDatePicker,
   ProFormDateRangePicker,
@@ -22,7 +22,7 @@ const waitTime = (time: number = 100) => {
 export default () => {
   return (
     <>
-      <StepsFrom
+      <StepsForm
         onFinish={(values) => console.log(values)}
         formProps={{
           validateMessages: {
@@ -30,7 +30,7 @@ export default () => {
           },
         }}
       >
-        <StepsFrom.StepFrom
+        <StepsForm.StepFrom
           name="base"
           title="第一步骤"
           onFinish={async () => {
@@ -93,8 +93,8 @@ export default () => {
               }))}
             />
           </ProCard>
-        </StepsFrom.StepFrom>
-        <StepsFrom.StepFrom name="checkbox" title="第二步骤">
+        </StepsForm.StepFrom>
+        <StepsForm.StepFrom name="checkbox" title="第二步骤">
           <ProFormCheckbox.Group
             name="checkbox"
             label="迁移类型"
@@ -110,8 +110,8 @@ export default () => {
               options={['完整 LOB', '不同步 LOB', '受限制 LOB']}
             />
           </ProForm.Group>
-        </StepsFrom.StepFrom>
-        <StepsFrom.StepFrom name="time" title="第三步骤">
+        </StepsForm.StepFrom>
+        <StepsForm.StepFrom name="time" title="第三步骤">
           <ProFormCheckbox.Group
             name="checkbox"
             label="部署单元"
@@ -151,8 +151,8 @@ export default () => {
               { value: '2', label: '策略二' },
             ]}
           />
-        </StepsFrom.StepFrom>
-      </StepsFrom>
+        </StepsForm.StepFrom>
+      </StepsForm>
     </>
   );
 };
