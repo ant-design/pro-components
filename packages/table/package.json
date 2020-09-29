@@ -35,7 +35,7 @@
   "dependencies": {
     "@ant-design/icons": "^4.1.0",
     "@ant-design/pro-field": "0.4.0",
-    "@ant-design/pro-form": "1.0.0-beta.28",
+    "@ant-design/pro-form": "1.0.0-beta.30",
     "@ant-design/pro-provider": "0.2.1",
     "@ant-design/pro-utils": "0.5.0",
     "classnames": "^2.2.6",
