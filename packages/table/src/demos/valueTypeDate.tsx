@@ -67,6 +67,7 @@ export default () => (
           key: 'dateTimeRange',
           dataIndex: 'createdAtRange',
           valueType: 'dateTimeRange',
+          transform: (value: any) => ({ startTime: value[0], endTime: value[1] }),
         },
         {
           title: '更新时间',

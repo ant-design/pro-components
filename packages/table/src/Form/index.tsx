@@ -268,13 +268,11 @@ const FormSearch = <T, U = any>({
     const transformKeyMap = {};
 
     counter.proColumns.forEach((item) => {
-      const { key, dataIndex, index, valueType, search, hideInSearch, formItemProps } = item;
+      const { key, dataIndex, index, valueType, search, hideInSearch } = item;
       warningOnce(
         typeof hideInSearch !== 'boolean',
         `'hideInSearch' will be deprecated, please use 'search'`,
       );
-      warningOnce(!formItemProps, `'formItemProps' will be deprecated, please use 'fieldProps'`);
-
       // 以key为主,理论上key唯一
       const finalKey = genColumnKey((key || dataIndex) as string, index);
       // 如果是() => ValueType
@@ -347,11 +345,14 @@ const FormSearch = <T, U = any>({
   const formClassName = getPrefixCls('pro-table-form');
   const FormCompetent = (isForm ? ProForm : QueryFilter) as typeof ProForm;
 
+  // 传给 QueryFilter 的配置
   const queryFilterProps = {
     labelWidth: searchConfig ? searchConfig?.labelWidth : undefined,
     defaultCollapsed: true,
     ...searchConfig,
   };
+
+  // 传给每个表单的配置，理论上大家都需要
   const loadingProps: any = {
     submitter: {
       submitButtonProps: {

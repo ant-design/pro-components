@@ -117,10 +117,21 @@ export type ProColumnType<T = unknown> = ProSchema<
      */
     order?: number;
     /**
-     * @deprecated use `fieldProps` instead
      * 传给 Form.Item 的 props
      */
     formItemProps?: Partial<Omit<FormItemProps, 'children'>>;
+
+    /**
+     * 转化值的key, 一般用于事件区间的转化
+     *  {
+     *     title: '时间区间',
+     *     key: 'dateTimeRange',
+     *     dataIndex: 'createdAtRange',
+     *     valueType: 'dateTimeRange',
+     *     transform: (value: any) => ({ startTime: value[0], endTime: value[1] }),
+     *   },
+     */
+    transform?: (value: any) => any;
   }
 >;
 
