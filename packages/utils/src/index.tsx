@@ -1,7 +1,6 @@
 import LabelIconTip from './components/LabelIconTip';
 import FieldDropdown from './components/FiledDropdown';
 import FieldLabel from './components/FieldLabel';
-import ListToolBar, { ListToolBarProps } from './components/ListToolBar';
 
 import isBrowser from './isBrowser';
 import isImg from './isImg';
@@ -43,12 +42,10 @@ export type {
   ProSchemaValueEnumMap,
   ProSchemaValueEnumObj,
   SearchTransformKeyFn,
-  ListToolBarProps,
 };
 
 export {
   LabelIconTip,
-  ListToolBar,
   FieldDropdown,
   FieldLabel,
   transformKeySubmitValue,

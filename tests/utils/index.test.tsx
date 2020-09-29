@@ -288,7 +288,7 @@ describe('utils', () => {
     inputEle.simulate('focus');
     inputEle.simulate('change', { target: { value: 'input 值' } });
     inputEle.simulate('keyDown', { keyCode: 13 });
-    expect(wrapper.find('.ant-pro-core-toolbar-left input').prop('value')).toEqual('input 值');
+    expect(wrapper.find('.ant-pro-table-toolbar-left input').prop('value')).toEqual('input 值');
     expect(onSearch).toHaveBeenCalled();
     expect(wrapper.find('input').prop('placeholder')).toEqual('自定义 placeholder');
   });
@@ -308,7 +308,7 @@ describe('utils', () => {
     inputEle.simulate('focus');
     inputEle.simulate('change', { target: { value: 'input 值' } });
     inputEle.simulate('keyDown', { keyCode: 13 });
-    expect(wrapper.find('.ant-pro-core-toolbar-right input').prop('value')).toEqual('input 值');
+    expect(wrapper.find('.ant-pro-table-toolbar-right input').prop('value')).toEqual('input 值');
     expect(onSearch).toHaveBeenCalled();
     expect(wrapper.find('input').prop('placeholder')).toEqual('自定义 placeholder');
   });
@@ -333,7 +333,7 @@ describe('utils', () => {
         }}
       />,
     );
-    wrapper.find('.ant-pro-core-toolbar-dropdownmenu-label').simulate('click');
+    wrapper.find('.ant-pro-table-toolbar-dropdownmenu-label').simulate('click');
     wrapper.find('.ant-dropdown-menu-item').at(1).simulate('click');
 
     expect(onChange).toHaveBeenCalledWith('done', undefined);
@@ -359,7 +359,7 @@ describe('utils', () => {
         }}
       />,
     );
-    wrapper.find('.ant-pro-core-toolbar-inlinemenu-item').at(1).simulate('click');
+    wrapper.find('.ant-pro-table-toolbar-inlinemenu-item').at(1).simulate('click');
     expect(onChange).toHaveBeenCalledWith('done', undefined);
   });
 });

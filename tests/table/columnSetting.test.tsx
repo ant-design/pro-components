@@ -41,7 +41,7 @@ describe('Table ColumnSetting', () => {
     await waitForComponentToPaint(html);
 
     act(() => {
-      const icon = html.find('.ant-pro-core-toolbar-setting-item .anticon-setting');
+      const icon = html.find('.ant-pro-table-toolbar-setting-item .anticon-setting');
       icon.simulate('click');
     });
     const overlay = html.find('.ant-pro-table-column-setting-overlay');
@@ -77,7 +77,7 @@ describe('Table ColumnSetting', () => {
     await waitForComponentToPaint(html);
 
     act(() => {
-      const icon = html.find('.ant-pro-core-toolbar-setting-item .anticon-setting');
+      const icon = html.find('.ant-pro-table-toolbar-setting-item .anticon-setting');
       icon.simulate('click');
     });
     let overlay = html.find(
@@ -118,7 +118,7 @@ describe('Table ColumnSetting', () => {
 
     await waitForComponentToPaint(html, 200);
     act(() => {
-      const icon = html.find('.ant-pro-core-toolbar-setting-item .anticon-setting');
+      const icon = html.find('.ant-pro-table-toolbar-setting-item .anticon-setting');
       icon.simulate('click');
     });
 
@@ -153,7 +153,7 @@ describe('Table ColumnSetting', () => {
 
     await waitForComponentToPaint(html, 200);
     act(() => {
-      const icon = html.find('.ant-pro-core-toolbar-setting-item .anticon-setting');
+      const icon = html.find('.ant-pro-table-toolbar-setting-item .anticon-setting');
       icon.simulate('click');
     });
 
@@ -213,7 +213,7 @@ describe('Table ColumnSetting', () => {
 
     await waitForComponentToPaint(html, 200);
     act(() => {
-      const icon = html.find('.ant-pro-core-toolbar-setting-item .anticon-setting');
+      const icon = html.find('.ant-pro-table-toolbar-setting-item .anticon-setting');
       icon.simulate('click');
     });
 
