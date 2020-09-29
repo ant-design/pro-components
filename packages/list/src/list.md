@@ -18,35 +18,35 @@ nav:
 
 ### 基本使用
 
-<code src="./demos/base.tsx" />
+<code src="./demos/base.tsx" background="#f5f5f5" />
 
 ### 支持展开的列表
 
-<code src="./demos/expand.tsx" />
+<code src="./demos/expand.tsx" background="#f5f5f5" />
 
 ### 支持选中的列表
 
-<code src="./demos/selectedRow.tsx" />
+<code src="./demos/selectedRow.tsx" background="#f5f5f5" />
 
-### 带筛选的列表
+### 带筛选和异步请求的列表
 
-<code src="./demos/filter.tsx" />
+<code src="./demos/filter.tsx" background="#f5f5f5" />
 
 ### 复杂的列表
 
-<code src="./demos/complex.tsx" />
+<code src="./demos/complex.tsx" background="#f5f5f5" />
 
 ### 竖排样式
 
-<code src="./demos/layout.tsx" />
+<code src="./demos/layout.tsx" background="#f5f5f5" />
 
 ### 一些预设的模式
 
-<code src="./demos/special.tsx" />
+<code src="./demos/special.tsx" background="#f5f5f5" />
 
 ### 翻页
 
-<code src="./demos/pagination.tsx" />
+<code src="./demos/pagination.tsx" background="#f5f5f5" />
 
 ## API
 
