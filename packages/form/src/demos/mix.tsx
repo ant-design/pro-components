@@ -13,7 +13,7 @@ const waitTime = (time: number = 100) => {
 export default () => {
   return (
     <ProForm
-      onFinish={async (values) => {
+      onFinish={async () => {
         await waitTime(2000);
         message.success('提交成功！');
       }}
@@ -29,22 +29,24 @@ export default () => {
       </ProForm.Group>
       <ProForm.Group>
         <ProFormField
+          initialValue="xxx合同"
           valueType="text"
           mode="read"
           proFieldProps={{
             render: (text, options) => {
-              return <div style={options.style}>123</div>;
+              return <div style={options.style}>{text}</div>;
             },
           }}
-          name="contract123"
+          name="contract"
           label="合同名称"
         />
         <ProFormField
+          initialValue="123"
           valueType="text"
           mode="read"
           proFieldProps={{
             render: (text, options) => {
-              return <div style={options.style}>123</div>;
+              return <div style={options.style}>{text}</div>;
             },
           }}
           name="id"
