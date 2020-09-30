@@ -37,8 +37,9 @@ import {
   SearchTransformKeyFn,
   isNil,
   omitUndefined,
-  ListToolBarProps,
 } from '@ant-design/pro-utils';
+
+import { ListToolBarProps } from './component/ListToolBar';
 
 import useFetchData, { RequestData, UseFetchDataAction } from './useFetchData';
 import Container, { useCounter, ColumnsState } from './container';

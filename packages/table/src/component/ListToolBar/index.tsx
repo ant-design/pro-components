@@ -6,8 +6,8 @@ import { TabPaneProps } from 'antd/lib/tabs';
 import classNames from 'classnames';
 import { SearchProps } from 'antd/es/input';
 import { ConfigContext } from 'antd/lib/config-provider';
+import { LabelIconTip } from '@ant-design/pro-utils';
 import HeaderMenu, { ListToolBarHeaderMenuProps } from './HeaderMenu';
-import LabelIconTip from '../LabelIconTip';
 
 import './index.less';
 
@@ -165,7 +165,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
   };
 
   const { getPrefixCls } = useContext(ConfigContext);
-  const prefixCls = getPrefixCls('pro-core-toolbar', customizePrefixCls);
+  const prefixCls = getPrefixCls('pro-table-list-toolbar', customizePrefixCls);
   const hasDivider = settings.length > 0 && (actions.length || search);
 
   const searchNode: React.ReactNode = getSearchInput(search);

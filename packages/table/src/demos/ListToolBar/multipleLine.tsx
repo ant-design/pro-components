@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Dropdown, Menu } from 'antd';
 import { SettingOutlined, FullscreenOutlined, DownOutlined } from '@ant-design/icons';
-import { ListToolBar } from '@ant-design/pro-utils';
+import { ListToolBar } from '@ant-design/pro-table';
 import { LightFilter, ProFormDatePicker } from '@ant-design/pro-form';
 
 export default () => (

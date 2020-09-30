@@ -21,6 +21,8 @@ import { FieldStatus, ProFieldValueType, FieldIndexColumn } from '@ant-design/pr
 import ProTable, { ProColumns, ProColumnType, ProTableProps } from './Table';
 import { RequestData } from './useFetchData';
 import TableDropdown from './component/Dropdown';
+import ListToolBar, { ListToolBarProps } from './component/ListToolBar';
+
 import Search from './Form';
 import defaultRenderText from './defaultRender';
 import { ColumnsState } from './container';
@@ -37,10 +39,12 @@ export type {
   ProColumns,
   ProColumnType,
   RequestData,
+  ListToolBarProps,
 };
 
 export {
   TableDropdown,
+  ListToolBar,
   FieldStatus as TableStatus,
   Search,
   ConfigProvider as IntlProvider,

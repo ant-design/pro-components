@@ -3,7 +3,7 @@ import { ReloadOutlined, SettingOutlined } from '@ant-design/icons';
 import { Tooltip } from 'antd';
 import { SearchProps } from 'antd/lib/input';
 import { useIntl, IntlType } from '@ant-design/pro-provider';
-import { ListToolBar, ListToolBarProps } from '@ant-design/pro-utils';
+import ListToolBar, { ListToolBarProps } from '../ListToolBar';
 import ColumnSetting from '../ColumnSetting';
 import { UseFetchDataAction, RequestData } from '../../useFetchData';
 import './index.less';
