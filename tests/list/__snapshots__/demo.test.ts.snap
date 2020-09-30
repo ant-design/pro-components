@@ -1093,11 +1093,10 @@ exports[`list demos renders ./packages/list/src/demos/filter.tsx correctly 1`] =
               class="ant-pro-core-toolbar-filter"
             >
               <div
-                class="ant-pro-table-search ant-pro-table-search-light"
+                class="ant-pro-table-search ant-pro-table-search-light-filter"
               >
                 <form
                   class="ant-form ant-form-horizontal"
-                  filtertype="light"
                 >
                   <div
                     class="ant-pro-form-light-filter ant-pro-form-light-filter-undefined"

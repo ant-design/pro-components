@@ -50,11 +50,13 @@ describe('BasicTable', () => {
         }}
         toolBarRender={() => [
           <Input.Search
+            key="search"
             style={{
               width: 200,
             }}
           />,
           <TableDropdown.Button
+            key="copy"
             menus={[
               { key: 'copy', name: '复制' },
               { key: 'clear', name: '清空' },
