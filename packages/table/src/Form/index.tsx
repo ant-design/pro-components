@@ -426,7 +426,7 @@ const FormSearch = <T, U = any>({
     >
       <Competent
         {...loadingProps}
-        {...(!isForm ? getFromProps(isForm, searchConfig, competentName) : {})}
+        {...getFromProps(isForm, searchConfig, competentName)}
         {...formConfig}
         form={form}
         onValuesChange={(change, all) => {
