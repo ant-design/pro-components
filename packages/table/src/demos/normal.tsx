@@ -101,10 +101,10 @@ const columns: ProColumns<TableListItem>[] = [
     key: 'option',
     valueType: 'option',
     render: () => [
-      <a>链路</a>,
-      <a>报警</a>,
-      <a>监控</a>,
-      <a>
+      <a key="link">链路</a>,
+      <a key="link2">报警</a>,
+      <a key="link3">监控</a>,
+      <a key="link4">
         <EllipsisOutlined />
       </a>,
     ],
@@ -131,12 +131,14 @@ export default () => {
       dateFormatter="string"
       headerTitle="表格标题"
       toolBarRender={() => [
-        <Button>查看日志</Button>,
-        <Button>
+        <Button key="show">查看日志</Button>,
+        <Button key="out">
           导出数据
           <DownOutlined />
         </Button>,
-        <Button type="primary">创建应用</Button>,
+        <Button type="primary" key="primary">
+          创建应用
+        </Button>,
       ]}
     />
   );

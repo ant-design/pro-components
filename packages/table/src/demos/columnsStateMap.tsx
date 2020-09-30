@@ -112,7 +112,7 @@ export default () => {
         search={false}
         dateFormatter="string"
         headerTitle="受控模式"
-        toolBarRender={() => [<Input.Search placeholder="请输入" />]}
+        toolBarRender={() => [<Input.Search key="search" placeholder="请输入" />]}
       />
     </>
   );

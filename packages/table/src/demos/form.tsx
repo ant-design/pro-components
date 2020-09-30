@@ -91,6 +91,7 @@ export default () => {
       formRef={ref}
       toolBarRender={() => [
         <Button
+          key="set"
           onClick={() => {
             if (ref.current) {
               ref.current.setFieldsValue({

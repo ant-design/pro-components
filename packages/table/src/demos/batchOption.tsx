@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button, DatePicker, Space } from 'antd';
-import { DownOutlined, EllipsisOutlined } from '@ant-design/icons';
 import ProTable, { ProColumns } from '@ant-design/pro-table';
 
 const { RangePicker } = DatePicker;
@@ -115,14 +114,7 @@ const columns: ProColumns<TableListItem>[] = [
     key: 'option',
     valueType: 'option',
     fixed: 'right',
-    render: () => [
-      <a>链路</a>,
-      <a>报警</a>,
-      <a>监控</a>,
-      <a>
-        <EllipsisOutlined />
-      </a>,
-    ],
+    render: () => [<a key="link">链路</a>],
   },
 ];
 
@@ -157,9 +149,7 @@ export default () => {
           </Space>
         );
       }}
-      request={(params, sorter, filter) => {
-        // 表单搜索项会从 params 传入，传递给后端接口。
-        console.log(params, sorter, filter);
+      request={() => {
         return Promise.resolve({
           data: tableListDataSource,
           success: true,
@@ -170,14 +160,7 @@ export default () => {
       search={false}
       rowKey="key"
       headerTitle="批量操作"
-      toolBarRender={() => [
-        <Button>查看日志</Button>,
-        <Button>
-          导出数据
-          <DownOutlined />
-        </Button>,
-        <Button type="primary">创建应用</Button>,
-      ]}
+      toolBarRender={() => [<Button key="show">查看日志</Button>]}
     />
   );
 };
