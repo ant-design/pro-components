@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button, DatePicker, Space } from 'antd';
-import { DownOutlined, EllipsisOutlined } from '@ant-design/icons';
 import ProTable, { ProColumns } from '@ant-design/pro-table';
 
 const { RangePicker } = DatePicker;
