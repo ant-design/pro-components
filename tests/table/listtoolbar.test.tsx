@@ -2,7 +2,7 @@ import { mount } from 'enzyme';
 import React from 'react';
 import { ListToolBar } from '@ant-design/pro-table';
 import { SettingOutlined, FullscreenOutlined } from '@ant-design/icons';
-import { Button } from 'antd';
+import { Button, Input } from 'antd';
 
 describe('Table valueEnum', () => {
   it('ListToolBar onAction', () => {
@@ -39,8 +39,9 @@ describe('Table valueEnum', () => {
           },
           {
             icon: <FullscreenOutlined />,
-            tooltip: '全屏',
           },
+          // 测试空的情况
+          null,
         ]}
       />,
     );
@@ -70,15 +71,12 @@ describe('Table valueEnum', () => {
     expect(wrapper.find('input').prop('placeholder')).toEqual('自定义 placeholder');
   });
 
-  it('ListToolBar search right', () => {
+  it('ListToolBar search right and custom input search', () => {
     const onSearch = jest.fn();
     const wrapper = mount(
       <ListToolBar
         title="I am title"
-        search={{
-          placeholder: '自定义 placeholder',
-          onSearch,
-        }}
+        search={<Input.Search placeholder="自定义 placeholder" onSearch={onSearch} />}
       />,
     );
     const inputEle = wrapper.find('input');
@@ -140,5 +138,17 @@ describe('Table valueEnum', () => {
     );
     wrapper.find('.ant-pro-table-list-toolbar-inlinemenu-item').at(1).simulate('click');
     expect(onChange).toHaveBeenCalledWith('done', undefined);
+  });
+
+  it('ListToolBar render no menu with item empty', () => {
+    const wrapper = mount(
+      <ListToolBar
+        menu={{
+          type: 'inline',
+          items: [],
+        }}
+      />,
+    );
+    expect(wrapper.find('.ant-pro-table-list-toolbar-menu').length).toBe(0);
   });
 });
