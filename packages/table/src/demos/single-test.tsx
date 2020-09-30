@@ -132,7 +132,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     title: '创建时间',
     key: 'since',
     dataIndex: 'created_at',
-    // @ts-expect-error
+    // @ts-ignore
     valueType: () => undefined,
     width: '20%',
   },
