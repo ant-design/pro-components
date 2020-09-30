@@ -3,6 +3,7 @@ import { Drawer } from 'antd';
 import { FormProps } from 'antd/lib/form';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { DrawerProps } from 'antd/lib/drawer';
+import omit from 'omit.js';
 
 import BaseForm, { CommonFormProps } from '../../BaseForm';
 
@@ -47,7 +48,7 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
             onClick: () => setVisible(false),
           },
         }}
-        {...rest}
+        {...omit(rest, ['visible'])}
         contentRender={(item, submitter) => {
           return (
             <Drawer

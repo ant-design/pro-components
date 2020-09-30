@@ -4,6 +4,7 @@ import { FormProps } from 'antd/lib/form';
 import { ModalProps } from 'antd/lib/modal';
 import { Store } from 'antd/lib/form/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import omit from 'omit.js';
 
 import BaseForm, { CommonFormProps } from '../../BaseForm';
 
@@ -51,7 +52,7 @@ const ModalForm: React.FC<ModalFormProps> = ({
             onClick: () => setVisible(false),
           },
         }}
-        {...rest}
+        {...omit(rest, ['visible'])}
         contentRender={(item, submitter) => {
           return (
             <Modal
