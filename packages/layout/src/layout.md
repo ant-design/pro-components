@@ -185,6 +185,38 @@ PageContainer 封装了 ant design 的 PageHeader 组件，增加了 tabList 和
 
 > fixedHeader 使用了 antd 的 Affix 实现，默认监听 body，如果你的滚动条不在 body 上需要人肉[设置](https://ant.design/components/affix-cn/)一下。
 
+PageContainer 是为了减少繁杂的面包屑配置和标题，很多页面都需要面包屑和标题的配置。当然也可以关掉自动生成的，而使用自己的配置。
+
+PageContainer 封装了 antd 的 PageHeader 组件，增加了 tabList 和 content。 根据当前的路由填入 title 和 breadcrumb。它依赖 Layout 的 route 属性。当然你可以传入参数来复写默认值。 PageContainer 支持 Tabs 和 PageHeader 的所有属性。
+
+为了方便进行表单等操作我们增加了一个 footer 属性，可以获得一个一直悬浮在底部的操作栏。如果觉得不方便也可以直接使用 FooterToolbar 来承载操作，两者表现基本相同，但是 FooterToolbar 拥有更多自定义的配置。
+
+```tsx | pure
+<PageContainer
+  content="欢迎使用 ProLayout 组件"
+  tabList={[
+    {
+      tab: '基本信息',
+      key: 'base',
+    },
+    {
+      tab: '详细信息',
+      key: 'info',
+    },
+  ]}
+  extra={[
+    <Button key="3">操作</Button>,
+    <Button key="2">操作</Button>,
+    <Button key="1" type="primary">
+      主操作
+    </Button>,
+  ]}
+  footer={[<Button>重置</Button>, <Button type="primary">提交</Button>]}
+>
+  {children}
+</PageContainer>
+```
+
 ### PageLoading
 
 一个简单的加载页面
@@ -257,10 +289,6 @@ const title = getPageTitle({
 | menu | menu 的配置项，默认 `{locale: true}` | `{ locale: boolean }` | - |
 | title | title 的类型 | string | 'Ant Design Pro' |
 | formatMessage | react-intl 的 formatMessage 方法 | `(data: { id: any; defaultMessage?: string }) => string;` | - |
-
-### 数据结构
-
-> 为了方便查看和使用，这里使用了 Typescript 的 方式来书写。
 
 ### Settings
 
@@ -338,42 +366,6 @@ export interface Route {
     children?: Route['routes'];
   }>;
 }
-```
-
-### PageContainer
-
-PageContainer 是为了减少繁杂的面包屑配置和标题，很多页面都需要面包屑和标题的配置。当然也可以关掉自动生成的，而使用自己的配置。
-
-![PageContainer](https://gw.alipayobjects.com/zos/antfincdn/74fprCn%2403/BBFF4972-8CD0-47C3-AFA8-FD67171A9A45.png)
-
-PageContainer 封装了 antd 的 PageHeader 组件，增加了 tabList 和 content。 根据当前的路由填入 title 和 breadcrumb。它依赖 Layout 的 route 属性。当然你可以传入参数来复写默认值。 PageContainer 支持 Tabs 和 PageHeader 的所有属性。
-
-为了方便进行表单等操作我们增加了一个 footer 属性，可以获得一个一直悬浮在底部的操作栏。如果觉得不方便也可以直接使用 FooterToolbar 来承载操作，两者表现基本相同，但是 FooterToolbar 拥有更多自定义的配置。
-
-```tsx | pure
-<PageContainer
-  content="欢迎使用 ProLayout 组件"
-  tabList={[
-    {
-      tab: '基本信息',
-      key: 'base',
-    },
-    {
-      tab: '详细信息',
-      key: 'info',
-    },
-  ]}
-  extra={[
-    <Button key="3">操作</Button>,
-    <Button key="2">操作</Button>,
-    <Button key="1" type="primary">
-      主操作
-    </Button>,
-  ]}
-  footer={[<Button>重置</Button>, <Button type="primary">提交</Button>]}
->
-  {children}
-</PageContainer>
 ```
 
 ### Footer
