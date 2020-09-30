@@ -1,6 +1,6 @@
 import React from 'react';
 import ProForm, {
-  StepsFrom,
+  StepsForm,
   ProFormText,
   ProFormDatePicker,
   ProFormDateTimePicker,
@@ -22,7 +22,7 @@ const waitTime = (time: number = 100) => {
 export default () => {
   return (
     <ProCard>
-      <StepsFrom
+      <StepsForm
         onFinish={(values) => console.log(values)}
         formProps={{
           validateMessages: {
@@ -30,7 +30,7 @@ export default () => {
           },
         }}
       >
-        <StepsFrom.StepFrom
+        <StepsForm.StepFrom
           name="base"
           title="创建实验"
           onFinish={async () => {
@@ -51,8 +51,8 @@ export default () => {
             <ProFormDatePicker name="date" label="结束时间" />
           </ProForm.Group>
           <ProFormTextArea name="remark" label="备注" width="l" placeholder="请输入备注" />
-        </StepsFrom.StepFrom>
-        <StepsFrom.StepFrom name="checkbox" title="设置参数">
+        </StepsForm.StepFrom>
+        <StepsForm.StepFrom name="checkbox" title="设置参数">
           <ProFormCheckbox.Group
             name="checkbox"
             label="迁移类型"
@@ -68,8 +68,8 @@ export default () => {
               options={['完整 LOB', '不同步 LOB', '受限制 LOB']}
             />
           </ProForm.Group>
-        </StepsFrom.StepFrom>
-        <StepsFrom.StepFrom name="time" title="发布实验">
+        </StepsForm.StepFrom>
+        <StepsForm.StepFrom name="time" title="发布实验">
           <ProFormCheckbox.Group
             name="checkbox"
             label="部署单元"
@@ -109,8 +109,8 @@ export default () => {
               { value: '2', label: '策略二' },
             ]}
           />
-        </StepsFrom.StepFrom>
-      </StepsFrom>
+        </StepsForm.StepFrom>
+      </StepsForm>
     </ProCard>
   );
 };
