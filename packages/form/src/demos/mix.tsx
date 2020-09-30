@@ -1,11 +1,6 @@
 import React from 'react';
 import { message } from 'antd';
-import ProForm, {
-  ProFormText,
-  ProFormDateRangePicker,
-  ProFormSelect,
-  ProFormField,
-} from '@ant-design/pro-form';
+import ProForm, { ProFormField } from '@ant-design/pro-form';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -20,7 +15,6 @@ export default () => {
     <ProForm
       onFinish={async (values) => {
         await waitTime(2000);
-        console.log(values);
         message.success('提交成功！');
       }}
     >
@@ -39,7 +33,6 @@ export default () => {
           mode="read"
           proFieldProps={{
             render: (text, options) => {
-              console.log(options);
               return <div style={options.style}>123</div>;
             },
           }}
@@ -51,7 +44,6 @@ export default () => {
           mode="read"
           proFieldProps={{
             render: (text, options) => {
-              console.log(options);
               return <div style={options.style}>123</div>;
             },
           }}
