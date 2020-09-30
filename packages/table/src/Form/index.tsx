@@ -61,23 +61,23 @@ const getFormCompetent = (isForm: boolean, searchConfig?: SearchConfig | false) 
  * @param name
  */
 const getFromProps = (isForm: boolean, searchConfig: any, name: string) => {
-  if (isForm && name === 'light-filter') {
+  if (!isForm && name === 'light-filter') {
     // 传给 lightFilter 的问题
     return omit(
       {
-        ...(searchConfig || {}),
+        ...searchConfig,
       },
       ['labelWidth', 'defaultCollapsed', 'filterType'],
     );
   }
 
-  if (isForm) {
+  if (!isForm) {
     // 传给 QueryFilter 的配置
     return omit(
       {
         labelWidth: searchConfig ? searchConfig?.labelWidth : undefined,
         defaultCollapsed: true,
-        ...(searchConfig || {}),
+        ...searchConfig,
       },
       ['filterType'],
     );
