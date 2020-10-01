@@ -6,7 +6,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { StepsProps } from 'antd/lib/steps';
 import classNames from 'classnames';
 
-import StepFrom, { StepFromProps } from './StepFrom';
+import StepFrom, { StepFromProps } from './StepForm';
 import './index.less';
 import { ProFormProps } from '../ProForm';
 
@@ -14,7 +14,7 @@ type Store = {
   [name: string]: any;
 };
 
-interface StepsFromProps<T = Store> extends FormProviderProps {
+interface StepsFormProps<T = Store> extends FormProviderProps {
   onFinish?: (values: T) => void;
   current?: number;
   stepsProps?: StepsProps;
@@ -32,7 +32,7 @@ interface StepsFromProps<T = Store> extends FormProviderProps {
   ) => React.ReactNode;
 }
 
-export const StepsFromProvide = React.createContext<
+export const StepsFormProvide = React.createContext<
   | {
       unRegForm: (name: string) => void;
       onFormFinish: (name: string, formData: any) => void;
@@ -45,7 +45,7 @@ export const StepsFromProvide = React.createContext<
   | undefined
 >(undefined);
 
-const StepsFrom: React.FC<StepsFromProps> & {
+const StepsForm: React.FC<StepsFormProps> & {
   StepFrom: typeof StepFrom;
   useForm: typeof Form.useForm;
 } = (props) => {
@@ -139,7 +139,7 @@ const StepsFrom: React.FC<StepsFromProps> & {
               stepsDom,
             )
           : stepsDom}
-        <StepsFromProvide.Provider
+        <StepsFormProvide.Provider
           value={{
             keyArray: formArray,
             next: () => {
@@ -181,15 +181,15 @@ const StepsFrom: React.FC<StepsFromProps> & {
               </div>
             );
           })}
-        </StepsFromProvide.Provider>
+        </StepsFormProvide.Provider>
       </Form.Provider>
     </div>
   );
 };
 
-StepsFrom.StepFrom = StepFrom;
-StepsFrom.useForm = Form.useForm;
+StepsForm.StepFrom = StepFrom;
+StepsForm.useForm = Form.useForm;
 
-export type { StepFromProps, StepsFromProps };
+export type { StepFromProps, StepsFormProps };
 
-export default StepsFrom;
+export default StepsForm;

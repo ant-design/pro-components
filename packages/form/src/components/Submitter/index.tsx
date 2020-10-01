@@ -11,11 +11,11 @@ export interface SearchConfig {
   /**
    * 重置按钮的文本
    */
-  resetText?: string;
+  resetText?: React.ReactNode;
   /**
    * 提交按钮的文本
    */
-  submitText?: string;
+  submitText?: React.ReactNode;
 }
 
 export interface SubmitterProps {

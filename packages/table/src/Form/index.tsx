@@ -11,6 +11,7 @@ import ProForm, {
 import classNames from 'classnames';
 import { ProFieldValueType } from '@ant-design/pro-field';
 import warningOnce from 'rc-util/lib/warning';
+import omit from 'omit.js';
 
 import {
   useDeepCompareEffect,
@@ -27,6 +28,61 @@ import './index.less';
 
 export type SearchConfig = BaseQueryFilterProps & {
   filterType?: 'query' | 'light';
+};
+
+/**
+ *  获取当前选择的 Form Layout 配置
+ * @param isForm
+ * @param searchConfig
+ * @returns LightFilter | QueryFilter | ProForm
+ */
+const getFormCompetent = (isForm: boolean, searchConfig?: SearchConfig | false) => {
+  if (!isForm && searchConfig !== false) {
+    if (searchConfig?.filterType === 'light') {
+      return {
+        Competent: LightFilter,
+        competentName: 'light-filter',
+      };
+    }
+    return {
+      Competent: QueryFilter,
+      competentName: 'query-filter',
+    };
+  }
+  return {
+    Competent: ProForm,
+    competentName: 'form',
+  };
+};
+
+/**
+ * 获取需要传给相应表单的props
+ * @param searchConfig
+ * @param name
+ */
+const getFromProps = (isForm: boolean, searchConfig: any, name: string) => {
+  if (!isForm && name === 'light-filter') {
+    // 传给 lightFilter 的问题
+    return omit(
+      {
+        ...searchConfig,
+      },
+      ['labelWidth', 'defaultCollapsed', 'filterType'],
+    );
+  }
+
+  if (!isForm) {
+    // 传给 QueryFilter 的配置
+    return omit(
+      {
+        labelWidth: searchConfig ? searchConfig?.labelWidth : undefined,
+        defaultCollapsed: true,
+        ...searchConfig,
+      },
+      ['filterType'],
+    );
+  }
+  return {};
 };
 
 export interface TableFormItem<T> extends Omit<FormItemProps, 'children' | 'onReset'> {
@@ -350,25 +406,8 @@ const FormSearch = <T, U = any>({
 
   const className = getPrefixCls('pro-table-search');
   const formClassName = getPrefixCls('pro-table-form');
-  let FormCompetent;
-  let isLight: boolean = false;
-  if (!isForm && searchConfig !== false) {
-    if (searchConfig && searchConfig.filterType === 'light') {
-      FormCompetent = LightFilter;
-      isLight = true;
-    } else {
-      FormCompetent = QueryFilter;
-    }
-  } else {
-    FormCompetent = ProForm;
-  }
 
-  // 传给 QueryFilter 的配置
-  const queryFilterProps = {
-    labelWidth: searchConfig ? searchConfig?.labelWidth : undefined,
-    defaultCollapsed: true,
-    ...searchConfig,
-  };
+  const { Competent, competentName } = getFormCompetent(isForm, searchConfig);
 
   // 传给每个表单的配置，理论上大家都需要
   const loadingProps: any = {
@@ -382,12 +421,12 @@ const FormSearch = <T, U = any>({
     <div
       className={classNames(className, {
         [formClassName]: isForm,
-        [getPrefixCls('pro-table-search-light')]: isLight,
+        [getPrefixCls(`pro-table-search-${competentName}`)]: true,
       })}
     >
-      <FormCompetent
+      <Competent
         {...loadingProps}
-        {...(!isForm ? queryFilterProps : {})}
+        {...getFromProps(isForm, searchConfig, competentName)}
         {...formConfig}
         form={form}
         onValuesChange={(change, all) => {
@@ -408,7 +447,7 @@ const FormSearch = <T, U = any>({
         initialValues={formConfig.initialValues}
       >
         {domList}
-      </FormCompetent>
+      </Competent>
     </div>
   );
 };
