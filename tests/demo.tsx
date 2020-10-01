@@ -85,7 +85,8 @@ function demoTest(component: string, options: Options = {}) {
     });
     window.getComputedStyle = originGetComputedStyle;
   });
-  const files = glob.sync(`./packages/${component}/src/demos/*.tsx`);
+  // 支持 demos 下的所有非_开头的tsx文件
+  const files = glob.sync(`./packages/${component}/src/demos/**/[!_]*.tsx`);
 
   describe(`${component} demos`, () => {
     files.forEach((file) => {
