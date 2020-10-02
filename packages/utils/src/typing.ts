@@ -4,6 +4,7 @@ import { ReactNode } from 'react';
 type ProSchemaValueEnumType = {
   text: ReactNode;
   status: string;
+  color?: string;
   /**
    * 是否禁用
    */

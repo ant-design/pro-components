@@ -120,6 +120,21 @@ exports[`Field Status 🥩 processing render 1`] = `
 </span>
 `;
 
+exports[`Field Status 🥩 red color render 1`] = `
+<span
+  class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+>
+  <span
+    class="ant-badge-status-dot ant-badge-status-red"
+  />
+  <span
+    class="ant-badge-status-text"
+  >
+    未解决
+  </span>
+</span>
+`;
+
 exports[`Field Status 🥩 success render 1`] = `
 <span
   class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
