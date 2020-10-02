@@ -16,7 +16,7 @@ import { useIntl } from '@ant-design/pro-provider';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
 
 import LightSelect from './LightSelect';
-import TableStatus, { ProFieldStatusType } from '../Status';
+import TableStatus, { ProFieldBadgeColor, ProFieldStatusType } from '../Status';
 import { ProFieldFC } from '../../index';
 
 export type ProFieldValueEnumType = ProSchemaValueEnumMap | ProSchemaValueEnumObj;
@@ -63,17 +63,24 @@ export const proFieldParsingText = (
   const domText = (valueEnum.get(text) || valueEnum.get(`${text}`)) as {
     text: ReactNode;
     status: ProFieldStatusType;
+    color?: string;
   };
-  if (domText.status) {
-    if (pure) {
-      return domText.text;
-    }
-    const { status } = domText;
-    const Status = TableStatus[status || 'Init'];
-    if (Status) {
-      return <Status>{domText.text}</Status>;
-    }
+
+  // 如果纯净模式也就是什么都不需要
+  if (pure) {
+    return domText.text;
   }
+  const { status, color } = domText;
+  const Status = TableStatus[status || 'Init'];
+  // 如果类型存在优先使用类型
+  if (Status) {
+    return <Status>{domText.text}</Status>;
+  }
+  // 如果不存在使用颜色
+  if (color) {
+    return <ProFieldBadgeColor color={color}>{domText.text}</ProFieldBadgeColor>;
+  }
+  // 什么都没有使用 text
   return domText.text || domText;
 };
 

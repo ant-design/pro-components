@@ -32,4 +32,20 @@ describe('Field Status', () => {
       expect(html).toMatchSnapshot();
     });
   });
+
+  it(`🥩 red color render`, async () => {
+    const html = render(
+      <Field
+        text="open"
+        valueEnum={{
+          open: {
+            text: '未解决',
+            color: 'red',
+          },
+        }}
+        mode="read"
+      />,
+    );
+    expect(html).toMatchSnapshot();
+  });
 });
