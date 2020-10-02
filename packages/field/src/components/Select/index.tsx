@@ -43,7 +43,6 @@ export const ObjToMap = (
 export const proFieldParsingText = (
   text: string | number,
   valueEnumParams?: ProFieldValueEnumType,
-  pure?: boolean,
 ) => {
   if (text === undefined || text === null) {
     return null;
@@ -66,10 +65,6 @@ export const proFieldParsingText = (
     color?: string;
   };
 
-  // 如果纯净模式也就是什么都不需要
-  if (pure) {
-    return domText.text;
-  }
   const { status, color } = domText;
   const Status = TableStatus[status || 'Init'];
   // 如果类型存在优先使用类型
