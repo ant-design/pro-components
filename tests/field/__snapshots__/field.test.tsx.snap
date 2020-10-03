@@ -2559,14 +2559,22 @@ exports[`Field 🐴 options support dom list 1`] = `
 exports[`Field 🐴 options support empty dom 1`] = `null`;
 
 exports[`Field 🐴 options support one dom 1`] = `
-<button
-  class="ant-btn"
-  type="button"
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
 >
-  <span>
-    新 建
-  </span>
-</button>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        新 建
+      </span>
+    </button>
+  </div>
+</div>
 `;
 
 exports[`Field 🐴 percent valueType is Object 1`] = `
