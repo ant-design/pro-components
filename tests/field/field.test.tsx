@@ -287,6 +287,6 @@ describe('Field', () => {
         mode="read"
       />,
     );
-    expect(html.render()).toMatchSnapshot();
+    expect(html.text()).toBe('qixian');
   });
 });
