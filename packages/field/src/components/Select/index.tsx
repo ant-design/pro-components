@@ -268,22 +268,23 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
     }
     return dom;
   }
+
   if (mode === 'edit' || mode === 'update') {
-    let dom;
-    if (light) {
-      dom = (
-        <LightSelect
-          loading={loading}
-          ref={inputRef}
-          allowClear
-          size={size}
-          {...rest}
-          options={options}
-          {...fieldProps}
-        />
-      );
-    } else {
-      dom = (
+    const renderDom = () => {
+      if (light) {
+        return (
+          <LightSelect
+            loading={loading}
+            ref={inputRef}
+            allowClear
+            size={size}
+            {...rest}
+            options={options}
+            {...fieldProps}
+          />
+        );
+      }
+      return (
         <Select
           style={{
             minWidth: 100,
@@ -297,7 +298,8 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
           {...fieldProps}
         />
       );
-    }
+    };
+    const dom = renderDom();
     if (renderFormItem) {
       return renderFormItem(rest.text, { mode, ...fieldProps }, dom) || null;
     }
