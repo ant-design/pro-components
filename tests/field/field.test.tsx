@@ -267,4 +267,14 @@ describe('Field', () => {
     );
     expect(html.render()).toMatchSnapshot();
   });
+
+  it('🐴 progress support string number', () => {
+    const html = mount(<Field text="12" valueType="progress" mode="read" />);
+    expect(html.render()).toMatchSnapshot();
+  });
+
+  it('🐴 progress support no number', () => {
+    const html = mount(<Field text="qixian" valueType="progress" mode="read" />);
+    expect(html.render()).toMatchSnapshot();
+  });
 });
