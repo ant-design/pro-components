@@ -24,9 +24,6 @@ const FieldOptions: ProFieldFC<{}> = ({ text, mode: type, render, fieldProps }) 
   if (!text || !Array.isArray(text)) {
     return text as JSX.Element;
   }
-  if (Array.isArray(text) && (text as any[])?.length < 2) {
-    return <>{text as JSX.Element[]}</>;
-  }
   return <Space className={className}>{text}</Space>;
 };
 
