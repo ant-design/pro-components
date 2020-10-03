@@ -166,7 +166,7 @@ type RenderProps = Omit<ProFieldFCRenderProps, 'text'> &
 const defaultRenderTextByObject = (
   text: ProFieldTextType,
   valueType: ProFieldValueObjectType,
-  props: RenderProps = { mode: 'read', plain: false, light: false },
+  props: RenderProps,
 ) => {
   const pickFormItemProps = pickProProps(props.fieldProps);
   if (valueType.type === 'progress') {

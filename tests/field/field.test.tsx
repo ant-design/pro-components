@@ -277,4 +277,16 @@ describe('Field', () => {
     const html = mount(<Field text="qixian" valueType="progress" mode="read" />);
     expect(html.render()).toMatchSnapshot();
   });
+
+  it('🐴 valueType={}', () => {
+    const html = mount(
+      <Field
+        text="qixian"
+        // @ts-expect-error
+        valueType={{}}
+        mode="read"
+      />,
+    );
+    expect(html.render()).toMatchSnapshot();
+  });
 });
