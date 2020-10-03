@@ -153,6 +153,8 @@ export type ProFieldValueTypeFunction<T> = (item: T) => ProFieldValueType | ProF
 type RenderProps = Omit<ProFieldFCRenderProps, 'text'> &
   ProRenderFieldProps & {
     emptyText?: React.ReactNode;
+    visible?: boolean;
+    onVisible?: (visible: boolean) => void;
     [key: string]: any;
   };
 
