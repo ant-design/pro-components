@@ -24,7 +24,7 @@ import FiledSelect, {
 } from './components/Select';
 import FieldDigit from './components/Digit';
 
-export type ProFieldTextType = string | number | React.ReactText[] | Moment | Moment[] | null;
+export type ProFieldTextType = React.ReactNode | React.ReactNode[] | Moment | Moment[];
 
 export type { ProFieldValueEnumType };
 export type ProFieldEmptyText = string | false;

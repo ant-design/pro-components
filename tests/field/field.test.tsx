@@ -1,9 +1,11 @@
 import { render, mount } from 'enzyme';
+import { Button } from 'antd';
 import React from 'react';
 import moment from 'moment';
-import Field from '@ant-design/pro-field';
-import Demo from './fixtures/demo';
 import { act } from 'react-test-renderer';
+import Field from '@ant-design/pro-field';
+
+import Demo from './fixtures/demo';
 
 describe('Field', () => {
   it('🐴 base use', async () => {
@@ -241,5 +243,28 @@ describe('Field', () => {
     });
     expect(html.find('span.anticon-eye-invisible').exists()).toBeFalsy();
     expect(fn).toBeCalledWith(false);
+  });
+
+  it('🐴 options support empty dom', () => {
+    const html = mount(<Field text={[]} valueType="option" mode="read" />);
+    expect(html.render()).toMatchSnapshot();
+  });
+
+  it('🐴 options support dom list', () => {
+    const html = mount(
+      <Field
+        text={[<Button key="add">新建</Button>, <Button key="edit">修改</Button>]}
+        valueType="option"
+        mode="read"
+      />,
+    );
+    expect(html.render()).toMatchSnapshot();
+  });
+
+  it('🐴 options support one dom', () => {
+    const html = mount(
+      <Field text={[<Button key="add">新建</Button>]} valueType="option" mode="read" />,
+    );
+    expect(html.render()).toMatchSnapshot();
   });
 });
