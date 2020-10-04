@@ -1,9 +1,9 @@
 import { mount } from 'enzyme';
 import React, { useState, ReactText } from 'react';
 import ProList from '@ant-design/pro-list';
-import PaginationDemo from '../../packages/list/src/demos/pagination';
-import { waitForComponentToPaint, waitTime } from '../util';
 import { act } from 'react-dom/test-utils';
+import PaginationDemo from '../../packages/list/src/demos/pagination';
+import { waitForComponentToPaint } from '../util';
 
 describe('List', () => {
   it('🎏 base use', async () => {
