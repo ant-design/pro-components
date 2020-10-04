@@ -6,7 +6,7 @@ import PaginationDemo from '../../packages/list/src/demos/pagination';
 import { waitForComponentToPaint } from '../util';
 
 describe('List', () => {
-  it('🎏 base use', async () => {
+  it('🚏 base use', async () => {
     const html = mount(
       <ProList
         dataSource={[
@@ -31,7 +31,7 @@ describe('List', () => {
     expect(html.find('.ant-pro-list-row-description').text()).toEqual('desc text');
   });
 
-  it('🎏 empty', async () => {
+  it('🚏 empty', async () => {
     const html = mount(
       <ProList
         metas={{
@@ -44,7 +44,7 @@ describe('List', () => {
     expect(html.find('.ant-empty-description').text()).toEqual('No Data');
   });
 
-  it('🎏 expandable', async () => {
+  it('🚏 expandable', async () => {
     const onExpand = jest.fn();
     const Wrapper = () => {
       const [expandedRowKeys, onExpandedRowsChange] = useState<ReactText[]>([]);
@@ -73,7 +73,7 @@ describe('List', () => {
     expect(onExpand).toHaveBeenCalledWith(true, expect.objectContaining({ name: '我是名称' }));
   });
 
-  it('🎏 expandable with defaultExpandedRowKeys', async () => {
+  it('🚏 expandable with defaultExpandedRowKeys', async () => {
     const Wrapper = () => {
       return (
         <ProList
@@ -106,7 +106,7 @@ describe('List', () => {
     expect(html.find('.ant-pro-list-row-content').text()).toEqual('我是内容b');
   });
 
-  it('🎏 expandable with expandedRowRender', async () => {
+  it('🚏 expandable with expandedRowRender', async () => {
     const Wrapper = () => {
       const [expandedRowKeys, onExpandedRowsChange] = useState<ReactText[]>([]);
       return (
@@ -147,7 +147,7 @@ describe('List', () => {
     );
   });
 
-  it('🎏 rowSelection', async () => {
+  it('🚏 rowSelection', async () => {
     const Wrapper = () => {
       const [selectedRowKeys, setSelectedRowKeys] = useState<ReactText[]>([]);
       const rowSelection = {
@@ -184,7 +184,7 @@ describe('List', () => {
     expect(html.find('.ant-checkbox-input').at(1).prop('checked')).toEqual(false);
   });
 
-  it('🎏 pagination', async () => {
+  it('🚏 pagination', async () => {
     const html = mount(<PaginationDemo />);
     expect(html.find('.ant-list-item').length).toEqual(5);
     html.find('.ant-pagination-item').at(1).simulate('click');
@@ -194,7 +194,7 @@ describe('List', () => {
     expect(html.find('.ant-list-item').length).toEqual(5);
   });
 
-  fit('🎏 filter and request', async () => {
+  it('🚏 filter and request', async () => {
     const onRequest = jest.fn();
     const html = mount(
       <ProList<any, { title: string }>
@@ -230,14 +230,21 @@ describe('List', () => {
     );
     await waitForComponentToPaint(html, 1200);
     expect(html.find('.ant-pro-list-row-title').length).toEqual(2);
-    console.log(html.debug());
     act(() => {
       html.find('.ant-pro-core-field-label').simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 200);
+    act(() => {
       html.find('.ant-input').simulate('change', {
         target: {
           value: 'test',
         },
       });
+    });
+
+    await waitForComponentToPaint(html, 200);
+    act(() => {
       html.find('.ant-btn.ant-btn-primary').simulate('click');
     });
 
