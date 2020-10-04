@@ -3,8 +3,9 @@ import React, { useState, ReactText } from 'react';
 import ProList from '@ant-design/pro-list';
 import PaginationDemo from '../../packages/list/src/demos/pagination';
 import { waitForComponentToPaint, waitTime } from '../util';
+import { act } from 'react-dom/test-utils';
 
-describe('BasicTable', () => {
+describe('List', () => {
   it('🎏 base use', async () => {
     const html = mount(
       <ProList
@@ -193,7 +194,7 @@ describe('BasicTable', () => {
     expect(html.find('.ant-list-item').length).toEqual(5);
   });
 
-  it('🎏 filter and request', async () => {
+  fit('🎏 filter and request', async () => {
     const onRequest = jest.fn();
     const html = mount(
       <ProList<any, { title: string }>
@@ -227,16 +228,20 @@ describe('BasicTable', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(html, 100);
+    await waitForComponentToPaint(html, 1200);
     expect(html.find('.ant-pro-list-row-title').length).toEqual(2);
-    html.find('.ant-pro-core-field-label').simulate('click');
-    html.find('.ant-input').simulate('change', {
-      target: {
-        value: 'test',
-      },
+    console.log(html.debug());
+    act(() => {
+      html.find('.ant-pro-core-field-label').simulate('click');
+      html.find('.ant-input').simulate('change', {
+        target: {
+          value: 'test',
+        },
+      });
+      html.find('.ant-btn.ant-btn-primary').simulate('click');
     });
-    html.find('.ant-btn.ant-btn-primary').simulate('click');
-    await waitTime();
+
+    await waitForComponentToPaint(html, 1200);
     expect(onRequest).toHaveBeenCalledWith(
       {
         current: 1,
