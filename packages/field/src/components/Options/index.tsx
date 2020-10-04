@@ -3,8 +3,8 @@ import { Space, ConfigProvider } from 'antd';
 import { ProFieldFC } from '../../index';
 
 /**
- * 默认的 index 列容器，提供一个好看的 index
- * @param param0
+ * 一般用于放多个按钮
+ * @param
  */
 const FieldOptions: ProFieldFC<{}> = ({ text, mode: type, render, fieldProps }) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -16,11 +16,14 @@ const FieldOptions: ProFieldFC<{}> = ({ text, mode: type, render, fieldProps }) 
       { mode: type, ...fieldProps },
       <></>,
     ) as unknown) as React.ReactNode[];
+
     if (!dom || dom?.length < 1) {
       return null;
     }
+
     return <Space className={className}>{dom}</Space>;
   }
+
   if (!text || !Array.isArray(text)) {
     return text as JSX.Element;
   }

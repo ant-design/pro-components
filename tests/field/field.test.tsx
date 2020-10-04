@@ -246,7 +246,15 @@ describe('Field', () => {
   });
 
   it('🐴 options support empty dom', () => {
-    const html = mount(<Field text={[]} valueType="option" mode="read" />);
+    const html = mount(
+      <Field
+        // @ts-expect-error
+        render={() => []}
+        text={[]}
+        valueType="option"
+        mode="read"
+      />,
+    );
     expect(html.render()).toMatchSnapshot();
   });
 
