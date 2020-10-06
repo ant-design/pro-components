@@ -70,12 +70,10 @@ const columns: ProColumns<TableListItem>[] = [
       type: 'progress',
       status: item.status !== 'error' ? 'active' : 'exception',
     }),
-    width: 200,
   },
   {
     title: '更新时间',
     key: 'since2',
-    width: 120,
     dataIndex: 'createdAt',
     valueType: 'date',
     render: (dom) => {
