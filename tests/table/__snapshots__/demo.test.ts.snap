@@ -18479,12 +18479,6 @@ exports[`table demos renders ./packages/table/src/demos/pollinga.tsx correctly 1
                       <col
                         style="width: 100px; min-width: 100px;"
                       />
-                      <col
-                        style="width: 200px; min-width: 200px;"
-                      />
-                      <col
-                        style="width: 120px; min-width: 120px;"
-                      />
                     </colgroup>
                     <thead
                       class="ant-table-thead"
