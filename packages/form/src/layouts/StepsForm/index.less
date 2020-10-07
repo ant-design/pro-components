@@ -3,6 +3,11 @@
 @pro-form-step-form-prefix-cls: ~'@{ant-prefix}-pro-steps-form';
 
 .@{pro-form-step-form-prefix-cls} {
+  &-container {
+    width: max-content;
+    margin: auto;
+  }
+
   &-steps-container {
     max-width: 1160px;
     margin: auto;
@@ -13,6 +18,18 @@
     display: none;
     &-active {
       display: block;
+    }
+
+    form {
+      width: max-content;
+    }
+
+    .@{ant-prefix}-form-vertical .@{ant-prefix}-form-item {
+      max-width: max-content;
+
+      .@{ant-prefix}-form-item-control {
+        max-width: max-content;
+      }
     }
   }
 }

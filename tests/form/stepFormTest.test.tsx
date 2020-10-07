@@ -3,7 +3,7 @@ import React from 'react';
 import { Button } from 'antd';
 import { act } from 'react-dom/test-utils';
 import { StepsForm, StepsFormProps, ProFormText } from '@ant-design/pro-form';
-import { waitTime } from '../util';
+import { waitForComponentToPaint } from '../util';
 
 describe('StepsForm', () => {
   it('🐲 basic use', () => {
@@ -73,9 +73,9 @@ describe('StepsForm', () => {
         </StepsForm.StepFrom>
       </StepsForm>,
     );
-    await waitTime(100);
+    await waitForComponentToPaint(html, 100);
     act(() => {
-      html.find('.ant-pro-steps-form-step-active button.ant-btn').at(0).simulate('click');
+      html.find('button.ant-btn').at(0).simulate('click');
     });
     expect(onCurrentChange).toBeCalledWith(0);
   });
@@ -102,38 +102,32 @@ describe('StepsForm', () => {
         </StepsForm.StepFrom>
       </StepsForm>,
     );
-    await waitTime(100);
+    await waitForComponentToPaint(html);
 
     act(() => {
-      html.find('.ant-pro-steps-form-step-active button.ant-btn.ant-btn-primary').simulate('click');
+      html.find('button.ant-btn.ant-btn-primary').simulate('click');
     });
 
-    await waitTime(100);
+    await waitForComponentToPaint(html);
 
     expect(fn).toBeCalled();
     expect(currentFn).toBeCalled();
 
     act(() => {
-      html
-        .find('.ant-pro-steps-form-step')
-        .at(1)
-        .find('button.ant-btn.ant-btn-primary')
-        .simulate('click');
+      html.find('button.ant-btn.ant-btn-primary').simulate('click');
     });
-    await waitTime(100);
+    await waitForComponentToPaint(html);
     expect(onFinish).toBeCalled();
   });
 
   it('🐲 submitter render=false', () => {
     const html = mount<StepsFormProps>(
-      <StepsForm>
-        <StepsForm.StepFrom
-          name="base"
-          title="表单1"
-          submitter={{
-            render: false,
-          }}
-        >
+      <StepsForm
+        submitter={{
+          render: false,
+        }}
+      >
+        <StepsForm.StepFrom name="base" title="表单1">
           <ProFormText name="姓名" />
         </StepsForm.StepFrom>
         <StepsForm.StepFrom name="moreInfo" title="表单2">
@@ -142,15 +136,13 @@ describe('StepsForm', () => {
       </StepsForm>,
     );
 
-    expect(
-      html.find('.ant-pro-steps-form-step-active button.ant-btn.ant-btn-primary').exists(),
-    ).toBeFalsy();
+    expect(html.find('button.ant-btn.ant-btn-primary').exists()).toBeFalsy();
   });
 
   it('🐲 submitter=false', () => {
     const html = mount<StepsFormProps>(
-      <StepsForm>
-        <StepsForm.StepFrom name="base" title="表单1" submitter={false}>
+      <StepsForm submitter={false}>
+        <StepsForm.StepFrom name="base" title="表单1">
           <ProFormText name="姓名" />
         </StepsForm.StepFrom>
         <StepsForm.StepFrom name="moreInfo" title="表单2">
@@ -159,27 +151,23 @@ describe('StepsForm', () => {
       </StepsForm>,
     );
 
-    expect(
-      html.find('.ant-pro-steps-form-step-active button.ant-btn.ant-btn-primary').exists(),
-    ).toBeFalsy();
+    expect(html.find('button.ant-btn.ant-btn-primary').exists()).toBeFalsy();
   });
 
   it('🐲 submitter render function', () => {
     const html = mount<StepsFormProps>(
-      <StepsForm>
-        <StepsForm.StepFrom
-          name="base"
-          title="表单1"
-          submitter={{
-            render: () => {
-              return [
-                <Button id="next" key="next">
-                  下一步
-                </Button>,
-              ];
-            },
-          }}
-        >
+      <StepsForm
+        submitter={{
+          render: () => {
+            return (
+              <Button id="next" key="next">
+                下一步
+              </Button>
+            );
+          },
+        }}
+      >
+        <StepsForm.StepFrom name="base" title="表单1">
           <ProFormText name="姓名" />
         </StepsForm.StepFrom>
         <StepsForm.StepFrom name="moreInfo" title="表单2">
