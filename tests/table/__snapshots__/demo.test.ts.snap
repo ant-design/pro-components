@@ -673,10 +673,10 @@ exports[`table demos renders ./packages/table/src/demos/ListToolBar/menu.tsx cor
         class="ant-pro-table-list-toolbar-left"
       >
         <div
-          class="ant-pro-table-list-toolbar-menu ant-pro-table-list-toolbar-inlinemenu"
+          class="ant-pro-table-list-toolbar-menu ant-pro-table-list-toolbar-inline-menu"
         >
           <div
-            class="ant-pro-table-list-toolbar-inlinemenu-item ant-pro-table-list-toolbar-inlinemenu-item-active"
+            class="ant-pro-table-list-toolbar-inline-menu-item ant-pro-table-list-toolbar-inline-menu-item-active"
           >
             <span>
               全部事项
@@ -695,7 +695,7 @@ exports[`table demos renders ./packages/table/src/demos/ListToolBar/menu.tsx cor
             </span>
           </div>
           <div
-            class="ant-pro-table-list-toolbar-inlinemenu-item"
+            class="ant-pro-table-list-toolbar-inline-menu-item"
           >
             <span>
               代办事项
@@ -14738,10 +14738,10 @@ exports[`table demos renders ./packages/table/src/demos/listToolBar.tsx correctl
             class="ant-pro-table-list-toolbar-left"
           >
             <div
-              class="ant-pro-table-list-toolbar-menu ant-pro-table-list-toolbar-inlinemenu"
+              class="ant-pro-table-list-toolbar-menu ant-pro-table-list-toolbar-inline-menu"
             >
               <div
-                class="ant-pro-table-list-toolbar-inlinemenu-item ant-pro-table-list-toolbar-inlinemenu-item-active"
+                class="ant-pro-table-list-toolbar-inline-menu-item ant-pro-table-list-toolbar-inline-menu-item-active"
               >
                 <span>
                   全部应用
@@ -14760,7 +14760,7 @@ exports[`table demos renders ./packages/table/src/demos/listToolBar.tsx correctl
                 </span>
               </div>
               <div
-                class="ant-pro-table-list-toolbar-inlinemenu-item"
+                class="ant-pro-table-list-toolbar-inline-menu-item"
               >
                 <span>
                   我创建的应用
