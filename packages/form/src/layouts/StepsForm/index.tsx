@@ -35,13 +35,13 @@ interface StepsFormProps<T = Store> extends FormProviderProps {
   /**
    * 自定义单个表单
    * @param form from 的 dom，可以放置到别的位置
-   * @param submitter 操作按钮
    */
-  renderStepForm?: (from: React.ReactNode, submitter: React.ReactNode) => React.ReactNode;
+  renderStepForm?: (from: React.ReactNode) => React.ReactNode;
 
   /**
    * 自定义整个表单区域
    * @param form from 的 dom，可以放置到别的位置
+   * @param submitter 操作按钮
    */
   renderStepsForm?: (from: React.ReactNode, submitter: React.ReactNode) => React.ReactNode;
   /**
