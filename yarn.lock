@@ -18026,6 +18026,14 @@ rc-util@^5.0.0, rc-util@^5.0.1, rc-util@^5.0.4, rc-util@^5.0.5, rc-util@^5.0.6, 
     react-is "^16.12.0"
     shallowequal "^1.1.0"
 
+rc-util@^5.4.0:
+  version "5.4.0"
+  resolved "https://registry.npm.taobao.org/rc-util/download/rc-util-5.4.0.tgz#688eaeecfdae9dae2bfdf10bedbe884591dba004"
+  integrity sha1-aI6u7P2una4r/fEL7b6IRZHboAQ=
+  dependencies:
+    react-is "^16.12.0"
+    shallowequal "^1.1.0"
+
 rc-virtual-list@^3.0.1, rc-virtual-list@^3.0.3:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/rc-virtual-list/-/rc-virtual-list-3.1.0.tgz#ca7ddbb291dace89c00cc4198ca7ef6e5e2034f7"

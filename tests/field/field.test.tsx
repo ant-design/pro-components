@@ -1,16 +1,19 @@
-import { render } from 'enzyme';
+import { render, mount } from 'enzyme';
+import { Button } from 'antd';
 import React from 'react';
 import moment from 'moment';
+import { act } from 'react-test-renderer';
 import Field from '@ant-design/pro-field';
+
 import Demo from './fixtures/demo';
 
 describe('Field', () => {
-  it('🥩 base use', async () => {
+  it('🐴 base use', async () => {
     const html = render(<Field text="100" valueType="money" mode="edit" />);
     expect(html).toMatchSnapshot();
   });
 
-  it('🥩 percent=0', async () => {
+  it('🐴 percent=0', async () => {
     const html = render(
       <Field
         text={0}
@@ -25,7 +28,7 @@ describe('Field', () => {
     expect(html).toMatchSnapshot();
   });
 
-  it('🥩 render 关闭 when text=0', async () => {
+  it('🐴 render 关闭 when text=0', async () => {
     const html = render(
       <Field
         text={0}
@@ -41,22 +44,22 @@ describe('Field', () => {
     expect(html.text()).toBe('关闭');
   });
 
-  it('🥩 edit ant no plain', async () => {
+  it('🐴 edit ant no plain', async () => {
     const html = render(<Demo plain={false} state="edit" />);
     expect(html).toMatchSnapshot();
   });
 
-  it('🥩 edit and plain', async () => {
+  it('🐴 edit and plain', async () => {
     const html = render(<Demo plain state="edit" />);
     expect(html).toMatchSnapshot();
   });
 
-  it('🥩 read and plain', async () => {
+  it('🐴 read and plain', async () => {
     const html = render(<Demo plain state="read" />);
     expect(html).toMatchSnapshot();
   });
 
-  it('🥩 read ant no plain', async () => {
+  it('🐴 read ant no plain', async () => {
     const html = render(<Demo plain={false} state="read" />);
     expect(html).toMatchSnapshot();
   });
@@ -78,7 +81,7 @@ describe('Field', () => {
     'jsonCode',
   ];
   valueTypes.forEach((valueType) => {
-    it(`🥩 valueType render ${valueType}`, async () => {
+    it(`🐴 valueType render ${valueType}`, async () => {
       const html = render(
         <Field
           text="1994-07-29 12:00:00"
@@ -93,7 +96,7 @@ describe('Field', () => {
   });
 
   valueTypes.forEach((valueType) => {
-    it(`🥩 valueType render ${valueType}`, async () => {
+    it(`🐴 valueType render ${valueType}`, async () => {
       if (valueType === 'option') return;
       const html = render(
         <Field
@@ -109,7 +112,7 @@ describe('Field', () => {
   });
 
   valueTypes.forEach((valueType) => {
-    it(`🥩 valueType render ${valueType} when mode is error`, async () => {
+    it(`🐴 valueType render ${valueType} when mode is error`, async () => {
       const html = render(
         <Field
           text="1994-07-29 12:00:00"
@@ -124,7 +127,7 @@ describe('Field', () => {
   });
 
   valueTypes.forEach((valueType) => {
-    it(`🥩 valueType render ${valueType} when text is null`, async () => {
+    it(`🐴 valueType render ${valueType} when text is null`, async () => {
       const html = render(
         <Field
           text={null}
@@ -136,7 +139,7 @@ describe('Field', () => {
     });
   });
 
-  it('🥩 money valueType is Object', async () => {
+  it('🐴 money valueType is Object', async () => {
     let html = render(
       <Field
         text="100"
@@ -162,7 +165,7 @@ describe('Field', () => {
     expect(html).toMatchSnapshot();
   });
 
-  it('🥩 percent valueType is Object', async () => {
+  it('🐴 percent valueType is Object', async () => {
     let html = render(
       <Field
         text="100"
@@ -214,5 +217,84 @@ describe('Field', () => {
       />,
     );
     expect(html.text()).toBe('- 100.0%');
+  });
+
+  it('🐴 password support visible', () => {
+    const html = mount(<Field text={123456} valueType="password" mode="read" />);
+    act(() => {
+      html.find('span.anticon-eye-invisible').simulate('click');
+    });
+    expect(html.find('span.anticon-eye').exists()).toBeTruthy();
+  });
+
+  it('🐴 password support controlled visible', () => {
+    const fn = jest.fn();
+    const html = mount(
+      <Field
+        text={123456}
+        onVisible={(visible) => fn(visible)}
+        visible
+        valueType="password"
+        mode="read"
+      />,
+    );
+    act(() => {
+      html.find('span.anticon-eye').simulate('click');
+    });
+    expect(html.find('span.anticon-eye-invisible').exists()).toBeFalsy();
+    expect(fn).toBeCalledWith(false);
+  });
+
+  it('🐴 options support empty dom', () => {
+    const html = mount(
+      <Field
+        // @ts-expect-error
+        render={() => []}
+        text={[]}
+        valueType="option"
+        mode="read"
+      />,
+    );
+    expect(html.render()).toMatchSnapshot();
+  });
+
+  it('🐴 options support dom list', () => {
+    const html = mount(
+      <Field
+        text={[<Button key="add">新建</Button>, <Button key="edit">修改</Button>]}
+        valueType="option"
+        mode="read"
+      />,
+    );
+    expect(html.render()).toMatchSnapshot();
+  });
+
+  it('🐴 options support one dom', () => {
+    const html = mount(
+      <Field text={[<Button key="add">新建</Button>]} valueType="option" mode="read" />,
+    );
+    expect(html.render()).toMatchSnapshot();
+  });
+
+  it('🐴 progress support string number', () => {
+    const html = mount(<Field text="12" valueType="progress" mode="read" />);
+    expect(html.render()).toMatchSnapshot();
+  });
+
+  it('🐴 progress support no number', () => {
+    const html = mount(<Field text="qixian" valueType="progress" mode="read" />);
+    expect(html.render()).toMatchSnapshot();
+  });
+
+  it('🐴 valueType={}', () => {
+    const html = mount(
+      <Field
+        text="qixian"
+        // @ts-expect-error
+        valueType={{}}
+        mode="read"
+      />,
+    );
+    expect(html.text()).toBe('qixian');
   });
 });

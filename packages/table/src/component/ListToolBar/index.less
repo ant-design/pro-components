@@ -67,9 +67,17 @@
     &:not(:last-child) {
       margin-right: @margin-md;
     }
+
+    display: flex;
+    align-items: center;
+
+    .@{ant-prefix}-pro-table-search {
+      margin: 0;
+      padding: 0;
+    }
   }
 
-  &-inlinemenu-item {
+  &-inline-menu-item {
     display: inline-block;
     margin-right: @margin-lg;
     cursor: pointer;

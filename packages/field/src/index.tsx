@@ -24,7 +24,7 @@ import FiledSelect, {
 } from './components/Select';
 import FieldDigit from './components/Digit';
 
-export type ProFieldTextType = string | number | React.ReactText[] | Moment | Moment[] | null;
+export type ProFieldTextType = React.ReactNode | React.ReactNode[] | Moment | Moment[];
 
 export type { ProFieldValueEnumType };
 export type ProFieldEmptyText = string | false;
@@ -153,6 +153,8 @@ export type ProFieldValueTypeFunction<T> = (item: T) => ProFieldValueType | ProF
 type RenderProps = Omit<ProFieldFCRenderProps, 'text'> &
   ProRenderFieldProps & {
     emptyText?: React.ReactNode;
+    visible?: boolean;
+    onVisible?: (visible: boolean) => void;
     [key: string]: any;
   };
 
@@ -164,7 +166,7 @@ type RenderProps = Omit<ProFieldFCRenderProps, 'text'> &
 const defaultRenderTextByObject = (
   text: ProFieldTextType,
   valueType: ProFieldValueObjectType,
-  props: RenderProps = { mode: 'read', plain: false, light: false },
+  props: RenderProps,
 ) => {
   const pickFormItemProps = pickProProps(props.fieldProps);
   if (valueType.type === 'progress') {
@@ -367,6 +369,7 @@ const ProField: React.ForwardRefRenderFunction<
     // fieldProps 优先级更高，在类似 LightFilter 场景下需要覆盖默认的 value 和 onChange
     ...omitUndefined(rest?.fieldProps),
   };
+
   return (
     <React.Fragment>
       {defaultRenderText(text, valueType, {

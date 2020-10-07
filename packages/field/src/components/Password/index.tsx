@@ -1,6 +1,7 @@
+import React from 'react';
 import { Input, Space } from 'antd';
 import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
-import React, { useImperativeHandle, useRef, useState } from 'react';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { useIntl } from '@ant-design/pro-provider';
 
 import { ProFieldFC } from '../../index';
@@ -11,27 +12,23 @@ import { ProFieldFC } from '../../index';
  */
 const FieldPassword: ProFieldFC<{
   text: string;
-}> = ({ text, mode, render, renderFormItem, fieldProps }, ref) => {
+  visible?: boolean;
+  onVisible?: (visible: boolean) => void;
+}> = ({ text, mode, render, renderFormItem, fieldProps, ...rest }, ref) => {
   const intl = useIntl();
-  const inputRef = useRef();
-  const [visbile, setVisbile] = useState<boolean>(false);
-
-  useImperativeHandle(
-    ref,
-    () => ({
-      ...(inputRef.current || {}),
-    }),
-    [inputRef.current],
-  );
+  const [visible, setVisible] = useMergedState<boolean>(() => rest.visible || false, {
+    value: rest.visible,
+    onChange: rest.onVisible,
+  });
 
   if (mode === 'read') {
     let dom = <>-</>;
     if (text) {
       dom = (
         <Space>
-          <span>{visbile ? text : '＊ ＊ ＊ ＊ ＊'}</span>
-          <a onClick={() => setVisbile(!visbile)}>
-            {visbile ? <EyeOutlined /> : <EyeInvisibleOutlined />}
+          <span ref={ref}>{visible ? text : '＊ ＊ ＊ ＊ ＊'}</span>
+          <a onClick={() => setVisible(!visible)}>
+            {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
           </a>
         </Space>
       );
@@ -45,7 +42,7 @@ const FieldPassword: ProFieldFC<{
     const dom = (
       <Input.Password
         placeholder={intl.getMessage('tableForm.inputPlaceholder', '请输入')}
-        ref={inputRef}
+        ref={ref}
         {...fieldProps}
       />
     );

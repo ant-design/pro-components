@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Field 🥩 base use 1`] = `
+exports[`Field 🐴 base use 1`] = `
 <div
   class="ant-input-number"
   style="width:100%"
@@ -82,7 +82,7 @@ exports[`Field 🥩 base use 1`] = `
 </div>
 `;
 
-exports[`Field 🥩 edit and plain 1`] = `
+exports[`Field 🐴 edit and plain 1`] = `
 <div
   class="ant-descriptions"
 >
@@ -1260,7 +1260,7 @@ exports[`Field 🥩 edit and plain 1`] = `
 </div>
 `;
 
-exports[`Field 🥩 edit ant no plain 1`] = `
+exports[`Field 🐴 edit ant no plain 1`] = `
 <div
   class="ant-descriptions"
 >
@@ -2436,7 +2436,7 @@ exports[`Field 🥩 edit ant no plain 1`] = `
 </div>
 `;
 
-exports[`Field 🥩 money valueType is Object 1`] = `
+exports[`Field 🐴 money valueType is Object 1`] = `
 <div
   class="ant-input-number"
   style="width:100%"
@@ -2518,13 +2518,66 @@ exports[`Field 🥩 money valueType is Object 1`] = `
 </div>
 `;
 
-exports[`Field 🥩 money valueType is Object 2`] = `
+exports[`Field 🐴 money valueType is Object 2`] = `
 <span>
   ￥ 100
 </span>
 `;
 
-exports[`Field 🥩 percent valueType is Object 1`] = `
+exports[`Field 🐴 options support dom list 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
+>
+  <div
+    class="ant-space-item"
+    style="margin-right: 8px;"
+  >
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        新 建
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        修 改
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Field 🐴 options support empty dom 1`] = `null`;
+
+exports[`Field 🐴 options support one dom 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
+>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        新 建
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Field 🐴 percent valueType is Object 1`] = `
 <div
   class="ant-input-number"
 >
@@ -2605,7 +2658,7 @@ exports[`Field 🥩 percent valueType is Object 1`] = `
 </div>
 `;
 
-exports[`Field 🥩 percent=0 1`] = `
+exports[`Field 🐴 percent=0 1`] = `
 <span
   style="color:#595959"
 >
@@ -2613,7 +2666,59 @@ exports[`Field 🥩 percent=0 1`] = `
 </span>
 `;
 
-exports[`Field 🥩 read and plain 1`] = `
+exports[`Field 🐴 progress support no number 1`] = `
+<div
+  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
+  style="min-width: 100px; max-width: 320px;"
+>
+  <div
+    class="ant-progress-outer"
+  >
+    <div
+      class="ant-progress-inner"
+    >
+      <div
+        class="ant-progress-bg"
+        style="width: 0%; height: 6px;"
+      />
+    </div>
+  </div>
+  <span
+    class="ant-progress-text"
+    title="0%"
+  >
+    0%
+  </span>
+</div>
+`;
+
+exports[`Field 🐴 progress support string number 1`] = `
+<div
+  class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+  style="min-width: 100px; max-width: 320px;"
+>
+  <div
+    class="ant-progress-outer"
+  >
+    <div
+      class="ant-progress-inner"
+    >
+      <div
+        class="ant-progress-bg"
+        style="width: 12%; height: 6px;"
+      />
+    </div>
+  </div>
+  <span
+    class="ant-progress-text"
+    title="12%"
+  >
+    12%
+  </span>
+</div>
+`;
+
+exports[`Field 🐴 read and plain 1`] = `
 <div
   class="ant-descriptions"
 >
@@ -3195,7 +3300,7 @@ Done in 9.70s.
 </div>
 `;
 
-exports[`Field 🥩 read ant no plain 1`] = `
+exports[`Field 🐴 read ant no plain 1`] = `
 <div
   class="ant-descriptions"
 >

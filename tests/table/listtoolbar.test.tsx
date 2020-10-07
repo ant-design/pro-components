@@ -136,7 +136,7 @@ describe('Table valueEnum', () => {
         }}
       />,
     );
-    wrapper.find('.ant-pro-table-list-toolbar-inlinemenu-item').at(1).simulate('click');
+    wrapper.find('.ant-pro-table-list-toolbar-inline-menu-item').at(1).simulate('click');
     expect(onChange).toHaveBeenCalledWith('done', undefined);
   });
 

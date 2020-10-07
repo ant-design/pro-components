@@ -1,11 +1,12 @@
 import { mount } from 'enzyme';
 import React, { useState, ReactText } from 'react';
 import ProList from '@ant-design/pro-list';
+import { act } from 'react-dom/test-utils';
 import PaginationDemo from '../../packages/list/src/demos/pagination';
-import { waitForComponentToPaint, waitTime } from '../util';
+import { waitForComponentToPaint } from '../util';
 
-describe('BasicTable', () => {
-  it('🎏 base use', async () => {
+describe('List', () => {
+  it('🚏 base use', async () => {
     const html = mount(
       <ProList
         dataSource={[
@@ -30,7 +31,7 @@ describe('BasicTable', () => {
     expect(html.find('.ant-pro-list-row-description').text()).toEqual('desc text');
   });
 
-  it('🎏 empty', async () => {
+  it('🚏 empty', async () => {
     const html = mount(
       <ProList
         metas={{
@@ -43,7 +44,7 @@ describe('BasicTable', () => {
     expect(html.find('.ant-empty-description').text()).toEqual('No Data');
   });
 
-  it('🎏 expandable', async () => {
+  it('🚏 expandable', async () => {
     const onExpand = jest.fn();
     const Wrapper = () => {
       const [expandedRowKeys, onExpandedRowsChange] = useState<ReactText[]>([]);
@@ -72,7 +73,7 @@ describe('BasicTable', () => {
     expect(onExpand).toHaveBeenCalledWith(true, expect.objectContaining({ name: '我是名称' }));
   });
 
-  it('🎏 expandable with defaultExpandedRowKeys', async () => {
+  it('🚏 expandable with defaultExpandedRowKeys', async () => {
     const Wrapper = () => {
       return (
         <ProList
@@ -105,7 +106,7 @@ describe('BasicTable', () => {
     expect(html.find('.ant-pro-list-row-content').text()).toEqual('我是内容b');
   });
 
-  it('🎏 expandable with expandedRowRender', async () => {
+  it('🚏 expandable with expandedRowRender', async () => {
     const Wrapper = () => {
       const [expandedRowKeys, onExpandedRowsChange] = useState<ReactText[]>([]);
       return (
@@ -146,7 +147,7 @@ describe('BasicTable', () => {
     );
   });
 
-  it('🎏 rowSelection', async () => {
+  it('🚏 rowSelection', async () => {
     const Wrapper = () => {
       const [selectedRowKeys, setSelectedRowKeys] = useState<ReactText[]>([]);
       const rowSelection = {
@@ -183,7 +184,7 @@ describe('BasicTable', () => {
     expect(html.find('.ant-checkbox-input').at(1).prop('checked')).toEqual(false);
   });
 
-  it('🎏 pagination', async () => {
+  it('🚏 pagination', async () => {
     const html = mount(<PaginationDemo />);
     expect(html.find('.ant-list-item').length).toEqual(5);
     html.find('.ant-pagination-item').at(1).simulate('click');
@@ -193,7 +194,7 @@ describe('BasicTable', () => {
     expect(html.find('.ant-list-item').length).toEqual(5);
   });
 
-  it('🎏 filter and request', async () => {
+  it('🚏 filter and request', async () => {
     const onRequest = jest.fn();
     const html = mount(
       <ProList<any, { title: string }>
@@ -227,16 +228,27 @@ describe('BasicTable', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(html, 100);
+    await waitForComponentToPaint(html, 1200);
     expect(html.find('.ant-pro-list-row-title').length).toEqual(2);
-    html.find('.ant-pro-core-field-label').simulate('click');
-    html.find('.ant-input').simulate('change', {
-      target: {
-        value: 'test',
-      },
+    act(() => {
+      html.find('.ant-pro-core-field-label').simulate('click');
     });
-    html.find('.ant-btn.ant-btn-primary').simulate('click');
-    await waitTime();
+
+    await waitForComponentToPaint(html, 200);
+    act(() => {
+      html.find('.ant-input').simulate('change', {
+        target: {
+          value: 'test',
+        },
+      });
+    });
+
+    await waitForComponentToPaint(html, 200);
+    act(() => {
+      html.find('.ant-btn.ant-btn-primary').simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 1200);
     expect(onRequest).toHaveBeenCalledWith(
       {
         current: 1,
