@@ -37,14 +37,9 @@ const StepFrom: React.FC<StepFromProps> = ({ onFinish, step, ...restProps }) => 
         }
         if (onFinish) {
           context?.setLoading(true);
-          try {
-            const success = await onFinish?.(values);
-            if (success) {
-              context?.next();
-            }
-          } catch (error) {
-            // eslint-disable-next-line no-console
-            console.error(error);
+          const success = await onFinish?.(values);
+          if (success) {
+            context?.next();
           }
           context?.setLoading(false);
           return;
