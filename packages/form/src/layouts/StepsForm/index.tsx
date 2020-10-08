@@ -23,7 +23,7 @@ interface StepsFormProps<T = Store> extends FormProviderProps {
   formProps?: ProFormProps;
   onCurrentChange?: (current: number) => void;
   /**
-   * 自定义分布表单
+   * 自定义步骤器
    */
   renderSteps?: (
     steps: Array<{

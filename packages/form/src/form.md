@@ -158,6 +158,9 @@ StepsForm 本质上是一个 Provider ，增加步骤条和一些相关的 API�
 | onCurrentChange | current 发生改变的事件 | `(current:number)=>void` | - |
 | onFinish | 表单最后一步提交成功触发 | `(values:T)=>void` | - |
 | stepsProps | StepsForm 自带的 Steps 的 props，使用方式与 [antd](https://ant.design/components/steps-cn/) 相同，但是去掉了 current 和 onChange | [props](https://ant.design/components/steps-cn/#API) | - |
+| renderStepForm | 自定义当前展示的表单，返回 dom 在表单内部 | `(form) => ReactNode` | - |
+| renderStepsForm | 自定义整个表单区域，返回的 dom 在表单的外部 | `(form,submitter) => ReactNode` | - |
+| renderSteps | 自定义步骤器 | `(steps,dom)=>ReactNode` | - |
 
 #### StepFrom
 
