@@ -182,14 +182,13 @@ const StepsForm: React.FC<StepsFormProps> & {
       下一步
     </Button>
   );
+
   const pre = submitter !== false && (
     <Button
       key="pre"
       {...submitter?.resetButtonProps}
       onClick={() => {
-        if (step < 1) {
-          return;
-        }
+        // 没有判断是因为 step<1 这个按钮不显示
         setStep(step - 1);
         submitter?.onReset?.();
       }}

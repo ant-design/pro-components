@@ -37,6 +37,7 @@ const StepFrom: React.FC<StepFromProps> = ({ onFinish, step, ...restProps }) => 
         }
         if (onFinish) {
           context?.setLoading(true);
+          // 如果报错，直接抛出
           const success = await onFinish?.(values);
           if (success) {
             context?.next();
