@@ -52,9 +52,6 @@ const StepFrom: React.FC<StepFromProps> = ({ onFinish, step, ...restProps }) => 
         context?.next();
       }}
       layout="vertical"
-      contentRender={(items) => {
-        return <>{items}</>;
-      }}
       {...restProps}
     />
   );
