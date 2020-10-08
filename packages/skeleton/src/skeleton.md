@@ -16,7 +16,7 @@ nav:
 ## 安装和初始化
 
 ```typescript | pure
-import Skeleton from '@ant-design/pro-Skeleton';
+import Skeleton from '@ant-design/pro-skeleton';
 
 return <Skeleton type="list" />;
 ```
