@@ -139,6 +139,125 @@ describe('StepsForm', () => {
     expect(html.find('button.ant-btn.ant-btn-primary').exists()).toBeFalsy();
   });
 
+  it('🐲 submitter render props', async () => {
+    const fn = jest.fn();
+    const html = mount<StepsFormProps>(
+      <StepsForm
+        current={1}
+        onCurrentChange={(current) => fn(current)}
+        submitter={{
+          render: (props) => {
+            return (
+              <button type="button" id="rest" onClick={() => props?.onReset?.()}>
+                rest
+              </button>
+            );
+          },
+        }}
+      >
+        <StepsForm.StepFrom name="base" title="表单1">
+          <ProFormText name="姓名" />
+        </StepsForm.StepFrom>
+        <StepsForm.StepFrom name="moreInfo" title="表单2">
+          <ProFormText name="邮箱" />
+        </StepsForm.StepFrom>
+      </StepsForm>,
+    );
+
+    expect(html.find('button#rest').exists()).toBeTruthy();
+
+    act(() => {
+      html.find('button#rest').simulate('click');
+    });
+    await waitForComponentToPaint(html);
+
+    expect(fn).toBeCalledWith(0);
+
+    /**
+     *  因为上一步有限制，所以应该不触发
+     */
+    act(() => {
+      html.find('button#rest').simulate('click');
+    });
+    await waitForComponentToPaint(html);
+
+    expect(fn).toBeCalledTimes(1);
+  });
+
+  it('🐲 current min=0', async () => {
+    const fn = jest.fn();
+    const html = mount<StepsFormProps>(
+      <StepsForm
+        current={0}
+        onCurrentChange={(current) => {
+          fn(current);
+        }}
+        submitter={{
+          render: (props) => {
+            return (
+              <button type="button" id="rest" onClick={() => props?.onReset?.()}>
+                rest
+              </button>
+            );
+          },
+        }}
+      >
+        <StepsForm.StepFrom name="base" title="表单1">
+          <ProFormText name="姓名" />
+        </StepsForm.StepFrom>
+        <StepsForm.StepFrom name="moreInfo" title="表单2">
+          <ProFormText name="邮箱" />
+        </StepsForm.StepFrom>
+      </StepsForm>,
+    );
+    /**
+     *  因为上一步有限制，所以应该不触发
+     */
+    act(() => {
+      html.find('button#rest').simulate('click');
+    });
+    await waitForComponentToPaint(html);
+
+    expect(fn).toBeCalledTimes(0);
+  });
+
+  it('🐲 current max=1', async () => {
+    const fn = jest.fn();
+    const html = mount<StepsFormProps>(
+      <StepsForm
+        current={0}
+        onCurrentChange={(current) => {
+          fn(current);
+        }}
+        submitter={{
+          render: (props) => {
+            return (
+              <button type="button" id="rest" onClick={() => props?.onSubmit?.()}>
+                rest
+              </button>
+            );
+          },
+        }}
+      >
+        <StepsForm.StepFrom name="base" title="表单1">
+          <ProFormText name="姓名" />
+        </StepsForm.StepFrom>
+        <StepsForm.StepFrom name="moreInfo" title="表单2">
+          <ProFormText name="邮箱" />
+        </StepsForm.StepFrom>
+      </StepsForm>,
+    );
+    /**
+     *  因为下一步有限制，所以应该不触发
+     */
+    act(() => {
+      html.find('button#rest').simulate('click');
+    });
+    await waitForComponentToPaint(html);
+
+    expect(fn).toBeCalledTimes(0);
+  });
+
   it('🐲 submitter=false', () => {
     const html = mount<StepsFormProps>(
       <StepsForm submitter={false}>

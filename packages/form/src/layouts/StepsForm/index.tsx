@@ -10,6 +10,7 @@ import { FormInstance } from 'antd/lib/form';
 import StepFrom, { StepFromProps } from './StepForm';
 import './index.less';
 import { ProFormProps } from '../ProForm';
+import { CommonFormProps } from '../../BaseForm';
 
 type Store = {
   [name: string]: any;
@@ -47,7 +48,7 @@ interface StepsFormProps<T = Store> extends FormProviderProps {
   /**
    * 按钮的统一配置，优先级低于分布表单的配置
    */
-  submitter?: StepFromProps['submitter'];
+  submitter?: CommonFormProps['submitter'];
 }
 
 export const StepsFormProvide = React.createContext<
@@ -62,7 +63,6 @@ export const StepsFormProvide = React.createContext<
       setLoading: React.Dispatch<React.SetStateAction<boolean>>;
       formMapRef: React.MutableRefObject<Map<string, StepFromProps>>;
       next: () => void;
-      pre: () => void;
     }
   | undefined
 >(undefined);
@@ -303,12 +303,6 @@ const StepsForm: React.FC<StepsFormProps> & {
                 return;
               }
               setStep(step + 1);
-            },
-            pre: () => {
-              if (step < 1) {
-                return;
-              }
-              setStep(step - 1);
             },
             formArrayRef,
             formMapRef,

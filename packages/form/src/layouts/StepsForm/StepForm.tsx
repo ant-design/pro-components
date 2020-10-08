@@ -4,7 +4,7 @@ import { FormProps, FormInstance } from 'antd/lib/form/Form';
 import BaseForm, { CommonFormProps } from '../../BaseForm';
 import { StepsFormProvide } from './index';
 
-export interface StepFromProps<T = any> extends FormProps, CommonFormProps {
+export interface StepFromProps<T = any> extends FormProps, Omit<CommonFormProps, 'submitter'> {
   step?: number;
   onFinish?: (values: T) => Promise<boolean>;
 }
