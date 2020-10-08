@@ -170,6 +170,23 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
   const resetText = propsResetText || intl.getMessage('tableForm.reset', '重置');
   const searchText = propsSearchText || intl.getMessage('tableForm.search', '搜索');
 
+  /**
+   * 如果 optionRender 是个方法调用一下
+   */
+  const render =
+    typeof optionRender === 'function'
+      ? (_: any, dom: React.ReactNode[]) =>
+          optionRender(
+            {
+              ...props,
+              resetText,
+              searchText,
+            },
+            props,
+            dom,
+          )
+      : optionRender;
+
   return (
     <BaseForm
       {...rest}
@@ -207,19 +224,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
               resetText,
               submitText: searchText,
             },
-            render:
-              typeof optionRender === 'function'
-                ? (_: any, dom: React.ReactNode[]) =>
-                    optionRender(
-                      {
-                        ...props,
-                        resetText,
-                        searchText,
-                      },
-                      props,
-                      dom,
-                    )
-                : optionRender,
+            render,
             onReset,
             ...submitter.props,
           });

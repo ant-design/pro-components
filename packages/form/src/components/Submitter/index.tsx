@@ -22,10 +22,18 @@ export interface SubmitterProps {
   form: FormInstance;
   onSubmit?: () => void;
   onReset?: () => void;
+  /**
+   * 搜索的配置，一般用来配置文本
+   */
   searchConfig?: SearchConfig;
+  /**
+   * 提交按钮的 props
+   */
   submitButtonProps?: ButtonProps;
+  /**
+   * 重置按钮的 props
+   */
   resetButtonProps?: ButtonProps;
-
   /**
    * 自定义操作的渲染的渲染
    */
