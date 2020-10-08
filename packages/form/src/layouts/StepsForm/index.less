@@ -20,15 +20,17 @@
       display: block;
     }
 
-    form {
+    > form {
       width: max-content;
     }
 
-    .@{ant-prefix}-form-vertical .@{ant-prefix}-form-item {
-      max-width: max-content;
-
-      .@{ant-prefix}-form-item-control {
+    .@{ant-prefix}-form-vertical {
+      > .@{ant-prefix}-form-item {
         max-width: max-content;
+
+        .@{ant-prefix}-form-item-control {
+          max-width: max-content;
+        }
       }
     }
   }
