@@ -172,16 +172,6 @@ describe('StepsForm', () => {
     await waitForComponentToPaint(html);
 
     expect(fn).toBeCalledWith(0);
-
-    /**
-     *  因为上一步有限制，所以应该不触发
-     */
-    act(() => {
-      html.find('button#rest').simulate('click');
-    });
-    await waitForComponentToPaint(html);
-
-    expect(fn).toBeCalledTimes(1);
   });
 
   it('🐲 current min=0', async () => {
