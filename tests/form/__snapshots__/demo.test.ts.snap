@@ -6,9 +6,6 @@ exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
 >
   <div>
     <div
-      class="ant-pro-form-group-title"
-    />
-    <div
       class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
     >
       <div
@@ -131,9 +128,6 @@ exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
     </div>
   </div>
   <div>
-    <div
-      class="ant-pro-form-group-title"
-    />
     <div
       class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
     >
@@ -297,9 +291,6 @@ exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
     </div>
   </div>
   <div>
-    <div
-      class="ant-pro-form-group-title"
-    />
     <div
       class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
     >
@@ -3065,9 +3056,6 @@ Array [
               >
                 <div>
                   <div
-                    class="ant-pro-form-group-title"
-                  />
-                  <div
                     class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
                   >
                     <div
@@ -3190,9 +3178,6 @@ Array [
                   </div>
                 </div>
                 <div>
-                  <div
-                    class="ant-pro-form-group-title"
-                  />
                   <div
                     class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
                   >
@@ -3356,9 +3341,6 @@ Array [
                   </div>
                 </div>
                 <div>
-                  <div
-                    class="ant-pro-form-group-title"
-                  />
                   <div
                     class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
                   >
@@ -3965,9 +3947,6 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                         >
                           <div>
                             <div
-                              class="ant-pro-form-group-title"
-                            />
-                            <div
                               class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
                             >
                               <div
@@ -4090,9 +4069,6 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                             </div>
                           </div>
                           <div>
-                            <div
-                              class="ant-pro-form-group-title"
-                            />
                             <div
                               class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
                             >
@@ -4256,9 +4232,6 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                             </div>
                           </div>
                           <div>
-                            <div
-                              class="ant-pro-form-group-title"
-                            />
                             <div
                               class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
                             >
@@ -4592,9 +4565,6 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                             </div>
                           </div>
                           <div>
-                            <div
-                              class="ant-pro-form-group-title"
-                            />
                             <div
                               class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
                             >
@@ -6647,9 +6617,6 @@ Array [
             >
               <div>
                 <div
-                  class="ant-pro-form-group-title"
-                />
-                <div
                   class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
                 >
                   <div
@@ -6772,9 +6739,6 @@ Array [
                 </div>
               </div>
               <div>
-                <div
-                  class="ant-pro-form-group-title"
-                />
                 <div
                   class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
                 >
@@ -6938,9 +6902,6 @@ Array [
                 </div>
               </div>
               <div>
-                <div
-                  class="ant-pro-form-group-title"
-                />
                 <div
                   class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
                 >
@@ -7323,6 +7284,46 @@ Array [
       </span>
     </button>
   </div>,
+]
+`;
+
+exports[`form demos renders ./packages/form/src/demos/modal-step-form.tsx correctly 1`] = `
+Array [
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span
+      aria-label="plus"
+      class="anticon anticon-plus"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="plus"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <defs />
+        <path
+          d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+        />
+        <path
+          d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+        />
+      </svg>
+    </span>
+    <span>
+      分布表单新建
+    </span>
+  </button>,
+  <div
+    class="ant-pro-steps-form"
+  />,
 ]
 `;
 
@@ -8346,9 +8347,6 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
           </div>
         </div>
         <div>
-          <div
-            class="ant-pro-form-group-title"
-          />
           <div
             class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
           >
@@ -11236,9 +11234,6 @@ exports[`form demos renders ./packages/form/src/demos/steps-from.tsx correctly 1
               </div>
             </div>
             <div>
-              <div
-                class="ant-pro-form-group-title"
-              />
               <div
                 class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
               >

@@ -22,7 +22,7 @@ export default () => {
   return (
     <ProCard>
       <StepsForm
-        onFinish={(values) => console.log(values)}
+        onFinish={async (values) => console.log(values)}
         formProps={{
           validateMessages: {
             required: '此项为必填项',

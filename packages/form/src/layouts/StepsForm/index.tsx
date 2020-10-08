@@ -16,7 +16,7 @@ type Store = {
 };
 
 interface StepsFormProps<T = Store> extends FormProviderProps {
-  onFinish?: (values: T) => void;
+  onFinish?: (values: T) => Promise<void>;
   current?: number;
   stepsProps?: StepsProps;
   formProps?: ProFormProps;
@@ -128,20 +128,22 @@ const StepsForm: React.FC<StepsFormProps> & {
    * 如果使用 Provider 自带的，自带的数据处理就无法生效了
    */
   const onFormFinish = useCallback(
-    (name: string, formData: any) => {
+    async (name: string, formData: any) => {
       formDataRef.current.set(name, formData);
       // 如果是最后一步
       if (step === formArray.length - 1) {
         if (!props.onFinish) {
           return;
         }
+        setLoading(true);
         const values = Array.from(formDataRef.current.values()).reduce((pre, cur) => {
           return {
             ...pre,
             ...cur,
           };
         }, {});
-        props.onFinish(values);
+        await props.onFinish(values);
+        setLoading(false);
       }
     },
     [step],

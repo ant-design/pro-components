@@ -28,6 +28,10 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 
 <code src="./demos/multi-card-step-form.tsx"  background="#f5f5f5"/>
 
+### 分步表单-Modal
+
+<code src="./demos/modal-step-form.tsx"  background="#f5f5f5"/>
+
 ### Modal 表单
 
 <code src="./demos/modal-form.tsx"  background="#f5f5f5"/>
