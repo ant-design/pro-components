@@ -178,4 +178,29 @@ describe('StepsForm', () => {
 
     expect(html.find('button#next').exists()).toBeTruthy();
   });
+
+  it('🐲 support renderStepsForm', () => {
+    const html = mount<StepsFormProps>(
+      <StepsForm
+        renderStepsForm={(dom, submitter) => {
+          return (
+            <div>
+              <div id="content">{dom}</div>
+              <div id="footer">{submitter} </div>
+            </div>
+          );
+        }}
+      >
+        <StepsForm.StepFrom name="base" title="表单1">
+          <ProFormText name="姓名" />
+        </StepsForm.StepFrom>
+        <StepsForm.StepFrom name="moreInfo" title="表单2">
+          <ProFormText name="邮箱" />
+        </StepsForm.StepFrom>
+      </StepsForm>,
+    );
+    expect(html.find('#content form').length).toBe(2);
+    expect(html.find('#content form').exists()).toBeTruthy();
+    expect(html.find('#footer button').exists()).toBeTruthy();
+  });
 });
