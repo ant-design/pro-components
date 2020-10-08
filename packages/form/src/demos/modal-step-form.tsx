@@ -1,15 +1,15 @@
-﻿import React from 'react';
+﻿import React, { useState } from 'react';
 import ProForm, {
   StepsForm,
   ProFormText,
   ProFormDatePicker,
-  ProFormDateRangePicker,
+  ProFormDateTimePicker,
   ProFormSelect,
+  ProFormTextArea,
   ProFormCheckbox,
-  ProFormDigit,
 } from '@ant-design/pro-form';
-
-import ProCard from '@ant-design/pro-card';
+import { Button, Modal } from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -20,83 +20,61 @@ const waitTime = (time: number = 100) => {
 };
 
 export default () => {
+  const [visible, setVisible] = useState(false);
   return (
     <>
+      <Button type="primary" onClick={() => setVisible(true)}>
+        <PlusOutlined />
+        分布表单新建
+      </Button>
       <StepsForm
-        onFinish={async (values) => console.log(values)}
+        onFinish={async (values) => {
+          console.log(values);
+          await waitTime(1000);
+          setVisible(false);
+        }}
         formProps={{
           validateMessages: {
             required: '此项为必填项',
           },
         }}
+        renderStepsForm={(dom, submitter) => {
+          return (
+            <Modal
+              width={800}
+              onCancel={() => setVisible(false)}
+              visible={visible}
+              footer={submitter}
+              destroyOnClose
+            >
+              {dom}
+            </Modal>
+          );
+        }}
       >
         <StepsForm.StepFrom
           name="base"
-          title="第一步骤"
+          title="创建实验"
           onFinish={async () => {
             await waitTime(2000);
             return true;
           }}
         >
-          <ProCard
-            title="源和目标"
-            bordered
-            headerBordered
-            collapsible
-            style={{
-              marginBottom: 16,
-              minWidth: 800,
-              maxWidth: '100%',
-            }}
-          >
-            <ProFormText
-              name="name"
-              label="迁移任务名称"
-              tooltip="最长为 24 位，用于标定的唯一 id"
-              placeholder="请输入名称"
-              rules={[{ required: true }]}
-            />
-            <ProForm.Group title="节点" size={8}>
-              <ProFormSelect width="s" name="source" placeholder="选择来源节点" />
-              <ProFormSelect width="s" name="target" placeholder="选择目标节点" />
-            </ProForm.Group>
-          </ProCard>
-
-          <ProCard
-            title="顶部对齐"
-            bordered
-            headerBordered
-            collapsible
-            style={{
-              marginBottom: 16,
-            }}
-          >
-            <ProFormDigit
-              name="xs"
-              label="XS号表单"
-              initialValue={9999}
-              tooltip="悬浮出现的气泡。"
-              placeholder="请输入名称"
-              width="xs"
-            />
-            <ProFormText name="s" label="S号表单" placeholder="请输入名称" width="s" />
-            <ProFormDateRangePicker name="m" label="M 号表单" />
-            <ProFormSelect
-              name="l"
-              label="L 号表单"
-              fieldProps={{
-                mode: 'tags',
-              }}
-              width="l"
-              initialValue={['吴家豪', '周星星']}
-              options={['吴家豪', '周星星', '陈拉风'].map((item) => ({
-                label: item,
-                value: item,
-              }))}
-            />
-          </ProCard>
+          <ProFormText
+            name="name"
+            label="实验名称"
+            tooltip="最长为 24 位，用于标定的唯一 id"
+            placeholder="请输入名称"
+            rules={[{ required: true }]}
+          />
+          <ProFormDatePicker name="date" label="日期" />
+          <ProForm.Group title="时间选择">
+            <ProFormDateTimePicker name="dateTime" label="开始时间" />
+            <ProFormDatePicker name="date" label="结束时间" />
+          </ProForm.Group>
+          <ProFormTextArea name="remark" label="备注" width="l" placeholder="请输入备注" />
         </StepsForm.StepFrom>
-        <StepsForm.StepFrom name="checkbox" title="第二步骤">
+        <StepsForm.StepFrom name="checkbox" title="设置参数">
           <ProFormCheckbox.Group
             name="checkbox"
             label="迁移类型"
@@ -113,7 +91,7 @@ export default () => {
             />
           </ProForm.Group>
         </StepsForm.StepFrom>
-        <StepsForm.StepFrom name="time" title="第三步骤">
+        <StepsForm.StepFrom name="time" title="发布实验">
           <ProFormCheckbox.Group
             name="checkbox"
             label="部署单元"

@@ -13,7 +13,7 @@ import LightWrapper from './LightWrapper';
 import { GroupProps, FieldProps, ProFormItemProps } from '../interface';
 
 export interface CommonFormProps {
-  submitter?: Omit<SubmitterProps, 'form'> | boolean;
+  submitter?: Omit<SubmitterProps, 'form'> | false;
 }
 
 export interface BaseFormProps extends FormProps, CommonFormProps {

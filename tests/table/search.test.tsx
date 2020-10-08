@@ -63,7 +63,7 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitForComponentToPaint(html, 1000);
 
     act(() => {
       html.find('button.ant-btn.ant-btn-primary').simulate('click');
@@ -148,7 +148,7 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitForComponentToPaint(html, 1000);
 
     act(() => {
       html.find('button.ant-btn').at(0).simulate('click');
@@ -200,7 +200,7 @@ describe('BasicTable Search', () => {
     await waitForComponentToPaint(html, 2000);
     MockDate.set(1479799364001);
     ref.current?.submit();
-    await waitForComponentToPaint(html, 1200);
+    await waitForComponentToPaint(html, 1000);
     expect(fn).toBeCalledTimes(1);
 
     MockDate.set(1479799364000);
