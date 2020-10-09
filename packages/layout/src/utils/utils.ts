@@ -1,10 +1,7 @@
 import { MenuDataItem } from '../typings';
 
 export const getOpenKeysFromMenuData = (menuData?: MenuDataItem[]) => {
-  if (!menuData) {
-    return undefined;
-  }
-  return menuData.reduce((pre, item) => {
+  return (menuData || []).reduce((pre, item) => {
     if (item.key) {
       pre.push(item.key);
     }
