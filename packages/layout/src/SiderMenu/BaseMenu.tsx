@@ -281,7 +281,6 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       setSelectedKeys(matchMenuKeys);
     }
   }, [matchMenuKeys.join('-')]);
-
   useEffect(() => {
     // reset IconFont
     if (iconfontUrl) {
