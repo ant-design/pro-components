@@ -56,7 +56,7 @@ exports[`layout demos renders ./packages/layout/src/demos/BreadcrumbsRepeat.tsx 
                 </span>
               </li>
               <li
-                class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+                class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
                 role="menuitem"
               >
                 <div
@@ -82,7 +82,7 @@ exports[`layout demos renders ./packages/layout/src/demos/BreadcrumbsRepeat.tsx 
                   role="menu"
                 >
                   <li
-                    class="ant-menu-item ant-menu-item-only-child"
+                    class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
                     role="menuitem"
                     style="padding-left: 32px;"
                   >
