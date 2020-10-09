@@ -93,25 +93,13 @@ class MenuUtil {
   props: BaseMenuProps;
 
   getNavMenuItems = (menusData: MenuDataItem[] = [], isChildren: boolean): React.ReactNode[] =>
-    menusData
-      .filter((item) => item.name && !item.hideInMenu)
-      .map((item) => this.getSubMenuOrItem(item, isChildren))
-      .filter((item) => item);
-
-  hasChildren = (item: MenuDataItem) => {
-    return (
-      item &&
-      !item.hideChildrenInMenu &&
-      item?.children &&
-      item.children.some((child) => child && !!child.name && !child.hideInMenu)
-    );
-  };
+    menusData.map((item) => this.getSubMenuOrItem(item, isChildren)).filter((item) => item);
 
   /**
    * get SubMenu or Item
    */
   getSubMenuOrItem = (item: MenuDataItem, isChildren: boolean): React.ReactNode => {
-    if (Array.isArray(item.children) && this.hasChildren(item)) {
+    if (Array.isArray(item.children) && item && item.children.length > 0) {
       const name = this.getIntlName(item);
       const { subMenuItemRender, prefixCls } = this.props;
       //  get defaultTitle by menuItemRender
@@ -200,10 +188,6 @@ class MenuUtil {
         replace: itemPath === location.pathname,
         onClick: () => onCollapse && onCollapse(true),
       };
-      // 如果 hideChildrenInMenu 删除掉无用的 children
-      if (!this.hasChildren(item)) {
-        delete renderItemProps.children;
-      }
       return menuItemRender(renderItemProps, defaultItem);
     }
     return defaultItem;
