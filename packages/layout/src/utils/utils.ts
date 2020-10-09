@@ -59,18 +59,17 @@ export function clearMenuItem(menusData: MenuDataItem[]): MenuDataItem[] {
         return null;
       }
 
-      if (finalItem && !finalItem.hideChildrenInMenu && finalItem?.children) {
-        if (finalItem.children.some((child) => child && child.name && !child.hideInMenu)) {
+      if (finalItem && finalItem?.children) {
+        if (
+          !finalItem.hideChildrenInMenu &&
+          finalItem.children.some((child) => child && child.name && !child.hideInMenu)
+        ) {
           return {
             ...item,
             children: clearMenuItem(finalItem.children),
           };
         }
         // children 为空就直接删掉
-        delete finalItem.children;
-      }
-      if (finalItem.hideChildrenInMenu) {
-        // children 不需要就直接删掉
         delete finalItem.children;
       }
       return finalItem;
