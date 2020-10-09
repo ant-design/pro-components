@@ -8,6 +8,7 @@ import { PureSettings } from './defaultSettings';
 import TopNavHeader from './TopNavHeader';
 import { WithFalse } from './typings';
 import { PrivateSiderMenuProps } from './SiderMenu/SiderMenu';
+import { clearMenuItem } from './utils/utils';
 
 const { Header } = Layout;
 
@@ -49,12 +50,15 @@ class HeaderView extends Component<HeaderViewProps & PrivateSiderMenuProps, Head
       </GlobalHeader>
     );
     if (isTop && !isMobile) {
+      // 这里走了可以少一次循环
+      const clearMenuData = clearMenuItem(this.props.menuData || []);
       defaultDom = (
         <TopNavHeader
           theme={navTheme as 'light' | 'dark'}
           mode="horizontal"
           onCollapse={onCollapse}
           {...this.props}
+          menuData={clearMenuData}
         />
       );
     }
