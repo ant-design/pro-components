@@ -27860,7 +27860,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                     class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     name="state"
                     style="width: 100%;"
-                    text="all"
+                    text="open"
                   >
                     <div
                       class="ant-select-selector"
@@ -27887,9 +27887,9 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                       </span>
                       <span
                         class="ant-select-selection-item"
-                        title="全部"
+                        title="未解决"
                       >
-                        全部
+                        未解决
                       </span>
                     </div>
                     <span
