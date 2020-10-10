@@ -44,6 +44,7 @@ export type {
 };
 
 export {
+  ConfigProviderWarp,
   TableDropdown,
   ListToolBar,
   FieldStatus as TableStatus,
