@@ -3,7 +3,7 @@ import { Form } from 'antd';
 import { FormProps, FormInstance } from 'antd/lib/form/Form';
 import { FormItemProps } from 'antd/lib/form';
 import { TooltipProps } from 'antd/lib/tooltip';
-import { ConfigProviderWarp } from '@ant-design/pro-provider';
+import { ConfigProviderWrap } from '@ant-design/pro-provider';
 import { LabelIconTip, conversionSubmitValue, pickProFormItemProps } from '@ant-design/pro-utils';
 import { ProFieldValueType } from '@ant-design/pro-field';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
@@ -197,7 +197,7 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
 
   return (
     // 增加国际化的能力，与 table 组件可以统一
-    <ConfigProviderWarp>
+    <ConfigProviderWrap>
       <FieldContext.Provider
         value={{
           fieldProps,
@@ -234,7 +234,7 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
           </Form>
         </SizeContext.Provider>
       </FieldContext.Provider>
-    </ConfigProviderWarp>
+    </ConfigProviderWrap>
   );
 };
 
