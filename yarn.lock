@@ -94,6 +94,13 @@
   dependencies:
     rc-util "^5.0.1"
 
+"@ant-design/pro-provider@0.2.1":
+  version "0.2.1"
+  resolved "https://registry.npm.taobao.org/@ant-design/pro-provider/download/@ant-design/pro-provider-0.2.1.tgz?cache=0&sync_timestamp=1602473929987&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40ant-design%2Fpro-provider%2Fdownload%2F%40ant-design%2Fpro-provider-0.2.1.tgz#afc80e17830b23f6386ed63565ffa574c3c317cc"
+  integrity sha1-r8gOF4MLI/Y4btY1Zf+ldMPDF8w=
+  dependencies:
+    rc-util "^5.0.1"
+
 "@ant-design/pro-table@2.9.0":
   version "2.9.0"
   resolved "https://registry.npm.taobao.org/@ant-design/pro-table/download/@ant-design/pro-table-2.9.0.tgz#958423fc6437632ebc04f84e83f981ff7142da48"
