@@ -26,7 +26,7 @@ const ProFormText = createField<ProFormItemProps<InputProps>>(
   },
 );
 
-const PassWord = createField<ProFormItemProps<PasswordProps>>(
+const Password = createField<ProFormItemProps<PasswordProps>>(
   React.forwardRef(({ fieldProps, proFieldProps }, ref) => {
     return (
       <ProField
@@ -47,6 +47,6 @@ const WrappedProFormText: typeof ProFormText & {
   PassWord: typeof PassWord;
 } = ProFormText as any;
 
-WrappedProFormText.PassWord = PassWord;
+WrappedProFormText.Password = Password;
 
 export default WrappedProFormText;
