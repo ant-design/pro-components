@@ -130,7 +130,7 @@ const findIntlKeyByAntdLocaleKey = (localeKey: string | undefined) => {
  *  如果没有配置 locale，这里组件会根据 antd 的 key 来自动选择
  * @param param0
  */
-const ConfigProviderWarp: React.FC<{}> = ({ children }) => {
+const ConfigProviderWrap: React.FC<{}> = ({ children }) => {
   const { locale } = useContext(AntdConfigProvider.ConfigContext);
   return (
     <ConfigConsumer>
@@ -157,7 +157,7 @@ const ConfigProviderWarp: React.FC<{}> = ({ children }) => {
   );
 };
 
-export { ConfigConsumer, ConfigProvider, ConfigProviderWarp, createIntl };
+export { ConfigConsumer, ConfigProvider, ConfigProviderWrap, createIntl };
 
 export function useIntl(): IntlType {
   const context = useContext(ConfigContext);

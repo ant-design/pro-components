@@ -1,5 +1,5 @@
 import {
-  ConfigProviderWarp,
+  ConfigProviderWrap,
   ConfigProvider,
   ConfigConsumer,
   createIntl,
@@ -44,7 +44,7 @@ export type {
 };
 
 export {
-  ConfigProviderWarp,
+  ConfigProviderWrap,
   TableDropdown,
   ListToolBar,
   FieldStatus as TableStatus,

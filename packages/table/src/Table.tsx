@@ -8,7 +8,7 @@ import React, {
   useMemo,
 } from 'react';
 import { Table, ConfigProvider, Card, Space, Empty } from 'antd';
-import { useIntl, ParamsType, ConfigProviderWarp } from '@ant-design/pro-provider';
+import { useIntl, ParamsType, ConfigProviderWrap } from '@ant-design/pro-provider';
 import classNames from 'classnames';
 import get from 'rc-util/lib/utils/get';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -930,11 +930,11 @@ const ProviderWarp = <T, U extends { [key: string]: any } = {}>(props: ProTableP
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   return (
     <Container.Provider initialState={props}>
-      <ConfigProviderWarp>
+      <ConfigProviderWrap>
         <ErrorBoundary>
           <ProTable defaultClassName={getPrefixCls('pro-table')} {...props} />
         </ErrorBoundary>
-      </ConfigProviderWarp>
+      </ConfigProviderWrap>
     </Container.Provider>
   );
 };
