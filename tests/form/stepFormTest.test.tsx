@@ -27,9 +27,9 @@ describe('StepsForm', () => {
     html.unmount();
   });
 
-  it('🐲 renderSteps', () => {
+  it('🐲 stepsRender', () => {
     const html = mount<StepsFormProps>(
-      <StepsForm renderSteps={() => null}>
+      <StepsForm stepsRender={() => null}>
         <StepsForm.StepFrom name="base" title="表单1">
           <ProFormText name="姓名" />
         </StepsForm.StepFrom>
@@ -46,7 +46,7 @@ describe('StepsForm', () => {
 
     act(() => {
       html.setProps({
-        renderSteps: (_, dom) => <div id="test">{dom}</div>,
+        stepsRender: (_, dom) => <div id="test">{dom}</div>,
       });
     });
 
@@ -336,10 +336,10 @@ describe('StepsForm', () => {
     html.unmount();
   });
 
-  it('🐲 support renderStepsForm', () => {
+  it('🐲 support stepsFormRender', () => {
     const html = mount<StepsFormProps>(
       <StepsForm
-        renderStepsForm={(dom, submitter) => {
+        stepsFormRender={(dom, submitter) => {
           return (
             <div>
               <div id="content">{dom}</div>
@@ -361,10 +361,10 @@ describe('StepsForm', () => {
     expect(html.find('#footer button').exists()).toBeTruthy();
   });
 
-  it('🐲 support renderStepsForm', () => {
+  it('🐲 support stepsFormRender', () => {
     const html = mount<StepsFormProps>(
       <StepsForm
-        renderStepForm={(dom) => {
+        stepFormRender={(dom) => {
           return <div id="content">{dom}</div>;
         }}
       >
