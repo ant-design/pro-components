@@ -771,7 +771,6 @@ exports[`BasicTable 🎏 base use 1`] = `
         >
           <div
             class="ant-row ant-form-item"
-            title="Name"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -780,7 +779,7 @@ exports[`BasicTable 🎏 base use 1`] = `
               <label
                 class=""
                 for="name"
-                title=""
+                title="Name"
               >
                 Name
               </label>
@@ -809,7 +808,6 @@ exports[`BasicTable 🎏 base use 1`] = `
         </div>
         <div
           class="ant-row ant-form-item ant-form-item-hidden"
-          title="Textarea"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -818,7 +816,7 @@ exports[`BasicTable 🎏 base use 1`] = `
             <label
               class=""
               for="name"
-              title=""
+              title="Textarea"
             >
               Textarea
             </label>
@@ -846,7 +844,6 @@ exports[`BasicTable 🎏 base use 1`] = `
         </div>
         <div
           class="ant-row ant-form-item ant-form-item-hidden"
-          title="sex"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -855,7 +852,7 @@ exports[`BasicTable 🎏 base use 1`] = `
             <label
               class=""
               for="sex"
-              title=""
+              title="sex"
             >
               sex
             </label>
@@ -939,7 +936,6 @@ exports[`BasicTable 🎏 base use 1`] = `
         </div>
         <div
           class="ant-row ant-form-item ant-form-item-hidden"
-          title="状态"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -948,7 +944,7 @@ exports[`BasicTable 🎏 base use 1`] = `
             <label
               class=""
               for="status"
-              title=""
+              title="状态"
             >
               状态
             </label>
@@ -1032,7 +1028,6 @@ exports[`BasicTable 🎏 base use 1`] = `
         </div>
         <div
           class="ant-row ant-form-item ant-form-item-hidden"
-          title="Age"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -1041,7 +1036,7 @@ exports[`BasicTable 🎏 base use 1`] = `
             <label
               class=""
               for="age"
-              title=""
+              title="Age"
             >
               Age
             </label>
@@ -1069,7 +1064,6 @@ exports[`BasicTable 🎏 base use 1`] = `
         </div>
         <div
           class="ant-row ant-form-item ant-form-item-hidden"
-          title="Address"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -1078,7 +1072,7 @@ exports[`BasicTable 🎏 base use 1`] = `
             <label
               class=""
               for="address"
-              title=""
+              title="Address"
             >
               Address
             </label>
@@ -1106,7 +1100,6 @@ exports[`BasicTable 🎏 base use 1`] = `
         </div>
         <div
           class="ant-row ant-form-item ant-form-item-hidden"
-          title="money"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -1115,7 +1108,7 @@ exports[`BasicTable 🎏 base use 1`] = `
             <label
               class=""
               for="money"
-              title=""
+              title="money"
             >
               money
             </label>
@@ -1216,7 +1209,6 @@ exports[`BasicTable 🎏 base use 1`] = `
         </div>
         <div
           class="ant-row ant-form-item ant-form-item-hidden"
-          title="date"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -1225,7 +1217,7 @@ exports[`BasicTable 🎏 base use 1`] = `
             <label
               class=""
               for="date"
-              title=""
+              title="date"
             >
               date
             </label>
@@ -1253,7 +1245,6 @@ exports[`BasicTable 🎏 base use 1`] = `
         </div>
         <div
           class="ant-row ant-form-item ant-form-item-hidden"
-          title="dateTime"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -1262,7 +1253,7 @@ exports[`BasicTable 🎏 base use 1`] = `
             <label
               class=""
               for="dateTime"
-              title=""
+              title="dateTime"
             >
               dateTime
             </label>
@@ -1324,7 +1315,6 @@ exports[`BasicTable 🎏 base use 1`] = `
         </div>
         <div
           class="ant-row ant-form-item ant-form-item-hidden"
-          title="time"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -1333,7 +1323,7 @@ exports[`BasicTable 🎏 base use 1`] = `
             <label
               class=""
               for="time"
-              title=""
+              title="time"
             >
               time
             </label>
@@ -1398,7 +1388,6 @@ exports[`BasicTable 🎏 base use 1`] = `
         </div>
         <div
           class="ant-row ant-form-item ant-form-item-hidden"
-          title="状态"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -1407,7 +1396,7 @@ exports[`BasicTable 🎏 base use 1`] = `
             <label
               class=""
               for="status"
-              title=""
+              title="状态"
             >
               状态
             </label>

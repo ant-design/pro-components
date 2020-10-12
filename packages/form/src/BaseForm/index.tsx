@@ -4,7 +4,7 @@ import { FormProps, FormInstance } from 'antd/lib/form/Form';
 import { FormItemProps } from 'antd/lib/form';
 import { TooltipProps } from 'antd/lib/tooltip';
 import { ConfigProviderWrap } from '@ant-design/pro-provider';
-import { LabelIconTip, conversionSubmitValue, pickProFormItemProps } from '@ant-design/pro-utils';
+import { conversionSubmitValue, pickProFormItemProps } from '@ant-design/pro-utils';
 import { ProFieldValueType } from '@ant-design/pro-field';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
 import FieldContext from '../FieldContext';
@@ -45,7 +45,6 @@ export interface ExtendsProps {
   secondary?: boolean;
   bordered?: boolean;
   colSize?: number;
-  tooltip?: string;
   /**
    * @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一
    */
@@ -82,7 +81,17 @@ export function createField<P extends ProFormItemProps = any>(
 ): ProFormComponent<P, ExtendsProps> {
   const FieldWithContext: React.FC<P> = (props: P & ExtendsProps) => {
     const size = useContext(SizeContext);
-    const { label, tip, tooltip, placeholder, width, proFieldProps, bordered, ...rest } = props;
+    const {
+      label,
+      tip,
+      tooltip,
+      placeholder,
+      width,
+      proFieldProps,
+      bordered,
+      messageVariables,
+      ...rest
+    } = props;
     const {
       valueType,
       customLightMode,
@@ -126,23 +135,25 @@ export function createField<P extends ProFormItemProps = any>(
         proFieldProps={proFieldProps}
       />
     );
+    const otherProps = {
+      messageVariables,
+      ...defaultFormItemProps,
+      ...formItemProps,
+      ...restFormItemProps,
+    };
 
     return (
       <Form.Item
-        // title 是用于提升读屏的能力的，没有参与逻辑
-        // @ts-expect-error
-        title={label}
         // 全局的提供一个 tip 功能，可以减少代码量
         // 轻量模式下不通过 FormItem 显示 label
-        label={
-          label && proFieldProps?.light !== true ? (
-            <LabelIconTip label={label} tooltip={tooltip || tip} />
-          ) : undefined
-        }
+        label={label && proFieldProps?.light !== true ? label : undefined}
+        tooltip={proFieldProps?.light !== true && tooltip}
         valuePropName={valuePropName}
-        {...defaultFormItemProps}
-        {...formItemProps}
-        {...restFormItemProps}
+        {...otherProps}
+        messageVariables={{
+          label: label as string,
+          ...otherProps?.messageVariables,
+        }}
       >
         <LightWrapper
           {...realFieldProps}

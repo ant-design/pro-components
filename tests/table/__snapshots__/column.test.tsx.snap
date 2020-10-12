@@ -186,7 +186,6 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
         >
           <div
             class="qixian-row qixian-form-item"
-            title="Name"
           >
             <div
               class="qixian-col qixian-form-item-label"
@@ -195,7 +194,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
               <label
                 class=""
                 for="name"
-                title=""
+                title="Name"
               >
                 Name
               </label>
