@@ -40,7 +40,7 @@ export const genEllipsis = (dom: React.ReactNode, item: ProColumns<any>, text: s
   }
   return (
     <Tooltip title={text}>
-      <>{dom}</>
+      <span>{dom}</span>
     </Tooltip>
   );
 };
@@ -54,6 +54,7 @@ export const genCopyable = (dom: React.ReactNode, item: ProColumns<any>, text: s
           margin: 0,
           padding: 0,
         }}
+        title=""
         copyable={
           item.copyable && text
             ? {
