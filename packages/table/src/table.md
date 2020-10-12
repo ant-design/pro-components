@@ -217,7 +217,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | onReset | 重置表单时触发 | `() => void` | - |
 | columnEmptyText | 空值时的显示，不设置 则默认显示 `-` | `string \| false` | false |
 | tableRender | 自定义渲染表格函数 | `(props: ProTableProps<T, U>, defaultDom: JSX.Element, domList: { toolbar: JSX.Element \| undefined; alert: JSX.Element \| undefined; table: JSX.Element \| undefined;}) => React.ReactNode` | - |
-| toolbar | 透传 ProUtils 中的 ListToolBar 配置项 | `ListToolBarProps` | - |
+| toolbar | 透传 ListToolBar 配置项 | `ListToolBarProps` | - |
 | tableExtraRender | 自定义表格的主体函数 | `(props: ProTableProps<T, U>, dataSource: T[]) => React.ReactNode;` | - |
 | manualRequest | 是否需要手动触发首次请求, 配置为 `true` 时不可隐藏搜索表单 | `boolean` | false |
 
@@ -459,47 +459,9 @@ Form 的列是根据 `valueType` 来生成不同的类型。
 | index | 不展示 |
 | progress | 不展示 |
 
-### ListToolBar
+### ListToolBarProps
 
-列表和表格的工具栏。
-
-#### 基本使用
-
-<code src="./demos/ListToolBar/basic.tsx" />
-
-#### 无标题的情况
-
-没有标题的情况下搜索框会前置。
-
-<code src="./demos/ListToolBar/no-title.tsx" />
-
-#### 双行
-
-<code src="./demos/ListToolBar/multipleLine.tsx" />
-
-#### 标签
-
-<code src="./demos/ListToolBar/tabs.tsx" />
-
-#### 菜单
-
-<code src="./demos/ListToolBar/menu.tsx" />
-
-#### 和 Table 一起使用
-
-<code src="./demos/ListToolBar/table.tsx" />
-
-#### 和 List 一起使用
-
-<code src="./demos/ListToolBar/list.tsx" />
-
-#### 自定义 title
-
-<code src="./demos/ListToolBar/custom-title.tsx" />
-
-#### API
-
-#### ListToolBar
+列表和表格的工具栏配置属性
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
