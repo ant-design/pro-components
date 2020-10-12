@@ -1109,7 +1109,6 @@ exports[`list demos renders ./packages/list/src/demos/filter.tsx correctly 1`] =
                       >
                         <div
                           class="ant-row ant-form-item"
-                          title="用户"
                         >
                           <div
                             class="ant-col ant-form-item-control"
@@ -1159,7 +1158,6 @@ exports[`list demos renders ./packages/list/src/demos/filter.tsx correctly 1`] =
                       >
                         <div
                           class="ant-row ant-form-item"
-                          title="状态"
                         >
                           <div
                             class="ant-col ant-form-item-control"
