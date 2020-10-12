@@ -1,6 +1,7 @@
 import React from 'react';
 import { Upload, Button } from 'antd';
 import { UploadProps } from 'antd/lib/upload';
+import { ButtonProps } from 'antd/lib/button';
 import { UploadOutlined } from '@ant-design/icons';
 import { ProFormItemProps } from '../../interface';
 import { createField } from '../../BaseForm';
@@ -14,6 +15,8 @@ export type ProFormDraggerProps = ProFormItemProps<UploadProps> & {
   max?: number;
   value?: UploadProps['fileList'];
   onChange?: UploadProps['onChange'];
+  buttonProps?: ButtonProps;
+  disabled?: ButtonProps['disabled'];
 };
 
 /**
@@ -30,7 +33,9 @@ const ProFormUploadButton: React.ForwardRefRenderFunction<any, ProFormDraggerPro
     max,
     icon = <UploadOutlined />,
     value,
+    buttonProps,
     onChange,
+    disabled,
   },
   ref,
 ) => {
@@ -55,7 +60,7 @@ const ProFormUploadButton: React.ForwardRefRenderFunction<any, ProFormDraggerPro
       }}
     >
       {showUploadButton && (
-        <Button>
+        <Button disabled={disabled || fieldProps?.disabled} {...buttonProps}>
           {icon}
           {title}
         </Button>

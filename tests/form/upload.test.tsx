@@ -3,7 +3,7 @@ import ProForm, { ProFormUploadButton, ProFormUploadDragger } from '@ant-design/
 import { mount } from 'enzyme';
 import mock from 'xhr-mock';
 import { act } from 'react-dom/test-utils';
-import { waitTime } from '../util';
+import { waitTime, waitForComponentToPaint } from '../util';
 
 const mockFile = new File(['foo'], 'foo.png', {
   type: 'image/png',
@@ -58,6 +58,38 @@ describe('ProFormUpload', () => {
     });
     await waitTime(200);
     expect(fn).toBeCalled();
+  });
+
+  it('ProFormUploadButton support disable', async () => {
+    const wrapper = mount(
+      <ProFormUploadButton
+        disabled
+        action="http://upload.com"
+        listType="text"
+        label="upload"
+        name="files"
+      />,
+    );
+    expect(wrapper.find('Upload Button')).toMatchSnapshot();
+
+    wrapper.setProps({
+      buttonProps: {
+        disabled: true,
+        type: 'dashed',
+      },
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(wrapper.find('Upload Button')).toMatchSnapshot();
+
+    wrapper.setProps({
+      disabled: false,
+      buttonProps: {},
+      fieldProps: {
+        disabled: true,
+      },
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(wrapper.find('Upload Button')).toMatchSnapshot();
   });
 
   it('ProFormUploadDragger support onChange', async () => {
