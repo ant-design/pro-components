@@ -25,7 +25,7 @@ interface StepsFormProps<T = Store> extends FormProviderProps {
   /**
    * 自定义步骤器
    */
-  renderSteps?: (
+  stepsRender?: (
     steps: Array<{
       key: string;
       title?: React.ReactNode;
@@ -37,14 +37,14 @@ interface StepsFormProps<T = Store> extends FormProviderProps {
    * 自定义单个表单
    * @param form from 的 dom，可以放置到别的位置
    */
-  renderStepForm?: (from: React.ReactNode) => React.ReactNode;
+  stepFormRender?: (from: React.ReactNode) => React.ReactNode;
 
   /**
    * 自定义整个表单区域
    * @param form from 的 dom，可以放置到别的位置
    * @param submitter 操作按钮
    */
-  renderStepsForm?: (from: React.ReactNode, submitter: React.ReactNode) => React.ReactNode;
+  stepsFormRender?: (from: React.ReactNode, submitter: React.ReactNode) => React.ReactNode;
   /**
    * 按钮的统一配置，优先级低于分布表单的配置
    */
@@ -78,9 +78,9 @@ const StepsForm: React.FC<StepsFormProps> & {
     current,
     onCurrentChange,
     submitter,
-    renderStepsForm,
-    renderSteps,
-    renderStepForm,
+    stepsFormRender,
+    stepsRender,
+    stepFormRender,
     stepsProps,
     onFinish,
     formProps,
@@ -255,7 +255,7 @@ const StepsForm: React.FC<StepsFormProps> & {
 
     const config = isShow
       ? {
-          contentRender: renderStepForm,
+          contentRender: stepFormRender,
           submitter: false,
         }
       : {};
@@ -277,8 +277,8 @@ const StepsForm: React.FC<StepsFormProps> & {
       </div>
     );
   });
-  const finalStepsDom = props.renderSteps
-    ? props.renderSteps(
+  const finalStepsDom = props.stepsRender
+    ? props.stepsRender(
         formArray.map((item) => ({
           key: item,
           title: formMapRef.current.get(item)?.title,
@@ -309,8 +309,8 @@ const StepsForm: React.FC<StepsFormProps> & {
             onFormFinish,
           }}
         >
-          {renderStepsForm ? (
-            renderStepsForm(
+          {stepsFormRender ? (
+            stepsFormRender(
               <>
                 {finalStepsDom}
                 <div className={`${prefixCls}-container`}>{formDom}</div>

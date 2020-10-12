@@ -38,7 +38,7 @@ export default () => {
             required: '此项为必填项',
           },
         }}
-        renderStepsForm={(dom, submitter) => {
+        stepsFormRender={(dom, submitter) => {
           return (
             <Modal
               width={800}
