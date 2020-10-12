@@ -165,7 +165,6 @@ export const formInputRender: React.FC<{
     !valueType || (['textarea', 'jsonCode', 'code'].includes(valueType) && type === 'table')
       ? 'text'
       : (valueType as 'text');
-
   return (
     <ProFormField
       ref={ref}
@@ -211,6 +210,7 @@ export const proFormItemRender: (props: {
     ellipsis,
     index,
     filters,
+    request,
     ...rest
   } = item;
 
@@ -227,6 +227,7 @@ export const proFormItemRender: (props: {
     intl,
     form: formInstance,
     label: getTitle(),
+    request,
     ...formItemProps,
   });
   if (!dom) {
