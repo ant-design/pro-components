@@ -94,6 +94,10 @@ const useFetchData = <T extends RequestData<any>>(
               }
             : undefined,
         )) || {};
+      // 组件被卸载时不要继续设值
+      if (!mountRef.current) {
+        return;
+      }
       if (success !== false) {
         setDataAndLoading(data, dataTotal);
       }
