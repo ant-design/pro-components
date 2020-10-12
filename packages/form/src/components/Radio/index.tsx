@@ -64,7 +64,7 @@ const ProFormRadio: React.FC<ProFormItemProps<RadioProps>> = React.forwardRef(
 
 // @ts-expect-error
 const WrappedProFormRadio: React.ComponentType<ProFormItemProps<RadioProps>> & {
-  Group: React.ComponentType<ProFormRadioGroupProps>;
+  Group: typeof Group;
   Button: typeof Radio.Button;
 } = createField<ProFormItemProps<RadioProps>>(ProFormRadio, {
   valuePropName: 'checked',
@@ -74,7 +74,7 @@ const WrappedProFormRadio: React.ComponentType<ProFormItemProps<RadioProps>> & {
 WrappedProFormRadio.Group = createField(Group, {
   customLightMode: true,
   ignoreFelidWidth: true,
-});
+}) as typeof Group;
 
 WrappedProFormRadio.Button = Radio.Button;
 

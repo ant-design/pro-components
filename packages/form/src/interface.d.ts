@@ -15,7 +15,7 @@ export interface FieldProps {
   style?: React.CSSProperties;
 }
 
-export interface ProFormItemProps<T = {}> extends FormItemProps {
+export interface ProFormItemProps<T = {}> extends Omit<FormItemProps, 'tooltip'> {
   fieldProps?: FieldProps & T;
   placeholder?: string | string[];
   secondary?: boolean;
