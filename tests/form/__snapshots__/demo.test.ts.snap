@@ -72,14 +72,43 @@ exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
               <div
                 class="ant-form-item-control-input-content"
               >
-                <input
-                  class="ant-input"
-                  id="name"
-                  placeholder="请输入名称"
+                <span
+                  class="ant-input-affix-wrapper"
                   style="width: 328px;"
-                  type="text"
-                  value=""
-                />
+                >
+                  <input
+                    class="ant-input"
+                    id="name"
+                    placeholder="请输入名称"
+                    type="text"
+                    value=""
+                  />
+                  <span
+                    class="ant-input-suffix"
+                  >
+                    <span
+                      aria-label="close-circle"
+                      class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                      role="button"
+                      tabindex="-1"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="close-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </span>
               </div>
             </div>
           </div>
@@ -112,14 +141,43 @@ exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
               <div
                 class="ant-form-item-control-input-content"
               >
-                <input
-                  class="ant-input"
-                  id="company"
-                  placeholder="请输入名称"
+                <span
+                  class="ant-input-affix-wrapper"
                   style="width: 328px;"
-                  type="text"
-                  value=""
-                />
+                >
+                  <input
+                    class="ant-input"
+                    id="company"
+                    placeholder="请输入名称"
+                    type="text"
+                    value=""
+                  />
+                  <span
+                    class="ant-input-suffix"
+                  >
+                    <span
+                      aria-label="close-circle"
+                      class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                      role="button"
+                      tabindex="-1"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="close-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </span>
               </div>
             </div>
           </div>
@@ -159,14 +217,43 @@ exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
               <div
                 class="ant-form-item-control-input-content"
               >
-                <input
-                  class="ant-input"
-                  id="contract"
-                  placeholder="请输入名称"
+                <span
+                  class="ant-input-affix-wrapper"
                   style="width: 328px;"
-                  type="text"
-                  value=""
-                />
+                >
+                  <input
+                    class="ant-input"
+                    id="contract"
+                    placeholder="请输入名称"
+                    type="text"
+                    value=""
+                  />
+                  <span
+                    class="ant-input-suffix"
+                  >
+                    <span
+                      aria-label="close-circle"
+                      class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                      role="button"
+                      tabindex="-1"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="close-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </span>
               </div>
             </div>
           </div>
@@ -509,14 +596,43 @@ exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
         <div
           class="ant-form-item-control-input-content"
         >
-          <input
-            class="ant-input"
-            id="id"
-            placeholder="请输入"
+          <span
+            class="ant-input-affix-wrapper"
             style="width: 216px;"
-            type="text"
-            value=""
-          />
+          >
+            <input
+              class="ant-input"
+              id="id"
+              placeholder="请输入"
+              type="text"
+              value=""
+            />
+            <span
+              class="ant-input-suffix"
+            >
+              <span
+                aria-label="close-circle"
+                class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                role="button"
+                tabindex="-1"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="close-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </span>
         </div>
       </div>
     </div>
@@ -545,15 +661,44 @@ exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
         <div
           class="ant-form-item-control-input-content"
         >
-          <input
-            class="ant-input ant-input-disabled"
-            disabled=""
-            id="project"
-            placeholder="请输入"
+          <span
+            class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled"
             style="width: 328px;"
-            type="text"
-            value="xxxx项目"
-          />
+          >
+            <input
+              class="ant-input ant-input-disabled"
+              disabled=""
+              id="project"
+              placeholder="请输入"
+              type="text"
+              value="xxxx项目"
+            />
+            <span
+              class="ant-input-suffix"
+            >
+              <span
+                aria-label="close-circle"
+                class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                role="button"
+                tabindex="-1"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="close-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </span>
         </div>
       </div>
     </div>
@@ -582,15 +727,44 @@ exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
         <div
           class="ant-form-item-control-input-content"
         >
-          <input
-            class="ant-input ant-input-disabled"
-            disabled=""
-            id="mangerName"
-            placeholder="请输入"
+          <span
+            class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled"
             style="width: 104px;"
-            type="text"
-            value="启途"
-          />
+          >
+            <input
+              class="ant-input ant-input-disabled"
+              disabled=""
+              id="mangerName"
+              placeholder="请输入"
+              type="text"
+              value="启途"
+            />
+            <span
+              class="ant-input-suffix"
+            >
+              <span
+                aria-label="close-circle"
+                class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                role="button"
+                tabindex="-1"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="close-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </span>
         </div>
       </div>
     </div>
@@ -659,14 +833,43 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
           <div
             class="ant-form-item-control-input-content"
           >
-            <input
-              class="ant-input"
-              id="validate_other_name"
-              placeholder="请输入"
+            <span
+              class="ant-input-affix-wrapper"
               style="width: 328px;"
-              type="text"
-              value="qixian"
-            />
+            >
+              <input
+                class="ant-input"
+                id="validate_other_name"
+                placeholder="请输入"
+                type="text"
+                value="qixian"
+              />
+              <span
+                class="ant-input-suffix"
+              >
+                <span
+                  aria-label="close-circle"
+                  class="anticon anticon-close-circle ant-input-clear-icon"
+                  role="button"
+                  tabindex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="close-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </span>
           </div>
         </div>
       </div>
@@ -3122,14 +3325,43 @@ Array [
                             <div
                               class="ant-form-item-control-input-content"
                             >
-                              <input
-                                class="ant-input"
-                                id="name"
-                                placeholder="请输入名称"
+                              <span
+                                class="ant-input-affix-wrapper"
                                 style="width: 328px;"
-                                type="text"
-                                value=""
-                              />
+                              >
+                                <input
+                                  class="ant-input"
+                                  id="name"
+                                  placeholder="请输入名称"
+                                  type="text"
+                                  value=""
+                                />
+                                <span
+                                  class="ant-input-suffix"
+                                >
+                                  <span
+                                    aria-label="close-circle"
+                                    class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                                    role="button"
+                                    tabindex="-1"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class=""
+                                      data-icon="close-circle"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
+                              </span>
                             </div>
                           </div>
                         </div>
@@ -3162,14 +3394,43 @@ Array [
                             <div
                               class="ant-form-item-control-input-content"
                             >
-                              <input
-                                class="ant-input"
-                                id="company"
-                                placeholder="请输入名称"
+                              <span
+                                class="ant-input-affix-wrapper"
                                 style="width: 328px;"
-                                type="text"
-                                value=""
-                              />
+                              >
+                                <input
+                                  class="ant-input"
+                                  id="company"
+                                  placeholder="请输入名称"
+                                  type="text"
+                                  value=""
+                                />
+                                <span
+                                  class="ant-input-suffix"
+                                >
+                                  <span
+                                    aria-label="close-circle"
+                                    class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                                    role="button"
+                                    tabindex="-1"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class=""
+                                      data-icon="close-circle"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
+                              </span>
                             </div>
                           </div>
                         </div>
@@ -3209,14 +3470,43 @@ Array [
                             <div
                               class="ant-form-item-control-input-content"
                             >
-                              <input
-                                class="ant-input"
-                                id="contract"
-                                placeholder="请输入名称"
+                              <span
+                                class="ant-input-affix-wrapper"
                                 style="width: 328px;"
-                                type="text"
-                                value=""
-                              />
+                              >
+                                <input
+                                  class="ant-input"
+                                  id="contract"
+                                  placeholder="请输入名称"
+                                  type="text"
+                                  value=""
+                                />
+                                <span
+                                  class="ant-input-suffix"
+                                >
+                                  <span
+                                    aria-label="close-circle"
+                                    class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                                    role="button"
+                                    tabindex="-1"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class=""
+                                      data-icon="close-circle"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
+                              </span>
                             </div>
                           </div>
                         </div>
@@ -3559,14 +3849,43 @@ Array [
                       <div
                         class="ant-form-item-control-input-content"
                       >
-                        <input
-                          class="ant-input"
-                          id="id"
-                          placeholder="请输入"
+                        <span
+                          class="ant-input-affix-wrapper"
                           style="width: 216px;"
-                          type="text"
-                          value=""
-                        />
+                        >
+                          <input
+                            class="ant-input"
+                            id="id"
+                            placeholder="请输入"
+                            type="text"
+                            value=""
+                          />
+                          <span
+                            class="ant-input-suffix"
+                          >
+                            <span
+                              aria-label="close-circle"
+                              class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                              role="button"
+                              tabindex="-1"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="close-circle"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -3595,15 +3914,44 @@ Array [
                       <div
                         class="ant-form-item-control-input-content"
                       >
-                        <input
-                          class="ant-input ant-input-disabled"
-                          disabled=""
-                          id="project"
-                          placeholder="请输入"
+                        <span
+                          class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled"
                           style="width: 328px;"
-                          type="text"
-                          value="xxxx项目"
-                        />
+                        >
+                          <input
+                            class="ant-input ant-input-disabled"
+                            disabled=""
+                            id="project"
+                            placeholder="请输入"
+                            type="text"
+                            value="xxxx项目"
+                          />
+                          <span
+                            class="ant-input-suffix"
+                          >
+                            <span
+                              aria-label="close-circle"
+                              class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                              role="button"
+                              tabindex="-1"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="close-circle"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -3632,15 +3980,44 @@ Array [
                       <div
                         class="ant-form-item-control-input-content"
                       >
-                        <input
-                          class="ant-input ant-input-disabled"
-                          disabled=""
-                          id="mangerName"
-                          placeholder="请输入"
+                        <span
+                          class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled"
                           style="width: 104px;"
-                          type="text"
-                          value="启途"
-                        />
+                        >
+                          <input
+                            class="ant-input ant-input-disabled"
+                            disabled=""
+                            id="mangerName"
+                            placeholder="请输入"
+                            type="text"
+                            value="启途"
+                          />
+                          <span
+                            class="ant-input-suffix"
+                          >
+                            <span
+                              aria-label="close-circle"
+                              class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                              role="button"
+                              tabindex="-1"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="close-circle"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -4013,14 +4390,43 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                       <div
                                         class="ant-form-item-control-input-content"
                                       >
-                                        <input
-                                          class="ant-input"
-                                          id="name"
-                                          placeholder="请输入名称"
+                                        <span
+                                          class="ant-input-affix-wrapper"
                                           style="width: 328px;"
-                                          type="text"
-                                          value=""
-                                        />
+                                        >
+                                          <input
+                                            class="ant-input"
+                                            id="name"
+                                            placeholder="请输入名称"
+                                            type="text"
+                                            value=""
+                                          />
+                                          <span
+                                            class="ant-input-suffix"
+                                          >
+                                            <span
+                                              aria-label="close-circle"
+                                              class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                                              role="button"
+                                              tabindex="-1"
+                                            >
+                                              <svg
+                                                aria-hidden="true"
+                                                class=""
+                                                data-icon="close-circle"
+                                                fill="currentColor"
+                                                focusable="false"
+                                                height="1em"
+                                                viewBox="64 64 896 896"
+                                                width="1em"
+                                              >
+                                                <path
+                                                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                                                />
+                                              </svg>
+                                            </span>
+                                          </span>
+                                        </span>
                                       </div>
                                     </div>
                                   </div>
@@ -4053,14 +4459,43 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                       <div
                                         class="ant-form-item-control-input-content"
                                       >
-                                        <input
-                                          class="ant-input"
-                                          id="company"
-                                          placeholder="请输入名称"
+                                        <span
+                                          class="ant-input-affix-wrapper"
                                           style="width: 328px;"
-                                          type="text"
-                                          value=""
-                                        />
+                                        >
+                                          <input
+                                            class="ant-input"
+                                            id="company"
+                                            placeholder="请输入名称"
+                                            type="text"
+                                            value=""
+                                          />
+                                          <span
+                                            class="ant-input-suffix"
+                                          >
+                                            <span
+                                              aria-label="close-circle"
+                                              class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                                              role="button"
+                                              tabindex="-1"
+                                            >
+                                              <svg
+                                                aria-hidden="true"
+                                                class=""
+                                                data-icon="close-circle"
+                                                fill="currentColor"
+                                                focusable="false"
+                                                height="1em"
+                                                viewBox="64 64 896 896"
+                                                width="1em"
+                                              >
+                                                <path
+                                                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                                                />
+                                              </svg>
+                                            </span>
+                                          </span>
+                                        </span>
                                       </div>
                                     </div>
                                   </div>
@@ -4100,14 +4535,43 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                       <div
                                         class="ant-form-item-control-input-content"
                                       >
-                                        <input
-                                          class="ant-input"
-                                          id="contract"
-                                          placeholder="请输入名称"
+                                        <span
+                                          class="ant-input-affix-wrapper"
                                           style="width: 328px;"
-                                          type="text"
-                                          value=""
-                                        />
+                                        >
+                                          <input
+                                            class="ant-input"
+                                            id="contract"
+                                            placeholder="请输入名称"
+                                            type="text"
+                                            value=""
+                                          />
+                                          <span
+                                            class="ant-input-suffix"
+                                          >
+                                            <span
+                                              aria-label="close-circle"
+                                              class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                                              role="button"
+                                              tabindex="-1"
+                                            >
+                                              <svg
+                                                aria-hidden="true"
+                                                class=""
+                                                data-icon="close-circle"
+                                                fill="currentColor"
+                                                focusable="false"
+                                                height="1em"
+                                                viewBox="64 64 896 896"
+                                                width="1em"
+                                              >
+                                                <path
+                                                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                                                />
+                                              </svg>
+                                            </span>
+                                          </span>
+                                        </span>
                                       </div>
                                     </div>
                                   </div>
@@ -4478,14 +4942,43 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                 <div
                                   class="ant-form-item-control-input-content"
                                 >
-                                  <input
-                                    class="ant-input"
-                                    id="id"
-                                    placeholder="请输入"
+                                  <span
+                                    class="ant-input-affix-wrapper"
                                     style="width: 216px;"
-                                    type="text"
-                                    value=""
-                                  />
+                                  >
+                                    <input
+                                      class="ant-input"
+                                      id="id"
+                                      placeholder="请输入"
+                                      type="text"
+                                      value=""
+                                    />
+                                    <span
+                                      class="ant-input-suffix"
+                                    >
+                                      <span
+                                        aria-label="close-circle"
+                                        class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                                        role="button"
+                                        tabindex="-1"
+                                      >
+                                        <svg
+                                          aria-hidden="true"
+                                          class=""
+                                          data-icon="close-circle"
+                                          fill="currentColor"
+                                          focusable="false"
+                                          height="1em"
+                                          viewBox="64 64 896 896"
+                                          width="1em"
+                                        >
+                                          <path
+                                            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                                          />
+                                        </svg>
+                                      </span>
+                                    </span>
+                                  </span>
                                 </div>
                               </div>
                             </div>
@@ -4514,15 +5007,44 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                 <div
                                   class="ant-form-item-control-input-content"
                                 >
-                                  <input
-                                    class="ant-input ant-input-disabled"
-                                    disabled=""
-                                    id="project"
-                                    placeholder="请输入"
+                                  <span
+                                    class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled"
                                     style="width: 328px;"
-                                    type="text"
-                                    value="xxxx项目"
-                                  />
+                                  >
+                                    <input
+                                      class="ant-input ant-input-disabled"
+                                      disabled=""
+                                      id="project"
+                                      placeholder="请输入"
+                                      type="text"
+                                      value="xxxx项目"
+                                    />
+                                    <span
+                                      class="ant-input-suffix"
+                                    >
+                                      <span
+                                        aria-label="close-circle"
+                                        class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                                        role="button"
+                                        tabindex="-1"
+                                      >
+                                        <svg
+                                          aria-hidden="true"
+                                          class=""
+                                          data-icon="close-circle"
+                                          fill="currentColor"
+                                          focusable="false"
+                                          height="1em"
+                                          viewBox="64 64 896 896"
+                                          width="1em"
+                                        >
+                                          <path
+                                            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                                          />
+                                        </svg>
+                                      </span>
+                                    </span>
+                                  </span>
                                 </div>
                               </div>
                             </div>
@@ -4551,15 +5073,44 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                 <div
                                   class="ant-form-item-control-input-content"
                                 >
-                                  <input
-                                    class="ant-input ant-input-disabled"
-                                    disabled=""
-                                    id="mangerName"
-                                    placeholder="请输入"
+                                  <span
+                                    class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled"
                                     style="width: 104px;"
-                                    type="text"
-                                    value="启途"
-                                  />
+                                  >
+                                    <input
+                                      class="ant-input ant-input-disabled"
+                                      disabled=""
+                                      id="mangerName"
+                                      placeholder="请输入"
+                                      type="text"
+                                      value="启途"
+                                    />
+                                    <span
+                                      class="ant-input-suffix"
+                                    >
+                                      <span
+                                        aria-label="close-circle"
+                                        class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                                        role="button"
+                                        tabindex="-1"
+                                      >
+                                        <svg
+                                          aria-hidden="true"
+                                          class=""
+                                          data-icon="close-circle"
+                                          fill="currentColor"
+                                          focusable="false"
+                                          height="1em"
+                                          viewBox="64 64 896 896"
+                                          width="1em"
+                                        >
+                                          <path
+                                            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                                          />
+                                        </svg>
+                                      </span>
+                                    </span>
+                                  </span>
                                 </div>
                               </div>
                             </div>
@@ -6861,14 +7412,43 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                   <div
                     class="ant-form-item-control-input-content"
                   >
-                    <input
-                      class="ant-input"
-                      id="base_name"
-                      placeholder="请输入名称"
+                    <span
+                      class="ant-input-affix-wrapper"
                       style="width: 328px;"
-                      type="text"
-                      value=""
-                    />
+                    >
+                      <input
+                        class="ant-input"
+                        id="base_name"
+                        placeholder="请输入名称"
+                        type="text"
+                        value=""
+                      />
+                      <span
+                        class="ant-input-suffix"
+                      >
+                        <span
+                          aria-label="close-circle"
+                          class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class=""
+                            data-icon="close-circle"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -7261,14 +7841,43 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                   <div
                     class="ant-form-item-control-input-content"
                   >
-                    <input
-                      class="ant-input"
-                      id="base_s"
-                      placeholder="请输入名称"
+                    <span
+                      class="ant-input-affix-wrapper"
                       style="width: 216px;"
-                      type="text"
-                      value=""
-                    />
+                    >
+                      <input
+                        class="ant-input"
+                        id="base_s"
+                        placeholder="请输入名称"
+                        type="text"
+                        value=""
+                      />
+                      <span
+                        class="ant-input-suffix"
+                      >
+                        <span
+                          aria-label="close-circle"
+                          class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class=""
+                            data-icon="close-circle"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -7700,14 +8309,43 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                     <div
                       class="ant-form-item-control-input-content"
                     >
-                      <input
-                        class="ant-input"
-                        id="checkbox_dbname"
-                        placeholder="请输入"
+                      <span
+                        class="ant-input-affix-wrapper"
                         style="width: 328px;"
-                        type="text"
-                        value=""
-                      />
+                      >
+                        <input
+                          class="ant-input"
+                          id="checkbox_dbname"
+                          placeholder="请输入"
+                          type="text"
+                          value=""
+                        />
+                        <span
+                          class="ant-input-suffix"
+                        >
+                          <span
+                            aria-label="close-circle"
+                            class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                            role="button"
+                            tabindex="-1"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="close-circle"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -8281,14 +8919,43 @@ exports[`form demos renders ./packages/form/src/demos/query-filter.tsx correctly
             <div
               class="ant-form-item-control-input-content"
             >
-              <input
-                class="ant-input"
-                id="name"
-                placeholder="请输入"
+              <span
+                class="ant-input-affix-wrapper"
                 style="width: 100%;"
-                type="text"
-                value=""
-              />
+              >
+                <input
+                  class="ant-input"
+                  id="name"
+                  placeholder="请输入"
+                  type="text"
+                  value=""
+                />
+                <span
+                  class="ant-input-suffix"
+                >
+                  <span
+                    aria-label="close-circle"
+                    class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                    role="button"
+                    tabindex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="close-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </span>
             </div>
           </div>
         </div>
@@ -8323,14 +8990,43 @@ exports[`form demos renders ./packages/form/src/demos/query-filter.tsx correctly
             <div
               class="ant-form-item-control-input-content"
             >
-              <input
-                class="ant-input"
-                id="creater"
-                placeholder="请输入"
+              <span
+                class="ant-input-affix-wrapper"
                 style="width: 100%;"
-                type="text"
-                value=""
-              />
+              >
+                <input
+                  class="ant-input"
+                  id="creater"
+                  placeholder="请输入"
+                  type="text"
+                  value=""
+                />
+                <span
+                  class="ant-input-suffix"
+                >
+                  <span
+                    aria-label="close-circle"
+                    class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                    role="button"
+                    tabindex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="close-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </span>
             </div>
           </div>
         </div>
@@ -8458,14 +9154,43 @@ exports[`form demos renders ./packages/form/src/demos/query-filter.tsx correctly
             <div
               class="ant-form-item-control-input-content"
             >
-              <input
-                class="ant-input"
-                id="status"
-                placeholder="请输入"
+              <span
+                class="ant-input-affix-wrapper"
                 style="width: 100%;"
-                type="text"
-                value=""
-              />
+              >
+                <input
+                  class="ant-input"
+                  id="status"
+                  placeholder="请输入"
+                  type="text"
+                  value=""
+                />
+                <span
+                  class="ant-input-suffix"
+                >
+                  <span
+                    aria-label="close-circle"
+                    class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                    role="button"
+                    tabindex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="close-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </span>
             </div>
           </div>
         </div>
@@ -8781,14 +9506,43 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-collapsed.tsx
             <div
               class="ant-form-item-control-input-content"
             >
-              <input
-                class="ant-input"
-                id="name"
-                placeholder="请输入"
+              <span
+                class="ant-input-affix-wrapper"
                 style="width: 100%;"
-                type="text"
-                value=""
-              />
+              >
+                <input
+                  class="ant-input"
+                  id="name"
+                  placeholder="请输入"
+                  type="text"
+                  value=""
+                />
+                <span
+                  class="ant-input-suffix"
+                >
+                  <span
+                    aria-label="close-circle"
+                    class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                    role="button"
+                    tabindex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="close-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </span>
             </div>
           </div>
         </div>
@@ -8890,14 +9644,43 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-collapsed.tsx
           <div
             class="ant-form-item-control-input-content"
           >
-            <input
-              class="ant-input"
-              id="status"
-              placeholder="请输入"
+            <span
+              class="ant-input-affix-wrapper"
               style="width: 100%;"
-              type="text"
-              value=""
-            />
+            >
+              <input
+                class="ant-input"
+                id="status"
+                placeholder="请输入"
+                type="text"
+                value=""
+              />
+              <span
+                class="ant-input-suffix"
+              >
+                <span
+                  aria-label="close-circle"
+                  class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                  role="button"
+                  tabindex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="close-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </span>
           </div>
         </div>
       </div>
@@ -9158,14 +9941,43 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-vertical.tsx 
             <div
               class="ant-form-item-control-input-content"
             >
-              <input
-                class="ant-input"
-                id="name"
-                placeholder="请输入"
+              <span
+                class="ant-input-affix-wrapper"
                 style="width: 100%;"
-                type="text"
-                value=""
-              />
+              >
+                <input
+                  class="ant-input"
+                  id="name"
+                  placeholder="请输入"
+                  type="text"
+                  value=""
+                />
+                <span
+                  class="ant-input-suffix"
+                >
+                  <span
+                    aria-label="close-circle"
+                    class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                    role="button"
+                    tabindex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="close-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </span>
             </div>
           </div>
         </div>
@@ -9274,14 +10086,43 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-vertical.tsx 
             <div
               class="ant-form-item-control-input-content"
             >
-              <input
-                class="ant-input"
-                id="sex"
-                placeholder="请输入"
+              <span
+                class="ant-input-affix-wrapper"
                 style="width: 100%;"
-                type="text"
-                value=""
-              />
+              >
+                <input
+                  class="ant-input"
+                  id="sex"
+                  placeholder="请输入"
+                  type="text"
+                  value=""
+                />
+                <span
+                  class="ant-input-suffix"
+                >
+                  <span
+                    aria-label="close-circle"
+                    class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                    role="button"
+                    tabindex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="close-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </span>
             </div>
           </div>
         </div>
@@ -9825,14 +10666,43 @@ exports[`form demos renders ./packages/form/src/demos/search-filter.tsx correctl
                       <div
                         class="ant-form-item-control-input-content"
                       >
-                        <input
-                          class="ant-input"
-                          id="name"
-                          placeholder="请输入"
+                        <span
+                          class="ant-input-affix-wrapper"
                           style="width: 100%;"
-                          type="text"
-                          value=""
-                        />
+                        >
+                          <input
+                            class="ant-input"
+                            id="name"
+                            placeholder="请输入"
+                            type="text"
+                            value=""
+                          />
+                          <span
+                            class="ant-input-suffix"
+                          >
+                            <span
+                              aria-label="close-circle"
+                              class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                              role="button"
+                              tabindex="-1"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="close-circle"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -9888,14 +10758,43 @@ exports[`form demos renders ./packages/form/src/demos/search-filter.tsx correctl
                       <div
                         class="ant-form-item-control-input-content"
                       >
-                        <input
-                          class="ant-input"
-                          id="age"
-                          placeholder="请输入"
+                        <span
+                          class="ant-input-affix-wrapper"
                           style="width: 100%;"
-                          type="text"
-                          value=""
-                        />
+                        >
+                          <input
+                            class="ant-input"
+                            id="age"
+                            placeholder="请输入"
+                            type="text"
+                            value=""
+                          />
+                          <span
+                            class="ant-input-suffix"
+                          >
+                            <span
+                              aria-label="close-circle"
+                              class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                              role="button"
+                              tabindex="-1"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="close-circle"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -10161,14 +11060,43 @@ exports[`form demos renders ./packages/form/src/demos/steps-from.tsx correctly 1
                   <div
                     class="ant-form-item-control-input-content"
                   >
-                    <input
-                      class="ant-input"
-                      id="base_name"
-                      placeholder="请输入名称"
+                    <span
+                      class="ant-input-affix-wrapper"
                       style="width: 328px;"
-                      type="text"
-                      value=""
-                    />
+                    >
+                      <input
+                        class="ant-input"
+                        id="base_name"
+                        placeholder="请输入名称"
+                        type="text"
+                        value=""
+                      />
+                      <span
+                        class="ant-input-suffix"
+                      >
+                        <span
+                          aria-label="close-circle"
+                          class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class=""
+                            data-icon="close-circle"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -10591,14 +11519,43 @@ exports[`form demos renders ./packages/form/src/demos/steps-from.tsx correctly 1
                         <div
                           class="ant-form-item-control-input-content"
                         >
-                          <input
-                            class="ant-input"
-                            id="checkbox_dbname"
-                            placeholder="请输入"
+                          <span
+                            class="ant-input-affix-wrapper"
                             style="width: 328px;"
-                            type="text"
-                            value=""
-                          />
+                          >
+                            <input
+                              class="ant-input"
+                              id="checkbox_dbname"
+                              placeholder="请输入"
+                              type="text"
+                              value=""
+                            />
+                            <span
+                              class="ant-input-suffix"
+                            >
+                              <span
+                                aria-label="close-circle"
+                                class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                                role="button"
+                                tabindex="-1"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class=""
+                                  data-icon="close-circle"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                                  />
+                                </svg>
+                              </span>
+                            </span>
+                          </span>
                         </div>
                       </div>
                     </div>
