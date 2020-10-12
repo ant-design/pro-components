@@ -30,7 +30,7 @@ export default () => {
           },
         }}
       >
-        <StepsForm.StepFrom
+        <StepsForm.StepForm
           name="base"
           title="第一步骤"
           onFinish={async () => {
@@ -95,8 +95,8 @@ export default () => {
               }))}
             />
           </ProCard>
-        </StepsForm.StepFrom>
-        <StepsForm.StepFrom name="checkbox" title="第二步骤">
+        </StepsForm.StepForm>
+        <StepsForm.StepForm name="checkbox" title="第二步骤">
           <ProFormCheckbox.Group
             name="checkbox"
             label="迁移类型"
@@ -112,8 +112,8 @@ export default () => {
               options={['完整 LOB', '不同步 LOB', '受限制 LOB']}
             />
           </ProForm.Group>
-        </StepsForm.StepFrom>
-        <StepsForm.StepFrom name="time" title="第三步骤">
+        </StepsForm.StepForm>
+        <StepsForm.StepForm name="time" title="第三步骤">
           <ProFormCheckbox.Group
             name="checkbox"
             label="部署单元"
@@ -153,7 +153,7 @@ export default () => {
               { value: '2', label: '策略二' },
             ]}
           />
-        </StepsForm.StepFrom>
+        </StepsForm.StepForm>
       </StepsForm>
     </>
   );

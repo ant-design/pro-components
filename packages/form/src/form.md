@@ -162,7 +162,7 @@ StepsForm 本质上是一个 Provider ，增加步骤条和一些相关的 API�
 | stepsFormRender | 自定义整个表单区域，返回的 dom 在表单的外部 | `(form,submitter) => ReactNode` | - |
 | stepsRender | 自定义步骤器 | `(steps,dom)=>ReactNode` | - |
 
-#### StepFrom
+#### StepForm
 
 与 ProForm 完成相同，只是 onFinish 支持了 Promise，如果返回 `false`, 就会无法使用下一步。
 

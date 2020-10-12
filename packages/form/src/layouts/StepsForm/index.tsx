@@ -7,7 +7,7 @@ import { StepsProps } from 'antd/lib/steps';
 import classNames from 'classnames';
 import { FormInstance } from 'antd/lib/form';
 
-import StepFrom, { StepFromProps } from './StepForm';
+import StepForm, { StepFormProps } from './StepForm';
 import './index.less';
 import { ProFormProps } from '../ProForm';
 import { CommonFormProps } from '../../BaseForm';
@@ -61,14 +61,14 @@ export const StepsFormProvide = React.createContext<
       >;
       loading: boolean;
       setLoading: React.Dispatch<React.SetStateAction<boolean>>;
-      formMapRef: React.MutableRefObject<Map<string, StepFromProps>>;
+      formMapRef: React.MutableRefObject<Map<string, StepFormProps>>;
       next: () => void;
     }
   | undefined
 >(undefined);
 
 const StepsForm: React.FC<StepsFormProps> & {
-  StepFrom: typeof StepFrom;
+  StepForm: typeof StepForm;
   useForm: typeof Form.useForm;
 } = (props) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -88,7 +88,7 @@ const StepsForm: React.FC<StepsFormProps> & {
   } = props;
 
   const formDataRef = useRef(new Map<string, Store>());
-  const formMapRef = useRef(new Map<string, StepFromProps>());
+  const formMapRef = useRef(new Map<string, StepFormProps>());
   const formArrayRef = useRef<Array<React.MutableRefObject<FormInstance<any> | undefined>>>([]);
   const [formArray, setFormArray] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
@@ -104,7 +104,7 @@ const StepsForm: React.FC<StepsFormProps> & {
   /**
    * 注册一个form进入，方便进行 props 的修改
    */
-  const regForm = useCallback((name: string, childrenFormProps: StepFromProps) => {
+  const regForm = useCallback((name: string, childrenFormProps: StepFormProps) => {
     formMapRef.current.set(name, childrenFormProps);
   }, []);
 
@@ -245,7 +245,7 @@ const StepsForm: React.FC<StepsFormProps> & {
   };
 
   const formDom = toArray(props.children).map((item, index) => {
-    const itemProps = item.props as StepFromProps;
+    const itemProps = item.props as StepFormProps;
     const name = itemProps.name || `${index}`;
     regForm(name, itemProps);
     /**
@@ -332,9 +332,9 @@ const StepsForm: React.FC<StepsFormProps> & {
   );
 };
 
-StepsForm.StepFrom = StepFrom;
+StepsForm.StepForm = StepForm;
 StepsForm.useForm = Form.useForm;
 
-export type { StepFromProps, StepsFormProps };
+export type { StepFormProps, StepsFormProps };
 
 export default StepsForm;

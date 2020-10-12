@@ -52,7 +52,7 @@ export default () => {
           );
         }}
       >
-        <StepsForm.StepFrom
+        <StepsForm.StepForm
           name="base"
           title="创建实验"
           onFinish={async () => {
@@ -73,8 +73,8 @@ export default () => {
             <ProFormDatePicker name="date" label="结束时间" />
           </ProForm.Group>
           <ProFormTextArea name="remark" label="备注" width="l" placeholder="请输入备注" />
-        </StepsForm.StepFrom>
-        <StepsForm.StepFrom name="checkbox" title="设置参数">
+        </StepsForm.StepForm>
+        <StepsForm.StepForm name="checkbox" title="设置参数">
           <ProFormCheckbox.Group
             name="checkbox"
             label="迁移类型"
@@ -90,8 +90,8 @@ export default () => {
               options={['完整 LOB', '不同步 LOB', '受限制 LOB']}
             />
           </ProForm.Group>
-        </StepsForm.StepFrom>
-        <StepsForm.StepFrom name="time" title="发布实验">
+        </StepsForm.StepForm>
+        <StepsForm.StepForm name="time" title="发布实验">
           <ProFormCheckbox.Group
             name="checkbox"
             label="部署单元"
@@ -131,7 +131,7 @@ export default () => {
               { value: '2', label: '策略二' },
             ]}
           />
-        </StepsForm.StepFrom>
+        </StepsForm.StepForm>
       </StepsForm>
     </>
   );

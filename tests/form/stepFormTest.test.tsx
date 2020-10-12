@@ -9,15 +9,15 @@ describe('StepsForm', () => {
   it('🐲 basic use', () => {
     const html = mount(
       <StepsForm>
-        <StepsForm.StepFrom title="表单1">
+        <StepsForm.StepForm title="表单1">
           <ProFormText name="姓名" />
-        </StepsForm.StepFrom>
-        <StepsForm.StepFrom title="表单2">
+        </StepsForm.StepForm>
+        <StepsForm.StepForm title="表单2">
           <ProFormText name="邮箱" />
-        </StepsForm.StepFrom>
-        <StepsForm.StepFrom title="表单3">
+        </StepsForm.StepForm>
+        <StepsForm.StepForm title="表单3">
           <ProFormText name="地址" />
-        </StepsForm.StepFrom>
+        </StepsForm.StepForm>
       </StepsForm>,
     );
     expect(html.find('span.ant-steps-icon').length).toBe(3);
@@ -30,15 +30,15 @@ describe('StepsForm', () => {
   it('🐲 stepsRender', () => {
     const html = mount<StepsFormProps>(
       <StepsForm stepsRender={() => null}>
-        <StepsForm.StepFrom name="base" title="表单1">
+        <StepsForm.StepForm name="base" title="表单1">
           <ProFormText name="姓名" />
-        </StepsForm.StepFrom>
-        <StepsForm.StepFrom name="moreInfo" title="表单2">
+        </StepsForm.StepForm>
+        <StepsForm.StepForm name="moreInfo" title="表单2">
           <ProFormText name="邮箱" />
-        </StepsForm.StepFrom>
-        <StepsForm.StepFrom name="extraInfo" title="表单3">
+        </StepsForm.StepForm>
+        <StepsForm.StepForm name="extraInfo" title="表单3">
           <ProFormText name="地址" />
-        </StepsForm.StepFrom>
+        </StepsForm.StepForm>
       </StepsForm>,
     );
 
@@ -64,15 +64,15 @@ describe('StepsForm', () => {
           onCurrentChange(current);
         }}
       >
-        <StepsForm.StepFrom name="base" title="表单1">
+        <StepsForm.StepForm name="base" title="表单1">
           <ProFormText name="姓名" />
-        </StepsForm.StepFrom>
-        <StepsForm.StepFrom name="moreInfo" title="表单2">
+        </StepsForm.StepForm>
+        <StepsForm.StepForm name="moreInfo" title="表单2">
           <ProFormText name="邮箱" />
-        </StepsForm.StepFrom>
-        <StepsForm.StepFrom name="extraInfo" title="表单3">
+        </StepsForm.StepForm>
+        <StepsForm.StepForm name="extraInfo" title="表单3">
           <ProFormText name="地址" />
-        </StepsForm.StepFrom>
+        </StepsForm.StepForm>
       </StepsForm>,
     );
     await waitForComponentToPaint(html, 100);
@@ -90,7 +90,7 @@ describe('StepsForm', () => {
 
     const html = mount<StepsFormProps>(
       <StepsForm onCurrentChange={currentFn} onFinish={onFinish}>
-        <StepsForm.StepFrom
+        <StepsForm.StepForm
           name="base"
           title="表单1"
           onFinish={async (values) => {
@@ -99,10 +99,10 @@ describe('StepsForm', () => {
           }}
         >
           <ProFormText name="姓名" />
-        </StepsForm.StepFrom>
-        <StepsForm.StepFrom name="moreInfo" title="表单2">
+        </StepsForm.StepForm>
+        <StepsForm.StepForm name="moreInfo" title="表单2">
           <ProFormText name="邮箱" />
-        </StepsForm.StepFrom>
+        </StepsForm.StepForm>
       </StepsForm>,
     );
     await waitForComponentToPaint(html);
@@ -130,7 +130,7 @@ describe('StepsForm', () => {
 
     const html = mount<StepsFormProps>(
       <StepsForm onCurrentChange={currentFn}>
-        <StepsForm.StepFrom
+        <StepsForm.StepForm
           name="base"
           title="表单1"
           onFinish={async (values) => {
@@ -139,10 +139,10 @@ describe('StepsForm', () => {
           }}
         >
           <ProFormText name="姓名" />
-        </StepsForm.StepFrom>
-        <StepsForm.StepFrom name="moreInfo" title="表单2">
+        </StepsForm.StepForm>
+        <StepsForm.StepForm name="moreInfo" title="表单2">
           <ProFormText name="邮箱" />
-        </StepsForm.StepFrom>
+        </StepsForm.StepForm>
       </StepsForm>,
     );
     await waitForComponentToPaint(html);
@@ -170,12 +170,12 @@ describe('StepsForm', () => {
           render: false,
         }}
       >
-        <StepsForm.StepFrom name="base" title="表单1">
+        <StepsForm.StepForm name="base" title="表单1">
           <ProFormText name="姓名" />
-        </StepsForm.StepFrom>
-        <StepsForm.StepFrom name="moreInfo" title="表单2">
+        </StepsForm.StepForm>
+        <StepsForm.StepForm name="moreInfo" title="表单2">
           <ProFormText name="邮箱" />
-        </StepsForm.StepFrom>
+        </StepsForm.StepForm>
       </StepsForm>,
     );
 
@@ -198,12 +198,12 @@ describe('StepsForm', () => {
           },
         }}
       >
-        <StepsForm.StepFrom name="base" title="表单1">
+        <StepsForm.StepForm name="base" title="表单1">
           <ProFormText name="姓名" />
-        </StepsForm.StepFrom>
-        <StepsForm.StepFrom name="moreInfo" title="表单2">
+        </StepsForm.StepForm>
+        <StepsForm.StepForm name="moreInfo" title="表单2">
           <ProFormText name="邮箱" />
-        </StepsForm.StepFrom>
+        </StepsForm.StepForm>
       </StepsForm>,
     );
 
@@ -235,12 +235,12 @@ describe('StepsForm', () => {
           },
         }}
       >
-        <StepsForm.StepFrom name="base" title="表单1">
+        <StepsForm.StepForm name="base" title="表单1">
           <ProFormText name="姓名" />
-        </StepsForm.StepFrom>
-        <StepsForm.StepFrom name="moreInfo" title="表单2">
+        </StepsForm.StepForm>
+        <StepsForm.StepForm name="moreInfo" title="表单2">
           <ProFormText name="邮箱" />
-        </StepsForm.StepFrom>
+        </StepsForm.StepForm>
       </StepsForm>,
     );
     /**
@@ -272,12 +272,12 @@ describe('StepsForm', () => {
           },
         }}
       >
-        <StepsForm.StepFrom name="base" title="表单1">
+        <StepsForm.StepForm name="base" title="表单1">
           <ProFormText name="姓名" />
-        </StepsForm.StepFrom>
-        <StepsForm.StepFrom name="moreInfo" title="表单2">
+        </StepsForm.StepForm>
+        <StepsForm.StepForm name="moreInfo" title="表单2">
           <ProFormText name="邮箱" />
-        </StepsForm.StepFrom>
+        </StepsForm.StepForm>
       </StepsForm>,
     );
     /**
@@ -294,12 +294,12 @@ describe('StepsForm', () => {
   it('🐲 submitter=false', () => {
     const html = mount<StepsFormProps>(
       <StepsForm submitter={false}>
-        <StepsForm.StepFrom name="base" title="表单1">
+        <StepsForm.StepForm name="base" title="表单1">
           <ProFormText name="姓名" />
-        </StepsForm.StepFrom>
-        <StepsForm.StepFrom name="moreInfo" title="表单2">
+        </StepsForm.StepForm>
+        <StepsForm.StepForm name="moreInfo" title="表单2">
           <ProFormText name="邮箱" />
-        </StepsForm.StepFrom>
+        </StepsForm.StepForm>
       </StepsForm>,
     );
 
@@ -322,12 +322,12 @@ describe('StepsForm', () => {
           },
         }}
       >
-        <StepsForm.StepFrom name="base" title="表单1">
+        <StepsForm.StepForm name="base" title="表单1">
           <ProFormText name="姓名" />
-        </StepsForm.StepFrom>
-        <StepsForm.StepFrom name="moreInfo" title="表单2">
+        </StepsForm.StepForm>
+        <StepsForm.StepForm name="moreInfo" title="表单2">
           <ProFormText name="邮箱" />
-        </StepsForm.StepFrom>
+        </StepsForm.StepForm>
       </StepsForm>,
     );
 
@@ -348,12 +348,12 @@ describe('StepsForm', () => {
           );
         }}
       >
-        <StepsForm.StepFrom name="base" title="表单1">
+        <StepsForm.StepForm name="base" title="表单1">
           <ProFormText name="姓名" />
-        </StepsForm.StepFrom>
-        <StepsForm.StepFrom name="moreInfo" title="表单2">
+        </StepsForm.StepForm>
+        <StepsForm.StepForm name="moreInfo" title="表单2">
           <ProFormText name="邮箱" />
-        </StepsForm.StepFrom>
+        </StepsForm.StepForm>
       </StepsForm>,
     );
     expect(html.find('#content form').length).toBe(2);
@@ -368,12 +368,12 @@ describe('StepsForm', () => {
           return <div id="content">{dom}</div>;
         }}
       >
-        <StepsForm.StepFrom name="base" title="表单1">
+        <StepsForm.StepForm name="base" title="表单1">
           <ProFormText name="姓名" />
-        </StepsForm.StepFrom>
-        <StepsForm.StepFrom name="moreInfo" title="表单2">
+        </StepsForm.StepForm>
+        <StepsForm.StepForm name="moreInfo" title="表单2">
           <ProFormText name="邮箱" />
-        </StepsForm.StepFrom>
+        </StepsForm.StepForm>
       </StepsForm>,
     );
     expect(html.find('#content').length).toBe(1);
