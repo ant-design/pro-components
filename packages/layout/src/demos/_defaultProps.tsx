@@ -19,7 +19,7 @@ export default {
         component: './Admin',
         routes: [
           {
-            path: '/admin/sub-page',
+            path: '/admin/sub-page1',
             name: '一级页面',
             layout: 'top',
             icon: <CrownOutlined />,
@@ -54,7 +54,7 @@ export default {
             icon: <CrownOutlined />,
             routes: [
               {
-                path: 'sub-sub-page',
+                path: 'sub-sub-page1',
                 name: '一一级列表页面',
                 icon: <CrownOutlined />,
                 component: './Welcome',

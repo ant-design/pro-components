@@ -127,6 +127,8 @@ const renderSiderMenu = (props: BasicLayoutProps, matchMenuKeys: string[]): Reac
     const [key] = matchMenuKeys;
     if (key) {
       menuData = props.menuData?.find((item) => item.key === key)?.children || [];
+    } else {
+      menuData = [];
     }
   }
   // 这里走了可以少一次循环
