@@ -848,7 +848,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
         rest.onChange(changePagination, filters, sorter, extra);
       }
       // 制造筛选的数据
-      setProFilter(omitUndefinedAndEmptyArr<any>(filters));
+      setProFilter(omitUndefined<any>(filters));
       // 制造一个排序的数据
       if (Array.isArray(sorter)) {
         const data = sorter.reduce<{
