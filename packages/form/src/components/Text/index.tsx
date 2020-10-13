@@ -44,7 +44,7 @@ const Password = createField<ProFormItemProps<PasswordProps>>(
 );
 
 const WrappedProFormText: typeof ProFormText & {
-  PassWord: typeof PassWord;
+  Password: typeof Password;
 } = ProFormText as any;
 
 WrappedProFormText.Password = Password;
