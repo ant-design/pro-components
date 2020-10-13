@@ -37,6 +37,34 @@ describe('utils', () => {
     expect(html.timeRange2.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:50:26');
   });
 
+  it('📅 conversionSubmitValue string', async () => {
+    const html = conversionSubmitValue<any>(
+      {
+        date: {
+          dataTime: moment('2019-11-16 12:50:26'),
+          dateTimeRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
+          dateRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
+          timeRange: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
+          timeRange2: [moment('2019-11-16 12:50:26'), moment('2019-11-16 12:50:26')],
+        },
+      },
+      'string',
+      {
+        date: {
+          dateTimeRange: 'dateTimeRange',
+          dateRange: 'dateRange',
+          timeRange: 'timeRange',
+          dataTime: 'dateTime',
+          timeRange2: 'dateTimeRange',
+        },
+      },
+    );
+    expect(html.date.dataTime).toBe('2019-11-16 12:50:26');
+    expect(html.date.dateTimeRange.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:50:26');
+    expect(html.date.dateRange.join(',')).toBe('2019-11-16,2019-11-16');
+    expect(html.date.timeRange2.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:50:26');
+  });
+
   it('📅 conversionSubmitValue number', async () => {
     const html = conversionSubmitValue(
       {
