@@ -86,15 +86,14 @@ const useFetchData = <T extends RequestData<any>>(
 
     const { pageSize, page } = pageInfo;
     try {
-      const { data, success, total: dataTotal = 0 } =
-        (await getData(
-          pagination !== false
-            ? {
-                current: page,
-                pageSize,
-              }
-            : undefined,
-        )) || {};
+      const { data, success, total: dataTotal = 0 } = await getData(
+        pagination !== false
+          ? {
+              current: page,
+              pageSize,
+            }
+          : undefined,
+      );
 
       if (success !== false) {
         setDataAndLoading(data, dataTotal);
