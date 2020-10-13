@@ -26391,7 +26391,6 @@ exports[`table demos renders ./packages/table/src/demos/single-test.tsx correctl
               <div
                 class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                 name="state"
-                style="width: 328px;"
                 text="all"
               >
                 <div
@@ -26508,7 +26507,6 @@ exports[`table demos renders ./packages/table/src/demos/single-test.tsx correctl
             >
               <span
                 class="ant-input-affix-wrapper"
-                style="width: 328px;"
               >
                 <input
                   class="ant-input"
@@ -26572,7 +26570,6 @@ exports[`table demos renders ./packages/table/src/demos/single-test.tsx correctl
             >
               <div
                 class="ant-picker"
-                style="width: 328px;"
               >
                 <div
                   class="ant-picker-input"
@@ -26641,7 +26638,6 @@ exports[`table demos renders ./packages/table/src/demos/single-test.tsx correctl
             >
               <span
                 class="ant-input-affix-wrapper"
-                style="width: 328px;"
               >
                 <input
                   class="ant-input"

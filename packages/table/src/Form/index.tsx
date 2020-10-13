@@ -106,7 +106,7 @@ export const formInputRender: React.FC<{
   onSelect?: (value: any) => void;
   [key: string]: any;
 }> = (props, ref: any) => {
-  const { item, intl, form, type, formItemProps, ...rest } = props;
+  const { item, intl, form, type, ...rest } = props;
   const { valueType: itemValueType = 'text' } = item;
   // if function， run it
   const valueType =
@@ -153,6 +153,12 @@ export const formInputRender: React.FC<{
         ref={ref}
         initialValue={item.initialValue}
         name={item.key || item.dataIndex}
+        fieldProps={{
+          style: {
+            width: undefined,
+          },
+          ...rest.fieldProps,
+        }}
       >
         {React.cloneElement(dom, { ...rest, ...defaultProps })}
       </ProFormField>
@@ -165,6 +171,7 @@ export const formInputRender: React.FC<{
     !valueType || (['textarea', 'jsonCode', 'code'].includes(valueType) && type === 'table')
       ? 'text'
       : (valueType as 'text');
+
   return (
     <ProFormField
       ref={ref}
@@ -173,7 +180,12 @@ export const formInputRender: React.FC<{
       valueEnum={item.valueEnum}
       name={item.key || item.dataIndex}
       onChange={onChange}
-      fieldProps={restFieldProps || item.formItemProps}
+      fieldProps={{
+        style: {
+          width: undefined,
+        },
+        ...restFieldProps,
+      }}
       // valueType = textarea，但是在 查询表单这里，应该是个 input 框
       valueType={finalValueType}
       initialValue={item.initialValue}
