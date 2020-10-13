@@ -78,6 +78,7 @@ const useFetchData = <T extends RequestData<any>>(
    * 请求数据
    */
   const fetchList = async () => {
+    // 组件被卸载时不要继续设值
     if (loading || !mountRef.current) {
       return;
     }
@@ -85,21 +86,19 @@ const useFetchData = <T extends RequestData<any>>(
 
     const { pageSize, page } = pageInfo;
     try {
-      const { data, success, total: dataTotal = 0 } =
-        (await getData(
-          pagination !== false
-            ? {
-                current: page,
-                pageSize,
-              }
-            : undefined,
-        )) || {};
-      // 组件被卸载时不要继续设值
-      if (!mountRef.current) {
-        return;
-      }
+      const { data, success, total: dataTotal = 0 } = await getData(
+        pagination !== false
+          ? {
+              current: page,
+              pageSize,
+            }
+          : undefined,
+      );
+
       if (success !== false) {
         setDataAndLoading(data, dataTotal);
+      } else {
+        setLoading(false);
       }
       if (onLoad) {
         onLoad(data);
