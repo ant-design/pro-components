@@ -72,6 +72,9 @@ const columns: ProColumns<GithubIssueItem>[] = [
     key: 'since',
     dataIndex: 'created_at',
     valueType: 'dateTime',
+    renderFormItem: (_, { defaultRender }) => {
+      return defaultRender(_);
+    },
   },
 ];
 
