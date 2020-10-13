@@ -47,7 +47,11 @@ group:
 
 <code src="./demos/split2.tsx" background="#f0f2f5"/>
 
+### 左右分栏
+
 <code src="./demos/split23.tsx" background="#f0f2f5"/>
+
+### 复杂切分
 
 <code src="./demos/split.tsx" background="#f0f2f5"/>
 
@@ -117,6 +121,8 @@ group:
 `Steps` 组件结合 `ProCard` 组件完成竖向步骤示例。
 
 <code src="./demos/steps-v.tsx" background="#f0f2f5" />
+
+### 横向步骤条
 
 ## API
 

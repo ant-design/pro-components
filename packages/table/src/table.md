@@ -40,10 +40,6 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 
 <code src="./demos/batchOption.tsx" background="#f5f5f5"/>
 
-### toolbar 搜索
-
-<code src="./demos/search.tsx" background="#f5f5f5"/>
-
 ### form 操作
 
 <code src="./demos/form.tsx" background="#f5f5f5"/>
