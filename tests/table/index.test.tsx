@@ -451,7 +451,7 @@ describe('BasicTable', () => {
         // @ts-expect-error
         request={async () => {
           fn();
-          await waitTime(100);
+          await waitTime(500);
           return [];
         }}
         rowKey="key"
@@ -460,6 +460,11 @@ describe('BasicTable', () => {
     await waitForComponentToPaint(html, 1000);
     act(() => {
       actionRef.current?.reload(true);
+    });
+
+    // 这里可以测试，loading 是否被拦住
+    await waitTime(12);
+    act(() => {
       actionRef.current?.reload(true);
     });
     await waitForComponentToPaint(html, 1000);
