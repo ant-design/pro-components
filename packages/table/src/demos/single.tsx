@@ -83,7 +83,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
       ],
     },
     width: '30%',
-    hideInSearch: true,
+    search: false,
   },
   {
     title: '状态',
