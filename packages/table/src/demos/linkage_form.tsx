@@ -61,7 +61,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
       if (status === 'open') {
         return <Input placeholder="请输入" />;
       }
-      if (status === 'all') {
+      if (status === 'all' || status === undefined) {
         return false;
       }
       return defaultRender(_);
