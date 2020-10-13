@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useCallback } from 'react';
+import React, { useContext, useEffect, useRef, useCallback, useState } from 'react';
 import { FormInstance, FormItemProps, FormProps } from 'antd/lib/form';
 import { Form, ConfigProvider } from 'antd';
 import { useIntl, IntlType } from '@ant-design/pro-provider';
@@ -272,12 +272,7 @@ const FormSearch = <T, U = any>({
     [key: string]: SearchTransformKeyFn;
   }>({});
 
-  // 这么做是为了在用户修改了输入的时候触发一下子节点的render
-  const [, updateState] = React.useState();
-  const forceUpdate = useCallback(() => updateState(undefined), []);
-
   const isForm = type === 'form';
-
   /**
    *提交表单，根据两种模式不同，方法不相同
    */
@@ -389,21 +384,41 @@ const FormSearch = <T, U = any>({
       return 0;
     });
 
-  const domList = columnsList
-    .map((item, index) =>
-      proFormItemRender({
-        isForm,
-        formInstance: formInstanceRef.current,
-        item: {
-          key: item.dataIndex?.toString() || index,
-          index,
-          ...item,
-        },
-        type,
-        intl,
-      }),
-    )
-    .filter((item) => !!item);
+  const [domList, setDomList] = useState<JSX.Element[]>([]);
+  const columnsListRef = useRef(domList);
+
+  const updateDomList = useCallback((list: ProColumns<any>[]) => {
+    const newFormItemList = list
+      .map((item, index) =>
+        proFormItemRender({
+          isForm,
+          formInstance: formInstanceRef.current,
+          item: {
+            key: item.dataIndex?.toString() || index,
+            index,
+            ...item,
+          },
+          type,
+          intl,
+        }),
+      )
+      .filter((item) => !!item) as JSX.Element[];
+    columnsListRef.current = newFormItemList;
+    setDomList(newFormItemList);
+  }, []);
+
+  useDeepCompareEffect(() => {
+    if (columnsList.length < 1) return;
+    // 如果上次没有生成dom，这次生成了，需要重新计算一次
+    // 如果不这样做，可以会导致render 次数减少
+    // 选 1000 是为了状态更新有效
+    if (columnsListRef.current.length < 1) {
+      setTimeout(() => {
+        updateDomList(columnsList);
+      }, 1000);
+    }
+    updateDomList(columnsList);
+  }, [columnsList]);
 
   const className = getPrefixCls('pro-table-search');
   const formClassName = getPrefixCls('pro-table-form');
@@ -418,6 +433,7 @@ const FormSearch = <T, U = any>({
       },
     },
   };
+
   return (
     <div
       className={classNames(className, {
@@ -431,7 +447,7 @@ const FormSearch = <T, U = any>({
         {...formConfig}
         form={form}
         onValuesChange={(change, all) => {
-          forceUpdate();
+          updateDomList(columnsList);
           if (formConfig.onValuesChange) {
             formConfig.onValuesChange(change, all);
           }
