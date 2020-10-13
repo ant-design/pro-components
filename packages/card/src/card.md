@@ -74,6 +74,12 @@ group:
 
 <code src="./demos/collapsible.tsx" background="#f0f2f5" />
 
+### 卡片组展开
+
+配合 `ghost`幽灵模式和可折叠能力可以实现卡片组展开。
+
+<code src="./demos/group.tsx" background="#f0f2f5" />
+
 ### 内容居中
 
 配置 `layout`属性为`center`控制内容垂直居中。

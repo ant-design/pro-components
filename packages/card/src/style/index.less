@@ -20,6 +20,19 @@
 
   &-ghost {
     background-color: transparent;
+
+    > .@{pro-card-prefix-cls} {
+      &-header {
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: @padding-md;
+      }
+
+      &-body {
+        padding: 0;
+        background-color: transparent;
+      }
+    }
   }
 
   &-split > &-body {
@@ -43,6 +56,18 @@
     flex-direction: column;
   }
 
+  &-collapse {
+    > .@{pro-card-prefix-cls} {
+      &-header {
+        padding-bottom: @padding-md;
+      }
+
+      &-body {
+        display: none;
+      }
+    }
+  }
+
   &-header {
     display: flex;
     justify-content: space-between;
@@ -53,12 +78,6 @@
         padding-bottom: @padding-md;
       }
       border-bottom: @border-width-base @border-style-base @border-color-split;
-    }
-
-    &-collapse {
-      & {
-        padding-bottom: @padding-md;
-      }
     }
   }
 
@@ -128,7 +147,7 @@
 
   &-collapsible-icon {
     color: @icon-color-hover;
-    margin-left: 8px;
+    margin-right: 8px;
 
     & svg {
       transition: transform @animation-duration-base;
@@ -149,15 +168,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-    }
-
-    &-collapse {
-      display: none;
-    }
-
-    &-ghost {
-      padding: 0;
-      background-color: transparent;
     }
   }
 
