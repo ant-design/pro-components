@@ -31,7 +31,7 @@ describe('Table valueEnum', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 200);
+    await waitForComponentToPaint(html, 1000);
 
     act(() => {
       html.setProps({

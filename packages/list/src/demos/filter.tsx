@@ -90,11 +90,11 @@ export default () => (
       },
       avatar: {
         dataIndex: ['user', 'avatar_url'],
-        hideInSearch: true,
+        search: false,
       },
       description: {
         dataIndex: 'title',
-        hideInSearch: true,
+        search: false,
       },
       subTitle: {
         dataIndex: 'labels',
@@ -107,7 +107,7 @@ export default () => (
             </Space>
           );
         },
-        hideInSearch: true,
+        search: false,
       },
       actions: {
         render: (text, row) => [
@@ -121,7 +121,7 @@ export default () => (
             查看
           </a>,
         ],
-        hideInSearch: true,
+        search: false,
       },
       status: {
         // 自己扩展的字段，主要用于筛选，不在列表中显示

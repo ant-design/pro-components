@@ -1,7 +1,9 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
-import { Button, Tag, Space } from 'antd';
-import ProTable, { ProColumns, TableDropdown, ActionType } from '@ant-design/pro-table';
+import { Button, Tabs, Tag, Space, message } from 'antd';
+import ProDescriptions from '@ant-design/pro-descriptions';
+import ProTable, { ProColumns, TableDropdown } from '@ant-design/pro-table';
+import request from 'umi-request';
 
 interface GithubIssueItem {
   url: string;
@@ -72,21 +74,11 @@ const columns: ProColumns<GithubIssueItem>[] = [
     dataIndex: 'title',
     copyable: true,
     ellipsis: true,
-    hideInForm: true,
-    tip: '标题过长会自动收缩',
-    formItemProps: {
-      rules: [
-        {
-          required: true,
-          message: '此项为必填项',
-        },
-      ],
-    },
-    width: '30%',
+    width: 200,
     search: false,
   },
   {
-    title: '状态',
+    title: (_, type) => (type === 'table' ? '状态' : '列表状态'),
     dataIndex: 'state',
     initialValue: 'all',
     filters: true,
@@ -100,17 +92,24 @@ const columns: ProColumns<GithubIssueItem>[] = [
         text: '已解决',
         status: 'Success',
       },
-      processing: {
-        text: '解决中',
-        status: 'Processing',
-      },
     },
-    width: '10%',
+  },
+  {
+    title: '排序方式',
+    key: 'direction',
+    hideInTable: true,
+    hideInDescriptions: true,
+    dataIndex: 'direction',
+    filters: true,
+    valueEnum: {
+      asc: '正序',
+      desc: '倒序',
+    },
   },
   {
     title: '标签',
     dataIndex: 'labels',
-    width: '10%',
+    width: 120,
     render: (_, row) => (
       <Space>
         {row.labels.map(({ name, id, color }) => (
@@ -126,32 +125,18 @@ const columns: ProColumns<GithubIssueItem>[] = [
     key: 'since',
     dataIndex: 'created_at',
     valueType: 'dateTime',
-    width: '20%',
   },
   {
-    title: '创建时间',
-    key: 'since',
-    dataIndex: 'created_at',
-    // @ts-ignore
-    valueType: () => undefined,
-    width: '20%',
-  },
-  {
-    title: '操作',
+    title: 'option',
     valueType: 'option',
-    render: (text, row, _, action) => [
-      <a href={row.html_url} target="_blank" rel="noopener noreferrer" key="link">
-        链路
-      </a>,
-      <a href={row.html_url} target="_blank" rel="noopener noreferrer" key="warning">
-        报警
-      </a>,
-      <a href={row.html_url} target="_blank" rel="noopener noreferrer" key="view">
+    dataIndex: 'id',
+    render: (text, row) => [
+      <a href={row.html_url} key="show" target="_blank" rel="noopener noreferrer">
         查看
       </a>,
       <TableDropdown
-        key="actionGroup"
-        onSelect={() => action.reload()}
+        key="more"
+        onSelect={(key) => message.info(key)}
         menus={[
           { key: 'copy', name: '复制' },
           { key: 'delete', name: '删除' },
@@ -162,28 +147,55 @@ const columns: ProColumns<GithubIssueItem>[] = [
 ];
 
 export default () => {
-  const actionRef = useRef<ActionType>();
-
+  const [type, setType] = useState('table');
   return (
-    <ProTable<GithubIssueItem>
-      columns={columns}
-      pagination={{
-        showQuickJumper: true,
-      }}
-      actionRef={actionRef}
-      request={async () => ({
-        data: [],
-      })}
-      type="form"
-      rowKey="id"
-      dateFormatter="string"
-      headerTitle="高级表格"
-      toolBarRender={() => [
-        <Button key="3" type="primary">
-          <PlusOutlined />
-          新建
-        </Button>,
-      ]}
-    />
+    <>
+      <Tabs activeKey={type} onChange={(e) => setType(e)}>
+        <Tabs.TabPane tab="table" key="table" />
+        <Tabs.TabPane tab="form" key="form" />
+        <Tabs.TabPane tab="descriptions" key="descriptions" />
+      </Tabs>
+      {['table', 'form'].includes(type) && (
+        <ProTable<GithubIssueItem>
+          columns={columns}
+          type={type as 'table'}
+          request={async (params = {}) =>
+            request<{
+              data: GithubIssueItem[];
+            }>('https://proapi.azurewebsites.net/github/issues', {
+              params,
+            })
+          }
+          rowKey="id"
+          dateFormatter="string"
+          headerTitle="查询 Table"
+          toolBarRender={() => [
+            <Button key="3" type="primary">
+              <PlusOutlined />
+              新建
+            </Button>,
+          ]}
+        />
+      )}
+      {type === 'descriptions' && (
+        <ProDescriptions
+          style={{
+            background: '#fff',
+          }}
+          columns={columns}
+          request={async (params) => {
+            const msg = await request<{
+              data: GithubIssueItem[];
+            }>('https://proapi.azurewebsites.net/github/issues', {
+              params,
+            });
+            return {
+              ...msg,
+              data: msg?.data[0],
+            };
+          }}
+        />
+      )}
+    </>
   );
 };

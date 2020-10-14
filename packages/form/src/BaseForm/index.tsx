@@ -7,6 +7,7 @@ import { ConfigProviderWrap } from '@ant-design/pro-provider';
 import { conversionSubmitValue, pickProFormItemProps } from '@ant-design/pro-utils';
 import { ProFieldValueType } from '@ant-design/pro-field';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
+import namePathSet from 'rc-util/lib/utils/set';
 import FieldContext from '../FieldContext';
 import Submitter, { SubmitterProps } from '../components/Submitter';
 import LightWrapper from './LightWrapper';
@@ -108,7 +109,7 @@ export function createField<P extends ProFormItemProps = any>(
       if (setFieldValueType && props.name) {
         // Field.type === 'ProField' 时 props 里面是有 valueType 的，所以要设置一下
         // 写一个 ts 比较麻烦，用 any 顶一下
-        setFieldValueType(String(props.name), valueType || (rest as any).valueType || 'text');
+        setFieldValueType(props.name, valueType || (rest as any).valueType || 'text');
       }
     }, []);
     // restFormItemProps is user props pass to Form.Item
@@ -193,10 +194,6 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
     [key: string]: ProFieldValueType;
   }>({});
 
-  const setFieldValueType = (name: string, type?: ProFieldValueType) => {
-    fieldsValueType.current[name] = type || 'text';
-  };
-
   const items = React.Children.toArray(children);
   const submitterProps: Omit<SubmitterProps, 'form'> =
     typeof submitter === 'boolean' || !submitter ? {} : submitter;
@@ -214,7 +211,13 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
           fieldProps,
           formItemProps,
           groupProps,
-          setFieldValueType,
+          setFieldValueType: (name, type) => {
+            if (Array.isArray(name)) {
+              fieldsValueType.current = namePathSet(fieldsValueType.current, name, type || 'text');
+            } else {
+              fieldsValueType.current[String(name)] = type || 'text';
+            }
+          },
         }}
       >
         <SizeContext.Provider value={rest.size}>

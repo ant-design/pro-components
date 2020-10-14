@@ -60,7 +60,7 @@ const columns: ProColumns<TableListItem>[] = [
     width: 120,
     dataIndex: 'containers',
     align: 'right',
-    hideInSearch: true,
+    search: false,
     sorter: (a, b) => a.containers - b.containers,
   },
   {
@@ -106,7 +106,7 @@ const columns: ProColumns<TableListItem>[] = [
     dataIndex: 'memo',
     ellipsis: true,
     copyable: true,
-    hideInSearch: true,
+    search: false,
   },
   {
     title: '操作',

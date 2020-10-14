@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { PlusOutlined } from '@ant-design/icons';
-import { Button } from 'antd';
 import ProTable, { ProColumns } from '@ant-design/pro-table';
 
 const valueEnum = {
@@ -21,7 +19,7 @@ export interface TableListItem {
 }
 const tableListDataSource: TableListItem[] = [];
 
-for (let i = 0; i < 20; i += 1) {
+for (let i = 0; i < 2; i += 1) {
   tableListDataSource.push({
     key: i,
     name: `TradeCode ${i}`,
@@ -93,24 +91,14 @@ export default () => {
       loading={loading}
       dataSource={dataSource}
       options={{
-        density: true,
         reload: () => {
           setLoading(true);
           setTimeout(() => {
             setLoading(false);
           }, 1000);
         },
-        fullScreen: true,
-        setting: true,
       }}
-      dateFormatter="string"
       headerTitle="dataSource 和 loading"
-      toolBarRender={() => [
-        <Button key="3" type="primary">
-          <PlusOutlined />
-          新建
-        </Button>,
-      ]}
     />
   );
 };

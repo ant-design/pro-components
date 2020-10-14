@@ -1,64 +1,13 @@
+/* eslint-disable no-console */
 import React from 'react';
 import { PlusOutlined } from '@ant-design/icons';
-import { Button, Tag, Space, Input, message } from 'antd';
-import ProTable, { ProColumns, TableDropdown } from '@ant-design/pro-table';
-import request from 'umi-request';
+import { Button, Input } from 'antd';
+import ProTable, { ProColumns } from '@ant-design/pro-table';
 
 interface GithubIssueItem {
-  url: string;
-  repository_url: string;
-  labels_url: string;
-  comments_url: string;
-  events_url: string;
-  html_url: string;
-  id: number;
-  node_id: string;
-  number: number;
-  title: string;
-  user: User;
-  labels: Label[];
-  state: string;
-  locked: boolean;
-  assignee?: any;
-  assignees: any[];
-  milestone?: any;
-  comments: number;
-  created_at: string;
-  updated_at: string;
-  closed_at?: any;
-  author_association: string;
-  body: string;
-}
-
-interface Label {
-  id: number;
-  node_id: string;
-  url: string;
+  key: number;
   name: string;
-  color: string;
-  default: boolean;
-  description: string;
-}
-
-interface User {
-  login: string;
-  id: number;
-  node_id: string;
-  avatar_url: string;
-  gravatar_id: string;
-  url: string;
-  html_url: string;
-  followers_url: string;
-  following_url: string;
-  gists_url: string;
-  starred_url: string;
-  subscriptions_url: string;
-  organizations_url: string;
-  repos_url: string;
-  events_url: string;
-  received_events_url: string;
-  type: string;
-  site_admin: boolean;
+  createdAt: number;
 }
 
 const columns: ProColumns<GithubIssueItem>[] = [
@@ -70,10 +19,8 @@ const columns: ProColumns<GithubIssueItem>[] = [
   },
   {
     title: '标题',
-    dataIndex: 'title',
-    ellipsis: true,
-    width: 200,
-    hideInSearch: true,
+    dataIndex: 'name',
+    search: false,
   },
   {
     title: '状态',
@@ -103,9 +50,10 @@ const columns: ProColumns<GithubIssueItem>[] = [
       desc: '倒序',
     },
     renderFormItem: (_, { type, defaultRender, ...rest }, form) => {
-      console.log('item:', _);
-      console.log('config:', { type, defaultRender, ...rest });
-      console.log('form:', form);
+      console.group(['item', 'config']);
+      console.log(_);
+      console.log({ type, defaultRender, ...rest });
+      console.groupEnd();
       if (type === 'form') {
         return null;
       }
@@ -113,91 +61,68 @@ const columns: ProColumns<GithubIssueItem>[] = [
       if (status === 'open') {
         return <Input placeholder="请输入" />;
       }
-      if (status === 'all') {
+      if (status === 'all' || status === undefined) {
         return false;
       }
       return defaultRender(_);
     },
   },
   {
-    title: '标签',
-    dataIndex: 'labels',
-    width: 120,
-    render: (_, row) => (
-      <Space>
-        {row.labels.map(({ name, id, color }) => (
-          <Tag color={color} key={id}>
-            {name}
-          </Tag>
-        ))}
-      </Space>
-    ),
-  },
-  {
     title: '创建时间',
     key: 'since',
     dataIndex: 'created_at',
     valueType: 'dateTime',
-  },
-  {
-    title: 'option',
-    valueType: 'option',
-    dataIndex: 'id',
-    render: (text, row) => [
-      <a key="show" href={row.html_url} target="_blank" rel="noopener noreferrer">
-        查看
-      </a>,
-      <TableDropdown
-        key="show"
-        onSelect={(key) => message.info(key)}
-        menus={[
-          { key: 'copy', name: '复制' },
-          { key: 'delete', name: '删除' },
-        ]}
-      />,
-    ],
+    renderFormItem: (_, { defaultRender }) => {
+      return defaultRender(_);
+    },
   },
 ];
 
 export default () => (
   <ProTable<GithubIssueItem>
     columns={columns}
-    request={async (params = {}) =>
-      request<{
-        data: GithubIssueItem[];
-      }>('https://proapi.azurewebsites.net/github/issues', {
-        params,
-      })
-    }
-    rowKey="id"
+    request={async () => {
+      return {
+        data: [
+          {
+            key: 1,
+            name: `TradeCode ${1}`,
+            createdAt: 1602572994055,
+            state: 'closed',
+          },
+        ],
+        success: true,
+      };
+    }}
+    rowKey="key"
     form={{
       onValuesChange: (values, all) => {
         console.log(values, all);
       },
     }}
+    tableLayout="fixed"
     dateFormatter="string"
-    headerTitle="自定义动态表格"
+    headerTitle="动态自定义搜索栏"
     search={{
       collapsed: false,
-      labelWidth: 65,
       optionRender: ({ searchText, resetText }, { form }) => [
-        <a
+        <Button
           key="search"
           onClick={() => {
             form?.submit();
           }}
         >
           {searchText}
-        </a>,
-        <a
+        </Button>,
+        <Button
           key="rest"
           onClick={() => {
             form?.resetFields();
           }}
         >
           {resetText}
-        </a>,
-        <a key="out">导出</a>,
+        </Button>,
+        <Button key="out">导出</Button>,
       ],
     }}
     toolBarRender={() => [

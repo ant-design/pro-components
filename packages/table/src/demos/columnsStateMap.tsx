@@ -15,7 +15,6 @@ export interface TableListItem {
   status: string;
   updatedAt: number;
   createdAt: number;
-  progress: number;
   money: number;
 }
 const tableListDataSource: TableListItem[] = [];
@@ -28,7 +27,6 @@ for (let i = 0; i < 2; i += 1) {
     updatedAt: Date.now() - Math.floor(Math.random() * 1000),
     createdAt: Date.now() - Math.floor(Math.random() * 2000),
     money: Math.floor(Math.random() * 2000) * i,
-    progress: Math.ceil(Math.random() * 100) + 1,
   });
 }
 
