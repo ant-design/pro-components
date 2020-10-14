@@ -454,14 +454,14 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
       nextState.navTheme = 'light';
     }
     if (key === 'colorWeak' && value === true) {
-      const dom = document.querySelector('body div') as HTMLDivElement;
+      const dom = document.querySelector('body');
       if (dom) {
         dom.dataset.prosettingdrawer = dom.style.filter;
         dom.style.filter = 'invert(80%)';
       }
     }
     if (key === 'colorWeak' && value === false) {
-      const dom = document.querySelector('body div') as HTMLDivElement;
+      const dom = document.querySelector('body');
       if (dom) {
         dom.style.filter = dom.dataset.prosettingdrawer || 'none';
         delete dom.dataset.prosettingdrawer;
