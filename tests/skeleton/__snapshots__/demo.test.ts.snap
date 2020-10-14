@@ -129,15 +129,14 @@ exports[`card demos renders ./packages/card/src/demos/bordered.tsx correctly 1`]
 exports[`card demos renders ./packages/card/src/demos/collapsible.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-pro-card"
+    class="ant-pro-card ant-pro-card-collapse"
   >
     <div
-      class="ant-pro-card-header ant-pro-card-header-border ant-pro-card-header-collapse"
+      class="ant-pro-card-header ant-pro-card-header-border"
     >
       <div
         class="ant-pro-card-title"
       >
-        可折叠
         <span
           aria-label="right"
           class="anticon anticon-right ant-pro-card-collapsible-icon"
@@ -159,23 +158,24 @@ Array [
             />
           </svg>
         </span>
+        可折叠
       </div>
       <div
         class="ant-pro-card-extra"
       />
     </div>
     <div
-      class="ant-pro-card-body ant-pro-card-body-collapse"
+      class="ant-pro-card-body"
     >
       内容
     </div>
   </div>,
   <div
-    class="ant-pro-card"
+    class="ant-pro-card ant-pro-card-collapse"
     style="margin-top: 16px;"
   >
     <div
-      class="ant-pro-card-header ant-pro-card-header-border ant-pro-card-header-collapse"
+      class="ant-pro-card-header ant-pro-card-header-border"
     >
       <div
         class="ant-pro-card-title"
@@ -209,7 +209,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-pro-card-body ant-pro-card-body-collapse"
+      class="ant-pro-card-body"
     >
       内容
     </div>
@@ -303,7 +303,7 @@ Array [
     style="margin-top: 8px;"
   >
     <div
-      class="ant-pro-card-body ant-pro-card-body-ghost"
+      class="ant-pro-card-body"
     >
       <div
         class="ant-pro-card ant-pro-card-border"
@@ -331,7 +331,7 @@ Array [
     style="margin-top: 8px;"
   >
     <div
-      class="ant-pro-card-body ant-pro-card-body-ghost"
+      class="ant-pro-card-body"
     >
       <div
         class="ant-pro-card ant-pro-card-border"
@@ -356,6 +356,80 @@ Array [
     </div>
   </div>,
 ]
+`;
+
+exports[`card demos renders ./packages/card/src/demos/group.tsx correctly 1`] = `
+<div
+  class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
+>
+  <div
+    class="ant-pro-card-header"
+  >
+    <div
+      class="ant-pro-card-title"
+    >
+      <span
+        aria-label="right"
+        class="anticon anticon-right ant-pro-card-collapsible-icon"
+        role="img"
+        tabindex="-1"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="right"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          style="transform: rotate(90deg);"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+          />
+        </svg>
+      </span>
+      卡片组展开
+    </div>
+    <div
+      class="ant-pro-card-extra"
+    />
+  </div>
+  <div
+    class="ant-pro-card-body"
+  >
+    <div
+      class="ant-pro-card ant-pro-card-border"
+      style="margin-right: 8px;"
+    >
+      <div
+        class="ant-pro-card-body ant-pro-card-body-center"
+      >
+        卡片内容
+      </div>
+    </div>
+    <div
+      class="ant-pro-card ant-pro-card-border"
+      style="margin-right: 8px;"
+    >
+      <div
+        class="ant-pro-card-body ant-pro-card-body-center"
+      >
+        卡片内容
+      </div>
+    </div>
+    <div
+      class="ant-pro-card ant-pro-card-border"
+    >
+      <div
+        class="ant-pro-card-body ant-pro-card-body-center"
+      >
+        卡片内容
+      </div>
+    </div>
+  </div>
+</div>
 `;
 
 exports[`card demos renders ./packages/card/src/demos/gutter.tsx correctly 1`] = `

@@ -7217,7 +7217,6 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
             <div
               class="ant-pro-card-title"
             >
-              源和目标
               <span
                 aria-label="right"
                 class="anticon anticon-right ant-pro-card-collapsible-icon"
@@ -7240,6 +7239,7 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                   />
                 </svg>
               </span>
+              源和目标
             </div>
             <div
               class="ant-pro-card-extra"
@@ -7523,7 +7523,6 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
             <div
               class="ant-pro-card-title"
             >
-              顶部对齐
               <span
                 aria-label="right"
                 class="anticon anticon-right ant-pro-card-collapsible-icon"
@@ -7546,6 +7545,7 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                   />
                 </svg>
               </span>
+              顶部对齐
             </div>
             <div
               class="ant-pro-card-extra"

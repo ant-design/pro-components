@@ -23,7 +23,7 @@ describe('Field', () => {
       </ProCard>,
     );
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-card-body-collapse').exists()).toBeTruthy();
+    expect(wrapper.find('.ant-pro-card-collapse').exists()).toBeTruthy();
   });
 
   it('🥩 collapsible collapsed', async () => {
@@ -33,14 +33,14 @@ describe('Field', () => {
       </ProCard>,
     );
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-card-body-collapse').exists()).toBeTruthy();
+    expect(wrapper.find('.ant-pro-card-collapse').exists()).toBeTruthy();
 
     wrapper.setProps({
       collapsed: false,
     });
 
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-card-body-collapse').exists()).toBeFalsy();
+    expect(wrapper.find('.ant-pro-card-collapse').exists()).toBeFalsy();
   });
 
   it('🥩 tabs onChange', async () => {

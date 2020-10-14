@@ -278,18 +278,16 @@ const ProCard: ProCardType = (props) => {
     [`${prefixCls}-split`]: split === 'vertical' || split === 'horizontal',
     [`${prefixCls}-ghost`]: ghost,
     [`${prefixCls}-type-${type}`]: type,
+    [`${prefixCls}-collapse`]: collapsed,
   });
 
   const headerCls = classNames(`${prefixCls}-header`, {
     [`${prefixCls}-header-border`]: headerBordered,
-    [`${prefixCls}-header-collapse`]: collapsed,
   });
 
   const bodyCls = classNames(`${prefixCls}-body`, {
     [`${prefixCls}-body-center`]: layout === 'center',
     [`${prefixCls}-body-column`]: split === 'horizontal',
-    [`${prefixCls}-body-collapse`]: collapsed,
-    [`${prefixCls}-body-ghost`]: ghost,
   });
 
   const loadingBlockStyle =
@@ -317,8 +315,8 @@ const ProCard: ProCardType = (props) => {
       {(title || extra || collapsibleButton) && (
         <div className={headerCls} style={headStyle}>
           <div className={`${prefixCls}-title`}>
-            <LabelIconTip label={title} tooltip={tooltip || tip} subTitle={subTitle} />
             {collapsibleButton}
+            <LabelIconTip label={title} tooltip={tooltip || tip} subTitle={subTitle} />
           </div>
           <div className={`${prefixCls}-extra`}>{extra}</div>
         </div>

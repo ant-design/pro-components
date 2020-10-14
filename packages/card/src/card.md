@@ -47,7 +47,11 @@ group:
 
 <code src="./demos/split2.tsx" background="#f0f2f5"/>
 
+### 左右分栏
+
 <code src="./demos/split23.tsx" background="#f0f2f5"/>
+
+### 复杂切分
 
 <code src="./demos/split.tsx" background="#f0f2f5"/>
 
@@ -69,6 +73,12 @@ group:
 - 或者你可以通过 `collapsed` 属性受控进行自定义。
 
 <code src="./demos/collapsible.tsx" background="#f0f2f5" />
+
+### 卡片组展开
+
+配合 `ghost`幽灵模式和可折叠能力可以实现卡片组展开。
+
+<code src="./demos/group.tsx" background="#f0f2f5" />
 
 ### 内容居中
 
@@ -117,6 +127,8 @@ group:
 `Steps` 组件结合 `ProCard` 组件完成竖向步骤示例。
 
 <code src="./demos/steps-v.tsx" background="#f0f2f5" />
+
+### 横向步骤条
 
 ## API
 
