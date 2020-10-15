@@ -8,7 +8,7 @@ import { useIntl } from '@ant-design/pro-provider';
 import BaseForm, { CommonFormProps } from '../../BaseForm';
 import './index.less';
 
-export interface LightFilterProps extends FormProps, CommonFormProps {
+export interface LightFilterProps extends Omit<FormProps, 'onFinish'>, CommonFormProps {
   collapse?: boolean;
   collapseLabel?: React.ReactNode;
   bordered?: boolean;

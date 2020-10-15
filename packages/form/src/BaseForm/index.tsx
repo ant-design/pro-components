@@ -16,6 +16,12 @@ import { GroupProps, FieldProps, ProFormItemProps } from '../interface';
 
 export interface CommonFormProps {
   submitter?: Omit<SubmitterProps, 'form'> | false;
+
+  /**
+   * @name 表单结束后调用
+   * @description  支持异步操作，更加方便
+   */
+  onFinish?: (formData: Store) => Promise<boolean | void>;
 }
 
 export interface BaseFormProps extends FormProps, CommonFormProps {
