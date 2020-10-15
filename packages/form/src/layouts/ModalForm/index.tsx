@@ -1,4 +1,4 @@
-﻿import React, { useContext } from 'react';
+﻿import React, { useContext, useState } from 'react';
 import { Modal, ConfigProvider } from 'antd';
 import { FormProps } from 'antd/lib/form';
 import { ModalProps } from 'antd/lib/modal';
@@ -10,21 +10,32 @@ import BaseForm, { CommonFormProps } from '../../BaseForm';
 
 export type ModalFormProps = Omit<FormProps, 'onFinish'> &
   CommonFormProps & {
-    // ProForm 基础表单，暂无特殊属性
-    onFinish?: (formData: Store) => Promise<void>;
+    /**
+     * @name 表单结束后调用
+     * @description  接受返回一个boolean，返回 true 会关掉这个弹窗
+     */
+    onFinish?: (formData: Store) => Promise<boolean | void>;
 
+    /**
+     * @name 用于触发抽屉打开的 dom
+     */
     trigger?: React.ReactNode;
 
     /**
-     * 受控的打开关闭
+     * @name 受控的打开关闭
      */
     visible?: ModalProps['visible'];
+
+    /**
+     * @name 打开关闭的事件
+     */
     onVisibleChange?: (visible: boolean) => void;
 
     /**
-     * 弹框的属性
+     * @name 弹框的属性
+     * @description 不支持 'visible'，请使用全局的 visible
      */
-    modalProps?: ModalProps;
+    modalProps?: Omit<ModalProps, 'visible'>;
   };
 
 const ModalForm: React.FC<ModalFormProps> = ({
@@ -32,6 +43,7 @@ const ModalForm: React.FC<ModalFormProps> = ({
   trigger,
   onVisibleChange,
   modalProps,
+  onFinish,
   ...rest
 }) => {
   const [visible, setVisible] = useMergedState<boolean>(!!rest.visible, {
@@ -39,20 +51,39 @@ const ModalForm: React.FC<ModalFormProps> = ({
     onChange: onVisibleChange,
   });
   const context = useContext(ConfigProvider.ConfigContext);
+
+  const [loading, setLoading] = useState(false);
+
   return (
     <>
       <BaseForm
         layout="vertical"
+        {...omit(rest, ['visible'])}
+        onFinish={async (values) => {
+          if (!onFinish) {
+            return;
+          }
+          setLoading(true);
+          const success = await onFinish(values);
+          if (success) {
+            setVisible(false);
+          }
+          setLoading(false);
+        }}
         submitter={{
           searchConfig: {
             submitText: modalProps?.okText || context.locale?.Modal?.okText || '确认',
             resetText: modalProps?.cancelText || context.locale?.Modal?.cancelText || '取消',
           },
+          submitButtonProps: {
+            loading,
+            type: modalProps?.okType as 'text',
+          },
           resetButtonProps: {
             onClick: () => setVisible(false),
           },
+          ...rest.submitter,
         }}
-        {...omit(rest, ['visible'])}
         contentRender={(item, submitter) => {
           return (
             <Modal
