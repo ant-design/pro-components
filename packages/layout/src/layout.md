@@ -182,6 +182,8 @@ PageContainer 封装了 ant design 的 PageHeader 组件，增加了 tabList 和
 | tabBarExtraContent | tab bar 上额外的元素 | React.ReactNode | - |
 | header | [PageHeader](https://ant.design/components/page-header-cn/) 的所有属性。 | PageHeaderProps | - |
 | fixedHeader | 固定 pageHeader 的内容到顶部，如果页面内容较少，最好不要使用，会有严重的遮挡问题 | boolean | - |
+| affixProps |  固钉的配置，与 antd 完全相同 | AffixProps | - |
+
 
 > fixedHeader 使用了 antd 的 Affix 实现，默认监听 body，如果你的滚动条不在 body 上需要人肉[设置](https://ant.design/components/affix-cn/)一下。
 
