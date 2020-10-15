@@ -33,7 +33,7 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "@ant-design/pro-field": "0.4.0",
+    "@ant-design/pro-field": "1.0.0",
     "@ant-design/pro-skeleton": "1.0.0-beta.9",
     "@ant-design/pro-utils": "1.0.2"
   },

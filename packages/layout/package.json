@@ -34,7 +34,7 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.0.0",
-    "@ant-design/pro-provider": "0.2.2",
+    "@ant-design/pro-provider": "1.0.0",
     "@ant-design/pro-utils": "1.0.2",
     "@umijs/route-utils": "^1.0.33",
     "classnames": "^2.2.6",
