@@ -34,7 +34,7 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
-    "@ant-design/pro-utils": "0.5.0",
+    "@ant-design/pro-utils": "1.0.1",
     "classnames": "^2.2.6"
   },
   "peerDependencies": {
