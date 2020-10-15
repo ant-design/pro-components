@@ -62,14 +62,14 @@
     "@umijs/test": "^3.2.10",
     "@umijs/test-utils": "^3.2.10",
     "@umijs/utils": "^3.2.11",
-    "antd": "^4.6.4",
+    "antd": "^4.7.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-import": "^1.12.2",
     "body-parser": "^1.18.2",
     "chalk": "^4.1.0",
     "cross-env": "^7.0.0",
     "css-loader": "^3.4.2",
-    "dumi": "^1.0.0",
+    "dumi": "^1.1.0-beta.24",
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.4.3",
     "eslint": "^7.2.0",
@@ -98,6 +98,7 @@
     "query-string": "^6.11.1",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
+    "react-lazyload": "^3.0.0",
     "react-markdown": "^4.3.0",
     "react-test-renderer": "^16.9.0",
     "size-limit": "^4.5.5",
@@ -153,7 +154,7 @@
       "running": false
     },
     {
-      "path": "packages/list/lib/**/*.js",
+      "path": "packages/list/dist/**/*.js",
       "limit": "100 s",
       "webpack": false,
       "running": false

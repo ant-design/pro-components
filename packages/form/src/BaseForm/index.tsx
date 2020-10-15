@@ -3,17 +3,18 @@ import { Form } from 'antd';
 import { FormProps, FormInstance } from 'antd/lib/form/Form';
 import { FormItemProps } from 'antd/lib/form';
 import { TooltipProps } from 'antd/lib/tooltip';
-import { ConfigProviderWarp } from '@ant-design/pro-provider';
-import { LabelIconTip, conversionSubmitValue, pickProFormItemProps } from '@ant-design/pro-utils';
+import { ConfigProviderWrap } from '@ant-design/pro-provider';
+import { conversionSubmitValue, pickProFormItemProps } from '@ant-design/pro-utils';
 import { ProFieldValueType } from '@ant-design/pro-field';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
+import namePathSet from 'rc-util/lib/utils/set';
 import FieldContext from '../FieldContext';
 import Submitter, { SubmitterProps } from '../components/Submitter';
 import LightWrapper from './LightWrapper';
 import { GroupProps, FieldProps, ProFormItemProps } from '../interface';
 
 export interface CommonFormProps {
-  submitter?: Omit<SubmitterProps, 'form'> | boolean;
+  submitter?: Omit<SubmitterProps, 'form'> | false;
 }
 
 export interface BaseFormProps extends FormProps, CommonFormProps {
@@ -45,7 +46,6 @@ export interface ExtendsProps {
   secondary?: boolean;
   bordered?: boolean;
   colSize?: number;
-  tooltip?: string;
   /**
    * @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一
    */
@@ -82,7 +82,17 @@ export function createField<P extends ProFormItemProps = any>(
 ): ProFormComponent<P, ExtendsProps> {
   const FieldWithContext: React.FC<P> = (props: P & ExtendsProps) => {
     const size = useContext(SizeContext);
-    const { label, tip, tooltip, placeholder, width, proFieldProps, bordered, ...rest } = props;
+    const {
+      label,
+      tip,
+      tooltip,
+      placeholder,
+      width,
+      proFieldProps,
+      bordered,
+      messageVariables,
+      ...rest
+    } = props;
     const {
       valueType,
       customLightMode,
@@ -99,7 +109,7 @@ export function createField<P extends ProFormItemProps = any>(
       if (setFieldValueType && props.name) {
         // Field.type === 'ProField' 时 props 里面是有 valueType 的，所以要设置一下
         // 写一个 ts 比较麻烦，用 any 顶一下
-        setFieldValueType(String(props.name), valueType || (rest as any).valueType || 'text');
+        setFieldValueType(props.name, valueType || (rest as any).valueType || 'text');
       }
     }, []);
     // restFormItemProps is user props pass to Form.Item
@@ -126,23 +136,25 @@ export function createField<P extends ProFormItemProps = any>(
         proFieldProps={proFieldProps}
       />
     );
+    const otherProps = {
+      messageVariables,
+      ...defaultFormItemProps,
+      ...formItemProps,
+      ...restFormItemProps,
+    };
 
     return (
       <Form.Item
-        // title 是用于提升读屏的能力的，没有参与逻辑
-        // @ts-expect-error
-        title={label}
         // 全局的提供一个 tip 功能，可以减少代码量
         // 轻量模式下不通过 FormItem 显示 label
-        label={
-          label && proFieldProps?.light !== true ? (
-            <LabelIconTip label={label} tooltip={tooltip || tip} />
-          ) : undefined
-        }
+        label={label && proFieldProps?.light !== true ? label : undefined}
+        tooltip={proFieldProps?.light !== true && tooltip}
         valuePropName={valuePropName}
-        {...defaultFormItemProps}
-        {...formItemProps}
-        {...restFormItemProps}
+        {...otherProps}
+        messageVariables={{
+          label: label as string,
+          ...otherProps?.messageVariables,
+        }}
       >
         <LightWrapper
           {...realFieldProps}
@@ -182,10 +194,6 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
     [key: string]: ProFieldValueType;
   }>({});
 
-  const setFieldValueType = (name: string, type?: ProFieldValueType) => {
-    fieldsValueType.current[name] = type || 'text';
-  };
-
   const items = React.Children.toArray(children);
   const submitterProps: Omit<SubmitterProps, 'form'> =
     typeof submitter === 'boolean' || !submitter ? {} : submitter;
@@ -197,13 +205,19 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
 
   return (
     // 增加国际化的能力，与 table 组件可以统一
-    <ConfigProviderWarp>
+    <ConfigProviderWrap>
       <FieldContext.Provider
         value={{
           fieldProps,
           formItemProps,
           groupProps,
-          setFieldValueType,
+          setFieldValueType: (name, type) => {
+            if (Array.isArray(name)) {
+              fieldsValueType.current = namePathSet(fieldsValueType.current, name, type || 'text');
+            } else {
+              fieldsValueType.current[String(name)] = type || 'text';
+            }
+          },
         }}
       >
         <SizeContext.Provider value={rest.size}>
@@ -234,7 +248,7 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
           </Form>
         </SizeContext.Provider>
       </FieldContext.Provider>
-    </ConfigProviderWarp>
+    </ConfigProviderWrap>
   );
 };
 

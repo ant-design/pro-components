@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.2.2...@ant-design/pro-card@1.2.3) (2020-10-12)
+
+### Bug Fixes
+
+- **card:** card title font size ([#660](https://github.com/ant-design/pro-components/issues/660)) ([00a5674](https://github.com/ant-design/pro-components/commit/00a56742ab8fcab039992b25ad3538948f102477))
+
 ## [1.2.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.2.1...@ant-design/pro-card@1.2.2) (2020-09-29)
 
 **Note:** Version bump only for package @ant-design/pro-card

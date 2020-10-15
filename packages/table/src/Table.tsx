@@ -8,7 +8,7 @@ import React, {
   useMemo,
 } from 'react';
 import { Table, ConfigProvider, Card, Space, Empty } from 'antd';
-import { useIntl, ParamsType, ConfigProviderWarp } from '@ant-design/pro-provider';
+import { useIntl, ParamsType, ConfigProviderWrap } from '@ant-design/pro-provider';
 import classNames from 'classnames';
 import get from 'rc-util/lib/utils/get';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -37,8 +37,9 @@ import {
   SearchTransformKeyFn,
   isNil,
   omitUndefined,
-  ListToolBarProps,
 } from '@ant-design/pro-utils';
+
+import { ListToolBarProps } from './component/ListToolBar';
 
 import useFetchData, { RequestData, UseFetchDataAction } from './useFetchData';
 import Container, { useCounter, ColumnsState } from './container';
@@ -847,7 +848,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
         rest.onChange(changePagination, filters, sorter, extra);
       }
       // 制造筛选的数据
-      setProFilter(omitUndefinedAndEmptyArr<any>(filters));
+      setProFilter(omitUndefined<any>(filters));
       // 制造一个排序的数据
       if (Array.isArray(sorter)) {
         const data = sorter.reduce<{
@@ -929,11 +930,11 @@ const ProviderWarp = <T, U extends { [key: string]: any } = {}>(props: ProTableP
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   return (
     <Container.Provider initialState={props}>
-      <ConfigProviderWarp>
+      <ConfigProviderWrap>
         <ErrorBoundary>
           <ProTable defaultClassName={getPrefixCls('pro-table')} {...props} />
         </ErrorBoundary>
-      </ConfigProviderWarp>
+      </ConfigProviderWrap>
     </Container.Provider>
   );
 };

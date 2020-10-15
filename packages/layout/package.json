@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-layout",
-  "version": "6.5.0",
+  "version": "6.5.1",
   "description": "@ant-design/pro-layout",
   "keywords": [
     "antd",
@@ -34,9 +34,9 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.0.0",
-    "@ant-design/pro-provider": "0.2.1",
+    "@ant-design/pro-provider": "0.2.2",
     "@ant-design/pro-utils": "0.5.0",
-    "@umijs/route-utils": "^1.0.5",
+    "@umijs/route-utils": "^1.0.33",
     "classnames": "^2.2.6",
     "history": "^4.10.1",
     "memoize-one": "^5.1.1",

@@ -37,7 +37,7 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
 
   if (type === 'inline') {
     return (
-      <div className={classNames(`${prefixCls}-menu`, `${prefixCls}-inlinemenu`)}>
+      <div className={classNames(`${prefixCls}-menu`, `${prefixCls}-inline-menu`)}>
         {items.map((item) => (
           <div
             key={item.key}
@@ -45,8 +45,8 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
               setActiveKey(item.key);
             }}
             className={classNames(
-              `${prefixCls}-inlinemenu-item`,
-              activeItem.key === item.key ? `${prefixCls}-inlinemenu-item-active` : undefined,
+              `${prefixCls}-inline-menu-item`,
+              activeItem.key === item.key ? `${prefixCls}-inline-menu-item-active` : undefined,
             )}
           >
             {item.label}

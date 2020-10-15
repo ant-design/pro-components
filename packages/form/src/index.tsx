@@ -19,9 +19,18 @@ import ProFormDigit from './components/Digit';
 import ProForm, { ProFormProps } from './layouts/ProForm';
 import QueryFilter, { BaseQueryFilterProps } from './layouts/QueryFilter';
 import LightFilter from './layouts/LightFilter';
-import StepsFrom, { StepFromProps, StepsFromProps } from './layouts/StepsFrom';
+import StepsForm, { StepFormProps, StepsFormProps } from './layouts/StepsForm';
+import ModalForm, { ModalFormProps } from './layouts/ModalForm';
+import DrawerForm, { DrawerFormProps } from './layouts/DrawerForm';
 
-export type { BaseQueryFilterProps, ProFormProps, StepFromProps, StepsFromProps };
+export type {
+  BaseQueryFilterProps,
+  DrawerFormProps,
+  ModalFormProps,
+  ProFormProps,
+  StepFormProps,
+  StepsFormProps,
+};
 export {
   // controls
   ProFormDatePicker,
@@ -44,7 +53,9 @@ export {
   // layouts
   QueryFilter,
   LightFilter,
-  StepsFrom,
+  StepsForm,
+  DrawerForm,
+  ModalForm,
 };
 
 export default ProForm;

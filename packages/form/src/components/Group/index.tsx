@@ -12,12 +12,14 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
   };
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-form-group');
-
+  const titleDom = titleRender ? titleRender(title, props) : title;
   return (
     <div style={style} ref={ref}>
-      <div className={`${className}-title`} style={titleStyle}>
-        {titleRender ? titleRender(title, props) : title}
-      </div>
+      {titleDom && (
+        <div className={`${className}-title`} style={titleStyle}>
+          {titleDom}
+        </div>
+      )}
       <Space className={`${className}-container`} size={size}>
         {children}
       </Space>

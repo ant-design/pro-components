@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import ProLayout, { PageContainer } from '@ant-design/pro-layout';
 import { Button } from 'antd';
-import defaultProps from './fixtures/defaultProps';
+import defaultProps from './_defaultProps';
 
 export default () => {
   const [index, setIndex] = useState(0);

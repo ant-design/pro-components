@@ -1,6 +1,6 @@
 @import '~antd/es/style/themes/default.less';
 
-@pro-list-toolbar: ~'@{ant-prefix}-pro-core-toolbar';
+@pro-list-toolbar: ~'@{ant-prefix}-pro-table-list-toolbar';
 
 @pro-list-toolbar-line-height: 64px;
 @pro-list-toolbar-extra-line-height: 45px;
@@ -67,9 +67,17 @@
     &:not(:last-child) {
       margin-right: @margin-md;
     }
+
+    display: flex;
+    align-items: center;
+
+    .@{ant-prefix}-pro-table-search {
+      margin: 0;
+      padding: 0;
+    }
   }
 
-  &-inlinemenu-item {
+  &-inline-menu-item {
     display: inline-block;
     margin-right: @margin-lg;
     cursor: pointer;

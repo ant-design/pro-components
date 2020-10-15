@@ -1,10 +1,8 @@
 import React, { useRef, useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
-import { Button, Tag, Select } from 'antd';
-import ConfigProvider from 'antd/lib/config-provider';
-import ProTable, { ProColumns, TableDropdown, ActionType } from '@ant-design/pro-table';
-import request from 'umi-request';
-
+import { Button, Select, ConfigProvider, Space } from 'antd';
+import ProTable, { ProColumns, ActionType } from '@ant-design/pro-table';
+import moment from 'moment';
 import enUSIntl from 'antd/lib/locale/en_US';
 import zhCNIntl from 'antd/lib/locale/zh_CN';
 import viVNIntl from 'antd/lib/locale/vi_VN';
@@ -32,60 +30,9 @@ const intlMap = {
 };
 
 interface GithubIssueItem {
-  url: string;
-  repository_url: string;
-  labels_url: string;
-  comments_url: string;
-  events_url: string;
-  html_url: string;
-  id: number;
-  node_id: string;
-  number: number;
-  title: string;
-  user: User;
-  labels: Label[];
-  state: string;
-  locked: boolean;
-  assignee?: any;
-  assignees: any[];
-  milestone?: any;
-  comments: number;
-  created_at: string;
-  updated_at: string;
-  closed_at?: any;
-  author_association: string;
-  body: string;
-}
-
-interface Label {
-  id: number;
-  node_id: string;
-  url: string;
+  key: number;
   name: string;
-  color: string;
-  default: boolean;
-  description: string;
-}
-
-interface User {
-  login: string;
-  id: number;
-  node_id: string;
-  avatar_url: string;
-  gravatar_id: string;
-  url: string;
-  html_url: string;
-  followers_url: string;
-  following_url: string;
-  gists_url: string;
-  starred_url: string;
-  subscriptions_url: string;
-  organizations_url: string;
-  repos_url: string;
-  events_url: string;
-  received_events_url: string;
-  type: string;
-  site_admin: boolean;
+  createdAt: number;
 }
 
 const columns: ProColumns<GithubIssueItem>[] = [
@@ -97,11 +44,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
   },
   {
     title: 'Title',
-    dataIndex: 'title',
-    copyable: true,
-    ellipsis: true,
-    width: 200,
-    hideInSearch: true,
+    dataIndex: 'name',
   },
   {
     title: 'Money',
@@ -111,62 +54,10 @@ const columns: ProColumns<GithubIssueItem>[] = [
     renderText: () => (Math.random() * 100).toFixed(2),
   },
   {
-    title: 'Status',
-    dataIndex: 'state',
-    initialValue: 'all',
-    filters: true,
-    valueEnum: {
-      all: { text: 'ALL', status: 'Default' },
-      open: {
-        text: 'Error',
-        status: 'Error',
-      },
-      closed: {
-        text: 'Success',
-        status: 'Success',
-      },
-    },
-  },
-  {
-    title: 'Labels',
-    dataIndex: 'labels',
-    width: 80,
-    render: (_, row) =>
-      row.labels.map(({ name, id, color }) => (
-        <Tag
-          color={color}
-          key={id}
-          style={{
-            margin: 4,
-          }}
-        >
-          {name}
-        </Tag>
-      )),
-  },
-  {
     title: 'Created Time',
     key: 'since',
-    dataIndex: 'created_at',
+    dataIndex: 'createdAt',
     valueType: 'dateTime',
-  },
-  {
-    title: 'option',
-    valueType: 'option',
-    dataIndex: 'id',
-    render: (text, row, _, action) => [
-      <a href={row.html_url} key="show" target="_blank" rel="noopener noreferrer">
-        show
-      </a>,
-      <TableDropdown
-        key="more"
-        onSelect={() => action.reload()}
-        menus={[
-          { key: 'copy', name: 'copy' },
-          { key: 'delete', name: 'delete' },
-        ]}
-      />,
-    ],
   },
 ];
 
@@ -174,41 +65,46 @@ export default () => {
   const actionRef = useRef<ActionType>();
   const [intl, setIntl] = useState('zhCNIntl');
   return (
-    <>
-      <Select<string>
-        style={{
-          width: 200,
+    <ConfigProvider locale={intlMap[intl]}>
+      <ProTable<GithubIssueItem>
+        columns={columns}
+        actionRef={actionRef}
+        request={async () => {
+          return {
+            data: [
+              {
+                key: 1,
+                name: `TradeCode ${1}`,
+                createdAt: 1602572994055,
+              },
+            ],
+            success: true,
+          };
         }}
-        value={intl}
-        onChange={(value) => setIntl(value)}
-        options={Object.keys(intlMap).map((value) => ({ value, label: value }))}
+        rowKey="id"
+        rowSelection={{}}
+        dateFormatter="string"
+        headerTitle={
+          <Space>
+            <span>Basic Table</span>
+            <Select<string>
+              bordered={false}
+              value={intl}
+              onChange={(value) => {
+                moment.locale(intlMap[value].locale);
+                setIntl(value);
+              }}
+              options={Object.keys(intlMap).map((value) => ({ value, label: value }))}
+            />
+          </Space>
+        }
+        toolBarRender={() => [
+          <Button key="3" type="primary">
+            <PlusOutlined />
+            New
+          </Button>,
+        ]}
       />
-      <ConfigProvider locale={intlMap[intl]}>
-        <ProTable<GithubIssueItem>
-          columns={columns}
-          actionRef={actionRef}
-          request={async (params = {}) =>
-            request<{
-              data: GithubIssueItem[];
-            }>('https://proapi.azurewebsites.net/github/issues', {
-              params,
-            })
-          }
-          rowKey="id"
-          rowSelection={{}}
-          pagination={{
-            showSizeChanger: true,
-          }}
-          dateFormatter="string"
-          headerTitle="Basic Table"
-          toolBarRender={() => [
-            <Button key="3" type="primary">
-              <PlusOutlined />
-              New
-            </Button>,
-          ]}
-        />
-      </ConfigProvider>
-    </>
+    </ConfigProvider>
   );
 };

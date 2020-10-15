@@ -1,6 +1,6 @@
 import React from 'react';
 import { Badge } from 'antd';
-import { ListToolBar } from '@ant-design/pro-utils';
+import { ListToolBar } from '@ant-design/pro-table';
 
 export default () => (
   <div>

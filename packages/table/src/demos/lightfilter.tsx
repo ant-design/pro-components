@@ -83,7 +83,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
       ],
     },
     width: '30%',
-    hideInSearch: true,
+    search: false,
   },
   {
     title: '状态',
@@ -91,21 +91,28 @@ const columns: ProColumns<GithubIssueItem>[] = [
     initialValue: 'all',
     filters: true,
     valueType: 'select',
-    valueEnum: {
-      all: { text: '全部', status: 'Default' },
-      open: {
-        text: '未解决',
+    request: async () => [
+      {
+        label: '全部',
+        value: 'all',
+        status: 'Default',
+      },
+      {
+        label: '未解决',
+        value: 'open',
         status: 'Error',
       },
-      closed: {
-        text: '已解决',
+      {
+        label: '已解决',
+        value: 'closed',
         status: 'Success',
       },
-      processing: {
-        text: '解决中',
+      {
+        label: '解决中',
+        value: 'processing',
         status: 'Processing',
       },
-    },
+    ],
     width: '10%',
   },
   {

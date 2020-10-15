@@ -83,7 +83,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
       ],
     },
     width: '30%',
-    hideInSearch: true,
+    search: false,
   },
   {
     title: '状态',
@@ -132,7 +132,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     title: '创建时间',
     key: 'since',
     dataIndex: 'created_at',
-    // @ts-expect-error
+    // @ts-ignore
     valueType: () => undefined,
     width: '20%',
   },

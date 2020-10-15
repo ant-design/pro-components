@@ -1,6 +1,6 @@
 import React from 'react';
 import ProForm, {
-  StepsFrom,
+  StepsForm,
   ProFormText,
   ProFormDatePicker,
   ProFormDateTimePicker,
@@ -8,7 +8,6 @@ import ProForm, {
   ProFormTextArea,
   ProFormCheckbox,
 } from '@ant-design/pro-form';
-
 import ProCard from '@ant-design/pro-card';
 
 const waitTime = (time: number = 100) => {
@@ -22,15 +21,15 @@ const waitTime = (time: number = 100) => {
 export default () => {
   return (
     <ProCard>
-      <StepsFrom
-        onFinish={(values) => console.log(values)}
+      <StepsForm
+        onFinish={async (values) => console.log(values)}
         formProps={{
           validateMessages: {
             required: '此项为必填项',
           },
         }}
       >
-        <StepsFrom.StepFrom
+        <StepsForm.StepForm
           name="base"
           title="创建实验"
           onFinish={async () => {
@@ -51,8 +50,8 @@ export default () => {
             <ProFormDatePicker name="date" label="结束时间" />
           </ProForm.Group>
           <ProFormTextArea name="remark" label="备注" width="l" placeholder="请输入备注" />
-        </StepsFrom.StepFrom>
-        <StepsFrom.StepFrom name="checkbox" title="设置参数">
+        </StepsForm.StepForm>
+        <StepsForm.StepForm name="checkbox" title="设置参数">
           <ProFormCheckbox.Group
             name="checkbox"
             label="迁移类型"
@@ -68,8 +67,8 @@ export default () => {
               options={['完整 LOB', '不同步 LOB', '受限制 LOB']}
             />
           </ProForm.Group>
-        </StepsFrom.StepFrom>
-        <StepsFrom.StepFrom name="time" title="发布实验">
+        </StepsForm.StepForm>
+        <StepsForm.StepForm name="time" title="发布实验">
           <ProFormCheckbox.Group
             name="checkbox"
             label="部署单元"
@@ -109,8 +108,8 @@ export default () => {
               { value: '2', label: '策略二' },
             ]}
           />
-        </StepsFrom.StepFrom>
-      </StepsFrom>
+        </StepsForm.StepForm>
+      </StepsForm>
     </ProCard>
   );
 };

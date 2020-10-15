@@ -52,10 +52,9 @@ const columns: ProColumns<TableListItem>[] = [
     key: 'option',
     valueType: 'option',
     render: () => [
-      <a>链路</a>,
-      <a>报警</a>,
-      <a>监控</a>,
-      <a>
+      <a key="link">链路</a>,
+      <a key="warn">报警</a>,
+      <a key="more">
         <EllipsisOutlined />
       </a>,
     ],
@@ -120,7 +119,11 @@ export default () => {
             },
           ],
         },
-        actions: [<Button type="primary">新建应用</Button>],
+        actions: [
+          <Button key="primary" type="primary">
+            新建应用
+          </Button>,
+        ],
       }}
       rowKey="key"
       pagination={{
@@ -129,12 +132,14 @@ export default () => {
       search={false}
       dateFormatter="string"
       toolBarRender={() => [
-        <Button>查看日志</Button>,
-        <Button>
+        <Button key="show">查看日志</Button>,
+        <Button key="out">
           导出数据
           <DownOutlined />
         </Button>,
-        <Button type="primary">创建应用</Button>,
+        <Button key="primary" type="primary">
+          创建应用
+        </Button>,
       ]}
     />
   );

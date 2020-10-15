@@ -29,6 +29,7 @@ import MenuCounter from './SiderMenu/Counter';
 import WrapContent from './WrapContent';
 import compatibleLayout from './utils/compatibleLayout';
 import useCurrentMenuLayoutProps from './utils/useCurrentMenuLayoutProps';
+import { clearMenuItem } from './utils/utils';
 
 export type BasicLayoutProps = Partial<RouterTypes<Route>> &
   SiderMenuProps &
@@ -126,20 +127,38 @@ const renderSiderMenu = (props: BasicLayoutProps, matchMenuKeys: string[]): Reac
     const [key] = matchMenuKeys;
     if (key) {
       menuData = props.menuData?.find((item) => item.key === key)?.children || [];
+    } else {
+      menuData = [];
     }
   }
-
-  if (menuData && menuData?.length < 1 && splitMenus) {
+  // 这里走了可以少一次循环
+  const clearMenuData = clearMenuItem(menuData || []);
+  if (clearMenuData && clearMenuData?.length < 1 && splitMenus) {
     return null;
   }
   if (layout === 'top' && !isMobile) {
     return <SiderMenu matchMenuKeys={matchMenuKeys} {...props} hide />;
   }
   if (menuRender) {
-    return menuRender(props, <SiderMenu matchMenuKeys={matchMenuKeys} {...props} />);
+    const defaultDom = (
+      <SiderMenu
+        matchMenuKeys={matchMenuKeys}
+        {...props}
+        // 这里走了可以少一次循环
+        menuData={clearMenuData}
+      />
+    );
+    return menuRender(props, defaultDom);
   }
 
-  return <SiderMenu matchMenuKeys={matchMenuKeys} {...props} menuData={menuData} />;
+  return (
+    <SiderMenu
+      matchMenuKeys={matchMenuKeys}
+      {...props}
+      // 这里走了可以少一次循环
+      menuData={clearMenuData}
+    />
+  );
 };
 
 const defaultPageTitleRender = (
@@ -259,7 +278,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     ? menuInfoData
     : renderMenuInfoData;
 
-  const matchMenus = getMatchMenu(location.pathname || '/', menuData);
+  const matchMenus = getMatchMenu(location.pathname || '/', menuData, true);
   const matchMenuKeys = matchMenus.map((item) => item.key || item.path || '');
 
   // 当前选中的menu，一般不会为空

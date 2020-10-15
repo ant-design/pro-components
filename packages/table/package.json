@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-table",
-  "version": "2.9.1",
+  "version": "2.9.3",
   "description": "🏆 Use Ant Design Table like a Pro!",
   "keywords": [
     "antd",
@@ -35,12 +35,13 @@
   "dependencies": {
     "@ant-design/icons": "^4.1.0",
     "@ant-design/pro-field": "0.4.0",
-    "@ant-design/pro-form": "1.0.0-beta.30",
-    "@ant-design/pro-provider": "0.2.1",
+    "@ant-design/pro-form": "1.0.2",
+    "@ant-design/pro-provider": "0.2.2",
     "@ant-design/pro-utils": "0.5.0",
     "classnames": "^2.2.6",
     "dnd-core": "^10.0.2",
     "moment": "^2.24.0",
+    "omit.js": "^2.0.2",
     "rc-resize-observer": "^0.2.1",
     "rc-util": "^5.0.1",
     "react-dnd": "^11.1.3",

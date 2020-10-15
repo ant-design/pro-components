@@ -114,8 +114,8 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
           keyword
             ? options.filter((o) => {
                 return (
-                  String(o.label).toLowerCase().indexOf(keyword) !== -1 ||
-                  o.value.toLowerCase().indexOf(keyword) !== -1
+                  String(o.label).toLowerCase().includes(keyword) ||
+                  o.value.toLowerCase().includes(keyword)
                 );
               })
             : options
@@ -131,8 +131,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
         bordered={bordered}
         value={Array.isArray(value) ? value.map((v) => valueMap[v] || v) : valueMap[value] || value}
         onClear={() => {
-          // @ts-expect-error
-          onChange(undefined, undefined);
+          onChange?.(undefined, undefined as any);
         }}
       />
     </div>

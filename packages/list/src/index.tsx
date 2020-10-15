@@ -1,7 +1,7 @@
 import React, { useMemo, useContext } from 'react';
 import { ListProps } from 'antd/lib/list';
 import classNames from 'classnames';
-import ProTable, { ProTableProps, ProColumns } from '@ant-design/pro-table';
+import ProTable, { ProTableProps, ProColumnType } from '@ant-design/pro-table';
 import { ParamsType } from '@ant-design/pro-provider';
 import { ConfigContext as AntdConfigContext } from 'antd/lib/config-provider';
 import ListView from './ListView';
@@ -10,21 +10,21 @@ import './index.less';
 
 type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 
-type ProListMeta = Pick<
-  ProColumns,
-  'dataIndex' | 'valueType' | 'render' | 'hideInSearch' | 'title' | 'valueEnum'
+type ProListMeta<T> = Pick<
+  ProColumnType<T>,
+  'dataIndex' | 'valueType' | 'render' | 'search' | 'title' | 'valueEnum'
 >;
 
-export interface ProListMetas {
-  type?: ProListMeta;
-  title?: ProListMeta;
-  subTitle?: ProListMeta;
-  description?: ProListMeta;
-  avatar?: ProListMeta;
-  extra?: ProListMeta;
-  content?: ProListMeta;
-  actions?: ProListMeta;
-  [key: string]: ProListMeta | undefined;
+export interface ProListMetas<T> {
+  type?: ProListMeta<T>;
+  title?: ProListMeta<T>;
+  subTitle?: ProListMeta<T>;
+  description?: ProListMeta<T>;
+  avatar?: ProListMeta<T>;
+  extra?: ProListMeta<T>;
+  content?: ProListMeta<T>;
+  actions?: ProListMeta<T>;
+  [key: string]: ProListMeta<T> | undefined;
 }
 
 export interface ProListProps<RecordType, U extends ParamsType>
@@ -42,7 +42,7 @@ export interface ProListProps<RecordType, U extends ParamsType>
       | 'request'
     >,
     AntdListProps<RecordType> {
-  metas?: ProListMetas;
+  metas?: ProListMetas<RecordType>;
   showActions?: 'hover' | 'always';
 }
 
@@ -54,7 +54,7 @@ function ProList<RecordType, U extends { [key: string]: any } = {}>(
   props: ProListProps<RecordType, U>,
 ) {
   const {
-    metas,
+    metas: metals,
     split,
     pagination,
     size,
@@ -72,13 +72,13 @@ function ProList<RecordType, U extends { [key: string]: any } = {}>(
 
   const { getPrefixCls } = useContext(AntdConfigContext);
 
-  const proTableColumns: ProColumns[] = useMemo(() => {
-    const ret: ProColumns[] = [];
-    Object.keys(metas || {}).forEach((key) => {
-      if (!metas || !metas[key]) {
+  const proTableColumns: ProColumnType<RecordType>[] = useMemo(() => {
+    const columns: ProColumnType<RecordType>[] = [];
+    Object.keys(metals || {}).forEach((key) => {
+      if (!metals || !metals[key]) {
         return;
       }
-      const meta = metas[key];
+      const meta = metals[key];
       let { valueType } = meta || {};
       if (!valueType) {
         // 给默认的 valueType
@@ -86,14 +86,14 @@ function ProList<RecordType, U extends { [key: string]: any } = {}>(
           valueType = 'avatar';
         }
       }
-      ret.push({
+      columns.push({
         key,
         ...meta,
         valueType,
       });
     });
-    return ret;
-  }, [metas]);
+    return columns;
+  }, [metals]);
   const prefixCls = getPrefixCls('pro-list');
   const listClassName = classNames(prefixCls, {
     [`${prefixCls}-no-split`]: !split,

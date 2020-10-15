@@ -40,10 +40,6 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 
 <code src="./demos/batchOption.tsx" background="#f5f5f5"/>
 
-### toolbar 搜索
-
-<code src="./demos/search.tsx" background="#f5f5f5"/>
-
 ### form 操作
 
 <code src="./demos/form.tsx" background="#f5f5f5"/>
@@ -217,7 +213,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | onReset | 重置表单时触发 | `() => void` | - |
 | columnEmptyText | 空值时的显示，不设置 则默认显示 `-` | `string \| false` | false |
 | tableRender | 自定义渲染表格函数 | `(props: ProTableProps<T, U>, defaultDom: JSX.Element, domList: { toolbar: JSX.Element \| undefined; alert: JSX.Element \| undefined; table: JSX.Element \| undefined;}) => React.ReactNode` | - |
-| toolbar | 透传 ProUtils 中的 ListToolBar 配置项 | `ListToolBarProps` | - |
+| toolbar | 透传 ListToolBar 配置项 | `ListToolBarProps` | - |
 | tableExtraRender | 自定义表格的主体函数 | `(props: ProTableProps<T, U>, dataSource: T[]) => React.ReactNode;` | - |
 | manualRequest | 是否需要手动触发首次请求, 配置为 `true` 时不可隐藏搜索表单 | `boolean` | false |
 
@@ -427,8 +423,8 @@ interface IValueEnum {
 
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| tableAlertRender | 自定义批量操作工具栏左侧信息区域, false 时不显示 | `({ selectedRowKeys: (string | number)[], selectedRows: T[], onCleanSelected: ()=>void }) => React.ReactNode) \| false;` | - |
-| tableAlertOptionRender | 自定义批量操作工具栏右侧选项区域, false 时不显示 | `({ selectedRowKeys: (string | number)[], selectedRows: T[], onCleanSelected: ()=>void }) => React.ReactNode) \| false;` | - |
+| tableAlertRender | 自定义批量操作工具栏左侧信息区域, false 时不显示 | `({ selectedRowKeys: (string \| number)[], selectedRows: T[], onCleanSelected: ()=>void }) => React.ReactNode) \| false;` | - |
+| tableAlertOptionRender | 自定义批量操作工具栏右侧选项区域, false 时不显示 | `({ selectedRowKeys: (string \| number)[], selectedRows: T[], onCleanSelected: ()=>void }) => React.ReactNode) \| false;` | - |
 
 ### 搜索表单
 
@@ -458,3 +454,48 @@ Form 的列是根据 `valueType` 来生成不同的类型。
 | option | 不展示 |
 | index | 不展示 |
 | progress | 不展示 |
+
+### ListToolBarProps
+
+列表和表格的工具栏配置属性
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| title | 标题 | ReactNode \| string | - |
+| subTitle | 子标题 | ReactNode \| string | - |
+| description | 描述 | ReactNode \| string | - |
+| search | 查询区 | ReactNode \| SearchProps | - |
+| actions | 操作区 | ReactNode[] | - |
+| settings | 设置区 | (ReactNode \| Setting)[] | - |
+| filter | 过滤区，通常配合 `LightFilter` 使用 | ReactNode | - |
+| multipleLine | 是否多行展示 | boolean | false |
+| menu | 菜单配置 | ListToolBarMenu | - |
+| tabs | 标签页配置，仅当 `multipleLine` 为 true 时有效 | ListToolBarTabs | - |
+
+SearchProps 为 antd 的 [Input.Search](https://ant.design/components/input-cn/#Input.Search) 的属性。
+
+#### Setting
+
+| 参数    | 说明         | 类型                  | 默认值 |
+| ------- | ------------ | --------------------- | ------ |
+| icon    | 图标         | ReactNode             | -      |
+| tooltip | tooltip 描述 | string                | -      |
+| key     | 操作唯一标识 | string                | -      |
+| onClick | 设置被触发   | function(key: string) | -      |
+
+#### ListToolBarMenu
+
+| 参数      | 说明           | 类型                                | 默认值     |
+| --------- | -------------- | ----------------------------------- | ---------- |
+| type      | 类型           | 'inline' \| 'dropdown'              | 'dropdown' |
+| activeKey | 当前值         | string                              | -          |
+| items     | 菜单项         | { key: string; label: ReactNode }[] | -          |
+| onChange  | 切换菜单的回调 | Function(activeKey) {}              | -          |
+
+#### ListToolBarTabs
+
+| 参数      | 说明       | 类型                              | 默认值     |
+| --------- | ---------- | --------------------------------- | ---------- |
+| activeKey | 当前选中项 | string                            | -          |
+| items     | 菜单项     | { key: string; tab: ReactNode }[] | -          |
+| onChange  | 类型       | 'inline' \| 'dropdown'            | 'dropdown' |

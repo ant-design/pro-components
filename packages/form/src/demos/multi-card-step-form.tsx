@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import ProForm, {
-  StepsFrom,
+  StepsForm,
   ProFormText,
   ProFormDatePicker,
   ProFormDateRangePicker,
@@ -22,15 +22,15 @@ const waitTime = (time: number = 100) => {
 export default () => {
   return (
     <>
-      <StepsFrom
-        onFinish={(values) => console.log(values)}
+      <StepsForm
+        onFinish={async (values) => console.log(values)}
         formProps={{
           validateMessages: {
             required: '此项为必填项',
           },
         }}
       >
-        <StepsFrom.StepFrom
+        <StepsForm.StepForm
           name="base"
           title="第一步骤"
           onFinish={async () => {
@@ -45,6 +45,8 @@ export default () => {
             collapsible
             style={{
               marginBottom: 16,
+              minWidth: 800,
+              maxWidth: '100%',
             }}
           >
             <ProFormText
@@ -93,8 +95,8 @@ export default () => {
               }))}
             />
           </ProCard>
-        </StepsFrom.StepFrom>
-        <StepsFrom.StepFrom name="checkbox" title="第二步骤">
+        </StepsForm.StepForm>
+        <StepsForm.StepForm name="checkbox" title="第二步骤">
           <ProFormCheckbox.Group
             name="checkbox"
             label="迁移类型"
@@ -110,8 +112,8 @@ export default () => {
               options={['完整 LOB', '不同步 LOB', '受限制 LOB']}
             />
           </ProForm.Group>
-        </StepsFrom.StepFrom>
-        <StepsFrom.StepFrom name="time" title="第三步骤">
+        </StepsForm.StepForm>
+        <StepsForm.StepForm name="time" title="第三步骤">
           <ProFormCheckbox.Group
             name="checkbox"
             label="部署单元"
@@ -151,8 +153,8 @@ export default () => {
               { value: '2', label: '策略二' },
             ]}
           />
-        </StepsFrom.StepFrom>
-      </StepsFrom>
+        </StepsForm.StepForm>
+      </StepsForm>
     </>
   );
 };

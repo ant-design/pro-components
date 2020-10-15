@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useCallback } from 'react';
+import React, { useContext, useEffect, useRef, useCallback, useState } from 'react';
 import { FormInstance, FormItemProps, FormProps } from 'antd/lib/form';
 import { Form, ConfigProvider } from 'antd';
 import { useIntl, IntlType } from '@ant-design/pro-provider';
@@ -11,6 +11,7 @@ import ProForm, {
 import classNames from 'classnames';
 import { ProFieldValueType } from '@ant-design/pro-field';
 import warningOnce from 'rc-util/lib/warning';
+import omit from 'omit.js';
 
 import {
   useDeepCompareEffect,
@@ -27,6 +28,61 @@ import './index.less';
 
 export type SearchConfig = BaseQueryFilterProps & {
   filterType?: 'query' | 'light';
+};
+
+/**
+ *  获取当前选择的 Form Layout 配置
+ * @param isForm
+ * @param searchConfig
+ * @returns LightFilter | QueryFilter | ProForm
+ */
+const getFormCompetent = (isForm: boolean, searchConfig?: SearchConfig | false) => {
+  if (!isForm && searchConfig !== false) {
+    if (searchConfig?.filterType === 'light') {
+      return {
+        Competent: LightFilter,
+        competentName: 'light-filter',
+      };
+    }
+    return {
+      Competent: QueryFilter,
+      competentName: 'query-filter',
+    };
+  }
+  return {
+    Competent: ProForm,
+    competentName: 'form',
+  };
+};
+
+/**
+ * 获取需要传给相应表单的props
+ * @param searchConfig
+ * @param name
+ */
+const getFromProps = (isForm: boolean, searchConfig: any, name: string) => {
+  if (!isForm && name === 'light-filter') {
+    // 传给 lightFilter 的问题
+    return omit(
+      {
+        ...searchConfig,
+      },
+      ['labelWidth', 'defaultCollapsed', 'filterType'],
+    );
+  }
+
+  if (!isForm) {
+    // 传给 QueryFilter 的配置
+    return omit(
+      {
+        labelWidth: searchConfig ? searchConfig?.labelWidth : undefined,
+        defaultCollapsed: true,
+        ...searchConfig,
+      },
+      ['filterType'],
+    );
+  }
+  return {};
 };
 
 export interface TableFormItem<T> extends Omit<FormItemProps, 'children' | 'onReset'> {
@@ -50,7 +106,7 @@ export const formInputRender: React.FC<{
   onSelect?: (value: any) => void;
   [key: string]: any;
 }> = (props, ref: any) => {
-  const { item, intl, form, type, formItemProps, ...rest } = props;
+  const { item, intl, form, type, ...rest } = props;
   const { valueType: itemValueType = 'text' } = item;
   // if function， run it
   const valueType =
@@ -97,6 +153,12 @@ export const formInputRender: React.FC<{
         ref={ref}
         initialValue={item.initialValue}
         name={item.key || item.dataIndex}
+        fieldProps={{
+          style: {
+            width: undefined,
+          },
+          ...rest.fieldProps,
+        }}
       >
         {React.cloneElement(dom, { ...rest, ...defaultProps })}
       </ProFormField>
@@ -118,7 +180,12 @@ export const formInputRender: React.FC<{
       valueEnum={item.valueEnum}
       name={item.key || item.dataIndex}
       onChange={onChange}
-      fieldProps={restFieldProps || item.formItemProps}
+      fieldProps={{
+        style: {
+          width: undefined,
+        },
+        ...restFieldProps,
+      }}
       // valueType = textarea，但是在 查询表单这里，应该是个 input 框
       valueType={finalValueType}
       initialValue={item.initialValue}
@@ -155,6 +222,7 @@ export const proFormItemRender: (props: {
     ellipsis,
     index,
     filters,
+    request,
     ...rest
   } = item;
 
@@ -171,6 +239,7 @@ export const proFormItemRender: (props: {
     intl,
     form: formInstance,
     label: getTitle(),
+    request,
     ...formItemProps,
   });
   if (!dom) {
@@ -215,12 +284,7 @@ const FormSearch = <T, U = any>({
     [key: string]: SearchTransformKeyFn;
   }>({});
 
-  // 这么做是为了在用户修改了输入的时候触发一下子节点的render
-  const [, updateState] = React.useState();
-  const forceUpdate = useCallback(() => updateState(undefined), []);
-
   const isForm = type === 'form';
-
   /**
    *提交表单，根据两种模式不同，方法不相同
    */
@@ -332,43 +396,46 @@ const FormSearch = <T, U = any>({
       return 0;
     });
 
-  const domList = columnsList
-    .map((item, index) =>
-      proFormItemRender({
-        isForm,
-        formInstance: formInstanceRef.current,
-        item: {
-          key: item.dataIndex?.toString() || index,
-          index,
-          ...item,
-        },
-        type,
-        intl,
-      }),
-    )
-    .filter((item) => !!item);
+  const [domList, setDomList] = useState<JSX.Element[]>([]);
+  const columnsListRef = useRef(domList);
+
+  const updateDomList = useCallback((list: ProColumns<any>[]) => {
+    const newFormItemList = list
+      .map((item, index) =>
+        proFormItemRender({
+          isForm,
+          formInstance: formInstanceRef.current,
+          item: {
+            key: item.dataIndex?.toString() || index,
+            index,
+            ...item,
+          },
+          type,
+          intl,
+        }),
+      )
+      .filter((item) => !!item) as JSX.Element[];
+    columnsListRef.current = newFormItemList;
+    setDomList(newFormItemList);
+  }, []);
+
+  useDeepCompareEffect(() => {
+    if (columnsList.length < 1) return;
+    // 如果上次没有生成dom，这次生成了，需要重新计算一次
+    // 如果不这样做，可以会导致render 次数减少
+    // 选 1000 是为了状态更新有效
+    if (columnsListRef.current.length < 1) {
+      setTimeout(() => {
+        updateDomList(columnsList);
+      }, 1000);
+    }
+    updateDomList(columnsList);
+  }, [columnsList]);
 
   const className = getPrefixCls('pro-table-search');
   const formClassName = getPrefixCls('pro-table-form');
-  let FormCompetent;
-  let isLight: boolean = false;
-  if (!isForm && searchConfig !== false) {
-    if (searchConfig && searchConfig.filterType === 'light') {
-      FormCompetent = LightFilter;
-      isLight = true;
-    } else {
-      FormCompetent = QueryFilter;
-    }
-  } else {
-    FormCompetent = ProForm;
-  }
 
-  // 传给 QueryFilter 的配置
-  const queryFilterProps = {
-    labelWidth: searchConfig ? searchConfig?.labelWidth : undefined,
-    defaultCollapsed: true,
-    ...searchConfig,
-  };
+  const { Competent, competentName } = getFormCompetent(isForm, searchConfig);
 
   // 传给每个表单的配置，理论上大家都需要
   const loadingProps: any = {
@@ -378,20 +445,21 @@ const FormSearch = <T, U = any>({
       },
     },
   };
+
   return (
     <div
       className={classNames(className, {
         [formClassName]: isForm,
-        [getPrefixCls('pro-table-search-light')]: isLight,
+        [getPrefixCls(`pro-table-search-${competentName}`)]: true,
       })}
     >
-      <FormCompetent
+      <Competent
         {...loadingProps}
-        {...(!isForm ? queryFilterProps : {})}
+        {...getFromProps(isForm, searchConfig, competentName)}
         {...formConfig}
         form={form}
         onValuesChange={(change, all) => {
-          forceUpdate();
+          updateDomList(columnsList);
           if (formConfig.onValuesChange) {
             formConfig.onValuesChange(change, all);
           }
@@ -408,7 +476,7 @@ const FormSearch = <T, U = any>({
         initialValues={formConfig.initialValues}
       >
         {domList}
-      </FormCompetent>
+      </Competent>
     </div>
   );
 };
