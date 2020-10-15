@@ -1,4 +1,4 @@
-﻿import React, { useContext, useState } from 'react';
+﻿import React, { useContext } from 'react';
 import { Modal, ConfigProvider } from 'antd';
 import { FormProps } from 'antd/lib/form';
 import { ModalProps } from 'antd/lib/modal';
@@ -52,8 +52,6 @@ const ModalForm: React.FC<ModalFormProps> = ({
   });
   const context = useContext(ConfigProvider.ConfigContext);
 
-  const [loading, setLoading] = useState(false);
-
   return (
     <>
       <BaseForm
@@ -63,12 +61,10 @@ const ModalForm: React.FC<ModalFormProps> = ({
           if (!onFinish) {
             return;
           }
-          setLoading(true);
           const success = await onFinish(values);
           if (success) {
             setVisible(false);
           }
-          setLoading(false);
         }}
         submitter={{
           searchConfig: {
@@ -76,7 +72,6 @@ const ModalForm: React.FC<ModalFormProps> = ({
             resetText: modalProps?.cancelText || context.locale?.Modal?.cancelText || '取消',
           },
           submitButtonProps: {
-            loading,
             type: modalProps?.okType as 'text',
           },
           resetButtonProps: {

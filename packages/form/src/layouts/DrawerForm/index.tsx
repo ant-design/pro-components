@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+﻿import React from 'react';
 import { Drawer } from 'antd';
 import { FormProps } from 'antd/lib/form';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -49,7 +49,6 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
     value: rest.visible,
     onChange: onVisibleChange,
   });
-  const [loading, setLoading] = useState(false);
   return (
     <>
       <BaseForm
@@ -63,21 +62,16 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
           resetButtonProps: {
             onClick: () => setVisible(false),
           },
-          submitButtonProps: {
-            loading,
-          },
           ...rest.submitter,
         }}
         onFinish={async (values) => {
           if (!onFinish) {
             return;
           }
-          setLoading(true);
           const success = await onFinish(values);
           if (success) {
             setVisible(false);
           }
-          setLoading(false);
         }}
         contentRender={(item, submitter) => {
           return (
