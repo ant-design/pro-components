@@ -121,7 +121,7 @@ export type BaseQueryFilterProps = Omit<ActionsProps, 'submitter' | 'setCollapse
     | false;
 };
 
-export type QueryFilterProps = FormProps &
+export type QueryFilterProps = Omit<FormProps, 'onFinish'> &
   CommonFormProps &
   BaseQueryFilterProps & {
     onReset?: () => void;
