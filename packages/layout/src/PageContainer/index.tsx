@@ -146,7 +146,10 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
   return (
     <div style={style} className={className}>
       {fixedHeader ? (
-        <Affix offsetTop={value.hasHeader ? value.headerHeight : 0}>{headerDom}</Affix>
+        // 在 hasHeader 且 fixedHeader 的情况下，才需要设置高度
+        <Affix offsetTop={value.hasHeader && value.fixedHeader ? value.headerHeight : 0}>
+          {headerDom}
+        </Affix>
       ) : (
         headerDom
       )}
