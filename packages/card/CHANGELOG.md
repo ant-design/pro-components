@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.2.3...@ant-design/pro-card@1.3.0) (2020-10-15)
+
+### Features
+
+- add group-collapsible ([9c18510](https://github.com/ant-design/pro-components/commit/9c185104374bbf5d8be31f95588ad7e4659914c2))
+
 ## [1.2.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.2.2...@ant-design/pro-card@1.2.3) (2020-10-12)
 
 ### Bug Fixes

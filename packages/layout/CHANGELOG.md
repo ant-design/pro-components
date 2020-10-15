@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.5.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.5.1...@ant-design/pro-layout@6.5.2) (2020-10-15)
+
+### Bug Fixes
+
+- **layout:** fixedHeader=false, offsetTop should is 0 ([#737](https://github.com/ant-design/pro-components/issues/737)) ([af2cb90](https://github.com/ant-design/pro-components/commit/af2cb908ed2a5affd8b6aae01fab90222cdea486))
+
 ## [6.5.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.5.0...@ant-design/pro-layout@6.5.1) (2020-10-12)
 
 **Note:** Version bump only for package @ant-design/pro-layout
