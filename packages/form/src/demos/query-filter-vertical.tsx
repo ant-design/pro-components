@@ -9,7 +9,7 @@ import {
 
 export default () => {
   return (
-    <QueryFilter layout="vertical" onFinish={console.log}>
+    <QueryFilter layout="vertical">
       <ProFormText name="name" label="这是一个超级超级长的名称" />
       <ProFormDatePicker name="birth" label="创建时间" />
       <ProFormText name="sex" label="应用状态" />

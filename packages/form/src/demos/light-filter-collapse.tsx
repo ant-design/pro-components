@@ -10,7 +10,7 @@ export default () => {
       }}
       collapse
       collapseLabel={<FilterOutlined />}
-      onFinish={(values) => console.log(values)}
+      onFinish={async (values) => console.log(values)}
     >
       <ProFormSelect
         name="sex"

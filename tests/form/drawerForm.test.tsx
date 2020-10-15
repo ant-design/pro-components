@@ -86,4 +86,48 @@ describe('DrawerForm', () => {
 
     expect(fn).toBeCalledWith(false);
   });
+
+  it('📦 form onFinish return true should close modal', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <DrawerForm
+        visible
+        trigger={<Button id="new">新建</Button>}
+        onVisibleChange={(visible) => fn(visible)}
+        onFinish={async () => true}
+      >
+        <ProFormText name="name" />
+      </DrawerForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('button.ant-btn-primary').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    expect(fn).toBeCalledWith(false);
+  });
+
+  it('📦 form onFinish is null, no close modal', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <DrawerForm
+        visible
+        trigger={<Button id="new">新建</Button>}
+        onVisibleChange={(visible) => fn(visible)}
+      >
+        <ProFormText name="name" />
+      </DrawerForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('button.ant-btn-primary').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper);
+    expect(fn).toBeCalledTimes(0);
+  });
 });

@@ -1,4 +1,4 @@
-import React, { ReactElement, useRef, useEffect, useContext } from 'react';
+import React, { ReactElement, useRef, useEffect, useContext, useState } from 'react';
 import { Form } from 'antd';
 import { FormProps, FormInstance } from 'antd/lib/form/Form';
 import { FormItemProps } from 'antd/lib/form';
@@ -7,6 +7,7 @@ import { ConfigProviderWrap } from '@ant-design/pro-provider';
 import { conversionSubmitValue, pickProFormItemProps } from '@ant-design/pro-utils';
 import { ProFieldValueType } from '@ant-design/pro-field';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
+import { Store } from 'antd/lib/form/interface';
 import namePathSet from 'rc-util/lib/utils/set';
 import FieldContext from '../FieldContext';
 import Submitter, { SubmitterProps } from '../components/Submitter';
@@ -15,6 +16,12 @@ import { GroupProps, FieldProps, ProFormItemProps } from '../interface';
 
 export interface CommonFormProps {
   submitter?: Omit<SubmitterProps, 'form'> | false;
+
+  /**
+   * @name 表单结束后调用
+   * @description  支持异步操作，更加方便
+   */
+  onFinish?: (formData: Store) => Promise<boolean | void>;
 }
 
 export interface BaseFormProps extends FormProps, CommonFormProps {
@@ -26,6 +33,11 @@ export interface BaseFormProps extends FormProps, CommonFormProps {
   dateFormatter?: 'number' | 'string' | false;
   formItemProps?: FormItemProps;
   groupProps?: GroupProps;
+  /**
+   * @name 表单结束后调用
+   * @description  支持异步操作，更加方便
+   */
+  onFinish?: (formData: Store) => Promise<boolean | void>;
   formRef?: React.MutableRefObject<FormInstance | undefined>;
 }
 
@@ -193,13 +205,26 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
   const fieldsValueType = useRef<{
     [key: string]: ProFieldValueType;
   }>({});
+  const [loading, setLoading] = useState(false);
 
   const items = React.Children.toArray(children);
+
   const submitterProps: Omit<SubmitterProps, 'form'> =
     typeof submitter === 'boolean' || !submitter ? {} : submitter;
 
+  /**
+   * 渲染提交按钮与重置按钮
+   */
   const submitterNode =
-    submitter === false ? undefined : <Submitter {...submitterProps} form={userForm || form} />;
+    submitter === false ? undefined : (
+      <Submitter
+        submitButtonProps={{
+          loading,
+        }}
+        {...submitterProps}
+        form={userForm || form}
+      />
+    );
 
   const content = contentRender ? contentRender(items, submitterNode) : items;
 
@@ -224,11 +249,13 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
           <Form
             form={userForm || form}
             {...rest}
-            onFinish={(values) => {
+            onFinish={async (values) => {
               if (rest.onFinish) {
-                rest.onFinish(
+                setLoading(true);
+                await rest.onFinish(
                   conversionSubmitValue(values, dateFormatter, fieldsValueType.current),
                 );
+                setLoading(false);
               }
             }}
           >

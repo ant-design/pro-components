@@ -4,9 +4,10 @@ import { FormProps, FormInstance } from 'antd/lib/form/Form';
 import BaseForm, { CommonFormProps } from '../../BaseForm';
 import { StepsFormProvide } from './index';
 
-export interface StepFormProps<T = any> extends FormProps, Omit<CommonFormProps, 'submitter'> {
+export interface StepFormProps
+  extends Omit<FormProps, 'onFinish'>,
+    Omit<CommonFormProps, 'submitter'> {
   step?: number;
-  onFinish?: (values: T) => Promise<boolean>;
 }
 
 const StepForm: React.FC<StepFormProps> = ({ onFinish, step, ...restProps }) => {
