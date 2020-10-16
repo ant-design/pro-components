@@ -1,11 +1,10 @@
 import React, { useContext } from 'react';
-import { Tooltip, Space, Input, Divider, Tabs } from 'antd';
+import { Tooltip, Space, Input, Divider, ConfigProvider, Tabs } from 'antd';
 import { useIntl } from '@ant-design/pro-provider';
 import { TooltipProps } from 'antd/lib/tooltip';
 import { TabPaneProps } from 'antd/lib/tabs';
 import classNames from 'classnames';
 import { SearchProps } from 'antd/es/input';
-import { ConfigContext } from 'antd/lib/config-provider';
 import { LabelIconTip } from '@ant-design/pro-utils';
 import HeaderMenu, { ListToolBarHeaderMenuProps } from './HeaderMenu';
 
@@ -164,7 +163,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
     return null;
   };
 
-  const { getPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-table-list-toolbar', customizePrefixCls);
   const hasDivider = settings.length > 0 && (actions.length || search);
 

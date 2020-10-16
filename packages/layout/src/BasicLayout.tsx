@@ -2,7 +2,7 @@ import './BasicLayout.less';
 
 import React, { CSSProperties, useContext, useEffect, useState } from 'react';
 import { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/lib/breadcrumb';
-import { Layout } from 'antd';
+import { Layout, ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import warning from 'warning';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -226,11 +226,12 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     disableContentMargin,
     siderWidth,
     menu,
-    prefixCls,
     isChildrenLayout: propsIsChildrenLayout,
     menuDataRender,
     loading,
   } = props;
+  const context = useContext(ConfigProvider.ConfigContext);
+  const prefixCls = props.prefixCls ?? context.getPrefixCls('pro');
 
   const formatMessage = ({
     id,
@@ -324,6 +325,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   // Splicing parameters, adding menuData and formatMessage in props
   const defaultProps = Omit(
     {
+      prefixCls,
       ...props,
       ...currentMenuLayoutProps,
       formatMessage,
@@ -486,8 +488,8 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
 BasicLayout.defaultProps = {
   logo: 'https://gw.alipayobjects.com/zos/antfincdn/PmY%24TNNDBI/logo.svg',
   ...defaultSettings,
-  prefixCls: 'ant-pro',
   siderWidth: 208,
   location: isBrowser() ? window.location : undefined,
 };
+
 export default BasicLayout;

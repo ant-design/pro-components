@@ -1,4 +1,4 @@
-import { PageHeader, Tabs, Affix } from 'antd';
+import { PageHeader, Tabs, Affix, ConfigProvider } from 'antd';
 import React, { useContext, ReactNode } from 'react';
 import classNames from 'classnames';
 import { TabsProps, TabPaneProps } from 'antd/lib/tabs';
@@ -141,8 +141,12 @@ const defaultPageHeaderRender = (
 };
 
 const PageContainer: React.FC<PageContainerProps> = (props) => {
-  const { children, style, footer, affixProps, ghost, fixedHeader, prefixCls = 'ant-pro' } = props;
+  const { children, style, footer, affixProps, ghost, fixedHeader } = props;
   const value = useContext(RouteContext);
+
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const prefixCls = props.prefixCls || getPrefixCls('pro');
+
   const prefixedClassName = `${prefixCls}-page-container`;
 
   const className = classNames(prefixedClassName, props.className, {
@@ -187,7 +191,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
           </div>
         ) : null}
       </GridContent>
-      {footer && <FooterToolbar>{footer}</FooterToolbar>}
+      {footer && <FooterToolbar prefixCls={prefixCls}>{footer}</FooterToolbar>}
     </div>
   );
 };
