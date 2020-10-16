@@ -355,6 +355,8 @@ describe('LightFilter', () => {
       </LightFilter>,
     );
 
+    expect(wrapper.find('.collapselabel').text()).toEqual('open');
+    expect(wrapper.find('.ant-pro-form-light-filter-effective').length).toEqual(1);
     wrapper.find('.collapselabel').simulate('click');
     expect(wrapper.find('.ant-select-selection-item').text()).toEqual('蚂蚁');
 
@@ -363,6 +365,7 @@ describe('LightFilter', () => {
     wrapper.find('.ant-btn-primary').simulate('click');
 
     expect(onChange).toHaveBeenCalledWith(undefined);
+    expect(wrapper.find('.ant-pro-form-light-filter-effective').length).toEqual(0);
 
     wrapper.unmount();
   });

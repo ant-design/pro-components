@@ -5694,7 +5694,7 @@ exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly
     class="ant-form ant-form-horizontal ant-form-middle"
   >
     <div
-      class="ant-pro-form-light-filter ant-pro-form-light-filter-middle"
+      class="ant-pro-form-light-filter ant-pro-form-light-filter-middle ant-pro-form-light-filter-effective"
     >
       <div
         class="ant-pro-form-light-filter-container"
@@ -6595,7 +6595,7 @@ exports[`form demos renders ./packages/form/src/demos/light-filter-bordered.tsx 
   class="ant-form ant-form-horizontal"
 >
   <div
-    class="ant-pro-form-light-filter ant-pro-form-light-filter-undefined"
+    class="ant-pro-form-light-filter ant-pro-form-light-filter-middle ant-pro-form-light-filter-effective"
   >
     <div
       class="ant-pro-form-light-filter-container"
@@ -6965,7 +6965,7 @@ exports[`form demos renders ./packages/form/src/demos/light-filter-collapse.tsx 
   class="ant-form ant-form-horizontal"
 >
   <div
-    class="ant-pro-form-light-filter ant-pro-form-light-filter-undefined"
+    class="ant-pro-form-light-filter ant-pro-form-light-filter-middle ant-pro-form-light-filter-effective"
   >
     <div
       class="ant-pro-form-light-filter-container"
@@ -6978,7 +6978,7 @@ exports[`form demos renders ./packages/form/src/demos/light-filter-collapse.tsx 
         >
           <span
             aria-label="filter"
-            class="anticon anticon-filter"
+            class="anticon anticon-filter ant-pro-form-light-filter-collapse-icon"
             role="img"
           >
             <svg
