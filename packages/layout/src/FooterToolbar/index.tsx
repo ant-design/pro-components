@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useMemo, ReactNode } from 'react';
+import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
+import omit from 'omit.js';
 
 import './index.less';
 import { RouteContext, RouteContextType } from '../index';
@@ -15,16 +17,10 @@ export interface FooterToolbarProps {
   prefixCls?: string;
 }
 const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
-  const {
-    children,
-    prefixCls = 'ant-pro',
-    className,
-    extra,
-    style,
-    renderContent,
-    ...restProps
-  } = props;
+  const { children, className, extra, style, renderContent, ...restProps } = props;
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
+  const prefixCls = props.prefixCls || getPrefixCls('pro');
   const baseClassName = `${prefixCls}-footer-bar`;
   const value = useContext(RouteContext);
   const width = useMemo(() => {
@@ -66,7 +62,7 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
     <div
       className={classNames(className, `${baseClassName}`)}
       style={{ width, ...style }}
-      {...restProps}
+      {...omit(restProps, ['prefixCls'])}
     >
       {renderContent
         ? renderContent(
