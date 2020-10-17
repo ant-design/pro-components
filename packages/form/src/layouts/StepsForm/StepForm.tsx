@@ -37,7 +37,9 @@ const StepForm: React.FC<StepFormProps> = ({ onFinish, step, ...restProps }) => 
           context?.onFormFinish(restProps.name, values);
         }
         if (onFinish) {
-          context?.setLoading(true);
+          context?.setLoading({
+            delay: 100,
+          });
           // 如果报错，直接抛出
           const success = await onFinish?.(values);
           if (success) {
