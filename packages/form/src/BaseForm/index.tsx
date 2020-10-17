@@ -9,6 +9,7 @@ import { ProFieldValueType } from '@ant-design/pro-field';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
 import { Store } from 'antd/lib/form/interface';
 import namePathSet from 'rc-util/lib/utils/set';
+import { ButtonProps } from 'antd/lib/button';
 import FieldContext from '../FieldContext';
 import Submitter, { SubmitterProps } from '../components/Submitter';
 import LightWrapper from './LightWrapper';
@@ -205,7 +206,7 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
   const fieldsValueType = useRef<{
     [key: string]: ProFieldValueType;
   }>({});
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<ButtonProps['loading']>(false);
 
   const items = React.Children.toArray(children);
 
@@ -250,13 +251,16 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
             form={userForm || form}
             {...rest}
             onFinish={async (values) => {
-              if (rest.onFinish) {
-                setLoading(true);
-                await rest.onFinish(
-                  conversionSubmitValue(values, dateFormatter, fieldsValueType.current),
-                );
-                setLoading(false);
+              if (!rest.onFinish) {
+                return;
               }
+              setLoading({
+                delay: 100,
+              });
+              await rest.onFinish(
+                conversionSubmitValue(values, dateFormatter, fieldsValueType.current),
+              );
+              setLoading(false);
             }}
           >
             <Form.Item noStyle shouldUpdate>
