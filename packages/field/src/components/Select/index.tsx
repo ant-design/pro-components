@@ -14,6 +14,7 @@ import {
 } from '@ant-design/pro-utils';
 import { useIntl } from '@ant-design/pro-provider';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
+import { SelectProps } from 'antd/lib/select';
 
 import LightSelect from './LightSelect';
 import TableStatus, { ProFieldBadgeColor, ProFieldStatusType } from '../Status';
@@ -172,31 +173,32 @@ export type FieldSelectProps = {
    * 重新触发的时机
    */
   params?: any;
+
+  /**
+   * 组件的全局设置
+   */
+  fieldProps: SelectProps<any>;
 };
 
 const useFetchData = (
   props: FieldSelectProps,
-): [
-  boolean,
-  {
-    label: React.ReactNode;
-    value: React.ReactText;
-  }[],
-  () => void,
-] => {
-  const [options, setOptions] = useState<
-    {
-      label: React.ReactNode;
-      value: React.ReactText;
-    }[]
-  >(() =>
-    proFieldParsingValueEnumToArray(ObjToMap(props.valueEnum)).map(({ value, text }) => ({
-      label: text,
-      value,
-    })),
-  );
+): [boolean, SelectProps<any>['options'], () => void] => {
+  const [options, setOptions] = useState<SelectProps<any>['options']>(() => {
+    if (props.valueEnum) {
+      return proFieldParsingValueEnumToArray(ObjToMap(props.valueEnum)).map(({ value, text }) => ({
+        label: text,
+        value,
+      }));
+    }
+    if (props.fieldProps?.options) {
+      return props.fieldProps?.options || [];
+    }
+    return [];
+  });
 
   useDeepCompareEffect(() => {
+    // 优先使用 fieldProps?.options
+    if (!props.valueEnum || props.fieldProps?.options) return;
     setOptions(
       proFieldParsingValueEnumToArray(ObjToMap(props.valueEnum)).map(
         ({ value, text, ...rest }) => ({
@@ -256,12 +258,10 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
     if (loading) {
       return <Spin />;
     }
-    const optionsValueEnum = props.request
-      ? options.reduce((pre: any, cur) => {
-          return { ...pre, [cur.value]: cur.label };
-        }, {})
-      : undefined;
-    const dom = <>{proFieldParsingText(rest.text, ObjToMap(optionsValueEnum || valueEnum))}</>;
+    const optionsValueEnum = options?.reduce((pre: any, cur) => {
+      return { ...pre, [cur.value]: cur.label };
+    }, {});
+    const dom = <>{proFieldParsingText(rest.text, ObjToMap(valueEnum || optionsValueEnum))}</>;
 
     if (render) {
       return render(rest.text, { mode, ...fieldProps }, dom) || null;

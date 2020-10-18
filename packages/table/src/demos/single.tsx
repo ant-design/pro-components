@@ -105,6 +105,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
         status: 'Processing',
       },
     },
+
     width: '10%',
   },
   {

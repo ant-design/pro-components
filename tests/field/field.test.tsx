@@ -44,6 +44,25 @@ describe('Field', () => {
     expect(html.text()).toBe('关闭');
   });
 
+  it('🐴 render select form option', async () => {
+    const html = render(
+      <Field
+        text="default"
+        valueType="select"
+        mode="read"
+        fieldProps={{
+          options: [
+            { label: '关闭', value: 'default' },
+            { label: '运行中', value: 'processing' },
+            { label: '已上线', value: 'success' },
+            { label: '异常', value: 'error' },
+          ],
+        }}
+      />,
+    );
+    expect(html.text()).toBe('关闭');
+  });
+
   it('🐴 edit ant no plain', async () => {
     const html = render(<Demo plain={false} state="edit" />);
     expect(html).toMatchSnapshot();
