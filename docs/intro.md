@@ -119,7 +119,7 @@ dataSource 用于存储从服务器请求的数据，为了优化体验，我们
 
 ProComponents 基于 antd 之上来开发，为了与 antd 的生态保持兼容性，我们要求覆盖 antd 的样式必须要使用 `.@{ant-prefix}` 变量来生成类名，在 js 中使用如下代码来配置实现。
 
-```tsx
+```tsx | pure
 const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 const prefixCls = getPrefixCls('pro-${包名}');
 ```
