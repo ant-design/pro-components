@@ -45,12 +45,6 @@ export const proFieldParsingText = (
   text: string | number,
   valueEnumParams?: ProFieldValueEnumType,
 ) => {
-  if (text === undefined || text === null) {
-    return null;
-  }
-  if (!valueEnumParams) {
-    return text;
-  }
   const valueEnum = ObjToMap(valueEnumParams);
 
   if (!valueEnum) {
