@@ -1,5 +1,5 @@
 import { render, mount } from 'enzyme';
-import { Button } from 'antd';
+import { Button, Input } from 'antd';
 import React from 'react';
 import moment from 'moment';
 import { act } from 'react-test-renderer';
@@ -63,7 +63,61 @@ describe('Field', () => {
     expect(html.text()).toBe('关闭');
   });
 
-  it('🐴 edit ant no plain', async () => {
+  it('🐴 select support render function', async () => {
+    const html = render(
+      <Field
+        text="default"
+        valueType="select"
+        mode="read"
+        render={(text, _, dom) => <>pre{dom}</>}
+        valueEnum={{
+          default: { text: '关闭', status: 'Default' },
+          processing: { text: '运行中', status: 'Processing' },
+          success: { text: '已上线', status: 'Success' },
+          error: { text: '异常', status: 'Error' },
+        }}
+      />,
+    );
+    expect(html.text()).toBe('pre关闭');
+  });
+
+  it('🐴 select support render function', async () => {
+    const html = mount(
+      <Field
+        text="default"
+        valueType="select"
+        mode="edit"
+        renderFormItem={() => <Input id="select" />}
+        valueEnum={{
+          0: { text: '关闭', status: 'Default' },
+          1: { text: '运行中', status: 'Processing' },
+          2: { text: '已上线', status: 'Success' },
+          3: { text: '异常', status: 'Error' },
+        }}
+      />,
+    );
+    expect(html.find('#select').exists()).toBeTruthy();
+  });
+
+  it('🐴 select mode=null', async () => {
+    const html = mount(
+      <Field
+        text="default"
+        valueType="select"
+        // @ts-expect-error
+        mode="test"
+        valueEnum={{
+          0: { text: '关闭', status: 'Default' },
+          1: { text: '运行中', status: 'Processing' },
+          2: { text: '已上线', status: 'Success' },
+          3: { text: '异常', status: 'Error' },
+        }}
+      />,
+    );
+    expect(html.text()).toBeFalsy();
+  });
+
+  it('🐴 edit and no plain', async () => {
     const html = render(<Demo plain={false} state="edit" />);
     expect(html).toMatchSnapshot();
   });
