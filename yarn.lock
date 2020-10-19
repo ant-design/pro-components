@@ -4660,10 +4660,10 @@
     umi-webpack-bundle-analyzer "3.6.0"
     zlib "1.0.5"
 
-"@umijs/preset-dumi@1.1.0-beta.24":
-  version "1.1.0-beta.24"
-  resolved "https://registry.npm.taobao.org/@umijs/preset-dumi/download/@umijs/preset-dumi-1.1.0-beta.24.tgz#232f72f5191954b4042744d2759b3530b1c2e92e"
-  integrity sha1-Iy9y9RkZVLQEJ0TSdZs1MLHC6S4=
+"@umijs/preset-dumi@1.1.0-beta.23":
+  version "1.1.0-beta.23"
+  resolved "https://registry.npm.taobao.org/@umijs/preset-dumi/download/@umijs/preset-dumi-1.1.0-beta.23.tgz#18f0c4c522bc34f770a5083998c3e9f1ccaa62ad"
+  integrity sha1-GPDExSK8NPdwpQg5mMPp8cyqYq0=
   dependencies:
     "@babel/core" "^7.7.2"
     "@babel/generator" "^7.7.2"
@@ -4677,7 +4677,7 @@
     "@umijs/types" "3.x"
     copy-text-to-clipboard "^2.2.0"
     deepmerge "^4.2.2"
-    dumi-theme-default "1.0.0-beta.10"
+    dumi-theme-default "1.0.0-beta.9"
     enhanced-resolve "^4.1.1"
     github-slugger "^1.3.0"
     hast-util-raw "^6.0.0"
@@ -8499,20 +8499,20 @@ draft-js@^0.10.0, draft-js@~0.10.0:
     immutable "~3.7.4"
     object-assign "^4.1.0"
 
-dumi-theme-default@1.0.0-beta.10:
-  version "1.0.0-beta.10"
-  resolved "https://registry.npm.taobao.org/dumi-theme-default/download/dumi-theme-default-1.0.0-beta.10.tgz#6bcaba69d8aa0430b3b28bdc9050a89f499b1463"
-  integrity sha1-a8q6adiqBDCzsovckFCon0mbFGM=
+dumi-theme-default@1.0.0-beta.9:
+  version "1.0.0-beta.9"
+  resolved "https://registry.npm.taobao.org/dumi-theme-default/download/dumi-theme-default-1.0.0-beta.9.tgz#a677a10a21531701cc282254f866285a6885cf54"
+  integrity sha1-pnehCiFTFwHMKCJU+GYoWmiFz1Q=
   dependencies:
     prism-react-renderer "^1.1.1"
     prismjs "^1.21.0"
 
-dumi@^1.1.0-beta.24:
-  version "1.1.0-beta.25"
-  resolved "https://registry.npm.taobao.org/dumi/download/dumi-1.1.0-beta.25.tgz#a8949b7724d7bebc3f756fad662aed4bf7535538"
-  integrity sha1-qJSbdyTXvrw/dW+tZirtS/dTVTg=
+dumi@1.1.0-beta.24:
+  version "1.1.0-beta.24"
+  resolved "https://registry.npm.taobao.org/dumi/download/dumi-1.1.0-beta.24.tgz#0df65e256e7a1afc054e2dcdbd44b1bd957bed85"
+  integrity sha1-DfZeJW56GvwFTi3NvUSxvZV77YU=
   dependencies:
-    "@umijs/preset-dumi" "1.1.0-beta.24"
+    "@umijs/preset-dumi" "1.1.0-beta.23"
     umi "^3.0.0"
 
 duplexer3@^0.1.4:
