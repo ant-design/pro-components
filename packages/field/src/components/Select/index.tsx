@@ -115,9 +115,6 @@ export const proFieldParsingValueEnumToArray = (
   }
 
   valueEnum.forEach((_, key) => {
-    if (!valueEnum.has(key) && !valueEnum.has(`${key}`)) {
-      return;
-    }
     const value = (valueEnum.get(key) || valueEnum.get(`${key}`)) as {
       text: string;
       disabled?: boolean;
