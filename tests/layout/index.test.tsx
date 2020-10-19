@@ -642,4 +642,42 @@ describe('BasicLayout', () => {
       wrapper.find('.ant-design-pro').props().className?.includes('ant-pro-basicLayout-top'),
     ).toBeTruthy();
   });
+
+  it('🥩 mix layout hideInMenu render right', async () => {
+    const wrapper = mount(
+      <BasicLayout
+        menuDataRender={() => [
+          {
+            path: '/welcome',
+            name: '欢迎',
+            hideInMenu: true,
+          },
+          {
+            path: '/admin',
+            name: '管理页',
+            routes: [
+              {
+                path: '/admin/sub-page1',
+                name: '一级页面',
+              },
+              {
+                path: '/admin/sub-page2',
+                name: '二级页面',
+              },
+              {
+                path: '/admin/sub-page3',
+                name: '三级页面',
+              },
+            ],
+          },
+          {
+            name: '列表页',
+            path: '/list',
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(wrapper);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });

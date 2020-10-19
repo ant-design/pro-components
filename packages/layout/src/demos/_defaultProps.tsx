@@ -9,7 +9,6 @@ export default {
         path: '/welcome',
         name: '欢迎',
         icon: <SmileOutlined />,
-        // hideInMenu: true,
         component: './Welcome',
       },
       {
