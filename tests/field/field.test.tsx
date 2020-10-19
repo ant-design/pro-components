@@ -100,7 +100,7 @@ describe('Field', () => {
   });
 
   it('🐴 select mode=null', async () => {
-    const html = mount(
+    const html = render(
       <Field
         text="default"
         valueType="select"
@@ -115,6 +115,11 @@ describe('Field', () => {
       />,
     );
     expect(html.text()).toBeFalsy();
+  });
+
+  it('🐴 select valueEnum and request=null ', async () => {
+    const html = render(<Field text="default" valueType="select" mode="read" />);
+    expect(html.text()).toBe('default');
   });
 
   it('🐴 edit and no plain', async () => {

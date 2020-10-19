@@ -177,7 +177,7 @@ export type FieldSelectProps = {
   /**
    * 组件的全局设置
    */
-  fieldProps: SelectProps<any>;
+  fieldProps?: SelectProps<any>;
 };
 
 const useFetchData = (
