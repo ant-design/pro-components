@@ -117,7 +117,7 @@ exports[`table demos renders ./packages/table/src/demos/ListToolBar/basic.tsx co
             style="margin-top: 16px;"
           >
             <div
-              class="ant-pro-form-light-filter ant-pro-form-light-filter-undefined"
+              class="ant-pro-form-light-filter ant-pro-form-light-filter-middle"
             >
               <div
                 class="ant-pro-form-light-filter-container"
@@ -1105,7 +1105,7 @@ exports[`table demos renders ./packages/table/src/demos/ListToolBar/multipleLine
           style="margin-top: 8px;"
         >
           <div
-            class="ant-pro-form-light-filter ant-pro-form-light-filter-undefined"
+            class="ant-pro-form-light-filter ant-pro-form-light-filter-middle"
           >
             <div
               class="ant-pro-form-light-filter-container"
@@ -1275,7 +1275,7 @@ exports[`table demos renders ./packages/table/src/demos/ListToolBar/no-title.tsx
           style="margin-top: 16px;"
         >
           <div
-            class="ant-pro-form-light-filter ant-pro-form-light-filter-undefined"
+            class="ant-pro-form-light-filter ant-pro-form-light-filter-middle"
           >
             <div
               class="ant-pro-form-light-filter-container"
@@ -2011,7 +2011,7 @@ exports[`table demos renders ./packages/table/src/demos/ListToolBar/tabs.tsx cor
                 style="margin-top: 8px;"
               >
                 <div
-                  class="ant-pro-form-light-filter ant-pro-form-light-filter-undefined"
+                  class="ant-pro-form-light-filter ant-pro-form-light-filter-middle"
                 >
                   <div
                     class="ant-pro-form-light-filter-container"
@@ -6152,7 +6152,7 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
                   class="ant-form ant-form-horizontal"
                 >
                   <div
-                    class="ant-pro-form-light-filter ant-pro-form-light-filter-undefined"
+                    class="ant-pro-form-light-filter ant-pro-form-light-filter-middle"
                   >
                     <div
                       class="ant-pro-form-light-filter-container"
@@ -9003,7 +9003,7 @@ exports[`table demos renders ./packages/table/src/demos/listToolBar.tsx correctl
                     style="margin-top: 8px;"
                   >
                     <div
-                      class="ant-pro-form-light-filter ant-pro-form-light-filter-undefined"
+                      class="ant-pro-form-light-filter ant-pro-form-light-filter-middle"
                     >
                       <div
                         class="ant-pro-form-light-filter-container"
