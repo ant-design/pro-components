@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.0.4...@ant-design/pro-form@1.1.0) (2020-10-19)
+
+### Features
+
+- **form:** add effective style to LightFilter when collapse ([#746](https://github.com/ant-design/pro-components/issues/746)) ([af7eb93](https://github.com/ant-design/pro-components/commit/af7eb93285f13b4b8fb087186515421e5c9a7a35))
+
 ## [1.0.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.0.3...@ant-design/pro-form@1.0.4) (2020-10-15)
 
 **Note:** Version bump only for package @ant-design/pro-form
