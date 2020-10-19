@@ -122,6 +122,11 @@ describe('Field', () => {
     expect(html.text()).toBe('default');
   });
 
+  it('🐴 select valueEnum and request=null ', async () => {
+    const html = render(<Field text={null} valueType="select" mode="read" />);
+    expect(html.text()).toBe('-');
+  });
+
   it('🐴 edit and no plain', async () => {
     const html = render(<Demo plain={false} state="edit" />);
     expect(html).toMatchSnapshot();

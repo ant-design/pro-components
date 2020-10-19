@@ -258,9 +258,11 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
     if (loading) {
       return <Spin />;
     }
-    const optionsValueEnum = options?.reduce((pre: any, cur) => {
-      return { ...pre, [cur.value]: cur.label };
-    }, {});
+    const optionsValueEnum = options?.length
+      ? options?.reduce((pre: any, cur) => {
+          return { ...pre, [cur.value]: cur.label };
+        }, {})
+      : undefined;
     const dom = <>{proFieldParsingText(rest.text, ObjToMap(valueEnum || optionsValueEnum))}</>;
 
     if (render) {
