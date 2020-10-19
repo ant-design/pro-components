@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { Form, ConfigProvider } from 'antd';
 import { FieldDropdown, FieldLabel } from '@ant-design/pro-utils';
 import { useIntl } from '@ant-design/pro-provider';
+import { FilterOutlined } from '@ant-design/icons';
 import BaseForm, { CommonFormProps } from '../../BaseForm';
 import './index.less';
 
@@ -32,7 +33,7 @@ const LightFilterContainer: React.FC<{
   const {
     items,
     prefixCls,
-    size,
+    size = 'middle',
     collapse,
     collapseLabel,
     onValuesChange,
@@ -60,8 +61,28 @@ const LightFilterContainer: React.FC<{
     }
   });
 
+  const collapseLabelRender = () => {
+    if (collapseLabel) {
+      return collapseLabel;
+    }
+    if (collapse) {
+      return <FilterOutlined className={`${lightFilterClassName}-collapse-icon`} />;
+    }
+    return (
+      <FieldLabel
+        size={size}
+        label={intl.getMessage('form.lightFilter.more', '更多筛选')}
+        expanded={open}
+      />
+    );
+  };
+
   return (
-    <div className={classNames(lightFilterClassName, `${lightFilterClassName}-${size}`)}>
+    <div
+      className={classNames(lightFilterClassName, `${lightFilterClassName}-${size}`, {
+        [`${lightFilterClassName}-effective`]: Object.keys(values).some((key) => values[key]),
+      })}
+    >
       <div className={`${lightFilterClassName}-container`}>
         {outsideItems.map((child: any) => {
           const { key } = child;
@@ -85,15 +106,7 @@ const LightFilterContainer: React.FC<{
               padding={24}
               onVisibleChange={setOpen}
               visible={open}
-              label={
-                collapseLabel || (
-                  <FieldLabel
-                    size={size}
-                    label={intl.getMessage('form.lightFilter.more', '更多筛选')}
-                    expanded={open}
-                  />
-                )
-              }
+              label={collapseLabelRender()}
               footer={{
                 onConfirm: () => {
                   onValuesChange({

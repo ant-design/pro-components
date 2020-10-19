@@ -1099,7 +1099,7 @@ exports[`list demos renders ./packages/list/src/demos/filter.tsx correctly 1`] =
                   class="ant-form ant-form-horizontal"
                 >
                   <div
-                    class="ant-pro-form-light-filter ant-pro-form-light-filter-undefined"
+                    class="ant-pro-form-light-filter ant-pro-form-light-filter-middle"
                   >
                     <div
                       class="ant-pro-form-light-filter-container"
