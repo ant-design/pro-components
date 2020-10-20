@@ -82,6 +82,10 @@ export type ProCardProps = {
    */
   type?: 'inner';
   /**
+   * 指定 Flex 方向，仅在嵌套子卡片时有效
+   */
+  direction?: 'column';
+  /**
    * 加载中
    */
   loading?: boolean | ReactNode;
@@ -147,6 +151,7 @@ const ProCard: ProCardType = (props) => {
     bordered = false,
     children,
     ghost = false,
+    direction,
     collapsed: controlCollapsed,
     collapsible = false,
     defaultCollapsed = false,
@@ -287,7 +292,7 @@ const ProCard: ProCardType = (props) => {
 
   const bodyCls = classNames(`${prefixCls}-body`, {
     [`${prefixCls}-body-center`]: layout === 'center',
-    [`${prefixCls}-body-column`]: split === 'horizontal',
+    [`${prefixCls}-body-column`]: split === 'horizontal' || direction === 'column',
   });
 
   const loadingBlockStyle =

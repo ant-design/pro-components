@@ -4,14 +4,16 @@ import ProCard from '@ant-design/pro-card';
 export default () => {
   return (
     <>
-      <ProCard layout="center" bordered>
-        colSpan - 24
-      </ProCard>
-      <ProCard colSpan={12} layout="center" bordered style={{ marginTop: 8 }}>
-        colSpan - 12
-      </ProCard>
-      <ProCard colSpan={8} layout="center" bordered style={{ marginTop: 8 }}>
-        colSpan - 8
+      <ProCard direction="column" ghost>
+        <ProCard layout="center" bordered>
+          colSpan - 24
+        </ProCard>
+        <ProCard colSpan={12} layout="center" bordered style={{ marginTop: 8 }}>
+          colSpan - 12
+        </ProCard>
+        <ProCard colSpan={8} layout="center" bordered style={{ marginTop: 8 }}>
+          colSpan - 8
+        </ProCard>
       </ProCard>
       <ProCard style={{ marginTop: 8 }} gutter={8} title="24栅格">
         <ProCard colSpan={12} layout="center" bordered>
