@@ -36,7 +36,7 @@ export default () => {
           range: [20, 80],
         }}
         size={size}
-        onFinish={(values) => console.log(values)}
+        onFinish={async (values) => console.log(values)}
       >
         <ProFormSelect
           name="sex"

@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
-import { Button, Tag, Space } from 'antd';
+import { Button, Tag, Space, ConfigProvider } from 'antd';
 import ProTable, { ProColumns, TableDropdown, ActionType } from '@ant-design/pro-table';
 import request from 'umi-request';
 
@@ -105,7 +105,6 @@ const columns: ProColumns<GithubIssueItem>[] = [
         status: 'Processing',
       },
     },
-
     width: '10%',
   },
   {
@@ -158,28 +157,30 @@ export default () => {
   const actionRef = useRef<ActionType>();
 
   return (
-    <ProTable<GithubIssueItem>
-      columns={columns}
-      pagination={{
-        showQuickJumper: true,
-      }}
-      actionRef={actionRef}
-      request={async (params = {}) =>
-        request<{
-          data: GithubIssueItem[];
-        }>('https://proapi.azurewebsites.net/github/issues', {
-          params,
-        })
-      }
-      rowKey="id"
-      dateFormatter="string"
-      headerTitle="高级表格"
-      toolBarRender={() => [
-        <Button key="3" type="primary">
-          <PlusOutlined />
-          新建
-        </Button>,
-      ]}
-    />
+    <ConfigProvider prefixCls="qixian">
+      <ProTable<GithubIssueItem>
+        columns={columns}
+        pagination={{
+          showQuickJumper: true,
+        }}
+        actionRef={actionRef}
+        request={async (params = {}) =>
+          request<{
+            data: GithubIssueItem[];
+          }>('https://proapi.azurewebsites.net/github/issues', {
+            params,
+          })
+        }
+        rowKey="id"
+        dateFormatter="string"
+        headerTitle="高级表格"
+        toolBarRender={() => [
+          <Button key="3" type="primary">
+            <PlusOutlined />
+            新建
+          </Button>,
+        ]}
+      />
+    </ConfigProvider>
   );
 };

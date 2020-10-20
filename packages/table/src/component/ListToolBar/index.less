@@ -20,25 +20,20 @@
   &-title {
     color: @heading-color;
     font-size: @font-size-lg;
-    font-family: PingFangSC-Medium;
   }
 
   &-search:not(:last-child) {
     margin-right: @margin-md;
   }
 
-  &-setting-item {
+  &-setting-items {
     margin-left: @margin-md;
-    font-size: @font-size-lg;
-    cursor: pointer;
   }
 
-  &-divider {
-    margin-right: -@margin-xs;
-    margin-left: @margin-xs;
-    .@{ant-prefix}-divider-vertical {
-      height: @pro-list-toolbar-line-height / 2;
-    }
+  &-setting-item {
+    font-size: @font-size-lg;
+    color: fade(@black, 65%);
+    cursor: pointer;
   }
 
   &-left {

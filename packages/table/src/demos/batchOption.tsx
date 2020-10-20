@@ -143,7 +143,7 @@ export default () => {
       )}
       tableAlertOptionRender={() => {
         return (
-          <Space>
+          <Space size={16}>
             <a>批量删除</a>
             <a>导出数据</a>
           </Space>

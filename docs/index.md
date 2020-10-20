@@ -53,11 +53,3 @@ footer: Open-source MIT Licensed | Copyright © 2017-present
 | [![](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png)](http://godban.github.io/browsers-support-badges/)<br>IE / Edge | [![](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png)](http://godban.github.io/browsers-support-badges/)<br>Firefox | [![](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png)](http://godban.github.io/browsers-support-badges/)<br>Chrome | [![](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)](http://godban.github.io/browsers-support-badges/)<br>Safari | [![](https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png)](http://godban.github.io/browsers-support-badges/)<br>Electron |
 | --- | --- | --- | --- | --- |
 | IE11, Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
-
-## 参与贡献
-
-我们非常欢迎你的贡献，你可以通过以下方式和我们一起共建 :smiley:：
-
-- 在你的公司或个人项目中使用 Ant Design Pro，umi 和 ProComponents。
-- 通过 [Issue](http://github.com/ant-design/pro-components/issues) 报告 bug 或进行咨询。
-- 提交 [Pull Request](http://github.com/ant-design/pro-components/pulls) 改进 ProComponents 的代码。

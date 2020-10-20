@@ -3,7 +3,7 @@ import { ListProps } from 'antd/lib/list';
 import classNames from 'classnames';
 import ProTable, { ProTableProps, ProColumnType } from '@ant-design/pro-table';
 import { ParamsType } from '@ant-design/pro-provider';
-import { ConfigContext as AntdConfigContext } from 'antd/lib/config-provider';
+import { ConfigProvider } from 'antd';
 import ListView from './ListView';
 
 import './index.less';
@@ -70,7 +70,7 @@ function ProList<RecordType, U extends { [key: string]: any } = {}>(
     ...rest
   } = props;
 
-  const { getPrefixCls } = useContext(AntdConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
   const proTableColumns: ProColumnType<RecordType>[] = useMemo(() => {
     const columns: ProColumnType<RecordType>[] = [];

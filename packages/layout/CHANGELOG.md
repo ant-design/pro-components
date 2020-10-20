@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.5.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.5.4...@ant-design/pro-layout@6.5.5) (2020-10-19)
+
+### Bug Fixes
+
+- **layout:** mix layout hideInMenue bug ([#767](https://github.com/ant-design/pro-components/issues/767)) ([c99b048](https://github.com/ant-design/pro-components/commit/c99b0486a218329a87424847de7cf7b7dcf5f9b7))
+
+## [6.5.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.5.3...@ant-design/pro-layout@6.5.4) (2020-10-16)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.5.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.5.2...@ant-design/pro-layout@6.5.3) (2020-10-15)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.5.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.5.1...@ant-design/pro-layout@6.5.2) (2020-10-15)
+
+### Bug Fixes
+
+- **layout:** fixedHeader=false, offsetTop should is 0 ([#737](https://github.com/ant-design/pro-components/issues/737)) ([af2cb90](https://github.com/ant-design/pro-components/commit/af2cb908ed2a5affd8b6aae01fab90222cdea486))
+
 ## [6.5.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.5.0...@ant-design/pro-layout@6.5.1) (2020-10-12)
 
 **Note:** Version bump only for package @ant-design/pro-layout

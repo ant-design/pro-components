@@ -1,11 +1,10 @@
 import React, { useContext } from 'react';
-import { List, Skeleton } from 'antd';
+import { List, Skeleton, ConfigProvider } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { ListGridType } from 'antd/lib/list';
 import { ExpandableConfig } from 'antd/lib/table/interface';
 import classNames from 'classnames';
-import { ConfigContext as AntdConfigContext } from 'antd/lib/config-provider';
 
 export interface RenderExpandIconProps {
   prefixCls: string;
@@ -71,7 +70,7 @@ export interface ItemProps {
 
 function ProListItem(props: ItemProps) {
   const { prefixCls: customizePrefixCls } = props;
-  const { getPrefixCls } = useContext(AntdConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-list', customizePrefixCls);
   const defaultClassName = `${prefixCls}-row`;
 

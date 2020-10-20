@@ -44,14 +44,13 @@ class HeaderView extends Component<HeaderViewProps & PrivateSiderMenuProps, Head
       headerContentRender,
     } = this.props;
     const isTop = layout === 'top';
+    const clearMenuData = clearMenuItem(this.props.menuData || []);
     let defaultDom = (
-      <GlobalHeader onCollapse={onCollapse} {...this.props}>
+      <GlobalHeader onCollapse={onCollapse} {...this.props} menuData={clearMenuData}>
         {headerContentRender && headerContentRender(this.props)}
       </GlobalHeader>
     );
     if (isTop && !isMobile) {
-      // 这里走了可以少一次循环
-      const clearMenuData = clearMenuItem(this.props.menuData || []);
       defaultDom = (
         <TopNavHeader
           theme={navTheme as 'light' | 'dark'}

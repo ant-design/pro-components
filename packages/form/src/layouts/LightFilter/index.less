@@ -53,4 +53,17 @@
   .@{ant-prefix}-form-item {
     margin-bottom: 0;
   }
+
+  &-collapse-icon {
+    height: @height-base;
+    width: @height-base;
+    line-height: @height-base + 3px;
+    border-radius: 50%;
+  }
+
+  &-effective {
+    .@{pro-form-light-filter-prefix-cls}-collapse-icon {
+      background-color: fade(@black, 4%);
+    }
+  }
 }

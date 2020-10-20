@@ -100,7 +100,7 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 200);
+    await waitForComponentToPaint(html, 1000);
 
     act(() => {
       html.find('button.ant-btn').at(0).simulate('click');
@@ -360,7 +360,7 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 200);
+    await waitForComponentToPaint(html, 1000);
     expect(html.find('div.ant-form-item').length).toBe(1);
 
     html.setProps({

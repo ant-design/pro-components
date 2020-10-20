@@ -6,6 +6,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { StepsProps } from 'antd/lib/steps';
 import classNames from 'classnames';
 import { FormInstance } from 'antd/lib/form';
+import { ButtonProps } from 'antd/lib/button';
 
 import StepForm, { StepFormProps } from './StepForm';
 import './index.less';
@@ -59,8 +60,8 @@ export const StepsFormProvide = React.createContext<
       formArrayRef: React.MutableRefObject<
         Array<React.MutableRefObject<FormInstance<any> | undefined>>
       >;
-      loading: boolean;
-      setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+      loading: ButtonProps['loading'];
+      setLoading: React.Dispatch<React.SetStateAction<ButtonProps['loading']>>;
       formMapRef: React.MutableRefObject<Map<string, StepFormProps>>;
       next: () => void;
     }
@@ -91,7 +92,7 @@ const StepsForm: React.FC<StepsFormProps> & {
   const formMapRef = useRef(new Map<string, StepFormProps>());
   const formArrayRef = useRef<Array<React.MutableRefObject<FormInstance<any> | undefined>>>([]);
   const [formArray, setFormArray] = useState<string[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<ButtonProps['loading']>(false);
 
   /**
    * 受控的方式来操作表单
