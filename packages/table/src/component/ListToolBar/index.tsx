@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Tooltip, Space, Input, Divider, ConfigProvider, Tabs } from 'antd';
+import { Tooltip, Space, Input, ConfigProvider, Tabs } from 'antd';
 import { useIntl } from '@ant-design/pro-provider';
 import { TooltipProps } from 'antd/lib/tooltip';
 import { TabPaneProps } from 'antd/lib/tabs';
@@ -165,7 +165,6 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-table-list-toolbar', customizePrefixCls);
-  const hasDivider = settings.length > 0 && (actions.length || search);
 
   const searchNode: React.ReactNode = getSearchInput(search);
   const filtersNode = filter ? <div className={`${prefixCls}-filter`}>{filter}</div> : null;
@@ -185,19 +184,17 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
           {hasTitle && searchNode && <div className={`${prefixCls}-search`}>{searchNode}</div>}
           {!multipleLine && filtersNode}
           <Space>{actions}</Space>
-          {hasDivider && (
-            <div className={`${prefixCls}-divider`}>
-              <Divider type="vertical" />
-            </div>
-          )}
-          {settings.map((setting, index) => {
-            const settingItem = getSettingItem(setting);
-            return (
-              <div key={index} className={`${prefixCls}-setting-item`}>
-                {settingItem}
-              </div>
-            );
-          })}
+          <Space size={24} className={`${prefixCls}-setting-items`}>
+            {settings.map((setting, index) => {
+              const settingItem = getSettingItem(setting);
+              return (
+                // eslint-disable-next-line react/no-array-index-key
+                <div key={index} className={`${prefixCls}-setting-item`}>
+                  {settingItem}
+                </div>
+              );
+            })}
+          </Space>
         </div>
       </div>
       {multipleLine && (
