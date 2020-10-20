@@ -2270,7 +2270,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -2278,7 +2278,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -2549,7 +2549,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -2557,7 +2557,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -2828,7 +2828,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -2836,7 +2836,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -3107,7 +3107,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -3115,7 +3115,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -3386,7 +3386,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -3394,7 +3394,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -3665,7 +3665,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -3673,7 +3673,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -3944,7 +3944,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -3952,7 +3952,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -4223,7 +4223,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -4231,7 +4231,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -4502,7 +4502,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -4510,7 +4510,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -4781,7 +4781,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -4789,7 +4789,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -5060,7 +5060,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -5068,7 +5068,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -5339,7 +5339,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -5347,7 +5347,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -5618,7 +5618,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -5626,7 +5626,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -5897,7 +5897,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -5905,7 +5905,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -6176,7 +6176,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -6184,7 +6184,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -6455,7 +6455,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -6463,7 +6463,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -6734,7 +6734,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -6742,7 +6742,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -7013,7 +7013,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -7021,7 +7021,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -7292,7 +7292,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -7300,7 +7300,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -7571,7 +7571,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -7579,7 +7579,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -8844,7 +8844,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -8852,7 +8852,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -9144,7 +9144,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -9152,7 +9152,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -9443,7 +9443,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -9451,7 +9451,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -9742,7 +9742,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -9750,7 +9750,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -10041,7 +10041,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -10049,7 +10049,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -10340,7 +10340,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -10348,7 +10348,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -10639,7 +10639,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -10647,7 +10647,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -10938,7 +10938,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -10946,7 +10946,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -11237,7 +11237,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -11245,7 +11245,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -11536,7 +11536,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -11544,7 +11544,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -11835,7 +11835,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -11843,7 +11843,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -12134,7 +12134,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -12142,7 +12142,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -12433,7 +12433,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -12441,7 +12441,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -12732,7 +12732,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -12740,7 +12740,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -13031,7 +13031,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -13039,7 +13039,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -13330,7 +13330,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -13338,7 +13338,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -13629,7 +13629,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -13637,7 +13637,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -13928,7 +13928,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -13936,7 +13936,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -14227,7 +14227,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -14235,7 +14235,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload
@@ -14526,7 +14526,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 delete
@@ -14534,7 +14534,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 reload

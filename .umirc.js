@@ -55,9 +55,6 @@ export default {
   hash: true,
   ssr: {},
   exportStatic: {},
-  dynamicImport: {
-    loading: '@ant-design/pro-skeleton',
-  },
   externals:
     process.env.NODE_ENV === 'development'
       ? {

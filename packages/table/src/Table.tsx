@@ -381,7 +381,7 @@ const columnRender = <T, U = any>({
     }
 
     if (renderDom && item.valueType === 'option' && Array.isArray(renderDom)) {
-      return <Space>{renderDom}</Space>;
+      return <Space size={16}>{renderDom}</Space>;
     }
     return renderDom as React.ReactNode;
   }

@@ -3770,7 +3770,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right: 16px;"
                               >
                                 <a>
                                   操作
@@ -3828,7 +3828,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right: 16px;"
                               >
                                 <a>
                                   操作
@@ -4816,7 +4816,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                           >
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6689"
@@ -4828,7 +4828,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6689"
@@ -4840,7 +4840,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6689"
@@ -4989,7 +4989,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                           >
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6688"
@@ -5001,7 +5001,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6688"
@@ -5013,7 +5013,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6688"
@@ -5162,7 +5162,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                           >
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6685"
@@ -5174,7 +5174,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6685"
@@ -5186,7 +5186,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6685"
@@ -5329,7 +5329,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                           >
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6683"
@@ -5341,7 +5341,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6683"
@@ -5353,7 +5353,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6683"
@@ -5502,7 +5502,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                           >
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6682"
@@ -5514,7 +5514,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6682"
@@ -5526,7 +5526,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6682"
@@ -5675,7 +5675,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                           >
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6680"
@@ -5687,7 +5687,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6680"
@@ -5699,7 +5699,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6680"
@@ -5848,7 +5848,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                           >
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6678"
@@ -5860,7 +5860,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6678"
@@ -5872,7 +5872,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6678"
@@ -6021,7 +6021,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                           >
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/pull/6675"
@@ -6033,7 +6033,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/pull/6675"
@@ -6045,7 +6045,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/pull/6675"
@@ -6194,7 +6194,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                           >
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6674"
@@ -6206,7 +6206,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6674"
@@ -6218,7 +6218,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6674"
@@ -6367,7 +6367,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                           >
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6663"
@@ -6379,7 +6379,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6663"
@@ -6391,7 +6391,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6663"
@@ -6540,7 +6540,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                           >
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6662"
@@ -6552,7 +6552,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6662"
@@ -6564,7 +6564,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6662"
@@ -6713,7 +6713,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                           >
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6652"
@@ -6725,7 +6725,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6652"
@@ -6737,7 +6737,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6652"
@@ -6886,7 +6886,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                           >
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6644"
@@ -6898,7 +6898,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6644"
@@ -6910,7 +6910,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6644"
@@ -7059,7 +7059,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                           >
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6643"
@@ -7071,7 +7071,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6643"
@@ -7083,7 +7083,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6643"
@@ -7232,7 +7232,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                           >
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6642"
@@ -7244,7 +7244,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6642"
@@ -7256,7 +7256,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6642"
@@ -7405,7 +7405,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                           >
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6641"
@@ -7417,7 +7417,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6641"
@@ -7429,7 +7429,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6641"
@@ -7578,7 +7578,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                           >
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6639"
@@ -7590,7 +7590,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6639"
@@ -7602,7 +7602,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6639"
@@ -7751,7 +7751,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                           >
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6630"
@@ -7763,7 +7763,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6630"
@@ -7775,7 +7775,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6630"
@@ -7924,7 +7924,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                           >
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6629"
@@ -7936,7 +7936,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6629"
@@ -7948,7 +7948,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6629"
@@ -8097,7 +8097,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                           >
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6624"
@@ -8109,7 +8109,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6624"
@@ -8121,7 +8121,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             </div>
                             <div
                               class="qixian-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6624"
@@ -11246,7 +11246,7 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6689"
@@ -11258,7 +11258,7 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6689"
@@ -11270,7 +11270,7 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6689"
@@ -11408,7 +11408,7 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6688"
@@ -11420,7 +11420,7 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6688"
@@ -11432,7 +11432,7 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6688"
@@ -11570,7 +11570,7 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6685"
@@ -11582,7 +11582,7 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6685"
@@ -11594,7 +11594,7 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6685"
@@ -11726,7 +11726,7 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6683"
@@ -11738,7 +11738,7 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6683"
@@ -11750,7 +11750,7 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6683"
@@ -11888,7 +11888,7 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6682"
@@ -11900,7 +11900,7 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6682"
@@ -11912,7 +11912,7 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6682"
@@ -13717,7 +13717,7 @@ exports[`table demos renders ./packages/table/src/demos/listToolBar.tsx correctl
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 链路
@@ -13725,7 +13725,7 @@ exports[`table demos renders ./packages/table/src/demos/listToolBar.tsx correctl
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 报警
@@ -13790,7 +13790,7 @@ exports[`table demos renders ./packages/table/src/demos/listToolBar.tsx correctl
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 链路
@@ -13798,7 +13798,7 @@ exports[`table demos renders ./packages/table/src/demos/listToolBar.tsx correctl
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 报警
@@ -13863,7 +13863,7 @@ exports[`table demos renders ./packages/table/src/demos/listToolBar.tsx correctl
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 链路
@@ -13871,7 +13871,7 @@ exports[`table demos renders ./packages/table/src/demos/listToolBar.tsx correctl
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 报警
@@ -13936,7 +13936,7 @@ exports[`table demos renders ./packages/table/src/demos/listToolBar.tsx correctl
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 链路
@@ -13944,7 +13944,7 @@ exports[`table demos renders ./packages/table/src/demos/listToolBar.tsx correctl
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 报警
@@ -14009,7 +14009,7 @@ exports[`table demos renders ./packages/table/src/demos/listToolBar.tsx correctl
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 链路
@@ -14017,7 +14017,7 @@ exports[`table demos renders ./packages/table/src/demos/listToolBar.tsx correctl
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 报警
@@ -15302,7 +15302,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 链路
@@ -15310,7 +15310,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 报警
@@ -15318,7 +15318,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 监控
@@ -15453,7 +15453,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 链路
@@ -15461,7 +15461,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 报警
@@ -15469,7 +15469,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 监控
@@ -15598,7 +15598,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 链路
@@ -15606,7 +15606,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 报警
@@ -15614,7 +15614,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 监控
@@ -15749,7 +15749,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 链路
@@ -15757,7 +15757,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 报警
@@ -15765,7 +15765,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 监控
@@ -15894,7 +15894,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 链路
@@ -15902,7 +15902,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 报警
@@ -15910,7 +15910,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 监控
@@ -16796,9 +16796,6 @@ exports[`table demos renders ./packages/table/src/demos/pollinga.tsx correctly 1
                       <col
                         style="width: 80px; min-width: 80px;"
                       />
-                      <col
-                        style="width: 100px; min-width: 100px;"
-                      />
                     </colgroup>
                     <thead
                       class="ant-table-thead"
@@ -16930,23 +16927,17 @@ exports[`table demos renders ./packages/table/src/demos/pollinga.tsx correctly 1
                         </td>
                         <td
                           class="ant-table-cell"
-                          colspan="5"
                         >
-                          <a>
-                            <span>
-                              2016-11-21
-                            </span>
-                          </a>
+                          <span>
+                            2016-11-21
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
-                          colspan="5"
                         >
-                          <a>
-                            <span>
-                              2016-11
-                            </span>
-                          </a>
+                          <span>
+                            2016-11
+                          </span>
                         </td>
                       </tr>
                       <tr
@@ -17007,23 +16998,17 @@ exports[`table demos renders ./packages/table/src/demos/pollinga.tsx correctly 1
                         </td>
                         <td
                           class="ant-table-cell"
-                          colspan="5"
                         >
-                          <a>
-                            <span>
-                              2016-11-21
-                            </span>
-                          </a>
+                          <span>
+                            2016-11-21
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
-                          colspan="5"
                         >
-                          <a>
-                            <span>
-                              2016-11
-                            </span>
-                          </a>
+                          <span>
+                            2016-11
+                          </span>
                         </td>
                       </tr>
                     </tbody>
@@ -19713,7 +19698,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right: 16px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6689"
@@ -19862,7 +19847,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right: 16px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6688"
@@ -20011,7 +19996,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right: 16px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6685"
@@ -20154,7 +20139,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right: 16px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6683"
@@ -20303,7 +20288,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right: 16px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6682"
@@ -20452,7 +20437,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right: 16px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6680"
@@ -20601,7 +20586,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right: 16px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6678"
@@ -20750,7 +20735,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right: 16px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/pull/6675"
@@ -20899,7 +20884,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right: 16px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6674"
@@ -21037,7 +21022,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right: 16px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6663"
@@ -21186,7 +21171,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right: 16px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6662"
@@ -21335,7 +21320,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right: 16px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6652"
@@ -21484,7 +21469,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right: 16px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6644"
@@ -21633,7 +21618,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right: 16px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6643"
@@ -21782,7 +21767,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right: 16px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6642"
@@ -21931,7 +21916,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right: 16px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6641"
@@ -22080,7 +22065,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right: 16px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6639"
@@ -22218,7 +22203,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right: 16px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6630"
@@ -22367,7 +22352,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right: 16px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6629"
@@ -22516,7 +22501,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right: 16px;"
                               >
                                 <a
                                   href="https://github.com/ant-design/ant-design-pro/issues/6624"
@@ -23603,7 +23588,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6689"
@@ -23752,7 +23737,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6688"
@@ -23901,7 +23886,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6685"
@@ -24044,7 +24029,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6683"
@@ -24193,7 +24178,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6682"
@@ -24342,7 +24327,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6680"
@@ -24491,7 +24476,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6678"
@@ -24640,7 +24625,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/pull/6675"
@@ -24789,7 +24774,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6674"
@@ -24927,7 +24912,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6663"
@@ -25076,7 +25061,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6662"
@@ -25225,7 +25210,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6652"
@@ -25374,7 +25359,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6644"
@@ -25523,7 +25508,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6643"
@@ -25672,7 +25657,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6642"
@@ -25821,7 +25806,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6641"
@@ -25970,7 +25955,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6639"
@@ -26108,7 +26093,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6630"
@@ -26257,7 +26242,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6629"
@@ -26406,7 +26391,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6624"
@@ -27429,7 +27414,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6689"
@@ -27441,19 +27426,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
-                            >
-                              <a
-                                href="https://github.com/ant-design/ant-design-pro/issues/6689"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                              >
-                                报警
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6689"
@@ -27602,7 +27575,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6688"
@@ -27614,19 +27587,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
-                            >
-                              <a
-                                href="https://github.com/ant-design/ant-design-pro/issues/6688"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                              >
-                                报警
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6688"
@@ -27775,7 +27736,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6685"
@@ -27787,19 +27748,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
-                            >
-                              <a
-                                href="https://github.com/ant-design/ant-design-pro/issues/6685"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                              >
-                                报警
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6685"
@@ -27942,7 +27891,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6683"
@@ -27954,19 +27903,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
-                            >
-                              <a
-                                href="https://github.com/ant-design/ant-design-pro/issues/6683"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                              >
-                                报警
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6683"
@@ -28115,7 +28052,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6682"
@@ -28127,19 +28064,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
-                            >
-                              <a
-                                href="https://github.com/ant-design/ant-design-pro/issues/6682"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                              >
-                                报警
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6682"
@@ -28288,7 +28213,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6680"
@@ -28300,19 +28225,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
-                            >
-                              <a
-                                href="https://github.com/ant-design/ant-design-pro/issues/6680"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                              >
-                                报警
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6680"
@@ -28461,7 +28374,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6678"
@@ -28473,19 +28386,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
-                            >
-                              <a
-                                href="https://github.com/ant-design/ant-design-pro/issues/6678"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                              >
-                                报警
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6678"
@@ -28634,7 +28535,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/pull/6675"
@@ -28646,19 +28547,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
-                            >
-                              <a
-                                href="https://github.com/ant-design/ant-design-pro/pull/6675"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                              >
-                                报警
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/pull/6675"
@@ -28807,7 +28696,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6674"
@@ -28819,19 +28708,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
-                            >
-                              <a
-                                href="https://github.com/ant-design/ant-design-pro/issues/6674"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                              >
-                                报警
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6674"
@@ -28980,7 +28857,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6663"
@@ -28992,19 +28869,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
-                            >
-                              <a
-                                href="https://github.com/ant-design/ant-design-pro/issues/6663"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                              >
-                                报警
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6663"
@@ -29153,7 +29018,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6662"
@@ -29165,19 +29030,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
-                            >
-                              <a
-                                href="https://github.com/ant-design/ant-design-pro/issues/6662"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                              >
-                                报警
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6662"
@@ -29326,7 +29179,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6652"
@@ -29338,19 +29191,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
-                            >
-                              <a
-                                href="https://github.com/ant-design/ant-design-pro/issues/6652"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                              >
-                                报警
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6652"
@@ -29499,7 +29340,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6644"
@@ -29511,19 +29352,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
-                            >
-                              <a
-                                href="https://github.com/ant-design/ant-design-pro/issues/6644"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                              >
-                                报警
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6644"
@@ -29672,7 +29501,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6643"
@@ -29684,19 +29513,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
-                            >
-                              <a
-                                href="https://github.com/ant-design/ant-design-pro/issues/6643"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                              >
-                                报警
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6643"
@@ -29845,7 +29662,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6642"
@@ -29857,19 +29674,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
-                            >
-                              <a
-                                href="https://github.com/ant-design/ant-design-pro/issues/6642"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                              >
-                                报警
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6642"
@@ -30018,7 +29823,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6641"
@@ -30030,19 +29835,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
-                            >
-                              <a
-                                href="https://github.com/ant-design/ant-design-pro/issues/6641"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                              >
-                                报警
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6641"
@@ -30191,7 +29984,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6639"
@@ -30203,19 +29996,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
-                            >
-                              <a
-                                href="https://github.com/ant-design/ant-design-pro/issues/6639"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                              >
-                                报警
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6639"
@@ -30364,7 +30145,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6630"
@@ -30376,19 +30157,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
-                            >
-                              <a
-                                href="https://github.com/ant-design/ant-design-pro/issues/6630"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                              >
-                                报警
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6630"
@@ -30537,7 +30306,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6629"
@@ -30549,19 +30318,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
-                            >
-                              <a
-                                href="https://github.com/ant-design/ant-design-pro/issues/6629"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                              >
-                                报警
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6629"
@@ -30710,7 +30467,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6624"
@@ -30722,19 +30479,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
-                            >
-                              <a
-                                href="https://github.com/ant-design/ant-design-pro/issues/6624"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                              >
-                                报警
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a
                                 href="https://github.com/ant-design/ant-design-pro/issues/6624"
@@ -31694,7 +31439,7 @@ exports[`table demos renders ./packages/table/src/demos/table-nested.tsx correct
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 链路
@@ -31702,7 +31447,7 @@ exports[`table demos renders ./packages/table/src/demos/table-nested.tsx correct
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 报警
@@ -31710,7 +31455,7 @@ exports[`table demos renders ./packages/table/src/demos/table-nested.tsx correct
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 监控
@@ -31800,7 +31545,7 @@ exports[`table demos renders ./packages/table/src/demos/table-nested.tsx correct
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 链路
@@ -31808,7 +31553,7 @@ exports[`table demos renders ./packages/table/src/demos/table-nested.tsx correct
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 报警
@@ -31816,7 +31561,7 @@ exports[`table demos renders ./packages/table/src/demos/table-nested.tsx correct
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 监控
@@ -31906,7 +31651,7 @@ exports[`table demos renders ./packages/table/src/demos/table-nested.tsx correct
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 链路
@@ -31914,7 +31659,7 @@ exports[`table demos renders ./packages/table/src/demos/table-nested.tsx correct
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 报警
@@ -31922,7 +31667,7 @@ exports[`table demos renders ./packages/table/src/demos/table-nested.tsx correct
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 监控
@@ -32012,7 +31757,7 @@ exports[`table demos renders ./packages/table/src/demos/table-nested.tsx correct
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 链路
@@ -32020,7 +31765,7 @@ exports[`table demos renders ./packages/table/src/demos/table-nested.tsx correct
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 报警
@@ -32028,7 +31773,7 @@ exports[`table demos renders ./packages/table/src/demos/table-nested.tsx correct
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 监控
@@ -32118,7 +31863,7 @@ exports[`table demos renders ./packages/table/src/demos/table-nested.tsx correct
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 链路
@@ -32126,7 +31871,7 @@ exports[`table demos renders ./packages/table/src/demos/table-nested.tsx correct
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 报警
@@ -32134,7 +31879,7 @@ exports[`table demos renders ./packages/table/src/demos/table-nested.tsx correct
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 监控
@@ -33179,7 +32924,7 @@ exports[`table demos renders ./packages/table/src/demos/valueType.tsx correctly 
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 操作
@@ -33297,7 +33042,7 @@ exports[`table demos renders ./packages/table/src/demos/valueType.tsx correctly 
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 操作
@@ -33415,7 +33160,7 @@ return { list: data.data, ...data };
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
+                              style="margin-right: 16px;"
                             >
                               <a>
                                 操作

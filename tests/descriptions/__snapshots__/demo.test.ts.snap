@@ -467,7 +467,7 @@ exports[`descriptions demos renders ./packages/descriptions/src/demos/columns.ts
       >
         <div
           class="ant-space-item"
-          style="margin-right: 8px;"
+          style="margin-right: 16px;"
         >
           <a
             rel="noopener noreferrer"
@@ -478,7 +478,7 @@ exports[`descriptions demos renders ./packages/descriptions/src/demos/columns.ts
         </div>
         <div
           class="ant-space-item"
-          style="margin-right: 8px;"
+          style="margin-right: 16px;"
         >
           <a
             rel="noopener noreferrer"
@@ -677,7 +677,7 @@ exports[`descriptions demos renders ./packages/descriptions/src/demos/request.ts
           >
             <div
               class="ant-space-item"
-              style="margin-right: 8px;"
+              style="margin-right: 16px;"
             >
               <button
                 class="ant-btn ant-btn-primary"

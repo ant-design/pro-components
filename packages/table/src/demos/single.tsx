@@ -136,9 +136,6 @@ const columns: ProColumns<GithubIssueItem>[] = [
       <a href={row.html_url} target="_blank" rel="noopener noreferrer" key="link">
         链路
       </a>,
-      <a href={row.html_url} target="_blank" rel="noopener noreferrer" key="warning">
-        报警
-      </a>,
       <a href={row.html_url} target="_blank" rel="noopener noreferrer" key="view">
         查看
       </a>,
