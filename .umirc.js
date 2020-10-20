@@ -53,6 +53,7 @@ export default {
       }
     : false,
   hash: true,
+  ssr: {},
   exportStatic: {},
   dynamicImport: {
     loading: '@ant-design/pro-skeleton',
