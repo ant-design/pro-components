@@ -19,6 +19,7 @@ const waitTime = (time: number = 100) => {
 export default () => {
   return (
     <DrawerForm
+      title="新建表单"
       trigger={
         <Button type="primary">
           <PlusOutlined />

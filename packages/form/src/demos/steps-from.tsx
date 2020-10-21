@@ -3,10 +3,10 @@ import ProForm, {
   StepsForm,
   ProFormText,
   ProFormDatePicker,
-  ProFormDateTimePicker,
   ProFormSelect,
   ProFormTextArea,
   ProFormCheckbox,
+  ProFormDateRangePicker,
 } from '@ant-design/pro-form';
 import ProCard from '@ant-design/pro-card';
 
@@ -45,10 +45,7 @@ export default () => {
             rules={[{ required: true }]}
           />
           <ProFormDatePicker name="date" label="日期" />
-          <ProForm.Group title="时间选择">
-            <ProFormDateTimePicker name="dateTime" label="开始时间" />
-            <ProFormDatePicker name="date" label="结束时间" />
-          </ProForm.Group>
+          <ProFormDateRangePicker name="dateTime" label="时间区间" />
           <ProFormTextArea name="remark" label="备注" width="l" placeholder="请输入备注" />
         </StepsForm.StepForm>
         <StepsForm.StepForm name="checkbox" title="设置参数">
