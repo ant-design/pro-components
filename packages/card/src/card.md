@@ -128,8 +128,6 @@ group:
 
 <code src="./demos/steps-v.tsx" background="#f0f2f5" />
 
-### 横向步骤条
-
 ## API
 
 | 参数 | 说明 | 类型 | 默认值 |
