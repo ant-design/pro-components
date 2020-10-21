@@ -1892,7 +1892,7 @@ exports[`BasicTable 🎏 base use 1`] = `
             class="ant-spin-container"
           >
             <div
-              class="ant-table ant-table-small"
+              class="ant-table ant-table-small ant-table-layout-fixed"
             >
               <div
                 class="ant-table-container"
@@ -1901,7 +1901,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                   class="ant-table-content"
                 >
                   <table
-                    style="table-layout: auto;"
+                    style="table-layout: fixed;"
                   >
                     <colgroup>
                       <col
@@ -8419,7 +8419,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
             class="ant-spin-container"
           >
             <div
-              class="ant-table ant-table-small"
+              class="ant-table ant-table-small ant-table-layout-fixed"
             >
               <div
                 class="ant-table-container"
@@ -8428,7 +8428,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                   class="ant-table-content"
                 >
                   <table
-                    style="table-layout: auto;"
+                    style="table-layout: fixed;"
                   >
                     <colgroup>
                       <col

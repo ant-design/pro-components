@@ -2213,7 +2213,7 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
             class="ant-spin-container"
           >
             <div
-              class="ant-table ant-table-middle ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
+              class="ant-table ant-table-middle ant-table-layout-fixed ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
             >
               <div
                 class="ant-table-container"
@@ -4567,7 +4567,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
             class="qixian-spin-container"
           >
             <div
-              class="qixian-table qixian-table-middle"
+              class="qixian-table qixian-table-middle qixian-table-layout-fixed"
             >
               <div
                 class="qixian-table-container"
@@ -4576,7 +4576,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                   class="qixian-table-content"
                 >
                   <table
-                    style="table-layout: auto;"
+                    style="table-layout: fixed;"
                   >
                     <colgroup>
                       <col
@@ -11046,7 +11046,7 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
             class="ant-spin-container"
           >
             <div
-              class="ant-table ant-table-middle"
+              class="ant-table ant-table-middle ant-table-layout-fixed"
             >
               <div
                 class="ant-table-container"
@@ -11055,7 +11055,7 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
                   class="ant-table-content"
                 >
                   <table
-                    style="table-layout: auto;"
+                    style="table-layout: fixed;"
                   >
                     <colgroup>
                       <col
@@ -12692,7 +12692,7 @@ exports[`table demos renders ./packages/table/src/demos/linkage_form.tsx correct
             class="ant-spin-container"
           >
             <div
-              class="ant-table ant-table-middle ant-table-layout-fixed"
+              class="ant-table ant-table-middle"
             >
               <div
                 class="ant-table-container"
@@ -12701,7 +12701,7 @@ exports[`table demos renders ./packages/table/src/demos/linkage_form.tsx correct
                   class="ant-table-content"
                 >
                   <table
-                    style="table-layout: fixed;"
+                    style="table-layout: auto;"
                   >
                     <colgroup>
                       <col
@@ -14993,7 +14993,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
             class="ant-spin-container"
           >
             <div
-              class="ant-table ant-table-middle"
+              class="ant-table ant-table-middle ant-table-layout-fixed"
             >
               <div
                 class="ant-table-container"
@@ -15002,7 +15002,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
                   class="ant-table-content"
                 >
                   <table
-                    style="table-layout: auto;"
+                    style="table-layout: fixed;"
                   >
                     <colgroup>
                       <col
@@ -19490,7 +19490,7 @@ Array [
               class="ant-spin-container"
             >
               <div
-                class="ant-table ant-table-middle"
+                class="ant-table ant-table-middle ant-table-layout-fixed"
               >
                 <div
                   class="ant-table-container"
@@ -19499,7 +19499,7 @@ Array [
                     class="ant-table-content"
                   >
                     <table
-                      style="table-layout: auto;"
+                      style="table-layout: fixed;"
                     >
                       <colgroup>
                         <col
@@ -23380,7 +23380,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
             class="ant-spin-container"
           >
             <div
-              class="ant-table ant-table-middle"
+              class="ant-table ant-table-middle ant-table-layout-fixed"
             >
               <div
                 class="ant-table-container"
@@ -23389,7 +23389,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                   class="ant-table-content"
                 >
                   <table
-                    style="table-layout: auto;"
+                    style="table-layout: fixed;"
                   >
                     <colgroup>
                       <col
@@ -27165,7 +27165,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
             class="ant-spin-container"
           >
             <div
-              class="ant-table ant-table-middle"
+              class="ant-table ant-table-middle ant-table-layout-fixed"
             >
               <div
                 class="ant-table-container"
@@ -27174,7 +27174,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                   class="ant-table-content"
                 >
                   <table
-                    style="table-layout: auto;"
+                    style="table-layout: fixed;"
                   >
                     <colgroup>
                       <col
@@ -32598,7 +32598,7 @@ exports[`table demos renders ./packages/table/src/demos/valueType.tsx correctly 
             class="ant-spin-container"
           >
             <div
-              class="ant-table ant-table-middle"
+              class="ant-table ant-table-middle ant-table-layout-fixed"
             >
               <div
                 class="ant-table-container"
@@ -32607,7 +32607,7 @@ exports[`table demos renders ./packages/table/src/demos/valueType.tsx correctly 
                   class="ant-table-content"
                 >
                   <table
-                    style="table-layout: auto;"
+                    style="table-layout: fixed;"
                   >
                     <colgroup>
                       <col
