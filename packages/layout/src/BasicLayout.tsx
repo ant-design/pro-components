@@ -201,7 +201,7 @@ export type BasicLayoutContext = { [K in 'location']: BasicLayoutProps[K] } & {
 const getPaddingLeft = (
   hasLeftPadding: boolean,
   collapsed: boolean | undefined,
-  siderWidth: number = 208,
+  siderWidth: number,
 ): number | undefined => {
   if (hasLeftPadding) {
     return collapsed ? 48 : siderWidth;
@@ -224,7 +224,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     defaultCollapsed,
     style,
     disableContentMargin,
-    siderWidth,
+    siderWidth = 208,
     menu,
     isChildrenLayout: propsIsChildrenLayout,
     menuDataRender,
@@ -249,10 +249,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
       });
     }
     const locales = getLocales();
-    if (locales[id]) {
-      return locales[id];
-    }
-    return defaultMessage as string;
+    return locales[id] ? locales[id] : (defaultMessage as string);
   };
 
   const [menuInfoData, setMenuInfoData] = useMergedState<{
@@ -474,7 +471,6 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
 BasicLayout.defaultProps = {
   logo: 'https://gw.alipayobjects.com/zos/antfincdn/PmY%24TNNDBI/logo.svg',
   ...defaultSettings,
-  siderWidth: 208,
   location: isBrowser() ? window.location : undefined,
 };
 
