@@ -9,13 +9,43 @@ import RouteContext, { RouteContextType } from '../RouteContext';
 import GridContent from '../GridContent';
 import FooterToolbar from '../FooterToolbar';
 import './index.less';
+import PageLoading from '../PageLoading';
 
 export interface PageHeaderTabConfig {
+  /**
+   * @name tabs 的列表
+   */
   tabList?: (TabPaneProps & { key?: React.ReactText })[];
+
+  /**
+   * @name 当前选中 tab 的 key
+   */
   tabActiveKey?: TabsProps['activeKey'];
+
+  /**
+   * @name tab 修改时触发
+   */
   onTabChange?: TabsProps['onChange'];
+
+  /**
+   * @name tab 上多余的区域
+   */
   tabBarExtraContent?: TabsProps['tabBarExtraContent'];
+
+  /**
+   * @name tabs 的其他配置
+   */
   tabProps?: TabsProps;
+
+  /**
+   * @name 固定 PageHeader 到页面顶部
+   * @deprecated 请使用 fixedHeader
+   */
+  fixHeader?: boolean;
+
+  /**
+   * @name 固定 PageHeader 到页面顶部
+   */
   fixedHeader?: boolean;
 }
 
@@ -43,6 +73,12 @@ export interface PageContainerProps extends PageHeaderTabConfig, Omit<PageHeader
    * @description 与 antd 完全相同
    */
   affixProps?: AffixProps;
+
+  /**
+   * @name 是否加载
+   * @description 只加载内容区域
+   */
+  loading?: boolean;
 }
 
 /**
@@ -141,7 +177,7 @@ const defaultPageHeaderRender = (
 };
 
 const PageContainer: React.FC<PageContainerProps> = (props) => {
-  const { children, style, footer, affixProps, ghost, fixedHeader } = props;
+  const { children, loading, style, footer, affixProps, ghost, fixedHeader } = props;
   const value = useContext(RouteContext);
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -152,6 +188,20 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
   const className = classNames(prefixedClassName, props.className, {
     [`${prefixCls}-page-container-ghost`]: ghost,
   });
+
+  const content = children ? (
+    <div>
+      <div className={`${prefixedClassName}-children-content`}>{children}</div>
+      {value.hasFooterToolbar && (
+        <div
+          style={{
+            height: 48,
+            marginTop: 24,
+          }}
+        />
+      )}
+    </div>
+  ) : null;
 
   const headerDom = (
     <div className={`${prefixedClassName}-warp`}>
@@ -176,21 +226,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
       ) : (
         headerDom
       )}
-      <GridContent>
-        {children ? (
-          <div>
-            <div className={`${prefixedClassName}-children-content`}>{children}</div>
-            {value.hasFooterToolbar && (
-              <div
-                style={{
-                  height: 48,
-                  marginTop: 24,
-                }}
-              />
-            )}
-          </div>
-        ) : null}
-      </GridContent>
+      <GridContent>{loading ? <PageLoading /> : content}</GridContent>
       {footer && <FooterToolbar prefixCls={prefixCls}>{footer}</FooterToolbar>}
     </div>
   );
