@@ -37,6 +37,7 @@ import {
   SearchTransformKeyFn,
   isNil,
   omitUndefined,
+  isBrowser,
 } from '@ant-design/pro-utils';
 
 import { ListToolBarProps } from './component/ListToolBar';
@@ -601,6 +602,9 @@ const ProTable = <T extends {}, U extends ParamsType>(
 
   useEffect(() => {
     fullScreen.current = () => {
+      if (!isBrowser()) {
+        return;
+      }
       if (!rootRef.current || !document.fullscreenEnabled) {
         return;
       }
