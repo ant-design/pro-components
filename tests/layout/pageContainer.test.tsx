@@ -33,6 +33,16 @@ describe('PageContainer', () => {
     expect(html).toMatchSnapshot();
   });
 
+  it('⚡️ support fixHeader', async () => {
+    const html = render(<PageContainer title="期贤" fixHeader />);
+    expect(html).toMatchSnapshot();
+  });
+
+  it('⚡️ support loading', async () => {
+    const html = render(<PageContainer title="期贤" loading />);
+    expect(html).toMatchSnapshot();
+  });
+
   it('🔥 support footer and breadcrumb', async () => {
     const html = render(
       <PageContainer

@@ -1,5 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`PageContainer ⚡️ support fixHeader 1`] = `
+<div
+  class="ant-pro-page-container"
+>
+  <div
+    class="ant-pro-page-container-warp"
+  >
+    <div
+      class="ant-page-header ant-page-header-ghost"
+    >
+      <div
+        class="ant-page-header-heading"
+      >
+        <div
+          class="ant-page-header-heading-left"
+        >
+          <span
+            class="ant-page-header-heading-title"
+            title="期贤"
+          >
+            期贤
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-pro-grid-content"
+  >
+    <div
+      class="ant-pro-grid-content-children"
+    />
+  </div>
+</div>
+`;
+
 exports[`PageContainer ⚡️ support fixedHeader 1`] = `
 <div
   class="ant-pro-page-container"
@@ -89,6 +125,67 @@ exports[`PageContainer ⚡️ support footer 1`] = `
       >
         right
       </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PageContainer ⚡️ support loading 1`] = `
+<div
+  class="ant-pro-page-container"
+>
+  <div
+    class="ant-pro-page-container-warp"
+  >
+    <div
+      class="ant-page-header ant-page-header-ghost"
+    >
+      <div
+        class="ant-page-header-heading"
+      >
+        <div
+          class="ant-page-header-heading-left"
+        >
+          <span
+            class="ant-page-header-heading-title"
+            title="期贤"
+          >
+            期贤
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-pro-grid-content"
+  >
+    <div
+      class="ant-pro-grid-content-children"
+    >
+      <div
+        style="padding-top:100px;text-align:center"
+      >
+        <div
+          class="ant-spin ant-spin-lg ant-spin-spinning"
+        >
+          <span
+            class="ant-spin-dot ant-spin-dot-spin"
+          >
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+          </span>
+        </div>
+      </div>
     </div>
   </div>
 </div>

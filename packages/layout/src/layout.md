@@ -110,6 +110,8 @@ ProLayout 默认不提供页脚，要是和 Pro 官网相同的样式，需要�
 
 ## API
 
+### ProLayout
+
 > 所有以 `Render` 后缀的方法都可以通过传入 `false` 来使其不渲染。
 
 | 参数 | 说明 | 类型 | 默认值 |
@@ -122,6 +124,7 @@ ProLayout 默认不提供页脚，要是和 Pro 官网相同的样式，需要�
 | menuHeaderRender | 渲染 logo 和 title | ReactNode \| (logo,title)=>ReactNode | - |
 | menuFooterRender | 在 layout 底部渲染一个块 | `(menuProps)=>ReactNode` | - |
 | onMenuHeaderClick | menu 菜单的头部点击事件 | `(e: React.MouseEvent<HTMLDivElement>) => void` | - |
+| menuExtraRender | 在菜单标题的下面渲染一个区域 | `(menuProps)=>ReactNode` | - |
 | onTopMixMenuHeaderClick | mix 模式下顶部栏的头部点击事件 | `(e: React.MouseEvent<HTMLDivElement>) => void` | - |
 | contentStyle | layout 的内容区 style | CSSProperties | - |
 | layout | layout 的菜单模式,side：右侧导航，top：顶部导航 | 'side' \| 'top' | `'side'` |
