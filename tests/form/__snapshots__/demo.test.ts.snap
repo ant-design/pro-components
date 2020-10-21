@@ -3181,8 +3181,13 @@ Array [
               class="ant-drawer-wrapper-body"
             >
               <div
-                class="ant-drawer-header-no-title"
+                class="ant-drawer-header"
               >
+                <div
+                  class="ant-drawer-title"
+                >
+                  新建表单
+                </div>
                 <button
                   aria-label="Close"
                   class="ant-drawer-close"
@@ -3960,32 +3965,36 @@ Array [
                 class="ant-drawer-footer"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  style="display: flex; justify-content: flex-end;"
                 >
                   <div
-                    class="ant-space-item"
-                    style="margin-right: 8px;"
+                    class="ant-space ant-space-horizontal ant-space-align-center"
                   >
-                    <button
-                      class="ant-btn"
-                      type="button"
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 8px;"
                     >
-                      <span>
-                        取 消
-                      </span>
-                    </button>
-                  </div>
-                  <div
-                    class="ant-space-item"
-                  >
-                    <button
-                      class="ant-btn ant-btn-primary"
-                      type="button"
+                      <button
+                        class="ant-btn"
+                        type="button"
+                      >
+                        <span>
+                          取 消
+                        </span>
+                      </button>
+                    </div>
+                    <div
+                      class="ant-space-item"
                     >
-                      <span>
-                        确 认
-                      </span>
-                    </button>
+                      <button
+                        class="ant-btn ant-btn-primary"
+                        type="button"
+                      >
+                        <span>
+                          确 认
+                        </span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -4038,14 +4047,17 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
   style="transform: rotate(0); overflow-x: hidden;"
 >
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-mix"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix"
   >
     <section
       class="ant-layout ant-layout-has-sider"
       style="min-height: 100%; max-height: 100vh;"
     >
+      <div
+        style="width: 48px; overflow: hidden; flex: 0 0 48px; max-width: 48px; min-width: 48px;"
+      />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-layout-mix ant-pro-sider-light"
+        class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light"
         style="overflow: hidden; padding-top: 48px; flex: 0 0 48px; max-width: 48px; min-width: 48px; width: 48px;"
       >
         <div
@@ -7012,6 +7024,7 @@ Array [
       class="ant-modal-root"
     >
       <div
+        aria-labelledby="rcDialogTitle0"
         class="ant-modal-wrap"
         role="dialog"
         style="display: none;"
@@ -7209,7 +7222,7 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
       >
         <div
           class="ant-pro-card ant-pro-card-border"
-          style="margin-bottom: 16px; min-width: 800px; max-width: 100%;"
+          style="margin-bottom: 16px; min-width: 920px; max-width: 100%;"
         >
           <div
             class="ant-pro-card-header ant-pro-card-header-border"
@@ -7247,6 +7260,7 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
           </div>
           <div
             class="ant-pro-card-body"
+            style="padding: 24px;"
           >
             <div
               class="ant-row ant-form-item"
@@ -7553,6 +7567,7 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
           </div>
           <div
             class="ant-pro-card-body"
+            style="padding: 24px;"
           >
             <div
               class="ant-row ant-form-item"
@@ -10995,157 +11010,112 @@ exports[`form demos renders ./packages/form/src/demos/steps-from.tsx correctly 1
                 </div>
               </div>
             </div>
-            <div>
+            <div
+              class="ant-row ant-form-item"
+            >
               <div
-                class="ant-pro-form-group-title"
+                class="ant-col ant-form-item-label"
               >
-                时间选择
+                <label
+                  class=""
+                  for="base_dateTime"
+                  title="时间区间"
+                >
+                  时间区间
+                </label>
               </div>
               <div
-                class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+                class="ant-col ant-form-item-control"
               >
                 <div
-                  class="ant-space-item"
-                  style="margin-right: 32px;"
+                  class="ant-form-item-control-input"
                 >
                   <div
-                    class="ant-row ant-form-item"
+                    class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-col ant-form-item-label"
-                    >
-                      <label
-                        class=""
-                        for="base_dateTime"
-                        title="开始时间"
-                      >
-                        开始时间
-                      </label>
-                    </div>
-                    <div
-                      class="ant-col ant-form-item-control"
+                      class="ant-picker ant-picker-range"
                     >
                       <div
-                        class="ant-form-item-control-input"
+                        class="ant-picker-input ant-picker-input-active"
                       >
-                        <div
-                          class="ant-form-item-control-input-content"
-                        >
-                          <div
-                            class="ant-picker"
-                          >
-                            <div
-                              class="ant-picker-input"
-                            >
-                              <input
-                                autocomplete="off"
-                                id="base_dateTime"
-                                placeholder="请选择"
-                                readonly=""
-                                size="21"
-                                title=""
-                                value=""
-                              />
-                              <span
-                                class="ant-picker-suffix"
-                              >
-                                <span
-                                  aria-label="calendar"
-                                  class="anticon anticon-calendar"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    class=""
-                                    data-icon="calendar"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-                                    />
-                                  </svg>
-                                </span>
-                              </span>
-                            </div>
-                          </div>
-                        </div>
+                        <input
+                          autocomplete="off"
+                          id="base_dateTime"
+                          placeholder="请选择"
+                          readonly=""
+                          size="12"
+                          value=""
+                        />
                       </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="ant-space-item"
-                >
-                  <div
-                    class="ant-row ant-form-item"
-                  >
-                    <div
-                      class="ant-col ant-form-item-label"
-                    >
-                      <label
-                        class=""
-                        for="base_date"
-                        title="结束时间"
-                      >
-                        结束时间
-                      </label>
-                    </div>
-                    <div
-                      class="ant-col ant-form-item-control"
-                    >
                       <div
-                        class="ant-form-item-control-input"
+                        class="ant-picker-range-separator"
                       >
-                        <div
-                          class="ant-form-item-control-input-content"
+                        <span
+                          aria-label="to"
+                          class="ant-picker-separator"
                         >
-                          <div
-                            class="ant-picker"
+                          <span
+                            aria-label="swap-right"
+                            class="anticon anticon-swap-right"
+                            role="img"
                           >
-                            <div
-                              class="ant-picker-input"
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="swap-right"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
                             >
-                              <input
-                                autocomplete="off"
-                                id="base_date"
-                                placeholder="请选择"
-                                readonly=""
-                                size="12"
-                                title=""
-                                value=""
+                              <path
+                                d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
                               />
-                              <span
-                                class="ant-picker-suffix"
-                              >
-                                <span
-                                  aria-label="calendar"
-                                  class="anticon anticon-calendar"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    class=""
-                                    data-icon="calendar"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-                                    />
-                                  </svg>
-                                </span>
-                              </span>
-                            </div>
-                          </div>
-                        </div>
+                            </svg>
+                          </span>
+                        </span>
                       </div>
+                      <div
+                        class="ant-picker-input"
+                      >
+                        <input
+                          autocomplete="off"
+                          placeholder="请选择"
+                          readonly=""
+                          size="12"
+                          value=""
+                        />
+                      </div>
+                      <div
+                        class="ant-picker-active-bar"
+                        style="left: 0px; width: 0px; position: absolute;"
+                      />
+                      <span
+                        class="ant-picker-suffix"
+                      >
+                        <span
+                          aria-label="calendar"
+                          class="anticon anticon-calendar"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class=""
+                            data-icon="calendar"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
                     </div>
                   </div>
                 </div>

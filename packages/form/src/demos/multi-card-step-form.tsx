@@ -45,8 +45,11 @@ export default () => {
             collapsible
             style={{
               marginBottom: 16,
-              minWidth: 800,
+              minWidth: 920,
               maxWidth: '100%',
+            }}
+            bodyStyle={{
+              padding: 24,
             }}
           >
             <ProFormText
@@ -69,6 +72,9 @@ export default () => {
             collapsible
             style={{
               marginBottom: 16,
+            }}
+            bodyStyle={{
+              padding: 24,
             }}
           >
             <ProFormDigit

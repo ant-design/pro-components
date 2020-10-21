@@ -25,6 +25,7 @@ export default () => {
         style={{
           maxHeight: '100vh',
         }}
+        fixSiderbar
         navTheme="light"
         breakpoint={false}
         defaultCollapsed

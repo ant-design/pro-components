@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ProLayout, { PageContainer, MenuDataItem } from '@ant-design/pro-layout';
-import { Button, Spin } from 'antd';
+import { Button } from 'antd';
 import customMenuDate from './customMenu';
 
 export default () => {
@@ -30,21 +30,11 @@ export default () => {
           height: 400,
           border: '1px solid #ddd',
         }}
-        menuContentRender={(_, dom) =>
-          loading ? (
-            <div
-              style={{
-                padding: '24px 0',
-              }}
-            >
-              <Spin tip="菜单加载中">{dom}</Spin>
-            </div>
-          ) : (
-            dom
-          )
-        }
+        menu={{
+          loading,
+        }}
         location={{
-          pathname: '/welcome',
+          pathname: '/welcome/welcome',
         }}
         menuDataRender={() => menuData}
       >

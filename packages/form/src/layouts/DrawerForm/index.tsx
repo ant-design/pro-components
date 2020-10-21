@@ -35,6 +35,11 @@ export type DrawerFormProps = Omit<FormProps, 'onFinish'> &
      * @description 不支持 'visible'，请使用全局的 visible
      */
     drawerProps?: Omit<DrawerProps, 'visible'>;
+
+    /**
+     * @name 抽屉的标题
+     */
+    title?: DrawerProps['title'];
   };
 
 const DrawerForm: React.FC<DrawerFormProps> = ({
@@ -43,6 +48,7 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
   onVisibleChange,
   drawerProps,
   onFinish,
+  title,
   ...rest
 }) => {
   const [visible, setVisible] = useMergedState<boolean>(!!rest.visible, {
@@ -76,6 +82,7 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
         contentRender={(item, submitter) => {
           return (
             <Drawer
+              title={title}
               getContainer={false}
               width={800}
               {...drawerProps}
@@ -84,7 +91,16 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
                 setVisible(false);
                 drawerProps?.onClose?.(e);
               }}
-              footer={submitter}
+              footer={
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'flex-end',
+                  }}
+                >
+                  {submitter}
+                </div>
+              }
             >
               {item}
             </Drawer>

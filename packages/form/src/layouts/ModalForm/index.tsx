@@ -36,6 +36,11 @@ export type ModalFormProps = Omit<FormProps, 'onFinish'> &
      * @description 不支持 'visible'，请使用全局的 visible
      */
     modalProps?: Omit<ModalProps, 'visible'>;
+
+    /**
+     * @name 抽屉的标题
+     */
+    title?: ModalProps['title'];
   };
 
 const ModalForm: React.FC<ModalFormProps> = ({
@@ -44,6 +49,7 @@ const ModalForm: React.FC<ModalFormProps> = ({
   onVisibleChange,
   modalProps,
   onFinish,
+  title,
   ...rest
 }) => {
   const [visible, setVisible] = useMergedState<boolean>(!!rest.visible, {
@@ -82,6 +88,7 @@ const ModalForm: React.FC<ModalFormProps> = ({
         contentRender={(item, submitter) => {
           return (
             <Modal
+              title={title}
               getContainer={false}
               width={800}
               {...modalProps}

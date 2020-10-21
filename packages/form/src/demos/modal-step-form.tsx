@@ -41,6 +41,7 @@ export default () => {
         stepsFormRender={(dom, submitter) => {
           return (
             <Modal
+              title="分布表单"
               width={800}
               onCancel={() => setVisible(false)}
               visible={visible}
