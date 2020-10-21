@@ -38,7 +38,7 @@ export interface PureSettings {
    * sticky siderbar
    */
   fixSiderbar: boolean;
-  menu: { locale?: boolean; defaultOpenAll?: boolean };
+  menu: { locale?: boolean; defaultOpenAll?: boolean; loading?: boolean };
   title: string;
   // Your custom iconfont Symbol script Url
   // eg：//at.alicdn.com/t/font_1039637_btcrd5co4w.js

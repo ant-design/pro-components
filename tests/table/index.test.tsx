@@ -30,6 +30,10 @@ describe('BasicTable', () => {
     return style;
   };
 
+  beforeAll(() => {
+    process.env.NODE_ENV = 'TEST';
+  });
+
   afterAll(() => {
     Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
       get: originOffsetHeight,
