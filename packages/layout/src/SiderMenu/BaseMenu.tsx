@@ -14,6 +14,7 @@ import { getOpenKeysFromMenuData } from '../utils/utils';
 import { MenuDataItem, MessageDescriptor, Route, RouterTypes, WithFalse } from '../typings';
 import MenuCounter from './Counter';
 import { PrivateSiderMenuProps } from './SiderMenu';
+import { PageLoading } from '..';
 
 export interface BaseMenuProps
   extends Partial<RouterTypes<Route>>,
@@ -317,11 +318,15 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     props.collapsed,
   ]);
 
+  const [menuUtils] = useState(() => new MenuUtil(props));
+
+  if (menu?.loading) {
+    return <PageLoading />;
+  }
+
   const cls = classNames(className, {
     'top-nav-menu': mode === 'horizontal',
   });
-
-  const [menuUtils] = useState(() => new MenuUtil(props));
 
   // sync props
   menuUtils.props = props;
