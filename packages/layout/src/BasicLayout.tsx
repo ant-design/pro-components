@@ -310,6 +310,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     {
       prefixCls,
       ...props,
+      siderWidth,
       ...currentMenuLayoutProps,
       formatMessage,
       breadcrumb,
