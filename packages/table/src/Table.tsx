@@ -865,11 +865,14 @@ const ProTable = <T extends {}, U extends ParamsType>(
       }
     },
   };
-
+  /**
+   * 如果有 ellipsis ，设置 tableLayout 为 fixed
+   */
+  const tableLayout = props.columns?.some((item) => item.ellipsis) ? 'fixed' : 'auto';
   const tableDom = props.tableViewRender ? (
     props.tableViewRender(tableProps)
   ) : (
-    <Table<T> {...tableProps} />
+    <Table<T> {...tableProps} tableLayout={tableLayout} />
   );
   /**
    * table 区域的 dom，为了方便 render
