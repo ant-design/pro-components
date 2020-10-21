@@ -227,6 +227,7 @@ Array [
     >
       <div
         class="ant-pro-card ant-pro-card-border"
+        style="margin-bottom: 8px;"
       >
         <div
           class="ant-pro-card-body ant-pro-card-body-center"
@@ -236,7 +237,7 @@ Array [
       </div>
       <div
         class="ant-pro-card ant-pro-card-span-12 ant-pro-card-border"
-        style="margin-top: 8px;"
+        style="margin-bottom: 8px;"
       >
         <div
           class="ant-pro-card-body ant-pro-card-body-center"
@@ -246,7 +247,7 @@ Array [
       </div>
       <div
         class="ant-pro-card ant-pro-card-span-8 ant-pro-card-border"
-        style="margin-top: 8px;"
+        style="margin-bottom: 8px;"
       >
         <div
           class="ant-pro-card-body ant-pro-card-body-center"
@@ -258,7 +259,6 @@ Array [
   </div>,
   <div
     class="ant-pro-card ant-pro-card-contain-card"
-    style="margin-top: 8px;"
   >
     <div
       class="ant-pro-card-header"
@@ -705,6 +705,7 @@ Array [
   </div>,
   <div
     class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card"
+    style="margin-top: 8px;"
   >
     <div
       class="ant-pro-card-header ant-pro-card-header-border"

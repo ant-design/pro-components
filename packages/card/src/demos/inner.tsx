@@ -13,7 +13,14 @@ export default () => {
         </ProCard>
       </ProCard>
 
-      <ProCard title="竖向内部卡片" bordered headerBordered direction="column" gutter={[0, 16]}>
+      <ProCard
+        title="竖向内部卡片"
+        bordered
+        headerBordered
+        direction="column"
+        gutter={[0, 16]}
+        style={{ marginTop: 8 }}
+      >
         <ProCard title="内部卡片标题" type="inner" bordered headerBordered>
           内部卡片内容
         </ProCard>
