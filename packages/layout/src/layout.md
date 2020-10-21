@@ -56,21 +56,11 @@ ProLayout 提供了强大的 menu，但是这样必然会封装很多行为，�
 
 <code src="./demos/antd@4MenuIconFormServe.tsx" />
 
-### 从服务器加载 menu 并且使用旧版本 icon
-
-使用兼容包来实现，虽然比较简单，但是会造成打包太大
-
-<code src="./demos/antd@3MenuIconFormServe.tsx" />
-
 ### 自定义 menu 的内容
 
 通过 `menuItemRender`, `subMenuItemRender`,`title`,`logo`,`menuHeaderRender` 可以非常方便的自定义 menu 的样式。如果实在是不满意，可以使用 `menuRender` 完全的自定义。
 
 <code src="./demos/customizeMenu.tsx" />
-
-### 关闭时完全收起 menu
-
-<code src="./demos/hideMenu.tsx" />
 
 ### 自定义页脚
 
@@ -92,21 +82,13 @@ ProLayout 默认不提供页脚，要是和 Pro 官网相同的样式，需要�
 
 <code src="./demos/DefaultOpenAllMenu.tsx" />
 
-### 带参数的面包屑
-
-<code src="./demos/BreadcrumbsRepeat.tsx" />
-
-### IconFont
+### 使用 IconFont
 
 <code src="./demos/IconFont.tsx" />
 
 ### 嵌套布局
 
 <code src="./demos/Nested.tsx" />
-
-### 嵌套布局二
-
-<code src="./demos/TopmenuNested.tsx" />
 
 ## API
 
