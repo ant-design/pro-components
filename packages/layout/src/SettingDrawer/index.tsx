@@ -650,8 +650,8 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
             text={genCopySettingJson(settingState)}
             onCopy={() => message.success(formatMessage({ id: 'app.setting.copyinfo' }))}
           >
-            <Button block>
-              <CopyOutlined /> {formatMessage({ id: 'app.setting.copy' })}
+            <Button block icon={<CopyOutlined />} style={{ marginBottom: 24 }}>
+              {formatMessage({ id: 'app.setting.copy' })}
             </Button>
           </CopyToClipboard>
         )}
