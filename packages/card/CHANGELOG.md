@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.4.0...@ant-design/pro-card@1.4.1) (2020-10-22)
+
+### Bug Fixes
+
+- 修复卡片 demo ([#800](https://github.com/ant-design/pro-components/issues/800)) ([068924a](https://github.com/ant-design/pro-components/commit/068924a3f2a16a4dfa0bf593231fe0c24a25ebbe))
+
 # [1.4.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.3.1...@ant-design/pro-card@1.4.0) (2020-10-21)
 
 ### Features
