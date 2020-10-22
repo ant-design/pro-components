@@ -9,7 +9,6 @@ export interface BlockCheckboxProps {
   list?: {
     title: string;
     key: string;
-    url: string;
   }[];
   configType: string;
   prefixCls: string;

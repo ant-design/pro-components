@@ -186,7 +186,6 @@ const getThemeList = (settings: Partial<ProSettings>) => {
   const themeList = [
     {
       key: 'light',
-      url: 'https://gw.alipayobjects.com/zos/antfincdn/NQ%24zoisaD2/jpRkZQMyYRryryPNtyIC.svg',
       title: formatMessage({ id: 'app.setting.pagestyle.light' }),
     },
   ];
@@ -217,7 +216,6 @@ const getThemeList = (settings: Partial<ProSettings>) => {
   if (settings.layout !== 'mix') {
     themeList.push({
       key: 'dark',
-      url: 'https://gw.alipayobjects.com/zos/antfincdn/XwFOFbLkSM/LCkqqYNmvBEbokSDscrm.svg',
       title: formatMessage({
         id: 'app.setting.pagestyle.dark',
         defaultMessage: '',
@@ -228,7 +226,6 @@ const getThemeList = (settings: Partial<ProSettings>) => {
   if (list.find((item) => item.theme === 'dark')) {
     themeList.push({
       key: 'realDark',
-      url: 'https://gw.alipayobjects.com/zos/antfincdn/hmKaLQvmY2/LCkqqYNmvBEbokSDscrm.svg',
       title: formatMessage({
         id: 'app.setting.pagestyle.dark',
         defaultMessage: '',
@@ -578,20 +575,14 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
             list={[
               {
                 key: 'side',
-                url:
-                  'https://gw.alipayobjects.com/zos/antfincdn/XwFOFbLkSM/LCkqqYNmvBEbokSDscrm.svg',
                 title: formatMessage({ id: 'app.setting.sidemenu' }),
               },
               {
                 key: 'top',
-                url:
-                  'https://gw.alipayobjects.com/zos/antfincdn/URETY8%24STp/KDNDBbriJhLwuqMoxcAr.svg',
                 title: formatMessage({ id: 'app.setting.topmenu' }),
               },
               {
                 key: 'mix',
-                url:
-                  'https://gw.alipayobjects.com/zos/antfincdn/x8Ob%26B8cy8/LCkqqYNmvBEbokSDscrm.svg',
                 title: formatMessage({ id: 'app.setting.mixmenu' }),
               },
             ]}
