@@ -15,7 +15,6 @@ const columns: ProColumns<GithubIssueItem>[] = [
     title: '序号',
     dataIndex: 'index',
     valueType: 'indexBorder',
-    width: 72,
   },
   {
     title: '标题',
@@ -104,10 +103,11 @@ export default () => (
     dateFormatter="string"
     headerTitle="动态自定义搜索栏"
     search={{
-      collapsed: false,
+      defaultCollapsed: false,
       optionRender: ({ searchText, resetText }, { form }) => [
         <Button
           key="search"
+          type="primary"
           onClick={() => {
             form?.submit();
           }}

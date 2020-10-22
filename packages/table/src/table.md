@@ -215,7 +215,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | form | antd form 的配置 | `FormProps` | - |
 | onSubmit | 提交表单时触发 | `(params: U) => void` | - |
 | onReset | 重置表单时触发 | `() => void` | - |
-| columnEmptyText | 空值时的显示，不设置 则默认显示 `-` | `string \| false` | false |
+| columnEmptyText | 空值时的显示，不设置 则默认显示 `-` | `string` \| `false` | false |
 | tableRender | 自定义渲染表格函数 | `(props: ProTableProps<T, U>, defaultDom: JSX.Element, domList: { toolbar: JSX.Element \| undefined; alert: JSX.Element \| undefined; table: JSX.Element \| undefined;}) => React.ReactNode` | - |
 | toolbar | 透传 ListToolBar 配置项 | `ListToolBarProps` | - |
 | tableExtraRender | 自定义表格的主体函数 | `(props: ProTableProps<T, U>, dataSource: T[]) => React.ReactNode;` | - |
@@ -235,7 +235,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | defaultCollapsed | 默认是否收起 | boolean | false |
 | collapsed | 是否收起 | boolean | - |
 | onCollapse | 收起按钮的事件 | `(collapsed: boolean) => void;` | - |
-| optionRender | 操作栏的 render | `(( searchConfig: Omit<SearchConfig, 'optionRender'>, props: Omit<FormOptionProps, 'searchConfig'>, ) => React.ReactNode[]) \| false;` | - |
+| optionRender | 操作栏的 render | `((searchConfig,formProps) => React.ReactNode[])`\|`false` | - |
 
 #### ColConfig
 
@@ -289,15 +289,15 @@ ref.current.clearSelected();
 | ellipsis | 是否自动缩略 | boolean | - |
 | copyable | 是否支持复制 | boolean | - |
 | valueEnum | 值的枚举，会自动转化把值当成 key 来取出要显示的内容 | [valueEnum](#valueenum) | - |
-| valueType | 值的类型 | `'money' \| 'option' \| 'date' \| 'dateTime' \| 'time' \| 'text'\| 'index' \| 'indexBorder'` | 'text' |
+| valueType | 值的类型 | `money` \| `option` \| `date` \| `dateTime` \| `time` \| `text`\| `index`\|`indexBorder` | `text` |
 | hideInSearch | 在查询表单中不展示此项 | boolean | - |
 | hideInTable | 在 Table 中不展示此列 | boolean | - |
 | hideInForm | 在 Form 模式下 中不展示此列 | boolean | - |
-| filters | 表头的筛选菜单项，当值为 true 时，自动使用 valueEnum 生成 | `boolean \| object[]` | false |
+| filters | 表头的筛选菜单项，当值为 true 时，自动使用 valueEnum 生成 | `boolean` \| `object[]` | false |
 | order | 查询表单中的权重，权重大排序靠前 | number | - |
 | renderFormItem | 渲染查询表单的输入组件 | `(item,props:{value,onChange}) => React.ReactNode` | - |
 | fieldProps | 查询表单的 props，会透传给表单项 | `{ [prop: string]: any }` | - |
-| search | 配置列的搜索相关，false 为隐藏 | `boolean \| { transform: (value: any) => any }` | true |
+| search | 配置列的搜索相关，false 为隐藏 | `boolean` \| `{ transform: (value: any) => any }` | true |
 | search.transform | 转化值的 key, 一般用于事件区间的转化 | `(value: any) => any` | - |
 
 ### valueType 值类型
@@ -325,6 +325,7 @@ ProTable 封装了一些常用的值类型来减少重复的 `render` 操作，�
 | percent | 百分比 | +1.12 |
 | code | 代码块 | `const a = b` |
 | avatar | 头像 | 展示一个头像 |
+| password | 密码框 | 密码相关的展示 |
 
 #### 传入 function
 
@@ -427,8 +428,8 @@ interface IValueEnum {
 
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| tableAlertRender | 自定义批量操作工具栏左侧信息区域, false 时不显示 | `({ selectedRowKeys: (string \| number)[], selectedRows: T[], onCleanSelected: ()=>void }) => React.ReactNode) \| false;` | - |
-| tableAlertOptionRender | 自定义批量操作工具栏右侧选项区域, false 时不显示 | `({ selectedRowKeys: (string \| number)[], selectedRows: T[], onCleanSelected: ()=>void }) => React.ReactNode) \| false;` | - |
+| tableAlertRender | 自定义批量操作工具栏左侧信息区域, false 时不显示 | `({ selectedRowKeys: Key[], selectedRows: T[], onCleanSelected: ()=>void }) => React.ReactNode)`\|`false` | - |
+| tableAlertOptionRender | 自定义批量操作工具栏右侧选项区域, false 时不显示 | `({ selectedRowKeys: Key[], selectedRows: T[], onCleanSelected: ()=>void }) => React.ReactNode)`\|`false` | - |
 
 ### 搜索表单
 
@@ -465,15 +466,15 @@ Form 的列是根据 `valueType` 来生成不同的类型。
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| title | 标题 | ReactNode \| string | - |
-| subTitle | 子标题 | ReactNode \| string | - |
-| description | 描述 | ReactNode \| string | - |
-| search | 查询区 | ReactNode \| SearchProps | - |
-| actions | 操作区 | ReactNode[] | - |
-| settings | 设置区 | (ReactNode \| Setting)[] | - |
+| title | 标题 | `ReactNode` | - |
+| subTitle | 子标题 | `ReactNode` | - |
+| description | 描述 | `ReactNode` | - |
+| search | 查询区 | `ReactNode` \| `SearchProps` | - |
+| actions | 操作区 | `ReactNode[]` | - |
+| settings | 设置区 | `(ReactNode \| Setting)[]` | - |
 | filter | 过滤区，通常配合 `LightFilter` 使用 | ReactNode | - |
 | multipleLine | 是否多行展示 | boolean | false |
-| menu | 菜单配置 | ListToolBarMenu | - |
+| menu | 菜单配置 | `ListToolBarMenu` | - |
 | tabs | 标签页配置，仅当 `multipleLine` 为 true 时有效 | ListToolBarTabs | - |
 
 SearchProps 为 antd 的 [Input.Search](https://ant.design/components/input-cn/#Input.Search) 的属性。
@@ -485,21 +486,21 @@ SearchProps 为 antd 的 [Input.Search](https://ant.design/components/input-cn/#
 | icon    | 图标         | ReactNode             | -      |
 | tooltip | tooltip 描述 | string                | -      |
 | key     | 操作唯一标识 | string                | -      |
-| onClick | 设置被触发   | function(key: string) | -      |
+| onClick | 设置被触发   | `(key: string)=>void` | -      |
 
 #### ListToolBarMenu
 
-| 参数      | 说明           | 类型                                | 默认值     |
-| --------- | -------------- | ----------------------------------- | ---------- |
-| type      | 类型           | 'inline' \| 'dropdown'              | 'dropdown' |
-| activeKey | 当前值         | string                              | -          |
-| items     | 菜单项         | { key: string; label: ReactNode }[] | -          |
-| onChange  | 切换菜单的回调 | Function(activeKey) {}              | -          |
+| 参数      | 说明           | 类型                                  | 默认值     |
+| --------- | -------------- | ------------------------------------- | ---------- |
+| type      | 类型           | 'inline' \| 'dropdown'                | 'dropdown' |
+| activeKey | 当前值         | string                                | -          |
+| items     | 菜单项         | `{ key: string; label: ReactNode }[]` | -          |
+| onChange  | 切换菜单的回调 | `(activeKey)=>void`                   | -          |
 
 #### ListToolBarTabs
 
-| 参数      | 说明       | 类型                              | 默认值     |
-| --------- | ---------- | --------------------------------- | ---------- |
-| activeKey | 当前选中项 | string                            | -          |
-| items     | 菜单项     | { key: string; tab: ReactNode }[] | -          |
-| onChange  | 类型       | 'inline' \| 'dropdown'            | 'dropdown' |
+| 参数      | 说明       | 类型                                | 默认值     |
+| --------- | ---------- | ----------------------------------- | ---------- |
+| activeKey | 当前选中项 | string                              | -          |
+| items     | 菜单项     | `{ key: string; tab: ReactNode }[]` | -          |
+| onChange  | 类型       | 'inline' \| 'dropdown'              | 'dropdown' |

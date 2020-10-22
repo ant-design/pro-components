@@ -169,7 +169,7 @@ exports[`BasicTable 🎏  do not render default option 1`] = `
   >
     <div
       class="ant-card-body"
-      style="padding: 0px;"
+      style="padding-top: 0px; padding-bottom: 0px;"
     >
       <div
         class="ant-pro-table-list-toolbar"
@@ -1658,7 +1658,7 @@ exports[`BasicTable 🎏 base use 1`] = `
   >
     <div
       class="ant-card-body"
-      style="padding: 0px;"
+      style="padding-top: 0px; padding-bottom: 0px;"
     >
       <div
         class="ant-pro-table-list-toolbar"
@@ -1904,12 +1904,8 @@ exports[`BasicTable 🎏 base use 1`] = `
                     style="table-layout: fixed;"
                   >
                     <colgroup>
-                      <col
-                        style="width: 72px; min-width: 72px;"
-                      />
-                      <col
-                        style="width: 72px; min-width: 72px;"
-                      />
+                      <col />
+                      <col />
                       <col />
                       <col />
                       <col />
@@ -7942,7 +7938,7 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
   >
     <div
       class="ant-card-body"
-      style="padding: 0px;"
+      style="padding-top: 0px; padding-bottom: 0px;"
     >
       <div
         class="ant-pro-table-list-toolbar"
@@ -8202,7 +8198,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
   >
     <div
       class="ant-card-body"
-      style="padding: 0px;"
+      style="padding-top: 0px; padding-bottom: 0px;"
     >
       <div
         class="ant-pro-table-list-toolbar"
@@ -8434,12 +8430,8 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                       <col
                         class="ant-table-selection-col"
                       />
-                      <col
-                        style="width: 72px; min-width: 72px;"
-                      />
-                      <col
-                        style="width: 72px; min-width: 72px;"
-                      />
+                      <col />
+                      <col />
                       <col />
                       <col />
                       <col />
@@ -14999,7 +14991,7 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
   >
     <div
       class="ant-card-body"
-      style="padding: 0px;"
+      style="padding-top: 0px; padding-bottom: 0px;"
     >
       <div
         class="ant-pro-table-list-toolbar"
