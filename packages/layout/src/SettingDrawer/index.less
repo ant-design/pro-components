@@ -18,11 +18,79 @@
     &-item {
       position: relative;
       margin-right: 16px;
-      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.12);
-      border-radius: @border-radius-base;
+      box-shadow: 0 1px 2.5px 0 rgba(0, 0, 0, 0.18);
+      border-radius: 4px;
+      overflow: hidden;
       cursor: pointer;
-      width: 48px;
-      height: 48px;
+      width: 44px;
+      height: 36px;
+      background-color: #f0f2f5;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 33%;
+        height: 100%;
+        background-color: #fff;
+        content: '';
+      }
+      &::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 25%;
+        background-color: #fff;
+        content: '';
+      }
+
+      // 亮色主题
+      &-light {
+        &::before {
+          background-color: #fff;
+          content: '';
+        }
+        &::after {
+          background-color: #fff;
+        }
+      }
+
+      // 暗色主题
+      &-dark,
+      // 侧边菜单布局
+      &-side {
+        &::before {
+          background-color: @menu-dark-bg;
+          content: '';
+          z-index: 1;
+        }
+        &::after {
+          background-color: #fff;
+        }
+      }
+
+      // 顶部菜单布局
+      &-top {
+        &::before {
+          background-color: transparent;
+          content: '';
+        }
+        &::after {
+          background-color: @menu-dark-bg;
+        }
+      }
+
+      // 顶部菜单布局
+      &-mix {
+        &::before {
+          background-color: #fff;
+          content: '';
+        }
+        &::after {
+          background-color: @menu-dark-bg;
+        }
+      }
     }
     &-selectIcon {
       position: absolute;
