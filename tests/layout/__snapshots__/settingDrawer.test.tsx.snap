@@ -546,6 +546,7 @@ exports[`settingDrawer.test base user 1`] = `
               </div>
               <button
                 class="ant-btn ant-btn-block"
+                style="margin-bottom:24px"
                 type="button"
               >
                 <span
@@ -569,7 +570,7 @@ exports[`settingDrawer.test base user 1`] = `
                   </svg>
                 </span>
                 <span>
-                   Copy Setting
+                  Copy Setting
                 </span>
               </button>
             </div>
@@ -1119,6 +1120,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
               </div>
               <button
                 class="ant-btn ant-btn-block"
+                style="margin-bottom:24px"
                 type="button"
               >
                 <span
@@ -1142,7 +1144,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                   </svg>
                 </span>
                 <span>
-                   Copy Setting
+                  Copy Setting
                 </span>
               </button>
             </div>
@@ -2268,6 +2270,7 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
               />
               <button
                 class="ant-btn ant-btn-block"
+                style="margin-bottom:24px"
                 type="button"
               >
                 <span
@@ -2291,7 +2294,7 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                   </svg>
                 </span>
                 <span>
-                   Copy Setting
+                  Copy Setting
                 </span>
               </button>
             </div>
@@ -2874,6 +2877,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
               </div>
               <button
                 class="ant-btn ant-btn-block"
+                style="margin-bottom:24px"
                 type="button"
               >
                 <span
@@ -2897,7 +2901,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                   </svg>
                 </span>
                 <span>
-                   Copy Setting
+                  Copy Setting
                 </span>
               </button>
             </div>
@@ -3479,6 +3483,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
               </div>
               <button
                 class="ant-btn ant-btn-block"
+                style="margin-bottom:24px"
                 type="button"
               >
                 <span
@@ -3502,7 +3507,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                   </svg>
                 </span>
                 <span>
-                   Copy Setting
+                  Copy Setting
                 </span>
               </button>
             </div>
