@@ -66,7 +66,7 @@ export interface PageContainerProps extends PageHeaderTabConfig, Omit<PageHeader
    * @description 与 antd 完全相同
    */
   header?: PageHeaderProps & {
-    children: React.ReactNode;
+    children?: React.ReactNode;
   };
 
   /**
