@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.5.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.5.7...@ant-design/pro-layout@6.5.8) (2020-10-22)
+
+### Bug Fixes
+
+- **layout:** fix PageContainer header ts definition ([#817](https://github.com/ant-design/pro-components/issues/817)) ([80e5b60](https://github.com/ant-design/pro-components/commit/80e5b605f2dd7c69ea2bc5607d41087926394262))
+
 ## [6.5.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.5.6...@ant-design/pro-layout@6.5.7) (2020-10-22)
 
 **Note:** Version bump only for package @ant-design/pro-layout
