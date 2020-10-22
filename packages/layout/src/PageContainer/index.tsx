@@ -65,7 +65,13 @@ export interface PageContainerProps extends PageHeaderTabConfig, Omit<PageHeader
    * @name PageHeader 的配置
    * @description 与 antd 完全相同
    */
-  header?: PageHeaderProps;
+  header?: PageHeaderProps & {
+    children: React.ReactNode;
+  };
+
+  /**
+   * @name 自定义 pageHeader
+   */
   pageHeaderRender?: (props: PageContainerProps) => React.ReactNode;
 
   /**
@@ -171,7 +177,7 @@ const defaultPageHeaderRender = (
       {...header}
       prefixCls={prefixCls}
     >
-      {renderPageHeader(content, extraContent, value.prefixedClassName)}
+      {header?.children || renderPageHeader(content, extraContent, value.prefixedClassName)}
     </PageHeader>
   );
 };

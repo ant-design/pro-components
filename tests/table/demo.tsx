@@ -47,13 +47,11 @@ export const columns: ProColumns[] = [
     key: 'index',
     dataIndex: 'index',
     valueType: 'index',
-    width: 72,
   },
   {
     title: '边框序号',
     dataIndex: 'indexBorder',
     valueType: 'indexBorder',
-    width: 72,
   },
   {
     title: 'Name',

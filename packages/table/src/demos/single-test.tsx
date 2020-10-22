@@ -65,7 +65,6 @@ const columns: ProColumns<GithubIssueItem>[] = [
     title: '序号',
     dataIndex: 'index',
     valueType: 'indexBorder',
-    width: 72,
   },
   {
     title: '标题',

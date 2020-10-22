@@ -79,30 +79,18 @@ const columns: ProColumns<TableListItem>[] = [
     title: '序号',
     dataIndex: 'index',
     valueType: 'index',
-    width: 72,
   },
   {
     title: 'border 序号',
     dataIndex: 'index',
     key: 'indexBorder',
     valueType: 'indexBorder',
-    width: 72,
-    // @ts-ignore
-    sorter: {
-      multiple: 3,
-    },
   },
   {
     title: '状态',
     dataIndex: 'status',
     initialValue: ['all'],
-    // @ts-ignore
-    sorter: {
-      multiple: 3,
-    },
     width: 100,
-    ellipsis: true,
-    filters: true,
     fieldProps: {
       mode: 'tags',
       onChange: (value: string) => console.log(value),

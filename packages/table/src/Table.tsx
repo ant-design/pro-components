@@ -878,11 +878,26 @@ const ProTable = <T extends {}, U extends ParamsType>(
    * table 区域的 dom，为了方便 render
    */
   const tableAreaDom = (
-    <>
+    <Card
+      bordered={false}
+      style={{
+        height: '100%',
+      }}
+      bodyStyle={
+        toolbarDom
+          ? {
+              paddingTop: 0,
+              paddingBottom: 0,
+            }
+          : {
+              padding: 0,
+            }
+      }
+    >
       {toolbarDom}
       {alertDom}
       {tableDom}
-    </>
+    </Card>
   );
 
   const renderTable = () => {
@@ -906,19 +921,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
         {type !== 'form' && props.tableExtraRender && (
           <div className={`${className}-extra`}>{props.tableExtraRender(props, dataSource)}</div>
         )}
-        {type !== 'form' && (
-          <Card
-            bordered={false}
-            style={{
-              height: '100%',
-            }}
-            bodyStyle={{
-              padding: 0,
-            }}
-          >
-            {renderTable()}
-          </Card>
-        )}
+        {type !== 'form' && renderTable()}
       </div>
     </ConfigProvider>
   );

@@ -302,7 +302,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
   >
     <div
       class="qixian-card-body"
-      style="padding: 0px;"
+      style="padding-top: 0px; padding-bottom: 0px;"
     >
       <div
         class="qixian-pro-table-list-toolbar"

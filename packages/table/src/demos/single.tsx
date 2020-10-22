@@ -63,10 +63,9 @@ interface User {
 
 const columns: ProColumns<GithubIssueItem>[] = [
   {
-    title: '序号',
     dataIndex: 'index',
     valueType: 'indexBorder',
-    width: 72,
+    width: 32,
   },
   {
     title: '标题',
@@ -105,13 +104,10 @@ const columns: ProColumns<GithubIssueItem>[] = [
         status: 'Processing',
       },
     },
-
-    width: '10%',
   },
   {
     title: '标签',
     dataIndex: 'labels',
-    width: '10%',
     render: (_, row) => (
       <Space>
         {row.labels.map(({ name, id, color }) => (
@@ -126,8 +122,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     title: '创建时间',
     key: 'since',
     dataIndex: 'created_at',
-    valueType: 'dateTime',
-    width: '20%',
+    valueType: 'date',
   },
   {
     title: '操作',

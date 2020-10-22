@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Tooltip } from 'antd';
-import { DownOutlined, QuestionCircleOutlined, EllipsisOutlined } from '@ant-design/icons';
-import ProTable, { ProColumns } from '@ant-design/pro-table';
+import { DownOutlined, QuestionCircleOutlined } from '@ant-design/icons';
+import ProTable, { ProColumns, TableDropdown } from '@ant-design/pro-table';
 
 const valueEnum = {
   0: 'close',
@@ -104,9 +104,13 @@ const columns: ProColumns<TableListItem>[] = [
       <a key="link">链路</a>,
       <a key="link2">报警</a>,
       <a key="link3">监控</a>,
-      <a key="link4">
-        <EllipsisOutlined />
-      </a>,
+      <TableDropdown
+        key="actionGroup"
+        menus={[
+          { key: 'copy', name: '复制' },
+          { key: 'delete', name: '删除' },
+        ]}
+      />,
     ],
   },
 ];
