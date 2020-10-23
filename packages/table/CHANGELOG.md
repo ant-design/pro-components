@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.9.9...@ant-design/pro-table@2.9.10) (2020-10-23)
+
+### Bug Fixes
+
+- **layout:** fix PageContainer header ts definition ([#817](https://github.com/ant-design/pro-components/issues/817)) ([80e5b60](https://github.com/ant-design/pro-components/commit/80e5b605f2dd7c69ea2bc5607d41087926394262))
+
 ## [2.9.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.9.8...@ant-design/pro-table@2.9.9) (2020-10-22)
 
 **Note:** Version bump only for package @ant-design/pro-table
