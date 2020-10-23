@@ -1251,14 +1251,10 @@ exports[`Field 🐴 edit and no plain 1`] = `
               <span
                 class="ant-descriptions-item-content"
               >
-                <div
-                  class="ant-input-textarea"
-                >
-                  <textarea
-                    class="ant-input"
-                    rows="5"
-                  />
-                </div>
+                <textarea
+                  class="ant-input"
+                  rows="5"
+                />
               </span>
             </div>
           </td>
@@ -1277,14 +1273,10 @@ exports[`Field 🐴 edit and no plain 1`] = `
               <span
                 class="ant-descriptions-item-content"
               >
-                <div
-                  class="ant-input-textarea"
-                >
-                  <textarea
-                    class="ant-input"
-                    rows="5"
-                  />
-                </div>
+                <textarea
+                  class="ant-input"
+                  rows="5"
+                />
               </span>
             </div>
           </td>
