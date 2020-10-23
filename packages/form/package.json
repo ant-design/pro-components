@@ -40,7 +40,7 @@
     "classnames": "^2.2.6",
     "omit.js": "^2.0.2",
     "rc-resize-observer": "^0.2.3",
-    "use-media-antd-query": "^1.0.2"
+    "use-media-antd-query": "^1.0.3"
   },
   "peerDependencies": {
     "antd": "4.x",
