@@ -36,6 +36,7 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
                   aria-label="Close"
                   class="ant-drawer-close"
                   style="--scroll-bar:0px"
+                  type="button"
                 >
                   <span
                     aria-label="close"
@@ -226,6 +227,7 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
                   aria-label="Close"
                   class="ant-drawer-close"
                   style="--scroll-bar:0px"
+                  type="button"
                 >
                   <span
                     aria-label="close"
@@ -416,6 +418,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
                   aria-label="Close"
                   class="ant-drawer-close"
                   style="--scroll-bar:0px"
+                  type="button"
                 >
                   <span
                     aria-label="close"
@@ -593,6 +596,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
                   aria-label="Close"
                   class="ant-drawer-close"
                   style="--scroll-bar:0px"
+                  type="button"
                 >
                   <span
                     aria-label="close"
@@ -770,6 +774,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
                   aria-label="Close"
                   class="ant-drawer-close"
                   style="--scroll-bar:0px"
+                  type="button"
                 >
                   <span
                     aria-label="close"
@@ -940,6 +945,7 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
                   aria-label="Close"
                   class="ant-drawer-close"
                   style="--scroll-bar:0px"
+                  type="button"
                 >
                   <span
                     aria-label="close"
@@ -1120,6 +1126,7 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
                   aria-label="Close"
                   class="ant-drawer-close"
                   style="--scroll-bar:0px"
+                  type="button"
                 >
                   <span
                     aria-label="close"

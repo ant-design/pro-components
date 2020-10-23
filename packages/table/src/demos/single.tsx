@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
-import { Button, Tag, Space } from 'antd';
+import { Button, Tag, Space, Input } from 'antd';
 import ProTable, { ProColumns, TableDropdown, ActionType } from '@ant-design/pro-table';
 import request from 'umi-request';
 
@@ -167,8 +167,13 @@ export default () => {
       dateFormatter="string"
       headerTitle="高级表格"
       toolBarRender={() => [
-        <Button key="3" type="primary">
-          <PlusOutlined />
+        <Input.Search
+          style={{
+            width: 350,
+          }}
+          placeholder="按数据名称搜索"
+        />,
+        <Button icon={<PlusOutlined />} type="primary">
           新建
         </Button>,
       ]}

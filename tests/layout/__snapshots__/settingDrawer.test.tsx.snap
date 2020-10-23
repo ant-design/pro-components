@@ -29,6 +29,7 @@ exports[`settingDrawer.test base user 1`] = `
               aria-label="Close"
               class="ant-drawer-close"
               style="--scroll-bar:0px"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -636,6 +637,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
               aria-label="Close"
               class="ant-drawer-close"
               style="--scroll-bar:0px"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -1210,6 +1212,7 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
               aria-label="Close"
               class="ant-drawer-close"
               style="--scroll-bar:0px"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -1788,6 +1791,7 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
               aria-label="Close"
               class="ant-drawer-close"
               style="--scroll-bar:0px"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -2360,6 +2364,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
               aria-label="Close"
               class="ant-drawer-close"
               style="--scroll-bar:0px"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -2967,6 +2972,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
               aria-label="Close"
               class="ant-drawer-close"
               style="--scroll-bar:0px"
+              type="button"
             >
               <span
                 aria-label="close"
