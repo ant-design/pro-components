@@ -5338,10 +5338,10 @@ ansicolors@~0.3.2:
   resolved "https://registry.npm.taobao.org/ansicolors/download/ansicolors-0.3.2.tgz#665597de86a9ffe3aa9bfbe6cae5c6ea426b4979"
   integrity sha1-ZlWX3oap/+Oqm/vmyuXG6kJrSXk=
 
-antd@^4.7.0:
-  version "4.7.0"
-  resolved "https://registry.npm.taobao.org/antd/download/antd-4.7.0.tgz?cache=0&sync_timestamp=1602336432851&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fantd%2Fdownload%2Fantd-4.7.0.tgz#84527b3306b91af1784c37d5e0e311960f92f3ba"
-  integrity sha1-hFJ7Mwa5GvF4TDfV4OMRlg+S87o=
+antd@^4.7.2:
+  version "4.7.2"
+  resolved "https://registry.npm.taobao.org/antd/download/antd-4.7.2.tgz?cache=0&sync_timestamp=1603099229130&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fantd%2Fdownload%2Fantd-4.7.2.tgz#6be4c34de141786bbc5425c743d0a3b990042641"
+  integrity sha1-a+TDTeFBeGu8VCXHQ9CjuZAEJkE=
   dependencies:
     "@ant-design/colors" "^4.0.5"
     "@ant-design/css-animation" "^1.7.2"
@@ -5366,7 +5366,7 @@ antd@^4.7.0:
     rc-image "~3.2.1"
     rc-input-number "~6.1.0"
     rc-mentions "~1.5.0"
-    rc-menu "~8.7.1"
+    rc-menu "~8.8.2"
     rc-motion "^2.2.0"
     rc-notification "~4.5.2"
     rc-pagination "~3.1.0"
@@ -5379,7 +5379,7 @@ antd@^4.7.0:
     rc-steps "~4.1.0"
     rc-switch "~3.2.0"
     rc-table "~7.10.0"
-    rc-tabs "~11.6.0"
+    rc-tabs "~11.7.0"
     rc-textarea "~0.3.0"
     rc-tooltip "~5.0.0"
     rc-tree "~3.10.0"
@@ -18302,10 +18302,10 @@ rc-menu@^8.0.1, rc-menu@^8.6.1:
     resize-observer-polyfill "^1.5.0"
     shallowequal "^1.1.0"
 
-rc-menu@~8.7.1:
-  version "8.7.1"
-  resolved "https://registry.npm.taobao.org/rc-menu/download/rc-menu-8.7.1.tgz?cache=0&sync_timestamp=1602684760186&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Frc-menu%2Fdownload%2Frc-menu-8.7.1.tgz#f3dcaeb25308568a07871b79f8ddd9515a64e8be"
-  integrity sha1-89yuslMIVooHhxt5+N3ZUVpk6L4=
+rc-menu@~8.8.2:
+  version "8.8.3"
+  resolved "https://registry.npm.taobao.org/rc-menu/download/rc-menu-8.8.3.tgz?cache=0&sync_timestamp=1602844104114&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Frc-menu%2Fdownload%2Frc-menu-8.8.3.tgz#feb8ba0371dd342fbf1052d4fcca7b669b0bf66a"
+  integrity sha1-/ri6A3HdNC+/EFLU/Mp7ZpsL9mo=
   dependencies:
     "@babel/runtime" "^7.10.1"
     classnames "2.x"
@@ -18447,10 +18447,10 @@ rc-table@~7.10.0:
     rc-util "^5.4.0"
     shallowequal "^1.1.0"
 
-rc-tabs@~11.6.0:
-  version "11.6.2"
-  resolved "https://registry.npm.taobao.org/rc-tabs/download/rc-tabs-11.6.2.tgz?cache=0&sync_timestamp=1602658514260&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Frc-tabs%2Fdownload%2Frc-tabs-11.6.2.tgz#0732a3f6ef36a14343f9afe47df7f29971e8020b"
-  integrity sha1-BzKj9u82oUND+a/kfffymXHoAgs=
+rc-tabs@~11.7.0:
+  version "11.7.0"
+  resolved "https://registry.npm.taobao.org/rc-tabs/download/rc-tabs-11.7.0.tgz?cache=0&sync_timestamp=1602658514260&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Frc-tabs%2Fdownload%2Frc-tabs-11.7.0.tgz#e03a03fbf5b8d04a1c9f12f24a621b1d7ff6a093"
+  integrity sha1-4DoD+/W40EocnxLySmIbHX/2oJM=
   dependencies:
     "@babel/runtime" "^7.11.2"
     classnames "2.x"

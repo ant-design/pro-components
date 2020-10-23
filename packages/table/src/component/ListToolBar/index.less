@@ -14,16 +14,18 @@
     justify-content: space-between;
     height: @pro-list-toolbar-line-height;
     padding: 0;
-    line-height: @pro-list-toolbar-line-height;
   }
 
   &-title {
     color: @heading-color;
     font-size: @font-size-lg;
+    line-height: @pro-list-toolbar-line-height;
   }
 
   &-search:not(:last-child) {
-    margin-right: @margin-md;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
   }
 
   &-setting-items {
@@ -39,6 +41,7 @@
   &-left {
     display: flex;
     justify-content: flex-start;
+    align-items: center;
   }
 
   &-right {
