@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
-import { Button, Tag, Space, Input } from 'antd';
+import { Button, Tag, Space } from 'antd';
 import ProTable, { ProColumns, TableDropdown, ActionType } from '@ant-design/pro-table';
 import request from 'umi-request';
 
@@ -65,7 +65,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
   {
     dataIndex: 'index',
     valueType: 'indexBorder',
-    width: 32,
+    width: 48,
   },
   {
     title: '标题',
@@ -152,9 +152,6 @@ export default () => {
   return (
     <ProTable<GithubIssueItem>
       columns={columns}
-      pagination={{
-        showQuickJumper: true,
-      }}
       actionRef={actionRef}
       request={async (params = {}) =>
         request<{
@@ -167,13 +164,7 @@ export default () => {
       dateFormatter="string"
       headerTitle="高级表格"
       toolBarRender={() => [
-        <Input.Search
-          style={{
-            width: 350,
-          }}
-          placeholder="按数据名称搜索"
-        />,
-        <Button icon={<PlusOutlined />} type="primary">
+        <Button key="button" icon={<PlusOutlined />} type="primary">
           新建
         </Button>,
       ]}

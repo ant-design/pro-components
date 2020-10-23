@@ -19,7 +19,9 @@
   &-title {
     color: @heading-color;
     font-size: @font-size-lg;
-    line-height: @pro-list-toolbar-line-height;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
   }
 
   &-search:not(:last-child) {
@@ -29,7 +31,7 @@
   }
 
   &-setting-items {
-    margin-left: @margin-lg;
+    margin-left: @margin-md;
   }
 
   &-setting-item {

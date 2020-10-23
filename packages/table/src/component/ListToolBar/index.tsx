@@ -166,8 +166,18 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-table-list-toolbar', customizePrefixCls);
 
+  /**
+   * 根据配置自动生成的查询框
+   */
   const searchNode: React.ReactNode = getSearchInput(search);
+  /**
+   * 轻量筛选组件
+   */
   const filtersNode = filter ? <div className={`${prefixCls}-filter`}>{filter}</div> : null;
+
+  /**
+   * 有没有 title，判断了多个场景
+   */
   const hasTitle = menu || title || subTitle || tooltip || tip;
 
   return (
@@ -180,7 +190,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
           </div>
           {!hasTitle && searchNode && <div className={`${prefixCls}-search`}>{searchNode}</div>}
         </div>
-        <div className={`${prefixCls}-right`}>
+        <Space className={`${prefixCls}-right`}>
           {hasTitle && searchNode && <div className={`${prefixCls}-search`}>{searchNode}</div>}
           {!multipleLine && filtersNode}
           <Space align="center">{actions}</Space>
@@ -195,7 +205,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
               );
             })}
           </Space>
-        </div>
+        </Space>
       </div>
       {multipleLine && (
         <div className={`${prefixCls}-extra-line`}>
