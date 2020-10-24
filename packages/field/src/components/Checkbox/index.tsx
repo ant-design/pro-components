@@ -42,7 +42,11 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
       : undefined;
     const checkBoxText: any[] = Array.isArray(rest.text) ? rest.text : [rest.text];
     const dom = checkBoxText.map((text) => {
-      return <>{proFieldParsingText(text, ObjToMap(rest.valueEnum || optionsValueEnum))}</>;
+      return (
+        <React.Fragment key={text}>
+          {proFieldParsingText(text, ObjToMap(rest.valueEnum || optionsValueEnum))}
+        </React.Fragment>
+      );
     });
 
     if (render) {
@@ -60,6 +64,7 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
         options={options?.map((option) => {
           if (typeof option === 'string') {
             return {
+              key: option,
               label: option,
               value: option,
             };

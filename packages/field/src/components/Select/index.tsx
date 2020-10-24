@@ -178,8 +178,10 @@ export const useFieldFetchData = (
     return proFieldParsingValueEnumToArray(ObjToMap(valueEnum)).map(({ value, text }) => ({
       label: text,
       value,
+      key: value,
     }));
   }, []);
+
   const [options, setOptions] = useState<SelectProps<any>['options']>(() => {
     if (props.valueEnum) {
       return getOptionsFormValueEnum(props.valueEnum);
@@ -241,10 +243,11 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
     fetchData: () => fetchData(),
   }));
 
+  if (loading) {
+    return <Spin />;
+  }
+
   if (mode === 'read') {
-    if (loading) {
-      return <Spin />;
-    }
     const optionsValueEnum = options?.length
       ? options?.reduce((pre: any, cur) => {
           return { ...pre, [cur.value]: cur.label };
