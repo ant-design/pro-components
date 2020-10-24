@@ -2,9 +2,9 @@ import React, {
   ReactNode,
   useState,
   useImperativeHandle,
-  useEffect,
   useRef,
   useContext,
+  useCallback,
 } from 'react';
 import { Select, Spin } from 'antd';
 import {
@@ -22,16 +22,11 @@ import { ProFieldFC } from '../../index';
 
 export type ProFieldValueEnumType = ProSchemaValueEnumMap | ProSchemaValueEnumObj;
 
-export const ObjToMap = (
-  value: ProFieldValueEnumType | undefined,
-): ProSchemaValueEnumMap | undefined => {
-  if (!value) {
-    return value;
-  }
+export const ObjToMap = (value: ProFieldValueEnumType | undefined): ProSchemaValueEnumMap => {
   if (getType(value) === 'map') {
     return value as ProSchemaValueEnumMap;
   }
-  return new Map(Object.entries(value));
+  return new Map(Object.entries(value || {}));
 };
 
 /**
@@ -43,13 +38,10 @@ export const ObjToMap = (
  */
 export const proFieldParsingText = (
   text: string | number,
-  valueEnumParams?: ProFieldValueEnumType,
+  valueEnumParams: ProFieldValueEnumType,
 ) => {
   const valueEnum = ObjToMap(valueEnumParams);
 
-  if (!valueEnum) {
-    return text;
-  }
   if (!valueEnum.has(text) && !valueEnum.has(`${text}`)) {
     return text;
   }
@@ -59,6 +51,10 @@ export const proFieldParsingText = (
     status: ProFieldStatusType;
     color?: string;
   };
+
+  if (!domText) {
+    return text;
+  }
 
   const { status, color } = domText;
   const Status = TableStatus[status || 'Init'];
@@ -110,15 +106,12 @@ export const proFieldParsingValueEnumToArray = (
   }[] = [];
   const valueEnum = ObjToMap(valueEnumParams);
 
-  if (!valueEnum) {
-    return [];
-  }
-
   valueEnum.forEach((_, key) => {
     const value = (valueEnum.get(key) || valueEnum.get(`${key}`)) as {
       text: string;
       disabled?: boolean;
     };
+
     if (!value) {
       return;
     }
@@ -171,15 +164,20 @@ export type FieldSelectProps = {
   fieldProps?: SelectProps<any>;
 };
 
-const useFetchData = (
+export const useFieldFetchData = (
   props: FieldSelectProps,
 ): [boolean, SelectProps<any>['options'], () => void] => {
+  const getOptionsFormValueEnum = useCallback((valueEnum) => {
+    return proFieldParsingValueEnumToArray(ObjToMap(valueEnum)).map(({ value, text }) => ({
+      label: text,
+      value,
+      key: value,
+    }));
+  }, []);
+
   const [options, setOptions] = useState<SelectProps<any>['options']>(() => {
     if (props.valueEnum) {
-      return proFieldParsingValueEnumToArray(ObjToMap(props.valueEnum)).map(({ value, text }) => ({
-        label: text,
-        value,
-      }));
+      return getOptionsFormValueEnum(props.valueEnum);
     }
     if (props.fieldProps?.options) {
       return props.fieldProps?.options || [];
@@ -190,15 +188,7 @@ const useFetchData = (
   useDeepCompareEffect(() => {
     // 优先使用 fieldProps?.options
     if (!props.valueEnum || props.fieldProps?.options) return;
-    setOptions(
-      proFieldParsingValueEnumToArray(ObjToMap(props.valueEnum)).map(
-        ({ value, text, ...rest }) => ({
-          label: text,
-          value,
-          ...rest,
-        }),
-      ),
-    );
+    setOptions(getOptionsFormValueEnum(props.valueEnum));
   }, [props.valueEnum]);
 
   const [loading, setLoading] = useState<boolean>(false);
@@ -211,7 +201,8 @@ const useFetchData = (
     setOptions(data);
     setLoading(false);
   };
-  useEffect(() => {
+
+  useDeepCompareEffect(() => {
     fetchData();
   }, [props.params]);
   return [loading, options, fetchData];
@@ -237,7 +228,7 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
   const inputRef = useRef();
   const intl = useIntl();
 
-  const [loading, options, fetchData] = useFetchData(props);
+  const [loading, options, fetchData] = useFieldFetchData(props);
 
   const size = useContext(SizeContext);
   useImperativeHandle(ref, () => ({
@@ -245,16 +236,25 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
     fetchData: () => fetchData(),
   }));
 
+  if (loading) {
+    return <Spin />;
+  }
+
   if (mode === 'read') {
-    if (loading) {
-      return <Spin />;
-    }
-    const optionsValueEnum = options?.length
+    const optionsValueEnum: ProSchemaValueEnumObj = options?.length
       ? options?.reduce((pre: any, cur) => {
           return { ...pre, [cur.value]: cur.label };
         }, {})
       : undefined;
-    const dom = <>{proFieldParsingText(rest.text, ObjToMap(valueEnum || optionsValueEnum))}</>;
+
+    const dom = (
+      <>
+        {proFieldParsingText(
+          rest.text,
+          (ObjToMap(valueEnum || optionsValueEnum) as unknown) as ProSchemaValueEnumObj,
+        )}
+      </>
+    );
 
     if (render) {
       return render(rest.text, { mode, ...fieldProps }, dom) || null;
@@ -294,7 +294,7 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
     };
     const dom = renderDom();
     if (renderFormItem) {
-      return renderFormItem(rest.text, { mode, ...fieldProps }, dom) || null;
+      return renderFormItem(rest.text, { mode, ...fieldProps, options }, dom) || null;
     }
     return dom;
   }

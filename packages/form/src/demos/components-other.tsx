@@ -1,6 +1,4 @@
 import React from 'react';
-
-import { Form, Radio } from 'antd';
 import ProForm, {
   ProFormSwitch,
   ProFormText,
@@ -31,6 +29,8 @@ const Demo = () => (
         'checkbox-group': ['A', 'B'],
         rate: 3.5,
         name: 'qixian',
+        radio: 'a',
+        'radio-button': 'a',
       }}
       onValuesChange={(_, values) => {
         console.log(values);
@@ -88,7 +88,7 @@ const Demo = () => (
         }}
       />
       <ProFormRadio.Group
-        name="radio-group"
+        name="radio"
         label="Radio.Group"
         options={[
           {
@@ -105,13 +105,25 @@ const Demo = () => (
           },
         ]}
       />
-      <Form.Item name="radio-button" label="Radio.Button">
-        <Radio.Group>
-          <Radio.Button value="a">item 1</Radio.Button>
-          <Radio.Button value="b">item 2</Radio.Button>
-          <Radio.Button value="c">item 3</Radio.Button>
-        </Radio.Group>
-      </Form.Item>
+      <ProFormRadio.Group
+        name="radio-button"
+        label="Radio.Button"
+        radioType="button"
+        options={[
+          {
+            label: 'item 1',
+            value: 'a',
+          },
+          {
+            label: 'item 2',
+            value: 'b',
+          },
+          {
+            label: 'item 3',
+            value: 'c',
+          },
+        ]}
+      />
       <ProFormCheckbox.Group
         name="checkbox-group"
         label="Checkbox.Group"
