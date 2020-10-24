@@ -302,7 +302,7 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
     };
     const dom = renderDom();
     if (renderFormItem) {
-      return renderFormItem(rest.text, { mode, ...fieldProps }, dom) || null;
+      return renderFormItem(rest.text, { mode, ...fieldProps, options }, dom) || null;
     }
     return dom;
   }
