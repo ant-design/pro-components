@@ -22,12 +22,7 @@ import { ProFieldFC } from '../../index';
 
 export type ProFieldValueEnumType = ProSchemaValueEnumMap | ProSchemaValueEnumObj;
 
-export const ObjToMap = (
-  value: ProFieldValueEnumType | undefined,
-): ProSchemaValueEnumMap | undefined => {
-  if (!value) {
-    return value;
-  }
+export const ObjToMap = (value: ProFieldValueEnumType): ProSchemaValueEnumMap | undefined => {
   if (getType(value) === 'map') {
     return value as ProSchemaValueEnumMap;
   }
@@ -43,14 +38,15 @@ export const ObjToMap = (
  */
 export const proFieldParsingText = (
   text: string | number,
-  valueEnumParams?: ProFieldValueEnumType,
+  valueEnumParams: ProFieldValueEnumType,
 ) => {
   const valueEnum = ObjToMap(valueEnumParams);
 
   if (!valueEnum) {
     return text;
   }
-  if (!valueEnum.has(text) && !valueEnum.has(`${text}`)) {
+
+  if (!valueEnum.has(text) || !valueEnum.has(`${text}`)) {
     return text;
   }
 
@@ -59,6 +55,10 @@ export const proFieldParsingText = (
     status: ProFieldStatusType;
     color?: string;
   };
+
+  if (!domText) {
+    return text;
+  }
 
   const { status, color } = domText;
   const Status = TableStatus[status || 'Init'];
@@ -119,6 +119,7 @@ export const proFieldParsingValueEnumToArray = (
       text: string;
       disabled?: boolean;
     };
+
     if (!value) {
       return;
     }
@@ -248,12 +249,20 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
   }
 
   if (mode === 'read') {
-    const optionsValueEnum = options?.length
+    const optionsValueEnum: ProSchemaValueEnumObj = options?.length
       ? options?.reduce((pre: any, cur) => {
           return { ...pre, [cur.value]: cur.label };
         }, {})
-      : undefined;
-    const dom = <>{proFieldParsingText(rest.text, ObjToMap(valueEnum || optionsValueEnum))}</>;
+      : {};
+
+    const dom = (
+      <>
+        {proFieldParsingText(
+          rest.text,
+          (ObjToMap(valueEnum || optionsValueEnum) as unknown) as ProSchemaValueEnumObj,
+        )}
+      </>
+    );
 
     if (render) {
       return render(rest.text, { mode, ...fieldProps }, dom) || null;

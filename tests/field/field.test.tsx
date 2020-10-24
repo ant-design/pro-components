@@ -64,6 +64,24 @@ describe('Field', () => {
     expect(html.text()).toBe('关闭');
   });
 
+  it(`🐴 select valueEnum key is undefined`, async () => {
+    const html = render(
+      <Field
+        text="default"
+        valueType="select"
+        mode="read"
+        valueEnum={{
+          default: undefined,
+          processing: { text: '运行中', status: 'Processing' },
+          success: { text: '已上线', status: 'Success' },
+          error: { text: '异常', status: 'Error' },
+        }}
+      />,
+    );
+
+    expect(html.text()).toBe('default');
+  });
+
   ['select', 'checkbox', 'radio', 'radioButton'].forEach((valueType) => {
     it(`🐴 ${valueType} support render function`, async () => {
       const html = render(
@@ -181,8 +199,21 @@ describe('Field', () => {
     expect(html.text()).toBe('default');
   });
 
-  it('🐴 select valueEnum and request=null ', async () => {
+  it('🐴 select text=null & valueEnum & request=null ', async () => {
     const html = render(<Field text={null} valueType="select" mode="read" />);
+    expect(html.text()).toBe('-');
+  });
+
+  fit('🐴 select text=null & valueEnum=null ', async () => {
+    const html = render(
+      <Field
+        text={null}
+        // @ts-expect-error
+        valueEnum={null}
+        valueType="select"
+        mode="read"
+      />,
+    );
     expect(html.text()).toBe('-');
   });
 
