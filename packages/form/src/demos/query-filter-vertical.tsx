@@ -13,12 +13,28 @@ export default () => {
       <ProFormText name="name" label="这是一个超级超级长的名称" />
       <ProFormDatePicker name="birth" label="创建时间" />
       <ProFormText name="sex" label="应用状态" />
-      <ProFormRadio.Group name="freq" label="查询频度">
-        <ProFormRadio.Button value="weekly">每周</ProFormRadio.Button>
-        <ProFormRadio.Button value="queterly">每季度</ProFormRadio.Button>
-        <ProFormRadio.Button value="monthly">每月</ProFormRadio.Button>
-        <ProFormRadio.Button value="yearly">每年</ProFormRadio.Button>
-      </ProFormRadio.Group>
+      <ProFormRadio.Group
+        name="freq"
+        label="查询频度"
+        options={[
+          {
+            value: 'weekly',
+            label: '每周',
+          },
+          {
+            value: 'queterly',
+            label: '每季度',
+          },
+          {
+            value: 'monthly',
+            label: '每月',
+          },
+          {
+            value: 'yearly',
+            label: '每年',
+          },
+        ]}
+      />
       <ProFormCheckbox.Group
         name="checkbox"
         label="行业分布"
