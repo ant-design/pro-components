@@ -144,6 +144,7 @@ export const columns: ProColumns[] = [
     dataIndex: 'id',
     render: (text, row, index, action) => [
       <a
+        key="delete"
         onClick={() => {
           message.info('确认删除');
           action.reload();
@@ -152,6 +153,7 @@ export const columns: ProColumns[] = [
         delete
       </a>,
       <a
+        key="reload"
         onClick={() => {
           message.info('确认刷新');
           action.reload();
@@ -160,6 +162,7 @@ export const columns: ProColumns[] = [
         reload
       </a>,
       <TableDropdown
+        key="tableDropdown"
         onSelect={(key) => message.info(key)}
         menus={[
           { key: 'copy', name: '复制' },

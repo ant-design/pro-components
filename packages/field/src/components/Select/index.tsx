@@ -46,7 +46,7 @@ export const proFieldParsingText = (
     return text;
   }
 
-  if (!valueEnum.has(text) || !valueEnum.has(`${text}`)) {
+  if (!valueEnum.has(text) && !valueEnum.has(`${text}`)) {
     return text;
   }
 
@@ -253,7 +253,7 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
       ? options?.reduce((pre: any, cur) => {
           return { ...pre, [cur.value]: cur.label };
         }, {})
-      : {};
+      : undefined;
 
     const dom = (
       <>
