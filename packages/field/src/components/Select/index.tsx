@@ -42,10 +42,6 @@ export const proFieldParsingText = (
 ) => {
   const valueEnum = ObjToMap(valueEnumParams);
 
-  if (!valueEnum) {
-    return text;
-  }
-
   if (!valueEnum.has(text) && !valueEnum.has(`${text}`)) {
     return text;
   }
@@ -109,10 +105,6 @@ export const proFieldParsingValueEnumToArray = (
     disabled?: boolean;
   }[] = [];
   const valueEnum = ObjToMap(valueEnumParams);
-
-  if (!valueEnum) {
-    return [];
-  }
 
   valueEnum.forEach((_, key) => {
     const value = (valueEnum.get(key) || valueEnum.get(`${key}`)) as {
