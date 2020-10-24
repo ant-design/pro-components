@@ -1,8 +1,8 @@
 ﻿import React, { useContext, useImperativeHandle, useRef } from 'react';
 import { Checkbox, ConfigProvider, Space, Spin } from 'antd';
 import classNames from 'classnames';
-import { ProFieldFC } from '@ant-design/pro-field';
 import { CheckboxGroupProps } from 'antd/lib/checkbox';
+import { ProFieldFC } from '../../index';
 
 import './index.less';
 import { FieldSelectProps, ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
