@@ -302,7 +302,7 @@ describe('LightFilter', () => {
       <LightFilter
         onFinish={onFinish}
         initialValues={{
-          radio: 'queterly',
+          radio: 'quarterly',
         }}
       >
         <ProFormRadio.Group
@@ -314,7 +314,7 @@ describe('LightFilter', () => {
               label: '每周',
             },
             {
-              value: 'queterly',
+              value: 'quarterly',
               label: '每季度',
             },
             {

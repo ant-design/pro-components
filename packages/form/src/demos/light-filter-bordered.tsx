@@ -30,7 +30,7 @@ export default () => {
             label: '每周',
           },
           {
-            value: 'queterly',
+            value: 'quarterly',
             label: '每季度',
           },
           {

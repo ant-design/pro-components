@@ -192,6 +192,7 @@ describe('Field', () => {
     'digit',
     'code',
     'jsonCode',
+    'rate',
   ];
   valueTypes.forEach((valueType) => {
     it(`🐴 valueType render ${valueType}`, async () => {
@@ -206,9 +207,7 @@ describe('Field', () => {
       );
       expect(html.text()).toBe('qixian');
     });
-  });
 
-  valueTypes.forEach((valueType) => {
     it(`🐴 valueType render ${valueType}`, async () => {
       if (valueType === 'option') return;
       const html = render(
