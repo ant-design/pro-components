@@ -9,7 +9,7 @@ import { ProFormItemProps } from '../../interface';
 export type ProFormRadioGroupProps = ProFormItemProps<RadioGroupProps> & {
   layout?: 'horizontal' | 'vertical';
   radioType?: 'button' | 'radio';
-  options: RadioGroupProps['options'];
+  options?: RadioGroupProps['options'];
   valueEnum?: ProSchema['valueEnum'];
   request?: ProSchema['request'];
 };
