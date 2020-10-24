@@ -204,7 +204,7 @@ describe('Field', () => {
     expect(html.text()).toBe('-');
   });
 
-  fit('🐴 select text=null & valueEnum=null ', async () => {
+  it('🐴 select text=null & valueEnum=null ', async () => {
     const html = render(
       <Field
         text={null}

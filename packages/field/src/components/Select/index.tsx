@@ -22,11 +22,11 @@ import { ProFieldFC } from '../../index';
 
 export type ProFieldValueEnumType = ProSchemaValueEnumMap | ProSchemaValueEnumObj;
 
-export const ObjToMap = (value: ProFieldValueEnumType): ProSchemaValueEnumMap | undefined => {
+export const ObjToMap = (value: ProFieldValueEnumType | undefined): ProSchemaValueEnumMap => {
   if (getType(value) === 'map') {
     return value as ProSchemaValueEnumMap;
   }
-  return new Map(Object.entries(value));
+  return new Map(Object.entries(value || {}));
 };
 
 /**
