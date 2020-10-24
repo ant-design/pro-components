@@ -5,7 +5,7 @@ import moment from 'moment';
 import Field, { ProFieldFCMode } from '@ant-design/pro-field';
 
 export default () => {
-  const [state, setState] = useState<ProFieldFCMode>('read');
+  const [state, setState] = useState<ProFieldFCMode>('edit');
   const [plain, setPlain] = useState<boolean>(false);
   return (
     <>
@@ -42,13 +42,32 @@ export default () => {
         <Descriptions.Item label="百分比">
           <Field text="100" valueType="percent" mode={state} plain={plain} />
         </Descriptions.Item>
-        <Descriptions.Item label="评分">
-          <Field text={3.5} valueType="rate" mode={state} plain={plain} />
-        </Descriptions.Item>
         <Descriptions.Item label="选择框">
           <Field
             text="open"
             mode={state}
+            valueEnum={{
+              all: { text: '全部', disabled: true, status: 'Default' },
+              open: {
+                text: '未解决',
+                status: 'Error',
+              },
+              closed: {
+                text: '已解决',
+                status: 'Success',
+              },
+              processing: {
+                text: '解决中',
+                status: 'Processing',
+              },
+            }}
+          />
+        </Descriptions.Item>
+        <Descriptions.Item label="多选">
+          <Field
+            text="open"
+            mode={state}
+            valueType="checkbox"
             valueEnum={{
               all: { text: '全部', disabled: true, status: 'Default' },
               open: {

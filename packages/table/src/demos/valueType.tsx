@@ -87,27 +87,6 @@ const columns: ProColumns<TableListItem>[] = [
     valueType: 'indexBorder',
   },
   {
-    title: '状态',
-    dataIndex: 'status',
-    initialValue: ['all'],
-    width: 100,
-    fieldProps: {
-      mode: 'tags',
-      onChange: (value: string) => console.log(value),
-    },
-    formItemProps: {
-      rules: [{ required: true }],
-    },
-    valueEnum: {
-      all: { text: '全部', status: 'Default' },
-      close: { text: '关闭', status: 'Default' },
-      running: { text: '运行中', status: 'Processing' },
-      online: { text: '已上线', status: 'Success' },
-      error: { text: '异常', status: 'Error' },
-      0: { text: '0异常', status: 'Error' },
-    },
-  },
-  {
     title: '代码',
     key: 'code',
     width: 120,

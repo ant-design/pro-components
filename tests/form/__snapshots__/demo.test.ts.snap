@@ -1372,7 +1372,7 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
       >
         <label
           class=""
-          for="validate_other_radio-group"
+          for="validate_other_radio"
           title="Radio.Group"
         >
           Radio.Group
@@ -1388,16 +1388,17 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-radio-group ant-radio-group-outline"
-              id="validate_other_radio-group"
+              class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
+              id="validate_other_radio"
             >
               <label
-                class="ant-radio-wrapper"
+                class="ant-radio-wrapper ant-radio-wrapper-checked"
               >
                 <span
-                  class="ant-radio"
+                  class="ant-radio ant-radio-checked"
                 >
                   <input
+                    checked=""
                     class="ant-radio-input"
                     type="radio"
                     value="a"
@@ -1477,16 +1478,17 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-radio-group ant-radio-group-outline"
+              class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
               id="validate_other_radio-button"
             >
               <label
-                class="ant-radio-button-wrapper"
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
               >
                 <span
-                  class="ant-radio-button"
+                  class="ant-radio-button ant-radio-button-checked"
                 >
                   <input
+                    checked=""
                     class="ant-radio-button-input"
                     type="radio"
                     value="a"
@@ -1566,7 +1568,7 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-checkbox-group ant-pro-form-checkbox-horizontal"
+              class="ant-checkbox-group ant-pro-field-checkbox-horizontal"
               id="validate_other_checkbox-group"
               style="width: 328px;"
             >
@@ -1717,7 +1719,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
             <ul
               class="ant-rate"
               role="radiogroup"
-              style="width: 328px;"
               tabindex="0"
             >
               <li
@@ -1901,7 +1902,7 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                 </div>
               </li>
               <li
-                class="ant-rate-star ant-rate-star-zero"
+                class="ant-rate-star ant-rate-star-half ant-rate-star-active"
               >
                 <div
                   aria-checked="true"
@@ -5314,7 +5315,7 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                         class="ant-form-item-control-input-content"
                                       >
                                         <div
-                                          class="ant-radio-group ant-radio-group-outline"
+                                          class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
                                           id="invoiceType"
                                         >
                                           <label
@@ -6789,86 +6790,9 @@ exports[`form demos renders ./packages/form/src/demos/light-filter-bordered.tsx 
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-radio-group ant-radio-group-outline"
+                  class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
                   id="radio"
-                >
-                  <label
-                    class="ant-radio-button-wrapper"
-                  >
-                    <span
-                      class="ant-radio-button"
-                    >
-                      <input
-                        class="ant-radio-button-input"
-                        type="radio"
-                        value="weekly"
-                      />
-                      <span
-                        class="ant-radio-button-inner"
-                      />
-                    </span>
-                    <span>
-                      每周
-                    </span>
-                  </label>
-                  <label
-                    class="ant-radio-button-wrapper"
-                  >
-                    <span
-                      class="ant-radio-button"
-                    >
-                      <input
-                        class="ant-radio-button-input"
-                        type="radio"
-                        value="queterly"
-                      />
-                      <span
-                        class="ant-radio-button-inner"
-                      />
-                    </span>
-                    <span>
-                      每季度
-                    </span>
-                  </label>
-                  <label
-                    class="ant-radio-button-wrapper"
-                  >
-                    <span
-                      class="ant-radio-button"
-                    >
-                      <input
-                        class="ant-radio-button-input"
-                        type="radio"
-                        value="monthly"
-                      />
-                      <span
-                        class="ant-radio-button-inner"
-                      />
-                    </span>
-                    <span>
-                      每月
-                    </span>
-                  </label>
-                  <label
-                    class="ant-radio-button-wrapper"
-                  >
-                    <span
-                      class="ant-radio-button"
-                    >
-                      <input
-                        class="ant-radio-button-input"
-                        type="radio"
-                        value="yearly"
-                      />
-                      <span
-                        class="ant-radio-button-inner"
-                      />
-                    </span>
-                    <span>
-                      每年
-                    </span>
-                  </label>
-                </div>
+                />
               </div>
             </div>
           </div>
@@ -8068,7 +7992,7 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-checkbox-group ant-pro-form-checkbox-horizontal"
+                  class="ant-checkbox-group ant-pro-field-checkbox-horizontal"
                   id="checkbox_checkbox"
                   style="width: 440px;"
                 >
@@ -8327,7 +8251,7 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                       class="ant-form-item-control-input-content"
                     >
                       <div
-                        class="ant-checkbox-group ant-pro-form-checkbox-horizontal"
+                        class="ant-checkbox-group ant-pro-field-checkbox-horizontal"
                         id="checkbox_checkbox"
                         style="width: 328px;"
                       >
@@ -8430,7 +8354,7 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-checkbox-group ant-pro-form-checkbox-horizontal"
+                  class="ant-checkbox-group ant-pro-field-checkbox-horizontal"
                   id="time_checkbox"
                   style="width: 328px;"
                 >
@@ -10012,87 +9936,10 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-vertical.tsx 
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-radio-group ant-radio-group-outline"
+                class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
                 id="freq"
                 style="width: 100%;"
-              >
-                <label
-                  class="ant-radio-button-wrapper"
-                >
-                  <span
-                    class="ant-radio-button"
-                  >
-                    <input
-                      class="ant-radio-button-input"
-                      type="radio"
-                      value="weekly"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
-                  </span>
-                  <span>
-                    每周
-                  </span>
-                </label>
-                <label
-                  class="ant-radio-button-wrapper"
-                >
-                  <span
-                    class="ant-radio-button"
-                  >
-                    <input
-                      class="ant-radio-button-input"
-                      type="radio"
-                      value="queterly"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
-                  </span>
-                  <span>
-                    每季度
-                  </span>
-                </label>
-                <label
-                  class="ant-radio-button-wrapper"
-                >
-                  <span
-                    class="ant-radio-button"
-                  >
-                    <input
-                      class="ant-radio-button-input"
-                      type="radio"
-                      value="monthly"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
-                  </span>
-                  <span>
-                    每月
-                  </span>
-                </label>
-                <label
-                  class="ant-radio-button-wrapper"
-                >
-                  <span
-                    class="ant-radio-button"
-                  >
-                    <input
-                      class="ant-radio-button-input"
-                      type="radio"
-                      value="yearly"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
-                  </span>
-                  <span>
-                    每年
-                  </span>
-                </label>
-              </div>
+              />
             </div>
           </div>
         </div>
@@ -10126,7 +9973,7 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-vertical.tsx 
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-checkbox-group ant-pro-form-checkbox-horizontal"
+                class="ant-checkbox-group ant-pro-field-checkbox-horizontal"
                 id="checkbox"
                 style="width: 100%;"
               >
@@ -11186,7 +11033,7 @@ exports[`form demos renders ./packages/form/src/demos/steps-from.tsx correctly 1
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-checkbox-group ant-pro-form-checkbox-horizontal"
+                      class="ant-checkbox-group ant-pro-field-checkbox-horizontal"
                       id="checkbox_checkbox"
                       style="width: 440px;"
                     >
@@ -11445,7 +11292,7 @@ exports[`form demos renders ./packages/form/src/demos/steps-from.tsx correctly 1
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-checkbox-group ant-pro-form-checkbox-horizontal"
+                            class="ant-checkbox-group ant-pro-field-checkbox-horizontal"
                             id="checkbox_checkbox"
                             style="width: 328px;"
                           >
@@ -11548,7 +11395,7 @@ exports[`form demos renders ./packages/form/src/demos/steps-from.tsx correctly 1
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-checkbox-group ant-pro-form-checkbox-horizontal"
+                      class="ant-checkbox-group ant-pro-field-checkbox-horizontal"
                       id="time_checkbox"
                       style="width: 328px;"
                     >

@@ -22,7 +22,10 @@ import FiledSelect, {
   proFieldParsingText,
   proFieldParsingValueEnumToArray,
 } from './components/Select';
+import FiledCheckbox from './components/Checkbox';
+import FiledRate from './components/Rate';
 import FieldDigit from './components/Digit';
+import FieldRadio from './components/Radio';
 
 export type ProFieldTextType = React.ReactNode | React.ReactNode[] | Moment | Moment[];
 
@@ -62,6 +65,10 @@ export type ProFieldValueType =
   | 'time'
   | 'text'
   | 'select'
+  | 'checkbox'
+  | 'rate'
+  | 'radio'
+  | 'radioButton'
   | 'index'
   | 'indexBorder'
   | 'progress'
@@ -338,8 +345,24 @@ const defaultRenderText = (
     return <FieldDigit text={text as number} {...props} />;
   }
 
-  if (valueType === 'select' || props.valueEnum || props.request) {
+  if (valueType === 'select' || (valueType === 'text' && (props.valueEnum || props.request))) {
     return <FiledSelect text={text as string} {...props} />;
+  }
+
+  if (valueType === 'checkbox') {
+    return <FiledCheckbox text={text as string} {...props} />;
+  }
+
+  if (valueType === 'radio') {
+    return <FieldRadio text={text as string} {...props} />;
+  }
+
+  if (valueType === 'radioButton') {
+    return <FieldRadio radioType="button" text={text as string} {...props} />;
+  }
+
+  if (valueType === 'rate') {
+    return <FiledRate text={text as string} {...props} />;
   }
 
   if (valueType === 'option') {
@@ -372,7 +395,7 @@ const ProField: React.ForwardRefRenderFunction<
 
   return (
     <React.Fragment>
-      {defaultRenderText(text, valueType, {
+      {defaultRenderText(text, valueType || 'text', {
         ...rest,
         mode: rest.mode || 'read',
         ref,

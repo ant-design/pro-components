@@ -2,9 +2,9 @@ import React, {
   ReactNode,
   useState,
   useImperativeHandle,
-  useEffect,
   useRef,
   useContext,
+  useCallback,
 } from 'react';
 import { Select, Spin } from 'antd';
 import {
@@ -171,15 +171,18 @@ export type FieldSelectProps = {
   fieldProps?: SelectProps<any>;
 };
 
-const useFetchData = (
+export const useFieldFetchData = (
   props: FieldSelectProps,
 ): [boolean, SelectProps<any>['options'], () => void] => {
+  const getOptionsFormValueEnum = useCallback((valueEnum) => {
+    return proFieldParsingValueEnumToArray(ObjToMap(valueEnum)).map(({ value, text }) => ({
+      label: text,
+      value,
+    }));
+  }, []);
   const [options, setOptions] = useState<SelectProps<any>['options']>(() => {
     if (props.valueEnum) {
-      return proFieldParsingValueEnumToArray(ObjToMap(props.valueEnum)).map(({ value, text }) => ({
-        label: text,
-        value,
-      }));
+      return getOptionsFormValueEnum(props.valueEnum);
     }
     if (props.fieldProps?.options) {
       return props.fieldProps?.options || [];
@@ -190,15 +193,7 @@ const useFetchData = (
   useDeepCompareEffect(() => {
     // 优先使用 fieldProps?.options
     if (!props.valueEnum || props.fieldProps?.options) return;
-    setOptions(
-      proFieldParsingValueEnumToArray(ObjToMap(props.valueEnum)).map(
-        ({ value, text, ...rest }) => ({
-          label: text,
-          value,
-          ...rest,
-        }),
-      ),
-    );
+    setOptions(getOptionsFormValueEnum(props.valueEnum));
   }, [props.valueEnum]);
 
   const [loading, setLoading] = useState<boolean>(false);
@@ -211,7 +206,8 @@ const useFetchData = (
     setOptions(data);
     setLoading(false);
   };
-  useEffect(() => {
+
+  useDeepCompareEffect(() => {
     fetchData();
   }, [props.params]);
   return [loading, options, fetchData];
@@ -237,7 +233,7 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
   const inputRef = useRef();
   const intl = useIntl();
 
-  const [loading, options, fetchData] = useFetchData(props);
+  const [loading, options, fetchData] = useFieldFetchData(props);
 
   const size = useContext(SizeContext);
   useImperativeHandle(ref, () => ({

@@ -11,7 +11,7 @@ import {
   ProFormRadio,
 } from '@ant-design/pro-form';
 import KeyCode from 'rc-util/lib/KeyCode';
-import { waitTime } from '../util';
+import { waitTime, waitForComponentToPaint } from '../util';
 
 describe('LightFilter', () => {
   it('basic use', async () => {
@@ -305,15 +305,32 @@ describe('LightFilter', () => {
           radio: 'queterly',
         }}
       >
-        <ProFormRadio.Group name="radio">
-          <ProFormRadio.Button value="weekly">每周</ProFormRadio.Button>
-          <ProFormRadio.Button value="queterly">每季度</ProFormRadio.Button>
-          <ProFormRadio.Button value="monthly">每月</ProFormRadio.Button>
-          <ProFormRadio.Button value="yearly">每年</ProFormRadio.Button>
-        </ProFormRadio.Group>
+        <ProFormRadio.Group
+          name="radio"
+          radioType="button"
+          options={[
+            {
+              value: 'weekly',
+              label: '每周',
+            },
+            {
+              value: 'queterly',
+              label: '每季度',
+            },
+            {
+              value: 'monthly',
+              label: '每月',
+            },
+            {
+              value: 'yearly',
+              label: '每年',
+            },
+          ]}
+        />
       </LightFilter>,
     );
 
+    await waitForComponentToPaint(wrapper, 100);
     expect(
       wrapper.find('.ant-radio-button-wrapper.ant-radio-button-wrapper-checked').text(),
     ).toEqual('每季度');

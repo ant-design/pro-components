@@ -1,53 +1,31 @@
 import React from 'react';
 import { Radio } from 'antd';
+import ProField from '@ant-design/pro-field';
+import { ProSchema } from '@ant-design/pro-utils';
 import { RadioGroupProps, RadioProps } from 'antd/lib/radio';
 import { createField } from '../../BaseForm';
 import { ProFormItemProps } from '../../interface';
 
-const RadioGroup = Radio.Group;
-
 export type ProFormRadioGroupProps = ProFormItemProps<RadioGroupProps> & {
   layout?: 'horizontal' | 'vertical';
-  options?: Array<
-    | {
-        value: React.ReactText;
-        label: React.ReactNode;
-        disable?: boolean;
-      }
-    | string
-  >;
+  radioType?: 'button' | 'radio';
+  options: RadioGroupProps['options'];
+  valueEnum?: ProSchema['valueEnum'];
+  request?: ProSchema['request'];
 };
 
 const Group: React.FC<ProFormRadioGroupProps> = React.forwardRef(
-  ({ children, fieldProps, options }, ref: any) => {
-    const renderChildren = () => {
-      if (options) {
-        return (
-          <>
-            {options.map((option) => {
-              if (typeof option === 'string') {
-                return (
-                  <Radio key={option} value={option}>
-                    {option}
-                  </Radio>
-                );
-              }
-              return (
-                <Radio disabled={option.disable} key={option.value} value={option.value}>
-                  {option.label}
-                </Radio>
-              );
-            })}
-            {children}
-          </>
-        );
-      }
-      return children;
-    };
+  ({ fieldProps, options, radioType }, ref: any) => {
     return (
-      <RadioGroup ref={ref} {...fieldProps}>
-        {renderChildren()}
-      </RadioGroup>
+      <ProField
+        mode="edit"
+        valueType={radioType === 'button' ? 'radioButton' : 'radio'}
+        ref={ref}
+        fieldProps={{
+          options,
+          ...fieldProps,
+        }}
+      />
     );
   },
 );
