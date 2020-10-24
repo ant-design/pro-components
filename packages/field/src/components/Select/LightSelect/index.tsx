@@ -30,7 +30,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
     style,
     className,
     bordered,
-    options = [],
+    options,
     onSearch,
     ...restProps
   } = props;
@@ -44,7 +44,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
     [key: string]: string;
   } = useMemo(() => {
     const values = {};
-    options.forEach(({ label: aLabel, value: aValue }) => {
+    options?.forEach(({ label: aLabel, value: aValue }) => {
       values[aValue] = aLabel || aValue;
     });
     return values;
@@ -90,9 +90,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
                     value={keyword}
                     onChange={(e) => {
                       setKeyword(e.target.value.toLowerCase());
-                      if (onSearch) {
-                        onSearch(e.target.value);
-                      }
+                      onSearch?.(e.target.value);
                     }}
                     onKeyDown={(e) => {
                       // 避免按下删除键把选项也删除了
@@ -112,7 +110,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
         prefixCls={customizePrefixCls}
         options={
           keyword
-            ? options.filter((o) => {
+            ? options?.filter((o) => {
                 return (
                   String(o.label).toLowerCase().includes(keyword) ||
                   o.value.toLowerCase().includes(keyword)
