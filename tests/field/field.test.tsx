@@ -200,26 +200,37 @@ describe('Field', () => {
         <Field
           text="1994-07-29 12:00:00"
           mode="read"
-          // @ts-ignore
-          valueType={valueType}
+          valueType={valueType as 'text'}
           render={() => <>qixian</>}
         />,
       );
       expect(html.text()).toBe('qixian');
     });
 
-    it(`🐴 valueType render ${valueType}`, async () => {
+    it(`🐴 valueType renderFormItem ${valueType}`, async () => {
       if (valueType === 'option') return;
       const html = render(
         <Field
           text={moment('2019-11-16 12:50:26').valueOf()}
           mode="edit"
-          // @ts-ignore
-          valueType={valueType}
+          valueType={valueType as 'text'}
           renderFormItem={() => <>qixian</>}
         />,
       );
       expect(html.text()).toBe('qixian');
+    });
+
+    it(`🐴 ${valueType} mode="error"`, async () => {
+      if (valueType === 'option') return;
+      const html = render(
+        <Field
+          text="'2019-11-16 12:50:26'"
+          // @ts-expect-error
+          mode="error"
+          valueType={valueType as 'text'}
+        />,
+      );
+      expect(html.text()).toBeFalsy();
     });
   });
 
