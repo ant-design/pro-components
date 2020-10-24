@@ -6,7 +6,7 @@ import { act } from 'react-test-renderer';
 import Field from '@ant-design/pro-field';
 
 import Demo from './fixtures/demo';
-import { waitTime } from '../util';
+import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('Field', () => {
   it('🐴 base use', async () => {
@@ -81,6 +81,35 @@ describe('Field', () => {
         />,
       );
       expect(html.text()).toBe('pre关闭');
+    });
+
+    it(`🐴 ${valueType} support render function`, async () => {
+      const ref = React.createRef<{
+        fetchData: () => void;
+      }>();
+      const fn = jest.fn();
+      const html = mount(
+        <Field
+          ref={ref}
+          text="default"
+          valueType={valueType as 'radio'}
+          mode="read"
+          request={async () => {
+            fn();
+            return [
+              { label: '全部', value: 'all' },
+              { label: '未解决', value: 'open' },
+              { label: '已解决', value: 'closed' },
+              { label: '解决中', value: 'processing' },
+            ];
+          }}
+        />,
+      );
+
+      await waitForComponentToPaint(html);
+      ref.current?.fetchData();
+      await waitForComponentToPaint(html);
+      expect(fn).toBeCalledTimes(2);
     });
 
     it(`🐴 ${valueType} support renderFormItem function`, async () => {
@@ -232,24 +261,7 @@ describe('Field', () => {
       );
       expect(html.text()).toBeFalsy();
     });
-  });
 
-  valueTypes.forEach((valueType) => {
-    it(`🐴 valueType render ${valueType} when mode is error`, async () => {
-      const html = render(
-        <Field
-          text="1994-07-29 12:00:00"
-          // @ts-expect-error
-          mode="xxx"
-          // @ts-ignore
-          valueType={valueType}
-        />,
-      );
-      expect(html.text()).toBe('');
-    });
-  });
-
-  valueTypes.forEach((valueType) => {
     it(`🐴 valueType render ${valueType} when text is null`, async () => {
       const html = render(
         <Field
