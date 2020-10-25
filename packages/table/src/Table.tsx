@@ -557,6 +557,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     typeof propsPagination === 'object'
       ? (propsPagination as TablePaginationConfig)
       : { defaultCurrent: 1, defaultPageSize: 20, pageSize: 20, current: 1 };
+
   const action = useFetchData(
     async (pageParams) => {
       // 需要手动触发的首次请求
@@ -625,7 +626,6 @@ const ProTable = <T extends {}, U extends ParamsType>(
     }
     setSelectedRowsAndKey([], []);
   }, [setSelectedRowKeys, propsRowSelection]);
-
   /**
    * 绑定 action
    */
@@ -636,6 +636,8 @@ const ProTable = <T extends {}, U extends ParamsType>(
     setProFilter({});
     // 清空排序
     setProSort({});
+    // 清空 toolbar 搜索
+    counter.setKeyWords(undefined);
   });
   counter.setAction(action);
   counter.propsRef.current = props;
@@ -722,10 +724,6 @@ const ProTable = <T extends {}, U extends ParamsType>(
     },
   };
 
-  useEffect(() => {
-    counter.setTableSize(rest.size || 'middle');
-  }, [rest.size]);
-
   if (props.columns && props.columns.length < 1) {
     return (
       <Card bordered={false} bodyStyle={{ padding: 50 }}>
@@ -787,18 +785,22 @@ const ProTable = <T extends {}, U extends ParamsType>(
         headerTitle={headerTitle}
         action={action}
         onSearch={(keyword) => {
-          if (options && options.search) {
-            const { name = 'keyword' } =
-              options.search === true
-                ? {
-                    name: 'keyword',
-                  }
-                : options.search;
-            setFormSearch({
-              ...formSearch,
-              [name]: keyword,
-            });
+          if (!options || !options.search) {
+            return;
           }
+          const { name = 'keyword' } =
+            options.search === true
+              ? {
+                  name: 'keyword',
+                }
+              : options.search;
+          setFormSearch(
+            omitUndefined({
+              ...formSearch,
+              _timestamp: Date.now(),
+              [name]: keyword,
+            }),
+          );
         }}
         selectedRows={selectedRows}
         selectedRowKeys={selectedRowKeys}

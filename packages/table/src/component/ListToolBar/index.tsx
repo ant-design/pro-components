@@ -10,8 +10,6 @@ import HeaderMenu, { ListToolBarHeaderMenuProps } from './HeaderMenu';
 
 import './index.less';
 
-const { Search } = Input;
-
 export interface ListToolBarSetting {
   icon: React.ReactNode;
   tooltip?: string;
@@ -147,20 +145,20 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
    * @param search 搜索框相关配置
    */
   const getSearchInput = (searchObject: SearchPropType) => {
+    if (!searchObject) {
+      return null;
+    }
     if (React.isValidElement(searchObject)) {
       return searchObject;
     }
-
-    if (searchObject) {
-      const searchProps: SearchProps = {
-        placeholder: intl.getMessage('tableForm.inputPlaceholder', '请输入'),
-        style: { width: 200 },
-        onSearch,
-        ...(searchObject as SearchProps),
-      };
-      return <Search {...searchProps} />;
-    }
-    return null;
+    return (
+      <Input.Search
+        style={{ width: 200 }}
+        placeholder={intl.getMessage('tableForm.inputPlaceholder', '请输入')}
+        onSearch={onSearch}
+        {...(searchObject as SearchProps)}
+      />
+    );
   };
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);

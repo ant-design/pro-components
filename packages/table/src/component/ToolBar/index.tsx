@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ReloadOutlined, SettingOutlined } from '@ant-design/icons';
 import { Tooltip } from 'antd';
 import { SearchProps } from 'antd/lib/input';
@@ -9,6 +9,7 @@ import { UseFetchDataAction, RequestData } from '../../useFetchData';
 import './index.less';
 import FullScreenIcon from './FullscreenIcon';
 import DensityIcon from './DensityIcon';
+import Container from '../../container';
 
 export interface OptionConfig<T> {
   density?: boolean;
@@ -139,7 +140,7 @@ const ToolBar = <T, U = {}>({
     search: false,
     fullScreen: () => action.fullScreen && action.fullScreen(),
   };
-
+  const counter = Container.useContainer();
   const options =
     propsOptions !== false
       ? {
@@ -156,11 +157,35 @@ const ToolBar = <T, U = {}>({
     }) || [];
   // 操作列表
   const actions = toolBarRender ? toolBarRender(action, { selectedRowKeys, selectedRows }) : [];
+  const getSearchConfig = (search: OptionConfig<any>['search']) => {
+    if (!search) return false;
+
+    /**
+     * 受控的value 和 onChange
+     */
+    const defaultSearchConfig = {
+      value: counter.keyWords,
+      onChange: (e: React.ChangeEvent<HTMLInputElement>) => counter.setKeyWords(e.target.value),
+    };
+
+    if (search === true) return defaultSearchConfig;
+
+    return {
+      ...defaultSearchConfig,
+      ...search,
+    };
+  };
+
+  useEffect(() => {
+    if (counter.keyWords === undefined) {
+      onSearch?.('');
+    }
+  }, [counter.keyWords]);
   return (
     <ListToolBar
       title={headerTitle}
       tip={tooltip || rest.tip}
-      search={options && options.search}
+      search={options && getSearchConfig(options.search)}
       onSearch={onSearch}
       actions={actions}
       settings={optionDom}

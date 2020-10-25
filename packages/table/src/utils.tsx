@@ -155,6 +155,7 @@ export const useActionType = <T, U = any>(
         const {
           action: { current },
         } = counter;
+        await onCleanSelected();
         await current?.reset();
         await current?.reload();
       },
