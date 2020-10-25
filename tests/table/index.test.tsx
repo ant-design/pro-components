@@ -357,7 +357,7 @@ describe('BasicTable', () => {
     expect(onChangeFn).toBeCalled();
   });
 
-  it('🎏 request reload', async () => {
+  fit('🎏 request reload', async () => {
     const fn = jest.fn();
     const html = mount(
       <ProTable
@@ -369,6 +369,9 @@ describe('BasicTable', () => {
             valueType: 'money',
           },
         ]}
+        options={{
+          reload: true,
+        }}
         rowSelection={{
           selectedRowKeys: ['first'],
         }}
