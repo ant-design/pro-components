@@ -357,6 +357,48 @@ describe('BasicTable', () => {
     expect(onChangeFn).toBeCalled();
   });
 
+  it('🎏 options.reload support is true', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            title: 'money',
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+        ]}
+        options={{
+          reload: true,
+        }}
+        rowSelection={{
+          selectedRowKeys: ['first'],
+        }}
+        tableAlertRender={false}
+        request={async () => {
+          fn();
+          return {
+            data: [
+              {
+                key: 'first',
+              },
+            ],
+          };
+        }}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 1000);
+
+    act(() => {
+      html.find('.ant-pro-table-list-toolbar-setting-item span.anticon-reload').simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 1000);
+    expect(fn).toBeCalledTimes(2);
+  });
+
   it('🎏 request reload', async () => {
     const fn = jest.fn();
     const html = mount(

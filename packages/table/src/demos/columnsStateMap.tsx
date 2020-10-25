@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Input } from 'antd';
 import ProTable, { ProColumns, ColumnsState } from '@ant-design/pro-table';
 
 const valueEnum = {
@@ -101,16 +100,15 @@ export default () => {
             success: true,
           })
         }
-        rowKey="key"
-        pagination={{
-          showSizeChanger: true,
+        options={{
+          search: true,
         }}
+        rowKey="key"
         columnsStateMap={columnsStateMap}
         onColumnsStateChange={(map) => setColumnsStateMap(map)}
         search={false}
         dateFormatter="string"
         headerTitle="受控模式"
-        toolBarRender={() => [<Input.Search key="search" placeholder="请输入" />]}
       />
     </>
   );

@@ -26,6 +26,9 @@ function useCounter(props: UseCounterProps = {}) {
   const actionRef = useRef<UseFetchDataAction<RequestData<any>>>();
   const [columns, setColumns] = useState<(ColumnType<any> & { index?: number })[]>([]);
   const propsRef = useRef<ProTableProps<any, any>>();
+
+  // 共享状态比较难，就放到这里了
+  const [keyWords, setKeyWords] = useState<string | undefined>('');
   // 用于排序的数组
   const sortKeyColumns = useRef<string[]>([]);
   const [proColumns, setProColumns] = useState<ProColumns<any>[]>([]);
@@ -55,6 +58,8 @@ function useCounter(props: UseCounterProps = {}) {
     setColumns,
     propsRef,
     columnsMap,
+    keyWords,
+    setKeyWords: (k: string | undefined) => setKeyWords(k),
     setTableSize,
     tableSize,
     setColumnsMap,
