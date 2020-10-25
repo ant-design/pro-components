@@ -357,7 +357,7 @@ describe('BasicTable', () => {
     expect(onChangeFn).toBeCalled();
   });
 
-  fit('🎏 request reload', async () => {
+  it('🎏 request reload', async () => {
     const fn = jest.fn();
     const html = mount(
       <ProTable
