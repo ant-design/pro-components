@@ -788,12 +788,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
           if (!options || !options.search) {
             return;
           }
-          const { name = 'keyword' } =
-            options.search === true
-              ? {
-                  name: 'keyword',
-                }
-              : options.search;
+          const { name = 'keyword' } = options.search === true ? {} : options.search;
           setFormSearch(
             omitUndefined({
               ...formSearch,
