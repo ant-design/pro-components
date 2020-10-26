@@ -5328,7 +5328,6 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                               </div>
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 32px;"
                               >
                                 <div
                                   class="ant-row ant-form-item"
@@ -5413,88 +5412,6 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                             </span>
                                             <span>
                                               无票
-                                            </span>
-                                          </label>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div
-                                class="ant-space-item"
-                              >
-                                <div
-                                  class="ant-row ant-form-item"
-                                >
-                                  <div
-                                    class="ant-col ant-form-item-control"
-                                  >
-                                    <div
-                                      class="ant-form-item-control-input"
-                                    >
-                                      <div
-                                        class="ant-form-item-control-input-content"
-                                      >
-                                        <div
-                                          class="ant-radio-group ant-radio-group-outline"
-                                          id="init"
-                                        >
-                                          <label
-                                            class="ant-radio-wrapper"
-                                          >
-                                            <span
-                                              class="ant-radio"
-                                            >
-                                              <input
-                                                class="ant-radio-input"
-                                                type="radio"
-                                                value="Apple"
-                                              />
-                                              <span
-                                                class="ant-radio-inner"
-                                              />
-                                            </span>
-                                            <span>
-                                              Apple
-                                            </span>
-                                          </label>
-                                          <label
-                                            class="ant-radio-wrapper"
-                                          >
-                                            <span
-                                              class="ant-radio"
-                                            >
-                                              <input
-                                                class="ant-radio-input"
-                                                type="radio"
-                                                value="Pear"
-                                              />
-                                              <span
-                                                class="ant-radio-inner"
-                                              />
-                                            </span>
-                                            <span>
-                                              Pear
-                                            </span>
-                                          </label>
-                                          <label
-                                            class="ant-radio-wrapper"
-                                          >
-                                            <span
-                                              class="ant-radio"
-                                            >
-                                              <input
-                                                class="ant-radio-input"
-                                                type="radio"
-                                                value="Orange"
-                                              />
-                                              <span
-                                                class="ant-radio-inner"
-                                              />
-                                            </span>
-                                            <span>
-                                              Orange
                                             </span>
                                           </label>
                                         </div>
