@@ -5338,10 +5338,10 @@ ansicolors@~0.3.2:
   resolved "https://registry.npm.taobao.org/ansicolors/download/ansicolors-0.3.2.tgz#665597de86a9ffe3aa9bfbe6cae5c6ea426b4979"
   integrity sha1-ZlWX3oap/+Oqm/vmyuXG6kJrSXk=
 
-antd@^4.7.2:
-  version "4.7.2"
-  resolved "https://registry.npm.taobao.org/antd/download/antd-4.7.2.tgz?cache=0&sync_timestamp=1603099229130&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fantd%2Fdownload%2Fantd-4.7.2.tgz#6be4c34de141786bbc5425c743d0a3b990042641"
-  integrity sha1-a+TDTeFBeGu8VCXHQ9CjuZAEJkE=
+antd@^4.7.3:
+  version "4.7.3"
+  resolved "https://registry.npm.taobao.org/antd/download/antd-4.7.3.tgz#f9fadb3ec2c2a5c65237013cb54993bda72bd798"
+  integrity sha1-+frbPsLCpcZSNwE8tUmTvacr15g=
   dependencies:
     "@ant-design/colors" "^4.0.5"
     "@ant-design/css-animation" "^1.7.2"
@@ -5362,7 +5362,7 @@ antd@^4.7.2:
     rc-dialog "~8.4.0"
     rc-drawer "~4.1.0"
     rc-dropdown "~3.2.0"
-    rc-field-form "~1.12.0"
+    rc-field-form "~1.13.0"
     rc-image "~3.2.1"
     rc-input-number "~6.1.0"
     rc-mentions "~1.5.0"
@@ -18219,10 +18219,10 @@ rc-editor-mention@^1.1.13:
     rc-animate "^2.3.0"
     rc-editor-core "~0.8.3"
 
-rc-field-form@~1.12.0:
-  version "1.12.1"
-  resolved "https://registry.npm.taobao.org/rc-field-form/download/rc-field-form-1.12.1.tgz#e7f5dc5cc5a267420fd50e1e3ae3352e650c1425"
-  integrity sha1-5/XcXMWiZ0IP1Q4eOuM1LmUMFCU=
+rc-field-form@~1.13.0:
+  version "1.13.0"
+  resolved "https://registry.npm.taobao.org/rc-field-form/download/rc-field-form-1.13.0.tgz#817ca00c28690e540b951b373f53b6e9b6bf4a31"
+  integrity sha1-gXygDChpDlQLlRs3P1O26ba/SjE=
   dependencies:
     "@babel/runtime" "^7.8.4"
     async-validator "^3.0.3"

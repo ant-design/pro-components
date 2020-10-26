@@ -78,7 +78,7 @@ export default () => {
                     },
                   ]}
                   width="xs"
-                  name="useMode"
+                  name="chapter"
                   label="合同约定生效方式"
                 />
                 <ProFormSelect
