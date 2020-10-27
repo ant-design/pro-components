@@ -287,7 +287,7 @@ const ProCard: ProCardType = (props) => {
   });
 
   const headerCls = classNames(`${prefixCls}-header`, {
-    [`${prefixCls}-header-border`]: headerBordered,
+    [`${prefixCls}-header-border`]: headerBordered || type === 'inner',
   });
 
   const bodyCls = classNames(`${prefixCls}-body`, {
