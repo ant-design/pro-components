@@ -59,6 +59,8 @@ export interface ExtendsProps {
   secondary?: boolean;
   bordered?: boolean;
   colSize?: number;
+
+  params?: any;
   /**
    * @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一
    */
@@ -142,19 +144,23 @@ export function createField<P extends ProFormItemProps = any>(
       },
     };
 
-    const field = (
-      <Field
-        {...(rest as P)} // ProXxx 上面的 props 透传给 Filed，可能包含 Field 自定义的 props，比如 ProFormSelect 的 request
-        fieldProps={realFieldProps}
-        proFieldProps={proFieldProps}
-      />
-    );
     const otherProps = {
       messageVariables,
       ...defaultFormItemProps,
       ...formItemProps,
       ...restFormItemProps,
     };
+    const field = (
+      <Field
+        {...(rest as P)} // ProXxx 上面的 props 透传给 Filed，可能包含 Field 自定义的 props，比如 ProFormSelect 的 request
+        fieldProps={realFieldProps}
+        proFieldProps={{
+          params: rest.params,
+          proFieldKey: otherProps?.name,
+          ...proFieldProps,
+        }}
+      />
+    );
 
     return (
       <Form.Item

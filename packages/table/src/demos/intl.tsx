@@ -80,7 +80,7 @@ export default () => {
             success: true,
           };
         }}
-        rowKey="id"
+        rowKey="key"
         rowSelection={{}}
         dateFormatter="string"
         headerTitle={

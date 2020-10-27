@@ -30,10 +30,10 @@ const defaultRenderText = <T, U = any>(
     // 防止valueType是函数,并且text是''、null、undefined跳过显式设置的columnEmptyText
     return defaultRenderText(text, value as ProFieldValueType, index, item, columnEmptyText, props);
   }
-
   return (
     <ProField
       {...props}
+      proFieldKey={props?.dataIndex?.toString() || props?.key}
       text={valueType === 'index' || valueType === 'indexBorder' ? index : text}
       mode="read"
       emptyText={columnEmptyText}
