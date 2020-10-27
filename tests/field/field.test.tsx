@@ -101,7 +101,7 @@ describe('Field', () => {
       expect(html.text()).toBe('pre关闭');
     });
 
-    it(`🐴 ${valueType} support render function`, async () => {
+    it(`🐴 ${valueType} support request function`, async () => {
       const ref = React.createRef<{
         fetchData: () => void;
       }>();
@@ -110,6 +110,7 @@ describe('Field', () => {
         <Field
           ref={ref}
           text="default"
+          proFieldKey={valueType}
           valueType={valueType as 'radio'}
           mode="read"
           request={async () => {
@@ -128,6 +129,7 @@ describe('Field', () => {
       ref.current?.fetchData();
       await waitForComponentToPaint(html);
       expect(fn).toBeCalledTimes(2);
+      html.unmount();
     });
 
     it(`🐴 ${valueType} support renderFormItem function`, async () => {

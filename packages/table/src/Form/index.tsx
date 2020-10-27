@@ -153,6 +153,7 @@ export const formInputRender: React.FC<{
         ref={ref}
         initialValue={item.initialValue}
         name={item.key || item.dataIndex}
+        params={item.params}
         fieldProps={{
           style: {
             width: undefined,
@@ -223,6 +224,7 @@ export const proFormItemRender: (props: {
     index,
     filters,
     request,
+    params,
     ...rest
   } = item;
 
@@ -240,6 +242,7 @@ export const proFormItemRender: (props: {
     form: formInstance,
     label: getTitle(),
     request,
+    params,
     ...formItemProps,
   });
   if (!dom) {

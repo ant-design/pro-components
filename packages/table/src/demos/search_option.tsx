@@ -49,7 +49,7 @@ export default () => (
         success: true,
       };
     }}
-    rowKey="id"
+    rowKey="key"
     dateFormatter="string"
     headerTitle="查询 Table"
     search={{
@@ -78,7 +78,7 @@ export default () => (
       },
     }}
     toolBarRender={() => [
-      <Button key="3" type="primary">
+      <Button key="primary" type="primary">
         <PlusOutlined />
         新建
       </Button>,

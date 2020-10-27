@@ -108,6 +108,8 @@ type BaseProFieldFC = {
    * 映射值的类型
    */
   valueEnum?: ProFieldValueEnumType;
+
+  proFieldKey?: React.Key;
 };
 
 /**
@@ -378,13 +380,18 @@ const defaultRenderText = (
 
 export { defaultRenderText };
 
-const ProField: React.ForwardRefRenderFunction<
-  any,
-  {
-    text?: ProFieldTextType;
-    valueType?: ProFieldValueType | ProFieldValueObjectType;
-  } & RenderProps
-> = ({ text = '', valueType = 'text', onChange, value, ...rest }, ref) => {
+/**
+ * ProField 的类型
+ */
+export type ProFieldPropsType = {
+  text?: ProFieldTextType;
+  valueType?: ProFieldValueType | ProFieldValueObjectType;
+} & RenderProps;
+
+const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
+  { text = '', valueType = 'text', onChange, value, ...rest },
+  ref,
+) => {
   const intl = useIntl();
   const fieldProps = (value || onChange || rest?.fieldProps) && {
     value,
@@ -392,7 +399,6 @@ const ProField: React.ForwardRefRenderFunction<
     // fieldProps 优先级更高，在类似 LightFilter 场景下需要覆盖默认的 value 和 onChange
     ...omitUndefined(rest?.fieldProps),
   };
-
   return (
     <React.Fragment>
       {defaultRenderText(text, valueType || 'text', {

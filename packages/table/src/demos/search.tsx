@@ -43,7 +43,7 @@ export default () => (
       };
     }}
     search={false}
-    rowKey="id"
+    rowKey="key"
     options={{
       search: true,
     }}

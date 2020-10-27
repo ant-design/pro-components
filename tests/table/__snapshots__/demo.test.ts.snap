@@ -10532,6 +10532,7 @@ exports[`table demos renders ./packages/table/src/demos/intl.tsx correctly 1`] =
                     >
                       <tr
                         class="ant-table-row ant-table-row-level-0"
+                        data-row-key="1"
                       >
                         <td
                           class="ant-table-cell ant-table-selection-column"
@@ -18747,6 +18748,7 @@ exports[`table demos renders ./packages/table/src/demos/search.tsx correctly 1`]
                     >
                       <tr
                         class="ant-table-row ant-table-row-level-0"
+                        data-row-key="1"
                       >
                         <td
                           class="ant-table-cell"
@@ -23581,6 +23583,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
                     >
                       <tr
                         class="ant-table-row ant-table-row-level-0"
+                        data-row-key="1"
                       >
                         <td
                           class="ant-table-cell"

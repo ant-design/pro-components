@@ -5,6 +5,7 @@ import React, {
   useRef,
   useContext,
   useCallback,
+  useEffect,
 } from 'react';
 import { Select, Spin } from 'antd';
 import {
@@ -12,6 +13,7 @@ import {
   ProSchemaValueEnumObj,
   useDeepCompareEffect,
 } from '@ant-design/pro-utils';
+import useSWR from 'swr';
 import { useIntl } from '@ant-design/pro-provider';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
 import { SelectProps } from 'antd/lib/select';
@@ -19,6 +21,8 @@ import { SelectProps } from 'antd/lib/select';
 import LightSelect from './LightSelect';
 import TableStatus, { ProFieldBadgeColor, ProFieldStatusType } from '../Status';
 import { ProFieldFC } from '../../index';
+
+let testId = 0;
 
 export type ProFieldValueEnumType = ProSchemaValueEnumMap | ProSchemaValueEnumObj;
 
@@ -165,8 +169,18 @@ export type FieldSelectProps = {
 };
 
 export const useFieldFetchData = (
-  props: FieldSelectProps,
+  props: FieldSelectProps & {
+    proFieldKey?: React.Key;
+  },
 ): [boolean, SelectProps<any>['options'], () => void] => {
+  useEffect(() => {
+    testId += 1;
+  }, []);
+  /**
+   * key 是用来缓存请求的，如果不在是有问题
+   */
+  const proFieldKeyRef = useRef(props.proFieldKey ?? props.request ? testId : 'no-fetch');
+
   const getOptionsFormValueEnum = useCallback((valueEnum) => {
     return proFieldParsingValueEnumToArray(ObjToMap(valueEnum)).map(({ value, text }) => ({
       label: text,
@@ -190,22 +204,32 @@ export const useFieldFetchData = (
     if (!props.valueEnum || props.fieldProps?.options) return;
     setOptions(getOptionsFormValueEnum(props.valueEnum));
   }, [props.valueEnum]);
+  const [loading, setLoading] = useState(false);
 
-  const [loading, setLoading] = useState<boolean>(false);
-  const fetchData = async () => {
-    if (!props.request) {
-      return;
-    }
-    setLoading(true);
-    const data = await props.request(props.params, props);
-    setOptions(data);
-    setLoading(false);
-  };
+  const { data, mutate } = useSWR(
+    [proFieldKeyRef.current, JSON.stringify(props.params)],
+    async () => {
+      if (props.request) {
+        setLoading(true);
+        const fetchData = await props.request(props.params, props);
+        setLoading(false);
+        return fetchData;
+      }
+      return [];
+    },
+  );
 
-  useDeepCompareEffect(() => {
-    fetchData();
-  }, [props.params]);
-  return [loading, options, fetchData];
+  return [
+    loading,
+    props.request ? data : options,
+    async () => {
+      if (!props.request) return;
+      setLoading(true);
+      const fetchData = await props.request(props.params, props);
+      setLoading(false);
+      mutate(fetchData, false);
+    },
+  ];
 };
 
 /**
@@ -223,10 +247,15 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
     plain,
     children,
     light,
+    proFieldKey,
     ...rest
   } = props;
   const inputRef = useRef();
   const intl = useIntl();
+
+  useEffect(() => {
+    testId += 1;
+  }, []);
 
   const [loading, options, fetchData] = useFieldFetchData(props);
 

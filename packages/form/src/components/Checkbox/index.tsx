@@ -13,16 +13,19 @@ export type ProFormCheckboxGroupProps = ProFormItemProps<CheckboxGroupProps> & {
   request?: ProSchema['request'];
 };
 
-const Group: React.FC<ProFormCheckboxGroupProps> = ({ options, fieldProps, ...rest }) => (
-  <ProField
-    valueType="checkbox"
-    mode="edit"
-    {...rest}
-    fieldProps={{
-      options,
-      ...fieldProps,
-    }}
-  />
+const Group: React.FC<ProFormCheckboxGroupProps> = React.forwardRef(
+  ({ options, fieldProps, ...rest }, ref) => (
+    <ProField
+      ref={ref}
+      valueType="checkbox"
+      mode="edit"
+      {...rest}
+      fieldProps={{
+        options,
+        ...fieldProps,
+      }}
+    />
+  ),
 );
 
 export type ProFormCheckboxProps = ProFormItemProps<CheckboxProps>;

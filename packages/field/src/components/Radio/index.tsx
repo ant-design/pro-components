@@ -26,6 +26,7 @@ const FieldRadio: ProFieldFC<GroupProps> = (
   const layoutClassName = getPrefixCls('pro-field-radio');
   const [loading, options, fetchData] = useFieldFetchData(rest);
   const radioRef = useRef();
+
   useImperativeHandle(ref, () => ({
     ...(radioRef.current || {}),
     fetchData: () => fetchData(),
