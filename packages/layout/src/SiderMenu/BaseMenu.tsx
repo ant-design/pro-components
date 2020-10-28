@@ -18,7 +18,7 @@ import { PageLoading } from '..';
 
 export interface BaseMenuProps
   extends Partial<RouterTypes<Route>>,
-    Omit<MenuProps, 'openKeys' | 'onOpenChange'>,
+    Omit<MenuProps, 'openKeys' | 'onOpenChange' | 'title'>,
     Partial<PureSettings> {
   className?: string;
   /**

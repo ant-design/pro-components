@@ -15,7 +15,7 @@ import { getMatchMenu } from '@umijs/route-utils';
 import Header, { HeaderViewProps } from './Header';
 import { MenuDataItem, MessageDescriptor, Route, RouterTypes, WithFalse } from './typings';
 import { getPageTitleInfo, GetPageTitleProps } from './getPageTitle';
-import defaultSettings, { ProSettings, PureSettings } from './defaultSettings';
+import defaultSettings, { ProSettings } from './defaultSettings';
 import getLocales, { LocaleType } from './locales';
 import { BaseMenuProps } from './SiderMenu/BaseMenu';
 import Footer from './Footer';
@@ -33,16 +33,15 @@ import { clearMenuItem } from './utils/utils';
 
 export type BasicLayoutProps = Partial<RouterTypes<Route>> &
   SiderMenuProps &
-  HeaderViewProps &
-  Partial<PureSettings> & {
+  HeaderViewProps & {
     pure?: boolean;
     /**
-     * logo url
+     *@name logo url
      */
     logo?: React.ReactNode | WithFalse<() => React.ReactNode>;
 
     /**
-     * 页面切换的时候触发
+     *@name 页面切换的时候触发
      */
     onPageChange?: (location?: RouterTypes<Route>['location']) => void;
 
