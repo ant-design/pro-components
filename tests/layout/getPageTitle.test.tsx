@@ -107,6 +107,15 @@ describe('getPageTitle', () => {
     const title = getPageTitle(pageProps, true);
     expect(title).toBe('one');
   });
+
+  it('title=false', () => {
+    const title = getPageTitle({
+      ...pageProps,
+      title: false,
+    });
+    expect(title).toBe('one');
+  });
+
   it('base ignoreTile', () => {
     const title = getPageTitle({ ...pageProps, pathname: undefined }, true);
     expect(title).toBe('welcome');
