@@ -908,18 +908,26 @@ const ProTable = <T extends {}, U extends ParamsType>(
     return tableAreaDom;
   };
 
+  const proTableDom = (
+    <div className={className} id="ant-design-pro-table" style={style} ref={rootRef}>
+      {isLightFilter ? null : searchNode}
+      {/* 渲染一个额外的区域，用于一些自定义 */}
+      {type !== 'form' && props.tableExtraRender && (
+        <div className={`${className}-extra`}>{props.tableExtraRender(props, dataSource)}</div>
+      )}
+      {type !== 'form' && renderTable()}
+    </div>
+  );
+
+  // 如果不需要的全屏，ConfigProvider 没有意义
+  if (!options || !options?.fullScreen) {
+    return proTableDom;
+  }
   return (
     <ConfigProvider
       getPopupContainer={() => ((rootRef.current || document.body) as any) as HTMLElement}
     >
-      <div className={className} id="ant-design-pro-table" style={style} ref={rootRef}>
-        {isLightFilter ? null : searchNode}
-        {/* 渲染一个额外的区域，用于一些自定义 */}
-        {type !== 'form' && props.tableExtraRender && (
-          <div className={`${className}-extra`}>{props.tableExtraRender(props, dataSource)}</div>
-        )}
-        {type !== 'form' && renderTable()}
-      </div>
+      {proTableDom}
     </ConfigProvider>
   );
 };
