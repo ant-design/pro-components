@@ -20,7 +20,6 @@ const Demo = () => {
         rate: 3.5,
         name: 'qixian',
       }}
-      // @ts-expect-error
       formRef={formRef}
       onFinish={async (value) => console.log(value)}
     >

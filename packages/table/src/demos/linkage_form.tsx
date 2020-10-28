@@ -53,10 +53,10 @@ const columns: ProColumns<GithubIssueItem>[] = [
       console.log(_);
       console.log({ type, defaultRender, ...rest });
       console.groupEnd();
+      const status = form.getFieldValue('state');
       if (type === 'form') {
         return null;
       }
-      const status = form.getFieldValue('state');
       if (status === 'open') {
         return <Input placeholder="请输入" />;
       }

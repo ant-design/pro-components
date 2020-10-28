@@ -100,9 +100,9 @@ export type BaseQueryFilterProps = Omit<ActionsProps, 'submitter' | 'setCollapse
 
   form?: FormProps['form'];
   /**
-   * 底部操作栏的 render
-   * searchConfig 基础的配置
-   * props 更加详细的配置
+   * @name 底部操作栏的 render
+   * @params searchConfig 基础的配置
+   * @params props 更加详细的配置
    * {
       type?: 'form' | 'list' | 'table' | 'cardList' | undefined;
       form: FormInstance;

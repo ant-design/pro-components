@@ -7,6 +7,7 @@ import ProForm, {
   LightFilter,
   ProFormField,
   BaseQueryFilterProps,
+  QueryFilterProps,
 } from '@ant-design/pro-form';
 import classNames from 'classnames';
 import { ProFieldValueType } from '@ant-design/pro-field';
@@ -438,7 +439,10 @@ const FormSearch = <T, U = any>({
   const className = getPrefixCls('pro-table-search');
   const formClassName = getPrefixCls('pro-table-form');
 
-  const { Competent, competentName } = getFormCompetent(isForm, searchConfig);
+  const { Competent, competentName } = getFormCompetent(isForm, searchConfig) as {
+    Competent: React.FC<QueryFilterProps>;
+    competentName: string;
+  };
 
   // 传给每个表单的配置，理论上大家都需要
   const loadingProps: any = {
@@ -460,6 +464,7 @@ const FormSearch = <T, U = any>({
         {...loadingProps}
         {...getFromProps(isForm, searchConfig, competentName)}
         {...formConfig}
+        formRef={formInstanceRef}
         form={form}
         onValuesChange={(change, all) => {
           updateDomList(columnsList);
