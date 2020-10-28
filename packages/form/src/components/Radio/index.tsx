@@ -35,8 +35,12 @@ const RadioGroup: React.FC<ProFormRadioGroupProps> = React.forwardRef(
  * @param
  */
 const ProFormRadio: React.FC<ProFormItemProps<RadioProps>> = React.forwardRef(
-  ({ fieldProps }, ref: any) => {
-    return <Radio {...fieldProps} ref={ref} />;
+  ({ fieldProps, children }, ref: any) => {
+    return (
+      <Radio {...fieldProps} ref={ref}>
+        {children}
+      </Radio>
+    );
   },
 );
 
