@@ -181,7 +181,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
         style="margin-left: -8px; margin-right: -8px;"
       >
         <div
-          class="qixian-col qixian-col-12"
+          class="qixian-col qixian-col-8"
           style="padding-left: 8px; padding-right: 8px;"
         >
           <div
@@ -251,7 +251,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
           </div>
         </div>
         <div
-          class="qixian-col qixian-col-12"
+          class="qixian-col qixian-col-8 qixian-col-offset-8"
           style="padding-left: 8px; padding-right: 8px; text-align: right;"
         >
           <div

@@ -31,7 +31,7 @@ const BREAKPOINTS = {
   default: [
     [513, 1, 'vertical'],
     [701, 2, 'vertical'],
-    [1062, 2, 'horizontal'],
+    [1062, 3, 'horizontal'],
     [1352, 3, 'horizontal'],
     [Infinity, 4, 'horizontal'],
   ],
@@ -137,7 +137,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
     onReset,
     onCollapse,
     optionRender,
-    labelWidth = 98,
+    labelWidth = '98',
     style,
     split,
     collapseRender,
