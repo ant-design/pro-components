@@ -161,6 +161,9 @@ export default () => {
         })
       }
       rowKey="id"
+      search={{
+        labelWidth: 'auto',
+      }}
       dateFormatter="string"
       headerTitle="高级表格"
       toolBarRender={() => [

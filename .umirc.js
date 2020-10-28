@@ -71,6 +71,9 @@ export default {
     edge: false,
     ios: false,
   },
+  theme: {
+    '@s-site-menu-width': '208px',
+  },
   links:
     process.env.NODE_ENV === 'development'
       ? ['https://gw.alipayobjects.com/os/lib/antd/4.6.6/dist/antd.css']
