@@ -137,7 +137,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
     onReset,
     onCollapse,
     optionRender,
-    labelWidth = '98',
+    labelWidth = '80',
     style,
     split,
     collapseRender,

@@ -8809,7 +8809,7 @@ exports[`form demos renders ./packages/form/src/demos/query-filter.tsx correctly
       >
         <div
           class="ant-col ant-form-item-label"
-          style="flex: 0 0 98px;"
+          style="flex: 0 0 80px;"
         >
           <label
             class="ant-form-item-required"
@@ -8879,7 +8879,7 @@ exports[`form demos renders ./packages/form/src/demos/query-filter.tsx correctly
       >
         <div
           class="ant-col ant-form-item-label"
-          style="flex: 0 0 98px;"
+          style="flex: 0 0 80px;"
         >
           <label
             class=""
@@ -8949,7 +8949,7 @@ exports[`form demos renders ./packages/form/src/demos/query-filter.tsx correctly
       >
         <div
           class="ant-col ant-form-item-label"
-          style="flex: 0 0 98px;"
+          style="flex: 0 0 80px;"
         >
           <label
             class=""
@@ -9041,7 +9041,7 @@ exports[`form demos renders ./packages/form/src/demos/query-filter.tsx correctly
       >
         <div
           class="ant-col ant-form-item-label"
-          style="flex: 0 0 98px;"
+          style="flex: 0 0 80px;"
         >
           <label
             class=""
@@ -9111,7 +9111,7 @@ exports[`form demos renders ./packages/form/src/demos/query-filter.tsx correctly
       >
         <div
           class="ant-col ant-form-item-label"
-          style="flex: 0 0 98px;"
+          style="flex: 0 0 80px;"
         >
           <label
             class=""
@@ -9186,7 +9186,7 @@ exports[`form demos renders ./packages/form/src/demos/query-filter.tsx correctly
       >
         <div
           class="ant-col ant-form-item-label"
-          style="flex: 0 0 98px;"
+          style="flex: 0 0 80px;"
         >
           <label
             class=""
@@ -9390,7 +9390,7 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-collapsed.tsx
       >
         <div
           class="ant-col ant-form-item-label"
-          style="flex: 0 0 98px;"
+          style="flex: 0 0 80px;"
         >
           <label
             class=""
@@ -9460,7 +9460,7 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-collapsed.tsx
       >
         <div
           class="ant-col ant-form-item-label"
-          style="flex: 0 0 98px;"
+          style="flex: 0 0 80px;"
         >
           <label
             class=""
@@ -9531,7 +9531,7 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-collapsed.tsx
     >
       <div
         class="ant-col ant-form-item-label"
-        style="flex: 0 0 98px;"
+        style="flex: 0 0 80px;"
       >
         <label
           class=""
@@ -9596,7 +9596,7 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-collapsed.tsx
     >
       <div
         class="ant-col ant-form-item-label"
-        style="flex: 0 0 98px;"
+        style="flex: 0 0 80px;"
       >
         <label
           class=""
@@ -9666,7 +9666,7 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-collapsed.tsx
     >
       <div
         class="ant-col ant-form-item-label"
-        style="flex: 0 0 98px;"
+        style="flex: 0 0 80px;"
       >
         <label
           class=""

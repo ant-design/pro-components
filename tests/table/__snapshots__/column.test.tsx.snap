@@ -189,7 +189,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
           >
             <div
               class="qixian-col qixian-form-item-label"
-              style="flex: 0 0 98px;"
+              style="flex: 0 0 80px;"
             >
               <label
                 class=""

@@ -790,7 +790,7 @@ exports[`BasicTable 🎏 base use 1`] = `
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 98px;"
+              style="flex: 0 0 80px;"
             >
               <label
                 class=""
@@ -860,7 +860,7 @@ exports[`BasicTable 🎏 base use 1`] = `
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 98px;"
+              style="flex: 0 0 80px;"
             >
               <label
                 class=""
@@ -926,7 +926,7 @@ exports[`BasicTable 🎏 base use 1`] = `
         >
           <div
             class="ant-col ant-form-item-label"
-            style="flex: 0 0 98px;"
+            style="flex: 0 0 80px;"
           >
             <label
               class=""
@@ -1018,7 +1018,7 @@ exports[`BasicTable 🎏 base use 1`] = `
         >
           <div
             class="ant-col ant-form-item-label"
-            style="flex: 0 0 98px;"
+            style="flex: 0 0 80px;"
           >
             <label
               class=""
@@ -1110,7 +1110,7 @@ exports[`BasicTable 🎏 base use 1`] = `
         >
           <div
             class="ant-col ant-form-item-label"
-            style="flex: 0 0 98px;"
+            style="flex: 0 0 80px;"
           >
             <label
               class=""
@@ -1175,7 +1175,7 @@ exports[`BasicTable 🎏 base use 1`] = `
         >
           <div
             class="ant-col ant-form-item-label"
-            style="flex: 0 0 98px;"
+            style="flex: 0 0 80px;"
           >
             <label
               class=""
@@ -1240,7 +1240,7 @@ exports[`BasicTable 🎏 base use 1`] = `
         >
           <div
             class="ant-col ant-form-item-label"
-            style="flex: 0 0 98px;"
+            style="flex: 0 0 80px;"
           >
             <label
               class=""
@@ -1349,7 +1349,7 @@ exports[`BasicTable 🎏 base use 1`] = `
         >
           <div
             class="ant-col ant-form-item-label"
-            style="flex: 0 0 98px;"
+            style="flex: 0 0 80px;"
           >
             <label
               class=""
@@ -1385,7 +1385,7 @@ exports[`BasicTable 🎏 base use 1`] = `
         >
           <div
             class="ant-col ant-form-item-label"
-            style="flex: 0 0 98px;"
+            style="flex: 0 0 80px;"
           >
             <label
               class=""
@@ -1455,7 +1455,7 @@ exports[`BasicTable 🎏 base use 1`] = `
         >
           <div
             class="ant-col ant-form-item-label"
-            style="flex: 0 0 98px;"
+            style="flex: 0 0 80px;"
           >
             <label
               class=""
@@ -1528,7 +1528,7 @@ exports[`BasicTable 🎏 base use 1`] = `
         >
           <div
             class="ant-col ant-form-item-label"
-            style="flex: 0 0 98px;"
+            style="flex: 0 0 80px;"
           >
             <label
               class=""
