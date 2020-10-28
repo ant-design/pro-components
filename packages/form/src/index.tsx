@@ -17,7 +17,7 @@ import ProFormSelect from './components/Select';
 import ProFormDigit from './components/Digit';
 
 import ProForm, { ProFormProps } from './layouts/ProForm';
-import QueryFilter, { BaseQueryFilterProps } from './layouts/QueryFilter';
+import QueryFilter, { BaseQueryFilterProps, QueryFilterProps } from './layouts/QueryFilter';
 import LightFilter from './layouts/LightFilter';
 import StepsForm, { StepFormProps, StepsFormProps } from './layouts/StepsForm';
 import ModalForm, { ModalFormProps } from './layouts/ModalForm';
@@ -30,6 +30,7 @@ export type {
   ProFormProps,
   StepFormProps,
   StepsFormProps,
+  QueryFilterProps,
 };
 export {
   // controls

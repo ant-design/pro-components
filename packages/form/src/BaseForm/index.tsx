@@ -23,6 +23,11 @@ export interface CommonFormProps {
    * @description  支持异步操作，更加方便
    */
   onFinish?: (formData: Store) => Promise<boolean | void>;
+
+  /**
+   * @name 获取真正的可以获得值的 from
+   */
+  formRef?: React.MutableRefObject<FormInstance | undefined>;
 }
 
 export interface BaseFormProps extends FormProps, CommonFormProps {
@@ -39,7 +44,6 @@ export interface BaseFormProps extends FormProps, CommonFormProps {
    * @description  支持异步操作，更加方便
    */
   onFinish?: (formData: Store) => Promise<boolean | void>;
-  formRef?: React.MutableRefObject<FormInstance | undefined>;
 }
 
 const WIDTH_SIZE_ENUM = {
@@ -214,6 +218,12 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
   }>({});
   const [loading, setLoading] = useState<ButtonProps['loading']>(false);
 
+  /**
+   * 因为 protable 里面的值无法保证刚开始就存在
+   * 所以多进行了一次触发，这样可以解决部分问题
+   */
+  const [formInit, forgetUpdate] = useState(false);
+
   const items = React.Children.toArray(children);
 
   const submitterProps: Omit<SubmitterProps, 'form'> =
@@ -275,6 +285,9 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
                 setTimeout(() => {
                   // 支持 fromRef，这里 ref 里面可以随时拿到最新的值
                   if (propsFormRef) {
+                    if (!formInit) {
+                      forgetUpdate(true);
+                    }
                     propsFormRef.current = formInstance as FormInstance;
                   }
                   formRef.current = formInstance as FormInstance;
