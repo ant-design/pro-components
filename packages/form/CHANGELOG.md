@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.1.5...@ant-design/pro-form@1.1.6) (2020-10-29)
+
+### Bug Fixes
+
+- **table:** renderFormItem should run in form init ([#852](https://github.com/ant-design/pro-components/issues/852)) ([612b04a](https://github.com/ant-design/pro-components/commit/612b04a7225ccc93b8c081d268981d988c333d4c))
+
 ## [1.1.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.1.4...@ant-design/pro-form@1.1.5) (2020-10-26)
 
 **Note:** Version bump only for package @ant-design/pro-form

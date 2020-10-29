@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.0.4...@ant-design/pro-utils@1.0.5) (2020-10-29)
+
+### Bug Fixes
+
+- **layout:** fix pageTitle is empty error ([#851](https://github.com/ant-design/pro-components/issues/851)) ([f61ab17](https://github.com/ant-design/pro-components/commit/f61ab170ee1accc35c46956a96b5c8598dd4d90e))
+
 ## [1.0.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.0.3...@ant-design/pro-utils@1.0.4) (2020-10-26)
 
 **Note:** Version bump only for package @ant-design/pro-utils

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.9.12...@ant-design/pro-table@2.9.13) (2020-10-29)
+
+### Bug Fixes
+
+- **table:** options or fullScreen is null, not render ConfigProvider ([#854](https://github.com/ant-design/pro-components/issues/854)) ([004abb9](https://github.com/ant-design/pro-components/commit/004abb90a9d002de0c13223ac27ac98b34b3341b))
+- **table:** renderFormItem should run in form init ([#852](https://github.com/ant-design/pro-components/issues/852)) ([612b04a](https://github.com/ant-design/pro-components/commit/612b04a7225ccc93b8c081d268981d988c333d4c))
+
 ## [2.9.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.9.11...@ant-design/pro-table@2.9.12) (2020-10-26)
 
 **Note:** Version bump only for package @ant-design/pro-table
