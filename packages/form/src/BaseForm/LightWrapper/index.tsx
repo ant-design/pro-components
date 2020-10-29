@@ -16,7 +16,7 @@ export interface LightWrapperProps {
   style?: React.CSSProperties;
   className?: string;
   children?: React.ReactNode;
-  valuePropName?: string;
+  valuePropName: string;
   customLightMode?: boolean;
   light?: boolean;
   id?: string;
@@ -33,7 +33,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
     className,
     style,
     children,
-    valuePropName = 'value',
+    valuePropName,
     light,
     customLightMode,
     placeholder,

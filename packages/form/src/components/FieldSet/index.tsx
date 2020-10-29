@@ -17,7 +17,6 @@ export function defaultGetValueFromEvent(valuePropName: string, ...args: any) {
   if (event && event.target && valuePropName in event.target) {
     return (event.target as HTMLInputElement)[valuePropName];
   }
-
   return event;
 }
 

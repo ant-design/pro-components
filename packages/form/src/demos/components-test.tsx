@@ -8,6 +8,7 @@ import ProForm, {
   ProFormUploadButton,
   ProFormUploadDragger,
 } from '@ant-design/pro-form';
+import LightWrapper from '../BaseForm/LightWrapper';
 
 const Demo = () => {
   const formRef = useRef();
@@ -44,6 +45,10 @@ const Demo = () => {
           showUploadList: true,
         }}
       />
+      <LightWrapper valuePropName="value">test</LightWrapper>
+      <LightWrapper light={false} valuePropName="value">
+        test
+      </LightWrapper>
     </ProForm>
   );
 };
