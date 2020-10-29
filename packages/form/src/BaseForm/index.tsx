@@ -2,7 +2,6 @@ import React, { ReactElement, useRef, useEffect, useContext, useState } from 're
 import { Form } from 'antd';
 import { FormProps, FormInstance } from 'antd/lib/form/Form';
 import { FormItemProps } from 'antd/lib/form';
-import { TooltipProps } from 'antd/lib/tooltip';
 import { ConfigProviderWrap } from '@ant-design/pro-provider';
 import { conversionSubmitValue, pickProFormItemProps } from '@ant-design/pro-utils';
 import { ProFieldValueType } from '@ant-design/pro-field';
@@ -63,12 +62,16 @@ export interface ExtendsProps {
   secondary?: boolean;
   bordered?: boolean;
   colSize?: number;
-
-  params?: any;
   /**
-   * @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一
+   * @name 网络请求用的输出，会触发reload
+   * @description 需要与 request 配合使用
    */
-  tip?: string | TooltipProps;
+  params?: any;
+
+  /**
+   * @name 需要放在formItem 时使用
+   */
+  ignoreFormItem?: boolean;
 }
 
 type ProFormComponent<P, ExtendsProps> = React.ComponentType<
@@ -103,13 +106,13 @@ export function createField<P extends ProFormItemProps = any>(
     const size = useContext(SizeContext);
     const {
       label,
-      tip,
       tooltip,
       placeholder,
       width,
       proFieldProps,
       bordered,
       messageVariables,
+      ignoreFormItem,
       ...rest
     } = props;
     const {
@@ -134,7 +137,13 @@ export function createField<P extends ProFormItemProps = any>(
     // restFormItemProps is user props pass to Form.Item
     const restFormItemProps = pickProFormItemProps(rest);
     const myWidth = ignoreFelidWidth ? width : width || 'm';
+
+    const formNeedProps = {
+      value: (rest as any).value,
+      onChange: (rest as any).onChange,
+    };
     const realFieldProps = {
+      ...(ignoreFormItem ? formNeedProps : {}),
       disabled: props.disabled,
       // 轻量筛选模式下默认不显示 FormItem 的 label，label 设置为 placeholder
       placeholder: proFieldProps?.light ? placeholder || label : placeholder,
@@ -154,9 +163,12 @@ export function createField<P extends ProFormItemProps = any>(
       ...formItemProps,
       ...restFormItemProps,
     };
+
     const field = (
       <Field
-        {...(rest as P)} // ProXxx 上面的 props 透传给 Filed，可能包含 Field 自定义的 props，比如 ProFormSelect 的 request
+        // ProXxx 上面的 props 透传给 Filed，可能包含 Field 自定义的 props，
+        // 比如 ProFormSelect 的 request
+        {...(rest as P)}
         fieldProps={realFieldProps}
         proFieldProps={{
           params: rest.params,
@@ -165,6 +177,11 @@ export function createField<P extends ProFormItemProps = any>(
         }}
       />
     );
+
+    if (ignoreFormItem) {
+      console.log(formNeedProps);
+      return field;
+    }
 
     return (
       <Form.Item
