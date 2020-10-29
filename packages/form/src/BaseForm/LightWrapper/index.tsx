@@ -81,9 +81,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
           ellipsis
           size={size}
           onClear={() => {
-            if (onChange) {
-              onChange();
-            }
+            onChange?.();
             setTempValue(undefined);
           }}
           bordered={bordered}
@@ -98,13 +96,9 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
         />
       }
       footer={{
-        onClear: () => {
-          setTempValue(undefined);
-        },
+        onClear: () => setTempValue(undefined),
         onConfirm: () => {
-          if (onChange) {
-            onChange(tempValue);
-          }
+          onChange?.(tempValue);
           setOpen(false);
         },
       }}
