@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button, DatePicker, Space } from 'antd';
-import { DownOutlined, EllipsisOutlined } from '@ant-design/icons';
 import ProTable, { ProColumns } from '@ant-design/pro-table';
 
 const { RangePicker } = DatePicker;
@@ -34,7 +33,7 @@ const tableListDataSource: TableListItem[] = [];
 
 const creators = ['付小小', '曲丽丽', '林东东', '陈帅帅', '兼某某'];
 
-for (let i = 0; i < 100; i += 1) {
+for (let i = 0; i < 5; i += 1) {
   tableListDataSource.push({
     key: i,
     name: 'AppName',
@@ -61,7 +60,7 @@ const columns: ProColumns<TableListItem>[] = [
     width: 120,
     dataIndex: 'containers',
     align: 'right',
-    hideInSearch: true,
+    search: false,
     sorter: (a, b) => a.containers - b.containers,
   },
   {
@@ -107,7 +106,7 @@ const columns: ProColumns<TableListItem>[] = [
     dataIndex: 'memo',
     ellipsis: true,
     copyable: true,
-    hideInSearch: true,
+    search: false,
   },
   {
     title: '操作',
@@ -115,14 +114,7 @@ const columns: ProColumns<TableListItem>[] = [
     key: 'option',
     valueType: 'option',
     fixed: 'right',
-    render: () => [
-      <a>链路</a>,
-      <a>报警</a>,
-      <a>监控</a>,
-      <a>
-        <EllipsisOutlined />
-      </a>,
-    ],
+    render: () => [<a key="link">链路</a>],
   },
 ];
 
@@ -131,9 +123,14 @@ export default () => {
     <ProTable<TableListItem>
       columns={columns}
       rowSelection={{}}
-      tableAlertRender={({ selectedRowKeys, selectedRows }) => (
+      tableAlertRender={({ selectedRowKeys, selectedRows, onCleanSelected }) => (
         <Space size={24}>
-          <span>已选 {selectedRowKeys.length} 项</span>
+          <span>
+            已选 {selectedRowKeys.length} 项
+            <a style={{ marginLeft: 8 }} onClick={onCleanSelected}>
+              取消选择
+            </a>
+          </span>
           <span>{`容器数量: ${selectedRows.reduce(
             (pre, item) => pre + item.containers,
             0,
@@ -144,23 +141,15 @@ export default () => {
           )} 次`}</span>
         </Space>
       )}
-      tableAlertOptionRender={(props) => {
-        const { onCleanSelected } = props;
+      tableAlertOptionRender={() => {
         return (
-          <Space>
-            <Button type="link" onClick={onCleanSelected}>
-              取消选择
-            </Button>
-            <Button danger type="link">
-              批量删除
-            </Button>
-            <Button type="link">导出数据</Button>
+          <Space size={16}>
+            <a>批量删除</a>
+            <a>导出数据</a>
           </Space>
         );
       }}
-      request={(params, sorter, filter) => {
-        // 表单搜索项会从 params 传入，传递给后端接口。
-        console.log(params, sorter, filter);
+      request={() => {
         return Promise.resolve({
           data: tableListDataSource,
           success: true,
@@ -171,14 +160,7 @@ export default () => {
       search={false}
       rowKey="key"
       headerTitle="批量操作"
-      toolBarRender={() => [
-        <Button>查看日志</Button>,
-        <Button>
-          导出数据
-          <DownOutlined />
-        </Button>,
-        <Button type="primary">创建应用</Button>,
-      ]}
+      toolBarRender={() => [<Button key="show">查看日志</Button>]}
     />
   );
 };

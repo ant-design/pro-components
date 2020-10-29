@@ -4,34 +4,34 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import { Layout } from 'antd';
 import GlobalHeader, { GlobalHeaderProps } from './GlobalHeader';
-import { PureSettings } from './defaultSettings';
 import TopNavHeader from './TopNavHeader';
 import { WithFalse } from './typings';
+import { PrivateSiderMenuProps } from './SiderMenu/SiderMenu';
+import { clearMenuItem } from './utils/utils';
 
 const { Header } = Layout;
 
-export type HeaderViewProps = Partial<PureSettings> &
-  GlobalHeaderProps & {
-    isMobile?: boolean;
-    collapsed?: boolean;
-    logo?: React.ReactNode;
+export type HeaderViewProps = GlobalHeaderProps & {
+  isMobile?: boolean;
+  collapsed?: boolean;
+  logo?: React.ReactNode;
 
-    headerRender?: WithFalse<
-      (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
-    >;
-    headerTitleRender?: WithFalse<
-      (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
-    >;
-    headerContentRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
-    siderWidth?: number;
-    hasSiderMenu?: boolean;
-  };
+  headerRender?: WithFalse<
+    (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
+  >;
+  headerTitleRender?: WithFalse<
+    (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
+  >;
+  headerContentRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
+  siderWidth?: number;
+  hasSiderMenu?: boolean;
+};
 
 interface HeaderViewState {
   visible: boolean;
 }
 
-class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
+class HeaderView extends Component<HeaderViewProps & PrivateSiderMenuProps, HeaderViewState> {
   renderContent = () => {
     const {
       isMobile,
@@ -42,8 +42,9 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
       headerContentRender,
     } = this.props;
     const isTop = layout === 'top';
+    const clearMenuData = clearMenuItem(this.props.menuData || []);
     let defaultDom = (
-      <GlobalHeader onCollapse={onCollapse} {...this.props}>
+      <GlobalHeader onCollapse={onCollapse} {...this.props} menuData={clearMenuData}>
         {headerContentRender && headerContentRender(this.props)}
       </GlobalHeader>
     );
@@ -54,6 +55,7 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
           mode="horizontal"
           onCollapse={onCollapse}
           {...this.props}
+          menuData={clearMenuData}
         />
       );
     }
@@ -70,9 +72,8 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
       className: propsClassName,
       style,
       collapsed,
-      siderWidth = 208,
+      siderWidth,
       hasSiderMenu,
-      headerRender,
       isMobile,
       prefixCls,
       headerHeight,
@@ -87,10 +88,9 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
       [`${prefixCls}-top-menu`]: isTop,
     });
 
-    if (headerRender === false) {
-      return null;
-    }
-
+    /**
+     * 计算侧边栏的宽度，不然导致左边的样式会出问题
+     */
     const width =
       layout !== 'mix' && needSettingWidth
         ? `calc(100% - ${collapsed ? 48 : siderWidth}px)`
@@ -115,7 +115,7 @@ class HeaderView extends Component<HeaderViewProps, HeaderViewState> {
             height: headerHeight,
             lineHeight: `${headerHeight}px`,
             width,
-            zIndex: layout === 'mix' ? 100 : 9,
+            zIndex: layout === 'mix' ? 100 : 19,
             right,
             ...style,
           }}

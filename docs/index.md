@@ -7,7 +7,7 @@ hero:
   desc: 🏆 Use Ant Design like a Pro!
   actions:
     - text: 快速开始 →
-      link: /docs/getting-started-table
+      link: /docs/getting-started
 
 features:
   - icon: https://gw.alipayobjects.com/os/q/cms/images/k9ziitmp/13668549-b393-42a2-97c3-a6365ba87ac2_w96_h96.png
@@ -50,14 +50,6 @@ footer: Open-source MIT Licensed | Copyright © 2017-present
 - 现代浏览器和 Internet Explorer 11 (with [polyfills](https://stackoverflow.com/questions/57020976/polyfills-in-2019-for-ie11))
 - [Electron](https://www.electronjs.org/)
 
-| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png" alt="Electron" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Electron |
+| [![](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png)](http://godban.github.io/browsers-support-badges/)<br>IE / Edge | [![](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png)](http://godban.github.io/browsers-support-badges/)<br>Firefox | [![](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png)](http://godban.github.io/browsers-support-badges/)<br>Chrome | [![](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)](http://godban.github.io/browsers-support-badges/)<br>Safari | [![](https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png)](http://godban.github.io/browsers-support-badges/)<br>Electron |
 | --- | --- | --- | --- | --- |
 | IE11, Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
-
-## 参与贡献
-
-我们非常欢迎你的贡献，你可以通过以下方式和我们一起共建 :smiley:：
-
-- 在你的公司或个人项目中使用 Ant Design Pro，umi 和 ProComponents。
-- 通过 [Issue](http://github.com/ant-design/pro-components/issues) 报告 bug 或进行咨询。
-- 提交 [Pull Request](http://github.com/ant-design/pro-components/pulls) 改进 ProComponents 的代码。

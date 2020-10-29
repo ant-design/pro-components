@@ -8,6 +8,7 @@ import {
   SiderMenuProps,
   defaultRenderLogoAndTitle,
   defaultRenderCollapsedButton,
+  PrivateSiderMenuProps,
 } from '../SiderMenu/SiderMenu';
 import { PureSettings } from '../defaultSettings';
 import TopNavHeader from '../TopNavHeader';
@@ -44,7 +45,7 @@ const renderLogo = (
   return logoDom;
 };
 
-const GlobalHeader: React.FC<GlobalHeaderProps> = (props) => {
+const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props) => {
   const {
     isMobile,
     logo,
@@ -58,6 +59,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps> = (props) => {
     style,
     layout,
     children,
+    headerTheme = 'dark',
     splitMenus,
     menuData,
     prefixCls,
@@ -78,8 +80,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps> = (props) => {
         {...props}
         splitMenus={false}
         menuData={noChildrenMenuData}
-        navTheme="dark"
-        theme="dark"
+        theme={headerTheme as 'light' | 'dark'}
       />
     );
   }

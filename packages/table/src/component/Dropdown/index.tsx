@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import classnames from 'classnames';
 import { DownOutlined, EllipsisOutlined } from '@ant-design/icons';
-import { Dropdown, Menu, Button } from 'antd';
-import { ConfigContext } from 'antd/lib/config-provider/context';
+import { Dropdown, Menu, Button, ConfigProvider } from 'antd';
 import './index.less';
 
 export interface DropdownProps {
@@ -16,22 +15,22 @@ export interface DropdownProps {
 }
 
 /**
- * 默认的 index 列容器，提供一个好看的 index
+ * 一个简单的下拉菜单
  * @param param0
  */
 const DropdownButton: React.FC<DropdownProps> = ({
   children,
-  menus = [],
+  menus,
   onSelect,
   className,
   style,
 }) => {
-  const { getPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
   const tempClassName = getPrefixCls('pro-table-dropdown');
   const menu = (
     <Menu onClick={(params) => onSelect && onSelect(params.key as string)}>
-      {menus.map((item) => (
+      {menus?.map((item) => (
         <Menu.Item key={item.key}>{item.name}</Menu.Item>
       ))}
     </Menu>
@@ -48,7 +47,7 @@ const DropdownButton: React.FC<DropdownProps> = ({
 const TableDropdown: React.FC<DropdownProps> & {
   Button: typeof DropdownButton;
 } = ({ className: propsClassName, style, onSelect, menus = [] }) => {
-  const { getPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-table-dropdown');
   const menu = (
     <Menu onClick={(params) => onSelect && onSelect(params.key as string)}>

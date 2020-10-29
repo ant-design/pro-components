@@ -1,32 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import ProLayout, { PageContainer } from '@ant-design/pro-layout';
-import { Button } from 'antd';
-import defaultProps from './fixtures/defaultProps';
+import defaultProps from './_defaultProps';
 
 export default () => {
-  const [index, setIndex] = useState(0);
   return (
     <>
-      <Button
-        onClick={() => setIndex(index + 1)}
-        style={{
-          margin: 8,
-        }}
-      >
-        +1
-      </Button>
       <ProLayout
-        menuItemRender={(item, dom) => (
-          <div>
-            {index} {dom}
-          </div>
-        )}
-        subMenuItemRender={(_, dom) => (
-          <div>
-            {index} {dom}
-          </div>
-        )}
+        menuItemRender={(item, dom) => <div>pre {dom}</div>}
+        subMenuItemRender={(_, dom) => <div>pre {dom}</div>}
         title="Remax"
         logo="https://gw.alipayobjects.com/mdn/rms_b5fcc5/afts/img/A*1NHAQYduQiQAAAAAAAAAAABkARQnAQ"
         menuHeaderRender={(logo, title) => (

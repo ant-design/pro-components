@@ -2,31 +2,35 @@ import React, {
   ReactNode,
   useState,
   useImperativeHandle,
-  useEffect,
   useRef,
   useContext,
+  useCallback,
+  useEffect,
 } from 'react';
 import { Select, Spin } from 'antd';
-import { ProSchemaValueEnumMap, ProSchemaValueEnumObj } from '@ant-design/pro-utils';
+import {
+  ProSchemaValueEnumMap,
+  ProSchemaValueEnumObj,
+  useDeepCompareEffect,
+} from '@ant-design/pro-utils';
+import useSWR from 'swr';
 import { useIntl } from '@ant-design/pro-provider';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
+import { SelectProps } from 'antd/lib/select';
 
 import LightSelect from './LightSelect';
-import TableStatus, { ProFieldStatusType } from '../Status';
+import TableStatus, { ProFieldBadgeColor, ProFieldStatusType } from '../Status';
 import { ProFieldFC } from '../../index';
+
+let testId = 0;
 
 export type ProFieldValueEnumType = ProSchemaValueEnumMap | ProSchemaValueEnumObj;
 
-export const ObjToMap = (
-  value: ProFieldValueEnumType | undefined,
-): ProSchemaValueEnumMap | undefined => {
-  if (!value) {
-    return value;
-  }
+export const ObjToMap = (value: ProFieldValueEnumType | undefined): ProSchemaValueEnumMap => {
   if (getType(value) === 'map') {
     return value as ProSchemaValueEnumMap;
   }
-  return new Map(Object.entries(value));
+  return new Map(Object.entries(value || {}));
 };
 
 /**
@@ -38,20 +42,10 @@ export const ObjToMap = (
  */
 export const proFieldParsingText = (
   text: string | number,
-  valueEnumParams?: ProFieldValueEnumType,
-  pure?: boolean,
+  valueEnumParams: ProFieldValueEnumType,
 ) => {
-  if (text === undefined || text === null) {
-    return null;
-  }
-  if (!valueEnumParams) {
-    return text;
-  }
   const valueEnum = ObjToMap(valueEnumParams);
 
-  if (!valueEnum) {
-    return text;
-  }
   if (!valueEnum.has(text) && !valueEnum.has(`${text}`)) {
     return text;
   }
@@ -59,17 +53,24 @@ export const proFieldParsingText = (
   const domText = (valueEnum.get(text) || valueEnum.get(`${text}`)) as {
     text: ReactNode;
     status: ProFieldStatusType;
+    color?: string;
   };
-  if (domText.status) {
-    if (pure) {
-      return domText.text;
-    }
-    const { status } = domText;
-    const Status = TableStatus[status || 'Init'];
-    if (Status) {
-      return <Status>{domText.text}</Status>;
-    }
+
+  if (!domText) {
+    return text;
   }
+
+  const { status, color } = domText;
+  const Status = TableStatus[status || 'Init'];
+  // 如果类型存在优先使用类型
+  if (Status) {
+    return <Status>{domText.text}</Status>;
+  }
+  // 如果不存在使用颜色
+  if (color) {
+    return <ProFieldBadgeColor color={color}>{domText.text}</ProFieldBadgeColor>;
+  }
+  // 什么都没有使用 text
   return domText.text || domText;
 };
 
@@ -102,20 +103,19 @@ export const proFieldParsingValueEnumToArray = (
   const enumArray: {
     value: string | number;
     text: string;
+    /**
+     * 是否禁用
+     */
+    disabled?: boolean;
   }[] = [];
   const valueEnum = ObjToMap(valueEnumParams);
 
-  if (!valueEnum) {
-    return [];
-  }
-
   valueEnum.forEach((_, key) => {
-    if (!valueEnum.has(key) && !valueEnum.has(`${key}`)) {
-      return;
-    }
     const value = (valueEnum.get(key) || valueEnum.get(`${key}`)) as {
       text: string;
+      disabled?: boolean;
     };
+
     if (!value) {
       return;
     }
@@ -124,6 +124,7 @@ export const proFieldParsingValueEnumToArray = (
       enumArray.push({
         text: (value?.text as unknown) as string,
         value: key,
+        disabled: value.disabled,
       });
       return;
     }
@@ -160,53 +161,75 @@ export type FieldSelectProps = {
    * 重新触发的时机
    */
   params?: any;
+
+  /**
+   * 组件的全局设置
+   */
+  fieldProps?: SelectProps<any>;
 };
 
-const useFetchData = (
-  props: FieldSelectProps,
-): [
-  boolean,
-  {
-    label: React.ReactNode;
-    value: React.ReactText;
-  }[],
-  () => void,
-] => {
-  const [options, setOptions] = useState<
-    {
-      label: React.ReactNode;
-      value: React.ReactText;
-    }[]
-  >(() =>
-    proFieldParsingValueEnumToArray(ObjToMap(props.valueEnum)).map(({ value, text }) => ({
+export const useFieldFetchData = (
+  props: FieldSelectProps & {
+    proFieldKey?: React.Key;
+  },
+): [boolean, SelectProps<any>['options'], () => void] => {
+  useEffect(() => {
+    testId += 1;
+  }, []);
+  /**
+   * key 是用来缓存请求的，如果不在是有问题
+   */
+  const proFieldKeyRef = useRef(props.proFieldKey ?? props.request ? testId : 'no-fetch');
+
+  const getOptionsFormValueEnum = useCallback((valueEnum) => {
+    return proFieldParsingValueEnumToArray(ObjToMap(valueEnum)).map(({ value, text }) => ({
       label: text,
       value,
-    })),
+      key: value,
+    }));
+  }, []);
+
+  const [options, setOptions] = useState<SelectProps<any>['options']>(() => {
+    if (props.valueEnum) {
+      return getOptionsFormValueEnum(props.valueEnum);
+    }
+    if (props.fieldProps?.options) {
+      return props.fieldProps?.options || [];
+    }
+    return [];
+  });
+
+  useDeepCompareEffect(() => {
+    // 优先使用 fieldProps?.options
+    if (!props.valueEnum || props.fieldProps?.options) return;
+    setOptions(getOptionsFormValueEnum(props.valueEnum));
+  }, [props.valueEnum]);
+  const [loading, setLoading] = useState(false);
+
+  const { data, mutate } = useSWR(
+    [proFieldKeyRef.current, JSON.stringify(props.params)],
+    async () => {
+      if (props.request) {
+        setLoading(true);
+        const fetchData = await props.request(props.params, props);
+        setLoading(false);
+        return fetchData;
+      }
+      return [];
+    },
   );
 
-  useEffect(() => {
-    setOptions(
-      proFieldParsingValueEnumToArray(ObjToMap(props.valueEnum)).map(({ value, text }) => ({
-        label: text,
-        value,
-      })),
-    );
-  }, [props.valueEnum]);
-
-  const [loading, setLoading] = useState<boolean>(false);
-  const fetchData = async () => {
-    if (!props.request) {
-      return;
-    }
-    setLoading(true);
-    const data = await props.request(props.params, props);
-    setOptions(data);
-    setLoading(false);
-  };
-  useEffect(() => {
-    fetchData();
-  }, [props.params]);
-  return [loading, options, fetchData];
+  return [
+    loading,
+    props.request ? data : options,
+    async () => {
+      if (!props.request) return;
+      setLoading(true);
+      const fetchData = await props.request(props.params, props);
+      setLoading(false);
+      mutate(fetchData, false);
+    },
+  ];
 };
 
 /**
@@ -224,48 +247,66 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
     plain,
     children,
     light,
+    proFieldKey,
     ...rest
   } = props;
   const inputRef = useRef();
   const intl = useIntl();
-  const [loading, options, fetchData] = useFetchData(props);
+
+  useEffect(() => {
+    testId += 1;
+  }, []);
+
+  const [loading, options, fetchData] = useFieldFetchData(props);
+
   const size = useContext(SizeContext);
   useImperativeHandle(ref, () => ({
     ...(inputRef.current || {}),
     fetchData: () => fetchData(),
   }));
+
+  if (loading) {
+    return <Spin />;
+  }
+
   if (mode === 'read') {
-    if (loading) {
-      return <Spin />;
-    }
-    const optionsValueEnum = props.request
-      ? options.reduce((pre: any, cur) => {
+    const optionsValueEnum: ProSchemaValueEnumObj = options?.length
+      ? options?.reduce((pre: any, cur) => {
           return { ...pre, [cur.value]: cur.label };
         }, {})
       : undefined;
-    const dom = <>{proFieldParsingText(rest.text, ObjToMap(optionsValueEnum || valueEnum))}</>;
+
+    const dom = (
+      <>
+        {proFieldParsingText(
+          rest.text,
+          (ObjToMap(valueEnum || optionsValueEnum) as unknown) as ProSchemaValueEnumObj,
+        )}
+      </>
+    );
 
     if (render) {
       return render(rest.text, { mode, ...fieldProps }, dom) || null;
     }
     return dom;
   }
+
   if (mode === 'edit' || mode === 'update') {
-    let dom;
-    if (light) {
-      dom = (
-        <LightSelect
-          loading={loading}
-          ref={inputRef}
-          allowClear
-          size={size}
-          {...rest}
-          options={options}
-          {...fieldProps}
-        />
-      );
-    } else {
-      dom = (
+    const renderDom = () => {
+      if (light) {
+        return (
+          <LightSelect
+            loading={loading}
+            ref={inputRef}
+            allowClear
+            size={size}
+            {...rest}
+            options={options}
+            {...fieldProps}
+          />
+        );
+      }
+      return (
         <Select
           style={{
             minWidth: 100,
@@ -279,9 +320,10 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
           {...fieldProps}
         />
       );
-    }
+    };
+    const dom = renderDom();
     if (renderFormItem) {
-      return renderFormItem(rest.text, { mode, ...fieldProps }, dom) || null;
+      return renderFormItem(rest.text, { mode, ...fieldProps, options }, dom) || null;
     }
     return dom;
   }

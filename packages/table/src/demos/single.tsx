@@ -63,10 +63,9 @@ interface User {
 
 const columns: ProColumns<GithubIssueItem>[] = [
   {
-    title: '序号',
     dataIndex: 'index',
     valueType: 'indexBorder',
-    width: 72,
+    width: 48,
   },
   {
     title: '标题',
@@ -83,12 +82,12 @@ const columns: ProColumns<GithubIssueItem>[] = [
       ],
     },
     width: '30%',
-    hideInSearch: true,
+    search: false,
   },
   {
     title: '状态',
     dataIndex: 'state',
-    initialValue: 'all',
+    initialValue: 'open',
     filters: true,
     valueEnum: {
       all: { text: '全部', status: 'Default' },
@@ -105,12 +104,10 @@ const columns: ProColumns<GithubIssueItem>[] = [
         status: 'Processing',
       },
     },
-    width: '10%',
   },
   {
     title: '标签',
     dataIndex: 'labels',
-    width: '10%',
     render: (_, row) => (
       <Space>
         {row.labels.map(({ name, id, color }) => (
@@ -125,8 +122,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     title: '创建时间',
     key: 'since',
     dataIndex: 'created_at',
-    valueType: 'dateTime',
-    width: '20%',
+    valueType: 'date',
   },
   {
     title: '操作',
@@ -134,9 +130,6 @@ const columns: ProColumns<GithubIssueItem>[] = [
     render: (text, row, _, action) => [
       <a href={row.html_url} target="_blank" rel="noopener noreferrer" key="link">
         链路
-      </a>,
-      <a href={row.html_url} target="_blank" rel="noopener noreferrer" key="warning">
-        报警
       </a>,
       <a href={row.html_url} target="_blank" rel="noopener noreferrer" key="view">
         查看
@@ -159,9 +152,6 @@ export default () => {
   return (
     <ProTable<GithubIssueItem>
       columns={columns}
-      pagination={{
-        showQuickJumper: true,
-      }}
       actionRef={actionRef}
       request={async (params = {}) =>
         request<{
@@ -171,11 +161,13 @@ export default () => {
         })
       }
       rowKey="id"
+      search={{
+        labelWidth: 'auto',
+      }}
       dateFormatter="string"
       headerTitle="高级表格"
       toolBarRender={() => [
-        <Button key="3" type="primary">
-          <PlusOutlined />
+        <Button key="button" icon={<PlusOutlined />} type="primary">
           新建
         </Button>,
       ]}

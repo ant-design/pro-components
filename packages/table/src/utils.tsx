@@ -54,6 +54,7 @@ export const genCopyable = (dom: React.ReactNode, item: ProColumns<any>, text: s
           margin: 0,
           padding: 0,
         }}
+        title=""
         copyable={
           item.copyable && text
             ? {
@@ -62,7 +63,6 @@ export const genCopyable = (dom: React.ReactNode, item: ProColumns<any>, text: s
               }
             : undefined
         }
-        title={text}
         ellipsis={item.ellipsis}
       >
         {dom}
@@ -86,11 +86,10 @@ export const mergePagination = <T, U>(
   if (pagination === false) {
     return false;
   }
-  let defaultPagination: TablePaginationConfig | {} = pagination || {};
+  const defaultPagination: TablePaginationConfig | {} =
+    typeof pagination === 'object' ? pagination : {};
   const { current, pageSize } = action;
-  if (pagination === true) {
-    defaultPagination = {};
-  }
+
   return {
     showTotal: (all, range) =>
       `${intl.getMessage('pagination.total.range', '第')} ${range[0]}-${range[1]} ${intl.getMessage(
@@ -103,28 +102,18 @@ export const mergePagination = <T, U>(
     current,
     pageSize,
     onChange: (page: number, newPageSize?: number) => {
-      // pageSize 改变之后就没必要切换页码
-      if (newPageSize !== pageSize && current !== page) {
-        action.setPageInfo({ pageSize: newPageSize, page });
-      } else {
-        if (newPageSize !== pageSize) {
-          action.setPageInfo({ pageSize: newPageSize });
-        }
-        if (current !== page) {
-          action.setPageInfo({ page });
-        }
-      }
-
       const { onChange } = pagination as TablePaginationConfig;
-      if (onChange) {
-        onChange(page, newPageSize || 20);
+      onChange?.(page, newPageSize || 20);
+      // pageSize 改变之后就没必要切换页码
+      if (newPageSize !== pageSize || current !== page) {
+        action.setPageInfo({ pageSize: newPageSize, page });
       }
     },
   };
 };
 
 /**
- * 八卦
+ * 获取用户的 action 信息
  * @param actionRef
  * @param counter
  * @param onCleanSelected
@@ -144,38 +133,31 @@ export const useActionType = <T, U = any>(
         const {
           action: { current },
         } = counter;
-        if (!current) {
-          return;
-        }
 
         // 如果为 true，回到第一页
         if (resetPageIndex) {
-          await current.resetPageIndex();
+          await current?.resetPageIndex();
         }
-        await current.reload();
+        await current?.reload();
       },
       reloadAndRest: async () => {
         const {
           action: { current },
         } = counter;
-        if (!current) {
-          return;
-        }
+
         // reload 之后大概率会切换数据，清空一下选择。
         onCleanSelected();
         // 如果为 true，回到第一页
-        await current.resetPageIndex();
-        await current.reload();
+        await current?.resetPageIndex();
+        await current?.reload();
       },
       reset: async () => {
         const {
           action: { current },
         } = counter;
-        if (!current) {
-          return;
-        }
-        await current.reset();
-        await current.reload();
+        await onCleanSelected();
+        await current?.reset();
+        await current?.reload();
       },
       clearSelected: () => onCleanSelected(),
     };
@@ -196,14 +178,11 @@ type PostDataType<T> = (data: T) => T;
  * @param data
  * @param pipeline
  */
-export const postDataPipeline = <T, U>(data: T, pipeline: (PostDataType<T> | undefined)[]) => {
+export const postDataPipeline = <T, U>(data: T, pipeline: PostDataType<T>[]) => {
   if (pipeline.filter((item) => item).length < 1) {
     return data;
   }
   return pipeline.reduce((pre, postData) => {
-    if (postData) {
-      return postData(pre);
-    }
-    return pre;
+    return postData(pre);
   }, data);
 };

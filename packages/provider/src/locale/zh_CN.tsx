@@ -18,7 +18,7 @@ export default {
     selectPlaceholder: '请选择',
   },
   alert: {
-    clear: '清空',
+    clear: '取消选择',
     selected: '已选择',
     item: '项',
   },

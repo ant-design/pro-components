@@ -2,6 +2,7 @@ import React from 'react';
 import { FormInstance } from 'antd/lib/form';
 import { Button, Space } from 'antd';
 import { useIntl } from '@ant-design/pro-provider';
+import { ButtonProps } from 'antd/lib/button';
 
 /**
  * 用于配置操作栏
@@ -10,19 +11,29 @@ export interface SearchConfig {
   /**
    * 重置按钮的文本
    */
-  resetText?: string;
+  resetText?: React.ReactNode;
   /**
    * 提交按钮的文本
    */
-  submitText?: string;
+  submitText?: React.ReactNode;
 }
 
 export interface SubmitterProps {
   form: FormInstance;
   onSubmit?: () => void;
   onReset?: () => void;
+  /**
+   * 搜索的配置，一般用来配置文本
+   */
   searchConfig?: SearchConfig;
-
+  /**
+   * 提交按钮的 props
+   */
+  submitButtonProps?: ButtonProps;
+  /**
+   * 重置按钮的 props
+   */
+  resetButtonProps?: ButtonProps;
   /**
    * 自定义操作的渲染的渲染
    */
@@ -41,36 +52,43 @@ const Submitter: React.FC<SubmitterProps> = (props) => {
     return null;
   }
 
-  const { form, onSubmit, render, onReset, searchConfig = {} } = props;
+  const {
+    form,
+    onSubmit,
+    render,
+    onReset,
+    searchConfig = {},
+    submitButtonProps,
+    resetButtonProps,
+  } = props;
 
   const {
     submitText = intl.getMessage('tableForm.submit', '提交'),
     resetText = intl.getMessage('tableForm.reset', '重置'),
   } = searchConfig;
-
   /**
    * 默认的操作的逻辑
    */
   const dom = [
     <Button
+      {...resetButtonProps}
       key="rest"
-      onClick={() => {
+      onClick={(e) => {
         form.resetFields();
-        if (onReset) {
-          onReset();
-        }
+        onReset?.();
+        resetButtonProps?.onClick?.(e);
       }}
     >
       {resetText}
     </Button>,
     <Button
+      {...submitButtonProps}
       key="submit"
       type="primary"
-      onClick={() => {
+      onClick={(e) => {
         form.submit();
-        if (onSubmit) {
-          onSubmit();
-        }
+        onSubmit?.();
+        submitButtonProps?.onClick?.(e);
       }}
     >
       {submitText}

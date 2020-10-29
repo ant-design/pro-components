@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react';
 import classNames from 'classnames';
-import { FieldDropdown, FieldLabel } from '@ant-design/pro-utils';
+import { FieldDropdown, FieldLabel, isDropdownValueType } from '@ant-design/pro-utils';
 import { SizeType } from 'antd/lib/config-provider/SizeContext';
-import { ConfigContext } from 'antd/lib/config-provider';
+import { ConfigProvider } from 'antd';
 
 import './index.less';
 
@@ -43,12 +43,15 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
     value,
   } = props;
 
-  const { getPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-light-wrapper');
   const [tempValue, setTempValue] = useState<string | undefined>(props[valuePropName]);
   const [open, setOpen] = useState<boolean>(false);
 
-  if (!light || customLightMode) {
+  const isDropdown =
+    React.isValidElement(children) && isDropdownValueType(children.props.valueType);
+
+  if (!light || customLightMode || isDropdown) {
     if (React.isValidElement(children)) {
       return React.cloneElement(children, {
         ref,

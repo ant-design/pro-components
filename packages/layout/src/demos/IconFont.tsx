@@ -22,13 +22,6 @@ export default () => (
             icon: 'icon-shoucang1',
           },
           {
-            key: 'test',
-            name: 'test',
-            icon: 'smile',
-            path: '/test',
-            exact: true,
-          },
-          {
             path: '/home/overview',
             name: 'FaceBook',
             icon: 'icon-facebook',

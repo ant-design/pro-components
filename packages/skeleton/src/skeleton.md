@@ -9,12 +9,14 @@ nav:
 
 # ProSkeleton
 
+> 该组件为内部组件，请勿直接使用。
+
 页面级别的骨架屏，不支持自定义
 
 ## 安装和初始化
 
 ```typescript | pure
-import Skeleton from '@ant-design/pro-Skeleton';
+import Skeleton from '@ant-design/pro-skeleton';
 
 return <Skeleton type="list" />;
 ```

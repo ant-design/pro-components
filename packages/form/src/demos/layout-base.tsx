@@ -25,6 +25,7 @@ export default () => {
         style={{
           maxHeight: '100vh',
         }}
+        fixSiderbar
         navTheme="light"
         breakpoint={false}
         defaultCollapsed
@@ -53,13 +54,13 @@ export default () => {
               submitter={{
                 render: (_, dom) => <FooterToolbar>{dom}</FooterToolbar>,
               }}
-              onFinish={(values) => console.log(values)}
+              onFinish={async (values) => console.log(values)}
             >
               <ProForm.Group>
                 <ProFormText
                   name="name"
                   label="签约客户名称"
-                  tip="最长为 24 位"
+                  tooltip="最长为 24 位"
                   placeholder="请输入名称"
                 />
                 <ProFormText name="company" label="我方公司名称" placeholder="请输入名称" />
@@ -77,7 +78,7 @@ export default () => {
                     },
                   ]}
                   width="xs"
-                  name="useMode"
+                  name="chapter"
                   label="合同约定生效方式"
                 />
                 <ProFormSelect

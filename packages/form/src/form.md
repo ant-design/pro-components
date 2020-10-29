@@ -10,17 +10,19 @@ nav:
 
 # ProForm
 
-ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设置，帮助我们快速的开发 From 表单。使用方法与 From 大致相同，但是 ProForm 会自动格式化 date 的 moment 数据，你可以通过 dateFormatter 来关闭这个预设。
+ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设置，帮助我们更快速的开发一个表单。同时添加一些默认行为，让我们的表单默认好用。
 
-## 示例
+分步表单，Modal 表单，Drawer 表单，查询表单，轻量筛选 多种 layout 可以覆盖大部分的使用场景，脱离复杂而且繁琐的表单布局工作，更少的代码完成更多的工作。
+
+## 何时使用
+
+当你想快速实现一个表单时但不想花太多时间去布局时 ProForm 是最好的选择。
+
+## 代码示例
 
 ### 基本使用
 
 <code src="./demos/base.tsx" />
-
-### 固定页脚
-
-<code src="./demos/layout-base.tsx" />
 
 ### 分步表单
 
@@ -29,6 +31,18 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 ### 分步表单-多卡片
 
 <code src="./demos/multi-card-step-form.tsx"  background="#f5f5f5"/>
+
+### 分步表单-Modal
+
+<code src="./demos/modal-step-form.tsx"  background="#f5f5f5"/>
+
+### Modal 表单
+
+<code src="./demos/modal-form.tsx"  background="#f5f5f5"/>
+
+### Drawer 表单
+
+<code src="./demos/drawer-form.tsx"  background="#f5f5f5"/>
 
 ### 查询筛选
 
@@ -60,6 +74,10 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 
 <code src="./demos/light-filter-collapse.tsx" />
 
+### 固定页脚
+
+<code src="./demos/layout-base.tsx" />
+
 ### 混合使用
 
 <code src="./demos/components-other.tsx" />
@@ -76,7 +94,7 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 | onReset | 点击重置按钮的回调，设置后重置按钮才会被渲染 | `Function(e)` | - |
 | submitter | 提交按钮相关配置 | `boolean` \| `SubmitterProps` | `true` |
 | dateFormatter | 自动格式数据，例如 moment 的表单,支持 string 和 number 两种模式 | `string\| number \|false` | string |
-| (...) | 支持除 `wrapperCol` \| `labelCol` \| `layout` 外的其他 antd `Form` 组件参数 | - | - |
+| [(...)](https://ant.design/components/form-cn/) | 支持除 `wrapperCol` \| `labelCol` \| `layout` 外的其他 antd `Form` 组件参数 | - | - |
 
 ### ProForm.Group
 
@@ -132,9 +150,9 @@ LightFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 | collapse      | 是否默认折叠全部字段 | `boolean`   | `false`                    |
 | collapseLabel | 折叠区域的标签       | `ReactNode` | `更多筛选 <DownOutlined/>` |
 
-### StepsFrom
+### StepsForm
 
-StepsFrom 本质上是一个 Provider ，增加步骤条和一些相关的 API。
+StepsForm 本质上是一个 Provider ，增加步骤条和一些相关的 API。
 
 > Form.Provider 的文档可以看[这里](https://ant.design/components/form-cn/#Form.Provider),转化 moment 的值是 proFrom 提供的功能，所以 `onFormFinish` 和 `onFormChange` 其中的值都是未经转化的
 
@@ -143,9 +161,12 @@ StepsFrom 本质上是一个 Provider ，增加步骤条和一些相关的 API�
 | current | 当前表单的步骤数，从 `0` 开始 | `number` | 0 |
 | onCurrentChange | current 发生改变的事件 | `(current:number)=>void` | - |
 | onFinish | 表单最后一步提交成功触发 | `(values:T)=>void` | - |
-| stepsProps | StepsFrom 自带的 Steps 的 props，使用方式与 [antd](https://ant.design/components/steps-cn/) 相同，但是去掉了 current 和 onChange | [props](https://ant.design/components/steps-cn/#API) | - |
+| stepsProps | StepsForm 自带的 Steps 的 props，使用方式与 [antd](https://ant.design/components/steps-cn/) 相同，但是去掉了 current 和 onChange | [props](https://ant.design/components/steps-cn/#API) | - |
+| stepFormRender | 自定义当前展示的表单，返回 dom 在表单内部 | `(form) => ReactNode` | - |
+| stepsFormRender | 自定义整个表单区域，返回的 dom 在表单的外部 | `(form,submitter) => ReactNode` | - |
+| stepsRender | 自定义步骤器 | `(steps,dom)=>ReactNode` | - |
 
-#### StepFrom
+#### StepForm
 
 与 ProForm 完成相同，只是 onFinish 支持了 Promise，如果返回 `false`, 就会无法使用下一步。
 
@@ -160,7 +181,7 @@ ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 �
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | width | Field 的长度，我们归纳了常用的 Field 长度以及适合的场景，支持了一些枚举 "xs" , "s" , "m" , "l" , "x" | `number \| "xs" \| "s" \| "m" \| "l" \| "x"` | - |
-| tip | 会在 label 旁增加一个 icon，悬浮后展示配置的信息 | `string \| tooltipProps` |
+| tooltip | 会在 label 旁增加一个 icon，悬浮后展示配置的信息 | `string \| tooltipProps` |
 
 ### 宽度
 
@@ -180,6 +201,14 @@ ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 �
 
 ```tsx | pure
 <ProFormText name="text" label="名称" placeholder="请输入名称" fieldProps={inputProps} />
+```
+
+### ProFormText.Password
+
+与 [Input.Password](https://ant.design/components/input-cn/#Input.Password) 相同。
+
+```tsx | pure
+<ProFormText.Password label="InputPassword" name="input-password" />
 ```
 
 ### ProFormDatePicker
@@ -387,8 +416,20 @@ ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 �
 
 ### ProFormDigit
 
-与 [inputNumber](https://ant.design/components/input-number-cn/) 相同。它自带了一个格式化，有需要你可以关掉它。
+与 [inputNumber](https://ant.design/components/input-number-cn/) 相同。它自带了一个格式化(保留 2 位小数，最小值为 0)，有需要你可以关掉它。
 
 ```tsx | pure
 <ProFormDigit label="InputNumber" name="input-number" min={1} max={10} />
+```
+
+如果要修改小数位数：
+
+```tsx | pure
+<ProFormDigit
+  label="InputNumber"
+  name="input-number"
+  min={1}
+  max={10}
+  fieldProps={{ precision: 0 }}
+/>
 ```

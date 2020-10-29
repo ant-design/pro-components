@@ -186,7 +186,6 @@ const getThemeList = (settings: Partial<ProSettings>) => {
   const themeList = [
     {
       key: 'light',
-      url: 'https://gw.alipayobjects.com/zos/antfincdn/NQ%24zoisaD2/jpRkZQMyYRryryPNtyIC.svg',
       title: formatMessage({ id: 'app.setting.pagestyle.light' }),
     },
   ];
@@ -217,7 +216,6 @@ const getThemeList = (settings: Partial<ProSettings>) => {
   if (settings.layout !== 'mix') {
     themeList.push({
       key: 'dark',
-      url: 'https://gw.alipayobjects.com/zos/antfincdn/XwFOFbLkSM/LCkqqYNmvBEbokSDscrm.svg',
       title: formatMessage({
         id: 'app.setting.pagestyle.dark',
         defaultMessage: '',
@@ -228,7 +226,6 @@ const getThemeList = (settings: Partial<ProSettings>) => {
   if (list.find((item) => item.theme === 'dark')) {
     themeList.push({
       key: 'realDark',
-      url: 'https://gw.alipayobjects.com/zos/antfincdn/hmKaLQvmY2/LCkqqYNmvBEbokSDscrm.svg',
       title: formatMessage({
         id: 'app.setting.pagestyle.dark',
         defaultMessage: '',
@@ -282,6 +279,7 @@ const initState = (
       primaryColor: string;
       navTheme: string;
     };
+
     const replaceSetting = {};
     Object.keys(params).forEach((key) => {
       if (defaultSettings[key] || defaultSettings[key] === undefined) {
@@ -291,6 +289,7 @@ const initState = (
         }
       }
     });
+
     if (onSettingChange) {
       onSettingChange({
         ...settings,
@@ -329,6 +328,13 @@ const getParamsFromUrl = (settings?: MergerSettingsType<ProSettings>) => {
   if (window.location.search) {
     params = parse(window.location.search.replace('?', ''));
   }
+
+  Object.keys(params).forEach((key) => {
+    if (params[key] === 'true') {
+      params[key] = true;
+    }
+  });
+
   return {
     ...defaultSettings,
     ...(settings || {}),
@@ -403,7 +409,6 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     if (!isBrowser()) {
       return () => null;
     }
-
     initState(settingState, setSettingState, props.publicPath);
     window.addEventListener('languagechange', onLanguageChange, {
       passive: true,
@@ -446,20 +451,18 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
       nextState.navTheme = 'light';
     }
     if (key === 'colorWeak' && value === true) {
-      const dom = document.querySelector('body div') as HTMLDivElement;
-      if (!dom) {
-        return;
+      const dom = document.querySelector('body');
+      if (dom) {
+        dom.dataset.prosettingdrawer = dom.style.filter;
+        dom.style.filter = 'invert(80%)';
       }
-      dom.dataset.prosettingdrawer = dom.style.filter;
-      dom.style.filter = 'invert(80%)';
     }
     if (key === 'colorWeak' && value === false) {
-      const dom = document.querySelector('body div') as HTMLDivElement;
-      if (!dom) {
-        return;
+      const dom = document.querySelector('body');
+      if (dom) {
+        dom.style.filter = dom.dataset.prosettingdrawer || 'none';
+        delete dom.dataset.prosettingdrawer;
       }
-      dom.style.filter = dom.dataset.prosettingdrawer || 'none';
-      delete dom.dataset.prosettingdrawer;
     }
     preStateRef.current = nextState;
     setSettingState(nextState);
@@ -572,20 +575,14 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
             list={[
               {
                 key: 'side',
-                url:
-                  'https://gw.alipayobjects.com/zos/antfincdn/XwFOFbLkSM/LCkqqYNmvBEbokSDscrm.svg',
                 title: formatMessage({ id: 'app.setting.sidemenu' }),
               },
               {
                 key: 'top',
-                url:
-                  'https://gw.alipayobjects.com/zos/antfincdn/URETY8%24STp/KDNDBbriJhLwuqMoxcAr.svg',
                 title: formatMessage({ id: 'app.setting.topmenu' }),
               },
               {
                 key: 'mix',
-                url:
-                  'https://gw.alipayobjects.com/zos/antfincdn/x8Ob%26B8cy8/LCkqqYNmvBEbokSDscrm.svg',
                 title: formatMessage({ id: 'app.setting.mixmenu' }),
               },
             ]}
@@ -614,8 +611,11 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
                 action: (
                   <Switch
                     size="small"
+                    className="color-weak"
                     checked={!!colorWeak}
-                    onChange={(checked) => changeSetting('colorWeak', checked)}
+                    onChange={(checked) => {
+                      changeSetting('colorWeak', checked);
+                    }}
                   />
                 ),
               },
@@ -641,8 +641,8 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
             text={genCopySettingJson(settingState)}
             onCopy={() => message.success(formatMessage({ id: 'app.setting.copyinfo' }))}
           >
-            <Button block>
-              <CopyOutlined /> {formatMessage({ id: 'app.setting.copy' })}
+            <Button block icon={<CopyOutlined />} style={{ marginBottom: 24 }}>
+              {formatMessage({ id: 'app.setting.copy' })}
             </Button>
           </CopyToClipboard>
         )}

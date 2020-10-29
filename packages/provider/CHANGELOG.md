@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@0.2.2...@ant-design/pro-provider@1.0.1) (2020-10-15)
+
+**Note:** Version bump only for package @ant-design/pro-provider
+
+## [0.2.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@0.2.1...@ant-design/pro-provider@0.2.2) (2020-10-12)
+
+**Note:** Version bump only for package @ant-design/pro-provider
+
+## [0.2.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@0.2.0...@ant-design/pro-provider@0.2.1) (2020-09-29)
+
+**Note:** Version bump only for package @ant-design/pro-provider
+
+# [0.2.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@0.1.0...@ant-design/pro-provider@0.2.0) (2020-09-22)
+
+### Features
+
+- 优化 ProTable 批量操作工具栏 ([#532](https://github.com/ant-design/pro-components/issues/532)) ([8e8f69b](https://github.com/ant-design/pro-components/commit/8e8f69b7c16e0004b13cbd5d009d25ad3b56e29f))
+
 # [0.1.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@0.0.6...@ant-design/pro-provider@0.1.0) (2020-09-07)
 
 ### Features

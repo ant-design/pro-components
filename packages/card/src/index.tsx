@@ -1,18 +1,20 @@
-import React, { ReactNode } from 'react';
-import { ConfigConsumer, ConfigConsumerProps } from 'antd/lib/config-provider/context';
-import { Grid } from 'antd';
+import React, { ReactNode, useContext } from 'react';
+import { Grid, Tabs, ConfigProvider } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
 import toArray from 'rc-util/lib/Children/toArray';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { LabelIconTip } from '@ant-design/pro-utils';
 import classNames from 'classnames';
+import { TabPaneProps, TabsProps } from 'antd/lib/tabs';
 import CardLoading from './cardLoading';
+import TabPane from './tabPane';
 import './style/index.less';
 
 const { useBreakpoint } = Grid;
 
 type ProCardType = React.FC<ProCardProps> & {
   isProCard: boolean;
+  TabPane: typeof TabPane;
 };
 
 type ProCardChildType = React.ReactElement<ProCardProps, ProCardType>;
@@ -20,6 +22,15 @@ type ProCardChildType = React.ReactElement<ProCardProps, ProCardType>;
 type ColSpanType = number | string;
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type Gutter = number | Partial<Record<Breakpoint, number>>;
+
+/**
+ * antd 默认直接导出了 rc 组件中的 Tab.Pane 组件。
+ */
+type TabPane = TabPaneProps & {
+  key?: string;
+};
+
+export interface ProCardTabsProps extends TabsProps {}
 
 export type ProCardProps = {
   /**
@@ -53,6 +64,11 @@ export type ProCardProps = {
   /**
    * 标题说明
    */
+  tooltip?: string;
+
+  /**
+   * @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一
+   */
   tip?: string;
   /**
    * 右上角自定义区域
@@ -62,6 +78,14 @@ export type ProCardProps = {
    * 布局，center 代表垂直居中
    */
   layout?: 'default' | 'center';
+  /**
+   * 卡片类型
+   */
+  type?: 'inner';
+  /**
+   * 指定 Flex 方向，仅在嵌套子卡片时有效
+   */
+  direction?: 'column';
   /**
    * 加载中
    */
@@ -102,6 +126,10 @@ export type ProCardProps = {
    * 收起卡片的事件
    */
   onCollapse?: (collapsed: boolean) => void;
+  /**
+   * 标签栏配置
+   */
+  tabs?: ProCardTabsProps;
 };
 
 const ProCard: ProCardType = (props) => {
@@ -118,17 +146,21 @@ const ProCard: ProCardType = (props) => {
     loading,
     colSpan,
     gutter = 0,
+    tooltip,
     split,
     headerBordered = false,
     bordered = false,
     children,
     ghost = false,
+    direction,
     collapsed: controlCollapsed,
     collapsible = false,
     defaultCollapsed = false,
     onCollapse,
+    tabs,
+    type,
   } = props;
-
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const screens = useBreakpoint();
 
   const [collapsed, setCollapsed] = useMergedState<boolean>(defaultCollapsed, {
@@ -171,144 +203,146 @@ const ProCard: ProCardType = (props) => {
     return withStyle ? appendStyle : {};
   };
 
-  return (
-    <ConfigConsumer>
-      {({ getPrefixCls }: ConfigConsumerProps) => {
-        const prefixCls = getPrefixCls('pro-card');
+  const prefixCls = getPrefixCls('pro-card');
 
-        const normalizedGutter = getNormalizedGutter(gutter);
+  const normalizedGutter = getNormalizedGutter(gutter);
 
-        // 判断是否套了卡片，如果套了的话将自身卡片内部内容的 padding 设置为0
-        let containProCard;
-        const childrenArray = toArray(children) as ProCardChildType[];
+  // 判断是否套了卡片，如果套了的话将自身卡片内部内容的 padding 设置为0
+  let containProCard;
+  const childrenArray = React.Children.toArray(children) as ProCardChildType[];
 
-        const childrenModified = childrenArray.map((element, index) => {
-          if (element?.type?.isProCard) {
-            containProCard = true;
+  const childrenModified = childrenArray.map((element, index) => {
+    if (element?.type?.isProCard) {
+      containProCard = true;
 
-            // 右侧空隙
-            const gutterRightStyle = getStyle(
-              normalizedGutter[0]! > 0 && index !== childrenArray.length - 1,
-              {
-                marginRight: normalizedGutter[0],
-              },
-            );
+      // 右侧空隙
+      const gutterRightStyle = getStyle(
+        normalizedGutter[0]! > 0 && index !== childrenArray.length - 1,
+        {
+          marginRight: normalizedGutter[0],
+        },
+      );
 
-            // 下方空隙
-            const gutterBottomStyle = getStyle(normalizedGutter[1]! > 0, {
-              marginBottom: normalizedGutter[1],
-            });
+      // 下方空隙
+      const gutterBottomStyle = getStyle(normalizedGutter[1]! > 0, {
+        marginBottom: normalizedGutter[1],
+      });
 
-            // 当 split 有值时，内部卡片 radius 设置为 0
-            const splitStyle = getStyle(split === 'vertical' || split === 'horizontal', {
-              borderRadius: 0,
-            });
+      // 当 split 有值时，内部卡片 radius 设置为 0
+      const splitStyle = getStyle(split === 'vertical' || split === 'horizontal', {
+        borderRadius: 0,
+      });
 
-            return React.cloneElement(element, {
-              className: classNames(element.props.className, {
-                // 横纵切割
-                [`${prefixCls}-split-vertical`]:
-                  split === 'vertical' && index !== childrenArray.length - 1,
-                [`${prefixCls}-split-horizontal`]:
-                  split === 'horizontal' && index !== childrenArray.length - 1,
-              }),
-              style: {
-                ...gutterRightStyle,
-                ...gutterBottomStyle,
-                ...splitStyle,
-                ...element.props.style,
-              },
-            });
-          }
-          return element;
-        });
+      return React.cloneElement(element, {
+        className: classNames(element.props.className, {
+          // 横纵切割
+          [`${prefixCls}-split-vertical`]:
+            split === 'vertical' && index !== childrenArray.length - 1,
+          [`${prefixCls}-split-horizontal`]:
+            split === 'horizontal' && index !== childrenArray.length - 1,
+        }),
+        style: {
+          ...gutterRightStyle,
+          ...gutterBottomStyle,
+          ...splitStyle,
+          ...element.props.style,
+        },
+      });
+    }
+    return element;
+  });
 
-        let span = colSpan;
+  let span = colSpan;
 
-        // colSpan 响应式
-        if (typeof colSpan === 'object') {
-          for (let i = 0; i < responsiveArray.length; i += 1) {
-            const breakpoint: Breakpoint = responsiveArray[i];
-            if (screens[breakpoint] && colSpan[breakpoint] !== undefined) {
-              span = colSpan[breakpoint];
-              break;
-            }
-          }
-        }
+  // colSpan 响应式
+  if (typeof colSpan === 'object') {
+    for (let i = 0; i < responsiveArray.length; i += 1) {
+      const breakpoint: Breakpoint = responsiveArray[i];
+      if (screens[breakpoint] && colSpan[breakpoint] !== undefined) {
+        span = colSpan[breakpoint];
+        break;
+      }
+    }
+  }
 
-        // 当 colSpan 为 30% 或 300px 时
-        const colSpanStyle = getStyle(typeof span === 'string' && /\d%|\dpx/i.test(span), {
-          width: span as string,
-          flexShrink: 0,
-        });
+  // 当 colSpan 为 30% 或 300px 时
+  const colSpanStyle = getStyle(typeof span === 'string' && /\d%|\dpx/i.test(span), {
+    width: span as string,
+    flexShrink: 0,
+  });
 
-        const cardStyle = {
-          ...colSpanStyle,
-          ...style,
-        };
+  const cardStyle = {
+    ...colSpanStyle,
+    ...style,
+  };
 
-        const cardCls = classNames(`${prefixCls}`, className, {
-          [`${prefixCls}-span-${span}`]: typeof span === 'number' && span > 0 && span <= 24,
-          [`${prefixCls}-border`]: bordered,
-          [`${prefixCls}-contain-card`]: containProCard,
-          [`${prefixCls}-loading`]: loading,
-          [`${prefixCls}-split`]: split === 'vertical' || split === 'horizontal',
-          [`${prefixCls}-ghost`]: ghost,
-        });
+  const cardCls = classNames(`${prefixCls}`, className, {
+    [`${prefixCls}-span-${span}`]: typeof span === 'number' && span > 0 && span <= 24,
+    [`${prefixCls}-border`]: bordered,
+    [`${prefixCls}-contain-card`]: containProCard,
+    [`${prefixCls}-loading`]: loading,
+    [`${prefixCls}-split`]: split === 'vertical' || split === 'horizontal',
+    [`${prefixCls}-ghost`]: ghost,
+    [`${prefixCls}-type-${type}`]: type,
+    [`${prefixCls}-collapse`]: collapsed,
+  });
 
-        const headerCls = classNames(`${prefixCls}-header`, {
-          [`${prefixCls}-header-border`]: headerBordered,
-          [`${prefixCls}-header-collapse`]: collapsed,
-        });
+  const headerCls = classNames(`${prefixCls}-header`, {
+    [`${prefixCls}-header-border`]: headerBordered || type === 'inner',
+  });
 
-        const bodyCls = classNames(`${prefixCls}-body`, {
-          [`${prefixCls}-body-center`]: layout === 'center',
-          [`${prefixCls}-body-column`]: split === 'horizontal',
-          [`${prefixCls}-body-collapse`]: collapsed,
-          [`${prefixCls}-body-ghost`]: ghost,
-        });
+  const bodyCls = classNames(`${prefixCls}-body`, {
+    [`${prefixCls}-body-center`]: layout === 'center',
+    [`${prefixCls}-body-column`]: split === 'horizontal' || direction === 'column',
+  });
 
-        const loadingBlockStyle =
-          bodyStyle.padding === 0 || bodyStyle.padding === '0px' ? { padding: 24 } : undefined;
+  const loadingBlockStyle =
+    bodyStyle.padding === 0 || bodyStyle.padding === '0px' ? { padding: 24 } : undefined;
 
-        const loadingDOM = React.isValidElement(loading) ? (
-          loading
-        ) : (
-          <CardLoading prefix={prefixCls} style={loadingBlockStyle} />
-        );
+  const loadingDOM = React.isValidElement(loading) ? (
+    loading
+  ) : (
+    <CardLoading prefix={prefixCls} style={loadingBlockStyle} />
+  );
 
-        // 非受控情况下展示
-        const collapsibleButton = collapsible && controlCollapsed === undefined && (
-          <RightOutlined
-            rotate={!collapsed ? 90 : undefined}
-            className={`${prefixCls}-collapsible-icon`}
-            onClick={() => {
-              setCollapsed(!collapsed);
-            }}
-          />
-        );
-
-        return (
-          <div className={cardCls} style={cardStyle}>
-            {(title || extra || collapsibleButton) && (
-              <div className={headerCls} style={headStyle}>
-                <div className={`${prefixCls}-title`}>
-                  <LabelIconTip label={title} tip={tip} subTitle={subTitle} />
-                  {collapsibleButton}
-                </div>
-                <div className={`${prefixCls}-extra`}>{extra}</div>
-              </div>
-            )}
-            <div className={bodyCls} style={bodyStyle}>
-              {loading ? loadingDOM : childrenModified}
-            </div>
-          </div>
-        );
+  // 非受控情况下展示
+  const collapsibleButton = collapsible && controlCollapsed === undefined && (
+    <RightOutlined
+      rotate={!collapsed ? 90 : undefined}
+      className={`${prefixCls}-collapsible-icon`}
+      onClick={() => {
+        setCollapsed(!collapsed);
       }}
-    </ConfigConsumer>
+    />
+  );
+
+  return (
+    <div className={cardCls} style={cardStyle}>
+      {(title || extra || collapsibleButton) && (
+        <div className={headerCls} style={headStyle}>
+          <div className={`${prefixCls}-title`}>
+            {collapsibleButton}
+            <LabelIconTip label={title} tooltip={tooltip || tip} subTitle={subTitle} />
+          </div>
+          <div className={`${prefixCls}-extra`}>{extra}</div>
+        </div>
+      )}
+      {tabs ? (
+        <div className={`${prefixCls}-tabs`}>
+          <Tabs onChange={tabs.onChange} {...tabs}>
+            {loading ? loadingDOM : children}
+          </Tabs>
+        </div>
+      ) : (
+        <div className={bodyCls} style={bodyStyle}>
+          {loading ? loadingDOM : childrenModified}
+        </div>
+      )}
+    </div>
   );
 };
 
 ProCard.isProCard = true;
+ProCard.TabPane = TabPane;
 
 export default ProCard;

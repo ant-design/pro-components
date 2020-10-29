@@ -41,7 +41,7 @@ const emails = ['baba@antfin.com', 'test@antfin.com', 'test2@antfin.com', 'test3
 const phones = ['12345678910', '10923456789', '109654446789', '109223346789'];
 const permissions = [[], ['权限点名称1', '权限点名称4'], ['权限点名称1'], []];
 
-for (let i = 0; i < 100; i += 1) {
+for (let i = 0; i < 5; i += 1) {
   tableListDataSource.push({
     outUserNo: `${102047 + i}`,
     avatar: `//work.alibaba-inc.com/photo/${102047 + i}.32x32.jpg`,

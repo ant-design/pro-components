@@ -3,6 +3,8 @@ import React, { useRef } from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 import ProForm, {
   ProFormSwitch,
+  ProFormRadio,
+  ProFormCheckbox,
   ProFormUploadButton,
   ProFormUploadDragger,
 } from '@ant-design/pro-form';
@@ -18,9 +20,8 @@ const Demo = () => {
         rate: 3.5,
         name: 'qixian',
       }}
-      // @ts-expect-error
       formRef={formRef}
-      onFinish={(value) => console.log(value)}
+      onFinish={async (value) => console.log(value)}
     >
       <ProFormUploadButton
         name="upload"
@@ -30,6 +31,8 @@ const Demo = () => {
         action="/upload.do"
         extra="longgggggggggggggggggggggggggggggggggg"
       />
+      <ProFormRadio name="test" />
+      <ProFormCheckbox name="test2" />
       <ProFormSwitch width="l" label="是否打开" />
       <ProFormUploadDragger
         title="拖动上传"

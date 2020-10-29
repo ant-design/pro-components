@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Button, Descriptions, Result, Avatar } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
+import { Button, Descriptions, Result, Avatar, Space, Statistic } from 'antd';
+import { LikeOutlined, UserOutlined } from '@ant-design/icons';
 
 import ProLayout, { PageContainer, SettingDrawer, ProSettings } from '@ant-design/pro-layout';
-import defaultProps from './fixtures/defaultProps';
+import defaultProps from './_defaultProps';
 
 const content = (
   <Descriptions size="small" column={2}>
@@ -93,6 +93,12 @@ export default () => {
               key: 'info',
             },
           ]}
+          extraContent={
+            <Space size={24}>
+              <Statistic title="Feedback" value={1128} prefix={<LikeOutlined />} />
+              <Statistic title="Unmerged" value={93} suffix="/ 100" />
+            </Space>
+          }
           extra={[
             <Button key="3">操作</Button>,
             <Button key="2">操作</Button>,

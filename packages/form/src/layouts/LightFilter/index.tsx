@@ -1,20 +1,25 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { FormProps } from 'antd/lib/form/Form';
-import { ConfigContext } from 'antd/lib/config-provider/context';
 import { SizeType } from 'antd/lib/config-provider/SizeContext';
 import classNames from 'classnames';
-import { Form } from 'antd';
+import { Form, ConfigProvider } from 'antd';
 import { FieldDropdown, FieldLabel } from '@ant-design/pro-utils';
 import { useIntl } from '@ant-design/pro-provider';
+import { FilterOutlined } from '@ant-design/icons';
 import BaseForm, { CommonFormProps } from '../../BaseForm';
 import './index.less';
 
-export interface LightFilterProps extends FormProps, CommonFormProps {
+export interface LightFilterProps extends Omit<FormProps, 'onFinish'>, CommonFormProps {
   collapse?: boolean;
   collapseLabel?: React.ReactNode;
   bordered?: boolean;
 }
 
+/**
+ * 单行的查询表单，一般用于配合 table 或者 list使用
+ * 有时也会用于 card 的额外区域
+ * @param props
+ */
 const LightFilterContainer: React.FC<{
   items: React.ReactNode[];
   prefixCls: string;
@@ -28,7 +33,7 @@ const LightFilterContainer: React.FC<{
   const {
     items,
     prefixCls,
-    size,
+    size = 'middle',
     collapse,
     collapseLabel,
     onValuesChange,
@@ -56,8 +61,28 @@ const LightFilterContainer: React.FC<{
     }
   });
 
+  const collapseLabelRender = () => {
+    if (collapseLabel) {
+      return collapseLabel;
+    }
+    if (collapse) {
+      return <FilterOutlined className={`${lightFilterClassName}-collapse-icon`} />;
+    }
+    return (
+      <FieldLabel
+        size={size}
+        label={intl.getMessage('form.lightFilter.more', '更多筛选')}
+        expanded={open}
+      />
+    );
+  };
+
   return (
-    <div className={classNames(lightFilterClassName, `${lightFilterClassName}-${size}`)}>
+    <div
+      className={classNames(lightFilterClassName, `${lightFilterClassName}-${size}`, {
+        [`${lightFilterClassName}-effective`]: Object.keys(values).some((key) => values[key]),
+      })}
+    >
       <div className={`${lightFilterClassName}-container`}>
         {outsideItems.map((child: any) => {
           const { key } = child;
@@ -81,15 +106,7 @@ const LightFilterContainer: React.FC<{
               padding={24}
               onVisibleChange={setOpen}
               visible={open}
-              label={
-                collapseLabel || (
-                  <FieldLabel
-                    size={size}
-                    label={intl.getMessage('form.lightFilter.more', '更多筛选')}
-                    expanded={open}
-                  />
-                )
-              }
+              label={collapseLabelRender()}
               footer={{
                 onConfirm: () => {
                   onValuesChange({
@@ -146,7 +163,7 @@ const LightFilter: React.FC<LightFilterProps> = (props) => {
     bordered,
     ...reset
   } = props;
-  const { getPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-form');
   const [form] = Form.useForm();
   const realForm = userForm || form;

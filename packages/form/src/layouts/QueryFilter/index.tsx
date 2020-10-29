@@ -31,7 +31,7 @@ const BREAKPOINTS = {
   default: [
     [513, 1, 'vertical'],
     [701, 2, 'vertical'],
-    [1062, 2, 'horizontal'],
+    [1062, 3, 'horizontal'],
     [1352, 3, 'horizontal'],
     [Infinity, 4, 'horizontal'],
   ],
@@ -100,9 +100,9 @@ export type BaseQueryFilterProps = Omit<ActionsProps, 'submitter' | 'setCollapse
 
   form?: FormProps['form'];
   /**
-   * 底部操作栏的 render
-   * searchConfig 基础的配置
-   * props 更加详细的配置
+   * @name 底部操作栏的 render
+   * @params searchConfig 基础的配置
+   * @params props 更加详细的配置
    * {
       type?: 'form' | 'list' | 'table' | 'cardList' | undefined;
       form: FormInstance;
@@ -121,7 +121,7 @@ export type BaseQueryFilterProps = Omit<ActionsProps, 'submitter' | 'setCollapse
     | false;
 };
 
-export type QueryFilterProps = FormProps &
+export type QueryFilterProps = Omit<FormProps, 'onFinish'> &
   CommonFormProps &
   BaseQueryFilterProps & {
     onReset?: () => void;
@@ -137,7 +137,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
     onReset,
     onCollapse,
     optionRender,
-    labelWidth = 98,
+    labelWidth = '80',
     style,
     split,
     collapseRender,
@@ -169,6 +169,23 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
   }
   const resetText = propsResetText || intl.getMessage('tableForm.reset', '重置');
   const searchText = propsSearchText || intl.getMessage('tableForm.search', '搜索');
+
+  /**
+   * 如果 optionRender 是个方法调用一下
+   */
+  const render =
+    typeof optionRender === 'function'
+      ? (_: any, dom: React.ReactNode[]) =>
+          optionRender(
+            {
+              ...props,
+              resetText,
+              searchText,
+            },
+            props,
+            dom,
+          )
+      : optionRender;
 
   return (
     <BaseForm
@@ -207,19 +224,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
               resetText,
               submitText: searchText,
             },
-            render:
-              typeof optionRender === 'function'
-                ? (_: any, dom: React.ReactNode[]) =>
-                    optionRender(
-                      {
-                        ...props,
-                        resetText,
-                        searchText,
-                      },
-                      props,
-                      dom,
-                    )
-                : optionRender,
+            render,
             onReset,
             ...submitter.props,
           });
@@ -296,10 +301,10 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
                   }}
                 >
                   <Actions
-                    submitter={submitter}
                     collapsed={collapsed}
                     collapseRender={collapseRender || defaultRender}
                     {...rest}
+                    submitter={submitter}
                     setCollapsed={setCollapsed}
                     style={{
                       // 当表单是垂直布局且提交按钮不是独自在一行的情况下需要设置一个 paddingTop 使得与控件对齐

@@ -6,6 +6,10 @@ import BasicLayout, { BasicLayoutProps } from '@ant-design/pro-layout';
 import { waitForComponentToPaint } from '../util';
 
 describe('BasicLayout', () => {
+  beforeAll(() => {
+    process.env.NODE_ENV = 'TEST';
+    process.env.USE_MEDIA = 'md';
+  });
   it('🥩 base use', async () => {
     const html = render(<BasicLayout />);
     expect(html).toMatchSnapshot();
@@ -244,6 +248,7 @@ describe('BasicLayout', () => {
     const onLogoClick = jest.fn();
     const wrapper = mount(
       <BasicLayout
+        siderWidth={undefined}
         logo={
           <div onClick={onLogoClick} id="test_log">
             Logo
@@ -550,5 +555,170 @@ describe('BasicLayout', () => {
 
     await waitForComponentToPaint(wrapper);
     expect(renderPageTitle).toBeCalled();
+  });
+
+  it('🥩 rightContentRender should work in top', async () => {
+    const wrapper = mount<BasicLayoutProps>(
+      <BasicLayout
+        rightContentRender={() => <div id="layout_right">right</div>}
+        layout="top"
+        location={{
+          pathname: '/',
+        }}
+      />,
+    );
+
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.setProps({
+        rightContentRender: () => (
+          <div
+            id="layout_right"
+            style={{
+              width: 120,
+            }}
+          >
+            right
+          </div>
+        ),
+      });
+    });
+    expect(wrapper.find('#layout_right').exists()).toBeTruthy();
+  });
+
+  it('🥩 support get config form menuItem', async () => {
+    const wrapper = mount(
+      <BasicLayout
+        location={{
+          pathname: '/home/overview',
+        }}
+        menuDataRender={() => [
+          {
+            path: '/home/overview',
+            name: '概述',
+            exact: true,
+            layout: 'side',
+          },
+          {
+            path: '/home/search',
+            name: '搜索',
+            exact: true,
+            layout: 'mix',
+            navTheme: 'light',
+          },
+          {
+            path: '/home',
+            name: '首页',
+            layout: 'top',
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 100);
+    expect(
+      wrapper.find('.ant-design-pro').props().className?.includes('ant-pro-basicLayout-side'),
+    ).toBeTruthy();
+
+    wrapper.setProps({
+      location: {
+        pathname: '/home/search',
+      },
+    });
+
+    await waitForComponentToPaint(wrapper, 100);
+    expect(
+      wrapper.find('.ant-design-pro').props().className?.includes('ant-pro-basicLayout-mix'),
+    ).toBeTruthy();
+
+    wrapper.setProps({
+      location: {
+        pathname: '/home',
+      },
+    });
+    await waitForComponentToPaint(wrapper, 100);
+
+    expect(
+      wrapper.find('.ant-design-pro').props().className?.includes('ant-pro-basicLayout-top'),
+    ).toBeTruthy();
+  });
+
+  it('🥩 mix layout hideInMenu render right', async () => {
+    const wrapper = mount(
+      <BasicLayout
+        menuDataRender={() => [
+          {
+            path: '/welcome',
+            name: '欢迎',
+            hideInMenu: true,
+          },
+          {
+            path: '/admin',
+            name: '管理页',
+            routes: [
+              {
+                path: '/admin/sub-page1',
+                name: '一级页面',
+              },
+              {
+                path: '/admin/sub-page2',
+                name: '二级页面',
+              },
+              {
+                path: '/admin/sub-page3',
+                name: '三级页面',
+              },
+            ],
+          },
+          {
+            name: '列表页',
+            path: '/list',
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(wrapper);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('🥩 BasicLayout menu support menu.true', async () => {
+    const wrapper = mount(
+      <BasicLayout
+        menu={{
+          loading: true,
+        }}
+        menuDataRender={() => [
+          {
+            path: '/welcome',
+            name: '欢迎',
+            hideInMenu: true,
+          },
+          {
+            path: '/admin',
+            name: '管理页',
+            routes: [
+              {
+                path: '/admin/sub-page1',
+                name: '一级页面',
+              },
+              {
+                path: '/admin/sub-page2',
+                name: '二级页面',
+              },
+              {
+                path: '/admin/sub-page3',
+                name: '三级页面',
+              },
+            ],
+          },
+          {
+            name: '列表页',
+            path: '/list',
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(wrapper);
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

@@ -4,6 +4,11 @@ import { enableFetchMocks } from 'jest-fetch-mock';
 
 import tableData from './table/mock.data.json';
 
+jest.mock('react', () => ({
+  ...jest.requireActual('react'),
+  useLayoutEffect: jest.requireActual('react').useEffect,
+}));
+
 /* eslint-disable global-require */
 if (typeof window !== 'undefined') {
   global.window.resizeTo = (width, height) => {
@@ -77,6 +82,7 @@ Object.defineProperty(window, 'cancelAnimationFrame', {
 });
 
 moment.tz.setDefault('UTC');
+
 // 2016-11-22 15:22:44
 MockDate.set(1479799364000);
 

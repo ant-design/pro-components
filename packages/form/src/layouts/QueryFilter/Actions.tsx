@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
-import { Space } from 'antd';
+import { Space, ConfigProvider } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { useIntl, IntlType } from '@ant-design/pro-provider';
-import { ConfigContext as AntdConfigContext } from 'antd/lib/config-provider';
 
 export interface ActionsProps {
   submitter: React.ReactNode;
@@ -76,7 +75,7 @@ const Actions: React.FC<ActionsProps> = (props) => {
     submitter,
     style,
   } = props;
-  const { getPrefixCls } = useContext(AntdConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const intl = useIntl();
 
   return (

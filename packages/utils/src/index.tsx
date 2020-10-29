@@ -6,6 +6,7 @@ import isBrowser from './isBrowser';
 import isImg from './isImg';
 import isUrl from './isUrl';
 import isNil from './isNil';
+import isDropdownValueType from './isDropdownValueType';
 import pickProProps from './pickProProps';
 import omitUndefined from './omitUndefined';
 import omitUndefinedAndEmptyArr from './omitUndefinedAndEmptyArr';
@@ -17,6 +18,7 @@ import pickProFormItemProps from './pickProFormItemProps';
 import useDebounceFn from './hooks/useDebounceFn';
 import usePrevious from './hooks/usePrevious';
 import conversionSubmitValue from './conversionSubmitValue';
+import transformKeySubmitValue from './transformKeySubmitValue';
 import parseValueToMoment from './parseValueToMoment';
 import useDeepCompareEffect from './hooks/useDeepCompareEffect';
 import useDocumentTitle from './hooks/useDocumentTitle';
@@ -30,6 +32,7 @@ import {
   ProSchemaValueEnumObj,
   ProSchemaComponentTypes,
   ProCoreActionType,
+  SearchTransformKeyFn,
 } from './typing';
 
 export type {
@@ -38,17 +41,20 @@ export type {
   ProSchemaComponentTypes,
   ProSchemaValueEnumMap,
   ProSchemaValueEnumObj,
+  SearchTransformKeyFn,
 };
 
 export {
   LabelIconTip,
-  conversionSubmitValue,
-  parseValueToMoment,
   FieldDropdown,
   FieldLabel,
+  transformKeySubmitValue,
+  conversionSubmitValue,
+  parseValueToMoment,
   useDocumentTitle,
   isImg,
   isNil,
+  isDropdownValueType,
   omitUndefined,
   omitUndefinedAndEmptyArr,
   pickProFormItemProps,

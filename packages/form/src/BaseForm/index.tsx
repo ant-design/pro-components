@@ -1,19 +1,33 @@
-import React, { ReactElement, useRef, useEffect, useContext } from 'react';
+import React, { ReactElement, useRef, useEffect, useContext, useState } from 'react';
 import { Form } from 'antd';
 import { FormProps, FormInstance } from 'antd/lib/form/Form';
 import { FormItemProps } from 'antd/lib/form';
 import { TooltipProps } from 'antd/lib/tooltip';
-import { ConfigProviderWarp } from '@ant-design/pro-provider';
-import { LabelIconTip, conversionSubmitValue, pickProFormItemProps } from '@ant-design/pro-utils';
+import { ConfigProviderWrap } from '@ant-design/pro-provider';
+import { conversionSubmitValue, pickProFormItemProps } from '@ant-design/pro-utils';
 import { ProFieldValueType } from '@ant-design/pro-field';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
+import { Store } from 'antd/lib/form/interface';
+import namePathSet from 'rc-util/lib/utils/set';
+import { ButtonProps } from 'antd/lib/button';
 import FieldContext from '../FieldContext';
 import Submitter, { SubmitterProps } from '../components/Submitter';
 import LightWrapper from './LightWrapper';
 import { GroupProps, FieldProps, ProFormItemProps } from '../interface';
 
 export interface CommonFormProps {
-  submitter?: Omit<SubmitterProps, 'form'> | boolean;
+  submitter?: Omit<SubmitterProps, 'form'> | false;
+
+  /**
+   * @name 表单结束后调用
+   * @description  支持异步操作，更加方便
+   */
+  onFinish?: (formData: Store) => Promise<boolean | void>;
+
+  /**
+   * @name 获取真正的可以获得值的 from
+   */
+  formRef?: React.MutableRefObject<FormInstance | undefined>;
 }
 
 export interface BaseFormProps extends FormProps, CommonFormProps {
@@ -25,7 +39,11 @@ export interface BaseFormProps extends FormProps, CommonFormProps {
   dateFormatter?: 'number' | 'string' | false;
   formItemProps?: FormItemProps;
   groupProps?: GroupProps;
-  formRef?: React.MutableRefObject<FormInstance | undefined>;
+  /**
+   * @name 表单结束后调用
+   * @description  支持异步操作，更加方便
+   */
+  onFinish?: (formData: Store) => Promise<boolean | void>;
 }
 
 const WIDTH_SIZE_ENUM = {
@@ -45,6 +63,11 @@ export interface ExtendsProps {
   secondary?: boolean;
   bordered?: boolean;
   colSize?: number;
+
+  params?: any;
+  /**
+   * @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一
+   */
   tip?: string | TooltipProps;
 }
 
@@ -78,7 +101,17 @@ export function createField<P extends ProFormItemProps = any>(
 ): ProFormComponent<P, ExtendsProps> {
   const FieldWithContext: React.FC<P> = (props: P & ExtendsProps) => {
     const size = useContext(SizeContext);
-    const { label, tip, placeholder, width, proFieldProps, bordered, ...rest } = props;
+    const {
+      label,
+      tip,
+      tooltip,
+      placeholder,
+      width,
+      proFieldProps,
+      bordered,
+      messageVariables,
+      ...rest
+    } = props;
     const {
       valueType,
       customLightMode,
@@ -95,7 +128,7 @@ export function createField<P extends ProFormItemProps = any>(
       if (setFieldValueType && props.name) {
         // Field.type === 'ProField' 时 props 里面是有 valueType 的，所以要设置一下
         // 写一个 ts 比较麻烦，用 any 顶一下
-        setFieldValueType(String(props.name), valueType || (rest as any).valueType || 'text');
+        setFieldValueType(props.name, valueType || (rest as any).valueType || 'text');
       }
     }, []);
     // restFormItemProps is user props pass to Form.Item
@@ -115,30 +148,36 @@ export function createField<P extends ProFormItemProps = any>(
       },
     };
 
+    const otherProps = {
+      messageVariables,
+      ...defaultFormItemProps,
+      ...formItemProps,
+      ...restFormItemProps,
+    };
     const field = (
       <Field
         {...(rest as P)} // ProXxx 上面的 props 透传给 Filed，可能包含 Field 自定义的 props，比如 ProFormSelect 的 request
         fieldProps={realFieldProps}
-        proFieldProps={proFieldProps}
+        proFieldProps={{
+          params: rest.params,
+          proFieldKey: otherProps?.name,
+          ...proFieldProps,
+        }}
       />
     );
 
     return (
       <Form.Item
-        // title 是用于提升读屏的能力的，没有参与逻辑
-        // @ts-expect-error
-        title={label}
         // 全局的提供一个 tip 功能，可以减少代码量
         // 轻量模式下不通过 FormItem 显示 label
-        label={
-          label && proFieldProps?.light !== true ? (
-            <LabelIconTip label={label} tip={tip} />
-          ) : undefined
-        }
+        label={label && proFieldProps?.light !== true ? label : undefined}
+        tooltip={proFieldProps?.light !== true && tooltip}
         valuePropName={valuePropName}
-        {...defaultFormItemProps}
-        {...formItemProps}
-        {...restFormItemProps}
+        {...otherProps}
+        messageVariables={{
+          label: label as string,
+          ...otherProps?.messageVariables,
+        }}
       >
         <LightWrapper
           {...realFieldProps}
@@ -177,41 +216,67 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
   const fieldsValueType = useRef<{
     [key: string]: ProFieldValueType;
   }>({});
+  const [loading, setLoading] = useState<ButtonProps['loading']>(false);
 
-  const setFieldValueType = (name: string, type?: ProFieldValueType) => {
-    fieldsValueType.current[name] = type || 'text';
-  };
+  /**
+   * 因为 protable 里面的值无法保证刚开始就存在
+   * 所以多进行了一次触发，这样可以解决部分问题
+   */
+  const [formInit, forgetUpdate] = useState(false);
 
   const items = React.Children.toArray(children);
+
   const submitterProps: Omit<SubmitterProps, 'form'> =
     typeof submitter === 'boolean' || !submitter ? {} : submitter;
 
+  /**
+   * 渲染提交按钮与重置按钮
+   */
   const submitterNode =
-    submitter === false ? undefined : <Submitter {...submitterProps} form={userForm || form} />;
+    submitter === false ? undefined : (
+      <Submitter
+        submitButtonProps={{
+          loading,
+        }}
+        {...submitterProps}
+        form={userForm || form}
+      />
+    );
 
   const content = contentRender ? contentRender(items, submitterNode) : items;
 
   return (
     // 增加国际化的能力，与 table 组件可以统一
-    <ConfigProviderWarp>
+    <ConfigProviderWrap>
       <FieldContext.Provider
         value={{
           fieldProps,
           formItemProps,
           groupProps,
-          setFieldValueType,
+          setFieldValueType: (name, type) => {
+            if (Array.isArray(name)) {
+              fieldsValueType.current = namePathSet(fieldsValueType.current, name, type || 'text');
+            } else {
+              fieldsValueType.current[String(name)] = type || 'text';
+            }
+          },
         }}
       >
         <SizeContext.Provider value={rest.size}>
           <Form
             form={userForm || form}
             {...rest}
-            onFinish={(values) => {
-              if (rest.onFinish) {
-                rest.onFinish(
-                  conversionSubmitValue(values, dateFormatter, fieldsValueType.current),
-                );
+            onFinish={async (values) => {
+              if (!rest.onFinish) {
+                return;
               }
+              setLoading({
+                delay: 100,
+              });
+              await rest.onFinish(
+                conversionSubmitValue(values, dateFormatter, fieldsValueType.current),
+              );
+              setLoading(false);
             }}
           >
             <Form.Item noStyle shouldUpdate>
@@ -220,6 +285,9 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
                 setTimeout(() => {
                   // 支持 fromRef，这里 ref 里面可以随时拿到最新的值
                   if (propsFormRef) {
+                    if (!formInit) {
+                      forgetUpdate(true);
+                    }
                     propsFormRef.current = formInstance as FormInstance;
                   }
                   formRef.current = formInstance as FormInstance;
@@ -230,7 +298,7 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
           </Form>
         </SizeContext.Provider>
       </FieldContext.Provider>
-    </ConfigProviderWarp>
+    </ConfigProviderWrap>
   );
 };
 

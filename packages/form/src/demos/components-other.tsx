@@ -1,6 +1,4 @@
 import React from 'react';
-
-import { Form, Input, Radio } from 'antd';
 import ProForm, {
   ProFormSwitch,
   ProFormText,
@@ -32,8 +30,13 @@ const Demo = () => (
         'checkbox-group': ['A', 'B'],
         rate: 3.5,
         name: 'qixian',
+        radio: 'a',
+        'radio-button': 'a',
       }}
-      onFinish={(value) => console.log(value)}
+      onValuesChange={(_, values) => {
+        console.log(values);
+      }}
+      onFinish={async (value) => console.log(value)}
     >
       <ProFormText name="name" label="name" />
       <ProFormSelect
@@ -46,6 +49,17 @@ const Demo = () => (
         }}
         placeholder="Please select a country"
         rules={[{ required: true, message: 'Please select your country!' }]}
+      />
+      <ProFormSelect
+        hasFeedback
+        request={async () => [
+          { label: '全部', value: 'all' },
+          { label: '未解决', value: 'open' },
+          { label: '已解决', value: 'closed' },
+          { label: '解决中', value: 'processing' },
+        ]}
+        name="useMode"
+        label="合同约定生效方式"
       />
       <ProFormSelect
         name="select-multiple"
@@ -75,7 +89,7 @@ const Demo = () => (
         }}
       />
       <ProFormRadio.Group
-        name="radio-group"
+        name="radio"
         label="Radio.Group"
         options={[
           {
@@ -92,13 +106,25 @@ const Demo = () => (
           },
         ]}
       />
-      <Form.Item name="radio-button" label="Radio.Button">
-        <Radio.Group>
-          <Radio.Button value="a">item 1</Radio.Button>
-          <Radio.Button value="b">item 2</Radio.Button>
-          <Radio.Button value="c">item 3</Radio.Button>
-        </Radio.Group>
-      </Form.Item>
+      <ProFormRadio.Group
+        name="radio-button"
+        label="Radio.Button"
+        radioType="button"
+        options={[
+          {
+            label: 'item 1',
+            value: 'a',
+          },
+          {
+            label: 'item 2',
+            value: 'b',
+          },
+          {
+            label: 'item 3',
+            value: 'c',
+          },
+        ]}
+      />
       <ProFormCheckbox.Group
         name="checkbox-group"
         label="Checkbox.Group"
@@ -108,13 +134,14 @@ const Demo = () => (
       <ProFormUploadButton
         name="upload"
         label="Upload"
+        max={2}
         action="/upload.do"
         extra="longgggggggggggggggggggggggggggggggggg"
       />
       <ProFromFieldSet name="list" label="组件列表">
-        <Input placeholder="请输入" />
-        <Input placeholder="请输入" />
-        <Input placeholder="请输入" />
+        <ProFormText />
+        <ProFormText />
+        <ProFormText />
       </ProFromFieldSet>
       <ProForm.Group title="日期相关分组">
         <ProFormDatePicker name="date" label="日期" />
@@ -126,7 +153,7 @@ const Demo = () => (
         <ProFormDateRangePicker name="dateRange" label="日期区间" />
         <ProFormDateTimeRangePicker name="dateTimeRange" label="日期时间区间" />
       </ProForm.Group>
-      <ProFormUploadDragger label="Dragger" name="dragger" />
+      <ProFormUploadDragger max={4} label="Dragger" name="dragger" />
     </ProForm>
   </div>
 );

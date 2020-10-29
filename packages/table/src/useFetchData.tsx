@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { usePrevious, useDebounceFn } from '@ant-design/pro-utils';
+import { usePrevious, useDebounceFn, useDeepCompareEffect } from '@ant-design/pro-utils';
 import ReactDOM from 'react-dom';
 
 export interface RequestData<T> {
@@ -82,20 +82,25 @@ const useFetchData = <T extends RequestData<any>>(
       return;
     }
     setLoading(true);
-    const { pageSize, page } = pageInfo;
 
+    const { pageSize, page } = pageInfo;
     try {
-      const { data, success, total: dataTotal = 0 } =
-        (await getData(
-          pagination !== false
-            ? {
-                current: page,
-                pageSize,
-              }
-            : undefined,
-        )) || {};
+      const { data, success, total: dataTotal = 0 } = await getData(
+        pagination !== false
+          ? {
+              current: page,
+              pageSize,
+            }
+          : undefined,
+      );
+      // Do nothing when component unmounted before getData resolved
+      if (!mountRef.current) {
+        return;
+      }
       if (success !== false) {
         setDataAndLoading(data, dataTotal);
+      } else {
+        setLoading(false);
       }
       if (onLoad) {
         onLoad(data);
@@ -157,7 +162,7 @@ const useFetchData = <T extends RequestData<any>>(
     setPageInfo({ ...pageInfo, page: 1 });
   };
 
-  useEffect(() => {
+  useDeepCompareEffect(() => {
     if (manual) {
       return () => null;
     }

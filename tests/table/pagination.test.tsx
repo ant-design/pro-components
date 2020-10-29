@@ -37,6 +37,7 @@ describe('BasicTable', () => {
 
   it('🎏 pagination current test', async () => {
     const fn = jest.fn();
+    const onChangeFn = jest.fn();
     const html = mount(
       <ProTable
         size="small"
@@ -50,18 +51,21 @@ describe('BasicTable', () => {
           fn(params.current);
           return request(params);
         }}
+        pagination={{
+          onChange: onChangeFn(),
+        }}
         onRequestError={fn}
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 200);
+    await waitForComponentToPaint(html, 1000);
 
     expect(fn).toBeCalledWith(1);
 
     act(() => {
       html.find('li.ant-pagination-item.ant-pagination-item-2').simulate('click');
     });
-    await waitForComponentToPaint(html, 1200);
+    await waitForComponentToPaint(html, 1000);
 
     expect(fn).toBeCalledWith(1);
   });
@@ -90,7 +94,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 200);
+    await waitForComponentToPaint(html, 1000);
 
     expect(fn).toBeCalledWith(50);
     expect(currentFn).toBeCalledWith(1);
@@ -101,7 +105,7 @@ describe('BasicTable', () => {
       },
     });
 
-    await waitForComponentToPaint(html, 1200);
+    await waitForComponentToPaint(html, 1000);
 
     expect(fn).toBeCalledWith(10);
   });
@@ -130,9 +134,10 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 200);
+    await waitForComponentToPaint(html, 1000);
 
     expect(fn).toBeCalledWith(2);
+
     expect(pageSizeFn).toBeCalledWith(20);
 
     html.setProps({
@@ -141,7 +146,7 @@ describe('BasicTable', () => {
       },
     });
 
-    await waitForComponentToPaint(html, 1200);
+    await waitForComponentToPaint(html, 1000);
 
     expect(fn).toBeCalledWith(3);
   });
@@ -166,7 +171,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 200);
+    await waitForComponentToPaint(html, 1000);
 
     expect(fn).toBeCalledWith(undefined);
 
@@ -176,7 +181,7 @@ describe('BasicTable', () => {
       },
     });
 
-    await waitForComponentToPaint(html, 1200);
+    await waitForComponentToPaint(html, 1000);
 
     expect(fn).toBeCalledWith(10);
   });

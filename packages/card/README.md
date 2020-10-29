@@ -2,18 +2,18 @@
 
 > @ant-design/pro-card.
 
-See our website [@ant-design/pro-card](https://umijs.org/plugins/card) for more information.
+See our website [@ant-design/pro-card](https://procomponent.ant.design/) for more information.
 
 ## Install
 
 Using npm:
 
 ```bash
-$ npm install --save-dev @ant-design/pro-card
+$ npm install --save  @ant-design/pro-card
 ```
 
 or using yarn:
 
 ```bash
-$ yarn add @ant-design/pro-card --dev
+$ yarn add @ant-design/pro-card
 ```

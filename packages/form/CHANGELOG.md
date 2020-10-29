@@ -2,6 +2,79 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.1.5...@ant-design/pro-form@1.1.6) (2020-10-29)
+
+### Bug Fixes
+
+- **table:** renderFormItem should run in form init ([#852](https://github.com/ant-design/pro-components/issues/852)) ([612b04a](https://github.com/ant-design/pro-components/commit/612b04a7225ccc93b8c081d268981d988c333d4c))
+
+## [1.1.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.1.4...@ant-design/pro-form@1.1.5) (2020-10-26)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.1.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.1.3...@ant-design/pro-form@1.1.4) (2020-10-23)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.1.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.1.2...@ant-design/pro-form@1.1.3) (2020-10-23)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.1.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.1.1...@ant-design/pro-form@1.1.2) (2020-10-22)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.1.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.1.0...@ant-design/pro-form@1.1.1) (2020-10-21)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+# [1.1.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.0.4...@ant-design/pro-form@1.1.0) (2020-10-19)
+
+### Features
+
+- **form:** add effective style to LightFilter when collapse ([#746](https://github.com/ant-design/pro-components/issues/746)) ([af7eb93](https://github.com/ant-design/pro-components/commit/af7eb93285f13b4b8fb087186515421e5c9a7a35))
+
+## [1.0.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.0.3...@ant-design/pro-form@1.0.4) (2020-10-15)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.0.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.0.2...@ant-design/pro-form@1.0.3) (2020-10-15)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.0.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.0.1...@ant-design/pro-form@1.0.2) (2020-10-12)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.0.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.0.0-beta.31...@ant-design/pro-form@1.0.1) (2020-10-12)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+# [1.0.0-beta.31](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.0.0-beta.30...@ant-design/pro-form@1.0.0-beta.31) (2020-10-12)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+# [1.0.0-beta.30](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.0.0-beta.28...@ant-design/pro-form@1.0.0-beta.30) (2020-09-29)
+
+### Bug Fixes
+
+- **from:** 修改 ProFormRadio 中 options 中 value 的类型：string -> React.ReactText ([e644058](https://github.com/ant-design/pro-components/commit/e644058e06298b5c594398bf353c136dabf988d2))
+
+### Features
+
+- ProTable & ProList support LightFilter ([#622](https://github.com/ant-design/pro-components/issues/622)) ([ce925c1](https://github.com/ant-design/pro-components/commit/ce925c191330956dadbad752b25ad4c7481d9663))
+- **field:** 支持密码类型 ([#475](https://github.com/ant-design/pro-components/issues/475)) ([b5a3bd2](https://github.com/ant-design/pro-components/commit/b5a3bd2493a0476ab9186e3fd279742e9bf79458))
+
+# [1.0.0-beta.28](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.0.0-beta.27...@ant-design/pro-form@1.0.0-beta.28) (2020-09-22)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+# [1.0.0-beta.27](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.0.0-beta.26...@ant-design/pro-form@1.0.0-beta.27) (2020-09-22)
+
+### Bug Fixes
+
+- DatePicker light mode dropdown style detail ([0fc2dc7](https://github.com/ant-design/pro-components/commit/0fc2dc7ba7836b432381bbe75a268ab1d57b54aa))
+
 # [1.0.0-beta.26](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.0.0-beta.25...@ant-design/pro-form@1.0.0-beta.26) (2020-09-14)
 
 **Note:** Version bump only for package @ant-design/pro-form

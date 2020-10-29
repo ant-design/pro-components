@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import classnames from 'classnames';
-import { ConfigContext } from 'antd/lib/config-provider/context';
+import { ConfigProvider } from 'antd';
 import './index.less';
 
 /**
@@ -11,14 +11,15 @@ const IndexColumn: React.ForwardRefRenderFunction<any, { border?: boolean; child
   { border = false, children },
   ref,
 ) => {
-  const { getPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+
   const className = getPrefixCls('pro-field-index-column');
   return (
     <div
       ref={ref}
       className={classnames(className, {
         [`${className}-border`]: border,
-        'top-three': (children as number) > 2,
+        'top-three': (children as number) > 3,
       })}
     >
       {children}

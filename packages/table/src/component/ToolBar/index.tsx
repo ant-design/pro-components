@@ -1,15 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useEffect } from 'react';
 import { ReloadOutlined, SettingOutlined } from '@ant-design/icons';
-import { Divider, Space, Tooltip, Input } from 'antd';
-import { ConfigContext } from 'antd/lib/config-provider/context';
+import { Tooltip } from 'antd';
 import { SearchProps } from 'antd/lib/input';
 import { useIntl, IntlType } from '@ant-design/pro-provider';
-import { LabelIconTip } from '@ant-design/pro-utils';
+import ListToolBar, { ListToolBarProps } from '../ListToolBar';
 import ColumnSetting from '../ColumnSetting';
 import { UseFetchDataAction, RequestData } from '../../useFetchData';
 import './index.less';
 import FullScreenIcon from './FullscreenIcon';
 import DensityIcon from './DensityIcon';
+import Container from '../../container';
 
 export interface OptionConfig<T> {
   density?: boolean;
@@ -25,7 +25,12 @@ export type OptionsType<T = unknown> =
 
 export interface ToolBarProps<T = unknown> {
   headerTitle?: React.ReactNode;
+  tooltip?: string;
+  /**
+   * @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一
+   */
   tip?: string;
+  toolbar?: ListToolBarProps;
   toolBarRender?: (
     action: UseFetchDataAction<RequestData<T>>,
     rows: {
@@ -71,7 +76,6 @@ const getButtonText = <T, U = {}>({
  */
 const renderDefaultOption = <T, U = {}>(
   options: ToolBarProps<T>['options'],
-  className: string,
   defaultOptions: OptionConfig<T> & {
     intl: IntlType;
   },
@@ -89,11 +93,7 @@ const renderDefaultOption = <T, U = {}>(
       }
       if (key === 'fullScreen') {
         return (
-          <span
-            key={key}
-            className={className}
-            onClick={value === true ? defaultOptions[key] : value}
-          >
+          <span key={key} onClick={value === true ? defaultOptions[key] : value}>
             <FullScreenIcon />
           </span>
         );
@@ -103,7 +103,6 @@ const renderDefaultOption = <T, U = {}>(
         return (
           <span
             key={key}
-            className={className}
             onClick={() => {
               if (value && defaultOptions[key] !== true) {
                 if (value !== true) {
@@ -124,17 +123,16 @@ const renderDefaultOption = <T, U = {}>(
 
 const ToolBar = <T, U = {}>({
   headerTitle,
-  tip,
+  tooltip,
   toolBarRender,
   action,
   options: propsOptions,
   selectedRowKeys,
   selectedRows,
+  toolbar,
   onSearch,
+  ...rest
 }: ToolBarProps<T>) => {
-  const { getPrefixCls } = useContext(ConfigContext);
-  const className = getPrefixCls('pro-table-toolbar');
-
   const defaultOptions = {
     reload: () => action.reload(),
     density: true,
@@ -142,7 +140,7 @@ const ToolBar = <T, U = {}>({
     search: false,
     fullScreen: () => action.fullScreen && action.fullScreen(),
   };
-
+  const counter = Container.useContainer();
   const options =
     propsOptions !== false
       ? {
@@ -153,55 +151,46 @@ const ToolBar = <T, U = {}>({
 
   const intl = useIntl();
   const optionDom =
-    renderDefaultOption<T>(options, `${className}-item-icon`, {
+    renderDefaultOption<T>(options, {
       ...defaultOptions,
       intl,
     }) || [];
   // 操作列表
   const actions = toolBarRender ? toolBarRender(action, { selectedRowKeys, selectedRows }) : [];
-  const renderDivider = () => {
-    if (optionDom.length < 1) {
-      return false;
-    }
-    if (actions.length < 1 && options && options.search === false) {
-      return false;
-    }
-    return <Divider type="vertical" />;
+  const getSearchConfig = (search: OptionConfig<any>['search']) => {
+    if (!search) return false;
+
+    /**
+     * 受控的value 和 onChange
+     */
+    const defaultSearchConfig = {
+      value: counter.keyWords,
+      onChange: (e: React.ChangeEvent<HTMLInputElement>) => counter.setKeyWords(e.target.value),
+    };
+
+    if (search === true) return defaultSearchConfig;
+
+    return {
+      ...defaultSearchConfig,
+      ...search,
+    };
   };
+
+  useEffect(() => {
+    if (counter.keyWords === undefined) {
+      onSearch?.('');
+    }
+  }, [counter.keyWords]);
   return (
-    <div className={className}>
-      <div className={`${className}-title`}>
-        <LabelIconTip label={headerTitle} tip={tip} />
-      </div>
-      <div className={`${className}-option`}>
-        <Space>
-          {options && options.search && (
-            <Input.Search
-              placeholder={intl.getMessage('tableForm.inputPlaceholder', '请输入')}
-              style={{
-                width: 200,
-              }}
-              {...options.search}
-              onSearch={onSearch}
-            />
-          )}
-          {actions
-            .filter((item) => item)
-            .map((node, index) => (
-              <div
-                // eslint-disable-next-line react/no-array-index-key
-                key={index}
-              >
-                {node}
-              </div>
-            ))}
-        </Space>
-        <div className={`${className}-default-option`}>
-          {renderDivider()}
-          <Space>{optionDom}</Space>
-        </div>
-      </div>
-    </div>
+    <ListToolBar
+      title={headerTitle}
+      tip={tooltip || rest.tip}
+      search={options && getSearchConfig(options.search)}
+      onSearch={onSearch}
+      actions={actions}
+      settings={optionDom}
+      {...toolbar}
+    />
   );
 };
 

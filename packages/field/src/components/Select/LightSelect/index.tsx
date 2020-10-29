@@ -1,10 +1,9 @@
 import React, { useState, useContext, useMemo } from 'react';
-import { Select, Input } from 'antd';
+import { Select, Input, ConfigProvider } from 'antd';
 import { SelectProps } from 'antd/es/select';
 import { SearchOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import { FieldLabel } from '@ant-design/pro-utils';
-import { ConfigContext } from 'antd/lib/config-provider';
 
 import './index.less';
 
@@ -31,12 +30,12 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
     style,
     className,
     bordered,
-    options = [],
+    options,
     onSearch,
     ...restProps
   } = props;
   const { placeholder = label } = props;
-  const { getPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-select-light-select');
   const [open, setOpen] = useState<boolean>(false);
   const [keyword, setKeyword] = useState<string>('');
@@ -45,7 +44,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
     [key: string]: string;
   } = useMemo(() => {
     const values = {};
-    options.forEach(({ label: aLabel, value: aValue }) => {
+    options?.forEach(({ label: aLabel, value: aValue }) => {
       values[aValue] = aLabel || aValue;
     });
     return values;
@@ -91,9 +90,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
                     value={keyword}
                     onChange={(e) => {
                       setKeyword(e.target.value.toLowerCase());
-                      if (onSearch) {
-                        onSearch(e.target.value);
-                      }
+                      onSearch?.(e.target.value);
                     }}
                     onKeyDown={(e) => {
                       // 避免按下删除键把选项也删除了
@@ -113,10 +110,10 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
         prefixCls={customizePrefixCls}
         options={
           keyword
-            ? options.filter((o) => {
+            ? options?.filter((o) => {
                 return (
-                  String(o.label).toLowerCase().indexOf(keyword) !== -1 ||
-                  o.value.toLowerCase().indexOf(keyword) !== -1
+                  String(o.label).toLowerCase().includes(keyword) ||
+                  o.value.toLowerCase().includes(keyword)
                 );
               })
             : options
@@ -132,8 +129,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
         bordered={bordered}
         value={Array.isArray(value) ? value.map((v) => valueMap[v] || v) : valueMap[value] || value}
         onClear={() => {
-          // @ts-expect-error
-          onChange(undefined, undefined);
+          onChange?.(undefined, undefined as any);
         }}
       />
     </div>

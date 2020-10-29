@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import { ConfigContext as AntdConfigContext } from 'antd/lib/config-provider';
+
+import { ConfigProvider as AntdConfigProvider } from 'antd';
 import { noteOnce } from 'rc-util/lib/warning';
 import zhCN from './locale/zh_CN';
 import enUS from './locale/en_US';
@@ -12,6 +13,7 @@ import msMY from './locale/ms_MY';
 import zhTW from './locale/zh_TW';
 import frFR from './locale/fr_FR';
 import ptBR from './locale/pt_BR';
+import koKR from './locale/ko_KR';
 
 export interface IntlType {
   locale: string;
@@ -56,6 +58,7 @@ const msMYIntl = createIntl('ms_MY', msMY);
 const zhTWIntl = createIntl('zh_TW', zhTW);
 const frFRIntl = createIntl('fr_FR', frFR);
 const ptBRIntl = createIntl('pt_BR', ptBR);
+const koKRIntl = createIntl('ko_KR', koKR);
 
 const intlMap = {
   'zh-CN': zhCNIntl,
@@ -69,6 +72,7 @@ const intlMap = {
   'zh-TW': zhTWIntl,
   'fr-FR': frFRIntl,
   'pt-BR': ptBRIntl,
+  'ko-KR': koKRIntl,
 };
 
 const intlMapKeys = Object.keys(intlMap);
@@ -89,6 +93,7 @@ export {
   zhTWIntl,
   frFRIntl,
   ptBRIntl,
+  koKRIntl,
   intlMap,
   intlMapKeys,
 };
@@ -125,8 +130,8 @@ const findIntlKeyByAntdLocaleKey = (localeKey: string | undefined) => {
  *  如果没有配置 locale，这里组件会根据 antd 的 key 来自动选择
  * @param param0
  */
-const ConfigProviderWarp: React.FC<{}> = ({ children }) => {
-  const { locale } = useContext(AntdConfigContext);
+const ConfigProviderWrap: React.FC<{}> = ({ children }) => {
+  const { locale } = useContext(AntdConfigProvider.ConfigContext);
   return (
     <ConfigConsumer>
       {(value) => {
@@ -152,7 +157,7 @@ const ConfigProviderWarp: React.FC<{}> = ({ children }) => {
   );
 };
 
-export { ConfigConsumer, ConfigProvider, ConfigProviderWarp, createIntl };
+export { ConfigConsumer, ConfigProvider, ConfigProviderWrap, createIntl };
 
 export function useIntl(): IntlType {
   const context = useContext(ConfigContext);
