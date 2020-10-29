@@ -29,12 +29,9 @@ const FieldSet: React.FC<FieldSetProps> = ({
   space,
 }) => {
   const fieldSetOnChange = (fileValue: any, index: number) => {
-    if (!onChange) {
-      return;
-    }
     const newValues = [...value];
     newValues[index] = defaultGetValueFromEvent(valuePropName || 'value', fileValue);
-    onChange(newValues);
+    onChange?.(newValues);
   };
 
   const list = toArray(children).map((item, index) => {
@@ -45,9 +42,7 @@ const FieldSet: React.FC<FieldSetProps> = ({
       value: value[index],
       onChange: (itemValue: any) => {
         fieldSetOnChange(itemValue, index);
-        if (item.props.onChange) {
-          item.props.onChange(itemValue);
-        }
+        item.props.onChange?.(itemValue);
       },
     });
   });
