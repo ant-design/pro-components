@@ -1,4 +1,4 @@
-﻿import React from 'react';
+﻿import React, { useImperativeHandle } from 'react';
 import { Space } from 'antd';
 import { FormItemProps } from 'antd/lib/form';
 import { SpaceProps } from 'antd/lib/space';
@@ -59,13 +59,14 @@ const ProFromFieldSet: React.FC<
   FormItemProps & {
     space?: SpaceProps;
   }
-> = ({ children, space, valuePropName, ...rest }) => {
+> = React.forwardRef(({ children, space, valuePropName, ...rest }, ref) => {
+  useImperativeHandle(ref, () => {}, []);
   return (
     <FieldSet space={space} valuePropName={valuePropName} {...rest}>
       {children}
     </FieldSet>
   );
-};
+});
 
 export default createField<
   FormItemProps & {

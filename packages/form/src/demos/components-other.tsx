@@ -138,7 +138,11 @@ const Demo = () => (
         action="/upload.do"
         extra="longgggggggggggggggggggggggggggggggggg"
       />
-      <ProFromFieldSet name="list" label="组件列表">
+      <ProFromFieldSet
+        name="list"
+        label="组件列表"
+        transform={(value: any) => ({ startTime: value[0], endTime: value[1] })}
+      >
         <ProFormText />
         <ProFormText />
         <ProFormText />

@@ -3,13 +3,13 @@ import { SearchTransformKeyFn } from '../typing';
 const transformKeySubmitValue = <T = any>(
   values: T,
   dataFormatMap: {
-    [key: string]: SearchTransformKeyFn;
+    [key: string]: SearchTransformKeyFn | undefined;
   },
 ) => {
   let result = {} as T;
   Object.keys(values).forEach((key) => {
     const itemValue = values[key];
-    const tempKey = dataFormatMap[key] ? dataFormatMap[key](itemValue, key, values) : key;
+    const tempKey = dataFormatMap[key] ? dataFormatMap[key]?.(itemValue, key, values) : key;
     // { [key:string]:any } 数组也能通过编译
     if (Array.isArray(tempKey)) {
       result[key] = itemValue;
@@ -17,7 +17,7 @@ const transformKeySubmitValue = <T = any>(
     }
     if (typeof tempKey === 'object') {
       result = { ...result, ...tempKey };
-    } else {
+    } else if (tempKey) {
       result[tempKey] = itemValue;
     }
   });

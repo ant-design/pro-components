@@ -58,7 +58,6 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
   if (mode === 'edit') {
     const dom = (
       <Checkbox.Group
-        ref={checkBoxRef}
         {...rest.fieldProps}
         className={classNames(rest.fieldProps?.className, `${layoutClassName}-${layout}`)}
         options={options?.map((option) => {
