@@ -34,9 +34,15 @@ export type ProFormCheckboxProps = ProFormItemProps<CheckboxProps>;
  * 多选框的
  * @param
  */
-const ProFormCheckbox: React.FC<ProFormCheckboxProps> = ({ fieldProps, children }) => {
-  return <Checkbox {...fieldProps}>{children}</Checkbox>;
-};
+const ProFormCheckbox: React.FC<ProFormCheckboxProps> = React.forwardRef<any, ProFormCheckboxProps>(
+  ({ fieldProps, children }, ref) => {
+    return (
+      <Checkbox ref={ref} {...fieldProps}>
+        {children}
+      </Checkbox>
+    );
+  },
+);
 
 const WrappedProFormCheckbox: React.ComponentType<ProFormCheckboxProps> & {
   Group: typeof Group;

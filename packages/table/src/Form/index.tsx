@@ -350,14 +350,13 @@ const FormSearch = <T, U = any>({
       );
       // 以key为主,理论上key唯一
       const finalKey = genColumnKey((key || dataIndex) as string, index);
-      // 如果是() => ValueType
-      const finalValueType = typeof valueType === 'function' ? valueType(item, type) : valueType;
-      tempMap[finalKey] = finalValueType;
-      transformKeyMap[finalKey] =
-        typeof search === 'boolean' || !search
-          ? undefined
-          : (value: any, fieldName: string, target: any) =>
-              search?.transform(value, fieldName, target);
+      // 如果是() => ValueType 需要特殊处理一下
+      tempMap[finalKey] = typeof valueType === 'function' ? valueType(item, type) : valueType;
+
+      if (search !== false && search) {
+        transformKeyMap[finalKey] = (value: any, fieldName: string, target: any) =>
+          search?.transform(value, fieldName, target);
+      }
     });
     // 触发一个 submit，之所以这里触发是为了保证 value 都被 format了
     if (!valueTypeRef.current && type !== 'form') {
