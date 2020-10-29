@@ -46,9 +46,7 @@ const Demo = () => {
         }}
       />
       <LightWrapper valuePropName="value">test</LightWrapper>
-      <LightWrapper light={false} valuePropName="value">
-        test
-      </LightWrapper>
+      <LightWrapper valuePropName="value">test</LightWrapper>
     </ProForm>
   );
 };
