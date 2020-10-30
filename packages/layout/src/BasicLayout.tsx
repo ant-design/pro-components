@@ -267,7 +267,6 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   // 当前选中的menu，一般不会为空
   const currentMenu = (matchMenus[matchMenus.length - 1] || {}) as ProSettings & MenuDataItem;
   const currentMenuLayoutProps = useCurrentMenuLayoutProps(currentMenu);
-
   const { fixSiderbar, navTheme, layout: defaultPropsLayout, ...rest } = {
     ...props,
     ...currentMenuLayoutProps,
