@@ -7,6 +7,7 @@ import { StepsProps } from 'antd/lib/steps';
 import classNames from 'classnames';
 import { FormInstance } from 'antd/lib/form';
 import { ButtonProps } from 'antd/lib/button';
+import { useIntl } from '@ant-design/pro-provider';
 
 import StepForm, { StepFormProps } from './StepForm';
 import './index.less';
@@ -93,6 +94,7 @@ const StepsForm: React.FC<StepsFormProps> & {
   const formArrayRef = useRef<Array<React.MutableRefObject<FormInstance<any> | undefined>>>([]);
   const [formArray, setFormArray] = useState<string[]>([]);
   const [loading, setLoading] = useState<ButtonProps['loading']>(false);
+  const intl = useIntl();
 
   /**
    * 受控的方式来操作表单
@@ -165,10 +167,12 @@ const StepsForm: React.FC<StepsFormProps> & {
       </Steps>
     </div>
   );
+
   const onSubmit = () => {
     const from = formArrayRef.current[step];
     from.current?.submit();
   };
+
   const next = submitter !== false && (
     <Button
       key="next"
@@ -180,7 +184,7 @@ const StepsForm: React.FC<StepsFormProps> & {
         onSubmit();
       }}
     >
-      下一步
+      {intl.getMessage('stepsForm.next', '下一步')}
     </Button>
   );
 
@@ -194,7 +198,7 @@ const StepsForm: React.FC<StepsFormProps> & {
         submitter?.onReset?.();
       }}
     >
-      上一步
+      {intl.getMessage('stepsForm.prev', '上一步')}
     </Button>
   );
 
