@@ -73,14 +73,12 @@ describe('BasicLayout', () => {
             {
               path: '/data_hui',
               name: '汇总数据',
-
               locale: 'menu.data_hui',
               children: [
                 {
                   collapsed: true,
                   menuName: '域买家维度交易',
                   name: '域买家维度交易',
-
                   children: [
                     {
                       id: 2,
@@ -96,10 +94,6 @@ describe('BasicLayout', () => {
                     {
                       id: 3,
                       isNavHome: '3',
-                      itemId: '191020104',
-                      itemName: '_航旅交易_买家_日表',
-                      tab: 'adm_rk_cr_tb_trv_byr_ds',
-                      tabProj: 'alifin_odps_birisk',
                       name: '_航旅交易_买家_日表',
                       path:
                         '/data_hui?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
@@ -112,22 +106,12 @@ describe('BasicLayout', () => {
                   children: [
                     {
                       id: 5,
-                      isNavHome: '2',
-                      itemId: '191020107',
-                      itemName: '_交易_买家_月表',
-                      tab: 'adm_rk_cr_tb_trd_byr_ms',
-                      tabProj: 'alifin_odps_birisk',
                       name: '_交易_买家_月表',
                       path:
                         '/data_hui?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alifin_odps_birisk',
                     },
                     {
                       id: 6,
-                      isNavHome: '3',
-                      itemId: '191020108',
-                      itemName: '_航旅交易_买家_日表',
-                      tab: 'adm_rk_cr_tb_trv_byr_ds',
-                      tabProj: 'alifin_odps_birisk',
                       name: '_航旅交易_买家_日表',
                       path:
                         '/data_hui?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
@@ -140,22 +124,12 @@ describe('BasicLayout', () => {
                   children: [
                     {
                       id: 7,
-                      isNavHome: '2',
-                      itemId: '191020107',
-                      itemName: '_交易_买家_月表2',
-                      tab: 'adm_rk_cr_tb_trd_byr_ms',
-                      tabProj: 'alifin_odps_birisk',
                       name: '_交易_买家_月表2',
                       path:
                         '/data_hui?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alifin_odps_birisk',
                     },
                     {
                       id: 8,
-                      isNavHome: '3',
-                      itemId: '191020108',
-                      itemName: '_航旅交易_买家_日表3',
-                      tab: 'adm_rk_cr_tb_trv_byr_ds',
-                      tabProj: 'alifin_odps_birisk',
                       name: '_航旅交易_买家_日表3',
                       path:
                         '/data_hui?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
@@ -720,5 +694,53 @@ describe('BasicLayout', () => {
     );
     await waitForComponentToPaint(wrapper);
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('🥩 BasicLayout support current menu', async () => {
+    const wrapper = mount(
+      <BasicLayout
+        location={{
+          pathname: '/welcome',
+        }}
+        menuDataRender={() => [
+          {
+            path: '/welcome',
+            name: '欢迎',
+            layout: {},
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(wrapper);
+    expect(wrapper.find('.ant-pro-basicLayout-side').exists()).toBeTruthy();
+
+    wrapper.setProps({
+      menu: {
+        loading: true,
+      },
+      menuDataRender: () => [
+        {
+          path: '/welcome',
+          name: '欢迎',
+          layout: 'top',
+        },
+      ],
+    });
+    await waitForComponentToPaint(wrapper);
+
+    wrapper.setProps({
+      menu: {
+        loading: false,
+      },
+      menuDataRender: () => [
+        {
+          path: '/welcome',
+          name: '欢迎',
+          layout: 'top',
+        },
+      ],
+    });
+    await waitForComponentToPaint(wrapper, 100);
+    expect(wrapper.find('.ant-pro-basicLayout-top').exists()).toBeTruthy();
   });
 });
