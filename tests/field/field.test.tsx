@@ -244,6 +244,7 @@ describe('Field', () => {
     'money',
     'textarea',
     'date',
+    'formNow',
     'dateRange',
     'dateTimeRange',
     'dateTime',
