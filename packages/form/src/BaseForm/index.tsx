@@ -278,11 +278,12 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
   const submitterNode =
     submitter === false ? undefined : (
       <Submitter
-        submitButtonProps={{
-          loading,
-        }}
         {...submitterProps}
         form={userForm || form}
+        submitButtonProps={{
+          loading,
+          ...submitterProps.submitButtonProps,
+        }}
       />
     );
 
