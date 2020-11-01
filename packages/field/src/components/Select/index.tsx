@@ -203,7 +203,8 @@ export const useFieldFetchData = (
     // 优先使用 fieldProps?.options
     if (!props.valueEnum || props.fieldProps?.options) return;
     setOptions(getOptionsFormValueEnum(props.valueEnum));
-  }, [props.valueEnum]);
+  }, [props.valueEnum, props.fieldProps?.options]);
+
   const [loading, setLoading] = useState(false);
 
   const { data, mutate } = useSWR(
