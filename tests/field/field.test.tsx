@@ -219,6 +219,35 @@ describe('Field', () => {
     expect(html.text()).toBe('-');
   });
 
+  it('🐴 select options should change text', async () => {
+    const html = mount(
+      <Field
+        text="all"
+        fieldProps={{
+          options: [
+            { label: '全部', value: 'all' },
+            { label: '未解决', value: 'open' },
+            { label: '已解决', value: 'closed' },
+            { label: '解决中', value: 'processing' },
+          ],
+        }}
+        valueType="select"
+        mode="read"
+      />,
+    );
+    expect(html.text()).toBe('全部');
+
+    act(() => {
+      html.setProps({
+        fieldProps: { options: [] },
+      });
+    });
+
+    await waitForComponentToPaint(html, 100);
+
+    expect(html.text()).toBe('all');
+  });
+
   it('🐴 edit and no plain', async () => {
     const html = render(<Demo plain={false} state="edit" />);
     expect(html).toMatchSnapshot();
