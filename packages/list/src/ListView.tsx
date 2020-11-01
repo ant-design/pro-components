@@ -20,11 +20,12 @@ export type ListViewProps<RecordType> = AntdListProps<RecordType> &
     showActions?: 'hover' | 'always';
     rowSelection?: TableProps<RecordType>['rowSelection'];
     prefixCls: string;
+    dataSource: RecordType[];
   };
 
 function ListView<RecordType>(props: ListViewProps<RecordType>) {
   const {
-    dataSource = [],
+    dataSource,
     columns,
     rowKey,
     showActions,

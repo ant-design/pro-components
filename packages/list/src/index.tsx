@@ -121,7 +121,7 @@ function ProList<RecordType, U extends { [key: string]: any } = {}>(
         <ListView
           prefixCls={prefixCls}
           columns={columns}
-          dataSource={dataSource}
+          dataSource={dataSource || []}
           size={size}
           footer={footer}
           split={split}
