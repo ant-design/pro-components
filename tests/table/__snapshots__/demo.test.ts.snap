@@ -4916,10 +4916,10 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🐛[BUG]yarn insta
+                              🐛 [BUG]yarn inst
                               <span
                                 aria-hidden="true"
-                                title="🐛[BUG]yarn install命令 antd2.4.5会报错"
+                                title="🐛 [BUG]yarn install命令 antd2.4.5会报错"
                               >
                                 ...
                               </span>
@@ -4982,7 +4982,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               <span
                                 class="qixian-tag qixian-tag-error"
                               >
-                                🐛bug
+                                bug
                               </span>
                             </div>
                           </div>
@@ -5005,7 +5005,6 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               style="margin-right: 16px;"
                             >
                               <a
-                                href="https://github.com/ant-design/ant-design-pro/issues/6689"
                                 rel="noopener noreferrer"
                                 target="_blank"
                               >
@@ -5017,7 +5016,6 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               style="margin-right: 16px;"
                             >
                               <a
-                                href="https://github.com/ant-design/ant-design-pro/issues/6689"
                                 rel="noopener noreferrer"
                                 target="_blank"
                               >
@@ -5029,7 +5027,6 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               style="margin-right: 16px;"
                             >
                               <a
-                                href="https://github.com/ant-design/ant-design-pro/issues/6689"
                                 rel="noopener noreferrer"
                                 target="_blank"
                               >
@@ -5089,10 +5086,10 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🐛[BUG]无法创建工程npm 
+                              🐛 [BUG]无法创建工程npm
                               <span
                                 aria-hidden="true"
-                                title="🐛[BUG]无法创建工程npm create umi"
+                                title="🐛 [BUG]无法创建工程npm create umi"
                               >
                                 ...
                               </span>
@@ -5153,9 +5150,9 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               class="qixian-space-item"
                             >
                               <span
-                                class="qixian-tag"
+                                class="qixian-tag qixian-tag-error"
                               >
-                                🐛bug
+                                bug
                               </span>
                             </div>
                           </div>
@@ -5262,10 +5259,10 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🧐[问题] build 后还存在
+                              🧐 [问题] build 后还存
                               <span
                                 aria-hidden="true"
-                                title="🧐[问题] build 后还存在 es6 的代码（Umi@2.13.13）"
+                                title="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                               >
                                 ...
                               </span>
@@ -5326,9 +5323,9 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               class="qixian-space-item"
                             >
                               <span
-                                class="qixian-tag qixian-tag-processing"
+                                class="qixian-tag qixian-tag-success"
                               >
-                                🧐question
+                                question
                               </span>
                             </div>
                           </div>
@@ -5493,9 +5490,9 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               class="qixian-space-item"
                             >
                               <span
-                                class="qixian-tag qixian-tag-processing"
+                                class="qixian-tag qixian-tag-success"
                               >
-                                🧐question
+                                question
                               </span>
                             </div>
                           </div>
@@ -5666,9 +5663,9 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               class="qixian-space-item"
                             >
                               <span
-                                class="qixian-tag qixian-tag-default"
+                                class="qixian-tag qixian-tag-error"
                               >
-                                🐛bug
+                                bug
                               </span>
                             </div>
                           </div>
@@ -5775,10 +5772,10 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🐛[BUG]Umi UI 添加多
+                              🐛 [BUG]Umi UI 添加
                               <span
                                 aria-hidden="true"
-                                title="🐛[BUG]Umi UI 添加多个空白页，就会出错！把空白页都变成选中状态！"
+                                title="🐛 [BUG]Umi UI 添加多个空白页，就会出错！把空白页都变成选中状态！"
                               >
                                 ...
                               </span>
@@ -5839,9 +5836,9 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               class="qixian-space-item"
                             >
                               <span
-                                class="qixian-tag qixian-tag-success"
+                                class="qixian-tag qixian-tag-error"
                               >
-                                🐛bug
+                                bug
                               </span>
                             </div>
                           </div>
@@ -5948,10 +5945,10 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🐛[BUG]第一次载入页面，菜单
+                              🐛 [BUG]第一次载入页面，菜
                               <span
                                 aria-hidden="true"
-                                title="🐛[BUG]第一次载入页面，菜单仅图标时，图标没有居中"
+                                title="🐛 [BUG]第一次载入页面，菜单仅图标时，图标没有居中"
                               >
                                 ...
                               </span>
@@ -6012,9 +6009,9 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               class="qixian-space-item"
                             >
                               <span
-                                class="qixian-tag"
+                                class="qixian-tag qixian-tag-error"
                               >
-                                🐛bug
+                                bug
                               </span>
                             </div>
                           </div>
@@ -6185,7 +6182,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               class="qixian-space-item"
                             >
                               <span
-                                class="qixian-tag qixian-tag-warning"
+                                class="qixian-tag qixian-tag-default"
                               >
                                 dependencies
                               </span>
@@ -6294,10 +6291,10 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              V4版本如何使用第三方的enhan
+                              🧐 [问题] V4版本如何使用第
                               <span
                                 aria-hidden="true"
-                                title="ceReduxMiddleware 🧐[问题]"
+                                title="🧐 [问题] V4版本如何使用第三方的enhanceReduxMiddleware"
                               >
                                 ...
                               </span>
@@ -6358,9 +6355,9 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               class="qixian-space-item"
                             >
                               <span
-                                class="qixian-tag qixian-tag-processing"
+                                class="qixian-tag qixian-tag-success"
                               >
-                                🧐question
+                                question
                               </span>
                             </div>
                           </div>
@@ -6467,10 +6464,10 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🐛[BUG] 官网预览页面，第一
+                              🐛 [BUG] 官网预览页面，第
                               <span
                                 aria-hidden="true"
-                                title="🐛[BUG] 官网预览页面，第一次点击二级菜单，其父级菜单会收起，之后再次点击二级菜单，父菜单正常"
+                                title="🐛 [BUG] 官网预览页面，第一次点击二级菜单，其父级菜单会收起，之后再次点击二级菜单，父菜单正常"
                               >
                                 ...
                               </span>
@@ -6512,12 +6509,12 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             class="qixian-badge qixian-badge-status qixian-badge-not-a-wrapper"
                           >
                             <span
-                              class="qixian-badge-status-dot qixian-badge-status-processing"
+                              class="qixian-badge-status-dot qixian-badge-status-error"
                             />
                             <span
                               class="qixian-badge-status-text"
                             >
-                              解决中
+                              未解决
                             </span>
                           </span>
                         </td>
@@ -6531,9 +6528,9 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               class="qixian-space-item"
                             >
                               <span
-                                class="qixian-tag qixian-tag-error"
+                                class="qixian-tag qixian-tag-processing"
                               >
-                                ☺️In Progress
+                                question
                               </span>
                             </div>
                           </div>
@@ -6640,10 +6637,10 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🧐[问题] 从自建 block 
+                              🧐 [问题] 从自建 block
                               <span
                                 aria-hidden="true"
-                                title="🧐[问题] 从自建 block 仓库下载区块报错。"
+                                title="🧐 [问题] 从自建 block 仓库下载区块报错。"
                               >
                                 ...
                               </span>
@@ -6704,9 +6701,9 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               class="qixian-space-item"
                             >
                               <span
-                                class="qixian-tag qixian-tag-warning"
+                                class="qixian-tag qixian-tag-success"
                               >
-                                🧐question
+                                question
                               </span>
                             </div>
                           </div>
@@ -6813,10 +6810,10 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🧐[问题] fetchCurre
+                              🧐 [问题] fetchCurr
                               <span
                                 aria-hidden="true"
-                                title="🧐[问题] fetchCurrent接口报错，退出登录页，第一次点击登录，SecurityLayout不渲染，导致需要点击两次"
+                                title="🧐 [问题] fetchCurrent接口报错，退出登录页，第一次点击登录，SecurityLayout不渲染，导致需要点击两次"
                               >
                                 ...
                               </span>
@@ -6879,7 +6876,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               <span
                                 class="qixian-tag qixian-tag-success"
                               >
-                                🧐question
+                                question
                               </span>
                             </div>
                           </div>
@@ -6986,10 +6983,10 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🐛[BUG] V5 左侧栏收缩时
+                              🐛 [BUG] V5 左侧栏收缩
                               <span
                                 aria-hidden="true"
-                                title="🐛[BUG] V5 左侧栏收缩时，点击图标无效。"
+                                title="🐛 [BUG] V5 左侧栏收缩时，点击图标无效。"
                               >
                                 ...
                               </span>
@@ -7050,9 +7047,9 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               class="qixian-space-item"
                             >
                               <span
-                                class="qixian-tag qixian-tag-default"
+                                class="qixian-tag qixian-tag-error"
                               >
-                                🐛bug
+                                bug
                               </span>
                             </div>
                           </div>
@@ -7159,10 +7156,10 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🧐[问题]不知道有没有大佬将这个
+                              🧐 [问题]不知道有没有大佬将这
                               <span
                                 aria-hidden="true"
-                                title="🧐[问题]不知道有没有大佬将这个模板迁移至Electron的例子"
+                                title="🧐 [问题]不知道有没有大佬将这个模板迁移至Electron的例子"
                               >
                                 ...
                               </span>
@@ -7223,9 +7220,9 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               class="qixian-space-item"
                             >
                               <span
-                                class="qixian-tag qixian-tag-warning"
+                                class="qixian-tag qixian-tag-success"
                               >
-                                🧐question
+                                question
                               </span>
                             </div>
                           </div>
@@ -7396,9 +7393,9 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               class="qixian-space-item"
                             >
                               <span
-                                class="qixian-tag qixian-tag-warning"
+                                class="qixian-tag qixian-tag-error"
                               >
-                                🐛bug
+                                bug
                               </span>
                             </div>
                           </div>
@@ -7505,10 +7502,10 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🧐[问题]在重新npm inst
+                              🧐 [问题]在重新npm ins
                               <span
                                 aria-hidden="true"
-                                title="🧐[问题]在重新npm install后运行npm start报出一些less找不到，但项目可以正常运行起来"
+                                title="🧐 [问题]在重新npm install后运行npm start报出一些less找不到，但项目可以正常运行起来"
                               >
                                 ...
                               </span>
@@ -7571,7 +7568,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               <span
                                 class="qixian-tag qixian-tag-success"
                               >
-                                🧐question
+                                question
                               </span>
                             </div>
                           </div>
@@ -7678,10 +7675,10 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🐛[BUG]错误通知：http 
+                              🐛 [BUG]错误通知：http
                               <span
                                 aria-hidden="true"
-                                title="🐛[BUG]错误通知：http code 200"
+                                title="🐛 [BUG]错误通知：http code 200"
                               >
                                 ...
                               </span>
@@ -7742,9 +7739,9 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               class="qixian-space-item"
                             >
                               <span
-                                class="qixian-tag qixian-tag-warning"
+                                class="qixian-tag qixian-tag-error"
                               >
-                                🐛bug
+                                bug
                               </span>
                             </div>
                           </div>
@@ -7851,10 +7848,10 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🐛[BUG]线上预览项目好多布局
+                              🐛 [BUG]线上预览项目好多布
                               <span
                                 aria-hidden="true"
-                                title="🐛[BUG]线上预览项目好多布局错乱，不知道是antd的锅还是啥原因"
+                                title="🐛 [BUG]线上预览项目好多布局错乱，不知道是antd的锅还是啥原因"
                               >
                                 ...
                               </span>
@@ -7896,12 +7893,12 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                             class="qixian-badge qixian-badge-status qixian-badge-not-a-wrapper"
                           >
                             <span
-                              class="qixian-badge-status-dot qixian-badge-status-processing"
+                              class="qixian-badge-status-dot qixian-badge-status-error"
                             />
                             <span
                               class="qixian-badge-status-text"
                             >
-                              解决中
+                              未解决
                             </span>
                           </span>
                         </td>
@@ -7915,9 +7912,9 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               class="qixian-space-item"
                             >
                               <span
-                                class="qixian-tag qixian-tag-error"
+                                class="qixian-tag qixian-tag-processing"
                               >
-                                ☺️In Progress
+                                In Progress
                               </span>
                             </div>
                           </div>
@@ -8024,10 +8021,10 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🐛[BUG] umi 偶尔出现没
+                              🐛 [BUG] umi 偶尔出现
                               <span
                                 aria-hidden="true"
-                                title="🐛[BUG] umi 偶尔出现没有导出成员"
+                                title="🐛 [BUG] umi 偶尔出现没有导出成员"
                               >
                                 ...
                               </span>
@@ -8088,9 +8085,9 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               class="qixian-space-item"
                             >
                               <span
-                                class="qixian-tag qixian-tag-warning"
+                                class="qixian-tag qixian-tag-error"
                               >
-                                🐛bug
+                                bug
                               </span>
                             </div>
                           </div>
@@ -8197,10 +8194,10 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🐛[BUG]请问大佬，为什么无论
+                              🐛 [BUG]请问大佬，为什么无
                               <span
                                 aria-hidden="true"
-                                title="🐛[BUG]请问大佬，为什么无论怎么选择，都无法切换成JS语言，怎么下都是TS,求解答"
+                                title="🐛 [BUG]请问大佬，为什么无论怎么选择，都无法切换成JS语言，怎么下都是TS,求解答"
                               >
                                 ...
                               </span>
@@ -8261,9 +8258,9 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                               class="qixian-space-item"
                             >
                               <span
-                                class="qixian-tag qixian-tag-warning"
+                                class="qixian-tag qixian-tag-error"
                               >
-                                🐛bug
+                                bug
                               </span>
                             </div>
                           </div>
@@ -8360,7 +8357,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
               <li
                 class="qixian-pagination-total-text"
               >
-                第 1-20 条/总共 30 条
+                第 1-20 条/总共 20 条
               </li>
               <li
                 aria-disabled="true"
@@ -8407,24 +8404,13 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                 </a>
               </li>
               <li
-                class="qixian-pagination-item qixian-pagination-item-2"
-                tabindex="0"
-                title="2"
-              >
-                <a
-                  rel="nofollow"
-                >
-                  2
-                </a>
-              </li>
-              <li
-                aria-disabled="false"
-                class="qixian-pagination-next"
-                tabindex="0"
+                aria-disabled="true"
+                class="qixian-pagination-next qixian-pagination-disabled"
                 title="Next Page"
               >
                 <button
                   class="qixian-pagination-item-link"
+                  disabled=""
                   tabindex="-1"
                   type="button"
                 >
@@ -8513,15 +8499,6 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
                       </svg>
                     </span>
                   </span>
-                </div>
-                <div
-                  class="qixian-pagination-options-quick-jumper"
-                >
-                  Go to
-                  <input
-                    type="text"
-                    value=""
-                  />
                 </div>
               </li>
             </ul>
@@ -11359,10 +11336,10 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🐛[BUG]yarn insta
+                              🐛 [BUG]yarn inst
                               <span
                                 aria-hidden="true"
-                                title="🐛[BUG]yarn install命令 antd2.4.5会报错"
+                                title="🐛 [BUG]yarn install命令 antd2.4.5会报错"
                               >
                                 ...
                               </span>
@@ -11414,7 +11391,7 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
                               <span
                                 class="ant-tag ant-tag-error"
                               >
-                                🐛bug
+                                bug
                               </span>
                             </div>
                           </div>
@@ -11437,7 +11414,6 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
                               style="margin-right: 16px;"
                             >
                               <a
-                                href="https://github.com/ant-design/ant-design-pro/issues/6689"
                                 rel="noopener noreferrer"
                                 target="_blank"
                               >
@@ -11449,7 +11425,6 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
                               style="margin-right: 16px;"
                             >
                               <a
-                                href="https://github.com/ant-design/ant-design-pro/issues/6689"
                                 rel="noopener noreferrer"
                                 target="_blank"
                               >
@@ -11509,10 +11484,10 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🐛[BUG]无法创建工程npm 
+                              🐛 [BUG]无法创建工程npm
                               <span
                                 aria-hidden="true"
-                                title="🐛[BUG]无法创建工程npm create umi"
+                                title="🐛 [BUG]无法创建工程npm create umi"
                               >
                                 ...
                               </span>
@@ -11562,9 +11537,9 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
                               class="ant-space-item"
                             >
                               <span
-                                class="ant-tag"
+                                class="ant-tag ant-tag-error"
                               >
-                                🐛bug
+                                bug
                               </span>
                             </div>
                           </div>
@@ -11659,10 +11634,10 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🧐[问题] build 后还存在
+                              🧐 [问题] build 后还存
                               <span
                                 aria-hidden="true"
-                                title="🧐[问题] build 后还存在 es6 的代码（Umi@2.13.13）"
+                                title="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                               >
                                 ...
                               </span>
@@ -11712,9 +11687,9 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
                               class="ant-space-item"
                             >
                               <span
-                                class="ant-tag ant-tag-processing"
+                                class="ant-tag ant-tag-success"
                               >
-                                🧐question
+                                question
                               </span>
                             </div>
                           </div>
@@ -11856,9 +11831,9 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
                               class="ant-space-item"
                             >
                               <span
-                                class="ant-tag ant-tag-processing"
+                                class="ant-tag ant-tag-success"
                               >
-                                🧐question
+                                question
                               </span>
                             </div>
                           </div>
@@ -12006,9 +11981,9 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
                               class="ant-space-item"
                             >
                               <span
-                                class="ant-tag ant-tag-default"
+                                class="ant-tag ant-tag-error"
                               >
-                                🐛bug
+                                bug
                               </span>
                             </div>
                           </div>
@@ -12093,7 +12068,7 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
               <li
                 class="ant-pagination-total-text"
               >
-                第 1-5 条/总共 30 条
+                第 1-5 条/总共 20 条
               </li>
               <li
                 aria-disabled="true"
@@ -12170,28 +12145,6 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
                   rel="nofollow"
                 >
                   4
-                </a>
-              </li>
-              <li
-                class="ant-pagination-item ant-pagination-item-5"
-                tabindex="0"
-                title="5"
-              >
-                <a
-                  rel="nofollow"
-                >
-                  5
-                </a>
-              </li>
-              <li
-                class="ant-pagination-item ant-pagination-item-6"
-                tabindex="0"
-                title="6"
-              >
-                <a
-                  rel="nofollow"
-                >
-                  6
                 </a>
               </li>
               <li
@@ -19748,10 +19701,10 @@ Array [
                                 style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
-                                🐛[BUG]yarn insta
+                                🐛 [BUG]yarn inst
                                 <span
                                   aria-hidden="true"
-                                  title="🐛[BUG]yarn install命令 antd2.4.5会报错"
+                                  title="🐛 [BUG]yarn install命令 antd2.4.5会报错"
                                 >
                                   ...
                                 </span>
@@ -19814,7 +19767,7 @@ Array [
                                 <span
                                   class="ant-tag ant-tag-error"
                                 >
-                                  🐛bug
+                                  bug
                                 </span>
                               </div>
                             </div>
@@ -19837,7 +19790,6 @@ Array [
                                 style="margin-right: 16px;"
                               >
                                 <a
-                                  href="https://github.com/ant-design/ant-design-pro/issues/6689"
                                   rel="noopener noreferrer"
                                   target="_blank"
                                 >
@@ -19897,10 +19849,10 @@ Array [
                                 style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
-                                🐛[BUG]无法创建工程npm 
+                                🐛 [BUG]无法创建工程npm
                                 <span
                                   aria-hidden="true"
-                                  title="🐛[BUG]无法创建工程npm create umi"
+                                  title="🐛 [BUG]无法创建工程npm create umi"
                                 >
                                   ...
                                 </span>
@@ -19961,9 +19913,9 @@ Array [
                                 class="ant-space-item"
                               >
                                 <span
-                                  class="ant-tag"
+                                  class="ant-tag ant-tag-error"
                                 >
-                                  🐛bug
+                                  bug
                                 </span>
                               </div>
                             </div>
@@ -20046,10 +19998,10 @@ Array [
                                 style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
-                                🧐[问题] build 后还存在
+                                🧐 [问题] build 后还存
                                 <span
                                   aria-hidden="true"
-                                  title="🧐[问题] build 后还存在 es6 的代码（Umi@2.13.13）"
+                                  title="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                                 >
                                   ...
                                 </span>
@@ -20110,9 +20062,9 @@ Array [
                                 class="ant-space-item"
                               >
                                 <span
-                                  class="ant-tag ant-tag-processing"
+                                  class="ant-tag ant-tag-success"
                                 >
-                                  🧐question
+                                  question
                                 </span>
                               </div>
                             </div>
@@ -20253,9 +20205,9 @@ Array [
                                 class="ant-space-item"
                               >
                                 <span
-                                  class="ant-tag ant-tag-processing"
+                                  class="ant-tag ant-tag-success"
                                 >
-                                  🧐question
+                                  question
                                 </span>
                               </div>
                             </div>
@@ -20402,9 +20354,9 @@ Array [
                                 class="ant-space-item"
                               >
                                 <span
-                                  class="ant-tag ant-tag-default"
+                                  class="ant-tag ant-tag-error"
                                 >
-                                  🐛bug
+                                  bug
                                 </span>
                               </div>
                             </div>
@@ -20487,10 +20439,10 @@ Array [
                                 style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
-                                🐛[BUG]Umi UI 添加多
+                                🐛 [BUG]Umi UI 添加
                                 <span
                                   aria-hidden="true"
-                                  title="🐛[BUG]Umi UI 添加多个空白页，就会出错！把空白页都变成选中状态！"
+                                  title="🐛 [BUG]Umi UI 添加多个空白页，就会出错！把空白页都变成选中状态！"
                                 >
                                   ...
                                 </span>
@@ -20551,9 +20503,9 @@ Array [
                                 class="ant-space-item"
                               >
                                 <span
-                                  class="ant-tag ant-tag-success"
+                                  class="ant-tag ant-tag-error"
                                 >
-                                  🐛bug
+                                  bug
                                 </span>
                               </div>
                             </div>
@@ -20636,10 +20588,10 @@ Array [
                                 style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
-                                🐛[BUG]第一次载入页面，菜单
+                                🐛 [BUG]第一次载入页面，菜
                                 <span
                                   aria-hidden="true"
-                                  title="🐛[BUG]第一次载入页面，菜单仅图标时，图标没有居中"
+                                  title="🐛 [BUG]第一次载入页面，菜单仅图标时，图标没有居中"
                                 >
                                   ...
                                 </span>
@@ -20700,9 +20652,9 @@ Array [
                                 class="ant-space-item"
                               >
                                 <span
-                                  class="ant-tag"
+                                  class="ant-tag ant-tag-error"
                                 >
-                                  🐛bug
+                                  bug
                                 </span>
                               </div>
                             </div>
@@ -20849,7 +20801,7 @@ Array [
                                 class="ant-space-item"
                               >
                                 <span
-                                  class="ant-tag ant-tag-warning"
+                                  class="ant-tag ant-tag-default"
                                 >
                                   dependencies
                                 </span>
@@ -20934,10 +20886,10 @@ Array [
                                 style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
-                                V4版本如何使用第三方的enhan
+                                🧐 [问题] V4版本如何使用第
                                 <span
                                   aria-hidden="true"
-                                  title="ceReduxMiddleware 🧐[问题]"
+                                  title="🧐 [问题] V4版本如何使用第三方的enhanceReduxMiddleware"
                                 >
                                   ...
                                 </span>
@@ -20998,9 +20950,9 @@ Array [
                                 class="ant-space-item"
                               >
                                 <span
-                                  class="ant-tag ant-tag-processing"
+                                  class="ant-tag ant-tag-success"
                                 >
-                                  🧐question
+                                  question
                                 </span>
                               </div>
                             </div>
@@ -21083,10 +21035,10 @@ Array [
                                 style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
-                                🐛[BUG] 官网预览页面，第一
+                                🐛 [BUG] 官网预览页面，第
                                 <span
                                   aria-hidden="true"
-                                  title="🐛[BUG] 官网预览页面，第一次点击二级菜单，其父级菜单会收起，之后再次点击二级菜单，父菜单正常"
+                                  title="🐛 [BUG] 官网预览页面，第一次点击二级菜单，其父级菜单会收起，之后再次点击二级菜单，父菜单正常"
                                 >
                                   ...
                                 </span>
@@ -21124,7 +21076,18 @@ Array [
                           <td
                             class="ant-table-cell"
                           >
-                            processing
+                            <span
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                            >
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-error"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                未解决
+                              </span>
+                            </span>
                           </td>
                           <td
                             class="ant-table-cell"
@@ -21136,9 +21099,9 @@ Array [
                                 class="ant-space-item"
                               >
                                 <span
-                                  class="ant-tag ant-tag-error"
+                                  class="ant-tag ant-tag-processing"
                                 >
-                                  ☺️In Progress
+                                  question
                                 </span>
                               </div>
                             </div>
@@ -21221,10 +21184,10 @@ Array [
                                 style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
-                                🧐[问题] 从自建 block 
+                                🧐 [问题] 从自建 block
                                 <span
                                   aria-hidden="true"
-                                  title="🧐[问题] 从自建 block 仓库下载区块报错。"
+                                  title="🧐 [问题] 从自建 block 仓库下载区块报错。"
                                 >
                                   ...
                                 </span>
@@ -21285,9 +21248,9 @@ Array [
                                 class="ant-space-item"
                               >
                                 <span
-                                  class="ant-tag ant-tag-warning"
+                                  class="ant-tag ant-tag-success"
                                 >
-                                  🧐question
+                                  question
                                 </span>
                               </div>
                             </div>
@@ -21370,10 +21333,10 @@ Array [
                                 style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
-                                🧐[问题] fetchCurre
+                                🧐 [问题] fetchCurr
                                 <span
                                   aria-hidden="true"
-                                  title="🧐[问题] fetchCurrent接口报错，退出登录页，第一次点击登录，SecurityLayout不渲染，导致需要点击两次"
+                                  title="🧐 [问题] fetchCurrent接口报错，退出登录页，第一次点击登录，SecurityLayout不渲染，导致需要点击两次"
                                 >
                                   ...
                                 </span>
@@ -21436,7 +21399,7 @@ Array [
                                 <span
                                   class="ant-tag ant-tag-success"
                                 >
-                                  🧐question
+                                  question
                                 </span>
                               </div>
                             </div>
@@ -21519,10 +21482,10 @@ Array [
                                 style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
-                                🐛[BUG] V5 左侧栏收缩时
+                                🐛 [BUG] V5 左侧栏收缩
                                 <span
                                   aria-hidden="true"
-                                  title="🐛[BUG] V5 左侧栏收缩时，点击图标无效。"
+                                  title="🐛 [BUG] V5 左侧栏收缩时，点击图标无效。"
                                 >
                                   ...
                                 </span>
@@ -21583,9 +21546,9 @@ Array [
                                 class="ant-space-item"
                               >
                                 <span
-                                  class="ant-tag ant-tag-default"
+                                  class="ant-tag ant-tag-error"
                                 >
-                                  🐛bug
+                                  bug
                                 </span>
                               </div>
                             </div>
@@ -21668,10 +21631,10 @@ Array [
                                 style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
-                                🧐[问题]不知道有没有大佬将这个
+                                🧐 [问题]不知道有没有大佬将这
                                 <span
                                   aria-hidden="true"
-                                  title="🧐[问题]不知道有没有大佬将这个模板迁移至Electron的例子"
+                                  title="🧐 [问题]不知道有没有大佬将这个模板迁移至Electron的例子"
                                 >
                                   ...
                                 </span>
@@ -21732,9 +21695,9 @@ Array [
                                 class="ant-space-item"
                               >
                                 <span
-                                  class="ant-tag ant-tag-warning"
+                                  class="ant-tag ant-tag-success"
                                 >
-                                  🧐question
+                                  question
                                 </span>
                               </div>
                             </div>
@@ -21881,9 +21844,9 @@ Array [
                                 class="ant-space-item"
                               >
                                 <span
-                                  class="ant-tag ant-tag-warning"
+                                  class="ant-tag ant-tag-error"
                                 >
-                                  🐛bug
+                                  bug
                                 </span>
                               </div>
                             </div>
@@ -21966,10 +21929,10 @@ Array [
                                 style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
-                                🧐[问题]在重新npm inst
+                                🧐 [问题]在重新npm ins
                                 <span
                                   aria-hidden="true"
-                                  title="🧐[问题]在重新npm install后运行npm start报出一些less找不到，但项目可以正常运行起来"
+                                  title="🧐 [问题]在重新npm install后运行npm start报出一些less找不到，但项目可以正常运行起来"
                                 >
                                   ...
                                 </span>
@@ -22032,7 +21995,7 @@ Array [
                                 <span
                                   class="ant-tag ant-tag-success"
                                 >
-                                  🧐question
+                                  question
                                 </span>
                               </div>
                             </div>
@@ -22115,10 +22078,10 @@ Array [
                                 style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
-                                🐛[BUG]错误通知：http 
+                                🐛 [BUG]错误通知：http
                                 <span
                                   aria-hidden="true"
-                                  title="🐛[BUG]错误通知：http code 200"
+                                  title="🐛 [BUG]错误通知：http code 200"
                                 >
                                   ...
                                 </span>
@@ -22179,9 +22142,9 @@ Array [
                                 class="ant-space-item"
                               >
                                 <span
-                                  class="ant-tag ant-tag-warning"
+                                  class="ant-tag ant-tag-error"
                                 >
-                                  🐛bug
+                                  bug
                                 </span>
                               </div>
                             </div>
@@ -22264,10 +22227,10 @@ Array [
                                 style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
-                                🐛[BUG]线上预览项目好多布局
+                                🐛 [BUG]线上预览项目好多布
                                 <span
                                   aria-hidden="true"
-                                  title="🐛[BUG]线上预览项目好多布局错乱，不知道是antd的锅还是啥原因"
+                                  title="🐛 [BUG]线上预览项目好多布局错乱，不知道是antd的锅还是啥原因"
                                 >
                                   ...
                                 </span>
@@ -22305,7 +22268,18 @@ Array [
                           <td
                             class="ant-table-cell"
                           >
-                            processing
+                            <span
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                            >
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-error"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                未解决
+                              </span>
+                            </span>
                           </td>
                           <td
                             class="ant-table-cell"
@@ -22317,9 +22291,9 @@ Array [
                                 class="ant-space-item"
                               >
                                 <span
-                                  class="ant-tag ant-tag-error"
+                                  class="ant-tag ant-tag-processing"
                                 >
-                                  ☺️In Progress
+                                  In Progress
                                 </span>
                               </div>
                             </div>
@@ -22402,10 +22376,10 @@ Array [
                                 style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
-                                🐛[BUG] umi 偶尔出现没
+                                🐛 [BUG] umi 偶尔出现
                                 <span
                                   aria-hidden="true"
-                                  title="🐛[BUG] umi 偶尔出现没有导出成员"
+                                  title="🐛 [BUG] umi 偶尔出现没有导出成员"
                                 >
                                   ...
                                 </span>
@@ -22466,9 +22440,9 @@ Array [
                                 class="ant-space-item"
                               >
                                 <span
-                                  class="ant-tag ant-tag-warning"
+                                  class="ant-tag ant-tag-error"
                                 >
-                                  🐛bug
+                                  bug
                                 </span>
                               </div>
                             </div>
@@ -22551,10 +22525,10 @@ Array [
                                 style="max-width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
-                                🐛[BUG]请问大佬，为什么无论
+                                🐛 [BUG]请问大佬，为什么无
                                 <span
                                   aria-hidden="true"
-                                  title="🐛[BUG]请问大佬，为什么无论怎么选择，都无法切换成JS语言，怎么下都是TS,求解答"
+                                  title="🐛 [BUG]请问大佬，为什么无论怎么选择，都无法切换成JS语言，怎么下都是TS,求解答"
                                 >
                                   ...
                                 </span>
@@ -22615,9 +22589,9 @@ Array [
                                 class="ant-space-item"
                               >
                                 <span
-                                  class="ant-tag ant-tag-warning"
+                                  class="ant-tag ant-tag-error"
                                 >
-                                  🐛bug
+                                  bug
                                 </span>
                               </div>
                             </div>
@@ -22690,7 +22664,7 @@ Array [
                 <li
                   class="ant-pagination-total-text"
                 >
-                  第 1-20 条/总共 30 条
+                  第 1-20 条/总共 20 条
                 </li>
                 <li
                   aria-disabled="true"
@@ -22737,24 +22711,13 @@ Array [
                   </a>
                 </li>
                 <li
-                  class="ant-pagination-item ant-pagination-item-2"
-                  tabindex="0"
-                  title="2"
-                >
-                  <a
-                    rel="nofollow"
-                  >
-                    2
-                  </a>
-                </li>
-                <li
-                  aria-disabled="false"
-                  class="ant-pagination-next"
-                  tabindex="0"
+                  aria-disabled="true"
+                  class="ant-pagination-next ant-pagination-disabled"
                   title="Next Page"
                 >
                   <button
                     class="ant-pagination-item-link"
+                    disabled=""
                     tabindex="-1"
                     type="button"
                   >
@@ -24399,10 +24362,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🐛[BUG]yarn insta
+                              🐛 [BUG]yarn inst
                               <span
                                 aria-hidden="true"
-                                title="🐛[BUG]yarn install命令 antd2.4.5会报错"
+                                title="🐛 [BUG]yarn install命令 antd2.4.5会报错"
                               >
                                 ...
                               </span>
@@ -24465,7 +24428,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               <span
                                 class="ant-tag ant-tag-error"
                               >
-                                🐛bug
+                                bug
                               </span>
                             </div>
                           </div>
@@ -24488,7 +24451,6 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               style="margin-right: 16px;"
                             >
                               <a
-                                href="https://github.com/ant-design/ant-design-pro/issues/6689"
                                 rel="noopener noreferrer"
                                 target="_blank"
                               >
@@ -24500,7 +24462,6 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               style="margin-right: 16px;"
                             >
                               <a
-                                href="https://github.com/ant-design/ant-design-pro/issues/6689"
                                 rel="noopener noreferrer"
                                 target="_blank"
                               >
@@ -24560,10 +24521,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🐛[BUG]无法创建工程npm 
+                              🐛 [BUG]无法创建工程npm
                               <span
                                 aria-hidden="true"
-                                title="🐛[BUG]无法创建工程npm create umi"
+                                title="🐛 [BUG]无法创建工程npm create umi"
                               >
                                 ...
                               </span>
@@ -24624,9 +24585,9 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               class="ant-space-item"
                             >
                               <span
-                                class="ant-tag"
+                                class="ant-tag ant-tag-error"
                               >
-                                🐛bug
+                                bug
                               </span>
                             </div>
                           </div>
@@ -24721,10 +24682,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🧐[问题] build 后还存在
+                              🧐 [问题] build 后还存
                               <span
                                 aria-hidden="true"
-                                title="🧐[问题] build 后还存在 es6 的代码（Umi@2.13.13）"
+                                title="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                               >
                                 ...
                               </span>
@@ -24785,9 +24746,9 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               class="ant-space-item"
                             >
                               <span
-                                class="ant-tag ant-tag-processing"
+                                class="ant-tag ant-tag-success"
                               >
-                                🧐question
+                                question
                               </span>
                             </div>
                           </div>
@@ -24940,9 +24901,9 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               class="ant-space-item"
                             >
                               <span
-                                class="ant-tag ant-tag-processing"
+                                class="ant-tag ant-tag-success"
                               >
-                                🧐question
+                                question
                               </span>
                             </div>
                           </div>
@@ -25101,9 +25062,9 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               class="ant-space-item"
                             >
                               <span
-                                class="ant-tag ant-tag-default"
+                                class="ant-tag ant-tag-error"
                               >
-                                🐛bug
+                                bug
                               </span>
                             </div>
                           </div>
@@ -25198,10 +25159,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🐛[BUG]Umi UI 添加多
+                              🐛 [BUG]Umi UI 添加
                               <span
                                 aria-hidden="true"
-                                title="🐛[BUG]Umi UI 添加多个空白页，就会出错！把空白页都变成选中状态！"
+                                title="🐛 [BUG]Umi UI 添加多个空白页，就会出错！把空白页都变成选中状态！"
                               >
                                 ...
                               </span>
@@ -25262,9 +25223,9 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               class="ant-space-item"
                             >
                               <span
-                                class="ant-tag ant-tag-success"
+                                class="ant-tag ant-tag-error"
                               >
-                                🐛bug
+                                bug
                               </span>
                             </div>
                           </div>
@@ -25359,10 +25320,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🐛[BUG]第一次载入页面，菜单
+                              🐛 [BUG]第一次载入页面，菜
                               <span
                                 aria-hidden="true"
-                                title="🐛[BUG]第一次载入页面，菜单仅图标时，图标没有居中"
+                                title="🐛 [BUG]第一次载入页面，菜单仅图标时，图标没有居中"
                               >
                                 ...
                               </span>
@@ -25423,9 +25384,9 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               class="ant-space-item"
                             >
                               <span
-                                class="ant-tag"
+                                class="ant-tag ant-tag-error"
                               >
-                                🐛bug
+                                bug
                               </span>
                             </div>
                           </div>
@@ -25584,7 +25545,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               class="ant-space-item"
                             >
                               <span
-                                class="ant-tag ant-tag-warning"
+                                class="ant-tag ant-tag-default"
                               >
                                 dependencies
                               </span>
@@ -25681,10 +25642,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              V4版本如何使用第三方的enhan
+                              🧐 [问题] V4版本如何使用第
                               <span
                                 aria-hidden="true"
-                                title="ceReduxMiddleware 🧐[问题]"
+                                title="🧐 [问题] V4版本如何使用第三方的enhanceReduxMiddleware"
                               >
                                 ...
                               </span>
@@ -25745,9 +25706,9 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               class="ant-space-item"
                             >
                               <span
-                                class="ant-tag ant-tag-processing"
+                                class="ant-tag ant-tag-success"
                               >
-                                🧐question
+                                question
                               </span>
                             </div>
                           </div>
@@ -25842,10 +25803,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🐛[BUG] 官网预览页面，第一
+                              🐛 [BUG] 官网预览页面，第
                               <span
                                 aria-hidden="true"
-                                title="🐛[BUG] 官网预览页面，第一次点击二级菜单，其父级菜单会收起，之后再次点击二级菜单，父菜单正常"
+                                title="🐛 [BUG] 官网预览页面，第一次点击二级菜单，其父级菜单会收起，之后再次点击二级菜单，父菜单正常"
                               >
                                 ...
                               </span>
@@ -25887,12 +25848,12 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                           >
                             <span
-                              class="ant-badge-status-dot ant-badge-status-processing"
+                              class="ant-badge-status-dot ant-badge-status-error"
                             />
                             <span
                               class="ant-badge-status-text"
                             >
-                              解决中
+                              未解决
                             </span>
                           </span>
                         </td>
@@ -25906,9 +25867,9 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               class="ant-space-item"
                             >
                               <span
-                                class="ant-tag ant-tag-error"
+                                class="ant-tag ant-tag-processing"
                               >
-                                ☺️In Progress
+                                question
                               </span>
                             </div>
                           </div>
@@ -26003,10 +25964,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🧐[问题] 从自建 block 
+                              🧐 [问题] 从自建 block
                               <span
                                 aria-hidden="true"
-                                title="🧐[问题] 从自建 block 仓库下载区块报错。"
+                                title="🧐 [问题] 从自建 block 仓库下载区块报错。"
                               >
                                 ...
                               </span>
@@ -26067,9 +26028,9 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               class="ant-space-item"
                             >
                               <span
-                                class="ant-tag ant-tag-warning"
+                                class="ant-tag ant-tag-success"
                               >
-                                🧐question
+                                question
                               </span>
                             </div>
                           </div>
@@ -26164,10 +26125,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🧐[问题] fetchCurre
+                              🧐 [问题] fetchCurr
                               <span
                                 aria-hidden="true"
-                                title="🧐[问题] fetchCurrent接口报错，退出登录页，第一次点击登录，SecurityLayout不渲染，导致需要点击两次"
+                                title="🧐 [问题] fetchCurrent接口报错，退出登录页，第一次点击登录，SecurityLayout不渲染，导致需要点击两次"
                               >
                                 ...
                               </span>
@@ -26230,7 +26191,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               <span
                                 class="ant-tag ant-tag-success"
                               >
-                                🧐question
+                                question
                               </span>
                             </div>
                           </div>
@@ -26325,10 +26286,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🐛[BUG] V5 左侧栏收缩时
+                              🐛 [BUG] V5 左侧栏收缩
                               <span
                                 aria-hidden="true"
-                                title="🐛[BUG] V5 左侧栏收缩时，点击图标无效。"
+                                title="🐛 [BUG] V5 左侧栏收缩时，点击图标无效。"
                               >
                                 ...
                               </span>
@@ -26389,9 +26350,9 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               class="ant-space-item"
                             >
                               <span
-                                class="ant-tag ant-tag-default"
+                                class="ant-tag ant-tag-error"
                               >
-                                🐛bug
+                                bug
                               </span>
                             </div>
                           </div>
@@ -26486,10 +26447,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🧐[问题]不知道有没有大佬将这个
+                              🧐 [问题]不知道有没有大佬将这
                               <span
                                 aria-hidden="true"
-                                title="🧐[问题]不知道有没有大佬将这个模板迁移至Electron的例子"
+                                title="🧐 [问题]不知道有没有大佬将这个模板迁移至Electron的例子"
                               >
                                 ...
                               </span>
@@ -26550,9 +26511,9 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               class="ant-space-item"
                             >
                               <span
-                                class="ant-tag ant-tag-warning"
+                                class="ant-tag ant-tag-success"
                               >
-                                🧐question
+                                question
                               </span>
                             </div>
                           </div>
@@ -26711,9 +26672,9 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               class="ant-space-item"
                             >
                               <span
-                                class="ant-tag ant-tag-warning"
+                                class="ant-tag ant-tag-error"
                               >
-                                🐛bug
+                                bug
                               </span>
                             </div>
                           </div>
@@ -26808,10 +26769,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🧐[问题]在重新npm inst
+                              🧐 [问题]在重新npm ins
                               <span
                                 aria-hidden="true"
-                                title="🧐[问题]在重新npm install后运行npm start报出一些less找不到，但项目可以正常运行起来"
+                                title="🧐 [问题]在重新npm install后运行npm start报出一些less找不到，但项目可以正常运行起来"
                               >
                                 ...
                               </span>
@@ -26874,7 +26835,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               <span
                                 class="ant-tag ant-tag-success"
                               >
-                                🧐question
+                                question
                               </span>
                             </div>
                           </div>
@@ -26969,10 +26930,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🐛[BUG]错误通知：http 
+                              🐛 [BUG]错误通知：http
                               <span
                                 aria-hidden="true"
-                                title="🐛[BUG]错误通知：http code 200"
+                                title="🐛 [BUG]错误通知：http code 200"
                               >
                                 ...
                               </span>
@@ -27033,9 +26994,9 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               class="ant-space-item"
                             >
                               <span
-                                class="ant-tag ant-tag-warning"
+                                class="ant-tag ant-tag-error"
                               >
-                                🐛bug
+                                bug
                               </span>
                             </div>
                           </div>
@@ -27130,10 +27091,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🐛[BUG]线上预览项目好多布局
+                              🐛 [BUG]线上预览项目好多布
                               <span
                                 aria-hidden="true"
-                                title="🐛[BUG]线上预览项目好多布局错乱，不知道是antd的锅还是啥原因"
+                                title="🐛 [BUG]线上预览项目好多布局错乱，不知道是antd的锅还是啥原因"
                               >
                                 ...
                               </span>
@@ -27175,12 +27136,12 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                             class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                           >
                             <span
-                              class="ant-badge-status-dot ant-badge-status-processing"
+                              class="ant-badge-status-dot ant-badge-status-error"
                             />
                             <span
                               class="ant-badge-status-text"
                             >
-                              解决中
+                              未解决
                             </span>
                           </span>
                         </td>
@@ -27194,9 +27155,9 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               class="ant-space-item"
                             >
                               <span
-                                class="ant-tag ant-tag-error"
+                                class="ant-tag ant-tag-processing"
                               >
-                                ☺️In Progress
+                                In Progress
                               </span>
                             </div>
                           </div>
@@ -27291,10 +27252,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🐛[BUG] umi 偶尔出现没
+                              🐛 [BUG] umi 偶尔出现
                               <span
                                 aria-hidden="true"
-                                title="🐛[BUG] umi 偶尔出现没有导出成员"
+                                title="🐛 [BUG] umi 偶尔出现没有导出成员"
                               >
                                 ...
                               </span>
@@ -27355,9 +27316,9 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               class="ant-space-item"
                             >
                               <span
-                                class="ant-tag ant-tag-warning"
+                                class="ant-tag ant-tag-error"
                               >
-                                🐛bug
+                                bug
                               </span>
                             </div>
                           </div>
@@ -27452,10 +27413,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               style="max-width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🐛[BUG]请问大佬，为什么无论
+                              🐛 [BUG]请问大佬，为什么无
                               <span
                                 aria-hidden="true"
-                                title="🐛[BUG]请问大佬，为什么无论怎么选择，都无法切换成JS语言，怎么下都是TS,求解答"
+                                title="🐛 [BUG]请问大佬，为什么无论怎么选择，都无法切换成JS语言，怎么下都是TS,求解答"
                               >
                                 ...
                               </span>
@@ -27516,9 +27477,9 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               class="ant-space-item"
                             >
                               <span
-                                class="ant-tag ant-tag-warning"
+                                class="ant-tag ant-tag-error"
                               >
-                                🐛bug
+                                bug
                               </span>
                             </div>
                           </div>
@@ -27603,7 +27564,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
               <li
                 class="ant-pagination-total-text"
               >
-                第 1-20 条/总共 30 条
+                第 1-20 条/总共 20 条
               </li>
               <li
                 aria-disabled="true"
@@ -27650,24 +27611,13 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                 </a>
               </li>
               <li
-                class="ant-pagination-item ant-pagination-item-2"
-                tabindex="0"
-                title="2"
-              >
-                <a
-                  rel="nofollow"
-                >
-                  2
-                </a>
-              </li>
-              <li
-                aria-disabled="false"
-                class="ant-pagination-next"
-                tabindex="0"
+                aria-disabled="true"
+                class="ant-pagination-next ant-pagination-disabled"
                 title="Next Page"
               >
                 <button
                   class="ant-pagination-item-link"
+                  disabled=""
                   tabindex="-1"
                   type="button"
                 >
