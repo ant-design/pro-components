@@ -20,6 +20,10 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 
 ## 代码示例
 
+### 登录
+
+<code src="./demos/login.tsx" />
+
 ### 基本使用
 
 <code src="./demos/base.tsx" />

@@ -15,7 +15,8 @@ import ProFormUploadButton from './components/UploadButton';
 import ProFormField from './components/Field';
 import ProFormSelect from './components/Select';
 import ProFormDigit from './components/Digit';
-import ProFromFieldSet from './components/FieldSet';
+import ProFromFieldSet, { ProFromFieldSetProps } from './components/FieldSet';
+import ProFormCaptcha, { ProFormCaptchaProps } from './components/Captcha';
 
 import ProForm, { ProFormProps } from './layouts/ProForm';
 import QueryFilter, { BaseQueryFilterProps, QueryFilterProps } from './layouts/QueryFilter';
@@ -25,6 +26,7 @@ import ModalForm, { ModalFormProps } from './layouts/ModalForm';
 import DrawerForm, { DrawerFormProps } from './layouts/DrawerForm';
 
 export type {
+  ProFormCaptchaProps,
   BaseQueryFilterProps,
   DrawerFormProps,
   ModalFormProps,
@@ -32,6 +34,7 @@ export type {
   StepFormProps,
   StepsFormProps,
   QueryFilterProps,
+  ProFromFieldSetProps,
 };
 export {
   // controls
@@ -52,6 +55,7 @@ export {
   ProFormUploadDragger,
   ProFormSlider,
   ProFromFieldSet,
+  ProFormCaptcha,
   ProFormDateTimeRangePicker,
   // layouts
   QueryFilter,

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'antd';
-import ProForm, { ProFormText, ProFormDatePicker } from '@ant-design/pro-form';
+import ProForm, { ProFormText, ProFormCaptcha, ProFormDatePicker } from '@ant-design/pro-form';
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
 import { waitTime, waitForComponentToPaint } from '../util';
@@ -154,12 +154,70 @@ describe('ProForm', () => {
         <ProFormText label="name" name="name" />
       </ProForm>,
     );
-    await waitTime();
 
-    wrapper.find('button#submit').simulate('click');
+    await waitTime();
+    act(() => {
+      wrapper.find('button#submit').simulate('click');
+    });
+
     await waitTime(100);
 
     expect(onFinish).toBeCalled();
+  });
+
+  it('📦 ProFormCaptcha support onGetCaptcha', async () => {
+    const wrapper = mount(
+      <ProForm>
+        <ProFormCaptcha
+          onGetCaptcha={async () => {
+            await waitTime(10);
+          }}
+          captchaProps={{
+            id: 'test',
+          }}
+          countDown={2}
+          label="name"
+          name="name"
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+    expect(wrapper.find('Button#test').text()).toBe('获取验证码');
+    act(() => {
+      wrapper.find('Button#test').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper, 100);
+    expect(wrapper.find('button#test').text()).toBe('2 秒后重新获取');
+    await waitForComponentToPaint(wrapper, 1200);
+    expect(wrapper.find('button#test').text()).toBe('1 秒后重新获取');
+
+    await waitForComponentToPaint(wrapper, 2000);
+    expect(wrapper.find('Button#test').text()).toBe('获取验证码');
+  });
+
+  it('📦 ProFormCaptcha support captchaTextRender', async () => {
+    const wrapper = mount(
+      <ProForm>
+        <ProFormCaptcha
+          onGetCaptcha={async () => {
+            await waitTime(10);
+          }}
+          captchaTextRender={(timing) => (timing ? '重新获取' : '获取')}
+          captchaProps={{
+            id: 'test',
+          }}
+          label="name"
+          name="name"
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+    expect(wrapper.find('Button#test').text()).toBe('获 取');
+    act(() => {
+      wrapper.find('Button#test').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper, 100);
+    expect(wrapper.find('button#test').text()).toBe('重新获取');
   });
 
   it('📦 DatePicker', async () => {

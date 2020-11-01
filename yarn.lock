@@ -7593,7 +7593,7 @@ crequire@1.8.1:
   resolved "https://registry.npm.taobao.org/crequire/download/crequire-1.8.1.tgz#ac81f204786b5f201194eb1698cf441b10a4b57d"
   integrity sha1-rIHyBHhrXyARlOsWmM9EGxCktX0=
 
-cross-env@^7.0.0:
+cross-env@^7.0.2:
   version "7.0.2"
   resolved "https://registry.npm.taobao.org/cross-env/download/cross-env-7.0.2.tgz#bd5ed31339a93a3418ac4f3ca9ca3403082ae5f9"
   integrity sha1-vV7TEzmpOjQYrE88qco0Awgq5fk=

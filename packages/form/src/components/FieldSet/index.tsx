@@ -5,7 +5,7 @@ import { SpaceProps } from 'antd/lib/space';
 import toArray from 'rc-util/lib/Children/toArray';
 import { createField } from '../../BaseForm';
 
-type FieldSetProps<T = any> = {
+export type ProFromFieldSetProps<T = any> = {
   value?: T[];
   onChange?: (value: T[]) => void;
   space?: SpaceProps;
@@ -20,7 +20,7 @@ export function defaultGetValueFromEvent(valuePropName: string, ...args: any) {
   return event;
 }
 
-const FieldSet: React.FC<FieldSetProps> = ({
+const FieldSet: React.FC<ProFromFieldSetProps> = ({
   children,
   value = [],
   valuePropName,
