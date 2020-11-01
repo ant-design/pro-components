@@ -14,6 +14,7 @@ import {
   useDeepCompareEffect,
 } from '@ant-design/pro-utils';
 import useSWR from 'swr';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { useIntl } from '@ant-design/pro-provider';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
 import { SelectProps } from 'antd/lib/select';
@@ -189,21 +190,26 @@ export const useFieldFetchData = (
     }));
   }, []);
 
-  const [options, setOptions] = useState<SelectProps<any>['options']>(() => {
-    if (props.valueEnum) {
-      return getOptionsFormValueEnum(props.valueEnum);
-    }
-    if (props.fieldProps?.options) {
-      return props.fieldProps?.options || [];
-    }
-    return [];
-  });
+  const [options, setOptions] = useMergedState<SelectProps<any>['options']>(
+    () => {
+      if (props.valueEnum) {
+        return getOptionsFormValueEnum(props.valueEnum);
+      }
+      if (props.fieldProps?.options) {
+        return props.fieldProps?.options || [];
+      }
+      return [];
+    },
+    {
+      value: props.fieldProps?.options,
+    },
+  );
 
   useDeepCompareEffect(() => {
     // 优先使用 fieldProps?.options
     if (!props.valueEnum || props.fieldProps?.options) return;
     setOptions(getOptionsFormValueEnum(props.valueEnum));
-  }, [props.valueEnum, props.fieldProps?.options]);
+  }, [props.valueEnum]);
 
   const [loading, setLoading] = useState(false);
 
