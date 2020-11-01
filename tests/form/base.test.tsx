@@ -175,6 +175,7 @@ describe('ProForm', () => {
           captchaProps={{
             id: 'test',
           }}
+          countDown={2}
           label="name"
           name="name"
         />
@@ -186,7 +187,12 @@ describe('ProForm', () => {
       wrapper.find('Button#test').simulate('click');
     });
     await waitForComponentToPaint(wrapper, 100);
-    expect(wrapper.find('button#test').text()).toBe('60 秒后重新获取');
+    expect(wrapper.find('button#test').text()).toBe('2 秒后重新获取');
+    await waitForComponentToPaint(wrapper, 1200);
+    expect(wrapper.find('button#test').text()).toBe('1 秒后重新获取');
+
+    await waitForComponentToPaint(wrapper, 2000);
+    expect(wrapper.find('Button#test').text()).toBe('获取验证码');
   });
 
   it('📦 ProFormCaptcha support captchaTextRender', async () => {
