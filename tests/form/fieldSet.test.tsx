@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import ProForm, { ProFromFieldSet, ProFormText } from '@ant-design/pro-form';
+import ProForm, { ProFromFieldSet, ProFormText, ProFormRate } from '@ant-design/pro-form';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
@@ -20,12 +20,7 @@ describe('ProFromFieldSet', () => {
             }}
             key="filedSet1"
           />
-          <ProFormText
-            fieldProps={{
-              id: 'filedSet2',
-            }}
-            key="filedSet2"
-          />
+          <ProFormRate key="filedSet2" />
         </ProFromFieldSet>
       </ProForm>,
     );
@@ -40,20 +35,16 @@ describe('ProFromFieldSet', () => {
     expect(valueFn).toBeCalledWith(['111']);
 
     act(() => {
-      html.find('input#filedSet2').simulate('change', {
-        target: {
-          value: '222',
-        },
-      });
+      html.find('li > div').at(1).simulate('click');
     });
-    expect(valueFn).toBeCalledWith(['111', '222']);
+    expect(valueFn).toBeCalledWith(['111', 2]);
 
     act(() => {
       html.find('button.ant-btn.ant-btn-primary').simulate('click');
     });
     await waitForComponentToPaint(html, 200);
 
-    expect(fn).toBeCalledWith(['111', '222']);
+    expect(fn).toBeCalledWith(['111', 2]);
   });
 
   it('ProFromFieldSet transform', async () => {
