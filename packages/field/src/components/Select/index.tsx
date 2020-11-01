@@ -195,9 +195,6 @@ export const useFieldFetchData = (
       if (props.valueEnum) {
         return getOptionsFormValueEnum(props.valueEnum);
       }
-      if (props.fieldProps?.options) {
-        return props.fieldProps?.options || [];
-      }
       return [];
     },
     {
