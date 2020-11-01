@@ -38,6 +38,7 @@ import {
   isNil,
   omitUndefined,
 } from '@ant-design/pro-utils';
+import { CardProps } from 'antd/lib/card';
 
 import { ListToolBarProps } from './component/ListToolBar';
 
@@ -143,7 +144,7 @@ export interface ProTableProps<T, U extends ParamsType>
   extends Omit<TableProps<T>, 'columns' | 'rowSelection'> {
   columns?: ProColumns<T>[];
   /**
-   * ListToolBar 属性
+   * @name  ListToolBar 的属性
    */
   toolbar?: ListToolBarProps;
   params?: U;
@@ -155,6 +156,11 @@ export interface ProTableProps<T, U extends ParamsType>
   onColumnsStateChange?: (map: { [key: string]: ColumnsState }) => void;
 
   onSizeChange?: (size: DensitySize) => void;
+
+  /**
+   * @name table 外面卡片的设置
+   */
+  cardProps?: CardProps;
 
   /**
    * 渲染 table
@@ -497,6 +503,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     onLoad,
     onRequestError,
     style,
+    cardProps,
     tableStyle,
     tableClassName,
     columnsStateMap,
@@ -890,6 +897,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
               padding: 0,
             }
       }
+      {...cardProps}
     >
       {toolbarDom}
       {alertDom}

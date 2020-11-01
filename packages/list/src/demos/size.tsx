@@ -108,7 +108,11 @@ export default () => {
             },
           },
         }}
-        expandable={{ expandedRowKeys, onExpandedRowsChange: setExpandedRowKeys }}
+        expandable={{
+          expandedRowKeys,
+          defaultExpandAllRows: false,
+          onExpandedRowsChange: setExpandedRowKeys,
+        }}
         rowKey="title"
         headerTitle="大小和分割线"
         rowSelection={rowSelection}
