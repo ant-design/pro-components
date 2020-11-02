@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.9.13...@ant-design/pro-table@2.9.14) (2020-11-02)
+
+### Bug Fixes
+
+- **table:** table 工具栏：options 为 false 时，不显示父级节点 ([#866](https://github.com/ant-design/pro-components/issues/866)) ([11d310c](https://github.com/ant-design/pro-components/commit/11d310c4b3697bb4a1029ef69018c11bd4c77447))
+
 ## [2.9.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.9.12...@ant-design/pro-table@2.9.13) (2020-10-29)
 
 ### Bug Fixes

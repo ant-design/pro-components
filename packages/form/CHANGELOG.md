@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.1.6...@ant-design/pro-form@1.2.0) (2020-11-02)
+
+### Bug Fixes
+
+- **form:** Radio and Checkbox should support children ([#857](https://github.com/ant-design/pro-components/issues/857)) ([297757d](https://github.com/ant-design/pro-components/commit/297757dc1be40e94bbdb16c0f271414c27699e61))
+
+### Features
+
+- **form:** localize stepsform texts ([#868](https://github.com/ant-design/pro-components/issues/868)) ([4d0f86f](https://github.com/ant-design/pro-components/commit/4d0f86f2d4812265893ba1d4e8e8994787609de2))
+
 ## [1.1.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.1.5...@ant-design/pro-form@1.1.6) (2020-10-29)
 
 ### Bug Fixes
