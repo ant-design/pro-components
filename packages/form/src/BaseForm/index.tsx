@@ -310,6 +310,11 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
       >
         <SizeContext.Provider value={rest.size}>
           <Form
+            onKeyPress={(event) => {
+              if (event.key === 'Enter') {
+                formRef.current?.submit();
+              }
+            }}
             form={userForm || form}
             {...rest}
             onFinish={async (values) => {
