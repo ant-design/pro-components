@@ -216,8 +216,8 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
               ))}
             </Tabs>
           ) : (
-              filtersNode
-            )}
+            filtersNode
+          )}
         </div>
       )}
     </div>
