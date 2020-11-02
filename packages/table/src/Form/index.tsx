@@ -253,7 +253,8 @@ export const proFormItemRender: (props: {
   return dom;
 };
 
-const FormSearch = <T, U = any>({
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const FormSearch = <T, _U = any>({
   onSubmit,
   formRef,
   dateFormatter = 'string',

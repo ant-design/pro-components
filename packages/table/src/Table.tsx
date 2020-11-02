@@ -334,7 +334,8 @@ interface ColumnRenderInterface<T> {
  * 这个组件负责单元格的具体渲染
  * @param param0
  */
-const columnRender = <T, U = any>({
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const columnRender = <T, _U = any>({
   item,
   text,
   row,
@@ -422,7 +423,8 @@ const defaultOnFilter = (value: string, record: any, dataIndex: string | string[
  * @param map
  * @param columnEmptyText
  */
-const genColumnList = <T, U = {}>(
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const genColumnList = <T, _U = {}>(
   columns: ProColumns<T>[],
   map: {
     [key: string]: ColumnsState;

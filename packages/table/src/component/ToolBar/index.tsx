@@ -46,7 +46,8 @@ export interface ToolBarProps<T = unknown> {
   onSearch?: (keyWords: string) => void;
 }
 
-const getButtonText = <T, U = {}>({
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const getButtonText = <T, _U = {}>({
   intl,
 }: OptionConfig<T> & {
   intl: IntlType;
@@ -74,7 +75,8 @@ const getButtonText = <T, U = {}>({
  * @param options
  * @param className
  */
-const renderDefaultOption = <T, U = {}>(
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const renderDefaultOption = <T, _U = {}>(
   options: ToolBarProps<T>['options'],
   defaultOptions: OptionConfig<T> & {
     intl: IntlType;
@@ -121,7 +123,8 @@ const renderDefaultOption = <T, U = {}>(
     })
     .filter((item) => item);
 
-const ToolBar = <T, U = {}>({
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const ToolBar = <T, _U = {}>({
   headerTitle,
   tooltip,
   toolBarRender,

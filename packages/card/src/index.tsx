@@ -4,7 +4,7 @@ import { RightOutlined } from '@ant-design/icons';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { LabelIconTip } from '@ant-design/pro-utils';
 import classNames from 'classnames';
-import { TabPaneProps, TabsProps } from 'antd/lib/tabs';
+import { TabsProps } from 'antd/lib/tabs';
 import CardLoading from './cardLoading';
 import TabPane from './tabPane';
 import './style/index.less';
@@ -21,13 +21,6 @@ type ProCardChildType = React.ReactElement<ProCardProps, ProCardType>;
 type ColSpanType = number | string;
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type Gutter = number | Partial<Record<Breakpoint, number>>;
-
-/**
- * antd 默认直接导出了 rc 组件中的 Tab.Pane 组件。
- */
-type TabPane = TabPaneProps & {
-  key?: string;
-};
 
 export interface ProCardTabsProps extends TabsProps {}
 

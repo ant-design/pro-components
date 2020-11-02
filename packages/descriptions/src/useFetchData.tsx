@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react';
 
-export interface RequestData<T> {
+export interface RequestData {
   data: any;
   success?: boolean;
   [key: string]: any;
 }
-export interface UseFetchDataAction<T extends RequestData<any>> {
+export interface UseFetchDataAction<T extends RequestData> {
   dataSource: T['data'] | T;
   loading: boolean | undefined;
   reload: () => Promise<void>;
 }
 
-const useFetchData = <T extends RequestData<any>>(
+const useFetchData = <T extends RequestData>(
   getData: () => Promise<T>,
   options?: {
     effects?: any[];

@@ -84,9 +84,7 @@ export interface ExtendsProps {
   transform?: SearchTransformKeyFn;
 }
 
-type ProFormComponent<P, ExtendsProps> = React.ComponentType<
-  Omit<P & ExtendsProps, 'proFieldProps'>
->;
+type ProFormComponent<P, Extends> = React.ComponentType<Omit<P & Extends, 'proFieldProps'>>;
 
 export type ProFormItemCreateConfig = {
   /**

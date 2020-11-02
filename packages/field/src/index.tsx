@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { Avatar } from 'antd';
 import { Moment } from 'moment';
 import { pickProProps, omitUndefined } from '@ant-design/pro-utils';

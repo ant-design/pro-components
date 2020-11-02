@@ -1,4 +1,4 @@
-import moment, { Moment } from 'moment';
+import moment from 'moment';
 import isNil from '../isNil';
 
 type DateValue = moment.Moment | moment.Moment[] | string | string[] | number | number[];
