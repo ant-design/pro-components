@@ -6,13 +6,13 @@ import { mount } from 'enzyme';
 import { waitTime, waitForComponentToPaint } from '../util';
 
 describe('ProForm', () => {
-  it('📦 submit props actionsRender=false', async () => {
+  it('📦  submit props actionsRender=false', async () => {
     const wrapper = mount(<ProForm submitter={false} />);
     await waitTime();
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('📦 onFinish should simulate button loading', async () => {
+  it('📦  onFinish should simulate button loading', async () => {
     const fn = jest.fn();
     const wrapper = mount(
       <ProForm
@@ -32,7 +32,7 @@ describe('ProForm', () => {
     expect(fn).toBeCalled();
   });
 
-  it('📦 submit props actionsRender=()=>false', async () => {
+  it('📦  submit props actionsRender=()=>false', async () => {
     const wrapper = mount(
       <ProForm
         submitter={{
@@ -40,11 +40,32 @@ describe('ProForm', () => {
         }}
       />,
     );
-    await waitTime();
+    await waitForComponentToPaint(wrapper);
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('📦 submit props actionsRender=false', async () => {
+  it('📦  ProForm support enter submit', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <ProForm
+        onFinish={async () => {
+          fn();
+        }}
+      >
+        <ProFormText name="test" />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+    act(() => {
+      wrapper.find('button.ant-btn-primary').simulate('keypress', {
+        key: 'Enter',
+      });
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(fn).toBeCalled();
+  });
+
+  it('📦  submit props actionsRender=false', async () => {
     const wrapper = mount(
       <ProForm
         submitter={{
@@ -56,7 +77,7 @@ describe('ProForm', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('📦 submit props actionsRender=()=>[]', async () => {
+  it('📦  submit props actionsRender=()=>[]', async () => {
     const wrapper = mount(
       <ProForm
         submitter={{
@@ -68,7 +89,7 @@ describe('ProForm', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('📦 submit props render=()=>[]', async () => {
+  it('📦  submit props render=()=>[]', async () => {
     const wrapper = mount(
       <ProForm
         submitter={{
@@ -84,7 +105,7 @@ describe('ProForm', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('📦 submitter props support submitButtonProps', async () => {
+  it('📦  submitter props support submitButtonProps', async () => {
     const fn = jest.fn();
     const wrapper = mount(
       <ProForm
@@ -108,7 +129,7 @@ describe('ProForm', () => {
     expect(fn).toBeCalled();
   });
 
-  it('📦 submitter props support resetButtonProps', async () => {
+  it('📦  submitter props support resetButtonProps', async () => {
     const fn = jest.fn();
     const wrapper = mount(
       <ProForm
@@ -131,7 +152,7 @@ describe('ProForm', () => {
     expect(fn).toBeCalled();
   });
 
-  it('📦 submitter.render simulate onFinish', async () => {
+  it('📦  submitter.render simulate onFinish', async () => {
     const onFinish = jest.fn();
     const wrapper = mount(
       <ProForm
@@ -165,7 +186,7 @@ describe('ProForm', () => {
     expect(onFinish).toBeCalled();
   });
 
-  it('📦 ProFormCaptcha support onGetCaptcha', async () => {
+  it('📦  ProFormCaptcha support onGetCaptcha', async () => {
     const wrapper = mount(
       <ProForm>
         <ProFormCaptcha
@@ -195,7 +216,7 @@ describe('ProForm', () => {
     expect(wrapper.find('Button#test').text()).toBe('获取验证码');
   });
 
-  it('📦 ProFormCaptcha support captchaTextRender', async () => {
+  it('📦  ProFormCaptcha support captchaTextRender', async () => {
     const wrapper = mount(
       <ProForm>
         <ProFormCaptcha
@@ -220,7 +241,7 @@ describe('ProForm', () => {
     expect(wrapper.find('button#test').text()).toBe('重新获取');
   });
 
-  it('📦 DatePicker', async () => {
+  it('📦  DatePicker', async () => {
     const onFinish = jest.fn();
     const wrapper = mount(
       <ProForm
