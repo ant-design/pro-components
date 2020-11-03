@@ -19,7 +19,11 @@ type Store = {
 };
 
 interface StepsFormProps<T = Store> extends FormProviderProps {
-  onFinish?: (values: T) => Promise<void>;
+  /**
+   * @name 提交方法
+   * @description 返回 true 会重置步数，并且清空表单
+   */
+  onFinish?: (values: T) => Promise<boolean | void>;
   current?: number;
   stepsProps?: StepsProps;
   formProps?: ProFormProps;
@@ -134,7 +138,7 @@ const StepsForm: React.FC<StepsFormProps> & {
     async (name: string, formData: any) => {
       formDataRef.current.set(name, formData);
       // 如果是最后一步
-      if (step === formArray.length - 1) {
+      if (step === formArray.length - 1 || formArray.length === 0) {
         if (!props.onFinish) {
           return;
         }
@@ -145,7 +149,11 @@ const StepsForm: React.FC<StepsFormProps> & {
             ...cur,
           };
         }, {});
-        await props.onFinish(values);
+        const success = await props.onFinish(values);
+        if (success) {
+          setStep(0);
+          formArrayRef.current.forEach((form) => form.current?.resetFields());
+        }
         setLoading(false);
       }
     },
