@@ -213,7 +213,7 @@ const StepsForm: React.FC<StepsFormProps> & {
         onSubmit();
       }}
     >
-      {intl.getMessage('stepsForm.finish', '提交')}
+      {intl.getMessage('stepsForm.submit', '提交')}
     </Button>
   );
 
