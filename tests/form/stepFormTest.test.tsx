@@ -3,7 +3,7 @@ import React from 'react';
 import { Button } from 'antd';
 import { act } from 'react-dom/test-utils';
 import { StepsForm, StepsFormProps, ProFormText } from '@ant-design/pro-form';
-import { waitForComponentToPaint } from '../util';
+import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('StepsForm', () => {
   it('🐲 basic use', () => {
@@ -124,20 +124,21 @@ describe('StepsForm', () => {
     html.unmount();
   });
 
-  it('🐲 onFinish is null', async () => {
+  it('🐲 onFinish return true', async () => {
     const fn = jest.fn();
     const currentFn = jest.fn();
-
     const html = mount<StepsFormProps>(
-      <StepsForm onCurrentChange={currentFn}>
-        <StepsForm.StepForm
-          name="base"
-          title="表单1"
-          onFinish={async (values) => {
-            fn(values);
-            return true;
-          }}
-        >
+      <StepsForm
+        current={1}
+        onCurrentChange={(c) => {
+          currentFn(c);
+        }}
+        onFinish={async (values) => {
+          fn(values);
+          return true;
+        }}
+      >
+        <StepsForm.StepForm name="base" title="表单1">
           <ProFormText name="姓名" />
         </StepsForm.StepForm>
         <StepsForm.StepForm name="moreInfo" title="表单2">
@@ -145,22 +146,20 @@ describe('StepsForm', () => {
         </StepsForm.StepForm>
       </StepsForm>,
     );
-    await waitForComponentToPaint(html);
 
+    await waitForComponentToPaint(html);
     act(() => {
       html.find('button.ant-btn.ant-btn-primary').simulate('click');
     });
 
-    await waitForComponentToPaint(html);
+    await waitTime(16);
+
+    act(() => {
+      html.find('button.ant-btn.ant-btn-primary').simulate('click');
+    });
 
     expect(fn).toBeCalled();
-    expect(currentFn).toBeCalled();
-
-    act(() => {
-      html.find('button.ant-btn.ant-btn-primary').simulate('click');
-    });
-    await waitForComponentToPaint(html);
-    html.unmount();
+    expect(currentFn).toBeCalledWith(0);
   });
 
   it('🐲 submitter render=false', () => {
