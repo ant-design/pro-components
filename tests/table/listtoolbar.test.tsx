@@ -131,6 +131,11 @@ describe('Table valueEnum', () => {
               label: '已办事项',
               key: 'done',
             },
+            {
+              label: '禁用',
+              key: 'disable',
+              disabled: true,
+            },
           ],
           onChange,
         }}
