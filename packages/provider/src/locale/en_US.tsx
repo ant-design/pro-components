@@ -51,5 +51,6 @@ export default {
   stepsForm: {
     next: 'Next',
     prev: 'Previous',
+    finish: 'Finish',
   },
 };
