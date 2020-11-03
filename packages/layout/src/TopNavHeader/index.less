@@ -10,18 +10,8 @@
   box-shadow: 0 1px 4px 0 rgba(0, 21, 41, 0.12);
   transition: background 0.3s, width 0.2s;
 
-  :global {
-    .ant-menu.ant-menu-dark .ant-menu-item-selected,
-    .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
-      background: #252a3d;
-    }
-  }
-
-  .@{ant-prefix}-menu-submenu.@{ant-prefix}-menu-submenu-horizontal {
-    height: 100%;
-    .@{ant-prefix}-menu-submenu-title {
-      height: 100%;
-    }
+  .@{ant-prefix}-menu {
+    background: transparent;
   }
 
   &.light {
@@ -55,12 +45,13 @@
     min-width: 165px;
     height: 100%;
     overflow: hidden;
-    transition: all 0.3s;
+
     img {
       display: inline-block;
       height: 32px;
       vertical-align: middle;
     }
+
     h1 {
       display: inline-block;
       margin: 0 0 0 12px;
@@ -70,6 +61,7 @@
       vertical-align: top;
     }
   }
+
   &-menu {
     min-width: 0;
     .@{ant-prefix}-menu.@{ant-prefix}-menu-horizontal {

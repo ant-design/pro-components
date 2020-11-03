@@ -107,7 +107,7 @@ class MenuUtil {
       const defaultTitle = item.icon ? (
         <span className={`${prefixCls}-menu-item`}>
           {!isChildren && getIcon(item.icon)}
-          <span>{name}</span>
+          <span className={`${prefixCls}-menu-item-title`}>{name}</span>
         </span>
       ) : (
         <span className={`${prefixCls}-menu-item`}>{name}</span>
@@ -126,7 +126,7 @@ class MenuUtil {
     }
 
     return (
-      <Menu.Item disabled={item.disabled} key={item.key || item.path}>
+      <Menu.Item inlineIndent={24} disabled={item.disabled} key={item.key || item.path}>
         {this.getMenuItemPath(item, isChildren)}
       </Menu.Item>
     );
@@ -173,9 +173,9 @@ class MenuUtil {
     // Is it a http link
     if (isHttpUrl) {
       defaultItem = (
-        <a href={itemPath} target={target}>
+        <a href={itemPath} target={target} className={`${prefixCls}-menu-item`}>
           {icon}
-          <span>{name}</span>
+          <span className={`${prefixCls}-menu-item-title`}>{name}</span>
         </a>
       );
     }
