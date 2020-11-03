@@ -66,7 +66,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
   } = props;
   const baseClassName = `${prefixCls}-global-header`;
   const className = classNames(propClassName, baseClassName, {
-    [`${baseClassName}-layout-${layout}`]: layout,
+    [`${baseClassName}-layout-${layout}`]: layout && headerTheme === 'dark',
   });
 
   if (layout === 'mix' && !isMobile && splitMenus) {
