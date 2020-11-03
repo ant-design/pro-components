@@ -124,6 +124,45 @@ describe('StepsForm', () => {
     html.unmount();
   });
 
+  it('🐲 submit when onFinish is null', async () => {
+    const fn = jest.fn();
+    const currentFn = jest.fn();
+
+    const html = mount<StepsFormProps>(
+      <StepsForm onCurrentChange={currentFn}>
+        <StepsForm.StepForm
+          name="base"
+          title="表单1"
+          onFinish={async (values) => {
+            fn(values);
+            return true;
+          }}
+        >
+          <ProFormText name="姓名" />
+        </StepsForm.StepForm>
+        <StepsForm.StepForm name="moreInfo" title="表单2">
+          <ProFormText name="邮箱" />
+        </StepsForm.StepForm>
+      </StepsForm>,
+    );
+    await waitForComponentToPaint(html);
+
+    act(() => {
+      html.find('button.ant-btn.ant-btn-primary').simulate('click');
+    });
+
+    await waitForComponentToPaint(html);
+
+    expect(fn).toBeCalled();
+    expect(currentFn).toBeCalled();
+
+    act(() => {
+      html.find('button.ant-btn.ant-btn-primary').simulate('click');
+    });
+    await waitForComponentToPaint(html);
+    html.unmount();
+  });
+
   it('🐲 onFinish return true', async () => {
     const fn = jest.fn();
     const currentFn = jest.fn();
