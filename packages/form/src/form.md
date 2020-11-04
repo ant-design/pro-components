@@ -176,6 +176,34 @@ StepsForm 本质上是一个 Provider ，增加步骤条和一些相关的 API�
 
 | onFinish | 表单提交成功触发 | `(values:T)=>Promise<false>` | - |
 
+### ModalForm
+
+ModalForm 组合了 Modal 和 ProForm 可以减少繁琐的状态管理。
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| trigger | 用于触发 Modal 打开的 dom，一般是 button | `ReactNode` | - |
+| visible | 是否打开 | `boolean` | - |
+| onVisibleChange | visible 改变时触发 | `(visible:boolean)=>void` | - |
+| modalProps | Modal 的 props，使用方式与 [antd](https://ant.design/components/modal-cn/) 相同，但是去掉了 current 和 onChange | [props](https://ant.design/components/modal-cn/#API) | - |
+| title | 弹框的标题 | `ReactNode` | - |
+| width | 弹框的宽度 | `Number` | - |
+| onFinish | 提交数据时触发，如果返回一个 true，会关掉弹框 | `async (values)=>boolean | void` | - |
+
+### DrawerForm
+
+DrawerForm 组合了 Drawer 和 ProForm 可以减少繁琐的状态管理。
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| trigger | 用于触发 Modal 打开的 dom，一般是 button | `ReactNode` | - |
+| visible | 是否打开 | `boolean` | - |
+| onVisibleChange | visible 改变时触发 | `(visible:boolean)=>void` | - |
+| drawerProps | Modal 的 props，使用方式与 [antd](https://ant.design/components/modal-cn/) 相同，但是去掉了 current 和 onChange | [props](https://ant.design/components/modal-cn/#API) | - |
+| title | 抽屉的标题 | `ReactNode` | - |
+| width | 抽屉的宽度 | `Number` | - |
+| onFinish | 提交数据时触发，如果返回一个 true，会关掉抽屉 | `async (values)=>boolean | void` | - |
+
 ## Fields API
 
 ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 组件的结合，我们可以帮他们当成一个 FromItem 来使用，并且支持各种 props。每个 Field 都支持 fieldProps 属性来支持设置输入组件的 props。 我们支持了 placeholder 的透传，你可以直接在组件上设置 placeholder。
@@ -436,4 +464,26 @@ ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 �
   max={10}
   fieldProps={{ precision: 0 }}
 />
+```
+
+### ProFormFieldSet
+
+ProFormFieldSet 可以将内部的多个 children 的值组合并且存储在 ProForm 中，并且可以通过 `transform` 在提交时转化。下面是一个简单的用法,可以方便的组合多个输入框，并且格式化为想要的数据。
+
+```tsx | pure
+<ProFromFieldSet
+  name="list"
+  label="组件列表"
+  transform={(value: any) => ({ startTime: value[0], endTime: value[1] })}
+>
+  <ProFormText width="m" />
+  <ProFormText width="m" />
+  <ProFormText width="m" />
+</ProFromFieldSet>
+```
+
+t>
+
+```
+
 ```

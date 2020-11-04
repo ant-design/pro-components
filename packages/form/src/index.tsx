@@ -24,6 +24,7 @@ import LightFilter from './layouts/LightFilter';
 import StepsForm, { StepFormProps, StepsFormProps } from './layouts/StepsForm';
 import ModalForm, { ModalFormProps } from './layouts/ModalForm';
 import DrawerForm, { DrawerFormProps } from './layouts/DrawerForm';
+import './index.less';
 
 export type {
   ProFormCaptchaProps,

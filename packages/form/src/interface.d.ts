@@ -21,6 +21,7 @@ export interface ProFormItemProps<T = {}> extends FormItemProps {
   secondary?: boolean;
   disabled?: boolean;
   /**
+   * - auto 使用组件默认的宽度
    * - XS=104px 适用于短数字、短文本或选项。
    * - S=216px 适用于较短字段录入、如姓名、电话、ID 等。
    * - M=328px 标准宽度，适用于大部分字段长度。

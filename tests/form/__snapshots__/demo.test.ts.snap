@@ -59,8 +59,7 @@ exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
                 class="ant-form-item-control-input-content"
               >
                 <span
-                  class="ant-input-affix-wrapper"
-                  style="width: 328px;"
+                  class="ant-input-affix-wrapper pro-field-m"
                 >
                   <input
                     class="ant-input"
@@ -127,8 +126,7 @@ exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
                 class="ant-form-item-control-input-content"
               >
                 <span
-                  class="ant-input-affix-wrapper"
-                  style="width: 328px;"
+                  class="ant-input-affix-wrapper pro-field-m"
                 >
                   <input
                     class="ant-input"
@@ -202,8 +200,7 @@ exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
                 class="ant-form-item-control-input-content"
               >
                 <span
-                  class="ant-input-affix-wrapper"
-                  style="width: 328px;"
+                  class="ant-input-affix-wrapper pro-field-m"
                 >
                   <input
                     class="ant-input"
@@ -270,7 +267,7 @@ exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-picker ant-picker-range"
+                  class="ant-picker ant-picker-range pro-field-m"
                 >
                   <div
                     class="ant-picker-input ant-picker-input-active"
@@ -392,8 +389,7 @@ exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                  style="width: 104px;"
+                  class="ant-select pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                   text=""
                 >
                   <div
@@ -485,8 +481,7 @@ exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                  style="width: 104px;"
+                  class="ant-select pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                   text=""
                 >
                   <div
@@ -577,8 +572,7 @@ exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-affix-wrapper"
-            style="width: 216px;"
+            class="ant-input-affix-wrapper pro-field-s"
           >
             <input
               class="ant-input"
@@ -641,8 +635,7 @@ exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled"
-            style="width: 328px;"
+            class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled pro-field-m"
           >
             <input
               class="ant-input ant-input-disabled"
@@ -706,8 +699,7 @@ exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled"
-            style="width: 104px;"
+            class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled pro-field-xs"
           >
             <input
               class="ant-input ant-input-disabled"
@@ -811,8 +803,7 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper"
-              style="width: 328px;"
+              class="ant-input-affix-wrapper pro-field-m"
             >
               <input
                 class="ant-input"
@@ -876,7 +867,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
           >
             <div
               class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-              style="width: 328px;"
               text=""
             >
               <div
@@ -964,8 +954,7 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-              style="width: 328px;"
+              class="ant-select pro-field-m ant-select-single ant-select-allow-clear ant-select-show-arrow"
               text=""
             >
               <div
@@ -1054,7 +1043,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
           >
             <div
               class="ant-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
-              style="width: 328px;"
               text=""
             >
               <div
@@ -1123,7 +1111,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
           >
             <div
               class="ant-input-number"
-              style="width: 328px;"
             >
               <div
                 class="ant-input-number-handler-wrap"
@@ -1272,7 +1259,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
           >
             <div
               class="ant-slider ant-slider-with-marks"
-              style="width: 328px;"
             >
               <div
                 class="ant-slider-rail"
@@ -1570,7 +1556,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
             <div
               class="ant-checkbox-group ant-pro-field-checkbox-horizontal"
               id="validate_other_checkbox-group"
-              style="width: 328px;"
             >
               <label
                 class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
@@ -2140,8 +2125,7 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                 style="margin-right: 8px;"
               >
                 <span
-                  class="ant-input-affix-wrapper"
-                  style="width: 328px;"
+                  class="ant-input-affix-wrapper pro-field-m"
                 >
                   <input
                     class="ant-input"
@@ -2181,8 +2165,7 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                 style="margin-right: 8px;"
               >
                 <span
-                  class="ant-input-affix-wrapper"
-                  style="width: 328px;"
+                  class="ant-input-affix-wrapper pro-field-m"
                 >
                   <input
                     class="ant-input"
@@ -2221,8 +2204,7 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                 class="ant-space-item"
               >
                 <span
-                  class="ant-input-affix-wrapper"
-                  style="width: 328px;"
+                  class="ant-input-affix-wrapper pro-field-m"
                 >
                   <input
                     class="ant-input"
@@ -2968,7 +2950,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
             <span>
               <div
                 class="ant-upload ant-upload-drag"
-                style="width: 328px;"
               >
                 <span
                   class="ant-upload ant-upload-btn"
@@ -3240,9 +3221,8 @@ exports[`form demos renders ./packages/form/src/demos/components-test.tsx correc
         >
           <button
             aria-checked="false"
-            class="ant-switch"
+            class="ant-switch pro-field-l"
             role="switch"
-            style="width: 440px;"
             type="button"
           >
             <div
@@ -3282,7 +3262,6 @@ exports[`form demos renders ./packages/form/src/demos/components-test.tsx correc
           <span>
             <div
               class="ant-upload ant-upload-drag"
-              style="width: 328px;"
             >
               <span
                 class="ant-upload ant-upload-btn"
@@ -3369,7 +3348,6 @@ exports[`form demos renders ./packages/form/src/demos/components-test.tsx correc
         >
           <div
             class="ant-slider"
-            style="width: 328px;"
           >
             <div
               class="ant-slider-rail"
@@ -3566,8 +3544,7 @@ Array [
                               class="ant-form-item-control-input-content"
                             >
                               <span
-                                class="ant-input-affix-wrapper"
-                                style="width: 328px;"
+                                class="ant-input-affix-wrapper pro-field-m"
                               >
                                 <input
                                   class="ant-input"
@@ -3634,8 +3611,7 @@ Array [
                               class="ant-form-item-control-input-content"
                             >
                               <span
-                                class="ant-input-affix-wrapper"
-                                style="width: 328px;"
+                                class="ant-input-affix-wrapper pro-field-m"
                               >
                                 <input
                                   class="ant-input"
@@ -3709,8 +3685,7 @@ Array [
                               class="ant-form-item-control-input-content"
                             >
                               <span
-                                class="ant-input-affix-wrapper"
-                                style="width: 328px;"
+                                class="ant-input-affix-wrapper pro-field-m"
                               >
                                 <input
                                   class="ant-input"
@@ -3899,8 +3874,7 @@ Array [
                               class="ant-form-item-control-input-content"
                             >
                               <div
-                                class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                                style="width: 104px;"
+                                class="ant-select pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                 text=""
                               >
                                 <div
@@ -3992,8 +3966,7 @@ Array [
                               class="ant-form-item-control-input-content"
                             >
                               <div
-                                class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                                style="width: 104px;"
+                                class="ant-select pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                 text=""
                               >
                                 <div
@@ -4084,8 +4057,7 @@ Array [
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-input-affix-wrapper"
-                          style="width: 216px;"
+                          class="ant-input-affix-wrapper pro-field-s"
                         >
                           <input
                             class="ant-input"
@@ -4149,7 +4121,6 @@ Array [
                       >
                         <span
                           class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled"
-                          style="width: 328px;"
                         >
                           <input
                             class="ant-input ant-input-disabled"
@@ -4213,8 +4184,7 @@ Array [
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled"
-                          style="width: 104px;"
+                          class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled pro-field-xs"
                         >
                           <input
                             class="ant-input ant-input-disabled"
@@ -4365,7 +4335,6 @@ exports[`form demos renders ./packages/form/src/demos/label-col.tsx correctly 1`
         >
           <span
             class="ant-input-affix-wrapper"
-            style="width: 328px;"
           >
             <input
               class="ant-input"
@@ -4429,7 +4398,6 @@ exports[`form demos renders ./packages/form/src/demos/label-col.tsx correctly 1`
         >
           <span
             class="ant-input-affix-wrapper ant-input-password"
-            style="width: 328px;"
           >
             <input
               action="click"
@@ -4856,7 +4824,6 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                       >
                                         <span
                                           class="ant-input-affix-wrapper"
-                                          style="width: 328px;"
                                         >
                                           <input
                                             class="ant-input"
@@ -4923,8 +4890,7 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper"
-                                          style="width: 328px;"
+                                          class="ant-input-affix-wrapper pro-field-m"
                                         >
                                           <input
                                             class="ant-input"
@@ -4999,7 +4965,6 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                       >
                                         <span
                                           class="ant-input-affix-wrapper"
-                                          style="width: 328px;"
                                         >
                                           <input
                                             class="ant-input"
@@ -5188,8 +5153,7 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                         class="ant-form-item-control-input-content"
                                       >
                                         <div
-                                          class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                                          style="width: 104px;"
+                                          class="ant-select pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                           text=""
                                         >
                                           <div
@@ -5281,8 +5245,7 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                         class="ant-form-item-control-input-content"
                                       >
                                         <div
-                                          class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                                          style="width: 104px;"
+                                          class="ant-select pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                           text=""
                                         >
                                           <div
@@ -5373,8 +5336,7 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                   class="ant-form-item-control-input-content"
                                 >
                                   <span
-                                    class="ant-input-affix-wrapper"
-                                    style="width: 216px;"
+                                    class="ant-input-affix-wrapper pro-field-s"
                                   >
                                     <input
                                       class="ant-input"
@@ -5438,7 +5400,6 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                 >
                                   <span
                                     class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled"
-                                    style="width: 328px;"
                                   >
                                     <input
                                       class="ant-input ant-input-disabled"
@@ -5502,8 +5463,7 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                   class="ant-form-item-control-input-content"
                                 >
                                   <span
-                                    class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled"
-                                    style="width: 104px;"
+                                    class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled pro-field-xs"
                                   >
                                     <input
                                       class="ant-input ant-input-disabled"
@@ -5575,8 +5535,7 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                         class="ant-form-item-control-input-content"
                                       >
                                         <div
-                                          class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                                          style="width: 104px;"
+                                          class="ant-select pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                           text=""
                                         >
                                           <div
@@ -5697,8 +5656,7 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                         class="ant-form-item-control-input-content"
                                       >
                                         <div
-                                          class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                                          style="width: 104px;"
+                                          class="ant-select pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                           text=""
                                         >
                                           <div
@@ -5994,8 +5952,7 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                   class="ant-form-item-control-input-content"
                                 >
                                   <div
-                                    class="ant-input-number"
-                                    style="width: 104px;"
+                                    class="ant-input-number pro-field-xs"
                                   >
                                     <div
                                       class="ant-input-number-handler-wrap"
@@ -6102,11 +6059,10 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                   class="ant-form-item-control-input-content"
                                 >
                                   <textarea
-                                    class="ant-input"
+                                    class="ant-input pro-field-xl"
                                     id="remark"
                                     placeholder="请输入"
                                     rows="3"
-                                    style="width: 552px;"
                                   />
                                 </div>
                               </div>
@@ -7553,7 +7509,6 @@ exports[`form demos renders ./packages/form/src/demos/login.tsx correctly 1`] = 
           >
             <span
               class="ant-input-affix-wrapper ant-input-affix-wrapper-lg"
-              style="width: 328px;"
             >
               <span
                 class="ant-input-prefix"
@@ -7638,7 +7593,7 @@ exports[`form demos renders ./packages/form/src/demos/login.tsx correctly 1`] = 
             class="ant-form-item-control-input-content"
           >
             <div
-              style="width: 328px; display: flex; align-items: center;"
+              style="display: flex; align-items: center;"
             >
               <span
                 class="ant-input-affix-wrapper ant-input-affix-wrapper-lg"
@@ -8006,8 +7961,7 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                     class="ant-form-item-control-input-content"
                   >
                     <span
-                      class="ant-input-affix-wrapper"
-                      style="width: 328px;"
+                      class="ant-input-affix-wrapper pro-field-m"
                     >
                       <input
                         class="ant-input"
@@ -8072,8 +8026,7 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                            style="width: 216px;"
+                            class="ant-select pro-field-s ant-select-single ant-select-allow-clear ant-select-show-arrow"
                             text=""
                           >
                             <div
@@ -8154,8 +8107,7 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                            style="width: 216px;"
+                            class="ant-select pro-field-s ant-select-single ant-select-allow-clear ant-select-show-arrow"
                             text=""
                           >
                             <div
@@ -8313,8 +8265,7 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-input-number"
-                      style="width: 104px;"
+                      class="ant-input-number pro-field-xs"
                     >
                       <div
                         class="ant-input-number-handler-wrap"
@@ -8421,8 +8372,7 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                     class="ant-form-item-control-input-content"
                   >
                     <span
-                      class="ant-input-affix-wrapper"
-                      style="width: 216px;"
+                      class="ant-input-affix-wrapper pro-field-s"
                     >
                       <input
                         class="ant-input"
@@ -8596,8 +8546,7 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
-                      style="width: 440px;"
+                      class="ant-select pro-field-l ant-select-multiple ant-select-allow-clear ant-select-show-search"
                       text=""
                     >
                       <div
@@ -8768,9 +8717,8 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-checkbox-group ant-pro-field-checkbox-horizontal"
+                  class="ant-checkbox-group pro-field-l ant-pro-field-checkbox-horizontal"
                   id="checkbox_checkbox"
-                  style="width: 440px;"
                 >
                   <label
                     class="ant-checkbox-wrapper ant-checkbox-group-item"
@@ -8886,7 +8834,6 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                     >
                       <span
                         class="ant-input-affix-wrapper"
-                        style="width: 328px;"
                       >
                         <input
                           class="ant-input"
@@ -8954,8 +8901,7 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                       class="ant-form-item-control-input-content"
                     >
                       <div
-                        class="ant-picker"
-                        style="width: 216px;"
+                        class="ant-picker pro-field-s"
                       >
                         <div
                           class="ant-picker-input"
@@ -9029,7 +8975,6 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                       <div
                         class="ant-checkbox-group ant-pro-field-checkbox-horizontal"
                         id="checkbox_checkbox"
-                        style="width: 328px;"
                       >
                         <label
                           class="ant-checkbox-wrapper ant-checkbox-group-item"
@@ -9132,7 +9077,6 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                 <div
                   class="ant-checkbox-group ant-pro-field-checkbox-horizontal"
                   id="time_checkbox"
-                  style="width: 328px;"
                 >
                   <label
                     class="ant-checkbox-wrapper ant-checkbox-group-item"
@@ -9221,7 +9165,6 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
               >
                 <div
                   class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                  style="width: 328px;"
                   text=""
                 >
                   <div
@@ -9338,7 +9281,6 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
               >
                 <div
                   class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                  style="width: 328px;"
                   text=""
                 >
                   <div
@@ -11604,8 +11546,7 @@ exports[`form demos renders ./packages/form/src/demos/steps-from.tsx correctly 1
                     class="ant-form-item-control-input-content"
                   >
                     <span
-                      class="ant-input-affix-wrapper"
-                      style="width: 328px;"
+                      class="ant-input-affix-wrapper pro-field-m"
                     >
                       <input
                         class="ant-input"
@@ -11847,11 +11788,10 @@ exports[`form demos renders ./packages/form/src/demos/steps-from.tsx correctly 1
                     class="ant-form-item-control-input-content"
                   >
                     <textarea
-                      class="ant-input"
+                      class="ant-input pro-field-l"
                       id="base_remark"
                       placeholder="请输入备注"
                       rows="3"
-                      style="width: 440px;"
                     />
                   </div>
                 </div>
@@ -11891,9 +11831,8 @@ exports[`form demos renders ./packages/form/src/demos/steps-from.tsx correctly 1
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-checkbox-group ant-pro-field-checkbox-horizontal"
+                      class="ant-checkbox-group pro-field-l ant-pro-field-checkbox-horizontal"
                       id="checkbox_checkbox"
-                      style="width: 440px;"
                     >
                       <label
                         class="ant-checkbox-wrapper ant-checkbox-group-item"
@@ -12009,7 +11948,6 @@ exports[`form demos renders ./packages/form/src/demos/steps-from.tsx correctly 1
                         >
                           <span
                             class="ant-input-affix-wrapper"
-                            style="width: 328px;"
                           >
                             <input
                               class="ant-input"
@@ -12077,8 +12015,7 @@ exports[`form demos renders ./packages/form/src/demos/steps-from.tsx correctly 1
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-picker"
-                            style="width: 216px;"
+                            class="ant-picker pro-field-s"
                           >
                             <div
                               class="ant-picker-input"
@@ -12152,7 +12089,6 @@ exports[`form demos renders ./packages/form/src/demos/steps-from.tsx correctly 1
                           <div
                             class="ant-checkbox-group ant-pro-field-checkbox-horizontal"
                             id="checkbox_checkbox"
-                            style="width: 328px;"
                           >
                             <label
                               class="ant-checkbox-wrapper ant-checkbox-group-item"
@@ -12255,7 +12191,6 @@ exports[`form demos renders ./packages/form/src/demos/steps-from.tsx correctly 1
                     <div
                       class="ant-checkbox-group ant-pro-field-checkbox-horizontal"
                       id="time_checkbox"
-                      style="width: 328px;"
                     >
                       <label
                         class="ant-checkbox-wrapper ant-checkbox-group-item"
@@ -12344,7 +12279,6 @@ exports[`form demos renders ./packages/form/src/demos/steps-from.tsx correctly 1
                   >
                     <div
                       class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                      style="width: 328px;"
                       text=""
                     >
                       <div
@@ -12461,7 +12395,6 @@ exports[`form demos renders ./packages/form/src/demos/steps-from.tsx correctly 1
                   >
                     <div
                       class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                      style="width: 328px;"
                       text=""
                     >
                       <div
