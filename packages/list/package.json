@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-list",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "🏆 Use Ant Design List like a Pro!",
   "keywords": [
     "antd",
@@ -33,8 +33,8 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.0.0",
-    "@ant-design/pro-field": "1.0.6",
-    "@ant-design/pro-table": "2.9.15",
+    "@ant-design/pro-field": "1.0.7",
+    "@ant-design/pro-table": "2.9.16",
     "classnames": "^2.2.6",
     "dnd-core": "^10.0.2",
     "moment": "^2.24.0",

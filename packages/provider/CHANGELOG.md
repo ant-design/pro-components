@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.1.0...@ant-design/pro-provider@1.2.0) (2020-11-04)
+
+### Features
+
+- **form:** submit button text localization ([#896](https://github.com/ant-design/pro-components/issues/896)) ([d209ea1](https://github.com/ant-design/pro-components/commit/d209ea1073cf12672b04a585c1343e02f5841fd2))
+
 # [1.1.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.0.1...@ant-design/pro-provider@1.1.0) (2020-11-02)
 
 ### Features
