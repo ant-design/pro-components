@@ -148,7 +148,9 @@ const ToolBar = <T, _U = {}>({
     propsOptions !== false
       ? {
           ...defaultOptions,
-          ...(propsOptions || {}),
+          ...(propsOptions || {
+            fullScreen: false,
+          }),
         }
       : false;
 
