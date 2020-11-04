@@ -28,7 +28,7 @@ export interface ProFormItemProps<T = {}> extends FormItemProps {
    * - L=440px 适用于较长字段录入，如长网址、标签组、文件路径等。
    * - XL=552px 适用于长文本录入，如长链接、描述、备注等，通常搭配自适应多行输入框或定高文本域使用。
    */
-  width?: number | 's' | 'm' | 'xl' | 'xs' | 'l' | 'auto';
+  width?: number | 's' | 'm' | 'xl' | 'xs' | 'l';
   /**
    * 设置到 ProField 上面的 Props，内部属性
    */
