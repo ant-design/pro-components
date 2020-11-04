@@ -43,5 +43,6 @@ export default {
   stepsForm: {
     next: 'Suivante',
     prev: 'Précédente',
+    submit: 'Finaliser',
   },
 };
