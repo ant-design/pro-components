@@ -138,7 +138,7 @@ const StepsForm: React.FC<StepsFormProps> & {
     async (name: string, formData: any) => {
       formDataRef.current.set(name, formData);
       // 如果是最后一步
-      if (step === formArray.length - 1 || formArray.length === 0) {
+      if (step === formMapRef.current.size - 1 || formMapRef.current.size === 0) {
         if (!props.onFinish) {
           return;
         }

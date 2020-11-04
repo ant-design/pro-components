@@ -50,12 +50,10 @@ const WrappedProFormRadio: React.ComponentType<ProFormItemProps<RadioProps>> & {
   Button: typeof Radio.Button;
 } = createField<ProFormItemProps<RadioProps>>(ProFormRadio, {
   valuePropName: 'checked',
-  ignoreFelidWidth: true,
 });
 
 WrappedProFormRadio.Group = createField(RadioGroup, {
   customLightMode: true,
-  ignoreFelidWidth: true,
 }) as typeof RadioGroup;
 
 WrappedProFormRadio.Button = Radio.Button;

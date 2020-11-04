@@ -25,5 +25,4 @@ const ProFormDatePickerWeek: React.FC<ProFormItemProps<
 export default createField<ProFormItemProps<WeekPickerProps>>(ProFormDatePickerWeek, {
   valueType,
   customLightMode: true,
-  ignoreFelidWidth: true,
 });

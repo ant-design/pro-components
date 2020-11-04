@@ -9,6 +9,7 @@ import {
   SearchTransformKeyFn,
   transformKeySubmitValue,
 } from '@ant-design/pro-utils';
+import classnames from 'classnames';
 import { ProFieldValueType } from '@ant-design/pro-field';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
 import { Store } from 'antd/lib/form/interface';
@@ -62,6 +63,7 @@ const WIDTH_SIZE_ENUM = {
   // 适用于长文本录入，如长链接、描述、备注等，通常搭配自适应多行输入框或定高文本域使用。
   xl: 552,
 };
+
 // 给控件扩展的通用的属性
 export interface ExtendsProps {
   secondary?: boolean;
@@ -99,11 +101,6 @@ export type ProFormItemCreateConfig = {
    * light mode 自定义的 label 模式
    */
   lightFilterLabelFormatter?: (value: any) => string;
-
-  /**
-   * 忽略默认的 felidWidth
-   */
-  ignoreFelidWidth?: true;
 } & FormItemProps;
 
 export function createField<P extends ProFormItemProps = any>(
@@ -129,7 +126,6 @@ export function createField<P extends ProFormItemProps = any>(
       customLightMode,
       lightFilterLabelFormatter,
       valuePropName = 'value',
-      ignoreFelidWidth,
       ...defaultFormItemProps
     } = config || {};
     /**
@@ -151,7 +147,6 @@ export function createField<P extends ProFormItemProps = any>(
 
     // restFormItemProps is user props pass to Form.Item
     const restFormItemProps = pickProFormItemProps(rest);
-    const myWidth = ignoreFelidWidth ? width : width || 'm';
 
     const formNeedProps = {
       value: (rest as any).value,
@@ -166,11 +161,10 @@ export function createField<P extends ProFormItemProps = any>(
       ...(rest.fieldProps || {}),
       style: {
         // 有些组件是不需要自带的 width
-        width: myWidth ? WIDTH_SIZE_ENUM[myWidth] || width : width,
         ...rest.fieldProps?.style,
         ...fieldProps?.style,
       },
-    };
+    } as any;
 
     const otherProps = {
       messageVariables,
@@ -184,7 +178,12 @@ export function createField<P extends ProFormItemProps = any>(
         // ProXxx 上面的 props 透传给 Filed，可能包含 Field 自定义的 props，
         // 比如 ProFormSelect 的 request
         {...(rest as P)}
-        fieldProps={realFieldProps}
+        fieldProps={{
+          ...realFieldProps,
+          className: classnames(realFieldProps?.className, {
+            [`pro-field-${width}`]: width && WIDTH_SIZE_ENUM[width],
+          }),
+        }}
         proFieldProps={{
           params: rest.params,
           proFieldKey: otherProps?.name,

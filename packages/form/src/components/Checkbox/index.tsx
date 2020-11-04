@@ -48,7 +48,6 @@ const WrappedProFormCheckbox: React.ComponentType<ProFormCheckboxProps> & {
   Group: typeof Group;
 } = createField<ProFormCheckboxProps>(ProFormCheckbox, {
   valuePropName: 'checked',
-  ignoreFelidWidth: true,
 }) as any;
 
 WrappedProFormCheckbox.Group = createField(Group) as typeof Group;
