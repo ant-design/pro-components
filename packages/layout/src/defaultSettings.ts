@@ -12,7 +12,7 @@ export interface PureSettings {
   /**
    * @name theme for nav menu
    */
-  navTheme: MenuTheme | 'realDark' | undefined;
+  navTheme?: MenuTheme | 'realDark' | undefined;
 
   /**
    * @name 顶部菜单的颜色，mix 模式下生效
@@ -25,23 +25,23 @@ export interface PureSettings {
   /**
    * @name customize header height
    */
-  layout: 'side' | 'top' | 'mix';
+  layout?: 'side' | 'top' | 'mix';
   /**
    * @name layout of content: `Fluid` or `Fixed`, only works when layout is top
    */
-  contentWidth: ContentWidth;
+  contentWidth?: ContentWidth;
   /**
    * @name sticky header
    */
-  fixedHeader: boolean;
+  fixedHeader?: boolean;
   /**
    * @name sticky siderbar
    */
-  fixSiderbar: boolean;
+  fixSiderbar?: boolean;
   /**
    * @name menu 相关的一些配置
    */
-  menu: { locale?: boolean; defaultOpenAll?: boolean; loading?: boolean };
+  menu?: { locale?: boolean; defaultOpenAll?: boolean; loading?: boolean };
   /**
    * @name Layout 的 title，也会显示在浏览器标签上
    * @description 设置为 false，在 layout 中只展示 pageName，而不是 pageName - title
@@ -53,11 +53,11 @@ export interface PureSettings {
    * 注意：如果需要图标多色，Iconfont 图标项目里要进行批量去色处理
    * Usage: https://github.com/ant-design/ant-design-pro/pull/3517
    */
-  iconfontUrl: string;
+  iconfontUrl?: string;
   /**
    * @name 主色，需要配合 umi 使用
    */
-  primaryColor: string;
+  primaryColor?: string;
   /**
    * @name 全局增加滤镜
    */
