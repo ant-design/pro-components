@@ -9,7 +9,10 @@ const transformKeySubmitValue = <T = any>(
   let result = {} as T;
   Object.keys(values).forEach((key) => {
     const itemValue = values[key];
-    const tempKey = dataFormatMap[key] ? dataFormatMap[key]?.(itemValue, key, values) : key;
+    const tempKey =
+      dataFormatMap[key] && typeof dataFormatMap[key] === 'function'
+        ? dataFormatMap[key]?.(itemValue, key, values)
+        : key;
     // { [key:string]:any } 数组也能通过编译
     if (Array.isArray(tempKey)) {
       result[key] = itemValue;
