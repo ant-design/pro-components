@@ -1,67 +1,106 @@
 import React from 'react';
 import { Button, Dropdown, Menu } from 'antd';
-import { SettingOutlined, FullscreenOutlined, DownOutlined } from '@ant-design/icons';
-import { ListToolBar } from '@ant-design/pro-table';
+import { EllipsisOutlined, DownOutlined } from '@ant-design/icons';
 import { LightFilter, ProFormDatePicker } from '@ant-design/pro-form';
+import ProTable, { ProColumns } from '@ant-design/pro-table';
 
-export default () => (
-  <div
-    style={{
-      boxShadow: '0 0 3px #ccc',
-    }}
-  >
-    <ListToolBar
-      multipleLine
-      title="两行的情况"
-      search={{
-        placeholder: '请输入订单号',
-        onSearch: (value) => {
-          alert(value);
-        },
+export interface TableListItem {
+  key: number;
+  name: string;
+  containers: number;
+}
+
+const tableListDataSource: TableListItem[] = [];
+
+for (let i = 0; i < 5; i += 1) {
+  tableListDataSource.push({
+    key: i,
+    name: 'AppName',
+    containers: Math.floor(Math.random() * 20),
+  });
+}
+
+const columns: ProColumns<TableListItem>[] = [
+  {
+    title: '应用名称',
+    dataIndex: 'name',
+    render: (_) => <a>{_}</a>,
+  },
+  {
+    title: '容器数量',
+    dataIndex: 'containers',
+    sorter: (a, b) => a.containers - b.containers,
+  },
+  {
+    title: '操作',
+    key: 'option',
+    valueType: 'option',
+    render: () => [
+      <a key="link">链路</a>,
+      <a key="warn">报警</a>,
+      <a key="more">
+        <EllipsisOutlined />
+      </a>,
+    ],
+  },
+];
+
+export default () => {
+  return (
+    <ProTable<TableListItem>
+      columns={columns}
+      request={(params, sorter, filter) => {
+        // 表单搜索项会从 params 传入，传递给后端接口。
+        console.log(params, sorter, filter);
+        return Promise.resolve({
+          data: tableListDataSource,
+          success: true,
+        });
       }}
-      filter={
-        <LightFilter style={{ marginTop: 8 }}>
-          <ProFormDatePicker name="startdate" label="响应日期" />
-        </LightFilter>
-      }
-      actions={[
-        <Button
-          type="primary"
-          onClick={() => {
-            alert('add');
-          }}
-        >
-          添加
-        </Button>,
-        <Dropdown
-          overlay={
-            <Menu onClick={() => alert('menu click')}>
-              <Menu.Item key="1">菜单</Menu.Item>
-              <Menu.Item key="2">列表</Menu.Item>
-              <Menu.Item key="3">表单</Menu.Item>
-            </Menu>
-          }
-        >
-          <Button>
-            移动自
-            <DownOutlined
-              style={{
-                marginLeft: 8,
-              }}
-            />
-          </Button>
-        </Dropdown>,
-      ]}
-      settings={[
-        {
-          icon: <SettingOutlined />,
-          tooltip: '设置',
+      headerTitle="两行的情况"
+      toolbar={{
+        multipleLine: true,
+        search: {
+          onSearch: (value) => {
+            alert(value);
+          },
         },
-        {
-          icon: <FullscreenOutlined />,
-          tooltip: '全屏',
-        },
-      ]}
+        filter: (
+          <LightFilter>
+            <ProFormDatePicker name="startdate" label="响应日期" />
+          </LightFilter>
+        ),
+        actions: [
+          <Button
+            type="primary"
+            onClick={() => {
+              alert('add');
+            }}
+          >
+            添加
+          </Button>,
+          <Dropdown
+            overlay={
+              <Menu onClick={() => alert('menu click')}>
+                <Menu.Item key="1">菜单</Menu.Item>
+                <Menu.Item key="2">列表</Menu.Item>
+                <Menu.Item key="3">表单</Menu.Item>
+              </Menu>
+            }
+          >
+            <Button>
+              移动自
+              <DownOutlined
+                style={{
+                  marginLeft: 8,
+                }}
+              />
+            </Button>
+          </Dropdown>,
+        ],
+      }}
+      rowKey="key"
+      search={false}
     />
-  </div>
-);
+  );
+};

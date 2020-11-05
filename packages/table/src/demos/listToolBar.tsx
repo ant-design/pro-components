@@ -131,16 +131,6 @@ export default () => {
       }}
       search={false}
       dateFormatter="string"
-      toolBarRender={() => [
-        <Button key="show">查看日志</Button>,
-        <Button key="out">
-          导出数据
-          <DownOutlined />
-        </Button>,
-        <Button key="primary" type="primary">
-          创建应用
-        </Button>,
-      ]}
     />
   );
 };
