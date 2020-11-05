@@ -48,6 +48,12 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 
 <code src="./demos/form.tsx" background="#f5f5f5"/>
 
+### RTL (النسخة العربية)
+
+RTL means right-to-left.
+
+<code src="./demos/rtl_table.tsx" background="#f5f5f5"/>
+
 ### 受控的列显示隐藏
 
 可以默认隐藏某些栏，但是在操作栏中可以选择
