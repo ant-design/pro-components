@@ -256,7 +256,7 @@ const defaultColConfig = {
 
 ```tsx | pure
 interface ActionType {
-  reload: () => void;
+  reload: (resetPageIndex?: boolean) => void;
   fetchMore: () => void;
   reset: () => void;
 }
@@ -268,8 +268,8 @@ const ref = useRef<ActionType>();
 // 刷新
 ref.current.reload();
 
-// 加载更多
-ref.current.fetchMore();
+// 刷新并清空
+ref.current.reloadAndRest;
 
 // 重置到默认值
 ref.current.reset();
