@@ -80,7 +80,7 @@ ProLayout 会根据 `location.pathname` 来自动选中菜单，并且自动生�
 
 ### 基础使用
 
-<code src="./demos/base.tsx" />
+<code src="./demos/base.tsx" iframe="650px" />
 
 ### 从服务器加载 menu
 
@@ -88,47 +88,47 @@ ProLayout 提供了强大的 menu，但是这样必然会封装很多行为，�
 
 从服务器加载 menu 主要使用的 API 是 `menuDataRender` 和 `menuRender`,`menuDataRender`可以控制当前的菜单数据，`menuRender`可以控制菜单的 dom 节点。
 
-<code src="./demos/dynamicMenu.tsx" />
+<code src="./demos/dynamicMenu.tsx" iframe="500px" />
 
 ### 从服务器加载 menu 并且使用 icon
 
 这里主要是一个演示，我们需要准备一个枚举来进行 icon 的渲染，可以显著的减少打包的大小
 
-<code src="./demos/antd@4MenuIconFormServe.tsx" />
+<code src="./demos/antd@4MenuIconFormServe.tsx" iframe="500px" />
 
 ### 自定义 menu 的内容
 
 通过 `menuItemRender`, `subMenuItemRender`,`title`,`logo`,`menuHeaderRender` 可以非常方便的自定义 menu 的样式。如果实在是不满意，可以使用 `menuRender` 完全的自定义。
 
-<code src="./demos/customizeMenu.tsx" />
+<code src="./demos/customizeMenu.tsx" iframe="500px" />
 
 ### 自定义页脚
 
 ProLayout 默认不提供页脚，要是和 Pro 官网相同的样式，需要自己引入一下页脚。
 
-<code src="./demos/footer.tsx" />
+<code src="./demos/footer.tsx" iframe="500px" />
 
 这里用于展示 ProLayout 的各种应用，如果你觉得你的用法能帮助到别人，欢迎 PR。
 
 ### 搜索菜单
 
-<code src="./demos/searchMenu.tsx" />
+<code src="./demos/searchMenu.tsx" iframe="500px" />
 
 ### 多个路由对应一个菜单项
 
-<code src="./demos/MultipleMenuOnePath.tsx" />
+<code src="./demos/MultipleMenuOnePath.tsx" iframe="500px" />
 
 ### 默认打开所有菜单
 
-<code src="./demos/DefaultOpenAllMenu.tsx" />
+<code src="./demos/DefaultOpenAllMenu.tsx" iframe="500px" />
 
 ### 使用 IconFont
 
-<code src="./demos/IconFont.tsx" />
+<code src="./demos/IconFont.tsx" iframe="500px" />
 
 ### 嵌套布局
 
-<code src="./demos/Nested.tsx" />
+<code src="./demos/Nested.tsx" iframe="500px" />
 
 ## API
 

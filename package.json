@@ -68,7 +68,7 @@
     "chalk": "^4.1.0",
     "cross-env": "^7.0.2",
     "css-loader": "^3.4.2",
-    "dumi": "1.1.0-beta.26",
+    "dumi": "1.1.0-beta.31",
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.4.3",
     "eslint": "^7.2.0",
