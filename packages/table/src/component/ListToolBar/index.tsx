@@ -193,18 +193,20 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
         <Space className={`${prefixCls}-right`} size={16}>
           {hasTitle && searchNode && <div className={`${prefixCls}-search`}>{searchNode}</div>}
           {!multipleLine && filtersNode}
-          <Space align="center">{actions}</Space>
-          <Space size={16} align="center" className={`${prefixCls}-setting-items`}>
-            {settings.map((setting, index) => {
-              const settingItem = getSettingItem(setting);
-              return (
-                // eslint-disable-next-line react/no-array-index-key
-                <div key={index} className={`${prefixCls}-setting-item`}>
-                  {settingItem}
-                </div>
-              );
-            })}
-          </Space>
+          {actions && <Space align="center">{actions}</Space>}
+          {settings && settings.length ? (
+            <Space size={16} align="center" className={`${prefixCls}-setting-items`}>
+              {settings.map((setting, index) => {
+                const settingItem = getSettingItem(setting);
+                return (
+                  // eslint-disable-next-line react/no-array-index-key
+                  <div key={index} className={`${prefixCls}-setting-item`}>
+                    {settingItem}
+                  </div>
+                );
+              })}
+            </Space>
+          ) : null}
         </Space>
       </div>
       {multipleLine && (

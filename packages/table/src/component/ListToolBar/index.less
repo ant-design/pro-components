@@ -2,8 +2,6 @@
 
 @pro-list-toolbar: ~'@{ant-prefix}-pro-table-list-toolbar';
 
-@pro-list-toolbar-line-height: 64px;
-
 .@{pro-list-toolbar} {
   overflow-x: auto;
   overflow-y: hidden;
@@ -11,8 +9,7 @@
   &-container {
     display: flex;
     justify-content: space-between;
-    height: @pro-list-toolbar-line-height;
-    padding: 0;
+    padding: @padding-md 0;
   }
 
   &-title {

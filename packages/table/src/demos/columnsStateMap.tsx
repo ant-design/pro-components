@@ -82,34 +82,31 @@ export default () => {
     },
   });
   return (
-    <>
-      <code>{JSON.stringify(columnsStateMap)}</code>
-      <ProTable<TableListItem, { keyWord?: string }>
-        columns={columns}
-        request={(params) =>
-          Promise.resolve({
-            data: tableListDataSource.filter((item) => {
-              if (!params?.keyWord) {
-                return true;
-              }
-              if (item.name.includes(params?.keyWord) || item.status.includes(params?.keyWord)) {
-                return true;
-              }
-              return false;
-            }),
-            success: true,
-          })
-        }
-        options={{
-          search: true,
-        }}
-        rowKey="key"
-        columnsStateMap={columnsStateMap}
-        onColumnsStateChange={(map) => setColumnsStateMap(map)}
-        search={false}
-        dateFormatter="string"
-        headerTitle="受控模式"
-      />
-    </>
+    <ProTable<TableListItem, { keyWord?: string }>
+      columns={columns}
+      request={(params) =>
+        Promise.resolve({
+          data: tableListDataSource.filter((item) => {
+            if (!params?.keyWord) {
+              return true;
+            }
+            if (item.name.includes(params?.keyWord) || item.status.includes(params?.keyWord)) {
+              return true;
+            }
+            return false;
+          }),
+          success: true,
+        })
+      }
+      options={{
+        search: true,
+      }}
+      rowKey="key"
+      columnsStateMap={columnsStateMap}
+      onColumnsStateChange={(map) => setColumnsStateMap(map)}
+      search={false}
+      dateFormatter="string"
+      headerTitle="受控模式"
+    />
   );
 };

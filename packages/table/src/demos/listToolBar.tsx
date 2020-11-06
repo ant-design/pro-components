@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Badge } from 'antd';
-import { DownOutlined, EllipsisOutlined } from '@ant-design/icons';
+import { EllipsisOutlined } from '@ant-design/icons';
 import { LightFilter, ProFormDatePicker } from '@ant-design/pro-form';
 import ProTable, { ProColumns } from '@ant-design/pro-table';
 
@@ -90,7 +90,7 @@ export default () => {
       toolbar={{
         multipleLine: true,
         filter: (
-          <LightFilter style={{ marginTop: 8 }}>
+          <LightFilter>
             <ProFormDatePicker name="startdate" label="响应日期" />
           </LightFilter>
         ),
