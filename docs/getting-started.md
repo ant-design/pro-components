@@ -49,7 +49,7 @@ export default () => {
 
 我们所有的包都使用 less 来进行样式管理，方便进行主题的自定义。如果你没有 less-loader 可以尝试从 `dist` 中导入 css。
 
-```tsx
+```tsx | pure
 import '@ant-design/pro-form/dist/form.css';
 import '@ant-design/pro-table/dist/table.css';
 import '@ant-design/pro-layout/dist/layout.css';

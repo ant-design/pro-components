@@ -10,13 +10,13 @@ nav:
 
 # ProForm
 
-ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设置，帮助我们更快速的开发一个表单。同时添加一些默认行为，让我们的表单默认好用。
+ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设置，帮助我们快速的开发一个表单。同时添加一些默认行为，让我们的表单默认好用。
 
-分步表单，Modal 表单，Drawer 表单，查询表单，轻量筛选 多种 layout 可以覆盖大部分的使用场景，脱离复杂而且繁琐的表单布局工作，更少的代码完成更多的工作。
+分步表单，Modal 表单，Drawer 表单，查询表单，轻量筛选等多种 layout 可以覆盖大部分的使用场景，脱离复杂而且繁琐的表单布局工作，更少的代码完成更多的功能。
 
 ## 何时使用
 
-当你想快速实现一个表单时但不想花太多时间去布局时 ProForm 是最好的选择。
+当你想快速实现一个表单但不想花太多时间去布局时 ProForm 是最好的选择。
 
 ## 代码示例
 
@@ -94,10 +94,10 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| onFinish | 提交表单且数据验证成功后回调事件，同 antd 4 `Form` 组件 API | `Function(e)` | - |
-| onReset | 点击重置按钮的回调，设置后重置按钮才会被渲染 | `Function(e)` | - |
+| onFinish | 提交表单且数据验证成功后回调事件，同 antd 4 `Form` 组件 API | `(values)=>Promise<void>` | - |
+| onReset | 点击重置按钮的回调，设置后重置按钮才会被渲染 | `(e)=>void` | - |
 | submitter | 提交按钮相关配置 | `boolean` \| `SubmitterProps` | `true` |
-| dateFormatter | 自动格式数据，例如 moment 的表单,支持 string 和 number 两种模式 | `string\| number \|false` | string |
+| dateFormatter | 自动格式数据,主要是 moment 的表单,支持 string 和 number 两种模式 | `string\| number \|false` | string |
 | [(...)](https://ant.design/components/form-cn/) | 支持除 `wrapperCol` \| `labelCol` \| `layout` 外的其他 antd `Form` 组件参数 | - | - |
 
 ### ProForm.Group
@@ -115,7 +115,7 @@ QueryFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 | --- | --- | --- | --- |
 | collapsed | 是否折叠超出的表单项，用于受控模式 | `boolean` | - |
 | defaultCollapsed | 默认状态下是否折叠超出的表单项 | `boolean` | true |
-| onCollapse | 切换表单折叠状态时的回调 | `Function(collapsed)` | - |
+| onCollapse | 切换表单折叠状态时的回调 | `(collapsed)=>void` | - |
 | hideRequiredMark | 隐藏所有表单项的必选标记，**默认隐藏** | `boolean` | true |
 | defaultColsNumber | 自定义折叠状态下默认显示的表单控件数量，没有设置或小于 0，则显示一行控件; 数量大于等于控件数量则隐藏展开按钮 | `number` | - |
 | labelWidth | label 宽度 | `number` \| `'auto'` | `98` |
@@ -124,26 +124,26 @@ QueryFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 
 #### 响应式断点规则
 
-注意，断点的值均指表单容器的大小而非视口大小。
+注意，断点的值均为表单容器的大小而非视口大小。
 
 ##### 默认布局时的规则
 
 | 容器宽度断点          | 单行展示表单列数（包含操作区域） | 默认布局     |
 | --------------------- | -------------------------------- | ------------ |
-| `≧ 1352px`            | 4                                | `horizontal` |
-| `≧ 1062px`            | 3                                | `horizontal` |
-| `≧ 701px && < 1063px` | 2                                | `horizontal` |
-| `≧ 513px && < 701px`  | 2                                | `vertical`   |
-| `< 513px`             | 1                                | `vertical`   |
+| `≧ 1352px`            | 4 列                             | `horizontal` |
+| `≧ 1062px`            | 3 列                             | `horizontal` |
+| `≧ 701px && < 1063px` | 3 列                             | `horizontal` |
+| `≧ 513px && < 701px`  | 2 列                             | `vertical`   |
+| `< 513px`             | 1 列                             | `vertical`   |
 
 ##### 强制上下布局时的规则
 
 | 容器宽度断点          | 单行展示表单列数（包含操作区域） |
 | --------------------- | -------------------------------- |
-| `≧ 1057px`            | 4                                |
-| `≧ 785px && < 1057px` | 3                                |
-| `≧ 513px && < 785px`  | 2                                |
-| `< 513px`             | 1                                |
+| `≧ 1057px`            | 4 列                             |
+| `≧ 785px && < 1057px` | 3 列                             |
+| `≧ 513px && < 785px`  | 2 列                             |
+| `< 513px`             | 1 列                             |
 
 ### LightFilter
 
@@ -172,7 +172,7 @@ StepsForm 本质上是一个 Provider ，增加步骤条和一些相关的 API�
 
 #### StepForm
 
-与 ProForm 完成相同，只是 onFinish 支持了 Promise，如果返回 `false`, 就会无法使用下一步。
+与 ProForm 完全相同，只是 onFinish 支持了 Promise，如果返回 `false`, 就不会跳转下一步。
 
 | onFinish | 表单提交成功触发 | `(values:T)=>Promise<false>` | - |
 
