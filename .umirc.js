@@ -38,6 +38,37 @@ export default {
       },
     ],
   ],
+  metas: [
+    {
+      property: 'og:site_name',
+      content: 'ProComponents',
+    },
+    {
+      'data-rh': 'keywords',
+      property: 'og:image',
+      content: 'https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png',
+    },
+    {
+      property: 'og:description',
+      content: '🏆 Use Ant Design like a Pro!',
+    },
+    {
+      name: 'keywords',
+      content: '中后台,admin,Ant Design,ant design,Table,react,alibaba',
+    },
+    {
+      name: 'description',
+      content: '🏆 Use Ant Design like a Pro! 包含 table form 等多个组件。',
+    },
+    {
+      name: 'apple-mobile-web-app-capable',
+      content: 'yes',
+    },
+    {
+      name: 'apple-mobile-web-app-status-bar-style"',
+      content: 'black-translucent',
+    },
+  ],
   alias,
   resolve: { includes: [...tailPkgList, 'docs'] },
   navs: [
