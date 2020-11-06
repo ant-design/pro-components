@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { PlusOutlined } from '@ant-design/icons';
+import { PlusOutlined, EllipsisOutlined } from '@ant-design/icons';
 import { Button, Tag, Space, Menu, Dropdown } from 'antd';
 import ProTable, { ProColumns, TableDropdown, ActionType } from '@ant-design/pro-table';
 import request from 'umi-request';
@@ -172,10 +172,14 @@ export default () => {
       dateFormatter="string"
       headerTitle="高级表格"
       toolBarRender={() => [
-        <Dropdown.Button overlay={menu}>按钮省略</Dropdown.Button>,
         <Button key="button" icon={<PlusOutlined />} type="primary">
           新建
         </Button>,
+        <Dropdown overlay={menu}>
+          <Button>
+            <EllipsisOutlined />
+          </Button>
+        </Dropdown>,
       ]}
     />
   );
