@@ -3,7 +3,7 @@
 @pro-list-toolbar: ~'@{ant-prefix}-pro-table-list-toolbar';
 
 @pro-list-toolbar-line-height: 64px;
-@pro-list-toolbar-extra-line-height: 45px;
+@pro-list-toolbar-extra-line-height: 48px;
 
 .@{pro-list-toolbar} {
   overflow-x: auto;
@@ -18,6 +18,7 @@
 
   &-title {
     color: @heading-color;
+    font-weight: 500;
     font-size: @font-size-lg;
     display: flex;
     justify-content: flex-start;
@@ -30,9 +31,9 @@
     align-items: center;
   }
 
-  &-setting-items {
-    margin-left: @margin-md;
-  }
+  // &-setting-items {
+  //   margin-left: @margin-md;
+  // }
 
   &-setting-item {
     font-size: @font-size-lg;
@@ -93,7 +94,9 @@
     }
   }
   &-dropdownmenu-label {
+    font-size: @font-size-lg;
     font-weight: bold;
+    text-align: center;
     cursor: pointer;
   }
 

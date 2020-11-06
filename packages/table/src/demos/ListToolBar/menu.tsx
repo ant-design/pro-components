@@ -58,7 +58,6 @@ export default () => {
         });
       }}
       toolbar={{
-        title: '下拉菜单',
         search: {
           onSearch: (value) => {
             alert(value);

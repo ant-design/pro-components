@@ -190,11 +190,11 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
           {menu && <HeaderMenu {...menu} prefixCls={prefixCls} />}
           {!hasTitle && searchNode && <div className={`${prefixCls}-search`}>{searchNode}</div>}
         </Space>
-        <Space className={`${prefixCls}-right`}>
+        <Space className={`${prefixCls}-right`} size={16}>
           {hasTitle && searchNode && <div className={`${prefixCls}-search`}>{searchNode}</div>}
           {!multipleLine && filtersNode}
           <Space align="center">{actions}</Space>
-          <Space size={24} align="center" className={`${prefixCls}-setting-items`}>
+          <Space size={16} align="center" className={`${prefixCls}-setting-items`}>
             {settings.map((setting, index) => {
               const settingItem = getSettingItem(setting);
               return (
