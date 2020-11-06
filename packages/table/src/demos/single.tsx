@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
-import { Button, Tag, Space } from 'antd';
+import { Button, Tag, Space, Menu, Dropdown } from 'antd';
 import ProTable, { ProColumns, TableDropdown, ActionType } from '@ant-design/pro-table';
 import request from 'umi-request';
 
@@ -146,6 +146,14 @@ const columns: ProColumns<GithubIssueItem>[] = [
   },
 ];
 
+const menu = (
+  <Menu>
+    <Menu.Item key="1">1st item</Menu.Item>
+    <Menu.Item key="2">2nd item</Menu.Item>
+    <Menu.Item key="3">3rd item</Menu.Item>
+  </Menu>
+);
+
 export default () => {
   const actionRef = useRef<ActionType>();
 
@@ -164,6 +172,7 @@ export default () => {
       dateFormatter="string"
       headerTitle="高级表格"
       toolBarRender={() => [
+        <Dropdown.Button overlay={menu}>按钮省略</Dropdown.Button>,
         <Button key="button" icon={<PlusOutlined />} type="primary">
           新建
         </Button>,
