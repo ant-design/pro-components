@@ -3,7 +3,6 @@
 @pro-list-toolbar: ~'@{ant-prefix}-pro-table-list-toolbar';
 
 @pro-list-toolbar-line-height: 64px;
-@pro-list-toolbar-extra-line-height: 48px;
 
 .@{pro-list-toolbar} {
   overflow-x: auto;
@@ -53,14 +52,7 @@
   }
 
   &-extra-line {
-    height: @pro-list-toolbar-extra-line-height;
-    padding: 0;
-    line-height: @pro-list-toolbar-extra-line-height;
-
-    .@{pro-list-toolbar}-filter {
-      float: right;
-      height: @pro-list-toolbar-extra-line-height;
-    }
+    margin-bottom: @margin-md;
   }
 
   &-filter {
@@ -100,8 +92,16 @@
     cursor: pointer;
   }
 
-  .@{ant-prefix}-tabs-bar {
+  .@{ant-prefix}-tabs-top > .@{ant-prefix}-tabs-nav {
+    &::before {
+      border-bottom: 0;
+    }
     margin-bottom: 0;
-    border-bottom: none;
+    .@{ant-prefix}-tabs-nav-list {
+      margin-top: 0;
+      .@{ant-prefix}-tabs-tab {
+        padding-top: 0;
+      }
+    }
   }
 }
