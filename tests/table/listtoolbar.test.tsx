@@ -110,7 +110,8 @@ describe('Table valueEnum', () => {
         }}
       />,
     );
-    wrapper.find('.ant-pro-table-list-toolbar-dropdownmenu-label').simulate('click');
+
+    wrapper.find('.ant-pro-table-list-toolbar-dropdownmenu-label').at(0).simulate('click');
     wrapper.find('.ant-dropdown-menu-item').at(1).simulate('click');
 
     expect(onChange).toHaveBeenCalledWith('done', undefined);
