@@ -13,7 +13,7 @@ export default () => {
         onMenuHeaderClick={() => {}}
         formatMessage={({ id }) => id}
         style={{
-          height: 500,
+          height: '100vh',
         }}
       />
       <ProLayout
@@ -28,7 +28,7 @@ export default () => {
           pathname: '/welcome',
         }}
         style={{
-          height: 500,
+          height: '100vh',
         }}
       />
 
@@ -44,7 +44,7 @@ export default () => {
         contentWidth="Fixed"
         openKeys={false}
         style={{
-          height: 500,
+          height: '100vh',
         }}
       />
       <SettingDrawer collapse />

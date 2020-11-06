@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Tooltip } from 'antd';
-import { DownOutlined, QuestionCircleOutlined } from '@ant-design/icons';
+import { QuestionCircleOutlined } from '@ant-design/icons';
 import ProTable, { ProColumns, TableDropdown } from '@ant-design/pro-table';
 
 export interface TableListItem {

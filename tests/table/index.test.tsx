@@ -625,6 +625,9 @@ describe('BasicTable', () => {
             ],
           },
         ]}
+        options={{
+          fullScreen: true,
+        }}
         request={async () => {
           return {
             data: [],

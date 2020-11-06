@@ -7,7 +7,7 @@ export default () => (
   <ProLayout
     {...defaultProps}
     style={{
-      height: 500,
+      height: '100vh',
     }}
     location={{
       pathname: '/welcome',

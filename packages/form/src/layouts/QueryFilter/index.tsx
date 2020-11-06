@@ -31,7 +31,7 @@ const BREAKPOINTS = {
   default: [
     [513, 1, 'vertical'],
     [701, 2, 'vertical'],
-    [1062, 2, 'horizontal'],
+    [1062, 3, 'horizontal'],
     [1352, 3, 'horizontal'],
     [Infinity, 4, 'horizontal'],
   ],
@@ -100,9 +100,9 @@ export type BaseQueryFilterProps = Omit<ActionsProps, 'submitter' | 'setCollapse
 
   form?: FormProps['form'];
   /**
-   * 底部操作栏的 render
-   * searchConfig 基础的配置
-   * props 更加详细的配置
+   * @name 底部操作栏的 render
+   * @params searchConfig 基础的配置
+   * @params props 更加详细的配置
    * {
       type?: 'form' | 'list' | 'table' | 'cardList' | undefined;
       form: FormInstance;
@@ -137,7 +137,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
     onReset,
     onCollapse,
     optionRender,
-    labelWidth = 98,
+    labelWidth = '80',
     style,
     split,
     collapseRender,

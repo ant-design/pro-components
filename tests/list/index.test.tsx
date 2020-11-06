@@ -187,11 +187,25 @@ describe('List', () => {
   it('🚏 pagination', async () => {
     const html = mount(<PaginationDemo />);
     expect(html.find('.ant-list-item').length).toEqual(5);
-    html.find('.ant-pagination-item').at(1).simulate('click');
+    act(() => {
+      html.find('.ant-pagination-item').at(1).simulate('click');
+    });
+    await waitForComponentToPaint(html, 20);
     expect(html.find('.ant-list-item').length).toEqual(2);
-    html.find('.ant-select-selector').simulate('mousedown');
-    html.find('.ant-select-item-option').at(3).simulate('click');
-    expect(html.find('.ant-list-item').length).toEqual(5);
+
+    act(() => {
+      html.find('.ant-select-selector').simulate('mousedown');
+    });
+
+    await waitForComponentToPaint(html, 20);
+
+    act(() => {
+      html.find('.ant-select-item-option').at(3).simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 20);
+
+    expect(html.find('.ant-list-item').length).toEqual(7);
   });
 
   it('🚏 filter and request', async () => {

@@ -8,6 +8,7 @@ import './index.less';
 export interface ListToolBarMenuItem {
   key: string;
   label: React.ReactNode;
+  disabled?: boolean;
 }
 
 export interface ListToolBarHeaderMenuProps {
@@ -68,7 +69,9 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
             }}
           >
             {items.map((item) => (
-              <Menu.Item key={item.key}>{item.label}</Menu.Item>
+              <Menu.Item key={item.key} disabled={item.disabled}>
+                {item.label}
+              </Menu.Item>
             ))}
           </Menu>
         }

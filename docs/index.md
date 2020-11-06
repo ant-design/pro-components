@@ -1,5 +1,5 @@
 ---
-title: 介绍 - ProComponents
+title: 🏆 Use Ant Design like a Pro! - ProComponents
 order: 10
 sidebar: false
 hero:

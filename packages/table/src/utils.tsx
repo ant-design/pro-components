@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import React, { ReactText, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Tooltip, Typography } from 'antd';
 import { TablePaginationConfig } from 'antd/lib/table';
 import { ProCoreActionType } from '@ant-design/pro-utils';
@@ -78,7 +78,8 @@ export const genCopyable = (dom: React.ReactNode, item: ProColumns<any>, text: s
  * @param action
  * @param intl
  */
-export const mergePagination = <T, U>(
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const mergePagination = <T, _U>(
   pagination: TablePaginationConfig | boolean | undefined = {},
   action: UseFetchDataAction<RequestData<T>>,
   intl: IntlType,
@@ -118,7 +119,8 @@ export const mergePagination = <T, U>(
  * @param counter
  * @param onCleanSelected
  */
-export const useActionType = <T, U = any>(
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const useActionType = <T, _U = any>(
   ref: ProTableProps<T, any>['actionRef'],
   counter: ReturnType<CounterType>,
   onCleanSelected: () => void,
@@ -178,7 +180,8 @@ type PostDataType<T> = (data: T) => T;
  * @param data
  * @param pipeline
  */
-export const postDataPipeline = <T, U>(data: T, pipeline: PostDataType<T>[]) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const postDataPipeline = <T, _U>(data: T, pipeline: PostDataType<T>[]) => {
   if (pipeline.filter((item) => item).length < 1) {
     return data;
   }

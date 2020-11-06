@@ -35,8 +35,12 @@ const RadioGroup: React.FC<ProFormRadioGroupProps> = React.forwardRef(
  * @param
  */
 const ProFormRadio: React.FC<ProFormItemProps<RadioProps>> = React.forwardRef(
-  ({ fieldProps }, ref: any) => {
-    return <Radio {...fieldProps} ref={ref} />;
+  ({ fieldProps, children }, ref: any) => {
+    return (
+      <Radio {...fieldProps} ref={ref}>
+        {children}
+      </Radio>
+    );
   },
 );
 
@@ -46,12 +50,10 @@ const WrappedProFormRadio: React.ComponentType<ProFormItemProps<RadioProps>> & {
   Button: typeof Radio.Button;
 } = createField<ProFormItemProps<RadioProps>>(ProFormRadio, {
   valuePropName: 'checked',
-  ignoreFelidWidth: true,
 });
 
 WrappedProFormRadio.Group = createField(RadioGroup, {
   customLightMode: true,
-  ignoreFelidWidth: true,
 }) as typeof RadioGroup;
 
 WrappedProFormRadio.Button = Radio.Button;

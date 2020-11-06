@@ -187,6 +187,22 @@ export default () => {
             plain={plain}
           />
         </Descriptions.Item>
+        <Descriptions.Item label="相对于当前时间">
+          <Space>
+            <Field
+              text={moment('2019-11-16 12:50:26').valueOf()}
+              valueType="fromNow"
+              mode={state}
+              plain={plain}
+            />
+            <Field
+              text={moment('2020-11-16 12:50:26').valueOf()}
+              valueType="fromNow"
+              mode={state}
+              plain={plain}
+            />
+          </Space>
+        </Descriptions.Item>
         <Descriptions.Item label="日期">
           <Field
             text={moment('2019-11-16 12:50:26').valueOf()}

@@ -38,9 +38,14 @@ export type ModalFormProps = Omit<FormProps, 'onFinish'> &
     modalProps?: Omit<ModalProps, 'visible'>;
 
     /**
-     * @name 抽屉的标题
+     * @name 弹框的标题
      */
     title?: ModalProps['title'];
+
+    /**
+     * @name 弹框的宽度
+     */
+    width?: ModalProps['width'];
   };
 
 const ModalForm: React.FC<ModalFormProps> = ({
@@ -50,6 +55,7 @@ const ModalForm: React.FC<ModalFormProps> = ({
   modalProps,
   onFinish,
   title,
+  width,
   ...rest
 }) => {
   const [visible, setVisible] = useMergedState<boolean>(!!rest.visible, {
@@ -90,7 +96,7 @@ const ModalForm: React.FC<ModalFormProps> = ({
             <Modal
               title={title}
               getContainer={false}
-              width={800}
+              width={width || 800}
               {...modalProps}
               visible={visible}
               onCancel={(e) => {

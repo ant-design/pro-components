@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.4.4...@ant-design/pro-card@1.4.5) (2020-11-04)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [1.4.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.4.3...@ant-design/pro-card@1.4.4) (2020-11-02)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [1.4.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.4.2...@ant-design/pro-card@1.4.3) (2020-10-29)
+
+### Bug Fixes
+
+- **card:** fix collpase and inner style ([#846](https://github.com/ant-design/pro-components/issues/846)) ([50a885c](https://github.com/ant-design/pro-components/commit/50a885c19cb9c82e0c4ff59d366d12f90b80526f))
+
 ## [1.4.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.4.1...@ant-design/pro-card@1.4.2) (2020-10-26)
 
 **Note:** Version bump only for package @ant-design/pro-card

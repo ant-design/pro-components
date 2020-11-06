@@ -6,8 +6,11 @@ import ProForm, {
   ProFormRadio,
   ProFormCheckbox,
   ProFormUploadButton,
+  ProFormField,
+  ProFormSlider,
   ProFormUploadDragger,
 } from '@ant-design/pro-form';
+import LightWrapper from '../BaseForm/LightWrapper';
 
 const Demo = () => {
   const formRef = useRef();
@@ -18,9 +21,9 @@ const Demo = () => {
         'input-number': 3,
         'checkbox-group': ['A', 'B'],
         rate: 3.5,
+        range: 5,
         name: 'qixian',
       }}
-      // @ts-expect-error
       formRef={formRef}
       onFinish={async (value) => console.log(value)}
     >
@@ -45,6 +48,10 @@ const Demo = () => {
           showUploadList: true,
         }}
       />
+      <LightWrapper valuePropName="value">test</LightWrapper>
+      <LightWrapper valuePropName="value">test</LightWrapper>
+      <ProFormSlider name="range" label="范围" />
+      <ProFormField>test</ProFormField>
     </ProForm>
   );
 };

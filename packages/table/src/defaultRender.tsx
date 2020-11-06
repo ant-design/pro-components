@@ -10,6 +10,7 @@ const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
  * @param text
  * @param valueType
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const defaultRenderText = <T, U = any>(
   text: string | number | React.ReactText[],
   valueType: ProColumnType['valueType'],

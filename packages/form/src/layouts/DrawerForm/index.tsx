@@ -40,6 +40,11 @@ export type DrawerFormProps = Omit<FormProps, 'onFinish'> &
      * @name 抽屉的标题
      */
     title?: DrawerProps['title'];
+
+    /**
+     * @name 抽屉的宽度
+     */
+    width?: DrawerProps['width'];
   };
 
 const DrawerForm: React.FC<DrawerFormProps> = ({
@@ -49,6 +54,7 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
   drawerProps,
   onFinish,
   title,
+  width,
   ...rest
 }) => {
   const [visible, setVisible] = useMergedState<boolean>(!!rest.visible, {
@@ -84,7 +90,7 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
             <Drawer
               title={title}
               getContainer={false}
-              width={800}
+              width={width || 800}
               {...drawerProps}
               visible={visible}
               onClose={(e) => {

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { Avatar } from 'antd';
 import { Moment } from 'moment';
 import { pickProProps, omitUndefined } from '@ant-design/pro-utils';
@@ -8,6 +8,7 @@ import FieldIndexColumn from './components/IndexColumn';
 import FieldProgress from './components/Progress';
 import FieldMoney from './components/Money';
 import FieldDatePicker from './components/DatePicker';
+import FieldFromNow from './components/FromNow';
 import FieldRangePicker from './components/RangePicker';
 import FieldCode from './components/Code';
 import FieldTimePicker from './components/TimePicker';
@@ -76,6 +77,7 @@ export type ProFieldValueType =
   | 'digit'
   | 'avatar'
   | 'code'
+  | 'fromNow'
   | 'jsonCode';
 
 export type ProFieldFCMode = 'read' | 'edit' | 'update';
@@ -309,6 +311,10 @@ const defaultRenderText = (
    */
   if (valueType === 'time') {
     return <FieldTimePicker text={text as string} format="HH:mm:ss" {...props} />;
+  }
+
+  if (valueType === 'fromNow') {
+    return <FieldFromNow text={text as string} {...props} />;
   }
 
   if (valueType === 'index') {

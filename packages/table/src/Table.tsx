@@ -38,6 +38,7 @@ import {
   isNil,
   omitUndefined,
 } from '@ant-design/pro-utils';
+import { CardProps } from 'antd/lib/card';
 
 import { ListToolBarProps } from './component/ListToolBar';
 
@@ -98,7 +99,7 @@ export type ProColumnType<T = unknown> = ProSchema<
      * 在查询表单中隐藏
      */
     search?:
-      | boolean
+      | false
       | {
           /**
            * @name 转化值的key, 一般用于事件区间的转化
@@ -143,7 +144,7 @@ export interface ProTableProps<T, U extends ParamsType>
   extends Omit<TableProps<T>, 'columns' | 'rowSelection'> {
   columns?: ProColumns<T>[];
   /**
-   * ListToolBar 属性
+   * @name  ListToolBar 的属性
    */
   toolbar?: ListToolBarProps;
   params?: U;
@@ -155,6 +156,11 @@ export interface ProTableProps<T, U extends ParamsType>
   onColumnsStateChange?: (map: { [key: string]: ColumnsState }) => void;
 
   onSizeChange?: (size: DensitySize) => void;
+
+  /**
+   * @name table 外面卡片的设置
+   */
+  cardProps?: CardProps;
 
   /**
    * 渲染 table
@@ -328,7 +334,8 @@ interface ColumnRenderInterface<T> {
  * 这个组件负责单元格的具体渲染
  * @param param0
  */
-const columnRender = <T, U = any>({
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const columnRender = <T, _U = any>({
   item,
   text,
   row,
@@ -416,7 +423,8 @@ const defaultOnFilter = (value: string, record: any, dataIndex: string | string[
  * @param map
  * @param columnEmptyText
  */
-const genColumnList = <T, U = {}>(
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const genColumnList = <T, _U = {}>(
   columns: ProColumns<T>[],
   map: {
     [key: string]: ColumnsState;
@@ -497,6 +505,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     onLoad,
     onRequestError,
     style,
+    cardProps,
     tableStyle,
     tableClassName,
     columnsStateMap,
@@ -890,6 +899,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
               padding: 0,
             }
       }
+      {...cardProps}
     >
       {toolbarDom}
       {alertDom}
@@ -908,18 +918,26 @@ const ProTable = <T extends {}, U extends ParamsType>(
     return tableAreaDom;
   };
 
+  const proTableDom = (
+    <div className={className} id="ant-design-pro-table" style={style} ref={rootRef}>
+      {isLightFilter ? null : searchNode}
+      {/* 渲染一个额外的区域，用于一些自定义 */}
+      {type !== 'form' && props.tableExtraRender && (
+        <div className={`${className}-extra`}>{props.tableExtraRender(props, dataSource)}</div>
+      )}
+      {type !== 'form' && renderTable()}
+    </div>
+  );
+
+  // 如果不需要的全屏，ConfigProvider 没有意义
+  if (!options || !options?.fullScreen) {
+    return proTableDom;
+  }
   return (
     <ConfigProvider
       getPopupContainer={() => ((rootRef.current || document.body) as any) as HTMLElement}
     >
-      <div className={className} id="ant-design-pro-table" style={style} ref={rootRef}>
-        {isLightFilter ? null : searchNode}
-        {/* 渲染一个额外的区域，用于一些自定义 */}
-        {type !== 'form' && props.tableExtraRender && (
-          <div className={`${className}-extra`}>{props.tableExtraRender(props, dataSource)}</div>
-        )}
-        {type !== 'form' && renderTable()}
-      </div>
+      {proTableDom}
     </ConfigProvider>
   );
 };

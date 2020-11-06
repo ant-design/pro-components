@@ -93,7 +93,7 @@ export default () => {
       <ProLayout
         {...defaultProps}
         style={{
-          height: 500,
+          height: '100vh',
         }}
         menuHeaderRender={menuHeader ? undefined : false}
         headerRender={header ? undefined : false}
