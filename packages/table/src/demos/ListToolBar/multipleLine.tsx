@@ -71,14 +71,6 @@ export default () => {
           </LightFilter>
         ),
         actions: [
-          <Button
-            type="primary"
-            onClick={() => {
-              alert('add');
-            }}
-          >
-            添加
-          </Button>,
           <Dropdown
             overlay={
               <Menu onClick={() => alert('menu click')}>
@@ -97,6 +89,14 @@ export default () => {
               />
             </Button>
           </Dropdown>,
+          <Button
+            type="primary"
+            onClick={() => {
+              alert('add');
+            }}
+          >
+            添加
+          </Button>,
         ],
       }}
       rowKey="key"
