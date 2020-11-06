@@ -46,7 +46,7 @@ export default {
     {
       'data-rh': 'keywords',
       property: 'og:image',
-      content: 'https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png',
+      content: 'https://procomponents.ant.design/favicon.ico',
     },
     {
       property: 'og:description',
