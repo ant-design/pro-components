@@ -46,7 +46,7 @@ export default {
     {
       'data-rh': 'keywords',
       property: 'og:image',
-      content: 'https://procomponents.ant.design/favicon.ico',
+      content: 'https://procomponents.ant.design/icon.png',
     },
     {
       property: 'og:description',

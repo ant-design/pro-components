@@ -1,5 +1,5 @@
 ---
-title: 🏆 Use Ant Design like a Pro! - ProComponents
+title: ProComponents - 页面级别的前端组件
 order: 10
 sidebar: false
 hero:
