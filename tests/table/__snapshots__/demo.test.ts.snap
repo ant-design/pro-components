@@ -35691,7 +35691,9 @@ exports[`table demos renders ./packages/table/src/demos/valueTypeDate.tsx correc
                         <td
                           class="ant-table-cell"
                         >
-                          a few seconds ago
+                          <span>
+                            a few seconds ago
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
@@ -35746,7 +35748,9 @@ exports[`table demos renders ./packages/table/src/demos/valueTypeDate.tsx correc
                         <td
                           class="ant-table-cell"
                         >
-                          a few seconds ago
+                          <span>
+                            a few seconds ago
+                          </span>
                         </td>
                         <td
                           class="ant-table-cell"
