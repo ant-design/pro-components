@@ -868,12 +868,16 @@ Array [
                       class="ant-space-item"
                       style="margin-right: 8px;"
                     >
-                      in 3 years
+                      <span>
+                        in 3 years
+                      </span>
                     </div>
                     <div
                       class="ant-space-item"
                     >
-                      in 4 years
+                      <span>
+                        in 4 years
+                      </span>
                     </div>
                   </div>
                 </span>

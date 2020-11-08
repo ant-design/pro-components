@@ -1,4 +1,4 @@
-import { DatePicker } from 'antd';
+import { DatePicker, Tooltip } from 'antd';
 import React, { useRef, useImperativeHandle } from 'react';
 import { useIntl } from '@ant-design/pro-provider';
 import moment from 'moment';
@@ -25,7 +25,9 @@ const FieldFromNow: ProFieldFC<{
   );
 
   if (mode === 'read') {
-    const dom = text ? moment(text).fromNow() : '-';
+    const dom = (
+      <Tooltip title={moment(text).format('YYYY-MM-DD HH:mm:ss')}>{moment(text).fromNow()}</Tooltip>
+    );
     if (render) {
       return render(text, { mode, ...fieldProps }, <>{dom}</>);
     }
