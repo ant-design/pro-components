@@ -262,7 +262,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   const { breadcrumb = {}, breadcrumbMap, menuData = [] } = menuInfoData;
 
   const matchMenus = getMatchMenu(location.pathname || '/', menuData, true);
-  const matchMenuKeys = matchMenus.map((item) => item.key || item.path || '');
+  const matchMenuKeys = Array.from(new Set(matchMenus.map((item) => item.key || item.path || '')));
 
   // 当前选中的menu，一般不会为空
   const currentMenu = (matchMenus[matchMenus.length - 1] || {}) as ProSettings & MenuDataItem;
