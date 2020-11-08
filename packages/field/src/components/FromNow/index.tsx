@@ -25,10 +25,8 @@ const FieldFromNow: ProFieldFC<{
   );
 
   if (mode === 'read') {
-    const dom = text ? (
+    const dom = (
       <Tooltip title={moment(text).format('YYYY-MM-DD HH:mm:ss')}>{moment(text).fromNow()}</Tooltip>
-    ) : (
-      '-'
     );
     if (render) {
       return render(text, { mode, ...fieldProps }, <>{dom}</>);
