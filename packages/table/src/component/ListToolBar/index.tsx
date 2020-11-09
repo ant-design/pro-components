@@ -194,7 +194,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
           {hasTitle && searchNode && <div className={`${prefixCls}-search`}>{searchNode}</div>}
           {!multipleLine && filtersNode}
           {actions && <Space align="center">{actions}</Space>}
-          {settings && settings.length ? (
+          { settings?.length ? (
             <Space size={16} align="center" className={`${prefixCls}-setting-items`}>
               {settings.map((setting, index) => {
                 const settingItem = getSettingItem(setting);
