@@ -72,8 +72,8 @@ const Demo = () => (
           blue: 'Blue',
         }}
         mode="multiple"
-        placeholder="Please select favourite colors"
-        rules={[{ required: true, message: 'Please select your favourite colors!', type: 'array' }]}
+        placeholder="Please select favorite colors"
+        rules={[{ required: true, message: 'Please select your favorite colors!', type: 'array' }]}
       />
       <ProFormDigit label="InputNumber" name="input-number" min={1} max={10} />
       <ProFormSwitch name="switch" label="Switch" />
