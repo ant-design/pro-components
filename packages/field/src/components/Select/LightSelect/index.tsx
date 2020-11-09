@@ -70,6 +70,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
         {...restProps}
         value={value}
         mode={mode}
+        size={size}
         disabled={disabled}
         onChange={(v, option) => {
           if (onChange) {
@@ -81,6 +82,10 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
             }, 0);
           }
         }}
+        bordered={bordered}
+        showSearch={showSearch}
+        onSearch={onSearch}
+        style={style}
         dropdownRender={(menuNode) => {
           return (
             <div ref={ref}>
