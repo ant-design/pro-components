@@ -14,6 +14,8 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 
 分步表单，Modal 表单，Drawer 表单，查询表单，轻量筛选等多种 layout 可以覆盖大部分的使用场景，脱离复杂而且繁琐的表单布局工作，更少的代码完成更多的功能。
 
+ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 组件的结合，我们可以帮他们当成一个 FromItem 来使用，并且支持各种 `props`。每个 Field 都支持 `fieldProps` 属性来支持设置输入组件的`props`。 我们支持了 `placeholder` 的透传，你可以直接在组件上设置 `placeholder`。
+
 ## 何时使用
 
 当你想快速实现一个表单但不想花太多时间去布局时 ProForm 是最好的选择。
@@ -245,7 +247,7 @@ DrawerForm 组合了 Drawer 和 ProForm 可以减少繁琐的状态管理。
 
 ## Fields API
 
-ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 组件的结合，我们可以帮他们当成一个 FromItem 来使用，并且支持各种 props。每个 Field 都支持 fieldProps 属性来支持设置输入组件的 props。 我们支持了 placeholder 的透传，你可以直接在组件上设置 placeholder。
+ProForm 自带的 Filed ,与 valueType 基本上一一对应。
 
 ### 通用的属性
 
@@ -258,7 +260,7 @@ ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 �
 
 在某些场景下，我们需要根据页面展示效果对输入框进行自适应处理，除此以外一个表单区域应默认使用定宽规则。
 
-![](https://gw.alipayobjects.com/zos/antfincdn/CyJPTSL07y/1574664269794-254db9de-2574-4361-bcf1-b82c6db0c80a.png)
+![width info](https://gw.alipayobjects.com/zos/antfincdn/CyJPTSL07y/1574664269794-254db9de-2574-4361-bcf1-b82c6db0c80a.png)
 
 - XS=104px 适用于短数字、短文本或选项。
 - S=216px 适用于较短字段录入、如姓名、电话、ID 等。
