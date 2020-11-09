@@ -410,7 +410,6 @@ const FormSearch = <T, _U = any>({
           isForm,
           formInstance: formInstanceRef.current,
           item: {
-            key: item.dataIndex?.toString() || index,
             index,
             ...item,
           },
