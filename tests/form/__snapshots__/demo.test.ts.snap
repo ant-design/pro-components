@@ -1078,7 +1078,7 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                 <span
                   class="ant-select-selection-placeholder"
                 >
-                  Please select favourite colors
+                  Please select favorite colors
                 </span>
               </div>
             </div>
