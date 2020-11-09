@@ -120,6 +120,7 @@ export default {
           'https://gw.alipayobjects.com/os/lib/react-dom/16.13.1/umd/react-dom.development.js',
           'https://gw.alipayobjects.com/os/lib/moment/2.29.0/min/moment-with-locales.js',
           'https://gw.alipayobjects.com/os/lib/antd/4.6.6/dist/antd-with-locales.js',
+          'https://www.googletagmanager.com/gtag/js?id=G-QZ7V15MCXR',
         ]
-      : [],
+      : ['https://www.googletagmanager.com/gtag/js?id=G-QZ7V15MCXR'],
 };
