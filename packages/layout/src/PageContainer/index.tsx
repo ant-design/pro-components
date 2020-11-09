@@ -213,19 +213,19 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
     </div>
   ) : null;
 
-  const headerDom = (
-    <div className={`${prefixedClassName}-warp`}>
-      {defaultPageHeaderRender(props, {
-        ...value,
-        prefixCls: undefined,
-        prefixedClassName,
-      })}
-    </div>
-  );
+  const pageHeaderDom = defaultPageHeaderRender(props, {
+    ...value,
+    prefixCls: undefined,
+    prefixedClassName,
+  });
+
+  const headerDom = pageHeaderDom ? (
+    <div className={`${prefixedClassName}-warp`}>{pageHeaderDom}</div>
+  ) : null;
 
   return (
     <div style={style} className={className}>
-      {fixedHeader ? (
+      {fixedHeader && headerDom ? (
         // 在 hasHeader 且 fixedHeader 的情况下，才需要设置高度
         <Affix
           offsetTop={value.hasHeader && value.fixedHeader ? value.headerHeight : 0}
