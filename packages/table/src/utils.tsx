@@ -23,7 +23,7 @@ export const checkUndefinedOrNull = (value: any) => value !== undefined && value
  */
 export const genColumnKey = (key?: React.ReactText | undefined, index?: number): string => {
   if (key) {
-    return `${key}`;
+    return Array.isArray(key) ? key.join('-') : key.toString();
   }
   return `${index}`;
 };
