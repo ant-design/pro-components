@@ -174,13 +174,21 @@ export const useFieldFetchData = (
     proFieldKey?: React.Key;
   },
 ): [boolean, SelectProps<any>['options'], () => void] => {
-  useEffect(() => {
-    testId += 1;
-  }, []);
   /**
    * key 是用来缓存请求的，如果不在是有问题
    */
-  const proFieldKeyRef = useRef(props.proFieldKey ?? props.request ? testId : 'no-fetch');
+  const [cacheKey] = useState(() => {
+    if (props.proFieldKey) {
+      return props.proFieldKey;
+    }
+    if (props.request) {
+      testId += 1;
+      return testId;
+    }
+    return 'no-fetch';
+  });
+
+  const proFieldKeyRef = useRef(cacheKey);
 
   const getOptionsFormValueEnum = useCallback((valueEnum) => {
     return proFieldParsingValueEnumToArray(ObjToMap(valueEnum)).map(({ value, text }) => ({
