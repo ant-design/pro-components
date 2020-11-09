@@ -10,6 +10,7 @@ import GridContent from '../GridContent';
 import FooterToolbar from '../FooterToolbar';
 import './index.less';
 import PageLoading from '../PageLoading';
+import { WithFalse } from '../typings';
 
 export interface PageHeaderTabConfig {
   /**
@@ -72,7 +73,7 @@ export interface PageContainerProps extends PageHeaderTabConfig, Omit<PageHeader
   /**
    * @name 自定义 pageHeader
    */
-  pageHeaderRender?: (props: PageContainerProps) => React.ReactNode;
+  pageHeaderRender?: WithFalse<(props: PageContainerProps) => React.ReactNode>;
 
   /**
    * @name 固钉的配置
@@ -158,6 +159,9 @@ const defaultPageHeaderRender = (
     ...restProps
   } = props;
 
+  if (pageHeaderRender === false) {
+    return null;
+  }
   if (pageHeaderRender) {
     return pageHeaderRender({ ...props, ...value });
   }
