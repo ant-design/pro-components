@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.5.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.5.12...@ant-design/pro-layout@6.5.13) (2020-11-09)
+
+### Bug Fixes
+
+- **SettingDrawer:** 修复主题色 Tooltip 无提示信息问题 ([#920](https://github.com/ant-design/pro-components/issues/920)) ([a1e94ab](https://github.com/ant-design/pro-components/commit/a1e94ab81613ed47dbd70e92862f5b0227c73e5b))
+
 ## [6.5.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.5.11...@ant-design/pro-layout@6.5.12) (2020-11-04)
 
 **Note:** Version bump only for package @ant-design/pro-layout

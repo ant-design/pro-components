@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.3.0...@ant-design/pro-form@1.4.0) (2020-11-09)
+
+### Features
+
+- **table:** 修复 ListToolBar 样式问题 & 调整部分 Table 样式的 demo ([#918](https://github.com/ant-design/pro-components/issues/918)) ([a217c6e](https://github.com/ant-design/pro-components/commit/a217c6ea309f5232fd1864b2d886f449f49f2b6a))
+
 # [1.3.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.2.1...@ant-design/pro-form@1.3.0) (2020-11-04)
 
 ### Features

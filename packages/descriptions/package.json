@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-descriptions",
-  "version": "1.0.31",
+  "version": "1.0.32",
   "description": "@ant-design/pro-descriptions",
   "keywords": [
     "antd",
@@ -33,9 +33,9 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "@ant-design/pro-field": "1.0.7",
+    "@ant-design/pro-field": "1.0.8",
     "@ant-design/pro-skeleton": "1.0.0-beta.10",
-    "@ant-design/pro-utils": "1.0.7"
+    "@ant-design/pro-utils": "1.1.0"
   },
   "peerDependencies": {
     "umi": "3.x"
