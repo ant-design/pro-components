@@ -11,7 +11,7 @@ export default () => (
   >
     <ProLayout
       location={{
-        pathname: '/articles/new',
+        pathname: '/data_hui/data_hui2',
       }}
       route={{
         routes: complexMenu,
