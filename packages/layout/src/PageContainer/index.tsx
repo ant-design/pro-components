@@ -10,6 +10,7 @@ import GridContent from '../GridContent';
 import FooterToolbar from '../FooterToolbar';
 import './index.less';
 import PageLoading from '../PageLoading';
+import { WithFalse } from '../typings';
 
 export interface PageHeaderTabConfig {
   /**
@@ -72,7 +73,7 @@ export interface PageContainerProps extends PageHeaderTabConfig, Omit<PageHeader
   /**
    * @name 自定义 pageHeader
    */
-  pageHeaderRender?: (props: PageContainerProps) => React.ReactNode;
+  pageHeaderRender?: WithFalse<(props: PageContainerProps) => React.ReactNode>;
 
   /**
    * @name 固钉的配置
@@ -158,6 +159,9 @@ const defaultPageHeaderRender = (
     ...restProps
   } = props;
 
+  if (pageHeaderRender === false) {
+    return null;
+  }
   if (pageHeaderRender) {
     return pageHeaderRender({ ...props, ...value });
   }
@@ -209,19 +213,19 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
     </div>
   ) : null;
 
-  const headerDom = (
-    <div className={`${prefixedClassName}-warp`}>
-      {defaultPageHeaderRender(props, {
-        ...value,
-        prefixCls: undefined,
-        prefixedClassName,
-      })}
-    </div>
-  );
+  const pageHeaderDom = defaultPageHeaderRender(props, {
+    ...value,
+    prefixCls: undefined,
+    prefixedClassName,
+  });
+
+  const headerDom = pageHeaderDom ? (
+    <div className={`${prefixedClassName}-warp`}>{pageHeaderDom}</div>
+  ) : null;
 
   return (
     <div style={style} className={className}>
-      {fixedHeader ? (
+      {fixedHeader && headerDom ? (
         // 在 hasHeader 且 fixedHeader 的情况下，才需要设置高度
         <Affix
           offsetTop={value.hasHeader && value.fixedHeader ? value.headerHeight : 0}
