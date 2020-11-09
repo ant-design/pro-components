@@ -107,6 +107,45 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 | title    | 标题                 | `string`          | -      |
 | children | 表单控件或者其他元素 | `React.ReactNode` | -      |
 
+#### submitter
+
+虽然我们希望不要对 submitter 进行修改，但是在使用中修改时很常见的需求，ProForm 的各个组件都使用了同样的 API 来支持需求。
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| onSubmit | 提交方法 | `()=>void` | - |
+| onReset | 重置方法 | `()=>void` | - |
+| searchConfig | 搜索的配置，一般用来配置文本 | `{resetText,submitText}` | - |
+| submitButtonProps | 提交按钮的 props | [ButtonProps](https://ant.design/components/button-cn/) | - |
+| resetButtonProps | 重置按钮的 props | [ButtonProps](https://ant.design/components/button-cn/) | - |
+| render | 自定义操作的渲染 | `false`\|`(props,dom:JSX[])=>ReactNode[]` | - |
+
+> render 的第二个参数是默认的 dom 数组，第一个是重置按钮，第二个是提交按钮。
+
+```tsx | pure
+<ProForm
+  submitter={{
+    // 配置按钮文本
+    searchConfig: {
+      resetText: '重置',
+      submitText: '提交',
+    },
+    // 配置按钮的属性
+    resetButtonProps: {},
+    submitButtonProps: {},
+
+    // 完全自定义整个区域
+    render: (props, doms) => {
+      return (
+        <button type="button" id="rest" onClick={() => props?.onReset?.()}>
+          rest
+        </button>
+      );
+    },
+  }}
+/>
+```
+
 ### QueryFilter
 
 QueryFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
@@ -431,7 +470,7 @@ ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 �
   />
 
   <ProFormSelect
-    name="select"
+    name="select2"
     label="Select"
     hasFeedback
     request={async () => [
@@ -480,10 +519,4 @@ ProFormFieldSet 可以将内部的多个 children 的值组合并且存储在 Pr
   <ProFormText width="m" />
   <ProFormText width="m" />
 </ProFromFieldSet>
-```
-
-t>
-
-```
-
 ```
