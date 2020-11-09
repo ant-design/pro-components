@@ -312,7 +312,7 @@ ProForm 自带的 Filed ,与 valueType 基本上一一对应。
 
 与 [DatePicker](https://ant.design/components/date-picker-cn/) 相同。
 
-````tsx | pure
+```tsx | pure
 <ProFormDateRangePicker name="datetimeRange" label="日期" />
 ```
 
@@ -322,7 +322,7 @@ ProForm 自带的 Filed ,与 valueType 基本上一一对应。
 
 ```tsx | pure
 <ProFormDateRangePicker name="time" label="时间" />
-````
+```
 
 ### ProFormTextArea
 
@@ -338,6 +338,8 @@ ProForm 自带的 Filed ,与 valueType 基本上一一对应。
 ```
 
 ### ProFormCheckbox
+
+> 请求远程数据比较复杂，详细可以看[这里](/components/field#远程数据)。
 
 与 [checkbox](https://ant.design/components/checkbox-cn/) 相同，但是支持了 `options` 与 `layout`。
 
@@ -355,13 +357,16 @@ ProForm 自带的 Filed ,与 valueType 基本上一一对应。
 />
 ```
 
-### ProFormRadio
+### ProFormRadio.Group
+
+> 请求远程数据比较复杂，详细可以看[这里](/components/field#远程数据)。
 
 与 [radio](https://ant.design/components/radio-cn/) 相同，但是支持了 `options`。
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | options | 与 select 相同，根据 options 生成子节点，推荐使用。 | `string[]` \| `{label:ReactNode,value:string}[]` | - |
+| radioType | 设置是按钮模式还是 radio 模式 | `button`\|`radio` | `radio` |
 
 ```tsx | pure
 <ProFormRadio.Group
@@ -449,6 +454,8 @@ ProForm 自带的 Filed ,与 valueType 基本上一一对应。
 ### ProFormSelect
 
 与 [select](https://ant.design/components/select-cn/) 相同。支持了 request 和 valueEnum 两种方式来生成 options。
+
+> 请求远程数据比较复杂，详细可以看[这里](/components/field#远程数据)。
 
 > 有了 options 为什么要支持 valueEnum 呢？ valueEnum 可以与 table，descriptions 共用，在工程化上有优势。
 

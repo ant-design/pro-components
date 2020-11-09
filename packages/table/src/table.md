@@ -286,6 +286,8 @@ ref.current.clearSelected();
 
 ### Columns 列定义
 
+> 请求远程数据比较复杂，详细可以看[这里](/components/field#远程数据)。
+
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | title | 与 antd 中基本相同，但是支持通过传入一个方法 | `ReactNode \| ((config: ProColumnType<T>, type: ProTableTypes) => ReactNode)` | - |
