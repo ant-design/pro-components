@@ -466,7 +466,35 @@ Form 的列是根据 `valueType` 来生成不同的类型。
 | index | 不展示 |
 | progress | 不展示 |
 
-### ListToolBarProps
+### 列表工具栏
+
+#### 基本使用
+
+<code src="./demos/ListToolBar/basic.tsx" background="#f0f2f5"/>
+
+#### 无标题的情况
+
+没有标题的情况下搜索框会前置。
+
+<code src="./demos/ListToolBar/no-title.tsx" background="#f0f2f5"/>
+
+#### 双行
+
+双行的情况下会有双行的布局形式。
+
+<code src="./demos/ListToolBar/multipleLine.tsx" background="#f0f2f5"/>
+
+#### 标签
+
+标签需配合 `multipleLine` 为 `true` 时使用。
+
+<code src="./demos/ListToolBar/tabs.tsx" background="#f0f2f5"/>
+
+#### 标题下拉菜单
+
+<code src="./demos/ListToolBar/menu.tsx" background="#f0f2f5"/>
+
+#### ListToolBarProps
 
 列表和表格的工具栏配置属性
 

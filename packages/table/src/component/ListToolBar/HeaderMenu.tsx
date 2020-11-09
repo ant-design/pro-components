@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dropdown, Menu } from 'antd';
+import { Dropdown, Menu, Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -76,10 +76,10 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
           </Menu>
         }
       >
-        <div className={`${prefixCls}-dropdownmenu-label`}>
+        <Space className={`${prefixCls}-dropdownmenu-label`}>
           {activeItem.label}
-          <DownOutlined style={{ fontSize: 14, marginLeft: 4 }} />
-        </div>
+          <DownOutlined />
+        </Space>
       </Dropdown>
     </div>
   );

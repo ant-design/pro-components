@@ -21,12 +21,16 @@ exports[`list demos renders ./packages/list/src/demos/base.tsx correctly 1`] = `
           class="ant-pro-table-list-toolbar-container"
         >
           <div
-            class="ant-pro-table-list-toolbar-left"
+            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
           >
             <div
-              class="ant-pro-table-list-toolbar-title"
+              class="ant-space-item"
             >
-              基础列表
+              <div
+                class="ant-pro-table-list-toolbar-title"
+              >
+                基础列表
+              </div>
             </div>
           </div>
           <div
@@ -573,12 +577,16 @@ exports[`list demos renders ./packages/list/src/demos/expand.tsx correctly 1`] =
           class="ant-pro-table-list-toolbar-container"
         >
           <div
-            class="ant-pro-table-list-toolbar-left"
+            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
           >
             <div
-              class="ant-pro-table-list-toolbar-title"
+              class="ant-space-item"
             >
-              支持展开的列表
+              <div
+                class="ant-pro-table-list-toolbar-title"
+              >
+                支持展开的列表
+              </div>
             </div>
           </div>
           <div
@@ -1089,12 +1097,16 @@ exports[`list demos renders ./packages/list/src/demos/filter.tsx correctly 1`] =
           class="ant-pro-table-list-toolbar-container"
         >
           <div
-            class="ant-pro-table-list-toolbar-left"
+            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
           >
             <div
-              class="ant-pro-table-list-toolbar-title"
+              class="ant-space-item"
             >
-              基础列表
+              <div
+                class="ant-pro-table-list-toolbar-title"
+              >
+                基础列表
+              </div>
             </div>
           </div>
           <div
@@ -1102,7 +1114,7 @@ exports[`list demos renders ./packages/list/src/demos/filter.tsx correctly 1`] =
           >
             <div
               class="ant-space-item"
-              style="margin-right: 8px;"
+              style="margin-right: 16px;"
             >
               <div
                 class="ant-pro-table-list-toolbar-filter"
@@ -1483,12 +1495,16 @@ exports[`list demos renders ./packages/list/src/demos/layout.tsx correctly 1`] =
           class="ant-pro-table-list-toolbar-container"
         >
           <div
-            class="ant-pro-table-list-toolbar-left"
+            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
           >
             <div
-              class="ant-pro-table-list-toolbar-title"
+              class="ant-space-item"
             >
-              竖排样式
+              <div
+                class="ant-pro-table-list-toolbar-title"
+              >
+                竖排样式
+              </div>
             </div>
           </div>
           <div
@@ -2227,12 +2243,16 @@ exports[`list demos renders ./packages/list/src/demos/pagination.tsx correctly 1
           class="ant-pro-table-list-toolbar-container"
         >
           <div
-            class="ant-pro-table-list-toolbar-left"
+            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
           >
             <div
-              class="ant-pro-table-list-toolbar-title"
+              class="ant-space-item"
             >
-              翻页
+              <div
+                class="ant-pro-table-list-toolbar-title"
+              >
+                翻页
+              </div>
             </div>
           </div>
           <div
@@ -3143,12 +3163,16 @@ exports[`list demos renders ./packages/list/src/demos/selectedRow.tsx correctly 
           class="ant-pro-table-list-toolbar-container"
         >
           <div
-            class="ant-pro-table-list-toolbar-left"
+            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
           >
             <div
-              class="ant-pro-table-list-toolbar-title"
+              class="ant-space-item"
             >
-              支持选中的列表
+              <div
+                class="ant-pro-table-list-toolbar-title"
+              >
+                支持选中的列表
+              </div>
             </div>
           </div>
           <div
@@ -3827,12 +3851,16 @@ Array [
             class="ant-pro-table-list-toolbar-container"
           >
             <div
-              class="ant-pro-table-list-toolbar-left"
+              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
             >
               <div
-                class="ant-pro-table-list-toolbar-title"
+                class="ant-space-item"
               >
-                大小和分割线
+                <div
+                  class="ant-pro-table-list-toolbar-title"
+                >
+                  大小和分割线
+                </div>
               </div>
             </div>
             <div
@@ -4312,12 +4340,16 @@ exports[`list demos renders ./packages/list/src/demos/special.tsx correctly 1`] 
           class="ant-pro-table-list-toolbar-container"
         >
           <div
-            class="ant-pro-table-list-toolbar-left"
+            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
           >
             <div
-              class="ant-pro-table-list-toolbar-title"
+              class="ant-space-item"
             >
-              预设的列状态
+              <div
+                class="ant-pro-table-list-toolbar-title"
+              >
+                预设的列状态
+              </div>
             </div>
           </div>
           <div
