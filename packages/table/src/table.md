@@ -22,47 +22,47 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 
 ### 查询表格
 
-<code src="./demos/single.tsx" background="#f5f5f5"/>
+<code src="./demos/single.tsx" background="#f5f5f5" height="500px"/>
 
 ### 降级为普通表格
 
-<code src="./demos/normal.tsx" background="#f5f5f5"/>
+<code src="./demos/normal.tsx" background="#f5f5f5" height="400px"/>
 
 ### 轻量筛选替换查询表单
 
-<code src="./demos/lightfilter.tsx" background="#f5f5f5"/>
+<code src="./demos/lightfilter.tsx" background="#f5f5f5"  height="400px"/>
 
 ### 无 ToolBar 的表格
 
-<code src="./demos/no-title.tsx" background="#f5f5f5"/>
+<code src="./demos/no-title.tsx" background="#f5f5f5" height="350px"/>
 
 ### 嵌套表格
 
-<code src="./demos/table-nested.tsx" background="#f5f5f5"/>
+<code src="./demos/table-nested.tsx" background="#f5f5f5"  height="400px"/>
 
 ### 表格批量操作
 
-<code src="./demos/batchOption.tsx" background="#f5f5f5"/>
+<code src="./demos/batchOption.tsx" background="#f5f5f5" height="420px"/>
 
 ### 通过 formRef 来操作查询表单
 
-<code src="./demos/form.tsx" background="#f5f5f5"/>
+<code src="./demos/form.tsx" background="#f5f5f5"  height="320px"/>
 
 ### RTL (النسخة العربية)
 
 RTL means right-to-left.
 
-<code src="./demos/rtl_table.tsx" background="#f5f5f5"/>
+<code src="./demos/rtl_table.tsx" background="#f5f5f5" height="500px"/>
 
 ### 受控的表格设置栏
 
 可以默认隐藏某些栏，但是在操作栏中可以选择
 
-<code src="./demos/columnsStateMap.tsx" background="#f5f5f5"/>
+<code src="./demos/columnsStateMap.tsx" background="#f5f5f5" height="300px"/>
 
 ### 表格轮询网络数据
 
-<code src="./demos/pollinga.tsx" background="#f5f5f5"/>
+<code src="./demos/pollinga.tsx" background="#f5f5f5" height="360px"/>
 
 ### 搜索表单自定义
 
@@ -101,21 +101,21 @@ renderFormItem: (_, { type, defaultRender, ...rest }, form) => {
   ) => JSX.Element | false | null;
 ```
 
-<code src="./demos/linkage_form.tsx" background="#f5f5f5"/>
+<code src="./demos/linkage_form.tsx" background="#f5f5f5" height="310px"/>
 
 ### 表单操作自定义
 
-<code src="./demos/search_option.tsx" background="#f5f5f5"/>
+<code src="./demos/search_option.tsx" background="#f5f5f5" height="310px"/>
 
 ### Toolbar 自定义
 
 使用 `toolbar`属性扩展配置工具栏渲染。
 
-<code src="./demos/listToolBar.tsx" background="#f5f5f5"/>
+<code src="./demos/listToolBar.tsx" background="#f5f5f5" height="450px"/>
 
 ### 表格主体自定义
 
-<code src="./demos/renderTable.tsx" background="#f5f5f5"/>
+<code src="./demos/renderTable.tsx" background="#f5f5f5" height="500px"/>
 
 ### 国际化相关的配置
 
@@ -167,29 +167,29 @@ const enUSIntl = createIntl('en_US', enUS);
 </IntlProvider>;
 ```
 
-<code src="./demos/intl.tsx" background="#f5f5f5"/>
+<code src="./demos/intl.tsx" background="#f5f5f5" height="320px"/>
 
-### 使用自带 keyWord 搜索的 table
+### 使用自带 keyWords 搜索的 table
 
-<code src="./demos/search.tsx" background="#f5f5f5"/>
+<code src="./demos/search.tsx" background="#f5f5f5" height="200px"/>
 
 ### 值类型示例
 
 #### valueType - 日期类
 
-<code src="./demos/valueTypeDate.tsx" background="#f5f5f5"/>
+<code src="./demos/valueTypeDate.tsx" background="#f5f5f5" height="350px"/>
 
 #### valueType - 数字类
 
-<code src="./demos/valueTypeNumber.tsx" background="#f5f5f5"/>
+<code src="./demos/valueTypeNumber.tsx" background="#f5f5f5" height="350px"/>
 
 #### valueType - 样式类
 
-<code src="./demos/valueType.tsx" background="#f5f5f5"/>
+<code src="./demos/valueType.tsx" background="#f5f5f5" height="680px"/>
 
 #### valueType - 选择类
 
-<code src="./demos/valueType_select.tsx" background="#f5f5f5"/>
+<code src="./demos/valueType_select.tsx" background="#f5f5f5" heigh="462px"/>
 
 ## API
 

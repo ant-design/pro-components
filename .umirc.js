@@ -88,7 +88,9 @@ export default {
       }
     : false,
   hash: true,
-  ssr: {},
+  ssr: {
+    devServerRender: false,
+  },
   exportStatic: {},
   externals:
     process.env.NODE_ENV === 'development'
