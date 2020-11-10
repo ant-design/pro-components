@@ -48,12 +48,16 @@ const ProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((props, r
   } = props;
 
   const onGetCaptcha = useCallback(async (mobile: string) => {
-    setLoading({
-      delay: 100,
-    });
-    await restProps.onGetCaptcha(mobile);
-    setLoading(false);
-    setTiming(true);
+    try {
+      setLoading({
+        delay: 100,
+      });
+      await restProps.onGetCaptcha(mobile);
+      setLoading(false);
+      setTiming(true);
+    } catch (error) {
+      setLoading(false);
+    }
   }, []);
 
   useEffect(() => {
