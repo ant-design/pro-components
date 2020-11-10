@@ -5,6 +5,12 @@ import defaultProps from './_defaultProps';
 export default () => {
   return (
     <>
+      <ProLayout {...defaultProps} layout="mix" splitMenus pure>
+        children
+      </ProLayout>
+      <ProLayout {...defaultProps} layout="mix" splitMenus>
+        children
+      </ProLayout>
       <ProLayout
         {...defaultProps}
         layout="mix"
