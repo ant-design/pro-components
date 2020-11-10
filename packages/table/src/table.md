@@ -24,15 +24,15 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 
 <code src="./demos/single.tsx" background="#f5f5f5"/>
 
-### 普通表格
+### 降级为普通表格
 
 <code src="./demos/normal.tsx" background="#f5f5f5"/>
 
-### 轻量筛选表格
+### 轻量筛选替换查询表单
 
 <code src="./demos/lightfilter.tsx" background="#f5f5f5"/>
 
-### 无标题栏
+### 无 ToolBar 的表格
 
 <code src="./demos/no-title.tsx" background="#f5f5f5"/>
 
@@ -40,11 +40,11 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 
 <code src="./demos/table-nested.tsx" background="#f5f5f5"/>
 
-### 批量操作
+### 表格批量操作
 
 <code src="./demos/batchOption.tsx" background="#f5f5f5"/>
 
-### form 操作
+### 通过 formRef 来操作查询表单
 
 <code src="./demos/form.tsx" background="#f5f5f5"/>
 
@@ -54,17 +54,17 @@ RTL means right-to-left.
 
 <code src="./demos/rtl_table.tsx" background="#f5f5f5"/>
 
-### 受控的列显示隐藏
+### 受控的表格设置栏
 
 可以默认隐藏某些栏，但是在操作栏中可以选择
 
 <code src="./demos/columnsStateMap.tsx" background="#f5f5f5"/>
 
-### 轮询
+### 表格轮询网络数据
 
 <code src="./demos/pollinga.tsx" background="#f5f5f5"/>
 
-### 自定义表单项
+### 搜索表单自定义
 
 当内置的表单项无法满足我们的基本需求，这时候我们就需要来自定义一下默认的组件，我们可以通过 `fieldProps` 和 `renderFormItem` 配合来使用。
 
@@ -103,27 +103,27 @@ renderFormItem: (_, { type, defaultRender, ...rest }, form) => {
 
 <code src="./demos/linkage_form.tsx" background="#f5f5f5"/>
 
-### 自定义搜索操作栏
+### 表单操作自定义
 
 <code src="./demos/search_option.tsx" background="#f5f5f5"/>
 
-### 自定义工具栏渲染
+### Toolbar 自定义
 
 使用 `toolbar`属性扩展配置工具栏渲染。
 
 <code src="./demos/listToolBar.tsx" background="#f5f5f5"/>
 
-### 自定义表格主体
+### 表格主体自定义
 
 <code src="./demos/renderTable.tsx" background="#f5f5f5"/>
 
-### 国际化示例
+### 国际化相关的配置
 
 ProTable 内置了国际化的支持，作为一个文本量比较少的组件，我们可以自行实现国际化，成本也很低。
 
 这里是全量的文本
 
-```typescript | prue
+```typescript | pure
 const enLocale = {
   tableFrom: {
     search: 'Query',
@@ -169,25 +169,25 @@ const enUSIntl = createIntl('en_US', enUS);
 
 <code src="./demos/intl.tsx" background="#f5f5f5"/>
 
-### 搜索表单例子
+### 使用自带 keyWord 搜索的 table
 
 <code src="./demos/search.tsx" background="#f5f5f5"/>
 
 ### 值类型示例
 
-#### 日期类
+#### valueType - 日期类
 
 <code src="./demos/valueTypeDate.tsx" background="#f5f5f5"/>
 
-#### 数字类
+#### valueType - 数字类
 
 <code src="./demos/valueTypeNumber.tsx" background="#f5f5f5"/>
 
-#### 样式类
+#### valueType - 样式类
 
 <code src="./demos/valueType.tsx" background="#f5f5f5"/>
 
-#### 选择类
+#### valueType - 选择类
 
 <code src="./demos/valueType_select.tsx" background="#f5f5f5"/>
 
@@ -470,29 +470,29 @@ Form 的列是根据 `valueType` 来生成不同的类型。
 
 ### 列表工具栏
 
-#### 基本使用
+#### ToolBar - 基本使用
 
 <code src="./demos/ListToolBar/basic.tsx" background="#f0f2f5"/>
 
-#### 无标题的情况
+#### ToolBar - 无标题
 
 没有标题的情况下搜索框会前置。
 
 <code src="./demos/ListToolBar/no-title.tsx" background="#f0f2f5"/>
 
-#### 双行
+#### ToolBar - 双行布局
 
 双行的情况下会有双行的布局形式。
 
 <code src="./demos/ListToolBar/multipleLine.tsx" background="#f0f2f5"/>
 
-#### 标签
+#### ToolBar - 带标签
 
 标签需配合 `multipleLine` 为 `true` 时使用。
 
 <code src="./demos/ListToolBar/tabs.tsx" background="#f0f2f5"/>
 
-#### 标题下拉菜单
+#### ToolBar- 标题下拉菜单
 
 <code src="./demos/ListToolBar/menu.tsx" background="#f0f2f5"/>
 
@@ -511,7 +511,7 @@ Form 的列是根据 `valueType` 来生成不同的类型。
 | filter | 过滤区，通常配合 `LightFilter` 使用 | ReactNode | - |
 | multipleLine | 是否多行展示 | boolean | false |
 | menu | 菜单配置 | `ListToolBarMenu` | - |
-| tabs | 标签页配置，仅当 `multipleLine` 为 true 时有效 | ListToolBarTabs | - |
+| tabs | 标签页配置，仅当 `multipleLine` 为 true 时有效 | `ListToolBarTabs` | - |
 
 SearchProps 为 antd 的 [Input.Search](https://ant.design/components/input-cn/#Input.Search) 的属性。
 

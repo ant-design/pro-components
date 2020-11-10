@@ -38,7 +38,7 @@ ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 �
 
 <code src="./demos/multi-card-step-form.tsx"  background="#f5f5f5"/>
 
-### 分步表单-Modal
+### 分步表单-与 model 配合使用
 
 <code src="./demos/modal-step-form.tsx"  background="#f5f5f5"/>
 

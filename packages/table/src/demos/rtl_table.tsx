@@ -122,6 +122,9 @@ export default () => {
             params,
           })
         }
+        pagination={{
+          pageSize: 5,
+        }}
         rowKey="id"
         search={{
           labelWidth: 'auto',
