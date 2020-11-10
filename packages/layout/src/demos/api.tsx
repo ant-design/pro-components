@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Switch, Avatar } from 'antd';
 import ProLayout, { PageContainer, DefaultFooter } from '@ant-design/pro-layout';
-import defaultProps from './fixtures/defaultProps';
+import defaultProps from './_defaultProps';
 
 export default () => {
   const [loading, setLoading] = useState(false);
@@ -93,7 +93,7 @@ export default () => {
       <ProLayout
         {...defaultProps}
         style={{
-          height: 500,
+          height: '100vh',
         }}
         menuHeaderRender={menuHeader ? undefined : false}
         headerRender={header ? undefined : false}

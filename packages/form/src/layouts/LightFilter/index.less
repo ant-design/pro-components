@@ -29,7 +29,6 @@
     &:not(:last-child) {
       margin-right: 8px;
     }
-
     margin-top: 8px;
   }
 
@@ -48,5 +47,22 @@
   &-line:not(:first-child) {
     margin-top: 16px;
     margin-bottom: 8px;
+  }
+
+  .@{ant-prefix}-form-item {
+    margin-bottom: 0;
+  }
+
+  &-collapse-icon {
+    height: @height-base;
+    width: @height-base;
+    line-height: @height-base + 3px;
+    border-radius: 50%;
+  }
+
+  &-effective {
+    .@{pro-form-light-filter-prefix-cls}-collapse-icon {
+      background-color: fade(@black, 4%);
+    }
   }
 }

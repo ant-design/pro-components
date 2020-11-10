@@ -19,7 +19,7 @@ const IndexColumn: React.ForwardRefRenderFunction<any, { border?: boolean; child
       ref={ref}
       className={classnames(className, {
         [`${className}-border`]: border,
-        'top-three': (children as number) > 2,
+        'top-three': (children as number) > 3,
       })}
     >
       {children}

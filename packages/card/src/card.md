@@ -28,7 +28,7 @@ group:
 
 ### 栅格布局
 
-当嵌套子卡片时, 组件会自动切换为 `flex` 弹性盒布局。你还可以通过配置 `ghost` 属性为 `true` 方便页内布局。
+当嵌套子卡片时, 组件会自动切换为 `flex` 弹性盒布局，你可以将 `direction`设置为`column`来指定 Flex 方向，你还可以通过配置 `ghost` 属性为 `true` 来去掉背景色和 padding 方便页内布局。
 
  <code src="./demos/colspan.tsx"  background="#f0f2f5" />
 
@@ -47,7 +47,11 @@ group:
 
 <code src="./demos/split2.tsx" background="#f0f2f5"/>
 
+### 左右分栏
+
 <code src="./demos/split23.tsx" background="#f0f2f5"/>
+
+### 复杂切分
 
 <code src="./demos/split.tsx" background="#f0f2f5"/>
 
@@ -69,6 +73,12 @@ group:
 - 或者你可以通过 `collapsed` 属性受控进行自定义。
 
 <code src="./demos/collapsible.tsx" background="#f0f2f5" />
+
+### 卡片组展开
+
+配合 `ghost`幽灵模式和可折叠能力可以实现卡片组展开。
+
+<code src="./demos/group.tsx" background="#f0f2f5" />
 
 ### 内容居中
 
@@ -131,14 +141,9 @@ group:
 | colSpan | 栅格布局宽度，24 栅格，支持指定宽度 px 或百分比, 支持响应式的对象写法 `{ xs: 8, sm: 16, md: 24}` | `number` \| `string` | 24 |
 | gutter | 数字或使用数组形式同时设置 [水平间距, 垂直间距], 支持响应式的对象写法 `{ xs: 8, sm: 16, md: 24}` | `number` \| `array` | 0 |
 | split | 拆分卡片的方向 | `vertical` \| `horizontal`  | - |
-| bordered | 是否有边框 | `boolean` | false |
-| ghost | 幽灵模式，即是否取消卡片内容区域的 padding 和 卡片的背景颜色。 | `boolean` | false |
-| headerBordered | 页头是否有分割线 | `boolean` | false |
-| collapsed | 受控属性，是否折叠 | `boolean` | false |
-| collapsible | 配置是否可折叠，受控时无效 | `boolean` | false |
-| defaultCollapsed | 默认折叠, 受控时无效 | `boolean` | false |
-| onCollapse | 收起卡片的事件，受控时无效 | `(collapsed: boolean) => void;` | - |
-| tabs | 标签页配置 | 见下面 ProCardTabs | - |
+| type | 卡片类型 | `inner` | - |
+| direction | 指定 Flex 方向，仅在嵌套子卡片时有效，默认方向为 row 横向 | `column` | - |
+| bordered | 是否有边框 | `boolean` | false |  | ghost | 幽灵模式，即是否取消卡片内容区域的 padding 和 卡片的背景颜色。 | `boolean` | false |  | headerBordered | 页头是否有分割线 | `boolean` | false |  | collapsed | 受控属性，是否折叠 | `boolean` | false |  | collapsible | 配置是否可折叠，受控时无效 | `boolean` | false |  | defaultCollapsed | 默认折叠, 受控时无效 | `boolean` | false |  | onCollapse | 收起卡片的事件，受控时无效 | `(collapsed: boolean) => void;` | - |  | tabs | 标签页配置 | 见下面 ProCardTabs | - |
 
 ### ProCardTabs
 
@@ -154,8 +159,8 @@ group:
 
 支持 `ProCard` 所有属性及 [Tabs.TabPane](https://ant.design/components/tabs-cn/#Tabs.TabPane) 的所有属性。
 
-| 参数     | 说明             | 类型    | 默认值     |
-| :------- | :--------------- | :------ | :--------- |
-| key      | 对应 activeKey   | string  | -          |
-| tab      | 选项卡头显示文字 | `string | ReactNode` | - |
-| disabled | 不可用           | boolean | false      |
+| 参数 | 说明 | 类型 | 默认值 |
+| :-- | :-- | :-- | :-- |
+| key | 对应 activeKey，用于标定是否选中和 dom 更新，一定不要重复，不然会造成表现异常 | `string` | - |
+| tab | 选项卡头显示文字 | `ReactNode` | - |
+| disabled | 不可用 | `boolean` | false |

@@ -38,7 +38,42 @@ export default {
       },
     ],
   ],
+  metas: [
+    {
+      property: 'og:site_name',
+      content: 'ProComponents',
+    },
+    {
+      'data-rh': 'keywords',
+      property: 'og:image',
+      content: 'https://procomponents.ant.design/icon.png',
+    },
+    {
+      property: 'og:description',
+      content: '🏆 Use Ant Design like a Pro!',
+    },
+    {
+      name: 'keywords',
+      content: '中后台,admin,Ant Design,ant design,Table,react,alibaba',
+    },
+    {
+      name: 'description',
+      content: '🏆 Use Ant Design like a Pro! 包含 table form 等多个组件。',
+    },
+    {
+      name: 'apple-mobile-web-app-capable',
+      content: 'yes',
+    },
+    {
+      name: 'apple-mobile-web-app-status-bar-style"',
+      content: 'black-translucent',
+    },
+  ],
   alias,
+  // 用于切换 antd 暗黑模式
+  // antd: {
+  //   dark: true,
+  // },
   resolve: { includes: [...tailPkgList, 'docs'] },
   navs: [
     null,
@@ -53,7 +88,38 @@ export default {
       }
     : false,
   hash: true,
-  dynamicImport: {
-    loading: '@ant-design/pro-skeleton',
+  ssr: {},
+  exportStatic: {},
+  externals:
+    process.env.NODE_ENV === 'development'
+      ? {
+          react: 'window.React',
+          'react-dom': 'window.ReactDOM',
+          moment: 'window.moment',
+          antd: 'window.antd',
+        }
+      : {},
+  targets: {
+    chrome: 80,
+    firefox: false,
+    safari: false,
+    edge: false,
+    ios: false,
   },
+  theme: {
+    '@s-site-menu-width': '208px',
+  },
+  links:
+    process.env.NODE_ENV === 'development'
+      ? ['https://gw.alipayobjects.com/os/lib/antd/4.6.6/dist/antd.css']
+      : [],
+  scripts:
+    process.env.NODE_ENV === 'development'
+      ? [
+          'https://gw.alipayobjects.com/os/lib/react/16.13.1/umd/react.development.js',
+          'https://gw.alipayobjects.com/os/lib/react-dom/16.13.1/umd/react-dom.development.js',
+          'https://gw.alipayobjects.com/os/lib/moment/2.29.0/min/moment-with-locales.js',
+          'https://gw.alipayobjects.com/os/lib/antd/4.6.6/dist/antd-with-locales.js',
+        ]
+      : [],
 };

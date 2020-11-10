@@ -5,6 +5,7 @@ import BasicLayout, {
   BasicLayoutProps,
   FooterToolbar,
 } from '@ant-design/pro-layout';
+import { act } from 'react-test-renderer';
 import { waitForComponentToPaint } from '../util';
 
 describe('PageContainer', () => {
@@ -27,7 +28,22 @@ describe('PageContainer', () => {
     expect(html).toMatchSnapshot();
   });
 
-  it('🔥 support footer', async () => {
+  it('⚡️ support fixedHeader', async () => {
+    const html = render(<PageContainer title="期贤" fixedHeader />);
+    expect(html).toMatchSnapshot();
+  });
+
+  it('⚡️ support fixHeader', async () => {
+    const html = render(<PageContainer title="期贤" fixHeader />);
+    expect(html).toMatchSnapshot();
+  });
+
+  it('⚡️ support loading', async () => {
+    const html = render(<PageContainer title="期贤" loading />);
+    expect(html).toMatchSnapshot();
+  });
+
+  it('🔥 support footer and breadcrumb', async () => {
     const html = render(
       <PageContainer
         title="期贤"
@@ -191,5 +207,32 @@ describe('PageContainer', () => {
     });
     await waitForComponentToPaint(wrapper);
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('🐲  tabList and onTabChange is run', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <PageContainer
+        title="标题"
+        onTabChange={fn}
+        tabList={[
+          {
+            tab: '基本信息',
+            key: 'base',
+          },
+          {
+            tab: '详细信息',
+            key: 'info',
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-tabs-nav-list .ant-tabs-tab').at(1).simulate('click');
+    });
+
+    expect(fn).toBeCalledWith('info');
   });
 });

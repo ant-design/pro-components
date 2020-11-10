@@ -1,6 +1,6 @@
 import React, { CSSProperties } from 'react';
 import { Layout } from 'antd';
-import { ConfigProviderWarp } from '@ant-design/pro-provider';
+import { ConfigProviderWrap } from '@ant-design/pro-provider';
 
 const WrapContent: React.FC<{
   isChildrenLayout?: boolean;
@@ -11,11 +11,11 @@ const WrapContent: React.FC<{
 }> = (props) => {
   const { style, className, children } = props;
   return (
-    <ConfigProviderWarp>
+    <ConfigProviderWrap>
       <Layout.Content className={className} style={style}>
         {children}
       </Layout.Content>
-    </ConfigProviderWarp>
+    </ConfigProviderWrap>
   );
 };
 

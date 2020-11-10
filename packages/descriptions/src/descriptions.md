@@ -10,9 +10,45 @@ nav:
 
 # ProDescriptions - 高级定义列表
 
+## 何时使用
+
 高级描述列表组件，提供一个更加方便快速的方案来构建描述列表。
 
-## Demo
+ProDescriptions 的诞生是为了解决项目中需要写很多 Descriptions 的样板代码的问题，所以在其中做了封装了很多常用的逻辑。在 React 中写一个 Descriptions 免不了需要定义一些雷同的属性。所以 ProDescriptions 默认封装了请求网络，columns 列展示的逻辑。
+
+比如 ProDescriptions 封装了请求网络的行为，ProDescriptions 会将 props.params 中的数据默认带入到请求中，如果接口恰好与我们的定义相同，实现一个查询会非常简单。
+
+```tsx | pure
+import request from 'umi-request';
+
+const fetchData = (params) =>
+  request<{
+    data: T{};
+  }>('https://proapi.azurewebsites.net/github/issues', {
+    params,
+  });
+
+const keyWords = "Ant Design"
+
+<ProDescriptions<T,U> request={fetchData} />;
+```
+
+我们约定 request 拥有一个参数， `params` 会自带 props 中的 `params` 。类型如下:
+
+```tsx | pure
+(params: U) => RequestData;
+```
+
+对与请求回来的结果的 ProDescriptions 也有一些约定，类型如下：
+
+```tsx | pure
+interface RequestData {
+  data: Datum{};
+  success: boolean;
+}
+```
+
+## 代码演示
 
 ### 基础定义列表
 
@@ -65,3 +101,31 @@ nav:
 | dataIndex | 返回数据的 key 与 ProDescriptions 的 request 配合使用，用于配置式的定义列表 | `React.Text` \| `React.Text[]` | - |
 
 > span 是 Description.Item 的数量。 span={2} 会占用两个 DescriptionItem 的宽度。
+
+### ActionRef
+
+在进行了操作，或者 tab 切换等时候我们需要手动触发一下描述列表的更新，纯粹的 props 很难解决这个问题，所以我们提供一个 ref 来支持一些默认的操作。
+
+```tsx | pure
+const ref = useRef<ActionType>();
+
+// 两秒刷新一次
+useEffect(() => {
+  setInterval(() => {
+    ref.current.reload();
+  }, 2000);
+}, []);
+
+// hooks 绑定
+<ProDescriptions actionRef={ref} />;
+
+// class
+<ProDescriptions actionRef={(ref) => (this.ref = ref)} />;
+```
+
+`ActionRef` 还支持了一些别的行为,某些时候会减少的你的编码成本，但是 ref 会脱离 react 的生命周期，所以这些 action 都是不受控的。
+
+```tsx | pure
+// 刷新
+ref.current.reload();
+```

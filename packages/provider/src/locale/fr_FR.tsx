@@ -40,4 +40,9 @@ export default {
     densityMiddle: 'Moyenne',
     densitySmall: 'Compacte',
   },
+  stepsForm: {
+    next: 'Suivante',
+    prev: 'Précédente',
+    submit: 'Finaliser',
+  },
 };

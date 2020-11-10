@@ -4,7 +4,7 @@ import ProField from '@ant-design/pro-field';
 import { ProFormItemProps } from '../../interface';
 import { createField } from '../../BaseForm';
 
-type ProFormDigit = ProFormItemProps<InputNumberProps> & {
+type ProFormDigitProps = ProFormItemProps<InputNumberProps> & {
   min?: InputNumberProps['min'];
   max?: InputNumberProps['max'];
 };
@@ -12,7 +12,7 @@ type ProFormDigit = ProFormItemProps<InputNumberProps> & {
  * 数组选择组件
  * @param
  */
-const ProFormDigit: React.ForwardRefRenderFunction<any, ProFormDigit> = (
+const ProFormDigit: React.ForwardRefRenderFunction<any, ProFormDigitProps> = (
   { fieldProps, min, proFieldProps, max },
   ref,
 ) => {
@@ -31,4 +31,4 @@ const ProFormDigit: React.ForwardRefRenderFunction<any, ProFormDigit> = (
   );
 };
 
-export default createField<ProFormDigit>(React.forwardRef(ProFormDigit));
+export default createField<ProFormDigitProps>(React.forwardRef(ProFormDigit));

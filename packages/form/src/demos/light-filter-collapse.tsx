@@ -1,5 +1,4 @@
 import React from 'react';
-import { FilterOutlined } from '@ant-design/icons';
 import { LightFilter, ProFormSelect, ProFormDateTimePicker } from '@ant-design/pro-form';
 
 export default () => {
@@ -9,8 +8,7 @@ export default () => {
         sex: 'man',
       }}
       collapse
-      collapseLabel={<FilterOutlined />}
-      onFinish={(values) => console.log(values)}
+      onFinish={async (values) => console.log(values)}
     >
       <ProFormSelect
         name="sex"

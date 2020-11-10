@@ -2,6 +2,48 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.0.7...@ant-design/pro-utils@1.1.0) (2020-11-09)
+
+### Features
+
+- **table:** 修复 ListToolBar 样式问题 & 调整部分 Table 样式的 demo ([#918](https://github.com/ant-design/pro-components/issues/918)) ([a217c6e](https://github.com/ant-design/pro-components/commit/a217c6ea309f5232fd1864b2d886f449f49f2b6a))
+
+## [1.0.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.0.6...@ant-design/pro-utils@1.0.7) (2020-11-04)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [1.0.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.0.5...@ant-design/pro-utils@1.0.6) (2020-11-02)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [1.0.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.0.4...@ant-design/pro-utils@1.0.5) (2020-10-29)
+
+### Bug Fixes
+
+- **layout:** fix pageTitle is empty error ([#851](https://github.com/ant-design/pro-components/issues/851)) ([f61ab17](https://github.com/ant-design/pro-components/commit/f61ab170ee1accc35c46956a96b5c8598dd4d90e))
+
+## [1.0.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.0.3...@ant-design/pro-utils@1.0.4) (2020-10-26)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [1.0.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.0.2...@ant-design/pro-utils@1.0.3) (2020-10-15)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [1.0.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.0.1...@ant-design/pro-utils@1.0.2) (2020-10-15)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [1.0.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@0.5.0...@ant-design/pro-utils@1.0.1) (2020-10-12)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+# [0.5.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@0.4.1...@ant-design/pro-utils@0.5.0) (2020-09-29)
+
+### Features
+
+- ProTable & ProList support LightFilter ([#622](https://github.com/ant-design/pro-components/issues/622)) ([ce925c1](https://github.com/ant-design/pro-components/commit/ce925c191330956dadbad752b25ad4c7481d9663))
+
 ## [0.4.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@0.4.0...@ant-design/pro-utils@0.4.1) (2020-09-22)
 
 **Note:** Version bump only for package @ant-design/pro-utils

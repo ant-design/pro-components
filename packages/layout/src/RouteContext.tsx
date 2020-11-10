@@ -21,6 +21,9 @@ export interface RouteContextType extends Partial<PureSettings> {
     id: string;
     pageName: string;
   };
+  matchMenus?: MenuDataItem[];
+  matchMenuKeys?: string[];
+  currentMenu?: PureSettings & MenuDataItem;
 }
 
 const routeContext: React.Context<RouteContextType> = createContext({});

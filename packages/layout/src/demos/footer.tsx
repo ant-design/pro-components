@@ -1,12 +1,12 @@
 import React from 'react';
 import ProLayout, { DefaultFooter, PageContainer } from '@ant-design/pro-layout';
-import defaultProps from './fixtures/defaultProps';
+import defaultProps from './_defaultProps';
 
 export default () => (
   <ProLayout
     {...defaultProps}
     style={{
-      height: 500,
+      height: '100vh',
     }}
     breakpoint={false}
     collapsed

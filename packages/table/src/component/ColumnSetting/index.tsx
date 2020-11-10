@@ -234,7 +234,8 @@ const GroupCheckboxList: React.FC<{
   );
 };
 
-const ColumnSetting = <T, U = {}>(props: ColumnSettingProps<T>) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const ColumnSetting = <T, _U = {}>(props: ColumnSettingProps<T>) => {
   const columnRef = useRef({});
   const counter = Container.useContainer();
   const localColumns: Omit<ProColumns<any> & { index?: number }, 'ellipsis'>[] =
@@ -275,7 +276,6 @@ const ColumnSetting = <T, U = {}>(props: ColumnSettingProps<T>) => {
   const intl = useIntl();
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-table-column-setting');
-  const toolBarClassName = getPrefixCls('pro-table-toolbar');
 
   return (
     <Popover
@@ -309,11 +309,9 @@ const ColumnSetting = <T, U = {}>(props: ColumnSettingProps<T>) => {
       placement="bottomRight"
       content={<GroupCheckboxList className={className} localColumns={localColumns} />}
     >
-      <span className={`${toolBarClassName}-item-icon`}>
-        <Tooltip title={intl.getMessage('tableToolBar.columnSetting', '列设置')}>
-          <SettingOutlined />
-        </Tooltip>
-      </span>
+      <Tooltip title={intl.getMessage('tableToolBar.columnSetting', '列设置')}>
+        <SettingOutlined />
+      </Tooltip>
     </Popover>
   );
 };

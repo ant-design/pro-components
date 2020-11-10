@@ -2,6 +2,53 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.0.7...@ant-design/pro-field@1.0.8) (2020-11-09)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.0.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.0.6...@ant-design/pro-field@1.0.7) (2020-11-04)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.0.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.0.5...@ant-design/pro-field@1.0.6) (2020-11-02)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.0.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.0.4...@ant-design/pro-field@1.0.5) (2020-10-29)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.0.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.0.3...@ant-design/pro-field@1.0.4) (2020-10-26)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.0.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.0.2...@ant-design/pro-field@1.0.3) (2020-10-21)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.0.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.0.1...@ant-design/pro-field@1.0.2) (2020-10-19)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.0.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@0.4.3...@ant-design/pro-field@1.0.1) (2020-10-15)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [0.4.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@0.4.2...@ant-design/pro-field@0.4.3) (2020-10-15)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [0.4.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@0.4.0...@ant-design/pro-field@0.4.2) (2020-10-12)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+# [0.4.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@0.3.3...@ant-design/pro-field@0.4.0) (2020-09-29)
+
+### Features
+
+- ProTable & ProList support LightFilter ([#622](https://github.com/ant-design/pro-components/issues/622)) ([ce925c1](https://github.com/ant-design/pro-components/commit/ce925c191330956dadbad752b25ad4c7481d9663))
+- **field:** 支持密码类型 ([#475](https://github.com/ant-design/pro-components/issues/475)) ([b5a3bd2](https://github.com/ant-design/pro-components/commit/b5a3bd2493a0476ab9186e3fd279742e9bf79458))
+
 ## [0.3.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@0.3.2...@ant-design/pro-field@0.3.3) (2020-09-22)
 
 **Note:** Version bump only for package @ant-design/pro-field

@@ -6,7 +6,7 @@ import { createField } from '../../BaseForm';
 
 const valueType = 'text';
 /**
- * 文本选择组件
+ * 文本组件
  * @param
  */
 const ProFormText = createField<ProFormItemProps<InputProps>>(
@@ -26,7 +26,7 @@ const ProFormText = createField<ProFormItemProps<InputProps>>(
   },
 );
 
-const PassWord = createField<ProFormItemProps<PasswordProps>>(
+const Password = createField<ProFormItemProps<PasswordProps>>(
   React.forwardRef(({ fieldProps, proFieldProps }, ref) => {
     return (
       <ProField
@@ -44,9 +44,9 @@ const PassWord = createField<ProFormItemProps<PasswordProps>>(
 );
 
 const WrappedProFormText: typeof ProFormText & {
-  PassWord: typeof PassWord;
+  Password: typeof Password;
 } = ProFormText as any;
 
-WrappedProFormText.PassWord = PassWord;
+WrappedProFormText.Password = Password;
 
 export default WrappedProFormText;

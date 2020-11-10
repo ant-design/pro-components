@@ -1,7 +1,7 @@
-import { CheckOutlined } from '@ant-design/icons';
-import { Tooltip } from 'antd';
-
 import React, { useState, useEffect } from 'react';
+import { Tooltip } from 'antd';
+import { CheckOutlined } from '@ant-design/icons';
+import classNames from 'classnames';
 
 export interface BlockCheckboxProps {
   value: string;
@@ -9,7 +9,6 @@ export interface BlockCheckboxProps {
   list?: {
     title: string;
     key: string;
-    url: string;
   }[];
   configType: string;
   prefixCls: string;
@@ -26,25 +25,23 @@ const BlockCheckbox: React.FC<BlockCheckboxProps> = ({
   const [dom, setDom] = useState<JSX.Element[]>([]);
   useEffect(() => {
     const domList = (list || []).map((item) => (
-      <div
-        key={item.key}
-        className={`${baseClassName}-item  ${baseClassName}-${configType}-item`}
-        onClick={() => {
-          onChange(item.key);
-        }}
-      >
-        <Tooltip title={item.title} key={item.key}>
-          <img src={item.url} alt={item.key} />
-        </Tooltip>
+      <Tooltip title={item.title} key={item.key}>
         <div
-          className={`${baseClassName}-selectIcon`}
-          style={{
-            display: value === item.key ? 'block' : 'none',
-          }}
+          className={classNames(
+            `${baseClassName}-item`,
+            `${baseClassName}-item-${item.key}`,
+            `${baseClassName}-${configType}-item`,
+          )}
+          onClick={() => onChange(item.key)}
         >
-          <CheckOutlined />
+          <CheckOutlined
+            className={`${baseClassName}-selectIcon`}
+            style={{
+              display: value === item.key ? 'block' : 'none',
+            }}
+          />
         </div>
-      </div>
+      </Tooltip>
     ));
     setDom(domList);
   }, [value, list?.length]);

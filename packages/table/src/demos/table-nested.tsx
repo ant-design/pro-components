@@ -43,7 +43,7 @@ const tableListDataSource: TableListItem[] = [];
 
 const creators = ['付小小', '曲丽丽', '林东东', '陈帅帅', '兼某某'];
 
-for (let i = 0; i < 100; i += 1) {
+for (let i = 0; i < 5; i += 1) {
   tableListDataSource.push({
     key: i,
     name: 'AppName',
@@ -109,10 +109,10 @@ const columns: ProColumns<TableListItem>[] = [
     key: 'option',
     valueType: 'option',
     render: () => [
-      <a>链路</a>,
-      <a>报警</a>,
-      <a>监控</a>,
-      <a>
+      <a key="1">链路</a>,
+      <a key="2">报警</a>,
+      <a key="3">监控</a>,
+      <a key="4">
         <EllipsisOutlined />
       </a>,
     ],
@@ -141,7 +141,7 @@ const expandedRowRender = () => {
           dataIndex: 'operation',
           key: 'operation',
           valueType: 'option',
-          render: () => [<a>Pause</a>, <a>Stop</a>],
+          render: () => [<a key="Pause">Pause</a>, <a key="Stop">Stop</a>],
         },
       ]}
       headerTitle={false}
@@ -175,12 +175,14 @@ export default () => {
       headerTitle="嵌套表格"
       options={false}
       toolBarRender={() => [
-        <Button>查看日志</Button>,
-        <Button>
+        <Button key="show">查看日志</Button>,
+        <Button key="out">
           导出数据
           <DownOutlined />
         </Button>,
-        <Button type="primary">创建应用</Button>,
+        <Button key="primary" type="primary">
+          创建应用
+        </Button>,
       ]}
     />
   );

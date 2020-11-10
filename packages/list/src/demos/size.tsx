@@ -1,19 +1,35 @@
 import React, { useState, ReactText } from 'react';
-import { Button, Select, Progress, Tag } from 'antd';
-import { EllipsisOutlined } from '@ant-design/icons';
-
-// @ts-ignore
-// eslint-disable-next-line import/no-extraneous-dependencies
+import { Progress, Button, Select } from 'antd';
 import ProList from '@ant-design/pro-list';
 
-const dataSource = ['语雀的天空', 'Ant Design', '蚂蚁金服体验科技', 'TechUI'];
+const dataSource = [
+  {
+    title: '语雀的天空',
+    avatar:
+      'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+  },
+  {
+    title: 'Ant Design',
+    avatar:
+      'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+  },
+  {
+    title: '蚂蚁金服体验科技',
+    avatar:
+      'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+  },
+  {
+    title: 'TechUI',
+    avatar:
+      'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+  },
+];
 
 export default () => {
-  const [size, setSize] = useState<'small' | 'default' | 'large' | undefined>('default');
-  const [split, setSplit] = useState<string>('有');
-  const [bordered, setBordered] = useState<string>('有');
-  const [expandedRowKeys, setExpandedRowKeys] = useState<ReactText[]>([]);
   const [selectedRowKeys, setSelectedRowKeys] = useState<ReactText[]>([]);
+  const [expandedRowKeys, setExpandedRowKeys] = useState<ReactText[]>([]);
+  const [size, setSize] = useState<'small' | 'default' | 'large' | undefined>('default');
+  const [split, setSplit] = useState<0 | 1>(1);
   const rowSelection = {
     selectedRowKeys,
     onChange: (keys: ReactText[]) => setSelectedRowKeys(keys),
@@ -31,75 +47,76 @@ export default () => {
         }))}
       />{' '}
       分割线：
-      <Select<string>
+      <Select<0 | 1>
         value={split}
         onChange={(value) => setSplit(value)}
-        options={['有', '无'].map((selectSize) => ({
-          value: selectSize,
-          label: selectSize,
-        }))}
-      />{' '}
-      边框线：
-      <Select<string>
-        value={bordered}
-        onChange={(value) => setBordered(value)}
-        options={['有', '无'].map((selectSize) => ({
-          value: selectSize,
-          label: selectSize,
-        }))}
-      />
-      <br />
-      <br />
-      <ProList<string>
-        size={size}
-        split={split === '有'}
-        actions={[
-          <Button key="3" type="primary">
-            新建
-          </Button>,
+        options={[
+          {
+            value: 1,
+            label: '有',
+          },
+          {
+            value: 0,
+            label: '无',
+          },
         ]}
-        bordered={bordered === '有'}
-        rowKey="id"
-        title="复杂的例子"
-        rowSelection={rowSelection}
-        dataSource={dataSource}
-        expandable={{ expandedRowKeys, onExpandedRowsChange: setExpandedRowKeys }}
-        renderItem={(item) => ({
-          title: item,
-          subTitle: <Tag color="#5BD8A6">语雀专栏</Tag>,
-          actions: [
-            <a>邀请</a>,
-            <a>操作</a>,
-            <a>
-              <EllipsisOutlined />
-            </a>,
-          ],
-          description: (
-            <div>
-              <div>一个 UI 设计体系</div>
-              <div>林外发布于 2019-06-25</div>
-            </div>
-          ),
-          avatar: 'https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg',
-          children: (
-            <div
-              style={{
-                flex: 1,
-                display: 'flex',
-                justifyContent: 'flex-end',
-              }}
-            >
+      />{' '}
+      <br />
+      <br />
+      <ProList<{ title: string }>
+        size={size}
+        split={split === 1}
+        toolBarRender={() => {
+          return [
+            <Button key="3" type="primary">
+              新建
+            </Button>,
+          ];
+        }}
+        metas={{
+          title: {},
+          description: {
+            render: () => {
+              return 'Ant Design, a design language for background applications, is refined by Ant UED Team';
+            },
+          },
+          avatar: {},
+          content: {
+            render: () => (
               <div
                 style={{
-                  width: 200,
+                  minWidth: 200,
+                  flex: 1,
+                  display: 'flex',
+                  justifyContent: 'flex-end',
                 }}
               >
-                <div>发布中</div>
-                <Progress percent={80} />
+                <div
+                  style={{
+                    width: '200px',
+                  }}
+                >
+                  <div>发布中</div>
+                  <Progress percent={80} />
+                </div>
               </div>
-            </div>
-          ),
-        })}
+            ),
+          },
+          actions: {
+            render: () => {
+              return [<a>邀请</a>];
+            },
+          },
+        }}
+        expandable={{
+          expandedRowKeys,
+          defaultExpandAllRows: false,
+          onExpandedRowsChange: setExpandedRowKeys,
+        }}
+        rowKey="title"
+        headerTitle="大小和分割线"
+        rowSelection={rowSelection}
+        dataSource={dataSource}
       />
     </>
   );

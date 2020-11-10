@@ -1,6 +1,6 @@
 import React from 'react';
 import ProLayout, { SettingDrawer } from '@ant-design/pro-layout';
-import defaultProps from './fixtures/defaultProps';
+import defaultProps from './_defaultProps';
 
 export default () => {
   return (
@@ -13,7 +13,7 @@ export default () => {
         onMenuHeaderClick={() => {}}
         formatMessage={({ id }) => id}
         style={{
-          height: 500,
+          height: '100vh',
         }}
       />
       <ProLayout
@@ -21,12 +21,14 @@ export default () => {
         layout="mix"
         menuExtraRender={() => 'dom'}
         menuHeaderRender={false}
+        headerTheme="light"
+        navTheme="light"
         splitMenus
         location={{
           pathname: '/welcome',
         }}
         style={{
-          height: 500,
+          height: '100vh',
         }}
       />
 
@@ -42,7 +44,7 @@ export default () => {
         contentWidth="Fixed"
         openKeys={false}
         style={{
-          height: 500,
+          height: '100vh',
         }}
       />
       <SettingDrawer collapse />

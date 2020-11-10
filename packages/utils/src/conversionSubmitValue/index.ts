@@ -1,4 +1,5 @@
-import moment, { Moment } from 'moment';
+import moment from 'moment';
+import get from 'rc-util/lib/utils/get';
 import isNil from '../isNil';
 
 type DateFormatter = 'number' | 'string' | false;
@@ -15,6 +16,30 @@ const dateFormatterMap = {
   dateTime: 'YYYY-MM-DD HH:mm:ss',
   dateTimeRange: 'YYYY-MM-DD HH:mm:ss',
 };
+
+function isObject(o: any) {
+  return Object.prototype.toString.call(o) === '[object Object]';
+}
+
+export function isPlainObject(o: { constructor: any }) {
+  if (isObject(o) === false) return false;
+
+  // If has modified constructor
+  const ctor = o.constructor;
+  if (ctor === undefined) return true;
+
+  // If has modified prototype
+  const prot = ctor.prototype;
+  if (isObject(prot) === false) return false;
+
+  // If constructor does not have an Object-specific method
+  if (prot.hasOwnProperty('isPrototypeOf') === false) {
+    return false;
+  }
+
+  // Most likely a plain Object
+  return true;
+}
 
 const convertMoment = (value: moment.Moment, dateFormatter: DateFormatter, valueType: string) => {
   if (moment.isMoment(value)) {
@@ -58,15 +83,21 @@ const conversionSubmitValue = <T = any>(
   value: T,
   dateFormatter: DateFormatter,
   valueTypeMap: {
-    [key: string]: string;
+    [key: string]: any;
   },
+  parentKey?: string,
 ): T => {
   const tmpValue = {} as T;
 
   Object.keys(value).forEach((key) => {
-    const valueType = valueTypeMap[key] || 'text';
+    const namePath = parentKey ? [parentKey, key] : [key];
+    const valueType = get(valueTypeMap, namePath) || 'text';
     const itemValue = value[key];
     if (isNil(itemValue)) {
+      return;
+    }
+    if (isPlainObject(itemValue)) {
+      tmpValue[key] = conversionSubmitValue(itemValue, dateFormatter, valueTypeMap, key);
       return;
     }
     // 都没命中，原样返回

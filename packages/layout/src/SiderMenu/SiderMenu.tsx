@@ -80,7 +80,11 @@ export interface SiderMenuProps
 export const defaultRenderCollapsedButton = (collapsed?: boolean) =>
   collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />;
 
-const SiderMenu: React.FC<SiderMenuProps> = (props) => {
+export type PrivateSiderMenuProps = {
+  matchMenuKeys: string[];
+};
+
+const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   const {
     collapsed,
     fixSiderbar,
@@ -112,7 +116,6 @@ const SiderMenu: React.FC<SiderMenuProps> = (props) => {
   const headerDom = defaultRenderLogoAndTitle(props);
 
   const extraDom = menuExtraRender && menuExtraRender(props);
-
   const menuDom = menuContentRender !== false && flatMenuKeys && (
     <BaseMenu
       {...props}
@@ -124,6 +127,7 @@ const SiderMenu: React.FC<SiderMenuProps> = (props) => {
       className={`${baseClassName}-menu`}
     />
   );
+
   return (
     <>
       {fixSiderbar && (

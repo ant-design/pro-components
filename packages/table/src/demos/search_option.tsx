@@ -1,187 +1,84 @@
 import React from 'react';
 import { PlusOutlined } from '@ant-design/icons';
-import { Button, Tag, Space, message } from 'antd';
-import ProTable, { ProColumns, TableDropdown } from '@ant-design/pro-table';
-import request from 'umi-request';
+import { Button } from 'antd';
+import ProTable, { ProColumns } from '@ant-design/pro-table';
 
 interface GithubIssueItem {
-  url: string;
-  repository_url: string;
-  labels_url: string;
-  comments_url: string;
-  events_url: string;
-  html_url: string;
-  id: number;
-  node_id: string;
-  number: number;
-  title: string;
-  user: User;
-  labels: Label[];
-  state: string;
-  locked: boolean;
-  assignee?: any;
-  assignees: any[];
-  milestone?: any;
-  comments: number;
-  created_at: string;
-  updated_at: string;
-  closed_at?: any;
-  author_association: string;
-  body: string;
-}
-
-interface Label {
-  id: number;
-  node_id: string;
-  url: string;
+  key: number;
   name: string;
-  color: string;
-  default: boolean;
-  description: string;
-}
-
-interface User {
-  login: string;
-  id: number;
-  node_id: string;
-  avatar_url: string;
-  gravatar_id: string;
-  url: string;
-  html_url: string;
-  followers_url: string;
-  following_url: string;
-  gists_url: string;
-  starred_url: string;
-  subscriptions_url: string;
-  organizations_url: string;
-  repos_url: string;
-  events_url: string;
-  received_events_url: string;
-  type: string;
-  site_admin: boolean;
+  createdAt: number;
 }
 
 const columns: ProColumns<GithubIssueItem>[] = [
   {
-    title: '序号',
+    title: 'index',
     dataIndex: 'index',
     valueType: 'indexBorder',
-    width: 72,
   },
   {
-    title: '标题',
+    title: 'Title',
+    dataIndex: 'name',
+  },
+  {
+    title: 'Money',
     dataIndex: 'title',
-    copyable: true,
-    ellipsis: true,
-    width: 200,
-    hideInSearch: true,
+    width: 100,
+    valueType: 'money',
+    renderText: () => (Math.random() * 100).toFixed(2),
   },
   {
-    title: '状态',
-    dataIndex: 'state',
-    initialValue: 'all',
-    filters: true,
-    valueEnum: {
-      all: { text: '全部', status: 'Default' },
-      open: {
-        text: '未解决',
-        status: 'Error',
-      },
-      closed: {
-        text: '已解决',
-        status: 'Success',
-      },
-    },
-  },
-  {
-    title: '排序方式',
-    key: 'direction',
-    hideInTable: true,
-    dataIndex: 'direction',
-    filters: true,
-    valueEnum: {
-      asc: '正序',
-      desc: '倒序',
-    },
-  },
-  {
-    title: '标签',
-    dataIndex: 'labels',
-    width: 120,
-    render: (_, row) => (
-      <Space>
-        {row.labels.map(({ name, id, color }) => (
-          <Tag color={color} key={id}>
-            {name}
-          </Tag>
-        ))}
-      </Space>
-    ),
-  },
-  {
-    title: '创建时间',
+    title: 'Created Time',
     key: 'since',
-    dataIndex: 'created_at',
+    dataIndex: 'createdAt',
     valueType: 'dateTime',
-  },
-  {
-    title: 'option',
-    valueType: 'option',
-    dataIndex: 'id',
-    render: (text, row) => [
-      <a href={row.html_url} key="show" target="_blank" rel="noopener noreferrer">
-        查看
-      </a>,
-      <TableDropdown
-        onSelect={(key) => message.info(key)}
-        menus={[
-          { key: 'copy', name: '复制' },
-          { key: 'delete', name: '删除' },
-        ]}
-      />,
-    ],
   },
 ];
 
 export default () => (
   <ProTable<GithubIssueItem>
     columns={columns}
-    request={async (params = {}) =>
-      request<{
-        data: GithubIssueItem[];
-      }>('https://proapi.azurewebsites.net/github/issues', {
-        params,
-      })
-    }
-    rowKey="id"
+    request={async () => {
+      return {
+        data: [
+          {
+            key: 1,
+            name: `TradeCode ${1}`,
+            createdAt: 1602572994055,
+          },
+        ],
+        success: true,
+      };
+    }}
+    rowKey="key"
     dateFormatter="string"
     headerTitle="查询 Table"
     search={{
-      collapsed: false,
+      defaultCollapsed: false,
       optionRender: ({ searchText, resetText }, { form }) => {
         return [
-          <a
+          <Button
             key="searchText"
+            type="primary"
             onClick={() => {
               form?.submit();
             }}
           >
             {searchText}
-          </a>,
-          <a
+          </Button>,
+          <Button
             key="resetText"
             onClick={() => {
               form?.resetFields();
             }}
           >
             {resetText}
-          </a>,
-          <a key="out">导出</a>,
+          </Button>,
+          <Button key="out">导出</Button>,
         ];
       },
     }}
     toolBarRender={() => [
-      <Button key="3" type="primary">
+      <Button key="primary" type="primary">
         <PlusOutlined />
         新建
       </Button>,

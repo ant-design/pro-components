@@ -15,13 +15,28 @@ import ProFormUploadButton from './components/UploadButton';
 import ProFormField from './components/Field';
 import ProFormSelect from './components/Select';
 import ProFormDigit from './components/Digit';
+import ProFromFieldSet, { ProFromFieldSetProps } from './components/FieldSet';
+import ProFormCaptcha, { ProFormCaptchaProps } from './components/Captcha';
 
 import ProForm, { ProFormProps } from './layouts/ProForm';
-import QueryFilter, { BaseQueryFilterProps } from './layouts/QueryFilter';
+import QueryFilter, { BaseQueryFilterProps, QueryFilterProps } from './layouts/QueryFilter';
 import LightFilter from './layouts/LightFilter';
-import StepsFrom, { StepFromProps, StepsFromProps } from './layouts/StepsFrom';
+import StepsForm, { StepFormProps, StepsFormProps } from './layouts/StepsForm';
+import ModalForm, { ModalFormProps } from './layouts/ModalForm';
+import DrawerForm, { DrawerFormProps } from './layouts/DrawerForm';
+import './index.less';
 
-export type { BaseQueryFilterProps, ProFormProps, StepFromProps, StepsFromProps };
+export type {
+  ProFormCaptchaProps,
+  BaseQueryFilterProps,
+  DrawerFormProps,
+  ModalFormProps,
+  ProFormProps,
+  StepFormProps,
+  StepsFormProps,
+  QueryFilterProps,
+  ProFromFieldSetProps,
+};
 export {
   // controls
   ProFormDatePicker,
@@ -40,11 +55,15 @@ export {
   ProFormUploadButton,
   ProFormUploadDragger,
   ProFormSlider,
+  ProFromFieldSet,
+  ProFormCaptcha,
   ProFormDateTimeRangePicker,
   // layouts
   QueryFilter,
   LightFilter,
-  StepsFrom,
+  StepsForm,
+  DrawerForm,
+  ModalForm,
 };
 
 export default ProForm;

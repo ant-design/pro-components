@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Tooltip } from 'antd';
-import { DownOutlined, QuestionCircleOutlined, EllipsisOutlined } from '@ant-design/icons';
-import ProTable, { ProColumns } from '@ant-design/pro-table';
+import { DownOutlined, QuestionCircleOutlined } from '@ant-design/icons';
+import ProTable, { ProColumns, TableDropdown } from '@ant-design/pro-table';
 
 const valueEnum = {
   0: 'close',
@@ -23,7 +23,7 @@ const tableListDataSource: TableListItem[] = [];
 
 const creators = ['付小小', '曲丽丽', '林东东', '陈帅帅', '兼某某'];
 
-for (let i = 0; i < 100; i += 1) {
+for (let i = 0; i < 5; i += 1) {
   tableListDataSource.push({
     key: i,
     name: 'AppName',
@@ -101,12 +101,16 @@ const columns: ProColumns<TableListItem>[] = [
     key: 'option',
     valueType: 'option',
     render: () => [
-      <a>链路</a>,
-      <a>报警</a>,
-      <a>监控</a>,
-      <a>
-        <EllipsisOutlined />
-      </a>,
+      <a key="link">链路</a>,
+      <a key="link2">报警</a>,
+      <a key="link3">监控</a>,
+      <TableDropdown
+        key="actionGroup"
+        menus={[
+          { key: 'copy', name: '复制' },
+          { key: 'delete', name: '删除' },
+        ]}
+      />,
     ],
   },
 ];
@@ -131,12 +135,14 @@ export default () => {
       dateFormatter="string"
       headerTitle="表格标题"
       toolBarRender={() => [
-        <Button>查看日志</Button>,
-        <Button>
+        <Button key="show">查看日志</Button>,
+        <Button key="out">
           导出数据
           <DownOutlined />
         </Button>,
-        <Button type="primary">创建应用</Button>,
+        <Button type="primary" key="primary">
+          创建应用
+        </Button>,
       ]}
     />
   );

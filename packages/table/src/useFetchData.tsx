@@ -82,20 +82,25 @@ const useFetchData = <T extends RequestData<any>>(
       return;
     }
     setLoading(true);
-    const { pageSize, page } = pageInfo;
 
+    const { pageSize, page } = pageInfo;
     try {
-      const { data, success, total: dataTotal = 0 } =
-        (await getData(
-          pagination !== false
-            ? {
-                current: page,
-                pageSize,
-              }
-            : undefined,
-        )) || {};
+      const { data, success, total: dataTotal = 0 } = await getData(
+        pagination !== false
+          ? {
+              current: page,
+              pageSize,
+            }
+          : undefined,
+      );
+      // Do nothing when component unmounted before getData resolved
+      if (!mountRef.current) {
+        return;
+      }
       if (success !== false) {
         setDataAndLoading(data, dataTotal);
+      } else {
+        setLoading(false);
       }
       if (onLoad) {
         onLoad(data);

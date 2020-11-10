@@ -12,83 +12,114 @@ nav:
 
 ## 何时使用
 
-在完成一个标准的 表格列表时即可使用。
+基于 ProTable 实现，可以认为是 ProTable 的一个特例，在完成一个标准的列表时即可使用。
 
 ## 代码演示
 
 ### 基本使用
 
-<code src="./demos/base.tsx" />
+<code src="./demos/base.tsx" background="#f5f5f5" />
 
 ### 支持展开的列表
 
-<code src="./demos/expand.tsx" />
+<code src="./demos/expand.tsx" background="#f5f5f5" />
 
 ### 支持选中的列表
 
-<code src="./demos/selectedRow.tsx" />
+<code src="./demos/selectedRow.tsx" background="#f5f5f5" />
 
-### 复杂的列表
+### 带筛选和异步请求的列表
 
-<code src="./demos/complex.tsx" />
+<code src="./demos/filter.tsx" background="#f5f5f5" />
 
-### 各种 size
+### 大小和分割线
 
-<code src="./demos/size.tsx" />
+<code src="./demos/size.tsx" background="#f5f5f5" />
 
 ### 竖排样式
 
-<code src="./demos/layout.tsx" />
-
-### 文段式场景
-
-<code src="./demos/group.tsx" />
+<code src="./demos/layout.tsx" background="#f5f5f5" />
 
 ### 一些预设的模式
 
-<code src="./demos/special.tsx" />
+<code src="./demos/special.tsx" background="#f5f5f5" />
 
-### 自定义表头
+### 翻页
 
-<code src="./demos/headerRender.tsx" />
-
-### 小菜单
-
-<code src="./demos/minMenu.tsx" />
+<code src="./demos/pagination.tsx" background="#f5f5f5" />
 
 ## API
 
-### ProList
+### ProList API
 
-ProList 与 antd 的 [List](https://ant.design/components/list-cn/) 相比，主要增加了 rowSelection 和 expandable 来支持选中与筛选
-
-| 参数 | 说明 | 类型 | 默认值 |
-| :-- | :-- | :-- | :-- |
-| rowSelection | 与 antd 相同的[配置](https://ant.design/components/table-cn/#rowSelection) | object \|boolean | false |
-| expandable | 与 antd 相同的[配置](https://ant.design/components/table-cn/#expandable) | object \| false | - |
-| showActions | 何时展示 actions | 'hover' \| 'always' | always |
-| rowKey | 行的 key，一般是行 id | string \| (row,index)=>string | "id" |
-| renderItem | 现在的 renderItem 需要返回 ProList.Item 的 props，而不是 dom | ItemProps | - |
-| title | 列表头部主标题 | ReactNode | - |
-| actions | 列表头部操作项 | React.ReactNode[] | - |
-| headerRender | 自定义列表头的 render 方法，替代 `<List />` 的 header 属性 | (props: {title, actions}, defaultDom: React.ReactNode) => ReactNode | - |
-| listRenderItem | 这是 antd 的 renderItem 的别名 | (row,index)=> Node | - |
-
-### ProList.Item
-
-如果你的 dataSource 包含 children，我们会将其打平传入到 renderItem 中，但是包含 children 的项会转化了 group 的样式，只支持 title 和 actions 的属性。
+ProList 与 antd 的 [List](https://ant.design/components/list-cn/) 相比，API 设计上更像 Table，使得可以通过配置化的方式快速定义数据项的展现形式。也使得 Table 和 List 的切换变得更加容易。另外 ProList 基于 ProTable 实现，除了 Table 相关的 API 以外 ProList 支持大部分 ProTable 的 API。
 
 | 参数 | 说明 | 类型 | 默认值 |
 | :-- | :-- | :-- | :-- |
-| type | 列表项的预设样式 | new \| top | - |
-| title | 列表项的主标题 | ReactNode | - |
-| subTitle | 列表项的副标题 | ReactNode | - |
-| checkbox | 列表的选择框 | React.ReactNode | - |
-| loading | 列表项是否在加载中 | React.ReactNode | - |
-| avatar | 列表项的头像 | AvatarProps \| string | - |
-| actions | 操作列表项 | React.ReactNode[] | - |
-| description | 列表项的描述，与 title 不在一行 | React.ReactNode[] | - |
-| expandedRowClassName | 多余展开的 css | string | - |
-| expand | 列表项是否展开 | boolean | - |
-| onExpand | 列表项展开收起的回调 | (expand: boolean) => void | - |
-| expandable | 列表项展开配置 | [object](https://ant.design/components/table-cn/#expandable) | - |
+| dataSource | 与 antd 相同的[配置](https://ant.design/components/list-cn/#API) | `any[]` | `false` |
+| metas | 列表项配置，类似 Table 中的 columns | `Metas` | - |
+| rowKey | 行的 key，一般是行 id | `string` \| `(row,index)=>string` | `'id'` |
+| headerTitle | 列表头部主标题 | `React.ReactNode` | - |
+| loading | 是否加载中 | `boolean` \| `(item: any) => boolean` | `false` |
+| split | 是否有分割线 | `boolean` | `false` |
+| rowSelection | 与 antd 相同的[配置](https://ant.design/components/table-cn/#rowSelection) | `object` \|`boolean` | false |
+| expandable | 与 antd 相同的[配置](https://ant.design/components/table-cn/#expandable) | `object` \| `false` | - |
+| showActions | 何时展示 actions | `'hover'` \| `'always'` | `'always'` |
+
+### Metas.[Meta] 通用 API
+
+| 参数 | 说明 | 类型 | 默认值 |
+| :-- | :-- | :-- | :-- |
+| dataIndex | 数据在数据项中对应的路径，支持通过数组查询嵌套路径 | `string` \| `string[]` | - |
+| valueType | 值的类型，和 ProTable 一致 | `'text'` \| `'date'` ... | `'text'` |
+| render | 自定义渲染函数 | `(text: React.ReactNode,record: T,index: number) => React.ReactNode \| React.ReactNode[]` | - |
+
+### Metas.type
+
+对应 dataSource 的字段类型为 `'new'` \| `'top'` \| `'inline'`。
+
+| 参数      | 说明 | 类型 | 默认值   |
+| :-------- | :--- | :--- | :------- |
+| dataIndex | -    | -    | `'type'` |
+
+### Metas.title
+
+| 参数      | 说明 | 类型 | 默认值    |
+| :-------- | :--- | :--- | :-------- |
+| dataIndex | -    | -    | `'title'` |
+
+### Metas.subTitle
+
+| 参数      | 说明 | 类型 | 默认值       |
+| :-------- | :--- | :--- | :----------- |
+| dataIndex | -    | -    | `'subTitle'` |
+
+### Metas.description
+
+| 参数      | 说明 | 类型 | 默认值          |
+| :-------- | :--- | :--- | :-------------- |
+| dataIndex | -    | -    | `'description'` |
+
+### Metas.avatar
+
+| 参数      | 说明 | 类型 | 默认值     |
+| :-------- | :--- | :--- | :--------- |
+| dataIndex | -    | -    | `'avatar'` |
+
+### Metas.actions
+
+| 参数      | 说明 | 类型 | 默认值      |
+| :-------- | :--- | :--- | :---------- |
+| dataIndex | -    | -    | `'actions'` |
+
+### Metas.content
+
+| 参数      | 说明 | 类型 | 默认值      |
+| :-------- | :--- | :--- | :---------- |
+| dataIndex | -    | -    | `'content'` |
+
+### Metas.extra
+
+| 参数      | 说明 | 类型 | 默认值    |
+| :-------- | :--- | :--- | :-------- |
+| dataIndex | -    | -    | `'extra'` |

@@ -3,7 +3,7 @@ import { Button, Descriptions, Result, Avatar, Space, Statistic } from 'antd';
 import { LikeOutlined, UserOutlined } from '@ant-design/icons';
 
 import ProLayout, { PageContainer, SettingDrawer, ProSettings } from '@ant-design/pro-layout';
-import defaultProps from './fixtures/defaultProps';
+import defaultProps from './_defaultProps';
 
 const content = (
   <Descriptions size="small" column={2}>
@@ -24,18 +24,15 @@ export default () => {
     <div
       id="test-pro-layout"
       style={{
-        transform: 'rotate(0)',
-        overflowX: 'hidden',
+        height: '100vh',
       }}
     >
       <ProLayout
         {...defaultProps}
-        style={{
-          maxHeight: '100vh',
-        }}
         location={{
           pathname,
         }}
+        fixSiderbar
         menuFooterRender={(props) => {
           return (
             <a
