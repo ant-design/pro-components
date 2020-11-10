@@ -10,6 +10,7 @@ export type ProFormCaptchaProps = ProFormItemProps<InputProps> & {
    * @name 倒计时的秒数
    */
   countDown?: number;
+
   /**
    * @name 获取验证码之前调用的方法
    */
