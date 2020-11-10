@@ -229,6 +229,9 @@ export const useFieldFetchData = (
       }
       return [];
     },
+    {
+      revalidateOnFocus: false,
+    },
   );
 
   return [
