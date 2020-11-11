@@ -26,7 +26,6 @@ group:
 `2020-11-04`
 
 - 💄 UI(layout): remove bad styles ([@chenshuai2144](https://github.com/chenshuai2144))[#889](https://github.com/ant-design/pro-components/pull/889)
-
 - 🐛 fix(layout): fix headerTheme no work error ([@chenshuai2144](https://github.com/chenshuai2144))[#892](https://github.com/ant-design/pro-components/pull/892)
 
 ## @ant-design/pro-layout@6.5.11
@@ -39,13 +38,13 @@ group:
 
 `2020-10-29`
 
-- fix(layout): fix pageTitle is empty error ([@chenshuai2144](https://github.com/chenshuai2144))[#851](https://github.com/ant-design/pro-components/pull/851)
+- 🐛 fix(layout): fix pageTitle is empty error ([@chenshuai2144](https://github.com/chenshuai2144))[#851](https://github.com/ant-design/pro-components/pull/851)
 
 ## @ant-design/pro-layout@6.5.8
 
 `2020-10-22`
 
-- fix(layout): fix PageContainer header ts definition ([@rdmclin2](https://github.com/rdmclin2))[#817](https://github.com/ant-design/pro-components/pull/817)
+- 🐛 fix(layout): fix PageContainer header ts definition ([@rdmclin2](https://github.com/rdmclin2))[#817](https://github.com/ant-design/pro-components/pull/817)
 
 ## @ant-design/pro-layout@6.5.6
 
@@ -53,8 +52,8 @@ group:
 
 - 🐛 fix(layout): fix tableLayout no auto set to fixed ([@chenshuai2144](https://github.com/chenshuai2144))[#793](https://github.com/ant-design/pro-components/pull/793)
 
-- ✨ feat(layout): layout support menu.loading ([@chenshuai2144](https://github.com/chenshuai2144))[#792](https://github.com/ant-design/pro-components/pull/792)
-- ✨ feat(layout): pageHeader support loading ([@chenshuai2144](https://github.com/chenshuai2144))[#790](https://github.com/ant-design/pro-components/pull/790)
+- 💥 feat(layout): layout support menu.loading ([@chenshuai2144](https://github.com/chenshuai2144))[#792](https://github.com/ant-design/pro-components/pull/792)
+- 💥 feat(layout): pageHeader support loading ([@chenshuai2144](https://github.com/chenshuai2144))[#790](https://github.com/ant-design/pro-components/pull/790)
 
 ## @ant-design/pro-layout@6.5.5
 
@@ -66,7 +65,7 @@ group:
 
 `2020-10-15`
 
-- fix(layout): fixedHeader=false, offsetTop should is 0 ([@chenshuai2144](https://github.com/chenshuai2144))[#737](https://github.com/ant-design/pro-components/pull/737)
+- 🐛 fix(layout): fixedHeader=false, offsetTop should is 0 ([@chenshuai2144](https://github.com/chenshuai2144))[#737](https://github.com/ant-design/pro-components/pull/737)
 - 🐛 fix(layout): colorWeek use by body ([@chenshuai2144](https://github.com/chenshuai2144))[#714](https://github.com/ant-design/pro-components/pull/714)
 - 🐛 fix(layout): mix mode use topNav when no selected ([@chenshuai2144](https://github.com/chenshuai2144))[#691](https://github.com/ant-design/pro-components/pull/691)
 

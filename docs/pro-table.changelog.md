@@ -21,20 +21,20 @@ group:
 
 `2020-11-04`
 
-- ✨ feat(table): ListToolBar.menu support disabled ([@chenshuai2144](https://github.com/chenshuai2144))[#893](https://github.com/ant-design/pro-components/pull/893)
+- 💥 feat(table): ListToolBar.menu support disabled ([@chenshuai2144](https://github.com/chenshuai2144))[#893](https://github.com/ant-design/pro-components/pull/893)
 
 ## @ant-design/pro-table@2.9.14
 
 `2020-11-02`
 
-- fix(pro-table): table 工具栏：options 为 false 时，不显示父级节点 ([@JaylanChen](https://github.com/JaylanChen))[#866](https://github.com/ant-design/pro-components/pull/866)
+- 🐛 fix(table): table 工具栏：options 为 false 时，不显示父级节点 ([@JaylanChen](https://github.com/JaylanChen))[#866](https://github.com/ant-design/pro-components/pull/866)
 
 ## @ant-design/pro-table@2.9.13
 
 `2020-10-29`
 
-- fix(table): options or fullScreen is null, not render ConfigProvider ([@chenshuai2144](https://github.com/chenshuai2144))[#854](https://github.com/ant-design/pro-components/pull/854)
-- fix(table): renderFormItem should run in form init ([@chenshuai2144](https://github.com/chenshuai2144))[#852](https://github.com/ant-design/pro-components/pull/852)
+- 🐛 fix(table): options or fullScreen is null, not render ConfigProvider ([@chenshuai2144](https://github.com/chenshuai2144))[#854](https://github.com/ant-design/pro-components/pull/854)
+- 🐛 fix(table): renderFormItem should run in form init ([@chenshuai2144](https://github.com/chenshuai2144))[#852](https://github.com/ant-design/pro-components/pull/852)
 
 ## @ant-design/pro-table@2.9.12
 
@@ -58,7 +58,7 @@ group:
 - 🐛 fix(table): table default remove width ([@chenshuai2144](https://github.com/chenshuai2144))[#710](https://github.com/ant-design/pro-components/pull/710)
 - 🐛 fix(table): fix loading no work in success=false ([@chenshuai2144](https://github.com/chenshuai2144))[#706](https://github.com/ant-design/pro-components/pull/706)
 - 🐛 fix(table): fix request no work error ([@chenshuai2144](https://github.com/chenshuai2144))[#695](https://github.com/ant-design/pro-components/pull/695)
-- fix(pro-table): Fix pro-table 在卸载之后仍然设值，导致 react 报错 ([@liuweiGL](https://github.com/liuweiGL))[#693](https://github.com/ant-design/pro-components/pull/693)
+- 🐛 fix(table): Fix pro-table 在卸载之后仍然设值，导致 react 报错 ([@liuweiGL](https://github.com/liuweiGL))[#693](https://github.com/ant-design/pro-components/pull/693)
 
 ## @ant-design/pro-table@2.9.2
 
@@ -71,8 +71,8 @@ group:
 
 `2020-09-29`
 
-- fix(table): 修改 protable 组件，使用 ellipsis 属性时，同时出现 tooltips 和 title 两种提示 ([@JesonSirius](https://github.com/JesonSirius))[#598](https://github.com/ant-design/pro-components/pull/598)
-- fix(table): 将 table 的 loading 属性改为全受控 ([@qiaolei1973](https://github.com/qiaolei1973))[#563](https://github.com/ant-design/pro-components/pull/563)
+- 🐛 fix(table): 修改 protable 组件，使用 ellipsis 属性时，同时出现 tooltips 和 title 两种提示 ([@JesonSirius](https://github.com/JesonSirius))[#598](https://github.com/ant-design/pro-components/pull/598)
+- 🐛 fix(table): 将 table 的 loading 属性改为全受控 ([@qiaolei1973](https://github.com/qiaolei1973))[#563](https://github.com/ant-design/pro-components/pull/563)
 - 💥 feat(table): add form values to transform fields ([@itsuki0927](https://github.com/itsuki0927))[#426](https://github.com/ant-design/pro-components/pull/426)
 
 ## @ant-design/pro-table@2.8.0
@@ -149,7 +149,6 @@ group:
 `2020-08-26`
 
 - 💄 UI(table): fix mobile style error ([@chenshuai2144](https://github.com/chenshuai2144))[#312](https://github.com/ant-design/pro-components/pull/312)
-
 - 🐛 fix(table): fix reset no use initvalues error ([@chenshuai2144](https://github.com/chenshuai2144))[#310](https://github.com/ant-design/pro-components/pull/310)
 
 ## @ant-design/pro-table@2.6.1
@@ -201,8 +200,7 @@ group:
 `2020-08-17`
 
 - 💥 refactor(form): refactor the code of from, all use proForm ([@chenshuai2144](https://github.com/chenshuai2144))[#211](https://github.com/ant-design/pro-components/pull/211)
-
-* 💥 feat: add preview commit ([@chenshuai2144](https://github.com/chenshuai2144))[#209](https://github.com/ant-design/pro-components/pull/209)
+- 💥 feat: add preview commit ([@chenshuai2144](https://github.com/chenshuai2144))[#209](https://github.com/ant-design/pro-components/pull/209)
 
 ## @ant-design/pro-table@2.5.10
 
