@@ -131,6 +131,9 @@ export default () => {
       search={{
         labelWidth: 'auto',
       }}
+      pagination={{
+        pageSize: 5,
+      }}
       dateFormatter="string"
       headerTitle="高级表格"
       toolBarRender={() => [
