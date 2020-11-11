@@ -5,6 +5,8 @@ import { LikeOutlined, UserOutlined } from '@ant-design/icons';
 import ProLayout, { PageContainer, SettingDrawer, ProSettings } from '@ant-design/pro-layout';
 import defaultProps from './_defaultProps';
 
+import '@ant-design/pro-layout/dist/layout.min.css'
+
 const content = (
   <Descriptions size="small" column={2}>
     <Descriptions.Item label="创建人">张三</Descriptions.Item>
