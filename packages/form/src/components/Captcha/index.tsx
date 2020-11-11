@@ -55,9 +55,6 @@ const ProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((props, r
 
   const onGetCaptcha = useCallback(async (mobile: string) => {
     try {
-      if (restProps.onGetCaptchaBefore) {
-        await restProps.onGetCaptchaBefore(mobile);
-      }
       setLoading({
         delay: 100,
       });

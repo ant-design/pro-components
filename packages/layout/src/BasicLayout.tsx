@@ -439,29 +439,33 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
           currentMenu,
         }}
       >
-        <div className={className}>
-          <Layout
-            style={{
-              minHeight: '100%',
-              ...style,
-            }}
-            hasSider
-          >
-            {siderMenuDom}
-            <Layout style={genLayoutStyle}>
-              {headerDom}
-              <WrapContent
-                isChildrenLayout={isChildrenLayout}
-                {...rest}
-                className={contentClassName}
-                style={contentStyle}
-              >
-                {loading ? <PageLoading /> : children}
-              </WrapContent>
-              {footerDom}
+        {props.pure ? (
+          children
+        ) : (
+          <div className={className}>
+            <Layout
+              style={{
+                minHeight: '100%',
+                ...style,
+              }}
+              hasSider
+            >
+              {siderMenuDom}
+              <Layout style={genLayoutStyle}>
+                {headerDom}
+                <WrapContent
+                  isChildrenLayout={isChildrenLayout}
+                  {...rest}
+                  className={contentClassName}
+                  style={contentStyle}
+                >
+                  {loading ? <PageLoading /> : children}
+                </WrapContent>
+                {footerDom}
+              </Layout>
             </Layout>
-          </Layout>
-        </div>
+          </div>
+        )}
       </RouteContext.Provider>
     </MenuCounter.Provider>
   );

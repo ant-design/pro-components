@@ -24,7 +24,7 @@ features:
     desc: 样式风格与 antd 一脉相承，无需魔改，浑然天成
   - icon: https://gw.alipayobjects.com/os/q/cms/images/k9ziieuq/decadf3f-b53a-4c48-83f3-a2faaccf9ff7_w96_h96.png
     title: 预设行为
-    desc: 支持了中后台开发中的常用的表单
+    desc: 更少的代码，更少的 Bug
   - icon: https://gw.alipayobjects.com/os/q/cms/images/k9zij2bh/67f75d56-0d62-47d6-a8a5-dbd0cb79a401_w96_h96.png
     title: TypeScript
     desc: 使用 TypeScript 开发，提供完整的类型定义文件
