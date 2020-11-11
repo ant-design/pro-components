@@ -11058,7 +11058,7 @@ hosted-git-info@^2.1.4, hosted-git-info@^2.7.1:
   resolved "https://registry.npm.taobao.org/hosted-git-info/download/hosted-git-info-2.8.8.tgz#7539bd4bc1e0e0a895815a2e0262420b12858488"
   integrity sha1-dTm9S8Hg4KiVgVouAmJCCxKFhIg=
 
-hosted-git-info@^3.0.0, hosted-git-info@^3.0.2, hosted-git-info@^3.0.6:
+hosted-git-info@^3.0.0, hosted-git-info@^3.0.2, hosted-git-info@^3.0.4, hosted-git-info@^3.0.6:
   version "3.0.7"
   resolved "https://registry.npm.taobao.org/hosted-git-info/download/hosted-git-info-3.0.7.tgz#a30727385ea85acfcee94e0aad9e368c792e036c"
   integrity sha1-owcnOF6oWs/O6U4KrZ42jHkuA2w=
@@ -17872,6 +17872,19 @@ prismjs@^1.21.0:
   integrity sha1-c8NACvxYqCPdfu0CP44c6f2Jd/o=
   optionalDependencies:
     clipboard "^2.0.0"
+
+pro-changelog@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npm.taobao.org/pro-changelog/download/pro-changelog-1.0.0.tgz#7ad0741c813fe094d019c80e8012a84a183c27e3"
+  integrity sha1-etB0HIE/4JTQGcgOgBKoShg8J+M=
+  dependencies:
+    chalk "^2.4.1"
+    execa "^1.0.0"
+    hosted-git-info "^3.0.4"
+    make-fetch-happen "^7.1.1"
+    p-map "^3.0.0"
+    progress "^2.0.0"
+    yargs "^13.0.0"
 
 process-nextick-args@^2.0.0, process-nextick-args@~2.0.0:
   version "2.0.1"
