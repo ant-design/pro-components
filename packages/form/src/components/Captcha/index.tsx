@@ -12,11 +12,6 @@ export type ProFormCaptchaProps = ProFormItemProps<InputProps> & {
   countDown?: number;
 
   /**
-   * @name 获取验证码之前调用的方法
-   */
-  onGetCaptchaBefore?: (mobile: string) => Promise<void>;
-
-  /**
    * @name 获取验证码的方法
    */
   onGetCaptcha: (mobile: string) => Promise<void>;
@@ -63,6 +58,7 @@ const ProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((props, r
       setTiming(true);
     } catch (error) {
       setLoading(false);
+      console.log(error)
     }
   }, []);
 
