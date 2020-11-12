@@ -22,9 +22,9 @@ const ProFormSelect = React.forwardRef<any, ProFormSelectProps>(
     return (
       <ProField
         mode="edit"
-        valueEnum={valueEnum || {}}
+        valueEnum={valueEnum}
         request={request}
-        valueType="text"
+        valueType="select"
         fieldProps={{
           options,
           mode,

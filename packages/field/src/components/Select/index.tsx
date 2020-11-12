@@ -7,7 +7,7 @@ import React, {
   useCallback,
   useEffect,
 } from 'react';
-import { Select, Spin } from 'antd';
+import { Select, Space, Spin } from 'antd';
 import {
   ProSchemaValueEnumMap,
   ProSchemaValueEnumObj,
@@ -42,9 +42,13 @@ export const ObjToMap = (value: ProFieldValueEnumType | undefined): ProSchemaVal
  * @param pure 纯净模式，不增加 status
  */
 export const proFieldParsingText = (
-  text: string | number,
+  text: string | number | Array<string | number>,
   valueEnumParams: ProFieldValueEnumType,
-) => {
+): React.ReactNode => {
+  if (Array.isArray(text)) {
+    return <Space>{text.map((value) => proFieldParsingText(value, valueEnumParams))}</Space>;
+  }
+
   const valueEnum = ObjToMap(valueEnumParams);
 
   if (!valueEnum.has(text) && !valueEnum.has(`${text}`)) {
@@ -283,14 +287,12 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
   if (loading) {
     return <Spin />;
   }
-
   if (mode === 'read') {
     const optionsValueEnum: ProSchemaValueEnumObj = options?.length
       ? options?.reduce((pre: any, cur) => {
           return { ...pre, [cur.value]: cur.label };
         }, {})
       : undefined;
-
     const dom = (
       <>
         {proFieldParsingText(

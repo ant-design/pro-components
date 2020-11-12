@@ -1,12 +1,57 @@
+import React, { useEffect } from 'react';
 import {
   conversionSubmitValue,
   parseValueToMoment,
   transformKeySubmitValue,
   isNil,
+  useDebounceFn,
 } from '@ant-design/pro-utils';
+import { mount } from 'enzyme';
 import moment, { Moment } from 'moment';
+import { act } from 'react-dom/test-utils';
+import { waitTime } from '../util';
 
 describe('utils', () => {
+  it('📅 useDebounceFn', async () => {
+    const fn = jest.fn();
+    const App = (props: { deps: string[] }) => {
+      const fetchData = useDebounceFn(async () => fn(), props.deps);
+      useEffect(() => {
+        fetchData.run();
+        return fetchData.cancel();
+      }, []);
+      return (
+        <div
+          id="test"
+          onClick={() => {
+            fetchData.run();
+            fetchData.run();
+          }}
+        />
+      );
+    };
+    const html = mount(<App deps={['name']} />);
+
+    act(() => {
+      html.find('#test').simulate('click');
+    });
+
+    await waitTime(100);
+
+    act(() => {
+      html.setProps({
+        deps: ['string'],
+      });
+    });
+    await waitTime(100);
+
+    act(() => {
+      html.unmount();
+    });
+
+    expect(fn).toBeCalledTimes(2);
+  });
+
   it('📅 conversionSubmitValue string', async () => {
     const html = conversionSubmitValue(
       {

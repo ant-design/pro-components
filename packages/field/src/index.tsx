@@ -25,6 +25,7 @@ import FiledSelect, {
 } from './components/Select';
 import FiledCheckbox from './components/Checkbox';
 import FiledRate from './components/Rate';
+import FiledSwitch from './components/Switch';
 import FieldDigit from './components/Digit';
 import FieldRadio from './components/Radio';
 
@@ -77,6 +78,7 @@ export type ProFieldValueType =
   | 'digit'
   | 'avatar'
   | 'code'
+  | 'switch'
   | 'fromNow'
   | 'jsonCode';
 
@@ -232,7 +234,7 @@ const defaultRenderText = (
   }
 
   const { mode = 'read', emptyText } = props;
-  if (emptyText !== false && mode === 'read' && valueType !== 'option') {
+  if (emptyText !== false && mode === 'read' && valueType !== 'option' && valueType !== 'switch') {
     if (typeof text !== 'boolean' && typeof text !== 'number' && !text) {
       return emptyText || '-';
     }
@@ -372,6 +374,9 @@ const defaultRenderText = (
   if (valueType === 'rate') {
     return <FiledRate text={text as string} {...props} />;
   }
+  if (valueType === 'switch') {
+    return <FiledSwitch text={text as boolean} {...props} />;
+  }
 
   if (valueType === 'option') {
     return <FieldOptions text={text} {...props} />;
@@ -407,7 +412,7 @@ const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
   };
   return (
     <React.Fragment>
-      {defaultRenderText(text, valueType || 'text', {
+      {defaultRenderText(text ?? fieldProps?.value, valueType || 'text', {
         ...rest,
         mode: rest.mode || 'read',
         ref,

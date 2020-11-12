@@ -35,5 +35,6 @@ export interface ProFormItemProps<T = {}> extends FormItemProps {
   proFieldProps?: {
     light?: boolean;
     label?: React.ReactNode;
+    mode?: 'read';
   };
 }

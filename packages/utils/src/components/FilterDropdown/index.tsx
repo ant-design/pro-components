@@ -7,7 +7,6 @@ import './index.less';
 export interface DropdownProps {
   label?: React.ReactNode;
   footer?: DropdownFooterProps;
-  hideWhenClick?: boolean;
   padding?: number;
   disabled?: boolean;
   onVisibleChange?: (visible: boolean) => void;
@@ -15,15 +14,7 @@ export interface DropdownProps {
 }
 
 const FilterDropdown: React.FC<DropdownProps> = (props) => {
-  const {
-    children,
-    label = 'hover me',
-    footer,
-    hideWhenClick,
-    disabled,
-    onVisibleChange,
-    visible,
-  } = props;
+  const { children, label, footer, disabled, onVisibleChange, visible } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-core-field-dropdown');
 
@@ -35,16 +26,7 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
       onVisibleChange={onVisibleChange}
       overlay={
         <div className={`${prefixCls}-overlay`}>
-          <div
-            className={`${prefixCls}-content`}
-            onClick={(e) => {
-              if (!hideWhenClick) {
-                e.stopPropagation();
-              }
-            }}
-          >
-            {children}
-          </div>
+          <div className={`${prefixCls}-content`}>{children}</div>
           {footer && <Footer disabled={disabled} {...footer} />}
         </div>
       }

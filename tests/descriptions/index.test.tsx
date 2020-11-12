@@ -8,7 +8,7 @@ import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('descriptions', () => {
-  it('🥩 descriptions render valueEnum when data = 0', async () => {
+  it('🥩  descriptions render valueEnum when data = 0', async () => {
     const html = mount(
       <ProDescriptions
         columns={[

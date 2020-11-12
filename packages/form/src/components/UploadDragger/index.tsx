@@ -36,11 +36,13 @@ const ProFormUploadDragger: React.FC<ProFormDraggerProps> = React.forwardRef(
       value,
       children,
       max,
+      proFieldProps,
     },
     ref: any,
   ) => {
     // 如果配置了 max ，并且 超过了文件列表的大小，就不展示按钮
-    const showUploadButton = max === undefined || !value || value?.length < max;
+    const showUploadButton =
+      (max === undefined || !value || value?.length < max) && proFieldProps?.mode !== 'read';
     return (
       <Upload.Dragger
         // @ts-ignore

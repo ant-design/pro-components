@@ -140,7 +140,7 @@ export default () => {
         <Button key="button" icon={<PlusOutlined />} type="primary">
           新建
         </Button>,
-        <Dropdown overlay={menu}>
+        <Dropdown key="menu" overlay={menu}>
           <Button>
             <EllipsisOutlined />
           </Button>

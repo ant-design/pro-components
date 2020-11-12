@@ -40,14 +40,8 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
           return { ...pre, [cur.value]: cur.label };
         }, {})
       : undefined;
-    const checkBoxText: any[] = Array.isArray(rest.text) ? rest.text : [rest.text];
-    const dom = checkBoxText.map((text) => {
-      return (
-        <React.Fragment key={text}>
-          {proFieldParsingText(text, ObjToMap(rest.valueEnum || optionsValueEnum))}
-        </React.Fragment>
-      );
-    });
+
+    const dom = proFieldParsingText(rest.text, ObjToMap(rest.valueEnum || optionsValueEnum));
 
     if (render) {
       return render(rest.text, { mode, ...rest.fieldProps }, <>{dom}</>) || null;

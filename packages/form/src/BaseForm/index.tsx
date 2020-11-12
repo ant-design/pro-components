@@ -81,6 +81,12 @@ export interface ExtendsProps {
   ignoreFormItem?: boolean;
 
   /**
+   * @name 只读模式
+   * @description 实验性质，可能 api 会有改动，谨慎使用
+   */
+  readonly?: boolean;
+
+  /**
    * @name 提交时转化值，一般用于数组类型
    */
   transform?: SearchTransformKeyFn;
@@ -119,6 +125,7 @@ export function createField<P extends ProFormItemProps = any>(
       messageVariables,
       ignoreFormItem,
       transform,
+      readonly,
       ...rest
     } = props;
     const {
@@ -185,6 +192,7 @@ export function createField<P extends ProFormItemProps = any>(
           }),
         }}
         proFieldProps={{
+          mode: readonly ? 'read' : 'edit',
           params: rest.params,
           proFieldKey: otherProps?.name,
           ...proFieldProps,

@@ -3,7 +3,7 @@ import { FormProps } from 'antd/lib/form/Form';
 import { SizeType } from 'antd/lib/config-provider/SizeContext';
 import classNames from 'classnames';
 import { Form, ConfigProvider } from 'antd';
-import { FieldDropdown, FieldLabel } from '@ant-design/pro-utils';
+import { FilterDropdown, FieldLabel } from '@ant-design/pro-utils';
 import { useIntl } from '@ant-design/pro-provider';
 import { FilterOutlined } from '@ant-design/icons';
 import BaseForm, { CommonFormProps } from '../../BaseForm';
@@ -102,7 +102,7 @@ const LightFilterContainer: React.FC<{
         })}
         {collapseItems.length ? (
           <div className={`${lightFilterClassName}-item`} key="more">
-            <FieldDropdown
+            <FilterDropdown
               padding={24}
               onVisibleChange={setOpen}
               visible={open}
@@ -144,7 +144,7 @@ const LightFilterContainer: React.FC<{
                   </div>
                 );
               })}
-            </FieldDropdown>
+            </FilterDropdown>
           </div>
         ) : null}
       </div>
