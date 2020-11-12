@@ -210,7 +210,7 @@ exports[`table demos renders ./packages/table/src/demos/ListToolBar/basic.tsx co
                                     </div>
                                   </div>
                                   <span
-                                    class="ant-pro-core-field-label ant-pro-core-field-label-middle"
+                                    class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
                                   >
                                     响应日期
                                     <span
@@ -1175,7 +1175,7 @@ exports[`table demos renders ./packages/table/src/demos/ListToolBar/menu.tsx cor
                                     </div>
                                   </div>
                                   <span
-                                    class="ant-pro-core-field-label ant-pro-core-field-label-middle"
+                                    class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
                                   >
                                     响应日期
                                     <span
@@ -2294,7 +2294,7 @@ exports[`table demos renders ./packages/table/src/demos/ListToolBar/multipleLine
                                 </div>
                               </div>
                               <span
-                                class="ant-pro-core-field-label ant-pro-core-field-label-middle"
+                                class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
                               >
                                 响应日期
                                 <span
@@ -3124,7 +3124,7 @@ exports[`table demos renders ./packages/table/src/demos/ListToolBar/no-title.tsx
                                     </div>
                                   </div>
                                   <span
-                                    class="ant-pro-core-field-label ant-pro-core-field-label-middle"
+                                    class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
                                   >
                                     响应日期
                                     <span
@@ -4226,7 +4226,7 @@ exports[`table demos renders ./packages/table/src/demos/ListToolBar/tabs.tsx cor
                                       </div>
                                     </div>
                                     <span
-                                      class="ant-pro-core-field-label ant-pro-core-field-label-middle"
+                                      class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
                                     >
                                       响应日期
                                       <span
@@ -13328,7 +13328,7 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
                                     class="ant-dropdown-trigger ant-pro-core-field-dropdown-label"
                                   >
                                     <span
-                                      class="ant-pro-core-field-label ant-pro-core-field-label-middle"
+                                      class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
                                     >
                                       应用名称
                                       <span
@@ -13377,7 +13377,7 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
                                     class="ant-dropdown-trigger ant-pro-core-field-dropdown-label"
                                   >
                                     <span
-                                      class="ant-pro-core-field-label ant-pro-core-field-label-middle"
+                                      class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
                                     >
                                       创建者
                                       <span
@@ -13467,7 +13467,7 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
                                       </div>
                                     </div>
                                     <span
-                                      class="ant-pro-core-field-label ant-pro-core-field-label-middle"
+                                      class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
                                     >
                                       创建时间
                                       <span
@@ -15651,7 +15651,7 @@ exports[`table demos renders ./packages/table/src/demos/listToolBar.tsx correctl
                                       </div>
                                     </div>
                                     <span
-                                      class="ant-pro-core-field-label ant-pro-core-field-label-middle"
+                                      class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
                                     >
                                       响应日期
                                       <span
