@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import classNames from 'classnames';
-import { FieldDropdown, FieldLabel, isDropdownValueType } from '@ant-design/pro-utils';
+import { FilterDropdown, FieldLabel, isDropdownValueType } from '@ant-design/pro-utils';
 import { SizeType } from 'antd/lib/config-provider/SizeContext';
 import { ConfigProvider } from 'antd';
 
@@ -72,7 +72,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
   }
 
   return (
-    <FieldDropdown
+    <FilterDropdown
       disabled={disabled}
       onVisibleChange={setOpen}
       visible={open}
@@ -120,7 +120,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
             })
           : children}
       </div>
-    </FieldDropdown>
+    </FilterDropdown>
   );
 };
 
