@@ -10,6 +10,7 @@ export type ProFormCaptchaProps = ProFormItemProps<InputProps> & {
    * @name 倒计时的秒数
    */
   countDown?: number;
+
   /**
    * @name 获取验证码的方法
    */
@@ -48,12 +49,17 @@ const ProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((props, r
   } = props;
 
   const onGetCaptcha = useCallback(async (mobile: string) => {
-    setLoading({
-      delay: 100,
-    });
-    await restProps.onGetCaptcha(mobile);
-    setLoading(false);
-    setTiming(true);
+    try {
+      setLoading({
+        delay: 100,
+      });
+      await restProps.onGetCaptcha(mobile);
+      setLoading(false);
+      setTiming(true);
+    } catch (error) {
+      setLoading(false);
+      console.log(error)
+    }
   }, []);
 
   useEffect(() => {
