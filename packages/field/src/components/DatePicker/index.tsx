@@ -54,6 +54,7 @@ const FieldDatePicker: ProFieldFC<{
       disabled,
       value,
       onChange,
+      allowClear,
       placeholder = intl.getMessage('tableForm.selectPlaceholder', '请选择'),
     } = fieldProps;
     const momentValue = parseValueToMoment(value, format) as moment.Moment;
@@ -95,6 +96,7 @@ const FieldDatePicker: ProFieldFC<{
                 onChange(null);
               }
             }}
+            allowClear={allowClear}
             bordered={bordered}
             expanded={open}
           />

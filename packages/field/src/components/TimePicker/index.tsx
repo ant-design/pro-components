@@ -31,7 +31,7 @@ const FieldTimePicker: ProFieldFC<{
   }
   if (mode === 'edit' || mode === 'update') {
     let dom;
-    const { disabled, onChange, placeholder } = fieldProps;
+    const { disabled, onChange, placeholder, allowClear } = fieldProps;
 
     if (light) {
       dom = (
@@ -62,6 +62,7 @@ const FieldTimePicker: ProFieldFC<{
             placeholder={placeholder}
             size={size}
             value={valueStr}
+            allowClear={allowClear}
             onClear={() => {
               if (onChange) {
                 onChange(null);
