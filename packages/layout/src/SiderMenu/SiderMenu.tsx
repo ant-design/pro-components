@@ -61,6 +61,7 @@ export interface SiderMenuProps
   menuHeaderRender?: WithFalse<
     (logo: React.ReactNode, title: React.ReactNode, props?: SiderMenuProps) => React.ReactNode
   >;
+  menuFooterRender?: WithFalse<(props?: SiderMenuProps) => React.ReactNode>;
   menuContentRender?: WithFalse<
     (props: SiderMenuProps, defaultDom: React.ReactNode) => React.ReactNode
   >;
@@ -73,18 +74,24 @@ export interface SiderMenuProps
   style?: CSSProperties;
   links?: React.ReactNode[];
   onOpenChange?: (openKeys: WithFalse<string[]>) => void;
+  getContainer?: false;
 }
 
 export const defaultRenderCollapsedButton = (collapsed?: boolean) =>
   collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />;
 
-const SiderMenu: React.FC<SiderMenuProps> = (props) => {
+export type PrivateSiderMenuProps = {
+  matchMenuKeys: string[];
+};
+
+const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   const {
     collapsed,
     fixSiderbar,
+    menuFooterRender,
     onCollapse,
     theme,
-    siderWidth = 208,
+    siderWidth,
     isMobile,
     onMenuHeaderClick,
     breakpoint = 'lg',
@@ -94,7 +101,7 @@ const SiderMenu: React.FC<SiderMenuProps> = (props) => {
     collapsedButtonRender = defaultRenderCollapsedButton,
     links,
     menuContentRender,
-    prefixCls = 'ant-pro',
+    prefixCls,
     onOpenChange,
     headerHeight,
   } = props;
@@ -109,7 +116,6 @@ const SiderMenu: React.FC<SiderMenuProps> = (props) => {
   const headerDom = defaultRenderLogoAndTitle(props);
 
   const extraDom = menuExtraRender && menuExtraRender(props);
-
   const menuDom = menuContentRender !== false && flatMenuKeys && (
     <BaseMenu
       {...props}
@@ -121,6 +127,7 @@ const SiderMenu: React.FC<SiderMenuProps> = (props) => {
       className={`${baseClassName}-menu`}
     />
   );
+
   return (
     <>
       {fixSiderbar && (
@@ -150,7 +157,7 @@ const SiderMenu: React.FC<SiderMenuProps> = (props) => {
         collapsedWidth={48}
         style={{
           overflow: 'hidden',
-          paddingTop: layout === 'mix' ? headerHeight : undefined,
+          paddingTop: layout === 'mix' && !isMobile ? headerHeight : undefined,
           ...style,
         }}
         width={siderWidth}
@@ -158,7 +165,11 @@ const SiderMenu: React.FC<SiderMenuProps> = (props) => {
         className={siderClassName}
       >
         {headerDom && (
-          <div className={`${baseClassName}-logo`} onClick={onMenuHeaderClick} id="logo">
+          <div
+            className={`${baseClassName}-logo`}
+            onClick={layout !== 'mix' ? onMenuHeaderClick : undefined}
+            id="logo"
+          >
             {headerDom}
           </div>
         )}
@@ -208,6 +219,9 @@ const SiderMenu: React.FC<SiderMenuProps> = (props) => {
             )}
           </Menu>
         </div>
+        {menuFooterRender && (
+          <div className={`${baseClassName}-footer`}>{menuFooterRender(props)}</div>
+        )}
       </Sider>
     </>
   );

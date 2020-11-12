@@ -19,6 +19,7 @@ const { yParser } = require('@umijs/utils');
         name,
         version,
         description: name,
+        module: 'es/index.js',
         main: 'lib/index.js',
         types: 'lib/index.d.ts',
         files: ['lib', 'src', 'dist', 'es'],
@@ -26,6 +27,7 @@ const { yParser } = require('@umijs/utils');
           type: 'git',
           url: 'https://github.com/ant-design/pro-components',
         },
+        browserslist: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 11'],
         keywords: ['antd', 'admin', 'ant-design', 'ant-design-pro'],
         authors: [
           'chencheng <sorrycc@gmail.com> (https://github.com/sorrycc)',
@@ -78,13 +80,13 @@ See our website [${name}](https://umijs.org/plugins/${shortName}) for more infor
 Using npm:
 
 \`\`\`bash
-$ npm install --save-dev ${name}
+$ npm install --save ${name}
 \`\`\`
 
 or using yarn:
 
 \`\`\`bash
-$ yarn add ${name} --dev
+$ yarn add ${name}
 \`\`\`
 `,
       );

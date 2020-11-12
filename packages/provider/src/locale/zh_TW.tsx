@@ -10,7 +10,7 @@ export default {
     selectPlaceholder: '請選擇',
   },
   alert: {
-    clear: '清空',
+    clear: '取消選擇',
     selected: '已選擇',
     item: '項',
   },
@@ -24,7 +24,7 @@ export default {
   tableToolBar: {
     leftPin: '固定到左邊',
     rightPin: '固定到右邊',
-    noPin: '取消固定',
+    noPin: '不固定',
     leftFixedTitle: '固定在左側',
     rightFixedTitle: '固定在右側',
     noFixedTitle: '不固定',

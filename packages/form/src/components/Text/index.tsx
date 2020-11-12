@@ -1,24 +1,52 @@
 import React from 'react';
-// eslint-disable-next-line import/no-unresolved
+import { InputProps, PasswordProps } from 'antd/lib/input';
 import ProField from '@ant-design/pro-field';
-import { Form } from 'antd';
-import { DatePickerProps } from 'antd/lib/date-picker';
-import { createField } from '../../BaseForm';
 import { ProFormItemProps } from '../../interface';
+import { createField } from '../../BaseForm';
 
+const valueType = 'text';
 /**
- * 日期选择组件
+ * 文本组件
  * @param
  */
-const ProFormDatePicker: React.ForwardRefRenderFunction<any, ProFormItemProps & DatePickerProps> = (
-  { value, fieldProps, ...restProps },
-  ref,
-) => {
-  return (
-    <Form.Item {...restProps}>
-      <ProField text={value} ref={ref} mode="edit" valueType="text" formItemProps={fieldProps} />
-    </Form.Item>
-  );
-};
+const ProFormText = createField<ProFormItemProps<InputProps>>(
+  React.forwardRef(({ fieldProps, proFieldProps }, ref) => {
+    return (
+      <ProField
+        mode="edit"
+        valueType={valueType}
+        fieldProps={fieldProps}
+        ref={ref}
+        {...proFieldProps}
+      />
+    );
+  }),
+  {
+    valueType,
+  },
+);
 
-export default createField<ProFormItemProps & DatePickerProps>(React.forwardRef(ProFormDatePicker));
+const Password = createField<ProFormItemProps<PasswordProps>>(
+  React.forwardRef(({ fieldProps, proFieldProps }, ref) => {
+    return (
+      <ProField
+        mode="edit"
+        valueType="password"
+        fieldProps={fieldProps}
+        ref={ref}
+        {...proFieldProps}
+      />
+    );
+  }),
+  {
+    valueType,
+  },
+);
+
+const WrappedProFormText: typeof ProFormText & {
+  Password: typeof Password;
+} = ProFormText as any;
+
+WrappedProFormText.Password = Password;
+
+export default WrappedProFormText;

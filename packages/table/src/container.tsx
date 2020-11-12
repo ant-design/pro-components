@@ -3,10 +3,15 @@ import { useState, useRef } from 'react';
 import { ColumnType } from 'antd/lib/table';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
-import { RequestData, ProColumns } from './index';
+import { RequestData, ProColumns, ProTableProps } from './index';
 import { UseFetchDataAction } from './useFetchData';
-import { DensitySize } from './component/toolBar/DensityIcon';
-import { ColumnsState } from './Table';
+import { DensitySize } from './component/ToolBar/DensityIcon';
+
+export type ColumnsState = {
+  show?: boolean;
+  fixed?: 'right' | 'left' | undefined;
+  order?: number;
+};
 
 export interface UseCounterProps {
   columnsStateMap?: {
@@ -19,9 +24,13 @@ export interface UseCounterProps {
 
 function useCounter(props: UseCounterProps = {}) {
   const actionRef = useRef<UseFetchDataAction<RequestData<any>>>();
-  const [columns, setColumns] = useState<ColumnType<any>[]>([]);
+  const [columns, setColumns] = useState<(ColumnType<any> & { index?: number })[]>([]);
+  const propsRef = useRef<ProTableProps<any, any>>();
+
+  // 共享状态比较难，就放到这里了
+  const [keyWords, setKeyWords] = useState<string | undefined>('');
   // 用于排序的数组
-  const [sortKeyColumns, setSortKeyColumns] = useState<(string | number)[]>([]);
+  const sortKeyColumns = useRef<string[]>([]);
   const [proColumns, setProColumns] = useState<ProColumns<any>[]>([]);
 
   const [tableSize, setTableSize] = useMergedState<DensitySize>(props.size || 'middle', {
@@ -35,16 +44,22 @@ function useCounter(props: UseCounterProps = {}) {
     value: props.columnsStateMap,
     onChange: props.onColumnsStateChange,
   });
+
   return {
     action: actionRef,
     setAction: (newAction: UseFetchDataAction<RequestData<any>>) => {
       actionRef.current = newAction;
     },
-    sortKeyColumns,
-    setSortKeyColumns,
+    sortKeyColumns: sortKeyColumns.current,
+    setSortKeyColumns: (keys: string[]) => {
+      sortKeyColumns.current = keys;
+    },
     columns,
     setColumns,
+    propsRef,
     columnsMap,
+    keyWords,
+    setKeyWords: (k: string | undefined) => setKeyWords(k),
     setTableSize,
     tableSize,
     setColumnsMap,
@@ -54,6 +69,8 @@ function useCounter(props: UseCounterProps = {}) {
 }
 
 const Counter = createContainer<ReturnType<typeof useCounter>, UseCounterProps>(useCounter);
+
+export type CounterType = typeof useCounter;
 
 export { useCounter };
 

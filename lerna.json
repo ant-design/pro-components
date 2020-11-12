@@ -3,14 +3,7 @@
   "npmClient": "yarn",
   "useWorkspaces": true,
   "changelog": {
-    "repo": "umijs/plugins",
-    "labels": {
-      "pr(enhancement)": ":rocket: Enhancement",
-      "pr(bug)": ":bug: Bug Fix",
-      "pr(documentation)": ":book: Documentation",
-      "pr(dependency)": ":deciduous_tree: Dependency",
-      "pr(chore)": ":turtle: Chore"
-    },
+    "repo": "ant-design/pro-components",
     "cacheDir": ".changelog"
   },
   "ignoreChanges": ["**/*.md", "**/*.test.ts", "**/*.e2e.ts", "**/fixtures/**", "**/test/**"]

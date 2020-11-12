@@ -4,6 +4,45 @@ import { enableFetchMocks } from 'jest-fetch-mock';
 
 import tableData from './table/mock.data.json';
 
+jest.mock('react', () => ({
+  ...jest.requireActual('react'),
+  useLayoutEffect: jest.requireActual('react').useEffect,
+}));
+
+/* eslint-disable global-require */
+if (typeof window !== 'undefined') {
+  global.window.resizeTo = (width, height) => {
+    global.window.innerWidth = width || global.window.innerWidth;
+    global.window.innerHeight = height || global.window.innerHeight;
+    global.window.dispatchEvent(new Event('resize'));
+  };
+  global.window.scrollTo = () => {};
+  // ref: https://github.com/ant-design/ant-design/issues/18774
+  if (!window.matchMedia) {
+    Object.defineProperty(global.window, 'matchMedia', {
+      writable: true,
+      configurable: true,
+      value: jest.fn(() => ({
+        matches: false,
+        addListener: jest.fn(),
+        removeListener: jest.fn(),
+      })),
+    });
+  }
+}
+
+const Enzyme = require('enzyme');
+
+Object.assign(Enzyme.ReactWrapper.prototype, {
+  findObserver() {
+    return this.find('ResizeObserver');
+  },
+  triggerResize() {
+    const ob = this.findObserver();
+    ob.instance().onResize([{ target: ob.getDOMNode() }]);
+  },
+});
+
 enableFetchMocks();
 
 global.requestAnimationFrame =
@@ -34,14 +73,6 @@ const localStorageMock = (() => {
   };
 })();
 
-Object.defineProperty(window, 'matchMedia', {
-  value: jest.fn(() => ({
-    matches: false,
-    addListener() {},
-    removeListener() {},
-  })),
-});
-
 Object.defineProperty(window, 'localStorage', {
   value: localStorageMock,
 });
@@ -50,14 +81,15 @@ Object.defineProperty(window, 'cancelAnimationFrame', {
   value: () => null,
 });
 
-MockDate.set(moment('2016-11-22 15:22:44').valueOf());
+moment.tz.setDefault('UTC');
+
+// 2016-11-22 15:22:44
+MockDate.set(1479799364000);
 
 const mockFormatExpression = {
   format: (value) => `￥ ${value.toString()}`,
 };
 Intl.NumberFormat = jest.fn().mockImplementation(() => mockFormatExpression);
-
-moment.tz.setDefault('UTC');
 
 Math.random = () => 0.8404419276253765;
 

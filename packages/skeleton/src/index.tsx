@@ -21,16 +21,13 @@ const PageSkeleton: React.FC<
       active?: boolean;
     }
 > = ({ type = 'list', ...rest }) => {
-  if (type === 'list') {
-    return <ListPageSkeleton {...rest} />;
-  }
   if (type === 'result') {
     return <ResultPageSkeleton {...rest} />;
   }
   if (type === 'descriptions') {
     return <DescriptionsPageSkeleton {...rest} />;
   }
-  return <ResultPageSkeleton {...rest} />;
+  return <ListPageSkeleton {...rest} />;
 };
 
 export {

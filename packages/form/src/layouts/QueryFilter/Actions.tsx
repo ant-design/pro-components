@@ -1,6 +1,7 @@
-import React from 'react';
-import { Space } from 'antd';
+import React, { useContext } from 'react';
+import { Space, ConfigProvider } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
+import { useIntl, IntlType } from '@ant-design/pro-provider';
 
 export interface ActionsProps {
   submitter: React.ReactNode;
@@ -8,33 +9,36 @@ export interface ActionsProps {
    * 是否收起
    */
   collapsed?: boolean;
+  /**
+   * 收起按钮的事件
+   */
+  onCollapse?: (collapsed: boolean) => void;
+
   setCollapsed: (collapse: boolean) => void;
-  showCollapseButton: boolean;
   isForm?: boolean;
   style?: React.CSSProperties;
   /**
    * 收起按钮的 render
    */
-  collapseRender?: (
-    collapsed: boolean,
-    /**
-     * 是否应该展示，有两种情况
-     * 列只有三列，不需要收起
-     * form 模式 不需要收起
-     */
-    showCollapseButton?: boolean,
-  ) => React.ReactNode;
-  /**
-   * 收起按钮的事件
-   */
-  onCollapse?: (collapsed: boolean) => void;
+  collapseRender?:
+    | ((
+        collapsed: boolean,
+        /**
+         * 是否应该展示，有两种情况
+         * 列只有三列，不需要收起
+         * form 模式 不需要收起
+         */
+        props: ActionsProps,
+        intl: IntlType,
+      ) => React.ReactNode)
+    | false;
 }
 
-const defaultCollapseRender = (collapsed: boolean) => {
+const defaultCollapseRender: ActionsProps['collapseRender'] = (collapsed, _, intl) => {
   if (collapsed) {
     return (
       <>
-        展开
+        {intl.getMessage('tableForm.collapsed', '展开')}
         <DownOutlined
           style={{
             marginLeft: '0.5em',
@@ -47,7 +51,7 @@ const defaultCollapseRender = (collapsed: boolean) => {
   }
   return (
     <>
-      收起
+      {intl.getMessage('tableForm.expand', '收起')}
       <DownOutlined
         style={{
           marginLeft: '0.5em',
@@ -67,22 +71,24 @@ const Actions: React.FC<ActionsProps> = (props) => {
   const {
     setCollapsed,
     collapsed = false,
-    showCollapseButton,
     collapseRender = defaultCollapseRender,
     submitter,
     style,
   } = props;
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const intl = useIntl();
 
   return (
     <Space style={style}>
       {submitter}
-      {showCollapseButton && (
+      {collapseRender !== false && (
         <a
+          className={getPrefixCls('pro-form-collapse-button')}
           onClick={() => {
             setCollapsed(!collapsed);
           }}
         >
-          {collapseRender(collapsed)}
+          {collapseRender(collapsed, props, intl)}
         </a>
       )}
     </Space>

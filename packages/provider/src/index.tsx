@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
-import { ConfigContext as AntdConfigContext } from 'antd/lib/config-provider';
+
+import { ConfigProvider as AntdConfigProvider } from 'antd';
 import { noteOnce } from 'rc-util/lib/warning';
+import arEG from './locale/ar_EG';
 import zhCN from './locale/zh_CN';
 import enUS from './locale/en_US';
 import viVN from './locale/vi_VN';
@@ -12,16 +14,7 @@ import msMY from './locale/ms_MY';
 import zhTW from './locale/zh_TW';
 import frFR from './locale/fr_FR';
 import ptBR from './locale/pt_BR';
-
-export const getLang = (): string => {
-  const isNavigatorLanguageValid =
-    typeof navigator !== 'undefined' && typeof navigator.language === 'string';
-  const browserLang = isNavigatorLanguageValid
-    ? navigator.language.split('-').join('{{BaseSeparator}}')
-    : '';
-  const lang = typeof localStorage !== 'undefined' ? window.localStorage.getItem('umi_locale') : '';
-  return lang || browserLang || '';
-};
+import koKR from './locale/ko_KR';
 
 export interface IntlType {
   locale: string;
@@ -55,6 +48,7 @@ const createIntl = (locale: string, localeMap: { [key: string]: any }): IntlType
   locale,
 });
 
+const arEGIntl = createIntl('ar_EG', arEG);
 const zhCNIntl = createIntl('zh_CN', zhCN);
 const enUSIntl = createIntl('en_US', enUS);
 const viVNIntl = createIntl('vi_VN', viVN);
@@ -66,8 +60,10 @@ const msMYIntl = createIntl('ms_MY', msMY);
 const zhTWIntl = createIntl('zh_TW', zhTW);
 const frFRIntl = createIntl('fr_FR', frFR);
 const ptBRIntl = createIntl('pt_BR', ptBR);
+const koKRIntl = createIntl('ko_KR', koKR);
 
 const intlMap = {
+  'ar-EG': arEGIntl,
   'zh-CN': zhCNIntl,
   'en-US': enUSIntl,
   'vi-VN': viVNIntl,
@@ -79,6 +75,7 @@ const intlMap = {
   'zh-TW': zhTWIntl,
   'fr-FR': frFRIntl,
   'pt-BR': ptBRIntl,
+  'ko-KR': koKRIntl,
 };
 
 const intlMapKeys = Object.keys(intlMap);
@@ -88,6 +85,7 @@ export type ParamsType = {
 };
 
 export {
+  arEGIntl,
   enUSIntl,
   zhCNIntl,
   viVNIntl,
@@ -99,6 +97,7 @@ export {
   zhTWIntl,
   frFRIntl,
   ptBRIntl,
+  koKRIntl,
   intlMap,
   intlMapKeys,
 };
@@ -135,8 +134,8 @@ const findIntlKeyByAntdLocaleKey = (localeKey: string | undefined) => {
  *  如果没有配置 locale，这里组件会根据 antd 的 key 来自动选择
  * @param param0
  */
-const ConfigProviderWarp: React.FC<{}> = ({ children }) => {
-  const { locale } = useContext(AntdConfigContext);
+const ConfigProviderWrap: React.FC<{}> = ({ children }) => {
+  const { locale } = useContext(AntdConfigProvider.ConfigContext);
   return (
     <ConfigConsumer>
       {(value) => {
@@ -144,18 +143,28 @@ const ConfigProviderWarp: React.FC<{}> = ({ children }) => {
         const key = findIntlKeyByAntdLocaleKey(localeName);
         // antd 的 key 存在的时候以 antd 的为主
         const intl =
-          localeName && value.intl.locale === 'default' ? intlMap[key] : value || intlMap[key];
-        return <ConfigProvider value={intl || zhCNIntl}>{children}</ConfigProvider>;
+          localeName && value.intl?.locale === 'default'
+            ? intlMap[key]
+            : value.intl || intlMap[key];
+        return (
+          <ConfigProvider
+            value={{
+              ...value,
+              intl: intl || zhCNIntl,
+            }}
+          >
+            {children}
+          </ConfigProvider>
+        );
       }}
     </ConfigConsumer>
   );
 };
 
-export { ConfigConsumer, ConfigProvider, ConfigProviderWarp, createIntl };
+export { ConfigConsumer, ConfigProvider, ConfigProviderWrap, createIntl };
 
 export function useIntl(): IntlType {
   const context = useContext(ConfigContext);
-
   noteOnce(
     !!context.intl,
     `

@@ -20,18 +20,20 @@
       "@ant-design/pro-skeleton": ["./packages/skeleton/src/index.tsx"],
       "@ant-design/pro-list": ["./packages/list/src/index.tsx"],
       "@ant-design/pro-provider": ["./packages/provider/src/index.tsx"],
+      "@ant-design/pro-descriptions": ["./packages/descriptions/src/index.tsx"],
       "@ant-design/pro-utils": ["./packages/utils/src/index.tsx"],
       "@ant-design/pro-card": ["./packages/card/src/index.tsx"]
     }
   },
   "include": [
-    "**/src",
-    "**/docs",
-    "scripts",
+    "**/src/**/*",
+    "**/docs/**/*",
+    "scripts/**/*",
     "**/demos",
     ".eslintrc.js",
     "tests",
     "jest.config.js",
-    "**/fixtures"
+    "**/fixtures",
+    "./tests/no-duplicated.ts"
   ]
 }

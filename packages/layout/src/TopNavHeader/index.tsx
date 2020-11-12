@@ -1,18 +1,17 @@
 import React, { useRef, useState } from 'react';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
-
-import { SiderMenuProps, defaultRenderLogoAndTitle } from '../SiderMenu/SiderMenu';
+import {
+  SiderMenuProps,
+  defaultRenderLogoAndTitle,
+  PrivateSiderMenuProps,
+} from '../SiderMenu/SiderMenu';
 import './index.less';
 
 import BaseMenu from '../SiderMenu/BaseMenu';
-import { HeaderViewProps } from '../Header';
+import { GlobalHeaderProps } from '../GlobalHeader';
 
-export type TopNavHeaderProps = SiderMenuProps & {
-  logo?: React.ReactNode;
-  onCollapse?: (collapse: boolean) => void;
-  rightContentRender?: HeaderViewProps['rightContentRender'];
-};
+export type TopNavHeaderProps = SiderMenuProps & GlobalHeaderProps & PrivateSiderMenuProps & {};
 
 /**
  * 抽离出来是为了防止 rightSize 经常改变导致菜单 render
@@ -34,9 +33,6 @@ const RightContent: React.FC<TopNavHeaderProps> = ({ rightContentRender, ...prop
       >
         <ResizeObserver
           onResize={({ width }: { width: number }) => {
-            if (!width) {
-              return;
-            }
             setRightSize(width);
           }}
         >
@@ -64,26 +60,27 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
     style,
     layout,
   } = props;
-  const baseClassName = 'ant-pro-top-nav-header';
+  const prefixCls = `${props.prefixCls || 'ant-pro'}-top-nav-header`;
   const headerDom = defaultRenderLogoAndTitle(
     { ...props, collapsed: false },
     layout === 'mix' ? 'headerTitleRender' : undefined,
   );
 
-  const className = classNames(baseClassName, propsClassName, {
+  const className = classNames(prefixCls, propsClassName, {
     light: theme === 'light',
   });
+
   return (
     <div className={className} style={style}>
-      <div ref={ref} className={`${baseClassName}-main ${contentWidth === 'Fixed' ? 'wide' : ''}`}>
+      <div ref={ref} className={`${prefixCls}-main ${contentWidth === 'Fixed' ? 'wide' : ''}`}>
         {headerDom && (
-          <div className={`${baseClassName}-main-left`} onClick={onMenuHeaderClick}>
-            <div className={`${baseClassName}-logo`} key="logo" id="logo">
+          <div className={`${prefixCls}-main-left`} onClick={onMenuHeaderClick}>
+            <div className={`${prefixCls}-logo`} key="logo" id="logo">
               {headerDom}
             </div>
           </div>
         )}
-        <div style={{ flex: 1 }} className={`${baseClassName}-menu`}>
+        <div style={{ flex: 1 }} className={`${prefixCls}-menu`}>
           <BaseMenu {...props} {...props.menuProps} />
         </div>
         {rightContentRender && <RightContent rightContentRender={rightContentRender} {...props} />}

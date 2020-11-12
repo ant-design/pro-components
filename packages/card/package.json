@@ -1,12 +1,15 @@
 {
   "name": "@ant-design/pro-card",
-  "version": "1.0.0-beta.2",
+  "version": "1.4.6",
   "description": "@ant-design/pro-card",
   "keywords": [
     "antd",
     "admin",
     "ant-design",
     "ant-design-pro"
+  ],
+  "sideEffects": [
+    "*.less"
   ],
   "homepage": "https://github.com/ant-design/pro-components/tree/master/packages/card#readme",
   "bugs": "http://github.com/umijs/plugins/issues",
@@ -16,14 +19,22 @@
   },
   "license": "MIT",
   "main": "lib/index.js",
+  "module": "es/index.js",
   "types": "lib/index.d.ts",
   "files": [
     "lib",
-    "src"
+    "es",
+    "dist"
+  ],
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
   ],
   "dependencies": {
-    "@ant-design/pro-utils":"0.0.1",
     "@ant-design/icons": "^4.2.1",
+    "@ant-design/pro-utils": "1.1.0",
     "classnames": "^2.2.6"
   },
   "peerDependencies": {
@@ -34,7 +45,7 @@
     "access": "public"
   },
   "authors": [
-    "chencheng <sorrycc@gmail.com> (https://github.com/sorrycc)",
+    "rdmclin2 <rdmclin2@gmail.com> (https://github.com/rdmclin2)",
     "chenshuai2144 <qixian.cs@outlook.com> (https://github.com/chenshuai2144)"
   ]
 }

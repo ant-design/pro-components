@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
-import { usePrevious, useDebounceFn } from '@ant-design/pro-utils';
+import { useState, useRef, useEffect } from 'react';
+import { usePrevious, useDebounceFn, useDeepCompareEffect } from '@ant-design/pro-utils';
+import ReactDOM from 'react-dom';
 
 export interface RequestData<T> {
   data: T[];
@@ -10,13 +11,11 @@ export interface RequestData<T> {
 export interface UseFetchDataAction<T extends RequestData<any>> {
   dataSource: T['data'] | T;
   loading: boolean | undefined;
-  hasMore: boolean;
   current: number;
   pageSize: number;
   total: number;
   cancel: () => void;
   reload: () => Promise<void>;
-  fetchMore: () => void;
   fullScreen?: () => void;
   resetPageIndex: () => void;
   reset: () => void;
@@ -24,36 +23,50 @@ export interface UseFetchDataAction<T extends RequestData<any>> {
 }
 
 interface PageInfo {
-  hasMore: boolean;
   page: number;
   pageSize: number;
   total: number;
 }
 
 const useFetchData = <T extends RequestData<any>>(
-  getData: (params: { pageSize: number; current: number }) => Promise<T>,
+  getData: (params?: { pageSize: number; current: number }) => Promise<T>,
   defaultData?: Partial<T['data']>,
   options?: {
+    current?: number;
+    pageSize?: number;
     defaultCurrent?: number;
     defaultPageSize?: number;
     effects?: any[];
     onLoad?: (dataSource: T['data']) => void;
     onRequestError?: (e: Error) => void;
+    manual: boolean;
+    pagination: boolean;
   },
 ): UseFetchDataAction<T> => {
-  let isMount = true;
-  const { defaultPageSize = 20, defaultCurrent = 1, onLoad = () => null, onRequestError } =
-    options || {};
+  // 用于标定组件是否解除挂载，如果解除了就不要 setState
+  const mountRef = useRef(true);
+  const { pagination, onLoad = () => null, manual, onRequestError } = options || {};
 
   const [list, setList] = useState<T['data']>(defaultData as any);
   const [loading, setLoading] = useState<boolean | undefined>(undefined);
 
   const [pageInfo, setPageInfo] = useState<PageInfo>({
-    hasMore: false,
-    page: defaultCurrent || 1,
+    page: options?.current || options?.defaultCurrent || 1,
     total: 0,
-    pageSize: defaultPageSize,
+    pageSize: options?.pageSize || options?.defaultPageSize || 20,
   });
+
+  // Batching update  https://github.com/facebook/react/issues/14259
+  const setDataAndLoading = (newData: T[], dataTotal: number) => {
+    ReactDOM.unstable_batchedUpdates(() => {
+      setList(newData);
+      setLoading(false);
+      setPageInfo({
+        ...pageInfo,
+        total: dataTotal,
+      });
+    });
+  };
 
   // pre state
   const prePage = usePrevious(pageInfo.page);
@@ -63,57 +76,47 @@ const useFetchData = <T extends RequestData<any>>(
 
   /**
    * 请求数据
-   * @param isAppend 是否添加数据到后面
    */
-  const fetchList = async (isAppend?: boolean) => {
-    if (loading || !isMount) {
+  const fetchList = async () => {
+    if (loading || !mountRef.current) {
       return;
     }
     setLoading(true);
-    const { pageSize, page } = pageInfo;
 
+    const { pageSize, page } = pageInfo;
     try {
-      const { data, success, total: dataTotal = 0 } =
-        (await getData({
-          current: page,
-          pageSize,
-        })) || {};
+      const { data, success, total: dataTotal = 0 } = await getData(
+        pagination !== false
+          ? {
+              current: page,
+              pageSize,
+            }
+          : undefined,
+      );
+      // Do nothing when component unmounted before getData resolved
+      if (!mountRef.current) {
+        return;
+      }
       if (success !== false) {
-        if (isAppend && list) {
-          setList([...list, ...data]);
-        } else {
-          setList(data);
-        }
-        // 判断是否可以继续翻页
-        setPageInfo({
-          ...pageInfo,
-          total: dataTotal,
-          hasMore: dataTotal > pageSize * page,
-        });
+        setDataAndLoading(data, dataTotal);
+      } else {
+        setLoading(false);
       }
       if (onLoad) {
         onLoad(data);
       }
     } catch (e) {
+      setLoading(false);
       // 如果没有传递这个方法的话，需要把错误抛出去，以免吞掉错误
       if (onRequestError === undefined) {
         throw new Error(e);
       } else {
         onRequestError(e);
       }
-    } finally {
-      setLoading(false);
     }
   };
 
-  const fetchListDebounce = useDebounceFn(fetchList, [], 200);
-
-  const fetchMore = () => {
-    // 如果没有更多的就忽略掉
-    if (pageInfo.hasMore) {
-      setPageInfo({ ...pageInfo, page: pageInfo.page + 1 });
-    }
-  };
+  const fetchListDebounce = useDebounceFn(fetchList, [], 10);
 
   /**
    * pageIndex 改变的时候自动刷新
@@ -159,29 +162,30 @@ const useFetchData = <T extends RequestData<any>>(
     setPageInfo({ ...pageInfo, page: 1 });
   };
 
-  useEffect(() => {
+  useDeepCompareEffect(() => {
+    if (manual) {
+      return () => null;
+    }
+    mountRef.current = true;
     fetchListDebounce.run();
     return () => {
       fetchListDebounce.cancel();
-      isMount = false;
+      mountRef.current = false;
     };
-  }, effects);
+  }, [...effects, manual]);
 
   return {
     dataSource: list,
     loading,
     reload: async () => fetchListDebounce.run(),
-    fetchMore,
     total: pageInfo.total,
-    hasMore: pageInfo.hasMore,
     resetPageIndex,
     current: pageInfo.page,
     reset: () => {
       setPageInfo({
-        hasMore: false,
-        page: defaultCurrent || 1,
+        page: options?.defaultCurrent || 1,
         total: 0,
-        pageSize: defaultPageSize,
+        pageSize: options?.defaultPageSize || 20,
       });
     },
     cancel: fetchListDebounce.cancel,

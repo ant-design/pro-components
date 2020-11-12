@@ -1,32 +1,40 @@
 {
   "name": "@ant-design/pro-skeleton",
-  "version": "1.0.0-beta.5",
+  "version": "1.0.0-beta.10",
   "description": "@ant-design/pro-skeleton",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "files": [
-    "lib",
-    "src",
-    "es",
-    "dist"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ant-design/pro-components"
-  },
   "keywords": [
     "antd",
     "admin",
     "ant-design",
     "ant-design-pro"
   ],
-  "authors": [
-    "chencheng <sorrycc@gmail.com> (https://github.com/sorrycc)",
-    "chenshuai2144 <qixian.cs@outlook.om> (https://github.com/chenshuai2144)"
+  "sideEffects": [
+    "*.less"
   ],
-  "license": "MIT",
-  "bugs": "http://github.com/umijs/plugins/issues",
   "homepage": "https://github.com/ant-design/pro-components/tree/master/packages/skeleton#readme",
+  "bugs": "http://github.com/umijs/plugins/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ant-design/pro-components"
+  },
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "es",
+    "dist"
+  ],
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ],
+  "dependencies": {
+    "use-media-antd-query": "^1.0.3"
+  },
   "peerDependencies": {
     "antd": "4.x",
     "react": "^16.x"
@@ -34,7 +42,8 @@
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {
-    "use-media-antd-query": "^1.0.2"
-  }
+  "authors": [
+    "chencheng <sorrycc@gmail.com> (https://github.com/sorrycc)",
+    "chenshuai2144 <qixian.cs@outlook.om> (https://github.com/chenshuai2144)"
+  ]
 }

@@ -2,6 +2,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const { readdirSync } = require('fs');
 
 const tailPkgs = readdirSync(path.join(__dirname, 'packages')).filter(
@@ -134,9 +135,9 @@ tailPkgs.forEach((pkg) => {
         antd: 'antd',
         moment: 'moment',
       },
-      /^antd/,
     ],
     plugins: [
+      new ProgressBarPlugin(),
       new MiniCssExtractPlugin({
         // Options similar to the same options in webpackOptions.output
         // both options are optional

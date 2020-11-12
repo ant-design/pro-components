@@ -1,12 +1,15 @@
 {
   "name": "@ant-design/pro-form",
-  "version": "1.0.0-beta.8",
+  "version": "1.4.1",
   "description": "@ant-design/pro-form",
   "keywords": [
     "antd",
     "admin",
     "ant-design",
     "ant-design-pro"
+  ],
+  "sideEffects": [
+    "*.less"
   ],
   "homepage": "https://github.com/ant-design/pro-components/tree/master/packages/form#readme",
   "bugs": "https://github.com/ant-design/pro-components/issues",
@@ -16,21 +19,28 @@
   },
   "license": "MIT",
   "main": "lib/index.js",
+  "module": "es/index.js",
   "types": "lib/index.d.ts",
   "files": [
     "lib",
-    "src",
     "es",
     "dist"
   ],
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ],
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
-    "@ant-design/pro-field": "0.0.11",
-    "@ant-design/pro-provider": "0.0.2",
-    "@ant-design/pro-utils": "0.0.1",
+    "@ant-design/pro-field": "1.0.9",
+    "@ant-design/pro-provider": "1.2.1",
+    "@ant-design/pro-utils": "1.1.0",
     "classnames": "^2.2.6",
+    "omit.js": "^2.0.2",
     "rc-resize-observer": "^0.2.3",
-    "use-media-antd-query": "^1.0.2"
+    "use-media-antd-query": "^1.0.3"
   },
   "peerDependencies": {
     "antd": "4.x",

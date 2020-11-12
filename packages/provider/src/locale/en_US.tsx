@@ -1,5 +1,13 @@
 export default {
   moneySymbol: '$',
+  form: {
+    lightFilter: {
+      more: 'More',
+      clear: 'Clear',
+      confirm: 'Confirm',
+      itemUnit: 'Items',
+    },
+  },
   tableForm: {
     search: 'Query',
     reset: 'Reset',
@@ -39,5 +47,10 @@ export default {
     densityLarger: 'Larger',
     densityMiddle: 'Middle',
     densitySmall: 'Compact',
+  },
+  stepsForm: {
+    next: 'Next',
+    prev: 'Previous',
+    submit: 'Finish',
   },
 };

@@ -4,11 +4,10 @@ import classNames from 'classnames';
 import Omit from 'omit.js';
 import { getFlatMenus } from '@umijs/route-utils';
 
-import { useDeepCompareEffect } from '@ant-design/pro-utils';
-import SiderMenu, { SiderMenuProps } from './SiderMenu';
+import SiderMenu, { PrivateSiderMenuProps, SiderMenuProps } from './SiderMenu';
 import MenuCounter from './Counter';
 
-const SiderMenuWrapper: React.FC<SiderMenuProps> = (props) => {
+const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   const {
     isMobile,
     menuData,
@@ -18,21 +17,23 @@ const SiderMenuWrapper: React.FC<SiderMenuProps> = (props) => {
     style,
     className,
     hide,
+    getContainer,
     prefixCls,
+    matchMenuKeys,
   } = props;
   const { setFlatMenuKeys } = MenuCounter.useContainer();
 
-  useDeepCompareEffect(() => {
+  useEffect(() => {
     if (!menuData || menuData.length < 1) {
       return () => null;
     }
-    // // 当 menu data 改变的时候重新计算这两个参数
+    // 当 menu data 改变的时候重新计算这两个参数
     const newFlatMenus = getFlatMenus(menuData);
     const animationFrameId = requestAnimationFrame(() => {
       setFlatMenuKeys(Object.keys(newFlatMenus));
     });
     return () => window.cancelAnimationFrame && window.cancelAnimationFrame(animationFrameId);
-  }, [menuData]);
+  }, [matchMenuKeys.join('-')]);
 
   useEffect(() => {
     if (isMobile === true) {
@@ -59,13 +60,15 @@ const SiderMenuWrapper: React.FC<SiderMenuProps> = (props) => {
         height: '100vh',
         ...style,
       }}
+      getContainer={getContainer}
       width={siderWidth}
-      bodyStyle={{ height: '100vh', padding: 0 }}
+      bodyStyle={{ height: '100vh', padding: 0, display: 'flex', flexDirection: 'row' }}
     >
       <SiderMenu
         {...omitProps}
         className={classNames(`${prefixCls}-sider`, className)}
         collapsed={isMobile ? false : collapsed}
+        splitMenus={false}
       />
     </Drawer>
   ) : (

@@ -6,7 +6,7 @@ import { PageHeaderSkeleton, Line } from '../List';
 export type DescriptionsPageSkeletonProps = {
   active?: boolean;
   pageHeader?: false;
-  table?: false | number;
+  list?: false | number;
 };
 
 const MediaQueryKeyEnum = {
@@ -249,38 +249,35 @@ export const TableSkeleton: React.FC<{
     </div>
   </Card>
 );
-export const DescriptionsSkeleton = ({ active }: { active: boolean }) => {
-  return (
-    <Card
-      bordered={false}
-      style={{
-        borderTopRightRadius: 0,
-        borderTopLeftRadius: 0,
-      }}
-    >
-      <Skeleton.Button active={active} size="small" style={{ width: 100, marginBottom: 16 }} />
-      <DescriptionsItemSkeleton active={active} />
-      <DescriptionsLargeItemSkeleton active={active} />
-    </Card>
-  );
-};
+export const DescriptionsSkeleton = ({ active }: { active: boolean }) => (
+  <Card
+    bordered={false}
+    style={{
+      borderTopRightRadius: 0,
+      borderTopLeftRadius: 0,
+    }}
+  >
+    <Skeleton.Button active={active} size="small" style={{ width: 100, marginBottom: 16 }} />
+    <DescriptionsItemSkeleton active={active} />
+    <DescriptionsLargeItemSkeleton active={active} />
+  </Card>
+);
+
 const DescriptionsPageSkeleton: React.FC<DescriptionsPageSkeletonProps> = ({
   active = true,
   pageHeader,
-  table,
-}) => {
-  return (
-    <div
-      style={{
-        width: '100%',
-      }}
-    >
-      {pageHeader !== false && <PageHeaderSkeleton active={active} />}
-      <DescriptionsSkeleton active={active} />
-      <Line />
-      {table !== false && <TableSkeleton active={active} size={table} />}
-    </div>
-  );
-};
+  list,
+}) => (
+  <div
+    style={{
+      width: '100%',
+    }}
+  >
+    {pageHeader !== false && <PageHeaderSkeleton active={active} />}
+    <DescriptionsSkeleton active={active} />
+    {list !== false && <Line />}
+    {list !== false && <TableSkeleton active={active} size={list} />}
+  </div>
+);
 
 export default DescriptionsPageSkeleton;

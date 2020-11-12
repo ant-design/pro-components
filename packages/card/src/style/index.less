@@ -18,6 +18,27 @@
     border: @border-width-base @border-style-base @border-color-split;
   }
 
+  &-ghost {
+    background-color: transparent;
+
+    > .@{pro-card-prefix-cls} {
+      &-header {
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: @padding-md;
+      }
+
+      &-body {
+        padding: 0;
+        background-color: transparent;
+      }
+    }
+  }
+
+  &-split > &-body {
+    padding: 0;
+  }
+
   &-split-vertical {
     border-right: @border-width-base @border-style-base @border-color-split;
   }
@@ -26,26 +47,32 @@
     border-bottom: @border-width-base @border-style-base @border-color-split;
   }
 
-  &-contain-card {
-    background-color: transparent;
-  }
-
   &-contain-card > &-body {
     display: flex;
     flex-direction: row;
-    flex-grow: 1;
-    padding: 0;
   }
 
   &-contain-card > &-body-column {
     flex-direction: column;
   }
 
+  &-collapse {
+    > .@{pro-card-prefix-cls} {
+      &-header {
+        padding-bottom: @padding-md;
+        border-bottom: 0;
+      }
+
+      &-body {
+        display: none;
+      }
+    }
+  }
+
   &-header {
     display: flex;
     justify-content: space-between;
-    background-color: white;
-    padding: @padding-md;
+    padding: @padding-md @padding-lg;
     padding-bottom: 0;
     &-border {
       & {
@@ -53,17 +80,75 @@
       }
       border-bottom: @border-width-base @border-style-base @border-color-split;
     }
+  }
 
-    &-collapse {
-      & {
-        padding-bottom: @padding-md;
+  &-title {
+    font-size: @font-size-lg;
+  }
+
+  &-tabs {
+    // 上
+    .@{ant-prefix}-tabs-top > .@{ant-prefix}-tabs-nav {
+      margin-bottom: 0;
+      .@{ant-prefix}-tabs-nav-list {
+        padding-left: @padding-md;
+        margin-top: @margin-xs;
       }
+    }
+
+    // 下
+    .@{ant-prefix}-tabs-bottom > .@{ant-prefix}-tabs-nav {
+      margin-top: 0;
+      .@{ant-prefix}-tabs-nav-list {
+        padding-left: @padding-md;
+      }
+    }
+
+    // 左
+    .@{ant-prefix}-tabs-left {
+      .@{ant-prefix}-tabs-content-holder {
+        .@{ant-prefix}-tabs-content {
+          .@{ant-prefix}-tabs-tabpane {
+            padding-left: 0;
+          }
+        }
+      }
+    }
+    // 直接子元素才设置
+    .@{ant-prefix}-tabs-left > .@{ant-prefix}-tabs-nav {
+      margin-right: 0;
+      .@{ant-prefix}-tabs-nav-list {
+        padding-top: @padding-md;
+      }
+    }
+
+    // 右
+    .@{ant-prefix}-tabs-right {
+      .@{ant-prefix}-tabs-content-holder {
+        .@{ant-prefix}-tabs-content {
+          .@{ant-prefix}-tabs-tabpane {
+            padding-right: 0;
+          }
+        }
+      }
+    }
+    // 直接子元素
+    .@{ant-prefix}-tabs-right > .@{ant-prefix}-tabs-nav {
+      .@{ant-prefix}-tabs-nav-list {
+        padding-top: @padding-md;
+      }
+    }
+  }
+
+  &-type-inner {
+    .@{pro-card-prefix-cls}-header {
+      background-color: @background-color-light;
     }
   }
 
   &-collapsible-icon {
     color: @icon-color-hover;
-    margin-left: 8px;
+    margin-right: 8px;
 
     & svg {
       transition: transform @animation-duration-base;
@@ -71,23 +156,19 @@
   }
 
   &-title {
-    font-weight: bold;
+    font-weight: 500;
   }
 
   &-body {
     display: block;
-    padding: @padding-md;
+    padding: @padding-lg;
+    height: 100%;
     box-sizing: border-box;
-    overflow: hidden;
 
     &-center {
       display: flex;
       justify-content: center;
       align-items: center;
-    }
-
-    &-collapse {
-      display: none;
     }
   }
 
@@ -127,8 +208,8 @@
 
 .loop-grid-columns(@index) when (@index > 0) {
   .@{pro-card-prefix-cls}-span-@{index} {
-    display: block;
     width: percentage((@index / @grid-columns));
+    flex-grow: 0;
   }
   .loop-grid-columns((@index - 1));
 }

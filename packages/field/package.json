@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-field",
-  "version": "0.0.11",
+  "version": "1.0.9",
   "description": "原子信息组件，统一 ProForm、ProTable、ProList、Filter 等组件里面的字段定义。",
   "homepage": "https://github.com/ant-design/pro-components/tree/master/packages/plugin-layout#readme",
   "bugs": "https://github.com/ant-design/pro-components/issues",
@@ -8,25 +8,37 @@
     "type": "git",
     "url": "https://github.com/ant-design/pro-components"
   },
+  "sideEffects": [
+    "*.less"
+  ],
   "license": "MIT",
   "author": "chenshuai2144",
   "main": "lib/index.js",
+  "module": "es/index.js",
   "types": "lib/index.d.ts",
   "files": [
     "lib",
-    "src",
     "es",
     "dist"
   ],
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ],
   "dependencies": {
+    "@ant-design/icons": "^4.2.1",
+    "@ant-design/pro-provider": "1.2.1",
+    "@ant-design/pro-utils": "1.1.0",
     "classnames": "^2.2.6",
-    "lodash.isequal": "^4.5.0",
     "lodash.tonumber": "^4.0.3",
-    "moment": "^2.27.0"
+    "moment": "^2.27.0",
+    "rc-util": "^5.4.0",
+    "swr": "^0.3.6"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.10",
-    "@types/lodash.isequal": "^4.5.5",
     "@types/lodash.tonumber": "^4.0.6"
   },
   "peerDependencies": {

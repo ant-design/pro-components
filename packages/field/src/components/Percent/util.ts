@@ -1,5 +1,8 @@
 /** 获取展示符号 */
 export function getSymbolByRealValue(realValue: number) {
+  if (realValue === 0) {
+    return null;
+  }
   return realValue > 0 ? '+' : '-';
 }
 
@@ -13,9 +16,5 @@ export function getColorByRealValue(realValue: number /** ,color: string */) {
 
 /** 获取到最后展示的数字 */
 export function getRealTextWithPrecision(realValue: number, precision: number = 2) {
-  if (precision && precision <= 0) {
-    throw new Error('precision must be more the zero');
-  }
-
   return precision && precision > 0 ? realValue.toFixed(precision) : realValue;
 }

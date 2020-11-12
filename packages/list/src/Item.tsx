@@ -1,13 +1,10 @@
-import React from 'react';
-import { List, Skeleton, Avatar } from 'antd';
+import React, { useContext } from 'react';
+import { List, Skeleton, ConfigProvider } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { AvatarProps } from 'antd/lib/avatar';
 import { ListGridType } from 'antd/lib/list';
 import { ExpandableConfig } from 'antd/lib/table/interface';
 import classNames from 'classnames';
-
-import getPrefixCls from './util/getPrefixCls';
 
 export interface RenderExpandIconProps {
   prefixCls: string;
@@ -55,13 +52,13 @@ export interface ItemProps {
   };
   index?: number;
   selected?: boolean;
-  avatar?: string | AvatarProps;
-  children?: React.ReactNode;
+  avatar?: React.ReactNode;
+  extra?: React.ReactNode;
+  content?: React.ReactNode;
   actions?: React.ReactNode[];
   description?: React.ReactNode;
   loading?: boolean;
   style?: React.CSSProperties;
-  extra?: React.ReactNode;
   grid?: ListGridType;
   expand?: boolean;
   rowSupportExpand?: boolean;
@@ -71,40 +68,16 @@ export interface ItemProps {
   type?: 'new' | 'top' | 'inline' | 'subheader';
 }
 
-/**
- * 头像的语法糖，支持之传入 Avatar
- * @param param
- */
-const ProListItemAvatar: React.FC<{
-  className: string;
-  avatar: string | AvatarProps;
-}> = ({ className, avatar }) => {
-  if (!avatar) {
-    return null;
-  }
-  if (typeof avatar === 'string') {
-    return (
-      <div className={`${className}-avatar`}>
-        <Avatar size={22} src={avatar} />
-      </div>
-    );
-  }
-  return (
-    <div className={`${className}-avatar`}>
-      <Avatar size={22} {...avatar} />
-    </div>
-  );
-};
-
 function ProListItem(props: ItemProps) {
   const { prefixCls: customizePrefixCls } = props;
-  const prefixCls = getPrefixCls('list', customizePrefixCls);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const prefixCls = getPrefixCls('pro-list', customizePrefixCls);
   const defaultClassName = `${prefixCls}-row`;
 
   const {
     title,
     subTitle,
-    children,
+    content,
     prefixCls: restPrefixCls,
     actions,
     item,
@@ -141,8 +114,9 @@ function ProListItem(props: ItemProps) {
     },
     propsClassName,
   );
-  const needExpanded = !expanded || Object.values(expandableConfig || {}).length === 0;
+  const needExpanded = expanded || Object.values(expandableConfig || {}).length === 0;
   const expandedRowDom = expandedRowRender && expandedRowRender(item, index, indentSize, expanded);
+
   return (
     <div className={className} style={style}>
       <List.Item
@@ -168,7 +142,7 @@ function ProListItem(props: ItemProps) {
                 })}
             </div>
             <List.Item.Meta
-              avatar={avatar && <ProListItemAvatar className={className} avatar={avatar} />}
+              avatar={avatar}
               title={
                 <div className={`${className}-header-title`}>
                   {title && <div className={`${className}-title`}>{title}</div>}
@@ -181,9 +155,9 @@ function ProListItem(props: ItemProps) {
               }
             />
           </div>
-          {needExpanded && (children || expandedRowDom) && (
+          {needExpanded && (content || expandedRowDom) && (
             <div className={`${className}-content`}>
-              {children}
+              {content}
               {expandedRowRender && rowSupportExpand && (
                 <div
                   className={expandedRowClassName && expandedRowClassName(item, index, indentSize)}

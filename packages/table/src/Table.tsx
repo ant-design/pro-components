@@ -1,188 +1,152 @@
-import './index.less';
-
 import React, {
   useEffect,
   useContext,
   CSSProperties,
   useRef,
   useState,
-  ReactNode,
   useCallback,
+  useMemo,
 } from 'react';
-import { Table, ConfigProvider, Card, Space, Typography, Empty, Tooltip } from 'antd';
-import { useIntl, IntlType, ParamsType, ConfigProviderWarp } from '@ant-design/pro-provider';
+import { Table, ConfigProvider, Card, Space, Empty } from 'antd';
+import { useIntl, ParamsType, ConfigProviderWrap } from '@ant-design/pro-provider';
 import classNames from 'classnames';
 import get from 'rc-util/lib/utils/get';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { stringify } from 'use-json-comparison';
 import { ColumnsType, TablePaginationConfig, TableProps, ColumnType } from 'antd/lib/table';
-import { FormItemProps, FormProps, FormInstance } from 'antd/lib/form';
+import { FormItemProps, FormProps } from 'antd/lib/form';
 import {
   TableCurrentDataSource,
   SorterResult,
   SortOrder,
   ColumnFilterItem,
 } from 'antd/lib/table/interface';
-import { ConfigContext as AntdConfigContext } from 'antd/lib/config-provider';
 import {
   ProFieldEmptyText,
   ProFieldValueType,
-  ProFieldValueEnumMap,
-  ProFieldValueEnumObj,
-  proFieldParsingText,
   proFieldParsingValueEnumToArray,
+  ProFieldValueObjectType,
 } from '@ant-design/pro-field';
-import { useDeepCompareEffect, LabelIconTip } from '@ant-design/pro-utils';
-import { noteOnce } from 'rc-util/lib/warning';
-
-import useFetchData, { UseFetchDataAction, RequestData } from './useFetchData';
-import Container, { useCounter } from './container';
-import Toolbar, { OptionConfig, ToolBarProps } from './component/toolBar';
-import Alert from './component/alert';
-import FormSearch, { SearchConfig, TableFormItem } from './form';
 import {
-  checkUndefinedOrNull,
-  genColumnKey,
-  removeObjectNull,
-  reduceWidth,
-} from './component/util';
+  useDeepCompareEffect,
+  ProSchema,
+  ProSchemaComponentTypes,
+  LabelIconTip,
+  omitUndefinedAndEmptyArr,
+  ProCoreActionType,
+  SearchTransformKeyFn,
+  isNil,
+  omitUndefined,
+} from '@ant-design/pro-utils';
+import { CardProps } from 'antd/lib/card';
 
-import defaultRenderText, { ProColumnsValueTypeFunction } from './defaultRender';
-import { DensitySize } from './component/toolBar/DensityIcon';
+import { ListToolBarProps } from './component/ListToolBar';
+
+import useFetchData, { RequestData, UseFetchDataAction } from './useFetchData';
+import Container, { useCounter, ColumnsState } from './container';
+import Toolbar, { OptionConfig, ToolBarProps } from './component/ToolBar';
+import Alert, { AlertRenderType } from './component/Alert';
+import FormSearch, { SearchConfig, TableFormItem } from './Form';
+import {
+  genColumnKey,
+  genCopyable,
+  genEllipsis,
+  mergePagination,
+  useActionType,
+  postDataPipeline,
+} from './utils';
+
+import defaultRenderText from './defaultRender';
+import { DensitySize } from './component/ToolBar/DensityIcon';
 import ErrorBoundary from './component/ErrorBoundary';
+
+import './index.less';
 
 type TableRowSelection = TableProps<any>['rowSelection'];
 
-/**
- * 操作类型
- */
-export interface ActionType {
-  reload: (resetPageIndex?: boolean) => void;
-  reloadAndRest: () => void;
-  fetchMore: () => void;
-  reset: () => void;
-  clearSelected: () => void;
-}
+export type ExtraProColumnType<T> = Omit<
+  ColumnType<T>,
+  'render' | 'children' | 'title' | 'filters'
+>;
 
-export interface ColumnsState {
-  show?: boolean;
-  fixed?: 'right' | 'left' | undefined;
-}
+export type ProColumnType<T = unknown> = ProSchema<
+  T,
+  ProFieldValueType | ProFieldValueObjectType,
+  ExtraProColumnType<T> & {
+    index?: number;
 
-export interface ProColumnType<T = unknown>
-  extends Omit<ColumnType<T>, 'render' | 'children' | 'title' | 'filters'>,
-    Partial<Omit<FormItemProps, 'children'>> {
-  index?: number;
-  title?:
-    | ReactNode
-    | ((config: ProColumnType<T>, type: ProTableTypes, dom: ReactNode) => ReactNode);
-  /**
-   * 自定义 render
-   */
-  render?: (
-    text: React.ReactNode,
-    record: T,
-    index: number,
-    action: UseFetchDataAction<RequestData<T>>,
-  ) => React.ReactNode | React.ReactNode[];
+    /**
+     * 搜索表单的默认值
+     */
+    initialValue?: any;
 
-  /**
-   * 自定义 render，但是需要返回 string
-   */
-  renderText?: (
-    text: any,
-    record: T,
-    index: number,
-    action: UseFetchDataAction<RequestData<T>>,
-  ) => any;
+    /**
+     * 是否缩略
+     */
+    ellipsis?: boolean;
+    /**
+     * 是否拷贝
+     */
+    copyable?: boolean;
 
-  /**
-   * 自定义搜索 form 的输入
-   */
-  renderFormItem?: (
-    item: ProColumns<T>,
-    config: {
-      value?: any;
-      onChange?: (value: any) => void;
-      onSelect?: (value: any) => void;
-      type: ProTableTypes;
-      defaultRender: (newItem: ProColumns<any>) => JSX.Element | null;
-    },
-    form: FormInstance,
-  ) => JSX.Element | false | null;
+    /**
+     * @deprecated use `search=false` instead
+     * 在查询表单中隐藏
+     */
+    hideInSearch?: boolean;
 
-  /**
-   * 搜索表单的 props
-   */
-  formItemProps?: { [prop: string]: any };
+    /**
+     * 在查询表单中隐藏
+     */
+    search?:
+      | false
+      | {
+          /**
+           * @name 转化值的key, 一般用于事件区间的转化
+           * @description transform: (value: any) => ({ startTime: value[0], endTime: value[1] }),
+           */
+          transform: SearchTransformKeyFn;
+        };
 
-  /**
-   * 搜索表单的默认值
-   */
-  initialValue?: any;
+    /**
+     * 在 table 中隐藏
+     */
+    hideInTable?: boolean;
 
-  /**
-   * 是否缩略
-   */
-  ellipsis?: boolean;
-  /**
-   * 是否拷贝
-   */
-  copyable?: boolean;
+    /**
+     * 在新建表单中删除
+     */
+    hideInForm?: boolean;
 
-  /**
-   * 值的类型
-   */
-  valueType?: ProFieldValueType | ProColumnsValueTypeFunction<T>;
+    /**
+     * 表头的筛选菜单项
+     */
+    filters?: boolean | ColumnFilterItem[];
 
-  /**
-   * 值的枚举，如果存在枚举，Search 中会生成 select
-   */
-  valueEnum?: ProFieldValueEnumMap | ProFieldValueEnumObj;
-
-  /**
-   * 在查询表单中隐藏
-   */
-  hideInSearch?: boolean;
-
-  /**
-   * 在 table 中隐藏
-   */
-  hideInTable?: boolean;
-
-  /**
-   * 在新建表单中删除
-   */
-  hideInForm?: boolean;
-
-  /**
-   * 表头的筛选菜单项
-   */
-  filters?: boolean | ColumnFilterItem[];
-
-  /**
-   * form 的排序
-   */
-  order?: number;
-  /**
-   *展示一个 icon，hover icon 的
-   */
-  tip?: string;
-}
+    /**
+     * form 的排序
+     */
+    order?: number;
+    /**
+     * 传给 Form.Item 的 props
+     */
+    formItemProps?: Partial<Omit<FormItemProps, 'children'>>;
+  }
+>;
 
 export interface ProColumnGroupType<RecordType> extends ProColumnType<RecordType> {
-  children: ProColumns<RecordType>;
+  children: ProColumns<RecordType>[];
 }
 
-export type ProColumns<T = {}> = ProColumnGroupType<T> | ProColumnType<T>;
-
-// table 支持的变形，还未完全支持完毕
-export type ProTableTypes = 'form' | 'list' | 'table' | 'cardList' | undefined;
+export type ProColumns<T = any> = ProColumnGroupType<T> | ProColumnType<T>;
 
 export interface ProTableProps<T, U extends ParamsType>
   extends Omit<TableProps<T>, 'columns' | 'rowSelection'> {
   columns?: ProColumns<T>[];
-
+  /**
+   * @name  ListToolBar 的属性
+   */
+  toolbar?: ListToolBarProps;
   params?: U;
 
   columnsStateMap?: {
@@ -192,6 +156,11 @@ export interface ProTableProps<T, U extends ParamsType>
   onColumnsStateChange?: (map: { [key: string]: ColumnsState }) => void;
 
   onSizeChange?: (size: DensitySize) => void;
+
+  /**
+   * @name table 外面卡片的设置
+   */
+  cardProps?: CardProps;
 
   /**
    * 渲染 table
@@ -209,6 +178,11 @@ export interface ProTableProps<T, U extends ParamsType>
     },
   ) => React.ReactNode;
 
+  /**
+   * 渲染 table 视图，用于定制 ProList，不推荐直接使用
+   */
+  tableViewRender?: (props: TableProps<T>) => JSX.Element | undefined;
+
   tableExtraRender?: (props: ProTableProps<T, U>, dataSource: T[]) => React.ReactNode;
 
   /**
@@ -218,6 +192,7 @@ export interface ProTableProps<T, U extends ParamsType>
     params: U & {
       pageSize?: number;
       current?: number;
+      keyword?: string;
     },
     sort: {
       [key: string]: SortOrder;
@@ -237,7 +212,9 @@ export interface ProTableProps<T, U extends ParamsType>
   /**
    * 初始化的参数，可以操作 table
    */
-  actionRef?: React.MutableRefObject<ActionType | undefined> | ((actionRef: ActionType) => void);
+  actionRef?:
+    | React.MutableRefObject<ProCoreActionType | undefined>
+    | ((actionRef: ProCoreActionType) => void);
 
   /**
    * 操作自带的 form
@@ -280,7 +257,7 @@ export interface ProTableProps<T, U extends ParamsType>
   /**
    * 是否显示搜索表单
    */
-  search?: boolean | SearchConfig;
+  search?: false | SearchConfig;
 
   /**
    * type="form" 和 搜索表单 的 Form 配置
@@ -298,25 +275,17 @@ export interface ProTableProps<T, U extends ParamsType>
   /**
    * 格式化搜索表单提交数据
    */
-  beforeSearchSubmit?: (params: Partial<U>) => Partial<U>;
+  beforeSearchSubmit?: (params: Partial<U>) => any;
   /**
    * 自定义 table 的 alert
    * 设置或者返回false 即可关闭
    */
-  tableAlertRender?:
-    | ((props: {
-        intl: IntlType;
-        selectedRowKeys: (string | number)[];
-        selectedRows: T[];
-      }) => React.ReactNode)
-    | false;
+  tableAlertRender?: AlertRenderType<T>;
   /**
    * 自定义 table 的 alert 的操作
    * 设置或者返回false 即可关闭
    */
-  tableAlertOptionRender?:
-    | ((props: { intl: IntlType; onCleanSelected: () => void }) => React.ReactNode)
-    | false;
+  tableAlertOptionRender?: AlertRenderType<T>;
 
   rowSelection?: TableProps<T>['rowSelection'] | false;
 
@@ -325,7 +294,7 @@ export interface ProTableProps<T, U extends ParamsType>
   /**
    * 支持 ProTable 的类型
    */
-  type?: ProTableTypes;
+  type?: ProSchemaComponentTypes;
 
   /**
    * 提交表单时触发
@@ -348,51 +317,6 @@ export interface ProTableProps<T, U extends ParamsType>
   manualRequest?: boolean;
 }
 
-const mergePagination = <T, U>(
-  pagination: TablePaginationConfig | boolean | undefined = {},
-  action: UseFetchDataAction<RequestData<T>>,
-  intl: IntlType,
-): TablePaginationConfig | false | undefined => {
-  if (pagination === false) {
-    return undefined;
-  }
-  let defaultPagination: TablePaginationConfig | {} = pagination || {};
-  const { current, pageSize } = action;
-  if (pagination === true) {
-    defaultPagination = {};
-  }
-  return {
-    showTotal: (all, range) =>
-      `${intl.getMessage('pagination.total.range', '第')} ${range[0]}-${range[1]} ${intl.getMessage(
-        'pagination.total.total',
-        '条/总共',
-      )} ${all} ${intl.getMessage('pagination.total.item', '条')}`,
-    showSizeChanger: true,
-    total: action.total,
-    ...(defaultPagination as TablePaginationConfig),
-    current,
-    pageSize,
-    onChange: (page: number, newPageSize?: number) => {
-      // pageSize 改变之后就没必要切换页码
-      if (newPageSize !== pageSize && current !== page) {
-        action.setPageInfo({ pageSize: newPageSize, page });
-      } else {
-        if (newPageSize !== pageSize) {
-          action.setPageInfo({ pageSize: newPageSize });
-        }
-        if (current !== page) {
-          action.setPageInfo({ page });
-        }
-      }
-
-      const { onChange } = pagination as TablePaginationConfig;
-      if (onChange) {
-        onChange(page, newPageSize || 20);
-      }
-    },
-  };
-};
-
 /**
  * 转化列的定义
  */
@@ -402,85 +326,56 @@ interface ColumnRenderInterface<T> {
   row: T;
   index: number;
   columnEmptyText?: ProFieldEmptyText;
+  type: ProSchemaComponentTypes;
   counter: ReturnType<typeof useCounter>;
 }
-
-/**
- * 生成 Ellipsis 的 tooltip
- * @param dom
- * @param item
- * @param text
- */
-const genEllipsis = (dom: React.ReactNode, item: ProColumns<any>, text: string) => {
-  if (!item.ellipsis) {
-    return dom;
-  }
-  return (
-    <Tooltip title={text}>
-      <span>{dom}</span>
-    </Tooltip>
-  );
-};
-
-const genCopyable = (dom: React.ReactNode, item: ProColumns<any>) => {
-  if (item.copyable || item.ellipsis) {
-    return (
-      <Typography.Paragraph
-        style={{
-          width: reduceWidth(item.width),
-          margin: 0,
-          padding: 0,
-        }}
-        copyable={item.copyable}
-        ellipsis={item.ellipsis}
-      >
-        {dom}
-      </Typography.Paragraph>
-    );
-  }
-  return dom;
-};
 
 /**
  * 这个组件负责单元格的具体渲染
  * @param param0
  */
-const columnRender = <T, U = any>({
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const columnRender = <T, _U = any>({
   item,
   text,
   row,
   index,
   columnEmptyText,
   counter,
+  type,
 }: ColumnRenderInterface<T>): any => {
   const { action } = counter;
-  const { renderText = (val: any) => val, valueEnum = {} } = item;
-  if (!action.current) {
-    return null;
-  }
-
+  const { renderText = (val: any) => val } = item;
   const renderTextStr = renderText(
-    proFieldParsingText(text, valueEnum),
+    text,
     row,
     index,
-    action.current,
+    action.current as UseFetchDataAction<RequestData<any>>,
   );
   const textDom = defaultRenderText<T, {}>(
     renderTextStr,
-    item.valueType || 'text',
+    (item.valueType as ProFieldValueType) || 'text',
     index,
     row,
     columnEmptyText,
+    item,
+    type,
   );
 
   const dom: React.ReactNode = genEllipsis(
-    genCopyable(textDom, item),
+    genCopyable(textDom, item, renderTextStr),
     item,
-    renderText(proFieldParsingText(text, valueEnum, true), row, index, action.current),
+    renderTextStr,
   );
 
   if (item.render) {
-    const renderDom = item.render(dom, row, index, action.current);
+    const renderDom = item.render(
+      dom,
+      row,
+      index,
+      action.current as UseFetchDataAction<RequestData<any>>,
+      item,
+    );
 
     // 如果是合并单元格的，直接返回对象
     if (
@@ -493,11 +388,32 @@ const columnRender = <T, U = any>({
     }
 
     if (renderDom && item.valueType === 'option' && Array.isArray(renderDom)) {
-      return <Space>{renderDom}</Space>;
+      return <Space size={16}>{renderDom}</Space>;
     }
     return renderDom as React.ReactNode;
   }
-  return checkUndefinedOrNull(dom) ? dom : null;
+  return !isNil(dom) ? dom : null;
+};
+
+/**
+ * render 的 title
+ * @param item
+ */
+const renderColumnsTitle = (item: ProColumns<any>) => {
+  const { title } = item;
+  if (title && typeof title === 'function') {
+    return title(item, 'table', <LabelIconTip label={title} tooltip={item.tooltip || item.tip} />);
+  }
+  return <LabelIconTip label={title} tooltip={item.tooltip || item.tip} />;
+};
+
+const defaultOnFilter = (value: string, record: any, dataIndex: string | string[]) => {
+  const recordElement = Array.isArray(dataIndex)
+    ? get(record, dataIndex as string[])
+    : record[dataIndex];
+  const itemValue = String(recordElement) as string;
+
+  return String(itemValue) === String(value);
 };
 
 /**
@@ -507,36 +423,33 @@ const columnRender = <T, U = any>({
  * @param map
  * @param columnEmptyText
  */
-const genColumnList = <T, U = {}>(
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const genColumnList = <T, _U = {}>(
   columns: ProColumns<T>[],
   map: {
     [key: string]: ColumnsState;
   },
   counter: ReturnType<typeof useCounter>,
-  columnEmptyText?: ProFieldEmptyText,
-): (ColumnsType<T>[number] & { index?: number })[] =>
-  (columns
+  columnEmptyText: ProFieldEmptyText,
+  type: ProSchemaComponentTypes,
+): (ColumnsType<T>[number] & { index?: number })[] => {
+  return (columns
     .map((item, columnsIndex) => {
-      const { key, dataIndex, valueEnum, title, filters = [] } = item;
-      const columnKey = genColumnKey(key, dataIndex, columnsIndex);
+      const { key, dataIndex, valueEnum, valueType, filters = [] } = item;
+      const columnKey = genColumnKey(key, columnsIndex);
+      const noNeedPro = !dataIndex && !valueEnum && !valueType;
+      if (noNeedPro) {
+        return item;
+      }
+      const { propsRef } = counter;
       const config = columnKey ? map[columnKey] || { fixed: item.fixed } : { fixed: item.fixed };
       const tempColumns = {
-        onFilter: (value: string, record: T) => {
-          let recordElement = get(record, item.dataIndex as string[]);
-          if (typeof recordElement === 'number') {
-            recordElement = recordElement.toString();
-          }
-          const itemValue = String(recordElement || '') as string;
-          return String(itemValue) === String(value);
-        },
+        onFilter: propsRef.current?.request
+          ? undefined
+          : (value: string, row: T) => defaultOnFilter(value, row, dataIndex as string[]),
         index: columnsIndex,
         ...item,
-        title:
-          title && typeof title === 'function' ? (
-            title(item, 'table', <LabelIconTip label={title} tip={item.tip} />)
-          ) : (
-            <LabelIconTip label={title} tip={item.tip} />
-          ),
+        title: renderColumnsTitle(item),
         valueEnum,
         filters:
           filters === true
@@ -553,117 +466,19 @@ const genColumnList = <T, U = {}>(
               map,
               counter,
               columnEmptyText,
+              type,
             )
           : undefined,
         render: (text: any, row: T, index: number) =>
-          columnRender<T>({ item, text, row, index, columnEmptyText, counter }),
+          columnRender<T>({ item, text, row, index, columnEmptyText, counter, type }),
       };
-      if (!tempColumns.children || !tempColumns.children.length) {
-        delete tempColumns.children;
-      }
-      if (!tempColumns.dataIndex) {
-        delete tempColumns.dataIndex;
-      }
-      if (!tempColumns.filters || !tempColumns.filters.length) {
-        delete tempColumns.filters;
-      }
-      return tempColumns;
+      return omitUndefinedAndEmptyArr(tempColumns);
     })
-    .filter((item) => !item.hideInTable) as unknown) as ColumnsType<T>[number] &
-    {
+    .filter((item) => !item.hideInTable) as unknown) as Array<
+    ColumnsType<T>[number] & {
       index?: number;
-    }[];
-
-type PostDataType<T> = (data: T) => T;
-
-/**
- * 一个转化的 pipeline 列表
- * @param data
- * @param pipeline
- */
-const defaultPostData = <T, U>(data: T, pipeline: (PostDataType<T> | undefined)[]) => {
-  if (pipeline.filter((item) => item).length < 1) {
-    return data;
-  }
-  return pipeline.reduce((pre, postData) => {
-    if (postData) {
-      return postData(pre);
     }
-    return pre;
-  }, data);
-};
-
-const useActionType = <T, U = any>(
-  actionRef: ProTableProps<T, any>['actionRef'],
-  counter: ReturnType<typeof useCounter>,
-  onCleanSelected: () => void,
-) => {
-  /**
-   * 这里生成action的映射，保证 action 总是使用的最新
-   * 只需要渲染一次即可
-   */
-  useEffect(() => {
-    const userAction: ActionType = {
-      reload: async (resetPageIndex?: boolean) => {
-        const {
-          action: { current },
-        } = counter;
-        if (!current) {
-          return;
-        }
-        noteOnce(!!resetPageIndex, ' reload 的 resetPageIndex 将会失效，建议使用 reloadAndRest。');
-        noteOnce(
-          !!resetPageIndex,
-          'reload resetPageIndex will remove and reloadAndRest is recommended.',
-        );
-
-        // 如果为 true，回到第一页
-        if (resetPageIndex) {
-          await current.resetPageIndex();
-        }
-        await current.reload();
-      },
-      reloadAndRest: async () => {
-        const {
-          action: { current },
-        } = counter;
-        if (!current) {
-          return;
-        }
-        // reload 之后大概率会切换数据，清空一下选择。
-        onCleanSelected();
-        // 如果为 true，回到第一页
-        await current.resetPageIndex();
-        await current.reload();
-      },
-      fetchMore: async () => {
-        const {
-          action: { current },
-        } = counter;
-        if (!current) {
-          return;
-        }
-        await current.fetchMore();
-      },
-      reset: () => {
-        const {
-          action: { current },
-        } = counter;
-        if (!current) {
-          return;
-        }
-        current.reset();
-      },
-      clearSelected: () => onCleanSelected(),
-    };
-    if (actionRef && typeof actionRef === 'function') {
-      actionRef(userAction);
-    }
-    if (actionRef && typeof actionRef !== 'function') {
-      // eslint-disable-next-line no-param-reassign
-      actionRef.current = userAction;
-    }
-  }, []);
+  >;
 };
 
 /**
@@ -690,12 +505,13 @@ const ProTable = <T extends {}, U extends ParamsType>(
     onLoad,
     onRequestError,
     style,
+    cardProps,
     tableStyle,
     tableClassName,
     columnsStateMap,
     onColumnsStateChange,
     options,
-    search = true,
+    search,
     rowSelection: propsRowSelection = false,
     beforeSearchSubmit = (searchParams: Partial<U>) => searchParams,
     tableAlertRender,
@@ -705,24 +521,41 @@ const ProTable = <T extends {}, U extends ParamsType>(
     onReset = () => {},
     columnEmptyText = '-',
     manualRequest = false,
+    toolbar,
     ...rest
   } = props;
 
   const [selectedRowKeys, setSelectedRowKeys] = useMergedState<React.ReactText[]>([], {
     value: propsRowSelection ? propsRowSelection.selectedRowKeys : undefined,
   });
-  const [formSearch, setFormSearch] = useState<{}>(() => rest.form?.initialValues);
-  const [selectedRows, setSelectedRows] = useState<T[]>([]);
-  const [dataSource, setDataSource] = useState<T[]>([]);
+
+  const [selectedRows, setSelectedRows] = useMergedState<T[]>([]);
+
+  const setSelectedRowsAndKey = (keys: React.ReactText[], rows: T[]) => {
+    setSelectedRowKeys(keys);
+    setSelectedRows(rows);
+  };
+
+  const [formSearch, setFormSearch] = useState<{} | undefined>(undefined);
+
   const [proFilter, setProFilter] = useState<{
     [key: string]: React.ReactText[];
   }>({});
   const [proSort, setProSort] = useState<{
     [key: string]: SortOrder;
   }>({});
+
+  /**
+   * 获取 table 的 dom ref
+   */
   const rootRef = useRef<HTMLDivElement>(null);
   const fullScreen = useRef<() => void>();
   const intl = useIntl();
+
+  /**
+   * 是否首次加载的指示器
+   */
+  const manualRequestRef = useRef<boolean>(manualRequest);
 
   /**
    * 需要初始化 不然默认可能报错
@@ -735,11 +568,10 @@ const ProTable = <T extends {}, U extends ParamsType>(
       : { defaultCurrent: 1, defaultPageSize: 20, pageSize: 20, current: 1 };
 
   const action = useFetchData(
-    async ({ pageSize, current }) => {
+    async (pageParams) => {
       // 需要手动触发的首次请求
-      const needManualFirstReq = manualRequest && !formSearch;
-
-      if (!request || needManualFirstReq) {
+      if (!request || manualRequestRef.current) {
+        manualRequestRef.current = false;
         return {
           data: props.dataSource || [],
           success: true,
@@ -747,14 +579,19 @@ const ProTable = <T extends {}, U extends ParamsType>(
       }
 
       const actionParams = {
-        current,
-        pageSize,
+        ...(pageParams || {}),
         ...formSearch,
         ...params,
       };
 
+      // eslint-disable-next-line no-underscore-dangle
+      delete (actionParams as any)._timestamp;
+
       const response = await request((actionParams as unknown) as U, proSort, proFilter);
-      const responseData = defaultPostData<T[], U>(response.data, [postData]);
+      const responseData = postDataPipeline<T[], U>(
+        response.data,
+        [postData].filter((item) => item) as any,
+      );
       if (Array.isArray(response)) {
         return response;
       }
@@ -763,10 +600,11 @@ const ProTable = <T extends {}, U extends ParamsType>(
     },
     defaultData,
     {
-      defaultCurrent: fetchPagination.current || fetchPagination.defaultCurrent,
-      defaultPageSize: fetchPagination.pageSize || fetchPagination.defaultPageSize,
+      ...fetchPagination,
+      pagination: propsPagination !== false,
       onLoad,
       onRequestError,
+      manual: !request || (!formSearch && search !== false),
       effects: [stringify(params), stringify(formSearch), stringify(proFilter), stringify(proSort)],
     },
   );
@@ -776,6 +614,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
       if (!rootRef.current || !document.fullscreenEnabled) {
         return;
       }
+
       if (document.fullscreenElement) {
         document.exitFullscreen();
       } else {
@@ -794,22 +633,23 @@ const ProTable = <T extends {}, U extends ParamsType>(
     if (propsRowSelection && propsRowSelection.onChange) {
       propsRowSelection.onChange([], []);
     }
-    setSelectedRowKeys([]);
-    setSelectedRows([]);
-  }, [setSelectedRowKeys, setSelectedRows]);
-
+    setSelectedRowsAndKey([], []);
+  }, [setSelectedRowKeys, propsRowSelection]);
   /**
    * 绑定 action
    */
-  useActionType(actionRef, counter, onCleanSelected);
-
-  /**
-   * 数据列表的更新
-   */
-  useEffect(() => {
-    setDataSource(request ? (action.dataSource as T[]) : props.dataSource || []);
-  }, [props.dataSource, action.dataSource]);
-
+  useActionType(actionRef, counter, () => {
+    // 清空选中行
+    onCleanSelected();
+    // 清空筛选
+    setProFilter({});
+    // 清空排序
+    setProSort({});
+    // 清空 toolbar 搜索
+    counter.setKeyWords(undefined);
+  });
+  counter.setAction(action);
+  counter.propsRef.current = props;
   /**
    *  保存一下 propsColumns
    *  生成 form 需要用
@@ -818,111 +658,69 @@ const ProTable = <T extends {}, U extends ParamsType>(
     counter.setProColumns(propsColumns);
   }, [propsColumns]);
 
-  counter.setAction(action);
+  const tableColumn = useMemo(
+    () => genColumnList<T>(propsColumns, counter.columnsMap, counter, columnEmptyText, type),
+    [propsColumns],
+  );
 
   /**
    * Table Column 变化的时候更新一下，这个参数将会用于渲染
    */
   useDeepCompareEffect(() => {
-    const tableColumn = genColumnList<T>(
-      propsColumns,
-      counter.columnsMap,
-      counter,
-      columnEmptyText,
-    );
     if (tableColumn && tableColumn.length > 0) {
       counter.setColumns(tableColumn);
       // 重新生成key的字符串用于排序
-      counter.setSortKeyColumns(
-        tableColumn.map((item, index) => {
-          const key =
-            genColumnKey(item.key, (item as ProColumnType).dataIndex, index) || `${index}`;
-          return `${key}_${item.index}`;
-        }),
-      );
+      const columnKeys = tableColumn.map((item, index) => genColumnKey(item.key, index));
+      counter.setSortKeyColumns(columnKeys);
     }
-  }, [propsColumns]);
+  }, [tableColumn]);
 
   /**
    * 这里主要是为了排序，为了保证更新及时，每次都重新计算
    */
   useDeepCompareEffect(() => {
-    const keys = counter.sortKeyColumns.join(',');
-    let tableColumn = genColumnList<T>(propsColumns, counter.columnsMap, counter, columnEmptyText);
-    if (keys.length > 0) {
-      // 用于可视化的排序
-      tableColumn = tableColumn.sort((a, b) => {
-        const { fixed: aFixed, index: aIndex } = a;
-        const { fixed: bFixed, index: bIndex } = b;
-        if (
-          (aFixed === 'left' && bFixed !== 'left') ||
-          (bFixed === 'right' && aFixed !== 'right')
-        ) {
-          return -2;
-        }
-        if (
-          (bFixed === 'left' && aFixed !== 'left') ||
-          (aFixed === 'right' && bFixed !== 'right')
-        ) {
-          return 2;
-        }
-        // 如果没有index，在 dataIndex 或者 key 不存在的时候他会报错
-        const aKey = `${genColumnKey(a.key, (a as ProColumnType).dataIndex, aIndex)}_${aIndex}`;
-        const bKey = `${genColumnKey(b.key, (b as ProColumnType).dataIndex, bIndex)}_${bIndex}`;
-        return keys.indexOf(aKey) - keys.indexOf(bKey);
-      });
+    const { columnsMap } = counter;
+    const sortTableColumn = genColumnList<T>(
+      propsColumns,
+      columnsMap,
+      counter,
+      columnEmptyText,
+      type,
+    ).sort((a, b) => {
+      const { fixed: aFixed, index: aIndex } = a;
+      const { fixed: bFixed, index: bIndex } = b;
+      if ((aFixed === 'left' && bFixed !== 'left') || (bFixed === 'right' && aFixed !== 'right')) {
+        return -2;
+      }
+      if ((bFixed === 'left' && aFixed !== 'left') || (aFixed === 'right' && bFixed !== 'right')) {
+        return 2;
+      }
+      // 如果没有index，在 dataIndex 或者 key 不存在的时候他会报错
+      const aKey = a.key || `${aIndex}`;
+      const bKey = b.key || `${bIndex}`;
+      return (columnsMap[aKey]?.order || 0) - (columnsMap[bKey]?.order || 0);
+    });
+    if (sortTableColumn && sortTableColumn.length > 0) {
+      counter.setColumns(sortTableColumn);
     }
-    if (tableColumn && tableColumn.length > 0) {
-      counter.setColumns(tableColumn);
-    }
-  }, [counter.columnsMap, counter.sortKeyColumns.join('-')]);
+  }, [counter.columnsMap]);
 
   /**
    * 同步 Pagination，支持受控的 页码 和 pageSize
    */
   useDeepCompareEffect(() => {
-    if (propsPagination && propsPagination.current && propsPagination.pageSize) {
+    const { current, pageSize } = propsPagination || {};
+    if (
+      propsPagination &&
+      (current || pageSize) &&
+      (pageSize !== action.pageSize || current !== action.current)
+    ) {
       action.setPageInfo({
-        pageSize: propsPagination.pageSize,
-        page: propsPagination.current,
+        pageSize: pageSize || action.pageSize,
+        page: current || action.current,
       });
     }
-  }, [propsPagination]);
-
-  // 映射 selectedRowKeys 与 selectedRow
-  useEffect(() => {
-    if (action.loading !== false || propsRowSelection === false) {
-      return;
-    }
-    const tableKey = rest.rowKey;
-
-    // dataSource maybe is a null
-    // eg: api has 404 error
-    const duplicateRemoveMap = new Map();
-    if (Array.isArray(dataSource)) {
-      // 根据当前选中和当前的所有数据计算选中的行
-      // 因为防止翻页以后丢失，所有还增加了当前选择选中的
-      const rows = [...dataSource, ...selectedRows].filter((item, index) => {
-        let rowKey = tableKey;
-        if (!tableKey) {
-          return (selectedRowKeys as any).includes(index);
-        }
-        if (typeof tableKey === 'function') {
-          rowKey = tableKey(item, index) as string;
-        } else {
-          rowKey = item[tableKey];
-        }
-        if (duplicateRemoveMap.has(rowKey)) {
-          return false;
-        }
-        duplicateRemoveMap.set(rowKey, true);
-        return (selectedRowKeys as any).includes(rowKey);
-      });
-      setSelectedRows(rows);
-      return;
-    }
-    setSelectedRows([]);
-  }, [selectedRowKeys.join('-'), action.loading, propsRowSelection === false]);
+  }, [propsPagination && propsPagination.pageSize, propsPagination && propsPagination.current]);
 
   const rowSelection: TableRowSelection = {
     selectedRowKeys,
@@ -931,15 +729,11 @@ const ProTable = <T extends {}, U extends ParamsType>(
       if (propsRowSelection && propsRowSelection.onChange) {
         propsRowSelection.onChange(keys, rows);
       }
-      setSelectedRowKeys([...keys]);
+      setSelectedRowsAndKey(keys, rows);
     },
   };
 
-  useEffect(() => {
-    counter.setTableSize(rest.size || 'middle');
-  }, [rest.size]);
-
-  if (counter.columns.length < 1) {
+  if (props.columns && props.columns.length < 1) {
     return (
       <Card bordered={false} bodyStyle={{ padding: 50 }}>
         <Empty />
@@ -948,30 +742,74 @@ const ProTable = <T extends {}, U extends ParamsType>(
   }
 
   const className = classNames(defaultClassName, propsClassName);
+
+  const searchNode = (search !== false || type === 'form') && (
+    <FormSearch<U>
+      submitButtonLoading={action.loading}
+      {...rest}
+      type={type}
+      formRef={formRef}
+      onSubmit={(value, firstLoad) => {
+        if (type !== 'form') {
+          const submitParams = {
+            ...value,
+            _timestamp: Date.now(),
+          };
+          setFormSearch(beforeSearchSubmit(submitParams));
+          if (!firstLoad) {
+            // back first page
+            action.resetPageIndex();
+          }
+        }
+        // 不是第一次提交就不触发，第一次提交是 js 触发的
+        // 为了解决 https://github.com/ant-design/pro-components/issues/579
+        if (props.onSubmit && !firstLoad) {
+          props.onSubmit(value);
+        }
+      }}
+      onReset={(value) => {
+        setFormSearch(beforeSearchSubmit(value));
+        // back first page
+        action.resetPageIndex();
+        onReset();
+      }}
+      dateFormatter={rest.dateFormatter}
+      search={search}
+    />
+  );
+  const isLightFilter: boolean = search !== false && search?.filterType === 'light';
+
+  const toolbarProps =
+    toolbar || isLightFilter
+      ? {
+          filter: searchNode,
+          ...toolbar,
+        }
+      : undefined;
   const toolbarDom = toolBarRender !== false &&
-    (options !== false || headerTitle || toolBarRender) && (
+    (options !== false || headerTitle || toolBarRender || toolbarProps) && (
       // if options= false & headerTitle=== false, hide Toolbar
       <Toolbar<T>
         options={options}
         headerTitle={headerTitle}
         action={action}
         onSearch={(keyword) => {
-          if (options && options.search) {
-            const { name = 'keyword' } =
-              options.search === true
-                ? {
-                    name: 'keyword',
-                  }
-                : options.search;
-            setFormSearch({
-              ...formSearch,
-              [name]: keyword,
-            });
+          if (!options || !options.search) {
+            return;
           }
+          const { name = 'keyword' } = options.search === true ? {} : options.search;
+          setFormSearch(
+            omitUndefined({
+              ...formSearch,
+              _timestamp: Date.now(),
+              [name]: keyword,
+            }),
+          );
         }}
         selectedRows={selectedRows}
         selectedRowKeys={selectedRowKeys}
         toolBarRender={toolBarRender}
+        toolbar={toolbarProps}
       />
     );
 
@@ -984,71 +822,89 @@ const ProTable = <T extends {}, U extends ParamsType>(
       alertInfoRender={tableAlertRender}
     />
   );
-
-  const tableDom = (
-    <Table<T>
-      {...rest}
-      size={counter.tableSize}
-      rowSelection={propsRowSelection === false ? undefined : rowSelection}
-      className={tableClassName}
-      style={tableStyle}
-      columns={counter.columns.filter((item) => {
-        // 删掉不应该显示的
-        const { key, dataIndex } = item;
-        const columnKey = genColumnKey(key, dataIndex);
-        if (!columnKey) {
-          return true;
-        }
-        const config = counter.columnsMap[columnKey];
-        if (config && config.show === false) {
-          return false;
-        }
-        return true;
-      })}
-      loading={action.loading || props.loading}
-      dataSource={dataSource}
-      pagination={pagination}
-      onChange={(
-        changePagination: TablePaginationConfig,
-        filters: {
-          [string: string]: React.ReactText[] | null;
-        },
-        sorter: SorterResult<T> | SorterResult<T>[],
-        extra: TableCurrentDataSource<T>,
-      ) => {
-        if (rest.onChange) {
-          rest.onChange(changePagination, filters, sorter, extra);
-        }
-
-        // 制造筛选的数据
-        setProFilter(removeObjectNull(filters));
-
-        // 制造一个排序的数据
-        if (Array.isArray(sorter)) {
-          const data = sorter.reduce<{
-            [key: string]: any;
-          }>((pre, value) => {
-            return {
-              ...pre,
-              [`${value.field}`]: value.order,
-            };
-          }, {});
-          setProSort(data);
-        } else {
-          setProSort({ [`${sorter.field}`]: sorter.order as SortOrder });
-        }
-      }}
-    />
+  const dataSource = request ? (action.dataSource as T[]) : props.dataSource || [];
+  const loading = props.loading !== undefined ? props.loading : action.loading;
+  const tableProps = {
+    ...rest,
+    size: counter.tableSize,
+    rowSelection: propsRowSelection === false ? undefined : rowSelection,
+    className: tableClassName,
+    style: tableStyle,
+    columns: counter.columns.filter((item) => {
+      // 删掉不应该显示的
+      const columnKey = genColumnKey(item.key, item.index);
+      const config = counter.columnsMap[columnKey];
+      if (config && config.show === false) {
+        return false;
+      }
+      return true;
+    }),
+    loading,
+    dataSource: request ? (action.dataSource as T[]) : props.dataSource || [],
+    pagination,
+    onChange: (
+      changePagination: TablePaginationConfig,
+      filters: {
+        [string: string]: React.ReactText[] | null;
+      },
+      sorter: SorterResult<T> | SorterResult<T>[],
+      extra: TableCurrentDataSource<T>,
+    ) => {
+      if (rest.onChange) {
+        rest.onChange(changePagination, filters, sorter, extra);
+      }
+      // 制造筛选的数据
+      setProFilter(omitUndefined<any>(filters));
+      // 制造一个排序的数据
+      if (Array.isArray(sorter)) {
+        const data = sorter.reduce<{
+          [key: string]: any;
+        }>((pre, value) => {
+          return {
+            ...pre,
+            [`${value.field}`]: value.order,
+          };
+        }, {});
+        setProSort(omitUndefined<any>(data));
+      } else {
+        setProSort(omitUndefined({ [`${sorter.field}`]: sorter.order as SortOrder }));
+      }
+    },
+  };
+  /**
+   * 如果有 ellipsis ，设置 tableLayout 为 fixed
+   */
+  const tableLayout = props.columns?.some((item) => item.ellipsis) ? 'fixed' : 'auto';
+  const tableDom = props.tableViewRender ? (
+    props.tableViewRender(tableProps)
+  ) : (
+    <Table<T> {...tableProps} tableLayout={tableLayout} />
   );
   /**
    * table 区域的 dom，为了方便 render
    */
   const tableAreaDom = (
-    <>
+    <Card
+      bordered={false}
+      style={{
+        height: '100%',
+      }}
+      bodyStyle={
+        toolbarDom
+          ? {
+              paddingTop: 0,
+              paddingBottom: 0,
+            }
+          : {
+              padding: 0,
+            }
+      }
+      {...cardProps}
+    >
       {toolbarDom}
       {alertDom}
       {tableDom}
-    </>
+    </Card>
   );
 
   const renderTable = () => {
@@ -1062,59 +918,26 @@ const ProTable = <T extends {}, U extends ParamsType>(
     return tableAreaDom;
   };
 
+  const proTableDom = (
+    <div className={className} id="ant-design-pro-table" style={style} ref={rootRef}>
+      {isLightFilter ? null : searchNode}
+      {/* 渲染一个额外的区域，用于一些自定义 */}
+      {type !== 'form' && props.tableExtraRender && (
+        <div className={`${className}-extra`}>{props.tableExtraRender(props, dataSource)}</div>
+      )}
+      {type !== 'form' && renderTable()}
+    </div>
+  );
+
+  // 如果不需要的全屏，ConfigProvider 没有意义
+  if (!options || !options?.fullScreen) {
+    return proTableDom;
+  }
   return (
     <ConfigProvider
       getPopupContainer={() => ((rootRef.current || document.body) as any) as HTMLElement}
     >
-      <div className={className} id="ant-design-pro-table" style={style} ref={rootRef}>
-        {(search || type === 'form') && (
-          <FormSearch<U>
-            {...rest}
-            type={props.type}
-            formRef={formRef}
-            onSubmit={(value) => {
-              if (type !== 'form') {
-                const submitParams = {
-                  ...value,
-                  _timestamp: Date.now(),
-                };
-                setFormSearch(beforeSearchSubmit(submitParams));
-                // back first page
-                action.resetPageIndex();
-              }
-
-              if (props.onSubmit) {
-                props.onSubmit(value);
-              }
-            }}
-            onReset={() => {
-              setFormSearch(beforeSearchSubmit({}));
-              // back first page
-              action.resetPageIndex();
-              onReset();
-            }}
-            dateFormatter={rest.dateFormatter}
-            search={search}
-          />
-        )}
-        {/* 渲染一个额外的区域，用于一些自定义 */}
-        {type !== 'form' && props.tableExtraRender && (
-          <div className={`${className}-extra`}>{props.tableExtraRender(props, dataSource)}</div>
-        )}
-        {type !== 'form' && (
-          <Card
-            bordered={false}
-            style={{
-              height: '100%',
-            }}
-            bodyStyle={{
-              padding: 0,
-            }}
-          >
-            {renderTable()}
-          </Card>
-        )}
-      </div>
+      {proTableDom}
     </ConfigProvider>
   );
 };
@@ -1125,14 +948,14 @@ const ProTable = <T extends {}, U extends ParamsType>(
  * @param props
  */
 const ProviderWarp = <T, U extends { [key: string]: any } = {}>(props: ProTableProps<T, U>) => {
-  const { getPrefixCls } = useContext(AntdConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   return (
     <Container.Provider initialState={props}>
-      <ConfigProviderWarp>
+      <ConfigProviderWrap>
         <ErrorBoundary>
           <ProTable defaultClassName={getPrefixCls('pro-table')} {...props} />
         </ErrorBoundary>
-      </ConfigProviderWarp>
+      </ConfigProviderWrap>
     </Container.Provider>
   );
 };

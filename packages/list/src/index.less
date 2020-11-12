@@ -9,6 +9,10 @@
 
     &.@{pro-list-prefix-cls}-row-selected {
       background-color: @table-selected-row-bg;
+
+      &:hover {
+        background-color: @table-selected-row-bg;
+      }
     }
 
     &.@{pro-list-prefix-cls}-row-type-new {
@@ -99,7 +103,7 @@
       }
     }
 
-    &-collapsed {
+    &-expanded {
       > .anticon > svg {
         transform: rotate(90deg);
       }
@@ -139,6 +143,10 @@
     &-avatar {
       display: flex;
     }
+  }
+
+  .@{ant-prefix}-list-pagination {
+    margin-bottom: @margin-lg;
   }
 
   .@{ant-prefix}-list {

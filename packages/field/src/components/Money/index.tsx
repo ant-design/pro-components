@@ -1,5 +1,6 @@
 import React from 'react';
 import { InputNumber } from 'antd';
+import { useIntl } from '@ant-design/pro-provider';
 import { ProFieldFC } from '../../index';
 
 const moneyIntl = new Intl.NumberFormat('zh-Hans-CN', {
@@ -12,10 +13,12 @@ const enMoneyIntl = new Intl.NumberFormat('en-US', {
   style: 'currency',
   currency: 'USD',
 });
+
 const ruMoneyIntl = new Intl.NumberFormat('ru-RU', {
   style: 'currency',
   currency: 'RUB',
 });
+
 const msMoneyIntl = new Intl.NumberFormat('ms-MY', {
   style: 'currency',
   currency: 'MYR',
@@ -56,13 +59,15 @@ export type FieldMoneyProps = {
  * }
  */
 const FieldMoney: ProFieldFC<FieldMoneyProps> = (
-  { text, mode: type, moneySymbol = '￥', locale = '', render, renderFormItem, formItemProps },
+  { text, mode: type, locale = '', render, renderFormItem, fieldProps, ...rest },
   ref,
 ) => {
+  const intl = useIntl();
+  const moneySymbol = intl.getMessage('moneySymbol', rest.moneySymbol || '￥');
   if (type === 'read') {
-    const dom = <span ref={ref}>{getTextByLocale(locale, text)}</span>;
+    const dom = <span ref={ref}>{getTextByLocale(locale || intl.locale, text)}</span>;
     if (render) {
-      return render(text, { mode: type, ...formItemProps }, dom);
+      return render(text, { mode: type, ...fieldProps }, dom);
     }
     return dom;
   }
@@ -70,7 +75,6 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
     const dom = (
       <InputNumber
         ref={ref}
-        defaultValue={text}
         min={0}
         precision={2}
         formatter={(value) => {
@@ -85,11 +89,12 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
         style={{
           width: '100%',
         }}
-        {...formItemProps}
+        {...rest}
+        {...fieldProps}
       />
     );
     if (renderFormItem) {
-      return renderFormItem(text, { mode: type, ...formItemProps }, dom);
+      return renderFormItem(text, { mode: type, ...fieldProps }, dom);
     }
     return dom;
   }

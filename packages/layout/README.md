@@ -2,18 +2,18 @@
 
 > @ant-design/pro-layout.
 
-See our website [@ant-design/pro-layout](https://umijs.org/plugins/layout) for more information.
+See our website [@ant-design/pro-layout.](https://procomponent.ant.design/) for more information.
 
 ## Install
 
 Using npm:
 
 ```bash
-$ npm install --save-dev @ant-design/pro-layout
+$ npm install --save  @ant-design/pro-layout
 ```
 
 or using yarn:
 
 ```bash
-$ yarn add @ant-design/pro-layout --dev
+$ yarn add @ant-design/pro-layout
 ```

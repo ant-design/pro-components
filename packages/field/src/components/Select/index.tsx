@@ -1,37 +1,38 @@
-import React, { ReactNode, useState, useImperativeHandle, useEffect, useRef } from 'react';
-import { Select } from 'antd';
-import TableStatus, { ProFieldStatusType } from '../Status';
+import React, {
+  ReactNode,
+  useState,
+  useImperativeHandle,
+  useRef,
+  useContext,
+  useCallback,
+  useEffect,
+} from 'react';
+import { Select, Space, Spin } from 'antd';
+import {
+  ProSchemaValueEnumMap,
+  ProSchemaValueEnumObj,
+  useDeepCompareEffect,
+} from '@ant-design/pro-utils';
+import useSWR from 'swr';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { useIntl } from '@ant-design/pro-provider';
+import SizeContext from 'antd/lib/config-provider/SizeContext';
+import { SelectProps } from 'antd/lib/select';
+
+import LightSelect from './LightSelect';
+import TableStatus, { ProFieldBadgeColor, ProFieldStatusType } from '../Status';
 import { ProFieldFC } from '../../index';
 
-export const ObjToMap = (
-  value: ProFieldValueEnumObj | ProFieldValueEnumMap | undefined,
-): ProFieldValueEnumMap | undefined => {
-  if (!value) {
-    return value;
-  }
+let testId = 0;
+
+export type ProFieldValueEnumType = ProSchemaValueEnumMap | ProSchemaValueEnumObj;
+
+export const ObjToMap = (value: ProFieldValueEnumType | undefined): ProSchemaValueEnumMap => {
   if (getType(value) === 'map') {
-    return value as ProFieldValueEnumMap;
+    return value as ProSchemaValueEnumMap;
   }
-  return new Map(Object.entries(value));
+  return new Map(Object.entries(value || {}));
 };
-
-export type ProFieldValueEnumObj = {
-  [key: string]:
-    | {
-        text: ReactNode;
-        status: ProFieldStatusType;
-      }
-    | ReactNode;
-};
-
-export type ProFieldValueEnumMap = Map<
-  React.ReactText,
-  | {
-      text: ReactNode;
-      status: ProFieldStatusType;
-    }
-  | ReactNode
->;
 
 /**
  * 转化 text 和 valueEnum
@@ -41,14 +42,14 @@ export type ProFieldValueEnumMap = Map<
  * @param pure 纯净模式，不增加 status
  */
 export const proFieldParsingText = (
-  text: string | number,
-  valueEnumParams?: ProFieldValueEnumMap | ProFieldValueEnumObj,
-  pure?: boolean,
-) => {
-  const valueEnum = ObjToMap(valueEnumParams);
-  if (!valueEnum) {
-    return text;
+  text: string | number | Array<string | number>,
+  valueEnumParams: ProFieldValueEnumType,
+): React.ReactNode => {
+  if (Array.isArray(text)) {
+    return <Space>{text.map((value) => proFieldParsingText(value, valueEnumParams))}</Space>;
   }
+
+  const valueEnum = ObjToMap(valueEnumParams);
 
   if (!valueEnum.has(text) && !valueEnum.has(`${text}`)) {
     return text;
@@ -57,17 +58,24 @@ export const proFieldParsingText = (
   const domText = (valueEnum.get(text) || valueEnum.get(`${text}`)) as {
     text: ReactNode;
     status: ProFieldStatusType;
+    color?: string;
   };
-  if (domText.status) {
-    if (pure) {
-      return domText.text;
-    }
-    const { status } = domText;
-    const Status = TableStatus[status || 'Init'];
-    if (Status) {
-      return <Status>{domText.text}</Status>;
-    }
+
+  if (!domText) {
+    return text;
   }
+
+  const { status, color } = domText;
+  const Status = TableStatus[status || 'Init'];
+  // 如果类型存在优先使用类型
+  if (Status) {
+    return <Status>{domText.text}</Status>;
+  }
+  // 如果不存在使用颜色
+  if (color) {
+    return <ProFieldBadgeColor color={color}>{domText.text}</ProFieldBadgeColor>;
+  }
+  // 什么都没有使用 text
   return domText.text || domText;
 };
 
@@ -92,7 +100,7 @@ function getType(obj: any) {
  * @param valueEnum
  */
 export const proFieldParsingValueEnumToArray = (
-  valueEnumParams: ProFieldValueEnumMap | ProFieldValueEnumObj | undefined = new Map(),
+  valueEnumParams: ProFieldValueEnumType | undefined = new Map(),
 ): {
   value: string | number;
   text: string;
@@ -100,20 +108,19 @@ export const proFieldParsingValueEnumToArray = (
   const enumArray: {
     value: string | number;
     text: string;
+    /**
+     * 是否禁用
+     */
+    disabled?: boolean;
   }[] = [];
   const valueEnum = ObjToMap(valueEnumParams);
 
-  if (!valueEnum) {
-    return [];
-  }
-
   valueEnum.forEach((_, key) => {
-    if (!valueEnum.has(key) && !valueEnum.has(`${key}`)) {
-      return;
-    }
     const value = (valueEnum.get(key) || valueEnum.get(`${key}`)) as {
       text: string;
+      disabled?: boolean;
     };
+
     if (!value) {
       return;
     }
@@ -122,18 +129,20 @@ export const proFieldParsingValueEnumToArray = (
       enumArray.push({
         text: (value?.text as unknown) as string,
         value: key,
+        disabled: value.disabled,
       });
       return;
     }
     enumArray.push({
-      text: ((value || '') as unknown) as string,
+      text: (value as unknown) as string,
       value: key,
     });
   });
   return enumArray;
 };
 
-export type RequestData = (
+export type ProFieldRequestData = (
+  params: any,
   props: FieldSelectProps,
 ) => Promise<
   {
@@ -141,54 +150,105 @@ export type RequestData = (
     value: React.ReactText;
   }[]
 >;
+
 export type FieldSelectProps = {
   text: string;
   /**
    * 值的枚举，如果存在枚举，Search 中会生成 select
    */
-  valueEnum?: ProFieldValueEnumMap | ProFieldValueEnumObj;
+  valueEnum?: ProFieldValueEnumType;
 
   /**
    * 从服务器读取选项
    */
-  request?: RequestData;
+  request?: ProFieldRequestData;
+  /**
+   * 重新触发的时机
+   */
+  params?: any;
+
+  /**
+   * 组件的全局设置
+   */
+  fieldProps?: SelectProps<any>;
 };
 
-const useFetchData = (
-  props: FieldSelectProps,
-): [
-  boolean,
-  {
-    label: React.ReactNode;
-    value: React.ReactText;
-  }[],
-  () => void,
-] => {
-  const [options, setOptions] = useState<
-    {
-      label: React.ReactNode;
-      value: React.ReactText;
-    }[]
-  >(() =>
-    proFieldParsingValueEnumToArray(ObjToMap(props.valueEnum)).map(({ value, text }) => ({
+export const useFieldFetchData = (
+  props: FieldSelectProps & {
+    proFieldKey?: React.Key;
+  },
+): [boolean, SelectProps<any>['options'], () => void] => {
+  /**
+   * key 是用来缓存请求的，如果不在是有问题
+   */
+  const [cacheKey] = useState(() => {
+    if (props.proFieldKey) {
+      return props.proFieldKey;
+    }
+    if (props.request) {
+      testId += 1;
+      return testId;
+    }
+    return 'no-fetch';
+  });
+
+  const proFieldKeyRef = useRef(cacheKey);
+
+  const getOptionsFormValueEnum = useCallback((valueEnum) => {
+    return proFieldParsingValueEnumToArray(ObjToMap(valueEnum)).map(({ value, text }) => ({
       label: text,
       value,
-    })),
+      key: value,
+    }));
+  }, []);
+
+  const [options, setOptions] = useMergedState<SelectProps<any>['options']>(
+    () => {
+      if (props.valueEnum) {
+        return getOptionsFormValueEnum(props.valueEnum);
+      }
+      return [];
+    },
+    {
+      value: props.fieldProps?.options,
+    },
   );
-  const [loading, setLoading] = useState<boolean>(false);
-  const fetchData = async () => {
-    if (!props.request) {
-      return;
-    }
-    setLoading(true);
-    const data = await props.request(props);
-    setOptions(data);
-    setLoading(false);
-  };
-  useEffect(() => {
-    fetchData();
-  }, [props]);
-  return [loading, options, fetchData];
+
+  useDeepCompareEffect(() => {
+    // 优先使用 fieldProps?.options
+    if (!props.valueEnum || props.fieldProps?.options) return;
+    setOptions(getOptionsFormValueEnum(props.valueEnum));
+  }, [props.valueEnum]);
+
+  const [loading, setLoading] = useState(false);
+
+  const { data, mutate } = useSWR(
+    [proFieldKeyRef.current, JSON.stringify(props.params)],
+    async () => {
+      if (props.request) {
+        setLoading(true);
+        const fetchData = await props.request(props.params, props);
+        setLoading(false);
+        return fetchData;
+      }
+      return [];
+    },
+    {
+      revalidateOnFocus: false,
+    },
+  );
+
+  return [
+    loading,
+    props.request ? data : options,
+    async () => {
+      if (!props.request) return;
+      setLoading(true);
+      const fetchData = await props.request(props.params, props);
+      setLoading(false);
+      mutate(fetchData, false);
+    },
+  ];
 };
 
 /**
@@ -202,58 +262,85 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
     render,
     renderFormItem,
     request,
-    formItemProps,
+    fieldProps,
     plain,
     children,
+    light,
+    proFieldKey,
     ...rest
   } = props;
   const inputRef = useRef();
-  const [loading, options, fetchData] = useFetchData(props);
+  const intl = useIntl();
 
+  useEffect(() => {
+    testId += 1;
+  }, []);
+
+  const [loading, options, fetchData] = useFieldFetchData(props);
+
+  const size = useContext(SizeContext);
   useImperativeHandle(ref, () => ({
     ...(inputRef.current || {}),
     fetchData: () => fetchData(),
   }));
 
+  if (loading) {
+    return <Spin />;
+  }
   if (mode === 'read') {
+    const optionsValueEnum: ProSchemaValueEnumObj = options?.length
+      ? options?.reduce((pre: any, cur) => {
+          return { ...pre, [cur.value]: cur.label };
+        }, {})
+      : undefined;
     const dom = (
       <>
         {proFieldParsingText(
           rest.text,
-          ObjToMap(valueEnum) ||
-            ObjToMap(
-              options.reduce((pre: any, cur) => {
-                return { ...pre, [cur.value]: cur.label };
-              }, {}),
-            ),
-          plain,
+          (ObjToMap(valueEnum || optionsValueEnum) as unknown) as ProSchemaValueEnumObj,
         )}
       </>
     );
+
     if (render) {
-      return render(rest.text, { mode, ...formItemProps }, dom);
+      return render(rest.text, { mode, ...fieldProps }, dom) || null;
     }
     return dom;
   }
+
   if (mode === 'edit' || mode === 'update') {
-    const dom = (
-      <Select
-        style={{
-          minWidth: 100,
-        }}
-        loading={loading}
-        ref={inputRef}
-        defaultValue={rest.text}
-        allowClear
-        {...rest}
-        {...formItemProps}
-        options={options}
-      >
-        {children}
-      </Select>
-    );
+    const renderDom = () => {
+      if (light) {
+        return (
+          <LightSelect
+            loading={loading}
+            ref={inputRef}
+            allowClear
+            size={size}
+            {...rest}
+            options={options}
+            {...fieldProps}
+          />
+        );
+      }
+      return (
+        <Select
+          style={{
+            minWidth: 100,
+          }}
+          loading={loading}
+          ref={inputRef}
+          allowClear
+          {...rest}
+          placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
+          options={options}
+          {...fieldProps}
+        />
+      );
+    };
+    const dom = renderDom();
     if (renderFormItem) {
-      return renderFormItem(rest.text, { mode, ...formItemProps }, dom);
+      return renderFormItem(rest.text, { mode, ...fieldProps, options }, dom) || null;
     }
     return dom;
   }

@@ -1,8 +1,10 @@
 import {
+  ConfigProviderWrap,
   ConfigProvider,
   ConfigConsumer,
   createIntl,
   IntlType,
+  arEGIntl,
   zhCNIntl,
   enUSIntl,
   viVNIntl,
@@ -15,16 +17,21 @@ import {
   frFRIntl,
   ptBRIntl,
 } from '@ant-design/pro-provider';
-import { FieldStatus, ProFieldValueType } from '@ant-design/pro-field';
+import { ProCoreActionType } from '@ant-design/pro-utils';
+import { FieldStatus, ProFieldValueType, FieldIndexColumn } from '@ant-design/pro-field';
 
-import ProTable, { ProColumns, ActionType, ProTableProps, ColumnsState } from './Table';
-import IndexColumn from './component/indexColumn';
+import ProTable, { ProColumns, ProColumnType, ProTableProps } from './Table';
 import { RequestData } from './useFetchData';
-import TableDropdown from './component/dropdown';
-import Search from './form';
+import TableDropdown from './component/Dropdown';
+import ListToolBar, { ListToolBarProps } from './component/ListToolBar';
+
+import Search from './Form';
 import defaultRenderText from './defaultRender';
+import { ColumnsState } from './container';
 
 type ProColumnsValueType = ProFieldValueType;
+
+export type ActionType = ProCoreActionType;
 
 export type {
   ProTableProps,
@@ -32,13 +39,15 @@ export type {
   ColumnsState,
   ProColumnsValueType,
   ProColumns,
-  ActionType,
+  ProColumnType,
   RequestData,
+  ListToolBarProps,
 };
 
 export {
-  IndexColumn,
+  ConfigProviderWrap,
   TableDropdown,
+  ListToolBar,
   FieldStatus as TableStatus,
   Search,
   ConfigProvider as IntlProvider,
@@ -46,8 +55,10 @@ export {
   ConfigConsumer as IntlConsumer,
   ConfigConsumer,
   zhCNIntl,
+  FieldIndexColumn as IndexColumn,
   defaultRenderText,
   createIntl,
+  arEGIntl,
   enUSIntl,
   viVNIntl,
   itITIntl,

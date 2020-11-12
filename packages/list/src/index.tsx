@@ -1,38 +1,48 @@
-import React from 'react';
-import { List } from 'antd';
-import classNames from 'classnames';
-import { noteOnce } from 'rc-util/lib/warning';
-import { TableRowSelection, GetRowKey, ExpandableConfig } from 'antd/lib/table/interface';
+import React, { useMemo, useContext } from 'react';
 import { ListProps } from 'antd/lib/list';
-import ToolBar, { ToolBarProps } from './toolBar';
-import useSelection from './hooks/useSelection';
-import useLazyKVMap, { findAllChildrenKeys } from './hooks/useLazyKVMap';
-import usePagination from './hooks/usePagination';
-import getPrefixCls from './util/getPrefixCls';
-import ProListItem, { ItemProps, ProListSubItem } from './Item';
+import classNames from 'classnames';
+import ProTable, { ProTableProps, ProColumnType } from '@ant-design/pro-table';
+import { ParamsType } from '@ant-design/pro-provider';
+import { ConfigProvider } from 'antd';
+import ListView from './ListView';
 
 import './index.less';
 
 type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 
-type WithFalse<T> = T | false;
+type ProListMeta<T> = Pick<
+  ProColumnType<T>,
+  'dataIndex' | 'valueType' | 'render' | 'search' | 'title' | 'valueEnum'
+>;
 
-export interface HeaderViewProps {
-  title?: React.ReactNode;
-  actions?: React.ReactNode[];
+export interface ProListMetas<T> {
+  type?: ProListMeta<T>;
+  title?: ProListMeta<T>;
+  subTitle?: ProListMeta<T>;
+  description?: ProListMeta<T>;
+  avatar?: ProListMeta<T>;
+  extra?: ProListMeta<T>;
+  content?: ProListMeta<T>;
+  actions?: ProListMeta<T>;
+  [key: string]: ProListMeta<T> | undefined;
 }
 
-export interface ProListProps<RecordType>
-  extends Omit<ToolBarProps, 'locale'>,
+export interface ProListProps<RecordType, U extends ParamsType>
+  extends Pick<
+      ProTableProps<RecordType, U>,
+      | 'dataSource'
+      | 'loading'
+      | 'toolBarRender'
+      | 'rowKey'
+      | 'headerTitle'
+      | 'options'
+      | 'search'
+      | 'expandable'
+      | 'rowSelection'
+      | 'request'
+    >,
     AntdListProps<RecordType> {
-  rowSelection?: TableRowSelection<RecordType>;
-  rowKey?: string | GetRowKey<RecordType>;
-  renderItem: (row: RecordType, index: number) => ItemProps;
-  listRenderItem?: (row: RecordType, index: number) => React.ReactNode;
-  headerRender?: WithFalse<
-    (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
-  >;
-  expandable?: ExpandableConfig<RecordType>;
+  metas?: ProListMetas<RecordType>;
   showActions?: 'hover' | 'always';
 }
 
@@ -40,237 +50,91 @@ export type Key = React.Key;
 
 export type TriggerEventHandler<RecordType> = (record: RecordType) => void;
 
-function ProList<RecordType = any>(props: ProListProps<RecordType>) {
+function ProList<RecordType, U extends { [key: string]: any } = {}>(
+  props: ProListProps<RecordType, U>,
+) {
   const {
-    rowSelection,
-    prefixCls: customizePrefixCls,
+    metas: metals,
+    split,
     pagination,
-    dataSource = [],
+    size,
+    footer,
     rowKey,
-    showActions = 'always',
-    bordered,
-    headerRender,
-    split = true,
-    expandable: expandableConfig,
+    className,
+    options = false,
+    search = false,
+    expandable,
+    showActions,
+    rowSelection,
+    itemLayout,
     ...rest
   } = props;
-  const prefixCls = getPrefixCls('list', customizePrefixCls);
 
-  const getRowKey = React.useMemo<GetRowKey<RecordType>>((): GetRowKey<RecordType> => {
-    if (typeof rowKey === 'function' && rowKey) {
-      return rowKey;
-    }
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
-    return (record: RecordType, index?: number) => (record as any)[rowKey as string] || index;
-  }, [rowKey]);
-
-  const mergedData = dataSource.flatMap((item) => {
-    // @ts-ignore
-    if (item.children && Array.isArray(item.children)) {
-      // @ts-ignore
-      return [{ ...item }, ...item.children];
-    }
-    return item;
-  });
-
-  const [getRecordByKey] = useLazyKVMap(mergedData, 'children', getRowKey);
-
-  // 合并分页的的配置
-  const [mergedPagination] = usePagination(mergedData.length, pagination, () => {
-    // console.log('run');
-  });
-
-  /**
-   * 根据分页来回去不同的数据，模拟 table
-   */
-  const pageData = React.useMemo<RecordType[]>(() => {
-    if (
-      pagination === false ||
-      !mergedPagination.pageSize ||
-      mergedData.length < mergedPagination.total!
-    ) {
-      return mergedData;
-    }
-
-    const { current = 1, pageSize = 10 } = mergedPagination;
-    const currentPageData = mergedData.slice((current - 1) * pageSize, current * pageSize);
-    return currentPageData;
-  }, [
-    !!pagination,
-    mergedData,
-    mergedPagination && mergedPagination.current,
-    mergedPagination && mergedPagination.pageSize,
-    mergedPagination && mergedPagination.total,
-  ]);
-
-  /**
-   * 提供和 table 一样的 rowSelection 配置
-   */
-  const [selectItemRender, selectedKeySet] = useSelection(rowSelection, {
-    getRowKey,
-    getRecordByKey,
-    prefixCls,
-    data: dataSource,
-    pageData,
-    expandType: 'row',
-    childrenColumnName: 'children',
-    locale: {},
-    expandIconColumnIndex: 0,
-  });
-
-  const {
-    expandedRowKeys,
-    defaultExpandedRowKeys,
-    defaultExpandAllRows = true,
-    onExpand,
-    onExpandedRowsChange,
-  } = expandableConfig || {};
-
-  const [innerExpandedKeys, setInnerExpandedKeys] = React.useState<Key[]>(() => {
-    if (defaultExpandedRowKeys) {
-      return defaultExpandedRowKeys;
-    }
-    if (defaultExpandAllRows !== false) {
-      const keys = findAllChildrenKeys<RecordType>(mergedData, getRowKey, 'children');
-      if (onExpandedRowsChange) {
-        onExpandedRowsChange(keys);
+  const proTableColumns: ProColumnType<RecordType>[] = useMemo(() => {
+    const columns: ProColumnType<RecordType>[] = [];
+    Object.keys(metals || {}).forEach((key) => {
+      if (!metals || !metals[key]) {
+        return;
       }
-      return keys;
-    }
-    return [];
-  });
-
-  const mergedExpandedKeys = React.useMemo(
-    () => new Set(expandedRowKeys || innerExpandedKeys || []),
-    [expandedRowKeys, innerExpandedKeys],
-  );
-
-  const onTriggerExpand: TriggerEventHandler<RecordType> = React.useCallback(
-    (record: RecordType) => {
-      const key = getRowKey(record, mergedData.indexOf(record));
-      let newExpandedKeys: Key[];
-      const hasKey = mergedExpandedKeys.has(key);
-      if (hasKey) {
-        mergedExpandedKeys.delete(key);
-        newExpandedKeys = [...mergedExpandedKeys];
-      } else {
-        newExpandedKeys = [...mergedExpandedKeys, key];
-      }
-
-      setInnerExpandedKeys(newExpandedKeys);
-      if (onExpand) {
-        onExpand(!hasKey, record);
-      }
-      if (onExpandedRowsChange) {
-        onExpandedRowsChange(newExpandedKeys);
-      }
-    },
-    [getRowKey, mergedExpandedKeys, mergedData, onExpand, onExpandedRowsChange],
-  );
-
-  /**
-   * 这个是 选择框的 render 方法
-   * 为了兼容 antd 的 table,用了同样的渲染逻辑
-   * 所以看起来有点奇怪
-   */
-  const selectItemDom = selectItemRender();
-
-  const defaultRenderItem = () => {
-    const { rowExpandable } = expandableConfig || {};
-    const { renderItem } = props;
-
-    if (renderItem) {
-      return (item: RecordType, index: number) => {
-        const ProListItemProps = renderItem(item, index);
-        // @ts-ignore
-        if (item.children && Array.isArray(item.children)) {
-          return (
-            <ProListSubItem
-              key={getRowKey(item, index)}
-              prefixCls={prefixCls}
-              {...ProListItemProps}
-            />
-          );
+      const meta = metals[key];
+      let { valueType } = meta || {};
+      if (!valueType) {
+        // 给默认的 valueType
+        if (key === 'avatar') {
+          valueType = 'avatar';
         }
-        if (!ProListItemProps) {
-          return undefined;
-        }
-        return (
-          <ProListItem
-            key={getRowKey(item, index)}
-            prefixCls={prefixCls}
-            expandable={expandableConfig}
-            expand={mergedExpandedKeys.has(getRowKey(item, index))}
-            onExpand={() => {
-              onTriggerExpand(item);
-            }}
-            showActions={showActions}
-            rowSupportExpand={!rowExpandable || (rowExpandable && rowExpandable(item))}
-            selected={selectedKeySet.has(getRowKey(item, index))}
-            checkbox={
-              selectItemDom && selectItemDom.render && selectItemDom?.render(item, item, index)
-            }
-            item={item}
-            {...ProListItemProps}
-          />
-        );
-      };
-    }
-    if (props.listRenderItem) {
-      return props.listRenderItem;
-    }
-
-    noteOnce(!!props.listRenderItem, 'list need renderItem');
-
-    return (item: RecordType, index: number) => (
-      <ProListItem
-        prefixCls={prefixCls}
-        expandable={expandableConfig}
-        expand={mergedExpandedKeys.has(getRowKey(item, index))}
-        onExpand={() => {
-          onTriggerExpand(item);
-        }}
-        showActions={showActions}
-        rowSupportExpand={!rowExpandable || (rowExpandable && rowExpandable(item))}
-        selected={selectedKeySet.has(getRowKey(item, index))}
-        checkbox={selectItemDom && selectItemDom.render && selectItemDom.render(item, item, index)}
-        {...item}
-      />
-    );
-  };
+      }
+      columns.push({
+        key,
+        ...meta,
+        valueType,
+      });
+    });
+    return columns;
+  }, [metals]);
+  const prefixCls = getPrefixCls('pro-list');
   const listClassName = classNames(prefixCls, {
-    [`${prefixCls}-bordered`]: bordered,
     [`${prefixCls}-no-split`]: !split,
   });
 
-  const renderHeader = () => {
-    if (headerRender === false) {
-      return null;
-    }
-
-    const defaultDom = (rest.title || rest.actions) && (
-      <ToolBar className={`${prefixCls}-toolbar`} {...rest} />
-    );
-
-    if (headerRender) {
-      return headerRender({ title: rest.title, actions: rest.actions }, defaultDom);
-    }
-
-    return defaultDom;
-  };
-
   return (
-    <div className={listClassName}>
-      <List<RecordType>
-        {...rest}
-        split={false}
-        header={renderHeader()}
-        bordered={bordered}
-        dataSource={pageData}
-        renderItem={defaultRenderItem()}
-        pagination={pagination && mergedPagination}
-      />
-    </div>
+    <ProTable<RecordType, U>
+      {...rest}
+      search={search}
+      options={options}
+      className={classNames(prefixCls, className, listClassName)}
+      columns={proTableColumns}
+      rowKey={rowKey}
+      cardProps={{
+        bodyStyle: {
+          padding: 0,
+        },
+      }}
+      toolbar={{
+        style: {
+          padding: '0 24px',
+        },
+      }}
+      tableViewRender={({ columns, dataSource, loading }) => (
+        <ListView
+          prefixCls={prefixCls}
+          columns={columns}
+          dataSource={dataSource || []}
+          size={size}
+          footer={footer}
+          split={split}
+          rowKey={rowKey}
+          expandable={expandable}
+          rowSelection={rowSelection === false ? undefined : rowSelection}
+          showActions={showActions}
+          pagination={pagination}
+          itemLayout={itemLayout}
+          loading={loading}
+        />
+      )}
+    />
   );
 }
 

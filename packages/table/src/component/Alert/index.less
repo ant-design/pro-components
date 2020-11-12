@@ -1,0 +1,25 @@
+@import '~antd/es/style/themes/default.less';
+
+@pro-table-alert-prefix-cls: ~'@{ant-prefix}-pro-table-alert';
+
+.@{pro-table-alert-prefix-cls} {
+  margin-bottom: 16px;
+  // padding: 0 24px;
+
+  .@{ant-prefix}-alert.@{ant-prefix}-alert-no-icon {
+    padding: @padding-sm @padding-lg;
+  }
+
+  &-info {
+    display: flex;
+    align-items: center;
+    transition: 0.3 all;
+    &-content {
+      flex: 1;
+    }
+    &-option {
+      min-width: 48px;
+      padding-left: 16px;
+    }
+  }
+}

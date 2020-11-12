@@ -1,6 +1,6 @@
-const proFieldProps = `valueType request mode plain renderFromItem render text formItemProps valueEnum`;
+const proFieldProps = `valueType request plain renderFormItem render text formItemProps valueEnum`;
 
-const proFormProps = `fieldProps labelCol secondary colSize groupProps contentRender submitterProps submitter`;
+const proFormProps = `fieldProps isDefaultDom groupProps contentRender submitterProps submitter`;
 
 export default function pickProProps(props: object) {
   const propList = `${proFieldProps} ${proFormProps}`.split(/[\s\n]+/);

@@ -1,24 +1,19 @@
-import React from 'react';
-// eslint-disable-next-line import/no-unresolved
-import ProField from '@ant-design/pro-field';
-import { Form } from 'antd';
-import { DatePickerProps } from 'antd/lib/date-picker';
-import { createField } from '../../BaseForm';
-import { ProFormItemProps } from '../../interface';
+import ProFormDatePicker from './DatePicker';
+import ProFormDatePickerWeek from './WeekPicker';
+import ProFormDatePickerMonth from './MonthPicker';
+import ProFormDatePickerQuarter from './QuarterPicker';
+import ProFormDatePickerYear from './YearPicker';
 
-/**
- * 日期选择组件
- * @param
- */
-const ProFormDatePicker: React.FC<ProFormItemProps<DatePickerProps>> = ({
-  fieldProps,
-  ...restProps
-}) => {
-  return (
-    <Form.Item {...restProps}>
-      <ProField text={fieldProps?.value} mode="edit" valueType="date" formItemProps={fieldProps} />
-    </Form.Item>
-  );
+const ExportComponent = ProFormDatePicker as typeof ProFormDatePicker & {
+  Week: typeof ProFormDatePickerWeek;
+  Month: typeof ProFormDatePickerMonth;
+  Quarter: typeof ProFormDatePickerQuarter;
+  Year: typeof ProFormDatePickerYear;
 };
 
-export default createField<ProFormItemProps<DatePickerProps>>(ProFormDatePicker);
+ExportComponent.Week = ProFormDatePickerWeek;
+ExportComponent.Month = ProFormDatePickerMonth;
+ExportComponent.Quarter = ProFormDatePickerQuarter;
+ExportComponent.Year = ProFormDatePickerYear;
+
+export default ExportComponent;

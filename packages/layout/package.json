@@ -1,12 +1,15 @@
 {
   "name": "@ant-design/pro-layout",
-  "version": "6.4.0-beta.1",
+  "version": "6.5.14",
   "description": "@ant-design/pro-layout",
   "keywords": [
     "antd",
     "admin",
     "ant-design",
     "ant-design-pro"
+  ],
+  "sideEffects": [
+    "*.less"
   ],
   "homepage": "https://github.com/ant-design/pro-components/tree/master/packages/layout#readme",
   "bugs": "http://github.com/umijs/plugins/issues",
@@ -16,19 +19,24 @@
   },
   "license": "MIT",
   "main": "lib/index.js",
+  "module": "es/index.js",
   "types": "lib/index.d.ts",
   "files": [
     "lib",
-    "src",
     "es",
     "dist"
   ],
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ],
   "dependencies": {
     "@ant-design/icons": "^4.0.0",
-    "@ant-design/pro-provider": "0.0.2",
-    "@ant-design/pro-utils":"0.0.1",
-    "@umijs/route-utils": "^1.0.5",
-    "antd": "^4.2.0",
+    "@ant-design/pro-provider": "1.2.1",
+    "@ant-design/pro-utils": "1.1.0",
+    "@umijs/route-utils": "^1.0.33",
     "classnames": "^2.2.6",
     "history": "^4.10.1",
     "memoize-one": "^5.1.1",
@@ -41,7 +49,7 @@
     "react-router-dom": "5.1.2",
     "unstated-next": "^1.1.0",
     "use-json-comparison": "^1.0.3",
-    "use-media-antd-query": "^1.0.1",
+    "use-media-antd-query": "^1.0.3",
     "warning": "^4.0.3"
   },
   "peerDependencies": {

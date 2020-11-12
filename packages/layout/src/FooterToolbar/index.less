@@ -9,12 +9,22 @@
   z-index: 99;
   display: flex;
   width: 100%;
+  align-items: center;
   padding: 0 24px;
-  line-height: 48px;
+  line-height: 44px;
   background: @component-background;
   border-top: 1px solid @border-color-split;
-  box-shadow: @box-shadow-base;
+  box-shadow: @shadow-1-up;
   &-left {
     flex: 1;
+  }
+
+  &-right {
+    > * {
+      margin-right: 8px;
+      &:last-child {
+        margin: 0;
+      }
+    }
   }
 }

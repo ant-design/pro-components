@@ -6,6 +6,7 @@ import BaseForm, { CommonFormProps } from '../../BaseForm';
 
 export interface ProFormProps extends FormProps, CommonFormProps {
   // ProForm 基础表单，暂无特殊属性
+  onFinish?: (formData: any) => Promise<void>;
 }
 
 const ProForm: React.FC<ProFormProps> & {
