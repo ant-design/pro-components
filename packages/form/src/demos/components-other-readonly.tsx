@@ -26,21 +26,71 @@ const Demo = () => (
     <ProForm
       name="validate_other"
       initialValues={{
+        'select-multiple': ['red', 'green'],
+        useMode: 'all',
+        switch: true,
         'input-number': 3,
         'checkbox-group': ['A', 'B'],
         rate: 3.5,
-        name: 'qixian',
+        name: '蚂蚁金服有限公司',
         radio: 'a',
+        list: ['1', '2', '3'],
+        select: 'china',
         'radio-button': 'a',
+        dragger: [
+          {
+            uid: '1',
+            name: 'xxx.png',
+            status: 'done',
+            response: 'Server Error 500', // custom error message to show
+            url: 'http://www.baidu.com/xxx.png',
+          },
+          {
+            uid: '2',
+            name: 'yyy.png',
+            status: 'done',
+            url: 'http://www.baidu.com/yyy.png',
+          },
+          {
+            uid: '3',
+            name: 'zzz.png',
+            status: 'error',
+            response: 'Server Error 500', // custom error message to show
+            url: 'http://www.baidu.com/zzz.png',
+          },
+        ],
+        upload: [
+          {
+            uid: '1',
+            name: 'xxx.png',
+            status: 'done',
+            response: 'Server Error 500', // custom error message to show
+            url: 'http://www.baidu.com/xxx.png',
+          },
+          {
+            uid: '2',
+            name: 'yyy.png',
+            status: 'done',
+            url: 'http://www.baidu.com/yyy.png',
+          },
+          {
+            uid: '3',
+            name: 'zzz.png',
+            status: 'error',
+            response: 'Server Error 500', // custom error message to show
+            url: 'http://www.baidu.com/zzz.png',
+          },
+        ],
       }}
       onValuesChange={(_, values) => {
         console.log(values);
       }}
       onFinish={async (value) => console.log(value)}
     >
-      <ProFormText width="m" name="name" label="name" />
+      <ProFormText readonly width="m" name="name" label="name" />
       <ProFormSelect
         name="select"
+        readonly
         label="Select"
         hasFeedback
         valueEnum={{
@@ -52,6 +102,7 @@ const Demo = () => (
       />
       <ProFormSelect
         width="m"
+        readonly
         hasFeedback
         request={async () => [
           { label: '全部', value: 'all' },
@@ -66,6 +117,7 @@ const Demo = () => (
         name="select-multiple"
         label="Select[multiple]"
         hasFeedback
+        readonly
         valueEnum={{
           red: 'Red',
           green: 'Green',
@@ -77,9 +129,16 @@ const Demo = () => (
         placeholder="Please select favorite colors"
         rules={[{ required: true, message: 'Please select your favorite colors!', type: 'array' }]}
       />
-      <ProFormDigit label="InputNumber" name="input-number" min={1} max={10} />
-      <ProFormSwitch name="switch" label="Switch" />
+      <ProFormDigit readonly label="InputNumber" name="input-number" min={1} max={10} />
+      <ProFormSwitch
+        readonly
+        name="switch"
+        label="Switch"
+        unCheckedChildren="不同意"
+        checkedChildren="同意"
+      />
       <ProFormSlider
+        readonly
         name="slider"
         label="Slider"
         marks={{
@@ -93,6 +152,7 @@ const Demo = () => (
       />
       <ProFormRadio.Group
         name="radio"
+        readonly
         label="Radio.Group"
         options={[
           {
@@ -110,6 +170,7 @@ const Demo = () => (
         ]}
       />
       <ProFormRadio.Group
+        readonly
         name="radio-button"
         label="Radio.Button"
         radioType="button"
@@ -130,13 +191,15 @@ const Demo = () => (
       />
       <ProFormCheckbox.Group
         name="checkbox-group"
+        readonly
         label="Checkbox.Group"
         options={['A', 'B', 'C', 'D', 'E', 'F']}
       />
-      <ProFormRate name="rate" label="Rate" />
+      <ProFormRate readonly name="rate" label="Rate" />
       <ProFormUploadButton
         name="upload"
         label="Upload"
+        readonly
         max={2}
         action="/upload.do"
         extra="longgggggggggggggggggggggggggggggggggg"
@@ -144,23 +207,24 @@ const Demo = () => (
       <ProFromFieldSet
         name="list"
         label="组件列表"
+        readonly
         transform={(value: any) => ({ startTime: value[0], endTime: value[1] })}
       >
-        <ProFormText width="m" />
-        <ProFormText width="m" />
-        <ProFormText width="m" />
+        <ProFormText width="m" readonly />
+        <ProFormText width="m" readonly />
+        <ProFormText width="m" readonly />
       </ProFromFieldSet>
       <ProForm.Group title="日期相关分组">
-        <ProFormDatePicker name="date" label="日期" />
-        <ProFormDatePicker.Week name="dateWeek" label="周" />
-        <ProFormDatePicker.Month name="dateMonth" label="月" />
-        <ProFormDatePicker.Quarter name="dateQuarter" label="季度" />
-        <ProFormDatePicker.Year name="dateYear" label="年" />
-        <ProFormDateTimePicker name="dateTime" label="日期时间" />
-        <ProFormDateRangePicker name="dateRange" label="日期区间" />
-        <ProFormDateTimeRangePicker name="dateTimeRange" label="日期时间区间" />
+        <ProFormDatePicker readonly name="date" label="日期" />
+        <ProFormDatePicker.Week readonly name="dateWeek" label="周" />
+        <ProFormDatePicker.Month readonly name="dateMonth" label="月" />
+        <ProFormDatePicker.Quarter readonly name="dateQuarter" label="季度" />
+        <ProFormDatePicker.Year readonly name="dateYear" label="年" />
+        <ProFormDateTimePicker readonly name="dateTime" label="日期时间" />
+        <ProFormDateRangePicker readonly name="dateRange" label="日期区间" />
+        <ProFormDateTimeRangePicker readonly name="dateTimeRange" label="日期时间区间" />
       </ProForm.Group>
-      <ProFormUploadDragger max={4} label="Dragger" name="dragger" />
+      <ProFormUploadDragger readonly max={4} label="Dragger" name="dragger" />
     </ProForm>
   </div>
 );

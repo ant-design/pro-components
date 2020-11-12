@@ -18,6 +18,10 @@ export default () => {
         console.log(values);
         message.success('提交成功！');
       }}
+      initialValues={{
+        name: '蚂蚁设计有限公司',
+        useMode: 'chapter',
+      }}
     >
       <ProForm.Group>
         <ProFormText
@@ -41,6 +45,7 @@ export default () => {
               label: '盖章后生效',
             },
           ]}
+          readonly
           width="xs"
           name="useMode"
           label="合同约定生效方式"

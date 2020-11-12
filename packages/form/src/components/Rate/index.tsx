@@ -9,10 +9,12 @@ import { createField } from '../../BaseForm';
  * @param
  */
 const ProFormRate: React.ForwardRefRenderFunction<any, ProFormItemProps<RateProps>> = (
-  { fieldProps },
+  { fieldProps, proFieldProps },
   ref,
 ) => {
-  return <ProField valueType="rate" mode="edit" {...fieldProps} ref={ref} />;
+  return (
+    <ProField valueType="rate" mode="edit" fieldProps={fieldProps} ref={ref} {...proFieldProps} />
+  );
 };
 
 export default createField<ProFormItemProps<RateProps>>(React.forwardRef(ProFormRate));
