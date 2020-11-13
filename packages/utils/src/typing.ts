@@ -1,4 +1,5 @@
 import { FormInstance } from 'antd/lib/form';
+import { UseEditorUtilType } from 'packages/table/src/component/useEditor';
 import { ReactNode } from 'react';
 
 type ProSchemaValueEnumType = {
@@ -127,8 +128,8 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
     dom: React.ReactNode,
     entity: T,
     index: number,
-    action: ProCoreActionType,
-    schema: ProSchema<T, U, Extra>,
+    action: ProCoreActionType & UseEditorUtilType,
+    schema: ProSchema<T, U, Extra & { isEditor?: boolean }>,
   ) => React.ReactNode;
 
   /**

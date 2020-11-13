@@ -87,8 +87,13 @@ const columns: ProColumns<GithubIssueItem>[] = [
     title: '操作',
     valueType: 'option',
     render: (text, row, _, action) => [
-      <a href={row.url} target="_blank" rel="noopener noreferrer" key="link">
-        链路
+      <a
+        key="editor"
+        onClick={() => {
+          action.setEditor(row.id);
+        }}
+      >
+        编辑
       </a>,
       <a href={row.url} target="_blank" rel="noopener noreferrer" key="view">
         查看
@@ -127,6 +132,7 @@ export default () => {
           params,
         })
       }
+      rowEditor={{}}
       rowKey="id"
       search={{
         labelWidth: 'auto',

@@ -20,14 +20,14 @@ import {
 import { ProCoreActionType } from '@ant-design/pro-utils';
 import { FieldStatus, ProFieldValueType, FieldIndexColumn } from '@ant-design/pro-field';
 
-import ProTable, { ProColumns, ProColumnType, ProTableProps } from './Table';
-import { RequestData } from './useFetchData';
+import ProTable from './Table';
 import TableDropdown from './component/Dropdown';
 import ListToolBar, { ListToolBarProps } from './component/ListToolBar';
 
 import Search from './Form';
 import defaultRenderText from './defaultRender';
 import { ColumnsState } from './container';
+import { ProColumns, ProColumnType, ProTableProps, RequestData } from './typing';
 
 type ProColumnsValueType = ProFieldValueType;
 

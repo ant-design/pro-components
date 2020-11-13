@@ -5,11 +5,11 @@ import { SearchProps } from 'antd/lib/input';
 import { useIntl, IntlType } from '@ant-design/pro-provider';
 import ListToolBar, { ListToolBarProps } from '../ListToolBar';
 import ColumnSetting from '../ColumnSetting';
-import { UseFetchDataAction, RequestData } from '../../useFetchData';
 import './index.less';
 import FullScreenIcon from './FullscreenIcon';
 import DensityIcon from './DensityIcon';
 import Container from '../../container';
+import { RequestData, UseFetchDataAction } from '../../typing';
 
 export interface OptionConfig<T> {
   density?: boolean;

@@ -1,32 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { usePrevious, useDebounceFn, useDeepCompareEffect } from '@ant-design/pro-utils';
 import ReactDOM from 'react-dom';
-
-export interface RequestData<T> {
-  data: T[];
-  success?: boolean;
-  total?: number;
-  [key: string]: any;
-}
-export interface UseFetchDataAction<T extends RequestData<any>> {
-  dataSource: T['data'] | T;
-  loading: boolean | undefined;
-  current: number;
-  pageSize: number;
-  total: number;
-  cancel: () => void;
-  reload: () => Promise<void>;
-  fullScreen?: () => void;
-  resetPageIndex: () => void;
-  reset: () => void;
-  setPageInfo: (pageInfo: Partial<PageInfo>) => void;
-}
-
-interface PageInfo {
-  page: number;
-  pageSize: number;
-  total: number;
-}
+import { PageInfo, RequestData, UseFetchDataAction } from './typing';
 
 const useFetchData = <T extends RequestData<any>>(
   getData: (params?: { pageSize: number; current: number }) => Promise<T>,

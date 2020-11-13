@@ -1,12 +1,31 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 import React, { useEffect } from 'react';
-import { Tooltip, Typography } from 'antd';
-import { TablePaginationConfig } from 'antd/lib/table';
-import { ProCoreActionType } from '@ant-design/pro-utils';
+import { Space, Tooltip, Form, Typography } from 'antd';
+import { ColumnsType, TablePaginationConfig } from 'antd/lib/table';
+import {
+  isNil,
+  LabelIconTip,
+  omitUndefinedAndEmptyArr,
+  ProCoreActionType,
+  ProSchemaComponentTypes,
+} from '@ant-design/pro-utils';
+import {
+  ProFieldEmptyText,
+  proFieldParsingValueEnumToArray,
+  ProFieldValueType,
+} from '@ant-design/pro-field';
+import get from 'rc-util/lib/utils/get';
 import { IntlType } from '@ant-design/pro-provider';
-import { ProColumns, ProTableProps } from './Table';
-import { UseFetchDataAction, RequestData } from './useFetchData';
-import { CounterType } from './container';
+
+import {
+  ProColumnGroupType,
+  ProColumns,
+  ProTableProps,
+  RequestData,
+  UseFetchDataAction,
+} from './typing';
+import { ColumnsState, CounterType, useCounter } from './container';
+import defaultRenderText from './defaultRender';
+import { UseEditorUtilType } from './component/useEditor';
 
 /**
  * 检查值是否存在
@@ -188,4 +207,248 @@ export const postDataPipeline = <T, _U>(data: T, pipeline: PostDataType<T>[]) =>
   return pipeline.reduce((pre, postData) => {
     return postData(pre);
   }, data);
+};
+
+export const tableColumnSort = (columnsMap: { [key: string]: ColumnsState }) => (
+  a: any,
+  b: any,
+) => {
+  const { fixed: aFixed, index: aIndex } = a;
+  const { fixed: bFixed, index: bIndex } = b;
+  if ((aFixed === 'left' && bFixed !== 'left') || (bFixed === 'right' && aFixed !== 'right')) {
+    return -2;
+  }
+  if ((bFixed === 'left' && aFixed !== 'left') || (aFixed === 'right' && bFixed !== 'right')) {
+    return 2;
+  }
+  // 如果没有index，在 dataIndex 或者 key 不存在的时候他会报错
+  const aKey = a.key || `${aIndex}`;
+  const bKey = b.key || `${bIndex}`;
+  return (columnsMap[aKey]?.order || 0) - (columnsMap[bKey]?.order || 0);
+};
+
+/**
+ * render title
+ * @description 增加了 icon 的功能
+ * @param item
+ */
+export const renderColumnsTitle = (item: ProColumns<any>) => {
+  const { title } = item;
+  if (title && typeof title === 'function') {
+    return title(item, 'table', <LabelIconTip label={title} tooltip={item.tooltip || item.tip} />);
+  }
+  return <LabelIconTip label={title} tooltip={item.tooltip || item.tip} />;
+};
+
+export const defaultOnFilter = (value: string, record: any, dataIndex: string | string[]) => {
+  const recordElement = Array.isArray(dataIndex)
+    ? get(record, dataIndex as string[])
+    : record[dataIndex];
+  const itemValue = String(recordElement) as string;
+
+  return String(itemValue) === String(value);
+};
+
+/**
+ * 转化列的定义
+ */
+interface ColumnRenderInterface<T> {
+  columnProps: ProColumns<T>;
+  text: any;
+  rowData: T;
+  index: number;
+  columnEmptyText?: ProFieldEmptyText;
+  type: ProSchemaComponentTypes;
+  counter: ReturnType<typeof useCounter>;
+  editorUtils: UseEditorUtilType;
+}
+
+const isMergeCell = (
+  dom: any, // 如果是合并单元格的，直接返回对象
+) => dom && typeof dom === 'object' && dom?.props?.colSpan;
+
+/**
+ * 这个组件负责单元格的具体渲染
+ * @param param0
+ */
+export function columnRender<T>({
+  columnProps,
+  text,
+  rowData,
+  index,
+  columnEmptyText,
+  counter,
+  type,
+  editorUtils,
+}: ColumnRenderInterface<T>): any {
+  const { action } = counter;
+  const isEditor = editorUtils.isEditor({ ...rowData, index });
+  const { renderText = (val: any) => val } = columnProps;
+
+  const renderTextStr = renderText(
+    text,
+    rowData,
+    index,
+    action.current as UseFetchDataAction<RequestData<any>>,
+  );
+
+  const textDom = defaultRenderText<T, {}>({
+    text: renderTextStr,
+    valueType: (columnProps.valueType as ProFieldValueType) || 'text',
+    index,
+    rowData,
+    columnProps,
+    columnEmptyText,
+    type,
+    mode: isEditor ? 'edit' : 'read',
+  });
+
+  const dom: React.ReactNode = isEditor
+    ? textDom
+    : genEllipsis(genCopyable(textDom, columnProps, renderTextStr), columnProps, renderTextStr);
+
+  /**
+   * 如果是编辑模式，并且 renderFormItem 存在直接走 renderFormItem
+   */
+  if (isEditor) {
+    if (columnProps.valueType === 'option') {
+      return (
+        <Form.Item shouldUpdate noStyle>
+          {(form: any) => (
+            <Space size={16}>
+              {editorUtils.actionRender({
+                ...rowData,
+                form,
+                index: columnProps.index || 0,
+              })}
+            </Space>
+          )}
+        </Form.Item>
+      );
+    }
+    if (columnProps.renderFormItem) {
+      return (
+        <Form.Item shouldUpdate noStyle>
+          {(form: any) => {
+            const inputDom = columnProps.renderFormItem?.(
+              columnProps,
+              {
+                defaultRender: () => <>{dom}</>,
+                type,
+              },
+              form,
+            );
+            return (
+              <Form.Item
+                initialValue={text}
+                name={columnProps.key || columnProps.dataIndex}
+                {...columnProps.formItemProps}
+              >
+                {inputDom || dom}
+              </Form.Item>
+            );
+          }}
+        </Form.Item>
+      );
+    }
+  }
+
+  if (columnProps.render) {
+    const renderDom = columnProps.render(
+      dom,
+      rowData,
+      index,
+      {
+        ...(action.current as UseFetchDataAction<RequestData<any>>),
+        ...editorUtils,
+      },
+      {
+        ...columnProps,
+        isEditor,
+      },
+    );
+
+    // 如果是合并单元格的，直接返回对象
+    if (isMergeCell(renderDom)) {
+      return renderDom;
+    }
+
+    if (renderDom && columnProps.valueType === 'option' && Array.isArray(renderDom)) {
+      return <Space size={16}>{renderDom}</Space>;
+    }
+    return renderDom as React.ReactNode;
+  }
+  return !isNil(dom) ? dom : null;
+}
+
+/**
+ * 转化 columns 到 pro 的格式
+ * 主要是 render 方法的自行实现
+ * @param columns
+ * @param map
+ * @param columnEmptyText
+ */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const genColumnList = <T, _U = {}>(props: {
+  columns: ProColumns<T>[];
+  map: {
+    [key: string]: ColumnsState;
+  };
+  counter: ReturnType<typeof useCounter>;
+  columnEmptyText: ProFieldEmptyText;
+  type: ProSchemaComponentTypes;
+  editorUtils: UseEditorUtilType;
+}): (ColumnsType<T>[number] & { index?: number })[] => {
+  const { columns, map, counter, columnEmptyText, type, editorUtils } = props;
+  return (columns
+    .map((columnProps, columnsIndex) => {
+      const { key, dataIndex, valueEnum, valueType, filters = [] } = columnProps;
+      const columnKey = genColumnKey(key, columnsIndex);
+      const noNeedPro = !dataIndex && !valueEnum && !valueType;
+      if (noNeedPro) {
+        return columnProps;
+      }
+      const { propsRef } = counter;
+      const config = columnKey
+        ? map[columnKey] || { fixed: columnProps.fixed }
+        : { fixed: columnProps.fixed };
+      const tempColumns = {
+        onFilter: propsRef.current?.request
+          ? undefined
+          : (value: string, row: T) => defaultOnFilter(value, row, dataIndex as string[]),
+        index: columnsIndex,
+        ...columnProps,
+        title: renderColumnsTitle(columnProps),
+        valueEnum,
+        filters:
+          filters === true
+            ? proFieldParsingValueEnumToArray(valueEnum).filter(
+                (valueItem) => valueItem && valueItem.value !== 'all',
+              )
+            : filters,
+        ellipsis: false,
+        fixed: config.fixed,
+        width: columnProps.width || (columnProps.fixed ? 200 : undefined),
+        children: (columnProps as ProColumnGroupType<T>).children
+          ? genColumnList({ ...props, columns: (columnProps as ProColumnGroupType<T>)?.children })
+          : undefined,
+        render: (text: any, row: T, index: number) =>
+          columnRender<T>({
+            columnProps,
+            text,
+            rowData: row,
+            index,
+            columnEmptyText,
+            counter,
+            type,
+            editorUtils,
+          }),
+      };
+      return omitUndefinedAndEmptyArr(tempColumns);
+    })
+    .filter((item) => !item.hideInTable) as unknown) as Array<
+    ColumnsType<T>[number] & {
+      index?: number;
+    }
+  >;
 };
