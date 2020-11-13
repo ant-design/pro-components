@@ -32,6 +32,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
     bordered,
     options,
     onSearch,
+    allowClear,
     ...restProps
   } = props;
   const { placeholder = label } = props;
@@ -68,6 +69,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
     >
       <Select
         {...restProps}
+        allowClear={allowClear}
         value={value}
         mode={mode}
         size={size}
@@ -132,6 +134,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
         disabled={disabled}
         expanded={open}
         bordered={bordered}
+        allowClear={allowClear}
         value={Array.isArray(value) ? value.map((v) => valueMap[v] || v) : valueMap[value] || value}
         onClear={() => {
           onChange?.(undefined, undefined as any);
