@@ -14,6 +14,7 @@ import { PureSettings } from '../defaultSettings';
 import TopNavHeader from '../TopNavHeader';
 import { MenuDataItem } from '../index';
 import { WithFalse } from '../typings';
+import { clearMenuItem } from '../utils/utils';
 
 export interface GlobalHeaderProps extends Partial<PureSettings> {
   collapsed?: boolean;
@@ -74,12 +75,13 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
       ...item,
       children: undefined,
     }));
+    const clearMenuData = clearMenuItem(noChildrenMenuData);
     return (
       <TopNavHeader
         mode="horizontal"
         {...props}
         splitMenus={false}
-        menuData={noChildrenMenuData}
+        menuData={clearMenuData}
         theme={headerTheme as 'light' | 'dark'}
       />
     );
