@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import React, { useState, ReactElement } from 'react';
-import { Row, Col, Divider } from 'antd';
+import { Row, Col, Form, Divider } from 'antd';
 import { FormProps } from 'antd/lib/form/Form';
 import RcResizeObserver from 'rc-resize-observer';
 import { useIntl } from '@ant-design/pro-provider';
@@ -300,19 +300,21 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
                     textAlign: 'right',
                   }}
                 >
-                  <Actions
-                    collapsed={collapsed}
-                    collapseRender={collapseRender || defaultRender}
-                    {...rest}
-                    submitter={submitter}
-                    setCollapsed={setCollapsed}
-                    style={{
-                      // 当表单是垂直布局且提交按钮不是独自在一行的情况下需要设置一个 paddingTop 使得与控件对齐
-                      paddingTop: layout === 'vertical' && totalSpan % 24 ? 30 : 0,
-                      // marginBottom 是为了和 FormItem 统一让下方保留一个 24px 的距离
-                      marginBottom: 24,
-                    }}
-                  />
+                  <Form.Item label=" " colon={false}>
+                    <Actions
+                      collapsed={collapsed}
+                      collapseRender={collapseRender || defaultRender}
+                      {...rest}
+                      submitter={submitter}
+                      setCollapsed={setCollapsed}
+                      style={{
+                        // 当表单是垂直布局且提交按钮不是独自在一行的情况下需要设置一个 paddingTop 使得与控件对齐
+                        paddingTop: layout === 'vertical' && totalSpan % 24 ? 30 : 0,
+                        // marginBottom 是为了和 FormItem 统一让下方保留一个 24px 的距离
+                        marginBottom: 24,
+                      }}
+                    />
+                  </Form.Item>
                 </Col>
               )}
             </Row>
