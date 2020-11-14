@@ -255,39 +255,65 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
           style="padding-left: 8px; padding-right: 8px; text-align: right;"
         >
           <div
-            class="qixian-space qixian-space-horizontal qixian-space-align-center"
-            style="padding-top: 0px; margin-bottom: 24px;"
+            class="qixian-row qixian-form-item pro-form-query-filter-actions"
           >
             <div
-              class="qixian-space-item"
+              class="qixian-col qixian-form-item-label"
+            >
+              <label
+                class="qixian-form-item-no-colon"
+                title=" "
+              >
+                 
+              </label>
+            </div>
+            <div
+              class="qixian-col qixian-form-item-control"
             >
               <div
-                class="qixian-space qixian-space-horizontal qixian-space-align-center"
+                class="qixian-form-item-control-input"
               >
                 <div
-                  class="qixian-space-item"
-                  style="margin-right: 8px;"
+                  class="qixian-form-item-control-input-content"
                 >
-                  <button
-                    class="qixian-btn"
-                    type="button"
+                  <div
+                    class="qixian-space qixian-space-horizontal qixian-space-align-center"
+                    style="padding-top: 0px; margin-bottom: 24px;"
                   >
-                    <span>
-                      重 置
-                    </span>
-                  </button>
-                </div>
-                <div
-                  class="qixian-space-item"
-                >
-                  <button
-                    class="qixian-btn qixian-btn-primary"
-                    type="button"
-                  >
-                    <span>
-                      查 询
-                    </span>
-                  </button>
+                    <div
+                      class="qixian-space-item"
+                    >
+                      <div
+                        class="qixian-space qixian-space-horizontal qixian-space-align-center"
+                      >
+                        <div
+                          class="qixian-space-item"
+                          style="margin-right: 8px;"
+                        >
+                          <button
+                            class="qixian-btn"
+                            type="button"
+                          >
+                            <span>
+                              重 置
+                            </span>
+                          </button>
+                        </div>
+                        <div
+                          class="qixian-space-item"
+                        >
+                          <button
+                            class="qixian-btn qixian-btn-primary"
+                            type="button"
+                          >
+                            <span>
+                              查 询
+                            </span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
