@@ -19,6 +19,7 @@ export interface ProFormItemProps<T = {}> extends FormItemProps {
   fieldProps?: FieldProps & T;
   placeholder?: string | string[];
   secondary?: boolean;
+  allowClear?: boolean;
   disabled?: boolean;
   /**
    * - auto 使用组件默认的宽度

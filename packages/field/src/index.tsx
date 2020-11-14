@@ -107,7 +107,6 @@ type BaseProFieldFC = {
    * label
    */
   label?: React.ReactNode;
-
   /**
    * 映射值的类型
    */

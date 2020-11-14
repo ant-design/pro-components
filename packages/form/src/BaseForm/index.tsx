@@ -67,6 +67,7 @@ const WIDTH_SIZE_ENUM = {
 // 给控件扩展的通用的属性
 export interface ExtendsProps {
   secondary?: boolean;
+  allowClear?: boolean;
   bordered?: boolean;
   colSize?: number;
   /**
@@ -126,6 +127,7 @@ export function createField<P extends ProFormItemProps = any>(
       ignoreFormItem,
       transform,
       readonly,
+      allowClear,
       ...rest
     } = props;
     const {
@@ -186,6 +188,7 @@ export function createField<P extends ProFormItemProps = any>(
         // 比如 ProFormSelect 的 request
         {...(rest as P)}
         fieldProps={{
+          allowClear,
           ...realFieldProps,
           className: classnames(realFieldProps?.className, {
             [`pro-field-${width}`]: width && WIDTH_SIZE_ENUM[width],
@@ -222,6 +225,7 @@ export function createField<P extends ProFormItemProps = any>(
       >
         <LightWrapper
           {...realFieldProps}
+          allowClear={allowClear}
           bordered={bordered}
           size={size}
           light={proFieldProps?.light}
