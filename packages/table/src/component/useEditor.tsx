@@ -2,26 +2,74 @@
 import { GetRowKey } from 'antd/lib/table/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { FormInstance } from 'antd/lib/form';
+import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
 import { LoadingOutlined } from '@ant-design/icons';
 
 export type RowEditorType = 'singe' | 'multiple';
 
-export type ActionRenderConfig<T> = {
-  editorRowKeys?: React.Key[];
-  rowKey: React.Key;
-  form: FormInstance<any>;
-  cancelEditor: (key: React.Key) => void;
-  onRowSave?: (row: T) => Promise<void>;
-  setEditorRowKeys: (value: React.Key[]) => void;
-};
 export type ActionRenderFunction<T> = (row: T, config: ActionRenderConfig<T>) => React.ReactNode[];
 
 export interface TableRowEditor<T> {
+  /**
+   * @name 编辑的类型，暂时只支持单选
+   */
   type?: RowEditorType;
+  /**
+   * @name 正在编辑的列
+   */
   editorRowKeys?: React.Key[];
+  /**
+   * @name 自定义编辑的操作
+   */
   actionRender?: ActionRenderFunction<T>;
-  onRowSave?: (row: T) => Promise<void>;
+
+  /**
+   * 行保存的时候
+   */
+  onRowSave?: (key: React.Key, row: T & { index: number }) => Promise<void>;
+  /**
+   * 正在编辑的列修改的时候
+   */
   onChange?: (editorRowKeys: React.Key[], editorRows: T[]) => void;
+}
+
+export type ActionRenderConfig<T> = {
+  editorRowKeys?: TableRowEditor<T>['editorRowKeys'];
+  rowKey: React.Key;
+  index: number;
+  form: FormInstance<any>;
+  cancelEditor: (key: React.Key) => void;
+  onRowSave: TableRowEditor<T>['onRowSave'];
+  setEditorRowKeys: (value: React.Key[]) => void;
+};
+
+function editorRowByKey<RecordType>(params: {
+  data: RecordType[];
+  childrenColumnName: string;
+  getRowKey: GetRowKey<RecordType>;
+  key: React.Key;
+  row: RecordType;
+}) {
+  const { getRowKey, key, row, data, childrenColumnName } = params;
+  const kvMap = new Map<React.Key, RecordType>();
+
+  /* eslint-disable no-inner-declarations */
+  function dig(records: RecordType[]) {
+    records.forEach((record, index) => {
+      const rowKey = getRowKey(record, index);
+      kvMap.set(rowKey, record);
+
+      if (record && typeof record === 'object' && childrenColumnName in record) {
+        dig((record as any)[childrenColumnName] || []);
+      }
+    });
+  }
+  dig(data);
+  kvMap.set(key, row);
+
+  const source: RecordType[] = [];
+  kvMap.forEach((value) => source.push(value));
+  return source;
 }
 
 const SaveEditorAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
@@ -39,7 +87,7 @@ const SaveEditorAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
         try {
           setLoading(true);
           const fields = await form.validateFields();
-          onRowSave?.({ ...row, ...fields });
+          onRowSave?.(rowKey, { ...row, ...fields });
           cancelEditor(rowKey);
           setLoading(false);
         } catch {
@@ -79,14 +127,26 @@ const defaultActionRender: ActionRenderFunction<any> = (row, config) => {
  * @param props
  */
 function useEditor<RecordType>(
-  props: TableRowEditor<RecordType> & { getRowKey: GetRowKey<RecordType> },
+  props: TableRowEditor<RecordType> & {
+    getRowKey: GetRowKey<RecordType>;
+    dataSource: RecordType[];
+    childrenColumnName: string | undefined;
+    setDataSource: (dataSource: RecordType[]) => void;
+  },
 ) {
   const editorType = props.type || 'singe';
+  const [getRecordByKey] = useLazyKVMap(props.dataSource, 'children', props.getRowKey);
+
   const [editorRowKeys, setEditorRowKeys] = useMergedState<React.Key[]>([], {
     value: props.editorRowKeys,
     onChange: props.onChange
       ? (keys) => {
-          props?.onChange?.(keys, []);
+          props?.onChange?.(
+            // 计算编辑的key
+            keys,
+            // 计算编辑的行
+            keys.map((key) => getRecordByKey(key)),
+          );
         }
       : undefined,
   });
@@ -134,7 +194,24 @@ function useEditor<RecordType>(
       const dom = (props.actionRender || defaultActionRender)(row, {
         rowKey: key,
         cancelEditor,
-        onRowSave: props.onRowSave,
+        index: row.index,
+        onRowSave: async (
+          rowKey: React.Key,
+          saveRow: RecordType & {
+            index: number;
+          },
+        ) => {
+          props.setDataSource(
+            editorRowByKey({
+              data: props.dataSource,
+              getRowKey: props.getRowKey,
+              row: saveRow,
+              key: rowKey,
+              childrenColumnName: props.childrenColumnName || 'children',
+            }),
+          );
+          return props?.onRowSave?.(rowKey, saveRow);
+        },
         form: row.form,
         editorRowKeys,
         setEditorRowKeys,

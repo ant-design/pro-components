@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useRef, useState, useCallback, useMemo } from 'react';
-import { Table, ConfigProvider, Card, Empty } from 'antd';
+import { Table, ConfigProvider, Form, Card, Empty } from 'antd';
 import { useIntl, ParamsType, ConfigProviderWrap } from '@ant-design/pro-provider';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -30,7 +30,6 @@ import ErrorBoundary from './component/ErrorBoundary';
 import './index.less';
 import useEditor from './component/useEditor';
 import { ProTableProps, RequestData, TableRowSelection } from './typing';
-import Form from 'antd/lib/form/Form';
 
 /**
  * 🏆 Use Ant Design Table like a Pro!
@@ -118,6 +117,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
       ? (propsPagination as TablePaginationConfig)
       : { defaultCurrent: 1, defaultPageSize: 20, pageSize: 20, current: 1 };
 
+  // ============================ useFetchData ============================
   const action = useFetchData(
     async (pageParams) => {
       // 需要手动触发的首次请求
@@ -152,6 +152,9 @@ const ProTable = <T extends {}, U extends ParamsType>(
     defaultData,
     {
       ...fetchPagination,
+      loading: props.loading,
+      dataSource: props.dataSource,
+      onDataSourceChange: props.onDataSourceChange,
       pagination: propsPagination !== false,
       onLoad,
       onRequestError,
@@ -159,6 +162,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
       effects: [stringify(params), stringify(formSearch), stringify(proFilter), stringify(proSort)],
     },
   );
+  // ============================ END ============================
 
   useEffect(() => {
     fullScreen.current = () => {
@@ -201,6 +205,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
   });
   counter.setAction(action);
   counter.propsRef.current = props;
+
   /**
    *  保存一下 propsColumns
    *  生成 form 需要用
@@ -219,8 +224,18 @@ const ProTable = <T extends {}, U extends ParamsType>(
     return (record: T) => (record as any)?.[rowKey as string];
   }, [props.rowKey]);
 
-  const editorUtils = useEditor<any>({ ...props.rowEditor, getRowKey });
+  /**
+   * 可编辑行的相关配置
+   */
+  const editorUtils = useEditor<any>({
+    ...props.rowEditor,
+    getRowKey,
+    childrenColumnName: props.expandable?.childrenColumnName,
+    dataSource: action.dataSource,
+    setDataSource: action.setDataSource,
+  });
 
+  // ---------- 列计算相关 start  -----------------
   const tableColumn = useMemo(() => {
     return genColumnList<T>({
       columns: propsColumns,
@@ -243,6 +258,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
       counter.setSortKeyColumns(columnKeys);
     }
   }, [tableColumn]);
+  // ---------- 列计算相关 end-----------------
 
   /**
    * 同步 Pagination，支持受控的 页码 和 pageSize
@@ -261,6 +277,9 @@ const ProTable = <T extends {}, U extends ParamsType>(
     }
   }, [propsPagination && propsPagination.pageSize, propsPagination && propsPagination.current]);
 
+  /**
+   * 行选择相关的问题
+   */
   const rowSelection: TableRowSelection = {
     selectedRowKeys,
     ...propsRowSelection,
@@ -282,9 +301,12 @@ const ProTable = <T extends {}, U extends ParamsType>(
 
   const className = classNames(defaultClassName, propsClassName);
 
+  /**
+   * 查询表单相关的配置
+   */
   const searchNode = (search !== false || type === 'form') && (
     <FormSearch<U>
-      submitButtonLoading={action.loading}
+      submitButtonLoading={!!action.loading}
       {...rest}
       type={type}
       formRef={formRef}
@@ -316,8 +338,15 @@ const ProTable = <T extends {}, U extends ParamsType>(
       search={search}
     />
   );
+
+  /**
+   * 是不是 LightFilter, LightFilter 有一些特殊的处理
+   */
   const isLightFilter: boolean = search !== false && search?.filterType === 'light';
 
+  /**
+   * 根据表单类型的不同决定是否生成 toolbarProps
+   */
   const toolbarProps =
     toolbar || isLightFilter
       ? {
@@ -326,6 +355,9 @@ const ProTable = <T extends {}, U extends ParamsType>(
         }
       : undefined;
 
+  /**
+   * ListToolBar 相关的配置
+   */
   const toolbarDom = toolBarRender !== false &&
     (options !== false || headerTitle || toolBarRender || toolbarProps) && (
       // if options= false & headerTitle=== false, hide Toolbar
@@ -353,6 +385,9 @@ const ProTable = <T extends {}, U extends ParamsType>(
       />
     );
 
+  /**
+   * 内置的多选操作栏
+   */
   const alertDom = propsRowSelection !== false && (
     <Alert<T>
       selectedRowKeys={selectedRowKeys}
@@ -362,8 +397,6 @@ const ProTable = <T extends {}, U extends ParamsType>(
       alertInfoRender={tableAlertRender}
     />
   );
-  const dataSource = request ? (action.dataSource as T[]) : props.dataSource || [];
-  const loading = props.loading !== undefined ? props.loading : action.loading;
 
   const tableProps = {
     ...rest,
@@ -380,8 +413,8 @@ const ProTable = <T extends {}, U extends ParamsType>(
       }
       return true;
     }),
-    loading,
-    dataSource: request ? (action.dataSource as T[]) : props.dataSource || [],
+    loading: action.loading,
+    dataSource: (action.dataSource as T[]) || [],
     pagination,
     onChange: (
       changePagination: TablePaginationConfig,
@@ -466,7 +499,9 @@ const ProTable = <T extends {}, U extends ParamsType>(
       {isLightFilter ? null : searchNode}
       {/* 渲染一个额外的区域，用于一些自定义 */}
       {type !== 'form' && props.tableExtraRender && (
-        <div className={`${className}-extra`}>{props.tableExtraRender(props, dataSource)}</div>
+        <div className={`${className}-extra`}>
+          {props.tableExtraRender(props, action.dataSource)}
+        </div>
       )}
       {type !== 'form' && renderTable()}
     </div>

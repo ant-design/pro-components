@@ -1,12 +1,16 @@
 import { useState, useRef, useEffect } from 'react';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { usePrevious, useDebounceFn, useDeepCompareEffect } from '@ant-design/pro-utils';
 import ReactDOM from 'react-dom';
 import { PageInfo, RequestData, UseFetchDataAction } from './typing';
 
 const useFetchData = <T extends RequestData<any>>(
   getData: (params?: { pageSize: number; current: number }) => Promise<T>,
-  defaultData?: Partial<T['data']>,
-  options?: {
+  defaultData: Partial<T['data']>,
+  options: {
+    dataSource?: any;
+    loading: UseFetchDataAction<T>['loading'];
+    onDataSourceChange: (dataSource?: any) => void;
     current?: number;
     pageSize?: number;
     defaultCurrent?: number;
@@ -22,8 +26,13 @@ const useFetchData = <T extends RequestData<any>>(
   const mountRef = useRef(true);
   const { pagination, onLoad = () => null, manual, onRequestError } = options || {};
 
-  const [list, setList] = useState<T['data']>(defaultData as any);
-  const [loading, setLoading] = useState<boolean | undefined>(undefined);
+  const [list, setList] = useMergedState<T['data']>(defaultData as any, {
+    value: options?.dataSource,
+    onChange: options?.onDataSourceChange,
+  });
+  const [loading, setLoading] = useMergedState<UseFetchDataAction<T>['loading']>(undefined, {
+    value: options?.loading,
+  });
 
   const [pageInfo, setPageInfo] = useState<PageInfo>({
     page: options?.current || options?.defaultCurrent || 1,
@@ -151,6 +160,7 @@ const useFetchData = <T extends RequestData<any>>(
 
   return {
     dataSource: list,
+    setDataSource: setList,
     loading,
     reload: async () => fetchListDebounce.run(),
     total: pageInfo.total,
