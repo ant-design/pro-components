@@ -68,7 +68,7 @@ const TableAlert = <T, _U = {}>({
         message={
           <div className={`${className}-info`}>
             <div className={`${className}-info-content`}>{dom}</div>
-            {option && <div className={`${className}-info-option`}>{option}</div>}
+            {option ? <div className={`${className}-info-option`}>{option}</div> : null}
           </div>
         }
         type="info"

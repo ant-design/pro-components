@@ -126,6 +126,12 @@ ProLayout 默认不提供页脚，要是和 Pro 官网相同的样式，需要�
 
 <code src="./demos/IconFont.tsx" iframe="500px" />
 
+### ghost 模式
+
+PageContainer 配置 `ghost` 可以将页头切换为透明模式。
+
+<code src="./demos/ghost.tsx" iframe="500px" />
+
 ### 嵌套布局
 
 <code src="./demos/Nested.tsx" iframe="500px" />

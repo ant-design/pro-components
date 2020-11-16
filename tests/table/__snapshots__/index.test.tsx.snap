@@ -209,10 +209,6 @@ exports[`BasicTable 🎏  do not render default option 1`] = `
           >
             <div
               class="ant-space-item"
-              style="margin-right: 16px;"
-            />
-            <div
-              class="ant-space-item"
             >
               <div
                 class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-setting-items"
@@ -7934,10 +7930,6 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
           >
             <div
               class="ant-space-item"
-              style="margin-right: 16px;"
-            />
-            <div
-              class="ant-space-item"
             >
               <div
                 class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-setting-items"
@@ -8162,10 +8154,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
           <div
             class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right"
           >
-            <div
-              class="ant-space-item"
-              style="margin-right: 16px;"
-            />
             <div
               class="ant-space-item"
             >
@@ -14884,10 +14872,6 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
           <div
             class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right"
           >
-            <div
-              class="ant-space-item"
-              style="margin-right: 16px;"
-            />
             <div
               class="ant-space-item"
             >
