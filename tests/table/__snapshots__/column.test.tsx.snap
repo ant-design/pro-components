@@ -230,7 +230,6 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="close-circle"
                           fill="currentColor"
                           focusable="false"
@@ -367,7 +366,6 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="reload"
                           fill="currentColor"
                           focusable="false"
@@ -399,7 +397,6 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="column-height"
                           fill="currentColor"
                           focusable="false"
@@ -429,7 +426,6 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="setting"
                         fill="currentColor"
                         focusable="false"
@@ -677,7 +673,6 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="left"
                       fill="currentColor"
                       focusable="false"
@@ -765,7 +760,6 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="double-right"
                         fill="currentColor"
                         focusable="false"
@@ -815,7 +809,6 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="right"
                       fill="currentColor"
                       focusable="false"
@@ -879,7 +872,6 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="down"
                         fill="currentColor"
                         focusable="false"

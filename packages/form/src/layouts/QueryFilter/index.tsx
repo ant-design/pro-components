@@ -233,32 +233,41 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
         // totalSpan 统计控件占的位置，计算 offset 保证查询按钮在最后一列
         let totalSpan = 0;
         let lastVisibleItemIndex = items.length - 1;
-        items.forEach((item, index: number) => {
-          // 如果 formItem 自己配置了 hidden，默认使用它自己的
-          let hidden: boolean = (item as ReactElement<{ hidden: boolean }>)?.props?.hidden || false;
-          const colSize = React.isValidElement<any>(item) ? item?.props?.colSize || 1 : 1;
-          const colSpan = Math.min(spanSize.span * colSize, 24);
-
-          if ((collapsed && index >= showLength) || hidden) {
-            hidden = true;
-          } else {
-            if (24 - (totalSpan % 24) < colSpan) {
-              // 如果当前行空余位置放不下，那么折行
-              totalSpan += 24 - (totalSpan % 24);
+        items
+          // 打平 ProForm-Group
+          .flatMap((item: any) => {
+            if (item?.type.displayName === 'ProForm-Group' && !item.props?.title) {
+              return item.props.children;
             }
-            totalSpan += colSpan;
-            lastVisibleItemIndex = index;
-          }
+            return item;
+          })
+          .forEach((item: React.ReactNode, index: number) => {
+            // 如果 formItem 自己配置了 hidden，默认使用它自己的
+            let hidden: boolean =
+              (item as ReactElement<{ hidden: boolean }>)?.props?.hidden || false;
+            const colSize = React.isValidElement<any>(item) ? item?.props?.colSize || 1 : 1;
+            const colSpan = Math.min(spanSize.span * colSize, 24);
 
-          itemsWithInfo.push({
-            span: colSpan,
-            element: item,
-            key: React.isValidElement(item)
-              ? item.key || `${item.props?.name || index}-${index}}`
-              : index,
-            hidden,
+            if ((collapsed && index >= showLength) || hidden) {
+              hidden = true;
+            } else {
+              if (24 - (totalSpan % 24) < colSpan) {
+                // 如果当前行空余位置放不下，那么折行
+                totalSpan += 24 - (totalSpan % 24);
+              }
+              totalSpan += colSpan;
+              lastVisibleItemIndex = index;
+            }
+
+            itemsWithInfo.push({
+              span: colSpan,
+              element: item,
+              key: React.isValidElement(item)
+                ? item.key || `${item.props?.name || index}-${index}}`
+                : index,
+              hidden,
+            });
           });
-        });
         // for split compute
         let currentSpan = 0;
 

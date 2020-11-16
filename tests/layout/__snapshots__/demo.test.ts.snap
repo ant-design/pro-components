@@ -119,7 +119,6 @@ exports[`layout demos renders ./packages/layout/src/demos/BreadcrumbsRepeat.tsx 
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="menu-fold"
                     fill="currentColor"
                     focusable="false"
@@ -616,7 +615,6 @@ exports[`layout demos renders ./packages/layout/src/demos/DefaultOpenAllMenu.tsx
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="menu-fold"
                     fill="currentColor"
                     focusable="false"
@@ -881,7 +879,6 @@ exports[`layout demos renders ./packages/layout/src/demos/IconFont.tsx correctly
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="menu-fold"
                     fill="currentColor"
                     focusable="false"
@@ -1241,7 +1238,6 @@ exports[`layout demos renders ./packages/layout/src/demos/MultipleMenuOnePath.ts
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="menu-fold"
                     fill="currentColor"
                     focusable="false"
@@ -1658,7 +1654,6 @@ exports[`layout demos renders ./packages/layout/src/demos/Nested.tsx correctly 1
                         >
                           <svg
                             aria-hidden="true"
-                            class=""
                             data-icon="menu-fold"
                             fill="currentColor"
                             focusable="false"
@@ -1701,7 +1696,6 @@ exports[`layout demos renders ./packages/layout/src/demos/Nested.tsx correctly 1
                         >
                           <svg
                             aria-hidden="true"
-                            class=""
                             data-icon="user"
                             fill="currentColor"
                             focusable="false"
@@ -2184,7 +2178,6 @@ exports[`layout demos renders ./packages/layout/src/demos/TopmenuNested.tsx corr
                         >
                           <svg
                             aria-hidden="true"
-                            class=""
                             data-icon="menu-fold"
                             fill="currentColor"
                             focusable="false"
@@ -2390,7 +2383,6 @@ exports[`layout demos renders ./packages/layout/src/demos/antd@4MenuIconFormServ
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="smile"
                         fill="currentColor"
                         focusable="false"
@@ -2428,7 +2420,6 @@ exports[`layout demos renders ./packages/layout/src/demos/antd@4MenuIconFormServ
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="heart"
                       fill="currentColor"
                       focusable="false"
@@ -2468,7 +2459,6 @@ exports[`layout demos renders ./packages/layout/src/demos/antd@4MenuIconFormServ
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="menu-unfold"
                     fill="currentColor"
                     focusable="false"
@@ -2764,7 +2754,6 @@ Array [
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="smile"
                       fill="currentColor"
                       focusable="false"
@@ -2804,7 +2793,6 @@ Array [
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="crown"
                         fill="currentColor"
                         focusable="false"
@@ -2848,7 +2836,6 @@ Array [
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="tablet"
                         fill="currentColor"
                         focusable="false"
@@ -2892,7 +2879,6 @@ Array [
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="menu-unfold"
                     fill="currentColor"
                     focusable="false"
@@ -3030,7 +3016,6 @@ Array [
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="github"
                     fill="currentColor"
                     focusable="false"
@@ -3063,7 +3048,6 @@ Array [
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="copyright"
                   fill="currentColor"
                   focusable="false"
@@ -3146,7 +3130,6 @@ exports[`layout demos renders ./packages/layout/src/demos/base.tsx correctly 1`]
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="smile"
                         fill="currentColor"
                         focusable="false"
@@ -3188,7 +3171,6 @@ exports[`layout demos renders ./packages/layout/src/demos/base.tsx correctly 1`]
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="crown"
                         fill="currentColor"
                         focusable="false"
@@ -3234,7 +3216,6 @@ exports[`layout demos renders ./packages/layout/src/demos/base.tsx correctly 1`]
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="tablet"
                         fill="currentColor"
                         focusable="false"
@@ -3280,7 +3261,6 @@ exports[`layout demos renders ./packages/layout/src/demos/base.tsx correctly 1`]
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="menu-fold"
                     fill="currentColor"
                     focusable="false"
@@ -3340,7 +3320,6 @@ exports[`layout demos renders ./packages/layout/src/demos/base.tsx correctly 1`]
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="user"
                     fill="currentColor"
                     focusable="false"
@@ -3579,7 +3558,6 @@ exports[`layout demos renders ./packages/layout/src/demos/base.tsx correctly 1`]
                                     >
                                       <svg
                                         aria-hidden="true"
-                                        class=""
                                         data-icon="like"
                                         fill="currentColor"
                                         focusable="false"
@@ -3714,7 +3692,6 @@ exports[`layout demos renders ./packages/layout/src/demos/base.tsx correctly 1`]
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="ellipsis"
                               fill="currentColor"
                               focusable="false"
@@ -4201,7 +4178,6 @@ exports[`layout demos renders ./packages/layout/src/demos/config-provider.tsx co
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="smile"
                         fill="currentColor"
                         focusable="false"
@@ -4243,7 +4219,6 @@ exports[`layout demos renders ./packages/layout/src/demos/config-provider.tsx co
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="crown"
                         fill="currentColor"
                         focusable="false"
@@ -4289,7 +4264,6 @@ exports[`layout demos renders ./packages/layout/src/demos/config-provider.tsx co
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="tablet"
                         fill="currentColor"
                         focusable="false"
@@ -4335,7 +4309,6 @@ exports[`layout demos renders ./packages/layout/src/demos/config-provider.tsx co
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="menu-fold"
                     fill="currentColor"
                     focusable="false"
@@ -4395,7 +4368,6 @@ exports[`layout demos renders ./packages/layout/src/demos/config-provider.tsx co
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="user"
                     fill="currentColor"
                     focusable="false"
@@ -4634,7 +4606,6 @@ exports[`layout demos renders ./packages/layout/src/demos/config-provider.tsx co
                                     >
                                       <svg
                                         aria-hidden="true"
-                                        class=""
                                         data-icon="like"
                                         fill="currentColor"
                                         focusable="false"
@@ -4769,7 +4740,6 @@ exports[`layout demos renders ./packages/layout/src/demos/config-provider.tsx co
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="ellipsis"
                               fill="currentColor"
                               focusable="false"
@@ -5258,7 +5228,6 @@ exports[`layout demos renders ./packages/layout/src/demos/customizeMenu.tsx corr
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="smile"
                         fill="currentColor"
                         focusable="false"
@@ -5302,7 +5271,6 @@ exports[`layout demos renders ./packages/layout/src/demos/customizeMenu.tsx corr
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="crown"
                           fill="currentColor"
                           focusable="false"
@@ -5351,7 +5319,6 @@ exports[`layout demos renders ./packages/layout/src/demos/customizeMenu.tsx corr
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="tablet"
                           fill="currentColor"
                           focusable="false"
@@ -5398,7 +5365,6 @@ exports[`layout demos renders ./packages/layout/src/demos/customizeMenu.tsx corr
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="menu-fold"
                     fill="currentColor"
                     focusable="false"
@@ -5590,7 +5556,6 @@ Array [
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="menu-fold"
                     fill="currentColor"
                     focusable="false"
@@ -5744,7 +5709,6 @@ exports[`layout demos renders ./packages/layout/src/demos/footer.tsx correctly 1
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="smile"
                     fill="currentColor"
                     focusable="false"
@@ -5784,7 +5748,6 @@ exports[`layout demos renders ./packages/layout/src/demos/footer.tsx correctly 1
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="crown"
                       fill="currentColor"
                       focusable="false"
@@ -5828,7 +5791,6 @@ exports[`layout demos renders ./packages/layout/src/demos/footer.tsx correctly 1
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="tablet"
                       fill="currentColor"
                       focusable="false"
@@ -5872,7 +5834,6 @@ exports[`layout demos renders ./packages/layout/src/demos/footer.tsx correctly 1
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="menu-unfold"
                   fill="currentColor"
                   focusable="false"
@@ -6008,7 +5969,6 @@ exports[`layout demos renders ./packages/layout/src/demos/footer.tsx correctly 1
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="copyright"
                 fill="currentColor"
                 focusable="false"
@@ -6085,7 +6045,6 @@ exports[`layout demos renders ./packages/layout/src/demos/hideMenu.tsx correctly
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="smile"
                       fill="currentColor"
                       focusable="false"
@@ -6126,7 +6085,6 @@ exports[`layout demos renders ./packages/layout/src/demos/hideMenu.tsx correctly
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="crown"
                         fill="currentColor"
                         focusable="false"
@@ -6172,7 +6130,6 @@ exports[`layout demos renders ./packages/layout/src/demos/hideMenu.tsx correctly
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="tablet"
                         fill="currentColor"
                         focusable="false"
@@ -6218,7 +6175,6 @@ exports[`layout demos renders ./packages/layout/src/demos/hideMenu.tsx correctly
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="menu-fold"
                     fill="currentColor"
                     focusable="false"
@@ -6384,7 +6340,6 @@ exports[`layout demos renders ./packages/layout/src/demos/searchMenu.tsx correct
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="search"
                         fill="currentColor"
                         focusable="false"
@@ -6512,7 +6467,6 @@ exports[`layout demos renders ./packages/layout/src/demos/searchMenu.tsx correct
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="menu-fold"
                     fill="currentColor"
                     focusable="false"
@@ -6743,7 +6697,6 @@ Array [
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="smile"
                           fill="currentColor"
                           focusable="false"
@@ -6796,7 +6749,6 @@ Array [
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="crown"
                           fill="currentColor"
                           focusable="false"
@@ -6849,7 +6801,6 @@ Array [
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="tablet"
                           fill="currentColor"
                           focusable="false"
@@ -7002,7 +6953,6 @@ Array [
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="smile"
                           fill="currentColor"
                           focusable="false"
@@ -7055,7 +7005,6 @@ Array [
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="crown"
                           fill="currentColor"
                           focusable="false"
@@ -7108,7 +7057,6 @@ Array [
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="tablet"
                           fill="currentColor"
                           focusable="false"
@@ -7198,7 +7146,6 @@ Array [
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="smile"
                       fill="currentColor"
                       focusable="false"
@@ -7239,7 +7186,6 @@ Array [
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="crown"
                         fill="currentColor"
                         focusable="false"
@@ -7285,7 +7231,6 @@ Array [
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="tablet"
                         fill="currentColor"
                         focusable="false"
@@ -7331,7 +7276,6 @@ Array [
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="menu-fold"
                     fill="currentColor"
                     focusable="false"
@@ -7426,7 +7370,6 @@ Array [
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="smile"
                           fill="currentColor"
                           focusable="false"
@@ -7479,7 +7422,6 @@ Array [
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="crown"
                           fill="currentColor"
                           focusable="false"
@@ -7532,7 +7474,6 @@ Array [
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="tablet"
                           fill="currentColor"
                           focusable="false"
@@ -7615,7 +7556,6 @@ Array [
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -7659,7 +7599,6 @@ Array [
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="check"
                         fill="currentColor"
                         focusable="false"
@@ -7684,7 +7623,6 @@ Array [
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="check"
                         fill="currentColor"
                         focusable="false"
@@ -7725,7 +7663,6 @@ Array [
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="check"
                           fill="currentColor"
                           focusable="false"
@@ -7769,7 +7706,6 @@ Array [
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="check"
                         fill="currentColor"
                         focusable="false"
@@ -7794,7 +7730,6 @@ Array [
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="check"
                         fill="currentColor"
                         focusable="false"
@@ -7819,7 +7754,6 @@ Array [
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="check"
                         fill="currentColor"
                         focusable="false"
@@ -7906,7 +7840,6 @@ Array [
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="down"
                                     fill="currentColor"
                                     focusable="false"
@@ -8228,7 +8161,6 @@ Array [
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="notification"
                     fill="currentColor"
                     focusable="false"
@@ -8262,7 +8194,6 @@ Array [
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="copy"
                     fill="currentColor"
                     focusable="false"
@@ -8294,7 +8225,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="close"
             fill="currentColor"
             focusable="false"
