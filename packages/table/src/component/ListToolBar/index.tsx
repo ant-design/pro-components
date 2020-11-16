@@ -182,18 +182,20 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
     <div style={style} className={classNames(`${prefixCls}`, className)}>
       <div className={`${prefixCls}-container`}>
         <Space className={`${prefixCls}-left`}>
-          {(tooltip || tip || title || subTitle) && (
+          {tooltip || tip || title || subTitle ? (
             <div className={`${prefixCls}-title`}>
               <LabelIconTip tooltip={tooltip || tip} label={title} subTitle={subTitle} />
             </div>
-          )}
+          ) : null}
           {menu && <HeaderMenu {...menu} prefixCls={prefixCls} />}
           {!hasTitle && searchNode && <div className={`${prefixCls}-search`}>{searchNode}</div>}
         </Space>
         <Space className={`${prefixCls}-right`} size={16}>
-          {hasTitle && searchNode && <div className={`${prefixCls}-search`}>{searchNode}</div>}
-          {!multipleLine && filtersNode}
-          {actions && <Space align="center">{actions}</Space>}
+          {hasTitle && searchNode ? (
+            <div className={`${prefixCls}-search`}>{searchNode}</div>
+          ) : null}
+          {!multipleLine ? filtersNode : null}
+          {actions && actions.length > 0 ? <Space align="center">{actions}</Space> : null}
           {settings?.length ? (
             <Space size={16} align="center" className={`${prefixCls}-setting-items`}>
               {settings.map((setting, index) => {
@@ -209,7 +211,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
           ) : null}
         </Space>
       </div>
-      {multipleLine && (
+      {multipleLine ? (
         <div className={`${prefixCls}-extra-line`}>
           {tabs.items && tabs.items.length ? (
             <Tabs onChange={tabs.onChange} tabBarExtraContent={filtersNode}>
@@ -221,7 +223,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
             filtersNode
           )}
         </div>
-      )}
+      ) : null}
     </div>
   );
 };
