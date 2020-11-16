@@ -60,6 +60,7 @@ const FieldRangePicker: ProFieldFC<{
     const {
       disabled,
       onChange,
+      allowClear,
       placeholder = intl.getMessage('tableForm.selectPlaceholder', '请选择'),
     } = fieldProps;
     let dom;
@@ -106,6 +107,7 @@ const FieldRangePicker: ProFieldFC<{
             placeholder={placeholder}
             size={size}
             value={valueStr}
+            allowClear={allowClear}
             onClear={() => {
               onChange(null);
               setActivePickerIndex(0);

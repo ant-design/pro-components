@@ -31,7 +31,6 @@ exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="question-circle"
                   fill="currentColor"
                   focusable="false"
@@ -79,7 +78,6 @@ exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="close-circle"
                         fill="currentColor"
                         focusable="false"
@@ -146,7 +144,6 @@ exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="close-circle"
                         fill="currentColor"
                         focusable="false"
@@ -220,7 +217,6 @@ exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="close-circle"
                         fill="currentColor"
                         focusable="false"
@@ -295,7 +291,6 @@ exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="swap-right"
                           fill="currentColor"
                           focusable="false"
@@ -335,7 +330,6 @@ exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="calendar"
                         fill="currentColor"
                         focusable="false"
@@ -388,7 +382,7 @@ exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
               <div
                 class="ant-form-item-control-input-content"
               >
-                -
+                盖章后生效
               </div>
             </div>
           </div>
@@ -466,7 +460,6 @@ exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="down"
                         fill="currentColor"
                         focusable="false"
@@ -532,7 +525,6 @@ exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close-circle"
                   fill="currentColor"
                   focusable="false"
@@ -596,7 +588,6 @@ exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close-circle"
                   fill="currentColor"
                   focusable="false"
@@ -660,7 +651,6 @@ exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close-circle"
                   fill="currentColor"
                   focusable="false"
@@ -763,7 +753,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="close-circle"
                     fill="currentColor"
                     focusable="false"
@@ -851,7 +840,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="down"
                     fill="currentColor"
                     focusable="false"
@@ -939,7 +927,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="down"
                     fill="currentColor"
                     focusable="false"
@@ -1068,7 +1055,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="up"
                       fill="currentColor"
                       focusable="false"
@@ -1095,7 +1081,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="down"
                       fill="currentColor"
                       focusable="false"
@@ -1666,7 +1651,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="star"
                         fill="currentColor"
                         focusable="false"
@@ -1690,7 +1674,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="star"
                         fill="currentColor"
                         focusable="false"
@@ -1726,7 +1709,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="star"
                         fill="currentColor"
                         focusable="false"
@@ -1750,7 +1732,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="star"
                         fill="currentColor"
                         focusable="false"
@@ -1786,7 +1767,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="star"
                         fill="currentColor"
                         focusable="false"
@@ -1810,7 +1790,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="star"
                         fill="currentColor"
                         focusable="false"
@@ -1846,7 +1825,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="star"
                         fill="currentColor"
                         focusable="false"
@@ -1870,7 +1848,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="star"
                         fill="currentColor"
                         focusable="false"
@@ -1906,7 +1883,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="star"
                         fill="currentColor"
                         focusable="false"
@@ -1930,7 +1906,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="star"
                         fill="currentColor"
                         focusable="false"
@@ -2002,7 +1977,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="upload"
                         fill="currentColor"
                         focusable="false"
@@ -2084,7 +2058,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="close-circle"
                         fill="currentColor"
                         focusable="false"
@@ -2124,7 +2097,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="close-circle"
                         fill="currentColor"
                         focusable="false"
@@ -2163,7 +2135,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="close-circle"
                         fill="currentColor"
                         focusable="false"
@@ -2245,7 +2216,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                         >
                           <svg
                             aria-hidden="true"
-                            class=""
                             data-icon="calendar"
                             fill="currentColor"
                             focusable="false"
@@ -2318,7 +2288,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                         >
                           <svg
                             aria-hidden="true"
-                            class=""
                             data-icon="calendar"
                             fill="currentColor"
                             focusable="false"
@@ -2391,7 +2360,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                         >
                           <svg
                             aria-hidden="true"
-                            class=""
                             data-icon="calendar"
                             fill="currentColor"
                             focusable="false"
@@ -2464,7 +2432,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                         >
                           <svg
                             aria-hidden="true"
-                            class=""
                             data-icon="calendar"
                             fill="currentColor"
                             focusable="false"
@@ -2537,7 +2504,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                         >
                           <svg
                             aria-hidden="true"
-                            class=""
                             data-icon="calendar"
                             fill="currentColor"
                             focusable="false"
@@ -2610,7 +2576,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                         >
                           <svg
                             aria-hidden="true"
-                            class=""
                             data-icon="calendar"
                             fill="currentColor"
                             focusable="false"
@@ -2687,7 +2652,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                         >
                           <svg
                             aria-hidden="true"
-                            class=""
                             data-icon="swap-right"
                             fill="currentColor"
                             focusable="false"
@@ -2727,7 +2691,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="calendar"
                           fill="currentColor"
                           focusable="false"
@@ -2802,7 +2765,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                         >
                           <svg
                             aria-hidden="true"
-                            class=""
                             data-icon="swap-right"
                             fill="currentColor"
                             focusable="false"
@@ -2842,7 +2804,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="calendar"
                           fill="currentColor"
                           focusable="false"
@@ -2915,7 +2876,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="inbox"
                           fill="currentColor"
                           focusable="false"
@@ -3014,7 +2974,7 @@ exports[`form demos renders ./packages/form/src/demos/components-other-readonly.
           <div
             class="ant-form-item-control-input-content"
           >
-            -
+            蚂蚁金服有限公司
           </div>
         </div>
       </div>
@@ -3042,7 +3002,7 @@ exports[`form demos renders ./packages/form/src/demos/components-other-readonly.
           <div
             class="ant-form-item-control-input-content"
           >
-            -
+            China
           </div>
         </div>
       </div>
@@ -3070,7 +3030,7 @@ exports[`form demos renders ./packages/form/src/demos/components-other-readonly.
           <div
             class="ant-form-item-control-input-content"
           >
-            -
+            all
           </div>
         </div>
       </div>
@@ -3098,7 +3058,21 @@ exports[`form demos renders ./packages/form/src/demos/components-other-readonly.
           <div
             class="ant-form-item-control-input-content"
           >
-            -
+            <div
+              class="ant-space ant-space-horizontal ant-space-align-center"
+            >
+              <div
+                class="ant-space-item"
+                style="margin-right: 8px;"
+              >
+                Red
+              </div>
+              <div
+                class="ant-space-item"
+              >
+                Green
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -3126,7 +3100,9 @@ exports[`form demos renders ./packages/form/src/demos/components-other-readonly.
           <div
             class="ant-form-item-control-input-content"
           >
-            -
+            <span>
+              ￥ 3
+            </span>
           </div>
         </div>
       </div>
@@ -3298,7 +3274,7 @@ exports[`form demos renders ./packages/form/src/demos/components-other-readonly.
           <div
             class="ant-form-item-control-input-content"
           >
-            -
+            item 1
           </div>
         </div>
       </div>
@@ -3326,7 +3302,7 @@ exports[`form demos renders ./packages/form/src/demos/components-other-readonly.
           <div
             class="ant-form-item-control-input-content"
           >
-            -
+            item 1
           </div>
         </div>
       </div>
@@ -3354,7 +3330,29 @@ exports[`form demos renders ./packages/form/src/demos/components-other-readonly.
           <div
             class="ant-form-item-control-input-content"
           >
-            -
+            <div
+              class="ant-space ant-space-horizontal ant-space-align-center"
+            >
+              <div
+                class="ant-space-item"
+              >
+                <div
+                  class="ant-space ant-space-horizontal ant-space-align-center"
+                >
+                  <div
+                    class="ant-space-item"
+                    style="margin-right: 8px;"
+                  >
+                    A
+                  </div>
+                  <div
+                    class="ant-space-item"
+                  >
+                    B
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -3382,7 +3380,302 @@ exports[`form demos renders ./packages/form/src/demos/components-other-readonly.
           <div
             class="ant-form-item-control-input-content"
           >
-            -
+            <ul
+              class="ant-rate ant-rate-disabled"
+              role="radiogroup"
+              tabindex="-1"
+            >
+              <li
+                class="ant-rate-star ant-rate-star-full"
+              >
+                <div
+                  aria-checked="true"
+                  aria-posinset="1"
+                  aria-setsize="5"
+                  role="radio"
+                  tabindex="-1"
+                >
+                  <div
+                    class="ant-rate-star-first"
+                  >
+                    <span
+                      aria-label="star"
+                      class="anticon anticon-star"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="star"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div
+                    class="ant-rate-star-second"
+                  >
+                    <span
+                      aria-label="star"
+                      class="anticon anticon-star"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="star"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </li>
+              <li
+                class="ant-rate-star ant-rate-star-full"
+              >
+                <div
+                  aria-checked="true"
+                  aria-posinset="2"
+                  aria-setsize="5"
+                  role="radio"
+                  tabindex="-1"
+                >
+                  <div
+                    class="ant-rate-star-first"
+                  >
+                    <span
+                      aria-label="star"
+                      class="anticon anticon-star"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="star"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div
+                    class="ant-rate-star-second"
+                  >
+                    <span
+                      aria-label="star"
+                      class="anticon anticon-star"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="star"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </li>
+              <li
+                class="ant-rate-star ant-rate-star-full"
+              >
+                <div
+                  aria-checked="true"
+                  aria-posinset="3"
+                  aria-setsize="5"
+                  role="radio"
+                  tabindex="-1"
+                >
+                  <div
+                    class="ant-rate-star-first"
+                  >
+                    <span
+                      aria-label="star"
+                      class="anticon anticon-star"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="star"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div
+                    class="ant-rate-star-second"
+                  >
+                    <span
+                      aria-label="star"
+                      class="anticon anticon-star"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="star"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </li>
+              <li
+                class="ant-rate-star ant-rate-star-half ant-rate-star-active"
+              >
+                <div
+                  aria-checked="true"
+                  aria-posinset="4"
+                  aria-setsize="5"
+                  role="radio"
+                  tabindex="-1"
+                >
+                  <div
+                    class="ant-rate-star-first"
+                  >
+                    <span
+                      aria-label="star"
+                      class="anticon anticon-star"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="star"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div
+                    class="ant-rate-star-second"
+                  >
+                    <span
+                      aria-label="star"
+                      class="anticon anticon-star"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="star"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </li>
+              <li
+                class="ant-rate-star ant-rate-star-zero"
+              >
+                <div
+                  aria-checked="false"
+                  aria-posinset="5"
+                  aria-setsize="5"
+                  role="radio"
+                  tabindex="-1"
+                >
+                  <div
+                    class="ant-rate-star-first"
+                  >
+                    <span
+                      aria-label="star"
+                      class="anticon anticon-star"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="star"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div
+                    class="ant-rate-star-second"
+                  >
+                    <span
+                      aria-label="star"
+                      class="anticon anticon-star"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="star"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -3480,7 +3773,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other-readonly.
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="delete"
                                   fill="currentColor"
                                   focusable="false"
@@ -3548,7 +3840,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other-readonly.
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="delete"
                                   fill="currentColor"
                                   focusable="false"
@@ -3615,7 +3906,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other-readonly.
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="delete"
                                 fill="currentColor"
                                 focusable="false"
@@ -3675,18 +3965,18 @@ exports[`form demos renders ./packages/form/src/demos/components-other-readonly.
                 class="ant-space-item"
                 style="margin-right: 8px;"
               >
-                -
+                1
               </div>
               <div
                 class="ant-space-item"
                 style="margin-right: 8px;"
               >
-                -
+                2
               </div>
               <div
                 class="ant-space-item"
               >
-                -
+                3
               </div>
             </div>
           </div>
@@ -4019,7 +4309,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other-readonly.
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="inbox"
                           fill="currentColor"
                           focusable="false"
@@ -4070,7 +4359,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other-readonly.
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="paper-clip"
                                 fill="currentColor"
                                 focusable="false"
@@ -4109,7 +4397,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other-readonly.
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="delete"
                                   fill="currentColor"
                                   focusable="false"
@@ -4150,7 +4437,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other-readonly.
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="paper-clip"
                                 fill="currentColor"
                                 focusable="false"
@@ -4189,7 +4475,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other-readonly.
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="delete"
                                   fill="currentColor"
                                   focusable="false"
@@ -4229,7 +4514,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other-readonly.
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="paper-clip"
                               fill="currentColor"
                               focusable="false"
@@ -4268,7 +4552,6 @@ exports[`form demos renders ./packages/form/src/demos/components-other-readonly.
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="delete"
                                 fill="currentColor"
                                 focusable="false"
@@ -4382,7 +4665,6 @@ exports[`form demos renders ./packages/form/src/demos/components-test.tsx correc
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="smile"
                       fill="currentColor"
                       focusable="false"
@@ -4570,7 +4852,6 @@ exports[`form demos renders ./packages/form/src/demos/components-test.tsx correc
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="smile"
                         fill="currentColor"
                         focusable="false"
@@ -4754,7 +5035,6 @@ Array [
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="close"
                       fill="currentColor"
                       focusable="false"
@@ -4799,7 +5079,6 @@ Array [
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="question-circle"
                                 fill="currentColor"
                                 focusable="false"
@@ -4847,7 +5126,6 @@ Array [
                                   >
                                     <svg
                                       aria-hidden="true"
-                                      class=""
                                       data-icon="close-circle"
                                       fill="currentColor"
                                       focusable="false"
@@ -4914,7 +5192,6 @@ Array [
                                   >
                                     <svg
                                       aria-hidden="true"
-                                      class=""
                                       data-icon="close-circle"
                                       fill="currentColor"
                                       focusable="false"
@@ -4988,7 +5265,6 @@ Array [
                                   >
                                     <svg
                                       aria-hidden="true"
-                                      class=""
                                       data-icon="close-circle"
                                       fill="currentColor"
                                       focusable="false"
@@ -5063,7 +5339,6 @@ Array [
                                     >
                                       <svg
                                         aria-hidden="true"
-                                        class=""
                                         data-icon="swap-right"
                                         fill="currentColor"
                                         focusable="false"
@@ -5103,7 +5378,6 @@ Array [
                                   >
                                     <svg
                                       aria-hidden="true"
-                                      class=""
                                       data-icon="calendar"
                                       fill="currentColor"
                                       focusable="false"
@@ -5202,7 +5476,6 @@ Array [
                                   >
                                     <svg
                                       aria-hidden="true"
-                                      class=""
                                       data-icon="down"
                                       fill="currentColor"
                                       focusable="false"
@@ -5294,7 +5567,6 @@ Array [
                                   >
                                     <svg
                                       aria-hidden="true"
-                                      class=""
                                       data-icon="down"
                                       fill="currentColor"
                                       focusable="false"
@@ -5360,7 +5632,6 @@ Array [
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="close-circle"
                                 fill="currentColor"
                                 focusable="false"
@@ -5424,7 +5695,6 @@ Array [
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="close-circle"
                                 fill="currentColor"
                                 focusable="false"
@@ -5488,7 +5758,6 @@ Array [
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="close-circle"
                                 fill="currentColor"
                                 focusable="false"
@@ -5563,7 +5832,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="plus"
           fill="currentColor"
           focusable="false"
@@ -5637,7 +5905,6 @@ exports[`form demos renders ./packages/form/src/demos/label-col.tsx correctly 1`
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close-circle"
                   fill="currentColor"
                   focusable="false"
@@ -5700,7 +5967,6 @@ exports[`form demos renders ./packages/form/src/demos/label-col.tsx correctly 1`
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="eye-invisible"
                   fill="currentColor"
                   focusable="false"
@@ -5873,7 +6139,6 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="smile"
                         fill="currentColor"
                         focusable="false"
@@ -5917,7 +6182,6 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="menu-unfold"
                     fill="currentColor"
                     focusable="false"
@@ -6078,7 +6342,6 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                       >
                                         <svg
                                           aria-hidden="true"
-                                          class=""
                                           data-icon="question-circle"
                                           fill="currentColor"
                                           focusable="false"
@@ -6126,7 +6389,6 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                             >
                                               <svg
                                                 aria-hidden="true"
-                                                class=""
                                                 data-icon="close-circle"
                                                 fill="currentColor"
                                                 focusable="false"
@@ -6193,7 +6455,6 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                             >
                                               <svg
                                                 aria-hidden="true"
-                                                class=""
                                                 data-icon="close-circle"
                                                 fill="currentColor"
                                                 focusable="false"
@@ -6267,7 +6528,6 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                             >
                                               <svg
                                                 aria-hidden="true"
-                                                class=""
                                                 data-icon="close-circle"
                                                 fill="currentColor"
                                                 focusable="false"
@@ -6342,7 +6602,6 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                               >
                                                 <svg
                                                   aria-hidden="true"
-                                                  class=""
                                                   data-icon="swap-right"
                                                   fill="currentColor"
                                                   focusable="false"
@@ -6382,7 +6641,6 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                             >
                                               <svg
                                                 aria-hidden="true"
-                                                class=""
                                                 data-icon="calendar"
                                                 fill="currentColor"
                                                 focusable="false"
@@ -6481,7 +6739,6 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                             >
                                               <svg
                                                 aria-hidden="true"
-                                                class=""
                                                 data-icon="down"
                                                 fill="currentColor"
                                                 focusable="false"
@@ -6573,7 +6830,6 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                             >
                                               <svg
                                                 aria-hidden="true"
-                                                class=""
                                                 data-icon="down"
                                                 fill="currentColor"
                                                 focusable="false"
@@ -6639,7 +6895,6 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                       >
                                         <svg
                                           aria-hidden="true"
-                                          class=""
                                           data-icon="close-circle"
                                           fill="currentColor"
                                           focusable="false"
@@ -6703,7 +6958,6 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                       >
                                         <svg
                                           aria-hidden="true"
-                                          class=""
                                           data-icon="close-circle"
                                           fill="currentColor"
                                           focusable="false"
@@ -6767,7 +7021,6 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                       >
                                         <svg
                                           aria-hidden="true"
-                                          class=""
                                           data-icon="close-circle"
                                           fill="currentColor"
                                           focusable="false"
@@ -6819,7 +7072,7 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                       >
                                         <div
                                           class="ant-select pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                                          text=""
+                                          text="money"
                                         >
                                           <div
                                             class="ant-select-selector"
@@ -6864,7 +7117,6 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                             >
                                               <svg
                                                 aria-hidden="true"
-                                                class=""
                                                 data-icon="down"
                                                 fill="currentColor"
                                                 focusable="false"
@@ -6891,7 +7143,6 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                             >
                                               <svg
                                                 aria-hidden="true"
-                                                class=""
                                                 data-icon="close-circle"
                                                 fill="currentColor"
                                                 focusable="false"
@@ -6940,7 +7191,7 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                       >
                                         <div
                                           class="ant-select pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                                          text=""
+                                          text="6"
                                         >
                                           <div
                                             class="ant-select-selector"
@@ -6985,7 +7236,6 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                             >
                                               <svg
                                                 aria-hidden="true"
-                                                class=""
                                                 data-icon="down"
                                                 fill="currentColor"
                                                 focusable="false"
@@ -7012,7 +7262,6 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                             >
                                               <svg
                                                 aria-hidden="true"
-                                                class=""
                                                 data-icon="close-circle"
                                                 fill="currentColor"
                                                 focusable="false"
@@ -7179,7 +7428,6 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                           >
                                             <svg
                                               aria-hidden="true"
-                                              class=""
                                               data-icon="upload"
                                               fill="currentColor"
                                               focusable="false"
@@ -7253,7 +7501,6 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                         >
                                           <svg
                                             aria-hidden="true"
-                                            class=""
                                             data-icon="up"
                                             fill="currentColor"
                                             focusable="false"
@@ -7280,7 +7527,6 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                         >
                                           <svg
                                             aria-hidden="true"
-                                            class=""
                                             data-icon="down"
                                             fill="currentColor"
                                             focusable="false"
@@ -7396,6 +7642,752 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
 </div>
 `;
 
+exports[`form demos renders ./packages/form/src/demos/layout-change.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-radio-group ant-radio-group-outline"
+    style="margin: 16px;"
+  >
+    <label
+      class="ant-radio-wrapper ant-radio-wrapper-checked"
+    >
+      <span
+        class="ant-radio ant-radio-checked"
+      >
+        <input
+          checked=""
+          class="ant-radio-input"
+          type="radio"
+          value="LightFilter"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        LightFilter
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper"
+    >
+      <span
+        class="ant-radio"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="ProForm"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        ProForm
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper"
+    >
+      <span
+        class="ant-radio"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="ModalForm"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        ModalForm
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper"
+    >
+      <span
+        class="ant-radio"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="DrawerForm"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        DrawerForm
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper"
+    >
+      <span
+        class="ant-radio"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="QueryFilter"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        QueryFilter
+      </span>
+    </label>
+  </div>,
+  <div
+    style="margin: 24px;"
+  >
+    <form
+      class="ant-form ant-form-horizontal"
+      labelwidth="auto"
+      trigger="[object Object]"
+    >
+      <div
+        class="ant-pro-form-light-filter ant-pro-form-light-filter-middle ant-pro-form-light-filter-effective"
+      >
+        <div
+          class="ant-pro-form-light-filter-container"
+        >
+          <div
+            class="ant-pro-form-light-filter-item"
+          >
+            <div
+              class="ant-row ant-form-item"
+            >
+              <div
+                class="ant-col ant-form-item-control"
+              >
+                <div
+                  class="ant-form-item-control-input"
+                >
+                  <div
+                    class="ant-form-item-control-input-content"
+                  >
+                    <span
+                      class="ant-dropdown-trigger ant-pro-core-field-dropdown-label"
+                    >
+                      <span
+                        class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
+                      >
+                        <span
+                          title="蚂蚁设计有限公司"
+                        >
+                          签约客户名称: 蚂蚁设计有限公司
+                        </span>
+                        <span
+                          aria-label="close"
+                          class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
+                          role="img"
+                          tabindex="-1"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="close"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          aria-label="down"
+                          class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="down"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-pro-form-light-filter-item"
+          >
+            <div
+              class="ant-row ant-form-item"
+            >
+              <div
+                class="ant-col ant-form-item-control"
+              >
+                <div
+                  class="ant-form-item-control-input"
+                >
+                  <div
+                    class="ant-form-item-control-input-content"
+                  >
+                    <span
+                      class="ant-dropdown-trigger ant-pro-core-field-dropdown-label"
+                    >
+                      <span
+                        class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
+                      >
+                        请输入名称
+                        <span
+                          aria-label="down"
+                          class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="down"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-pro-form-light-filter-item"
+          >
+            <div
+              class="ant-row ant-form-item"
+            >
+              <div
+                class="ant-col ant-form-item-control"
+              >
+                <div
+                  class="ant-form-item-control-input"
+                >
+                  <div
+                    class="ant-form-item-control-input-content"
+                  >
+                    <span
+                      class="ant-dropdown-trigger ant-pro-core-field-dropdown-label"
+                    >
+                      <span
+                        class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
+                      >
+                        请输入名称
+                        <span
+                          aria-label="down"
+                          class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="down"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-pro-form-light-filter-item"
+          >
+            <div
+              class="ant-row ant-form-item"
+            >
+              <div
+                class="ant-col ant-form-item-control"
+              >
+                <div
+                  class="ant-form-item-control-input"
+                >
+                  <div
+                    class="ant-form-item-control-input-content"
+                  >
+                    <div
+                      class="ant-pro-field-date-picker-light"
+                    >
+                      <div
+                        class="ant-picker ant-picker-range pro-field-m"
+                      >
+                        <div
+                          class="ant-picker-input ant-picker-input-active"
+                        >
+                          <input
+                            autocomplete="off"
+                            id="contract_createTime"
+                            placeholder="请选择"
+                            readonly=""
+                            size="12"
+                            value=""
+                          />
+                        </div>
+                        <div
+                          class="ant-picker-range-separator"
+                        >
+                          <span
+                            aria-label="to"
+                            class="ant-picker-separator"
+                          >
+                            <span
+                              aria-label="swap-right"
+                              class="anticon anticon-swap-right"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="swap-right"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </div>
+                        <div
+                          class="ant-picker-input"
+                        >
+                          <input
+                            autocomplete="off"
+                            placeholder="请选择"
+                            readonly=""
+                            size="12"
+                            value=""
+                          />
+                        </div>
+                        <div
+                          class="ant-picker-active-bar"
+                          style="left: 0px; width: 0px; position: absolute;"
+                        />
+                        <span
+                          class="ant-picker-suffix"
+                        >
+                          <span
+                            aria-label="calendar"
+                            class="anticon anticon-calendar"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="calendar"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </div>
+                      <span
+                        class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
+                      >
+                        合同生效时间
+                        <span
+                          aria-label="down"
+                          class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="down"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-pro-form-light-filter-item"
+          >
+            <div
+              class="ant-row ant-form-item"
+            >
+              <div
+                class="ant-col ant-form-item-control"
+              >
+                <div
+                  class="ant-form-item-control-input"
+                >
+                  <div
+                    class="ant-form-item-control-input-content"
+                  >
+                    盖章后生效
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-pro-form-light-filter-item"
+          >
+            <div
+              class="ant-row ant-form-item"
+            >
+              <div
+                class="ant-col ant-form-item-control"
+              >
+                <div
+                  class="ant-form-item-control-input"
+                >
+                  <div
+                    class="ant-form-item-control-input-content"
+                  >
+                    <div
+                      class="ant-pro-field-select-light-select pro-field-xs"
+                    >
+                      <div
+                        class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                        text=""
+                      >
+                        <div
+                          class="ant-select-selector"
+                        >
+                          <span
+                            class="ant-select-selection-search"
+                          >
+                            <input
+                              aria-activedescendant="unusedMode_list_0"
+                              aria-autocomplete="list"
+                              aria-controls="unusedMode_list"
+                              aria-expanded="false"
+                              aria-haspopup="listbox"
+                              aria-owns="unusedMode_list"
+                              autocomplete="off"
+                              class="ant-select-selection-search-input"
+                              id="unusedMode"
+                              readonly=""
+                              role="combobox"
+                              style="opacity: 0;"
+                              type="search"
+                              unselectable="on"
+                              value=""
+                            />
+                          </span>
+                          <span
+                            class="ant-select-selection-placeholder"
+                          >
+                            合同约定失效效方式
+                          </span>
+                        </div>
+                        <span
+                          aria-hidden="true"
+                          class="ant-select-arrow"
+                          style="user-select: none;"
+                          unselectable="on"
+                        >
+                          <span
+                            aria-label="down"
+                            class="anticon anticon-down ant-select-suffix"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="down"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </div>
+                      <span
+                        class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
+                      >
+                        合同约定失效效方式
+                        <span
+                          aria-label="down"
+                          class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="down"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-pro-form-light-filter-item"
+          >
+            <div
+              class="ant-row ant-form-item"
+            >
+              <div
+                class="ant-col ant-form-item-control"
+              >
+                <div
+                  class="ant-form-item-control-input"
+                >
+                  <div
+                    class="ant-form-item-control-input-content"
+                  >
+                    <span
+                      class="ant-dropdown-trigger ant-pro-core-field-dropdown-label"
+                    >
+                      <span
+                        class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
+                      >
+                        主合同编号
+                        <span
+                          aria-label="down"
+                          class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="down"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-pro-form-light-filter-item"
+          >
+            <div
+              class="ant-row ant-form-item"
+            >
+              <div
+                class="ant-col ant-form-item-control"
+              >
+                <div
+                  class="ant-form-item-control-input"
+                >
+                  <div
+                    class="ant-form-item-control-input-content"
+                  >
+                    <span
+                      class="ant-dropdown-trigger ant-pro-core-field-dropdown-label"
+                      disabled=""
+                    >
+                      <span
+                        class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-disabled ant-pro-core-field-label-allow-clear"
+                      >
+                        <span
+                          title="xxxx项目"
+                        >
+                          项目名称: xxxx项目
+                        </span>
+                        <span
+                          aria-label="close"
+                          class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
+                          role="img"
+                          tabindex="-1"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="close"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          aria-label="down"
+                          class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="down"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-pro-form-light-filter-item"
+          >
+            <div
+              class="ant-row ant-form-item"
+            >
+              <div
+                class="ant-col ant-form-item-control"
+              >
+                <div
+                  class="ant-form-item-control-input"
+                >
+                  <div
+                    class="ant-form-item-control-input-content"
+                  >
+                    <span
+                      class="ant-dropdown-trigger ant-pro-core-field-dropdown-label"
+                      disabled=""
+                    >
+                      <span
+                        class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-disabled ant-pro-core-field-label-allow-clear"
+                      >
+                        <span
+                          title="启途"
+                        >
+                          商务经理: 启途
+                        </span>
+                        <span
+                          aria-label="close"
+                          class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
+                          role="img"
+                          tabindex="-1"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="close"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          aria-label="down"
+                          class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="down"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>,
+]
+`;
+
 exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly 1`] = `
 <div>
   <div
@@ -7471,7 +8463,7 @@ exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly
                     class="ant-pro-field-select-light-select ant-pro-field-select-light-select-searchable"
                   >
                     <div
-                      class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+                      class="ant-select ant-select-single ant-select-show-arrow ant-select-show-search"
                       text=""
                     >
                       <div
@@ -7514,7 +8506,6 @@ exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly
                         >
                           <svg
                             aria-hidden="true"
-                            class=""
                             data-icon="down"
                             fill="currentColor"
                             focusable="false"
@@ -7540,7 +8531,6 @@ exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="down"
                           fill="currentColor"
                           focusable="false"
@@ -7621,7 +8611,7 @@ exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly
                       </div>
                     </div>
                     <span
-                      class="ant-pro-core-field-label ant-pro-core-field-label-middle"
+                      class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
                     >
                       地区
                       <span
@@ -7631,7 +8621,6 @@ exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="down"
                           fill="currentColor"
                           focusable="false"
@@ -7670,7 +8659,7 @@ exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly
                     class="ant-dropdown-trigger ant-pro-core-field-dropdown-label"
                   >
                     <span
-                      class="ant-pro-core-field-label ant-pro-core-field-label-middle"
+                      class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
                     >
                       数量
                       <span
@@ -7680,7 +8669,6 @@ exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="down"
                           fill="currentColor"
                           focusable="false"
@@ -7719,7 +8707,7 @@ exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly
                     class="ant-dropdown-trigger ant-pro-core-field-dropdown-label"
                   >
                     <span
-                      class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active"
+                      class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
                     >
                       <span
                         title="20~80"
@@ -7734,7 +8722,6 @@ exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="close"
                           fill="currentColor"
                           focusable="false"
@@ -7754,7 +8741,6 @@ exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="down"
                           fill="currentColor"
                           focusable="false"
@@ -7793,7 +8779,7 @@ exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly
                     class="ant-dropdown-trigger ant-pro-core-field-dropdown-label"
                   >
                     <span
-                      class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active"
+                      class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
                     >
                       <span
                         title="yutingzhao1991"
@@ -7808,7 +8794,6 @@ exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="close"
                           fill="currentColor"
                           focusable="false"
@@ -7828,7 +8813,6 @@ exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="down"
                           fill="currentColor"
                           focusable="false"
@@ -7875,7 +8859,7 @@ exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly
                         <input
                           autocomplete="off"
                           id="name3"
-                          placeholder="日期"
+                          placeholder="不能清空的日期"
                           readonly=""
                           size="12"
                           title="2020-08-19"
@@ -7891,7 +8875,6 @@ exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="calendar"
                               fill="currentColor"
                               focusable="false"
@@ -7905,58 +8888,13 @@ exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly
                             </svg>
                           </span>
                         </span>
-                        <span
-                          class="ant-picker-clear"
-                        >
-                          <span
-                            aria-label="close-circle"
-                            class="anticon anticon-close-circle"
-                            role="img"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="close-circle"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
-                            >
-                              <path
-                                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                              />
-                            </svg>
-                          </span>
-                        </span>
                       </div>
                     </div>
                     <span
                       class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active"
                     >
                       <span>
-                        日期: 2020-08-19
-                      </span>
-                      <span
-                        aria-label="close"
-                        class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
-                        role="img"
-                        tabindex="-1"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="close"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                          />
-                        </svg>
+                        不能清空的日期: 2020-08-19
                       </span>
                       <span
                         aria-label="down"
@@ -7965,7 +8903,6 @@ exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="down"
                           fill="currentColor"
                           focusable="false"
@@ -8032,7 +8969,6 @@ exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="swap-right"
                               fill="currentColor"
                               focusable="false"
@@ -8072,7 +9008,6 @@ exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly
                         >
                           <svg
                             aria-hidden="true"
-                            class=""
                             data-icon="calendar"
                             fill="currentColor"
                             focusable="false"
@@ -8088,7 +9023,7 @@ exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly
                       </span>
                     </div>
                     <span
-                      class="ant-pro-core-field-label ant-pro-core-field-label-middle"
+                      class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
                     >
                       日期范围
                       <span
@@ -8098,7 +9033,6 @@ exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="down"
                           fill="currentColor"
                           focusable="false"
@@ -8161,7 +9095,6 @@ exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="calendar"
                               fill="currentColor"
                               focusable="false"
@@ -8178,7 +9111,7 @@ exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly
                       </div>
                     </div>
                     <span
-                      class="ant-pro-core-field-label ant-pro-core-field-label-middle"
+                      class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
                     >
                       日期时间
                       <span
@@ -8188,7 +9121,6 @@ exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="down"
                           fill="currentColor"
                           focusable="false"
@@ -8251,7 +9183,6 @@ exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="clock-circle"
                               fill="currentColor"
                               focusable="false"
@@ -8271,7 +9202,7 @@ exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly
                       </div>
                     </div>
                     <span
-                      class="ant-pro-core-field-label ant-pro-core-field-label-middle"
+                      class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
                     >
                       时间
                       <span
@@ -8281,7 +9212,6 @@ exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="down"
                           fill="currentColor"
                           focusable="false"
@@ -8308,7 +9238,7 @@ exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly
             class="ant-dropdown-trigger ant-pro-core-field-dropdown-label"
           >
             <span
-              class="ant-pro-core-field-label ant-pro-core-field-label-middle"
+              class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
             >
               更多筛选
               <span
@@ -8318,7 +9248,6 @@ exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="down"
                   fill="currentColor"
                   focusable="false"
@@ -8370,7 +9299,7 @@ exports[`form demos renders ./packages/form/src/demos/light-filter-bordered.tsx 
                 >
                   <div
                     class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
-                    text=""
+                    text="man"
                   >
                     <div
                       class="ant-select-selector"
@@ -8413,7 +9342,6 @@ exports[`form demos renders ./packages/form/src/demos/light-filter-bordered.tsx 
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="down"
                           fill="currentColor"
                           focusable="false"
@@ -8440,7 +9368,6 @@ exports[`form demos renders ./packages/form/src/demos/light-filter-bordered.tsx 
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="close-circle"
                           fill="currentColor"
                           focusable="false"
@@ -8456,7 +9383,7 @@ exports[`form demos renders ./packages/form/src/demos/light-filter-bordered.tsx 
                     </span>
                   </div>
                   <span
-                    class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-bordered"
+                    class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-bordered ant-pro-core-field-label-allow-clear"
                   >
                     <span
                       title="男"
@@ -8471,7 +9398,6 @@ exports[`form demos renders ./packages/form/src/demos/light-filter-bordered.tsx 
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="close"
                         fill="currentColor"
                         focusable="false"
@@ -8491,7 +9417,6 @@ exports[`form demos renders ./packages/form/src/demos/light-filter-bordered.tsx 
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="down"
                         fill="currentColor"
                         focusable="false"
@@ -8655,7 +9580,6 @@ exports[`form demos renders ./packages/form/src/demos/light-filter-bordered.tsx 
                         >
                           <svg
                             aria-hidden="true"
-                            class=""
                             data-icon="calendar"
                             fill="currentColor"
                             focusable="false"
@@ -8672,7 +9596,7 @@ exports[`form demos renders ./packages/form/src/demos/light-filter-bordered.tsx 
                     </div>
                   </div>
                   <span
-                    class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-bordered"
+                    class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-bordered ant-pro-core-field-label-allow-clear"
                   >
                     日期
                     <span
@@ -8682,7 +9606,6 @@ exports[`form demos renders ./packages/form/src/demos/light-filter-bordered.tsx 
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="down"
                         fill="currentColor"
                         focusable="false"
@@ -8730,7 +9653,6 @@ exports[`form demos renders ./packages/form/src/demos/light-filter-collapse.tsx 
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="filter"
               fill="currentColor"
               focusable="false"
@@ -8797,7 +9719,6 @@ exports[`form demos renders ./packages/form/src/demos/login.tsx correctly 1`] = 
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="mobile"
                     fill="currentColor"
                     focusable="false"
@@ -8838,7 +9759,6 @@ exports[`form demos renders ./packages/form/src/demos/login.tsx correctly 1`] = 
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="close-circle"
                     fill="currentColor"
                     focusable="false"
@@ -8886,7 +9806,6 @@ exports[`form demos renders ./packages/form/src/demos/login.tsx correctly 1`] = 
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="mail"
                       fill="currentColor"
                       focusable="false"
@@ -8973,7 +9892,6 @@ Array [
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="plus"
           fill="currentColor"
           focusable="false"
@@ -9011,7 +9929,6 @@ Array [
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="plus"
         fill="currentColor"
         focusable="false"
@@ -9167,7 +10084,6 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="right"
                   fill="currentColor"
                   focusable="false"
@@ -9210,7 +10126,6 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="question-circle"
                       fill="currentColor"
                       focusable="false"
@@ -9258,7 +10173,6 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                         >
                           <svg
                             aria-hidden="true"
-                            class=""
                             data-icon="close-circle"
                             fill="currentColor"
                             focusable="false"
@@ -9348,7 +10262,6 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="down"
                                   fill="currentColor"
                                   focusable="false"
@@ -9429,7 +10342,6 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="down"
                                   fill="currentColor"
                                   focusable="false"
@@ -9471,7 +10383,6 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="right"
                   fill="currentColor"
                   focusable="false"
@@ -9514,7 +10425,6 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="question-circle"
                       fill="currentColor"
                       focusable="false"
@@ -9560,7 +10470,6 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="up"
                               fill="currentColor"
                               focusable="false"
@@ -9587,7 +10496,6 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="down"
                               fill="currentColor"
                               focusable="false"
@@ -9669,7 +10577,6 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                         >
                           <svg
                             aria-hidden="true"
-                            class=""
                             data-icon="close-circle"
                             fill="currentColor"
                             focusable="false"
@@ -9740,7 +10647,6 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="swap-right"
                               fill="currentColor"
                               focusable="false"
@@ -9780,7 +10686,6 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                         >
                           <svg
                             aria-hidden="true"
-                            class=""
                             data-icon="calendar"
                             fill="currentColor"
                             focusable="false"
@@ -9824,7 +10729,7 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                   >
                     <div
                       class="ant-select pro-field-l ant-select-multiple ant-select-allow-clear ant-select-show-search"
-                      text=""
+                      text="吴家豪,周星星"
                     >
                       <div
                         class="ant-select-selector"
@@ -9850,7 +10755,6 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="close"
                                 fill="currentColor"
                                 focusable="false"
@@ -9886,7 +10790,6 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="close"
                                 fill="currentColor"
                                 focusable="false"
@@ -9939,7 +10842,6 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                         >
                           <svg
                             aria-hidden="true"
-                            class=""
                             data-icon="close-circle"
                             fill="currentColor"
                             focusable="false"
@@ -10130,7 +11032,6 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="close-circle"
                               fill="currentColor"
                               focusable="false"
@@ -10202,7 +11103,6 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="calendar"
                                 fill="currentColor"
                                 focusable="false"
@@ -10442,7 +11342,7 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
               >
                 <div
                   class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                  text=""
+                  text="1"
                 >
                   <div
                     class="ant-select-selector"
@@ -10487,7 +11387,6 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="down"
                         fill="currentColor"
                         focusable="false"
@@ -10514,7 +11413,6 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="close-circle"
                         fill="currentColor"
                         focusable="false"
@@ -10558,7 +11456,7 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
               >
                 <div
                   class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                  text=""
+                  text="2"
                 >
                   <div
                     class="ant-select-selector"
@@ -10603,7 +11501,6 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="down"
                         fill="currentColor"
                         focusable="false"
@@ -10630,7 +11527,6 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="close-circle"
                         fill="currentColor"
                         focusable="false"
@@ -10729,7 +11625,6 @@ exports[`form demos renders ./packages/form/src/demos/query-filter.tsx correctly
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="close-circle"
                       fill="currentColor"
                       focusable="false"
@@ -10799,7 +11694,6 @@ exports[`form demos renders ./packages/form/src/demos/query-filter.tsx correctly
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="close-circle"
                       fill="currentColor"
                       focusable="false"
@@ -10891,7 +11785,6 @@ exports[`form demos renders ./packages/form/src/demos/query-filter.tsx correctly
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="down"
                       fill="currentColor"
                       focusable="false"
@@ -10961,7 +11854,6 @@ exports[`form demos renders ./packages/form/src/demos/query-filter.tsx correctly
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="close-circle"
                       fill="currentColor"
                       focusable="false"
@@ -11035,7 +11927,6 @@ exports[`form demos renders ./packages/form/src/demos/query-filter.tsx correctly
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="calendar"
                         fill="currentColor"
                         focusable="false"
@@ -11114,7 +12005,6 @@ exports[`form demos renders ./packages/form/src/demos/query-filter.tsx correctly
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="swap-right"
                         fill="currentColor"
                         focusable="false"
@@ -11154,7 +12044,6 @@ exports[`form demos renders ./packages/form/src/demos/query-filter.tsx correctly
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="calendar"
                       fill="currentColor"
                       focusable="false"
@@ -11179,72 +12068,97 @@ exports[`form demos renders ./packages/form/src/demos/query-filter.tsx correctly
       style="padding-left: 8px; padding-right: 8px; text-align: right;"
     >
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
-        style="padding-top: 0px; margin-bottom: 24px;"
+        class="ant-row ant-form-item pro-form-query-filter-actions"
       >
         <div
-          class="ant-space-item"
-          style="margin-right: 8px;"
+          class="ant-col ant-form-item-label"
         >
-          <div
-            class="ant-space ant-space-horizontal ant-space-align-center"
+          <label
+            class="ant-form-item-no-colon"
+            title=" "
           >
-            <div
-              class="ant-space-item"
-              style="margin-right: 8px;"
-            >
-              <button
-                class="ant-btn"
-                type="button"
-              >
-                <span>
-                  重 置
-                </span>
-              </button>
-            </div>
-            <div
-              class="ant-space-item"
-            >
-              <button
-                class="ant-btn ant-btn-primary"
-                type="button"
-              >
-                <span>
-                  查 询
-                </span>
-              </button>
-            </div>
-          </div>
+             
+          </label>
         </div>
         <div
-          class="ant-space-item"
+          class="ant-col ant-form-item-control"
         >
-          <a
-            class="ant-pro-form-collapse-button"
+          <div
+            class="ant-form-item-control-input"
           >
-            收起
-            <span
-              aria-label="down"
-              class="anticon anticon-down"
-              role="img"
-              style="margin-left: 0.5em; transition: 0.3s all; transform: rotate(0.5turn);"
+            <div
+              class="ant-form-item-control-input-content"
             >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="down"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <div
+                class="ant-space ant-space-horizontal ant-space-align-center"
+                style="padding-top: 0px; margin-bottom: 24px;"
               >
-                <path
-                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                />
-              </svg>
-            </span>
-          </a>
+                <div
+                  class="ant-space-item"
+                  style="margin-right: 8px;"
+                >
+                  <div
+                    class="ant-space ant-space-horizontal ant-space-align-center"
+                  >
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 8px;"
+                    >
+                      <button
+                        class="ant-btn"
+                        type="button"
+                      >
+                        <span>
+                          重 置
+                        </span>
+                      </button>
+                    </div>
+                    <div
+                      class="ant-space-item"
+                    >
+                      <button
+                        class="ant-btn ant-btn-primary"
+                        type="button"
+                      >
+                        <span>
+                          查 询
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-space-item"
+                >
+                  <a
+                    class="ant-pro-form-collapse-button"
+                  >
+                    收起
+                    <span
+                      aria-label="down"
+                      class="anticon anticon-down"
+                      role="img"
+                      style="margin-left: 0.5em; transition: 0.3s all; transform: rotate(0.5turn);"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="down"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                        />
+                      </svg>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -11310,7 +12224,6 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-collapsed.tsx
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="close-circle"
                       fill="currentColor"
                       focusable="false"
@@ -11384,7 +12297,6 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-collapsed.tsx
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="calendar"
                         fill="currentColor"
                         focusable="false"
@@ -11451,7 +12363,6 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-collapsed.tsx
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="close-circle"
                     fill="currentColor"
                     focusable="false"
@@ -11520,7 +12431,6 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-collapsed.tsx
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="calendar"
                       fill="currentColor"
                       focusable="false"
@@ -11590,7 +12500,6 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-collapsed.tsx
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="calendar"
                       fill="currentColor"
                       focusable="false"
@@ -11615,72 +12524,97 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-collapsed.tsx
       style="padding-left: 8px; padding-right: 8px; text-align: right;"
     >
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
-        style="padding-top: 0px; margin-bottom: 24px;"
+        class="ant-row ant-form-item pro-form-query-filter-actions"
       >
         <div
-          class="ant-space-item"
-          style="margin-right: 8px;"
+          class="ant-col ant-form-item-label"
         >
-          <div
-            class="ant-space ant-space-horizontal ant-space-align-center"
+          <label
+            class="ant-form-item-no-colon"
+            title=" "
           >
-            <div
-              class="ant-space-item"
-              style="margin-right: 8px;"
-            >
-              <button
-                class="ant-btn"
-                type="button"
-              >
-                <span>
-                  重 置
-                </span>
-              </button>
-            </div>
-            <div
-              class="ant-space-item"
-            >
-              <button
-                class="ant-btn ant-btn-primary"
-                type="button"
-              >
-                <span>
-                  查 询
-                </span>
-              </button>
-            </div>
-          </div>
+             
+          </label>
         </div>
         <div
-          class="ant-space-item"
+          class="ant-col ant-form-item-control"
         >
-          <a
-            class="ant-pro-form-collapse-button"
+          <div
+            class="ant-form-item-control-input"
           >
-            展开
-            <span
-              aria-label="down"
-              class="anticon anticon-down"
-              role="img"
-              style="margin-left: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
+            <div
+              class="ant-form-item-control-input-content"
             >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="down"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <div
+                class="ant-space ant-space-horizontal ant-space-align-center"
+                style="padding-top: 0px; margin-bottom: 24px;"
               >
-                <path
-                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                />
-              </svg>
-            </span>
-          </a>
+                <div
+                  class="ant-space-item"
+                  style="margin-right: 8px;"
+                >
+                  <div
+                    class="ant-space ant-space-horizontal ant-space-align-center"
+                  >
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 8px;"
+                    >
+                      <button
+                        class="ant-btn"
+                        type="button"
+                      >
+                        <span>
+                          重 置
+                        </span>
+                      </button>
+                    </div>
+                    <div
+                      class="ant-space-item"
+                    >
+                      <button
+                        class="ant-btn ant-btn-primary"
+                        type="button"
+                      >
+                        <span>
+                          查 询
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-space-item"
+                >
+                  <a
+                    class="ant-pro-form-collapse-button"
+                  >
+                    展开
+                    <span
+                      aria-label="down"
+                      class="anticon anticon-down"
+                      role="img"
+                      style="margin-left: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="down"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                        />
+                      </svg>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -11745,7 +12679,6 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-vertical.tsx 
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="close-circle"
                       fill="currentColor"
                       focusable="false"
@@ -11818,7 +12751,6 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-vertical.tsx 
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="calendar"
                         fill="currentColor"
                         focusable="false"
@@ -11888,7 +12820,6 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-vertical.tsx 
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="close-circle"
                       fill="currentColor"
                       focusable="false"
@@ -12122,72 +13053,97 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-vertical.tsx 
       style="padding-left: 8px; padding-right: 8px; text-align: right;"
     >
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
-        style="padding-top: 30px; margin-bottom: 24px;"
+        class="ant-row ant-form-item pro-form-query-filter-actions"
       >
         <div
-          class="ant-space-item"
-          style="margin-right: 8px;"
+          class="ant-col ant-form-item-label"
         >
-          <div
-            class="ant-space ant-space-horizontal ant-space-align-center"
+          <label
+            class="ant-form-item-no-colon"
+            title=" "
           >
-            <div
-              class="ant-space-item"
-              style="margin-right: 8px;"
-            >
-              <button
-                class="ant-btn"
-                type="button"
-              >
-                <span>
-                  重 置
-                </span>
-              </button>
-            </div>
-            <div
-              class="ant-space-item"
-            >
-              <button
-                class="ant-btn ant-btn-primary"
-                type="button"
-              >
-                <span>
-                  查 询
-                </span>
-              </button>
-            </div>
-          </div>
+             
+          </label>
         </div>
         <div
-          class="ant-space-item"
+          class="ant-col ant-form-item-control"
         >
-          <a
-            class="ant-pro-form-collapse-button"
+          <div
+            class="ant-form-item-control-input"
           >
-            收起
-            <span
-              aria-label="down"
-              class="anticon anticon-down"
-              role="img"
-              style="margin-left: 0.5em; transition: 0.3s all; transform: rotate(0.5turn);"
+            <div
+              class="ant-form-item-control-input-content"
             >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="down"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <div
+                class="ant-space ant-space-horizontal ant-space-align-center"
+                style="padding-top: 30px; margin-bottom: 24px;"
               >
-                <path
-                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                />
-              </svg>
-            </span>
-          </a>
+                <div
+                  class="ant-space-item"
+                  style="margin-right: 8px;"
+                >
+                  <div
+                    class="ant-space ant-space-horizontal ant-space-align-center"
+                  >
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 8px;"
+                    >
+                      <button
+                        class="ant-btn"
+                        type="button"
+                      >
+                        <span>
+                          重 置
+                        </span>
+                      </button>
+                    </div>
+                    <div
+                      class="ant-space-item"
+                    >
+                      <button
+                        class="ant-btn ant-btn-primary"
+                        type="button"
+                      >
+                        <span>
+                          查 询
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-space-item"
+                >
+                  <a
+                    class="ant-pro-form-collapse-button"
+                  >
+                    收起
+                    <span
+                      aria-label="down"
+                      class="anticon anticon-down"
+                      role="img"
+                      style="margin-left: 0.5em; transition: 0.3s all; transform: rotate(0.5turn);"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="down"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                        />
+                      </svg>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -12328,7 +13284,6 @@ exports[`form demos renders ./packages/form/src/demos/search-filter.tsx correctl
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="ellipsis"
                 fill="currentColor"
                 focusable="false"
@@ -12357,7 +13312,6 @@ exports[`form demos renders ./packages/form/src/demos/search-filter.tsx correctl
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="up"
                 fill="currentColor"
                 focusable="false"
@@ -12466,7 +13420,6 @@ exports[`form demos renders ./packages/form/src/demos/search-filter.tsx correctl
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="close-circle"
                                 fill="currentColor"
                                 focusable="false"
@@ -12557,7 +13510,6 @@ exports[`form demos renders ./packages/form/src/demos/search-filter.tsx correctl
                             >
                               <svg
                                 aria-hidden="true"
-                                class=""
                                 data-icon="close-circle"
                                 fill="currentColor"
                                 focusable="false"
@@ -12629,7 +13581,6 @@ exports[`form demos renders ./packages/form/src/demos/search-filter.tsx correctl
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="calendar"
                                   fill="currentColor"
                                   focusable="false"
@@ -12795,7 +13746,6 @@ exports[`form demos renders ./packages/form/src/demos/steps-from.tsx correctly 1
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="question-circle"
                       fill="currentColor"
                       focusable="false"
@@ -12843,7 +13793,6 @@ exports[`form demos renders ./packages/form/src/demos/steps-from.tsx correctly 1
                         >
                           <svg
                             aria-hidden="true"
-                            class=""
                             data-icon="close-circle"
                             fill="currentColor"
                             focusable="false"
@@ -12910,7 +13859,6 @@ exports[`form demos renders ./packages/form/src/demos/steps-from.tsx correctly 1
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="calendar"
                               fill="currentColor"
                               focusable="false"
@@ -12982,7 +13930,6 @@ exports[`form demos renders ./packages/form/src/demos/steps-from.tsx correctly 1
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="swap-right"
                               fill="currentColor"
                               focusable="false"
@@ -13022,7 +13969,6 @@ exports[`form demos renders ./packages/form/src/demos/steps-from.tsx correctly 1
                         >
                           <svg
                             aria-hidden="true"
-                            class=""
                             data-icon="calendar"
                             fill="currentColor"
                             focusable="false"
@@ -13244,7 +14190,6 @@ exports[`form demos renders ./packages/form/src/demos/steps-from.tsx correctly 1
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="close-circle"
                                   fill="currentColor"
                                   focusable="false"
@@ -13316,7 +14261,6 @@ exports[`form demos renders ./packages/form/src/demos/steps-from.tsx correctly 1
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="calendar"
                                     fill="currentColor"
                                     focusable="false"
@@ -13556,7 +14500,7 @@ exports[`form demos renders ./packages/form/src/demos/steps-from.tsx correctly 1
                   >
                     <div
                       class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                      text=""
+                      text="1"
                     >
                       <div
                         class="ant-select-selector"
@@ -13601,7 +14545,6 @@ exports[`form demos renders ./packages/form/src/demos/steps-from.tsx correctly 1
                         >
                           <svg
                             aria-hidden="true"
-                            class=""
                             data-icon="down"
                             fill="currentColor"
                             focusable="false"
@@ -13628,7 +14571,6 @@ exports[`form demos renders ./packages/form/src/demos/steps-from.tsx correctly 1
                         >
                           <svg
                             aria-hidden="true"
-                            class=""
                             data-icon="close-circle"
                             fill="currentColor"
                             focusable="false"
@@ -13672,7 +14614,7 @@ exports[`form demos renders ./packages/form/src/demos/steps-from.tsx correctly 1
                   >
                     <div
                       class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                      text=""
+                      text="2"
                     >
                       <div
                         class="ant-select-selector"
@@ -13717,7 +14659,6 @@ exports[`form demos renders ./packages/form/src/demos/steps-from.tsx correctly 1
                         >
                           <svg
                             aria-hidden="true"
-                            class=""
                             data-icon="down"
                             fill="currentColor"
                             focusable="false"
@@ -13744,7 +14685,6 @@ exports[`form demos renders ./packages/form/src/demos/steps-from.tsx correctly 1
                         >
                           <svg
                             aria-hidden="true"
-                            class=""
                             data-icon="close-circle"
                             fill="currentColor"
                             focusable="false"

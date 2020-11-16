@@ -1,6 +1,6 @@
 ---
 title: ProForm - 高级表单
-order: 0
+order: 1
 group:
   path: /
 nav:
@@ -258,7 +258,9 @@ ProForm 自带的 Filed ,与 valueType 基本上一一对应。
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | width | Field 的长度，我们归纳了常用的 Field 长度以及适合的场景，支持了一些枚举 "xs" , "s" , "m" , "l" , "x" | `number \| "xs" \| "s" \| "m" \| "l" \| "x"` | - |
-| tooltip | 会在 label 旁增加一个 icon，悬浮后展示配置的信息 | `string \| tooltipProps` |
+| tooltip | 会在 label 旁增加一个 icon，悬浮后展示配置的信息 | `string \| tooltipProps` | - |
+| secondary | 是否是次要控件，只针对 LightFilter 下有效 | `boolean` | `false` |
+| allowClear | 支持清除，针对 LightFilter 下有效，主动设置情况下同时也会透传给 `fieldProps` | `boolean` | `true` |
 
 ### 宽度
 

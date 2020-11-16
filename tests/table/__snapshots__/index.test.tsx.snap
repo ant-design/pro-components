@@ -51,7 +51,6 @@ exports[`BasicTable 🎏  do not render default option 1`] = `
                         >
                           <svg
                             aria-hidden="true"
-                            class=""
                             data-icon="up"
                             fill="currentColor"
                             focusable="false"
@@ -78,7 +77,6 @@ exports[`BasicTable 🎏  do not render default option 1`] = `
                         >
                           <svg
                             aria-hidden="true"
-                            class=""
                             data-icon="down"
                             fill="currentColor"
                             focusable="false"
@@ -122,39 +120,65 @@ exports[`BasicTable 🎏  do not render default option 1`] = `
           style="padding-left: 8px; padding-right: 8px; text-align: right;"
         >
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center"
-            style="padding-top: 0px; margin-bottom: 24px;"
+            class="ant-row ant-form-item pro-form-query-filter-actions"
           >
             <div
-              class="ant-space-item"
+              class="ant-col ant-form-item-label"
+            >
+              <label
+                class="ant-form-item-no-colon"
+                title=" "
+              >
+                 
+              </label>
+            </div>
+            <div
+              class="ant-col ant-form-item-control"
             >
               <div
-                class="ant-space ant-space-horizontal ant-space-align-center"
+                class="ant-form-item-control-input"
               >
                 <div
-                  class="ant-space-item"
-                  style="margin-right: 8px;"
+                  class="ant-form-item-control-input-content"
                 >
-                  <button
-                    class="ant-btn"
-                    type="button"
+                  <div
+                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    style="padding-top: 0px; margin-bottom: 24px;"
                   >
-                    <span>
-                      重 置
-                    </span>
-                  </button>
-                </div>
-                <div
-                  class="ant-space-item"
-                >
-                  <button
-                    class="ant-btn ant-btn-primary"
-                    type="button"
-                  >
-                    <span>
-                      查 询
-                    </span>
-                  </button>
+                    <div
+                      class="ant-space-item"
+                    >
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      >
+                        <div
+                          class="ant-space-item"
+                          style="margin-right: 8px;"
+                        >
+                          <button
+                            class="ant-btn"
+                            type="button"
+                          >
+                            <span>
+                              重 置
+                            </span>
+                          </button>
+                        </div>
+                        <div
+                          class="ant-space-item"
+                        >
+                          <button
+                            class="ant-btn ant-btn-primary"
+                            type="button"
+                          >
+                            <span>
+                              查 询
+                            </span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -208,7 +232,6 @@ exports[`BasicTable 🎏  do not render default option 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="column-height"
                           fill="currentColor"
                           focusable="false"
@@ -535,7 +558,6 @@ exports[`BasicTable 🎏  do not render default option 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="left"
                       fill="currentColor"
                       focusable="false"
@@ -623,7 +645,6 @@ exports[`BasicTable 🎏  do not render default option 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="double-right"
                         fill="currentColor"
                         focusable="false"
@@ -673,7 +694,6 @@ exports[`BasicTable 🎏  do not render default option 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="right"
                       fill="currentColor"
                       focusable="false"
@@ -737,7 +757,6 @@ exports[`BasicTable 🎏  do not render default option 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="down"
                         fill="currentColor"
                         focusable="false"
@@ -827,7 +846,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="close-circle"
                           fill="currentColor"
                           focusable="false"
@@ -897,7 +915,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="close-circle"
                           fill="currentColor"
                           focusable="false"
@@ -990,7 +1007,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="down"
                         fill="currentColor"
                         focusable="false"
@@ -1082,7 +1098,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="down"
                         fill="currentColor"
                         focusable="false"
@@ -1147,7 +1162,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="close-circle"
                         fill="currentColor"
                         focusable="false"
@@ -1212,7 +1226,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="close-circle"
                         fill="currentColor"
                         focusable="false"
@@ -1275,7 +1288,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="up"
                           fill="currentColor"
                           focusable="false"
@@ -1302,7 +1314,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="down"
                           fill="currentColor"
                           focusable="false"
@@ -1426,7 +1437,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="calendar"
                           fill="currentColor"
                           focusable="false"
@@ -1496,7 +1506,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="clock-circle"
                           fill="currentColor"
                           focusable="false"
@@ -1565,7 +1574,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="close-circle"
                         fill="currentColor"
                         focusable="false"
@@ -1589,72 +1597,97 @@ exports[`BasicTable 🎏 base use 1`] = `
           style="padding-left: 8px; padding-right: 8px; text-align: right;"
         >
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center"
-            style="padding-top: 0px; margin-bottom: 24px;"
+            class="ant-row ant-form-item pro-form-query-filter-actions"
           >
             <div
-              class="ant-space-item"
-              style="margin-right: 8px;"
+              class="ant-col ant-form-item-label"
             >
-              <div
-                class="ant-space ant-space-horizontal ant-space-align-center"
+              <label
+                class="ant-form-item-no-colon"
+                title=" "
               >
-                <div
-                  class="ant-space-item"
-                  style="margin-right: 8px;"
-                >
-                  <button
-                    class="ant-btn"
-                    type="button"
-                  >
-                    <span>
-                      重 置
-                    </span>
-                  </button>
-                </div>
-                <div
-                  class="ant-space-item"
-                >
-                  <button
-                    class="ant-btn ant-btn-primary"
-                    type="button"
-                  >
-                    <span>
-                      查 询
-                    </span>
-                  </button>
-                </div>
-              </div>
+                 
+              </label>
             </div>
             <div
-              class="ant-space-item"
+              class="ant-col ant-form-item-control"
             >
-              <a
-                class="ant-pro-form-collapse-button"
+              <div
+                class="ant-form-item-control-input"
               >
-                展开
-                <span
-                  aria-label="down"
-                  class="anticon anticon-down"
-                  role="img"
-                  style="margin-left: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
+                <div
+                  class="ant-form-item-control-input-content"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="down"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
+                  <div
+                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    style="padding-top: 0px; margin-bottom: 24px;"
                   >
-                    <path
-                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                    />
-                  </svg>
-                </span>
-              </a>
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 8px;"
+                    >
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      >
+                        <div
+                          class="ant-space-item"
+                          style="margin-right: 8px;"
+                        >
+                          <button
+                            class="ant-btn"
+                            type="button"
+                          >
+                            <span>
+                              重 置
+                            </span>
+                          </button>
+                        </div>
+                        <div
+                          class="ant-space-item"
+                        >
+                          <button
+                            class="ant-btn ant-btn-primary"
+                            type="button"
+                          >
+                            <span>
+                              查 询
+                            </span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="ant-space-item"
+                    >
+                      <a
+                        class="ant-pro-form-collapse-button"
+                      >
+                        展开
+                        <span
+                          aria-label="down"
+                          class="anticon anticon-down"
+                          role="img"
+                          style="margin-left: 0.5em; transition: 0.3s all; transform: rotate(0turn);"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="down"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
+                        </span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1718,7 +1751,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class=""
                               data-icon="search"
                               fill="currentColor"
                               focusable="false"
@@ -1753,7 +1785,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="down"
                         fill="currentColor"
                         focusable="false"
@@ -1791,7 +1822,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="reload"
                           fill="currentColor"
                           focusable="false"
@@ -1823,7 +1853,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="column-height"
                           fill="currentColor"
                           focusable="false"
@@ -1853,7 +1882,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="setting"
                         fill="currentColor"
                         focusable="false"
@@ -1956,7 +1984,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="filter"
                                     fill="currentColor"
                                     focusable="false"
@@ -2068,7 +2095,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -2109,7 +2135,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -2284,7 +2309,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -2347,7 +2371,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -2388,7 +2411,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -2563,7 +2585,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -2626,7 +2647,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -2667,7 +2687,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -2842,7 +2861,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -2905,7 +2923,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -2946,7 +2963,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -3121,7 +3137,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -3184,7 +3199,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -3225,7 +3239,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -3400,7 +3413,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -3463,7 +3475,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -3504,7 +3515,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -3679,7 +3689,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -3742,7 +3751,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -3783,7 +3791,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -3958,7 +3965,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -4021,7 +4027,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -4062,7 +4067,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -4237,7 +4241,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -4300,7 +4303,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -4341,7 +4343,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -4516,7 +4517,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -4579,7 +4579,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -4620,7 +4619,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -4795,7 +4793,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -4858,7 +4855,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -4899,7 +4895,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -5074,7 +5069,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -5137,7 +5131,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -5178,7 +5171,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -5353,7 +5345,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -5416,7 +5407,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -5457,7 +5447,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -5632,7 +5621,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -5695,7 +5683,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -5736,7 +5723,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -5911,7 +5897,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -5974,7 +5959,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -6015,7 +5999,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -6190,7 +6173,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -6253,7 +6235,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -6294,7 +6275,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -6469,7 +6449,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -6532,7 +6511,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -6573,7 +6551,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -6748,7 +6725,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -6811,7 +6787,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -6852,7 +6827,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -7027,7 +7001,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -7090,7 +7063,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -7131,7 +7103,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -7306,7 +7277,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -7369,7 +7339,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -7410,7 +7379,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -7585,7 +7553,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -7635,7 +7602,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="left"
                       fill="currentColor"
                       focusable="false"
@@ -7679,7 +7645,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="double-left"
                         fill="currentColor"
                         focusable="false"
@@ -7773,7 +7738,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="right"
                       fill="currentColor"
                       focusable="false"
@@ -7837,7 +7801,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="down"
                         fill="currentColor"
                         focusable="false"
@@ -7882,39 +7845,65 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
           style="padding-left: 8px; padding-right: 8px; text-align: right;"
         >
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center"
-            style="padding-top: 0px; margin-bottom: 24px;"
+            class="ant-row ant-form-item pro-form-query-filter-actions"
           >
             <div
-              class="ant-space-item"
+              class="ant-col ant-form-item-label"
+            >
+              <label
+                class="ant-form-item-no-colon"
+                title=" "
+              >
+                 
+              </label>
+            </div>
+            <div
+              class="ant-col ant-form-item-control"
             >
               <div
-                class="ant-space ant-space-horizontal ant-space-align-center"
+                class="ant-form-item-control-input"
               >
                 <div
-                  class="ant-space-item"
-                  style="margin-right: 8px;"
+                  class="ant-form-item-control-input-content"
                 >
-                  <button
-                    class="ant-btn"
-                    type="button"
+                  <div
+                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    style="padding-top: 0px; margin-bottom: 24px;"
                   >
-                    <span>
-                      重 置
-                    </span>
-                  </button>
-                </div>
-                <div
-                  class="ant-space-item"
-                >
-                  <button
-                    class="ant-btn ant-btn-primary"
-                    type="button"
-                  >
-                    <span>
-                      查 询
-                    </span>
-                  </button>
+                    <div
+                      class="ant-space-item"
+                    >
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      >
+                        <div
+                          class="ant-space-item"
+                          style="margin-right: 8px;"
+                        >
+                          <button
+                            class="ant-btn"
+                            type="button"
+                          >
+                            <span>
+                              重 置
+                            </span>
+                          </button>
+                        </div>
+                        <div
+                          class="ant-space-item"
+                        >
+                          <button
+                            class="ant-btn ant-btn-primary"
+                            type="button"
+                          >
+                            <span>
+                              查 询
+                            </span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -7968,7 +7957,6 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="reload"
                           fill="currentColor"
                           focusable="false"
@@ -8000,7 +7988,6 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="column-height"
                           fill="currentColor"
                           focusable="false"
@@ -8030,7 +8017,6 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="setting"
                         fill="currentColor"
                         focusable="false"
@@ -8201,7 +8187,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="reload"
                           fill="currentColor"
                           focusable="false"
@@ -8233,7 +8218,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="column-height"
                           fill="currentColor"
                           focusable="false"
@@ -8263,7 +8247,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="setting"
                         fill="currentColor"
                         focusable="false"
@@ -8452,7 +8435,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="filter"
                                     fill="currentColor"
                                     focusable="false"
@@ -8584,7 +8566,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -8625,7 +8606,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -8800,7 +8780,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -8884,7 +8863,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -8925,7 +8903,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -9100,7 +9077,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -9183,7 +9159,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -9224,7 +9199,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -9399,7 +9373,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -9482,7 +9455,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -9523,7 +9495,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -9698,7 +9669,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -9781,7 +9751,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -9822,7 +9791,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -9997,7 +9965,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -10080,7 +10047,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -10121,7 +10087,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -10296,7 +10261,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -10379,7 +10343,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -10420,7 +10383,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -10595,7 +10557,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -10678,7 +10639,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -10719,7 +10679,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -10894,7 +10853,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -10977,7 +10935,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -11018,7 +10975,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -11193,7 +11149,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -11276,7 +11231,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -11317,7 +11271,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -11492,7 +11445,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -11575,7 +11527,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -11616,7 +11567,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -11791,7 +11741,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -11874,7 +11823,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -11915,7 +11863,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -12090,7 +12037,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -12173,7 +12119,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -12214,7 +12159,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -12389,7 +12333,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -12472,7 +12415,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -12513,7 +12455,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -12688,7 +12629,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -12771,7 +12711,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -12812,7 +12751,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -12987,7 +12925,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -13070,7 +13007,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -13111,7 +13047,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -13286,7 +13221,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -13369,7 +13303,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -13410,7 +13343,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -13585,7 +13517,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -13668,7 +13599,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -13709,7 +13639,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -13884,7 +13813,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -13967,7 +13895,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -14008,7 +13935,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -14183,7 +14109,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -14266,7 +14191,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -14307,7 +14231,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class=""
                                   data-icon="copy"
                                   fill="currentColor"
                                   focusable="false"
@@ -14482,7 +14405,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="ellipsis"
                                     fill="currentColor"
                                     focusable="false"
@@ -14532,7 +14454,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="left"
                       fill="currentColor"
                       focusable="false"
@@ -14576,7 +14497,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="double-left"
                         fill="currentColor"
                         focusable="false"
@@ -14670,7 +14590,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="right"
                       fill="currentColor"
                       focusable="false"
@@ -14734,7 +14653,6 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="down"
                         fill="currentColor"
                         focusable="false"
@@ -14810,7 +14728,6 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
                         >
                           <svg
                             aria-hidden="true"
-                            class=""
                             data-icon="up"
                             fill="currentColor"
                             focusable="false"
@@ -14837,7 +14754,6 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
                         >
                           <svg
                             aria-hidden="true"
-                            class=""
                             data-icon="down"
                             fill="currentColor"
                             focusable="false"
@@ -14881,39 +14797,65 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
           style="padding-left: 8px; padding-right: 8px; text-align: right;"
         >
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center"
-            style="padding-top: 0px; margin-bottom: 24px;"
+            class="ant-row ant-form-item pro-form-query-filter-actions"
           >
             <div
-              class="ant-space-item"
+              class="ant-col ant-form-item-label"
+            >
+              <label
+                class="ant-form-item-no-colon"
+                title=" "
+              >
+                 
+              </label>
+            </div>
+            <div
+              class="ant-col ant-form-item-control"
             >
               <div
-                class="ant-space ant-space-horizontal ant-space-align-center"
+                class="ant-form-item-control-input"
               >
                 <div
-                  class="ant-space-item"
-                  style="margin-right: 8px;"
+                  class="ant-form-item-control-input-content"
                 >
-                  <button
-                    class="ant-btn"
-                    type="button"
+                  <div
+                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    style="padding-top: 0px; margin-bottom: 24px;"
                   >
-                    <span>
-                      重 置
-                    </span>
-                  </button>
-                </div>
-                <div
-                  class="ant-space-item"
-                >
-                  <button
-                    class="ant-btn ant-btn-primary"
-                    type="button"
-                  >
-                    <span>
-                      查 询
-                    </span>
-                  </button>
+                    <div
+                      class="ant-space-item"
+                    >
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      >
+                        <div
+                          class="ant-space-item"
+                          style="margin-right: 8px;"
+                        >
+                          <button
+                            class="ant-btn"
+                            type="button"
+                          >
+                            <span>
+                              重 置
+                            </span>
+                          </button>
+                        </div>
+                        <div
+                          class="ant-space-item"
+                        >
+                          <button
+                            class="ant-btn ant-btn-primary"
+                            type="button"
+                          >
+                            <span>
+                              查 询
+                            </span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -14967,7 +14909,6 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="reload"
                           fill="currentColor"
                           focusable="false"
@@ -14999,7 +14940,6 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="column-height"
                           fill="currentColor"
                           focusable="false"
@@ -15029,7 +14969,6 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="fullscreen"
                           fill="currentColor"
                           focusable="false"
@@ -15356,7 +15295,6 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="left"
                       fill="currentColor"
                       focusable="false"
@@ -15444,7 +15382,6 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="double-right"
                         fill="currentColor"
                         focusable="false"
@@ -15494,7 +15431,6 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="right"
                       fill="currentColor"
                       focusable="false"
@@ -15558,7 +15494,6 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="down"
                         fill="currentColor"
                         focusable="false"
@@ -15597,7 +15532,6 @@ exports[`BasicTable 🎏 page error test 1`] = `
     >
       <svg
         aria-hidden="true"
-        class=""
         data-icon="close-circle"
         fill="currentColor"
         focusable="false"

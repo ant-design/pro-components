@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import React, { useState, ReactElement } from 'react';
-import { Row, Col, Divider } from 'antd';
+import { Row, Col, Form, Divider } from 'antd';
 import { FormProps } from 'antd/lib/form/Form';
 import RcResizeObserver from 'rc-resize-observer';
 import { useIntl } from '@ant-design/pro-provider';
@@ -233,32 +233,41 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
         // totalSpan 统计控件占的位置，计算 offset 保证查询按钮在最后一列
         let totalSpan = 0;
         let lastVisibleItemIndex = items.length - 1;
-        items.forEach((item, index: number) => {
-          // 如果 formItem 自己配置了 hidden，默认使用它自己的
-          let hidden: boolean = (item as ReactElement<{ hidden: boolean }>)?.props?.hidden || false;
-          const colSize = React.isValidElement<any>(item) ? item?.props?.colSize || 1 : 1;
-          const colSpan = Math.min(spanSize.span * colSize, 24);
-
-          if ((collapsed && index >= showLength) || hidden) {
-            hidden = true;
-          } else {
-            if (24 - (totalSpan % 24) < colSpan) {
-              // 如果当前行空余位置放不下，那么折行
-              totalSpan += 24 - (totalSpan % 24);
+        items
+          // 打平 ProForm-Group
+          .flatMap((item: any) => {
+            if (item?.type.displayName === 'ProForm-Group' && !item.props?.title) {
+              return item.props.children;
             }
-            totalSpan += colSpan;
-            lastVisibleItemIndex = index;
-          }
+            return item;
+          })
+          .forEach((item: React.ReactNode, index: number) => {
+            // 如果 formItem 自己配置了 hidden，默认使用它自己的
+            let hidden: boolean =
+              (item as ReactElement<{ hidden: boolean }>)?.props?.hidden || false;
+            const colSize = React.isValidElement<any>(item) ? item?.props?.colSize || 1 : 1;
+            const colSpan = Math.min(spanSize.span * colSize, 24);
 
-          itemsWithInfo.push({
-            span: colSpan,
-            element: item,
-            key: React.isValidElement(item)
-              ? item.key || `${item.props?.name || index}-${index}}`
-              : index,
-            hidden,
+            if ((collapsed && index >= showLength) || hidden) {
+              hidden = true;
+            } else {
+              if (24 - (totalSpan % 24) < colSpan) {
+                // 如果当前行空余位置放不下，那么折行
+                totalSpan += 24 - (totalSpan % 24);
+              }
+              totalSpan += colSpan;
+              lastVisibleItemIndex = index;
+            }
+
+            itemsWithInfo.push({
+              span: colSpan,
+              element: item,
+              key: React.isValidElement(item)
+                ? item.key || `${item.props?.name || index}-${index}}`
+                : index,
+              hidden,
+            });
           });
-        });
         // for split compute
         let currentSpan = 0;
 
@@ -300,19 +309,21 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
                     textAlign: 'right',
                   }}
                 >
-                  <Actions
-                    collapsed={collapsed}
-                    collapseRender={collapseRender || defaultRender}
-                    {...rest}
-                    submitter={submitter}
-                    setCollapsed={setCollapsed}
-                    style={{
-                      // 当表单是垂直布局且提交按钮不是独自在一行的情况下需要设置一个 paddingTop 使得与控件对齐
-                      paddingTop: layout === 'vertical' && totalSpan % 24 ? 30 : 0,
-                      // marginBottom 是为了和 FormItem 统一让下方保留一个 24px 的距离
-                      marginBottom: 24,
-                    }}
-                  />
+                  <Form.Item label=" " colon={false} className="pro-form-query-filter-actions">
+                    <Actions
+                      collapsed={collapsed}
+                      collapseRender={collapseRender || defaultRender}
+                      {...rest}
+                      submitter={submitter}
+                      setCollapsed={setCollapsed}
+                      style={{
+                        // 当表单是垂直布局且提交按钮不是独自在一行的情况下需要设置一个 paddingTop 使得与控件对齐
+                        paddingTop: layout === 'vertical' && totalSpan % 24 ? 30 : 0,
+                        // marginBottom 是为了和 FormItem 统一让下方保留一个 24px 的距离
+                        marginBottom: 24,
+                      }}
+                    />
+                  </Form.Item>
                 </Col>
               )}
             </Row>

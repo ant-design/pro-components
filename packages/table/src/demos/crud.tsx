@@ -124,6 +124,9 @@ export default () => {
               params,
             })
           }
+          pagination={{
+            pageSize: 5,
+          }}
           rowKey="id"
           dateFormatter="string"
           headerTitle="查询 Table"

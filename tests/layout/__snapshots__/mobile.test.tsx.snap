@@ -45,7 +45,6 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="close"
                       fill="currentColor"
                       focusable="false"
@@ -164,7 +163,6 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="menu-fold"
                 fill="currentColor"
                 focusable="false"
@@ -236,7 +234,6 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="close"
                       fill="currentColor"
                       focusable="false"
@@ -355,7 +352,6 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="menu-fold"
                 fill="currentColor"
                 focusable="false"
@@ -427,7 +423,6 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="close"
                       fill="currentColor"
                       focusable="false"
@@ -533,7 +528,6 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="menu-unfold"
                 fill="currentColor"
                 focusable="false"
@@ -605,7 +599,6 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="close"
                       fill="currentColor"
                       focusable="false"
@@ -711,7 +704,6 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="menu-unfold"
                 fill="currentColor"
                 focusable="false"
@@ -783,7 +775,6 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="close"
                       fill="currentColor"
                       focusable="false"
@@ -882,7 +873,6 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="menu-unfold"
                 fill="currentColor"
                 focusable="false"
@@ -954,7 +944,6 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="close"
                       fill="currentColor"
                       focusable="false"
@@ -1063,7 +1052,6 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="menu-fold"
                 fill="currentColor"
                 focusable="false"
@@ -1135,7 +1123,6 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="close"
                       fill="currentColor"
                       focusable="false"
@@ -1244,7 +1231,6 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="menu-fold"
                 fill="currentColor"
                 focusable="false"
