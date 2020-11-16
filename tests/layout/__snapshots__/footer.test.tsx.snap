@@ -30,7 +30,6 @@ exports[`DefaultFooter test copyright support false 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="github"
             fill="currentColor"
             focusable="false"

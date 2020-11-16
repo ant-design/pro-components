@@ -78,6 +78,12 @@ export default () => (
           valueType: 'date',
         },
         {
+          title: '更新时间',
+          key: 'since2',
+          dataIndex: 'createdAt',
+          valueType: 'fromNow',
+        },
+        {
           title: '关闭时间',
           key: 'since3',
           dataIndex: 'updatedAt',

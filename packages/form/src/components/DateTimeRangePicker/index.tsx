@@ -16,16 +16,15 @@ const ProFormDateTimeRangePicker: React.FC<ProFormItemProps<
 >> = React.forwardRef(({ fieldProps, proFieldProps }, ref) => (
   <ProField
     ref={ref}
-    {...proFieldProps}
     text={fieldProps?.value}
     mode="edit"
     fieldProps={fieldProps}
     valueType={valueType}
+    {...proFieldProps}
   />
 ));
 
 export default createField<ProFormItemProps<DatePickerProps>>(ProFormDateTimeRangePicker, {
   valueType,
   customLightMode: true,
-  ignoreFelidWidth: true,
 });

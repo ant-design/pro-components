@@ -28,7 +28,7 @@ group:
 
 ### 栅格布局
 
-当嵌套子卡片时, 组件会自动切换为 `flex` 弹性盒布局。你还可以通过配置 `ghost` 属性为 `true` 方便页内布局。
+当嵌套子卡片时, 组件会自动切换为 `flex` 弹性盒布局，你可以将 `direction`设置为`column`来指定 Flex 方向，你还可以通过配置 `ghost` 属性为 `true` 来去掉背景色和 padding 方便页内布局。
 
  <code src="./demos/colspan.tsx"  background="#f0f2f5" />
 
@@ -128,8 +128,6 @@ group:
 
 <code src="./demos/steps-v.tsx" background="#f0f2f5" />
 
-### 横向步骤条
-
 ## API
 
 | 参数 | 说明 | 类型 | 默认值 |
@@ -143,14 +141,9 @@ group:
 | colSpan | 栅格布局宽度，24 栅格，支持指定宽度 px 或百分比, 支持响应式的对象写法 `{ xs: 8, sm: 16, md: 24}` | `number` \| `string` | 24 |
 | gutter | 数字或使用数组形式同时设置 [水平间距, 垂直间距], 支持响应式的对象写法 `{ xs: 8, sm: 16, md: 24}` | `number` \| `array` | 0 |
 | split | 拆分卡片的方向 | `vertical` \| `horizontal`  | - |
-| bordered | 是否有边框 | `boolean` | false |
-| ghost | 幽灵模式，即是否取消卡片内容区域的 padding 和 卡片的背景颜色。 | `boolean` | false |
-| headerBordered | 页头是否有分割线 | `boolean` | false |
-| collapsed | 受控属性，是否折叠 | `boolean` | false |
-| collapsible | 配置是否可折叠，受控时无效 | `boolean` | false |
-| defaultCollapsed | 默认折叠, 受控时无效 | `boolean` | false |
-| onCollapse | 收起卡片的事件，受控时无效 | `(collapsed: boolean) => void;` | - |
-| tabs | 标签页配置 | 见下面 ProCardTabs | - |
+| type | 卡片类型 | `inner` | - |
+| direction | 指定 Flex 方向，仅在嵌套子卡片时有效，默认方向为 row 横向 | `column` | - |
+| bordered | 是否有边框 | `boolean` | false |  | ghost | 幽灵模式，即是否取消卡片内容区域的 padding 和 卡片的背景颜色。 | `boolean` | false |  | headerBordered | 页头是否有分割线 | `boolean` | false |  | collapsed | 受控属性，是否折叠 | `boolean` | false |  | collapsible | 配置是否可折叠，受控时无效 | `boolean` | false |  | defaultCollapsed | 默认折叠, 受控时无效 | `boolean` | false |  | onCollapse | 收起卡片的事件，受控时无效 | `(collapsed: boolean) => void;` | - |  | tabs | 标签页配置 | 见下面 ProCardTabs | - |
 
 ### ProCardTabs
 

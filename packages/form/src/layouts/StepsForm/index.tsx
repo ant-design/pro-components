@@ -7,6 +7,7 @@ import { StepsProps } from 'antd/lib/steps';
 import classNames from 'classnames';
 import { FormInstance } from 'antd/lib/form';
 import { ButtonProps } from 'antd/lib/button';
+import { useIntl } from '@ant-design/pro-provider';
 
 import StepForm, { StepFormProps } from './StepForm';
 import './index.less';
@@ -18,7 +19,11 @@ type Store = {
 };
 
 interface StepsFormProps<T = Store> extends FormProviderProps {
-  onFinish?: (values: T) => Promise<void>;
+  /**
+   * @name 提交方法
+   * @description 返回 true 会重置步数，并且清空表单
+   */
+  onFinish?: (values: T) => Promise<boolean | void>;
   current?: number;
   stepsProps?: StepsProps;
   formProps?: ProFormProps;
@@ -93,6 +98,7 @@ const StepsForm: React.FC<StepsFormProps> & {
   const formArrayRef = useRef<Array<React.MutableRefObject<FormInstance<any> | undefined>>>([]);
   const [formArray, setFormArray] = useState<string[]>([]);
   const [loading, setLoading] = useState<ButtonProps['loading']>(false);
+  const intl = useIntl();
 
   /**
    * 受控的方式来操作表单
@@ -132,7 +138,7 @@ const StepsForm: React.FC<StepsFormProps> & {
     async (name: string, formData: any) => {
       formDataRef.current.set(name, formData);
       // 如果是最后一步
-      if (step === formArray.length - 1) {
+      if (step === formMapRef.current.size - 1 || formMapRef.current.size === 0) {
         if (!props.onFinish) {
           return;
         }
@@ -143,7 +149,11 @@ const StepsForm: React.FC<StepsFormProps> & {
             ...cur,
           };
         }, {});
-        await props.onFinish(values);
+        const success = await props.onFinish(values);
+        if (success) {
+          setStep(0);
+          formArrayRef.current.forEach((form) => form.current?.resetFields());
+        }
         setLoading(false);
       }
     },
@@ -165,10 +175,12 @@ const StepsForm: React.FC<StepsFormProps> & {
       </Steps>
     </div>
   );
+
   const onSubmit = () => {
     const from = formArrayRef.current[step];
     from.current?.submit();
   };
+
   const next = submitter !== false && (
     <Button
       key="next"
@@ -180,7 +192,7 @@ const StepsForm: React.FC<StepsFormProps> & {
         onSubmit();
       }}
     >
-      下一步
+      {intl.getMessage('stepsForm.next', '下一步')}
     </Button>
   );
 
@@ -194,7 +206,7 @@ const StepsForm: React.FC<StepsFormProps> & {
         submitter?.onReset?.();
       }}
     >
-      上一步
+      {intl.getMessage('stepsForm.prev', '上一步')}
     </Button>
   );
 
@@ -209,7 +221,7 @@ const StepsForm: React.FC<StepsFormProps> & {
         onSubmit();
       }}
     >
-      提交
+      {intl.getMessage('stepsForm.submit', '提交')}
     </Button>
   );
 

@@ -3,9 +3,14 @@ import React, { useRef } from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 import ProForm, {
   ProFormSwitch,
+  ProFormRadio,
+  ProFormCheckbox,
   ProFormUploadButton,
+  ProFormField,
+  ProFormSlider,
   ProFormUploadDragger,
 } from '@ant-design/pro-form';
+import LightWrapper from '../BaseForm/LightWrapper';
 
 const Demo = () => {
   const formRef = useRef();
@@ -16,9 +21,9 @@ const Demo = () => {
         'input-number': 3,
         'checkbox-group': ['A', 'B'],
         rate: 3.5,
+        range: 5,
         name: 'qixian',
       }}
-      // @ts-expect-error
       formRef={formRef}
       onFinish={async (value) => console.log(value)}
     >
@@ -30,6 +35,8 @@ const Demo = () => {
         action="/upload.do"
         extra="longgggggggggggggggggggggggggggggggggg"
       />
+      <ProFormRadio name="test" />
+      <ProFormCheckbox name="test2" />
       <ProFormSwitch width="l" label="是否打开" />
       <ProFormUploadDragger
         title="拖动上传"
@@ -41,6 +48,10 @@ const Demo = () => {
           showUploadList: true,
         }}
       />
+      <LightWrapper valuePropName="value">test</LightWrapper>
+      <LightWrapper valuePropName="value">test</LightWrapper>
+      <ProFormSlider name="range" label="范围" />
+      <ProFormField>test</ProFormField>
     </ProForm>
   );
 };

@@ -4,7 +4,7 @@ import { RightOutlined } from '@ant-design/icons';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { LabelIconTip } from '@ant-design/pro-utils';
 import classNames from 'classnames';
-import { TabPaneProps, TabsProps } from 'antd/lib/tabs';
+import { TabsProps } from 'antd/lib/tabs';
 import CardLoading from './cardLoading';
 import TabPane from './tabPane';
 import './style/index.less';
@@ -21,13 +21,6 @@ type ProCardChildType = React.ReactElement<ProCardProps, ProCardType>;
 type ColSpanType = number | string;
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type Gutter = number | Partial<Record<Breakpoint, number>>;
-
-/**
- * antd 默认直接导出了 rc 组件中的 Tab.Pane 组件。
- */
-type TabPane = TabPaneProps & {
-  key?: string;
-};
 
 export interface ProCardTabsProps extends TabsProps {}
 
@@ -81,6 +74,10 @@ export type ProCardProps = {
    * 卡片类型
    */
   type?: 'inner';
+  /**
+   * 指定 Flex 方向，仅在嵌套子卡片时有效
+   */
+  direction?: 'column';
   /**
    * 加载中
    */
@@ -147,6 +144,7 @@ const ProCard: ProCardType = (props) => {
     bordered = false,
     children,
     ghost = false,
+    direction,
     collapsed: controlCollapsed,
     collapsible = false,
     defaultCollapsed = false,
@@ -282,12 +280,12 @@ const ProCard: ProCardType = (props) => {
   });
 
   const headerCls = classNames(`${prefixCls}-header`, {
-    [`${prefixCls}-header-border`]: headerBordered,
+    [`${prefixCls}-header-border`]: headerBordered || type === 'inner',
   });
 
   const bodyCls = classNames(`${prefixCls}-body`, {
     [`${prefixCls}-body-center`]: layout === 'center',
-    [`${prefixCls}-body-column`]: split === 'horizontal',
+    [`${prefixCls}-body-column`]: split === 'horizontal' || direction === 'column',
   });
 
   const loadingBlockStyle =

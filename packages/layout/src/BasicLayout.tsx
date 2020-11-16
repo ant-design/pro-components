@@ -15,7 +15,7 @@ import { getMatchMenu } from '@umijs/route-utils';
 import Header, { HeaderViewProps } from './Header';
 import { MenuDataItem, MessageDescriptor, Route, RouterTypes, WithFalse } from './typings';
 import { getPageTitleInfo, GetPageTitleProps } from './getPageTitle';
-import defaultSettings, { ProSettings, PureSettings } from './defaultSettings';
+import defaultSettings, { ProSettings } from './defaultSettings';
 import getLocales, { LocaleType } from './locales';
 import { BaseMenuProps } from './SiderMenu/BaseMenu';
 import Footer from './Footer';
@@ -33,16 +33,15 @@ import { clearMenuItem } from './utils/utils';
 
 export type BasicLayoutProps = Partial<RouterTypes<Route>> &
   SiderMenuProps &
-  HeaderViewProps &
-  Partial<PureSettings> & {
+  HeaderViewProps & {
     pure?: boolean;
     /**
-     * logo url
+     *@name logo url
      */
     logo?: React.ReactNode | WithFalse<() => React.ReactNode>;
 
     /**
-     * 页面切换的时候触发
+     *@name 页面切换的时候触发
      */
     onPageChange?: (location?: RouterTypes<Route>['location']) => void;
 
@@ -201,7 +200,7 @@ export type BasicLayoutContext = { [K in 'location']: BasicLayoutProps[K] } & {
 const getPaddingLeft = (
   hasLeftPadding: boolean,
   collapsed: boolean | undefined,
-  siderWidth: number = 208,
+  siderWidth: number,
 ): number | undefined => {
   if (hasLeftPadding) {
     return collapsed ? 48 : siderWidth;
@@ -224,7 +223,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     defaultCollapsed,
     style,
     disableContentMargin,
-    siderWidth,
+    siderWidth = 208,
     menu,
     isChildrenLayout: propsIsChildrenLayout,
     menuDataRender,
@@ -249,10 +248,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
       });
     }
     const locales = getLocales();
-    if (locales[id]) {
-      return locales[id];
-    }
-    return defaultMessage as string;
+    return locales[id] ? locales[id] : (defaultMessage as string);
   };
 
   const [menuInfoData, setMenuInfoData] = useMergedState<{
@@ -263,29 +259,14 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     menuData?: MenuDataItem[];
   }>(() => getMenuData(route?.routes || [], menu, formatMessage, menuDataRender));
 
-  let renderMenuInfoData: {
-    breadcrumb?: {
-      [key: string]: MenuDataItem;
-    };
-    breadcrumbMap?: Map<string, MenuDataItem>;
-    menuData?: MenuDataItem[];
-  } = {};
-  // 如果menuDataRender 存在，就应该每次都render一下，不然无法保证数据的同步
-  if (menuDataRender) {
-    renderMenuInfoData = getMenuData(route?.routes || [], menu, formatMessage, menuDataRender);
-  }
-
-  const { breadcrumb = {}, breadcrumbMap, menuData = [] } = !menuDataRender
-    ? menuInfoData
-    : renderMenuInfoData;
+  const { breadcrumb = {}, breadcrumbMap, menuData = [] } = menuInfoData;
 
   const matchMenus = getMatchMenu(location.pathname || '/', menuData, true);
-  const matchMenuKeys = matchMenus.map((item) => item.key || item.path || '');
+  const matchMenuKeys = Array.from(new Set(matchMenus.map((item) => item.key || item.path || '')));
 
   // 当前选中的menu，一般不会为空
   const currentMenu = (matchMenus[matchMenus.length - 1] || {}) as ProSettings & MenuDataItem;
   const currentMenuLayoutProps = useCurrentMenuLayoutProps(currentMenu);
-
   const { fixSiderbar, navTheme, layout: defaultPropsLayout, ...rest } = {
     ...props,
     ...currentMenuLayoutProps,
@@ -302,15 +283,15 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
    *  只要 routers 没有更新就不需要重新计算
    */
   useDeepCompareEffect(() => {
-    if (!menuDataRender) {
-      const infoData = getMenuData(route?.routes || [], menu, formatMessage, menuDataRender);
-      // 稍微慢一点 render，不然会造成性能问题，看起来像是菜单的卡顿
-      const animationFrameId = requestAnimationFrame(() => {
-        setMenuInfoData(infoData);
-      });
-      return () => window.cancelAnimationFrame && window.cancelAnimationFrame(animationFrameId);
+    if (menu?.loading) {
+      return () => null;
     }
-    return () => null;
+    const infoData = getMenuData(route?.routes || [], menu, formatMessage, menuDataRender);
+    // 稍微慢一点 render，不然会造成性能问题，看起来像是菜单的卡顿
+    const animationFrameId = requestAnimationFrame(() => {
+      setMenuInfoData(infoData);
+    });
+    return () => window.cancelAnimationFrame && window.cancelAnimationFrame(animationFrameId);
   }, [props.route, stringify(menu)]);
 
   // If it is a fix menu, calculate padding
@@ -327,6 +308,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     {
       prefixCls,
       ...props,
+      siderWidth,
       ...currentMenuLayoutProps,
       formatMessage,
       breadcrumb,
@@ -457,29 +439,33 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
           currentMenu,
         }}
       >
-        <div className={className}>
-          <Layout
-            style={{
-              minHeight: '100%',
-              ...style,
-            }}
-            hasSider
-          >
-            {siderMenuDom}
-            <Layout style={genLayoutStyle}>
-              {headerDom}
-              <WrapContent
-                isChildrenLayout={isChildrenLayout}
-                {...rest}
-                className={contentClassName}
-                style={contentStyle}
-              >
-                {loading ? <PageLoading /> : children}
-              </WrapContent>
-              {footerDom}
+        {props.pure ? (
+          children
+        ) : (
+          <div className={className}>
+            <Layout
+              style={{
+                minHeight: '100%',
+                ...style,
+              }}
+              hasSider
+            >
+              {siderMenuDom}
+              <Layout style={genLayoutStyle}>
+                {headerDom}
+                <WrapContent
+                  isChildrenLayout={isChildrenLayout}
+                  {...rest}
+                  className={contentClassName}
+                  style={contentStyle}
+                >
+                  {loading ? <PageLoading /> : children}
+                </WrapContent>
+                {footerDom}
+              </Layout>
             </Layout>
-          </Layout>
-        </div>
+          </div>
+        )}
       </RouteContext.Provider>
     </MenuCounter.Provider>
   );
@@ -488,7 +474,6 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
 BasicLayout.defaultProps = {
   logo: 'https://gw.alipayobjects.com/zos/antfincdn/PmY%24TNNDBI/logo.svg',
   ...defaultSettings,
-  siderWidth: 208,
   location: isBrowser() ? window.location : undefined,
 };
 

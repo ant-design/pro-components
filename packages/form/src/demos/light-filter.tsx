@@ -42,6 +42,7 @@ export default () => {
           name="sex"
           label="性别"
           showSearch
+          allowClear={false}
           valueEnum={{
             man: '男',
             woman: '女',
@@ -63,7 +64,7 @@ export default () => {
         <ProFormText name="name1" label="名称" />
         <ProFormSwitch name="open" label="开关" secondary />
         <ProFormText name="name2" label="地址" secondary />
-        <ProFormDatePicker name="name3" label="日期" />
+        <ProFormDatePicker name="name3" label="不能清空的日期" allowClear={false} />
         <ProFormDateRangePicker name="date" label="日期范围" />
         <ProFormDateTimePicker name="datetime" label="日期时间" />
         <ProFormTimePicker name="time" label="时间" />

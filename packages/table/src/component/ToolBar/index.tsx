@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ReloadOutlined, SettingOutlined } from '@ant-design/icons';
 import { Tooltip } from 'antd';
 import { SearchProps } from 'antd/lib/input';
@@ -9,6 +9,7 @@ import { UseFetchDataAction, RequestData } from '../../useFetchData';
 import './index.less';
 import FullScreenIcon from './FullscreenIcon';
 import DensityIcon from './DensityIcon';
+import Container from '../../container';
 
 export interface OptionConfig<T> {
   density?: boolean;
@@ -45,7 +46,8 @@ export interface ToolBarProps<T = unknown> {
   onSearch?: (keyWords: string) => void;
 }
 
-const getButtonText = <T, U = {}>({
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const getButtonText = <T, _U = {}>({
   intl,
 }: OptionConfig<T> & {
   intl: IntlType;
@@ -73,7 +75,8 @@ const getButtonText = <T, U = {}>({
  * @param options
  * @param className
  */
-const renderDefaultOption = <T, U = {}>(
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const renderDefaultOption = <T, _U = {}>(
   options: ToolBarProps<T>['options'],
   defaultOptions: OptionConfig<T> & {
     intl: IntlType;
@@ -120,7 +123,8 @@ const renderDefaultOption = <T, U = {}>(
     })
     .filter((item) => item);
 
-const ToolBar = <T, U = {}>({
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const ToolBar = <T, _U = {}>({
   headerTitle,
   tooltip,
   toolBarRender,
@@ -139,12 +143,14 @@ const ToolBar = <T, U = {}>({
     search: false,
     fullScreen: () => action.fullScreen && action.fullScreen(),
   };
-
+  const counter = Container.useContainer();
   const options =
     propsOptions !== false
       ? {
           ...defaultOptions,
-          ...(propsOptions || {}),
+          ...(propsOptions || {
+            fullScreen: false,
+          }),
         }
       : false;
 
@@ -156,11 +162,35 @@ const ToolBar = <T, U = {}>({
     }) || [];
   // 操作列表
   const actions = toolBarRender ? toolBarRender(action, { selectedRowKeys, selectedRows }) : [];
+  const getSearchConfig = (search: OptionConfig<any>['search']) => {
+    if (!search) return false;
+
+    /**
+     * 受控的value 和 onChange
+     */
+    const defaultSearchConfig = {
+      value: counter.keyWords,
+      onChange: (e: React.ChangeEvent<HTMLInputElement>) => counter.setKeyWords(e.target.value),
+    };
+
+    if (search === true) return defaultSearchConfig;
+
+    return {
+      ...defaultSearchConfig,
+      ...search,
+    };
+  };
+
+  useEffect(() => {
+    if (counter.keyWords === undefined) {
+      onSearch?.('');
+    }
+  }, [counter.keyWords]);
   return (
     <ListToolBar
       title={headerTitle}
       tip={tooltip || rest.tip}
-      search={options && options.search}
+      search={options && getSearchConfig(options.search)}
       onSearch={onSearch}
       actions={actions}
       settings={optionDom}

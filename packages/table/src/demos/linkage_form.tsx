@@ -15,7 +15,6 @@ const columns: ProColumns<GithubIssueItem>[] = [
     title: '序号',
     dataIndex: 'index',
     valueType: 'indexBorder',
-    width: 72,
   },
   {
     title: '标题',
@@ -54,10 +53,10 @@ const columns: ProColumns<GithubIssueItem>[] = [
       console.log(_);
       console.log({ type, defaultRender, ...rest });
       console.groupEnd();
+      const status = form.getFieldValue('state');
       if (type === 'form') {
         return null;
       }
-      const status = form.getFieldValue('state');
       if (status === 'open') {
         return <Input placeholder="请输入" />;
       }
@@ -104,10 +103,11 @@ export default () => (
     dateFormatter="string"
     headerTitle="动态自定义搜索栏"
     search={{
-      collapsed: false,
+      defaultCollapsed: false,
       optionRender: ({ searchText, resetText }, { form }) => [
         <Button
           key="search"
+          type="primary"
           onClick={() => {
             form?.submit();
           }}

@@ -51,7 +51,6 @@ const columns: ProColumns<TableListItem>[] = [
     title: '状态',
     dataIndex: 'status',
     initialValue: 'all',
-    width: 100,
     filters: true,
     valueEnum: {
       all: { text: '全部', status: 'Default' },
@@ -61,7 +60,6 @@ const columns: ProColumns<TableListItem>[] = [
       error: { text: '异常', status: 'Error' },
     },
   },
-
   {
     title: '进度',
     key: 'progress',
@@ -76,28 +74,12 @@ const columns: ProColumns<TableListItem>[] = [
     key: 'since2',
     dataIndex: 'createdAt',
     valueType: 'date',
-    render: (dom) => {
-      return {
-        children: <a>{dom}</a>,
-        props: {
-          colSpan: 5,
-        },
-      };
-    },
   },
   {
     title: '创建时间',
     key: 'since2',
     dataIndex: 'createdAt',
     valueType: 'dateMonth',
-    render: (dom) => {
-      return {
-        children: <a>{dom}</a>,
-        props: {
-          colSpan: 5,
-        },
-      };
-    },
   },
 ];
 

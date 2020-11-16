@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Card, Menu, Descriptions } from 'antd';
 import ProTable, { ProColumns } from '@ant-design/pro-table';
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+import { MailOutlined } from '@ant-design/icons';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -10,8 +10,6 @@ const waitTime = (time: number = 100) => {
     }, time);
   });
 };
-
-const { SubMenu } = Menu;
 
 export interface TableListItem {
   key: number;
@@ -92,28 +90,6 @@ export default () => {
                 <Menu.Item key="4">Option 4</Menu.Item>
               </Menu.ItemGroup>
             </Menu.SubMenu>
-            <SubMenu key="sub2" icon={<AppstoreOutlined />} title="Navigation Two">
-              <Menu.Item key="5">Option 5</Menu.Item>
-              <Menu.Item key="6">Option 6</Menu.Item>
-              <SubMenu key="sub3" title="Submenu">
-                <Menu.Item key="7">Option 7</Menu.Item>
-                <Menu.Item key="8">Option 8</Menu.Item>
-              </SubMenu>
-            </SubMenu>
-            <SubMenu
-              key="sub4"
-              title={
-                <span>
-                  <SettingOutlined />
-                  <span>Navigation Three</span>
-                </span>
-              }
-            >
-              <Menu.Item key="9">Option 9</Menu.Item>
-              <Menu.Item key="10">Option 10</Menu.Item>
-              <Menu.Item key="11">Option 11</Menu.Item>
-              <Menu.Item key="12">Option 12</Menu.Item>
-            </SubMenu>
           </Menu>
           <div
             style={{
@@ -134,9 +110,6 @@ export default () => {
             </Descriptions.Item>
             <Descriptions.Item label="Creation Time">2017-01-10</Descriptions.Item>
             <Descriptions.Item label="Effective Time">2017-10-10</Descriptions.Item>
-            <Descriptions.Item label="Remarks">
-              Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
-            </Descriptions.Item>
           </Descriptions>
         </Card>
       )}
@@ -151,7 +124,7 @@ export default () => {
         };
       }}
       dateFormatter="string"
-      headerTitle="自定义 table"
+      headerTitle="自定义表格主体"
     />
   );
 };

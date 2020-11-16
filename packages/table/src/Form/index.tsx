@@ -7,6 +7,7 @@ import ProForm, {
   LightFilter,
   ProFormField,
   BaseQueryFilterProps,
+  QueryFilterProps,
 } from '@ant-design/pro-form';
 import classNames from 'classnames';
 import { ProFieldValueType } from '@ant-design/pro-field';
@@ -153,6 +154,7 @@ export const formInputRender: React.FC<{
         ref={ref}
         initialValue={item.initialValue}
         name={item.key || item.dataIndex}
+        params={item.params}
         fieldProps={{
           style: {
             width: undefined,
@@ -223,6 +225,7 @@ export const proFormItemRender: (props: {
     index,
     filters,
     request,
+    params,
     ...rest
   } = item;
 
@@ -240,6 +243,7 @@ export const proFormItemRender: (props: {
     form: formInstance,
     label: getTitle(),
     request,
+    params,
     ...formItemProps,
   });
   if (!dom) {
@@ -249,7 +253,8 @@ export const proFormItemRender: (props: {
   return dom;
 };
 
-const FormSearch = <T, U = any>({
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const FormSearch = <T, _U = any>({
   onSubmit,
   formRef,
   dateFormatter = 'string',
@@ -346,14 +351,13 @@ const FormSearch = <T, U = any>({
       );
       // 以key为主,理论上key唯一
       const finalKey = genColumnKey((key || dataIndex) as string, index);
-      // 如果是() => ValueType
-      const finalValueType = typeof valueType === 'function' ? valueType(item, type) : valueType;
-      tempMap[finalKey] = finalValueType;
-      transformKeyMap[finalKey] =
-        typeof search === 'boolean' || !search
-          ? undefined
-          : (value: any, fieldName: string, target: any) =>
-              search?.transform(value, fieldName, target);
+      // 如果是() => ValueType 需要特殊处理一下
+      tempMap[finalKey] = typeof valueType === 'function' ? valueType(item, type) : valueType;
+
+      if (search !== false && search) {
+        transformKeyMap[finalKey] = (value: any, fieldName: string, target: any) =>
+          search?.transform(value, fieldName, target);
+      }
     });
     // 触发一个 submit，之所以这里触发是为了保证 value 都被 format了
     if (!valueTypeRef.current && type !== 'form') {
@@ -406,7 +410,6 @@ const FormSearch = <T, U = any>({
           isForm,
           formInstance: formInstanceRef.current,
           item: {
-            key: item.dataIndex?.toString() || index,
             index,
             ...item,
           },
@@ -435,7 +438,10 @@ const FormSearch = <T, U = any>({
   const className = getPrefixCls('pro-table-search');
   const formClassName = getPrefixCls('pro-table-form');
 
-  const { Competent, competentName } = getFormCompetent(isForm, searchConfig);
+  const { Competent, competentName } = getFormCompetent(isForm, searchConfig) as {
+    Competent: React.FC<QueryFilterProps>;
+    competentName: string;
+  };
 
   // 传给每个表单的配置，理论上大家都需要
   const loadingProps: any = {
@@ -457,6 +463,7 @@ const FormSearch = <T, U = any>({
         {...loadingProps}
         {...getFromProps(isForm, searchConfig, competentName)}
         {...formConfig}
+        formRef={formInstanceRef}
         form={form}
         onValuesChange={(change, all) => {
           updateDomList(columnsList);

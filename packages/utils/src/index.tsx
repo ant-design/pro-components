@@ -1,5 +1,5 @@
 import LabelIconTip from './components/LabelIconTip';
-import FieldDropdown from './components/FiledDropdown';
+import FilterDropdown from './components/FilterDropdown';
 import FieldLabel from './components/FieldLabel';
 
 import isBrowser from './isBrowser';
@@ -46,7 +46,7 @@ export type {
 
 export {
   LabelIconTip,
-  FieldDropdown,
+  FilterDropdown,
   FieldLabel,
   transformKeySubmitValue,
   conversionSubmitValue,

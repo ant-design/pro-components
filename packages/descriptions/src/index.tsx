@@ -46,7 +46,7 @@ export type ProDescriptionsProps<T = {}> = DescriptionsProps & {
   /**
    * 获取数据的方法
    */
-  request?: (params: { [key: string]: any }) => Promise<RequestData<T>>;
+  request?: (params: { [key: string]: any }) => Promise<RequestData>;
 
   columns?: ProDescriptionsItemProps<T>[];
 
@@ -170,7 +170,7 @@ const ProDescriptionsItem: React.FC<ProDescriptionsItemProps> = (props) => {
 const ProDescriptions = <T extends {}>(props: ProDescriptionsProps<T>) => {
   const { request, columns, params = {}, actionRef, onRequestError, ...rest } = props;
 
-  const action = useFetchData<RequestData<T>>(
+  const action = useFetchData<RequestData>(
     async () => {
       const data = request ? await request(params) : { data: {} };
       return data;

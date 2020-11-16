@@ -18,19 +18,24 @@ export default () => {
         console.log(values);
         message.success('提交成功！');
       }}
+      initialValues={{
+        name: '蚂蚁设计有限公司',
+        useMode: 'chapter',
+      }}
     >
       <ProForm.Group>
         <ProFormText
+          width="m"
           name="name"
           label="签约客户名称"
           tooltip="最长为 24 位"
           placeholder="请输入名称"
         />
-        <ProFormText name="company" label="我方公司名称" placeholder="请输入名称" />
+        <ProFormText width="m" name="company" label="我方公司名称" placeholder="请输入名称" />
       </ProForm.Group>
       <ProForm.Group>
-        <ProFormText name="contract" label="合同名称" placeholder="请输入名称" />
-        <ProFormDateRangePicker name={['contract', 'createTime']} label="合同生效时间" />
+        <ProFormText name="contract" width="m" label="合同名称" placeholder="请输入名称" />
+        <ProFormDateRangePicker width="m" name={['contract', 'createTime']} label="合同生效时间" />
       </ProForm.Group>
       <ProForm.Group>
         <ProFormSelect
@@ -40,6 +45,7 @@ export default () => {
               label: '盖章后生效',
             },
           ]}
+          readonly
           width="xs"
           name="useMode"
           label="合同约定生效方式"
@@ -57,7 +63,7 @@ export default () => {
         />
       </ProForm.Group>
       <ProFormText width="s" name="id" label="主合同编号" />
-      <ProFormText name="project" disabled label="项目名称" initialValue="xxxx项目" />
+      <ProFormText name="project" width="m" disabled label="项目名称" initialValue="xxxx项目" />
       <ProFormText width="xs" name="mangerName" disabled label="商务经理" initialValue="启途" />
     </ProForm>
   );

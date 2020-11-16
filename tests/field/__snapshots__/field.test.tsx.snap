@@ -21,7 +21,6 @@ exports[`Field 🐴 base use 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="up"
           fill="currentColor"
           focusable="false"
@@ -48,7 +47,6 @@ exports[`Field 🐴 base use 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -129,7 +127,6 @@ exports[`Field 🐴 edit and no plain 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="close-circle"
                         fill="currentColor"
                         focusable="false"
@@ -239,7 +236,6 @@ exports[`Field 🐴 edit and no plain 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="swap-right"
                           fill="currentColor"
                           focusable="false"
@@ -279,7 +275,6 @@ exports[`Field 🐴 edit and no plain 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="calendar"
                         fill="currentColor"
                         focusable="false"
@@ -364,7 +359,6 @@ exports[`Field 🐴 edit and no plain 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="up"
                           fill="currentColor"
                           focusable="false"
@@ -391,7 +385,6 @@ exports[`Field 🐴 edit and no plain 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="down"
                           fill="currentColor"
                           focusable="false"
@@ -464,7 +457,6 @@ exports[`Field 🐴 edit and no plain 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="up"
                           fill="currentColor"
                           focusable="false"
@@ -491,7 +483,6 @@ exports[`Field 🐴 edit and no plain 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="down"
                           fill="currentColor"
                           focusable="false"
@@ -587,7 +578,6 @@ exports[`Field 🐴 edit and no plain 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="down"
                         fill="currentColor"
                         focusable="false"
@@ -670,7 +660,6 @@ exports[`Field 🐴 edit and no plain 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="down"
                         fill="currentColor"
                         focusable="false"
@@ -722,7 +711,6 @@ exports[`Field 🐴 edit and no plain 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="up"
                           fill="currentColor"
                           focusable="false"
@@ -749,7 +737,6 @@ exports[`Field 🐴 edit and no plain 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="down"
                           fill="currentColor"
                           focusable="false"
@@ -827,7 +814,6 @@ exports[`Field 🐴 edit and no plain 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="calendar"
                           fill="currentColor"
                           focusable="false"
@@ -885,7 +871,6 @@ exports[`Field 🐴 edit and no plain 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="calendar"
                           fill="currentColor"
                           focusable="false"
@@ -951,7 +936,6 @@ exports[`Field 🐴 edit and no plain 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="swap-right"
                           fill="currentColor"
                           focusable="false"
@@ -991,7 +975,6 @@ exports[`Field 🐴 edit and no plain 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="calendar"
                         fill="currentColor"
                         focusable="false"
@@ -1052,7 +1035,6 @@ exports[`Field 🐴 edit and no plain 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="swap-right"
                           fill="currentColor"
                           focusable="false"
@@ -1092,7 +1074,6 @@ exports[`Field 🐴 edit and no plain 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="calendar"
                         fill="currentColor"
                         focusable="false"
@@ -1153,7 +1134,6 @@ exports[`Field 🐴 edit and no plain 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="clock-circle"
                           fill="currentColor"
                           focusable="false"
@@ -1211,7 +1191,6 @@ exports[`Field 🐴 edit and no plain 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="eye-invisible"
                         fill="currentColor"
                         focusable="false"
@@ -1251,14 +1230,10 @@ exports[`Field 🐴 edit and no plain 1`] = `
               <span
                 class="ant-descriptions-item-content"
               >
-                <div
-                  class="ant-input-textarea"
-                >
-                  <textarea
-                    class="ant-input"
-                    rows="5"
-                  />
-                </div>
+                <textarea
+                  class="ant-input"
+                  rows="5"
+                />
               </span>
             </div>
           </td>
@@ -1277,14 +1252,10 @@ exports[`Field 🐴 edit and no plain 1`] = `
               <span
                 class="ant-descriptions-item-content"
               >
-                <div
-                  class="ant-input-textarea"
-                >
-                  <textarea
-                    class="ant-input"
-                    rows="5"
-                  />
-                </div>
+                <textarea
+                  class="ant-input"
+                  rows="5"
+                />
               </span>
             </div>
           </td>
@@ -1342,7 +1313,6 @@ exports[`Field 🐴 edit and plain 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="close-circle"
                         fill="currentColor"
                         focusable="false"
@@ -1452,7 +1422,6 @@ exports[`Field 🐴 edit and plain 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="swap-right"
                           fill="currentColor"
                           focusable="false"
@@ -1492,7 +1461,6 @@ exports[`Field 🐴 edit and plain 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="calendar"
                         fill="currentColor"
                         focusable="false"
@@ -1577,7 +1545,6 @@ exports[`Field 🐴 edit and plain 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="up"
                           fill="currentColor"
                           focusable="false"
@@ -1604,7 +1571,6 @@ exports[`Field 🐴 edit and plain 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="down"
                           fill="currentColor"
                           focusable="false"
@@ -1677,7 +1643,6 @@ exports[`Field 🐴 edit and plain 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="up"
                           fill="currentColor"
                           focusable="false"
@@ -1704,7 +1669,6 @@ exports[`Field 🐴 edit and plain 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="down"
                           fill="currentColor"
                           focusable="false"
@@ -1800,7 +1764,6 @@ exports[`Field 🐴 edit and plain 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="down"
                         fill="currentColor"
                         focusable="false"
@@ -1883,7 +1846,6 @@ exports[`Field 🐴 edit and plain 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="down"
                         fill="currentColor"
                         focusable="false"
@@ -1935,7 +1897,6 @@ exports[`Field 🐴 edit and plain 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="up"
                           fill="currentColor"
                           focusable="false"
@@ -1962,7 +1923,6 @@ exports[`Field 🐴 edit and plain 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="down"
                           fill="currentColor"
                           focusable="false"
@@ -2040,7 +2000,6 @@ exports[`Field 🐴 edit and plain 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="calendar"
                           fill="currentColor"
                           focusable="false"
@@ -2098,7 +2057,6 @@ exports[`Field 🐴 edit and plain 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="calendar"
                           fill="currentColor"
                           focusable="false"
@@ -2164,7 +2122,6 @@ exports[`Field 🐴 edit and plain 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="swap-right"
                           fill="currentColor"
                           focusable="false"
@@ -2204,7 +2161,6 @@ exports[`Field 🐴 edit and plain 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="calendar"
                         fill="currentColor"
                         focusable="false"
@@ -2265,7 +2221,6 @@ exports[`Field 🐴 edit and plain 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="swap-right"
                           fill="currentColor"
                           focusable="false"
@@ -2305,7 +2260,6 @@ exports[`Field 🐴 edit and plain 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="calendar"
                         fill="currentColor"
                         focusable="false"
@@ -2366,7 +2320,6 @@ exports[`Field 🐴 edit and plain 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="clock-circle"
                           fill="currentColor"
                           focusable="false"
@@ -2424,7 +2377,6 @@ exports[`Field 🐴 edit and plain 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="eye-invisible"
                         fill="currentColor"
                         focusable="false"
@@ -2523,7 +2475,6 @@ exports[`Field 🐴 money valueType is Object 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="up"
           fill="currentColor"
           focusable="false"
@@ -2550,7 +2501,6 @@ exports[`Field 🐴 money valueType is Object 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -2596,7 +2546,7 @@ exports[`Field 🐴 options support dom list 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
+    style="margin-right: 16px;"
   >
     <button
       class="ant-btn"
@@ -2663,7 +2613,6 @@ exports[`Field 🐴 percent valueType is Object 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="up"
           fill="currentColor"
           focusable="false"
@@ -2690,7 +2639,6 @@ exports[`Field 🐴 percent valueType is Object 1`] = `
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="down"
           fill="currentColor"
           focusable="false"
@@ -3258,7 +3206,6 @@ exports[`Field 🐴 read and plain 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="eye-invisible"
                           fill="currentColor"
                           focusable="false"
@@ -3808,7 +3755,6 @@ exports[`Field 🐴 read ant no plain 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="eye-invisible"
                           fill="currentColor"
                           focusable="false"

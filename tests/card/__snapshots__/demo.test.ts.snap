@@ -16,7 +16,7 @@ exports[`card demos renders ./packages/card/src/demos/basic.tsx correctly 1`] = 
       >
         <div
           class="ant-space-item"
-          style="margin-right: 4px;"
+          style="margin-right: 8px;"
         >
           标题
         </div>
@@ -30,7 +30,6 @@ exports[`card demos renders ./packages/card/src/demos/basic.tsx correctly 1`] = 
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="info-circle"
               fill="currentColor"
               focusable="false"
@@ -79,7 +78,7 @@ exports[`card demos renders ./packages/card/src/demos/bordered.tsx correctly 1`]
       >
         <div
           class="ant-space-item"
-          style="margin-right: 4px;"
+          style="margin-right: 8px;"
         >
           标题
         </div>
@@ -93,7 +92,6 @@ exports[`card demos renders ./packages/card/src/demos/bordered.tsx correctly 1`]
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="info-circle"
               fill="currentColor"
               focusable="false"
@@ -145,7 +143,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -193,7 +190,6 @@ Array [
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="right"
             fill="currentColor"
             focusable="false"
@@ -220,37 +216,45 @@ Array [
 exports[`card demos renders ./packages/card/src/demos/colspan.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-pro-card ant-pro-card-border"
+    class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
   >
     <div
-      class="ant-pro-card-body ant-pro-card-body-center"
+      class="ant-pro-card-body ant-pro-card-body-column"
     >
-      colSpan - 24
-    </div>
-  </div>,
-  <div
-    class="ant-pro-card ant-pro-card-span-12 ant-pro-card-border"
-    style="margin-top: 8px;"
-  >
-    <div
-      class="ant-pro-card-body ant-pro-card-body-center"
-    >
-      colSpan - 12
-    </div>
-  </div>,
-  <div
-    class="ant-pro-card ant-pro-card-span-8 ant-pro-card-border"
-    style="margin-top: 8px;"
-  >
-    <div
-      class="ant-pro-card-body ant-pro-card-body-center"
-    >
-      colSpan - 8
+      <div
+        class="ant-pro-card ant-pro-card-border"
+        style="margin-bottom: 8px;"
+      >
+        <div
+          class="ant-pro-card-body ant-pro-card-body-center"
+        >
+          colSpan - 24
+        </div>
+      </div>
+      <div
+        class="ant-pro-card ant-pro-card-span-12 ant-pro-card-border"
+        style="margin-bottom: 8px;"
+      >
+        <div
+          class="ant-pro-card-body ant-pro-card-body-center"
+        >
+          colSpan - 12
+        </div>
+      </div>
+      <div
+        class="ant-pro-card ant-pro-card-span-8 ant-pro-card-border"
+        style="margin-bottom: 8px;"
+      >
+        <div
+          class="ant-pro-card-body ant-pro-card-body-center"
+        >
+          colSpan - 8
+        </div>
+      </div>
     </div>
   </div>,
   <div
     class="ant-pro-card ant-pro-card-contain-card"
-    style="margin-top: 8px;"
   >
     <div
       class="ant-pro-card-header"
@@ -376,7 +380,6 @@ exports[`card demos renders ./packages/card/src/demos/group.tsx correctly 1`] = 
       >
         <svg
           aria-hidden="true"
-          class=""
           data-icon="right"
           fill="currentColor"
           focusable="false"
@@ -570,7 +573,7 @@ exports[`card demos renders ./packages/card/src/demos/headerBordered.tsx correct
       >
         <div
           class="ant-space-item"
-          style="margin-right: 4px;"
+          style="margin-right: 8px;"
         >
           标题
         </div>
@@ -584,7 +587,6 @@ exports[`card demos renders ./packages/card/src/demos/headerBordered.tsx correct
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="info-circle"
               fill="currentColor"
               focusable="false"
@@ -631,69 +633,136 @@ exports[`card demos renders ./packages/card/src/demos/headless.tsx correctly 1`]
 `;
 
 exports[`card demos renders ./packages/card/src/demos/inner.tsx correctly 1`] = `
-<div
-  class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card"
->
+Array [
   <div
-    class="ant-pro-card-header ant-pro-card-header-border"
+    class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card"
   >
     <div
-      class="ant-pro-card-title"
+      class="ant-pro-card-header ant-pro-card-header-border"
     >
-      卡片标题
+      <div
+        class="ant-pro-card-title"
+      >
+        横向内部卡片
+      </div>
+      <div
+        class="ant-pro-card-extra"
+      />
     </div>
     <div
-      class="ant-pro-card-extra"
-    />
-  </div>
+      class="ant-pro-card-body"
+    >
+      <div
+        class="ant-pro-card ant-pro-card-border ant-pro-card-type-inner"
+        style="margin-right: 16px;"
+      >
+        <div
+          class="ant-pro-card-header ant-pro-card-header-border"
+        >
+          <div
+            class="ant-pro-card-title"
+          >
+            内部卡片标题
+          </div>
+          <div
+            class="ant-pro-card-extra"
+          />
+        </div>
+        <div
+          class="ant-pro-card-body"
+        >
+          内部卡片内容
+        </div>
+      </div>
+      <div
+        class="ant-pro-card ant-pro-card-border ant-pro-card-type-inner"
+      >
+        <div
+          class="ant-pro-card-header ant-pro-card-header-border"
+        >
+          <div
+            class="ant-pro-card-title"
+          >
+            内部卡片标题
+          </div>
+          <div
+            class="ant-pro-card-extra"
+          />
+        </div>
+        <div
+          class="ant-pro-card-body"
+        >
+          内部卡片内容
+        </div>
+      </div>
+    </div>
+  </div>,
   <div
-    class="ant-pro-card-body"
+    class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card"
+    style="margin-top: 8px;"
   >
     <div
-      class="ant-pro-card ant-pro-card-border ant-pro-card-type-inner"
+      class="ant-pro-card-header ant-pro-card-header-border"
     >
       <div
-        class="ant-pro-card-header ant-pro-card-header-border"
+        class="ant-pro-card-title"
       >
-        <div
-          class="ant-pro-card-title"
-        >
-          内部卡片标题
-        </div>
-        <div
-          class="ant-pro-card-extra"
-        />
+        竖向内部卡片
       </div>
       <div
-        class="ant-pro-card-body"
-      >
-        内部卡片内容
-      </div>
+        class="ant-pro-card-extra"
+      />
     </div>
     <div
-      class="ant-pro-card ant-pro-card-border ant-pro-card-type-inner"
-      style="margin-left: 16px;"
+      class="ant-pro-card-body ant-pro-card-body-column"
     >
       <div
-        class="ant-pro-card-header ant-pro-card-header-border"
+        class="ant-pro-card ant-pro-card-border ant-pro-card-type-inner"
+        style="margin-bottom: 16px;"
       >
         <div
-          class="ant-pro-card-title"
+          class="ant-pro-card-header ant-pro-card-header-border"
         >
-          内部卡片标题
+          <div
+            class="ant-pro-card-title"
+          >
+            内部卡片标题
+          </div>
+          <div
+            class="ant-pro-card-extra"
+          />
         </div>
         <div
-          class="ant-pro-card-extra"
-        />
+          class="ant-pro-card-body"
+        >
+          内部卡片内容
+        </div>
       </div>
       <div
-        class="ant-pro-card-body"
+        class="ant-pro-card ant-pro-card-border ant-pro-card-type-inner"
+        style="margin-bottom: 16px;"
       >
-        内部卡片内容
+        <div
+          class="ant-pro-card-header ant-pro-card-header-border"
+        >
+          <div
+            class="ant-pro-card-title"
+          >
+            内部卡片标题
+          </div>
+          <div
+            class="ant-pro-card-extra"
+          />
+        </div>
+        <div
+          class="ant-pro-card-body"
+        >
+          内部卡片内容
+        </div>
       </div>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`card demos renders ./packages/card/src/demos/layout.tsx correctly 1`] = `
@@ -1650,7 +1719,6 @@ exports[`card demos renders ./packages/card/src/demos/tabs.tsx correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="down"
               fill="currentColor"
               focusable="false"
@@ -1742,7 +1810,6 @@ exports[`card demos renders ./packages/card/src/demos/tabs.tsx correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="ellipsis"
                   fill="currentColor"
                   focusable="false"
@@ -1875,7 +1942,6 @@ exports[`card demos renders ./packages/card/src/demos/tabs-card.tsx correctly 1`
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="ellipsis"
                 fill="currentColor"
                 focusable="false"

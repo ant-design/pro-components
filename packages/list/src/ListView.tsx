@@ -4,28 +4,28 @@ import { GetRowKey } from 'antd/lib/table/interface';
 import { ListProps } from 'antd/lib/list';
 import { ColumnType, TableProps } from 'antd/es/table';
 import get from 'rc-util/lib/utils/get';
-import useSelection from './hooks/useSelection';
-import useLazyKVMap from './hooks/useLazyKVMap';
-import usePagination from './hooks/usePagination';
+import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
+import useSelection from 'antd/lib/table/hooks/useSelection';
+import usePagination from 'antd/lib/table/hooks/usePagination';
 import ProListItem from './Item';
-import { PRO_LIST_KEYS } from './constans';
+import { PRO_LIST_KEYS } from './constants';
 
 type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 type Key = React.Key;
 type TriggerEventHandler<RecordType> = (record: RecordType) => void;
 
-export interface ListViewProps<RecordType>
-  extends AntdListProps<RecordType>,
-    Pick<TableProps<RecordType>, 'columns' | 'dataSource' | 'expandable'> {
-  rowKey?: string | GetRowKey<RecordType>;
-  showActions?: 'hover' | 'always';
-  rowSelection?: TableProps<RecordType>['rowSelection'];
-  prefixCls: string;
-}
+export type ListViewProps<RecordType> = AntdListProps<RecordType> &
+  Pick<TableProps<RecordType>, 'columns' | 'dataSource' | 'expandable'> & {
+    rowKey?: string | GetRowKey<RecordType>;
+    showActions?: 'hover' | 'always';
+    rowSelection?: TableProps<RecordType>['rowSelection'];
+    prefixCls: string;
+    dataSource: RecordType[];
+  };
 
 function ListView<RecordType>(props: ListViewProps<RecordType>) {
   const {
-    dataSource = [],
+    dataSource,
     columns,
     rowKey,
     showActions,
@@ -47,7 +47,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
   const [getRecordByKey] = useLazyKVMap(dataSource, 'children', getRowKey);
 
   // 合并分页的的配置
-  const [mergedPagination] = usePagination(dataSource.length, pagination, () => {});
+  const [mergedPagination] = usePagination(dataSource.length, pagination as any, () => {});
   /**
    * 根据分页来回去不同的数据，模拟 table
    */
@@ -139,13 +139,13 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
    * 为了兼容 antd 的 table,用了同样的渲染逻辑
    * 所以看起来有点奇怪
    */
-  const selectItemDom = selectItemRender();
+  const selectItemDom = selectItemRender([])[0];
 
   return (
     <List<RecordType>
       {...rest}
       dataSource={pageData}
-      pagination={pagination && mergedPagination}
+      pagination={pagination && (mergedPagination as ListViewProps<RecordType>['pagination'])}
       renderItem={(item, index) => {
         const listItemProps = {};
         columns?.forEach((column: ColumnType<RecordType>) => {
@@ -159,6 +159,11 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
             }
           });
         });
+
+        let checkboxDom;
+        if (selectItemDom && selectItemDom.render) {
+          checkboxDom = selectItemDom.render(item, item, index);
+        }
         return (
           <ProListItem
             {...listItemProps}
@@ -170,9 +175,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
             showActions={showActions}
             rowSupportExpand={!rowExpandable || (rowExpandable && rowExpandable(item))}
             selected={selectedKeySet.has(getRowKey(item, index))}
-            checkbox={
-              selectItemDom && selectItemDom.render && selectItemDom?.render(item, item, index)
-            }
+            checkbox={checkboxDom}
           />
         );
       }}

@@ -118,4 +118,16 @@ describe('BasicLayout', () => {
     expect(domHeader.exists()).toBeFalsy();
     wrapper.unmount();
   });
+
+  it('pageHeaderRender is false', async () => {
+    const wrapper = mount(
+      <ProLayout {...defaultProps} layout="top">
+        <PageContainer title="name" pageHeaderRender={false} />
+      </ProLayout>,
+    );
+    await waitForComponentToPaint(wrapper);
+    const domHeader = wrapper.find('ant-page-header');
+    expect(domHeader.exists()).toBeFalsy();
+    wrapper.unmount();
+  });
 });

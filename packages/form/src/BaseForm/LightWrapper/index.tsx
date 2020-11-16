@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import classNames from 'classnames';
-import { FieldDropdown, FieldLabel, isDropdownValueType } from '@ant-design/pro-utils';
+import { FilterDropdown, FieldLabel, isDropdownValueType } from '@ant-design/pro-utils';
 import { SizeType } from 'antd/lib/config-provider/SizeContext';
 import { ConfigProvider } from 'antd';
 
@@ -16,7 +16,7 @@ export interface LightWrapperProps {
   style?: React.CSSProperties;
   className?: string;
   children?: React.ReactNode;
-  valuePropName?: string;
+  valuePropName: string;
   customLightMode?: boolean;
   light?: boolean;
   id?: string;
@@ -33,7 +33,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
     className,
     style,
     children,
-    valuePropName = 'value',
+    valuePropName,
     light,
     customLightMode,
     placeholder,
@@ -71,8 +71,13 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
     return children as JSX.Element;
   }
 
+  let allowClear;
+  if (children && React.isValidElement(children)) {
+    allowClear = children.props.fieldProps?.allowClear;
+  }
+
   return (
-    <FieldDropdown
+    <FilterDropdown
       disabled={disabled}
       onVisibleChange={setOpen}
       visible={open}
@@ -81,9 +86,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
           ellipsis
           size={size}
           onClear={() => {
-            if (onChange) {
-              onChange();
-            }
+            onChange?.();
             setTempValue(undefined);
           }}
           bordered={bordered}
@@ -95,16 +98,13 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
           disabled={disabled}
           expanded={open}
           formatter={labelFormatter}
+          allowClear={allowClear}
         />
       }
       footer={{
-        onClear: () => {
-          setTempValue(undefined);
-        },
+        onClear: () => setTempValue(undefined),
         onConfirm: () => {
-          if (onChange) {
-            onChange(tempValue);
-          }
+          onChange?.(tempValue);
           setOpen(false);
         },
       }}
@@ -121,12 +121,13 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
                 onChange: (e: any) => {
                   setTempValue(e?.target ? e.target.value : e);
                 },
+                allowClear,
                 ...children.props.fieldProps,
               },
             })
           : children}
       </div>
-    </FieldDropdown>
+    </FilterDropdown>
   );
 };
 

@@ -24,12 +24,52 @@ ProLayout 扩展了 umi 的 router 配置，新增了 name，icon，locale,hideI
 
 ```ts | pure
 export interface MenuDataItem {
+  /**
+   * @name 子菜单
+   */
+  children?: MenuDataItem[];
+  /**
+   * @name 在菜单中隐藏子节点
+   */
   hideChildrenInMenu?: boolean;
+  /**
+   * @name 在菜单中隐藏自己和子节点
+   */
   hideInMenu?: boolean;
-  icon?: string;
-  locale?: string;
+  /**
+   * @name 菜单的icon
+   */
+  icon?: React.ReactNode;
+  /**
+   * @name 自定义菜单的国际化 key
+   */
+  locale?: string | false;
+  /**
+   * @name 菜单的名字
+   */
   name?: string;
-  path: string;
+  /**
+   * @name 用于标定选中的值，默认是 path
+   */
+  key?: string;
+  /**
+   * @name disable 菜单选项
+   */
+  disabled?: boolean;
+  /**
+   * @name 路径
+   */
+  path?: string;
+  /**
+   * @name 自定义父节点
+   * @description 当此节点被选中的时候也会选中 parentKeys 的节点
+   */
+  parentKeys?: string[];
+  /**
+   * @name 隐藏自己，并且将子节点提升到与自己平级
+   */
+  flatMenu?: boolean;
+
   [key: string]: any;
 }
 ```
@@ -40,7 +80,7 @@ ProLayout 会根据 `location.pathname` 来自动选中菜单，并且自动生�
 
 ### 基础使用
 
-<code src="./demos/base.tsx" />
+<code src="./demos/base.tsx" iframe="650px" />
 
 ### 从服务器加载 menu
 
@@ -48,115 +88,100 @@ ProLayout 提供了强大的 menu，但是这样必然会封装很多行为，�
 
 从服务器加载 menu 主要使用的 API 是 `menuDataRender` 和 `menuRender`,`menuDataRender`可以控制当前的菜单数据，`menuRender`可以控制菜单的 dom 节点。
 
-<code src="./demos/dynamicMenu.tsx" />
+<code src="./demos/dynamicMenu.tsx" iframe="500px" />
 
 ### 从服务器加载 menu 并且使用 icon
 
 这里主要是一个演示，我们需要准备一个枚举来进行 icon 的渲染，可以显著的减少打包的大小
 
-<code src="./demos/antd@4MenuIconFormServe.tsx" />
-
-### 从服务器加载 menu 并且使用旧版本 icon
-
-使用兼容包来实现，虽然比较简单，但是会造成打包太大
-
-<code src="./demos/antd@3MenuIconFormServe.tsx" />
+<code src="./demos/antd@4MenuIconFormServe.tsx" iframe="500px" />
 
 ### 自定义 menu 的内容
 
 通过 `menuItemRender`, `subMenuItemRender`,`title`,`logo`,`menuHeaderRender` 可以非常方便的自定义 menu 的样式。如果实在是不满意，可以使用 `menuRender` 完全的自定义。
 
-<code src="./demos/customizeMenu.tsx" />
-
-### 关闭时完全收起 menu
-
-<code src="./demos/hideMenu.tsx" />
+<code src="./demos/customizeMenu.tsx" iframe="500px" />
 
 ### 自定义页脚
 
 ProLayout 默认不提供页脚，要是和 Pro 官网相同的样式，需要自己引入一下页脚。
 
-<code src="./demos/footer.tsx" />
+<code src="./demos/footer.tsx" iframe="500px" />
 
 这里用于展示 ProLayout 的各种应用，如果你觉得你的用法能帮助到别人，欢迎 PR。
 
 ### 搜索菜单
 
-<code src="./demos/searchMenu.tsx" />
+<code src="./demos/searchMenu.tsx" iframe="500px" />
 
 ### 多个路由对应一个菜单项
 
-<code src="./demos/MultipleMenuOnePath.tsx" />
+<code src="./demos/MultipleMenuOnePath.tsx" iframe="500px" />
 
 ### 默认打开所有菜单
 
-<code src="./demos/DefaultOpenAllMenu.tsx" />
+<code src="./demos/DefaultOpenAllMenu.tsx" iframe="500px" />
 
-### 带参数的面包屑
+### 使用 IconFont
 
-<code src="./demos/BreadcrumbsRepeat.tsx" />
-
-### IconFont
-
-<code src="./demos/IconFont.tsx" />
+<code src="./demos/IconFont.tsx" iframe="500px" />
 
 ### 嵌套布局
 
-<code src="./demos/Nested.tsx" />
-
-### 嵌套布局二
-
-<code src="./demos/TopmenuNested.tsx" />
+<code src="./demos/Nested.tsx" iframe="500px" />
 
 ## API
+
+### ProLayout
 
 > 所有以 `Render` 后缀的方法都可以通过传入 `false` 来使其不渲染。
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| title | layout 的左上角 的 title | ReactNode | `'Ant Design Pro'` |
-| logo | layout 的左上角 logo 的 url | ReactNode \| ()=>ReactNode | - |
-| pure | 是否删除掉所有的自带界面 | boolean | - |
-| loading | layout 的加载态 | boolean | - |
+| title | layout 的左上角 的 title | `ReactNode` | `'Ant Design Pro'` |
+| logo | layout 的左上角 logo 的 url | `ReactNode` \| `()=> ReactNode` | - |
+| pure | 是否删除掉所有的自带界面 | `boolean` | - |
+| loading | layout 的加载态 | `boolean` | - |
 | location | 当前应用会话的位置信息。如果你的应用创建了自定义的 history，则需要显示指定 location 属性，详见 [issue](https://github.com/ant-design/pro-components/issues/327) | [history.location](https://reactrouter.com/web/api/history) | isBrowser ? window.location : undefined |
-| menuHeaderRender | 渲染 logo 和 title | ReactNode \| (logo,title)=>ReactNode | - |
+| menuHeaderRender | 渲染 logo 和 title | `ReactNode` \| `(logo,title)=>ReactNode` | - |
 | menuFooterRender | 在 layout 底部渲染一个块 | `(menuProps)=>ReactNode` | - |
 | onMenuHeaderClick | menu 菜单的头部点击事件 | `(e: React.MouseEvent<HTMLDivElement>) => void` | - |
+| menuExtraRender | 在菜单标题的下面渲染一个区域 | `(menuProps)=>ReactNode` | - |
 | onTopMixMenuHeaderClick | mix 模式下顶部栏的头部点击事件 | `(e: React.MouseEvent<HTMLDivElement>) => void` | - |
 | contentStyle | layout 的内容区 style | CSSProperties | - |
-| layout | layout 的菜单模式,side：右侧导航，top：顶部导航 | 'side' \| 'top' | `'side'` |
-| contentWidth | layout 的内容模式,Fluid：自适应，Fixed：定宽 1200px | 'Fluid' \| 'Fixed' | `'Fluid'` |
-| navTheme | 导航的主题，side 和 mix 模式下是左侧菜单的主题，top 模式下是顶部菜单 | 'light' \| 'dark' | `'dark'` |
-| headerTheme | 顶部导航的主题，mix 模式生效 | 'light' \| 'dark' | `'dark'` |
-| fixedHeader | 是否固定 header 到顶部 | boolean | `false` |
+| layout | layout 的菜单模式,side：右侧导航，top：顶部导航 | `side` \| `top` | `side` |
+| contentWidth | layout 的内容模式,Fluid：自适应，Fixed：定宽 1200px | `Fluid` \| `Fixed` | `Fluid` |
+| navTheme | 导航的主题，side 和 mix 模式下是左侧菜单的主题，top 模式下是顶部菜单 | `light` \| `dark` | `dark` |
+| headerTheme | 顶部导航的主题，mix 模式生效 | `light` \| `dark` | `dark` |
+| fixedHeader | 是否固定 header 到顶部 | `boolean` | `false` |
 | fixSiderbar | 是否固定导航 | boolean | `false` |
 | breakpoint | 触发响应式布局的[断点](https://ant.design/components/grid-cn/#Col) | `Enum { 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' }` | `lg` |
 | menu | 关于 menu 的配置，暂时只有 locale,locale 可以关闭 menu 的自带的全球化 | { locale: boolean, defaultOpenAll: boolean } | `{ locale: true }` |
-| iconfontUrl | 使用 [IconFont](https://ant.design/components/icon-cn/#components-icon-demo-iconfont) 的图标配置 | string | - |
-| locale | 当前 layout 的语言设置 | 'zh-CN' \| 'zh-TW' \| 'en-US' | navigator.language |
+| iconfontUrl | 使用 [IconFont](https://ant.design/components/icon-cn/#components-icon-demo-iconfont) 的图标配置 | `URL` | - |
+| locale | 当前 layout 的语言设置 | `zh-CN` \| `zh-TW` \| `en-US` | navigator.language |
 | settings | layout 的设置 | [`Settings`](#Settings) | [`Settings`](#Settings) | - |
-| siderWidth | 侧边菜单宽度 | number | 208 |
-| defaultCollapsed | 默认的菜单的收起和展开 | boolean | - |
-| collapsed | 控制菜单的收起和展开 | boolean | - |
-| onCollapse | 菜单的折叠收起事件 | (collapsed: boolean) => void | - |
-| onPageChange | 页面切换时触发 | (location: Location) => void | - |
-| headerRender | 自定义头的 render 方法 | (props: BasicLayoutProps) => ReactNode | - |
-| headerTitleRender | 自定义头标题的方法,mix 模式下生效 | (props: BasicLayoutProps) => ReactNode | - |
-| headerContentRender | 自定义头内容的方法 | (props: BasicLayoutProps) => ReactNode | - |
-| rightContentRender | 自定义头右部的 render 方法 | (props: HeaderViewProps) => ReactNode | - |
-| collapsedButtonRender | 自定义 collapsed button 的方法 | (collapsed: boolean) => ReactNode | - |
-| footerRender | 自定义页脚的 render 方法 | (props: BasicLayoutProps) => ReactNode | - |
-| pageTitleRender | 自定义页面标题的显示方法 | (props: BasicLayoutProps) => ReactNode | - |
-| menuRender | 自定义菜单的 render 方法 | (props: HeaderViewProps) => ReactNode | - |
+| siderWidth | 侧边菜单宽度 | `number` | 208 |
+| defaultCollapsed | 默认的菜单的收起和展开 | `boolean` | - |
+| collapsed | 控制菜单的收起和展开 | `boolean` | - |
+| onCollapse | 菜单的折叠收起事件 | `(collapsed: boolean) => void` | - |
+| onPageChange | 页面切换时触发 | `(location: Location) => void` | - |
+| headerRender | 自定义头的 render 方法 | `(props: BasicLayoutProps) => ReactNode` | - |
+| headerTitleRender | 自定义头标题的方法,mix 模式下生效 | `(props: BasicLayoutProps) => ReactNode` | - |
+| headerContentRender | 自定义头内容的方法 | `(props: BasicLayoutProps) => ReactNode` | - |
+| rightContentRender | 自定义头右部的 render 方法 | `(props: HeaderViewProps) => ReactNode` | - |
+| collapsedButtonRender | 自定义 collapsed button 的方法 | `(collapsed: boolean) => ReactNode` | - |
+| footerRender | 自定义页脚的 render 方法 | `(props: BasicLayoutProps) => ReactNode` | - |
+| pageTitleRender | 自定义页面标题的显示方法 | `(props: BasicLayoutProps) => ReactNode` | - |
+| menuRender | 自定义菜单的 render 方法 | `(props: HeaderViewProps) => ReactNode` | - |
 | postMenuData | 在显示前对菜单数据进行查看，修改不会触发重新渲染 | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
-| menuItemRender | 自定义菜单项的 render 方法 | [(itemProps: MenuDataItem) => ReactNode](#MenuDataItem) | - |
-| subMenuItemRender | 自定义拥有子菜单菜单项的 render 方法 | [(itemProps: MenuDataItem) => ReactNode](#MenuDataItem) | - |
+| menuItemRender | 自定义菜单项的 render 方法 | [`(itemProps: MenuDataItem) => ReactNode`](/components/layout/#menudataitem) | - |
+| subMenuItemRender | 自定义拥有子菜单菜单项的 render 方法 | [`(itemProps: MenuDataItem) => ReactNode`](/components/layout/#menudataitem) | - |
 | menuDataRender | menuData 的 render 方法，用来自定义 menuData | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
-| breadcrumbRender | 自定义面包屑的数据 | (route)=>route | - |
+| breadcrumbRender | 自定义面包屑的数据 | `(route)=>route` | - |
 | route | 用于生成菜单和面包屑。umi 的 Layout 会自动带有 | [route](#Route) | - |
-| disableMobile | 禁止自动切换到移动页面 | boolean | false |
-| links | 显示在菜单右下角的快捷操作 | ReactNode[] | - |
-| menuProps | 传递到 antd menu 组件的 props, 参考 (https://ant.design/components/menu-cn/) | MenuProps | undefined |
+| disableMobile | 禁止自动切换到移动页面 | `boolean` | false |
+| links | 显示在菜单右下角的快捷操作 | `ReactNode[]` | - |
+| menuProps | 传递到 antd menu 组件的 props, 参考 (https://ant.design/components/menu-cn/) | `MenuProps` | undefined |
 
 在 4.5.13 以后 Layout 通过 `menuProps` 支持 [Menu](https://ant.design/components/menu-cn/#Menu) 的大部分 props。
 
@@ -168,7 +193,7 @@ ProLayout 默认不提供页脚，要是和 Pro 官网相同的样式，需要�
 | --- | --- | --- | --- |
 | settings | layout 的设置 | [`Settings`](#Settings) | [`Settings`](#Settings) | - |
 | onSettingChange | [`Settings`](#Settings) 发生更改事件 | (settings: [`Settings`](#Settings) ) => void | - |
-| hideHintAlert | 删除下方的提示信息 | boolean | - |
+| hideHintAlert | 删除下方的提示信息 | `boolean` | - |
 
 ### PageContainer
 
@@ -178,13 +203,13 @@ PageContainer 封装了 ant design 的 PageHeader 组件，增加了 tabList 和
 | --- | --- | --- | --- |
 | content | 内容区 | ReactNode | - |
 | extraContent | 额外内容区，位于 content 的右侧 | ReactNode | - |
-| tabList | tab 标题列表 | `Array<{key: string, tab: ReactNode}>` | - |
+| tabList | tab 标题列表 | `{key: string, tab: ReactNode}[]` | - |
 | tabActiveKey | 当前高亮的 tab 项 | string | - |
 | onTabChange | 切换面板的回调 | `(key) => void` | - |
-| tabBarExtraContent | tab bar 上额外的元素 | React.ReactNode | - |
-| header | [PageHeader](https://ant.design/components/page-header-cn/) 的所有属性。 | PageHeaderProps | - |
-| fixedHeader | 固定 pageHeader 的内容到顶部，如果页面内容较少，最好不要使用，会有严重的遮挡问题 | boolean | - |
-| affixProps | 固钉的配置，与 antd 完全相同 | AffixProps | - |
+| tabBarExtraContent | tab bar 上额外的元素 | `React.ReactNode` | - |
+| header | [PageHeader](https://ant.design/components/page-header-cn/) 的所有属性。 | `PageHeaderProps` | - |
+| fixedHeader | 固定 pageHeader 的内容到顶部，如果页面内容较少，最好不要使用，会有严重的遮挡问题 | `boolean` | - |
+| affixProps | 固钉的配置，与 antd 完全相同 | `AffixProps` | - |
 
 > fixedHeader 使用了 antd 的 Affix 实现，默认监听 body，如果你的滚动条不在 body 上需要人肉[设置](https://ant.design/components/affix-cn/)一下。
 
@@ -250,7 +275,7 @@ GridContent 封装了 [等宽](https://preview.pro.ant.design/dashboard/analysis
 
 | 参数         | 说明     | 类型               | 默认值 |
 | ------------ | -------- | ------------------ | ------ |
-| contentWidth | 内容模式 | 'Fluid' \| 'Fixed' | -      |
+| contentWidth | 内容模式 | `Fluid` \| `Fixed` | -      |
 
 ### getMenuData
 
@@ -494,4 +519,4 @@ export interface MenuDataItem {
 
 有些时候我们希望服务器来管理我们的路由，所以希望菜单时服务器进行分发的数据。我们提供了 `menuDataRender` 来进行修改数据，但是要注意 `menuDataRender` 会触发重新渲染，并且还会支持的国际化和权限的配置，如果你不需要国际化，建议使用 `postMenuData` 可以显著的提升性能。
 
-服务器需要返回的数据与 `MenuDataItem` 相同，`menuDataRender` 需要返回一个数组，如果你想拥有更好的性能可以试试使用 props 中的 route 属性，这里有个 [demo](/menu)。
+服务器需要返回的数据与 `MenuDataItem` 相同，`menuDataRender` 需要返回一个数组，如果你想拥有更好的性能可以试试使用 props 中的 route 属性，这里有个 [demo](/components/layout#从服务器获取)。

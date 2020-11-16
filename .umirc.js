@@ -38,7 +38,42 @@ export default {
       },
     ],
   ],
+  metas: [
+    {
+      property: 'og:site_name',
+      content: 'ProComponents',
+    },
+    {
+      'data-rh': 'keywords',
+      property: 'og:image',
+      content: 'https://procomponents.ant.design/icon.png',
+    },
+    {
+      property: 'og:description',
+      content: '🏆 Use Ant Design like a Pro!',
+    },
+    {
+      name: 'keywords',
+      content: '中后台,admin,Ant Design,ant design,Table,react,alibaba',
+    },
+    {
+      name: 'description',
+      content: '🏆 Use Ant Design like a Pro! 包含 table form 等多个组件。',
+    },
+    {
+      name: 'apple-mobile-web-app-capable',
+      content: 'yes',
+    },
+    {
+      name: 'apple-mobile-web-app-status-bar-style"',
+      content: 'black-translucent',
+    },
+  ],
   alias,
+  // 用于切换 antd 暗黑模式
+  // antd: {
+  //   dark: true,
+  // },
   resolve: { includes: [...tailPkgList, 'docs'] },
   navs: [
     null,
@@ -53,10 +88,10 @@ export default {
       }
     : false,
   hash: true,
-  exportStatic: {},
-  dynamicImport: {
-    loading: '@ant-design/pro-skeleton',
+  ssr: {
+    devServerRender: false,
   },
+  exportStatic: {},
   externals:
     process.env.NODE_ENV === 'development'
       ? {
@@ -72,6 +107,9 @@ export default {
     safari: false,
     edge: false,
     ios: false,
+  },
+  theme: {
+    '@s-site-menu-width': '208px',
   },
   links:
     process.env.NODE_ENV === 'development'

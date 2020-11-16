@@ -29,6 +29,7 @@ exports[`settingDrawer.test base user 1`] = `
               aria-label="Close"
               class="ant-drawer-close"
               style="--scroll-bar:0px"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -37,7 +38,6 @@ exports[`settingDrawer.test base user 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -96,7 +96,6 @@ exports[`settingDrawer.test base user 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="check"
                           fill="currentColor"
                           focusable="false"
@@ -200,7 +199,6 @@ exports[`settingDrawer.test base user 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="down"
                                     fill="currentColor"
                                     focusable="false"
@@ -522,7 +520,6 @@ exports[`settingDrawer.test base user 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="notification"
                     fill="currentColor"
                     focusable="false"
@@ -546,6 +543,7 @@ exports[`settingDrawer.test base user 1`] = `
               </div>
               <button
                 class="ant-btn ant-btn-block"
+                style="margin-bottom:24px"
                 type="button"
               >
                 <span
@@ -555,7 +553,6 @@ exports[`settingDrawer.test base user 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="copy"
                     fill="currentColor"
                     focusable="false"
@@ -569,7 +566,7 @@ exports[`settingDrawer.test base user 1`] = `
                   </svg>
                 </span>
                 <span>
-                   Copy Setting
+                  Copy Setting
                 </span>
               </button>
             </div>
@@ -587,7 +584,6 @@ exports[`settingDrawer.test base user 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="close"
             fill="currentColor"
             focusable="false"
@@ -635,6 +631,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
               aria-label="Close"
               class="ant-drawer-close"
               style="--scroll-bar:0px"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -643,7 +640,6 @@ exports[`settingDrawer.test hideColors = true 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -773,7 +769,6 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="down"
                                     fill="currentColor"
                                     focusable="false"
@@ -1095,7 +1090,6 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="notification"
                     fill="currentColor"
                     focusable="false"
@@ -1119,6 +1113,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
               </div>
               <button
                 class="ant-btn ant-btn-block"
+                style="margin-bottom:24px"
                 type="button"
               >
                 <span
@@ -1128,7 +1123,6 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="copy"
                     fill="currentColor"
                     focusable="false"
@@ -1142,7 +1136,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                   </svg>
                 </span>
                 <span>
-                   Copy Setting
+                  Copy Setting
                 </span>
               </button>
             </div>
@@ -1160,7 +1154,6 @@ exports[`settingDrawer.test hideColors = true 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="close"
             fill="currentColor"
             focusable="false"
@@ -1208,6 +1201,7 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
               aria-label="Close"
               class="ant-drawer-close"
               style="--scroll-bar:0px"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -1216,7 +1210,6 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -1275,7 +1268,6 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="check"
                           fill="currentColor"
                           focusable="false"
@@ -1379,7 +1371,6 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="down"
                                     fill="currentColor"
                                     focusable="false"
@@ -1701,7 +1692,6 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="notification"
                     fill="currentColor"
                     focusable="false"
@@ -1738,7 +1728,6 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="close"
             fill="currentColor"
             focusable="false"
@@ -1786,6 +1775,7 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
               aria-label="Close"
               class="ant-drawer-close"
               style="--scroll-bar:0px"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -1794,7 +1784,6 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -1853,7 +1842,6 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="check"
                           fill="currentColor"
                           focusable="false"
@@ -1957,7 +1945,6 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="down"
                                     fill="currentColor"
                                     focusable="false"
@@ -2268,6 +2255,7 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
               />
               <button
                 class="ant-btn ant-btn-block"
+                style="margin-bottom:24px"
                 type="button"
               >
                 <span
@@ -2277,7 +2265,6 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="copy"
                     fill="currentColor"
                     focusable="false"
@@ -2291,7 +2278,7 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                   </svg>
                 </span>
                 <span>
-                   Copy Setting
+                  Copy Setting
                 </span>
               </button>
             </div>
@@ -2309,7 +2296,6 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="close"
             fill="currentColor"
             focusable="false"
@@ -2357,6 +2343,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
               aria-label="Close"
               class="ant-drawer-close"
               style="--scroll-bar:0px"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -2365,7 +2352,6 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -2424,7 +2410,6 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="check"
                           fill="currentColor"
                           focusable="false"
@@ -2528,7 +2513,6 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="down"
                                     fill="currentColor"
                                     focusable="false"
@@ -2850,7 +2834,6 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="notification"
                     fill="currentColor"
                     focusable="false"
@@ -2874,6 +2857,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
               </div>
               <button
                 class="ant-btn ant-btn-block"
+                style="margin-bottom:24px"
                 type="button"
               >
                 <span
@@ -2883,7 +2867,6 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="copy"
                     fill="currentColor"
                     focusable="false"
@@ -2897,7 +2880,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                   </svg>
                 </span>
                 <span>
-                   Copy Setting
+                  Copy Setting
                 </span>
               </button>
             </div>
@@ -2915,7 +2898,6 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="close"
             fill="currentColor"
             focusable="false"
@@ -2963,6 +2945,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
               aria-label="Close"
               class="ant-drawer-close"
               style="--scroll-bar:0px"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -2971,7 +2954,6 @@ exports[`settingDrawer.test settings = undefined 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -3030,7 +3012,6 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="check"
                           fill="currentColor"
                           focusable="false"
@@ -3134,7 +3115,6 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="down"
                                     fill="currentColor"
                                     focusable="false"
@@ -3455,7 +3435,6 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="notification"
                     fill="currentColor"
                     focusable="false"
@@ -3479,6 +3458,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
               </div>
               <button
                 class="ant-btn ant-btn-block"
+                style="margin-bottom:24px"
                 type="button"
               >
                 <span
@@ -3488,7 +3468,6 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="copy"
                     fill="currentColor"
                     focusable="false"
@@ -3502,7 +3481,7 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                   </svg>
                 </span>
                 <span>
-                   Copy Setting
+                  Copy Setting
                 </span>
               </button>
             </div>
@@ -3520,7 +3499,6 @@ exports[`settingDrawer.test settings = undefined 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="close"
             fill="currentColor"
             focusable="false"

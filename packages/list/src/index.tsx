@@ -107,11 +107,21 @@ function ProList<RecordType, U extends { [key: string]: any } = {}>(
       className={classNames(prefixCls, className, listClassName)}
       columns={proTableColumns}
       rowKey={rowKey}
+      cardProps={{
+        bodyStyle: {
+          padding: 0,
+        },
+      }}
+      toolbar={{
+        style: {
+          padding: '0 24px',
+        },
+      }}
       tableViewRender={({ columns, dataSource, loading }) => (
         <ListView
           prefixCls={prefixCls}
           columns={columns}
-          dataSource={dataSource}
+          dataSource={dataSource || []}
           size={size}
           footer={footer}
           split={split}

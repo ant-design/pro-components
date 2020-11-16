@@ -29,7 +29,8 @@ const defaultAlertOptionRender = (props: { intl: IntlType; onCleanSelected: () =
   ];
 };
 
-const TableAlert = <T, U = {}>({
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const TableAlert = <T, _U = {}>({
   selectedRowKeys,
   onCleanSelected,
   selectedRows,

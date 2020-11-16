@@ -361,7 +361,7 @@ describe('BasicTable Search', () => {
       />,
     );
     await waitForComponentToPaint(html, 1000);
-    expect(html.find('div.ant-form-item').length).toBe(1);
+    expect(html.find('div.ant-form-item').length).toBe(2);
 
     html.setProps({
       columns: [
@@ -379,7 +379,7 @@ describe('BasicTable Search', () => {
     });
 
     await waitForComponentToPaint(html, 200);
-    expect(html.find('div.ant-form-item').length).toBe(2);
+    expect(html.find('div.ant-form-item').length).toBe(3);
   });
 
   it('🎏 request load success false', async () => {

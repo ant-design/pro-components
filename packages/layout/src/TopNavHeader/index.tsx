@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
-
 import {
   SiderMenuProps,
   defaultRenderLogoAndTitle,

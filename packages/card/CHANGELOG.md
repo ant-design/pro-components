@@ -2,6 +2,40 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.4.5...@ant-design/pro-card@1.4.6) (2020-11-09)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [1.4.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.4.4...@ant-design/pro-card@1.4.5) (2020-11-04)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [1.4.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.4.3...@ant-design/pro-card@1.4.4) (2020-11-02)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [1.4.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.4.2...@ant-design/pro-card@1.4.3) (2020-10-29)
+
+### Bug Fixes
+
+- **card:** fix collpase and inner style ([#846](https://github.com/ant-design/pro-components/issues/846)) ([50a885c](https://github.com/ant-design/pro-components/commit/50a885c19cb9c82e0c4ff59d366d12f90b80526f))
+
+## [1.4.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.4.1...@ant-design/pro-card@1.4.2) (2020-10-26)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [1.4.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.4.0...@ant-design/pro-card@1.4.1) (2020-10-22)
+
+### Bug Fixes
+
+- 修复卡片 demo ([#800](https://github.com/ant-design/pro-components/issues/800)) ([068924a](https://github.com/ant-design/pro-components/commit/068924a3f2a16a4dfa0bf593231fe0c24a25ebbe))
+
+# [1.4.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.3.1...@ant-design/pro-card@1.4.0) (2020-10-21)
+
+### Features
+
+- **card:** add card direction ([#782](https://github.com/ant-design/pro-components/issues/782)) ([e02a086](https://github.com/ant-design/pro-components/commit/e02a086376cd59b8460e5fba44968c9919cacc19))
+
 ## [1.3.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.3.0...@ant-design/pro-card@1.3.1) (2020-10-15)
 
 **Note:** Version bump only for package @ant-design/pro-card

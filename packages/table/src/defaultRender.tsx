@@ -10,6 +10,7 @@ const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
  * @param text
  * @param valueType
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const defaultRenderText = <T, U = any>(
   text: string | number | React.ReactText[],
   valueType: ProColumnType['valueType'],
@@ -30,10 +31,10 @@ const defaultRenderText = <T, U = any>(
     // 防止valueType是函数,并且text是''、null、undefined跳过显式设置的columnEmptyText
     return defaultRenderText(text, value as ProFieldValueType, index, item, columnEmptyText, props);
   }
-
   return (
     <ProField
       {...props}
+      proFieldKey={props?.dataIndex?.toString() || props?.key}
       text={valueType === 'index' || valueType === 'indexBorder' ? index : text}
       mode="read"
       emptyText={columnEmptyText}

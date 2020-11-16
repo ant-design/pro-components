@@ -2,6 +2,59 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.10.0...@ant-design/pro-table@2.10.1) (2020-11-10)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [2.10.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.9.16...@ant-design/pro-table@2.10.0) (2020-11-09)
+
+### Features
+
+- **table:** 修复 ListToolBar 样式问题 & 调整部分 Table 样式的 demo ([#918](https://github.com/ant-design/pro-components/issues/918)) ([a217c6e](https://github.com/ant-design/pro-components/commit/a217c6ea309f5232fd1864b2d886f449f49f2b6a))
+
+## [2.9.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.9.15...@ant-design/pro-table@2.9.16) (2020-11-04)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.9.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.9.14...@ant-design/pro-table@2.9.15) (2020-11-02)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.9.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.9.13...@ant-design/pro-table@2.9.14) (2020-11-02)
+
+### Bug Fixes
+
+- **table:** table 工具栏：options 为 false 时，不显示父级节点 ([#866](https://github.com/ant-design/pro-components/issues/866)) ([11d310c](https://github.com/ant-design/pro-components/commit/11d310c4b3697bb4a1029ef69018c11bd4c77447))
+
+## [2.9.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.9.12...@ant-design/pro-table@2.9.13) (2020-10-29)
+
+### Bug Fixes
+
+- **table:** options or fullScreen is null, not render ConfigProvider ([#854](https://github.com/ant-design/pro-components/issues/854)) ([004abb9](https://github.com/ant-design/pro-components/commit/004abb90a9d002de0c13223ac27ac98b34b3341b))
+- **table:** renderFormItem should run in form init ([#852](https://github.com/ant-design/pro-components/issues/852)) ([612b04a](https://github.com/ant-design/pro-components/commit/612b04a7225ccc93b8c081d268981d988c333d4c))
+
+## [2.9.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.9.11...@ant-design/pro-table@2.9.12) (2020-10-26)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.9.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.9.10...@ant-design/pro-table@2.9.11) (2020-10-23)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.9.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.9.9...@ant-design/pro-table@2.9.10) (2020-10-23)
+
+### Bug Fixes
+
+- **layout:** fix PageContainer header ts definition ([#817](https://github.com/ant-design/pro-components/issues/817)) ([80e5b60](https://github.com/ant-design/pro-components/commit/80e5b605f2dd7c69ea2bc5607d41087926394262))
+
+## [2.9.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.9.8...@ant-design/pro-table@2.9.9) (2020-10-22)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.9.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.9.7...@ant-design/pro-table@2.9.8) (2020-10-21)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
 ## [2.9.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.9.6...@ant-design/pro-table@2.9.7) (2020-10-19)
 
 **Note:** Version bump only for package @ant-design/pro-table

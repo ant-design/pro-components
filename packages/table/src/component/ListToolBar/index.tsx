@@ -10,8 +10,6 @@ import HeaderMenu, { ListToolBarHeaderMenuProps } from './HeaderMenu';
 
 import './index.less';
 
-const { Search } = Input;
-
 export interface ListToolBarSetting {
   icon: React.ReactNode;
   tooltip?: string;
@@ -147,55 +145,69 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
    * @param search 搜索框相关配置
    */
   const getSearchInput = (searchObject: SearchPropType) => {
+    if (!searchObject) {
+      return null;
+    }
     if (React.isValidElement(searchObject)) {
       return searchObject;
     }
-
-    if (searchObject) {
-      const searchProps: SearchProps = {
-        placeholder: intl.getMessage('tableForm.inputPlaceholder', '请输入'),
-        style: { width: 200 },
-        onSearch,
-        ...(searchObject as SearchProps),
-      };
-      return <Search {...searchProps} />;
-    }
-    return null;
+    return (
+      <Input.Search
+        style={{ width: 200 }}
+        placeholder={intl.getMessage('tableForm.inputPlaceholder', '请输入')}
+        onSearch={onSearch}
+        {...(searchObject as SearchProps)}
+      />
+    );
   };
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-table-list-toolbar', customizePrefixCls);
 
+  /**
+   * 根据配置自动生成的查询框
+   */
   const searchNode: React.ReactNode = getSearchInput(search);
+  /**
+   * 轻量筛选组件
+   */
   const filtersNode = filter ? <div className={`${prefixCls}-filter`}>{filter}</div> : null;
+
+  /**
+   * 有没有 title，判断了多个场景
+   */
   const hasTitle = menu || title || subTitle || tooltip || tip;
 
   return (
     <div style={style} className={classNames(`${prefixCls}`, className)}>
       <div className={`${prefixCls}-container`}>
-        <div className={`${prefixCls}-left`}>
+        <Space className={`${prefixCls}-left`}>
+          {(tooltip || tip || title || subTitle) && (
+            <div className={`${prefixCls}-title`}>
+              <LabelIconTip tooltip={tooltip || tip} label={title} subTitle={subTitle} />
+            </div>
+          )}
           {menu && <HeaderMenu {...menu} prefixCls={prefixCls} />}
-          <div className={`${prefixCls}-title`}>
-            <LabelIconTip tooltip={tooltip || tip} label={title} subTitle={subTitle} />
-          </div>
           {!hasTitle && searchNode && <div className={`${prefixCls}-search`}>{searchNode}</div>}
-        </div>
-        <div className={`${prefixCls}-right`}>
+        </Space>
+        <Space className={`${prefixCls}-right`} size={16}>
           {hasTitle && searchNode && <div className={`${prefixCls}-search`}>{searchNode}</div>}
           {!multipleLine && filtersNode}
-          <Space>{actions}</Space>
-          <Space size={24} className={`${prefixCls}-setting-items`}>
-            {settings.map((setting, index) => {
-              const settingItem = getSettingItem(setting);
-              return (
-                // eslint-disable-next-line react/no-array-index-key
-                <div key={index} className={`${prefixCls}-setting-item`}>
-                  {settingItem}
-                </div>
-              );
-            })}
-          </Space>
-        </div>
+          {actions && <Space align="center">{actions}</Space>}
+          {settings?.length ? (
+            <Space size={16} align="center" className={`${prefixCls}-setting-items`}>
+              {settings.map((setting, index) => {
+                const settingItem = getSettingItem(setting);
+                return (
+                  // eslint-disable-next-line react/no-array-index-key
+                  <div key={index} className={`${prefixCls}-setting-item`}>
+                    {settingItem}
+                  </div>
+                );
+              })}
+            </Space>
+          ) : null}
+        </Space>
       </div>
       {multipleLine && (
         <div className={`${prefixCls}-extra-line`}>

@@ -5,8 +5,7 @@ import ProLayout, { PageContainer } from '@ant-design/pro-layout';
 export default () => (
   <div
     style={{
-      height: 400,
-      overflow: 'auto',
+      height: '100vh',
     }}
   >
     <ProLayout
@@ -20,13 +19,6 @@ export default () => (
             path: '/home',
             name: '收藏',
             icon: 'icon-shoucang1',
-          },
-          {
-            key: 'test',
-            name: 'test',
-            icon: 'smile',
-            path: '/test',
-            exact: true,
           },
           {
             path: '/home/overview',

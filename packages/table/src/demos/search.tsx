@@ -12,7 +12,6 @@ const columns: ProColumns<GithubIssueItem>[] = [
     title: '序号',
     dataIndex: 'index',
     valueType: 'indexBorder',
-    width: 72,
   },
   {
     title: '标题',
@@ -44,7 +43,7 @@ export default () => (
       };
     }}
     search={false}
-    rowKey="id"
+    rowKey="key"
     options={{
       search: true,
     }}

@@ -5,7 +5,7 @@ import { IRouteComponentProps } from 'umi';
 import zhCN from 'antd/es/locale/zh_CN';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
-import { Script } from 'vm';
+import './layout.less';
 moment.locale('zh-cn');
 
 export default ({ children, ...props }: IRouteComponentProps) => {

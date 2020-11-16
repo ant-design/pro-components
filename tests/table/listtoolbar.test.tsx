@@ -110,7 +110,8 @@ describe('Table valueEnum', () => {
         }}
       />,
     );
-    wrapper.find('.ant-pro-table-list-toolbar-dropdownmenu-label').simulate('click');
+
+    wrapper.find('.ant-pro-table-list-toolbar-dropdownmenu-label').at(0).simulate('click');
     wrapper.find('.ant-dropdown-menu-item').at(1).simulate('click');
 
     expect(onChange).toHaveBeenCalledWith('done', undefined);
@@ -130,6 +131,11 @@ describe('Table valueEnum', () => {
             {
               label: '已办事项',
               key: 'done',
+            },
+            {
+              label: '禁用',
+              key: 'disable',
+              disabled: true,
             },
           ],
           onChange,

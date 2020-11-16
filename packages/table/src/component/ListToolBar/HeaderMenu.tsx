@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dropdown, Menu } from 'antd';
+import { Dropdown, Menu, Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -8,6 +8,7 @@ import './index.less';
 export interface ListToolBarMenuItem {
   key: string;
   label: React.ReactNode;
+  disabled?: boolean;
 }
 
 export interface ListToolBarHeaderMenuProps {
@@ -68,15 +69,17 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
             }}
           >
             {items.map((item) => (
-              <Menu.Item key={item.key}>{item.label}</Menu.Item>
+              <Menu.Item key={item.key} disabled={item.disabled}>
+                {item.label}
+              </Menu.Item>
             ))}
           </Menu>
         }
       >
-        <div className={`${prefixCls}-dropdownmenu-label`}>
+        <Space className={`${prefixCls}-dropdownmenu-label`}>
           {activeItem.label}
-          <DownOutlined style={{ fontSize: 14, marginLeft: 4 }} />
-        </div>
+          <DownOutlined />
+        </Space>
       </Dropdown>
     </div>
   );

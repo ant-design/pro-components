@@ -1,3 +1,3 @@
 import demoTest from '../demo';
 
-demoTest('card');
+demoTest('skeleton');

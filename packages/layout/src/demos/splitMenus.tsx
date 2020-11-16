@@ -5,6 +5,12 @@ import defaultProps from './_defaultProps';
 export default () => {
   return (
     <>
+      <ProLayout {...defaultProps} layout="mix" splitMenus pure>
+        children
+      </ProLayout>
+      <ProLayout {...defaultProps} layout="mix" splitMenus>
+        children
+      </ProLayout>
       <ProLayout
         {...defaultProps}
         layout="mix"
@@ -13,7 +19,7 @@ export default () => {
         onMenuHeaderClick={() => {}}
         formatMessage={({ id }) => id}
         style={{
-          height: 500,
+          height: '100vh',
         }}
       />
       <ProLayout
@@ -28,7 +34,7 @@ export default () => {
           pathname: '/welcome',
         }}
         style={{
-          height: 500,
+          height: '100vh',
         }}
       />
 
@@ -44,7 +50,7 @@ export default () => {
         contentWidth="Fixed"
         openKeys={false}
         style={{
-          height: 500,
+          height: '100vh',
         }}
       />
       <SettingDrawer collapse />

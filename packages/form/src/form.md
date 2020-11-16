@@ -1,6 +1,6 @@
 ---
 title: ProForm - 高级表单
-order: 0
+order: 1
 group:
   path: /
 nav:
@@ -10,77 +10,87 @@ nav:
 
 # ProForm
 
-ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设置，帮助我们更快速的开发一个表单。同时添加一些默认行为，让我们的表单默认好用。
+ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设置，帮助我们快速的开发一个表单。同时添加一些默认行为，让我们的表单默认好用。
 
-分步表单，Modal 表单，Drawer 表单，查询表单，轻量筛选 多种 layout 可以覆盖大部分的使用场景，脱离复杂而且繁琐的表单布局工作，更少的代码完成更多的工作。
+分步表单，Modal 表单，Drawer 表单，查询表单，轻量筛选等多种 layout 可以覆盖大部分的使用场景，脱离复杂而且繁琐的表单布局工作，更少的代码完成更多的功能。
+
+ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 组件的结合，我们可以帮他们当成一个 FromItem 来使用，并且支持各种 `props`。每个 Field 都支持 `fieldProps` 属性来支持设置输入组件的`props`。 我们支持了 `placeholder` 的透传，你可以直接在组件上设置 `placeholder`。
 
 ## 何时使用
 
-当你想快速实现一个表单时但不想花太多时间去布局时 ProForm 是最好的选择。
+当你想快速实现一个表单但不想花太多时间去布局时 ProForm 是最好的选择。
 
 ## 代码示例
 
+### 登录
+
+<code src="./demos/login.tsx" height="300px"/>
+
 ### 基本使用
 
-<code src="./demos/base.tsx" />
+<code src="./demos/base.tsx" height="548px"/>
 
 ### 分步表单
 
-<code src="./demos/steps-from.tsx" />
+<code src="./demos/steps-from.tsx" height="532px"/>
 
 ### 分步表单-多卡片
 
-<code src="./demos/multi-card-step-form.tsx"  background="#f5f5f5"/>
+<code src="./demos/multi-card-step-form.tsx"  background="#f5f5f5" height="868px"/>
 
-### 分步表单-Modal
+### 分步表单-与 model 配合使用
 
-<code src="./demos/modal-step-form.tsx"  background="#f5f5f5"/>
+<code src="./demos/modal-step-form.tsx"  background="#f5f5f5" height="32px"/>
 
 ### Modal 表单
 
-<code src="./demos/modal-form.tsx"  background="#f5f5f5"/>
+<code src="./demos/modal-form.tsx"  background="#f5f5f5"  height="32px"/>
 
 ### Drawer 表单
 
-<code src="./demos/drawer-form.tsx"  background="#f5f5f5"/>
+<code src="./demos/drawer-form.tsx"  background="#f5f5f5" height="32px"/>
 
 ### 查询筛选
 
-<code src="./demos/query-filter.tsx" />
+<code src="./demos/query-filter.tsx" height="168px"/>
 
 ### 查询筛选-默认收起
 
-<code src="./demos/query-filter-collapsed.tsx" />
+<code src="./demos/query-filter-collapsed.tsx" height="56px"/>
 
 ### 查询筛选-垂直布局
 
-<code src="./demos/query-filter-vertical.tsx" />
+<code src="./demos/query-filter-vertical.tsx"  height="172px"/>
 
 ### 查询筛选-搜索
 
-<code src="./demos/search-filter.tsx" background="#f0f2f5"/>
+<code src="./demos/search-filter.tsx" background="#f0f2f5" height="274px"/>
 
 ### 轻量筛选
 
-<code src="./demos/light-filter.tsx" />
+<code src="./demos/light-filter.tsx" height="86px"/>
 
 ### 轻量筛选-边框模式
 
-<code src="./demos/light-filter-bordered.tsx" />
+<code src="./demos/light-filter-bordered.tsx" height="32px" />
 
 ### 轻量筛选-折叠模式
 
 折叠模式下所有的选项都会默认折叠，不管是否有值，控件的 `secondary` 将不再有效。
 
-<code src="./demos/light-filter-collapse.tsx" />
+<code src="./demos/light-filter-collapse.tsx" height="40px"/>
 
 ### 固定页脚
 
-<code src="./demos/layout-base.tsx" />
+<code src="./demos/layout-base.tsx" height="764px"/>
 
 ### 混合使用
 
-<code src="./demos/components-other.tsx" />
+<code src="./demos/components-other.tsx" heigh="1774px"/>
+
+### 只读模式
+
+<code src="./demos/components-other-readonly.tsx" heigh="1774px" debug/>
 
 ## Layouts API
 
@@ -90,10 +100,10 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| onFinish | 提交表单且数据验证成功后回调事件，同 antd 4 `Form` 组件 API | `Function(e)` | - |
-| onReset | 点击重置按钮的回调，设置后重置按钮才会被渲染 | `Function(e)` | - |
+| onFinish | 提交表单且数据验证成功后回调事件，同 antd 4 `Form` 组件 API | `(values)=>Promise<void>` | - |
+| onReset | 点击重置按钮的回调，设置后重置按钮才会被渲染 | `(e)=>void` | - |
 | submitter | 提交按钮相关配置 | `boolean` \| `SubmitterProps` | `true` |
-| dateFormatter | 自动格式数据，例如 moment 的表单,支持 string 和 number 两种模式 | `string\| number \|false` | string |
+| dateFormatter | 自动格式数据,主要是 moment 的表单,支持 string 和 number 两种模式 | `string\| number \|false` | string |
 | [(...)](https://ant.design/components/form-cn/) | 支持除 `wrapperCol` \| `labelCol` \| `layout` 外的其他 antd `Form` 组件参数 | - | - |
 
 ### ProForm.Group
@@ -103,6 +113,45 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 | title    | 标题                 | `string`          | -      |
 | children | 表单控件或者其他元素 | `React.ReactNode` | -      |
 
+#### submitter
+
+虽然我们希望不要对 submitter 进行修改，但是在使用中修改时很常见的需求，ProForm 的各个组件都使用了同样的 API 来支持需求。
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| onSubmit | 提交方法 | `()=>void` | - |
+| onReset | 重置方法 | `()=>void` | - |
+| searchConfig | 搜索的配置，一般用来配置文本 | `{resetText,submitText}` | - |
+| submitButtonProps | 提交按钮的 props | [ButtonProps](https://ant.design/components/button-cn/) | - |
+| resetButtonProps | 重置按钮的 props | [ButtonProps](https://ant.design/components/button-cn/) | - |
+| render | 自定义操作的渲染 | `false`\|`(props,dom:JSX[])=>ReactNode[]` | - |
+
+> render 的第二个参数是默认的 dom 数组，第一个是重置按钮，第二个是提交按钮。
+
+```tsx | pure
+<ProForm
+  submitter={{
+    // 配置按钮文本
+    searchConfig: {
+      resetText: '重置',
+      submitText: '提交',
+    },
+    // 配置按钮的属性
+    resetButtonProps: {},
+    submitButtonProps: {},
+
+    // 完全自定义整个区域
+    render: (props, doms) => {
+      return (
+        <button type="button" id="rest" onClick={() => props?.onReset?.()}>
+          rest
+        </button>
+      );
+    },
+  }}
+/>
+```
+
 ### QueryFilter
 
 QueryFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
@@ -111,7 +160,7 @@ QueryFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 | --- | --- | --- | --- |
 | collapsed | 是否折叠超出的表单项，用于受控模式 | `boolean` | - |
 | defaultCollapsed | 默认状态下是否折叠超出的表单项 | `boolean` | true |
-| onCollapse | 切换表单折叠状态时的回调 | `Function(collapsed)` | - |
+| onCollapse | 切换表单折叠状态时的回调 | `(collapsed)=>void` | - |
 | hideRequiredMark | 隐藏所有表单项的必选标记，**默认隐藏** | `boolean` | true |
 | defaultColsNumber | 自定义折叠状态下默认显示的表单控件数量，没有设置或小于 0，则显示一行控件; 数量大于等于控件数量则隐藏展开按钮 | `number` | - |
 | labelWidth | label 宽度 | `number` \| `'auto'` | `98` |
@@ -120,26 +169,26 @@ QueryFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 
 #### 响应式断点规则
 
-注意，断点的值均指表单容器的大小而非视口大小。
+注意，断点的值均为表单容器的大小而非视口大小。
 
 ##### 默认布局时的规则
 
 | 容器宽度断点          | 单行展示表单列数（包含操作区域） | 默认布局     |
 | --------------------- | -------------------------------- | ------------ |
-| `≧ 1352px`            | 4                                | `horizontal` |
-| `≧ 1062px`            | 3                                | `horizontal` |
-| `≧ 701px && < 1063px` | 2                                | `horizontal` |
-| `≧ 513px && < 701px`  | 2                                | `vertical`   |
-| `< 513px`             | 1                                | `vertical`   |
+| `≧ 1352px`            | 4 列                             | `horizontal` |
+| `≧ 1062px`            | 3 列                             | `horizontal` |
+| `≧ 701px && < 1063px` | 3 列                             | `horizontal` |
+| `≧ 513px && < 701px`  | 2 列                             | `vertical`   |
+| `< 513px`             | 1 列                             | `vertical`   |
 
 ##### 强制上下布局时的规则
 
 | 容器宽度断点          | 单行展示表单列数（包含操作区域） |
 | --------------------- | -------------------------------- |
-| `≧ 1057px`            | 4                                |
-| `≧ 785px && < 1057px` | 3                                |
-| `≧ 513px && < 785px`  | 2                                |
-| `< 513px`             | 1                                |
+| `≧ 1057px`            | 4 列                             |
+| `≧ 785px && < 1057px` | 3 列                             |
+| `≧ 513px && < 785px`  | 2 列                             |
+| `< 513px`             | 1 列                             |
 
 ### LightFilter
 
@@ -168,26 +217,56 @@ StepsForm 本质上是一个 Provider ，增加步骤条和一些相关的 API�
 
 #### StepForm
 
-与 ProForm 完成相同，只是 onFinish 支持了 Promise，如果返回 `false`, 就会无法使用下一步。
+与 ProForm 完全相同，只是 onFinish 支持了 Promise，如果返回 `false`, 就不会跳转下一步。
 
 | onFinish | 表单提交成功触发 | `(values:T)=>Promise<false>` | - |
 
+### ModalForm
+
+ModalForm 组合了 Modal 和 ProForm 可以减少繁琐的状态管理。
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| trigger | 用于触发 Modal 打开的 dom，一般是 button | `ReactNode` | - |
+| visible | 是否打开 | `boolean` | - |
+| onVisibleChange | visible 改变时触发 | `(visible:boolean)=>void` | - |
+| modalProps | Modal 的 props，使用方式与 [antd](https://ant.design/components/modal-cn/) 相同，但是去掉了 current 和 onChange | [props](https://ant.design/components/modal-cn/#API) | - |
+| title | 弹框的标题 | `ReactNode` | - |
+| width | 弹框的宽度 | `Number` | - |
+| onFinish | 提交数据时触发，如果返回一个 true，会关掉弹框 | `async (values)=>boolean | void` | - |
+
+### DrawerForm
+
+DrawerForm 组合了 Drawer 和 ProForm 可以减少繁琐的状态管理。
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| trigger | 用于触发 Modal 打开的 dom，一般是 button | `ReactNode` | - |
+| visible | 是否打开 | `boolean` | - |
+| onVisibleChange | visible 改变时触发 | `(visible:boolean)=>void` | - |
+| drawerProps | Modal 的 props，使用方式与 [antd](https://ant.design/components/modal-cn/) 相同，但是去掉了 current 和 onChange | [props](https://ant.design/components/modal-cn/#API) | - |
+| title | 抽屉的标题 | `ReactNode` | - |
+| width | 抽屉的宽度 | `Number` | - |
+| onFinish | 提交数据时触发，如果返回一个 true，会关掉抽屉 | `async (values)=>boolean | void` | - |
+
 ## Fields API
 
-ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 组件的结合，我们可以帮他们当成一个 FromItem 来使用，并且支持各种 props。每个 Field 都支持 fieldProps 属性来支持设置输入组件的 props。 我们支持了 placeholder 的透传，你可以直接在组件上设置 placeholder。
+ProForm 自带的 Filed ,与 valueType 基本上一一对应。
 
 ### 通用的属性
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | width | Field 的长度，我们归纳了常用的 Field 长度以及适合的场景，支持了一些枚举 "xs" , "s" , "m" , "l" , "x" | `number \| "xs" \| "s" \| "m" \| "l" \| "x"` | - |
-| tooltip | 会在 label 旁增加一个 icon，悬浮后展示配置的信息 | `string \| tooltipProps` |
+| tooltip | 会在 label 旁增加一个 icon，悬浮后展示配置的信息 | `string \| tooltipProps` | - |
+| secondary | 是否是次要控件，只针对 LightFilter 下有效 | `boolean` | `false` |
+| allowClear | 支持清除，针对 LightFilter 下有效，主动设置情况下同时也会透传给 `fieldProps` | `boolean` | `true` |
 
 ### 宽度
 
 在某些场景下，我们需要根据页面展示效果对输入框进行自适应处理，除此以外一个表单区域应默认使用定宽规则。
 
-![](https://gw.alipayobjects.com/zos/antfincdn/CyJPTSL07y/1574664269794-254db9de-2574-4361-bcf1-b82c6db0c80a.png)
+![width info](https://gw.alipayobjects.com/zos/antfincdn/CyJPTSL07y/1574664269794-254db9de-2574-4361-bcf1-b82c6db0c80a.png)
 
 - XS=104px 适用于短数字、短文本或选项。
 - S=216px 适用于较短字段录入、如姓名、电话、ID 等。
@@ -239,7 +318,7 @@ ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 �
 
 与 [DatePicker](https://ant.design/components/date-picker-cn/) 相同。
 
-````tsx | pure
+```tsx | pure
 <ProFormDateRangePicker name="datetimeRange" label="日期" />
 ```
 
@@ -249,7 +328,7 @@ ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 �
 
 ```tsx | pure
 <ProFormDateRangePicker name="time" label="时间" />
-````
+```
 
 ### ProFormTextArea
 
@@ -265,6 +344,8 @@ ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 �
 ```
 
 ### ProFormCheckbox
+
+> 请求远程数据比较复杂，详细可以看[这里](/components/field#远程数据)。
 
 与 [checkbox](https://ant.design/components/checkbox-cn/) 相同，但是支持了 `options` 与 `layout`。
 
@@ -282,13 +363,16 @@ ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 �
 />
 ```
 
-### ProFormRadio
+### ProFormRadio.Group
+
+> 请求远程数据比较复杂，详细可以看[这里](/components/field#远程数据)。
 
 与 [radio](https://ant.design/components/radio-cn/) 相同，但是支持了 `options`。
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | options | 与 select 相同，根据 options 生成子节点，推荐使用。 | `string[]` \| `{label:ReactNode,value:string}[]` | - |
+| radioType | 设置是按钮模式还是 radio 模式 | `button`\|`radio` | `radio` |
 
 ```tsx | pure
 <ProFormRadio.Group
@@ -377,6 +461,8 @@ ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 �
 
 与 [select](https://ant.design/components/select-cn/) 相同。支持了 request 和 valueEnum 两种方式来生成 options。
 
+> 请求远程数据比较复杂，详细可以看[这里](/components/field#远程数据)。
+
 > 有了 options 为什么要支持 valueEnum 呢？ valueEnum 可以与 table，descriptions 共用，在工程化上有优势。
 
 | 参数 | 说明 | 类型 | 默认值 |
@@ -399,7 +485,7 @@ ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 �
   />
 
   <ProFormSelect
-    name="select"
+    name="select2"
     label="Select"
     hasFeedback
     request={async () => [
@@ -432,4 +518,20 @@ ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 �
   max={10}
   fieldProps={{ precision: 0 }}
 />
+```
+
+### ProFormFieldSet
+
+ProFormFieldSet 可以将内部的多个 children 的值组合并且存储在 ProForm 中，并且可以通过 `transform` 在提交时转化。下面是一个简单的用法,可以方便的组合多个输入框，并且格式化为想要的数据。
+
+```tsx | pure
+<ProFromFieldSet
+  name="list"
+  label="组件列表"
+  transform={(value: any) => ({ startTime: value[0], endTime: value[1] })}
+>
+  <ProFormText width="m" />
+  <ProFormText width="m" />
+  <ProFormText width="m" />
+</ProFromFieldSet>
 ```

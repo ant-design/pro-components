@@ -22,47 +22,49 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 
 ### 查询表格
 
-<code src="./demos/single.tsx" background="#f5f5f5"/>
+<code src="./demos/single.tsx" background="#f5f5f5" height="500px"/>
 
-### 普通表格
+### 降级为普通表格
 
-<code src="./demos/normal.tsx" background="#f5f5f5"/>
+<code src="./demos/normal.tsx" background="#f5f5f5" height="400px"/>
 
-### 轻量筛选表格
+### 轻量筛选替换查询表单
 
-<code src="./demos/lightfilter.tsx" background="#f5f5f5"/>
+<code src="./demos/lightfilter.tsx" background="#f5f5f5"  height="400px"/>
 
-### 无标题栏
+### 无 ToolBar 的表格
 
-<code src="./demos/no-title.tsx" background="#f5f5f5"/>
+<code src="./demos/no-title.tsx" background="#f5f5f5" height="350px"/>
 
 ### 嵌套表格
 
-<code src="./demos/table-nested.tsx" background="#f5f5f5"/>
+<code src="./demos/table-nested.tsx" background="#f5f5f5"  height="400px"/>
 
-### 批量操作
+### 表格批量操作
 
-<code src="./demos/batchOption.tsx" background="#f5f5f5"/>
+<code src="./demos/batchOption.tsx" background="#f5f5f5" height="420px"/>
 
-### form 操作
+### 通过 formRef 来操作查询表单
 
-<code src="./demos/form.tsx" background="#f5f5f5"/>
+<code src="./demos/form.tsx" background="#f5f5f5"  height="320px"/>
 
-### DataSource
+### RTL (النسخة العربية)
 
-<code src="./demos/dataSource.tsx" background="#f5f5f5"/>
+RTL means right-to-left.
 
-### 受控的列显示隐藏
+<code src="./demos/rtl_table.tsx" background="#f5f5f5" height="500px"/>
+
+### 受控的表格设置栏
 
 可以默认隐藏某些栏，但是在操作栏中可以选择
 
-<code src="./demos/columnsStateMap.tsx" background="#f5f5f5"/>
+<code src="./demos/columnsStateMap.tsx" background="#f5f5f5" height="300px"/>
 
-### 轮询
+### 表格轮询网络数据
 
-<code src="./demos/pollinga.tsx" background="#f5f5f5"/>
+<code src="./demos/pollinga.tsx" background="#f5f5f5" height="360px"/>
 
-### 自定义表单项
+### 搜索表单自定义
 
 当内置的表单项无法满足我们的基本需求，这时候我们就需要来自定义一下默认的组件，我们可以通过 `fieldProps` 和 `renderFormItem` 配合来使用。
 
@@ -99,29 +101,29 @@ renderFormItem: (_, { type, defaultRender, ...rest }, form) => {
   ) => JSX.Element | false | null;
 ```
 
-<code src="./demos/linkage_form.tsx" background="#f5f5f5"/>
+<code src="./demos/linkage_form.tsx" background="#f5f5f5" height="310px"/>
 
-### 自定义搜索操作栏
+### 表单操作自定义
 
-<code src="./demos/search_option.tsx" background="#f5f5f5"/>
+<code src="./demos/search_option.tsx" background="#f5f5f5" height="310px"/>
 
-### 自定义工具栏渲染
+### Toolbar 自定义
 
 使用 `toolbar`属性扩展配置工具栏渲染。
 
-<code src="./demos/listToolBar.tsx" background="#f5f5f5"/>
+<code src="./demos/listToolBar.tsx" background="#f5f5f5" height="450px"/>
 
-### 自定义表格主体
+### 表格主体自定义
 
-<code src="./demos/renderTable.tsx" background="#f5f5f5"/>
+<code src="./demos/renderTable.tsx" background="#f5f5f5" height="500px"/>
 
-### 国际化示例
+### 国际化相关的配置
 
 ProTable 内置了国际化的支持，作为一个文本量比较少的组件，我们可以自行实现国际化，成本也很低。
 
 这里是全量的文本
 
-```typescript | prue
+```typescript | pure
 const enLocale = {
   tableFrom: {
     search: 'Query',
@@ -165,25 +167,29 @@ const enUSIntl = createIntl('en_US', enUS);
 </IntlProvider>;
 ```
 
-<code src="./demos/intl.tsx" background="#f5f5f5"/>
+<code src="./demos/intl.tsx" background="#f5f5f5" height="320px"/>
 
-### 搜索表单例子
+### 使用自带 keyWords 搜索的 table
 
-<code src="./demos/search.tsx" background="#f5f5f5"/>
+<code src="./demos/search.tsx" background="#f5f5f5" height="200px"/>
 
 ### 值类型示例
 
-#### 日期类
+#### valueType - 日期类
 
-<code src="./demos/valueTypeDate.tsx" background="#f5f5f5"/>
+<code src="./demos/valueTypeDate.tsx" background="#f5f5f5" height="350px"/>
 
-#### 数字类
+#### valueType - 数字类
 
-<code src="./demos/valueTypeNumber.tsx" background="#f5f5f5"/>
+<code src="./demos/valueTypeNumber.tsx" background="#f5f5f5" height="350px"/>
 
-#### 样式类
+#### valueType - 样式类
 
-<code src="./demos/valueType.tsx" background="#f5f5f5"/>
+<code src="./demos/valueType.tsx" background="#f5f5f5" height="680px"/>
+
+#### valueType - 选择类
+
+<code src="./demos/valueType_select.tsx" background="#f5f5f5" heigh="462px"/>
 
 ## API
 
@@ -215,7 +221,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | form | antd form 的配置 | `FormProps` | - |
 | onSubmit | 提交表单时触发 | `(params: U) => void` | - |
 | onReset | 重置表单时触发 | `() => void` | - |
-| columnEmptyText | 空值时的显示，不设置 则默认显示 `-` | `string \| false` | false |
+| columnEmptyText | 空值时的显示，不设置 则默认显示 `-` | `string` \| `false` | false |
 | tableRender | 自定义渲染表格函数 | `(props: ProTableProps<T, U>, defaultDom: JSX.Element, domList: { toolbar: JSX.Element \| undefined; alert: JSX.Element \| undefined; table: JSX.Element \| undefined;}) => React.ReactNode` | - |
 | toolbar | 透传 ListToolBar 配置项 | `ListToolBarProps` | - |
 | tableExtraRender | 自定义表格的主体函数 | `(props: ProTableProps<T, U>, dataSource: T[]) => React.ReactNode;` | - |
@@ -230,12 +236,12 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | resetText | 重置按钮的文本 | string | 重置 |
 | submitText | 提交按钮的文本 | string | 提交 |
 | labelWidth | 标签的宽度 | number | 98 |
-| span | 配置查询表单的列数 | [`number | ColConfig`](#ColConfig) | defaultColConfig |
+| span | 配置查询表单的列数 | `'number'` \| [`'ColConfig'`](#ColConfig) | defaultColConfig |
 | collapseRender | 收起按钮的 render | `(collapsed: boolean,showCollapseButton?: boolean,) => React.ReactNode` | - |
 | defaultCollapsed | 默认是否收起 | boolean | false |
 | collapsed | 是否收起 | boolean | - |
 | onCollapse | 收起按钮的事件 | `(collapsed: boolean) => void;` | - |
-| optionRender | 操作栏的 render | `(( searchConfig: Omit<SearchConfig, 'optionRender'>, props: Omit<FormOptionProps, 'searchConfig'>, ) => React.ReactNode[]) \| false;` | - |
+| optionRender | 操作栏的 render | `((searchConfig,formProps) => React.ReactNode[])`\|`false` | - |
 
 #### ColConfig
 
@@ -256,7 +262,7 @@ const defaultColConfig = {
 
 ```tsx | pure
 interface ActionType {
-  reload: () => void;
+  reload: (resetPageIndex?: boolean) => void;
   fetchMore: () => void;
   reset: () => void;
 }
@@ -268,8 +274,8 @@ const ref = useRef<ActionType>();
 // 刷新
 ref.current.reload();
 
-// 加载更多
-ref.current.fetchMore();
+// 刷新并清空
+ref.current.reloadAndRest;
 
 // 重置到默认值
 ref.current.reset();
@@ -280,6 +286,8 @@ ref.current.clearSelected();
 
 ### Columns 列定义
 
+> 请求远程数据比较复杂，详细可以看[这里](/components/field#远程数据)。
+
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | title | 与 antd 中基本相同，但是支持通过传入一个方法 | `ReactNode \| ((config: ProColumnType<T>, type: ProTableTypes) => ReactNode)` | - |
@@ -289,15 +297,15 @@ ref.current.clearSelected();
 | ellipsis | 是否自动缩略 | boolean | - |
 | copyable | 是否支持复制 | boolean | - |
 | valueEnum | 值的枚举，会自动转化把值当成 key 来取出要显示的内容 | [valueEnum](#valueenum) | - |
-| valueType | 值的类型 | `'money' \| 'option' \| 'date' \| 'dateTime' \| 'time' \| 'text'\| 'index' \| 'indexBorder'` | 'text' |
+| valueType | 值的类型 | `money` \| `option` \| `date` \| `dateTime` \| `time` \| `text`\| `index`\|`indexBorder` | `text` |
 | hideInSearch | 在查询表单中不展示此项 | boolean | - |
 | hideInTable | 在 Table 中不展示此列 | boolean | - |
 | hideInForm | 在 Form 模式下 中不展示此列 | boolean | - |
-| filters | 表头的筛选菜单项，当值为 true 时，自动使用 valueEnum 生成 | `boolean \| object[]` | false |
+| filters | 表头的筛选菜单项，当值为 true 时，自动使用 valueEnum 生成 | `boolean` \| `object[]` | false |
 | order | 查询表单中的权重，权重大排序靠前 | number | - |
 | renderFormItem | 渲染查询表单的输入组件 | `(item,props:{value,onChange}) => React.ReactNode` | - |
 | fieldProps | 查询表单的 props，会透传给表单项 | `{ [prop: string]: any }` | - |
-| search | 配置列的搜索相关，false 为隐藏 | `boolean \| { transform: (value: any) => any }` | true |
+| search | 配置列的搜索相关，false 为隐藏 | `boolean` \| `{ transform: (value: any) => any }` | true |
 | search.transform | 转化值的 key, 一般用于事件区间的转化 | `(value: any) => any` | - |
 
 ### valueType 值类型
@@ -325,6 +333,7 @@ ProTable 封装了一些常用的值类型来减少重复的 `render` 操作，�
 | percent | 百分比 | +1.12 |
 | code | 代码块 | `const a = b` |
 | avatar | 头像 | 展示一个头像 |
+| password | 密码框 | 密码相关的展示 |
 
 #### 传入 function
 
@@ -427,8 +436,8 @@ interface IValueEnum {
 
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| tableAlertRender | 自定义批量操作工具栏左侧信息区域, false 时不显示 | `({ selectedRowKeys: (string \| number)[], selectedRows: T[], onCleanSelected: ()=>void }) => React.ReactNode) \| false;` | - |
-| tableAlertOptionRender | 自定义批量操作工具栏右侧选项区域, false 时不显示 | `({ selectedRowKeys: (string \| number)[], selectedRows: T[], onCleanSelected: ()=>void }) => React.ReactNode) \| false;` | - |
+| tableAlertRender | 自定义批量操作工具栏左侧信息区域, false 时不显示 | `({ selectedRowKeys: Key[], selectedRows: T[], onCleanSelected: ()=>void }) => React.ReactNode)`\|`false` | - |
+| tableAlertOptionRender | 自定义批量操作工具栏右侧选项区域, false 时不显示 | `({ selectedRowKeys: Key[], selectedRows: T[], onCleanSelected: ()=>void }) => React.ReactNode)`\|`false` | - |
 
 ### 搜索表单
 
@@ -459,22 +468,50 @@ Form 的列是根据 `valueType` 来生成不同的类型。
 | index | 不展示 |
 | progress | 不展示 |
 
-### ListToolBarProps
+### 列表工具栏
+
+#### ToolBar - 基本使用
+
+<code src="./demos/ListToolBar/basic.tsx" background="#f0f2f5"/>
+
+#### ToolBar - 无标题
+
+没有标题的情况下搜索框会前置。
+
+<code src="./demos/ListToolBar/no-title.tsx" background="#f0f2f5"/>
+
+#### ToolBar - 双行布局
+
+双行的情况下会有双行的布局形式。
+
+<code src="./demos/ListToolBar/multipleLine.tsx" background="#f0f2f5"/>
+
+#### ToolBar - 带标签
+
+标签需配合 `multipleLine` 为 `true` 时使用。
+
+<code src="./demos/ListToolBar/tabs.tsx" background="#f0f2f5"/>
+
+#### ToolBar- 标题下拉菜单
+
+<code src="./demos/ListToolBar/menu.tsx" background="#f0f2f5"/>
+
+#### ListToolBarProps
 
 列表和表格的工具栏配置属性
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| title | 标题 | ReactNode \| string | - |
-| subTitle | 子标题 | ReactNode \| string | - |
-| description | 描述 | ReactNode \| string | - |
-| search | 查询区 | ReactNode \| SearchProps | - |
-| actions | 操作区 | ReactNode[] | - |
-| settings | 设置区 | (ReactNode \| Setting)[] | - |
+| title | 标题 | `ReactNode` | - |
+| subTitle | 子标题 | `ReactNode` | - |
+| description | 描述 | `ReactNode` | - |
+| search | 查询区 | `ReactNode` \| `SearchProps` | - |
+| actions | 操作区 | `ReactNode[]` | - |
+| settings | 设置区 | `(ReactNode \| Setting)[]` | - |
 | filter | 过滤区，通常配合 `LightFilter` 使用 | ReactNode | - |
 | multipleLine | 是否多行展示 | boolean | false |
-| menu | 菜单配置 | ListToolBarMenu | - |
-| tabs | 标签页配置，仅当 `multipleLine` 为 true 时有效 | ListToolBarTabs | - |
+| menu | 菜单配置 | `ListToolBarMenu` | - |
+| tabs | 标签页配置，仅当 `multipleLine` 为 true 时有效 | `ListToolBarTabs` | - |
 
 SearchProps 为 antd 的 [Input.Search](https://ant.design/components/input-cn/#Input.Search) 的属性。
 
@@ -485,21 +522,21 @@ SearchProps 为 antd 的 [Input.Search](https://ant.design/components/input-cn/#
 | icon    | 图标         | ReactNode             | -      |
 | tooltip | tooltip 描述 | string                | -      |
 | key     | 操作唯一标识 | string                | -      |
-| onClick | 设置被触发   | function(key: string) | -      |
+| onClick | 设置被触发   | `(key: string)=>void` | -      |
 
 #### ListToolBarMenu
 
-| 参数      | 说明           | 类型                                | 默认值     |
-| --------- | -------------- | ----------------------------------- | ---------- |
-| type      | 类型           | 'inline' \| 'dropdown'              | 'dropdown' |
-| activeKey | 当前值         | string                              | -          |
-| items     | 菜单项         | { key: string; label: ReactNode }[] | -          |
-| onChange  | 切换菜单的回调 | Function(activeKey) {}              | -          |
+| 参数      | 说明           | 类型                                  | 默认值     |
+| --------- | -------------- | ------------------------------------- | ---------- |
+| type      | 类型           | 'inline' \| 'dropdown'                | 'dropdown' |
+| activeKey | 当前值         | string                                | -          |
+| items     | 菜单项         | `{ key: string; label: ReactNode }[]` | -          |
+| onChange  | 切换菜单的回调 | `(activeKey)=>void`                   | -          |
 
 #### ListToolBarTabs
 
-| 参数      | 说明       | 类型                              | 默认值     |
-| --------- | ---------- | --------------------------------- | ---------- |
-| activeKey | 当前选中项 | string                            | -          |
-| items     | 菜单项     | { key: string; tab: ReactNode }[] | -          |
-| onChange  | 类型       | 'inline' \| 'dropdown'            | 'dropdown' |
+| 参数      | 说明       | 类型                                | 默认值     |
+| --------- | ---------- | ----------------------------------- | ---------- |
+| activeKey | 当前选中项 | string                              | -          |
+| items     | 菜单项     | `{ key: string; tab: ReactNode }[]` | -          |
+| onChange  | 类型       | 'inline' \| 'dropdown'              | 'dropdown' |

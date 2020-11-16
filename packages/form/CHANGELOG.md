@@ -2,6 +2,62 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.4.0...@ant-design/pro-form@1.4.1) (2020-11-10)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+# [1.4.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.3.0...@ant-design/pro-form@1.4.0) (2020-11-09)
+
+### Features
+
+- **table:** 修复 ListToolBar 样式问题 & 调整部分 Table 样式的 demo ([#918](https://github.com/ant-design/pro-components/issues/918)) ([a217c6e](https://github.com/ant-design/pro-components/commit/a217c6ea309f5232fd1864b2d886f449f49f2b6a))
+
+# [1.3.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.2.1...@ant-design/pro-form@1.3.0) (2020-11-04)
+
+### Features
+
+- **form:** submit button text localization ([#896](https://github.com/ant-design/pro-components/issues/896)) ([d209ea1](https://github.com/ant-design/pro-components/commit/d209ea1073cf12672b04a585c1343e02f5841fd2))
+
+## [1.2.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.2.0...@ant-design/pro-form@1.2.1) (2020-11-02)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+# [1.2.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.1.6...@ant-design/pro-form@1.2.0) (2020-11-02)
+
+### Bug Fixes
+
+- **form:** Radio and Checkbox should support children ([#857](https://github.com/ant-design/pro-components/issues/857)) ([297757d](https://github.com/ant-design/pro-components/commit/297757dc1be40e94bbdb16c0f271414c27699e61))
+
+### Features
+
+- **form:** localize stepsform texts ([#868](https://github.com/ant-design/pro-components/issues/868)) ([4d0f86f](https://github.com/ant-design/pro-components/commit/4d0f86f2d4812265893ba1d4e8e8994787609de2))
+
+## [1.1.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.1.5...@ant-design/pro-form@1.1.6) (2020-10-29)
+
+### Bug Fixes
+
+- **table:** renderFormItem should run in form init ([#852](https://github.com/ant-design/pro-components/issues/852)) ([612b04a](https://github.com/ant-design/pro-components/commit/612b04a7225ccc93b8c081d268981d988c333d4c))
+
+## [1.1.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.1.4...@ant-design/pro-form@1.1.5) (2020-10-26)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.1.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.1.3...@ant-design/pro-form@1.1.4) (2020-10-23)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.1.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.1.2...@ant-design/pro-form@1.1.3) (2020-10-23)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.1.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.1.1...@ant-design/pro-form@1.1.2) (2020-10-22)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.1.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.1.0...@ant-design/pro-form@1.1.1) (2020-10-21)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
 # [1.1.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.0.4...@ant-design/pro-form@1.1.0) (2020-10-19)
 
 ### Features

@@ -23,7 +23,7 @@ const LabelIconTip: React.FC<{
   const tooltipProps = typeof tooltip === 'string' ? { title: tooltip } : (tooltip as TooltipProps);
 
   return (
-    <Space size={4} className={className}>
+    <Space size={8} className={className}>
       {label}
       {subTitle && <div className={`${className}-subtitle`}>{subTitle}</div>}
       {tooltip && (

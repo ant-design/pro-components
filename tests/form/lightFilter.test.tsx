@@ -11,7 +11,7 @@ import {
   ProFormRadio,
 } from '@ant-design/pro-form';
 import KeyCode from 'rc-util/lib/KeyCode';
-import { waitTime } from '../util';
+import { waitTime, waitForComponentToPaint } from '../util';
 
 describe('LightFilter', () => {
   it('basic use', async () => {
@@ -302,18 +302,35 @@ describe('LightFilter', () => {
       <LightFilter
         onFinish={onFinish}
         initialValues={{
-          radio: 'queterly',
+          radio: 'quarterly',
         }}
       >
-        <ProFormRadio.Group name="radio">
-          <ProFormRadio.Button value="weekly">每周</ProFormRadio.Button>
-          <ProFormRadio.Button value="queterly">每季度</ProFormRadio.Button>
-          <ProFormRadio.Button value="monthly">每月</ProFormRadio.Button>
-          <ProFormRadio.Button value="yearly">每年</ProFormRadio.Button>
-        </ProFormRadio.Group>
+        <ProFormRadio.Group
+          name="radio"
+          radioType="button"
+          options={[
+            {
+              value: 'weekly',
+              label: '每周',
+            },
+            {
+              value: 'quarterly',
+              label: '每季度',
+            },
+            {
+              value: 'monthly',
+              label: '每月',
+            },
+            {
+              value: 'yearly',
+              label: '每年',
+            },
+          ]}
+        />
       </LightFilter>,
     );
 
+    await waitForComponentToPaint(wrapper, 100);
     expect(
       wrapper.find('.ant-radio-button-wrapper.ant-radio-button-wrapper-checked').text(),
     ).toEqual('每季度');
@@ -367,6 +384,64 @@ describe('LightFilter', () => {
     expect(onChange).toHaveBeenCalledWith(undefined);
     expect(wrapper.find('.ant-pro-form-light-filter-effective').length).toEqual(0);
 
+    wrapper.unmount();
+  });
+
+  it('allowClear false', async () => {
+    const wrapper = mount(
+      <LightFilter
+        initialValues={{
+          name1: 'yutingzhao1991',
+          name3: '2020-08-19',
+          sex: 'woman',
+        }}
+        onFinish={async (values) => console.log(values)}
+      >
+        <ProFormSelect
+          name="sex"
+          label="性别"
+          showSearch
+          allowClear={false}
+          valueEnum={{
+            man: '男',
+            woman: '女',
+          }}
+        />
+        <ProFormText name="name1" label="名称" allowClear={false} />
+        <ProFormDatePicker name="name3" label="不能清空的日期" allowClear={false} />
+        <ProFormSelect
+          name="sex"
+          label="性别"
+          showSearch
+          fieldProps={{
+            allowClear: false,
+          }}
+          valueEnum={{
+            man: '男',
+            woman: '女',
+          }}
+        />
+        <ProFormText
+          name="name4"
+          label="名称"
+          fieldProps={{
+            allowClear: false,
+          }}
+        />
+        <ProFormDatePicker
+          name="name5"
+          label="不能清空的日期"
+          fieldProps={{
+            allowClear: false,
+          }}
+        />
+      </LightFilter>,
+    );
+
+    expect(wrapper.find('.ant-pro-core-field-label .anticon-close').length).toEqual(0);
+    wrapper.find('.ant-pro-core-field-label').at(1).simulate('click');
+    expect(wrapper.find('.ant-input').length).toEqual(1);
+    expect(wrapper.find('.ant-input-suffix .close-circle').length).toEqual(0);
     wrapper.unmount();
   });
 });

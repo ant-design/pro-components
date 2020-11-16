@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 
 import { ConfigProvider as AntdConfigProvider } from 'antd';
 import { noteOnce } from 'rc-util/lib/warning';
+import arEG from './locale/ar_EG';
 import zhCN from './locale/zh_CN';
 import enUS from './locale/en_US';
 import viVN from './locale/vi_VN';
@@ -47,6 +48,7 @@ const createIntl = (locale: string, localeMap: { [key: string]: any }): IntlType
   locale,
 });
 
+const arEGIntl = createIntl('ar_EG', arEG);
 const zhCNIntl = createIntl('zh_CN', zhCN);
 const enUSIntl = createIntl('en_US', enUS);
 const viVNIntl = createIntl('vi_VN', viVN);
@@ -61,6 +63,7 @@ const ptBRIntl = createIntl('pt_BR', ptBR);
 const koKRIntl = createIntl('ko_KR', koKR);
 
 const intlMap = {
+  'ar-EG': arEGIntl,
   'zh-CN': zhCNIntl,
   'en-US': enUSIntl,
   'vi-VN': viVNIntl,
@@ -82,6 +85,7 @@ export type ParamsType = {
 };
 
 export {
+  arEGIntl,
   enUSIntl,
   zhCNIntl,
   viVNIntl,
