@@ -155,14 +155,7 @@ const CheckboxList: React.FC<{
   const listDom = list.map(({ key, dataIndex, title, fixed, ...rest }, index) => {
     const columnKey = genColumnKey(key, rest.index);
     return (
-      <DnDItem
-        index={index}
-        id={`${columnKey}`}
-        key={columnKey}
-        end={(id, targetIndex) => {
-          move(id, targetIndex);
-        }}
-      >
+      <DnDItem index={index} id={`${columnKey}`} key={columnKey} end={move}>
         <CheckboxListItem
           setColumnsMap={setColumnsMap}
           columnKey={columnKey || `${index}`}
