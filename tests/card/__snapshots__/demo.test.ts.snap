@@ -362,6 +362,171 @@ Array [
 ]
 `;
 
+exports[`card demos renders ./packages/card/src/demos/divider.tsx correctly 1`] = `
+<div
+  class="ant-pro-card ant-pro-card-contain-card"
+>
+  <div
+    class="ant-pro-card-header"
+  >
+    <div
+      class="ant-pro-card-title"
+    >
+      核心指标
+    </div>
+    <div
+      class="ant-pro-card-extra"
+    />
+  </div>
+  <div
+    class="ant-pro-card-body"
+    style="padding: 0px;"
+  >
+    <div
+      class="ant-pro-card"
+    >
+      <div
+        class="ant-pro-card-body"
+      >
+        <div
+          class="ant-statistic"
+        >
+          <div
+            class="ant-statistic-title"
+          >
+            今日UV
+          </div>
+          <div
+            class="ant-statistic-content"
+          >
+            <span
+              class="ant-statistic-content-value"
+            >
+              <span
+                class="ant-statistic-content-value-int"
+              >
+                79
+              </span>
+              <span
+                class="ant-statistic-content-value-decimal"
+              >
+                .00
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-pro-card-divider ant-pro-card-divider-line"
+    />
+    <div
+      class="ant-pro-card"
+    >
+      <div
+        class="ant-pro-card-body"
+      >
+        <div
+          class="ant-statistic"
+        >
+          <div
+            class="ant-statistic-title"
+          >
+            冻结金额
+          </div>
+          <div
+            class="ant-statistic-content"
+          >
+            <span
+              class="ant-statistic-content-value"
+            >
+              <span
+                class="ant-statistic-content-value-int"
+              >
+                112,893
+              </span>
+              <span
+                class="ant-statistic-content-value-decimal"
+              >
+                .00
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-pro-card-divider ant-pro-card-divider-line"
+    />
+    <div
+      class="ant-pro-card"
+    >
+      <div
+        class="ant-pro-card-body"
+      >
+        <div
+          class="ant-statistic"
+        >
+          <div
+            class="ant-statistic-title"
+          >
+            信息完整度
+          </div>
+          <div
+            class="ant-statistic-content"
+          >
+            <span
+              class="ant-statistic-content-value"
+            >
+              <span
+                class="ant-statistic-content-value-int"
+              >
+                93
+              </span>
+            </span>
+            <span
+              class="ant-statistic-content-suffix"
+            >
+              / 100
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-pro-card"
+    >
+      <div
+        class="ant-pro-card-body"
+      >
+        <div
+          class="ant-statistic"
+        >
+          <div
+            class="ant-statistic-title"
+          >
+            冻结金额
+          </div>
+          <div
+            class="ant-statistic-content"
+          >
+            <span
+              class="ant-statistic-content-value"
+            >
+              <span
+                class="ant-statistic-content-value-int"
+              >
+                112,893
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`card demos renders ./packages/card/src/demos/group.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
