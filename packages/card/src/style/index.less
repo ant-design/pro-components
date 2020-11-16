@@ -3,6 +3,7 @@
 
 @gradient-min: fade(@card-skeleton-bg, 20%);
 @gradient-max: fade(@card-skeleton-bg, 40%);
+@card-body-padding: @padding-lg;
 
 .@{pro-card-prefix-cls} {
   background-color: white;
@@ -72,7 +73,7 @@
   &-header {
     display: flex;
     justify-content: space-between;
-    padding: @padding-md @padding-lg;
+    padding: @padding-md @card-body-padding;
     padding-bottom: 0;
     &-border {
       & {
@@ -161,7 +162,7 @@
 
   &-body {
     display: block;
-    padding: @padding-lg;
+    padding: @card-body-padding;
     height: 100%;
     box-sizing: border-box;
 
@@ -193,6 +194,15 @@
     background-size: 600% 600%;
     border-radius: @card-radius;
     animation: card-loading 1.4s ease infinite;
+  }
+
+  // 分隔线
+  &-divider {
+    &-line {
+      width: @border-width-base;
+      margin: @card-body-padding @padding-xs;
+      background-color: @border-color-split;
+    }
   }
 }
 

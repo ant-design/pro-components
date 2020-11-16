@@ -61,6 +61,12 @@ group:
 
 <code src="./demos/gutter.tsx" background="#f0f2f5" />
 
+### 分组展示
+
+你可以嵌套指标卡组件来将指标分组, 以及 `Divider` 子组件来分隔这些指标。
+
+<code src="./demos/divider.tsx" background="#f0f2f5" />
+
 ### 标题带分割线
 
 当添加分隔线时会自动增加标题的高度与内容区域分开。
@@ -164,3 +170,11 @@ group:
 | key | 对应 activeKey，用于标定是否选中和 dom 更新，一定不要重复，不然会造成表现异常 | `string` | - |
 | tab | 选项卡头显示文字 | `ReactNode` | - |
 | disabled | 不可用 | `boolean` | false |
+
+### ProCard.Divider
+
+用于在将内容进行分组时进行分隔。
+
+### ProCard.Group
+
+属性同 ProCard，会取消卡片内容边距，用于将多个卡片进行分组。
