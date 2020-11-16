@@ -288,7 +288,7 @@ describe('Field', () => {
     'rate',
   ];
   valueTypes.forEach((valueType) => {
-    it(`🐴 valueType render ${valueType}`, async () => {
+    it(`🐴 valueType support render ${valueType}`, async () => {
       const html = render(
         <Field
           text="1994-07-29 12:00:00"
@@ -335,6 +335,18 @@ describe('Field', () => {
         />,
       );
       expect(html.text()).toBe('-');
+    });
+
+    it(`🐴 valueType support render ${valueType} when text is null`, async () => {
+      const html = render(
+        <Field
+          text={null}
+          render={() => <>qixian</>}
+          // @ts-ignore
+          valueType={valueType}
+        />,
+      );
+      expect(html.text()).toBe('qixian');
     });
   });
 
