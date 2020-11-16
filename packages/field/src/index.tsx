@@ -232,15 +232,14 @@ const defaultRenderText = (
     return defaultRenderTextByObject(text, valueType, props);
   }
 
-  const { mode = 'read', emptyText } = props;
+  const { mode = 'read', emptyText = '-' } = props;
   if (emptyText !== false && mode === 'read' && valueType !== 'option' && valueType !== 'switch') {
     if (typeof text !== 'boolean' && typeof text !== 'number' && !text) {
       const { fieldProps, render } = props;
-      const dom = emptyText || '-';
       if (render) {
-        return render(text, { mode, ...fieldProps }, <>{dom}</>);
+        return render(text, { mode, ...fieldProps }, <>{emptyText}</>);
       }
-      return <>{dom}</>;
+      return <>{emptyText}</>;
     }
   }
 
