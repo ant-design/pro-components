@@ -63,7 +63,7 @@ group:
 
 ### 分组展示
 
-你可以嵌套指标卡组件来将指标分组, 以及 `Divider` 子组件来分隔这些指标。
+你可以嵌套卡片组件来将内容分组, 以及 `Divider` 子组件来分隔这些内容。
 
 <code src="./demos/divider.tsx" background="#f0f2f5" />
 

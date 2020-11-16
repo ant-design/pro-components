@@ -5,9 +5,9 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { LabelIconTip } from '@ant-design/pro-utils';
 import classNames from 'classnames';
 import { TabsProps } from 'antd/lib/tabs';
-import CardLoading from './components/cardLoading';
+import CardLoading from './components/CardLoading';
 import Divider from './components/Divider';
-import TabPane from './components/tabPane';
+import TabPane from './components/TabPane';
 import './style/index.less';
 
 const { useBreakpoint } = Grid;

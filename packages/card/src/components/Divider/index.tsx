@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
 
+import './index.less';
+
 export interface ProCardDividerProps {
   /**
    * @description 自定义前缀

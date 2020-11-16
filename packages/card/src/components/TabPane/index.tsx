@@ -2,9 +2,8 @@ import React, { useContext } from 'react';
 import { Tabs, ConfigProvider } from 'antd';
 import { TabPaneProps } from 'antd/lib/tabs';
 import classNames from 'classnames';
-
-import './style/index.less';
-import ProCard, { ProCardProps } from '../index';
+import './index.less';
+import ProCard, { ProCardProps } from '../../index';
 
 export interface ProCardTabPaneProps extends TabPaneProps, ProCardProps {
   key?: string;
