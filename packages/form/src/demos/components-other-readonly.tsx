@@ -211,7 +211,9 @@ const Demo = () => (
         transform={(value: any) => ({ startTime: value[0], endTime: value[1] })}
       >
         <ProFormText width="m" readonly />
+        -
         <ProFormText width="m" readonly />
+        -
         <ProFormText width="m" readonly />
       </ProFromFieldSet>
       <ProForm.Group title="日期相关分组">

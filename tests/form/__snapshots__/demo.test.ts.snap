@@ -3971,7 +3971,19 @@ exports[`form demos renders ./packages/form/src/demos/components-other-readonly.
                 class="ant-space-item"
                 style="margin-right: 8px;"
               >
+                -
+              </div>
+              <div
+                class="ant-space-item"
+                style="margin-right: 8px;"
+              >
                 2
+              </div>
+              <div
+                class="ant-space-item"
+                style="margin-right: 8px;"
+              >
+                -
               </div>
               <div
                 class="ant-space-item"
