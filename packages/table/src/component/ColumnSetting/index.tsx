@@ -12,11 +12,11 @@ import classNames from 'classnames';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 
 import Container, { ColumnsState } from '../../container';
-import { ProColumns } from '../../Table';
 import DnDItem from './DndItem';
 import './index.less';
 import DragIcon from './DragIcon';
 import { genColumnKey } from '../../utils';
+import { ProColumns } from '../../typing';
 
 interface ColumnSettingProps<T = any> {
   columns?: ProColumns<T>[];
