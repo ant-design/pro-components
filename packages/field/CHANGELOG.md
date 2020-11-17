@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.0.9...@ant-design/pro-field@1.1.0) (2020-11-17)
+
+### Bug Fixes
+
+- **field:** set the useSwr option revalidateOnFocus to false ([#950](https://github.com/ant-design/pro-components/issues/950)) ([e75b97b](https://github.com/ant-design/pro-components/commit/e75b97bc8a456da4eefc5545cc1c22d9b67ac2ac))
+- **field:** 解决只读模式默认值为空的情况不走 render 的问题 ([#630](https://github.com/ant-design/pro-components/issues/630)) ([3ac7297](https://github.com/ant-design/pro-components/commit/3ac72977d7c0af3f78060dd6cd2b3afcca691d4b))
+
+### Features
+
+- **form:** LightFilter support allowClear ([#974](https://github.com/ant-design/pro-components/issues/974)) ([6ef984a](https://github.com/ant-design/pro-components/commit/6ef984ae6ba9560737c200c0ca39e5d2f3d7286b))
+- **form:** support readonly ([#963](https://github.com/ant-design/pro-components/issues/963)) ([2b27e91](https://github.com/ant-design/pro-components/commit/2b27e917707c530c2a9d9c91fa27c1b663a07bf4))
+
 ## [1.0.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.0.8...@ant-design/pro-field@1.0.9) (2020-11-10)
 
 **Note:** Version bump only for package @ant-design/pro-field

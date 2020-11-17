@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.4.6...@ant-design/pro-card@1.5.0) (2020-11-17)
+
+### Features
+
+- **card:** pro-card support Group and Divider ([#992](https://github.com/ant-design/pro-components/issues/992)) ([89c813d](https://github.com/ant-design/pro-components/commit/89c813d9d344eaa8ea4963839847ec5c0c2ef017))
+
 ## [1.4.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.4.5...@ant-design/pro-card@1.4.6) (2020-11-09)
 
 **Note:** Version bump only for package @ant-design/pro-card

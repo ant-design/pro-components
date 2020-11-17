@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.4.1...@ant-design/pro-form@1.5.0) (2020-11-17)
+
+### Bug Fixes
+
+- **form:** FieldSet igrone no Element ([aa40d77](https://github.com/ant-design/pro-components/commit/aa40d7744bfe4687699c8c5703baeefdc928f2ee))
+- **form:** fix form captcha loading error ([#945](https://github.com/ant-design/pro-components/issues/945)) ([2d3db9e](https://github.com/ant-design/pro-components/commit/2d3db9eac98dfaa40ba8248a4417b181a59d094b)), closes [#943](https://github.com/ant-design/pro-components/issues/943)
+
+### Features
+
+- **form:** LightFilter support allowClear ([#974](https://github.com/ant-design/pro-components/issues/974)) ([6ef984a](https://github.com/ant-design/pro-components/commit/6ef984ae6ba9560737c200c0ca39e5d2f3d7286b))
+- **form:** support readonly ([#963](https://github.com/ant-design/pro-components/issues/963)) ([2b27e91](https://github.com/ant-design/pro-components/commit/2b27e917707c530c2a9d9c91fa27c1b663a07bf4))
+
 ## [1.4.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.4.0...@ant-design/pro-form@1.4.1) (2020-11-10)
 
 **Note:** Version bump only for package @ant-design/pro-form
