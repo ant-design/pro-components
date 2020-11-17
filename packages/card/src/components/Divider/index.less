@@ -1,0 +1,13 @@
+@import (reference) '~antd/lib/style/themes/default';
+@pro-card-prefix-cls: ~'@{ant-prefix}-pro-card';
+
+.@{pro-card-prefix-cls} {
+  // 分隔线
+  &-divider {
+    &-line {
+      width: @border-width-base;
+      margin: @padding-lg @padding-xs;
+      background-color: @border-color-split;
+    }
+  }
+}
