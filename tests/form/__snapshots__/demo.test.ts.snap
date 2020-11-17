@@ -1110,7 +1110,7 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
                   placeholder="请输入"
                   role="spinbutton"
                   step="1"
-                  value="3.00"
+                  value="3"
                 />
               </div>
             </div>
@@ -7568,7 +7568,7 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
                                         placeholder="请输入"
                                         role="spinbutton"
                                         step="1"
-                                        value="5.00"
+                                        value="5"
                                       />
                                     </div>
                                   </div>
@@ -10537,7 +10537,7 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
                           placeholder="请输入名称"
                           role="spinbutton"
                           step="1"
-                          value="9999.00"
+                          value="9999"
                         />
                       </div>
                     </div>
