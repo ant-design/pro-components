@@ -10,6 +10,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-card@1.5.0
+
+`2020-11-17`
+
+- 💥 feat(card): pro-card support Group and Divider [#992](https://github.com/ant-design/pro-components/pull/992) [@rdmclin2](https://github.com/rdmclin2)
+
 ## @ant-design/pro-card@1.4.3
 
 `2020-10-29`

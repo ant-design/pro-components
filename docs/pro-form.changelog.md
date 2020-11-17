@@ -9,6 +9,16 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.5.0
+
+`2020-11-17`
+
+- 💄 UI(form): add a empty label [#980](https://github.com/ant-design/pro-components/pull/980) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix form captcha loading error [#945](https://github.com/ant-design/pro-components/pull/945) [@3lang3](https://github.com/3lang3)
+- 🐛 fix(form): raise style priority [#960](https://github.com/ant-design/pro-components/pull/960) [@chenshuai2144](https://github.com/chenshuai2144)
+- feat: LightFilter support allowClear [#974](https://github.com/ant-design/pro-components/pull/974) [@yutingzhao1991](https://github.com/yutingzhao1991)
+- 💥 feat(form): support readonly [#963](https://github.com/ant-design/pro-components/pull/963) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-form@1.3.0
 
 `2020-11-04`
