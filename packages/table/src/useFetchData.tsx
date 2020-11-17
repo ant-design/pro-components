@@ -10,7 +10,7 @@ const useFetchData = <T extends RequestData<any>>(
   options: {
     dataSource?: any;
     loading: UseFetchDataAction<T>['loading'];
-    onDataSourceChange: (dataSource?: any) => void;
+    onDataSourceChange?: (dataSource?: any) => void;
     current?: number;
     pageSize?: number;
     defaultCurrent?: number;

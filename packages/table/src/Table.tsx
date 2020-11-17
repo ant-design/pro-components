@@ -445,6 +445,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
       }
     },
   };
+
   /**
    * 如果有 ellipsis ，设置 tableLayout 为 fixed
    */
@@ -452,7 +453,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
   const tableDom = props.tableViewRender ? (
     props.tableViewRender(tableProps)
   ) : (
-    <Form component={false} onValuesChange={(d) => console.log(d)}>
+    <Form component={false}>
       <Table<T> {...tableProps} tableLayout={tableLayout} />
     </Form>
   );
