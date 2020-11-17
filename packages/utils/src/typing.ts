@@ -1,5 +1,4 @@
 import { FormInstance } from 'antd/lib/form';
-import { UseEditorUtilType } from 'packages/table/src/component/useEditor';
 import { ReactNode } from 'react';
 
 type ProSchemaValueEnumType = {
@@ -64,7 +63,7 @@ export type ProFieldRequestData<T, U = any> = (
 /**
  * 操作类型
  */
-export interface ProCoreActionType {
+export type ProCoreActionType<T = {}> = {
   /**
    * @name 刷新
    */
@@ -82,12 +81,12 @@ export interface ProCoreActionType {
    * @name 清空选择
    */
   clearSelected?: () => void;
-}
+} & T;
 
 /**
  * 各个组件公共支持的 render
  */
-export type ProSchema<T = unknown, U = string, Extra = unknown> = {
+export type ProSchema<T = unknown, U = string, Extra = unknown, Action = {}> = {
   /**
    * @name 确定这个列的唯一值
    */
@@ -108,7 +107,7 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
    */
   title?:
     | ((
-        schema: ProSchema<T, U, Extra>,
+        schema: ProSchema<T, U, Extra, Action>,
         type: ProSchemaComponentTypes,
         dom: React.ReactNode,
       ) => React.ReactNode)
@@ -128,8 +127,8 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
     dom: React.ReactNode,
     entity: T,
     index: number,
-    action: ProCoreActionType & UseEditorUtilType,
-    schema: ProSchema<T, U, Extra & { isEditor?: boolean }>,
+    action: ProCoreActionType & Action,
+    schema: ProSchema<T, U, Extra & { isEditor?: boolean }, Action>,
   ) => React.ReactNode;
 
   /**
@@ -137,10 +136,8 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
    * @description 返回一个node，会自动包裹 value 和 onChange
    */
   renderFormItem?: (
-    item: ProSchema<T, U, Extra>,
+    item: ProSchema<T, U, Extra, Action>,
     config: {
-      value?: any;
-      onChange?: (value: any) => void;
       onSelect?: (value: any) => void;
       type: ProSchemaComponentTypes;
       defaultRender: (newItem: ProSchema<T, U, Extra>) => JSX.Element | null;

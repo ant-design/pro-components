@@ -134,7 +134,11 @@ export const formInputRender: React.FC<{
     // 自动注入 onChange 和 value，用户自己很有可能忘记
     const dom = renderFormItem(
       restItem,
-      { ...rest, type, defaultRender },
+      {
+        ...rest,
+        type,
+        defaultRender,
+      },
       form as any,
     ) as React.ReactElement;
 

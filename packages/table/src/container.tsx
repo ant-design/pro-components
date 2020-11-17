@@ -4,8 +4,8 @@ import { ColumnType } from 'antd/lib/table';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import { RequestData, ProColumns, ProTableProps } from './index';
-import { UseFetchDataAction } from './useFetchData';
 import { DensitySize } from './component/ToolBar/DensityIcon';
+import { UseFetchDataAction } from './typing';
 
 export type ColumnsState = {
   show?: boolean;
