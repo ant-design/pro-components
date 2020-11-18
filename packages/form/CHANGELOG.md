@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.5.1...@ant-design/pro-form@1.6.0) (2020-11-18)
+
+### Bug Fixes
+
+- ProFromFieldSet to ProFormFieldSet ([#1012](https://github.com/ant-design/pro-components/issues/1012)) ([9ecec85](https://github.com/ant-design/pro-components/commit/9ecec85928588c5ecca7bf65b1ac9fba65577c45))
+
+### Features
+
+- **form:** onFinish support reset form ([cf84064](https://github.com/ant-design/pro-components/commit/cf8406411b2445399290b476b3d8dff959507db3))
+
 ## [1.5.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.5.0...@ant-design/pro-form@1.5.1) (2020-11-17)
 
 **Note:** Version bump only for package @ant-design/pro-form
