@@ -184,7 +184,7 @@ export interface ProTableProps<T, U extends ParamsType>
   /**
    * @name 渲染 table 视图，用于定制 ProList，不推荐直接使用
    */
-  tableViewRender?: (props: TableProps<T>) => JSX.Element | undefined;
+  tableViewRender?: (props: TableProps<T>, defaultDom: JSX.Element) => JSX.Element | undefined;
 
   tableExtraRender?: (props: ProTableProps<T, U>, dataSource: T[]) => React.ReactNode;
 

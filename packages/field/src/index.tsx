@@ -243,6 +243,9 @@ const defaultRenderText = (
     }
   }
 
+  // eslint-disable-next-line no-param-reassign
+  delete props.emptyText;
+
   /**
    * 如果是金额的值
    */

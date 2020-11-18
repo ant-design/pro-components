@@ -450,13 +450,23 @@ const ProTable = <T extends {}, U extends ParamsType>(
    * 如果有 ellipsis ，设置 tableLayout 为 fixed
    */
   const tableLayout = props.columns?.some((item) => item.ellipsis) ? 'fixed' : 'auto';
-  const tableDom = props.tableViewRender ? (
-    props.tableViewRender(tableProps)
-  ) : (
+
+  /**
+   * 默认的 table dom，如果是编辑模式，外面还要包个 form
+   */
+  const baseTableDom = (
     <Form component={false}>
       <Table<T> {...tableProps} tableLayout={tableLayout} />
     </Form>
   );
+
+  /**
+   * 自定义的 render
+   */
+  const tableDom = props.tableViewRender
+    ? props.tableViewRender(tableProps, baseTableDom)
+    : baseTableDom;
+
   /**
    * table 区域的 dom，为了方便 render
    */

@@ -282,7 +282,7 @@ export function columnRender<T>({
   editorUtils,
 }: ColumnRenderInterface<T>): any {
   const { action } = counter;
-  const isEditor = editorUtils.isEditor({ ...rowData, index });
+  const { isEditor, rowKey } = editorUtils.isEditor({ ...rowData, index });
   const { renderText = (val: any) => val } = columnProps;
 
   const renderTextStr = renderText(
@@ -300,6 +300,7 @@ export function columnRender<T>({
     columnProps,
     columnEmptyText,
     type,
+    rowKey,
     mode: isEditor ? 'edit' : 'read',
   });
 

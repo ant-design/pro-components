@@ -7,6 +7,24 @@ import { ProColumnType } from './index';
 const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
 
 /**
+ * 拼接用于编辑的 key
+ * @param base 基本的 key
+ * @param dataIndex 需要拼接的key
+ */
+const spellNamePath = (
+  base: React.Key | undefined,
+  dataIndex: React.Key | React.Key[],
+): React.Key[] | React.Key | undefined => {
+  if (!base) {
+    return dataIndex;
+  }
+  if (Array.isArray(dataIndex)) {
+    return [base, ...dataIndex];
+  }
+  return [base, dataIndex];
+};
+
+/**
  * 根据不同的类型来转化数值
  * @param text
  * @param valueType
@@ -20,9 +38,11 @@ const defaultRenderText = <T, U = any>(config: {
   columnEmptyText?: ProFieldEmptyText;
   columnProps?: ProColumnType<T>;
   type?: ProSchemaComponentTypes;
+  // 行的唯一 key
+  rowKey?: React.Key;
   mode: 'edit' | 'read';
 }): React.ReactNode => {
-  const { text, valueType, index, rowData, columnProps, columnEmptyText, type } = config;
+  const { text, valueType, rowKey, index, rowData, columnProps, columnEmptyText, type } = config;
   // 如果 valueType === text ，没必要多走一次 render
   if ((!valueType || valueType === 'text') && !columnProps?.valueEnum && config.mode === 'read') {
     // 如果是''、null、undefined 显示columnEmptyText
@@ -36,9 +56,13 @@ const defaultRenderText = <T, U = any>(config: {
       valueType: valueType(rowData, type) || 'text',
     });
   }
+
   const dom = (
     <ProField
-      {...columnProps}
+      {...columnProps?.fieldProps}
+      valueEnum={columnProps?.valueEnum}
+      request={columnProps?.request}
+      params={columnProps?.params}
       proFieldKey={columnProps?.dataIndex?.toString() || columnProps?.key}
       text={valueType === 'index' || valueType === 'indexBorder' ? index : text}
       mode={config.mode}
@@ -54,7 +78,7 @@ const defaultRenderText = <T, U = any>(config: {
     return (
       <Form.Item
         initialValue={text}
-        name={columnProps?.key || columnProps?.dataIndex}
+        name={spellNamePath(rowKey, columnProps?.key || columnProps?.dataIndex || index)}
         {...columnProps?.formItemProps}
       >
         {dom}

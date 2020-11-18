@@ -86,8 +86,10 @@ const SaveEditorAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
       onClick={async () => {
         try {
           setLoading(true);
-          const fields = await form.validateFields();
+          await form.validateFields([rowKey]);
+          const fields = form.getFieldValue([rowKey]);
           onRowSave?.(rowKey, { ...row, ...fields });
+          form.resetFields([rowKey]);
           cancelEditor(rowKey);
           setLoading(false);
         } catch {
@@ -164,9 +166,16 @@ function useEditor<RecordType>(
    */
   const isEditor = useCallback(
     (row: RecordType & { index: number }) => {
-      const key = props.getRowKey(row, row.index);
-      if (editorRowKeys.includes(key)) return true;
-      return false;
+      const rowKey = props.getRowKey(row, row.index);
+      if (editorRowKeys.includes(rowKey))
+        return {
+          rowKey,
+          isEditor: true,
+        };
+      return {
+        rowKey,
+        isEditor: false,
+      };
     },
     [editorRowKeys.join(',')],
   );
