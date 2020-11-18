@@ -1,6 +1,6 @@
-﻿import React, { useContext } from 'react';
+﻿import React, { useContext, useImperativeHandle, useRef } from 'react';
 import { Modal, ConfigProvider } from 'antd';
-import { FormProps } from 'antd/lib/form';
+import { FormInstance, FormProps } from 'antd/lib/form';
 import { ModalProps } from 'antd/lib/modal';
 import { Store } from 'antd/lib/form/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -63,18 +63,25 @@ const ModalForm: React.FC<ModalFormProps> = ({
     onChange: onVisibleChange,
   });
   const context = useContext(ConfigProvider.ConfigContext);
+  /**
+   * 同步 props 和 本地的 ref
+   */
+  const formRef = useRef<FormInstance>();
+  useImperativeHandle(rest.formRef, () => formRef.current, [formRef.current]);
 
   return (
     <>
       <BaseForm
         layout="vertical"
         {...omit(rest, ['visible'])}
+        formRef={formRef}
         onFinish={async (values) => {
           if (!onFinish) {
             return;
           }
           const success = await onFinish(values);
           if (success) {
+            formRef.current?.resetFields();
             setVisible(false);
           }
         }}
