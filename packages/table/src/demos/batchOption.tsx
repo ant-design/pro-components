@@ -149,12 +149,7 @@ export default () => {
           </Space>
         );
       }}
-      request={() => {
-        return Promise.resolve({
-          data: tableListDataSource,
-          success: true,
-        });
-      }}
+      dataSource={tableListDataSource}
       scroll={{ x: 1300 }}
       options={false}
       search={false}

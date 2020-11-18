@@ -80,7 +80,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     value: propsRowSelection ? propsRowSelection.selectedRowKeys : undefined,
   });
 
-  const [selectedRows, setSelectedRows] = useMergedState<T[]>([]);
+  const [selectedRows, setSelectedRows] = useState<T[]>([]);
 
   const setSelectedRowsAndKey = (keys: React.ReactText[], rows: T[]) => {
     setSelectedRowKeys(keys);
@@ -191,9 +191,9 @@ const ProTable = <T extends {}, U extends ParamsType>(
     }
     setSelectedRowsAndKey([], []);
   }, [setSelectedRowKeys, propsRowSelection]);
-  /**
-   * 绑定 action
-   */
+  // /**
+  //  * 绑定 action
+  //  */
   useActionType(actionRef, counter, () => {
     // 清空选中行
     onCleanSelected();
@@ -204,16 +204,9 @@ const ProTable = <T extends {}, U extends ParamsType>(
     // 清空 toolbar 搜索
     counter.setKeyWords(undefined);
   });
+
   counter.setAction(action);
   counter.propsRef.current = props;
-
-  /**
-   *  保存一下 propsColumns
-   *  生成 form 需要用
-   */
-  useDeepCompareEffect(() => {
-    counter.setProColumns(propsColumns);
-  }, [propsColumns]);
 
   // ============================ RowKey ============================
   const getRowKey = React.useMemo<GetRowKey<T>>(() => {
@@ -300,13 +293,13 @@ const ProTable = <T extends {}, U extends ParamsType>(
   }
 
   const className = classNames(defaultClassName, propsClassName);
-
   /**
    * 查询表单相关的配置
    */
   const searchNode = (search !== false || type === 'form') && (
-    <FormSearch<U>
+    <FormSearch<U, T>
       submitButtonLoading={!!action.loading}
+      columns={propsColumns}
       {...rest}
       type={type}
       formRef={formRef}

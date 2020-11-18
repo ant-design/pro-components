@@ -2,7 +2,7 @@ import { createContainer } from 'unstated-next';
 import { useState, useRef } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
-import { RequestData, ProColumns, ProTableProps } from './index';
+import { RequestData, ProTableProps } from './index';
 import { DensitySize } from './component/ToolBar/DensityIcon';
 import { UseFetchDataAction } from './typing';
 
@@ -29,7 +29,6 @@ function useCounter(props: UseCounterProps = {}) {
   const [keyWords, setKeyWords] = useState<string | undefined>('');
   // 用于排序的数组
   const sortKeyColumns = useRef<string[]>([]);
-  const [proColumns, setProColumns] = useState<ProColumns<any>[]>([]);
 
   const [tableSize, setTableSize] = useMergedState<DensitySize>(props.size || 'middle', {
     value: props.size,
@@ -59,8 +58,6 @@ function useCounter(props: UseCounterProps = {}) {
     setTableSize,
     tableSize,
     setColumnsMap,
-    proColumns,
-    setProColumns,
   };
 }
 
