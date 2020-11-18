@@ -97,8 +97,8 @@ const columns: ProColumns<TableListItem>[] = [
     dataIndex: 'createdAt',
     valueType: 'date',
     sorter: (a, b) => a.createdAt - b.createdAt,
-    renderFormItem: (_, { value, onChange }) => {
-      return <RangePicker value={value} onChange={onChange} />;
+    renderFormItem: () => {
+      return <RangePicker />;
     },
   },
   {

@@ -134,7 +134,7 @@ export type ProColumnType<T = unknown> = ProSchema<
      */
     formItemProps?: Partial<Omit<FormItemProps, 'children'>>;
   },
-  UseEditorUtilType
+  Partial<UseEditorUtilType>
 >;
 
 export interface ProColumnGroupType<RecordType> extends ProColumnType<RecordType> {

@@ -77,6 +77,9 @@ const defaultRenderText = <T, U = any>(config: {
   if (config.mode === 'edit') {
     return (
       <Form.Item
+        style={{
+          margin: 0,
+        }}
         initialValue={text}
         name={spellNamePath(rowKey, columnProps?.key || columnProps?.dataIndex || index)}
         {...columnProps?.formItemProps}

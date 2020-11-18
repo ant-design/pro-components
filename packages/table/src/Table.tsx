@@ -27,6 +27,7 @@ import {
   genColumnList,
 } from './utils';
 import ErrorBoundary from './component/ErrorBoundary';
+
 import './index.less';
 import useEditor from './component/useEditor';
 import { ProTableProps, RequestData, TableRowSelection } from './typing';
@@ -252,7 +253,6 @@ const ProTable = <T extends {}, U extends ParamsType>(
    */
   useDeepCompareEffect(() => {
     if (tableColumn && tableColumn.length > 0) {
-      counter.setColumns(tableColumn);
       // 重新生成key的字符串用于排序
       const columnKeys = tableColumn.map((item, index) => genColumnKey(item.key, index));
       counter.setSortKeyColumns(columnKeys);
@@ -404,7 +404,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     rowSelection: propsRowSelection === false ? undefined : rowSelection,
     className: tableClassName,
     style: tableStyle,
-    columns: counter.columns.filter((item) => {
+    columns: tableColumn.filter((item) => {
       // 删掉不应该显示的
       const columnKey = genColumnKey(item.key, item.index);
       const config = counter.columnsMap[columnKey];

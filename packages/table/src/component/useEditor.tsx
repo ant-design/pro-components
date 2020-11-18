@@ -4,6 +4,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { FormInstance } from 'antd/lib/form';
 import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
 import { LoadingOutlined } from '@ant-design/icons';
+import { message } from 'antd';
 
 export type RowEditorType = 'singe' | 'multiple';
 
@@ -90,7 +91,9 @@ const SaveEditorAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
           const fields = form.getFieldValue([rowKey]);
           onRowSave?.(rowKey, { ...row, ...fields });
           form.resetFields([rowKey]);
-          cancelEditor(rowKey);
+          setTimeout(() => {
+            cancelEditor(rowKey);
+          }, 1);
           setLoading(false);
         } catch {
           setLoading(false);
@@ -185,6 +188,11 @@ function useEditor<RecordType>(
    * @param rowKey
    */
   const setEditor = (rowKey: React.Key) => {
+    // 如果是单行的话，不允许多行编辑
+    if (editorRowKeysSet.size > 0 && editorType === 'singe') {
+      message.warn('只能同时编辑一行！');
+      return;
+    }
     editorRowKeysSet.add(rowKey);
     setEditorRowKeys(Array.from(editorRowKeysSet));
   };

@@ -90,7 +90,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
       <a
         key="editor"
         onClick={() => {
-          action.setEditor(row.id);
+          action.setEditor?.(row.id);
         }}
       >
         编辑
@@ -132,7 +132,9 @@ export default () => {
           params,
         })
       }
-      rowEditor={{}}
+      rowEditor={{
+        type: 'multiple',
+      }}
       rowKey="id"
       search={{
         labelWidth: 'auto',
