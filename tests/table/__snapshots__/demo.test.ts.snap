@@ -13150,9 +13150,32 @@ exports[`table demos renders ./packages/table/src/demos/dataSource.tsx correctly
                           class="ant-space-item"
                         >
                           <button
-                            class="ant-btn ant-btn-primary"
+                            class="ant-btn ant-btn-primary ant-btn-loading"
                             type="button"
                           >
+                            <span
+                              class="ant-btn-loading-icon"
+                            >
+                              <span
+                                aria-label="loading"
+                                class="anticon anticon-loading anticon-spin"
+                                role="img"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="loading"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="0 0 1024 1024"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+                                  />
+                                </svg>
+                              </span>
+                            </span>
                             <span>
                               查 询
                             </span>
@@ -25073,7 +25096,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
           >
             <label
               class=""
-              for="since"
+              for="created_at"
               title="创建时间"
             >
               创建时间
@@ -25097,7 +25120,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                   >
                     <input
                       autocomplete="off"
-                      id="since"
+                      id="created_at"
                       placeholder="请选择"
                       readonly=""
                       size="12"
@@ -25685,11 +25708,8 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               class="ant-space-item"
                               style="margin-right: 16px;"
                             >
-                              <a
-                                rel="noopener noreferrer"
-                                target="_blank"
-                              >
-                                链路
+                              <a>
+                                编辑
                               </a>
                             </div>
                             <div
@@ -25842,12 +25862,8 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               class="ant-space-item"
                               style="margin-right: 16px;"
                             >
-                              <a
-                                href="https://github.com/ant-design/ant-design-pro/issues/6688"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                              >
-                                链路
+                              <a>
+                                编辑
                               </a>
                             </div>
                             <div
@@ -26001,12 +26017,8 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               class="ant-space-item"
                               style="margin-right: 16px;"
                             >
-                              <a
-                                href="https://github.com/ant-design/ant-design-pro/issues/6685"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                              >
-                                链路
+                              <a>
+                                编辑
                               </a>
                             </div>
                             <div
@@ -26154,12 +26166,8 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               class="ant-space-item"
                               style="margin-right: 16px;"
                             >
-                              <a
-                                href="https://github.com/ant-design/ant-design-pro/issues/6683"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                              >
-                                链路
+                              <a>
+                                编辑
                               </a>
                             </div>
                             <div
@@ -26313,12 +26321,8 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                               class="ant-space-item"
                               style="margin-right: 16px;"
                             >
-                              <a
-                                href="https://github.com/ant-design/ant-design-pro/issues/6682"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                              >
-                                链路
+                              <a>
+                                编辑
                               </a>
                             </div>
                             <div

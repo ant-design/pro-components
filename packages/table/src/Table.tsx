@@ -362,6 +362,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     (options !== false || headerTitle || toolBarRender || toolbarProps) && (
       // if options= false & headerTitle=== false, hide Toolbar
       <Toolbar<T>
+        columns={tableColumn}
         options={options}
         headerTitle={headerTitle}
         action={action}

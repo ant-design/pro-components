@@ -9,7 +9,7 @@ import './index.less';
 import FullScreenIcon from './FullscreenIcon';
 import DensityIcon from './DensityIcon';
 import Container from '../../container';
-import { RequestData, UseFetchDataAction } from '../../typing';
+import { ProColumns, RequestData, UseFetchDataAction } from '../../typing';
 
 export interface OptionConfig<T> {
   density?: boolean;
@@ -26,6 +26,7 @@ export type OptionsType<T = unknown> =
 export interface ToolBarProps<T = unknown> {
   headerTitle?: React.ReactNode;
   tooltip?: string;
+  columns: any[];
   /**
    * @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一
    */
@@ -76,14 +77,17 @@ const getButtonText = <T, _U = {}>({
  * @param className
  */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const renderDefaultOption = <T, _U = {}>(
+function renderDefaultOption<T>(
   options: ToolBarProps<T>['options'],
   defaultOptions: OptionConfig<T> & {
     intl: IntlType;
   },
-) =>
-  options &&
-  Object.keys(options)
+  columns: ProColumns<T>[],
+) {
+  if (!options) {
+    return null;
+  }
+  return Object.keys(options)
     .filter((item) => item)
     .map((key) => {
       const value = options[key];
@@ -91,7 +95,7 @@ const renderDefaultOption = <T, _U = {}>(
         return null;
       }
       if (key === 'setting') {
-        return <ColumnSetting key={key} />;
+        return <ColumnSetting columns={columns} key={key} />;
       }
       if (key === 'fullScreen') {
         return (
@@ -122,6 +126,7 @@ const renderDefaultOption = <T, _U = {}>(
       return null;
     })
     .filter((item) => item);
+}
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const ToolBar = <T, _U = {}>({
@@ -134,6 +139,7 @@ const ToolBar = <T, _U = {}>({
   selectedRows,
   toolbar,
   onSearch,
+  columns,
   ...rest
 }: ToolBarProps<T>) => {
   const defaultOptions = {
@@ -156,10 +162,14 @@ const ToolBar = <T, _U = {}>({
 
   const intl = useIntl();
   const optionDom =
-    renderDefaultOption<T>(options, {
-      ...defaultOptions,
-      intl,
-    }) || [];
+    renderDefaultOption<T>(
+      options,
+      {
+        ...defaultOptions,
+        intl,
+      },
+      columns,
+    ) || [];
   // 操作列表
   const actions = toolBarRender ? toolBarRender(action, { selectedRowKeys, selectedRows }) : [];
   const getSearchConfig = (search: OptionConfig<any>['search']) => {

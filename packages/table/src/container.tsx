@@ -1,6 +1,5 @@
 import { createContainer } from 'unstated-next';
 import { useState, useRef } from 'react';
-import { ColumnType } from 'antd/lib/table';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import { RequestData, ProColumns, ProTableProps } from './index';
@@ -24,7 +23,6 @@ export interface UseCounterProps {
 
 function useCounter(props: UseCounterProps = {}) {
   const actionRef = useRef<UseFetchDataAction<RequestData<any>>>();
-  const [columns, setColumns] = useState<(ColumnType<any> & { index?: number })[]>([]);
   const propsRef = useRef<ProTableProps<any, any>>();
 
   // 共享状态比较难，就放到这里了
@@ -54,8 +52,6 @@ function useCounter(props: UseCounterProps = {}) {
     setSortKeyColumns: (keys: string[]) => {
       sortKeyColumns.current = keys;
     },
-    columns,
-    setColumns,
     propsRef,
     columnsMap,
     keyWords,
