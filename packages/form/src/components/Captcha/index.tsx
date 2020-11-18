@@ -58,7 +58,7 @@ const ProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((props, r
       setTiming(true);
     } catch (error) {
       setLoading(false);
-      console.log(error)
+      console.log(error);
     }
   }, []);
 

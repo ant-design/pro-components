@@ -1,8 +1,7 @@
 @import (reference) '~antd/lib/style/themes/default';
 @pro-card-prefix-cls: ~'@{ant-prefix}-pro-card';
 
-@gradient-min: fade(@card-skeleton-bg, 20%);
-@gradient-max: fade(@card-skeleton-bg, 40%);
+@card-body-padding: @padding-lg;
 
 .@{pro-card-prefix-cls} {
   background-color: white;
@@ -72,7 +71,7 @@
   &-header {
     display: flex;
     justify-content: space-between;
-    padding: @padding-md @padding-lg;
+    padding: @padding-md @card-body-padding;
     padding-bottom: 0;
     &-border {
       & {
@@ -84,60 +83,6 @@
 
   &-title {
     font-size: @font-size-lg;
-  }
-
-  &-tabs {
-    // 上
-    .@{ant-prefix}-tabs-top > .@{ant-prefix}-tabs-nav {
-      margin-bottom: 0;
-      .@{ant-prefix}-tabs-nav-list {
-        padding-left: @padding-md;
-        margin-top: @margin-xs;
-      }
-    }
-
-    // 下
-    .@{ant-prefix}-tabs-bottom > .@{ant-prefix}-tabs-nav {
-      margin-top: 0;
-      .@{ant-prefix}-tabs-nav-list {
-        padding-left: @padding-md;
-      }
-    }
-
-    // 左
-    .@{ant-prefix}-tabs-left {
-      .@{ant-prefix}-tabs-content-holder {
-        .@{ant-prefix}-tabs-content {
-          .@{ant-prefix}-tabs-tabpane {
-            padding-left: 0;
-          }
-        }
-      }
-    }
-    // 直接子元素才设置
-    .@{ant-prefix}-tabs-left > .@{ant-prefix}-tabs-nav {
-      margin-right: 0;
-      .@{ant-prefix}-tabs-nav-list {
-        padding-top: @padding-md;
-      }
-    }
-
-    // 右
-    .@{ant-prefix}-tabs-right {
-      .@{ant-prefix}-tabs-content-holder {
-        .@{ant-prefix}-tabs-content {
-          .@{ant-prefix}-tabs-tabpane {
-            padding-right: 0;
-          }
-        }
-      }
-    }
-    // 直接子元素
-    .@{ant-prefix}-tabs-right > .@{ant-prefix}-tabs-nav {
-      .@{ant-prefix}-tabs-nav-list {
-        padding-top: @padding-md;
-      }
-    }
   }
 
   &-type-inner {
@@ -161,7 +106,7 @@
 
   &-body {
     display: block;
-    padding: @padding-lg;
+    padding: @card-body-padding;
     height: 100%;
     box-sizing: border-box;
 
@@ -170,39 +115,6 @@
       justify-content: center;
       align-items: center;
     }
-  }
-
-  &-loading {
-    overflow: hidden;
-  }
-
-  &-loading &-body {
-    user-select: none;
-  }
-
-  &-loading-content {
-    p {
-      margin: 0;
-    }
-  }
-
-  &-loading-block {
-    height: 14px;
-    margin: 4px 0;
-    background: linear-gradient(90deg, @gradient-min, @gradient-max, @gradient-min);
-    background-size: 600% 600%;
-    border-radius: @card-radius;
-    animation: card-loading 1.4s ease infinite;
-  }
-}
-
-@keyframes card-loading {
-  0%,
-  100% {
-    background-position: 0 50%;
-  }
-  50% {
-    background-position: 100% 50%;
   }
 }
 

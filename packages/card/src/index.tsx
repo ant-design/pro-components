@@ -1,12 +1,13 @@
-import React, { ReactNode, useContext } from 'react';
+import React, { PropsWithChildren, ReactNode, useContext } from 'react';
 import { Grid, Tabs, ConfigProvider } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { LabelIconTip } from '@ant-design/pro-utils';
 import classNames from 'classnames';
 import { TabsProps } from 'antd/lib/tabs';
-import CardLoading from './cardLoading';
-import TabPane from './tabPane';
+import CardLoading from './components/CardLoading';
+import Divider from './components/Divider';
+import TabPane from './components/TabPane';
 import './style/index.less';
 
 const { useBreakpoint } = Grid;
@@ -14,6 +15,8 @@ const { useBreakpoint } = Grid;
 type ProCardType = React.FC<ProCardProps> & {
   isProCard: boolean;
   TabPane: typeof TabPane;
+  Divider: typeof Divider;
+  Group: typeof Group;
 };
 
 type ProCardChildType = React.ReactElement<ProCardProps, ProCardType>;
@@ -334,7 +337,13 @@ const ProCard: ProCardType = (props) => {
   );
 };
 
+const Group = (props: PropsWithChildren<ProCardProps>) => (
+  <ProCard bodyStyle={{ padding: 0 }} {...props} />
+);
+
 ProCard.isProCard = true;
 ProCard.TabPane = TabPane;
+ProCard.Divider = Divider;
+ProCard.Group = Group;
 
 export default ProCard;

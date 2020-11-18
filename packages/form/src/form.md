@@ -203,7 +203,7 @@ LightFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 
 StepsForm 本质上是一个 Provider ，增加步骤条和一些相关的 API。
 
-> Form.Provider 的文档可以看[这里](https://ant.design/components/form-cn/#Form.Provider),转化 moment 的值是 proFrom 提供的功能，所以 `onFormFinish` 和 `onFormChange` 其中的值都是未经转化的
+> Form.Provider 的文档可以看[这里](https://ant.design/components/form-cn/#Form.Provider),转化 moment 的值是 ProForm 提供的功能，所以 `onFormFinish` 和 `onFormChange` 其中的值都是未经转化的
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -233,7 +233,7 @@ ModalForm 组合了 Modal 和 ProForm 可以减少繁琐的状态管理。
 | modalProps | Modal 的 props，使用方式与 [antd](https://ant.design/components/modal-cn/) 相同，但是去掉了 current 和 onChange | [props](https://ant.design/components/modal-cn/#API) | - |
 | title | 弹框的标题 | `ReactNode` | - |
 | width | 弹框的宽度 | `Number` | - |
-| onFinish | 提交数据时触发，如果返回一个 true，会关掉弹框 | `async (values)=>boolean | void` | - |
+| onFinish | 提交数据时触发，如果返回一个 true，会关掉弹框并且重置表单 | `async (values)=>boolean | void` | - |
 
 ### DrawerForm
 
@@ -247,7 +247,7 @@ DrawerForm 组合了 Drawer 和 ProForm 可以减少繁琐的状态管理。
 | drawerProps | Modal 的 props，使用方式与 [antd](https://ant.design/components/modal-cn/) 相同，但是去掉了 current 和 onChange | [props](https://ant.design/components/modal-cn/#API) | - |
 | title | 抽屉的标题 | `ReactNode` | - |
 | width | 抽屉的宽度 | `Number` | - |
-| onFinish | 提交数据时触发，如果返回一个 true，会关掉抽屉 | `async (values)=>boolean | void` | - |
+| onFinish | 提交数据时触发，如果返回一个 true，会关掉抽屉并且重置表单 | `async (values)=>boolean | void` | - |
 
 ## Fields API
 
@@ -525,7 +525,7 @@ ProForm 自带的 Filed ,与 valueType 基本上一一对应。
 ProFormFieldSet 可以将内部的多个 children 的值组合并且存储在 ProForm 中，并且可以通过 `transform` 在提交时转化。下面是一个简单的用法,可以方便的组合多个输入框，并且格式化为想要的数据。
 
 ```tsx | pure
-<ProFromFieldSet
+<ProFormFieldSet
   name="list"
   label="组件列表"
   transform={(value: any) => ({ startTime: value[0], endTime: value[1] })}
@@ -533,5 +533,5 @@ ProFormFieldSet 可以将内部的多个 children 的值组合并且存储在 Pr
   <ProFormText width="m" />
   <ProFormText width="m" />
   <ProFormText width="m" />
-</ProFromFieldSet>
+</ProFormFieldSet>
 ```

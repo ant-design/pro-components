@@ -1,6 +1,6 @@
-﻿import React from 'react';
+﻿import React, { useImperativeHandle, useRef } from 'react';
 import { Drawer } from 'antd';
-import { FormProps } from 'antd/lib/form';
+import { FormInstance, FormProps } from 'antd/lib/form';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { DrawerProps } from 'antd/lib/drawer';
 import { Store } from 'antd/lib/form/interface';
@@ -61,11 +61,18 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
     value: rest.visible,
     onChange: onVisibleChange,
   });
+  /**
+   * 同步 props 和 本地
+   */
+  const formRef = useRef<FormInstance>();
+  useImperativeHandle(rest.formRef, () => formRef.current, [formRef.current]);
+
   return (
     <>
       <BaseForm
         layout="vertical"
         {...omit(rest, ['visible'])}
+        formRef={formRef}
         submitter={{
           searchConfig: {
             submitText: '确认',
@@ -82,6 +89,7 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
           }
           const success = await onFinish(values);
           if (success) {
+            formRef.current?.resetFields();
             setVisible(false);
           }
         }}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 
-import './style/index.less';
+import './index.less';
 
 type CardLoadingProps = {
   /**

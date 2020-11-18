@@ -14,7 +14,7 @@ import ProForm, {
   ProFormDateRangePicker,
   ProFormUploadButton,
   ProFormUploadDragger,
-  ProFromFieldSet,
+  ProFormFieldSet,
 } from '@ant-design/pro-form';
 
 const Demo = () => (
@@ -204,16 +204,18 @@ const Demo = () => (
         action="/upload.do"
         extra="longgggggggggggggggggggggggggggggggggg"
       />
-      <ProFromFieldSet
+      <ProFormFieldSet
         name="list"
         label="组件列表"
         readonly
         transform={(value: any) => ({ startTime: value[0], endTime: value[1] })}
       >
         <ProFormText width="m" readonly />
+        -
         <ProFormText width="m" readonly />
+        -
         <ProFormText width="m" readonly />
-      </ProFromFieldSet>
+      </ProFormFieldSet>
       <ProForm.Group title="日期相关分组">
         <ProFormDatePicker readonly name="date" label="日期" />
         <ProFormDatePicker.Week readonly name="dateWeek" label="周" />

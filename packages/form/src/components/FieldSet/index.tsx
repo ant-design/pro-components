@@ -5,7 +5,7 @@ import { SpaceProps } from 'antd/lib/space';
 import toArray from 'rc-util/lib/Children/toArray';
 import { createField } from '../../BaseForm';
 
-export type ProFromFieldSetProps<T = any> = {
+export type ProFormFieldSetProps<T = any> = {
   value?: T[];
   onChange?: (value: T[]) => void;
   space?: SpaceProps;
@@ -20,7 +20,7 @@ export function defaultGetValueFromEvent(valuePropName: string, ...args: any) {
   return event;
 }
 
-const FieldSet: React.FC<ProFromFieldSetProps> = ({
+const FieldSet: React.FC<ProFormFieldSetProps> = ({
   children,
   value = [],
   valuePropName,
@@ -33,23 +33,28 @@ const FieldSet: React.FC<ProFromFieldSetProps> = ({
     onChange?.(newValues);
   };
 
-  const list = toArray(children).map((item, index) => {
-    return React.cloneElement(item, {
-      key: index,
-      ignoreFormItem: true,
-      ...item.props,
-      value: value[index],
-      onChange: (itemValue: any) => {
-        fieldSetOnChange(itemValue, index);
-        item.props.onChange?.(itemValue);
-      },
-    });
+  let itemIndex = -1;
+  const list = toArray(children).map((item: any) => {
+    if (React.isValidElement(item)) {
+      itemIndex += 1;
+      const index = itemIndex;
+      return React.cloneElement(item, {
+        key: index,
+        ignoreFormItem: true,
+        ...((item.props as any) || {}),
+        value: value[index],
+        onChange: (itemValue: any) => {
+          fieldSetOnChange(itemValue, index);
+          (item as any).props.onChange?.(itemValue);
+        },
+      });
+    }
+    return item;
   });
-
   return <Space {...space}>{list}</Space>;
 };
 
-const ProFromFieldSet: React.FC<
+const ProFormFieldSet: React.FC<
   FormItemProps & {
     space?: SpaceProps;
   }
@@ -66,4 +71,4 @@ export default createField<
   FormItemProps & {
     space?: SpaceProps;
   }
->(ProFromFieldSet);
+>(ProFormFieldSet);

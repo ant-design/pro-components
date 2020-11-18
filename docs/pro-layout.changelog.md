@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.5.15
+
+`2020-11-17`
+
+- 💥 feat(layout): Feat/pagecontainer ghost [#989](https://github.com/ant-design/pro-components/pull/989) [@rdmclin2](https://github.com/rdmclin2)
+- fix: 修复 mix 模式下，顶部导航渲染 bug [#975](https://github.com/ant-design/pro-components/pull/975) [@hangaoke1](https://github.com/hangaoke1)
+
 ## @ant-design/pro-layout@6.5.14
 
 `2020-11-10`
