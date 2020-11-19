@@ -10,6 +10,7 @@ import { Checkbox, Popover, ConfigProvider, Tooltip } from 'antd';
 import { DndProvider } from 'react-dnd';
 import classNames from 'classnames';
 import { HTML5Backend } from 'react-dnd-html5-backend';
+import { ColumnType } from 'antd/lib/table';
 
 import Container, { ColumnsState } from '../../container';
 import { ProColumns } from '../../Table';
@@ -19,7 +20,7 @@ import DragIcon from './DragIcon';
 import { genColumnKey } from '../../utils';
 
 interface ColumnSettingProps<T = any> {
-  columns?: ProColumns<T>[];
+  columns: ColumnType<T>[];
 }
 
 const ToolTipIcon: React.FC<{
@@ -232,8 +233,7 @@ const ColumnSetting = <T, _U = {}>(props: ColumnSettingProps<T>) => {
   const columnRef = useRef({});
   const counter = Container.useContainer();
   const localColumns: Omit<ProColumns<any> & { index?: number }, 'ellipsis'>[] =
-    props.columns || counter.columns || [];
-
+    props.columns || [];
   const { columnsMap, setColumnsMap } = counter;
 
   useEffect(() => {

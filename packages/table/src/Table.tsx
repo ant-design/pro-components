@@ -219,7 +219,7 @@ export interface ProTableProps<T, U extends ParamsType>
   /**
    * 操作自带的 form
    */
-  formRef?: TableFormItem<T>['formRef'];
+  formRef?: TableFormItem<T, U>['formRef'];
   /**
    * 渲染操作栏
    */
@@ -650,60 +650,42 @@ const ProTable = <T extends {}, U extends ParamsType>(
   });
   counter.setAction(action);
   counter.propsRef.current = props;
-  /**
-   *  保存一下 propsColumns
-   *  生成 form 需要用
-   */
-  useDeepCompareEffect(() => {
-    counter.setProColumns(propsColumns);
-  }, [propsColumns]);
 
-  const tableColumn = useMemo(
-    () => genColumnList<T>(propsColumns, counter.columnsMap, counter, columnEmptyText, type),
-    [propsColumns],
-  );
+  const tableColumn = useMemo(() => {
+    return genColumnList<T>(propsColumns, counter.columnsMap, counter, columnEmptyText, type).sort(
+      (a, b) => {
+        const { fixed: aFixed, index: aIndex } = a;
+        const { fixed: bFixed, index: bIndex } = b;
+        if (
+          (aFixed === 'left' && bFixed !== 'left') ||
+          (bFixed === 'right' && aFixed !== 'right')
+        ) {
+          return -2;
+        }
+        if (
+          (bFixed === 'left' && aFixed !== 'left') ||
+          (aFixed === 'right' && bFixed !== 'right')
+        ) {
+          return 2;
+        }
+        // 如果没有index，在 dataIndex 或者 key 不存在的时候他会报错
+        const aKey = a.key || `${aIndex}`;
+        const bKey = b.key || `${bIndex}`;
+        return (counter.columnsMap[aKey]?.order || 0) - (counter.columnsMap[bKey]?.order || 0);
+      },
+    );
+  }, [propsColumns, counter.columnsMap]);
 
   /**
    * Table Column 变化的时候更新一下，这个参数将会用于渲染
    */
   useDeepCompareEffect(() => {
     if (tableColumn && tableColumn.length > 0) {
-      counter.setColumns(tableColumn);
       // 重新生成key的字符串用于排序
       const columnKeys = tableColumn.map((item, index) => genColumnKey(item.key, index));
       counter.setSortKeyColumns(columnKeys);
     }
   }, [tableColumn]);
-
-  /**
-   * 这里主要是为了排序，为了保证更新及时，每次都重新计算
-   */
-  useDeepCompareEffect(() => {
-    const { columnsMap } = counter;
-    const sortTableColumn = genColumnList<T>(
-      propsColumns,
-      columnsMap,
-      counter,
-      columnEmptyText,
-      type,
-    ).sort((a, b) => {
-      const { fixed: aFixed, index: aIndex } = a;
-      const { fixed: bFixed, index: bIndex } = b;
-      if ((aFixed === 'left' && bFixed !== 'left') || (bFixed === 'right' && aFixed !== 'right')) {
-        return -2;
-      }
-      if ((bFixed === 'left' && aFixed !== 'left') || (aFixed === 'right' && bFixed !== 'right')) {
-        return 2;
-      }
-      // 如果没有index，在 dataIndex 或者 key 不存在的时候他会报错
-      const aKey = a.key || `${aIndex}`;
-      const bKey = b.key || `${bIndex}`;
-      return (columnsMap[aKey]?.order || 0) - (columnsMap[bKey]?.order || 0);
-    });
-    if (sortTableColumn && sortTableColumn.length > 0) {
-      counter.setColumns(sortTableColumn);
-    }
-  }, [counter.columnsMap]);
 
   /**
    * 同步 Pagination，支持受控的 页码 和 pageSize
@@ -744,7 +726,8 @@ const ProTable = <T extends {}, U extends ParamsType>(
   const className = classNames(defaultClassName, propsClassName);
 
   const searchNode = (search !== false || type === 'form') && (
-    <FormSearch<U>
+    <FormSearch<U, T>
+      columns={propsColumns}
       submitButtonLoading={action.loading}
       {...rest}
       type={type}
@@ -790,6 +773,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     (options !== false || headerTitle || toolBarRender || toolbarProps) && (
       // if options= false & headerTitle=== false, hide Toolbar
       <Toolbar<T>
+        columns={tableColumn}
         options={options}
         headerTitle={headerTitle}
         action={action}
@@ -831,7 +815,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     rowSelection: propsRowSelection === false ? undefined : rowSelection,
     className: tableClassName,
     style: tableStyle,
-    columns: counter.columns.filter((item) => {
+    columns: tableColumn.filter((item) => {
       // 删掉不应该显示的
       const columnKey = genColumnKey(item.key, item.index);
       const config = counter.columnsMap[columnKey];

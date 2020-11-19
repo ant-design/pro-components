@@ -23,7 +23,6 @@ import {
 } from '@ant-design/pro-utils';
 
 import { genColumnKey } from '../utils';
-import Container from '../container';
 import { ProColumns } from '../index';
 import './index.less';
 
@@ -86,17 +85,23 @@ const getFromProps = (isForm: boolean, searchConfig: any, name: string) => {
   return {};
 };
 
-export interface TableFormItem<T> extends Omit<FormItemProps, 'children' | 'onReset'> {
+export interface TableFormItem<T, U = any> extends Omit<FormItemProps, 'children' | 'onReset'> {
   onSubmit?: (value: T, firstLoad: boolean) => void;
   onReset?: (value: T) => void;
   form?: Omit<FormProps, 'form'>;
   type?: ProSchemaComponentTypes;
   dateFormatter?: 'string' | 'number' | false;
   search?: false | SearchConfig;
+  columns: ProColumns<U>[];
   formRef?: React.MutableRefObject<FormInstance | undefined> | ((actionRef: FormInstance) => void);
   submitButtonLoading?: boolean;
 }
 
+/**
+ * 把配置转化为输入控件
+ * @param props
+ * @param ref
+ */
 export const formInputRender: React.FC<{
   item: ProColumns<any>;
   value?: any;
@@ -253,17 +258,17 @@ export const proFormItemRender: (props: {
   return dom;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const FormSearch = <T, _U = any>({
+const FormSearch = <T, U = any>({
   onSubmit,
   formRef,
   dateFormatter = 'string',
   type,
   onReset,
+  columns,
   submitButtonLoading,
   search: searchConfig,
   form: formConfig = {},
-}: TableFormItem<T>) => {
+}: TableFormItem<T, U>) => {
   /**
    * 为了支持 dom 的消失，支持了这个 api
    */
@@ -272,8 +277,6 @@ const FormSearch = <T, _U = any>({
   const [form] = Form.useForm();
 
   const formInstanceRef = useRef<FormInstance | undefined>(form as any);
-
-  const counter = Container.useContainer();
 
   /**
    * 保存 valueTypeRef，用于分辨是用什么方式格式化数据
@@ -337,13 +340,13 @@ const FormSearch = <T, _U = any>({
   }, []);
 
   useDeepCompareEffect(() => {
-    if (counter.proColumns.length < 1) {
+    if (columns.length < 1) {
       return;
     }
     const tempMap = {};
     const transformKeyMap = {};
 
-    counter.proColumns.forEach((item) => {
+    columns.forEach((item) => {
       const { key, dataIndex, index, valueType, search, hideInSearch } = item;
       warningOnce(
         typeof hideInSearch !== 'boolean',
@@ -352,7 +355,8 @@ const FormSearch = <T, _U = any>({
       // 以key为主,理论上key唯一
       const finalKey = genColumnKey((key || dataIndex) as string, index);
       // 如果是() => ValueType 需要特殊处理一下
-      tempMap[finalKey] = typeof valueType === 'function' ? valueType(item, type) : valueType;
+      tempMap[finalKey] =
+        typeof valueType === 'function' ? valueType(item as any, type) : valueType;
 
       if (search !== false && search) {
         transformKeyMap[finalKey] = (value: any, fieldName: string, target: any) =>
@@ -368,11 +372,11 @@ const FormSearch = <T, _U = any>({
     }
     valueTypeRef.current = tempMap;
     transformKeyRef.current = transformKeyMap;
-  }, [counter.proColumns]);
+  }, [columns]);
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
-  const columnsList = counter.proColumns
+  const columnsList = columns
     .filter((item) => {
       const { valueType } = item;
       if ((item.hideInSearch || item.search === false) && type !== 'form') {
@@ -403,37 +407,32 @@ const FormSearch = <T, _U = any>({
   const [domList, setDomList] = useState<JSX.Element[]>([]);
   const columnsListRef = useRef(domList);
 
-  const updateDomList = useCallback((list: ProColumns<any>[]) => {
-    const newFormItemList = list
-      .map((item, index) =>
-        proFormItemRender({
-          isForm,
-          formInstance: formInstanceRef.current,
-          item: {
-            index,
-            ...item,
-          },
-          type,
-          intl,
-        }),
-      )
-      .filter((item) => !!item) as JSX.Element[];
-    columnsListRef.current = newFormItemList;
-    setDomList(newFormItemList);
-  }, []);
+  const updateDomList = useCallback(
+    (list: ProColumns<any>[]) => {
+      const newFormItemList = list
+        .map((item, index) =>
+          proFormItemRender({
+            isForm,
+            formInstance: formInstanceRef.current,
+            item: {
+              index,
+              ...item,
+            },
+            type,
+            intl,
+          }),
+        )
+        .filter((item) => !!item) as JSX.Element[];
+      columnsListRef.current = newFormItemList;
+      setDomList(newFormItemList);
+    },
+    [formInstanceRef.current],
+  );
 
   useDeepCompareEffect(() => {
     if (columnsList.length < 1) return;
-    // 如果上次没有生成dom，这次生成了，需要重新计算一次
-    // 如果不这样做，可以会导致render 次数减少
-    // 选 1000 是为了状态更新有效
-    if (columnsListRef.current.length < 1) {
-      setTimeout(() => {
-        updateDomList(columnsList);
-      }, 1000);
-    }
     updateDomList(columnsList);
-  }, [columnsList]);
+  }, [columnsList, formInstanceRef.current]);
 
   const className = getPrefixCls('pro-table-search');
   const formClassName = getPrefixCls('pro-table-form');
