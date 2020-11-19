@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.11.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.11.2...@ant-design/pro-table@2.11.3) (2020-11-19)
+
+### Bug Fixes
+
+- **table:** fix the problem that the table rendering is not timely ([#1024](https://github.com/ant-design/pro-components/issues/1024)) ([19d3af5](https://github.com/ant-design/pro-components/commit/19d3af58e692dbfa5a4b32644afe9672ba5719cf))
+
 ## [2.11.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.11.1...@ant-design/pro-table@2.11.2) (2020-11-18)
 
 **Note:** Version bump only for package @ant-design/pro-table
