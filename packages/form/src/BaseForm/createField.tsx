@@ -66,6 +66,12 @@ export interface ExtendsProps {
    * @name 提交时转化值，一般用于数组类型
    */
   transform?: SearchTransformKeyFn;
+
+  /**
+   * @name 自定义的 formItemProps
+   * @description 给 protable 开的口子
+   */
+  formItemProps?: FormItemProps;
 }
 
 /**
@@ -92,6 +98,7 @@ function createField<P extends ProFormItemProps = any>(
       transform,
       readonly,
       allowClear,
+      formItemProps: propsFormItemProps,
       ...rest
     } = props;
     const {
@@ -144,6 +151,7 @@ function createField<P extends ProFormItemProps = any>(
       ...defaultFormItemProps,
       ...formItemProps,
       ...restFormItemProps,
+      ...propsFormItemProps,
     };
 
     const field = (
