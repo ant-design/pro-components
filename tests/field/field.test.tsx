@@ -512,7 +512,7 @@ describe('Field', () => {
   it('🐴 keypress simulate', () => {
     const html = mount(<Field text="qixian" valueType="textarea" mode="edit" />);
     act(() => {
-      html.find('textarea').simulate('keypress', {
+      html.find('TextArea').simulate('keypress', {
         key: 'Enter',
       });
     });
