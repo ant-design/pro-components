@@ -87,6 +87,7 @@ const columns = [
     title: '创建者',
     width: 120,
     dataIndex: 'creator',
+    valueType: 'select',
     fieldProps: {
       options: [
         {
@@ -126,6 +127,7 @@ const request = async () => [
   name="select2"
   label="Select"
   params={{}}
+  valueType="select"
   request={request}
   placeholder="Please select a country"
 />;
@@ -136,6 +138,7 @@ const columns = [
     title: '创建者',
     width: 120,
     dataIndex: 'creator',
+    valueType: 'select',
     request,
     params: {},
   },
