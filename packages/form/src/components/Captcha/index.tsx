@@ -2,7 +2,7 @@
 import { ButtonProps } from 'antd/lib/button';
 import { InputProps } from 'antd/lib/input';
 import React, { useState, useCallback, useEffect } from 'react';
-import { createField } from '../../BaseForm';
+import createField from '../../BaseForm/createField';
 import { ProFormItemProps } from '../../interface';
 
 export type ProFormCaptchaProps = ProFormItemProps<InputProps> & {
