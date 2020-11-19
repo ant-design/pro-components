@@ -343,10 +343,6 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
           >
             <div
               class="qixian-space-item"
-              style="margin-right: 16px;"
-            />
-            <div
-              class="qixian-space-item"
             >
               <div
                 class="qixian-space qixian-space-horizontal qixian-space-align-center qixian-pro-table-list-toolbar-setting-items"

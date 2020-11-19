@@ -81,6 +81,8 @@ export default () => {
               name={['contract', 'createTime']}
               label="合同生效时间"
             />
+          </ProForm.Group>
+          <ProForm.Group>
             <ProFormSelect
               options={[
                 {

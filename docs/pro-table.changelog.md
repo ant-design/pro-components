@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.11.0
+
+`2020-11-17`
+
+- 🐛 fix(table): fix render dom is 0 error [#984](https://github.com/ant-design/pro-components/pull/984) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.10.0
 
 `2020-11-09`

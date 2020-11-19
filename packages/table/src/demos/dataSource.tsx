@@ -44,6 +44,7 @@ const columns: ProColumns<TableListItem>[] = [
     initialValue: 'all',
     width: 100,
     filters: true,
+    valueType: 'select',
     valueEnum: {
       all: { text: '全部', status: 'Default' },
       close: { text: '关闭', status: 'Default' },

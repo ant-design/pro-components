@@ -5,7 +5,7 @@ import { InputProps } from 'antd/lib/input';
 import { SelectProps } from 'antd/lib/select';
 import { ProSchema } from '@ant-design/pro-utils';
 
-import { createField } from '../../BaseForm';
+import createField from '../../BaseForm/createField';
 import { ProFormItemProps } from '../../interface';
 
 export type ProFormFieldProps = ProSchema<
@@ -48,7 +48,6 @@ const ProFormField = React.forwardRef<any, ProFormFieldProps>(
       }
       return children as JSX.Element;
     }
-
     return (
       <ProField
         text={fieldProps?.value as string}

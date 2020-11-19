@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { ReloadOutlined, SettingOutlined } from '@ant-design/icons';
 import { Tooltip } from 'antd';
 import { SearchProps } from 'antd/lib/input';
+import { ColumnType } from 'antd/lib/table';
 import { useIntl, IntlType } from '@ant-design/pro-provider';
 import ListToolBar, { ListToolBarProps } from '../ListToolBar';
 import ColumnSetting from '../ColumnSetting';
@@ -44,6 +45,7 @@ export interface ToolBarProps<T = unknown> {
   selectedRows?: T[];
   className?: string;
   onSearch?: (keyWords: string) => void;
+  columns: ColumnType<T>[];
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -81,6 +83,7 @@ const renderDefaultOption = <T, _U = {}>(
   defaultOptions: OptionConfig<T> & {
     intl: IntlType;
   },
+  columns: ColumnType<T>[],
 ) =>
   options &&
   Object.keys(options)
@@ -91,7 +94,7 @@ const renderDefaultOption = <T, _U = {}>(
         return null;
       }
       if (key === 'setting') {
-        return <ColumnSetting key={key} />;
+        return <ColumnSetting columns={columns} key={key} />;
       }
       if (key === 'fullScreen') {
         return (
@@ -127,6 +130,7 @@ const renderDefaultOption = <T, _U = {}>(
 const ToolBar = <T, _U = {}>({
   headerTitle,
   tooltip,
+  columns,
   toolBarRender,
   action,
   options: propsOptions,
@@ -156,10 +160,14 @@ const ToolBar = <T, _U = {}>({
 
   const intl = useIntl();
   const optionDom =
-    renderDefaultOption<T>(options, {
-      ...defaultOptions,
-      intl,
-    }) || [];
+    renderDefaultOption<T>(
+      options,
+      {
+        ...defaultOptions,
+        intl,
+      },
+      columns,
+    ) || [];
   // 操作列表
   const actions = toolBarRender ? toolBarRender(action, { selectedRowKeys, selectedRows }) : [];
   const getSearchConfig = (search: OptionConfig<any>['search']) => {
