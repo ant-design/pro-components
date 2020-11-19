@@ -49,6 +49,9 @@ const columns: ProColumns<GithubIssueItem>[] = [
     initialValue: 'open',
     filters: true,
     valueType: 'select',
+    formItemProps: {
+      noStyle: true,
+    },
     valueEnum: {
       all: { text: '全部', status: 'Default' },
       open: {

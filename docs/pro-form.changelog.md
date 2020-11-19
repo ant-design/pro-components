@@ -9,6 +9,14 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.6.1
+
+`2020-11-19`
+
+- 🐛 fix(form): modal and drawer render to body [#1031](https://github.com/ant-design/pro-components/pull/1031) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): No more transparent formitem [#1028](https://github.com/ant-design/pro-components/pull/1028) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix stepForm formRef no work error [#1023](https://github.com/ant-design/pro-components/pull/1023) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-form@1.6.0
 
 `2020-11-18`

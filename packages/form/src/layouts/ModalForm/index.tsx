@@ -7,6 +7,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'omit.js';
 
 import BaseForm, { CommonFormProps } from '../../BaseForm';
+import { createPortal } from 'react-dom';
 
 export type ModalFormProps = Omit<FormProps, 'onFinish'> &
   CommonFormProps & {
@@ -71,54 +72,59 @@ const ModalForm: React.FC<ModalFormProps> = ({
 
   return (
     <>
-      <BaseForm
-        layout="vertical"
-        {...omit(rest, ['visible'])}
-        formRef={formRef}
-        onFinish={async (values) => {
-          if (!onFinish) {
-            return;
-          }
-          const success = await onFinish(values);
-          if (success) {
-            formRef.current?.resetFields();
-            setVisible(false);
-          }
-        }}
-        submitter={{
-          searchConfig: {
-            submitText: modalProps?.okText || context.locale?.Modal?.okText || '确认',
-            resetText: modalProps?.cancelText || context.locale?.Modal?.cancelText || '取消',
-          },
-          submitButtonProps: {
-            type: modalProps?.okType as 'text',
-          },
-          resetButtonProps: {
-            onClick: () => setVisible(false),
-          },
-          ...rest.submitter,
-        }}
-        contentRender={(item, submitter) => {
-          return (
-            <Modal
-              title={title}
-              getContainer={false}
-              width={width || 800}
-              {...modalProps}
-              visible={visible}
-              onCancel={(e) => {
+      {createPortal(
+        <div>
+          <BaseForm
+            layout="vertical"
+            {...omit(rest, ['visible'])}
+            formRef={formRef}
+            onFinish={async (values) => {
+              if (!onFinish) {
+                return;
+              }
+              const success = await onFinish(values);
+              if (success) {
+                formRef.current?.resetFields();
                 setVisible(false);
-                modalProps?.onCancel?.(e);
-              }}
-              footer={submitter}
-            >
-              {item}
-            </Modal>
-          );
-        }}
-      >
-        {children}
-      </BaseForm>
+              }
+            }}
+            submitter={{
+              searchConfig: {
+                submitText: modalProps?.okText || context.locale?.Modal?.okText || '确认',
+                resetText: modalProps?.cancelText || context.locale?.Modal?.cancelText || '取消',
+              },
+              submitButtonProps: {
+                type: modalProps?.okType as 'text',
+              },
+              resetButtonProps: {
+                onClick: () => setVisible(false),
+              },
+              ...rest.submitter,
+            }}
+            contentRender={(item, submitter) => {
+              return (
+                <Modal
+                  title={title}
+                  getContainer={false}
+                  width={width || 800}
+                  {...modalProps}
+                  visible={visible}
+                  onCancel={(e) => {
+                    setVisible(false);
+                    modalProps?.onCancel?.(e);
+                  }}
+                  footer={submitter}
+                >
+                  {item}
+                </Modal>
+              );
+            }}
+          >
+            {children}
+          </BaseForm>
+        </div>,
+        document.body,
+      )}
       {trigger && <div onClick={() => setVisible(!visible)}>{trigger}</div>}
     </>
   );

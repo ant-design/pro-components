@@ -253,7 +253,7 @@ export const proFormItemRender: (props: {
     label: getTitle(),
     request,
     params,
-    ...formItemProps,
+    formItemProps,
   });
   if (!dom) {
     return null;

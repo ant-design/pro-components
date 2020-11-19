@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.6.0...@ant-design/pro-form@1.6.1) (2020-11-19)
+
+### Bug Fixes
+
+- **form:** modal and drawer render to body ([#1031](https://github.com/ant-design/pro-components/issues/1031)) ([807c052](https://github.com/ant-design/pro-components/commit/807c05265d3d327537233a2db265589bf6d58e60))
+- **table:** fix the problem that the table rendering is not timely ([#1024](https://github.com/ant-design/pro-components/issues/1024)) ([19d3af5](https://github.com/ant-design/pro-components/commit/19d3af58e692dbfa5a4b32644afe9672ba5719cf))
+
 # [1.6.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.5.1...@ant-design/pro-form@1.6.0) (2020-11-18)
 
 ### Bug Fixes
