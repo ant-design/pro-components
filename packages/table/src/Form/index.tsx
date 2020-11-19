@@ -85,7 +85,7 @@ const getFromProps = (isForm: boolean, searchConfig: any, name: string) => {
   return {};
 };
 
-export interface TableFormItem<T, U> extends Omit<FormItemProps, 'children' | 'onReset'> {
+export interface TableFormItem<T, U = {}> extends Omit<FormItemProps, 'children' | 'onReset'> {
   onSubmit?: (value: T, firstLoad: boolean) => void;
   onReset?: (value: T) => void;
   columns: ProColumns<U>[];
