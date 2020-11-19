@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.6.0
+
+`2020-11-18`
+
+- feat(form): onFinish support reset form [cf840641](https://github.com/ant-design/pro-components/commit/cf8406411b2445399290b476b3d8dff959507db3)
+
 ## @ant-design/pro-form@1.5.0
 
 `2020-11-17`
