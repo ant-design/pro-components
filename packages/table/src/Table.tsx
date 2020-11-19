@@ -813,15 +813,16 @@ const ProTable = <T extends {}, U extends ParamsType>(
       />
     );
 
-  const alertDom = propsRowSelection !== false && (
-    <Alert<T>
-      selectedRowKeys={selectedRowKeys}
-      selectedRows={selectedRows}
-      onCleanSelected={onCleanSelected}
-      alertOptionRender={rest.tableAlertOptionRender}
-      alertInfoRender={tableAlertRender}
-    />
-  );
+  const alertDom =
+    propsRowSelection !== false && tableAlertRender !== false ? (
+      <Alert<T>
+        selectedRowKeys={selectedRowKeys}
+        selectedRows={selectedRows}
+        onCleanSelected={onCleanSelected}
+        alertOptionRender={rest.tableAlertOptionRender}
+        alertInfoRender={tableAlertRender}
+      />
+    ) : null;
   const dataSource = request ? (action.dataSource as T[]) : props.dataSource || [];
   const loading = props.loading !== undefined ? props.loading : action.loading;
   const tableProps = {
