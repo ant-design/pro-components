@@ -3,6 +3,7 @@ import { InputProps, PasswordProps } from 'antd/lib/input';
 import ProField from '@ant-design/pro-field';
 import { ProFormItemProps } from '../../interface';
 import createField from '../../BaseForm/createField';
+
 const valueType = 'text';
 /**
  * 文本组件

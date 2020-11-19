@@ -3,6 +3,7 @@ import { Slider } from 'antd';
 import { SliderBaseProps } from 'antd/lib/slider';
 import { ProFormItemProps } from '../../interface';
 import createField from '../../BaseForm/createField';
+
 export type ProFormSliderProps = ProFormItemProps<SliderBaseProps> & {
   range?: boolean;
   min?: SliderBaseProps['min'];
