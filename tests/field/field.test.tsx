@@ -508,4 +508,20 @@ describe('Field', () => {
     );
     expect(html.text()).toBe('qixian');
   });
+
+  it('🐴 keypress simulate', () => {
+    const html = mount(<Field text="qixian" valueType="textarea" mode="edit" />);
+    act(() => {
+      html.find('TextArea').at(0).simulate('keypress', {
+        key: 'Enter',
+        keyCode: 13,
+      });
+    });
+    act(() => {
+      html.setProps({
+        mode: 'read',
+      });
+    });
+    expect(html.text()).toBe('qixian');
+  });
 });
