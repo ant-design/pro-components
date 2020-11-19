@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-field@1.1.2
+
+`2020-11-19`
+
+- 🐛 fix(field): textarea stopPropagation enter [#1026](https://github.com/ant-design/pro-components/pull/1026) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-field@1.1.0
 
 `2020-11-17`
