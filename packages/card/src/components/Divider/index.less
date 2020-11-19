@@ -1,12 +1,18 @@
+@import '../../style/common.less';
 @import (reference) '~antd/lib/style/themes/default';
+
 @pro-card-prefix-cls: ~'@{ant-prefix}-pro-card';
 
 .@{pro-card-prefix-cls} {
   // 分隔线
   &-divider {
+    margin-top: @card-body-padding;
+    margin-bottom: @card-body-padding;
+
     &-line {
+      margin-left: @margin-xs;
+      margin-right: @margin-xs;
       width: @border-width-base;
-      margin: @padding-lg @padding-xs;
       background-color: @border-color-split;
     }
   }
