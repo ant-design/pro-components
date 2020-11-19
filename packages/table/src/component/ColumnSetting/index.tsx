@@ -10,6 +10,7 @@ import { Checkbox, Popover, ConfigProvider, Tooltip } from 'antd';
 import { DndProvider } from 'react-dnd';
 import classNames from 'classnames';
 import { HTML5Backend } from 'react-dnd-html5-backend';
+import { ColumnType } from 'antd/lib/table';
 
 import Container, { ColumnsState } from '../../container';
 import DnDItem from './DndItem';
@@ -19,7 +20,7 @@ import { genColumnKey } from '../../utils';
 import { ProColumns } from '../../typing';
 
 interface ColumnSettingProps<T = any> {
-  columns: ProColumns<T>[];
+  columns: ColumnType<T>[];
 }
 
 const ToolTipIcon: React.FC<{
