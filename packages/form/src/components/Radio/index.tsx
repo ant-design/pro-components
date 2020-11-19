@@ -3,7 +3,7 @@ import { Radio } from 'antd';
 import ProField from '@ant-design/pro-field';
 import { ProSchema } from '@ant-design/pro-utils';
 import { RadioGroupProps, RadioProps } from 'antd/lib/radio';
-import { createField } from '../../BaseForm';
+import createField from '../../BaseForm/createField';
 import { ProFormItemProps } from '../../interface';
 
 export type ProFormRadioGroupProps = ProFormItemProps<RadioGroupProps> & {

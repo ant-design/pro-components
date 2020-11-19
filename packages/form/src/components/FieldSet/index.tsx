@@ -3,8 +3,7 @@ import { Space } from 'antd';
 import { FormItemProps } from 'antd/lib/form';
 import { SpaceProps } from 'antd/lib/space';
 import toArray from 'rc-util/lib/Children/toArray';
-import { createField } from '../../BaseForm';
-
+import createField from '../../BaseForm/createField';
 export type ProFormFieldSetProps<T = any> = {
   value?: T[];
   onChange?: (value: T[]) => void;

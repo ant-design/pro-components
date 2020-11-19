@@ -2,8 +2,7 @@ import React from 'react';
 import { InputNumberProps } from 'antd/lib/input-number';
 import ProField from '@ant-design/pro-field';
 import { ProFormItemProps } from '../../interface';
-import { createField } from '../../BaseForm';
-
+import createField from '../../BaseForm/createField';
 type ProFormDigitProps = ProFormItemProps<InputNumberProps> & {
   min?: InputNumberProps['min'];
   max?: InputNumberProps['max'];

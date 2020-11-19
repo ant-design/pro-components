@@ -5,7 +5,7 @@ import { InputProps } from 'antd/lib/input';
 import { SelectProps } from 'antd/lib/select';
 import { ProSchema } from '@ant-design/pro-utils';
 
-import { createField } from '../../BaseForm';
+import createField from '../../BaseForm/createField';
 import { ProFormItemProps } from '../../interface';
 
 export type ProFormFieldProps = ProSchema<

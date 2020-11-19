@@ -3,8 +3,7 @@ import React from 'react';
 import ProField from '@ant-design/pro-field';
 import { TextAreaProps } from 'antd/lib/input';
 import { ProFormItemProps } from '../../interface';
-import { createField } from '../../BaseForm';
-
+import createField from '../../BaseForm/createField';
 /**
  * 文本选择组件
  * @param
