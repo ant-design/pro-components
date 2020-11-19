@@ -23,6 +23,9 @@ const FieldTextArea: ProFieldFC<{
     const dom = (
       <Input.TextArea
         rows={3}
+        onPressEnter={(e) => {
+          e.stopPropagation();
+        }}
         placeholder={intl.getMessage('tableForm.inputPlaceholder', '请输入')}
         ref={ref}
         {...fieldProps}
