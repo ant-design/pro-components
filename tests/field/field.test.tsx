@@ -509,7 +509,7 @@ describe('Field', () => {
     expect(html.text()).toBe('qixian');
   });
 
-  fit('🐴 keypress simulate', () => {
+  it('🐴 keypress simulate', () => {
     const html = mount(<Field text="qixian" valueType="textarea" mode="edit" />);
     act(() => {
       html.find('TextArea').at(0).simulate('keypress', {
