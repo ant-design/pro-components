@@ -10,6 +10,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-card@1.5.1
+
+`2020-11-19`
+
+- UI(card): divider style split [#1035](https://github.com/ant-design/pro-components/pull/1035) [@rdmclin2](https://github.com/rdmclin2)
+
 ## @ant-design/pro-card@1.5.0
 
 `2020-11-17`
