@@ -305,7 +305,7 @@ ref.current.clearSelected();
 | order | 查询表单中的权重，权重大排序靠前 | number | - |
 | renderFormItem | 渲染查询表单的输入组件 | `(item,props:{value,onChange}) => React.ReactNode` | - |
 | fieldProps | 查询表单的 props，会透传给表单项 | `{ [prop: string]: any }` | - |
-| search | 配置列的搜索相关，false 为隐藏 | `boolean` \| `{ transform: (value: any) => any }` | true |
+| search | 配置列的搜索相关，false 为隐藏 | `false` \| `{ transform: (value: any) => any }` | true |
 | search.transform | 转化值的 key, 一般用于事件区间的转化 | `(value: any) => any` | - |
 
 ### valueType 值类型
