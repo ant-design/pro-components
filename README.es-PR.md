@@ -1,4 +1,4 @@
-[English (ES-US)](./README.en-US.md) | [简体中文 (ZH-CN)](./README.zh-CN.md) | Español (ES-PR)
+[English (en-US)](./README.en-US.md) | [简体中文 (zh-CN)](./README.zh-CN.md) | Español (es-PR)
 
 # ProComponents
 
