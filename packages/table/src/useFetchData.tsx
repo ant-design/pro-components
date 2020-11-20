@@ -30,6 +30,7 @@ const useFetchData = <T extends RequestData<any>>(
     value: options?.dataSource,
     onChange: options?.onDataSourceChange,
   });
+
   const [loading, setLoading] = useMergedState<UseFetchDataAction<T>['loading']>(undefined, {
     value: options?.loading,
   });

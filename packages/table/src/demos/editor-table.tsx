@@ -1,17 +1,17 @@
 import React, { useRef, useState } from 'react';
-import { Tag, Space } from 'antd';
+import { Tag, Space, Button } from 'antd';
 import { EditorProTable, ProColumns, ActionType } from '@ant-design/pro-table';
 import ProField from '@ant-design/pro-field';
 
 interface GithubIssueItem {
   id: number;
-  title: string;
-  labels: {
+  title?: string;
+  labels?: {
     name: string;
     color: string;
   }[];
-  state: string;
-  created_at: string;
+  state?: string;
+  created_at?: string;
 }
 
 const defaultData: GithubIssueItem[] = [
@@ -90,7 +90,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     width: 80,
     render: (_, row) => (
       <Space>
-        {row.labels.map(({ name, color }) => (
+        {row?.labels?.map(({ name, color }) => (
           <Tag color={color} key={name}>
             {name}
           </Tag>
@@ -122,6 +122,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
 
 export default () => {
   const actionRef = useRef<ActionType>();
+  const [editorRowKeys, setEditorRowKeys] = useState<React.Key[]>([]);
   const [dataSource, setDataSource] = useState<GithubIssueItem[]>([]);
   return (
     <div
@@ -144,6 +145,22 @@ export default () => {
         style={{
           flex: 2,
         }}
+        toolBarRender={() => [
+          <Button
+            key="addLine"
+            onClick={() => {
+              setDataSource([
+                ...dataSource,
+                {
+                  id: dataSource.length,
+                },
+              ]);
+              setEditorRowKeys([...editorRowKeys, dataSource.length]);
+            }}
+          >
+            增加一行
+          </Button>,
+        ]}
         columns={columns}
         actionRef={actionRef}
         request={async () => ({
@@ -151,10 +168,11 @@ export default () => {
           total: 3,
           success: true,
         })}
-        dataSource={dataSource}
+        value={dataSource}
         onChange={setDataSource}
         rowEditor={{
-          type: 'multiple',
+          editorRowKeys,
+          onChange: setEditorRowKeys,
         }}
       />
     </div>
