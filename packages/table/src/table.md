@@ -44,6 +44,10 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 
 <code src="./demos/batchOption.tsx" background="#f5f5f5" height="420px"/>
 
+### 可编辑表格
+
+<code src="./demos/editor-table.tsx" background="#f5f5f5" height="420px"/>
+
 ### 通过 formRef 来操作查询表单
 
 <code src="./demos/form.tsx" background="#f5f5f5"  height="320px"/>

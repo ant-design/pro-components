@@ -28,6 +28,11 @@ export interface TableRowEditor<T> {
    * 行保存的时候
    */
   onRowSave?: (key: React.Key, row: T & { index: number }) => Promise<void>;
+
+  /**
+   * 行删除的时候
+   */
+  onRowDelete?: (key: React.Key, row: T & { index: number }) => Promise<void>;
   /**
    * 正在编辑的列修改的时候
    */
@@ -41,16 +46,26 @@ export type ActionRenderConfig<T> = {
   form: FormInstance<any>;
   cancelEditor: (key: React.Key) => void;
   onRowSave: TableRowEditor<T>['onRowSave'];
+  onRowDelete: TableRowEditor<T>['onRowDelete'];
   setEditorRowKeys: (value: React.Key[]) => void;
 };
 
-function editorRowByKey<RecordType>(params: {
-  data: RecordType[];
-  childrenColumnName: string;
-  getRowKey: GetRowKey<RecordType>;
-  key: React.Key;
-  row: RecordType;
-}) {
+/**
+ * 使用map 来删除数据，性能一般
+ * 但是准确率比较高
+ * @param params
+ * @param action
+ */
+function editorRowByKey<RecordType>(
+  params: {
+    data: RecordType[];
+    childrenColumnName: string;
+    getRowKey: GetRowKey<RecordType>;
+    key: React.Key;
+    row: RecordType;
+  },
+  action: 'update' | 'delete',
+) {
   const { getRowKey, key, row, data, childrenColumnName } = params;
   const kvMap = new Map<React.Key, RecordType>();
 
@@ -66,8 +81,12 @@ function editorRowByKey<RecordType>(params: {
     });
   }
   dig(data);
-  kvMap.set(key, row);
-
+  if (action === 'update') {
+    kvMap.set(key, row);
+  }
+  if (action === 'delete') {
+    kvMap.delete(key);
+  }
   const source: RecordType[] = [];
   kvMap.forEach((value) => source.push(value));
   return source;
@@ -87,15 +106,18 @@ const SaveEditorAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
       onClick={async () => {
         try {
           setLoading(true);
-          await form.validateFields([rowKey]);
+          // @ts-expect-error
+          await form.validateFields([rowKey], {
+            recursive: true,
+          });
           const fields = form.getFieldValue([rowKey]);
-          onRowSave?.(rowKey, { ...row, ...fields });
+          await onRowSave?.(rowKey, { ...row, ...fields });
           form.resetFields([rowKey]);
+          setLoading(false);
           setTimeout(() => {
             cancelEditor(rowKey);
-          }, 1);
-          setLoading(false);
-        } catch {
+          }, 0);
+        } catch (e) {
           setLoading(false);
         }
       }}
@@ -112,10 +134,46 @@ const SaveEditorAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
   );
 };
 
+const DeleteEditorAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
+  rowKey,
+  onRowDelete,
+  row,
+  cancelEditor,
+}) => {
+  const [loading, setLoading] = useState<boolean>(false);
+  return (
+    <a
+      key="save"
+      onClick={async () => {
+        try {
+          setLoading(true);
+          await onRowDelete?.(rowKey, row);
+          setLoading(false);
+          setTimeout(() => {
+            cancelEditor(rowKey);
+          }, 0);
+        } catch (e) {
+          setLoading(false);
+        }
+      }}
+    >
+      {loading ? (
+        <LoadingOutlined
+          style={{
+            marginRight: 8,
+          }}
+        />
+      ) : null}
+      删除
+    </a>
+  );
+};
+
 const defaultActionRender: ActionRenderFunction<any> = (row, config) => {
   const { rowKey, cancelEditor } = config;
   return [
     <SaveEditorAction key="save" {...config} row={row} />,
+    <DeleteEditorAction key="save" {...config} row={row} />,
     <a
       key="cancel"
       onClick={() => {
@@ -206,30 +264,46 @@ function useEditor<RecordType>(
   };
 
   const actionRender = useCallback(
-    (row: RecordType & { index: number; form: FormInstance<any> }) => {
+    (row: RecordType & { index: number }, form: FormInstance<any>) => {
       const key = props.getRowKey(row, row.index);
       const dom = (props.actionRender || defaultActionRender)(row, {
         rowKey: key,
         cancelEditor,
         index: row.index,
-        onRowSave: async (
+        onRowDelete: async (
           rowKey: React.Key,
-          saveRow: RecordType & {
+          editRow: RecordType & {
             index: number;
           },
         ) => {
-          props.setDataSource(
-            editorRowByKey({
-              data: props.dataSource,
-              getRowKey: props.getRowKey,
-              row: saveRow,
-              key: rowKey,
-              childrenColumnName: props.childrenColumnName || 'children',
-            }),
-          );
-          return props?.onRowSave?.(rowKey, saveRow);
+          const actionProps = {
+            data: props.dataSource,
+            getRowKey: props.getRowKey,
+            row: editRow,
+            key: rowKey,
+            childrenColumnName: props.childrenColumnName || 'children',
+          };
+
+          props.setDataSource(editorRowByKey(actionProps, 'delete'));
+          return props?.onRowDelete?.(rowKey, editRow);
         },
-        form: row.form,
+        onRowSave: async (
+          rowKey: React.Key,
+          editRow: RecordType & {
+            index: number;
+          },
+        ) => {
+          const actionProps = {
+            data: props.dataSource,
+            getRowKey: props.getRowKey,
+            row: editRow,
+            key: rowKey,
+            childrenColumnName: props.childrenColumnName || 'children',
+          };
+          props.setDataSource(editorRowByKey(actionProps, 'update'));
+          return props?.onRowSave?.(rowKey, editRow);
+        },
+        form,
         editorRowKeys,
         setEditorRowKeys,
       });

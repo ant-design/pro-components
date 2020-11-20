@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { InfoCircleOutlined } from '@ant-design/icons';
 import { Tooltip, Space, ConfigProvider } from 'antd';
 import { TooltipProps } from 'antd/lib/tooltip';
@@ -21,9 +21,8 @@ const LabelIconTip: React.FC<{
   }
   const className = getPrefixCls('pro-core-label-tip');
   const tooltipProps = typeof tooltip === 'string' ? { title: tooltip } : (tooltip as TooltipProps);
-
   return (
-    <Space size={8} className={className}>
+    <Space className={className}>
       {label}
       {subTitle && <div className={`${className}-subtitle`}>{subTitle}</div>}
       {tooltip && (

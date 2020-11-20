@@ -73,13 +73,14 @@ const defaultRenderText = <T, U = any>(config: {
     />
   );
 
-  // 如果是编辑模式，需要注册一下
+  // 如果是编辑模式，需要用 Form.Item 包一下
   if (config.mode === 'edit') {
     return (
       <Form.Item
         style={{
-          margin: 0,
+          margin: '-5px 0',
         }}
+        hasFeedback
         initialValue={text}
         name={spellNamePath(rowKey, columnProps?.key || columnProps?.dataIndex || index)}
         {...columnProps?.formItemProps}

@@ -289,6 +289,9 @@ export interface ProTableProps<T, U extends ParamsType>
    */
   tableAlertOptionRender?: AlertRenderType<T>;
 
+  /**
+   * @name 选择想配置
+   */
   rowSelection?: TableProps<T>['rowSelection'] | false;
 
   style?: React.CSSProperties;

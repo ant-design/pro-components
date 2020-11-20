@@ -318,11 +318,13 @@ export function columnRender<T>({
         <Form.Item shouldUpdate noStyle>
           {(form: any) => (
             <Space size={16}>
-              {editorUtils.actionRender({
-                ...rowData,
+              {editorUtils.actionRender(
+                {
+                  ...rowData,
+                  index: columnProps.index || index,
+                },
                 form,
-                index: columnProps.index || 0,
-              })}
+              )}
             </Space>
           )}
         </Form.Item>
