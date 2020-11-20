@@ -1,5 +1,7 @@
 # ProComponents
 
+[US English](./README.en-US.md) | [简体中文](./README.zh-CN.md) 
+
 The Pro Series components are placed here to support heavy-duty components
 
 ![coverage CI](https://github.com/ant-design/pro-components/workflows/coverage%20CI/badge.svg) ![Node CI](https://github.com/ant-design/pro-components/workflows/Node%20CI/badge.svg) ![Deploy CI](https://github.com/ant-design/pro-components/workflows/Deploy%20CI/badge.svg) [![](https://codecov.io/gh/ant-design/pro-components/branch/master/graph/badge.svg)](https://codecov.io/gh/ant-design/pro-components) [![ docs by dumi](https://img.shields.io/badge/docs%20by-dumi-blue)](https://d.umijs.org/) [![Build With father](https://img.shields.io/badge/build%20with-father-028fe4.svg)](https://github.com/umijs/father/) [![](https://badgen.net/badge/icon/Ant%20Design?icon=https://gw.alipayobjects.com/zos/antfincdn/Pp4WPgVDB3/KDpgvguMpGfqaHPjicRK.svg&label)](https://ant.design) [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
@@ -17,9 +19,9 @@ The Pro Series components are placed here to support heavy-duty components
 
 We very much welcome your contribution, you can build with us in the following ways 😃 ：
 
-- Use in your corporate or personal Ant Design Pro projects，umi and ProComponents。
-- Through [Issue](http://github.com/ant-design/https://github.com/ant-design/pro-components/issues) Report bugs or consult
-- Submission [Pull Request](http://github.com/ant-design/https://github.com/ant-design/pro-components/pulls) Improved the code for ProComponents.
+- Use Ant Design Pro，umi, and ProComponents in your corporate or personal projects.
+- Through [Issues](http://github.com/ant-design/https://github.com/ant-design/pro-components/issues) by reporting bugs or consulting
+- Submit a [Pull Request](http://github.com/ant-design/https://github.com/ant-design/pro-components/pulls) that improves the ProComponents code.
 
 ## Component Kanban 
 
