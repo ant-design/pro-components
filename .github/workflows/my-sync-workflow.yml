@@ -1,0 +1,27 @@
+on:
+  schedule:
+    - cron:  '0 2 * * 1,4,5'
+    # scheduled at 02:00 every Monday and Thursday and Friday
+  workflow_dispatch:
+
+jobs:
+  sync_with_upstream:
+    runs-on: ubuntu-latest
+    name: Sync master with upstream latest
+
+    steps:
+    - name: Checkout master
+      uses: actions/checkout@v2
+      with:
+        ref: master
+        
+    - name: Pull upstream changes
+      id: sync
+      uses: aormsby/Fork-Sync-With-Upstream-action@v2.1
+      with:
+        upstream_repository: ant-design/pro-components
+        upstream_branch: master
+        target_branch: master
+
+    - name: Timestamp
+      run: date
