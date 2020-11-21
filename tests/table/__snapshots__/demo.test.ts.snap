@@ -142,6 +142,10 @@ exports[`table demos renders ./packages/table/src/demos/ListToolBar/basic.tsx co
                 <form
                   class="ant-form ant-form-horizontal"
                 >
+                  <input
+                    style="display: none;"
+                    type="text"
+                  />
                   <div
                     class="ant-pro-form-light-filter ant-pro-form-light-filter-middle"
                   >
@@ -1091,6 +1095,10 @@ exports[`table demos renders ./packages/table/src/demos/ListToolBar/menu.tsx cor
                 <form
                   class="ant-form ant-form-horizontal"
                 >
+                  <input
+                    style="display: none;"
+                    type="text"
+                  />
                   <div
                     class="ant-pro-form-light-filter ant-pro-form-light-filter-middle"
                   >
@@ -2190,6 +2198,10 @@ exports[`table demos renders ./packages/table/src/demos/ListToolBar/multipleLine
             <form
               class="ant-form ant-form-horizontal"
             >
+              <input
+                style="display: none;"
+                type="text"
+              />
               <div
                 class="ant-pro-form-light-filter ant-pro-form-light-filter-middle"
               >
@@ -3007,6 +3019,10 @@ exports[`table demos renders ./packages/table/src/demos/ListToolBar/no-title.tsx
                 <form
                   class="ant-form ant-form-horizontal"
                 >
+                  <input
+                    style="display: none;"
+                    type="text"
+                  />
                   <div
                     class="ant-pro-form-light-filter ant-pro-form-light-filter-middle"
                   >
@@ -4086,6 +4102,10 @@ exports[`table demos renders ./packages/table/src/demos/ListToolBar/tabs.tsx cor
                   <form
                     class="ant-form ant-form-horizontal"
                   >
+                    <input
+                      style="display: none;"
+                      type="text"
+                    />
                     <div
                       class="ant-pro-form-light-filter ant-pro-form-light-filter-middle"
                     >
@@ -6712,6 +6732,10 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
     <form
       class="qixian-form qixian-form-horizontal"
     >
+      <input
+        style="display: none;"
+        type="text"
+      />
       <div
         class="qixian-row qixian-row-start"
         style="margin-left: -8px; margin-right: -8px;"
@@ -11117,6 +11141,10 @@ Array [
       <form
         class="ant-form ant-form-horizontal"
       >
+        <input
+          style="display: none;"
+          type="text"
+        />
         <div
           class="ant-row ant-row-start"
           style="margin-left: -8px; margin-right: -8px;"
@@ -12789,6 +12817,10 @@ exports[`table demos renders ./packages/table/src/demos/dataSource.tsx correctly
     <form
       class="ant-form ant-form-horizontal"
     >
+      <input
+        style="display: none;"
+        type="text"
+      />
       <div
         class="ant-row ant-row-start"
         style="margin-left: -8px; margin-right: -8px;"
@@ -13560,6 +13592,10 @@ exports[`table demos renders ./packages/table/src/demos/form.tsx correctly 1`] =
     <form
       class="ant-form ant-form-horizontal"
     >
+      <input
+        style="display: none;"
+        type="text"
+      />
       <div
         class="ant-row ant-row-start"
         style="margin-left: -8px; margin-right: -8px;"
@@ -14063,6 +14099,10 @@ exports[`table demos renders ./packages/table/src/demos/intl.tsx correctly 1`] =
     <form
       class="ant-form ant-form-horizontal"
     >
+      <input
+        style="display: none;"
+        type="text"
+      />
       <div
         class="ant-row ant-row-start"
         style="margin-left: -8px; margin-right: -8px;"
@@ -15015,6 +15055,10 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
                   <form
                     class="ant-form ant-form-horizontal"
                   >
+                    <input
+                      style="display: none;"
+                      type="text"
+                    />
                     <div
                       class="ant-pro-form-light-filter ant-pro-form-light-filter-middle"
                     >
@@ -16161,6 +16205,10 @@ exports[`table demos renders ./packages/table/src/demos/linkage_form.tsx correct
     <form
       class="ant-form ant-form-horizontal"
     >
+      <input
+        style="display: none;"
+        type="text"
+      />
       <div
         class="ant-row ant-row-start"
         style="margin-left: -8px; margin-right: -8px;"
@@ -17309,6 +17357,10 @@ exports[`table demos renders ./packages/table/src/demos/listToolBar.tsx correctl
                   <form
                     class="ant-form ant-form-horizontal"
                   >
+                    <input
+                      style="display: none;"
+                      type="text"
+                    />
                     <div
                       class="ant-pro-form-light-filter ant-pro-form-light-filter-middle"
                     >
@@ -19938,6 +19990,10 @@ exports[`table demos renders ./packages/table/src/demos/pollinga.tsx correctly 1
     <form
       class="ant-form ant-form-horizontal"
     >
+      <input
+        style="display: none;"
+        type="text"
+      />
       <div
         class="ant-row ant-row-start"
         style="margin-left: -8px; margin-right: -8px;"
@@ -21002,6 +21058,10 @@ exports[`table demos renders ./packages/table/src/demos/renderTable.tsx correctl
     <form
       class="ant-form ant-form-horizontal"
     >
+      <input
+        style="display: none;"
+        type="text"
+      />
       <div
         class="ant-row ant-row-start"
         style="margin-left: -8px; margin-right: -8px;"
@@ -21959,6 +22019,10 @@ exports[`table demos renders ./packages/table/src/demos/rtl_table.tsx correctly 
     <form
       class="ant-form ant-form-horizontal ant-form-rtl"
     >
+      <input
+        style="display: none;"
+        type="text"
+      />
       <div
         class="ant-row ant-row-start ant-row-rtl"
         style="margin-left: -8px; margin-right: -8px;"
@@ -24081,6 +24145,10 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
     <form
       class="ant-form ant-form-horizontal"
     >
+      <input
+        style="display: none;"
+        type="text"
+      />
       <div
         class="ant-row ant-row-start"
         style="margin-left: -8px; margin-right: -8px;"
@@ -24892,6 +24960,10 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
     <form
       class="ant-form ant-form-horizontal"
     >
+      <input
+        style="display: none;"
+        type="text"
+      />
       <div
         class="ant-row ant-row-start"
         style="margin-left: -8px; margin-right: -8px;"
@@ -26562,6 +26634,10 @@ exports[`table demos renders ./packages/table/src/demos/single-test.tsx correctl
     <form
       class="ant-form ant-form-vertical"
     >
+      <input
+        style="display: none;"
+        type="text"
+      />
       <div
         class="ant-row ant-form-item"
       >
@@ -27925,6 +28001,10 @@ exports[`table demos renders ./packages/table/src/demos/valueType.tsx correctly 
     <form
       class="ant-form ant-form-horizontal"
     >
+      <input
+        style="display: none;"
+        type="text"
+      />
       <div
         class="ant-row ant-row-start"
         style="margin-left: -8px; margin-right: -8px;"
@@ -28885,6 +28965,10 @@ exports[`table demos renders ./packages/table/src/demos/valueType_select.tsx cor
     <form
       class="ant-form ant-form-horizontal"
     >
+      <input
+        style="display: none;"
+        type="text"
+      />
       <div
         class="ant-row ant-row-start"
         style="margin-left: -8px; margin-right: -8px;"
@@ -29982,6 +30066,10 @@ exports[`table demos renders ./packages/table/src/demos/valueTypeDate.tsx correc
     <form
       class="ant-form ant-form-horizontal"
     >
+      <input
+        style="display: none;"
+        type="text"
+      />
       <div
         class="ant-row ant-row-start"
         style="margin-left: -8px; margin-right: -8px;"
@@ -31170,6 +31258,10 @@ exports[`table demos renders ./packages/table/src/demos/valueTypeNumber.tsx corr
     <form
       class="ant-form ant-form-horizontal"
     >
+      <input
+        style="display: none;"
+        type="text"
+      />
       <div
         class="ant-row ant-row-start"
         style="margin-left: -8px; margin-right: -8px;"

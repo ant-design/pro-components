@@ -50,7 +50,7 @@ describe('ProFormUpload', () => {
     );
 
     act(() => {
-      wrapper.find('input').simulate('change', {
+      wrapper.find('.ant-upload input').simulate('change', {
         target: {
           files: [mockFile],
         },
@@ -111,7 +111,7 @@ describe('ProFormUpload', () => {
     );
 
     act(() => {
-      wrapper.find('input').simulate('change', {
+      wrapper.find('.ant-upload input').simulate('change', {
         target: {
           files: [mockFile],
         },

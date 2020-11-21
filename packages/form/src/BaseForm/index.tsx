@@ -148,6 +148,12 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
               setLoading(false);
             }}
           >
+            <input
+              type="text"
+              style={{
+                display: 'none',
+              }}
+            />
             <Form.Item noStyle shouldUpdate>
               {(formInstance) => {
                 // 不 setTimeout 一下拿到的是比较旧的

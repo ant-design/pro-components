@@ -11,6 +11,10 @@ exports[`BasicTable 🎏  do not render default option 1`] = `
     <form
       class="ant-form ant-form-horizontal"
     >
+      <input
+        style="display: none;"
+        type="text"
+      />
       <div
         class="ant-row ant-row-start"
         style="margin-left: -8px; margin-right: -8px;"
@@ -788,6 +792,10 @@ exports[`BasicTable 🎏 base use 1`] = `
     <form
       class="ant-form ant-form-horizontal"
     >
+      <input
+        style="display: none;"
+        type="text"
+      />
       <div
         class="ant-row ant-row-start"
         style="margin-left: -8px; margin-right: -8px;"
@@ -7832,6 +7840,10 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
     <form
       class="ant-form ant-form-horizontal"
     >
+      <input
+        style="display: none;"
+        type="text"
+      />
       <div
         class="ant-row ant-row-start"
         style="margin-left: -8px; margin-right: -8px;"
@@ -14676,6 +14688,10 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
     <form
       class="ant-form ant-form-horizontal"
     >
+      <input
+        style="display: none;"
+        type="text"
+      />
       <div
         class="ant-row ant-row-start"
         style="margin-left: -8px; margin-right: -8px;"
