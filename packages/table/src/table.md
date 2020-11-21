@@ -195,6 +195,43 @@ const enUSIntl = createIntl('en_US', enUS);
 
 ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，并且封装了一些行为。这里只列出与 antd Table 不同的 api。
 
+### request
+
+`request` 是 ProTable 最重要的 API，`request` 会接收一个对象。对象中必须要有 `data` 和 `success`，如果需要手动分页 `total` 也是必需的。`request` 会接管 `loading` 的设置，同时在查询表单查询和 `params` 参数发生修改时重新执行。同时 查询表单的值和 `params` 参数也会带入。以下是一个实例：
+
+```tsx | pure
+<ProTable<T, U>
+  // params 是需要自带的参数
+  // 这个参数优先级更高，会覆盖查询表单的参数
+  params={params}
+  request={async (
+    // 第一个参数 params 查询表单和 params 参数的结合
+    // 第一个参数中一定会有 pageSize 和  current ，这两个参数是 antd 的规范
+    params: T & {
+      pageSize: number;
+      current: number;
+    },
+    sort,
+    filter,
+  ) => {
+    // 这里需要返回一个 Promise,在返回之前你可以进行数据转化
+    // 如果需要转化参数可以在这里进行修改
+    const msg = await myQuery({
+      page: params.current,
+      pageSize: params.pageSize,
+    });
+    return {
+      data: msg.result,
+      // success 请返回 true，
+      // 不然 table 会停止解析数据，即使有数据
+      success: boolean,
+      // 不传会使用 data 的长度，如果是分页一定要传
+      total: number,
+    };
+  }}
+/>
+```
+
 ### ProTable
 
 | 属性 | 描述 | 类型 | 默认值 |
