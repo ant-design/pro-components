@@ -25,6 +25,11 @@ import { ProFieldFC } from '../../index';
 
 let testId = 0;
 
+let cacheData: {
+  label: React.ReactNode;
+  value: React.ReactText;
+}[] = [];
+
 export type ProFieldValueEnumType = ProSchemaValueEnumMap | ProSchemaValueEnumObj;
 
 export const ObjToMap = (value: ProFieldValueEnumType | undefined): ProSchemaValueEnumMap => {
@@ -225,9 +230,10 @@ export const useFieldFetchData = (
   const { data, mutate } = useSWR(
     [proFieldKeyRef.current, JSON.stringify(props.params)],
     async () => {
-      if (props.request) {
+      if (props.request && !cacheData.length) {
         setLoading(true);
         const fetchData = await props.request(props.params, props);
+        cacheData = fetchData;
         setLoading(false);
         return fetchData;
       }
@@ -277,7 +283,6 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
   }, []);
 
   const [loading, options, fetchData] = useFieldFetchData(props);
-
   const size = useContext(SizeContext);
   useImperativeHandle(ref, () => ({
     ...(inputRef.current || {}),
