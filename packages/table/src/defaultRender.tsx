@@ -1,8 +1,9 @@
 import React from 'react';
-import { Form } from 'antd';
+import { Form, Popover } from 'antd';
 import ProField, { ProFieldEmptyText, ProFieldValueType } from '@ant-design/pro-field';
 import { ProSchemaComponentTypes } from '@ant-design/pro-utils';
 import { ProColumnType } from './index';
+import { FormItemProps } from 'antd/lib/form';
 
 const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
 
@@ -83,6 +84,42 @@ const defaultRenderText = <T, U = any>(config: {
         hasFeedback
         initialValue={text}
         name={spellNamePath(rowKey, columnProps?.key || columnProps?.dataIndex || index)}
+        // @ts-ignore
+        _internalItemRender={{
+          mark: 'pro_table_render',
+          render: (
+            inputProps: FormItemProps & {
+              errors: any[];
+            },
+            {
+              input,
+              errorList,
+              extra,
+            }: {
+              input: JSX.Element;
+              errorList: JSX.Element;
+              extra: JSX.Element;
+            },
+          ) => {
+            const { errors } = inputProps;
+            if (errors.length < 1) {
+              return (
+                <div>
+                  {input}
+                  {extra}
+                </div>
+              );
+            }
+            return (
+              <Popover placement="topLeft" content={<div>{errorList}</div>}>
+                <div>
+                  {input}
+                  {extra}
+                </div>
+              </Popover>
+            );
+          },
+        }}
         {...columnProps?.formItemProps}
       >
         {dom}
