@@ -42,7 +42,7 @@ const FieldDatePicker: ProFieldFC<{
   const [open, setOpen] = useState<boolean>(false);
 
   if (mode === 'read') {
-    const dom = <span ref={ref}>{moment(text).format(format) || '-'}</span>;
+    const dom = <span ref={ref}>{text ? moment(text).format(format) : '-'}</span>;
     if (render) {
       return render(text, { mode, ...fieldProps }, <span>{dom}</span>);
     }
