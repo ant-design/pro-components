@@ -80,7 +80,7 @@ export type ProCardProps = {
   /**
    * 指定 Flex 方向，仅在嵌套子卡片时有效
    */
-  direction?: 'column';
+  direction?: 'column' | 'row';
   /**
    * 加载中
    */

@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.6.2
+
+`2020-11-19`
+
+- 🐛 fix(form): fix formItemProps no work error [#1037](https://github.com/ant-design/pro-components/pull/1037) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-form@1.6.1
 
 `2020-11-19`

@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
-import { Button, Input } from 'antd';
+import { Button, Input, Select } from 'antd';
 import ProTable, { ProColumns } from '@ant-design/pro-table';
 
 interface GithubIssueItem {
@@ -10,126 +10,163 @@ interface GithubIssueItem {
   createdAt: number;
 }
 
-const columns: ProColumns<GithubIssueItem>[] = [
-  {
-    title: '序号',
-    dataIndex: 'index',
-    valueType: 'indexBorder',
-  },
-  {
-    title: '标题',
-    dataIndex: 'name',
-    search: false,
-  },
-  {
-    title: '状态',
-    dataIndex: 'state',
-    initialValue: 'all',
-    filters: true,
-    valueEnum: {
-      all: { text: '全部', status: 'Default' },
-      open: {
-        text: '未解决',
-        status: 'Error',
-      },
-      closed: {
-        text: '已解决',
-        status: 'Success',
-      },
-    },
-  },
-  {
-    title: '排序方式',
-    key: 'direction',
-    hideInTable: true,
-    dataIndex: 'direction',
-    filters: true,
-    valueEnum: {
-      asc: '正序',
-      desc: '倒序',
-    },
-    renderFormItem: (_, { type, defaultRender, ...rest }, form) => {
-      console.group(['item', 'config']);
-      console.log(_);
-      console.log({ type, defaultRender, ...rest });
-      console.groupEnd();
-      const status = form.getFieldValue('state');
-      if (type === 'form') {
-        return null;
-      }
-      if (status === 'open') {
-        return <Input placeholder="请输入" />;
-      }
-      if (status === 'all' || status === undefined) {
-        return false;
-      }
-      return defaultRender(_);
-    },
-  },
-  {
-    title: '创建时间',
-    key: 'since',
-    dataIndex: 'created_at',
-    valueType: 'dateTime',
-    renderFormItem: (_, { defaultRender }) => {
-      return defaultRender(_);
-    },
-  },
-];
+const MySelect: React.FC<{
+  state: {
+    type: number;
+  };
+  /**
+   * value 和 onChange 会被自动注入
+   */
+  value?: string;
+  onChange?: (value: string) => void;
+}> = (props) => {
+  const { state } = props;
 
-export default () => (
-  <ProTable<GithubIssueItem>
-    columns={columns}
-    request={async () => {
-      return {
-        data: [
+  const [innerOptions, setOptions] = useState<
+    {
+      label: React.ReactNode;
+      value: number;
+    }[]
+  >([]);
+
+  useEffect(() => {
+    const { type } = state || {};
+    if (type === 2) {
+      setOptions([
+        {
+          label: '星期一',
+          value: 1,
+        },
+        {
+          label: '星期二',
+          value: 2,
+        },
+      ]);
+    } else {
+      setOptions([
+        {
+          label: '一月',
+          value: 1,
+        },
+        {
+          label: '二月',
+          value: 2,
+        },
+      ]);
+    }
+  }, [JSON.stringify(state)]);
+
+  return <Select options={innerOptions} value={props.value} onChange={props.onChange} />;
+};
+
+export default () => {
+  const columns: ProColumns<GithubIssueItem>[] = [
+    {
+      title: '序号',
+      dataIndex: 'index',
+      valueType: 'indexBorder',
+    },
+    {
+      title: '标题',
+      dataIndex: 'name',
+      search: false,
+    },
+    {
+      title: '状态',
+      dataIndex: 'state',
+      initialValue: 1,
+      valueType: 'select',
+      fieldProps: {
+        options: [
           {
-            key: 1,
-            name: `TradeCode ${1}`,
-            createdAt: 1602572994055,
-            state: 'closed',
+            label: '月份',
+            value: 1,
+          },
+          {
+            label: '周',
+            value: 2,
+          },
+          {
+            label: '自定义',
+            value: 3,
           },
         ],
-        success: true,
-      };
-    }}
-    rowKey="key"
-    form={{
-      onValuesChange: (values, all) => {
-        console.log(values, all);
       },
-    }}
-    tableLayout="fixed"
-    dateFormatter="string"
-    headerTitle="动态自定义搜索栏"
-    search={{
-      defaultCollapsed: false,
-      optionRender: ({ searchText, resetText }, { form }) => [
-        <Button
-          key="search"
-          type="primary"
-          onClick={() => {
-            form?.submit();
-          }}
-        >
-          {searchText}
+    },
+    {
+      title: '动态',
+      key: 'direction',
+      hideInTable: true,
+      dataIndex: 'direction',
+      renderFormItem: (item, { type, defaultRender, ...rest }, form) => {
+        if (type === 'form') {
+          return null;
+        }
+        const stateType = form.getFieldValue('state');
+        if (stateType === 3) {
+          return <Input />;
+        }
+        return (
+          <MySelect
+            {...rest}
+            state={{
+              type: stateType,
+            }}
+          />
+        );
+      },
+    },
+  ];
+
+  return (
+    <ProTable<GithubIssueItem>
+      columns={columns}
+      request={async () => {
+        return {
+          data: [
+            {
+              key: 1,
+              name: `TradeCode ${1}`,
+              createdAt: 1602572994055,
+              state: 'closed',
+            },
+          ],
+          success: true,
+        };
+      }}
+      rowKey="key"
+      tableLayout="fixed"
+      dateFormatter="string"
+      headerTitle="动态自定义搜索栏"
+      search={{
+        defaultCollapsed: false,
+        optionRender: ({ searchText, resetText }, { form }) => [
+          <Button
+            key="search"
+            type="primary"
+            onClick={() => {
+              form?.submit();
+            }}
+          >
+            {searchText}
+          </Button>,
+          <Button
+            key="rest"
+            onClick={() => {
+              form?.resetFields();
+            }}
+          >
+            {resetText}
+          </Button>,
+          <Button key="out">导出</Button>,
+        ],
+      }}
+      toolBarRender={() => [
+        <Button key="3" type="primary">
+          <PlusOutlined />
+          新建
         </Button>,
-        <Button
-          key="rest"
-          onClick={() => {
-            form?.resetFields();
-          }}
-        >
-          {resetText}
-        </Button>,
-        <Button key="out">导出</Button>,
-      ],
-    }}
-    toolBarRender={() => [
-      <Button key="3" type="primary">
-        <PlusOutlined />
-        新建
-      </Button>,
-    ]}
-  />
-);
+      ]}
+    />
+  );
+};
