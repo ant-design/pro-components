@@ -372,7 +372,7 @@ function useEditable<RecordType>(
   };
 }
 
-type UseEditableType = typeof useEditable;
+export type UseEditableType = typeof useEditable;
 
 export type UseEditableUtilType = ReturnType<UseEditableType>;
 

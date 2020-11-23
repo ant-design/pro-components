@@ -6,7 +6,6 @@ import {
   isNil,
   LabelIconTip,
   omitUndefinedAndEmptyArr,
-  ProCoreActionType,
   ProSchemaComponentTypes,
 } from '@ant-design/pro-utils';
 import {
@@ -18,6 +17,7 @@ import get from 'rc-util/lib/utils/get';
 import { IntlType } from '@ant-design/pro-provider';
 
 import {
+  ActionType,
   ProColumnGroupType,
   ProColumns,
   ProTableProps,
@@ -99,12 +99,11 @@ export const genCopyable = (dom: React.ReactNode, item: ProColumns<any>, text: s
  * @param action
  * @param intl
  */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const mergePagination = <T, _U>(
+export function mergePagination<T>(
   pagination: TablePaginationConfig | boolean | undefined = {},
   action: UseFetchDataAction<RequestData<T>>,
   intl: IntlType,
-): TablePaginationConfig | false | undefined => {
+): TablePaginationConfig | false | undefined {
   if (pagination === false) {
     return false;
   }
@@ -132,7 +131,7 @@ export const mergePagination = <T, _U>(
       }
     },
   };
-};
+}
 
 /**
  * 获取用户的 action 信息
@@ -140,18 +139,22 @@ export const mergePagination = <T, _U>(
  * @param counter
  * @param onCleanSelected
  */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const useActionType = <T, _U = any>(
+export function useActionType<T>(
   ref: ProTableProps<T, any>['actionRef'],
   counter: ReturnType<CounterType>,
-  onCleanSelected: () => void,
-) => {
+  props: {
+    fullScreen: () => void;
+    onCleanSelected: () => void;
+    editableUtils: UseEditableUtilType;
+  },
+) {
   /**
    * 这里生成action的映射，保证 action 总是使用的最新
    * 只需要渲染一次即可
    */
   useEffect(() => {
-    const userAction: ProCoreActionType = {
+    const userAction: ActionType = {
+      ...props.editableUtils,
       reload: async (resetPageIndex?: boolean) => {
         const {
           action: { current },
@@ -159,7 +162,7 @@ export const useActionType = <T, _U = any>(
 
         // 如果为 true，回到第一页
         if (resetPageIndex) {
-          await current?.resetPageIndex();
+          await props.onCleanSelected();
         }
         await current?.reload();
       },
@@ -169,20 +172,19 @@ export const useActionType = <T, _U = any>(
         } = counter;
 
         // reload 之后大概率会切换数据，清空一下选择。
-        onCleanSelected();
-        // 如果为 true，回到第一页
-        await current?.resetPageIndex();
+        props.onCleanSelected();
         await current?.reload();
       },
       reset: async () => {
         const {
           action: { current },
         } = counter;
-        await onCleanSelected();
-        await current?.reset();
+        await props.onCleanSelected();
+        await current?.reset?.();
         await current?.reload();
       },
-      clearSelected: () => onCleanSelected(),
+      fullScreen: () => props.fullScreen(),
+      clearSelected: () => props.onCleanSelected(),
     };
     if (ref && typeof ref === 'function') {
       ref(userAction);
@@ -192,7 +194,7 @@ export const useActionType = <T, _U = any>(
       ref.current = userAction;
     }
   }, []);
-};
+}
 
 type PostDataType<T> = (data: T) => T;
 
@@ -201,15 +203,14 @@ type PostDataType<T> = (data: T) => T;
  * @param data
  * @param pipeline
  */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const postDataPipeline = <T, _U>(data: T, pipeline: PostDataType<T>[]) => {
+export function postDataPipeline<T>(data: T, pipeline: PostDataType<T>[]) {
   if (pipeline.filter((item) => item).length < 1) {
     return data;
   }
   return pipeline.reduce((pre, postData) => {
     return postData(pre);
   }, data);
-};
+}
 
 export const tableColumnSort = (columnsMap: { [key: string]: ColumnsState }) => (
   a: any,
@@ -287,14 +288,9 @@ export function columnRender<T>({
   const { isEditable, rowKey } = editableUtils.isEditable({ ...rowData, index });
   const { renderText = (val: any) => val } = columnProps;
 
-  const renderTextStr = renderText(
-    text,
-    rowData,
-    index,
-    action.current as UseFetchDataAction<RequestData<any>>,
-  );
+  const renderTextStr = renderText(text, rowData, index, action.current as ActionType);
 
-  const textDom = defaultRenderText<T, {}>({
+  const textDom = defaultRenderText<T>({
     text: renderTextStr,
     valueType: (columnProps.valueType as ProFieldValueType) || 'text',
     index,
@@ -367,7 +363,7 @@ export function columnRender<T>({
       rowData,
       index,
       {
-        ...(action.current as UseFetchDataAction<RequestData<any>>),
+        ...(action.current as ActionType),
         ...editableUtils,
       },
       {
@@ -396,8 +392,7 @@ export function columnRender<T>({
  * @param map
  * @param columnEmptyText
  */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const genColumnList = <T, _U = {}>(props: {
+export function genColumnList<T>(props: {
   columns: ProColumns<T>[];
   map: {
     [key: string]: ColumnsState;
@@ -406,7 +401,7 @@ export const genColumnList = <T, _U = {}>(props: {
   columnEmptyText: ProFieldEmptyText;
   type: ProSchemaComponentTypes;
   editableUtils: UseEditableUtilType;
-}): (ColumnsType<T>[number] & { index?: number })[] => {
+}): (ColumnsType<T>[number] & { index?: number })[] {
   const { columns, map, counter, columnEmptyText, type, editableUtils } = props;
   return (columns
     .map((columnProps, columnsIndex) => {
@@ -457,4 +452,4 @@ export const genColumnList = <T, _U = {}>(props: {
       index?: number;
     }
   >;
-};
+}

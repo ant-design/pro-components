@@ -14,6 +14,7 @@ import { CardProps } from 'antd/lib/card';
 import { FormItemProps, FormProps } from 'antd/lib/form';
 import { SpinProps } from 'antd/lib/spin';
 import { TableProps } from 'antd/lib/table';
+
 import { ColumnFilterItem, ColumnType, SortOrder } from 'antd/lib/table/interface';
 import { CSSProperties } from 'react';
 import { AlertRenderType } from './component/Alert';
@@ -256,7 +257,7 @@ export interface ProTableProps<T, U extends ParamsType>
   /**
    * @name 操作栏配置
    */
-  options?: OptionConfig<T> | false;
+  options?: OptionConfig | false;
   /**
    * @name 是否显示搜索表单
    */
@@ -330,3 +331,8 @@ export interface ProTableProps<T, U extends ParamsType>
    */
   onDataSourceChange?: (dataSource: T[]) => void;
 }
+
+export type ActionType = ProCoreActionType &
+  UseEditableUtilType & {
+    fullScreen?: () => void;
+  };

@@ -228,8 +228,7 @@ const GroupCheckboxList: React.FC<{
   );
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const ColumnSetting = <T, _U = {}>(props: ColumnSettingProps<T>) => {
+function ColumnSetting<T>(props: ColumnSettingProps<T>) {
   const columnRef = useRef({});
   const counter = Container.useContainer();
   const localColumns: Omit<ProColumns<any> & { index?: number }, 'ellipsis'>[] = props.columns;
@@ -307,6 +306,6 @@ const ColumnSetting = <T, _U = {}>(props: ColumnSettingProps<T>) => {
       </Tooltip>
     </Popover>
   );
-};
+}
 
 export default ColumnSetting;

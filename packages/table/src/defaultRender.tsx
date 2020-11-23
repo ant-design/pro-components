@@ -26,8 +26,7 @@ export const spellNamePath = (
  * @param text
  * @param valueType
  */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const defaultRenderText = <T, U = any>(config: {
+function defaultRenderText<T>(config: {
   text: string | number | React.ReactText[];
   valueType: ProColumnType['valueType'];
   index: number;
@@ -38,7 +37,7 @@ const defaultRenderText = <T, U = any>(config: {
   // 行的唯一 key
   rowKey?: React.Key;
   mode: 'edit' | 'read';
-}): React.ReactNode => {
+}): React.ReactNode {
   const { text, valueType, rowKey, index, rowData, columnProps, columnEmptyText, type } = config;
   // 如果 valueType === text ，没必要多走一次 render
   if ((!valueType || valueType === 'text') && !columnProps?.valueEnum && config.mode === 'read') {
@@ -83,6 +82,6 @@ const defaultRenderText = <T, U = any>(config: {
     );
   }
   return dom;
-};
+}
 
 export default defaultRenderText;

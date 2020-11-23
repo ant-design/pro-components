@@ -17,7 +17,6 @@ import {
   frFRIntl,
   ptBRIntl,
 } from '@ant-design/pro-provider';
-import { ProCoreActionType } from '@ant-design/pro-utils';
 import { FieldStatus, ProFieldValueType, FieldIndexColumn } from '@ant-design/pro-field';
 import ProTable from './Table';
 import TableDropdown from './component/Dropdown';
@@ -26,17 +25,16 @@ import ListToolBar, { ListToolBarProps } from './component/ListToolBar';
 import Search from './Form';
 import defaultRenderText from './defaultRender';
 import { ColumnsState } from './container';
-import { ProColumns, ProColumnType, ProTableProps, RequestData } from './typing';
+import { ActionType, ProColumns, ProColumnType, ProTableProps, RequestData } from './typing';
 import EditableProTable from './EditableTable';
 import { TableRowEditable } from './component/useEditable';
 
 type ProColumnsValueType = ProFieldValueType;
 
-export type ActionType = ProCoreActionType;
-
 export type {
   ProTableProps,
   IntlType,
+  ActionType,
   TableRowEditable,
   ColumnsState,
   ProColumnsValueType,

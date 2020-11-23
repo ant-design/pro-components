@@ -2,9 +2,9 @@ import { createContainer } from 'unstated-next';
 import { useState, useRef } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
-import { RequestData, ProTableProps } from './index';
+import { ProTableProps } from './index';
 import { DensitySize } from './component/ToolBar/DensityIcon';
-import { UseFetchDataAction } from './typing';
+import { ActionType } from './typing';
 
 export type ColumnsState = {
   show?: boolean;
@@ -22,7 +22,7 @@ export interface UseCounterProps {
 }
 
 function useCounter(props: UseCounterProps = {}) {
-  const actionRef = useRef<UseFetchDataAction<RequestData<any>>>();
+  const actionRef = useRef<ActionType>();
   const propsRef = useRef<ProTableProps<any, any>>();
 
   // 共享状态比较难，就放到这里了
@@ -44,7 +44,7 @@ function useCounter(props: UseCounterProps = {}) {
 
   return {
     action: actionRef,
-    setAction: (newAction: UseFetchDataAction<RequestData<any>>) => {
+    setAction: (newAction?: ActionType) => {
       actionRef.current = newAction;
     },
     sortKeyColumns: sortKeyColumns.current,

@@ -1,4 +1,11 @@
-import React, { useEffect, useContext, useRef, useState, useCallback, useMemo } from 'react';
+import React, {
+  useContext,
+  useRef,
+  useState,
+  useCallback,
+  useMemo,
+  useImperativeHandle,
+} from 'react';
 import { Table, ConfigProvider, Form, Card, Empty } from 'antd';
 import { useIntl, ParamsType, ConfigProviderWrap } from '@ant-design/pro-provider';
 import classNames from 'classnames';
@@ -31,6 +38,7 @@ import ErrorBoundary from './component/ErrorBoundary';
 import './index.less';
 import useEditable from './component/useEditable';
 import { ProTableProps, RequestData, TableRowSelection } from './typing';
+import { ActionType } from '.';
 
 /**
  * 🏆 Use Ant Design Table like a Pro!
@@ -50,7 +58,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     headerTitle,
     postData,
     pagination: propsPagination,
-    actionRef,
+    actionRef: propsActionRef,
     columns: propsColumns = [],
     toolBarRender,
     onLoad,
@@ -75,6 +83,12 @@ const ProTable = <T extends {}, U extends ParamsType>(
     toolbar,
     ...rest
   } = props;
+  const actionRef = useRef<ActionType>();
+
+  /**
+   * 绑定 action ref
+   */
+  useImperativeHandle(propsActionRef, () => actionRef.current, [actionRef.current]);
 
   const [selectedRowKeys, setSelectedRowKeys] = useMergedState<React.ReactText[]>([], {
     value: propsRowSelection ? propsRowSelection.selectedRowKeys : undefined,
@@ -100,7 +114,6 @@ const ProTable = <T extends {}, U extends ParamsType>(
    * 获取 table 的 dom ref
    */
   const rootRef = useRef<HTMLDivElement>(null);
-  const fullScreen = useRef<() => void>();
   const intl = useIntl();
 
   /**
@@ -140,7 +153,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
       delete (actionParams as any)._timestamp;
 
       const response = await request((actionParams as unknown) as U, proSort, proFilter);
-      const responseData = postDataPipeline<T[], U>(
+      const responseData = postDataPipeline<T[]>(
         response.data,
         [postData].filter((item) => item) as any,
       );
@@ -165,47 +178,31 @@ const ProTable = <T extends {}, U extends ParamsType>(
   );
   // ============================ END ============================
 
-  useEffect(() => {
-    fullScreen.current = () => {
-      if (!rootRef.current || !document.fullscreenEnabled) {
-        return;
-      }
-
-      if (document.fullscreenElement) {
-        document.exitFullscreen();
-      } else {
-        rootRef.current.requestFullscreen();
-      }
-    };
-  }, [rootRef.current]);
-
-  action.fullScreen = fullScreen.current;
-
-  const pagination = mergePagination<T, {}>(propsPagination, action, intl);
+  /**
+   * 页面编辑的计算
+   */
+  const pagination = useMemo(() => mergePagination<T>(propsPagination, action, intl), [
+    propsPagination,
+    action.total,
+    action.pageSize,
+    action.current,
+    action.setPageInfo,
+    intl,
+  ]);
 
   const counter = Container.useContainer();
 
+  /**
+   * 清空所有的选中项
+   */
   const onCleanSelected = useCallback(() => {
     if (propsRowSelection && propsRowSelection.onChange) {
       propsRowSelection.onChange([], []);
     }
     setSelectedRowsAndKey([], []);
   }, [setSelectedRowKeys, propsRowSelection]);
-  // /**
-  //  * 绑定 action
-  //  */
-  useActionType(actionRef, counter, () => {
-    // 清空选中行
-    onCleanSelected();
-    // 清空筛选
-    setProFilter({});
-    // 清空排序
-    setProSort({});
-    // 清空 toolbar 搜索
-    counter.setKeyWords(undefined);
-  });
 
-  counter.setAction(action);
+  counter.setAction(actionRef.current);
   counter.propsRef.current = props;
 
   // ============================ RowKey ============================
@@ -227,6 +224,36 @@ const ProTable = <T extends {}, U extends ParamsType>(
     childrenColumnName: props.expandable?.childrenColumnName,
     dataSource: action.dataSource,
     setDataSource: action.setDataSource,
+  });
+
+  /**
+   * 绑定 action
+   */
+  useActionType(actionRef, counter, {
+    fullScreen: () => {
+      if (!rootRef.current || !document.fullscreenEnabled) {
+        return;
+      }
+
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      } else {
+        rootRef.current.requestFullscreen();
+      }
+    },
+    onCleanSelected: () => {
+      // 清空选中行
+      onCleanSelected();
+      // 清空筛选
+      setProFilter({});
+      // 清空排序
+      setProSort({});
+      // 清空 toolbar 搜索
+      counter.setKeyWords(undefined);
+      // 重置页码
+      action.resetPageIndex();
+    },
+    editableUtils,
   });
 
   // ---------- 列计算相关 start  -----------------
@@ -352,13 +379,14 @@ const ProTable = <T extends {}, U extends ParamsType>(
    * ListToolBar 相关的配置
    */
   const toolbarDom = toolBarRender !== false &&
+    actionRef.current &&
     (options !== false || headerTitle || toolBarRender || toolbarProps) && (
       // if options= false & headerTitle=== false, hide Toolbar
       <Toolbar<T>
         columns={tableColumn}
         options={options}
         headerTitle={headerTitle}
-        action={action}
+        action={actionRef.current}
         onSearch={(keyword) => {
           if (!options || !options.search) {
             return;

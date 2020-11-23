@@ -29,8 +29,7 @@ const defaultAlertOptionRender = (props: { intl: IntlType; onCleanSelected: () =
   ];
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const TableAlert = <T, _U = {}>({
+function TableAlert<T>({
   selectedRowKeys,
   onCleanSelected,
   selectedRows,
@@ -42,7 +41,7 @@ const TableAlert = <T, _U = {}>({
     </Space>
   ),
   alertOptionRender = defaultAlertOptionRender,
-}: TableAlertProps<T>) => {
+}: TableAlertProps<T>) {
   const intl = useIntl();
 
   const option =
@@ -53,6 +52,7 @@ const TableAlert = <T, _U = {}>({
       selectedRows,
       intl,
     });
+
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-table-alert');
   if (alertInfoRender === false) {
@@ -75,6 +75,6 @@ const TableAlert = <T, _U = {}>({
       />
     </div>
   );
-};
+}
 
 export default TableAlert;
