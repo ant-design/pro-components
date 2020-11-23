@@ -37,6 +37,14 @@ const Demo = () => (
         list: ['1', '2', '3'],
         select: 'china',
         'radio-button': 'a',
+        date: Date.now(),
+        dateWeek: Date.now(),
+        dateMonth: Date.now(),
+        dateQuarter: Date.now(),
+        dateYear: Date.now(),
+        dateTime: Date.now(),
+        dateTimeRange: [Date.now(), Date.now() - 1000 * 60 * 60 * 24],
+        dateRange: [Date.now(), Date.now() - 1000 * 60 * 60 * 24],
         dragger: [
           {
             uid: '1',

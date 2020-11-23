@@ -3042,7 +3042,7 @@ exports[`form demos renders ./packages/form/src/demos/components-other-readonly.
           <div
             class="ant-form-item-control-input-content"
           >
-            all
+            全部
           </div>
         </div>
       </div>
@@ -4045,7 +4045,9 @@ exports[`form demos renders ./packages/form/src/demos/components-other-readonly.
                 <div
                   class="ant-form-item-control-input-content"
                 >
-                  -
+                  <span>
+                    2016-11-22
+                  </span>
                 </div>
               </div>
             </div>
@@ -4078,7 +4080,9 @@ exports[`form demos renders ./packages/form/src/demos/components-other-readonly.
                 <div
                   class="ant-form-item-control-input-content"
                 >
-                  -
+                  <span>
+                    2016-48th
+                  </span>
                 </div>
               </div>
             </div>
@@ -4111,7 +4115,9 @@ exports[`form demos renders ./packages/form/src/demos/components-other-readonly.
                 <div
                   class="ant-form-item-control-input-content"
                 >
-                  -
+                  <span>
+                    2016-11
+                  </span>
                 </div>
               </div>
             </div>
@@ -4144,7 +4150,9 @@ exports[`form demos renders ./packages/form/src/demos/components-other-readonly.
                 <div
                   class="ant-form-item-control-input-content"
                 >
-                  -
+                  <span>
+                    2016-Q4
+                  </span>
                 </div>
               </div>
             </div>
@@ -4177,7 +4185,9 @@ exports[`form demos renders ./packages/form/src/demos/components-other-readonly.
                 <div
                   class="ant-form-item-control-input-content"
                 >
-                  -
+                  <span>
+                    2016
+                  </span>
                 </div>
               </div>
             </div>
@@ -4210,7 +4220,9 @@ exports[`form demos renders ./packages/form/src/demos/components-other-readonly.
                 <div
                   class="ant-form-item-control-input-content"
                 >
-                  -
+                  <span>
+                    2016-11-22 00:00:00
+                  </span>
                 </div>
               </div>
             </div>
@@ -4243,7 +4255,14 @@ exports[`form demos renders ./packages/form/src/demos/components-other-readonly.
                 <div
                   class="ant-form-item-control-input-content"
                 >
-                  -
+                  <div>
+                    <div>
+                      2016-11-22
+                    </div>
+                    <div>
+                      2016-11-21
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -4275,7 +4294,14 @@ exports[`form demos renders ./packages/form/src/demos/components-other-readonly.
                 <div
                   class="ant-form-item-control-input-content"
                 >
-                  -
+                  <div>
+                    <div>
+                      2016-11-22 00:00:00
+                    </div>
+                    <div>
+                      2016-11-21 00:00:00
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
