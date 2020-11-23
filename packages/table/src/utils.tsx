@@ -414,9 +414,7 @@ export const genColumnList = <T, _U = {}>(props: {
         return columnProps;
       }
       const { propsRef } = counter;
-      const config = columnKey
-        ? map[columnKey] || { fixed: columnProps.fixed }
-        : { fixed: columnProps.fixed };
+      const config = map[columnKey] || { fixed: columnProps.fixed };
       const tempColumns = {
         onFilter: propsRef.current?.request
           ? undefined
