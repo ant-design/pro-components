@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import { Button, Tag, Space } from 'antd';
 import ProTable, { ProColumns, TableDropdown, ActionType } from '@ant-design/pro-table';
+import request from 'umi-request';
 
 interface GithubIssueItem {
   url: string;
@@ -92,7 +93,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     render: (value) => {
       return {
         children: value,
-        props: { colSpan: 0 },
+        props: { colSpan: 2 },
       };
     },
   },
@@ -151,13 +152,17 @@ export default () => {
       />
       <ProTable<GithubIssueItem>
         columns={columns}
-        pagination={{
-          showQuickJumper: true,
-        }}
         actionRef={actionRef}
-        request={async () => ({
-          data: [],
-        })}
+        request={async (params = {}) =>
+          request<{
+            data: GithubIssueItem[];
+          }>('https://proapi.azurewebsites.net/github/issues', {
+            params,
+          })
+        }
+        pagination={{
+          pageSize: 5,
+        }}
         rowKey="id"
         dateFormatter="string"
         headerTitle="高级表格"
