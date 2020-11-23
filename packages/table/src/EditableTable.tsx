@@ -3,7 +3,10 @@ import { ParamsType } from '@ant-design/pro-provider';
 import { ProTableProps } from './typing';
 import ProTable from './Table';
 
-export type EditorProTableProps<T, U extends ParamsType> = Omit<ProTableProps<T, U>, 'onChange'> & {
+export type EditableProTableProps<T, U extends ParamsType> = Omit<
+  ProTableProps<T, U>,
+  'onChange'
+> & {
   value?: T[];
   onChange?: (value: T[]) => void;
   /**
@@ -16,7 +19,7 @@ export type EditorProTableProps<T, U extends ParamsType> = Omit<ProTableProps<T,
  * 可以直接放到 Form 中的可编辑表格
  * @param props
  */
-function EditorTable<T, U extends ParamsType = {}>(props: EditorProTableProps<T, U>) {
+function EditableTable<T, U extends ParamsType = {}>(props: EditableProTableProps<T, U>) {
   const { value, onTableChange, onChange, ...rest } = props;
   return (
     <ProTable
@@ -32,4 +35,4 @@ function EditorTable<T, U extends ParamsType = {}>(props: EditorProTableProps<T,
   );
 }
 
-export default EditorTable;
+export default EditableTable;

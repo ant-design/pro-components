@@ -20,7 +20,7 @@ import { AlertRenderType } from './component/Alert';
 import { ListToolBarProps } from './component/ListToolBar';
 import { OptionConfig, ToolBarProps } from './component/ToolBar';
 import { DensitySize } from './component/ToolBar/DensityIcon';
-import { TableRowEditor, UseEditorUtilType } from './component/useEditor';
+import { TableRowEditable, UseEditableUtilType } from './component/useEditable';
 import { ColumnsState, useCounter } from './container';
 import { SearchConfig, TableFormItem } from './Form';
 
@@ -134,7 +134,7 @@ export type ProColumnType<T = unknown> = ProSchema<
      */
     formItemProps?: Partial<Omit<FormItemProps, 'children'>>;
   },
-  Partial<UseEditorUtilType>
+  Partial<UseEditableUtilType>
 >;
 
 export interface ProColumnGroupType<RecordType> extends ProColumnType<RecordType> {
@@ -323,7 +323,7 @@ export interface ProTableProps<T, U extends ParamsType>
   /**
    * @name 编辑行相关的配置
    */
-  rowEditor?: TableRowEditor<T>;
+  editable?: TableRowEditable<T>;
 
   /**
    *@name 可编辑表格修改数据的改变

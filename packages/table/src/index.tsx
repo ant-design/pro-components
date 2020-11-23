@@ -27,7 +27,7 @@ import Search from './Form';
 import defaultRenderText from './defaultRender';
 import { ColumnsState } from './container';
 import { ProColumns, ProColumnType, ProTableProps, RequestData } from './typing';
-import EditorProTable from './EditorTable';
+import EditableProTable from './EditableTable';
 
 type ProColumnsValueType = ProFieldValueType;
 
@@ -50,7 +50,7 @@ export {
   ListToolBar,
   FieldStatus as TableStatus,
   Search,
-  EditorProTable,
+  EditableProTable,
   ConfigProvider as IntlProvider,
   ConfigProvider,
   ConfigConsumer as IntlConsumer,

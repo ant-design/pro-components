@@ -128,7 +128,7 @@ export type ProSchema<T = unknown, U = string, Extra = unknown, Action = {}> = {
     entity: T,
     index: number,
     action: ProCoreActionType & Action,
-    schema: ProSchema<T, U, Extra & { isEditor?: boolean }, Action>,
+    schema: ProSchema<T, U, Extra & { isEditable?: boolean }, Action>,
   ) => React.ReactNode;
 
   /**

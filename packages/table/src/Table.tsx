@@ -29,7 +29,7 @@ import {
 import ErrorBoundary from './component/ErrorBoundary';
 
 import './index.less';
-import useEditor from './component/useEditor';
+import useEditable from './component/useEditable';
 import { ProTableProps, RequestData, TableRowSelection } from './typing';
 
 /**
@@ -221,8 +221,8 @@ const ProTable = <T extends {}, U extends ParamsType>(
   /**
    * 可编辑行的相关配置
    */
-  const editorUtils = useEditor<any>({
-    ...props.rowEditor,
+  const editableUtils = useEditable<any>({
+    ...props.editable,
     getRowKey,
     childrenColumnName: props.expandable?.childrenColumnName,
     dataSource: action.dataSource,
@@ -237,9 +237,9 @@ const ProTable = <T extends {}, U extends ParamsType>(
       counter,
       columnEmptyText,
       type,
-      editorUtils,
+      editableUtils,
     }).sort(tableColumnSort(counter.columnsMap));
-  }, [propsColumns, editorUtils.editorRowKeys.join(',') || 'null', counter.columnsMap, getRowKey]);
+  }, [propsColumns, editableUtils.editableKeys.join(',') || 'null', counter.columnsMap, getRowKey]);
 
   /**
    * Table Column 变化的时候更新一下，这个参数将会用于渲染

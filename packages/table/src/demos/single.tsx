@@ -89,9 +89,9 @@ const columns: ProColumns<GithubIssueItem>[] = [
     valueType: 'option',
     render: (text, row, _, action) => [
       <a
-        key="editor"
+        key="editable"
         onClick={() => {
-          action.setEditor?.(row.id);
+          action.setEditable?.(row.id);
         }}
       >
         编辑
@@ -133,7 +133,7 @@ export default () => {
           params,
         })
       }
-      rowEditor={{
+      editable={{
         type: 'multiple',
       }}
       rowKey="id"

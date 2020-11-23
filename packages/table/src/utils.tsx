@@ -26,7 +26,7 @@ import {
 } from './typing';
 import { ColumnsState, CounterType, useCounter } from './container';
 import defaultRenderText from './defaultRender';
-import { UseEditorUtilType } from './component/useEditor';
+import { UseEditableUtilType } from './component/useEditable';
 
 /**
  * 检查值是否存在
@@ -261,7 +261,7 @@ interface ColumnRenderInterface<T> {
   columnEmptyText?: ProFieldEmptyText;
   type: ProSchemaComponentTypes;
   counter: ReturnType<typeof useCounter>;
-  editorUtils: UseEditorUtilType;
+  editableUtils: UseEditableUtilType;
 }
 
 const isMergeCell = (
@@ -280,10 +280,10 @@ export function columnRender<T>({
   columnEmptyText,
   counter,
   type,
-  editorUtils,
+  editableUtils,
 }: ColumnRenderInterface<T>): any {
   const { action } = counter;
-  const { isEditor, rowKey } = editorUtils.isEditor({ ...rowData, index });
+  const { isEditable, rowKey } = editableUtils.isEditable({ ...rowData, index });
   const { renderText = (val: any) => val } = columnProps;
 
   const renderTextStr = renderText(
@@ -302,23 +302,23 @@ export function columnRender<T>({
     columnEmptyText,
     type,
     rowKey,
-    mode: isEditor ? 'edit' : 'read',
+    mode: isEditable ? 'edit' : 'read',
   });
 
-  const dom: React.ReactNode = isEditor
+  const dom: React.ReactNode = isEditable
     ? textDom
     : genEllipsis(genCopyable(textDom, columnProps, renderTextStr), columnProps, renderTextStr);
 
   /**
    * 如果是编辑模式，并且 renderFormItem 存在直接走 renderFormItem
    */
-  if (isEditor) {
+  if (isEditable) {
     if (columnProps.valueType === 'option') {
       return (
         <Form.Item shouldUpdate noStyle>
           {(form: any) => (
             <Space size={16}>
-              {editorUtils.actionRender(
+              {editableUtils.actionRender(
                 {
                   ...rowData,
                   index: columnProps.index || index,
@@ -364,11 +364,11 @@ export function columnRender<T>({
       index,
       {
         ...(action.current as UseFetchDataAction<RequestData<any>>),
-        ...editorUtils,
+        ...editableUtils,
       },
       {
         ...columnProps,
-        isEditor,
+        isEditable,
       },
     );
 
@@ -401,9 +401,9 @@ export const genColumnList = <T, _U = {}>(props: {
   counter: ReturnType<typeof useCounter>;
   columnEmptyText: ProFieldEmptyText;
   type: ProSchemaComponentTypes;
-  editorUtils: UseEditorUtilType;
+  editableUtils: UseEditableUtilType;
 }): (ColumnsType<T>[number] & { index?: number })[] => {
-  const { columns, map, counter, columnEmptyText, type, editorUtils } = props;
+  const { columns, map, counter, columnEmptyText, type, editableUtils } = props;
   return (columns
     .map((columnProps, columnsIndex) => {
       const { key, dataIndex, valueEnum, valueType, filters = [] } = columnProps;
@@ -445,7 +445,7 @@ export const genColumnList = <T, _U = {}>(props: {
             columnEmptyText,
             counter,
             type,
-            editorUtils,
+            editableUtils,
           }),
       };
       return omitUndefinedAndEmptyArr(tempColumns);

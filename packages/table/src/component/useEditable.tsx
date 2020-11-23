@@ -6,19 +6,23 @@ import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
 import { LoadingOutlined } from '@ant-design/icons';
 import { message } from 'antd';
 
-export type RowEditorType = 'singe' | 'multiple';
+export type RowEditableType = 'singe' | 'multiple';
 
 export type ActionRenderFunction<T> = (row: T, config: ActionRenderConfig<T>) => React.ReactNode[];
 
-export interface TableRowEditor<T> {
+export interface TableRowEditable<T> {
   /**
    * @name 编辑的类型，暂时只支持单选
    */
-  type?: RowEditorType;
+  type?: RowEditableType;
   /**
    * @name 正在编辑的列
    */
-  editorRowKeys?: React.Key[];
+  editableKeys?: React.Key[];
+  /**
+   * 正在编辑的列修改的时候
+   */
+  onChange?: (editableKeys: React.Key[], editableRows: T[]) => void;
   /**
    * @name 自定义编辑的操作
    */
@@ -27,27 +31,23 @@ export interface TableRowEditor<T> {
   /**
    * 行保存的时候
    */
-  onRecordSave?: (key: React.Key, row: T & { index: number }) => Promise<void>;
+  onSave?: (key: React.Key, row: T & { index: number }) => Promise<void>;
 
   /**
    * 行删除的时候
    */
-  onRecordDelete?: (key: React.Key, row: T & { index: number }) => Promise<void>;
-  /**
-   * 正在编辑的列修改的时候
-   */
-  onChange?: (editorRowKeys: React.Key[], editorRows: T[]) => void;
+  onDelete?: (key: React.Key, row: T & { index: number }) => Promise<void>;
 }
 
 export type ActionRenderConfig<T> = {
-  editorRowKeys?: TableRowEditor<T>['editorRowKeys'];
+  editableKeys?: TableRowEditable<T>['editableKeys'];
   rowKey: React.Key;
   index: number;
   form: FormInstance<any>;
-  cancelEditor: (key: React.Key) => void;
-  onRecordSave: TableRowEditor<T>['onRecordSave'];
-  onRecordDelete: TableRowEditor<T>['onRecordDelete'];
-  setEditorRowKeys: (value: React.Key[]) => void;
+  cancelEditable: (key: React.Key) => void;
+  onSave: TableRowEditable<T>['onSave'];
+  onDelete: TableRowEditable<T>['onDelete'];
+  setEditableRowKeys: (value: React.Key[]) => void;
 };
 
 /**
@@ -56,7 +56,7 @@ export type ActionRenderConfig<T> = {
  * @param params
  * @param action
  */
-function editorRowByKey<RecordType>(
+function editableRowByKey<RecordType>(
   params: {
     data: RecordType[];
     childrenColumnName: string;
@@ -92,12 +92,12 @@ function editorRowByKey<RecordType>(
   return source;
 }
 
-const SaveEditorAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
+const SaveEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
   rowKey,
-  onRecordSave,
+  onSave,
   form,
   row,
-  cancelEditor,
+  cancelEditable,
 }) => {
   const [loading, setLoading] = useState<boolean>(false);
   return (
@@ -111,11 +111,11 @@ const SaveEditorAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
             recursive: true,
           });
           const fields = form.getFieldValue([rowKey]);
-          await onRecordSave?.(rowKey, { ...row, ...fields });
+          await onSave?.(rowKey, { ...row, ...fields });
           form.resetFields([rowKey]);
           setLoading(false);
           setTimeout(() => {
-            cancelEditor(rowKey);
+            cancelEditable(rowKey);
           }, 0);
         } catch (e) {
           setLoading(false);
@@ -134,11 +134,11 @@ const SaveEditorAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
   );
 };
 
-const DeleteEditorAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
+const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
   rowKey,
-  onRecordDelete,
+  onDelete,
   row,
-  cancelEditor,
+  cancelEditable,
 }) => {
   const [loading, setLoading] = useState<boolean>(false);
   return (
@@ -147,10 +147,10 @@ const DeleteEditorAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
       onClick={async () => {
         try {
           setLoading(true);
-          await onRecordDelete?.(rowKey, row);
+          await onDelete?.(rowKey, row);
           setLoading(false);
           setTimeout(() => {
-            cancelEditor(rowKey);
+            cancelEditable(rowKey);
           }, 0);
         } catch (e) {
           setLoading(false);
@@ -170,14 +170,14 @@ const DeleteEditorAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
 };
 
 const defaultActionRender: ActionRenderFunction<any> = (row, config) => {
-  const { rowKey, cancelEditor } = config;
+  const { rowKey, cancelEditable } = config;
   return [
-    <SaveEditorAction key="save" {...config} row={row} />,
-    <DeleteEditorAction key="save" {...config} row={row} />,
+    <SaveEditableAction key="save" {...config} row={row} />,
+    <DeleteEditableAction key="save" {...config} row={row} />,
     <a
       key="cancel"
       onClick={() => {
-        cancelEditor(rowKey);
+        cancelEditable(rowKey);
       }}
     >
       取消
@@ -189,19 +189,19 @@ const defaultActionRender: ActionRenderFunction<any> = (row, config) => {
  * 一个方便的hooks 用于维护编辑的状态
  * @param props
  */
-function useEditor<RecordType>(
-  props: TableRowEditor<RecordType> & {
+function useEditable<RecordType>(
+  props: TableRowEditable<RecordType> & {
     getRowKey: GetRowKey<RecordType>;
     dataSource: RecordType[];
     childrenColumnName: string | undefined;
     setDataSource: (dataSource: RecordType[]) => void;
   },
 ) {
-  const editorType = props.type || 'singe';
+  const editableType = props.type || 'singe';
   const [getRecordByKey] = useLazyKVMap(props.dataSource, 'children', props.getRowKey);
 
-  const [editorRowKeys, setEditorRowKeys] = useMergedState<React.Key[]>([], {
-    value: props.editorRowKeys,
+  const [editableKeys, setEditableRowKeys] = useMergedState<React.Key[]>([], {
+    value: props.editableKeys,
     onChange: props.onChange
       ? (keys) => {
           props?.onChange?.(
@@ -217,50 +217,50 @@ function useEditor<RecordType>(
    * 一个用来标志的set
    * 提供了方便的 api 来去重什么的
    */
-  const editorRowKeysSet = useMemo(() => {
-    const keys = editorType === 'singe' ? editorRowKeys.slice(0, 1) : editorRowKeys;
+  const editableKeysSet = useMemo(() => {
+    const keys = editableType === 'singe' ? editableKeys.slice(0, 1) : editableKeys;
     return new Set(keys);
-  }, [editorRowKeys.join(','), editorType]);
+  }, [editableKeys.join(','), editableType]);
 
   /**
    * 这行是不是编辑状态
    */
-  const isEditor = useCallback(
+  const isEditable = useCallback(
     (row: RecordType & { index: number }) => {
       const rowKey = props.getRowKey(row, row.index);
-      if (editorRowKeys.includes(rowKey))
+      if (editableKeys.includes(rowKey))
         return {
           rowKey,
-          isEditor: true,
+          isEditable: true,
         };
       return {
         rowKey,
-        isEditor: false,
+        isEditable: false,
       };
     },
-    [editorRowKeys.join(',')],
+    [editableKeys.join(',')],
   );
 
   /**
    * 进入编辑状态
    * @param rowKey
    */
-  const setEditor = (rowKey: React.Key) => {
+  const setEditable = (rowKey: React.Key) => {
     // 如果是单行的话，不允许多行编辑
-    if (editorRowKeysSet.size > 0 && editorType === 'singe') {
+    if (editableKeysSet.size > 0 && editableType === 'singe') {
       message.warn('只能同时编辑一行！');
       return;
     }
-    editorRowKeysSet.add(rowKey);
-    setEditorRowKeys(Array.from(editorRowKeysSet));
+    editableKeysSet.add(rowKey);
+    setEditableRowKeys(Array.from(editableKeysSet));
   };
   /**
    * 退出编辑状态
    * @param rowKey
    */
-  const cancelEditor = (rowKey: React.Key) => {
-    editorRowKeysSet.delete(rowKey);
-    setEditorRowKeys(Array.from(editorRowKeysSet));
+  const cancelEditable = (rowKey: React.Key) => {
+    editableKeysSet.delete(rowKey);
+    setEditableRowKeys(Array.from(editableKeysSet));
   };
 
   const actionRender = useCallback(
@@ -268,9 +268,9 @@ function useEditor<RecordType>(
       const key = props.getRowKey(row, row.index);
       const dom = (props.actionRender || defaultActionRender)(row, {
         rowKey: key,
-        cancelEditor,
+        cancelEditable,
         index: row.index,
-        onRecordDelete: async (
+        onDelete: async (
           rowKey: React.Key,
           editRow: RecordType & {
             index: number;
@@ -283,11 +283,10 @@ function useEditor<RecordType>(
             key: rowKey,
             childrenColumnName: props.childrenColumnName || 'children',
           };
-
-          props.setDataSource(editorRowByKey(actionProps, 'delete'));
-          return props?.onRecordDelete?.(rowKey, editRow);
+          props.setDataSource(editableRowByKey(actionProps, 'delete'));
+          return props?.onDelete?.(rowKey, editRow);
         },
-        onRecordSave: async (
+        onSave: async (
           rowKey: React.Key,
           editRow: RecordType & {
             index: number;
@@ -300,23 +299,30 @@ function useEditor<RecordType>(
             key: rowKey,
             childrenColumnName: props.childrenColumnName || 'children',
           };
-          props.setDataSource(editorRowByKey(actionProps, 'update'));
-          return props?.onRecordSave?.(rowKey, editRow);
+          props.setDataSource(editableRowByKey(actionProps, 'update'));
+          return props?.onSave?.(rowKey, editRow);
         },
         form,
-        editorRowKeys,
-        setEditorRowKeys,
+        editableKeys,
+        setEditableRowKeys,
       });
       return dom;
     },
-    [editorRowKeys.join(',')],
+    [editableKeys.join(',')],
   );
 
-  return { editorRowKeys, setEditorRowKeys, isEditor, actionRender, setEditor, cancelEditor };
+  return {
+    editableKeys,
+    setEditableRowKeys,
+    isEditable,
+    actionRender,
+    setEditable,
+    cancelEditable,
+  };
 }
 
-type UseEditorType = typeof useEditor;
+type UseEditableType = typeof useEditable;
 
-export type UseEditorUtilType = ReturnType<UseEditorType>;
+export type UseEditableUtilType = ReturnType<UseEditableType>;
 
-export default useEditor;
+export default useEditable;

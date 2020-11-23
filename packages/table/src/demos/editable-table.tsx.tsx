@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Tag, Space, Button } from 'antd';
-import { EditorProTable, ProColumns, ActionType } from '@ant-design/pro-table';
+import { EditableProTable, ProColumns, ActionType } from '@ant-design/pro-table';
 import ProField from '@ant-design/pro-field';
 
 interface GithubIssueItem {
@@ -109,9 +109,9 @@ const columns: ProColumns<GithubIssueItem>[] = [
     valueType: 'option',
     render: (text, row, _, action) => [
       <a
-        key="editor"
+        key="editable"
         onClick={() => {
-          action.setEditor?.(row.id);
+          action.setEditable?.(row.id);
         }}
       >
         编辑
@@ -122,7 +122,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
 
 export default () => {
   const actionRef = useRef<ActionType>();
-  const [editorRowKeys, setEditorRowKeys] = useState<React.Key[]>([]);
+  const [editableKeys, setEditableRowKeys] = useState<React.Key[]>([]);
   const [dataSource, setDataSource] = useState<GithubIssueItem[]>([]);
   return (
     <div
@@ -140,7 +140,7 @@ export default () => {
         }}
         text={JSON.stringify(dataSource)}
       />
-      <EditorProTable<GithubIssueItem>
+      <EditableProTable<GithubIssueItem>
         rowKey="id"
         style={{
           flex: 2,
@@ -156,7 +156,7 @@ export default () => {
               setDataSource(source);
               // 这里的 key 与 rowKey 的 key 是相同的，需要注意
               // 如果没有设置 rowKey 就用行号
-              setEditorRowKeys([...editorRowKeys, newItem.id]);
+              setEditableRowKeys([...editableKeys, newItem.id]);
             }}
           >
             增加一行
@@ -171,9 +171,9 @@ export default () => {
         })}
         value={dataSource}
         onChange={setDataSource}
-        rowEditor={{
-          editorRowKeys,
-          onChange: setEditorRowKeys,
+        editable={{
+          editableKeys,
+          onChange: setEditableRowKeys,
         }}
       />
     </div>

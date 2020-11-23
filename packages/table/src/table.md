@@ -46,7 +46,7 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 
 ### 可编辑表格
 
-<code src="./demos/editor-table.tsx" background="#f5f5f5" height="420px"/>
+<code src="./demos/editable-table.tsx" background="#f5f5f5" height="420px"/>
 
 ### 通过 formRef 来操作查询表单
 
@@ -267,11 +267,11 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | toolbar | 透传 `ListToolBar` 配置项 | [ListToolBarProps](#listtoolbarprops) | - |
 | tableExtraRender | 自定义表格的主体函数 | `(props: ProTableProps<T, U>, dataSource: T[]) => React.ReactNode;` | - |
 | manualRequest | 是否需要手动触发首次请求, 配置为 `true` 时不可隐藏搜索表单 | `boolean` | false |
-| rowEditor | 可编辑表格的相关配置 | [TableRowEditor<T>](#roweditor) | - |
+| editable | 可编辑表格的相关配置 | [TableRowEditable<T>](#roweditable) | - |
 
-### 可编辑表格 EditorProTable
+### 可编辑表格 EditableProTable
 
-可编辑表格 EditorProTable 与 ProTable 的功能基本相同，为了方便使用 EditorProTable 增加了一些预设，关掉了查询表单和操作栏，同时修改了 value 和 onChange 使其可以方便的继承到 antd 的 Form 中。
+可编辑表格 EditableProTable 与 ProTable 的功能基本相同，为了方便使用 EditableProTable 增加了一些预设，关掉了查询表单和操作栏，同时修改了 value 和 onChange 使其可以方便的继承到 antd 的 Form 中。
 
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -296,16 +296,16 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | onCollapse | 收起按钮的事件 | `(collapsed: boolean) => void;` | - |
 | optionRender | 自定义操作栏 | `((searchConfig,formProps) => React.ReactNode[])`\|`false` | - |
 
-### rowEditor
+### editable
 
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | type | 可编辑表格的类型，单行编辑或者多行编辑 | `singe` \| `multiple` | - |
-| editorRowKeys | 正在编辑的行，受控属性。 默认 `key` 会使用 `rowKey` 的配置，如果没有配置会使用 `index`，建议使用 rowKey | `React.Key[]` | - |
+| editableKeys | 正在编辑的行，受控属性。 默认 `key` 会使用 `rowKey` 的配置，如果没有配置会使用 `index`，建议使用 rowKey | `React.Key[]` | - |
 | actionRender | 自定义编辑模式的操作栏 | `(row: T, config: ActionRenderConfig<T>) => React.ReactNode[]` | - |
-| onRecordSave | 保存一行的时候触发，只更新 | `(key: React.Key, row: T) => Promise<void>` | - |
-| onRecordDelete | 删除一行的时候触发 | `(key: React.Key, row: T) => Promise<void>` | - |
-| onChange | 编辑列被修改的时候 | `(editorRowKeys: React.Key[], editorRows: T[]) => void` | - |
+| onSave | 保存一行的时候触发，只更新 | `(key: React.Key, row: T) => Promise<void>` | - |
+| onDelete | 删除一行的时候触发 | `(key: React.Key, row: T) => Promise<void>` | - |
+| onChange | 编辑列被修改的时候 | `(editableKeys: React.Key[], editableRows: T[]) => void` | - |
 
 #### ColConfig
 
