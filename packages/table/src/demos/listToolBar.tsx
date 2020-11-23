@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Badge } from 'antd';
 import { EllipsisOutlined } from '@ant-design/icons';
 import { LightFilter, ProFormDatePicker } from '@ant-design/pro-form';
@@ -61,21 +61,23 @@ const columns: ProColumns<TableListItem>[] = [
   },
 ];
 
-const renderBadge = (count: number) => {
+const renderBadge = (count: number, active = false) => {
   return (
     <Badge
       count={count}
       style={{
-        marginTop: -4,
+        marginTop: -2,
         marginLeft: 4,
-        color: '#999',
-        backgroundColor: '#eee',
+        color: active ? '#1890FF' : '#999',
+        backgroundColor: active ? '#E6F7FF' : '#eee',
       }}
     />
   );
 };
 
 export default () => {
+  const [activekey, setActiveKey] = useState<string | number>('tab1');
+
   return (
     <ProTable<TableListItem>
       columns={columns}
@@ -88,36 +90,31 @@ export default () => {
         });
       }}
       toolbar={{
-        multipleLine: true,
         filter: (
           <LightFilter>
             <ProFormDatePicker name="startdate" label="响应日期" />
           </LightFilter>
         ),
-        tabs: {
+        menu: {
+          type: 'tab',
+          activeKey: activekey,
           items: [
             {
               key: 'tab1',
-              tab: '标签一',
+              label: <span>应用{renderBadge(99, activekey === 'tab1')}</span>,
             },
             {
               key: 'tab2',
-              tab: '标签二',
-            },
-          ],
-        },
-        menu: {
-          type: 'inline',
-          items: [
-            {
-              label: <span>全部应用{renderBadge(101)}</span>,
-              key: 'all',
+              label: <span>项目{renderBadge(30, activekey === 'tab2')}</span>,
             },
             {
-              label: <span>我创建的应用{renderBadge(3)}</span>,
-              key: 'todo',
+              key: 'tab3',
+              label: <span>文章{renderBadge(30, activekey === 'tab3')}</span>,
             },
           ],
+          onChange: (key) => {
+            setActiveKey(key);
+          },
         },
         actions: [
           <Button key="primary" type="primary">

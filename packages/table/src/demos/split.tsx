@@ -12,7 +12,7 @@ export interface TableListItem {
 
 const tableListDataSource: TableListItem[] = [];
 
-for (let i = 0; i < 3; i += 1) {
+for (let i = 0; i < 15; i += 1) {
   tableListDataSource.push({
     createdAt: Date.now() - Math.floor(Math.random() * 2000),
     createdAtRange: [
@@ -38,7 +38,7 @@ const DetailList: React.FC = () => {
       title: '时间点',
       key: 'createdAt',
       dataIndex: 'createdAt',
-      valueType: 'dateTime',
+      valueType: 'date',
     },
     {
       title: '代码',
@@ -67,20 +67,26 @@ const DetailList: React.FC = () => {
           success: true,
         });
       }}
+      pagination={{
+        pageSize: 3,
+        showSizeChanger: false,
+      }}
       toolBarRender={false}
       search={false}
     />
   );
 };
 
-const valueEnum = ['success', 'error', 'processing', 'default'];
+type statusType = BadgeProps['status'];
+
+const valueEnum: statusType[] = ['success', 'error', 'processing', 'default'];
 
 export interface IpListItem {
   ip?: string;
   cpu?: number | string;
   mem?: number | string;
   disk?: number | string;
-  status: BadgeProps['status'];
+  status: statusType;
 }
 
 const ipListDataSource: IpListItem[] = [];

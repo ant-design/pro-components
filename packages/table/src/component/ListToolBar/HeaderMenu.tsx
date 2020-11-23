@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dropdown, Menu, Space } from 'antd';
+import { Dropdown, Menu, Space, Tabs } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -12,7 +12,7 @@ export interface ListToolBarMenuItem {
 }
 
 export interface ListToolBarHeaderMenuProps {
-  type?: 'inline' | 'dropdown';
+  type?: 'inline' | 'dropdown' | 'tab';
   activeKey?: React.Key;
   items?: ListToolBarMenuItem[];
   onChange?: (activeKey?: React.Key) => void;
@@ -54,6 +54,16 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
           </div>
         ))}
       </div>
+    );
+  }
+
+  if (type === 'tab') {
+    return (
+      <Tabs activeKey={activeItem.key} onTabClick={(key) => setActiveKey(key)}>
+        {items.map(({ label, key, ...rest }) => {
+          return <Tabs.TabPane tab={label} key={key} {...rest} />;
+        })}
+      </Tabs>
     );
   }
 
