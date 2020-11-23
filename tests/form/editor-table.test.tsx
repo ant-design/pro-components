@@ -323,4 +323,61 @@ describe('EditorProTable', () => {
 
     expect(fn).toBeCalledWith(624691229);
   });
+
+  it('📝 support form rules', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(<EditorProTableDemo onSave={(key, row) => fn(row.title)} />);
+    await waitForComponentToPaint(wrapper, 1000);
+    act(() => {
+      wrapper.find('#editor').at(1).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+
+    expect(
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists(),
+    ).toBeTruthy();
+
+    act(() => {
+      wrapper
+        .find('.ant-table-tbody tr.ant-table-row')
+        .at(1)
+        .find(`td .ant-input`)
+        .at(0)
+        .simulate('change', {
+          target: {
+            value: '',
+          },
+        });
+    });
+    act(() => {
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(0).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+
+    // 没有通过验证，不触发 onSave
+    expect(fn).not.toBeCalled();
+
+    act(() => {
+      wrapper
+        .find('.ant-table-tbody tr.ant-table-row')
+        .at(1)
+        .find(`td .ant-input`)
+        .at(0)
+        .simulate('change', {
+          target: {
+            value: 'qixian',
+          },
+        });
+    });
+
+    act(() => {
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(0).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+
+    expect(fn).toBeCalledWith('qixian');
+  });
 });
