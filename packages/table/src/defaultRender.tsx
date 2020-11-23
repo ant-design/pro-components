@@ -38,18 +38,23 @@ function defaultRenderText<T>(config: {
   rowKey?: React.Key;
   mode: 'edit' | 'read';
 }): React.ReactNode {
-  const { text, valueType, rowKey, index, rowData, columnProps, columnEmptyText, type } = config;
+  const { text, valueType, rowData, columnProps } = config;
   // 如果 valueType === text ，没必要多走一次 render
-  if ((!valueType || valueType === 'text') && !columnProps?.valueEnum && config.mode === 'read') {
+  if (
+    (!valueType || valueType === 'text') &&
+    // valueEnum 存在说明是个select
+    !columnProps?.valueEnum &&
+    config.mode === 'read'
+  ) {
     // 如果是''、null、undefined 显示columnEmptyText
-    return SHOW_EMPTY_TEXT_LIST.includes(text as any) ? columnEmptyText : text;
+    return SHOW_EMPTY_TEXT_LIST.includes(text as any) ? config.columnEmptyText : text;
   }
 
   if (typeof valueType === 'function' && rowData) {
     // 防止valueType是函数,并且text是''、null、undefined跳过显式设置的columnEmptyText
     return defaultRenderText({
       ...config,
-      valueType: valueType(rowData, type) || 'text',
+      valueType: valueType(rowData, config.type) || 'text',
     });
   }
 
@@ -60,9 +65,9 @@ function defaultRenderText<T>(config: {
       request={columnProps?.request}
       params={columnProps?.params}
       proFieldKey={columnProps?.dataIndex?.toString() || columnProps?.key}
-      text={valueType === 'index' || valueType === 'indexBorder' ? index : text}
+      text={valueType === 'index' || valueType === 'indexBorder' ? config.index : text}
       mode={config.mode}
-      emptyText={columnEmptyText}
+      emptyText={config.columnEmptyText}
       render={undefined}
       renderFormItem={undefined}
       valueType={valueType as ProFieldValueType}
@@ -74,7 +79,10 @@ function defaultRenderText<T>(config: {
     return (
       <InlineErrorFormItem
         initialValue={text}
-        name={spellNamePath(rowKey || index, columnProps?.key || columnProps?.dataIndex || index)}
+        name={spellNamePath(
+          config.rowKey || config.index,
+          columnProps?.key || columnProps?.dataIndex || config.index,
+        )}
         {...columnProps?.formItemProps}
       >
         {dom}

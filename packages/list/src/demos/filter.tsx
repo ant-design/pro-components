@@ -46,11 +46,11 @@ export default () => (
     showActions="hover"
     metas={{
       title: {
-        dataIndex: ['user', 'login'],
+        dataIndex: 'user',
         title: '用户',
       },
       avatar: {
-        dataIndex: ['user', 'avatar_url'],
+        dataIndex: 'avatar',
         search: false,
       },
       description: {
@@ -63,7 +63,9 @@ export default () => (
           return (
             <Space size={0}>
               {row.labels?.map((label: { name: string }) => (
-                <Tag color="blue">{label.name}</Tag>
+                <Tag color="blue" key={label.name}>
+                  {label.name}
+                </Tag>
               ))}
             </Space>
           );

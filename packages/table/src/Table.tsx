@@ -148,10 +148,8 @@ const ProTable = <T extends {}, U extends ParamsType>(
         ...formSearch,
         ...params,
       };
-
       // eslint-disable-next-line no-underscore-dangle
       delete (actionParams as any)._timestamp;
-
       const response = await request((actionParams as unknown) as U, proSort, proFilter);
       const responseData = postDataPipeline<T[]>(
         response.data,
@@ -225,16 +223,14 @@ const ProTable = <T extends {}, U extends ParamsType>(
     dataSource: action.dataSource,
     setDataSource: action.setDataSource,
   });
-
   /**
    * 绑定 action
    */
-  useActionType(actionRef, counter, {
+  useActionType(actionRef, action, {
     fullScreen: () => {
       if (!rootRef.current || !document.fullscreenEnabled) {
         return;
       }
-
       if (document.fullscreenElement) {
         document.exitFullscreen();
       } else {
@@ -311,7 +307,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     },
   };
 
-  if (props.columns && props.columns.length < 1) {
+  if ((!props.columns || props.columns.length < 1) && !props.tableViewRender) {
     return (
       <Card bordered={false} bodyStyle={{ padding: 50 }}>
         <Empty />
@@ -379,7 +375,6 @@ const ProTable = <T extends {}, U extends ParamsType>(
    * ListToolBar 相关的配置
    */
   const toolbarDom = toolBarRender !== false &&
-    actionRef.current &&
     (options !== false || headerTitle || toolBarRender || toolbarProps) && (
       // if options= false & headerTitle=== false, hide Toolbar
       <Toolbar<T>
@@ -406,7 +401,6 @@ const ProTable = <T extends {}, U extends ParamsType>(
         toolbar={toolbarProps}
       />
     );
-
   /**
    * 内置的多选操作栏
    */

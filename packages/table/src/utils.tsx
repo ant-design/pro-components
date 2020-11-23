@@ -24,7 +24,7 @@ import {
   RequestData,
   UseFetchDataAction,
 } from './typing';
-import { ColumnsState, CounterType, useCounter } from './container';
+import { ColumnsState, useCounter } from './container';
 import defaultRenderText, { spellNamePath } from './defaultRender';
 import { UseEditableUtilType } from './component/useEditable';
 import InlineErrorFormItem from './component/InlineErrorFormItem';
@@ -141,7 +141,7 @@ export function mergePagination<T>(
  */
 export function useActionType<T>(
   ref: ProTableProps<T, any>['actionRef'],
-  counter: ReturnType<CounterType>,
+  action: UseFetchDataAction<RequestData<T>>,
   props: {
     fullScreen: () => void;
     onCleanSelected: () => void;
@@ -156,32 +156,21 @@ export function useActionType<T>(
     const userAction: ActionType = {
       ...props.editableUtils,
       reload: async (resetPageIndex?: boolean) => {
-        const {
-          action: { current },
-        } = counter;
-
         // 如果为 true，回到第一页
         if (resetPageIndex) {
           await props.onCleanSelected();
         }
-        await current?.reload();
+        await action?.reload();
       },
       reloadAndRest: async () => {
-        const {
-          action: { current },
-        } = counter;
-
         // reload 之后大概率会切换数据，清空一下选择。
         props.onCleanSelected();
-        await current?.reload();
+        await action?.reload();
       },
       reset: async () => {
-        const {
-          action: { current },
-        } = counter;
         await props.onCleanSelected();
-        await current?.reset?.();
-        await current?.reload();
+        await action?.reset?.();
+        await action?.reload();
       },
       fullScreen: () => props.fullScreen(),
       clearSelected: () => props.onCleanSelected(),
@@ -332,7 +321,10 @@ export function columnRender<T>({
         <Form.Item shouldUpdate noStyle>
           {(form: any) => {
             const inputDom = columnProps.renderFormItem?.(
-              columnProps,
+              {
+                ...columnProps,
+                isEditable: true,
+              },
               {
                 defaultRender: () => <>{dom}</>,
                 type,

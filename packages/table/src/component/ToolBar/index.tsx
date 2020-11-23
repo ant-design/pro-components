@@ -33,13 +33,13 @@ export interface ToolBarProps<T = unknown> {
   tip?: string;
   toolbar?: ListToolBarProps;
   toolBarRender?: (
-    action: ActionType,
+    action: ActionType | undefined,
     rows: {
       selectedRowKeys?: (string | number)[];
       selectedRows?: T[];
     },
   ) => React.ReactNode[];
-  action: ActionType;
+  action?: ActionType;
   options?: OptionConfig | false;
   selectedRowKeys?: (string | number)[];
   selectedRows?: T[];
@@ -143,11 +143,11 @@ function ToolBar<T>({
   ...rest
 }: ToolBarProps<T>) {
   const defaultOptions = {
-    reload: () => action.reload(),
+    reload: () => action?.reload(),
     density: true,
     setting: true,
     search: false,
-    fullScreen: () => action.fullScreen && action.fullScreen(),
+    fullScreen: () => action?.fullScreen?.(),
   };
   const counter = Container.useContainer();
   const options =

@@ -285,10 +285,10 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | filterType | 过滤表单类型 | `'query'` \| `'light'` | `'query'` |
-| searchText | 查询按钮的文本 | string | 查询 |
-| resetText | 重置按钮的文本 | string | 重置 |
-| submitText | 提交按钮的文本 | string | 提交 |
-| labelWidth | 标签的宽度 | number | 98 |
+| searchText | 查询按钮的文本 | `string` | 查询 |
+| resetText | 重置按钮的文本 | `string` | 重置 |
+| submitText | 提交按钮的文本 | `string` | 提交 |
+| labelWidth | 标签的宽度 | `number` | 98 |
 | span | 配置查询表单的列数 | `'number'` \| [`'ColConfig'`](#ColConfig) | defaultColConfig |
 | collapseRender | 收起按钮的 render | `(collapsed: boolean,showCollapseButton?: boolean,) => React.ReactNode` | - |
 | defaultCollapsed | 默认是否收起 | `boolean` | false |

@@ -93,7 +93,7 @@ export interface TableFormItem<T, U = any> extends Omit<FormItemProps, 'children
   dateFormatter?: 'string' | 'number' | false;
   search?: false | SearchConfig;
   columns: ProColumns<U>[];
-  formRef?: React.MutableRefObject<FormInstance | undefined> | ((actionRef: FormInstance) => void);
+  formRef?: React.MutableRefObject<FormInstance | undefined> | ((formRef: FormInstance) => void);
   submitButtonLoading?: boolean;
 }
 
