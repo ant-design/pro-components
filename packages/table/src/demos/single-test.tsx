@@ -89,6 +89,13 @@ const columns: ProColumns<GithubIssueItem>[] = [
     dataIndex: 'created_at',
     valueType: 'dateTime',
     width: '20%',
+    render: (value) => {
+      const obj = {
+        children: value,
+        props: { colSpan: 2 },
+      };
+      return obj;
+    },
   },
   {
     title: '创建时间',
