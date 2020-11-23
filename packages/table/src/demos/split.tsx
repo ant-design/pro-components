@@ -1,0 +1,173 @@
+import React from 'react';
+import { Button, Badge } from 'antd';
+import { BadgeProps } from 'antd/lib/badge';
+import ProTable, { ProColumns } from '@ant-design/pro-table';
+import ProCard from '@ant-design/pro-card';
+
+export interface TableListItem {
+  createdAtRange?: number[];
+  createdAt: number;
+  code: string;
+}
+
+const tableListDataSource: TableListItem[] = [];
+
+for (let i = 0; i < 3; i += 1) {
+  tableListDataSource.push({
+    createdAt: Date.now() - Math.floor(Math.random() * 2000),
+    createdAtRange: [
+      Date.now() - Math.floor(Math.random() * 2000),
+      Date.now() - Math.floor(Math.random() * 2000),
+    ],
+    code: `const getData = async params => {
+      const data = await getData(params);
+      return { list: data.data, ...data };
+    };`,
+  });
+}
+
+const DetailList: React.FC = () => {
+  const columns: ProColumns<TableListItem>[] = [
+    {
+      title: '时间区间',
+      key: 'createdAtRange',
+      dataIndex: 'createdAtRange',
+      valueType: 'dateRange',
+    },
+    {
+      title: '时间点',
+      key: 'createdAt',
+      dataIndex: 'createdAt',
+      valueType: 'dateTime',
+    },
+    {
+      title: '代码',
+      key: 'code',
+      width: 80,
+      dataIndex: 'code',
+      valueType: 'code',
+    },
+    {
+      title: '操作',
+      key: 'option',
+      width: 80,
+      valueType: 'option',
+      render: () => [<a key="a">预警</a>],
+    },
+  ];
+
+  return (
+    <ProTable<TableListItem>
+      columns={columns}
+      request={(params, sorter, filter) => {
+        // 表单搜索项会从 params 传入，传递给后端接口。
+        console.log(params, sorter, filter);
+        return Promise.resolve({
+          data: tableListDataSource,
+          success: true,
+        });
+      }}
+      toolBarRender={false}
+      search={false}
+    />
+  );
+};
+
+const valueEnum = ['success', 'error', 'processing', 'default'];
+
+export interface IpListItem {
+  ip?: string;
+  cpu?: number | string;
+  mem?: number | string;
+  disk?: number | string;
+  status: BadgeProps['status'];
+}
+
+const ipListDataSource: IpListItem[] = [];
+
+for (let i = 0; i < 10; i += 1) {
+  ipListDataSource.push({
+    ip: '106.14.98.124',
+    cpu: 10,
+    mem: 20,
+    status: valueEnum[Math.floor(Math.random() * 10) % 4],
+    disk: 30,
+  });
+}
+
+const IPList: React.FC = () => {
+  const columns: ProColumns<IpListItem>[] = [
+    {
+      title: 'IP',
+      key: 'ip',
+      dataIndex: 'ip',
+      render: (_, item) => {
+        return <Badge status={item.status} text={item.ip} />;
+      },
+    },
+    {
+      title: 'CPU',
+      key: 'cpu',
+      dataIndex: 'cpu',
+      valueType: {
+        type: 'percent',
+        precision: 0,
+      },
+    },
+    {
+      title: 'Mem',
+      key: 'mem',
+      dataIndex: 'mem',
+      valueType: {
+        type: 'percent',
+        precision: 0,
+      },
+    },
+    {
+      title: 'Disk',
+      key: 'disk',
+      dataIndex: 'disk',
+      valueType: {
+        type: 'percent',
+        precision: 0,
+      },
+    },
+  ];
+  return (
+    <ProTable<IpListItem>
+      columns={columns}
+      request={(params, sorter, filter) => {
+        // 表单搜索项会从 params 传入，传递给后端接口。
+        console.log(params, sorter, filter);
+        return Promise.resolve({
+          data: ipListDataSource,
+          success: true,
+        });
+      }}
+      toolbar={{
+        search: {
+          onSearch: (value) => {
+            alert(value);
+          },
+        },
+        actions: [<Button type="primary">新建项目</Button>],
+      }}
+      options={false}
+      pagination={false}
+      search={false}
+    />
+  );
+};
+
+const Demo: React.FC = () => (
+  <ProCard split="vertical">
+    <ProCard colSpan="384px" ghost>
+      <IPList />
+    </ProCard>
+    <ProCard title="IP: 106.14.98.124">
+      <DetailList />
+    </ProCard>
+  </ProCard>
+);
+
+export default Demo;

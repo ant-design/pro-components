@@ -40,6 +40,10 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 
 <code src="./demos/table-nested.tsx" background="#f5f5f5"  height="400px"/>
 
+### 左右结构
+
+<code src="./demos/split.tsx" background="#f5f5f5" height="500px"/>
+
 ### 表格批量操作
 
 <code src="./demos/batchOption.tsx" background="#f5f5f5" height="420px"/>
