@@ -48,8 +48,7 @@ describe('BasicTable Search', () => {
           },
           {
             title: '状态',
-            dataIndex: 'status',
-            hideInForm: true,
+            dataIndex: ['name', 'status'],
             filters: true,
             valueEnum: {
               0: { text: '关闭', status: 'Default' },
@@ -60,7 +59,20 @@ describe('BasicTable Search', () => {
           },
         ]}
         onChange={fn}
-        dataSource={getFetchData(60)}
+        dataSource={[
+          {
+            name: {
+              status: 0,
+              money: '1',
+            },
+          },
+          {
+            name: {
+              money: '2',
+              status: 1,
+            },
+          },
+        ]}
         rowKey="key"
       />,
     );
