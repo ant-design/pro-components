@@ -200,6 +200,29 @@ describe('EditorProTable', () => {
     expect(fn).toBeCalledWith([624748504]);
   });
 
+  it('📝  renderFormItem run defaultRender', async () => {
+    const wrapper = mount(
+      <EditableProTable<GithubIssueItem>
+        rowKey="id"
+        editable={{
+          editableKeys: [624748504],
+        }}
+        columns={[
+          {
+            dataIndex: 'index',
+            valueType: 'indexBorder',
+            width: 48,
+            renderFormItem: (item, config) => {
+              return config.defaultRender(item);
+            },
+          },
+        ]}
+        value={defaultData}
+      />,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
   it('📝  support editorRowKeys', async () => {
     const wrapper = mount(<EditorProTableDemo editorRowKeys={[624748504]} />);
     await waitForComponentToPaint(wrapper, 1000);

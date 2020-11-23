@@ -1,0 +1,143 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditorProTable 📝  renderFormItem run defaultRender 1`] = `
+<div
+  class="ant-pro-table"
+  id="ant-design-pro-table"
+>
+  <div
+    class="ant-card"
+    style="height: 100%;"
+  >
+    <div
+      class="ant-card-body"
+      style="padding: 0px;"
+    >
+      <div
+        class="ant-table-wrapper"
+      >
+        <div
+          class="ant-spin-nested-loading"
+        >
+          <div
+            class="ant-spin-container"
+          >
+            <div
+              class="ant-table ant-table-middle"
+            >
+              <div
+                class="ant-table-container"
+              >
+                <div
+                  class="ant-table-content"
+                >
+                  <table
+                    style="table-layout: auto;"
+                  >
+                    <colgroup>
+                      <col
+                        style="width: 48px; min-width: 48px;"
+                      />
+                    </colgroup>
+                    <thead
+                      class="ant-table-thead"
+                    >
+                      <tr>
+                        <th
+                          class="ant-table-cell"
+                        />
+                      </tr>
+                    </thead>
+                    <tbody
+                      class="ant-table-tbody"
+                    >
+                      <tr
+                        class="ant-table-row ant-table-row-level-0"
+                        data-row-key="624748504"
+                      >
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <div
+                            _internalitemrender="[object Object]"
+                            class="ant-row ant-form-item"
+                            style="margin: -5px 0px;"
+                          >
+                            <div
+                              class="ant-col ant-form-item-control"
+                            >
+                              <div
+                                class="ant-form-item-control-input"
+                              >
+                                <div
+                                  class="ant-form-item-control-input-content"
+                                >
+                                  <div
+                                    _internalitemrender="[object Object]"
+                                    class="ant-row ant-form-item"
+                                    style="margin: -5px 0px;"
+                                  >
+                                    <div
+                                      class="ant-col ant-form-item-control"
+                                    >
+                                      <div
+                                        class="ant-form-item-control-input"
+                                      >
+                                        <div
+                                          class="ant-form-item-control-input-content"
+                                        >
+                                          <div
+                                            class="ant-pro-field-index-column ant-pro-field-index-column-border"
+                                          >
+                                            1
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr
+                        class="ant-table-row ant-table-row-level-0"
+                        data-row-key="624691229"
+                      >
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <div
+                            class="ant-pro-field-index-column ant-pro-field-index-column-border"
+                          >
+                            2
+                          </div>
+                        </td>
+                      </tr>
+                      <tr
+                        class="ant-table-row ant-table-row-level-0"
+                        data-row-key="624674790"
+                      >
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <div
+                            class="ant-pro-field-index-column ant-pro-field-index-column-border"
+                          >
+                            3
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
