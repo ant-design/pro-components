@@ -104,10 +104,10 @@ const defaultRenderText = <T, U = any>(config: {
             const { errors } = inputProps;
             if (errors.length < 1) {
               return (
-                <div>
+                <>
                   {input}
                   {extra}
-                </div>
+                </>
               );
             }
             return (
