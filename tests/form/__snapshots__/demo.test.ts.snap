@@ -3042,7 +3042,7 @@ exports[`form demos renders ./packages/form/src/demos/components-other-readonly.
           <div
             class="ant-form-item-control-input-content"
           >
-            全部
+            all
           </div>
         </div>
       </div>

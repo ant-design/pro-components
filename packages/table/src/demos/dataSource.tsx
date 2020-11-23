@@ -12,8 +12,10 @@ export interface TableListItem {
   key: number;
   name: string;
   status: string;
-  updatedAt: number;
-  createdAt: number;
+  time: {
+    updatedAt: number;
+    createdAt: number;
+  };
   progress: number;
   money: number;
 }
@@ -24,8 +26,10 @@ for (let i = 0; i < 2; i += 1) {
     key: i,
     name: `TradeCode ${i}`,
     status: valueEnum[Math.floor(Math.random() * 10) % 4],
-    updatedAt: Date.now() - Math.floor(Math.random() * 1000),
-    createdAt: Date.now() - Math.floor(Math.random() * 2000),
+    time: {
+      updatedAt: Date.now() - Math.floor(Math.random() * 1000),
+      createdAt: Date.now() - Math.floor(Math.random() * 2000),
+    },
     money: Math.floor(Math.random() * 2000) * i,
     progress: Math.ceil(Math.random() * 100) + 1,
   });
@@ -67,7 +71,7 @@ const columns: ProColumns<TableListItem>[] = [
     title: '更新时间',
     key: 'since2',
     width: 120,
-    dataIndex: 'createdAt',
+    dataIndex: ['time', 'createdAt'],
     valueType: 'date',
   },
 ];
