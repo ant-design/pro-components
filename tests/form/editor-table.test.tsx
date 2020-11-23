@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { Tag, Space, Button } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { EditableProTable, ProColumns, ActionType } from '@ant-design/pro-table';
+import { EditableProTable, TableRowEditable, ProColumns, ActionType } from '@ant-design/pro-table';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
@@ -124,14 +124,16 @@ const columns: ProColumns<GithubIssueItem>[] = [
   },
 ];
 
-const EditorProTableDemo = (props: {
-  type?: 'multiple';
-  defaultKeys?: React.Key[];
-  editorRowKeys?: React.Key[];
-  onEditorChange?: (editorRowKeys: React.Key[]) => void;
-  dataSource?: GithubIssueItem[];
-  onDataSourceChange?: (dataSource: GithubIssueItem[]) => void;
-}) => {
+const EditorProTableDemo = (
+  props: {
+    type?: 'multiple';
+    defaultKeys?: React.Key[];
+    editorRowKeys?: React.Key[];
+    onEditorChange?: (editorRowKeys: React.Key[]) => void;
+    dataSource?: GithubIssueItem[];
+    onDataSourceChange?: (dataSource: GithubIssueItem[]) => void;
+  } & TableRowEditable<GithubIssueItem>,
+) => {
   const actionRef = useRef<ActionType>();
   const [editableKeys, setEditorRowKeys] = useMergedState<React.Key[]>(
     () => props.defaultKeys || [],
@@ -175,8 +177,10 @@ const EditorProTableDemo = (props: {
       value={dataSource}
       onChange={setDataSource}
       editable={{
+        ...props,
         type: props.type,
         editableKeys,
+        onSave: props.onSave,
         onChange: setEditorRowKeys,
       }}
     />
@@ -270,9 +274,53 @@ describe('EditorProTable', () => {
     act(() => {
       wrapper.find('#editor').at(0).simulate('click');
     });
-
     await waitForComponentToPaint(wrapper, 1000);
-
     expect(fn).toBeCalledWith([624748504, 624691229]);
+  });
+
+  it('📝 support onSave', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(<EditorProTableDemo onSave={(key) => fn(key)} />);
+    await waitForComponentToPaint(wrapper, 1000);
+    act(() => {
+      wrapper.find('#editor').at(1).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+
+    expect(
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists(),
+    ).toBeTruthy();
+
+    act(() => {
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(0).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+
+    expect(fn).toBeCalledWith(624691229);
+  });
+
+  it('📝 support onDelete', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(<EditorProTableDemo onDelete={(key) => fn(key)} />);
+    await waitForComponentToPaint(wrapper, 1000);
+    act(() => {
+      wrapper.find('#editor').at(1).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+
+    expect(
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists(),
+    ).toBeTruthy();
+
+    act(() => {
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(1).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+
+    expect(fn).toBeCalledWith(624691229);
   });
 });

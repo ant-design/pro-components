@@ -28,6 +28,7 @@ import defaultRenderText from './defaultRender';
 import { ColumnsState } from './container';
 import { ProColumns, ProColumnType, ProTableProps, RequestData } from './typing';
 import EditableProTable from './EditableTable';
+import { TableRowEditable } from './component/useEditable';
 
 type ProColumnsValueType = ProFieldValueType;
 
@@ -36,6 +37,7 @@ export type ActionType = ProCoreActionType;
 export type {
   ProTableProps,
   IntlType,
+  TableRowEditable,
   ColumnsState,
   ProColumnsValueType,
   ProColumns,
