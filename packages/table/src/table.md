@@ -240,33 +240,45 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| request | 获取 `dataSource` 的方法 | `(params?: {pageSize: number;current: number;[key: string]: any;},sort,filter) => Promise<RequestData<T>>` | - |
-| params | 用于 request 查询的多余参数，一旦变化会触发重新加载 | object | - | - |
+| request | 获取 `dataSource` 的方法 | `(params?: {pageSize,current},sort,filter) => {data,success,total}` | - |
+| params | 用于 `request` 查询的多余参数，一旦变化会触发重新加载 | object | - | - |
 | postData | 对通过 `request` 获取的数据进行处理 | `(data: T[]) => T[]` | - |
 | defaultData | 默认的数据 | `T[]` | - |
-| actionRef | Table action 的引用，便于自定义触发 | `React.MutableRefObject<FormInstance>` \| `((actionRef: ActionType) => void)` | - |
-| formRef | 可以获取到查询表单的 form 实例，用于一些灵活的配置 | `React.MutableRefObject<ActionType>` \| `((actionRef: ActionType) => void)` | - |
-| toolBarRender | 渲染工具栏，支持返回一个 dom 数组，会自动增加 margin-right | `(action: UseFetchDataAction<RequestData<T>>) => React.ReactNode[]` | - |
+| actionRef | Table action 的引用，便于自定义触发 | `React.MutableRefObject<FormInstance>` | - |
+| formRef | 可以获取到查询表单的 form 实例，用于一些灵活的配置 | `React.MutableRefObject<ActionType>` | - |
+| toolBarRender | 渲染工具栏，支持返回一个 dom 数组，会自动增加 margin-right | `(action) => React.ReactNode[]` | - |
 | onLoad | 数据加载完成后触发,会多次触发 | `(dataSource: T[]) => void` | - |
-| onRequestError | 数据加载失败时触发 | `(e: Error) => void` | - |
+| onRequestError | 数据加载失败时触发 | `(error) => void` | - |
 | tableClassName | 封装的 table 的 className | string | - |
-| tableStyle | 封装的 table 的 style | CSSProperties | - |
+| tableStyle | 封装的 table 的 style | [CSSProperties](https://www.htmlhelp.com/reference/css/properties.html) | - |
 | options | table 工具栏，设为 false 时不显示 | `{{ fullScreen: boolean \| function, reload: boolean \| function,setting: true }}` | `{ fullScreen: true, reload:true, setting: true}` |
-| search | 是否显示搜索表单，传入对象时为搜索表单的配置 | [search config](#search) | true |
+| search | 是否显示搜索表单，传入对象时为搜索表单的配置 | `false` \| [SearchConfig](#search-搜索表单) | true |
 | dateFormatter | 转化 moment 格式数据为特定类型，false 不做转化 | `"string"` \| `"number"` \| `false` | `"string"` |
 | beforeSearchSubmit | 搜索之前进行一些修改 | `(params:T)=>T` | - |
-| onSizeChange | table 尺寸发生改变 | `(size: 'default' \| 'middle' \| 'small' \| undefined) => void` | - |
-| columnsStateMap | columns 的状态枚举 | `{[key: string]: { show:boolean, fixed: "right" \| "left"} }` | - |
-| onColumnsStateChange | columns 状态发生改变 | `(props: {[key: string]: { show:boolean, fixed: "right" \| "left"} }) => void` | - |
+| onSizeChange | table 尺寸发生改变 | `(size: 'default' \| 'middle' \| 'small') => void` | - |
+| columnsStateMap | columns 的状态枚举 | `{key:{ show,fixed }}}` | - |
+| onColumnsStateChange | columns 状态发生改变 | `(props: {key:{ show,fixed }}}) => void` | - |
 | type | pro-table 类型 | `"form"` | - |
-| form | antd form 的配置 | `FormProps` | - |
+| form | antd form 的配置 | [FormProps](https://ant.design/components/form-cn/#API) | - |
 | onSubmit | 提交表单时触发 | `(params: U) => void` | - |
 | onReset | 重置表单时触发 | `() => void` | - |
-| columnEmptyText | 空值时的显示，不设置 则默认显示 `-` | `string` \| `false` | false |
-| tableRender | 自定义渲染表格函数 | `(props: ProTableProps<T, U>, defaultDom: JSX.Element, domList: { toolbar: JSX.Element \| undefined; alert: JSX.Element \| undefined; table: JSX.Element \| undefined;}) => React.ReactNode` | - |
-| toolbar | 透传 ListToolBar 配置项 | `ListToolBarProps` | - |
+| columnEmptyText | 空值时的显示，不设置时显示 `-`， false 可以关闭此功能 | `string` \| `false` | false |
+| tableRender | 自定义渲染表格函数 | `(props,dom,domList:{ toolbar,alert,table}) => React.ReactNode` | - |
+| toolbar | 透传 `ListToolBar` 配置项 | [ListToolBarProps](#listtoolbarprops) | - |
 | tableExtraRender | 自定义表格的主体函数 | `(props: ProTableProps<T, U>, dataSource: T[]) => React.ReactNode;` | - |
 | manualRequest | 是否需要手动触发首次请求, 配置为 `true` 时不可隐藏搜索表单 | `boolean` | false |
+| rowEditor | 可编辑表格的相关配置 | [TableRowEditor<T>](#roweditor) | - |
+
+### 可编辑表格 EditorProTable
+
+可编辑表格 EditorProTable 与 ProTable 的功能基本相同，为了方便使用 EditorProTable 增加了一些预设，关掉了查询表单和操作栏，同时修改了 value 和 onChange 使其可以方便的继承到 antd 的 Form 中。
+
+| 属性 | 描述 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| value | 同 dataSource，传入一个数组,是 table 渲染的元数据 | `T[]` | `undefined` |
+| onChange | dataSource 修改时触发，删除和修改都会触发,如果设置了 value，Table 会成为一个受控组件。 | `(value:T[])=>void` | `undefined` |
+
+> 别的 API 与 ProTable 相同。
 
 #### Search 搜索表单
 
@@ -279,10 +291,21 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | labelWidth | 标签的宽度 | number | 98 |
 | span | 配置查询表单的列数 | `'number'` \| [`'ColConfig'`](#ColConfig) | defaultColConfig |
 | collapseRender | 收起按钮的 render | `(collapsed: boolean,showCollapseButton?: boolean,) => React.ReactNode` | - |
-| defaultCollapsed | 默认是否收起 | boolean | false |
-| collapsed | 是否收起 | boolean | - |
+| defaultCollapsed | 默认是否收起 | `boolean` | false |
+| collapsed | 是否收起 | `boolean` | - |
 | onCollapse | 收起按钮的事件 | `(collapsed: boolean) => void;` | - |
-| optionRender | 操作栏的 render | `((searchConfig,formProps) => React.ReactNode[])`\|`false` | - |
+| optionRender | 自定义操作栏 | `((searchConfig,formProps) => React.ReactNode[])`\|`false` | - |
+
+### rowEditor
+
+| 属性 | 描述 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| type | 可编辑表格的类型，单行编辑或者多行编辑 | `singe` \| `multiple` | - |
+| editorRowKeys | 正在编辑的行，受控属性。 默认 `key` 会使用 `rowKey` 的配置，如果没有配置会使用 `index`，建议使用 rowKey | `React.Key[]` | - |
+| actionRender | 自定义编辑模式的操作栏 | `(row: T, config: ActionRenderConfig<T>) => React.ReactNode[]` | - |
+| onRecordSave | 保存一行的时候触发，只更新 | `(key: React.Key, row: T) => Promise<void>` | - |
+| onRecordDelete | 删除一行的时候触发 | `(key: React.Key, row: T) => Promise<void>` | - |
+| onChange | 编辑列被修改的时候 | `(editorRowKeys: React.Key[], editorRows: T[]) => void` | - |
 
 #### ColConfig
 
@@ -549,8 +572,8 @@ Form 的列是根据 `valueType` 来生成不同的类型。
 | search | 查询区 | `ReactNode` \| `SearchProps` | - |
 | actions | 操作区 | `ReactNode[]` | - |
 | settings | 设置区 | `(ReactNode \| Setting)[]` | - |
-| filter | 过滤区，通常配合 `LightFilter` 使用 | ReactNode | - |
-| multipleLine | 是否多行展示 | boolean | false |
+| filter | 过滤区，通常配合 `LightFilter` 使用 | `ReactNode` | - |
+| multipleLine | 是否多行展示 | `boolean` | `false` |
 | menu | 菜单配置 | `ListToolBarMenu` | - |
 | tabs | 标签页配置，仅当 `multipleLine` 为 true 时有效 | `ListToolBarTabs` | - |
 
@@ -560,17 +583,17 @@ SearchProps 为 antd 的 [Input.Search](https://ant.design/components/input-cn/#
 
 | 参数    | 说明         | 类型                  | 默认值 |
 | ------- | ------------ | --------------------- | ------ |
-| icon    | 图标         | ReactNode             | -      |
-| tooltip | tooltip 描述 | string                | -      |
-| key     | 操作唯一标识 | string                | -      |
+| icon    | 图标         | `ReactNode`           | -      |
+| tooltip | tooltip 描述 | `string`              | -      |
+| key     | 操作唯一标识 | `string`              | -      |
 | onClick | 设置被触发   | `(key: string)=>void` | -      |
 
 #### ListToolBarMenu
 
 | 参数      | 说明           | 类型                                  | 默认值     |
 | --------- | -------------- | ------------------------------------- | ---------- |
-| type      | 类型           | 'inline' \| 'dropdown'                | 'dropdown' |
-| activeKey | 当前值         | string                                | -          |
+| type      | 类型           | `inline` \| `dropdown`                | 'dropdown' |
+| activeKey | 当前值         | `string`                              | -          |
 | items     | 菜单项         | `{ key: string; label: ReactNode }[]` | -          |
 | onChange  | 切换菜单的回调 | `(activeKey)=>void`                   | -          |
 
@@ -578,6 +601,6 @@ SearchProps 为 antd 的 [Input.Search](https://ant.design/components/input-cn/#
 
 | 参数      | 说明       | 类型                                | 默认值     |
 | --------- | ---------- | ----------------------------------- | ---------- |
-| activeKey | 当前选中项 | string                              | -          |
+| activeKey | 当前选中项 | `string`                            | -          |
 | items     | 菜单项     | `{ key: string; tab: ReactNode }[]` | -          |
-| onChange  | 类型       | 'inline' \| 'dropdown'              | 'dropdown' |
+| onChange  | 类型       | `inline` \| `dropdown`              | 'dropdown' |

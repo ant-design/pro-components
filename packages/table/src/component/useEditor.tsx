@@ -27,12 +27,12 @@ export interface TableRowEditor<T> {
   /**
    * 行保存的时候
    */
-  onRowSave?: (key: React.Key, row: T & { index: number }) => Promise<void>;
+  onRecordSave?: (key: React.Key, row: T & { index: number }) => Promise<void>;
 
   /**
    * 行删除的时候
    */
-  onRowDelete?: (key: React.Key, row: T & { index: number }) => Promise<void>;
+  onRecordDelete?: (key: React.Key, row: T & { index: number }) => Promise<void>;
   /**
    * 正在编辑的列修改的时候
    */
@@ -45,8 +45,8 @@ export type ActionRenderConfig<T> = {
   index: number;
   form: FormInstance<any>;
   cancelEditor: (key: React.Key) => void;
-  onRowSave: TableRowEditor<T>['onRowSave'];
-  onRowDelete: TableRowEditor<T>['onRowDelete'];
+  onRecordSave: TableRowEditor<T>['onRecordSave'];
+  onRecordDelete: TableRowEditor<T>['onRecordDelete'];
   setEditorRowKeys: (value: React.Key[]) => void;
 };
 
@@ -94,7 +94,7 @@ function editorRowByKey<RecordType>(
 
 const SaveEditorAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
   rowKey,
-  onRowSave,
+  onRecordSave,
   form,
   row,
   cancelEditor,
@@ -111,7 +111,7 @@ const SaveEditorAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
             recursive: true,
           });
           const fields = form.getFieldValue([rowKey]);
-          await onRowSave?.(rowKey, { ...row, ...fields });
+          await onRecordSave?.(rowKey, { ...row, ...fields });
           form.resetFields([rowKey]);
           setLoading(false);
           setTimeout(() => {
@@ -136,7 +136,7 @@ const SaveEditorAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
 
 const DeleteEditorAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
   rowKey,
-  onRowDelete,
+  onRecordDelete,
   row,
   cancelEditor,
 }) => {
@@ -147,7 +147,7 @@ const DeleteEditorAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
       onClick={async () => {
         try {
           setLoading(true);
-          await onRowDelete?.(rowKey, row);
+          await onRecordDelete?.(rowKey, row);
           setLoading(false);
           setTimeout(() => {
             cancelEditor(rowKey);
@@ -270,7 +270,7 @@ function useEditor<RecordType>(
         rowKey: key,
         cancelEditor,
         index: row.index,
-        onRowDelete: async (
+        onRecordDelete: async (
           rowKey: React.Key,
           editRow: RecordType & {
             index: number;
@@ -285,9 +285,9 @@ function useEditor<RecordType>(
           };
 
           props.setDataSource(editorRowByKey(actionProps, 'delete'));
-          return props?.onRowDelete?.(rowKey, editRow);
+          return props?.onRecordDelete?.(rowKey, editRow);
         },
-        onRowSave: async (
+        onRecordSave: async (
           rowKey: React.Key,
           editRow: RecordType & {
             index: number;
@@ -301,7 +301,7 @@ function useEditor<RecordType>(
             childrenColumnName: props.childrenColumnName || 'children',
           };
           props.setDataSource(editorRowByKey(actionProps, 'update'));
-          return props?.onRowSave?.(rowKey, editRow);
+          return props?.onRecordSave?.(rowKey, editRow);
         },
         form,
         editorRowKeys,
