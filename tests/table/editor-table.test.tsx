@@ -98,7 +98,6 @@ const columns: ProColumns<GithubIssueItem>[] = [
   },
   {
     title: '创建时间',
-    key: 'created_at',
     dataIndex: ['time', 'created_at'],
     valueType: 'date',
   },
@@ -183,7 +182,7 @@ const EditorProTableDemo = (
 };
 
 describe('EditorProTable', () => {
-  it('📝  support onEditorChange', async () => {
+  it('📝 support onEditorChange', async () => {
     const fn = jest.fn();
     const wrapper = mount(
       <EditorProTableDemo
@@ -200,7 +199,7 @@ describe('EditorProTable', () => {
     expect(fn).toBeCalledWith([624748504]);
   });
 
-  it('📝  renderFormItem run defaultRender', async () => {
+  it('📝 renderFormItem run defaultRender', async () => {
     const wrapper = mount(
       <EditableProTable<GithubIssueItem>
         rowKey="id"
@@ -223,7 +222,7 @@ describe('EditorProTable', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('📝  support editorRowKeys', async () => {
+  it('📝 support editorRowKeys', async () => {
     const wrapper = mount(<EditorProTableDemo editorRowKeys={[624748504]} />);
     await waitForComponentToPaint(wrapper, 1000);
     // 第一行应该编辑态
@@ -346,12 +345,12 @@ describe('EditorProTable', () => {
     const fn = jest.fn();
     const wrapper = mount(<EditorProTableDemo onSave={(key, row) => fn(row.title)} />);
     await waitForComponentToPaint(wrapper, 1000);
+
     act(() => {
       wrapper.find('#editor').at(1).simulate('click');
     });
 
     await waitForComponentToPaint(wrapper, 200);
-
     expect(
       wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists(),
     ).toBeTruthy();
