@@ -89,6 +89,7 @@ export default () => (
       status: {
         // 自己扩展的字段，主要用于筛选，不在列表中显示
         title: '状态',
+        valueType: 'select',
         valueEnum: {
           all: { text: '全部', status: 'Default' },
           open: {
