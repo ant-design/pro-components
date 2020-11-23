@@ -25,7 +25,7 @@ import {
   UseFetchDataAction,
 } from './typing';
 import { ColumnsState, CounterType, useCounter } from './container';
-import defaultRenderText from './defaultRender';
+import defaultRenderText, { spellNamePath } from './defaultRender';
 import { UseEditableUtilType } from './component/useEditable';
 import InlineErrorFormItem from './component/InlineErrorFormItem';
 
@@ -346,7 +346,10 @@ export function columnRender<T>({
             return (
               <InlineErrorFormItem
                 initialValue={text}
-                name={columnProps.key || columnProps.dataIndex}
+                name={spellNamePath(
+                  rowKey || index,
+                  columnProps?.key || columnProps?.dataIndex || index,
+                )}
                 {...columnProps.formItemProps}
               >
                 {inputDom || dom}

@@ -11,7 +11,7 @@ const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
  * @param base 基本的 key
  * @param dataIndex 需要拼接的key
  */
-const spellNamePath = (
+export const spellNamePath = (
   base: React.Key,
   dataIndex: React.Key | React.Key[],
 ): React.Key[] | React.Key | undefined => {
