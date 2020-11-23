@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Tag, Space, Button } from 'antd';
+import { Tag, Space, Button, Input } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { EditableProTable, TableRowEditable, ProColumns, ActionType } from '@ant-design/pro-table';
 import { mount } from 'enzyme';
@@ -91,6 +91,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     title: '标签',
     dataIndex: 'labels',
     width: 80,
+    renderFormItem: () => <Input />,
     render: (_, row) => (
       <Space>
         {row?.labels?.map(({ name, color }) => (

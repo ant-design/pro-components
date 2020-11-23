@@ -92,7 +92,6 @@ const Demo = () => (
         name="select"
         readonly
         label="Select"
-        hasFeedback
         valueEnum={{
           china: 'China',
           usa: 'U.S.A',
@@ -103,7 +102,6 @@ const Demo = () => (
       <ProFormSelect
         width="m"
         readonly
-        hasFeedback
         request={async () => [
           { label: '全部', value: 'all' },
           { label: '未解决', value: 'open' },
@@ -116,7 +114,6 @@ const Demo = () => (
       <ProFormSelect
         name="select-multiple"
         label="Select[multiple]"
-        hasFeedback
         readonly
         valueEnum={{
           red: 'Red',

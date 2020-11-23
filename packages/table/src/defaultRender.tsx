@@ -1,9 +1,8 @@
 import React from 'react';
-import { Form, Popover } from 'antd';
 import ProField, { ProFieldEmptyText, ProFieldValueType } from '@ant-design/pro-field';
 import { ProSchemaComponentTypes } from '@ant-design/pro-utils';
 import { ProColumnType } from './index';
-import { FormItemProps } from 'antd/lib/form';
+import InlineErrorFormItem from './component/InlineErrorFormItem';
 
 const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
 
@@ -77,53 +76,13 @@ const defaultRenderText = <T, U = any>(config: {
   // 如果是编辑模式，需要用 Form.Item 包一下
   if (config.mode === 'edit') {
     return (
-      <Form.Item
-        style={{
-          margin: '-5px 0',
-        }}
-        hasFeedback
+      <InlineErrorFormItem
         initialValue={text}
         name={spellNamePath(rowKey, columnProps?.key || columnProps?.dataIndex || index)}
-        // @ts-ignore
-        _internalItemRender={{
-          mark: 'pro_table_render',
-          render: (
-            inputProps: FormItemProps & {
-              errors: any[];
-            },
-            {
-              input,
-              errorList,
-              extra,
-            }: {
-              input: JSX.Element;
-              errorList: JSX.Element;
-              extra: JSX.Element;
-            },
-          ) => {
-            const { errors } = inputProps;
-            if (errors.length < 1) {
-              return (
-                <>
-                  {input}
-                  {extra}
-                </>
-              );
-            }
-            return (
-              <Popover placement="topLeft" content={<div>{errorList}</div>}>
-                <div>
-                  {input}
-                  {extra}
-                </div>
-              </Popover>
-            );
-          },
-        }}
         {...columnProps?.formItemProps}
       >
         {dom}
-      </Form.Item>
+      </InlineErrorFormItem>
     );
   }
   return dom;

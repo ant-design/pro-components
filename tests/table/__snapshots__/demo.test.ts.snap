@@ -13731,9 +13731,6 @@ exports[`table demos renders ./packages/table/src/demos/editable-table.tsx.tsx c
                         <col
                           style="width: 120px; min-width: 120px;"
                         />
-                        <col
-                          style="width: 80px; min-width: 80px;"
-                        />
                       </colgroup>
                       <thead
                         class="ant-table-thead"
@@ -13827,11 +13824,6 @@ exports[`table demos renders ./packages/table/src/demos/editable-table.tsx.tsx c
                           <th
                             class="ant-table-cell"
                           >
-                            标签
-                          </th>
-                          <th
-                            class="ant-table-cell"
-                          >
                             创建时间
                           </th>
                           <th
@@ -13918,23 +13910,6 @@ exports[`table demos renders ./packages/table/src/demos/editable-table.tsx.tsx c
                                 解决中
                               </span>
                             </span>
-                          </td>
-                          <td
-                            class="ant-table-cell"
-                          >
-                            <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
-                            >
-                              <div
-                                class="ant-space-item"
-                              >
-                                <span
-                                  class="ant-tag ant-tag-error"
-                                >
-                                  bug
-                                </span>
-                              </div>
-                            </div>
                           </td>
                           <td
                             class="ant-table-cell"
@@ -14037,23 +14012,6 @@ exports[`table demos renders ./packages/table/src/demos/editable-table.tsx.tsx c
                           <td
                             class="ant-table-cell"
                           >
-                            <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
-                            >
-                              <div
-                                class="ant-space-item"
-                              >
-                                <span
-                                  class="ant-tag ant-tag-error"
-                                >
-                                  bug
-                                </span>
-                              </div>
-                            </div>
-                          </td>
-                          <td
-                            class="ant-table-cell"
-                          >
                             <span>
                               2020-05-26
                             </span>
@@ -14148,23 +14106,6 @@ exports[`table demos renders ./packages/table/src/demos/editable-table.tsx.tsx c
                                 未解决
                               </span>
                             </span>
-                          </td>
-                          <td
-                            class="ant-table-cell"
-                          >
-                            <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
-                            >
-                              <div
-                                class="ant-space-item"
-                              >
-                                <span
-                                  class="ant-tag ant-tag-success"
-                                >
-                                  question
-                                </span>
-                              </div>
-                            </div>
                           </td>
                           <td
                             class="ant-table-cell"

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Tag, Space, Button } from 'antd';
+import { Button } from 'antd';
 import { EditableProTable, ProColumns, ActionType } from '@ant-design/pro-table';
 import ProField from '@ant-design/pro-field';
 
@@ -83,20 +83,6 @@ const columns: ProColumns<GithubIssueItem>[] = [
         status: 'Processing',
       },
     },
-  },
-  {
-    title: '标签',
-    dataIndex: 'labels',
-    width: 80,
-    render: (_, row) => (
-      <Space>
-        {row?.labels?.map(({ name, color }) => (
-          <Tag color={color} key={name}>
-            {name}
-          </Tag>
-        ))}
-      </Space>
-    ),
   },
   {
     title: '创建时间',

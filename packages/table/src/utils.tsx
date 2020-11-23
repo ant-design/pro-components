@@ -27,6 +27,7 @@ import {
 import { ColumnsState, CounterType, useCounter } from './container';
 import defaultRenderText from './defaultRender';
 import { UseEditableUtilType } from './component/useEditable';
+import InlineErrorFormItem from './component/InlineErrorFormItem';
 
 /**
  * 检查值是否存在
@@ -343,13 +344,13 @@ export function columnRender<T>({
               form,
             );
             return (
-              <Form.Item
+              <InlineErrorFormItem
                 initialValue={text}
                 name={columnProps.key || columnProps.dataIndex}
                 {...columnProps.formItemProps}
               >
                 {inputDom || dom}
-              </Form.Item>
+              </InlineErrorFormItem>
             );
           }}
         </Form.Item>
