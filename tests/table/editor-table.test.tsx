@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Tag, Space, Button, Input } from 'antd';
+import { Button, InputNumber } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { EditableProTable, TableRowEditable, ProColumns, ActionType } from '@ant-design/pro-table';
 import { mount } from 'enzyme';
@@ -46,6 +46,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     dataIndex: 'index',
     valueType: 'indexBorder',
     width: 48,
+    renderFormItem: () => <InputNumber />,
   },
   {
     title: '标题',
@@ -86,21 +87,6 @@ const columns: ProColumns<GithubIssueItem>[] = [
         status: 'Processing',
       },
     },
-  },
-  {
-    title: '标签',
-    dataIndex: 'labels',
-    width: 80,
-    renderFormItem: () => <Input />,
-    render: (_, row) => (
-      <Space>
-        {row?.labels?.map(({ name, color }) => (
-          <Tag color={color} key={name}>
-            {name}
-          </Tag>
-        ))}
-      </Space>
-    ),
   },
   {
     title: '创建时间',
