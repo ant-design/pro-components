@@ -13604,7 +13604,7 @@ exports[`table demos renders ./packages/table/src/demos/dataSource.tsx correctly
 </div>
 `;
 
-exports[`table demos renders ./packages/table/src/demos/editable-table.tsx correctly 1`] = `
+exports[`table demos renders ./packages/table/src/demos/editable-table.tsx.tsx correctly 1`] = `
 <div
   style="display: flex;"
 >
