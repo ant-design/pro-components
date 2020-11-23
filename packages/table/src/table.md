@@ -267,7 +267,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | toolbar | 透传 `ListToolBar` 配置项 | [ListToolBarProps](#listtoolbarprops) | - |
 | tableExtraRender | 自定义表格的主体函数 | `(props: ProTableProps<T, U>, dataSource: T[]) => React.ReactNode;` | - |
 | manualRequest | 是否需要手动触发首次请求, 配置为 `true` 时不可隐藏搜索表单 | `boolean` | false |
-| editable | 可编辑表格的相关配置 | [TableRowEditable<T>](#roweditable) | - |
+| editable | 可编辑表格的相关配置 | [TableRowEditable<T>](#editable) | - |
 
 ### 可编辑表格 EditableProTable
 
