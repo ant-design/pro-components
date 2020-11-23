@@ -12,12 +12,9 @@ const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
  * @param dataIndex 需要拼接的key
  */
 const spellNamePath = (
-  base: React.Key | undefined,
+  base: React.Key,
   dataIndex: React.Key | React.Key[],
 ): React.Key[] | React.Key | undefined => {
-  if (!base) {
-    return dataIndex;
-  }
   if (Array.isArray(dataIndex)) {
     return [base, ...dataIndex];
   }
@@ -78,7 +75,7 @@ const defaultRenderText = <T, U = any>(config: {
     return (
       <InlineErrorFormItem
         initialValue={text}
-        name={spellNamePath(rowKey, columnProps?.key || columnProps?.dataIndex || index)}
+        name={spellNamePath(rowKey || index, columnProps?.key || columnProps?.dataIndex || index)}
         {...columnProps?.formItemProps}
       >
         {dom}
