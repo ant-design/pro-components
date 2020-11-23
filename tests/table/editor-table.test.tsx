@@ -14,7 +14,9 @@ interface GithubIssueItem {
     color: string;
   }[];
   state?: string;
-  created_at?: string;
+  time?: {
+    created_at?: string;
+  };
 }
 
 const defaultData: GithubIssueItem[] = [
@@ -22,14 +24,18 @@ const defaultData: GithubIssueItem[] = [
     id: 624748504,
     title: '🐛 [BUG]yarn install命令 antd2.4.5会报错',
     labels: [{ name: 'bug', color: 'error' }],
-    created_at: '2020-05-26T09:42:56Z',
+    time: {
+      created_at: '2020-05-26T09:42:56Z',
+    },
     state: 'processing',
   },
   {
     id: 624691229,
     title: '🐛 [BUG]无法创建工程npm create umi',
     labels: [{ name: 'bug', color: 'error' }],
-    created_at: '2020-05-26T08:19:22Z',
+    time: {
+      created_at: '2020-05-26T08:19:22Z',
+    },
     state: 'closed',
   },
   {
@@ -37,7 +43,9 @@ const defaultData: GithubIssueItem[] = [
     title: '🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）',
     labels: [{ name: 'question', color: 'success' }],
     state: 'open',
-    created_at: '2020-05-26T07:54:25Z',
+    time: {
+      created_at: '2020-05-26T07:54:25Z',
+    },
   },
 ];
 
@@ -91,7 +99,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
   {
     title: '创建时间',
     key: 'created_at',
-    dataIndex: 'created_at',
+    dataIndex: ['time', 'created_at'],
     valueType: 'date',
   },
   {
