@@ -67,28 +67,79 @@ function editableRowByKey<RecordType>(
   action: 'update' | 'delete',
 ) {
   const { getRowKey, key, row, data, childrenColumnName } = params;
-  const kvMap = new Map<React.Key, RecordType>();
+  const kvMap = new Map<React.Key, RecordType & { parentKey?: React.Key }>();
 
-  /* eslint-disable no-inner-declarations */
-  function dig(records: RecordType[]) {
+  /**
+   * 打平这个数组
+   * @param records
+   * @param parentKey
+   */
+  function dig(records: RecordType[], map_row_parentKey?: React.Key) {
     records.forEach((record, index) => {
       const rowKey = getRowKey(record, index);
-      kvMap.set(rowKey, record);
-
+      // children 取在前面方便拼的时候按照反顺序放回去
       if (record && typeof record === 'object' && childrenColumnName in record) {
-        dig((record as any)[childrenColumnName] || []);
+        dig(record[childrenColumnName] || [], rowKey);
       }
+      const newRecord = {
+        ...record,
+        map_row_key: rowKey,
+        children: undefined,
+        map_row_parentKey,
+      };
+      delete newRecord.children;
+      if (!map_row_parentKey) {
+        delete newRecord.map_row_parentKey;
+      }
+      kvMap.set(rowKey, newRecord);
     });
   }
+
   dig(data);
+
   if (action === 'update') {
-    kvMap.set(key, row);
+    kvMap.set(key, {
+      ...kvMap.get(key),
+      ...row,
+    });
   }
   if (action === 'delete') {
     kvMap.delete(key);
   }
-  const source: RecordType[] = [];
-  kvMap.forEach((value) => source.push(value));
+  const fill = (map: Map<React.Key, RecordType & { map_row_parentKey?: React.Key }>) => {
+    const kvArrayMap = new Map<React.Key, RecordType[]>();
+    const kvSource: RecordType[] = [];
+    map.forEach((value) => {
+      if (value.map_row_parentKey) {
+        // @ts-ignore
+        const { map_row_parentKey, map_row_key, ...reset } = value;
+        if (kvArrayMap.has(map_row_key)) {
+          reset[childrenColumnName] = kvArrayMap.get(map_row_key);
+        }
+        kvArrayMap.set(map_row_parentKey, [
+          ...(kvArrayMap.get(map_row_parentKey) || []),
+          reset as RecordType,
+        ]);
+        return;
+      }
+
+      if (!value.map_row_parentKey) {
+        // @ts-ignore
+        const { map_row_key, ...rest } = value;
+        if (kvArrayMap.has(map_row_key)) {
+          const item = {
+            ...rest,
+            [childrenColumnName]: kvArrayMap.get(map_row_key),
+          };
+          kvSource.push(item as RecordType);
+          return;
+        }
+        kvSource.push(rest as RecordType);
+      }
+    });
+    return kvSource;
+  };
+  const source = fill(kvMap);
   return source;
 }
 

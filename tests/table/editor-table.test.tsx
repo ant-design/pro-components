@@ -6,7 +6,7 @@ import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
 
-interface GithubIssueItem {
+interface DataSourceType {
   id: number;
   title?: string;
   labels?: {
@@ -17,9 +17,10 @@ interface GithubIssueItem {
   time?: {
     created_at?: string;
   };
+  children?: DataSourceType[];
 }
 
-const defaultData: GithubIssueItem[] = [
+const defaultData: DataSourceType[] = [
   {
     id: 624748504,
     title: '🐛 [BUG]yarn install命令 antd2.4.5会报错',
@@ -46,10 +47,21 @@ const defaultData: GithubIssueItem[] = [
     time: {
       created_at: '2020-05-26T07:54:25Z',
     },
+    children: [
+      {
+        id: 6246747901,
+        title: '嵌套数据的编辑',
+        labels: [{ name: 'question', color: 'success' }],
+        state: 'closed',
+        time: {
+          created_at: '2020-05-26T07:54:25Z',
+        },
+      },
+    ],
   },
 ];
 
-const columns: ProColumns<GithubIssueItem>[] = [
+const columns: ProColumns<DataSourceType>[] = [
   {
     dataIndex: 'index',
     valueType: 'indexBorder',
@@ -124,9 +136,9 @@ const EditorProTableDemo = (
     defaultKeys?: React.Key[];
     editorRowKeys?: React.Key[];
     onEditorChange?: (editorRowKeys: React.Key[]) => void;
-    dataSource?: GithubIssueItem[];
-    onDataSourceChange?: (dataSource: GithubIssueItem[]) => void;
-  } & TableRowEditable<GithubIssueItem>,
+    dataSource?: DataSourceType[];
+    onDataSourceChange?: (dataSource: DataSourceType[]) => void;
+  } & TableRowEditable<DataSourceType>,
 ) => {
   const actionRef = useRef<ActionType>();
   const [editableKeys, setEditorRowKeys] = useMergedState<React.Key[]>(
@@ -136,12 +148,12 @@ const EditorProTableDemo = (
       onChange: props.onEditorChange,
     },
   );
-  const [dataSource, setDataSource] = useMergedState<GithubIssueItem[]>([], {
+  const [dataSource, setDataSource] = useMergedState<DataSourceType[]>([], {
     value: props.dataSource,
     onChange: props.onDataSourceChange,
   });
   return (
-    <EditableProTable<GithubIssueItem>
+    <EditableProTable<DataSourceType>
       rowKey="id"
       toolBarRender={() => [
         <Button
@@ -201,7 +213,7 @@ describe('EditorProTable', () => {
 
   it('📝 renderFormItem run defaultRender', async () => {
     const wrapper = mount(
-      <EditableProTable<GithubIssueItem>
+      <EditableProTable<DataSourceType>
         rowKey="id"
         editable={{
           editableKeys: [624748504],

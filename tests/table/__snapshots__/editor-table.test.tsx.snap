@@ -56,8 +56,17 @@ exports[`EditorProTable 📝 renderFormItem run defaultRender 1`] = `
                         data-row-key="624748504"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-with-append"
                         >
+                          <span
+                            class="ant-table-row-indent indent-level-0"
+                            style="padding-left: 0px;"
+                          />
+                          <button
+                            aria-label="Expand row"
+                            class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
+                            type="button"
+                          />
                           <div
                             _internalitemrender="[object Object]"
                             class="ant-row ant-form-item"
@@ -106,8 +115,17 @@ exports[`EditorProTable 📝 renderFormItem run defaultRender 1`] = `
                         data-row-key="624691229"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-with-append"
                         >
+                          <span
+                            class="ant-table-row-indent indent-level-0"
+                            style="padding-left: 0px;"
+                          />
+                          <button
+                            aria-label="Expand row"
+                            class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
+                            type="button"
+                          />
                           <div
                             class="ant-pro-field-index-column ant-pro-field-index-column-border"
                           >
@@ -120,8 +138,17 @@ exports[`EditorProTable 📝 renderFormItem run defaultRender 1`] = `
                         data-row-key="624674790"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-with-append"
                         >
+                          <span
+                            class="ant-table-row-indent indent-level-0"
+                            style="padding-left: 0px;"
+                          />
+                          <button
+                            aria-label="Expand row"
+                            class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                            type="button"
+                          />
                           <div
                             class="ant-pro-field-index-column ant-pro-field-index-column-border"
                           >

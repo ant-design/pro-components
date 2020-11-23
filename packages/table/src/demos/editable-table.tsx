@@ -14,12 +14,13 @@ interface DataSourceType {
   time?: {
     created_at?: string;
   };
+  children?: DataSourceType[];
 }
 
 const defaultData: DataSourceType[] = [
   {
     id: 624748504,
-    title: '🐛 [BUG]yarn install命令 antd2.4.5会报错',
+    title: '[BUG]yarn install命令 antd2.4.5会报错',
     labels: [{ name: 'bug', color: 'error' }],
     time: {
       created_at: '2020-05-26T09:42:56Z',
@@ -28,7 +29,7 @@ const defaultData: DataSourceType[] = [
   },
   {
     id: 624691229,
-    title: '🐛 [BUG]无法创建工程npm create umi',
+    title: '无法创建工程npm create umi',
     labels: [{ name: 'bug', color: 'error' }],
     time: {
       created_at: '2020-05-26T08:19:22Z',
@@ -37,12 +38,23 @@ const defaultData: DataSourceType[] = [
   },
   {
     id: 624674790,
-    title: '🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）',
+    title: 'build 后还存在 es6 的代码（Umi@2.13.13）',
     labels: [{ name: 'question', color: 'success' }],
     state: 'open',
     time: {
       created_at: '2020-05-26T07:54:25Z',
     },
+    children: [
+      {
+        id: 6246747901,
+        title: '嵌套数据的编辑',
+        labels: [{ name: 'question', color: 'success' }],
+        state: 'closed',
+        time: {
+          created_at: '2020-05-26T07:54:25Z',
+        },
+      },
+    ],
   },
 ];
 
@@ -50,7 +62,7 @@ const columns: ProColumns<DataSourceType>[] = [
   {
     dataIndex: 'index',
     valueType: 'indexBorder',
-    width: 48,
+    width: 72,
   },
   {
     title: '标题',
