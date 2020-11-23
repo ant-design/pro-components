@@ -90,11 +90,10 @@ const columns: ProColumns<GithubIssueItem>[] = [
     valueType: 'dateTime',
     width: '20%',
     render: (value) => {
-      const obj = {
+      return {
         children: value,
-        props: { colSpan: 2 },
+        props: { colSpan: 0 },
       };
-      return obj;
     },
   },
   {
@@ -129,25 +128,46 @@ export default () => {
   const actionRef = useRef<ActionType>();
 
   return (
-    <ProTable<GithubIssueItem>
-      columns={columns}
-      pagination={{
-        showQuickJumper: true,
-      }}
-      actionRef={actionRef}
-      request={async () => ({
-        data: [],
-      })}
-      type="form"
-      rowKey="id"
-      dateFormatter="string"
-      headerTitle="高级表格"
-      toolBarRender={() => [
-        <Button key="3" type="primary">
-          <PlusOutlined />
-          新建
-        </Button>,
-      ]}
-    />
+    <>
+      <ProTable<GithubIssueItem>
+        columns={columns}
+        pagination={{
+          showQuickJumper: true,
+        }}
+        actionRef={actionRef}
+        request={async () => ({
+          data: [],
+        })}
+        type="form"
+        rowKey="id"
+        dateFormatter="string"
+        headerTitle="高级表格"
+        toolBarRender={() => [
+          <Button key="3" type="primary">
+            <PlusOutlined />
+            新建
+          </Button>,
+        ]}
+      />
+      <ProTable<GithubIssueItem>
+        columns={columns}
+        pagination={{
+          showQuickJumper: true,
+        }}
+        actionRef={actionRef}
+        request={async () => ({
+          data: [],
+        })}
+        rowKey="id"
+        dateFormatter="string"
+        headerTitle="高级表格"
+        toolBarRender={() => [
+          <Button key="3" type="primary">
+            <PlusOutlined />
+            新建
+          </Button>,
+        ]}
+      />
+    </>
   );
 };
