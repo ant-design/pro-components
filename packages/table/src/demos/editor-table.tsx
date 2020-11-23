@@ -149,13 +149,14 @@ export default () => {
           <Button
             key="addLine"
             onClick={() => {
-              setDataSource([
-                ...dataSource,
-                {
-                  id: dataSource.length,
-                },
-              ]);
-              setEditorRowKeys([...editorRowKeys, dataSource.length]);
+              const newItem = {
+                id: dataSource.length,
+              };
+              const source = [...dataSource, newItem];
+              setDataSource(source);
+              // 这里的 key 与 rowKey 的 key 是相同的，需要注意
+              // 如果没有设置 rowKey 就用行号
+              setEditorRowKeys([...editorRowKeys, newItem.id]);
             }}
           >
             增加一行
