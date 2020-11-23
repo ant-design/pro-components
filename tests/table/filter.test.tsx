@@ -44,6 +44,74 @@ describe('BasicTable Search', () => {
           {
             title: 'Name',
             key: 'name',
+            dataIndex: 'money',
+          },
+          {
+            title: '状态',
+            dataIndex: 'status',
+            filters: true,
+            valueEnum: {
+              0: { text: '关闭', status: 'Default' },
+              1: { text: '运行中', status: 'Processing' },
+              2: { text: '已上线', status: 'Success' },
+              3: { text: '异常', status: 'Error' },
+            },
+          },
+        ]}
+        onChange={fn}
+        dataSource={[
+          {
+            status: 0,
+            money: '1',
+          },
+          {
+            money: '2',
+            status: 1,
+          },
+        ]}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 200);
+
+    act(() => {
+      html.find('span.ant-table-filter-trigger').simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 800);
+    act(() => {
+      html.find('.ant-table-filter-dropdown').debug();
+      html.find('span.ant-table-filter-trigger').simulate('click');
+      html
+        .find('.ant-table-filter-dropdown .ant-dropdown-menu-item')
+        .at(0)
+        .simulate('click', {
+          target: {
+            checked: true,
+          },
+        });
+    });
+
+    await waitForComponentToPaint(html, 500);
+    act(() => {
+      html
+        .find('.ant-table-filter-dropdown-btns .ant-btn.ant-btn-primary.ant-btn-sm')
+        .simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 500);
+    expect(fn).toBeCalledTimes(1);
+  });
+
+  it('🎏 filter test by namePath is array', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            title: 'Name',
+            key: 'name',
             dataIndex: ['name', 'money'],
           },
           {
