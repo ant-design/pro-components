@@ -152,7 +152,7 @@ export default () => {
       />
       <ProTable<GithubIssueItem>
         columns={columns}
-        actionRef={actionRef}
+        actionRef={(ref) => console.log(ref)}
         request={async (params = {}) =>
           request<{
             data: GithubIssueItem[];
