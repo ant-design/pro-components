@@ -176,6 +176,9 @@ export default () => {
       request={async () => ({
         data: [],
       })}
+      formRef={(ref) => {
+        console.log(ref);
+      }}
       type="form"
       rowKey="id"
       dateFormatter="string"
