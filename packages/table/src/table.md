@@ -24,6 +24,10 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 
 <code src="./demos/single.tsx" background="#f5f5f5" height="500px"/>
 
+### DataSource
+
+<code src="./demos/dataSource.tsx" background="#f5f5f5" height="500px"/>
+
 ### 降级为普通表格
 
 <code src="./demos/normal.tsx" background="#f5f5f5" height="400px"/>
@@ -39,6 +43,10 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 ### 嵌套表格
 
 <code src="./demos/table-nested.tsx" background="#f5f5f5"  height="400px"/>
+
+### 左右结构
+
+<code src="./demos/split.tsx" background="#f5f5f5" height="500px"/>
 
 ### 表格批量操作
 
@@ -275,7 +283,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | labelWidth | 标签的宽度 | `'number'` \| `'auto'` | 80 |
 | span | 配置查询表单的列数 | `'number'` \| [`'ColConfig'`](#ColConfig) | defaultColConfig |
 | collapseRender | 收起按钮的 render | `(collapsed: boolean,showCollapseButton?: boolean,) => React.ReactNode` | - |
-| defaultCollapsed | 默认是否收起 | boolean | false |
+| defaultCollapsed | 默认是否收起 | boolean | true |
 | collapsed | 是否收起 | boolean | - |
 | onCollapse | 收起按钮的事件 | `(collapsed: boolean) => void;` | - |
 | optionRender | 操作栏的 render | `((searchConfig,formProps) => React.ReactNode[])`\|`false` | - |
@@ -565,15 +573,15 @@ SearchProps 为 antd 的 [Input.Search](https://ant.design/components/input-cn/#
 
 | 参数      | 说明           | 类型                                  | 默认值     |
 | --------- | -------------- | ------------------------------------- | ---------- |
-| type      | 类型           | 'inline' \| 'dropdown'                | 'dropdown' |
+| type      | 类型           | `inline` \| `dropdown` \| `tab`       | `dropdown` |
 | activeKey | 当前值         | string                                | -          |
 | items     | 菜单项         | `{ key: string; label: ReactNode }[]` | -          |
 | onChange  | 切换菜单的回调 | `(activeKey)=>void`                   | -          |
 
 #### ListToolBarTabs
 
-| 参数      | 说明       | 类型                                | 默认值     |
-| --------- | ---------- | ----------------------------------- | ---------- |
-| activeKey | 当前选中项 | string                              | -          |
-| items     | 菜单项     | `{ key: string; tab: ReactNode }[]` | -          |
-| onChange  | 类型       | 'inline' \| 'dropdown'              | 'dropdown' |
+| 参数      | 说明           | 类型                                | 默认值 |
+| --------- | -------------- | ----------------------------------- | ------ |
+| activeKey | 当前选中项     | string                              | -      |
+| items     | 菜单项         | `{ key: string; tab: ReactNode }[]` | -      |
+| onChange  | 切换菜单的回调 | `(activeKey)=>void`                 | -      |

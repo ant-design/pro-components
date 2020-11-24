@@ -1,6 +1,7 @@
-import { Popconfirm, Space } from 'antd';
+import { Popconfirm, Space, Button, Menu, Dropdown } from 'antd';
 import React from 'react';
 import ProTable, { ProColumns } from '@ant-design/pro-table';
+import { DownOutlined } from '@ant-design/icons';
 
 export interface Member {
   avatar: string;
@@ -54,6 +55,13 @@ for (let i = 0; i < 5; i += 1) {
   });
 }
 
+const roleMenu = (
+  <Menu>
+    <Menu.Item key="admin">管理员</Menu.Item>
+    <Menu.Item key="operator">操作员</Menu.Item>
+  </Menu>
+);
+
 const MemberList: React.FC = () => {
   const renderRemoveUser = (text: string) => (
     <Popconfirm title={`确认${text}吗?`} okText="是" cancelText="否">
@@ -85,7 +93,13 @@ const MemberList: React.FC = () => {
     {
       dataIndex: 'role',
       title: '角色',
-      render: (_, record) => RoleMap[record.role || 'admin'].name,
+      render: (_, record) => (
+        <Dropdown overlay={roleMenu}>
+          <span>
+            {RoleMap[record.role || 'admin'].name} <DownOutlined />
+          </span>
+        </Dropdown>
+      ),
     },
     {
       dataIndex: 'permission',
@@ -106,7 +120,7 @@ const MemberList: React.FC = () => {
         if (record.role === 'admin') {
           node = renderRemoveUser('移除');
         }
-        return node;
+        return [<Button type="link">编辑</Button>, node];
       },
     },
   ];

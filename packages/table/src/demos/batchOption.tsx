@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, DatePicker, Space } from 'antd';
+import { Button, DatePicker, Space, Table } from 'antd';
 import ProTable, { ProColumns } from '@ant-design/pro-table';
 
 const { RangePicker } = DatePicker;
@@ -123,7 +123,11 @@ export default () => {
   return (
     <ProTable<TableListItem>
       columns={columns}
-      rowSelection={{}}
+      rowSelection={{
+        // 自定义选择项参考: https://ant.design/components/table-cn/#components-table-demo-row-selection-custom
+        // 注释该行则默认不显示下拉选项
+        selections: [Table.SELECTION_ALL, Table.SELECTION_INVERT],
+      }}
       tableAlertRender={({ selectedRowKeys, selectedRows, onCleanSelected }) => (
         <Space size={24}>
           <span>
