@@ -244,7 +244,7 @@ const QueryFilterContent: React.FC<{
             {item}
           </Col>
         );
-        if (split && currentSpan % 24 === 0 && index < lastVisibleItemIndex) {
+        if (split && currentSpan % 24 === 0 && index <= lastVisibleItemIndex) {
           return [
             colItem,
             <Divider key="line" style={{ marginTop: -8, marginBottom: 16 }} dashed />,
@@ -356,6 +356,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
               onReset={onReset}
               submitter={renderSubmitter}
               items={items}
+              split={split}
               showLength={showLength}
             />
           )

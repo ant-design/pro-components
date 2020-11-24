@@ -13508,6 +13508,11 @@ exports[`form demos renders ./packages/form/src/demos/search-filter.tsx correctl
             </div>
           </div>
         </div>
+        <div
+          class="ant-divider ant-divider-horizontal ant-divider-dashed"
+          role="separator"
+          style="margin-top: -8px; margin-bottom: 16px;"
+        />
         <div>
           <div
             class="ant-pro-form-group-title"
