@@ -8,6 +8,7 @@ import { request } from './demo';
 import { waitForComponentToPaint } from '../util';
 
 describe('BasicTable Search', () => {
+  process.env.NODE_ENV = 'TEST';
   const LINE_STR_COUNT = 20;
   // Mock offsetHeight
   // @ts-expect-error
