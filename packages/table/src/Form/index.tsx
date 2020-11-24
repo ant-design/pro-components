@@ -1,6 +1,14 @@
-import React, { useContext, useEffect, useRef, useCallback, useState } from 'react';
+import React, {
+  useContext,
+  useEffect,
+  useRef,
+  useCallback,
+  useState,
+  useImperativeHandle,
+  useMemo,
+} from 'react';
 import { FormInstance, FormItemProps, FormProps } from 'antd/lib/form';
-import { Form, ConfigProvider } from 'antd';
+import { ConfigProvider } from 'antd';
 import { useIntl, IntlType } from '@ant-design/pro-provider';
 import ProForm, {
   QueryFilter,
@@ -281,9 +289,7 @@ const FormSearch = <T, U = any>({
    */
   const intl = useIntl();
 
-  const [form] = Form.useForm();
-
-  const formInstanceRef = useRef<FormInstance | undefined>(form as any);
+  const formInstanceRef = useRef<FormInstance | undefined>();
 
   /**
    * 保存 valueTypeRef，用于分辨是用什么方式格式化数据
@@ -303,48 +309,54 @@ const FormSearch = <T, U = any>({
   /**
    *提交表单，根据两种模式不同，方法不相同
    */
-  const submit = async (firstLoad: boolean) => {
-    let value;
-    // 如果不是表单模式，不用进行验证
-    if (!isForm) {
-      value = form.getFieldsValue();
-    } else {
-      try {
-        value = await form.validateFields();
-      } catch (error) {
-        // console.log(error)
+  const submit = useCallback(
+    async (firstLoad: boolean) => {
+      let value;
+      // 如果不是表单模式，不用进行验证
+      if (!isForm) {
+        value = formInstanceRef.current?.getFieldsValue();
+      } else {
+        try {
+          value = await formInstanceRef.current?.validateFields();
+        } catch (error) {
+          // console.log(error)
+        }
       }
-    }
-    if (onSubmit && valueTypeRef.current) {
-      // 转化值
-      // moment -> string
-      // key: [value, value] -> { key:value, key: value }
-      const finalValue = transformKeySubmitValue(
-        conversionSubmitValue(value, dateFormatter, valueTypeRef.current) as T,
-        transformKeyRef.current,
-      );
-      onSubmit(finalValue, firstLoad);
-    }
-  };
+      if (onSubmit && valueTypeRef.current) {
+        // 转化值
+        // moment -> string
+        // key: [value, value] -> { key:value, key: value }
+        const finalValue = transformKeySubmitValue(
+          conversionSubmitValue(value, dateFormatter, valueTypeRef.current) as T,
+          transformKeyRef.current,
+        );
+        onSubmit(finalValue, firstLoad);
+      }
+    },
+    [formInstanceRef.current, onSubmit],
+  );
+
+  useImperativeHandle(
+    formRef,
+    () =>
+      ({
+        ...formInstanceRef.current,
+        submit: () => {
+          submit(false);
+          formInstanceRef.current?.submit();
+        },
+      } as any),
+    [formInstanceRef.current],
+  );
 
   useEffect(() => {
     if (!formRef) {
       return;
     }
-    if (typeof formRef === 'function') {
-      formRef(form);
+    if (typeof formRef === 'function' && formInstanceRef.current) {
+      formRef(formInstanceRef.current);
     }
-    if (formRef && typeof formRef !== 'function') {
-      // eslint-disable-next-line no-param-reassign
-      formRef.current = {
-        ...form,
-        submit: () => {
-          submit(false);
-          form.submit();
-        },
-      };
-    }
-  }, []);
+  }, [formInstanceRef.current]);
 
   useDeepCompareEffect(() => {
     if (columns.length < 1) {
@@ -383,33 +395,35 @@ const FormSearch = <T, U = any>({
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
-  const columnsList = columns
-    .filter((item) => {
-      const { valueType } = item;
-      if ((item.hideInSearch || item.search === false) && type !== 'form') {
+  const columnsList = useMemo(() => {
+    return columns
+      .filter((item) => {
+        const { valueType } = item;
+        if ((item.hideInSearch || item.search === false) && type !== 'form') {
+          return false;
+        }
+        if (type === 'form' && item.hideInForm) {
+          return false;
+        }
+        if (
+          valueType !== 'index' &&
+          valueType !== 'indexBorder' &&
+          valueType !== 'option' &&
+          (item.key || item.dataIndex)
+        ) {
+          return true;
+        }
         return false;
-      }
-      if (type === 'form' && item.hideInForm) {
-        return false;
-      }
-      if (
-        valueType !== 'index' &&
-        valueType !== 'indexBorder' &&
-        valueType !== 'option' &&
-        (item.key || item.dataIndex)
-      ) {
-        return true;
-      }
-      return false;
-    })
-    .sort((a, b) => {
-      if (a && b) {
-        return (b.order || 0) - (a.order || 0);
-      }
-      if (a && a.order) return -1;
-      if (b && b.order) return 1;
-      return 0;
-    });
+      })
+      .sort((a, b) => {
+        if (a && b) {
+          return (b.order || 0) - (a.order || 0);
+        }
+        if (a && a.order) return -1;
+        if (b && b.order) return 1;
+        return 0;
+      });
+  }, [columns]);
 
   const [domList, setDomList] = useState<JSX.Element[]>([]);
   const columnsListRef = useRef(domList);
@@ -437,27 +451,33 @@ const FormSearch = <T, U = any>({
   );
 
   useDeepCompareEffect(() => {
-    if (columnsList.length < 1) return;
+    if (columnsList.length < 1 || !formInstanceRef.current) return;
     updateDomList(columnsList);
   }, [columnsList, formInstanceRef.current]);
 
   const className = getPrefixCls('pro-table-search');
   const formClassName = getPrefixCls('pro-table-form');
 
-  const { Competent, competentName } = getFormCompetent(isForm, searchConfig) as {
-    Competent: React.FC<QueryFilterProps>;
-    competentName: string;
-  };
+  const { Competent, competentName } = useMemo(
+    () =>
+      getFormCompetent(isForm, searchConfig) as {
+        Competent: React.FC<QueryFilterProps>;
+        competentName: string;
+      },
+    [searchConfig, isForm],
+  );
 
   // 传给每个表单的配置，理论上大家都需要
-  const loadingProps: any = {
-    submitter: {
-      submitButtonProps: {
-        loading: submitButtonLoading,
+  const loadingProps: any = useMemo(
+    () => ({
+      submitter: {
+        submitButtonProps: {
+          loading: submitButtonLoading,
+        },
       },
-    },
-  };
-
+    }),
+    [submitButtonLoading],
+  );
   return (
     <div
       className={classNames(className, {
@@ -470,7 +490,6 @@ const FormSearch = <T, U = any>({
         {...getFromProps(isForm, searchConfig, competentName)}
         {...formConfig}
         formRef={formInstanceRef}
-        form={form}
         onValuesChange={(change, all) => {
           updateDomList(columnsList);
           if (formConfig.onValuesChange) {
@@ -479,7 +498,7 @@ const FormSearch = <T, U = any>({
         }}
         onReset={() => {
           if (onReset) {
-            const value = form.getFieldsValue() as T;
+            const value = formInstanceRef.current?.getFieldsValue() as T;
             onReset(value);
           }
         }}
@@ -494,4 +513,4 @@ const FormSearch = <T, U = any>({
   );
 };
 
-export default FormSearch;
+export default React.memo(FormSearch) as typeof FormSearch;

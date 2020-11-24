@@ -163,6 +163,9 @@ export default () => {
         pagination={{
           pageSize: 5,
         }}
+        formRef={(ref) => {
+          console.log(ref);
+        }}
         rowKey="id"
         dateFormatter="string"
         headerTitle="高级表格"

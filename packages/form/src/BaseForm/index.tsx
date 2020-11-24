@@ -80,10 +80,9 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
    * 因为 protable 里面的值无法保证刚开始就存在
    * 所以多进行了一次触发，这样可以解决部分问题
    */
-  const [formInit, forgetUpdate] = useState(false);
+  const [, forgetUpdate] = useState(false);
 
   const items = React.Children.toArray(children);
-
   const submitterProps: Omit<SubmitterProps, 'form'> =
     typeof submitter === 'boolean' || !submitter ? {} : submitter;
 
@@ -93,6 +92,7 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
   const submitterNode =
     submitter === false ? undefined : (
       <Submitter
+        key="submitter"
         {...submitterProps}
         form={userForm || form}
         submitButtonProps={{
@@ -156,17 +156,10 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
             />
             <Form.Item noStyle shouldUpdate>
               {(formInstance) => {
-                // 不 setTimeout 一下拿到的是比较旧的
-                setTimeout(() => {
-                  // 支持 fromRef，这里 ref 里面可以随时拿到最新的值
-                  if (propsFormRef) {
-                    if (!formInit) {
-                      forgetUpdate(true);
-                    }
-                    propsFormRef.current = formInstance as FormInstance;
-                  }
-                  formRef.current = formInstance as FormInstance;
-                }, 0);
+                // 支持 fromRef，这里 ref 里面可以随时拿到最新的值
+                if (propsFormRef && !propsFormRef.current) forgetUpdate(true);
+                if (propsFormRef) propsFormRef.current = formInstance as FormInstance;
+                formRef.current = formInstance as FormInstance;
               }}
             </Form.Item>
             {content}

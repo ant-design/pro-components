@@ -77,7 +77,6 @@ const ProTable = <T extends {}, U extends ParamsType>(
     defaultClassName,
     formRef,
     type = 'table',
-    onReset = () => {},
     columnEmptyText = '-',
     manualRequest = false,
     toolbar,
@@ -307,6 +306,38 @@ const ProTable = <T extends {}, U extends ParamsType>(
     },
   };
 
+  const onSubmit = useCallback(
+    (value, firstLoad) => {
+      if (type !== 'form') {
+        const submitParams = {
+          ...value,
+          _timestamp: Date.now(),
+        };
+        setFormSearch(beforeSearchSubmit(submitParams));
+        if (!firstLoad) {
+          // back first page
+          action.resetPageIndex();
+        }
+      }
+      // 不是第一次提交就不触发，第一次提交是 js 触发的
+      // 为了解决 https://github.com/ant-design/pro-components/issues/579
+      if (props.onSubmit && !firstLoad) {
+        props.onSubmit(value);
+      }
+    },
+    [props.onSubmit],
+  );
+
+  const onReset = useCallback(
+    (value) => {
+      setFormSearch(beforeSearchSubmit(value));
+      // back first page
+      action.resetPageIndex();
+      props.onReset?.();
+    },
+    [props.onReset],
+  );
+
   if ((!props.columns || props.columns.length < 1) && !props.tableViewRender) {
     return (
       <Card bordered={false} bodyStyle={{ padding: 50 }}>
@@ -326,32 +357,11 @@ const ProTable = <T extends {}, U extends ParamsType>(
       {...rest}
       type={type}
       formRef={formRef}
-      onSubmit={(value, firstLoad) => {
-        if (type !== 'form') {
-          const submitParams = {
-            ...value,
-            _timestamp: Date.now(),
-          };
-          setFormSearch(beforeSearchSubmit(submitParams));
-          if (!firstLoad) {
-            // back first page
-            action.resetPageIndex();
-          }
-        }
-        // 不是第一次提交就不触发，第一次提交是 js 触发的
-        // 为了解决 https://github.com/ant-design/pro-components/issues/579
-        if (props.onSubmit && !firstLoad) {
-          props.onSubmit(value);
-        }
-      }}
-      onReset={(value) => {
-        setFormSearch(beforeSearchSubmit(value));
-        // back first page
-        action.resetPageIndex();
-        onReset();
-      }}
+      onSubmit={onSubmit}
+      onReset={onReset}
       dateFormatter={rest.dateFormatter}
       search={search}
+      form={rest.form}
     />
   );
 
@@ -370,8 +380,9 @@ const ProTable = <T extends {}, U extends ParamsType>(
       }
     : toolbar;
 
-  const toolbarDom = toolBarRender !== false &&
-    (options !== false || headerTitle || toolBarRender || toolbarProps) && (
+  const toolbarDom =
+    toolBarRender !== false &&
+    (options !== false || headerTitle || toolBarRender || toolbarProps) ? (
       // if options= false & headerTitle=== false, hide Toolbar
       <Toolbar<T>
         columns={tableColumn}
@@ -396,7 +407,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
         toolBarRender={toolBarRender}
         toolbar={toolbarProps}
       />
-    );
+    ) : undefined;
   /**
    * 内置的多选操作栏
    */

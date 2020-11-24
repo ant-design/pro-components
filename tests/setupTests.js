@@ -1,4 +1,6 @@
 import MockDate from 'mockdate';
+import Enzyme from 'enzyme';
+
 import moment from 'moment-timezone';
 import { enableFetchMocks } from 'jest-fetch-mock';
 
@@ -30,8 +32,6 @@ if (typeof window !== 'undefined') {
     });
   }
 }
-
-const Enzyme = require('enzyme');
 
 Object.assign(Enzyme.ReactWrapper.prototype, {
   findObserver() {
@@ -95,4 +95,14 @@ Math.random = () => 0.8404419276253765;
 
 fetch.mockResponse(async () => {
   return { body: JSON.stringify(tableData) };
+});
+
+Object.assign(Enzyme.ReactWrapper.prototype, {
+  findObserver() {
+    return this.find('ResizeObserver');
+  },
+  triggerResize() {
+    const ob = this.findObserver();
+    ob.instance().onResize([{ target: ob.getDOMNode() }]);
+  },
 });
