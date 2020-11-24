@@ -6,7 +6,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import './index.less';
 
 export interface ListToolBarMenuItem {
-  key: string;
+  key: React.Key;
   label: React.ReactNode;
   disabled?: boolean;
 }
@@ -59,7 +59,7 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
 
   if (type === 'tab') {
     return (
-      <Tabs activeKey={activeItem.key} onTabClick={(key) => setActiveKey(key)}>
+      <Tabs activeKey={activeItem.key as string} onTabClick={(key) => setActiveKey(key)}>
         {items.map(({ label, key, ...rest }) => {
           return <Tabs.TabPane tab={label} key={key} {...rest} />;
         })}
@@ -73,7 +73,7 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
         trigger={['click']}
         overlay={
           <Menu
-            selectedKeys={[activeItem.key]}
+            selectedKeys={[activeItem.key as string]}
             onClick={(item) => {
               setActiveKey(item.key);
             }}

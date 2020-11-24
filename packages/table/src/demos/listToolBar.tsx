@@ -76,7 +76,7 @@ const renderBadge = (count: number, active = false) => {
 };
 
 export default () => {
-  const [activekey, setActiveKey] = useState<string | number>('tab1');
+  const [activekey, setActiveKey] = useState<React.Key>('tab1');
 
   return (
     <ProTable<TableListItem>
@@ -113,7 +113,7 @@ export default () => {
             },
           ],
           onChange: (key) => {
-            setActiveKey(key);
+            setActiveKey(key as string);
           },
         },
         actions: [
