@@ -33,7 +33,7 @@ for (let i = 0; i < 2; i += 1) {
   });
 }
 
-const timeAwait = (waitTime: number) =>
+const timeAwait = (waitTime: number): Promise<void> =>
   new Promise((res) =>
     window.setTimeout(() => {
       res();

@@ -38,7 +38,7 @@ function useDebounceFn<T extends any[]>(
   }, []);
 
   const run = useCallback(
-    async (...args: any) => {
+    async (...args: any): Promise<void> => {
       return new Promise((resolve) => {
         cancel();
         timer.current = setTimeout(async () => {
