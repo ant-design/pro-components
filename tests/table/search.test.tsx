@@ -295,8 +295,9 @@ describe('BasicTable Search', () => {
     expect(fn).toBeCalledTimes(1);
   });
 
-  it('🎏 renderFormItem test', async () => {
+  it('🎏 renderFormItem test and fieldProps onChange', async () => {
     const fn = jest.fn();
+    const onChangeFn = jest.fn();
     const html = mount(
       <ProTable
         size="small"
@@ -310,6 +311,9 @@ describe('BasicTable Search', () => {
             title: '金额',
             dataIndex: 'money',
             valueType: 'money',
+            fieldProps: {
+              onChange: (e: any) => onChangeFn(e.target.value),
+            },
             renderFormItem: () => <Input id="renderFormItem" />,
           },
           {
@@ -334,6 +338,7 @@ describe('BasicTable Search', () => {
         },
       });
     });
+    expect(onChangeFn).toBeCalledWith('12');
     expect(fn).toBeCalledWith('12');
   });
 

@@ -153,10 +153,9 @@ function createField<P extends ProFormItemProps = any>(
       ...restFormItemProps,
       ...propsFormItemProps,
     };
-
     const field = (
       <Field
-        // ProXxx 上面的 props 透传给 Filed，可能包含 Field 自定义的 props，
+        // ProXxx 上面的 props 透传给 FieldProps，可能包含 Field 自定义的 props，
         // 比如 ProFormSelect 的 request
         {...(rest as P)}
         fieldProps={{
@@ -181,7 +180,6 @@ function createField<P extends ProFormItemProps = any>(
     if (ignoreFormItem) {
       return field;
     }
-
     return (
       <Form.Item
         // 全局的提供一个 tip 功能，可以减少代码量
