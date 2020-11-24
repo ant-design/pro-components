@@ -143,7 +143,7 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 > 所有以 `Render` 后缀的方法都可以通过传入 `false` 来使其不渲染。
 
 | 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | title | layout 的左上角 的 title | `ReactNode` | `'Ant Design Pro'` |
 | logo | layout 的左上角 logo 的 url | `ReactNode` \| `()=> ReactNode` | - |
 | pure | 是否删除掉所有的自带界面 | `boolean` | - |
@@ -196,7 +196,7 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 > SettingDrawer 提供了一个图形界面来设置 layout 的配置。不建议在正式环境中使用。
 
 | 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | settings | layout 的设置 | [`Settings`](#Settings) | [`Settings`](#Settings) | - |
 | onSettingChange | [`Settings`](#Settings) 发生更改事件 | (settings: [`Settings`](#Settings) ) => void | - |
 | hideHintAlert | 删除下方的提示信息 | `boolean` | - |

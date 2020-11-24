@@ -38,7 +38,7 @@ return <Skeleton type="list" />;
 ## API
 
 | 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | type | 不同类型的骨架屏 | `'list' | 'result' | 'descriptions'` | list |
 | active | 是否显示动态 | boolean | true |
 | pageHeader | 是否显示 pageHeader 的骨架屏 descriptions 和 list 有效 | - | - |

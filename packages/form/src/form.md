@@ -228,7 +228,7 @@ StepsForm 本质上是一个 Provider ，增加步骤条和一些相关的 API�
 ModalForm 组合了 Modal 和 ProForm 可以减少繁琐的状态管理。
 
 | 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | trigger | 用于触发 Modal 打开的 dom，一般是 button | `ReactNode` | - |
 | visible | 是否打开 | `boolean` | - |
 | onVisibleChange | visible 改变时触发 | `(visible:boolean)=>void` | - |
@@ -242,7 +242,7 @@ ModalForm 组合了 Modal 和 ProForm 可以减少繁琐的状态管理。
 DrawerForm 组合了 Drawer 和 ProForm 可以减少繁琐的状态管理。
 
 | 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | trigger | 用于触发 Modal 打开的 dom，一般是 button | `ReactNode` | - |
 | visible | 是否打开 | `boolean` | - |
 | onVisibleChange | visible 改变时触发 | `(visible:boolean)=>void` | - |
