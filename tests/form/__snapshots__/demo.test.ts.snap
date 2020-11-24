@@ -5854,7 +5854,9 @@ Array [
       </div>
     </form>
   </div>,
-  <div>
+  <div
+    style="display: inline-block;"
+  >
     <button
       class="ant-btn ant-btn-primary"
       type="button"
@@ -9948,7 +9950,9 @@ Array [
       </div>
     </form>
   </div>,
-  <div>
+  <div
+    style="display: inline-block;"
+  >
     <button
       class="ant-btn ant-btn-primary"
       type="button"
