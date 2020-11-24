@@ -399,6 +399,7 @@ export function genColumnList<T>(props: {
     .map((columnProps, columnsIndex) => {
       const { key, dataIndex, valueEnum, valueType, filters = [] } = columnProps;
       const columnKey = genColumnKey(key, columnsIndex);
+      // 这些都没有，说明是普通的表格不需要 pro 管理
       const noNeedPro = !dataIndex && !valueEnum && !valueType;
       if (noNeedPro) {
         return columnProps;
@@ -406,9 +407,10 @@ export function genColumnList<T>(props: {
       const { propsRef } = counter;
       const config = map[columnKey] || { fixed: columnProps.fixed };
       const tempColumns = {
-        onFilter: propsRef.current?.request
-          ? undefined
-          : (value: string, row: T) => defaultOnFilter(value, row, dataIndex as string[]),
+        onFilter:
+          !propsRef.current?.request || filters === true
+            ? (value: string, row: T) => defaultOnFilter(value, row, dataIndex as string[])
+            : undefined,
         index: columnsIndex,
         ...columnProps,
         title: renderColumnsTitle(columnProps),
@@ -425,17 +427,19 @@ export function genColumnList<T>(props: {
         children: (columnProps as ProColumnGroupType<T>).children
           ? genColumnList({ ...props, columns: (columnProps as ProColumnGroupType<T>)?.children })
           : undefined,
-        render: (text: any, row: T, index: number) =>
-          columnRender<T>({
+        render: (text: any, rowData: T, index: number) => {
+          const renderProps = {
             columnProps,
             text,
-            rowData: row,
+            rowData,
             index,
             columnEmptyText,
             counter,
             type,
             editableUtils,
-          }),
+          };
+          return columnRender<T>(renderProps);
+        },
       };
       return omitUndefinedAndEmptyArr(tempColumns);
     })
