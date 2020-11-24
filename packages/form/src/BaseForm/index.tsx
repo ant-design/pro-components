@@ -157,12 +157,8 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
             <Form.Item noStyle shouldUpdate>
               {(formInstance) => {
                 // 支持 fromRef，这里 ref 里面可以随时拿到最新的值
-                if (propsFormRef) {
-                  if (!formRef.current) {
-                    forgetUpdate(true);
-                  }
-                  propsFormRef.current = formInstance as FormInstance;
-                }
+                if (propsFormRef && !propsFormRef) forgetUpdate(true);
+                if (propsFormRef) propsFormRef.current = formInstance as FormInstance;
                 formRef.current = formInstance as FormInstance;
               }}
             </Form.Item>
