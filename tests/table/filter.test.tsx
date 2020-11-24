@@ -116,8 +116,8 @@ describe('BasicTable Search', () => {
           },
           {
             title: '状态',
-            dataIndex: ['name', 'status'],
-            filters: true,
+            dataIndex: 'status',
+            filters: [{ text: '关闭', value: 0 }],
             valueEnum: {
               0: { text: '关闭', status: 'Default' },
               1: { text: '运行中', status: 'Processing' },
@@ -126,21 +126,29 @@ describe('BasicTable Search', () => {
             },
           },
         ]}
-        onChange={fn}
-        dataSource={[
-          {
-            name: {
-              status: 0,
-              money: '1',
-            },
-          },
-          {
-            name: {
-              money: '2',
-              status: 1,
-            },
-          },
-        ]}
+        request={async (_, sort, filter) => {
+          if (filter.status) {
+            fn();
+          }
+          return {
+            total: 2,
+            success: true,
+            data: [
+              {
+                name: {
+                  status: 0,
+                  money: '1',
+                },
+              },
+              {
+                name: {
+                  money: '2',
+                  status: 1,
+                },
+              },
+            ],
+          };
+        }}
         rowKey="key"
       />,
     );
