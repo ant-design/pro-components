@@ -69,32 +69,29 @@ export default () => {
     {
       title: '标题',
       dataIndex: 'name',
-      search: false,
     },
     {
       title: '状态',
       dataIndex: 'state',
       initialValue: 1,
       valueType: 'select',
-      fieldProps: {
-        options: [
-          {
-            label: '月份',
-            value: 1,
-          },
-          {
-            label: '周',
-            value: 2,
-          },
-          {
-            label: '自定义',
-            value: 3,
-          },
-        ],
-      },
+      request: async () => [
+        {
+          label: '月份',
+          value: 1,
+        },
+        {
+          label: '周',
+          value: 2,
+        },
+        {
+          label: '自定义',
+          value: 3,
+        },
+      ],
     },
     {
-      title: '动态',
+      title: '动态表单',
       key: 'direction',
       hideInTable: true,
       dataIndex: 'direction',

@@ -750,18 +750,24 @@ describe('BasicTable', () => {
     const fn = jest.fn();
     const html = mount(
       <ProTable
-        columns={undefined}
+        columns={[{ dataIndex: 'name' }]}
         options={{
           search: true,
         }}
         request={async (params) => {
           fn(params.keyword);
-          return { data: [] };
+          return {
+            data: [
+              {
+                name: 'string',
+              },
+            ],
+          };
         }}
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 600);
+    await waitForComponentToPaint(html, 1000);
 
     act(() => {
       html.find('.ant-pro-table-list-toolbar-search input').simulate('change', {
@@ -791,7 +797,7 @@ describe('BasicTable', () => {
           test: string;
         }
       >
-        columns={undefined}
+        columns={[{ dataIndex: 'name' }]}
         options={{
           search: {
             name: 'test',
