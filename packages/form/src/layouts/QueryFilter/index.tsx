@@ -316,8 +316,6 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
                       submitter={submitter}
                       setCollapsed={setCollapsed}
                       style={{
-                        // 当表单是垂直布局且提交按钮不是独自在一行的情况下需要设置一个 paddingTop 使得与控件对齐
-                        paddingTop: layout === 'vertical' && totalSpan % 24 ? 30 : 0,
                         // marginBottom 是为了和 FormItem 统一让下方保留一个 24px 的距离
                         marginBottom: 24,
                       }}
