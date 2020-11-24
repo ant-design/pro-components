@@ -5,9 +5,29 @@ import { act } from 'react-dom/test-utils';
 import { Input } from 'antd';
 import ProTable from '@ant-design/pro-table';
 import { request } from './demo';
-import { waitForComponentToPaint } from '../util';
+import { waitForComponentToPaint, spyElementPrototypes } from '../util';
 
 describe('BasicTable Search', () => {
+  let domSpy: any;
+  let mockWidth: number;
+  let mockHeight: number;
+  let mockOffsetWidth: number;
+  let mockOffsetHeight: number;
+
+  beforeAll(() => {
+    domSpy = spyElementPrototypes(HTMLElement, {
+      getBoundingClientRect: () => ({
+        width: mockWidth,
+        height: mockHeight,
+      }),
+      offsetWidth: {
+        get: () => mockOffsetWidth,
+      },
+      offsetHeight: {
+        get: () => mockOffsetHeight,
+      },
+    });
+  });
   process.env.NODE_ENV = 'TEST';
   const LINE_STR_COUNT = 20;
   // Mock offsetHeight
@@ -36,9 +56,15 @@ describe('BasicTable Search', () => {
       get: originOffsetHeight,
     });
     window.getComputedStyle = originGetComputedStyle;
+    domSpy.mockRestore();
   });
 
   it('🎏 submit test', async () => {
+    mockHeight = 0;
+    mockWidth = 0;
+    mockOffsetHeight = 0;
+    mockOffsetWidth = 0;
+
     const fn = jest.fn();
     const html = mount(
       <ProTable
@@ -69,6 +95,10 @@ describe('BasicTable Search', () => {
     act(() => {
       html.find('button.ant-btn.ant-btn-primary').simulate('click');
     });
+
+    mockOffsetWidth = 1023;
+
+    global.dispatchEvent(new Event('resize'));
 
     await waitForComponentToPaint(html, 500);
 
