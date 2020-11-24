@@ -125,7 +125,11 @@ const ModalForm: React.FC<ModalFormProps> = ({
         </div>,
         document.body,
       )}
-      {trigger && <div onClick={() => setVisible(!visible)}>{trigger}</div>}
+      {trigger && (
+        <div style={{ display: 'inline-block' }} onClick={() => setVisible(!visible)}>
+          {trigger}
+        </div>
+      )}
     </>
   );
 };
