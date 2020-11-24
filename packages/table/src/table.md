@@ -573,15 +573,15 @@ SearchProps 为 antd 的 [Input.Search](https://ant.design/components/input-cn/#
 
 | 参数      | 说明           | 类型                                  | 默认值     |
 | --------- | -------------- | ------------------------------------- | ---------- |
-| type      | 类型           | 'inline' \| 'dropdown'                | 'dropdown' |
+| type      | 类型           | `inline` \| `dropdown` \| `tab`       | `dropdown` |
 | activeKey | 当前值         | string                                | -          |
 | items     | 菜单项         | `{ key: string; label: ReactNode }[]` | -          |
 | onChange  | 切换菜单的回调 | `(activeKey)=>void`                   | -          |
 
 #### ListToolBarTabs
 
-| 参数      | 说明       | 类型                                | 默认值     |
-| --------- | ---------- | ----------------------------------- | ---------- |
-| activeKey | 当前选中项 | string                              | -          |
-| items     | 菜单项     | `{ key: string; tab: ReactNode }[]` | -          |
-| onChange  | 类型       | 'inline' \| 'dropdown'              | 'dropdown' |
+| 参数      | 说明           | 类型                                | 默认值 |
+| --------- | -------------- | ----------------------------------- | ------ |
+| activeKey | 当前选中项     | string                              | -      |
+| items     | 菜单项         | `{ key: string; tab: ReactNode }[]` | -      |
+| onChange  | 切换菜单的回调 | `(activeKey)=>void`                 | -      |

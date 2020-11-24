@@ -137,7 +137,7 @@ export default () => {
         showQuickJumper: true,
       }}
       search={{
-        labelLayout: 'vertical',
+        layout: 'vertical',
       }}
       dateFormatter="string"
       toolbar={{

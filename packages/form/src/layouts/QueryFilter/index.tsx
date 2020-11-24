@@ -79,8 +79,7 @@ export type SpanConfig =
 
 export type BaseQueryFilterProps = Omit<ActionsProps, 'submitter' | 'setCollapsed' | 'isForm'> & {
   defaultCollapsed?: boolean;
-
-  labelLayout?: 'default' | 'growth' | 'vertical';
+  layout?: FormProps['layout'];
   defaultColsNumber?: number;
   labelWidth?: number | 'auto';
   split?: boolean;
