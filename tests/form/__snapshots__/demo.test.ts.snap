@@ -12209,7 +12209,6 @@ exports[`form demos renders ./packages/form/src/demos/query-filter.tsx correctly
             >
               <div
                 class="ant-space ant-space-horizontal ant-space-align-center"
-                style="padding-top: 0px; margin-bottom: 24px;"
               >
                 <div
                   class="ant-space-item"
@@ -12669,7 +12668,6 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-collapsed.tsx
             >
               <div
                 class="ant-space ant-space-horizontal ant-space-align-center"
-                style="padding-top: 0px; margin-bottom: 24px;"
               >
                 <div
                   class="ant-space-item"
@@ -13202,7 +13200,6 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-vertical.tsx 
             >
               <div
                 class="ant-space ant-space-horizontal ant-space-align-center"
-                style="padding-top: 30px; margin-bottom: 24px;"
               >
                 <div
                   class="ant-space-item"

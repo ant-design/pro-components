@@ -281,7 +281,6 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                 >
                   <div
                     class="qixian-space qixian-space-horizontal qixian-space-align-center"
-                    style="padding-top: 0px; margin-bottom: 24px;"
                   >
                     <div
                       class="qixian-space-item"

@@ -363,17 +363,13 @@ const ProTable = <T extends {}, U extends ParamsType>(
   /**
    * 根据表单类型的不同决定是否生成 toolbarProps
    */
-  const toolbarProps =
-    toolbar || isLightFilter
-      ? {
-          filter: searchNode,
-          ...toolbar,
-        }
-      : undefined;
+  const toolbarProps = isLightFilter
+    ? {
+        filter: searchNode,
+        ...toolbar,
+      }
+    : toolbar;
 
-  /**
-   * ListToolBar 相关的配置
-   */
   const toolbarDom = toolBarRender !== false &&
     (options !== false || headerTitle || toolBarRender || toolbarProps) && (
       // if options= false & headerTitle=== false, hide Toolbar
