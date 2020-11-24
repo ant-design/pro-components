@@ -112,7 +112,7 @@ export const formInputRender: React.FC<{
   onSelect?: (value: any) => void;
   [key: string]: any;
 }> = (props, ref: any) => {
-  const { item, intl, form, type, ...rest } = props;
+  const { item, intl, form, type, formItemProps, ...rest } = props;
   const { valueType: itemValueType = 'text' } = item;
   // if function， run it
   const valueType =
@@ -151,7 +151,6 @@ export const formInputRender: React.FC<{
     if (defaultProps.isDefaultDom) {
       return dom;
     }
-    // 已用户的为主，不然过于 magic
     return (
       <ProFormField
         key={`${item.dataIndex || ''}-${item.key || ''}-${item.index}`}
@@ -164,7 +163,7 @@ export const formInputRender: React.FC<{
           style: {
             width: undefined,
           },
-          ...rest.fieldProps,
+          ...item.fieldProps,
         }}
       >
         {React.cloneElement(dom, { ...rest, ...defaultProps })}
@@ -203,7 +202,7 @@ export const formInputRender: React.FC<{
       valueType={finalValueType}
       initialValue={item.initialValue}
       {...rest}
-      // rules={type === 'form' ? rest.formItemProps?.rules : undefined}
+      rules={undefined}
       key={`${item.dataIndex || ''}-${item.key || ''}-${item.index}`}
     />
   );

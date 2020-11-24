@@ -762,13 +762,13 @@ const ProTable = <T extends {}, U extends ParamsType>(
   );
   const isLightFilter: boolean = search !== false && search?.filterType === 'light';
 
-  const toolbarProps =
-    toolbar || isLightFilter
-      ? {
-          filter: searchNode,
-          ...toolbar,
-        }
-      : undefined;
+  const toolbarProps = isLightFilter
+    ? {
+        filter: searchNode,
+        ...toolbar,
+      }
+    : toolbar;
+
   const toolbarDom = toolBarRender !== false &&
     (options !== false || headerTitle || toolBarRender || toolbarProps) && (
       // if options= false & headerTitle=== false, hide Toolbar

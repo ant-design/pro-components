@@ -133,7 +133,11 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
         </div>,
         document.body,
       )}
-      {trigger && <div onClick={() => setVisible(!visible)}>{trigger}</div>}
+      {trigger && (
+        <div style={{ display: 'inline-block' }} onClick={() => setVisible(!visible)}>
+          {trigger}
+        </div>
+      )}
     </>
   );
 };

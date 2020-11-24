@@ -21,7 +21,12 @@ export type ProFormFieldProps = ProSchema<
  * 最普通的 Text 组件
  * @param
  */
-const ProFormField = React.forwardRef<any, ProFormFieldProps>(
+const ProFormField = React.forwardRef<
+  any,
+  ProFormFieldProps & {
+    onChange?: Function;
+  }
+>(
   (
     {
       fieldProps,
@@ -34,6 +39,7 @@ const ProFormField = React.forwardRef<any, ProFormFieldProps>(
       renderFormItem,
       valueType,
       initialValue,
+      onChange,
       ...restProps
     },
     ref,
@@ -43,6 +49,10 @@ const ProFormField = React.forwardRef<any, ProFormFieldProps>(
       if (React.isValidElement(children)) {
         return React.cloneElement(children, {
           ...restProps,
+          onChange: (...restParams: any) => {
+            fieldProps?.onChange?.(...restParams);
+            onChange?.(...restParams);
+          },
           ...children.props,
         });
       }
@@ -53,7 +63,13 @@ const ProFormField = React.forwardRef<any, ProFormFieldProps>(
         text={fieldProps?.value as string}
         mode="edit"
         valueType={(valueType as 'text') || 'text'}
-        fieldProps={fieldProps}
+        fieldProps={{
+          ...fieldProps,
+          onChange: (...restParams: any) => {
+            fieldProps?.onChange?.(...restParams);
+            onChange?.(...restParams);
+          },
+        }}
         {...proFieldProps}
         {...restProps}
         ref={ref}

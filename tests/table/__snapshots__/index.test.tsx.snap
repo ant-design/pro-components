@@ -147,7 +147,7 @@ exports[`BasicTable 🎏  do not render default option 1`] = `
                 >
                   <div
                     class="ant-space ant-space-horizontal ant-space-align-center"
-                    style="padding-top: 0px; margin-bottom: 24px;"
+                    style="margin-bottom: 24px;"
                   >
                     <div
                       class="ant-space-item"
@@ -1624,7 +1624,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                 >
                   <div
                     class="ant-space ant-space-horizontal ant-space-align-center"
-                    style="padding-top: 0px; margin-bottom: 24px;"
+                    style="margin-bottom: 24px;"
                   >
                     <div
                       class="ant-space-item"
@@ -7876,7 +7876,7 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
                 >
                   <div
                     class="ant-space ant-space-horizontal ant-space-align-center"
-                    style="padding-top: 0px; margin-bottom: 24px;"
+                    style="margin-bottom: 24px;"
                   >
                     <div
                       class="ant-space-item"
@@ -14824,7 +14824,7 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
                 >
                   <div
                     class="ant-space ant-space-horizontal ant-space-align-center"
-                    style="padding-top: 0px; margin-bottom: 24px;"
+                    style="margin-bottom: 24px;"
                   >
                     <div
                       class="ant-space-item"
