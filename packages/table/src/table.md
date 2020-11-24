@@ -283,7 +283,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | labelWidth | 标签的宽度 | number | 98 |
 | span | 配置查询表单的列数 | `'number'` \| [`'ColConfig'`](#ColConfig) | defaultColConfig |
 | collapseRender | 收起按钮的 render | `(collapsed: boolean,showCollapseButton?: boolean,) => React.ReactNode` | - |
-| defaultCollapsed | 默认是否收起 | boolean | false |
+| defaultCollapsed | 默认是否收起 | boolean | true |
 | collapsed | 是否收起 | boolean | - |
 | onCollapse | 收起按钮的事件 | `(collapsed: boolean) => void;` | - |
 | optionRender | 操作栏的 render | `((searchConfig,formProps) => React.ReactNode[])`\|`false` | - |

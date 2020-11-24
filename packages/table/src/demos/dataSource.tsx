@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button, Tooltip, Dropdown, Menu } from 'antd';
-import { EllipsisOutlined, QuestionCircleOutlined } from '@ant-design/icons';
+import { Button, Tooltip, Dropdown, Menu, Input, Space } from 'antd';
+import { EllipsisOutlined, QuestionCircleOutlined, SearchOutlined } from '@ant-design/icons';
 import ProTable, { ProColumns, TableDropdown } from '@ant-design/pro-table';
 
 const valueEnum = {
@@ -46,6 +46,15 @@ const columns: ProColumns<TableListItem>[] = [
     title: '应用名称',
     dataIndex: 'name',
     render: (_) => <a>{_}</a>,
+    // 自定义筛选项功能具体实现请参考 https://ant.design/components/table-cn/#components-table-demo-custom-filter-panel
+    filterDropdown: () => (
+      <div style={{ padding: 8 }}>
+        <Input style={{ width: 188, marginBottom: 8, display: 'block' }} />
+      </div>
+    ),
+    filterIcon: (filtered) => (
+      <SearchOutlined style={{ color: filtered ? '#1890ff' : undefined }} />
+    ),
   },
   {
     title: '创建者',
@@ -63,6 +72,7 @@ const columns: ProColumns<TableListItem>[] = [
     title: '状态',
     dataIndex: 'status',
     initialValue: 'all',
+    filters: true,
     valueEnum: {
       all: { text: '全部', status: 'Default' },
       close: { text: '关闭', status: 'Default' },
@@ -138,6 +148,7 @@ export default () => {
       }}
       search={{
         layout: 'vertical',
+        defaultCollapsed: false,
       }}
       dateFormatter="string"
       toolbar={{
