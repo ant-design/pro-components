@@ -35,4 +35,4 @@ const LabelIconTip: React.FC<{
   );
 };
 
-export default LabelIconTip;
+export default React.memo(LabelIconTip);
