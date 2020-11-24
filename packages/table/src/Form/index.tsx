@@ -178,6 +178,12 @@ export const formInputRender: React.FC<{
     !valueType || (['textarea', 'jsonCode', 'code'].includes(valueType) && type === 'table')
       ? 'text'
       : (valueType as 'text');
+  // 对search表单处理，将required为true的formItem手动改为false
+  rest.formItemProps?.rules?.length &&
+    rest.formItemProps.rules.map(
+      (element: NonNullable<FormItemProps['rules'] & { required: boolean }>) =>
+        (element.required = false),
+    );
 
   return (
     <ProFormField
@@ -197,7 +203,7 @@ export const formInputRender: React.FC<{
       valueType={finalValueType}
       initialValue={item.initialValue}
       {...rest}
-      rules={type === 'form' ? rest.rules : undefined}
+      // rules={type === 'form' ? rest.formItemProps?.rules : undefined}
       key={`${item.dataIndex || ''}-${item.key || ''}-${item.index}`}
     />
   );
