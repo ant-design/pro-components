@@ -5975,9 +5975,9 @@ babel-plugin-dynamic-import-node@2.3.3, babel-plugin-dynamic-import-node@^2.3.3:
     object.assign "^4.1.0"
 
 babel-plugin-import@^1.12.2, babel-plugin-import@^1.13.1:
-  version "1.13.2"
-  resolved "https://registry.npm.taobao.org/babel-plugin-import/download/babel-plugin-import-1.13.2.tgz?cache=0&sync_timestamp=1606190985235&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fbabel-plugin-import%2Fdownload%2Fbabel-plugin-import-1.13.2.tgz#dba5ee3a523f44ef55a3dae9539d86f2da6455dc"
-  integrity sha1-26XuOlI/RO9Vo9rpU52G8tpkVdw=
+  version "1.13.1"
+  resolved "https://registry.npm.taobao.org/babel-plugin-import/download/babel-plugin-import-1.13.1.tgz?cache=0&sync_timestamp=1606193922230&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fbabel-plugin-import%2Fdownload%2Fbabel-plugin-import-1.13.1.tgz#f6cf1acb76c5ce366bae2663ad12bd894316d8db"
+  integrity sha1-9s8ay3bFzjZrriZjrRK9iUMW2Ns=
   dependencies:
     "@babel/helper-module-imports" "^7.0.0"
     "@babel/runtime" "^7.0.0"
@@ -6755,9 +6755,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-db@^1.0.30001090:
-  version "1.0.30001159"
-  resolved "https://registry.npm.taobao.org/caniuse-db/download/caniuse-db-1.0.30001159.tgz#1983075ffa39c1d96b9e078731215f1fed850bb4"
-  integrity sha1-GYMHX/o5wdlrngeHMSFfH+2FC7Q=
+  version "1.0.30001160"
+  resolved "https://registry.npm.taobao.org/caniuse-db/download/caniuse-db-1.0.30001160.tgz?cache=0&sync_timestamp=1606195517531&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcaniuse-db%2Fdownload%2Fcaniuse-db-1.0.30001160.tgz#c36d876c889e9214c1b8074d61023cf8a8613283"
+  integrity sha1-w22HbIiekhTBuAdNYQI8+KhhMoM=
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000971, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001157:
   version "1.0.30001159"

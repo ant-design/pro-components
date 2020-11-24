@@ -62,7 +62,7 @@ const columns: ProColumns<DataSourceType>[] = [
   {
     dataIndex: 'index',
     valueType: 'indexBorder',
-    width: 72,
+    width: 80,
   },
   {
     title: '标题',
