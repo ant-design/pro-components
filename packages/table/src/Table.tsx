@@ -461,17 +461,19 @@ const ProTable = <T extends {}, U extends ParamsType>(
       if (!useLocaleFilter) {
         setProFilter(omitUndefined<any>(filters));
       }
+
       // 制造筛选的数据
       // 制造一个排序的数据
       if (Array.isArray(sorter)) {
         const data = sorter.reduce<{
           [key: string]: any;
-        }>((pre, value) => {
-          return {
+        }>(
+          (pre, value) => ({
             ...pre,
             [`${value.field}`]: value.order,
-          };
-        }, {});
+          }),
+          {},
+        );
         setProSort(omitUndefined<any>(data));
       } else {
         setProSort(omitUndefined({ [`${sorter.field}`]: sorter.order as SortOrder }));
