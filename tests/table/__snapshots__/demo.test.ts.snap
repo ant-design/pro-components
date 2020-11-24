@@ -13745,7 +13745,7 @@ exports[`table demos renders ./packages/table/src/demos/editable-table.tsx corre
                     >
                       <colgroup>
                         <col
-                          style="width: 72px; min-width: 72px;"
+                          style="width: 80px; min-width: 80px;"
                         />
                         <col
                           style="width: 30%; min-width: 30%;"
