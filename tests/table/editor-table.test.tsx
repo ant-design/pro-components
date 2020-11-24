@@ -349,6 +349,11 @@ describe('EditorProTable', () => {
     });
 
     await waitForComponentToPaint(wrapper, 200);
+    act(() => {
+      wrapper.find('.ant-popconfirm .ant-popover-buttons .ant-btn-primary').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
 
     expect(fn).toBeCalledWith(624691229);
   });

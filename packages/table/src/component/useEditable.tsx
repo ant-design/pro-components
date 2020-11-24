@@ -4,7 +4,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { FormInstance } from 'antd/lib/form';
 import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
 import { LoadingOutlined } from '@ant-design/icons';
-import { message } from 'antd';
+import { message, Popconfirm } from 'antd';
 
 export type RowEditableType = 'singe' | 'multiple';
 
@@ -37,6 +37,11 @@ export interface TableRowEditable<T> {
    * 行删除的时候
    */
   onDelete?: (key: React.Key, row: T & { index: number }) => Promise<void>;
+
+  /**
+   * 删除行时的确认消息
+   */
+  deleteMessageText?: React.ReactNode;
 }
 
 export type ActionRenderConfig<T> = {
@@ -47,6 +52,7 @@ export type ActionRenderConfig<T> = {
   cancelEditable: (key: React.Key) => void;
   onSave: TableRowEditable<T>['onSave'];
   onDelete: TableRowEditable<T>['onDelete'];
+  deleteMessageText: TableRowEditable<T>['deleteMessageText'];
   setEditableRowKeys: (value: React.Key[]) => void;
 };
 
@@ -189,13 +195,15 @@ const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
   rowKey,
   onDelete,
   row,
+  deleteMessageText,
   cancelEditable,
 }) => {
   const [loading, setLoading] = useState<boolean>(false);
   return (
-    <a
-      key="save"
-      onClick={async () => {
+    <Popconfirm
+      key="delete"
+      title={deleteMessageText}
+      onConfirm={async () => {
         try {
           setLoading(true);
           await onDelete?.(rowKey, row);
@@ -208,15 +216,17 @@ const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
         }
       }}
     >
-      {loading ? (
-        <LoadingOutlined
-          style={{
-            marginRight: 8,
-          }}
-        />
-      ) : null}
-      删除
-    </a>
+      <a>
+        {loading ? (
+          <LoadingOutlined
+            style={{
+              marginRight: 8,
+            }}
+          />
+        ) : null}
+        删除
+      </a>
+    </Popconfirm>
   );
 };
 
@@ -356,6 +366,7 @@ function useEditable<RecordType>(
         form,
         editableKeys,
         setEditableRowKeys,
+        deleteMessageText: props.deleteMessageText || '删除此行？',
       });
       return dom;
     },
