@@ -468,10 +468,7 @@ describe('EditorProTable', () => {
   });
 
   it('📝 support add line for start', async () => {
-    const fn = jest.fn();
-    const wrapper = mount(
-      <EditorProTableDemo position="start" onSave={(key, row) => fn(row.title)} />,
-    );
+    const wrapper = mount(<EditorProTableDemo position="start" />);
     await waitForComponentToPaint(wrapper, 1000);
 
     act(() => {
@@ -493,8 +490,7 @@ describe('EditorProTable', () => {
   });
 
   it('📝 support add line for end', async () => {
-    const fn = jest.fn();
-    const wrapper = mount(<EditorProTableDemo onSave={(key, row) => fn(row.title)} />);
+    const wrapper = mount(<EditorProTableDemo />);
     await waitForComponentToPaint(wrapper, 1000);
 
     act(() => {
@@ -512,6 +508,26 @@ describe('EditorProTable', () => {
     });
     await waitForComponentToPaint(wrapper, 100);
     editorRow = wrapper.find('.ant-table-tbody tr.ant-table-row').at(3);
+
+    expect(editorRow.find('input').exists()).toBeFalsy();
+    wrapper.unmount();
+  });
+
+  it('📝 support add line when singe line edit', async () => {
+    const wrapper = mount(<EditorProTableDemo editorRowKeys={[624748504]} />);
+    await waitForComponentToPaint(wrapper, 1000);
+    expect(
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(0).find('input').exists(),
+    ).toBeTruthy();
+
+    act(() => {
+      wrapper.find('button#addLine').simulate('click');
+      wrapper.find('button#addLine').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 100);
+
+    const editorRow = wrapper.find('.ant-table-tbody tr.ant-table-row').at(3);
 
     expect(editorRow.find('input').exists()).toBeFalsy();
   });
