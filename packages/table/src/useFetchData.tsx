@@ -111,7 +111,7 @@ const useFetchData = <T extends RequestData<any>>(
     // 如果上次的页码为空或者两次页码等于是没必要查询的
     // 如果 pageSize 发生变化是需要查询的，所以又加了 prePageSize
     if ((!prePage || prePage === page) && (!prePageSize || prePageSize === pageSize)) {
-      return () => undefined;
+      return;
     }
     // 如果 list 的长度大于 pageSize 的长度
     // 说明是一个假分页
@@ -120,15 +120,13 @@ const useFetchData = <T extends RequestData<any>>(
     // 第二页也应该是大于 10
     if (page !== undefined && list.length <= pageSize) {
       fetchListDebounce.run();
-      return () => fetchListDebounce.cancel();
     }
-    return () => undefined;
   }, [pageInfo.page]);
 
   // pageSize 修改后返回第一页
   useEffect(() => {
     if (!prePageSize) {
-      return () => undefined;
+      return;
     }
     /**
      * 切换页面的时候清空一下数据，不然会造成判断失误。
@@ -137,7 +135,6 @@ const useFetchData = <T extends RequestData<any>>(
     setList([]);
     setPageInfo({ ...pageInfo, page: 1 });
     fetchListDebounce.run();
-    return () => fetchListDebounce.cancel();
   }, [pageInfo.pageSize]);
 
   /**
@@ -174,7 +171,6 @@ const useFetchData = <T extends RequestData<any>>(
         pageSize: options?.defaultPageSize || 20,
       });
     },
-    cancel: fetchListDebounce.cancel,
     pageSize: pageInfo.pageSize,
     setPageInfo: (info) =>
       setPageInfo({
