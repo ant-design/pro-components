@@ -298,6 +298,41 @@ describe('EditorProTable', () => {
     expect(fn).not.toBeCalled();
   });
 
+  it('📝 edit tree data table', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <EditorProTableDemo
+        onEditorChange={(keys) => {
+          fn(keys);
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+    act(() => {
+      wrapper.find('tr').at(3).find('td button.ant-table-row-expand-icon').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+
+    act(() => {
+      wrapper.find('#editor').at(3).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect(
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(3).find('input').exists(),
+    ).toBeTruthy();
+
+    act(() => {
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(3).find('td a').at(0).simulate('click');
+    });
+    await waitForComponentToPaint(wrapper, 1000);
+    expect(
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(3).find('input').exists(),
+    ).toBeFalsy();
+  });
+
   it('📝 type=multiple, edit multiple rows', async () => {
     const fn = jest.fn();
     const wrapper = mount(
@@ -343,7 +378,7 @@ describe('EditorProTable', () => {
     const wrapper = mount(
       <EditorProTableDemo
         onDelete={async () => {
-          await waitTime(500);
+          await waitTime(1200);
           throw new Error('some time error');
         }}
       />,
@@ -367,8 +402,7 @@ describe('EditorProTable', () => {
     act(() => {
       wrapper.find('.ant-popconfirm .ant-popover-buttons .ant-btn-primary').simulate('click');
     });
-
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitForComponentToPaint(wrapper, 2000);
 
     expect(wrapper.find('LoadingOutlined').exists()).toBeFalsy();
     wrapper.unmount();
