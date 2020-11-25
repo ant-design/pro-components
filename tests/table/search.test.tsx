@@ -417,6 +417,8 @@ describe('BasicTable Search', () => {
 
     await waitForComponentToPaint(html, 200);
     expect(html.find('div.ant-form-item').length).toBe(3);
+
+    html.unmount();
   });
 
   it('🎏 request load success false', async () => {
@@ -448,6 +450,8 @@ describe('BasicTable Search', () => {
     await waitForComponentToPaint(html, 600);
 
     expect(html.find('.ant-empty').exists()).toBeTruthy();
+
+    html.unmount();
   });
 
   it('🎏 request load null', async () => {
@@ -478,6 +482,7 @@ describe('BasicTable Search', () => {
       // @ts-ignore
       html.dive().html();
     }).toThrowError();
+    html.unmount();
   });
 
   it('🎏 request load more time', async () => {
