@@ -201,23 +201,20 @@ const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
   cancelEditable,
 }) => {
   const [loading, setLoading] = useState<boolean>(false);
+  const onConfirm = async () => {
+    try {
+      setLoading(true);
+      await onDelete?.(rowKey, row);
+      setLoading(false);
+      setTimeout(() => {
+        cancelEditable(rowKey);
+      }, 0);
+    } catch (e) {
+      setLoading(false);
+    }
+  };
   return (
-    <Popconfirm
-      key="delete"
-      title={deletePopconfirmMessage}
-      onConfirm={async () => {
-        try {
-          setLoading(true);
-          await onDelete?.(rowKey, row);
-          setLoading(false);
-          setTimeout(() => {
-            cancelEditable(rowKey);
-          }, 0);
-        } catch (e) {
-          setLoading(false);
-        }
-      }}
-    >
+    <Popconfirm key="delete" title={deletePopconfirmMessage} onConfirm={onConfirm}>
       <a>
         {loading ? (
           <LoadingOutlined
@@ -377,8 +374,8 @@ function useEditable<RecordType>(
             key: rowKey,
             childrenColumnName: props.childrenColumnName || 'children',
           };
+          await props?.onDelete?.(rowKey, editRow);
           props.setDataSource(editableRowByKey(actionProps, 'delete'));
-          return props?.onDelete?.(rowKey, editRow);
         },
         onSave: async (
           rowKey: React.Key,
@@ -387,13 +384,14 @@ function useEditable<RecordType>(
           },
         ) => {
           const { options } = newLineRecordRef.current || {};
+          await props?.onSave?.(rowKey, editRow);
           if (newLineRecordRef.current && rowKey === options?.rowKey) {
             if (options?.position === 'start') {
               props.setDataSource([editRow, ...props.dataSource]);
             } else {
               props.setDataSource([...props.dataSource, editRow]);
             }
-            return props?.onSave?.(rowKey, editRow);
+            return;
           }
           const actionProps = {
             data: props.dataSource,
@@ -403,7 +401,6 @@ function useEditable<RecordType>(
             childrenColumnName: props.childrenColumnName || 'children',
           };
           props.setDataSource(editableRowByKey(actionProps, 'update'));
-          return props?.onSave?.(rowKey, editRow);
         },
         form,
         editableKeys,

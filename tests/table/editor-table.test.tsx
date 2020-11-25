@@ -374,11 +374,12 @@ describe('EditorProTable', () => {
 
     expect(fn).toBeCalledWith(624691229);
   });
+
   it('📝 onDelete auto close loading when error ', async () => {
     const wrapper = mount(
       <EditorProTableDemo
         onDelete={async () => {
-          await waitTime(1200);
+          await waitTime(500);
           throw new Error('some time error');
         }}
       />,
@@ -402,10 +403,10 @@ describe('EditorProTable', () => {
     act(() => {
       wrapper.find('.ant-popconfirm .ant-popover-buttons .ant-btn-primary').simulate('click');
     });
-    await waitForComponentToPaint(wrapper, 2000);
+
+    await waitForComponentToPaint(wrapper, 1000);
 
     expect(wrapper.find('LoadingOutlined').exists()).toBeFalsy();
-    wrapper.unmount();
   });
 
   it('📝 support onDelete', async () => {
@@ -605,6 +606,9 @@ describe('EditorProTable', () => {
 
     act(() => {
       wrapper.find('button#addLine').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper, 100);
+    act(() => {
       wrapper.find('button#addLine').simulate('click');
     });
 
