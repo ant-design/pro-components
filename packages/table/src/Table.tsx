@@ -5,6 +5,7 @@ import React, {
   useCallback,
   useMemo,
   useImperativeHandle,
+  useEffect,
 } from 'react';
 import { Table, ConfigProvider, Form, Card, Empty } from 'antd';
 import { useIntl, ParamsType, ConfigProviderWrap } from '@ant-design/pro-provider';
@@ -88,6 +89,11 @@ const ProTable = <T extends {}, U extends ParamsType>(
    * 绑定 action ref
    */
   useImperativeHandle(propsActionRef, () => actionRef.current, [actionRef.current]);
+  useEffect(() => {
+    if (typeof propsActionRef === 'function' && actionRef.current) {
+      propsActionRef(actionRef.current);
+    }
+  }, [actionRef.current]);
 
   const [selectedRowKeys, setSelectedRowKeys] = useMergedState<React.ReactText[]>([], {
     value: propsRowSelection ? propsRowSelection.selectedRowKeys : undefined,

@@ -20,7 +20,6 @@ import {
   ActionType,
   ProColumnGroupType,
   ProColumns,
-  ProTableProps,
   RequestData,
   UseFetchDataAction,
 } from './typing';
@@ -140,7 +139,7 @@ export function mergePagination<T>(
  * @param onCleanSelected
  */
 export function useActionType<T>(
-  ref: ProTableProps<T, any>['actionRef'],
+  ref: React.MutableRefObject<ActionType | undefined>,
   action: UseFetchDataAction<RequestData<T>>,
   props: {
     fullScreen: () => void;
@@ -175,13 +174,8 @@ export function useActionType<T>(
       fullScreen: () => props.fullScreen(),
       clearSelected: () => props.onCleanSelected(),
     };
-    if (ref && typeof ref === 'function') {
-      ref(userAction);
-    }
-    if (ref && typeof ref !== 'function') {
-      // eslint-disable-next-line no-param-reassign
-      ref.current = userAction;
-    }
+    // eslint-disable-next-line no-param-reassign
+    ref.current = userAction;
   }, []);
 }
 

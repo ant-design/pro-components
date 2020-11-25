@@ -216,9 +216,7 @@ export interface ProTableProps<T, U extends ParamsType>
   /**
    * @name 初始化的参数，可以操作 table
    */
-  actionRef?:
-    | React.MutableRefObject<ProCoreActionType | undefined>
-    | ((actionRef: ProCoreActionType) => void);
+  actionRef?: React.MutableRefObject<ActionType | undefined> | ((actionRef: ActionType) => void);
 
   /**
    * @name 操作自带的 form
