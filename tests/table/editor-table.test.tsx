@@ -138,6 +138,7 @@ const EditorProTableDemo = (
     onEditorChange?: (editorRowKeys: React.Key[]) => void;
     dataSource?: DataSourceType[];
     onDataSourceChange?: (dataSource: DataSourceType[]) => void;
+    position?: 'start';
   } & TableRowEditable<DataSourceType>,
 ) => {
   const actionRef = useRef<ActionType>();
@@ -160,14 +161,14 @@ const EditorProTableDemo = (
           key="addLine"
           id="addLine"
           onClick={() => {
-            const newItem = {
-              id: dataSource.length,
-            };
-            const source = [...dataSource, newItem];
-            setDataSource(source);
-            // 这里的 key 与 rowKey 的 key 是相同的，需要注意
-            // 如果没有设置 rowKey 就用行号
-            setEditorRowKeys([...editableKeys, newItem.id]);
+            actionRef.current?.addLine(
+              {
+                id: 10000,
+              },
+              {
+                position: props.position,
+              },
+            );
           }}
         >
           增加一行
@@ -464,5 +465,54 @@ describe('EditorProTable', () => {
     await waitForComponentToPaint(wrapper, 200);
 
     expect(fn).toBeCalledWith('qixian');
+  });
+
+  it('📝 support add line for start', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <EditorProTableDemo position="start" onSave={(key, row) => fn(row.title)} />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+
+    act(() => {
+      wrapper.find('button#addLine').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+    let editorRow = wrapper.find('.ant-table-tbody tr.ant-table-row').at(0);
+
+    expect(editorRow.find('input').exists()).toBeTruthy();
+
+    act(() => {
+      editorRow.find(`td a`).at(1).simulate('click');
+    });
+    await waitForComponentToPaint(wrapper, 100);
+    editorRow = wrapper.find('.ant-table-tbody tr.ant-table-row').at(0);
+
+    expect(editorRow.find('input').exists()).toBeFalsy();
+  });
+
+  it('📝 support add line for end', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(<EditorProTableDemo onSave={(key, row) => fn(row.title)} />);
+    await waitForComponentToPaint(wrapper, 1000);
+
+    act(() => {
+      wrapper.find('button#addLine').simulate('click');
+      wrapper.find('button#addLine').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+    let editorRow = wrapper.find('.ant-table-tbody tr.ant-table-row').at(3);
+
+    expect(editorRow.find('input').exists()).toBeTruthy();
+
+    act(() => {
+      editorRow.find(`td a`).at(1).simulate('click');
+    });
+    await waitForComponentToPaint(wrapper, 100);
+    editorRow = wrapper.find('.ant-table-tbody tr.ant-table-row').at(3);
+
+    expect(editorRow.find('input').exists()).toBeFalsy();
   });
 });
