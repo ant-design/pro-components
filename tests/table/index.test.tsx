@@ -581,6 +581,44 @@ describe('BasicTable', () => {
     expect(fn).toBeCalledTimes(1);
   });
 
+  it('🎏 fullscreen icon test when fullscreenEnabled', async () => {
+    const fn = jest.fn();
+    // @ts-ignore
+    document.fullscreenEnabled = false;
+    const html = mount(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            title: 'money',
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+        ]}
+        options={{
+          fullScreen: true,
+        }}
+        request={async () => {
+          return {
+            data: [],
+          };
+        }}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 1000);
+
+    act(() => {
+      html
+        .find('.ant-pro-table-list-toolbar-setting-item span.anticon-fullscreen')
+        .simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 1000);
+
+    expect(fn).not.toBeCalled();
+  });
+
   it('🎏 fullscreen icon mock function', async () => {
     const exitFullscreen = jest.fn();
     document.exitFullscreen = async () => {
