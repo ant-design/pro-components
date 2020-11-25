@@ -124,6 +124,7 @@ function editableRowByKey<RecordType>(
         if (kvArrayMap.has(map_row_key)) {
           reset[childrenColumnName] = kvArrayMap.get(map_row_key);
         }
+
         kvArrayMap.set(map_row_parentKey, [
           ...(kvArrayMap.get(map_row_parentKey) || []),
           reset as RecordType,

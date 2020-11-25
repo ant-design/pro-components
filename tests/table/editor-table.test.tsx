@@ -56,6 +56,17 @@ const defaultData: DataSourceType[] = [
         time: {
           created_at: '2020-05-26T07:54:25Z',
         },
+        children: [
+          {
+            id: 62467479012,
+            title: '嵌套数据的编辑',
+            labels: [{ name: 'question', color: 'success' }],
+            state: 'closed',
+            time: {
+              created_at: '2020-05-26T07:54:25Z',
+            },
+          },
+        ],
       },
     ],
   },
@@ -300,37 +311,37 @@ describe('EditorProTable', () => {
 
   it('📝 edit tree data table', async () => {
     const fn = jest.fn();
-    const wrapper = mount(
-      <EditorProTableDemo
-        onEditorChange={(keys) => {
-          fn(keys);
-        }}
-      />,
-    );
+    const wrapper = mount(<EditorProTableDemo onSave={fn} dataSource={[defaultData[2]]} />);
     await waitForComponentToPaint(wrapper, 1000);
     act(() => {
-      wrapper.find('tr').at(3).find('td button.ant-table-row-expand-icon').simulate('click');
+      wrapper
+        .find('.ant-table-tbody tr.ant-table-row')
+        .at(0)
+        .find('td button.ant-table-row-expand-icon')
+        .simulate('click');
     });
 
     await waitForComponentToPaint(wrapper, 200);
 
     act(() => {
-      wrapper.find('#editor').at(3).simulate('click');
+      wrapper.find('#editor').at(0).simulate('click');
     });
 
     await waitForComponentToPaint(wrapper, 1000);
 
     expect(
-      wrapper.find('.ant-table-tbody tr.ant-table-row').at(3).find('input').exists(),
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(0).find('input').exists(),
     ).toBeTruthy();
 
     act(() => {
-      wrapper.find('.ant-table-tbody tr.ant-table-row').at(3).find('td a').at(0).simulate('click');
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(0).find('td a').at(0).simulate('click');
     });
     await waitForComponentToPaint(wrapper, 1000);
     expect(
-      wrapper.find('.ant-table-tbody tr.ant-table-row').at(3).find('input').exists(),
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(0).find('input').exists(),
     ).toBeFalsy();
+
+    expect(fn).toBeCalled();
   });
 
   it('📝 type=multiple, edit multiple rows', async () => {
