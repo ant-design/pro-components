@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Button } from 'antd';
 import { EditableProTable, ProColumns, ActionType } from '@ant-design/pro-table';
 import ProField from '@ant-design/pro-field';
+import { PlusOutlined } from '@ant-design/icons';
 
 interface DataSourceType {
   id: number;
@@ -145,42 +146,61 @@ export default () => {
         }}
         text={JSON.stringify(dataSource)}
       />
-      <EditableProTable<DataSourceType>
-        rowKey="id"
+      <div
         style={{
           flex: 2,
         }}
-        toolBarRender={() => [
-          <Button
-            key="addLine"
-            onClick={() => {
-              const newItem = {
-                id: dataSource.length,
-              };
-              const source = [...dataSource, newItem];
-              setDataSource(source);
-              // 这里的 key 与 rowKey 的 key 是相同的，需要注意
-              // 如果没有设置 rowKey 就用行号
-              setEditableRowKeys([...editableKeys, newItem.id]);
-            }}
-          >
-            增加一行
-          </Button>,
-        ]}
-        columns={columns}
-        actionRef={actionRef}
-        request={async () => ({
-          data: defaultData,
-          total: 3,
-          success: true,
-        })}
-        value={dataSource}
-        onChange={setDataSource}
-        editable={{
-          editableKeys,
-          onChange: setEditableRowKeys,
-        }}
-      />
+      >
+        <EditableProTable<DataSourceType>
+          rowKey="id"
+          toolBarRender={(action) => [
+            <Button
+              key="addLine"
+              onClick={() => {
+                action?.addLine(
+                  {
+                    id: (Math.random() * 1000000).toFixed(0),
+                  },
+                  {
+                    position: 'start',
+                  },
+                );
+              }}
+            >
+              向前增加一行
+            </Button>,
+          ]}
+          columns={columns}
+          actionRef={actionRef}
+          request={async () => ({
+            data: defaultData,
+            total: 3,
+            success: true,
+          })}
+          value={dataSource}
+          onChange={setDataSource}
+          editable={{
+            editableKeys,
+            onChange: setEditableRowKeys,
+          }}
+        />
+        <Button
+          style={{
+            margin: 'auto',
+            marginTop: 24,
+            display: 'block',
+            width: '80%',
+          }}
+          onClick={() => {
+            actionRef.current?.addLine?.({
+              id: (Math.random() * 1000000).toFixed(0),
+            });
+          }}
+        >
+          <PlusOutlined />
+          新增一行
+        </Button>
+      </div>
     </div>
   );
 };

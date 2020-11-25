@@ -13,12 +13,7 @@ import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { stringify } from 'use-json-comparison';
 import { TablePaginationConfig } from 'antd/lib/table';
-import {
-  TableCurrentDataSource,
-  SorterResult,
-  SortOrder,
-  GetRowKey,
-} from 'antd/lib/table/interface';
+import { TableCurrentDataSource, SorterResult, SortOrder } from 'antd/lib/table/interface';
 import { useDeepCompareEffect, omitUndefined } from '@ant-design/pro-utils';
 
 import useFetchData from './useFetchData';
@@ -209,13 +204,13 @@ const ProTable = <T extends {}, U extends ParamsType>(
   counter.propsRef.current = props;
 
   // ============================ RowKey ============================
-  const getRowKey = React.useMemo<GetRowKey<T>>(() => {
+  const getRowKey = React.useMemo<any>(() => {
     const { rowKey } = props;
     if (typeof rowKey === 'function') {
       return rowKey;
     }
 
-    return (record: T) => (record as any)?.[rowKey as string];
+    return (record: T, index: number) => (record as any)?.[rowKey as string] || `${index}`;
   }, [props.rowKey]);
 
   /**
@@ -394,7 +389,8 @@ const ProTable = <T extends {}, U extends ParamsType>(
         columns={tableColumn}
         options={options}
         headerTitle={headerTitle}
-        action={actionRef.current}
+        editableUtils={editableUtils}
+        action={actionRef}
         onSearch={(keyword) => {
           if (!options || !options.search) {
             return;
@@ -434,6 +430,13 @@ const ProTable = <T extends {}, U extends ParamsType>(
   const useLocaleFilter = propsColumns.every(
     (column) => column.filters === undefined || column.filters === true,
   );
+  const editableDataSource = (): T[] => {
+    const { options: newLineOptions, row } = editableUtils.newLineRecord || {};
+    if (newLineOptions?.position === 'start') {
+      return [row, ...action.dataSource];
+    }
+    return [...action.dataSource, row];
+  };
 
   const tableProps = {
     ...rest,
@@ -451,7 +454,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
       return true;
     }),
     loading: action.loading,
-    dataSource: (action.dataSource as T[]) || [],
+    dataSource: editableUtils.newLineRecord ? editableDataSource() : action.dataSource,
     pagination,
     onChange: (
       changePagination: TablePaginationConfig,

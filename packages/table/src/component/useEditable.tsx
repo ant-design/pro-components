@@ -1,10 +1,11 @@
-﻿import React, { useCallback, useMemo, useState } from 'react';
+﻿import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { GetRowKey } from 'antd/lib/table/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { FormInstance } from 'antd/lib/form';
 import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
 import { LoadingOutlined } from '@ant-design/icons';
 import { message, Popconfirm } from 'antd';
+import dataSource from '../demos/dataSource';
 
 export type RowEditableType = 'singe' | 'multiple';
 
@@ -54,6 +55,7 @@ export type ActionRenderConfig<T> = {
   onDelete: TableRowEditable<T>['onDelete'];
   deletePopconfirmMessage: TableRowEditable<T>['deletePopconfirmMessage'];
   setEditableRowKeys: (value: React.Key[]) => void;
+  isNewLine: boolean;
 };
 
 /**
@@ -169,11 +171,9 @@ const SaveEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
           });
           const fields = form.getFieldValue([rowKey]);
           await onSave?.(rowKey, { ...row, ...fields });
+          cancelEditable(rowKey);
           form.resetFields([rowKey]);
           setLoading(false);
-          setTimeout(() => {
-            cancelEditable(rowKey);
-          }, 0);
         } catch (e) {
           setLoading(false);
         }
@@ -208,9 +208,7 @@ const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
           setLoading(true);
           await onDelete?.(rowKey, row);
           setLoading(false);
-          setTimeout(() => {
-            cancelEditable(rowKey);
-          }, 0);
+          cancelEditable(rowKey);
         } catch (e) {
           setLoading(false);
         }
@@ -231,10 +229,10 @@ const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
 };
 
 const defaultActionRender: ActionRenderFunction<any> = (row, config) => {
-  const { rowKey, cancelEditable } = config;
+  const { rowKey, isNewLine, cancelEditable } = config;
   return [
     <SaveEditableAction key="save" {...config} row={row} />,
-    <DeleteEditableAction key="save" {...config} row={row} />,
+    !isNewLine && <DeleteEditableAction key="delete" {...config} row={row} />,
     <a
       key="cancel"
       onClick={() => {
@@ -244,6 +242,11 @@ const defaultActionRender: ActionRenderFunction<any> = (row, config) => {
       取消
     </a>,
   ];
+};
+
+export type AddLineOptions = {
+  position?: 'start' | 'end';
+  rowKey?: React.Key;
 };
 
 /**
@@ -258,6 +261,22 @@ function useEditable<RecordType>(
     setDataSource: (dataSource: RecordType[]) => void;
   },
 ) {
+  const [newLineRecord, setNewLineRecord] = useState<
+    | {
+        row: RecordType | undefined;
+        options: AddLineOptions;
+      }
+    | undefined
+  >(undefined);
+  const newLineRecordRef = useRef<
+    | {
+        row: RecordType | undefined;
+        options: AddLineOptions;
+      }
+    | undefined
+  >(undefined);
+  newLineRecordRef.current = newLineRecord;
+
   const editableType = props.type || 'singe';
   const [getRecordByKey] = useLazyKVMap(props.dataSource, 'children', props.getRowKey);
 
@@ -322,6 +341,12 @@ function useEditable<RecordType>(
   const cancelEditable = (rowKey: React.Key) => {
     editableKeysSet.delete(rowKey);
     setEditableRowKeys(Array.from(editableKeysSet));
+    /**
+     * 如果这个是 new Line 直接删除
+     */
+    if (newLineRecord && newLineRecord.options.rowKey === rowKey) {
+      setNewLineRecord(undefined);
+    }
   };
 
   const actionRender = useCallback(
@@ -331,6 +356,7 @@ function useEditable<RecordType>(
         rowKey: key,
         cancelEditable,
         index: row.index,
+        isNewLine: !!newLineRecord,
         onDelete: async (
           rowKey: React.Key,
           editRow: RecordType & {
@@ -353,6 +379,15 @@ function useEditable<RecordType>(
             index: number;
           },
         ) => {
+          const { options } = newLineRecordRef.current || {};
+          if (newLineRecordRef.current && rowKey === options?.rowKey) {
+            if (options?.position === 'start') {
+              props.setDataSource([editRow, ...props.dataSource]);
+            } else {
+              props.setDataSource([...props.dataSource, editRow]);
+            }
+            return props?.onSave?.(rowKey, editRow);
+          }
           const actionProps = {
             data: props.dataSource,
             getRowKey: props.getRowKey,
@@ -373,6 +408,29 @@ function useEditable<RecordType>(
     [editableKeys.join(',')],
   );
 
+  const addLine = (row: RecordType, options?: AddLineOptions) => {
+    // 暂时不支持多行新增
+    if (newLineRecordRef.current) {
+      message.warn('只能新增一行！');
+      return;
+    }
+    // 如果是单行的话，不允许多行编辑
+    if (editableKeysSet.size > 0 && editableType === 'singe') {
+      message.warn('只能同时编辑一行！');
+      return;
+    }
+    const rowKey = props.getRowKey(row, dataSource.length);
+    editableKeysSet.add(rowKey);
+    setEditableRowKeys(Array.from(editableKeysSet));
+    setNewLineRecord({
+      row,
+      options: {
+        ...options,
+        rowKey,
+      },
+    });
+  };
+
   return {
     editableKeys,
     setEditableRowKeys,
@@ -380,6 +438,8 @@ function useEditable<RecordType>(
     actionRender,
     setEditable,
     cancelEditable,
+    addLine,
+    newLineRecord,
   };
 }
 

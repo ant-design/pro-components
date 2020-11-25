@@ -331,6 +331,6 @@ export interface ProTableProps<T, U extends ParamsType>
 }
 
 export type ActionType = ProCoreActionType &
-  UseEditableUtilType & {
+  Omit<UseEditableUtilType, 'newLineRecord'> & {
     fullScreen?: () => void;
   };

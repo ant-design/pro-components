@@ -39,13 +39,14 @@ export interface ToolBarProps<T = unknown> {
       selectedRows?: T[];
     },
   ) => React.ReactNode[];
-  action?: ActionType;
+  action?: React.MutableRefObject<ActionType | undefined>;
   options?: OptionConfig | false;
   selectedRowKeys?: (string | number)[];
   selectedRows?: T[];
   className?: string;
   onSearch?: (keyWords: string) => void;
   columns: ColumnType<T>[];
+  editableUtils: any;
 }
 
 function getButtonText({
@@ -143,11 +144,11 @@ function ToolBar<T>({
   ...rest
 }: ToolBarProps<T>) {
   const defaultOptions = {
-    reload: () => action?.reload(),
+    reload: () => action?.current?.reload(),
     density: true,
     setting: true,
     search: false,
-    fullScreen: () => action?.fullScreen?.(),
+    fullScreen: () => action?.current?.fullScreen?.(),
   };
   const counter = Container.useContainer();
   const options =
@@ -171,7 +172,9 @@ function ToolBar<T>({
       columns,
     ) || [];
   // 操作列表
-  const actions = toolBarRender ? toolBarRender(action, { selectedRowKeys, selectedRows }) : [];
+  const actions = toolBarRender
+    ? toolBarRender(action?.current, { selectedRowKeys, selectedRows })
+    : [];
   const getSearchConfig = (search: OptionConfig['search']) => {
     if (!search) return false;
 

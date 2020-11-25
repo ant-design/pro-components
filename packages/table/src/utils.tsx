@@ -176,7 +176,7 @@ export function useActionType<T>(
     };
     // eslint-disable-next-line no-param-reassign
     ref.current = userAction;
-  }, []);
+  }, [props.editableUtils]);
 }
 
 type PostDataType<T> = (data: T) => T;
