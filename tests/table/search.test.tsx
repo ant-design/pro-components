@@ -515,11 +515,15 @@ describe('BasicTable Search', () => {
     const html = mount(<TableDemo v />);
 
     await waitTime(500);
-    html.setProps({
-      v: false,
+
+    act(() => {
+      html.setProps({
+        v: false,
+      });
     });
 
     await waitTime(500);
+
     expect(html.render()).toMatchSnapshot();
   });
 });
