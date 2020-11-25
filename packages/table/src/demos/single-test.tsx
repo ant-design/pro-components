@@ -30,6 +30,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     title: '标题',
     dataIndex: 'title',
     fixed: 'left',
+    order: 1,
     copyable: true,
     ellipsis: true,
     hideInForm: true,
@@ -50,6 +51,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     dataIndex: 'state',
     initialValue: 'all',
     filters: true,
+    order: 2,
     fieldProps: {
       noStyle: true,
     },
@@ -74,6 +76,8 @@ const columns: ProColumns<GithubIssueItem>[] = [
     title: '标签',
     dataIndex: 'labels',
     width: '10%',
+    order: -1,
+    renderFormItem: (_, { defaultRender }) => defaultRender(_),
     render: (_, row) => (
       <Space>
         {row.labels.map(({ name, color }) => (

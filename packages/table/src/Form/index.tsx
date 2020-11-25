@@ -359,9 +359,6 @@ const FormSearch = <T, U = any>({
   }, [formInstanceRef.current]);
 
   useDeepCompareEffect(() => {
-    if (columns.length < 1) {
-      return;
-    }
     const tempMap = {};
     const transformKeyMap = {};
 
