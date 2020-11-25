@@ -4,7 +4,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { EditableProTable, TableRowEditable, ProColumns, ActionType } from '@ant-design/pro-table';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
-import { waitForComponentToPaint } from '../util';
+import { waitForComponentToPaint, waitTime } from '../util';
 
 interface DataSourceType {
   id: number;
@@ -248,11 +248,10 @@ describe('EditorProTable', () => {
     ).toBeFalsy();
   });
 
-  it('📝 type=singe, only edit one rows', async () => {
+  it('📝 support cancel click', async () => {
     const fn = jest.fn();
     const wrapper = mount(
       <EditorProTableDemo
-        defaultKeys={[624748504]}
         onEditorChange={(keys) => {
           fn(keys);
         }}
@@ -262,10 +261,20 @@ describe('EditorProTable', () => {
     act(() => {
       wrapper.find('#editor').at(0).simulate('click');
     });
+    await waitForComponentToPaint(wrapper, 1000);
+    expect(
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(0).find('input').exists(),
+    ).toBeTruthy();
+
+    act(() => {
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(0).find(`td a`).at(2).simulate('click');
+    });
 
     await waitForComponentToPaint(wrapper, 1000);
 
-    expect(fn).not.toBeCalled();
+    expect(
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(0).find('input').exists(),
+    ).toBeFalsy();
   });
 
   it('📝 type=singe, only edit one rows', async () => {
@@ -329,10 +338,15 @@ describe('EditorProTable', () => {
 
     expect(fn).toBeCalledWith(624691229);
   });
-
-  it('📝 support onDelete', async () => {
-    const fn = jest.fn();
-    const wrapper = mount(<EditorProTableDemo onDelete={(key) => fn(key)} />);
+  it('📝 onDelete auto close loading when error ', async () => {
+    const wrapper = mount(
+      <EditorProTableDemo
+        onDelete={async () => {
+          await waitTime(500);
+          throw new Error('some time error');
+        }}
+      />,
+    );
     await waitForComponentToPaint(wrapper, 1000);
     act(() => {
       wrapper.find('#editor').at(1).simulate('click');
@@ -353,9 +367,46 @@ describe('EditorProTable', () => {
       wrapper.find('.ant-popconfirm .ant-popover-buttons .ant-btn-primary').simulate('click');
     });
 
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect(wrapper.find('LoadingOutlined').exists()).toBeFalsy();
+    wrapper.unmount();
+  });
+
+  it('📝 support onDelete', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <EditorProTableDemo
+        onDelete={async (key) => {
+          await waitTime(500);
+          fn(key);
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+    act(() => {
+      wrapper.find('#editor').at(1).simulate('click');
+    });
+
     await waitForComponentToPaint(wrapper, 200);
 
+    expect(
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists(),
+    ).toBeTruthy();
+
+    act(() => {
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(1).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+    act(() => {
+      wrapper.find('.ant-popconfirm .ant-popover-buttons .ant-btn-primary').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 1000);
+
     expect(fn).toBeCalledWith(624691229);
+    wrapper.unmount();
   });
 
   it('📝 support form rules', async () => {
