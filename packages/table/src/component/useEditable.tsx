@@ -41,7 +41,7 @@ export interface TableRowEditable<T> {
   /**
    * 删除行时的确认消息
    */
-  deleteMessageText?: React.ReactNode;
+  deletePopconfirmMessage?: React.ReactNode;
 }
 
 export type ActionRenderConfig<T> = {
@@ -52,7 +52,7 @@ export type ActionRenderConfig<T> = {
   cancelEditable: (key: React.Key) => void;
   onSave: TableRowEditable<T>['onSave'];
   onDelete: TableRowEditable<T>['onDelete'];
-  deleteMessageText: TableRowEditable<T>['deleteMessageText'];
+  deletePopconfirmMessage: TableRowEditable<T>['deletePopconfirmMessage'];
   setEditableRowKeys: (value: React.Key[]) => void;
 };
 
@@ -195,14 +195,14 @@ const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
   rowKey,
   onDelete,
   row,
-  deleteMessageText,
+  deletePopconfirmMessage,
   cancelEditable,
 }) => {
   const [loading, setLoading] = useState<boolean>(false);
   return (
     <Popconfirm
       key="delete"
-      title={deleteMessageText}
+      title={deletePopconfirmMessage}
       onConfirm={async () => {
         try {
           setLoading(true);
@@ -366,7 +366,7 @@ function useEditable<RecordType>(
         form,
         editableKeys,
         setEditableRowKeys,
-        deleteMessageText: props.deleteMessageText || '删除此行？',
+        deletePopconfirmMessage: props.deletePopconfirmMessage || '删除此行？',
       });
       return dom;
     },
