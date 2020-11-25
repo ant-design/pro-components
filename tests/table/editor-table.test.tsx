@@ -468,7 +468,8 @@ describe('EditorProTable', () => {
   });
 
   it('📝 support add line for start', async () => {
-    const wrapper = mount(<EditorProTableDemo position="start" />);
+    const fn = jest.fn();
+    const wrapper = mount(<EditorProTableDemo position="start" onSave={fn} />);
     await waitForComponentToPaint(wrapper, 1000);
 
     act(() => {
@@ -487,10 +488,35 @@ describe('EditorProTable', () => {
     editorRow = wrapper.find('.ant-table-tbody tr.ant-table-row').at(0);
 
     expect(editorRow.find('input').exists()).toBeFalsy();
+
+    act(() => {
+      wrapper.find('button#addLine').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+
+    act(() => {
+      wrapper
+        .find('.ant-table-tbody tr.ant-table-row')
+        .at(0)
+        .find(`td .ant-input`)
+        .at(0)
+        .simulate('change', {
+          target: {
+            value: 'qixian',
+          },
+        });
+    });
+    act(() => {
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(0).find(`td a`).at(0).simulate('click');
+    });
+    await waitForComponentToPaint(wrapper, 200);
+    expect(fn).toBeCalled();
   });
 
   it('📝 support add line for end', async () => {
-    const wrapper = mount(<EditorProTableDemo />);
+    const fn = jest.fn();
+    const wrapper = mount(<EditorProTableDemo onSave={fn} />);
     await waitForComponentToPaint(wrapper, 1000);
 
     act(() => {
@@ -510,7 +536,30 @@ describe('EditorProTable', () => {
     editorRow = wrapper.find('.ant-table-tbody tr.ant-table-row').at(3);
 
     expect(editorRow.find('input').exists()).toBeFalsy();
-    wrapper.unmount();
+
+    act(() => {
+      wrapper.find('button#addLine').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+
+    act(() => {
+      wrapper
+        .find('.ant-table-tbody tr.ant-table-row')
+        .at(3)
+        .find(`td .ant-input`)
+        .at(0)
+        .simulate('change', {
+          target: {
+            value: 'qixian',
+          },
+        });
+    });
+    act(() => {
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(3).find(`td a`).at(0).simulate('click');
+    });
+    await waitForComponentToPaint(wrapper, 200);
+    expect(fn).toBeCalled();
   });
 
   it('📝 support add line when singe line edit', async () => {
