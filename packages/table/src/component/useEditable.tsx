@@ -6,6 +6,7 @@ import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
 import { LoadingOutlined } from '@ant-design/icons';
 import { message, Popconfirm } from 'antd';
 import dataSource from '../demos/dataSource';
+import ReactDOM from 'react-dom';
 
 export type RowEditableType = 'singe' | 'multiple';
 
@@ -171,9 +172,11 @@ const SaveEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
           });
           const fields = form.getFieldValue([rowKey]);
           await onSave?.(rowKey, { ...row, ...fields });
-          cancelEditable(rowKey);
           form.resetFields([rowKey]);
           setLoading(false);
+          setTimeout(() => {
+            cancelEditable(rowKey);
+          }, 0);
         } catch (e) {
           setLoading(false);
         }
@@ -208,7 +211,9 @@ const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
           setLoading(true);
           await onDelete?.(rowKey, row);
           setLoading(false);
-          cancelEditable(rowKey);
+          setTimeout(() => {
+            cancelEditable(rowKey);
+          }, 0);
         } catch (e) {
           setLoading(false);
         }
@@ -339,14 +344,17 @@ function useEditable<RecordType>(
    * @param rowKey
    */
   const cancelEditable = (rowKey: React.Key) => {
-    editableKeysSet.delete(rowKey);
-    setEditableRowKeys(Array.from(editableKeysSet));
-    /**
-     * 如果这个是 new Line 直接删除
-     */
-    if (newLineRecord && newLineRecord.options.rowKey === rowKey) {
-      setNewLineRecord(undefined);
-    }
+    // 防止多次渲染
+    ReactDOM.unstable_batchedUpdates(() => {
+      /**
+       * 如果这个是 new Line 直接删除
+       */
+      if (newLineRecord && newLineRecord.options.rowKey === rowKey) {
+        setNewLineRecord(undefined);
+      }
+      editableKeysSet.delete(rowKey);
+      setEditableRowKeys(Array.from(editableKeysSet));
+    });
   };
 
   const actionRender = useCallback(
@@ -419,15 +427,19 @@ function useEditable<RecordType>(
       message.warn('只能同时编辑一行！');
       return;
     }
-    const rowKey = props.getRowKey(row, dataSource.length);
-    editableKeysSet.add(rowKey);
-    setEditableRowKeys(Array.from(editableKeysSet));
-    setNewLineRecord({
-      row,
-      options: {
-        ...options,
-        rowKey,
-      },
+
+    // 防止多次渲染
+    ReactDOM.unstable_batchedUpdates(() => {
+      const rowKey = props.getRowKey(row, dataSource.length);
+      editableKeysSet.add(rowKey);
+      setEditableRowKeys(Array.from(editableKeysSet));
+      setNewLineRecord({
+        row,
+        options: {
+          ...options,
+          rowKey,
+        },
+      });
     });
   };
 
