@@ -412,14 +412,7 @@ const FormSearch = <T, U = any>({
         }
         return false;
       })
-      .sort((a, b) => {
-        if (a && b) {
-          return (b.order || 0) - (a.order || 0);
-        }
-        if (a && a.order) return -1;
-        if (b && b.order) return 1;
-        return 0;
-      });
+      .sort((a, b) => (b.order || 0) - (a.order || 0));
   }, [columns]);
 
   const [domList, setDomList] = useState<JSX.Element[]>([]);
