@@ -49,7 +49,7 @@ const DetailList: React.FC<DetailListProps> = (props) => {
       source.push({
         createdAt: Date.now() - Math.floor(Math.random() * 10000),
         code: `const getData = async params => {
-          const data = await getData(params, ${Math.floor(Math.random() * 10000)});
+          const data = await getData(params);
           return { list: data.data, ...data };
         };`,
       });
