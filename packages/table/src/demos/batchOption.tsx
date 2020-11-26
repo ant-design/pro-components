@@ -98,8 +98,8 @@ const columns: ProColumns<TableListItem>[] = [
     dataIndex: 'createdAt',
     valueType: 'date',
     sorter: (a, b) => a.createdAt - b.createdAt,
-    renderFormItem: (_, { value, onChange }) => {
-      return <RangePicker value={value} onChange={onChange} />;
+    renderFormItem: () => {
+      return <RangePicker />;
     },
   },
   {
@@ -154,12 +154,7 @@ export default () => {
           </Space>
         );
       }}
-      request={() => {
-        return Promise.resolve({
-          data: tableListDataSource,
-          success: true,
-        });
-      }}
+      dataSource={tableListDataSource}
       scroll={{ x: 1300 }}
       options={false}
       search={false}

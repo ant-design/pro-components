@@ -37,6 +37,14 @@ const Demo = () => (
         list: ['1', '2', '3'],
         select: 'china',
         'radio-button': 'a',
+        date: Date.now(),
+        dateWeek: Date.now(),
+        dateMonth: Date.now(),
+        dateQuarter: Date.now(),
+        dateYear: Date.now(),
+        dateTime: Date.now(),
+        dateTimeRange: [Date.now(), Date.now() - 1000 * 60 * 60 * 24],
+        dateRange: [Date.now(), Date.now() - 1000 * 60 * 60 * 24],
         dragger: [
           {
             uid: '1',
@@ -92,7 +100,6 @@ const Demo = () => (
         name="select"
         readonly
         label="Select"
-        hasFeedback
         valueEnum={{
           china: 'China',
           usa: 'U.S.A',
@@ -103,7 +110,6 @@ const Demo = () => (
       <ProFormSelect
         width="m"
         readonly
-        hasFeedback
         request={async () => [
           { label: '全部', value: 'all' },
           { label: '未解决', value: 'open' },
@@ -116,7 +122,6 @@ const Demo = () => (
       <ProFormSelect
         name="select-multiple"
         label="Select[multiple]"
-        hasFeedback
         readonly
         valueEnum={{
           red: 'Red',

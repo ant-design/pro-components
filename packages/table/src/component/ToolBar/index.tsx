@@ -6,22 +6,22 @@ import { ColumnType } from 'antd/lib/table';
 import { useIntl, IntlType } from '@ant-design/pro-provider';
 import ListToolBar, { ListToolBarProps } from '../ListToolBar';
 import ColumnSetting from '../ColumnSetting';
-import { UseFetchDataAction, RequestData } from '../../useFetchData';
 import './index.less';
 import FullScreenIcon from './FullscreenIcon';
 import DensityIcon from './DensityIcon';
 import Container from '../../container';
+import { ActionType } from '../../typing';
 
-export interface OptionConfig<T> {
+export interface OptionConfig {
   density?: boolean;
-  fullScreen?: OptionsType<T>;
-  reload?: OptionsType<T>;
+  fullScreen?: OptionsType;
+  reload?: OptionsType;
   setting?: boolean;
   search?: (SearchProps & { name?: string }) | boolean;
 }
 
-export type OptionsType<T = unknown> =
-  | ((e: React.MouseEvent<HTMLSpanElement>, action?: UseFetchDataAction<RequestData<T>>) => void)
+export type OptionsType =
+  | ((e: React.MouseEvent<HTMLSpanElement>, action?: ActionType) => void)
   | boolean;
 
 export interface ToolBarProps<T = unknown> {
@@ -33,60 +33,63 @@ export interface ToolBarProps<T = unknown> {
   tip?: string;
   toolbar?: ListToolBarProps;
   toolBarRender?: (
-    action: UseFetchDataAction<RequestData<T>>,
+    action: ActionType | undefined,
     rows: {
       selectedRowKeys?: (string | number)[];
       selectedRows?: T[];
     },
   ) => React.ReactNode[];
-  action: UseFetchDataAction<RequestData<T>>;
-  options?: OptionConfig<T> | false;
+  action?: React.MutableRefObject<ActionType | undefined>;
+  options?: OptionConfig | false;
   selectedRowKeys?: (string | number)[];
   selectedRows?: T[];
   className?: string;
   onSearch?: (keyWords: string) => void;
   columns: ColumnType<T>[];
+  editableUtils: any;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const getButtonText = <T, _U = {}>({
+function getButtonText({
   intl,
-}: OptionConfig<T> & {
+}: OptionConfig & {
   intl: IntlType;
-}) => ({
-  reload: {
-    text: intl.getMessage('tableToolBar.reload', '刷新'),
-    icon: <ReloadOutlined />,
-  },
-  density: {
-    text: intl.getMessage('tableToolBar.density', '表格密度'),
-    icon: <DensityIcon />,
-  },
-  setting: {
-    text: intl.getMessage('tableToolBar.columnSetting', '列设置'),
-    icon: <SettingOutlined />,
-  },
-  fullScreen: {
-    text: intl.getMessage('tableToolBar.fullScreen', '全屏'),
-    icon: <FullScreenIcon />,
-  },
-});
+}) {
+  return {
+    reload: {
+      text: intl.getMessage('tableToolBar.reload', '刷新'),
+      icon: <ReloadOutlined />,
+    },
+    density: {
+      text: intl.getMessage('tableToolBar.density', '表格密度'),
+      icon: <DensityIcon />,
+    },
+    setting: {
+      text: intl.getMessage('tableToolBar.columnSetting', '列设置'),
+      icon: <SettingOutlined />,
+    },
+    fullScreen: {
+      text: intl.getMessage('tableToolBar.fullScreen', '全屏'),
+      icon: <FullScreenIcon />,
+    },
+  };
+}
 
 /**
  * 渲染默认的 工具栏
  * @param options
  * @param className
  */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const renderDefaultOption = <T, _U = {}>(
+function renderDefaultOption<T>(
   options: ToolBarProps<T>['options'],
-  defaultOptions: OptionConfig<T> & {
+  defaultOptions: OptionConfig & {
     intl: IntlType;
   },
   columns: ColumnType<T>[],
-) =>
-  options &&
-  Object.keys(options)
+) {
+  if (!options) {
+    return null;
+  }
+  return Object.keys(options)
     .filter((item) => item)
     .map((key) => {
       const value = options[key];
@@ -103,7 +106,7 @@ const renderDefaultOption = <T, _U = {}>(
           </span>
         );
       }
-      const optionItem = getButtonText<T>(defaultOptions)[key];
+      const optionItem = getButtonText(defaultOptions)[key];
       if (optionItem) {
         return (
           <span
@@ -125,12 +128,11 @@ const renderDefaultOption = <T, _U = {}>(
       return null;
     })
     .filter((item) => item);
+}
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const ToolBar = <T, _U = {}>({
+function ToolBar<T>({
   headerTitle,
   tooltip,
-  columns,
   toolBarRender,
   action,
   options: propsOptions,
@@ -138,14 +140,15 @@ const ToolBar = <T, _U = {}>({
   selectedRows,
   toolbar,
   onSearch,
+  columns,
   ...rest
-}: ToolBarProps<T>) => {
+}: ToolBarProps<T>) {
   const defaultOptions = {
-    reload: () => action.reload(),
+    reload: () => action?.current?.reload(),
     density: true,
     setting: true,
     search: false,
-    fullScreen: () => action.fullScreen && action.fullScreen(),
+    fullScreen: () => action?.current?.fullScreen?.(),
   };
   const counter = Container.useContainer();
   const options =
@@ -169,8 +172,10 @@ const ToolBar = <T, _U = {}>({
       columns,
     ) || [];
   // 操作列表
-  const actions = toolBarRender ? toolBarRender(action, { selectedRowKeys, selectedRows }) : [];
-  const getSearchConfig = (search: OptionConfig<any>['search']) => {
+  const actions = toolBarRender
+    ? toolBarRender(action?.current, { selectedRowKeys, selectedRows })
+    : [];
+  const getSearchConfig = (search: OptionConfig['search']) => {
     if (!search) return false;
 
     /**
@@ -205,6 +210,6 @@ const ToolBar = <T, _U = {}>({
       {...toolbar}
     />
   );
-};
+}
 
 export default ToolBar;

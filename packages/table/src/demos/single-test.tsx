@@ -2,62 +2,22 @@ import React, { useRef } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import { Button, Tag, Space } from 'antd';
 import ProTable, { ProColumns, TableDropdown, ActionType } from '@ant-design/pro-table';
+import request from 'umi-request';
 
 interface GithubIssueItem {
   url: string;
-  repository_url: string;
-  labels_url: string;
-  comments_url: string;
-  events_url: string;
-  html_url: string;
   id: number;
-  node_id: string;
   number: number;
   title: string;
-  user: User;
-  labels: Label[];
+  labels: {
+    name: string;
+    color: string;
+  }[];
   state: string;
-  locked: boolean;
-  assignee?: any;
-  assignees: any[];
-  milestone?: any;
   comments: number;
   created_at: string;
   updated_at: string;
-  closed_at?: any;
-  author_association: string;
-  body: string;
-}
-
-interface Label {
-  id: number;
-  node_id: string;
-  url: string;
-  name: string;
-  color: string;
-  default: boolean;
-  description: string;
-}
-
-interface User {
-  login: string;
-  id: number;
-  node_id: string;
-  avatar_url: string;
-  gravatar_id: string;
-  url: string;
-  html_url: string;
-  followers_url: string;
-  following_url: string;
-  gists_url: string;
-  starred_url: string;
-  subscriptions_url: string;
-  organizations_url: string;
-  repos_url: string;
-  events_url: string;
-  received_events_url: string;
-  type: string;
-  site_admin: boolean;
+  closed_at?: string;
 }
 
 const columns: ProColumns<GithubIssueItem>[] = [
@@ -69,6 +29,8 @@ const columns: ProColumns<GithubIssueItem>[] = [
   {
     title: '标题',
     dataIndex: 'title',
+    fixed: 'left',
+    order: 1,
     copyable: true,
     ellipsis: true,
     hideInForm: true,
@@ -82,13 +44,13 @@ const columns: ProColumns<GithubIssueItem>[] = [
       ],
     },
     width: '30%',
-    search: false,
   },
   {
     title: '状态',
     dataIndex: 'state',
     initialValue: 'all',
     filters: true,
+    order: 2,
     fieldProps: {
       noStyle: true,
     },
@@ -113,10 +75,12 @@ const columns: ProColumns<GithubIssueItem>[] = [
     title: '标签',
     dataIndex: 'labels',
     width: '10%',
+    order: -1,
+    renderFormItem: (_, { defaultRender }) => defaultRender(_),
     render: (_, row) => (
       <Space>
-        {row.labels.map(({ name, id, color }) => (
-          <Tag color={color} key={id}>
+        {row.labels.map(({ name, color }) => (
+          <Tag color={color} key={name}>
             {name}
           </Tag>
         ))}
@@ -129,6 +93,12 @@ const columns: ProColumns<GithubIssueItem>[] = [
     dataIndex: 'created_at',
     valueType: 'dateTime',
     width: '20%',
+    render: (value) => {
+      return {
+        children: value,
+        props: { colSpan: 2 },
+      };
+    },
   },
   {
     title: '创建时间',
@@ -141,14 +111,9 @@ const columns: ProColumns<GithubIssueItem>[] = [
   {
     title: '操作',
     valueType: 'option',
+    fixed: 'right',
     render: (text, row, _, action) => [
-      <a href={row.html_url} target="_blank" rel="noopener noreferrer" key="link">
-        链路
-      </a>,
-      <a href={row.html_url} target="_blank" rel="noopener noreferrer" key="warning">
-        报警
-      </a>,
-      <a href={row.html_url} target="_blank" rel="noopener noreferrer" key="view">
+      <a href={row.url} target="_blank" rel="noopener noreferrer" key="view">
         查看
       </a>,
       <TableDropdown
@@ -167,28 +132,53 @@ export default () => {
   const actionRef = useRef<ActionType>();
 
   return (
-    <ProTable<GithubIssueItem>
-      columns={columns}
-      pagination={{
-        showQuickJumper: true,
-      }}
-      actionRef={actionRef}
-      request={async () => ({
-        data: [],
-      })}
-      formRef={(ref) => {
-        console.log(ref);
-      }}
-      type="form"
-      rowKey="id"
-      dateFormatter="string"
-      headerTitle="高级表格"
-      toolBarRender={() => [
-        <Button key="3" type="primary">
-          <PlusOutlined />
-          新建
-        </Button>,
-      ]}
-    />
+    <>
+      <ProTable<GithubIssueItem>
+        columns={columns}
+        pagination={{
+          showQuickJumper: true,
+        }}
+        actionRef={actionRef}
+        request={async () => ({
+          data: [],
+        })}
+        type="form"
+        rowKey="id"
+        dateFormatter="string"
+        headerTitle="高级表格"
+        toolBarRender={() => [
+          <Button key="3" type="primary">
+            <PlusOutlined />
+            新建
+          </Button>,
+        ]}
+      />
+      <ProTable<GithubIssueItem>
+        columns={columns}
+        actionRef={(ref) => console.log(ref)}
+        request={async (params = {}) =>
+          request<{
+            data: GithubIssueItem[];
+          }>('https://proapi.azurewebsites.net/github/issues', {
+            params,
+          })
+        }
+        pagination={{
+          pageSize: 5,
+        }}
+        formRef={(ref) => {
+          console.log(ref);
+        }}
+        rowKey="id"
+        dateFormatter="string"
+        headerTitle="高级表格"
+        toolBarRender={() => [
+          <Button key="3" type="primary">
+            <PlusOutlined />
+            新建
+          </Button>,
+        ]}
+      />
+    </>
   );
 };

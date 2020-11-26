@@ -21,9 +21,8 @@ const LabelIconTip: React.FC<{
   }
   const className = getPrefixCls('pro-core-label-tip');
   const tooltipProps = typeof tooltip === 'string' ? { title: tooltip } : (tooltip as TooltipProps);
-
   return (
-    <Space size={8} className={className}>
+    <Space className={className}>
       {label}
       {subTitle && <div className={`${className}-subtitle`}>{subTitle}</div>}
       {tooltip && (

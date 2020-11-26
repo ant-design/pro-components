@@ -101,7 +101,7 @@ export interface TableFormItem<T, U = any> extends Omit<FormItemProps, 'children
   dateFormatter?: 'string' | 'number' | false;
   search?: false | SearchConfig;
   columns: ProColumns<U>[];
-  formRef?: React.MutableRefObject<FormInstance | undefined> | ((actionRef: FormInstance) => void);
+  formRef?: React.MutableRefObject<FormInstance | undefined> | ((formRef: FormInstance) => void);
   submitButtonLoading?: boolean;
 }
 
@@ -147,7 +147,11 @@ export const formInputRender: React.FC<{
     // 自动注入 onChange 和 value，用户自己很有可能忘记
     const dom = renderFormItem(
       restItem,
-      { ...rest, type, defaultRender },
+      {
+        ...rest,
+        type,
+        defaultRender,
+      },
       form as any,
     ) as React.ReactElement;
 
@@ -274,8 +278,8 @@ const FormSearch = <T, U = any>({
   formRef,
   dateFormatter = 'string',
   type,
-  onReset,
   columns,
+  onReset,
   submitButtonLoading,
   search: searchConfig,
   form: formConfig = {},
@@ -355,9 +359,6 @@ const FormSearch = <T, U = any>({
   }, [formInstanceRef.current]);
 
   useDeepCompareEffect(() => {
-    if (columns.length < 1) {
-      return;
-    }
     const tempMap = {};
     const transformKeyMap = {};
 
@@ -411,14 +412,7 @@ const FormSearch = <T, U = any>({
         }
         return false;
       })
-      .sort((a, b) => {
-        if (a && b) {
-          return (b.order || 0) - (a.order || 0);
-        }
-        if (a && a.order) return -1;
-        if (b && b.order) return 1;
-        return 0;
-      });
+      .sort((a, b) => (b.order || 0) - (a.order || 0));
   }, [columns]);
 
   const [domList, setDomList] = useState<JSX.Element[]>([]);

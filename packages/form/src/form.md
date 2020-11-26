@@ -477,7 +477,6 @@ ProForm 自带的 Filed ,与 valueType 基本上一一对应。
   <ProFormSelect
     name="select"
     label="Select"
-    hasFeedback
     valueEnum={{
       open: '未解决',
       closed: '已解决',
@@ -489,7 +488,6 @@ ProForm 自带的 Filed ,与 valueType 基本上一一对应。
   <ProFormSelect
     name="select2"
     label="Select"
-    hasFeedback
     request={async () => [
       { label: '全部', value: 'all' },
       { label: '未解决', value: 'open' },

@@ -49,9 +49,6 @@ const columns: ProColumns<GithubIssueItem>[] = [
     initialValue: 'open',
     filters: true,
     valueType: 'select',
-    formItemProps: {
-      noStyle: true,
-    },
     valueEnum: {
       all: { text: '全部', status: 'Default' },
       open: {
@@ -83,7 +80,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
   },
   {
     title: '创建时间',
-    key: 'since',
+    key: 'created_at',
     dataIndex: 'created_at',
     valueType: 'date',
   },
@@ -91,8 +88,13 @@ const columns: ProColumns<GithubIssueItem>[] = [
     title: '操作',
     valueType: 'option',
     render: (text, row, _, action) => [
-      <a href={row.url} target="_blank" rel="noopener noreferrer" key="link">
-        链路
+      <a
+        key="editable"
+        onClick={() => {
+          action.startEditable?.(row.id);
+        }}
+      >
+        编辑
       </a>,
       <a href={row.url} target="_blank" rel="noopener noreferrer" key="view">
         查看
@@ -131,6 +133,9 @@ export default () => {
           params,
         })
       }
+      editable={{
+        type: 'multiple',
+      }}
       rowKey="id"
       search={{
         labelWidth: 'auto',

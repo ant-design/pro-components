@@ -13,11 +13,11 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import { ColumnType } from 'antd/lib/table';
 
 import Container, { ColumnsState } from '../../container';
-import { ProColumns } from '../../Table';
 import DnDItem from './DndItem';
 import './index.less';
 import DragIcon from './DragIcon';
 import { genColumnKey } from '../../utils';
+import { ProColumns } from '../../typing';
 
 interface ColumnSettingProps<T = any> {
   columns: ColumnType<T>[];
@@ -228,12 +228,11 @@ const GroupCheckboxList: React.FC<{
   );
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const ColumnSetting = <T, _U = {}>(props: ColumnSettingProps<T>) => {
+function ColumnSetting<T>(props: ColumnSettingProps<T>) {
   const columnRef = useRef({});
   const counter = Container.useContainer();
-  const localColumns: Omit<ProColumns<any> & { index?: number }, 'ellipsis'>[] =
-    props.columns || [];
+  const localColumns: Omit<ProColumns<any> & { index?: number }, 'ellipsis'>[] = props.columns;
+
   const { columnsMap, setColumnsMap } = counter;
 
   useEffect(() => {
@@ -307,6 +306,6 @@ const ColumnSetting = <T, _U = {}>(props: ColumnSettingProps<T>) => {
       </Tooltip>
     </Popover>
   );
-};
+}
 
 export default ColumnSetting;

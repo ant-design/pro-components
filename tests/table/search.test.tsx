@@ -5,7 +5,7 @@ import { act } from 'react-dom/test-utils';
 import { Input } from 'antd';
 import ProTable from '@ant-design/pro-table';
 import { request } from './demo';
-import { waitForComponentToPaint, spyElementPrototypes } from '../util';
+import { waitForComponentToPaint, spyElementPrototypes, waitTime } from '../util';
 
 describe('BasicTable Search', () => {
   let domSpy: any;
@@ -417,6 +417,8 @@ describe('BasicTable Search', () => {
 
     await waitForComponentToPaint(html, 200);
     expect(html.find('div.ant-form-item').length).toBe(3);
+
+    html.unmount();
   });
 
   it('🎏 request load success false', async () => {
@@ -448,6 +450,8 @@ describe('BasicTable Search', () => {
     await waitForComponentToPaint(html, 600);
 
     expect(html.find('.ant-empty').exists()).toBeTruthy();
+
+    html.unmount();
   });
 
   it('🎏 request load null', async () => {
@@ -478,5 +482,53 @@ describe('BasicTable Search', () => {
       // @ts-ignore
       html.dive().html();
     }).toThrowError();
+    html.unmount();
+  });
+
+  it('🎏 request load more time', async () => {
+    const TableDemo: React.FC<{ v: boolean }> = ({ v }) => {
+      return v ? (
+        <ProTable
+          size="small"
+          search={false}
+          columns={[
+            {
+              title: '金额',
+              dataIndex: 'money',
+              valueType: 'money',
+              renderFormItem: () => <Input id="renderFormItem" />,
+            },
+            {
+              title: 'Name',
+              key: 'name',
+              dataIndex: 'name',
+            },
+          ]}
+          request={async () => {
+            await waitTime(600);
+            return {
+              data: [],
+            };
+          }}
+          rowKey="key"
+        />
+      ) : (
+        <>qixian</>
+      );
+    };
+
+    const html = mount(<TableDemo v />);
+
+    await waitTime(500);
+
+    act(() => {
+      html.setProps({
+        v: false,
+      });
+    });
+
+    await waitTime(500);
+
+    expect(html.render()).toMatchSnapshot();
   });
 });
