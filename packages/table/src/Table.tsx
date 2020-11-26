@@ -182,7 +182,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     let interval: any;
     if (polling) {
       interval = setInterval(() => {
-        action.reload(polling);
+        action.reload(!!polling);
       }, polling);
     }
     return () => interval && clearInterval(interval);
