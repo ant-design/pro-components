@@ -567,10 +567,14 @@ describe('EditorProTable', () => {
 
     act(() => {
       wrapper.find('button#addLine').simulate('click');
-      wrapper.find('button#addLine').simulate('click');
     });
 
     await waitForComponentToPaint(wrapper, 200);
+
+    act(() => {
+      wrapper.find('button#addLine').simulate('click');
+    });
+
     let editorRow = wrapper.find('.ant-table-tbody tr.ant-table-row').at(3);
 
     expect(editorRow.find('input').exists()).toBeTruthy();
@@ -618,7 +622,9 @@ describe('EditorProTable', () => {
     act(() => {
       wrapper.find('button#addLine').simulate('click');
     });
+
     await waitForComponentToPaint(wrapper, 100);
+
     act(() => {
       wrapper.find('button#addLine').simulate('click');
     });
