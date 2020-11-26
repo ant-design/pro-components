@@ -9,9 +9,9 @@ const valueType = 'date';
  * 日期选择组件
  * @param
  */
-const ProFormDatePicker: React.FC<ProFormItemProps<
-  DatePickerProps
->> = React.forwardRef(({ proFieldProps, fieldProps }, ref) => (
+const ProFormDatePicker: React.FC<
+  ProFormItemProps<DatePickerProps>
+> = React.forwardRef(({ proFieldProps, fieldProps }, ref) => (
   <ProField
     ref={ref}
     text={fieldProps?.value}
