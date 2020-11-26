@@ -23,7 +23,7 @@ Any type of contribution is welcome, here are some examples of how you may contr
 - Submit [issues](http://github.com/ant-design/https://github.com/ant-design/pro-components/issues) to report bugs or ask questions.
 - Propose [pull requests](http://github.com/ant-design/https://github.com/ant-design/pro-components/pulls) to improve our code.
 
-## Component Kanban 
+## Component Kanban
 
 | Components | Downloads | Downloads a version |
 | --- | --- | --- |
