@@ -84,24 +84,6 @@ const columns: ProColumns<TableListItem>[] = [
 ];
 
 export default () => {
-  const actionRef = useRef<ActionType | undefined>(undefined);
-  useEffect(() => {
-    let id = 0;
-    const loop = () => {
-      id = window.setTimeout(() => {
-        const { current } = actionRef;
-        if (current) {
-          current.reload();
-        }
-        loop();
-      }, 5000);
-    };
-    loop();
-    return () => {
-      window.clearTimeout(id);
-    };
-  }, []);
-
   return (
     <ProTable<TableListItem>
       columns={columns}
@@ -109,8 +91,9 @@ export default () => {
       pagination={{
         showSizeChanger: true,
       }}
-      actionRef={actionRef}
+      polling={5000}
       request={async () => {
+        console.log('request');
         await timeAwait(500);
         return {
           data: tableListDataSource,

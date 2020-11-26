@@ -44,7 +44,7 @@ export interface UseFetchDataAction<T extends RequestData<any>> {
   current: number;
   pageSize: number;
   total: number;
-  reload: () => Promise<void>;
+  reload: (polling?: boolean) => Promise<void>;
   fullScreen?: () => void;
   resetPageIndex: () => void;
   reset: () => void;
@@ -327,6 +327,10 @@ export interface ProTableProps<T, U extends ParamsType>
    *@name 可编辑表格修改数据的改变
    */
   onDataSourceChange?: (dataSource: T[]) => void;
+  /**
+   * 轮询
+   */
+  polling?: false | number;
 }
 
 export type ActionType = ProCoreActionType &

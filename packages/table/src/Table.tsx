@@ -76,6 +76,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     columnEmptyText = '-',
     manualRequest = false,
     toolbar,
+    polling = false,
     ...rest
   } = props;
   const actionRef = useRef<ActionType>();
@@ -174,6 +175,18 @@ const ProTable = <T extends {}, U extends ParamsType>(
       effects: [stringify(params), stringify(formSearch), stringify(proFilter), stringify(proSort)],
     },
   );
+  // ============================ END ============================
+
+  // ============================ 轮询 ============================
+  React.useEffect(() => {
+    let interval: any;
+    if (polling) {
+      interval = setInterval(() => {
+        action.reload(polling);
+      }, polling);
+    }
+    return () => interval && clearInterval(interval);
+  }, [polling]);
   // ============================ END ============================
 
   /**
