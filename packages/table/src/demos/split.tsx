@@ -1,44 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Badge } from 'antd';
 import { BadgeProps } from 'antd/lib/badge';
 import ProTable, { ProColumns } from '@ant-design/pro-table';
 import ProCard from '@ant-design/pro-card';
+// @ts-ignore
+import styles from './split.less';
 
-export interface TableListItem {
+interface TableListItem {
   createdAtRange?: number[];
   createdAt: number;
   code: string;
 }
 
-const tableListDataSource: TableListItem[] = [];
-
-for (let i = 0; i < 15; i += 1) {
-  tableListDataSource.push({
-    createdAt: Date.now() - Math.floor(Math.random() * 2000),
-    createdAtRange: [
-      Date.now() - Math.floor(Math.random() * 2000),
-      Date.now() - Math.floor(Math.random() * 2000),
-    ],
-    code: `const getData = async params => {
-      const data = await getData(params);
-      return { list: data.data, ...data };
-    };`,
-  });
+interface DetailListProps {
+  ip: string;
 }
 
-const DetailList: React.FC = () => {
+const DetailList: React.FC<DetailListProps> = (props) => {
+  const { ip } = props;
+  const [tableListDataSource, setTableListDataSource] = useState<TableListItem[]>([]);
+
   const columns: ProColumns<TableListItem>[] = [
-    {
-      title: '时间区间',
-      key: 'createdAtRange',
-      dataIndex: 'createdAtRange',
-      valueType: 'dateRange',
-    },
     {
       title: '时间点',
       key: 'createdAt',
       dataIndex: 'createdAt',
-      valueType: 'date',
+      valueType: 'dateTime',
     },
     {
       title: '代码',
@@ -56,17 +43,25 @@ const DetailList: React.FC = () => {
     },
   ];
 
+  useEffect(() => {
+    const source = [];
+    for (let i = 0; i < 15; i += 1) {
+      source.push({
+        createdAt: Date.now() - Math.floor(Math.random() * 10000),
+        code: `const getData = async params => {
+          const data = await getData(params, ${Math.floor(Math.random() * 10000)});
+          return { list: data.data, ...data };
+        };`,
+      });
+    }
+
+    setTableListDataSource(source);
+  }, [ip]);
+
   return (
     <ProTable<TableListItem>
       columns={columns}
-      request={(params, sorter, filter) => {
-        // 表单搜索项会从 params 传入，传递给后端接口。
-        console.log(params, sorter, filter);
-        return Promise.resolve({
-          data: tableListDataSource,
-          success: true,
-        });
-      }}
+      dataSource={tableListDataSource}
       pagination={{
         pageSize: 3,
         showSizeChanger: false,
@@ -93,7 +88,7 @@ const ipListDataSource: IpListItem[] = [];
 
 for (let i = 0; i < 10; i += 1) {
   ipListDataSource.push({
-    ip: '106.14.98.124',
+    ip: `106.14.98.1${i}4`,
     cpu: 10,
     mem: 20,
     status: valueEnum[Math.floor(Math.random() * 10) % 4],
@@ -101,7 +96,14 @@ for (let i = 0; i < 10; i += 1) {
   });
 }
 
-const IPList: React.FC = () => {
+interface IPListProps {
+  ip: string;
+  onChange: (id: string) => void;
+}
+
+const IPList: React.FC<IPListProps> = (props) => {
+  const { onChange, ip } = props;
+
   const columns: ProColumns<IpListItem>[] = [
     {
       title: 'IP',
@@ -150,6 +152,9 @@ const IPList: React.FC = () => {
           success: true,
         });
       }}
+      rowClassName={(record) => {
+        return record.ip === ip ? styles['split-row-select-active'] : '';
+      }}
       toolbar={{
         search: {
           onSearch: (value) => {
@@ -161,19 +166,31 @@ const IPList: React.FC = () => {
       options={false}
       pagination={false}
       search={false}
+      onRow={(record) => {
+        return {
+          onClick: () => {
+            if (record.ip) {
+              onChange(record.ip);
+            }
+          },
+        };
+      }}
     />
   );
 };
 
-const Demo: React.FC = () => (
-  <ProCard split="vertical">
-    <ProCard colSpan="384px" ghost>
-      <IPList />
+const Demo: React.FC = () => {
+  const [ip, setIp] = useState('0.0.0.0');
+  return (
+    <ProCard split="vertical">
+      <ProCard colSpan="384px" ghost>
+        <IPList onChange={(cIp) => setIp(cIp)} ip={ip} />
+      </ProCard>
+      <ProCard title={ip}>
+        <DetailList ip={ip} />
+      </ProCard>
     </ProCard>
-    <ProCard title="IP: 106.14.98.124">
-      <DetailList />
-    </ProCard>
-  </ProCard>
-);
+  );
+};
 
 export default Demo;
