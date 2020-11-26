@@ -115,12 +115,13 @@ const MemberList: React.FC = () => {
     {
       title: '操作',
       dataIndex: 'x',
+      valueType: 'option',
       render: (_, record) => {
         let node = renderRemoveUser('退出');
         if (record.role === 'admin') {
           node = renderRemoveUser('移除');
         }
-        return [<Button type="link">编辑</Button>, node];
+        return [<a key="edit">编辑</a>, node];
       },
     },
   ];

@@ -87,6 +87,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
   {
     title: '操作',
     valueType: 'option',
+    width: '120px',
     render: (text, row, _, action) => [
       <a
         key="editable"

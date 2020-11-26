@@ -38,7 +38,7 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 
 ### 无 ToolBar 的表格
 
-<code src="./demos/no-title.tsx" background="#f5f5f5" height="350px"/>
+<code src="./demos/no-title.tsx"  height="350px"/>
 
 ### 嵌套表格
 
@@ -247,7 +247,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 ### ProTable
 
 | 属性 | 描述 | 类型 | 默认值 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | request | 获取 `dataSource` 的方法 | `(params?: {pageSize,current},sort,filter) => {data,success,total}` | - |
 | params | 用于 `request` 查询的多余参数，一旦变化会触发重新加载 | object | - | - |
 | postData | 对通过 `request` 获取的数据进行处理 | `(data: T[]) => T[]` | - |

@@ -111,7 +111,7 @@ const columns: ProColumns<TableListItem>[] = [
   },
   {
     title: '操作',
-    width: 180,
+    width: 80,
     key: 'option',
     valueType: 'option',
     fixed: 'right',
