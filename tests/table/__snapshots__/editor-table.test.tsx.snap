@@ -1554,30 +1554,34 @@ exports[`EditorProTable 📝 renderFormItem run defaultRender 1`] = `
                             <div
                               class="ant-col ant-form-item-control"
                             >
-                              <div
-                                class="ant-form-item-control-input"
-                              >
+                              <div>
                                 <div
-                                  class="ant-form-item-control-input-content"
+                                  class="ant-form-item-control-input"
                                 >
                                   <div
-                                    _internalitemrender="[object Object]"
-                                    class="ant-row ant-form-item"
-                                    style="margin: -5px 0px;"
+                                    class="ant-form-item-control-input-content"
                                   >
                                     <div
-                                      class="ant-col ant-form-item-control"
+                                      _internalitemrender="[object Object]"
+                                      class="ant-row ant-form-item"
+                                      style="margin: -5px 0px;"
                                     >
                                       <div
-                                        class="ant-form-item-control-input"
+                                        class="ant-col ant-form-item-control"
                                       >
-                                        <div
-                                          class="ant-form-item-control-input-content"
-                                        >
+                                        <div>
                                           <div
-                                            class="ant-pro-field-index-column ant-pro-field-index-column-border"
+                                            class="ant-form-item-control-input"
                                           >
-                                            1
+                                            <div
+                                              class="ant-form-item-control-input-content"
+                                            >
+                                              <div
+                                                class="ant-pro-field-index-column ant-pro-field-index-column-border"
+                                              >
+                                                1
+                                              </div>
+                                            </div>
                                           </div>
                                         </div>
                                       </div>

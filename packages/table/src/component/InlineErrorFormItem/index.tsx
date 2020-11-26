@@ -27,16 +27,13 @@ const InlineErrorFormItem: React.FC<FormItemProps> = (props) => {
           },
         ) => {
           const { errors } = inputProps;
-          if (errors.length < 1) {
-            return (
-              <>
-                {input}
-                {extra}
-              </>
-            );
-          }
+
           return (
-            <Popover placement="topLeft" content={<div>{errorList}</div>}>
+            <Popover
+              visible={errors.length < 1 ? false : undefined}
+              placement="topLeft"
+              content={<div>{errorList}</div>}
+            >
               <div>
                 {input}
                 {extra}
