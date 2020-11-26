@@ -433,7 +433,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
   );
   const editableDataSource = (): T[] => {
     const { options: newLineOptions, row } = editableUtils.newLineRecord || {};
-    if (newLineOptions?.position === 'start') {
+    if (newLineOptions?.position === 'top') {
       return [row, ...action.dataSource];
     }
     return [...action.dataSource, row];

@@ -14826,61 +14826,15 @@ exports[`table demos renders ./packages/table/src/demos/editable-table.tsx corre
       [
   {
     "id": 624748504,
-    "title": "[BUG]yarn install命令 antd2.4.5会报错",
-    "labels": [
-      {
-        "name": "bug",
-        "color": "error"
-      }
-    ],
-    "time": {
-      "created_at": "2020-05-26T09:42:56Z"
-    },
-    "state": "processing"
+    "title": "活动名称一",
+    "decs": "这个活动真好玩！",
+    "created_at": "2020-05-26T09:42:56Z"
   },
   {
     "id": 624691229,
-    "title": "无法创建工程npm create umi",
-    "labels": [
-      {
-        "name": "bug",
-        "color": "error"
-      }
-    ],
-    "time": {
-      "created_at": "2020-05-26T08:19:22Z"
-    },
-    "state": "closed"
-  },
-  {
-    "id": 624674790,
-    "title": "build 后还存在 es6 的代码（Umi@2.13.13）",
-    "labels": [
-      {
-        "name": "question",
-        "color": "success"
-      }
-    ],
-    "state": "open",
-    "time": {
-      "created_at": "2020-05-26T07:54:25Z"
-    },
-    "children": [
-      {
-        "id": 6246747901,
-        "title": "嵌套数据的编辑",
-        "labels": [
-          {
-            "name": "question",
-            "color": "success"
-          }
-        ],
-        "state": "closed",
-        "time": {
-          "created_at": "2020-05-26T07:54:25Z"
-        }
-      }
-    ]
+    "title": "活动名称二",
+    "decs": "这个活动真好玩！",
+    "created_at": "2020-05-26T08:19:22Z"
   }
 ]
     </code>
@@ -14908,7 +14862,17 @@ exports[`table demos renders ./packages/table/src/demos/editable-table.tsx corre
             >
               <div
                 class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
-              />
+              >
+                <div
+                  class="ant-space-item"
+                >
+                  <div
+                    class="ant-pro-table-list-toolbar-title"
+                  >
+                    可编辑表格
+                  </div>
+                </div>
+              </div>
               <div
                 class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right"
               >
@@ -14921,14 +14885,65 @@ exports[`table demos renders ./packages/table/src/demos/editable-table.tsx corre
                     <div
                       class="ant-space-item"
                     >
-                      <button
-                        class="ant-btn"
-                        type="button"
+                      <div
+                        class="ant-row ant-form-item"
                       >
-                        <span>
-                          向前增加一行
-                        </span>
-                      </button>
+                        <div
+                          class="ant-col ant-form-item-control"
+                        >
+                          <div
+                            class="ant-form-item-control-input"
+                          >
+                            <div
+                              class="ant-form-item-control-input-content"
+                            >
+                              <div
+                                class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
+                              >
+                                <label
+                                  class="ant-radio-wrapper ant-radio-wrapper-checked"
+                                >
+                                  <span
+                                    class="ant-radio ant-radio-checked"
+                                  >
+                                    <input
+                                      checked=""
+                                      class="ant-radio-input"
+                                      type="radio"
+                                      value="top"
+                                    />
+                                    <span
+                                      class="ant-radio-inner"
+                                    />
+                                  </span>
+                                  <span>
+                                    添加到顶部
+                                  </span>
+                                </label>
+                                <label
+                                  class="ant-radio-wrapper"
+                                >
+                                  <span
+                                    class="ant-radio"
+                                  >
+                                    <input
+                                      class="ant-radio-input"
+                                      type="radio"
+                                      value="end"
+                                    />
+                                    <span
+                                      class="ant-radio-inner"
+                                    />
+                                  </span>
+                                  <span>
+                                    添加到底部
+                                  </span>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -14945,7 +14960,7 @@ exports[`table demos renders ./packages/table/src/demos/editable-table.tsx corre
                 class="ant-spin-container"
               >
                 <div
-                  class="ant-table ant-table-middle ant-table-layout-fixed"
+                  class="ant-table ant-table-middle"
                 >
                   <div
                     class="ant-table-container"
@@ -14954,17 +14969,15 @@ exports[`table demos renders ./packages/table/src/demos/editable-table.tsx corre
                       class="ant-table-content"
                     >
                       <table
-                        style="table-layout: fixed;"
+                        style="table-layout: auto;"
                       >
                         <colgroup>
                           <col
-                            style="width: 80px; min-width: 80px;"
+                            style="width: 220px; min-width: 220px;"
                           />
+                          <col />
                           <col
-                            style="width: 30%; min-width: 30%;"
-                          />
-                          <col
-                            style="width: 120px; min-width: 120px;"
+                            style="width: 200px; min-width: 200px;"
                           />
                         </colgroup>
                         <thead
@@ -14973,93 +14986,13 @@ exports[`table demos renders ./packages/table/src/demos/editable-table.tsx corre
                           <tr>
                             <th
                               class="ant-table-cell"
-                            />
-                            <th
-                              class="ant-table-cell"
                             >
-                              <div
-                                class="ant-space ant-space-horizontal ant-space-align-center ant-pro-core-label-tip"
-                              >
-                                <div
-                                  class="ant-space-item"
-                                  style="margin-right: 4px;"
-                                >
-                                  标题
-                                </div>
-                                <div
-                                  class="ant-space-item"
-                                >
-                                  <span
-                                    aria-label="info-circle"
-                                    class="anticon anticon-info-circle ant-pro-core-label-tip-icon"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="info-circle"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="64 64 896 896"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-                                      />
-                                      <path
-                                        d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </div>
-                              </div>
+                              活动名称
                             </th>
                             <th
                               class="ant-table-cell"
                             >
-                              <div
-                                class="ant-table-filter-column"
-                              >
-                                <span
-                                  class="ant-table-filter-column-title"
-                                >
-                                  状态
-                                </span>
-                                <span
-                                  class="ant-table-filter-trigger-container"
-                                >
-                                  <span
-                                    class="ant-dropdown-trigger ant-table-filter-trigger"
-                                    role="button"
-                                    tabindex="-1"
-                                  >
-                                    <span
-                                      aria-label="filter"
-                                      class="anticon anticon-filter"
-                                      role="img"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        data-icon="filter"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="1em"
-                                        viewBox="64 64 896 896"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
-                                        />
-                                      </svg>
-                                    </span>
-                                  </span>
-                                </span>
-                              </div>
-                            </th>
-                            <th
-                              class="ant-table-cell"
-                            >
-                              创建时间
+                              描述
                             </th>
                             <th
                               class="ant-table-cell"
@@ -15076,91 +15009,14 @@ exports[`table demos renders ./packages/table/src/demos/editable-table.tsx corre
                             data-row-key="624748504"
                           >
                             <td
-                              class="ant-table-cell ant-table-cell-with-append"
+                              class="ant-table-cell"
                             >
-                              <span
-                                class="ant-table-row-indent indent-level-0"
-                                style="padding-left: 0px;"
-                              />
-                              <button
-                                aria-label="Expand row"
-                                class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
-                                type="button"
-                              />
-                              <div
-                                class="ant-pro-field-index-column ant-pro-field-index-column-border"
-                              >
-                                1
-                              </div>
+                              活动名称一
                             </td>
                             <td
                               class="ant-table-cell"
                             >
-                              <span>
-                                <span
-                                  class="ant-typography ant-typography-ellipsis"
-                                  style="max-width: 100%; margin: 0px; padding: 0px;"
-                                  title=""
-                                >
-                                  [BUG]yarn install
-                                  <span
-                                    aria-hidden="true"
-                                    title="命令 antd2.4.5会报错"
-                                  >
-                                    ...
-                                  </span>
-                                  <div
-                                    aria-label=""
-                                    class="ant-typography-copy"
-                                    role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                    tabindex="0"
-                                  >
-                                    <span
-                                      aria-label="copy"
-                                      class="anticon anticon-copy"
-                                      role="img"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        data-icon="copy"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="1em"
-                                        viewBox="64 64 896 896"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                        />
-                                      </svg>
-                                    </span>
-                                  </div>
-                                </span>
-                              </span>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              <span
-                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                              >
-                                <span
-                                  class="ant-badge-status-dot ant-badge-status-processing"
-                                />
-                                <span
-                                  class="ant-badge-status-text"
-                                >
-                                  解决中
-                                </span>
-                              </span>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              <span>
-                                2020-05-26
-                              </span>
+                              这个活动真好玩！
                             </td>
                             <td
                               class="ant-table-cell"
@@ -15183,192 +15039,14 @@ exports[`table demos renders ./packages/table/src/demos/editable-table.tsx corre
                             data-row-key="624691229"
                           >
                             <td
-                              class="ant-table-cell ant-table-cell-with-append"
+                              class="ant-table-cell"
                             >
-                              <span
-                                class="ant-table-row-indent indent-level-0"
-                                style="padding-left: 0px;"
-                              />
-                              <button
-                                aria-label="Expand row"
-                                class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
-                                type="button"
-                              />
-                              <div
-                                class="ant-pro-field-index-column ant-pro-field-index-column-border"
-                              >
-                                2
-                              </div>
+                              活动名称二
                             </td>
                             <td
                               class="ant-table-cell"
                             >
-                              <span>
-                                <span
-                                  class="ant-typography ant-typography-ellipsis"
-                                  style="max-width: 100%; margin: 0px; padding: 0px;"
-                                  title=""
-                                >
-                                  无法创建工程npm create umi
-                                  <div
-                                    aria-label=""
-                                    class="ant-typography-copy"
-                                    role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                    tabindex="0"
-                                  >
-                                    <span
-                                      aria-label="copy"
-                                      class="anticon anticon-copy"
-                                      role="img"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        data-icon="copy"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="1em"
-                                        viewBox="64 64 896 896"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                        />
-                                      </svg>
-                                    </span>
-                                  </div>
-                                </span>
-                              </span>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              <span
-                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                              >
-                                <span
-                                  class="ant-badge-status-dot ant-badge-status-success"
-                                />
-                                <span
-                                  class="ant-badge-status-text"
-                                >
-                                  已解决
-                                </span>
-                              </span>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              <span>
-                                2020-05-26
-                              </span>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              <div
-                                class="ant-space ant-space-horizontal ant-space-align-center"
-                              >
-                                <div
-                                  class="ant-space-item"
-                                >
-                                  <a>
-                                    编辑
-                                  </a>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr
-                            class="ant-table-row ant-table-row-level-0"
-                            data-row-key="624674790"
-                          >
-                            <td
-                              class="ant-table-cell ant-table-cell-with-append"
-                            >
-                              <span
-                                class="ant-table-row-indent indent-level-0"
-                                style="padding-left: 0px;"
-                              />
-                              <button
-                                aria-label="Expand row"
-                                class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
-                                type="button"
-                              />
-                              <div
-                                class="ant-pro-field-index-column ant-pro-field-index-column-border"
-                              >
-                                3
-                              </div>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              <span>
-                                <span
-                                  class="ant-typography ant-typography-ellipsis"
-                                  style="max-width: 100%; margin: 0px; padding: 0px;"
-                                  title=""
-                                >
-                                  build 后还存在 es6 的代
-                                  <span
-                                    aria-hidden="true"
-                                    title="码（Umi@2.13.13）"
-                                  >
-                                    ...
-                                  </span>
-                                  <div
-                                    aria-label=""
-                                    class="ant-typography-copy"
-                                    role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                    tabindex="0"
-                                  >
-                                    <span
-                                      aria-label="copy"
-                                      class="anticon anticon-copy"
-                                      role="img"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        data-icon="copy"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="1em"
-                                        viewBox="64 64 896 896"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                        />
-                                      </svg>
-                                    </span>
-                                  </div>
-                                </span>
-                              </span>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              <span
-                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                              >
-                                <span
-                                  class="ant-badge-status-dot ant-badge-status-error"
-                                />
-                                <span
-                                  class="ant-badge-status-text"
-                                >
-                                  未解决
-                                </span>
-                              </span>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              <span>
-                                2020-05-26
-                              </span>
+                              这个活动真好玩！
                             </td>
                             <td
                               class="ant-table-cell"
@@ -15394,41 +15072,41 @@ exports[`table demos renders ./packages/table/src/demos/editable-table.tsx corre
               </div>
             </div>
           </div>
+          <button
+            class="ant-btn ant-btn-dashed"
+            style="display: block; margin: 10px 0px; width: 100%;"
+            type="button"
+          >
+            <span
+              aria-label="plus"
+              class="anticon anticon-plus"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="plus"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <defs />
+                <path
+                  d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                />
+                <path
+                  d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                />
+              </svg>
+            </span>
+            <span>
+              添加一行数据
+            </span>
+          </button>
         </div>
       </div>
     </div>
-    <button
-      class="ant-btn"
-      style="margin: 24px auto auto auto; display: block; width: 80%;"
-      type="button"
-    >
-      <span
-        aria-label="plus"
-        class="anticon anticon-plus"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="plus"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <defs />
-          <path
-            d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-          />
-          <path
-            d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-          />
-        </svg>
-      </span>
-      <span>
-        新增一行
-      </span>
-    </button>
   </div>
 </div>
 `;
@@ -28604,12 +28282,6 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
                       />
                       <col
                         style="width: 30%; min-width: 30%;"
-                      />
-                      <col />
-                      <col />
-                      <col />
-                      <col
-                        style="width: 120px; min-width: 120px;"
                       />
                     </colgroup>
                     <thead

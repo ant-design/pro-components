@@ -285,8 +285,16 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | --- | --- | --- | --- |
 | value | 同 dataSource，传入一个数组,是 table 渲染的元数据 | `T[]` | `undefined` |
 | onChange | dataSource 修改时触发，删除和修改都会触发,如果设置了 value，Table 会成为一个受控组件。 | `(value:T[])=>void` | `undefined` |
+| recordCreatorProps | 新建一行数据的相关配置 | [RecordCreatorProps](#recordcreator) & [ButtonProps](https://ant.design/components/button-cn/#API) | - |
 
 > 别的 API 与 ProTable 相同。
+
+#### RecordCreator
+
+| 属性     | 描述                                   | 类型           | 默认值 |
+| -------- | -------------------------------------- | -------------- | ------ |
+| record   | 需要新增的行数据，一般来说包含唯一 key | `T`            | `{}`   |
+| position | 行增加在哪里，开始或者末尾             | `top` \| `end` | `end`  |
 
 #### Search 搜索表单
 
@@ -339,7 +347,6 @@ interface ActionType {
   reloadAndRest: () => void;
   reset: () => void;
   clearSelected?: () => void;
-  addLine: (row: T, options: AddLineOptions) => boolean;
   startEditable: (rowKey: React.Key) => boolean;
   cancelEditable: (rowKey: React.Key) => boolean;
 }
@@ -359,14 +366,6 @@ ref.current.reset();
 
 // 清空选中项
 ref.current.clearSelected();
-
-//增加新的一行
-ref.current.addLine(
-  { rowKey },
-  {
-    position: 'start',
-  },
-);
 
 // 开始编辑
 ref.current.startEditable(rowKey);

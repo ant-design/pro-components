@@ -69,9 +69,9 @@ const columns: ProColumns<GithubIssueItem>[] = [
   {
     title: 'التسمية',
     dataIndex: 'labels',
-    render: (_, row) => (
+    render: (_, record) => (
       <Space>
-        {row.labels.map(({ name, color }) => (
+        {record.labels.map(({ name, color }) => (
           <Tag color={color} key={name}>
             {name}
           </Tag>
@@ -88,11 +88,11 @@ const columns: ProColumns<GithubIssueItem>[] = [
   {
     title: 'التشغيل',
     valueType: 'option',
-    render: (text, row, _, action) => [
-      <a href={row.url} target="_blank" rel="noopener noreferrer" key="link">
+    render: (text, record, _, action) => [
+      <a href={record.url} target="_blank" rel="noopener noreferrer" key="link">
         رابط
       </a>,
-      <a href={row.url} target="_blank" rel="noopener noreferrer" key="view">
+      <a href={record.url} target="_blank" rel="noopener noreferrer" key="view">
         查看
       </a>,
       <TableDropdown
