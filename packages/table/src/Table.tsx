@@ -351,20 +351,21 @@ const ProTable = <T extends {}, U extends ParamsType>(
   /**
    * 查询表单相关的配置
    */
-  const searchNode = (search !== false || type === 'form') && (
-    <FormSearch<U, T>
-      submitButtonLoading={!!action.loading}
-      columns={propsColumns}
-      {...rest}
-      type={type}
-      formRef={formRef}
-      onSubmit={onSubmit}
-      onReset={onReset}
-      dateFormatter={rest.dateFormatter}
-      search={search}
-      form={rest.form}
-    />
-  );
+  const searchNode =
+    search !== false || type === 'form' ? (
+      <FormSearch<U, T>
+        submitButtonLoading={!!action.loading}
+        columns={propsColumns}
+        {...rest}
+        type={type}
+        formRef={formRef}
+        onSubmit={onSubmit}
+        onReset={onReset}
+        dateFormatter={rest.dateFormatter}
+        search={search}
+        form={rest.form}
+      />
+    ) : null;
 
   /**
    * 是不是 LightFilter, LightFilter 有一些特殊的处理
