@@ -149,7 +149,7 @@ const EditorProTableDemo = (
     onEditorChange?: (editorRowKeys: React.Key[]) => void;
     dataSource?: DataSourceType[];
     onDataSourceChange?: (dataSource: DataSourceType[]) => void;
-    position?: 'start';
+    position?: 'top';
   } & TableRowEditable<DataSourceType>,
 ) => {
   const actionRef = useRef<ActionType>();
@@ -226,6 +226,23 @@ describe('EditorProTable', () => {
           creatorButtonText: '测试添加数据',
           record: { id: 9999 },
           icon: 'qixian',
+        }}
+        columns={columns}
+        value={defaultData}
+      />,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('📝 EditableProTable support recordCreatorProps.position', async () => {
+    const wrapper = render(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        recordCreatorProps={{
+          creatorButtonText: '测试添加数据',
+          record: { id: 9999 },
+          icon: 'qixian',
+          position: 'top',
         }}
         columns={columns}
         value={defaultData}
@@ -543,7 +560,7 @@ describe('EditorProTable', () => {
 
   it('📝 support add line for start', async () => {
     const fn = jest.fn();
-    const wrapper = mount(<EditorProTableDemo position="start" onSave={fn} />);
+    const wrapper = mount(<EditorProTableDemo position="top" onSave={fn} />);
     await waitForComponentToPaint(wrapper, 1000);
 
     act(() => {

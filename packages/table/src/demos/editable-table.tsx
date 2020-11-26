@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Button } from 'antd';
 import { EditableProTable, ProColumns } from '@ant-design/pro-table';
 import ProField from '@ant-design/pro-field';
+import { ProFormRadio } from '@ant-design/pro-form';
 
 interface DataSourceType {
   id: React.Key;
@@ -64,6 +64,7 @@ const columns: ProColumns<DataSourceType>[] = [
 export default () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>([]);
   const [dataSource, setDataSource] = useState<DataSourceType[]>([]);
+  const [position, setPosition] = useState<'top' | 'end'>('top');
   return (
     <div
       style={{
@@ -87,22 +88,31 @@ export default () => {
       >
         <EditableProTable<DataSourceType>
           rowKey="id"
-          toolBarRender={() => [
-            <EditableProTable.RecordCreator<DataSourceType>
-              record={{
-                id: (Math.random() * 1000000).toFixed(0),
-              }}
-              key="addEditRecord"
-              position="start"
-            >
-              <Button>向前增加一行</Button>
-            </EditableProTable.RecordCreator>,
-          ]}
+          headerTitle="可编辑表格"
           recordCreatorProps={{
+            position,
             record: {
               id: (Math.random() * 1000000).toFixed(0),
             },
           }}
+          toolBarRender={() => [
+            <ProFormRadio.Group
+              fieldProps={{
+                value: position,
+                onChange: (e) => setPosition(e.target.value),
+              }}
+              options={[
+                {
+                  label: '添加到顶部',
+                  value: 'top',
+                },
+                {
+                  label: '添加到底部',
+                  value: 'end',
+                },
+              ]}
+            />,
+          ]}
           columns={columns}
           request={async () => ({
             data: defaultData,
