@@ -331,10 +331,11 @@ function useEditable<RecordType>(
     // 如果是单行的话，不允许多行编辑
     if (editableKeysSet.size > 0 && editableType === 'singe') {
       message.warn('只能同时编辑一行！');
-      return;
+      return false;
     }
     editableKeysSet.add(rowKey);
     setEditableRowKeys(Array.from(editableKeysSet));
+    return true;
   };
 
   /**
@@ -353,6 +354,7 @@ function useEditable<RecordType>(
       editableKeysSet.delete(rowKey);
       setEditableRowKeys(Array.from(editableKeysSet));
     });
+    return true;
   };
 
   const actionRender = useCallback(
@@ -424,12 +426,12 @@ function useEditable<RecordType>(
     // 暂时不支持多行新增
     if (newLineRecordRef.current) {
       message.warn('只能新增一行！');
-      return;
+      return false;
     }
     // 如果是单行的话，不允许多行编辑
     if (editableKeysSet.size > 0 && editableType === 'singe') {
       message.warn('只能同时编辑一行！');
-      return;
+      return false;
     }
 
     // 防止多次渲染
@@ -445,6 +447,7 @@ function useEditable<RecordType>(
         },
       });
     });
+    return true;
   };
 
   return {
