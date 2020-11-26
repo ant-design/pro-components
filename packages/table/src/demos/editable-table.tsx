@@ -117,7 +117,7 @@ const columns: ProColumns<DataSourceType>[] = [
       <a
         key="editable"
         onClick={() => {
-          action.setEditable?.(row.id);
+          action.startEditable?.(row.id);
         }}
       >
         编辑

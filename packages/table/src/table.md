@@ -331,13 +331,17 @@ const defaultColConfig = {
 
 #### ActionRef 手动触发
 
-有时我们要手动触发 table 的 reload 等操作，可以使用 actionRef。
+有时我们要手动触发 table 的 reload 等操作，可以使用 actionRef，可编辑表格也提供了一些操作来帮助我们更快的实现需求。
 
 ```tsx | pure
 interface ActionType {
   reload: (resetPageIndex?: boolean) => void;
-  fetchMore: () => void;
+  reloadAndRest: () => void;
   reset: () => void;
+  clearSelected?: () => void;
+  addLine: (row: T, options: AddLineOptions) => boolean;
+  startEditable: (rowKey: React.Key) => boolean;
+  cancelEditable: (rowKey: React.Key) => boolean;
 }
 
 const ref = useRef<ActionType>();
@@ -347,14 +351,28 @@ const ref = useRef<ActionType>();
 // 刷新
 ref.current.reload();
 
-// 刷新并清空
-ref.current.reloadAndRest;
+// 刷新并清空,页码也会重置
+ref.current.reloadAndRest();
 
 // 重置到默认值
 ref.current.reset();
 
 // 清空选中项
 ref.current.clearSelected();
+
+//增加新的一行
+ref.current.addLine(
+  { rowKey },
+  {
+    position: 'start',
+  },
+);
+
+// 开始编辑
+ref.current.startEditable(rowKey);
+
+// 结束编辑
+ref.current.cancelEditable(rowKey);
 ```
 
 ### Columns 列定义

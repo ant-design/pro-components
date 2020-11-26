@@ -134,7 +134,7 @@ export type ProColumnType<T = unknown> = ProSchema<
      */
     formItemProps?: Partial<Omit<FormItemProps, 'children'>>;
   },
-  Partial<UseEditableUtilType>
+  Partial<ActionType>
 >;
 
 export interface ProColumnGroupType<RecordType> extends ProColumnType<RecordType> {
@@ -330,6 +330,9 @@ export interface ProTableProps<T, U extends ParamsType>
 }
 
 export type ActionType = ProCoreActionType &
-  Omit<UseEditableUtilType, 'newLineRecord'> & {
+  Omit<
+    UseEditableUtilType,
+    'newLineRecord' | 'editableKeys' | 'actionRender' | 'setEditableRowKeys'
+  > & {
     fullScreen?: () => void;
   };

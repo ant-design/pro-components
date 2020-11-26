@@ -327,7 +327,7 @@ function useEditable<RecordType>(
    * 进入编辑状态
    * @param rowKey
    */
-  const setEditable = (rowKey: React.Key) => {
+  const startEditable = (rowKey: React.Key) => {
     // 如果是单行的话，不允许多行编辑
     if (editableKeysSet.size > 0 && editableType === 'singe') {
       message.warn('只能同时编辑一行！');
@@ -336,6 +336,7 @@ function useEditable<RecordType>(
     editableKeysSet.add(rowKey);
     setEditableRowKeys(Array.from(editableKeysSet));
   };
+
   /**
    * 退出编辑状态
    * @param rowKey
@@ -413,6 +414,12 @@ function useEditable<RecordType>(
     [editableKeys.join(',')],
   );
 
+  /**
+   * @name 增加新的行
+   * @description 同时只能支持一行,取消之后数据消息，不会触发 dataSource
+   * @param row
+   * @param options
+   */
   const addLine = (row: RecordType, options?: AddLineOptions) => {
     // 暂时不支持多行新增
     if (newLineRecordRef.current) {
@@ -445,7 +452,7 @@ function useEditable<RecordType>(
     setEditableRowKeys,
     isEditable,
     actionRender,
-    setEditable,
+    startEditable,
     cancelEditable,
     addLine,
     newLineRecord,
