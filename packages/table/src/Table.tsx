@@ -759,18 +759,19 @@ const ProTable = <T extends {}, U extends ParamsType>(
   /**
    * 查询表单相关的配置
    */
-  const searchNode = (search !== false || type === 'form') && (
-    <FormSearch<U, T>
-      columns={propsColumns}
-      type={type}
-      formRef={formRef}
-      onSubmit={onSubmit}
-      onReset={onReset}
-      dateFormatter={rest.dateFormatter}
-      search={search}
-      form={rest.form}
-    />
-  );
+  const searchNode =
+    search !== false || type === 'form' ? (
+      <FormSearch<U, T>
+        columns={propsColumns}
+        type={type}
+        formRef={formRef}
+        onSubmit={onSubmit}
+        onReset={onReset}
+        dateFormatter={rest.dateFormatter}
+        search={search}
+        form={rest.form}
+      />
+    ) : null;
   const isLightFilter: boolean = search !== false && search?.filterType === 'light';
 
   const toolbarProps = isLightFilter
