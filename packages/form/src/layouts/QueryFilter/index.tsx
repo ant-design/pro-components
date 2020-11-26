@@ -285,6 +285,8 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
     defaultCollapsed = true,
     defaultColsNumber,
     span,
+    searchText,
+    resetText,
     optionRender,
     collapseRender,
     onReset,

@@ -3142,7 +3142,7 @@ exports[`form demos renders ./packages/form/src/demos/components-other-readonly.
           <div
             class="ant-form-item-control-input-content"
           >
-            不同意
+            同意
           </div>
         </div>
       </div>
