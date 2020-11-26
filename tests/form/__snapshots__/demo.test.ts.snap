@@ -10148,7 +10148,7 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
         />
         <div
           class="ant-pro-card ant-pro-card-border"
-          style="margin-bottom: 16px; min-width: 920px; max-width: 100%;"
+          style="margin-bottom: 16px; min-width: 800px; max-width: 100%;"
         >
           <div
             class="ant-pro-card-header ant-pro-card-header-border"
