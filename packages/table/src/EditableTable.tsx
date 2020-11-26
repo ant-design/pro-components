@@ -63,7 +63,7 @@ function EditableTable<T, U extends ParamsType = {}>(props: EditableProTableProp
   useImperativeHandle(rest.actionRef, () => actionRef.current, [actionRef.current]);
 
   const { record, position, creatorButtonText, ...restButtonProps } = recordCreatorProps || {};
-  const isTop = position !== 'top';
+  const isTop = position === 'top';
   const creatorButtonDom = useMemo(
     () =>
       recordCreatorProps !== false && (
