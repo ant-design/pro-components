@@ -20,11 +20,11 @@ const ProFormSwitch: React.FC<ProFormSwitchProps> = React.forwardRef(
         valueType="switch"
         mode="edit"
         fieldProps={{
-          text: fieldProps?.checked,
           ...fieldProps,
           unCheckedChildren,
           checkedChildren,
         }}
+        text={fieldProps?.checked}
         ref={ref}
         {...proFieldProps}
       />

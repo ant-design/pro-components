@@ -50,7 +50,7 @@ export default () => {
             collapsible
             style={{
               marginBottom: 16,
-              minWidth: 920,
+              minWidth: 800,
               maxWidth: '100%',
             }}
             bodyStyle={{
