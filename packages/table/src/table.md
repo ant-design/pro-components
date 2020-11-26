@@ -339,7 +339,6 @@ interface ActionType {
   reloadAndRest: () => void;
   reset: () => void;
   clearSelected?: () => void;
-  addLine: (row: T, options: AddLineOptions) => boolean;
   startEditable: (rowKey: React.Key) => boolean;
   cancelEditable: (rowKey: React.Key) => boolean;
 }
@@ -359,14 +358,6 @@ ref.current.reset();
 
 // 清空选中项
 ref.current.clearSelected();
-
-//增加新的一行
-ref.current.addLine(
-  { rowKey },
-  {
-    position: 'start',
-  },
-);
 
 // 开始编辑
 ref.current.startEditable(rowKey);

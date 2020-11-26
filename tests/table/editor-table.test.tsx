@@ -169,10 +169,10 @@ const EditorProTableDemo = (
       rowKey="id"
       toolBarRender={() => [
         <Button
-          key="addLine"
-          id="addLine"
+          key="addEditRecord"
+          id="addEditRecord"
           onClick={() => {
-            actionRef.current?.addLine(
+            actionRef.current?.addEditRecord(
               {
                 id: 10000,
               },
@@ -519,7 +519,7 @@ describe('EditorProTable', () => {
     await waitForComponentToPaint(wrapper, 1000);
 
     act(() => {
-      wrapper.find('button#addLine').simulate('click');
+      wrapper.find('button#addEditRecord').simulate('click');
     });
 
     await waitForComponentToPaint(wrapper, 200);
@@ -536,7 +536,7 @@ describe('EditorProTable', () => {
     expect(editorRow.find('input').exists()).toBeFalsy();
 
     act(() => {
-      wrapper.find('button#addLine').simulate('click');
+      wrapper.find('button#addEditRecord').simulate('click');
     });
 
     await waitForComponentToPaint(wrapper, 200);
@@ -566,13 +566,13 @@ describe('EditorProTable', () => {
     await waitForComponentToPaint(wrapper, 1000);
 
     act(() => {
-      wrapper.find('button#addLine').simulate('click');
+      wrapper.find('button#addEditRecord').simulate('click');
     });
 
     await waitForComponentToPaint(wrapper, 200);
 
     act(() => {
-      wrapper.find('button#addLine').simulate('click');
+      wrapper.find('button#addEditRecord').simulate('click');
     });
 
     let editorRow = wrapper.find('.ant-table-tbody tr.ant-table-row').at(3);
@@ -588,7 +588,7 @@ describe('EditorProTable', () => {
     expect(editorRow.find('input').exists()).toBeFalsy();
 
     act(() => {
-      wrapper.find('button#addLine').simulate('click');
+      wrapper.find('button#addEditRecord').simulate('click');
     });
 
     await waitForComponentToPaint(wrapper, 200);
@@ -620,13 +620,13 @@ describe('EditorProTable', () => {
     ).toBeTruthy();
 
     act(() => {
-      wrapper.find('button#addLine').simulate('click');
+      wrapper.find('button#addEditRecord').simulate('click');
     });
 
     await waitForComponentToPaint(wrapper, 100);
 
     act(() => {
-      wrapper.find('button#addLine').simulate('click');
+      wrapper.find('button#addEditRecord').simulate('click');
     });
 
     await waitForComponentToPaint(wrapper, 100);

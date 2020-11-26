@@ -268,7 +268,7 @@ export function columnRender<T>({
   editableUtils,
 }: ColumnRenderInterface<T>): any {
   const { action } = counter;
-  const { isEditable, rowKey } = editableUtils.isEditable({ ...rowData, index });
+  const { isEditable, recordKey } = editableUtils.isEditable({ ...rowData, index });
   const { renderText = (val: any) => val } = columnProps;
 
   const renderTextStr = renderText(text, rowData, index, action.current as ActionType);
@@ -281,7 +281,7 @@ export function columnRender<T>({
     columnProps,
     columnEmptyText,
     type,
-    rowKey,
+    recordKey,
     mode: isEditable ? 'edit' : 'read',
   });
 
@@ -329,7 +329,7 @@ export function columnRender<T>({
               <InlineErrorFormItem
                 initialValue={text}
                 name={spellNamePath(
-                  rowKey || index,
+                  recordKey || index,
                   columnProps?.key || columnProps?.dataIndex || index,
                 )}
                 {...columnProps.formItemProps}

@@ -77,9 +77,9 @@ const columns: ProColumns<GithubIssueItem>[] = [
     width: '10%',
     order: -1,
     renderFormItem: (_, { defaultRender }) => defaultRender(_),
-    render: (_, row) => (
+    render: (_, record) => (
       <Space>
-        {row.labels.map(({ name, color }) => (
+        {record.labels.map(({ name, color }) => (
           <Tag color={color} key={name}>
             {name}
           </Tag>
@@ -112,8 +112,8 @@ const columns: ProColumns<GithubIssueItem>[] = [
     title: '操作',
     valueType: 'option',
     fixed: 'right',
-    render: (text, row, _, action) => [
-      <a href={row.url} target="_blank" rel="noopener noreferrer" key="view">
+    render: (text, record, _, action) => [
+      <a href={record.url} target="_blank" rel="noopener noreferrer" key="view">
         查看
       </a>,
       <TableDropdown

@@ -5,7 +5,7 @@ import ProField from '@ant-design/pro-field';
 import { PlusOutlined } from '@ant-design/icons';
 
 interface DataSourceType {
-  id: number;
+  id: React.Key;
   title?: string;
   labels?: {
     name: string;
@@ -113,11 +113,11 @@ const columns: ProColumns<DataSourceType>[] = [
   {
     title: '操作',
     valueType: 'option',
-    render: (text, row, _, action) => [
+    render: (text, record, _, action) => [
       <a
         key="editable"
         onClick={() => {
-          action.startEditable?.(row.id);
+          action.startEditable?.(record.id);
         }}
       >
         编辑
@@ -153,22 +153,16 @@ export default () => {
       >
         <EditableProTable<DataSourceType>
           rowKey="id"
-          toolBarRender={(action) => [
-            <Button
-              key="addLine"
-              onClick={() => {
-                action?.addLine(
-                  {
-                    id: (Math.random() * 1000000).toFixed(0),
-                  },
-                  {
-                    position: 'start',
-                  },
-                );
+          toolBarRender={() => [
+            <EditableProTable.RecordCreator<DataSourceType>
+              record={{
+                id: (Math.random() * 1000000).toFixed(0),
               }}
+              key="addEditRecord"
+              position="start"
             >
-              向前增加一行
-            </Button>,
+              <Button>向前增加一行</Button>
+            </EditableProTable.RecordCreator>,
           ]}
           columns={columns}
           actionRef={actionRef}
@@ -192,7 +186,7 @@ export default () => {
             width: '80%',
           }}
           onClick={() => {
-            actionRef.current?.addLine?.({
+            actionRef.current?.addEditRecord?.({
               id: (Math.random() * 1000000).toFixed(0),
             });
           }}

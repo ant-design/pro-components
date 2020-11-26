@@ -47,7 +47,7 @@ export interface TableRowEditable<T> {
 
 export type ActionRenderConfig<T> = {
   editableKeys?: TableRowEditable<T>['editableKeys'];
-  rowKey: React.Key;
+  recordKey: React.Key;
   index: number;
   form: FormInstance<any>;
   cancelEditable: (key: React.Key) => void;
@@ -84,14 +84,14 @@ function editableRowByKey<RecordType>(
    */
   function dig(records: RecordType[], map_row_parentKey?: React.Key) {
     records.forEach((record, index) => {
-      const rowKey = getRowKey(record, index);
+      const recordKey = getRowKey(record, index);
       // children 取在前面方便拼的时候按照反顺序放回去
       if (record && typeof record === 'object' && childrenColumnName in record) {
-        dig(record[childrenColumnName] || [], rowKey);
+        dig(record[childrenColumnName] || [], recordKey);
       }
       const newRecord = {
         ...record,
-        map_row_key: rowKey,
+        map_row_key: recordKey,
         children: undefined,
         map_row_parentKey,
       };
@@ -99,7 +99,7 @@ function editableRowByKey<RecordType>(
       if (!map_row_parentKey) {
         delete newRecord.map_row_parentKey;
       }
-      kvMap.set(rowKey, newRecord);
+      kvMap.set(recordKey, newRecord);
     });
   }
 
@@ -153,7 +153,7 @@ function editableRowByKey<RecordType>(
 }
 
 const SaveEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
-  rowKey,
+  recordKey,
   onSave,
   form,
   row,
@@ -167,15 +167,15 @@ const SaveEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
         try {
           setLoading(true);
           // @ts-expect-error
-          await form.validateFields([rowKey], {
+          await form.validateFields([recordKey], {
             recursive: true,
           });
-          const fields = form.getFieldValue([rowKey]);
-          await onSave?.(rowKey, { ...row, ...fields });
-          form.resetFields([rowKey]);
+          const fields = form.getFieldValue([recordKey]);
+          await onSave?.(recordKey, { ...row, ...fields });
+          form.resetFields([recordKey]);
           setLoading(false);
           setTimeout(() => {
-            cancelEditable(rowKey);
+            cancelEditable(recordKey);
           }, 0);
         } catch (e) {
           setLoading(false);
@@ -195,7 +195,7 @@ const SaveEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
 };
 
 const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
-  rowKey,
+  recordKey,
   onDelete,
   row,
   deletePopconfirmMessage,
@@ -205,10 +205,10 @@ const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
   const onConfirm = async () => {
     try {
       setLoading(true);
-      await onDelete?.(rowKey, row);
+      await onDelete?.(recordKey, row);
       setLoading(false);
       setTimeout(() => {
-        cancelEditable(rowKey);
+        cancelEditable(recordKey);
       }, 0);
     } catch (e) {
       setLoading(false);
@@ -231,14 +231,14 @@ const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
 };
 
 const defaultActionRender: ActionRenderFunction<any> = (row, config) => {
-  const { rowKey, isNewLine, cancelEditable } = config;
+  const { recordKey, isNewLine, cancelEditable } = config;
   return [
     <SaveEditableAction key="save" {...config} row={row} />,
     !isNewLine && <DeleteEditableAction key="delete" {...config} row={row} />,
     <a
       key="cancel"
       onClick={() => {
-        cancelEditable(rowKey);
+        cancelEditable(recordKey);
       }}
     >
       取消
@@ -248,7 +248,7 @@ const defaultActionRender: ActionRenderFunction<any> = (row, config) => {
 
 export type AddLineOptions = {
   position?: 'start' | 'end';
-  rowKey?: React.Key;
+  recordKey?: React.Key;
 };
 
 /**
@@ -309,14 +309,14 @@ function useEditable<RecordType>(
    */
   const isEditable = useCallback(
     (row: RecordType & { index: number }) => {
-      const rowKey = props.getRowKey(row, row.index);
-      if (editableKeys.includes(rowKey))
+      const recordKey = props.getRowKey(row, row.index);
+      if (editableKeys.includes(recordKey))
         return {
-          rowKey,
+          recordKey,
           isEditable: true,
         };
       return {
-        rowKey,
+        recordKey,
         isEditable: false,
       };
     },
@@ -325,33 +325,33 @@ function useEditable<RecordType>(
 
   /**
    * 进入编辑状态
-   * @param rowKey
+   * @param recordKey
    */
-  const startEditable = (rowKey: React.Key) => {
+  const startEditable = (recordKey: React.Key) => {
     // 如果是单行的话，不允许多行编辑
     if (editableKeysSet.size > 0 && editableType === 'singe') {
       message.warn('只能同时编辑一行！');
       return false;
     }
-    editableKeysSet.add(rowKey);
+    editableKeysSet.add(recordKey);
     setEditableRowKeys(Array.from(editableKeysSet));
     return true;
   };
 
   /**
    * 退出编辑状态
-   * @param rowKey
+   * @param recordKey
    */
-  const cancelEditable = (rowKey: React.Key) => {
+  const cancelEditable = (recordKey: React.Key) => {
     // 防止多次渲染
     ReactDOM.unstable_batchedUpdates(() => {
       /**
        * 如果这个是 new Line 直接删除
        */
-      if (newLineRecord && newLineRecord.options.rowKey === rowKey) {
+      if (newLineRecord && newLineRecord.options.recordKey === recordKey) {
         setNewLineRecord(undefined);
       }
-      editableKeysSet.delete(rowKey);
+      editableKeysSet.delete(recordKey);
       setEditableRowKeys(Array.from(editableKeysSet));
     });
     return true;
@@ -361,12 +361,12 @@ function useEditable<RecordType>(
     (row: RecordType & { index: number }, form: FormInstance<any>) => {
       const key = props.getRowKey(row, row.index);
       const dom = (props.actionRender || defaultActionRender)(row, {
-        rowKey: key,
+        recordKey: key,
         cancelEditable,
         index: row.index,
         isNewLine: !!newLineRecord,
         onDelete: async (
-          rowKey: React.Key,
+          recordKey: React.Key,
           editRow: RecordType & {
             index: number;
           },
@@ -375,21 +375,21 @@ function useEditable<RecordType>(
             data: props.dataSource,
             getRowKey: props.getRowKey,
             row: editRow,
-            key: rowKey,
+            key: recordKey,
             childrenColumnName: props.childrenColumnName || 'children',
           };
-          await props?.onDelete?.(rowKey, editRow);
+          await props?.onDelete?.(recordKey, editRow);
           props.setDataSource(editableRowByKey(actionProps, 'delete'));
         },
         onSave: async (
-          rowKey: React.Key,
+          recordKey: React.Key,
           editRow: RecordType & {
             index: number;
           },
         ) => {
           const { options } = newLineRecordRef.current || {};
-          await props?.onSave?.(rowKey, editRow);
-          if (newLineRecordRef.current && rowKey === options?.rowKey) {
+          await props?.onSave?.(recordKey, editRow);
+          if (newLineRecordRef.current && recordKey === options?.recordKey) {
             if (options?.position === 'start') {
               props.setDataSource([editRow, ...props.dataSource]);
             } else {
@@ -401,7 +401,7 @@ function useEditable<RecordType>(
             data: props.dataSource,
             getRowKey: props.getRowKey,
             row: editRow,
-            key: rowKey,
+            key: recordKey,
             childrenColumnName: props.childrenColumnName || 'children',
           };
           props.setDataSource(editableRowByKey(actionProps, 'update'));
@@ -422,7 +422,7 @@ function useEditable<RecordType>(
    * @param row
    * @param options
    */
-  const addLine = (row: RecordType, options?: AddLineOptions) => {
+  const addEditRecord = (row: RecordType, options?: AddLineOptions) => {
     // 暂时不支持多行新增
     if (newLineRecordRef.current) {
       message.warn('只能新增一行！');
@@ -436,14 +436,14 @@ function useEditable<RecordType>(
 
     // 防止多次渲染
     ReactDOM.unstable_batchedUpdates(() => {
-      const rowKey = props.getRowKey(row, props.dataSource.length);
-      editableKeysSet.add(rowKey);
+      const recordKey = props.getRowKey(row, props.dataSource.length);
+      editableKeysSet.add(recordKey);
       setEditableRowKeys(Array.from(editableKeysSet));
       setNewLineRecord({
         row,
         options: {
           ...options,
-          rowKey,
+          recordKey,
         },
       });
     });
@@ -457,7 +457,7 @@ function useEditable<RecordType>(
     actionRender,
     startEditable,
     cancelEditable,
-    addLine,
+    addEditRecord,
     newLineRecord,
   };
 }

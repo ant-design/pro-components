@@ -35,7 +35,7 @@ function defaultRenderText<T>(config: {
   columnProps?: ProColumnType<T>;
   type?: ProSchemaComponentTypes;
   // 行的唯一 key
-  rowKey?: React.Key;
+  recordKey?: React.Key;
   mode: 'edit' | 'read';
 }): React.ReactNode {
   const { text, valueType, rowData, columnProps } = config;
@@ -80,7 +80,7 @@ function defaultRenderText<T>(config: {
       <InlineErrorFormItem
         initialValue={text}
         name={spellNamePath(
-          config.rowKey || config.index,
+          config.recordKey || config.index,
           columnProps?.key || columnProps?.dataIndex || config.index,
         )}
         {...columnProps?.formItemProps}
