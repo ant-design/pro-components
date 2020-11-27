@@ -9,6 +9,16 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.12.0
+
+`2020-11-27`
+
+- 🐛 fix(table): optimize table demos and table style. [#1105](https://github.com/ant-design/pro-components/pull/1105) [@rdmclin2](https://github.com/rdmclin2)
+- 🐛 fix(table): fix filter sometime show 0 error [#1091](https://github.com/ant-design/pro-components/pull/1091) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(table): support editor table [#994](https://github.com/ant-design/pro-components/pull/994) [@chenshuai2144](https://github.com/chenshuai2144)
+- feat: add table demos and fix form layout styles [#1069](https://github.com/ant-design/pro-components/pull/1069) [@rdmclin2](https://github.com/rdmclin2)
+- 💥 feat(table): table support fieldProps.onChange [#1068](https://github.com/ant-design/pro-components/pull/1068) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.11.3
 
 `2020-11-19`

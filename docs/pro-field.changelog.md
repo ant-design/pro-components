@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-field@1.2.0
+
+`2020-11-27`
+
+- 🐛 fix(field): fix ProFormTimePicker value no moment error [#1054](https://github.com/ant-design/pro-components/pull/1054) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-field@1.1.2
 
 `2020-11-19`

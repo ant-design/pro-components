@@ -9,6 +9,16 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.7.0
+
+`2020-11-27`
+
+- 🐛 fix(form):fix switch readonly shows error [#1082](https://github.com/ant-design/pro-components/pull/1082) [@BooYeu](https://github.com/BooYeu)
+- fix: drawerForm&modalForm trigger 区域调整 [#1063](https://github.com/ant-design/pro-components/pull/1063) [@binvb](https://github.com/binvb)
+- 🐛 fix(form): do not trigger submit twice [#1048](https://github.com/ant-design/pro-components/pull/1048) [@chenshuai2144](https://github.com/chenshuai2144)
+- ⚡️ feat(form): optimize query filter performance [#1074](https://github.com/ant-design/pro-components/pull/1074) [@chenshuai2144](https://github.com/chenshuai2144)
+- feat: add table demos and fix form layout styles [#1069](https://github.com/ant-design/pro-components/pull/1069) [@rdmclin2](https://github.com/rdmclin2)
+
 ## @ant-design/pro-form@1.6.2
 
 `2020-11-19`
