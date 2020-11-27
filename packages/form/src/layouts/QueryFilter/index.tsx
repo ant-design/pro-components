@@ -211,7 +211,7 @@ const QueryFilterContent: React.FC<{
   const needCollapseRender = itemLength - 1 >= showLength ? undefined : false;
 
   return (
-    <Row gutter={16} justify="start" key="resize-observer-row">
+    <Row gutter={24} justify="start" key="resize-observer-row">
       {flatMapItems(items).map((item: React.ReactNode, index: number) => {
         // 如果 formItem 自己配置了 hidden，默认使用它自己的
         const hidden: boolean =

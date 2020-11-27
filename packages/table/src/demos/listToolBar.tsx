@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Button, Badge } from 'antd';
-import { EllipsisOutlined } from '@ant-design/icons';
+import { Button, Badge, Tooltip } from 'antd';
+import { QuestionCircleOutlined } from '@ant-design/icons';
 import { LightFilter, ProFormDatePicker } from '@ant-design/pro-form';
 import ProTable, { ProColumns } from '@ant-design/pro-table';
 
@@ -8,8 +8,18 @@ export interface TableListItem {
   key: number;
   name: string;
   containers: number;
+  status: string;
   creator: string;
+  createdAt: number;
 }
+
+const valueEnum = {
+  0: 'close',
+  1: 'running',
+  2: 'online',
+  3: 'error',
+};
+
 const tableListDataSource: TableListItem[] = [];
 
 const creators = ['付小小', '曲丽丽', '林东东', '陈帅帅', '兼某某'];
@@ -19,6 +29,8 @@ for (let i = 0; i < 5; i += 1) {
     key: i,
     name: 'AppName',
     containers: Math.floor(Math.random() * 20),
+    status: valueEnum[Math.floor(Math.random() * 10) % 4],
+    createdAt: Date.now() - Math.floor(Math.random() * 2000),
     creator: creators[Math.floor(Math.random() * creators.length)],
   });
 }
@@ -28,12 +40,6 @@ const columns: ProColumns<TableListItem>[] = [
     title: '应用名称',
     dataIndex: 'name',
     render: (_) => <a>{_}</a>,
-  },
-  {
-    title: '容器数量',
-    dataIndex: 'containers',
-    align: 'right',
-    sorter: (a, b) => a.containers - b.containers,
   },
   {
     title: '创建者',
@@ -48,14 +54,60 @@ const columns: ProColumns<TableListItem>[] = [
     },
   },
   {
+    title: '状态',
+    dataIndex: 'status',
+    initialValue: 'all',
+    filters: true,
+    valueEnum: {
+      all: { text: '全部', status: 'Default' },
+      close: { text: '待发布', status: 'Default' },
+      running: { text: '发布中', status: 'Processing' },
+      online: { text: '发布成功', status: 'Success' },
+      error: { text: '发布失败', status: 'Error' },
+    },
+  },
+  {
+    title: '容器数量',
+    dataIndex: 'containers',
+    align: 'right',
+    sorter: (a, b) => a.containers - b.containers,
+  },
+  {
+    title: (
+      <>
+        创建时间
+        <Tooltip placement="top" title="这是一段描述">
+          <QuestionCircleOutlined style={{ marginLeft: 4 }} />
+        </Tooltip>
+      </>
+    ),
+    width: 140,
+    key: 'since',
+    dataIndex: 'createdAt',
+    valueType: 'date',
+    sorter: (a, b) => a.createdAt - b.createdAt,
+  },
+  {
     title: '操作',
     key: 'option',
+    width: 120,
     valueType: 'option',
-    render: () => [
-      <a key="link">链路</a>,
-      <a key="warn">报警</a>,
-      <a key="more">
-        <EllipsisOutlined />
+    render: (_, record) => [
+      record.status === 'close' && <a key="link">发布</a>,
+      (record.status === 'running' || record.status === 'online') && <a key="warn">停用</a>,
+      record.status === 'error' && <a key="republish">重新发布</a>,
+      <a
+        key="republish"
+        style={
+          record.status === 'running'
+            ? {
+                color: 'rgba(0,0,0,.25)',
+                cursor: 'not-allowed',
+              }
+            : {}
+        }
+      >
+        监控
       </a>,
     ],
   },

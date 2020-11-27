@@ -182,11 +182,11 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
       />
       <div
         class="qixian-row qixian-row-start"
-        style="margin-left: -8px; margin-right: -8px;"
+        style="margin-left: -12px; margin-right: -12px;"
       >
         <div
           class="qixian-col qixian-col-8"
-          style="padding-left: 8px; padding-right: 8px;"
+          style="padding-left: 12px; padding-right: 12px;"
         >
           <div
             class="qixian-row qixian-form-item"
@@ -255,7 +255,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
         </div>
         <div
           class="qixian-col qixian-col-8 qixian-col-offset-8"
-          style="padding-left: 8px; padding-right: 8px; text-align: right;"
+          style="padding-left: 12px; padding-right: 12px; text-align: right;"
         >
           <div
             class="qixian-row qixian-form-item pro-form-query-filter-actions"

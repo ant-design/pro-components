@@ -11691,11 +11691,11 @@ exports[`form demos renders ./packages/form/src/demos/query-filter.tsx correctly
   />
   <div
     class="ant-row ant-row-start"
-    style="margin-left: -8px; margin-right: -8px;"
+    style="margin-left: -12px; margin-right: -12px;"
   >
     <div
       class="ant-col ant-col-8"
-      style="padding-left: 8px; padding-right: 8px;"
+      style="padding-left: 12px; padding-right: 12px;"
     >
       <div
         class="ant-row ant-form-item"
@@ -11764,7 +11764,7 @@ exports[`form demos renders ./packages/form/src/demos/query-filter.tsx correctly
     </div>
     <div
       class="ant-col ant-col-8"
-      style="padding-left: 8px; padding-right: 8px;"
+      style="padding-left: 12px; padding-right: 12px;"
     >
       <div
         class="ant-row ant-form-item"
@@ -12163,7 +12163,7 @@ exports[`form demos renders ./packages/form/src/demos/query-filter.tsx correctly
     </div>
     <div
       class="ant-col ant-col-8"
-      style="padding-left: 8px; padding-right: 8px; text-align: right;"
+      style="padding-left: 12px; padding-right: 12px; text-align: right;"
     >
       <div
         class="ant-row ant-form-item pro-form-query-filter-actions"
@@ -12192,7 +12192,7 @@ exports[`form demos renders ./packages/form/src/demos/query-filter.tsx correctly
               >
                 <div
                   class="ant-space-item"
-                  style="margin-right: 8px;"
+                  style="margin-right: 16px;"
                 >
                   <div
                     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -12273,11 +12273,11 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-collapsed.tsx
   />
   <div
     class="ant-row ant-row-start"
-    style="margin-left: -8px; margin-right: -8px;"
+    style="margin-left: -12px; margin-right: -12px;"
   >
     <div
       class="ant-col ant-col-8"
-      style="padding-left: 8px; padding-right: 8px;"
+      style="padding-left: 12px; padding-right: 12px;"
     >
       <div
         class="ant-row ant-form-item"
@@ -12346,7 +12346,7 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-collapsed.tsx
     </div>
     <div
       class="ant-col ant-col-8"
-      style="padding-left: 8px; padding-right: 8px;"
+      style="padding-left: 12px; padding-right: 12px;"
     >
       <div
         class="ant-row ant-form-item"
@@ -12622,7 +12622,7 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-collapsed.tsx
     </div>
     <div
       class="ant-col ant-col-8"
-      style="padding-left: 8px; padding-right: 8px; text-align: right;"
+      style="padding-left: 12px; padding-right: 12px; text-align: right;"
     >
       <div
         class="ant-row ant-form-item pro-form-query-filter-actions"
@@ -12651,7 +12651,7 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-collapsed.tsx
               >
                 <div
                   class="ant-space-item"
-                  style="margin-right: 8px;"
+                  style="margin-right: 16px;"
                 >
                   <div
                     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -12732,11 +12732,11 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-vertical.tsx 
   />
   <div
     class="ant-row ant-row-start"
-    style="margin-left: -8px; margin-right: -8px;"
+    style="margin-left: -12px; margin-right: -12px;"
   >
     <div
       class="ant-col ant-col-8"
-      style="padding-left: 8px; padding-right: 8px;"
+      style="padding-left: 12px; padding-right: 12px;"
     >
       <div
         class="ant-row ant-form-item"
@@ -12804,7 +12804,7 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-vertical.tsx 
     </div>
     <div
       class="ant-col ant-col-8"
-      style="padding-left: 8px; padding-right: 8px;"
+      style="padding-left: 12px; padding-right: 12px;"
     >
       <div
         class="ant-row ant-form-item"
@@ -13139,7 +13139,7 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-vertical.tsx 
     </div>
     <div
       class="ant-col ant-col-8"
-      style="padding-left: 8px; padding-right: 8px; text-align: right;"
+      style="padding-left: 12px; padding-right: 12px; text-align: right;"
     >
       <div
         class="ant-row ant-form-item pro-form-query-filter-actions"
@@ -13168,7 +13168,7 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-vertical.tsx 
               >
                 <div
                   class="ant-space-item"
-                  style="margin-right: 8px;"
+                  style="margin-right: 16px;"
                 >
                   <div
                     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -13459,11 +13459,11 @@ exports[`form demos renders ./packages/form/src/demos/search-filter.tsx correctl
       />
       <div
         class="ant-row ant-row-start"
-        style="margin-left: -8px; margin-right: -8px;"
+        style="margin-left: -12px; margin-right: -12px;"
       >
         <div
           class="ant-col ant-col-24"
-          style="padding-left: 8px; padding-right: 8px;"
+          style="padding-left: 12px; padding-right: 12px;"
         >
           <div>
             <div

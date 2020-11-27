@@ -247,7 +247,7 @@ const defaultActionRender: ActionRenderFunction<any> = (row, config) => {
 };
 
 export type AddLineOptions = {
-  position?: 'start' | 'end';
+  position?: 'top' | 'end';
   recordKey?: React.Key;
 };
 
@@ -390,7 +390,7 @@ function useEditable<RecordType>(
           const { options } = newLineRecordRef.current || {};
           await props?.onSave?.(recordKey, editRow);
           if (newLineRecordRef.current && recordKey === options?.recordKey) {
-            if (options?.position === 'start') {
+            if (options?.position === 'top') {
               props.setDataSource([editRow, ...props.dataSource]);
             } else {
               props.setDataSource([...props.dataSource, editRow]);

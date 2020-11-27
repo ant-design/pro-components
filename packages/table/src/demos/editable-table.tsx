@@ -1,76 +1,35 @@
-import React, { useRef, useState } from 'react';
-import { Button } from 'antd';
-import { EditableProTable, ProColumns, ActionType } from '@ant-design/pro-table';
+import React, { useState } from 'react';
+import { EditableProTable, ProColumns } from '@ant-design/pro-table';
 import ProField from '@ant-design/pro-field';
-import { PlusOutlined } from '@ant-design/icons';
+import { ProFormRadio } from '@ant-design/pro-form';
 
 interface DataSourceType {
   id: React.Key;
   title?: string;
-  labels?: {
-    name: string;
-    color: string;
-  }[];
-  state?: string;
-  time?: {
-    created_at?: string;
-  };
+  decs?: string;
+  created_at?: string;
   children?: DataSourceType[];
 }
 
 const defaultData: DataSourceType[] = [
   {
     id: 624748504,
-    title: '[BUG]yarn install命令 antd2.4.5会报错',
-    labels: [{ name: 'bug', color: 'error' }],
-    time: {
-      created_at: '2020-05-26T09:42:56Z',
-    },
-    state: 'processing',
+    title: '活动名称一',
+    decs: '这个活动真好玩！',
+    created_at: '2020-05-26T09:42:56Z',
   },
   {
     id: 624691229,
-    title: '无法创建工程npm create umi',
-    labels: [{ name: 'bug', color: 'error' }],
-    time: {
-      created_at: '2020-05-26T08:19:22Z',
-    },
-    state: 'closed',
-  },
-  {
-    id: 624674790,
-    title: 'build 后还存在 es6 的代码（Umi@2.13.13）',
-    labels: [{ name: 'question', color: 'success' }],
-    state: 'open',
-    time: {
-      created_at: '2020-05-26T07:54:25Z',
-    },
-    children: [
-      {
-        id: 6246747901,
-        title: '嵌套数据的编辑',
-        labels: [{ name: 'question', color: 'success' }],
-        state: 'closed',
-        time: {
-          created_at: '2020-05-26T07:54:25Z',
-        },
-      },
-    ],
+    title: '活动名称二',
+    decs: '这个活动真好玩！',
+    created_at: '2020-05-26T08:19:22Z',
   },
 ];
 
 const columns: ProColumns<DataSourceType>[] = [
   {
-    dataIndex: 'index',
-    valueType: 'indexBorder',
-    width: 80,
-  },
-  {
-    title: '标题',
+    title: '活动名称',
     dataIndex: 'title',
-    copyable: true,
-    ellipsis: true,
-    tip: '标题过长会自动收缩',
     formItemProps: {
       rules: [
         {
@@ -79,40 +38,16 @@ const columns: ProColumns<DataSourceType>[] = [
         },
       ],
     },
-    width: '30%',
-    search: false,
+    width: 220,
   },
   {
-    title: '状态',
-    dataIndex: 'state',
-    initialValue: 'open',
-    filters: true,
-    valueType: 'select',
-    width: 120,
-    valueEnum: {
-      all: { text: '全部', status: 'Default' },
-      open: {
-        text: '未解决',
-        status: 'Error',
-      },
-      closed: {
-        text: '已解决',
-        status: 'Success',
-      },
-      processing: {
-        text: '解决中',
-        status: 'Processing',
-      },
-    },
-  },
-  {
-    title: '创建时间',
-    dataIndex: ['time', 'created_at'],
-    valueType: 'date',
+    title: '描述',
+    dataIndex: 'decs',
   },
   {
     title: '操作',
     valueType: 'option',
+    width: 200,
     render: (text, record, _, action) => [
       <a
         key="editable"
@@ -127,9 +62,9 @@ const columns: ProColumns<DataSourceType>[] = [
 ];
 
 export default () => {
-  const actionRef = useRef<ActionType>();
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>([]);
   const [dataSource, setDataSource] = useState<DataSourceType[]>([]);
+  const [position, setPosition] = useState<'top' | 'end'>('top');
   return (
     <div
       style={{
@@ -153,19 +88,32 @@ export default () => {
       >
         <EditableProTable<DataSourceType>
           rowKey="id"
+          headerTitle="可编辑表格"
+          recordCreatorProps={{
+            position,
+            record: {
+              id: (Math.random() * 1000000).toFixed(0),
+            },
+          }}
           toolBarRender={() => [
-            <EditableProTable.RecordCreator<DataSourceType>
-              record={{
-                id: (Math.random() * 1000000).toFixed(0),
+            <ProFormRadio.Group
+              fieldProps={{
+                value: position,
+                onChange: (e) => setPosition(e.target.value),
               }}
-              key="addEditRecord"
-              position="start"
-            >
-              <Button>向前增加一行</Button>
-            </EditableProTable.RecordCreator>,
+              options={[
+                {
+                  label: '添加到顶部',
+                  value: 'top',
+                },
+                {
+                  label: '添加到底部',
+                  value: 'end',
+                },
+              ]}
+            />,
           ]}
           columns={columns}
-          actionRef={actionRef}
           request={async () => ({
             data: defaultData,
             total: 3,
@@ -178,22 +126,6 @@ export default () => {
             onChange: setEditableRowKeys,
           }}
         />
-        <Button
-          style={{
-            margin: 'auto',
-            marginTop: 24,
-            display: 'block',
-            width: '80%',
-          }}
-          onClick={() => {
-            actionRef.current?.addEditRecord?.({
-              id: (Math.random() * 1000000).toFixed(0),
-            });
-          }}
-        >
-          <PlusOutlined />
-          新增一行
-        </Button>
       </div>
     </div>
   );

@@ -9,7 +9,6 @@ const InlineErrorFormItem: React.FC<FormItemProps> = (props) => {
         margin: '-5px 0',
       }}
       preserve={false}
-      hasFeedback
       // @ts-ignore
       _internalItemRender={{
         mark: 'pro_table_render',
@@ -28,16 +27,12 @@ const InlineErrorFormItem: React.FC<FormItemProps> = (props) => {
           },
         ) => {
           const { errors } = inputProps;
-          if (errors.length < 1) {
-            return (
-              <>
-                {input}
-                {extra}
-              </>
-            );
-          }
           return (
-            <Popover placement="topLeft" content={<div>{errorList}</div>}>
+            <Popover
+              placement="topLeft"
+              trigger={errors.length < 1 ? [] : ['hover']}
+              content={<div>{errorList}</div>}
+            >
               <div>
                 {input}
                 {extra}

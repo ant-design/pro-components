@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { Button, InputNumber } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { EditableProTable, TableRowEditable, ProColumns, ActionType } from '@ant-design/pro-table';
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint, waitTime } from '../util';
 
@@ -149,7 +149,7 @@ const EditorProTableDemo = (
     onEditorChange?: (editorRowKeys: React.Key[]) => void;
     dataSource?: DataSourceType[];
     onDataSourceChange?: (dataSource: DataSourceType[]) => void;
-    position?: 'start';
+    position?: 'top';
   } & TableRowEditable<DataSourceType>,
 ) => {
   const actionRef = useRef<ActionType>();
@@ -206,6 +206,51 @@ const EditorProTableDemo = (
 };
 
 describe('EditorProTable', () => {
+  it('📝 EditableProTable support recordCreatorProps=false', async () => {
+    const wrapper = render(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        recordCreatorProps={false}
+        columns={columns}
+        value={defaultData}
+      />,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('📝 EditableProTable support recordCreatorProps', async () => {
+    const wrapper = render(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        recordCreatorProps={{
+          creatorButtonText: '测试添加数据',
+          record: { id: 9999 },
+          icon: 'qixian',
+        }}
+        columns={columns}
+        value={defaultData}
+      />,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('📝 EditableProTable support recordCreatorProps.position', async () => {
+    const wrapper = render(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        recordCreatorProps={{
+          creatorButtonText: '测试添加数据',
+          record: { id: 9999 },
+          icon: 'qixian',
+          position: 'top',
+        }}
+        columns={columns}
+        value={defaultData}
+      />,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('📝 support onEditorChange', async () => {
     const fn = jest.fn();
     const wrapper = mount(
@@ -515,7 +560,7 @@ describe('EditorProTable', () => {
 
   it('📝 support add line for start', async () => {
     const fn = jest.fn();
-    const wrapper = mount(<EditorProTableDemo position="start" onSave={fn} />);
+    const wrapper = mount(<EditorProTableDemo position="top" onSave={fn} />);
     await waitForComponentToPaint(wrapper, 1000);
 
     act(() => {
