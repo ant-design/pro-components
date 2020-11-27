@@ -1,4 +1,4 @@
-import { Popconfirm, Space, Button, Menu, Dropdown } from 'antd';
+import { Popconfirm, Space, Menu, Dropdown } from 'antd';
 import React from 'react';
 import ProTable, { ProColumns } from '@ant-design/pro-table';
 import { DownOutlined } from '@ant-design/icons';
@@ -115,12 +115,13 @@ const MemberList: React.FC = () => {
     {
       title: '操作',
       dataIndex: 'x',
+      valueType: 'option',
       render: (_, record) => {
         let node = renderRemoveUser('退出');
         if (record.role === 'admin') {
           node = renderRemoveUser('移除');
         }
-        return [<Button type="link">编辑</Button>, node];
+        return [<a key="edit">编辑</a>, node];
       },
     },
   ];

@@ -39,7 +39,6 @@ const columns: ProColumns<TableListItem>[] = [
     title: '状态',
     dataIndex: 'status',
     initialValue: 'all',
-    width: 100,
     filters: true,
     valueType: 'select',
     valueEnum: {
@@ -54,13 +53,11 @@ const columns: ProColumns<TableListItem>[] = [
     title: '创建时间',
     key: 'since',
     dataIndex: 'createdAt',
-    width: 200,
     valueType: 'dateTime',
   },
   {
     title: '更新时间',
     key: 'since2',
-    width: 120,
     dataIndex: 'createdAt',
     valueType: 'date',
   },

@@ -60,7 +60,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right:8px"
+                              style="margin-right:4px"
                             >
                               标题
                             </div>
@@ -541,7 +541,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right:8px"
+                              style="margin-right:4px"
                             >
                               标题
                             </div>
@@ -1029,7 +1029,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right:8px"
+                              style="margin-right:4px"
                             >
                               标题
                             </div>

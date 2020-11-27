@@ -50,6 +50,7 @@ const columns: ProColumns<TableListItem>[] = [
   {
     title: '操作',
     key: 'option',
+    width: 120,
     valueType: 'option',
     render: () => [
       <a key="link">链路</a>,

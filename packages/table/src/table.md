@@ -38,7 +38,7 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 
 ### 无 ToolBar 的表格
 
-<code src="./demos/no-title.tsx" background="#f5f5f5" height="350px"/>
+<code src="./demos/no-title.tsx"  height="350px"/>
 
 ### 嵌套表格
 
