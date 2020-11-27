@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.6.2...@ant-design/pro-form@1.7.0) (2020-11-27)
+
+### Bug Fixes
+
+- **form:** drawerForm&modalForm trigger 区域调整 ([#1063](https://github.com/ant-design/pro-components/issues/1063)) ([4865f50](https://github.com/ant-design/pro-components/commit/4865f50a79f97880064297c40f52ec021d3f40a9))
+- **table:** optimize table demos and table style. ([#1105](https://github.com/ant-design/pro-components/issues/1105)) ([6e6437e](https://github.com/ant-design/pro-components/commit/6e6437e621200932a24a9199ee729ff4253d71c0))
+
+### Features
+
+- **form:** add table demos and fix form layout styles ([#1069](https://github.com/ant-design/pro-components/issues/1069)) ([4a25cf2](https://github.com/ant-design/pro-components/commit/4a25cf2b2475e534598360e0d62b6a0a3cf69354))
+- **table:** support editor table ([#994](https://github.com/ant-design/pro-components/issues/994)) ([35f40fe](https://github.com/ant-design/pro-components/commit/35f40feb72dd10ea6fefb7d6a59943d43d0a7325))
+- **table:** table support fieldProps.onChange ([#1068](https://github.com/ant-design/pro-components/issues/1068)) ([b8fe662](https://github.com/ant-design/pro-components/commit/b8fe662fd042dda92c4ad0e35c24e1afe2870996))
+
 ## [1.6.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.6.1...@ant-design/pro-form@1.6.2) (2020-11-19)
 
 **Note:** Version bump only for package @ant-design/pro-form

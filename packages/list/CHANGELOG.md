@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.0.14...@ant-design/pro-list@1.1.0) (2020-11-27)
+
+### Features
+
+- **table:** support editor table ([#994](https://github.com/ant-design/pro-components/issues/994)) ([35f40fe](https://github.com/ant-design/pro-components/commit/35f40feb72dd10ea6fefb7d6a59943d43d0a7325))
+
 ## [1.0.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.0.13...@ant-design/pro-list@1.0.14) (2020-11-19)
 
 **Note:** Version bump only for package @ant-design/pro-list

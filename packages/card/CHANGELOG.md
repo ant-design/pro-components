@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.5.1...@ant-design/pro-card@1.6.0) (2020-11-27)
+
+### Features
+
+- **table:** support editor table ([#994](https://github.com/ant-design/pro-components/issues/994)) ([35f40fe](https://github.com/ant-design/pro-components/commit/35f40feb72dd10ea6fefb7d6a59943d43d0a7325))
+- add direction type ([#1039](https://github.com/ant-design/pro-components/issues/1039)) ([e89509b](https://github.com/ant-design/pro-components/commit/e89509b36177a293431ffde39653c56c1e10444b))
+
 ## [1.5.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.5.0...@ant-design/pro-card@1.5.1) (2020-11-19)
 
 **Note:** Version bump only for package @ant-design/pro-card
