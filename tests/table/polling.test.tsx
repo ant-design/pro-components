@@ -1,7 +1,6 @@
 import { mount } from 'enzyme';
 import React from 'react';
 import ProTable from '@ant-design/pro-table';
-import { act } from 'react-dom/test-utils';
 
 import { waitForComponentToPaint } from '../util';
 
