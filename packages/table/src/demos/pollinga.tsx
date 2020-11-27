@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
-import ProTable, { ProColumns, ActionType } from '@ant-design/pro-table';
+import ProTable, { ProColumns } from '@ant-design/pro-table';
 
 const valueEnum = {
   0: 'close',
@@ -93,7 +93,6 @@ export default () => {
       }}
       polling={5000}
       request={async () => {
-        console.log('request');
         await timeAwait(500);
         return {
           data: tableListDataSource,
