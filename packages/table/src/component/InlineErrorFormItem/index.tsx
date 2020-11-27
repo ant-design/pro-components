@@ -27,11 +27,10 @@ const InlineErrorFormItem: React.FC<FormItemProps> = (props) => {
           },
         ) => {
           const { errors } = inputProps;
-
           return (
             <Popover
-              visible={errors.length < 1 ? false : undefined}
               placement="topLeft"
+              trigger={errors.length < 1 ? [] : ['hover']}
               content={<div>{errorList}</div>}
             >
               <div>
