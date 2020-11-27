@@ -44,7 +44,7 @@ export interface UseFetchDataAction<T extends RequestData<any>> {
   current: number;
   pageSize: number;
   total: number;
-  reload: (polling?: boolean) => Promise<void>;
+  reload: (loading?: boolean) => Promise<void>;
   fullScreen?: () => void;
   resetPageIndex: () => void;
   reset: () => void;

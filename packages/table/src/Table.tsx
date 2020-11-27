@@ -189,7 +189,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
       }
       if (time) {
         interval = setInterval(() => {
-          action.reload(true);
+          action.reload(false);
         }, time);
       }
     }

@@ -24,7 +24,7 @@ const useFetchData = <T extends RequestData<any>>(
 ): UseFetchDataAction<T> => {
   // 用于标定组件是否解除挂载，如果解除了就不要 setState
   const mountRef = useRef(true);
-  const [polling, setPolling] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const { pagination, onLoad = () => null, manual, onRequestError } = options || {};
 
   const [list, setList] = useMergedState<T['data']>(defaultData as any, {
@@ -67,7 +67,7 @@ const useFetchData = <T extends RequestData<any>>(
     if (loading || !mountRef.current) {
       return;
     }
-    setLoading(!polling);
+    setLoading(isLoading);
 
     const { pageSize, page } = pageInfo;
     try {
@@ -161,8 +161,8 @@ const useFetchData = <T extends RequestData<any>>(
     dataSource: list,
     setDataSource: setList,
     loading,
-    reload: async (poll) => {
-      setPolling(!!poll);
+    reload: async (val = true) => {
+      setIsLoading(val);
       fetchListDebounce.run();
     },
     total: pageInfo.total,
