@@ -262,12 +262,11 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   const { breadcrumb = {}, breadcrumbMap, menuData = [] } = menuInfoData;
 
   const matchMenus = getMatchMenu(location.pathname || '/', menuData, true);
-  const matchMenuKeys = matchMenus.map((item) => item.key || item.path || '');
+  const matchMenuKeys = Array.from(new Set(matchMenus.map((item) => item.key || item.path || '')));
 
   // 当前选中的menu，一般不会为空
   const currentMenu = (matchMenus[matchMenus.length - 1] || {}) as ProSettings & MenuDataItem;
   const currentMenuLayoutProps = useCurrentMenuLayoutProps(currentMenu);
-
   const { fixSiderbar, navTheme, layout: defaultPropsLayout, ...rest } = {
     ...props,
     ...currentMenuLayoutProps,
@@ -440,29 +439,33 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
           currentMenu,
         }}
       >
-        <div className={className}>
-          <Layout
-            style={{
-              minHeight: '100%',
-              ...style,
-            }}
-            hasSider
-          >
-            {siderMenuDom}
-            <Layout style={genLayoutStyle}>
-              {headerDom}
-              <WrapContent
-                isChildrenLayout={isChildrenLayout}
-                {...rest}
-                className={contentClassName}
-                style={contentStyle}
-              >
-                {loading ? <PageLoading /> : children}
-              </WrapContent>
-              {footerDom}
+        {props.pure ? (
+          children
+        ) : (
+          <div className={className}>
+            <Layout
+              style={{
+                minHeight: '100%',
+                ...style,
+              }}
+              hasSider
+            >
+              {siderMenuDom}
+              <Layout style={genLayoutStyle}>
+                {headerDom}
+                <WrapContent
+                  isChildrenLayout={isChildrenLayout}
+                  {...rest}
+                  className={contentClassName}
+                  style={contentStyle}
+                >
+                  {loading ? <PageLoading /> : children}
+                </WrapContent>
+                {footerDom}
+              </Layout>
             </Layout>
-          </Layout>
-        </div>
+          </div>
+        )}
       </RouteContext.Provider>
     </MenuCounter.Provider>
   );

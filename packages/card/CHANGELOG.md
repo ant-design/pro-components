@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.5.1...@ant-design/pro-card@1.6.0) (2020-11-27)
+
+### Features
+
+- **table:** support editor table ([#994](https://github.com/ant-design/pro-components/issues/994)) ([35f40fe](https://github.com/ant-design/pro-components/commit/35f40feb72dd10ea6fefb7d6a59943d43d0a7325))
+- add direction type ([#1039](https://github.com/ant-design/pro-components/issues/1039)) ([e89509b](https://github.com/ant-design/pro-components/commit/e89509b36177a293431ffde39653c56c1e10444b))
+
+## [1.5.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.5.0...@ant-design/pro-card@1.5.1) (2020-11-19)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+# [1.5.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.4.6...@ant-design/pro-card@1.5.0) (2020-11-17)
+
+### Features
+
+- **card:** pro-card support Group and Divider ([#992](https://github.com/ant-design/pro-components/issues/992)) ([89c813d](https://github.com/ant-design/pro-components/commit/89c813d9d344eaa8ea4963839847ec5c0c2ef017))
+
+## [1.4.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.4.5...@ant-design/pro-card@1.4.6) (2020-11-09)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [1.4.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.4.4...@ant-design/pro-card@1.4.5) (2020-11-04)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [1.4.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.4.3...@ant-design/pro-card@1.4.4) (2020-11-02)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
 ## [1.4.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.4.2...@ant-design/pro-card@1.4.3) (2020-10-29)
 
 ### Bug Fixes

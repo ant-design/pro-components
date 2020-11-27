@@ -6,7 +6,7 @@ export default () => (
   <ProLayout
     {...defaultProps}
     style={{
-      height: 500,
+      height: '100vh',
     }}
     breakpoint={false}
     collapsed

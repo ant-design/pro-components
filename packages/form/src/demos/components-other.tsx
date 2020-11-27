@@ -14,7 +14,7 @@ import ProForm, {
   ProFormDateRangePicker,
   ProFormUploadButton,
   ProFormUploadDragger,
-  ProFromFieldSet,
+  ProFormFieldSet,
 } from '@ant-design/pro-form';
 
 const Demo = () => (
@@ -38,11 +38,10 @@ const Demo = () => (
       }}
       onFinish={async (value) => console.log(value)}
     >
-      <ProFormText name="name" label="name" />
+      <ProFormText width="m" name="name" label="name" />
       <ProFormSelect
         name="select"
         label="Select"
-        hasFeedback
         valueEnum={{
           china: 'China',
           usa: 'U.S.A',
@@ -51,7 +50,7 @@ const Demo = () => (
         rules={[{ required: true, message: 'Please select your country!' }]}
       />
       <ProFormSelect
-        hasFeedback
+        width="m"
         request={async () => [
           { label: '全部', value: 'all' },
           { label: '未解决', value: 'open' },
@@ -64,15 +63,16 @@ const Demo = () => (
       <ProFormSelect
         name="select-multiple"
         label="Select[multiple]"
-        hasFeedback
         valueEnum={{
           red: 'Red',
           green: 'Green',
           blue: 'Blue',
         }}
-        mode="multiple"
-        placeholder="Please select favourite colors"
-        rules={[{ required: true, message: 'Please select your favourite colors!', type: 'array' }]}
+        fieldProps={{
+          mode: 'multiple',
+        }}
+        placeholder="Please select favorite colors"
+        rules={[{ required: true, message: 'Please select your favorite colors!', type: 'array' }]}
       />
       <ProFormDigit label="InputNumber" name="input-number" min={1} max={10} />
       <ProFormSwitch name="switch" label="Switch" />
@@ -138,15 +138,15 @@ const Demo = () => (
         action="/upload.do"
         extra="longgggggggggggggggggggggggggggggggggg"
       />
-      <ProFromFieldSet
+      <ProFormFieldSet
         name="list"
         label="组件列表"
         transform={(value: any) => ({ startTime: value[0], endTime: value[1] })}
       >
-        <ProFormText />
-        <ProFormText />
-        <ProFormText />
-      </ProFromFieldSet>
+        <ProFormText width="m" />
+        <ProFormText width="m" />
+        <ProFormText width="m" />
+      </ProFormFieldSet>
       <ProForm.Group title="日期相关分组">
         <ProFormDatePicker name="date" label="日期" />
         <ProFormDatePicker.Week name="dateWeek" label="周" />

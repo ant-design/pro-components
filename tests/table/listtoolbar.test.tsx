@@ -90,7 +90,7 @@ describe('Table valueEnum', () => {
     expect(wrapper.find('input').prop('placeholder')).toEqual('自定义 placeholder');
   });
 
-  it('ListToolBar menu', () => {
+  it('ListToolBar dropdown menu', () => {
     const onChange = jest.fn();
     const wrapper = mount(
       <ListToolBar
@@ -110,8 +110,35 @@ describe('Table valueEnum', () => {
         }}
       />,
     );
-    wrapper.find('.ant-pro-table-list-toolbar-dropdownmenu-label').simulate('click');
+
+    wrapper.find('.ant-pro-table-list-toolbar-dropdownmenu-label').at(0).simulate('click');
     wrapper.find('.ant-dropdown-menu-item').at(1).simulate('click');
+
+    expect(onChange).toHaveBeenCalledWith('done', undefined);
+  });
+
+  it('ListToolBar tab menu', () => {
+    const onChange = jest.fn();
+    const wrapper = mount(
+      <ListToolBar
+        menu={{
+          type: 'tab',
+          items: [
+            {
+              label: '全部事项',
+              key: 'all',
+            },
+            {
+              label: '已办事项',
+              key: 'done',
+            },
+          ],
+          onChange,
+        }}
+      />,
+    );
+
+    wrapper.find('.ant-tabs-tab').at(1).simulate('click');
 
     expect(onChange).toHaveBeenCalledWith('done', undefined);
   });
@@ -130,6 +157,11 @@ describe('Table valueEnum', () => {
             {
               label: '已办事项',
               key: 'done',
+            },
+            {
+              label: '禁用',
+              key: 'disable',
+              disabled: true,
             },
           ],
           onChange,

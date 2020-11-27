@@ -79,7 +79,7 @@ const Actions: React.FC<ActionsProps> = (props) => {
   const intl = useIntl();
 
   return (
-    <Space style={style}>
+    <Space style={style} size={16}>
       {submitter}
       {collapseRender !== false && (
         <a

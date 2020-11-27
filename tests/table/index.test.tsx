@@ -2,7 +2,6 @@ import { mount } from 'enzyme';
 import React, { useRef } from 'react';
 import { Input, Button } from 'antd';
 import { act } from 'react-dom/test-utils';
-import { ProCoreActionType } from '@ant-design/pro-utils';
 import ProTable, { ActionType, TableDropdown } from '@ant-design/pro-table';
 import { columns, request } from './demo';
 import { waitForComponentToPaint, waitTime } from '../util';
@@ -227,7 +226,7 @@ describe('BasicTable', () => {
   it('🎏 reload request test', async () => {
     const fn = jest.fn();
     const Reload = () => {
-      const actionRef = useRef<ProCoreActionType>();
+      const actionRef = useRef<ActionType>();
       return (
         <ProTable
           actionRef={actionRef}
@@ -582,6 +581,44 @@ describe('BasicTable', () => {
     expect(fn).toBeCalledTimes(1);
   });
 
+  it('🎏 fullscreen icon test when fullscreenEnabled', async () => {
+    const fn = jest.fn();
+    // @ts-ignore
+    document.fullscreenEnabled = false;
+    const html = mount(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            title: 'money',
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+        ]}
+        options={{
+          fullScreen: true,
+        }}
+        request={async () => {
+          return {
+            data: [],
+          };
+        }}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 1000);
+
+    act(() => {
+      html
+        .find('.ant-pro-table-list-toolbar-setting-item span.anticon-fullscreen')
+        .simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 1000);
+
+    expect(fn).not.toBeCalled();
+  });
+
   it('🎏 fullscreen icon mock function', async () => {
     const exitFullscreen = jest.fn();
     document.exitFullscreen = async () => {
@@ -625,6 +662,9 @@ describe('BasicTable', () => {
             ],
           },
         ]}
+        options={{
+          fullScreen: true,
+        }}
         request={async () => {
           return {
             data: [],
@@ -747,18 +787,24 @@ describe('BasicTable', () => {
     const fn = jest.fn();
     const html = mount(
       <ProTable
-        columns={undefined}
+        columns={[{ dataIndex: 'name' }]}
         options={{
           search: true,
         }}
         request={async (params) => {
           fn(params.keyword);
-          return { data: [] };
+          return {
+            data: [
+              {
+                name: 'string',
+              },
+            ],
+          };
         }}
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 600);
+    await waitForComponentToPaint(html, 1000);
 
     act(() => {
       html.find('.ant-pro-table-list-toolbar-search input').simulate('change', {
@@ -788,7 +834,7 @@ describe('BasicTable', () => {
           test: string;
         }
       >
-        columns={undefined}
+        columns={[{ dataIndex: 'name' }]}
         options={{
           search: {
             name: 'test',
@@ -801,7 +847,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 600);
+    await waitForComponentToPaint(html, 1200);
 
     act(() => {
       html.find('.ant-pro-table-list-toolbar-search input').simulate('change', {

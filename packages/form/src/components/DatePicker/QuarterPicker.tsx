@@ -1,7 +1,7 @@
 import React from 'react';
 import ProField from '@ant-design/pro-field';
 import { DatePickerProps } from 'antd/lib/date-picker';
-import { createField } from '../../BaseForm';
+import createField from '../../BaseForm/createField';
 import { ProFormItemProps } from '../../interface';
 
 const valueType = 'dateQuarter';
@@ -27,5 +27,4 @@ const ProFormDatePickerQuarter: React.FC<ProFormItemProps<DatePickerProps>> = Re
 export default createField<ProFormItemProps<DatePickerProps>>(ProFormDatePickerQuarter, {
   valueType,
   customLightMode: true,
-  ignoreFelidWidth: true,
 });

@@ -3,7 +3,7 @@ import { Radio } from 'antd';
 import ProField from '@ant-design/pro-field';
 import { ProSchema } from '@ant-design/pro-utils';
 import { RadioGroupProps, RadioProps } from 'antd/lib/radio';
-import { createField } from '../../BaseForm';
+import createField from '../../BaseForm/createField';
 import { ProFormItemProps } from '../../interface';
 
 export type ProFormRadioGroupProps = ProFormItemProps<RadioGroupProps> & {
@@ -15,7 +15,7 @@ export type ProFormRadioGroupProps = ProFormItemProps<RadioGroupProps> & {
 };
 
 const RadioGroup: React.FC<ProFormRadioGroupProps> = React.forwardRef(
-  ({ fieldProps, options, radioType }, ref: any) => {
+  ({ fieldProps, options, radioType, proFieldProps }, ref: any) => {
     return (
       <ProField
         mode="edit"
@@ -25,6 +25,7 @@ const RadioGroup: React.FC<ProFormRadioGroupProps> = React.forwardRef(
           options,
           ...fieldProps,
         }}
+        {...proFieldProps}
       />
     );
   },
@@ -44,19 +45,18 @@ const ProFormRadio: React.FC<ProFormItemProps<RadioProps>> = React.forwardRef(
   },
 );
 
+const Group = createField(RadioGroup, {
+  customLightMode: true,
+});
+
 // @ts-expect-error
 const WrappedProFormRadio: React.ComponentType<ProFormItemProps<RadioProps>> & {
-  Group: typeof RadioGroup;
+  Group: typeof Group;
   Button: typeof Radio.Button;
 } = createField<ProFormItemProps<RadioProps>>(ProFormRadio, {
   valuePropName: 'checked',
-  ignoreFelidWidth: true,
 });
-
-WrappedProFormRadio.Group = createField(RadioGroup, {
-  customLightMode: true,
-  ignoreFelidWidth: true,
-}) as typeof RadioGroup;
+WrappedProFormRadio.Group = Group;
 
 WrappedProFormRadio.Button = Radio.Button;
 

@@ -38,7 +38,6 @@ exports[`settingDrawer.test base user 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -97,7 +96,6 @@ exports[`settingDrawer.test base user 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="check"
                           fill="currentColor"
                           focusable="false"
@@ -201,7 +199,6 @@ exports[`settingDrawer.test base user 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="down"
                                     fill="currentColor"
                                     focusable="false"
@@ -523,7 +520,6 @@ exports[`settingDrawer.test base user 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="notification"
                     fill="currentColor"
                     focusable="false"
@@ -557,7 +553,6 @@ exports[`settingDrawer.test base user 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="copy"
                     fill="currentColor"
                     focusable="false"
@@ -589,7 +584,6 @@ exports[`settingDrawer.test base user 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="close"
             fill="currentColor"
             focusable="false"
@@ -646,7 +640,6 @@ exports[`settingDrawer.test hideColors = true 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -776,7 +769,6 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="down"
                                     fill="currentColor"
                                     focusable="false"
@@ -1098,7 +1090,6 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="notification"
                     fill="currentColor"
                     focusable="false"
@@ -1132,7 +1123,6 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="copy"
                     fill="currentColor"
                     focusable="false"
@@ -1164,7 +1154,6 @@ exports[`settingDrawer.test hideColors = true 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="close"
             fill="currentColor"
             focusable="false"
@@ -1221,7 +1210,6 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -1280,7 +1268,6 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="check"
                           fill="currentColor"
                           focusable="false"
@@ -1384,7 +1371,6 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="down"
                                     fill="currentColor"
                                     focusable="false"
@@ -1706,7 +1692,6 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="notification"
                     fill="currentColor"
                     focusable="false"
@@ -1743,7 +1728,6 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="close"
             fill="currentColor"
             focusable="false"
@@ -1800,7 +1784,6 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -1859,7 +1842,6 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="check"
                           fill="currentColor"
                           focusable="false"
@@ -1963,7 +1945,6 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="down"
                                     fill="currentColor"
                                     focusable="false"
@@ -2284,7 +2265,6 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="copy"
                     fill="currentColor"
                     focusable="false"
@@ -2316,7 +2296,6 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="close"
             fill="currentColor"
             focusable="false"
@@ -2373,7 +2352,6 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -2432,7 +2410,6 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="check"
                           fill="currentColor"
                           focusable="false"
@@ -2536,7 +2513,6 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="down"
                                     fill="currentColor"
                                     focusable="false"
@@ -2858,7 +2834,6 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="notification"
                     fill="currentColor"
                     focusable="false"
@@ -2892,7 +2867,6 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="copy"
                     fill="currentColor"
                     focusable="false"
@@ -2924,7 +2898,6 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="close"
             fill="currentColor"
             focusable="false"
@@ -2981,7 +2954,6 @@ exports[`settingDrawer.test settings = undefined 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="close"
                   fill="currentColor"
                   focusable="false"
@@ -3040,7 +3012,6 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="check"
                           fill="currentColor"
                           focusable="false"
@@ -3144,7 +3115,6 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class=""
                                     data-icon="down"
                                     fill="currentColor"
                                     focusable="false"
@@ -3465,7 +3435,6 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="notification"
                     fill="currentColor"
                     focusable="false"
@@ -3499,7 +3468,6 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class=""
                     data-icon="copy"
                     fill="currentColor"
                     focusable="false"
@@ -3531,7 +3499,6 @@ exports[`settingDrawer.test settings = undefined 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="close"
             fill="currentColor"
             focusable="false"

@@ -1,12 +1,13 @@
-import React, { ReactNode, useContext } from 'react';
+import React, { PropsWithChildren, ReactNode, useContext } from 'react';
 import { Grid, Tabs, ConfigProvider } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { LabelIconTip } from '@ant-design/pro-utils';
 import classNames from 'classnames';
-import { TabPaneProps, TabsProps } from 'antd/lib/tabs';
-import CardLoading from './cardLoading';
-import TabPane from './tabPane';
+import { TabsProps } from 'antd/lib/tabs';
+import CardLoading from './components/CardLoading';
+import Divider from './components/Divider';
+import TabPane from './components/TabPane';
 import './style/index.less';
 
 const { useBreakpoint } = Grid;
@@ -14,6 +15,8 @@ const { useBreakpoint } = Grid;
 type ProCardType = React.FC<ProCardProps> & {
   isProCard: boolean;
   TabPane: typeof TabPane;
+  Divider: typeof Divider;
+  Group: typeof Group;
 };
 
 type ProCardChildType = React.ReactElement<ProCardProps, ProCardType>;
@@ -21,13 +24,6 @@ type ProCardChildType = React.ReactElement<ProCardProps, ProCardType>;
 type ColSpanType = number | string;
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type Gutter = number | Partial<Record<Breakpoint, number>>;
-
-/**
- * antd 默认直接导出了 rc 组件中的 Tab.Pane 组件。
- */
-type TabPane = TabPaneProps & {
-  key?: string;
-};
 
 export interface ProCardTabsProps extends TabsProps {}
 
@@ -84,7 +80,7 @@ export type ProCardProps = {
   /**
    * 指定 Flex 方向，仅在嵌套子卡片时有效
    */
-  direction?: 'column';
+  direction?: 'column' | 'row';
   /**
    * 加载中
    */
@@ -341,7 +337,13 @@ const ProCard: ProCardType = (props) => {
   );
 };
 
+const Group = (props: PropsWithChildren<ProCardProps>) => (
+  <ProCard bodyStyle={{ padding: 0 }} {...props} />
+);
+
 ProCard.isProCard = true;
 ProCard.TabPane = TabPane;
+ProCard.Divider = Divider;
+ProCard.Group = Group;
 
 export default ProCard;

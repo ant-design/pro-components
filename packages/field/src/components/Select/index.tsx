@@ -7,13 +7,14 @@ import React, {
   useCallback,
   useEffect,
 } from 'react';
-import { Select, Spin } from 'antd';
+import { Select, Space, Spin } from 'antd';
 import {
   ProSchemaValueEnumMap,
   ProSchemaValueEnumObj,
   useDeepCompareEffect,
 } from '@ant-design/pro-utils';
 import useSWR from 'swr';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { useIntl } from '@ant-design/pro-provider';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
 import { SelectProps } from 'antd/lib/select';
@@ -41,9 +42,13 @@ export const ObjToMap = (value: ProFieldValueEnumType | undefined): ProSchemaVal
  * @param pure 纯净模式，不增加 status
  */
 export const proFieldParsingText = (
-  text: string | number,
+  text: string | number | Array<string | number>,
   valueEnumParams: ProFieldValueEnumType,
-) => {
+): React.ReactNode => {
+  if (Array.isArray(text)) {
+    return <Space>{text.map((value) => proFieldParsingText(value, valueEnumParams))}</Space>;
+  }
+
   const valueEnum = ObjToMap(valueEnumParams);
 
   if (!valueEnum.has(text) && !valueEnum.has(`${text}`)) {
@@ -173,13 +178,21 @@ export const useFieldFetchData = (
     proFieldKey?: React.Key;
   },
 ): [boolean, SelectProps<any>['options'], () => void] => {
-  useEffect(() => {
-    testId += 1;
-  }, []);
   /**
    * key 是用来缓存请求的，如果不在是有问题
    */
-  const proFieldKeyRef = useRef(props.proFieldKey ?? props.request ? testId : 'no-fetch');
+  const [cacheKey] = useState(() => {
+    if (props.proFieldKey) {
+      return props.proFieldKey;
+    }
+    if (props.request) {
+      testId += 1;
+      return testId;
+    }
+    return 'no-fetch';
+  });
+
+  const proFieldKeyRef = useRef(cacheKey);
 
   const getOptionsFormValueEnum = useCallback((valueEnum) => {
     return proFieldParsingValueEnumToArray(ObjToMap(valueEnum)).map(({ value, text }) => ({
@@ -189,21 +202,24 @@ export const useFieldFetchData = (
     }));
   }, []);
 
-  const [options, setOptions] = useState<SelectProps<any>['options']>(() => {
-    if (props.valueEnum) {
-      return getOptionsFormValueEnum(props.valueEnum);
-    }
-    if (props.fieldProps?.options) {
-      return props.fieldProps?.options || [];
-    }
-    return [];
-  });
+  const [options, setOptions] = useMergedState<SelectProps<any>['options']>(
+    () => {
+      if (props.valueEnum) {
+        return getOptionsFormValueEnum(props.valueEnum);
+      }
+      return [];
+    },
+    {
+      value: props.fieldProps?.options,
+    },
+  );
 
   useDeepCompareEffect(() => {
     // 优先使用 fieldProps?.options
     if (!props.valueEnum || props.fieldProps?.options) return;
     setOptions(getOptionsFormValueEnum(props.valueEnum));
   }, [props.valueEnum]);
+
   const [loading, setLoading] = useState(false);
 
   const { data, mutate } = useSWR(
@@ -216,6 +232,9 @@ export const useFieldFetchData = (
         return fetchData;
       }
       return [];
+    },
+    {
+      revalidateOnFocus: false,
     },
   );
 
@@ -268,14 +287,12 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
   if (loading) {
     return <Spin />;
   }
-
   if (mode === 'read') {
     const optionsValueEnum: ProSchemaValueEnumObj = options?.length
       ? options?.reduce((pre: any, cur) => {
           return { ...pre, [cur.value]: cur.label };
         }, {})
       : undefined;
-
     const dom = (
       <>
         {proFieldParsingText(

@@ -3,7 +3,7 @@ import React from 'react';
 import { Button } from 'antd';
 import { act } from 'react-dom/test-utils';
 import { StepsForm, StepsFormProps, ProFormText } from '@ant-design/pro-form';
-import { waitForComponentToPaint } from '../util';
+import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('StepsForm', () => {
   it('🐲 basic use', () => {
@@ -124,7 +124,7 @@ describe('StepsForm', () => {
     html.unmount();
   });
 
-  it('🐲 onFinish is null', async () => {
+  it('🐲 submit when onFinish is null', async () => {
     const fn = jest.fn();
     const currentFn = jest.fn();
 
@@ -161,6 +161,44 @@ describe('StepsForm', () => {
     });
     await waitForComponentToPaint(html);
     html.unmount();
+  });
+
+  it('🐲 onFinish return true', async () => {
+    const fn = jest.fn();
+    const currentFn = jest.fn();
+    const html = mount<StepsFormProps>(
+      <StepsForm
+        current={1}
+        onCurrentChange={(c) => {
+          currentFn(c);
+        }}
+        onFinish={async (values) => {
+          fn(values);
+          return true;
+        }}
+      >
+        <StepsForm.StepForm name="base" title="表单1">
+          <ProFormText name="姓名" />
+        </StepsForm.StepForm>
+        <StepsForm.StepForm name="moreInfo" title="表单2">
+          <ProFormText name="邮箱" />
+        </StepsForm.StepForm>
+      </StepsForm>,
+    );
+
+    await waitForComponentToPaint(html);
+    act(() => {
+      html.find('button.ant-btn.ant-btn-primary').simulate('click');
+    });
+
+    await waitTime(16);
+
+    act(() => {
+      html.find('button.ant-btn.ant-btn-primary').simulate('click');
+    });
+
+    expect(fn).toBeCalled();
+    expect(currentFn).toBeCalledWith(0);
   });
 
   it('🐲 submitter render=false', () => {
@@ -258,7 +296,7 @@ describe('StepsForm', () => {
     const fn = jest.fn();
     const html = mount<StepsFormProps>(
       <StepsForm
-        current={0}
+        current={1}
         onCurrentChange={(current) => {
           fn(current);
         }}

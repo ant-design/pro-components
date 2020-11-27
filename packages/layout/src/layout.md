@@ -24,12 +24,52 @@ ProLayout 扩展了 umi 的 router 配置，新增了 name，icon，locale,hideI
 
 ```ts | pure
 export interface MenuDataItem {
+  /**
+   * @name 子菜单
+   */
+  children?: MenuDataItem[];
+  /**
+   * @name 在菜单中隐藏子节点
+   */
   hideChildrenInMenu?: boolean;
+  /**
+   * @name 在菜单中隐藏自己和子节点
+   */
   hideInMenu?: boolean;
-  icon?: string;
-  locale?: string;
+  /**
+   * @name 菜单的icon
+   */
+  icon?: React.ReactNode;
+  /**
+   * @name 自定义菜单的国际化 key
+   */
+  locale?: string | false;
+  /**
+   * @name 菜单的名字
+   */
   name?: string;
-  path: string;
+  /**
+   * @name 用于标定选中的值，默认是 path
+   */
+  key?: string;
+  /**
+   * @name disable 菜单选项
+   */
+  disabled?: boolean;
+  /**
+   * @name 路径
+   */
+  path?: string;
+  /**
+   * @name 自定义父节点
+   * @description 当此节点被选中的时候也会选中 parentKeys 的节点
+   */
+  parentKeys?: string[];
+  /**
+   * @name 隐藏自己，并且将子节点提升到与自己平级
+   */
+  flatMenu?: boolean;
+
   [key: string]: any;
 }
 ```
@@ -40,7 +80,7 @@ ProLayout 会根据 `location.pathname` 来自动选中菜单，并且自动生�
 
 ### 基础使用
 
-<code src="./demos/base.tsx" />
+<code src="./demos/base.tsx" iframe="650px" />
 
 ### 从服务器加载 menu
 
@@ -48,47 +88,53 @@ ProLayout 提供了强大的 menu，但是这样必然会封装很多行为，�
 
 从服务器加载 menu 主要使用的 API 是 `menuDataRender` 和 `menuRender`,`menuDataRender`可以控制当前的菜单数据，`menuRender`可以控制菜单的 dom 节点。
 
-<code src="./demos/dynamicMenu.tsx" />
+<code src="./demos/dynamicMenu.tsx" iframe="500px" />
 
 ### 从服务器加载 menu 并且使用 icon
 
 这里主要是一个演示，我们需要准备一个枚举来进行 icon 的渲染，可以显著的减少打包的大小
 
-<code src="./demos/antd@4MenuIconFormServe.tsx" />
+<code src="./demos/antd@4MenuIconFormServe.tsx" iframe="500px" />
 
 ### 自定义 menu 的内容
 
 通过 `menuItemRender`, `subMenuItemRender`,`title`,`logo`,`menuHeaderRender` 可以非常方便的自定义 menu 的样式。如果实在是不满意，可以使用 `menuRender` 完全的自定义。
 
-<code src="./demos/customizeMenu.tsx" />
+<code src="./demos/customizeMenu.tsx" iframe="500px" />
 
 ### 自定义页脚
 
 ProLayout 默认不提供页脚，要是和 Pro 官网相同的样式，需要自己引入一下页脚。
 
-<code src="./demos/footer.tsx" />
+<code src="./demos/footer.tsx" iframe="500px" />
 
 这里用于展示 ProLayout 的各种应用，如果你觉得你的用法能帮助到别人，欢迎 PR。
 
 ### 搜索菜单
 
-<code src="./demos/searchMenu.tsx" />
+<code src="./demos/searchMenu.tsx" iframe="500px" />
 
 ### 多个路由对应一个菜单项
 
-<code src="./demos/MultipleMenuOnePath.tsx" />
+<code src="./demos/MultipleMenuOnePath.tsx" iframe="500px" />
 
 ### 默认打开所有菜单
 
-<code src="./demos/DefaultOpenAllMenu.tsx" />
+<code src="./demos/DefaultOpenAllMenu.tsx" iframe="500px" />
 
 ### 使用 IconFont
 
-<code src="./demos/IconFont.tsx" />
+<code src="./demos/IconFont.tsx" iframe="500px" />
+
+### ghost 模式
+
+PageContainer 配置 `ghost` 可以将页头切换为透明模式。
+
+<code src="./demos/ghost.tsx" iframe="500px" />
 
 ### 嵌套布局
 
-<code src="./demos/Nested.tsx" />
+<code src="./demos/Nested.tsx" iframe="500px" />
 
 ## API
 
@@ -114,12 +160,12 @@ ProLayout 默认不提供页脚，要是和 Pro 官网相同的样式，需要�
 | navTheme | 导航的主题，side 和 mix 模式下是左侧菜单的主题，top 模式下是顶部菜单 | `light` \| `dark` | `dark` |
 | headerTheme | 顶部导航的主题，mix 模式生效 | `light` \| `dark` | `dark` |
 | fixedHeader | 是否固定 header 到顶部 | `boolean` | `false` |
-| fixSiderbar | 是否固定导航 | boolean | `false` |
+| fixSiderbar | 是否固定导航 | `boolean` | `false` |
 | breakpoint | 触发响应式布局的[断点](https://ant.design/components/grid-cn/#Col) | `Enum { 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' }` | `lg` |
-| menu | 关于 menu 的配置，暂时只有 locale,locale 可以关闭 menu 的自带的全球化 | { locale: boolean, defaultOpenAll: boolean } | `{ locale: true }` |
+| menu | 关于 menu 的配置，暂时只有 locale,locale 可以关闭 menu 的自带的全球化 | `{ locale: boolean, defaultOpenAll: boolean }` | `{ locale: true }` |
 | iconfontUrl | 使用 [IconFont](https://ant.design/components/icon-cn/#components-icon-demo-iconfont) 的图标配置 | `URL` | - |
 | locale | 当前 layout 的语言设置 | `zh-CN` \| `zh-TW` \| `en-US` | navigator.language |
-| settings | layout 的设置 | [`Settings`](#Settings) | [`Settings`](#Settings) | - |
+| settings | layout 的设置 | [`Settings`](#Settings) | - |
 | siderWidth | 侧边菜单宽度 | `number` | 208 |
 | defaultCollapsed | 默认的菜单的收起和展开 | `boolean` | - |
 | collapsed | 控制菜单的收起和展开 | `boolean` | - |
@@ -134,8 +180,8 @@ ProLayout 默认不提供页脚，要是和 Pro 官网相同的样式，需要�
 | pageTitleRender | 自定义页面标题的显示方法 | `(props: BasicLayoutProps) => ReactNode` | - |
 | menuRender | 自定义菜单的 render 方法 | `(props: HeaderViewProps) => ReactNode` | - |
 | postMenuData | 在显示前对菜单数据进行查看，修改不会触发重新渲染 | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
-| menuItemRender | 自定义菜单项的 render 方法 | [(itemProps: MenuDataItem) => ReactNode](#MenuDataItem) | - |
-| subMenuItemRender | 自定义拥有子菜单菜单项的 render 方法 | [(itemProps: MenuDataItem) => ReactNode](#MenuDataItem) | - |
+| menuItemRender | 自定义菜单项的 render 方法 | [`(itemProps: MenuDataItem) => ReactNode`](/components/layout/#menudataitem) | - |
+| subMenuItemRender | 自定义拥有子菜单菜单项的 render 方法 | [`(itemProps: MenuDataItem) => ReactNode`](/components/layout/#menudataitem) | - |
 | menuDataRender | menuData 的 render 方法，用来自定义 menuData | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
 | breadcrumbRender | 自定义面包屑的数据 | `(route)=>route` | - |
 | route | 用于生成菜单和面包屑。umi 的 Layout 会自动带有 | [route](#Route) | - |
@@ -151,8 +197,8 @@ ProLayout 默认不提供页脚，要是和 Pro 官网相同的样式，需要�
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| settings | layout 的设置 | [`Settings`](#Settings) | [`Settings`](#Settings) | - |
-| onSettingChange | [`Settings`](#Settings) 发生更改事件 | (settings: [`Settings`](#Settings) ) => void | - |
+| settings | layout 的设置 | [`Settings`](#Settings) \| [`Settings`](#Settings) | - |
+| onSettingChange | [`Settings`](#Settings) 发生更改事件 | `(settings: [`Settings`](#Settings) ) => void` | - |
 | hideHintAlert | 删除下方的提示信息 | `boolean` | - |
 
 ### PageContainer

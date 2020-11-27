@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { Avatar } from 'antd';
 import { Moment } from 'moment';
 import { pickProProps, omitUndefined } from '@ant-design/pro-utils';
@@ -8,6 +8,7 @@ import FieldIndexColumn from './components/IndexColumn';
 import FieldProgress from './components/Progress';
 import FieldMoney from './components/Money';
 import FieldDatePicker from './components/DatePicker';
+import FieldFromNow from './components/FromNow';
 import FieldRangePicker from './components/RangePicker';
 import FieldCode from './components/Code';
 import FieldTimePicker from './components/TimePicker';
@@ -24,6 +25,7 @@ import FiledSelect, {
 } from './components/Select';
 import FiledCheckbox from './components/Checkbox';
 import FiledRate from './components/Rate';
+import FiledSwitch from './components/Switch';
 import FieldDigit from './components/Digit';
 import FieldRadio from './components/Radio';
 
@@ -76,6 +78,8 @@ export type ProFieldValueType =
   | 'digit'
   | 'avatar'
   | 'code'
+  | 'switch'
+  | 'fromNow'
   | 'jsonCode';
 
 export type ProFieldFCMode = 'read' | 'edit' | 'update';
@@ -103,7 +107,6 @@ type BaseProFieldFC = {
    * label
    */
   label?: React.ReactNode;
-
   /**
    * 映射值的类型
    */
@@ -229,12 +232,19 @@ const defaultRenderText = (
     return defaultRenderTextByObject(text, valueType, props);
   }
 
-  const { mode = 'read', emptyText } = props;
-  if (emptyText !== false && mode === 'read' && valueType !== 'option') {
+  const { mode = 'read', emptyText = '-' } = props;
+  if (emptyText !== false && mode === 'read' && valueType !== 'option' && valueType !== 'switch') {
     if (typeof text !== 'boolean' && typeof text !== 'number' && !text) {
-      return emptyText || '-';
+      const { fieldProps, render } = props;
+      if (render) {
+        return render(text, { mode, ...fieldProps }, <>{emptyText}</>);
+      }
+      return <>{emptyText}</>;
     }
   }
+
+  // eslint-disable-next-line no-param-reassign
+  delete props.emptyText;
 
   /**
    * 如果是金额的值
@@ -311,6 +321,10 @@ const defaultRenderText = (
     return <FieldTimePicker text={text as string} format="HH:mm:ss" {...props} />;
   }
 
+  if (valueType === 'fromNow') {
+    return <FieldFromNow text={text as string} {...props} />;
+  }
+
   if (valueType === 'index') {
     return <FieldIndexColumn>{(text as number) + 1}</FieldIndexColumn>;
   }
@@ -366,6 +380,9 @@ const defaultRenderText = (
   if (valueType === 'rate') {
     return <FiledRate text={text as string} {...props} />;
   }
+  if (valueType === 'switch') {
+    return <FiledSwitch text={text as boolean} {...props} />;
+  }
 
   if (valueType === 'option') {
     return <FieldOptions text={text} {...props} />;
@@ -389,7 +406,7 @@ export type ProFieldPropsType = {
 } & RenderProps;
 
 const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
-  { text = '', valueType = 'text', onChange, value, ...rest },
+  { text, valueType = 'text', onChange, value, ...rest },
   ref,
 ) => {
   const intl = useIntl();
@@ -399,9 +416,10 @@ const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
     // fieldProps 优先级更高，在类似 LightFilter 场景下需要覆盖默认的 value 和 onChange
     ...omitUndefined(rest?.fieldProps),
   };
+
   return (
     <React.Fragment>
-      {defaultRenderText(text, valueType || 'text', {
+      {defaultRenderText(text ?? fieldProps?.value ?? '', valueType || 'text', {
         ...rest,
         mode: rest.mode || 'read',
         ref,

@@ -1,37 +1,16 @@
 import { useState, useRef, useEffect } from 'react';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { usePrevious, useDebounceFn, useDeepCompareEffect } from '@ant-design/pro-utils';
 import ReactDOM from 'react-dom';
-
-export interface RequestData<T> {
-  data: T[];
-  success?: boolean;
-  total?: number;
-  [key: string]: any;
-}
-export interface UseFetchDataAction<T extends RequestData<any>> {
-  dataSource: T['data'] | T;
-  loading: boolean | undefined;
-  current: number;
-  pageSize: number;
-  total: number;
-  cancel: () => void;
-  reload: () => Promise<void>;
-  fullScreen?: () => void;
-  resetPageIndex: () => void;
-  reset: () => void;
-  setPageInfo: (pageInfo: Partial<PageInfo>) => void;
-}
-
-interface PageInfo {
-  page: number;
-  pageSize: number;
-  total: number;
-}
+import { PageInfo, RequestData, UseFetchDataAction } from './typing';
 
 const useFetchData = <T extends RequestData<any>>(
   getData: (params?: { pageSize: number; current: number }) => Promise<T>,
-  defaultData?: Partial<T['data']>,
-  options?: {
+  defaultData: Partial<T['data']>,
+  options: {
+    dataSource?: any;
+    loading: UseFetchDataAction<T>['loading'];
+    onDataSourceChange?: (dataSource?: any) => void;
     current?: number;
     pageSize?: number;
     defaultCurrent?: number;
@@ -47,8 +26,14 @@ const useFetchData = <T extends RequestData<any>>(
   const mountRef = useRef(true);
   const { pagination, onLoad = () => null, manual, onRequestError } = options || {};
 
-  const [list, setList] = useState<T['data']>(defaultData as any);
-  const [loading, setLoading] = useState<boolean | undefined>(undefined);
+  const [list, setList] = useMergedState<T['data']>(defaultData as any, {
+    value: options?.dataSource,
+    onChange: options?.onDataSourceChange,
+  });
+
+  const [loading, setLoading] = useMergedState<UseFetchDataAction<T>['loading']>(undefined, {
+    value: options?.loading,
+  });
 
   const [pageInfo, setPageInfo] = useState<PageInfo>({
     page: options?.current || options?.defaultCurrent || 1,
@@ -126,7 +111,7 @@ const useFetchData = <T extends RequestData<any>>(
     // 如果上次的页码为空或者两次页码等于是没必要查询的
     // 如果 pageSize 发生变化是需要查询的，所以又加了 prePageSize
     if ((!prePage || prePage === page) && (!prePageSize || prePageSize === pageSize)) {
-      return () => undefined;
+      return;
     }
     // 如果 list 的长度大于 pageSize 的长度
     // 说明是一个假分页
@@ -135,15 +120,13 @@ const useFetchData = <T extends RequestData<any>>(
     // 第二页也应该是大于 10
     if (page !== undefined && list.length <= pageSize) {
       fetchListDebounce.run();
-      return () => fetchListDebounce.cancel();
     }
-    return () => undefined;
   }, [pageInfo.page]);
 
   // pageSize 修改后返回第一页
   useEffect(() => {
     if (!prePageSize) {
-      return () => undefined;
+      return;
     }
     /**
      * 切换页面的时候清空一下数据，不然会造成判断失误。
@@ -152,7 +135,6 @@ const useFetchData = <T extends RequestData<any>>(
     setList([]);
     setPageInfo({ ...pageInfo, page: 1 });
     fetchListDebounce.run();
-    return () => fetchListDebounce.cancel();
   }, [pageInfo.pageSize]);
 
   /**
@@ -176,6 +158,7 @@ const useFetchData = <T extends RequestData<any>>(
 
   return {
     dataSource: list,
+    setDataSource: setList,
     loading,
     reload: async () => fetchListDebounce.run(),
     total: pageInfo.total,
@@ -188,7 +171,6 @@ const useFetchData = <T extends RequestData<any>>(
         pageSize: options?.defaultPageSize || 20,
       });
     },
-    cancel: fetchListDebounce.cancel,
     pageSize: pageInfo.pageSize,
     setPageInfo: (info) =>
       setPageInfo({

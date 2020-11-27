@@ -28,6 +28,7 @@ export default () => {
           title: '状态',
           key: 'state',
           dataIndex: 'state',
+          valueType: 'select',
           valueEnum: {
             all: { text: '全部', status: 'Default' },
             open: {

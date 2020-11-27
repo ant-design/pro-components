@@ -2,6 +2,86 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.6.2...@ant-design/pro-form@1.7.0) (2020-11-27)
+
+### Bug Fixes
+
+- **form:** drawerForm&modalForm trigger 区域调整 ([#1063](https://github.com/ant-design/pro-components/issues/1063)) ([4865f50](https://github.com/ant-design/pro-components/commit/4865f50a79f97880064297c40f52ec021d3f40a9))
+- **table:** optimize table demos and table style. ([#1105](https://github.com/ant-design/pro-components/issues/1105)) ([6e6437e](https://github.com/ant-design/pro-components/commit/6e6437e621200932a24a9199ee729ff4253d71c0))
+
+### Features
+
+- **form:** add table demos and fix form layout styles ([#1069](https://github.com/ant-design/pro-components/issues/1069)) ([4a25cf2](https://github.com/ant-design/pro-components/commit/4a25cf2b2475e534598360e0d62b6a0a3cf69354))
+- **table:** support editor table ([#994](https://github.com/ant-design/pro-components/issues/994)) ([35f40fe](https://github.com/ant-design/pro-components/commit/35f40feb72dd10ea6fefb7d6a59943d43d0a7325))
+- **table:** table support fieldProps.onChange ([#1068](https://github.com/ant-design/pro-components/issues/1068)) ([b8fe662](https://github.com/ant-design/pro-components/commit/b8fe662fd042dda92c4ad0e35c24e1afe2870996))
+
+## [1.6.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.6.1...@ant-design/pro-form@1.6.2) (2020-11-19)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.6.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.6.0...@ant-design/pro-form@1.6.1) (2020-11-19)
+
+### Bug Fixes
+
+- **form:** modal and drawer render to body ([#1031](https://github.com/ant-design/pro-components/issues/1031)) ([807c052](https://github.com/ant-design/pro-components/commit/807c05265d3d327537233a2db265589bf6d58e60))
+- **table:** fix the problem that the table rendering is not timely ([#1024](https://github.com/ant-design/pro-components/issues/1024)) ([19d3af5](https://github.com/ant-design/pro-components/commit/19d3af58e692dbfa5a4b32644afe9672ba5719cf))
+
+# [1.6.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.5.1...@ant-design/pro-form@1.6.0) (2020-11-18)
+
+### Bug Fixes
+
+- ProFromFieldSet to ProFormFieldSet ([#1012](https://github.com/ant-design/pro-components/issues/1012)) ([9ecec85](https://github.com/ant-design/pro-components/commit/9ecec85928588c5ecca7bf65b1ac9fba65577c45))
+
+### Features
+
+- **form:** onFinish support reset form ([cf84064](https://github.com/ant-design/pro-components/commit/cf8406411b2445399290b476b3d8dff959507db3))
+
+## [1.5.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.5.0...@ant-design/pro-form@1.5.1) (2020-11-17)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+# [1.5.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.4.1...@ant-design/pro-form@1.5.0) (2020-11-17)
+
+### Bug Fixes
+
+- **form:** FieldSet igrone no Element ([aa40d77](https://github.com/ant-design/pro-components/commit/aa40d7744bfe4687699c8c5703baeefdc928f2ee))
+- **form:** fix form captcha loading error ([#945](https://github.com/ant-design/pro-components/issues/945)) ([2d3db9e](https://github.com/ant-design/pro-components/commit/2d3db9eac98dfaa40ba8248a4417b181a59d094b)), closes [#943](https://github.com/ant-design/pro-components/issues/943)
+
+### Features
+
+- **form:** LightFilter support allowClear ([#974](https://github.com/ant-design/pro-components/issues/974)) ([6ef984a](https://github.com/ant-design/pro-components/commit/6ef984ae6ba9560737c200c0ca39e5d2f3d7286b))
+- **form:** support readonly ([#963](https://github.com/ant-design/pro-components/issues/963)) ([2b27e91](https://github.com/ant-design/pro-components/commit/2b27e917707c530c2a9d9c91fa27c1b663a07bf4))
+
+## [1.4.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.4.0...@ant-design/pro-form@1.4.1) (2020-11-10)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+# [1.4.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.3.0...@ant-design/pro-form@1.4.0) (2020-11-09)
+
+### Features
+
+- **table:** 修复 ListToolBar 样式问题 & 调整部分 Table 样式的 demo ([#918](https://github.com/ant-design/pro-components/issues/918)) ([a217c6e](https://github.com/ant-design/pro-components/commit/a217c6ea309f5232fd1864b2d886f449f49f2b6a))
+
+# [1.3.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.2.1...@ant-design/pro-form@1.3.0) (2020-11-04)
+
+### Features
+
+- **form:** submit button text localization ([#896](https://github.com/ant-design/pro-components/issues/896)) ([d209ea1](https://github.com/ant-design/pro-components/commit/d209ea1073cf12672b04a585c1343e02f5841fd2))
+
+## [1.2.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.2.0...@ant-design/pro-form@1.2.1) (2020-11-02)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+# [1.2.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.1.6...@ant-design/pro-form@1.2.0) (2020-11-02)
+
+### Bug Fixes
+
+- **form:** Radio and Checkbox should support children ([#857](https://github.com/ant-design/pro-components/issues/857)) ([297757d](https://github.com/ant-design/pro-components/commit/297757dc1be40e94bbdb16c0f271414c27699e61))
+
+### Features
+
+- **form:** localize stepsform texts ([#868](https://github.com/ant-design/pro-components/issues/868)) ([4d0f86f](https://github.com/ant-design/pro-components/commit/4d0f86f2d4812265893ba1d4e8e8994787609de2))
+
 ## [1.1.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.1.5...@ant-design/pro-form@1.1.6) (2020-10-29)
 
 ### Bug Fixes

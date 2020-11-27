@@ -2,7 +2,7 @@ import React from 'react';
 import { Slider } from 'antd';
 import { SliderBaseProps } from 'antd/lib/slider';
 import { ProFormItemProps } from '../../interface';
-import { createField } from '../../BaseForm';
+import createField from '../../BaseForm/createField';
 
 export type ProFormSliderProps = ProFormItemProps<SliderBaseProps> & {
   range?: boolean;

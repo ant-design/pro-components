@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.5.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.5.15...@ant-design/pro-layout@6.5.16) (2020-11-27)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.5.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.5.14...@ant-design/pro-layout@6.5.15) (2020-11-17)
+
+### Bug Fixes
+
+- **layout:** Feat/pagecontainer ghost ([#989](https://github.com/ant-design/pro-components/issues/989)) ([428b5a3](https://github.com/ant-design/pro-components/commit/428b5a3583843fcee870ab1fecdea0bfb74223c6))
+- **layout:** 修复 mix 模式下，顶部导航渲染 bug ([#975](https://github.com/ant-design/pro-components/issues/975)) ([0487e2b](https://github.com/ant-design/pro-components/commit/0487e2be21111ac42f78a62cd45c3ca300ffcef7))
+
+## [6.5.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.5.13...@ant-design/pro-layout@6.5.14) (2020-11-10)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.5.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.5.12...@ant-design/pro-layout@6.5.13) (2020-11-09)
+
+### Bug Fixes
+
+- **SettingDrawer:** 修复主题色 Tooltip 无提示信息问题 ([#920](https://github.com/ant-design/pro-components/issues/920)) ([a1e94ab](https://github.com/ant-design/pro-components/commit/a1e94ab81613ed47dbd70e92862f5b0227c73e5b))
+
+## [6.5.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.5.11...@ant-design/pro-layout@6.5.12) (2020-11-04)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.5.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.5.10...@ant-design/pro-layout@6.5.11) (2020-11-02)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
 ## [6.5.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.5.9...@ant-design/pro-layout@6.5.10) (2020-10-29)
 
 ### Bug Fixes

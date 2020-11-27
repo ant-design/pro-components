@@ -70,6 +70,7 @@ export const columns: ProColumns[] = [
     dataIndex: 'sex',
     key: 'sex',
     filters: true,
+    valueType: 'select',
     valueEnum: {
       man: '男',
       woman: '女',
@@ -79,6 +80,7 @@ export const columns: ProColumns[] = [
     title: '状态',
     dataIndex: 'status',
     hideInForm: true,
+    valueType: 'select',
     valueEnum: {
       0: { text: '关闭', status: 'Default' },
       1: { text: '运行中', status: 'Processing' },

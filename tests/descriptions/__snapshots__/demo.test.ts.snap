@@ -29,7 +29,6 @@ exports[`descriptions demos renders ./packages/descriptions/src/demos/base.tsx c
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="info-circle"
               fill="currentColor"
               focusable="false"
@@ -117,7 +116,6 @@ exports[`descriptions demos renders ./packages/descriptions/src/demos/base.tsx c
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="info-circle"
                         fill="currentColor"
                         focusable="false"

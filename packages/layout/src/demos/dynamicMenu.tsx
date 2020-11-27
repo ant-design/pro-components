@@ -27,7 +27,7 @@ export default () => {
       </Button>
       <ProLayout
         style={{
-          height: 400,
+          height: '100vh',
           border: '1px solid #ddd',
         }}
         menu={{

@@ -12,7 +12,6 @@ const FieldText: ProFieldFC<{
   text: string;
 }> = ({ text, mode, render, renderFormItem, fieldProps }, ref) => {
   const intl = useIntl();
-
   const inputRef = useRef();
   useImperativeHandle(
     ref,

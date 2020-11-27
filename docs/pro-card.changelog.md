@@ -10,6 +10,48 @@ group:
 
 # Change Log
 
+## @ant-design/pro-card@1.5.1
+
+`2020-11-19`
+
+- UI(card): divider style split [#1035](https://github.com/ant-design/pro-components/pull/1035) [@rdmclin2](https://github.com/rdmclin2)
+
+## @ant-design/pro-card@1.5.0
+
+`2020-11-17`
+
+- 💥 feat(card): pro-card support Group and Divider [#992](https://github.com/ant-design/pro-components/pull/992) [@rdmclin2](https://github.com/rdmclin2)
+
+## @ant-design/pro-card@1.4.3
+
+`2020-10-29`
+
+- fix(card): fix collpase and inner style ([@rdmclin2](https://github.com/rdmclin2))[#846](https://github.com/ant-design/pro-components/pull/846)
+
+## @ant-design/pro-card@1.4.1
+
+`2020-10-22`
+
+- fix(card): card padding ([@rdmclin2](https://github.com/rdmclin2))[#810](https://github.com/ant-design/pro-components/pull/810)
+
+## @ant-design/pro-card@1.4.0
+
+`2020-10-21`
+
+- feat(card): add card direction ([@rdmclin2](https://github.com/rdmclin2))[#782](https://github.com/ant-design/pro-components/pull/782)
+
+## @ant-design/pro-card@1.3.0
+
+`2020-10-15`
+
+- feat(card): 添加卡片组展开 ([@rdmclin2](https://github.com/rdmclin2))[#711](https://github.com/ant-design/pro-components/pull/711)
+
+## @ant-design/pro-card@1.2.3
+
+`2020-10-12`
+
+- fix: card title font size ([@rdmclin2](https://github.com/rdmclin2))[#660](https://github.com/ant-design/pro-components/pull/660)
+
 ## @ant-design/pro-card@1.2.0
 
 `2020-09-22`

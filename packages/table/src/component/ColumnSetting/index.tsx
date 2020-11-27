@@ -10,16 +10,17 @@ import { Checkbox, Popover, ConfigProvider, Tooltip } from 'antd';
 import { DndProvider } from 'react-dnd';
 import classNames from 'classnames';
 import { HTML5Backend } from 'react-dnd-html5-backend';
+import { ColumnType } from 'antd/lib/table';
 
 import Container, { ColumnsState } from '../../container';
-import { ProColumns } from '../../Table';
 import DnDItem from './DndItem';
 import './index.less';
 import DragIcon from './DragIcon';
 import { genColumnKey } from '../../utils';
+import { ProColumns } from '../../typing';
 
 interface ColumnSettingProps<T = any> {
-  columns?: ProColumns<T>[];
+  columns: ColumnType<T>[];
 }
 
 const ToolTipIcon: React.FC<{
@@ -155,14 +156,7 @@ const CheckboxList: React.FC<{
   const listDom = list.map(({ key, dataIndex, title, fixed, ...rest }, index) => {
     const columnKey = genColumnKey(key, rest.index);
     return (
-      <DnDItem
-        index={index}
-        id={`${columnKey}`}
-        key={columnKey}
-        end={(id, targetIndex) => {
-          move(id, targetIndex);
-        }}
-      >
+      <DnDItem index={index} id={`${columnKey}`} key={columnKey} end={move}>
         <CheckboxListItem
           setColumnsMap={setColumnsMap}
           columnKey={columnKey || `${index}`}
@@ -234,11 +228,10 @@ const GroupCheckboxList: React.FC<{
   );
 };
 
-const ColumnSetting = <T, U = {}>(props: ColumnSettingProps<T>) => {
+function ColumnSetting<T>(props: ColumnSettingProps<T>) {
   const columnRef = useRef({});
   const counter = Container.useContainer();
-  const localColumns: Omit<ProColumns<any> & { index?: number }, 'ellipsis'>[] =
-    props.columns || counter.columns || [];
+  const localColumns: Omit<ProColumns<any> & { index?: number }, 'ellipsis'>[] = props.columns;
 
   const { columnsMap, setColumnsMap } = counter;
 
@@ -313,6 +306,6 @@ const ColumnSetting = <T, U = {}>(props: ColumnSettingProps<T>) => {
       </Tooltip>
     </Popover>
   );
-};
+}
 
 export default ColumnSetting;

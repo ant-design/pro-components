@@ -1,6 +1,6 @@
-import moment, { Moment } from 'moment';
-import isNil from '../isNil';
+import moment from 'moment';
 import get from 'rc-util/lib/utils/get';
+import isNil from '../isNil';
 
 type DateFormatter = 'number' | 'string' | false;
 

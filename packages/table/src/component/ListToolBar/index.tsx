@@ -181,19 +181,23 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
   return (
     <div style={style} className={classNames(`${prefixCls}`, className)}>
       <div className={`${prefixCls}-container`}>
-        <div className={`${prefixCls}-left`}>
+        <Space className={`${prefixCls}-left`}>
+          {tooltip || tip || title || subTitle ? (
+            <div className={`${prefixCls}-title`}>
+              <LabelIconTip tooltip={tooltip || tip} label={title} subTitle={subTitle} />
+            </div>
+          ) : null}
           {menu && <HeaderMenu {...menu} prefixCls={prefixCls} />}
-          <div className={`${prefixCls}-title`}>
-            <LabelIconTip tooltip={tooltip || tip} label={title} subTitle={subTitle} />
-          </div>
           {!hasTitle && searchNode && <div className={`${prefixCls}-search`}>{searchNode}</div>}
-        </div>
-        <Space className={`${prefixCls}-right`}>
-          {hasTitle && searchNode && <div className={`${prefixCls}-search`}>{searchNode}</div>}
-          {!multipleLine && filtersNode}
-          <Space align="center">{actions}</Space>
-          {settings.length > 0 && (
-            <Space size={24} align="center" className={`${prefixCls}-setting-items`}>
+        </Space>
+        <Space className={`${prefixCls}-right`} size={16}>
+          {hasTitle && searchNode ? (
+            <div className={`${prefixCls}-search`}>{searchNode}</div>
+          ) : null}
+          {!multipleLine ? filtersNode : null}
+          {actions && actions.length > 0 ? <Space align="center">{actions}</Space> : null}
+          {settings?.length ? (
+            <Space size={16} align="center" className={`${prefixCls}-setting-items`}>
               {settings.map((setting, index) => {
                 const settingItem = getSettingItem(setting);
                 return (
@@ -204,10 +208,10 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
                 );
               })}
             </Space>
-          )}
+          ) : null}
         </Space>
       </div>
-      {multipleLine && (
+      {multipleLine ? (
         <div className={`${prefixCls}-extra-line`}>
           {tabs.items && tabs.items.length ? (
             <Tabs onChange={tabs.onChange} tabBarExtraContent={filtersNode}>
@@ -219,7 +223,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
               filtersNode
             )}
         </div>
-      )}
+      ) : null}
     </div>
   );
 };

@@ -107,23 +107,35 @@ function ProList<RecordType, U extends { [key: string]: any } = {}>(
       className={classNames(prefixCls, className, listClassName)}
       columns={proTableColumns}
       rowKey={rowKey}
-      tableViewRender={({ columns, dataSource, loading }) => (
-        <ListView
-          prefixCls={prefixCls}
-          columns={columns}
-          dataSource={dataSource}
-          size={size}
-          footer={footer}
-          split={split}
-          rowKey={rowKey}
-          expandable={expandable}
-          rowSelection={rowSelection === false ? undefined : rowSelection}
-          showActions={showActions}
-          pagination={pagination}
-          itemLayout={itemLayout}
-          loading={loading}
-        />
-      )}
+      cardProps={{
+        bodyStyle: {
+          padding: 0,
+        },
+      }}
+      toolbar={{
+        style: {
+          padding: '0 24px',
+        },
+      }}
+      tableViewRender={({ columns, dataSource, loading }) => {
+        return (
+          <ListView
+            prefixCls={prefixCls}
+            columns={columns}
+            dataSource={dataSource || []}
+            size={size}
+            footer={footer}
+            split={split}
+            rowKey={rowKey}
+            expandable={expandable}
+            rowSelection={rowSelection === false ? undefined : rowSelection}
+            showActions={showActions}
+            pagination={pagination}
+            itemLayout={itemLayout}
+            loading={loading}
+          />
+        );
+      }}
     />
   );
 }

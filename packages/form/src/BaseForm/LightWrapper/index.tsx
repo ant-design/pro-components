@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import classNames from 'classnames';
-import { FieldDropdown, FieldLabel, isDropdownValueType } from '@ant-design/pro-utils';
+import { FilterDropdown, FieldLabel, isDropdownValueType } from '@ant-design/pro-utils';
 import { SizeType } from 'antd/lib/config-provider/SizeContext';
 import { ConfigProvider } from 'antd';
 
@@ -71,8 +71,13 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
     return children as JSX.Element;
   }
 
+  let allowClear;
+  if (children && React.isValidElement(children)) {
+    allowClear = children.props.fieldProps?.allowClear;
+  }
+
   return (
-    <FieldDropdown
+    <FilterDropdown
       disabled={disabled}
       onVisibleChange={setOpen}
       visible={open}
@@ -93,6 +98,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
           disabled={disabled}
           expanded={open}
           formatter={labelFormatter}
+          allowClear={allowClear}
         />
       }
       footer={{
@@ -115,12 +121,13 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
                 onChange: (e: any) => {
                   setTempValue(e?.target ? e.target.value : e);
                 },
+                allowClear,
                 ...children.props.fieldProps,
               },
             })
           : children}
       </div>
-    </FieldDropdown>
+    </FilterDropdown>
   );
 };
 

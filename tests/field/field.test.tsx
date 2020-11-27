@@ -219,6 +219,35 @@ describe('Field', () => {
     expect(html.text()).toBe('-');
   });
 
+  it('🐴 select options should change text', async () => {
+    const html = mount(
+      <Field
+        text="all"
+        fieldProps={{
+          options: [
+            { label: '全部', value: 'all' },
+            { label: '未解决', value: 'open' },
+            { label: '已解决', value: 'closed' },
+            { label: '解决中', value: 'processing' },
+          ],
+        }}
+        valueType="select"
+        mode="read"
+      />,
+    );
+    expect(html.text()).toBe('全部');
+
+    act(() => {
+      html.setProps({
+        fieldProps: { options: [] },
+      });
+    });
+
+    await waitForComponentToPaint(html, 100);
+
+    expect(html.text()).toBe('all');
+  });
+
   it('🐴 edit and no plain', async () => {
     const html = render(<Demo plain={false} state="edit" />);
     expect(html).toMatchSnapshot();
@@ -244,10 +273,12 @@ describe('Field', () => {
     'money',
     'textarea',
     'date',
+    'fromNow',
     'dateRange',
     'dateTimeRange',
     'dateTime',
     'time',
+    'switch',
     'text',
     'progress',
     'percent',
@@ -257,7 +288,7 @@ describe('Field', () => {
     'rate',
   ];
   valueTypes.forEach((valueType) => {
-    it(`🐴 valueType render ${valueType}`, async () => {
+    it(`🐴 valueType support render ${valueType}`, async () => {
       const html = render(
         <Field
           text="1994-07-29 12:00:00"
@@ -304,6 +335,18 @@ describe('Field', () => {
         />,
       );
       expect(html.text()).toBe('-');
+    });
+
+    it(`🐴 valueType support render ${valueType} when text is null`, async () => {
+      const html = render(
+        <Field
+          text={null}
+          render={() => <>qixian</>}
+          // @ts-ignore
+          valueType={valueType}
+        />,
+      );
+      expect(html.text()).toBe('qixian');
     });
   });
 
@@ -463,6 +506,22 @@ describe('Field', () => {
         mode="read"
       />,
     );
+    expect(html.text()).toBe('qixian');
+  });
+
+  it('🐴 keypress simulate', () => {
+    const html = mount(<Field text="qixian" valueType="textarea" mode="edit" />);
+    act(() => {
+      html.find('TextArea').at(0).simulate('keypress', {
+        key: 'Enter',
+        keyCode: 13,
+      });
+    });
+    act(() => {
+      html.setProps({
+        mode: 'read',
+      });
+    });
     expect(html.text()).toBe('qixian');
   });
 });

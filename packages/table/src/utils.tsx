@@ -1,12 +1,32 @@
-/* eslint-disable @typescript-eslint/naming-convention */
-import React, { ReactText, useEffect } from 'react';
-import { Tooltip, Typography } from 'antd';
-import { TablePaginationConfig } from 'antd/lib/table';
-import { ProCoreActionType } from '@ant-design/pro-utils';
+import React, { useEffect } from 'react';
+import { Space, Tooltip, Form, Typography } from 'antd';
+
+import { ColumnsType, TablePaginationConfig } from 'antd/lib/table';
+import {
+  isNil,
+  LabelIconTip,
+  omitUndefinedAndEmptyArr,
+  ProSchemaComponentTypes,
+} from '@ant-design/pro-utils';
+import {
+  ProFieldEmptyText,
+  proFieldParsingValueEnumToArray,
+  ProFieldValueType,
+} from '@ant-design/pro-field';
+import get from 'rc-util/lib/utils/get';
 import { IntlType } from '@ant-design/pro-provider';
-import { ProColumns, ProTableProps } from './Table';
-import { UseFetchDataAction, RequestData } from './useFetchData';
-import { CounterType } from './container';
+
+import {
+  ActionType,
+  ProColumnGroupType,
+  ProColumns,
+  RequestData,
+  UseFetchDataAction,
+} from './typing';
+import { ColumnsState, useCounter } from './container';
+import defaultRenderText, { spellNamePath } from './defaultRender';
+import { UseEditableUtilType } from './component/useEditable';
+import InlineErrorFormItem from './component/InlineErrorFormItem';
 
 /**
  * 检查值是否存在
@@ -23,7 +43,7 @@ export const checkUndefinedOrNull = (value: any) => value !== undefined && value
  */
 export const genColumnKey = (key?: React.ReactText | undefined, index?: number): string => {
   if (key) {
-    return `${key}`;
+    return Array.isArray(key) ? key.join('-') : key.toString();
   }
   return `${index}`;
 };
@@ -78,11 +98,11 @@ export const genCopyable = (dom: React.ReactNode, item: ProColumns<any>, text: s
  * @param action
  * @param intl
  */
-export const mergePagination = <T, U>(
+export function mergePagination<T>(
   pagination: TablePaginationConfig | boolean | undefined = {},
   action: UseFetchDataAction<RequestData<T>>,
   intl: IntlType,
-): TablePaginationConfig | false | undefined => {
+): TablePaginationConfig | false | undefined {
   if (pagination === false) {
     return false;
   }
@@ -110,7 +130,7 @@ export const mergePagination = <T, U>(
       }
     },
   };
-};
+}
 
 /**
  * 获取用户的 action 信息
@@ -118,58 +138,46 @@ export const mergePagination = <T, U>(
  * @param counter
  * @param onCleanSelected
  */
-export const useActionType = <T, U = any>(
-  ref: ProTableProps<T, any>['actionRef'],
-  counter: ReturnType<CounterType>,
-  onCleanSelected: () => void,
-) => {
+export function useActionType<T>(
+  ref: React.MutableRefObject<ActionType | undefined>,
+  action: UseFetchDataAction<RequestData<T>>,
+  props: {
+    fullScreen: () => void;
+    onCleanSelected: () => void;
+    editableUtils: UseEditableUtilType;
+  },
+) {
   /**
    * 这里生成action的映射，保证 action 总是使用的最新
    * 只需要渲染一次即可
    */
   useEffect(() => {
-    const userAction: ProCoreActionType = {
+    const userAction: ActionType = {
+      ...props.editableUtils,
       reload: async (resetPageIndex?: boolean) => {
-        const {
-          action: { current },
-        } = counter;
-
         // 如果为 true，回到第一页
         if (resetPageIndex) {
-          await current?.resetPageIndex();
+          await props.onCleanSelected();
         }
-        await current?.reload();
+        await action?.reload();
       },
       reloadAndRest: async () => {
-        const {
-          action: { current },
-        } = counter;
-
         // reload 之后大概率会切换数据，清空一下选择。
-        onCleanSelected();
-        // 如果为 true，回到第一页
-        await current?.resetPageIndex();
-        await current?.reload();
+        props.onCleanSelected();
+        await action?.reload();
       },
       reset: async () => {
-        const {
-          action: { current },
-        } = counter;
-        await onCleanSelected();
-        await current?.reset();
-        await current?.reload();
+        await props.onCleanSelected();
+        await action?.reset?.();
+        await action?.reload();
       },
-      clearSelected: () => onCleanSelected(),
+      fullScreen: () => props.fullScreen(),
+      clearSelected: () => props.onCleanSelected(),
     };
-    if (ref && typeof ref === 'function') {
-      ref(userAction);
-    }
-    if (ref && typeof ref !== 'function') {
-      // eslint-disable-next-line no-param-reassign
-      ref.current = userAction;
-    }
-  }, []);
-};
+    // eslint-disable-next-line no-param-reassign
+    ref.current = userAction;
+  }, [props.editableUtils]);
+}
 
 type PostDataType<T> = (data: T) => T;
 
@@ -178,11 +186,260 @@ type PostDataType<T> = (data: T) => T;
  * @param data
  * @param pipeline
  */
-export const postDataPipeline = <T, U>(data: T, pipeline: PostDataType<T>[]) => {
+export function postDataPipeline<T>(data: T, pipeline: PostDataType<T>[]) {
   if (pipeline.filter((item) => item).length < 1) {
     return data;
   }
   return pipeline.reduce((pre, postData) => {
     return postData(pre);
   }, data);
+}
+
+export const tableColumnSort = (columnsMap: { [key: string]: ColumnsState }) => (
+  a: any,
+  b: any,
+) => {
+  const { fixed: aFixed, index: aIndex } = a;
+  const { fixed: bFixed, index: bIndex } = b;
+  if ((aFixed === 'left' && bFixed !== 'left') || (bFixed === 'right' && aFixed !== 'right')) {
+    return -2;
+  }
+  if ((bFixed === 'left' && aFixed !== 'left') || (aFixed === 'right' && bFixed !== 'right')) {
+    return 2;
+  }
+  // 如果没有index，在 dataIndex 或者 key 不存在的时候他会报错
+  const aKey = a.key || `${aIndex}`;
+  const bKey = b.key || `${bIndex}`;
+  return (columnsMap[aKey]?.order || 0) - (columnsMap[bKey]?.order || 0);
 };
+
+/**
+ * render title
+ * @description 增加了 icon 的功能
+ * @param item
+ */
+export const renderColumnsTitle = (item: ProColumns<any>) => {
+  const { title } = item;
+  if (title && typeof title === 'function') {
+    return title(item, 'table', <LabelIconTip label={title} tooltip={item.tooltip || item.tip} />);
+  }
+  return <LabelIconTip label={title} tooltip={item.tooltip || item.tip} />;
+};
+
+export const defaultOnFilter = (value: string, record: any, dataIndex: string | string[]) => {
+  const recordElement = Array.isArray(dataIndex)
+    ? get(record, dataIndex as string[])
+    : record[dataIndex];
+  const itemValue = String(recordElement) as string;
+
+  return String(itemValue) === String(value);
+};
+
+/**
+ * 转化列的定义
+ */
+interface ColumnRenderInterface<T> {
+  columnProps: ProColumns<T>;
+  text: any;
+  rowData: T;
+  index: number;
+  columnEmptyText?: ProFieldEmptyText;
+  type: ProSchemaComponentTypes;
+  counter: ReturnType<typeof useCounter>;
+  editableUtils: UseEditableUtilType;
+}
+
+const isMergeCell = (
+  dom: any, // 如果是合并单元格的，直接返回对象
+) => dom && typeof dom === 'object' && dom?.props?.colSpan;
+
+/**
+ * 这个组件负责单元格的具体渲染
+ * @param param0
+ */
+export function columnRender<T>({
+  columnProps,
+  text,
+  rowData,
+  index,
+  columnEmptyText,
+  counter,
+  type,
+  editableUtils,
+}: ColumnRenderInterface<T>): any {
+  const { action } = counter;
+  const { isEditable, recordKey } = editableUtils.isEditable({ ...rowData, index });
+  const { renderText = (val: any) => val } = columnProps;
+
+  const renderTextStr = renderText(text, rowData, index, action.current as ActionType);
+
+  const textDom = defaultRenderText<T>({
+    text: renderTextStr,
+    valueType: (columnProps.valueType as ProFieldValueType) || 'text',
+    index,
+    rowData,
+    columnProps,
+    columnEmptyText,
+    type,
+    recordKey,
+    mode: isEditable ? 'edit' : 'read',
+  });
+
+  const dom: React.ReactNode = isEditable
+    ? textDom
+    : genEllipsis(genCopyable(textDom, columnProps, renderTextStr), columnProps, renderTextStr);
+
+  /**
+   * 如果是编辑模式，并且 renderFormItem 存在直接走 renderFormItem
+   */
+  if (isEditable) {
+    if (columnProps.valueType === 'option') {
+      return (
+        <Form.Item shouldUpdate noStyle>
+          {(form: any) => (
+            <Space size={16}>
+              {editableUtils.actionRender(
+                {
+                  ...rowData,
+                  index: columnProps.index || index,
+                },
+                form,
+              )}
+            </Space>
+          )}
+        </Form.Item>
+      );
+    }
+    if (columnProps.renderFormItem) {
+      return (
+        <Form.Item shouldUpdate noStyle>
+          {(form: any) => {
+            const inputDom = columnProps.renderFormItem?.(
+              {
+                ...columnProps,
+                isEditable: true,
+              },
+              {
+                defaultRender: () => <>{dom}</>,
+                type,
+              },
+              form,
+            );
+            return (
+              <InlineErrorFormItem
+                initialValue={text}
+                name={spellNamePath(
+                  recordKey || index,
+                  columnProps?.key || columnProps?.dataIndex || index,
+                )}
+                {...columnProps.formItemProps}
+              >
+                {inputDom || dom}
+              </InlineErrorFormItem>
+            );
+          }}
+        </Form.Item>
+      );
+    }
+  }
+
+  if (columnProps.render) {
+    const renderDom = columnProps.render(
+      dom,
+      rowData,
+      index,
+      {
+        ...(action.current as ActionType),
+        ...editableUtils,
+      },
+      {
+        ...columnProps,
+        isEditable,
+      },
+    );
+
+    // 如果是合并单元格的，直接返回对象
+    if (isMergeCell(renderDom)) {
+      return renderDom;
+    }
+
+    if (renderDom && columnProps.valueType === 'option' && Array.isArray(renderDom)) {
+      return <Space size={16}>{renderDom}</Space>;
+    }
+    return renderDom as React.ReactNode;
+  }
+  return !isNil(dom) ? dom : null;
+}
+
+/**
+ * 转化 columns 到 pro 的格式
+ * 主要是 render 方法的自行实现
+ * @param columns
+ * @param map
+ * @param columnEmptyText
+ */
+export function genColumnList<T>(props: {
+  columns: ProColumns<T>[];
+  map: {
+    [key: string]: ColumnsState;
+  };
+  counter: ReturnType<typeof useCounter>;
+  columnEmptyText: ProFieldEmptyText;
+  type: ProSchemaComponentTypes;
+  editableUtils: UseEditableUtilType;
+}): (ColumnsType<T>[number] & { index?: number })[] {
+  const { columns, map, counter, columnEmptyText, type, editableUtils } = props;
+  return (columns
+    .map((columnProps, columnsIndex) => {
+      const { key, dataIndex, valueEnum, valueType, filters = [] } = columnProps;
+      const columnKey = genColumnKey(key, columnsIndex);
+      // 这些都没有，说明是普通的表格不需要 pro 管理
+      const noNeedPro = !dataIndex && !valueEnum && !valueType;
+      if (noNeedPro) {
+        return columnProps;
+      }
+      const { propsRef } = counter;
+      const config = map[columnKey] || { fixed: columnProps.fixed };
+      const tempColumns = {
+        onFilter:
+          !propsRef.current?.request || filters === true
+            ? (value: string, row: T) => defaultOnFilter(value, row, dataIndex as string[])
+            : undefined,
+        index: columnsIndex,
+        ...columnProps,
+        title: renderColumnsTitle(columnProps),
+        valueEnum,
+        filters:
+          filters === true
+            ? proFieldParsingValueEnumToArray(valueEnum).filter(
+                (valueItem) => valueItem && valueItem.value !== 'all',
+              )
+            : filters,
+        ellipsis: false,
+        fixed: config.fixed,
+        width: columnProps.width || (columnProps.fixed ? 200 : undefined),
+        children: (columnProps as ProColumnGroupType<T>).children
+          ? genColumnList({ ...props, columns: (columnProps as ProColumnGroupType<T>)?.children })
+          : undefined,
+        render: (text: any, rowData: T, index: number) => {
+          const renderProps = {
+            columnProps,
+            text,
+            rowData,
+            index,
+            columnEmptyText,
+            counter,
+            type,
+            editableUtils,
+          };
+          return columnRender<T>(renderProps);
+        },
+      };
+      return omitUndefinedAndEmptyArr(tempColumns);
+    })
+    .filter((item) => !item.hideInTable) as unknown) as Array<
+    ColumnsType<T>[number] & {
+      index?: number;
+    }
+  >;
+}

@@ -2,8 +2,8 @@ import { mount } from 'enzyme';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import ProTable from '@ant-design/pro-table';
-import { waitForComponentToPaint } from '../util';
 import { FormInstance } from 'antd/lib/form';
+import { waitForComponentToPaint } from '../util';
 
 describe('BasicTable Search', () => {
   const LINE_STR_COUNT = 20;

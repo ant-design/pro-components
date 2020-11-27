@@ -26,8 +26,7 @@ export default () => {
   return (
     <div
       style={{
-        height: 400,
-        overflow: 'auto',
+        height: '100vh',
       }}
     >
       <ProLayout

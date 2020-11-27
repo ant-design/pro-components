@@ -10,6 +10,7 @@ import ProForm, {
 } from '@ant-design/pro-form';
 
 import ProCard from '@ant-design/pro-card';
+import { message } from 'antd';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -23,7 +24,11 @@ export default () => {
   return (
     <>
       <StepsForm
-        onFinish={async (values) => console.log(values)}
+        onFinish={async (values) => {
+          console.log(values);
+          await waitTime(1000);
+          message.success('提交成功！');
+        }}
         formProps={{
           validateMessages: {
             required: '此项为必填项',
@@ -45,7 +50,7 @@ export default () => {
             collapsible
             style={{
               marginBottom: 16,
-              minWidth: 920,
+              minWidth: 800,
               maxWidth: '100%',
             }}
             bodyStyle={{
@@ -54,6 +59,7 @@ export default () => {
           >
             <ProFormText
               name="name"
+              width="m"
               label="迁移任务名称"
               tooltip="最长为 24 位，用于标定的唯一 id"
               placeholder="请输入名称"

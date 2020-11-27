@@ -10,6 +10,7 @@ describe('DrawerForm', () => {
     const fn = jest.fn();
     const wrapper = mount(
       <DrawerForm
+        width={600}
         trigger={<Button id="new">新建</Button>}
         onVisibleChange={(visible) => fn(visible)}
       >

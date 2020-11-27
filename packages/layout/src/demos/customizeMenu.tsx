@@ -5,7 +5,11 @@ import defaultProps from './_defaultProps';
 
 export default () => {
   return (
-    <>
+    <div
+      style={{
+        height: '100vh',
+      }}
+    >
       <ProLayout
         menuItemRender={(item, dom) => <div>pre {dom}</div>}
         subMenuItemRender={(_, dom) => <div>pre {dom}</div>}
@@ -29,6 +33,6 @@ export default () => {
       >
         <PageContainer content="欢迎使用">Hello World</PageContainer>
       </ProLayout>
-    </>
+    </div>
   );
 };

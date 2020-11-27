@@ -2,6 +2,66 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.12.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.11.4...@ant-design/pro-table@2.12.0) (2020-11-27)
+
+### Bug Fixes
+
+- **table:** optimize table demos and table style. ([#1105](https://github.com/ant-design/pro-components/issues/1105)) ([6e6437e](https://github.com/ant-design/pro-components/commit/6e6437e621200932a24a9199ee729ff4253d71c0))
+
+### Features
+
+- **form:** add table demos and fix form layout styles ([#1069](https://github.com/ant-design/pro-components/issues/1069)) ([4a25cf2](https://github.com/ant-design/pro-components/commit/4a25cf2b2475e534598360e0d62b6a0a3cf69354))
+- **table:** support editor table ([#994](https://github.com/ant-design/pro-components/issues/994)) ([35f40fe](https://github.com/ant-design/pro-components/commit/35f40feb72dd10ea6fefb7d6a59943d43d0a7325))
+- **table:** table support fieldProps.onChange ([#1068](https://github.com/ant-design/pro-components/issues/1068)) ([b8fe662](https://github.com/ant-design/pro-components/commit/b8fe662fd042dda92c4ad0e35c24e1afe2870996))
+
+## [2.11.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.11.3...@ant-design/pro-table@2.11.4) (2020-11-19)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.11.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.11.2...@ant-design/pro-table@2.11.3) (2020-11-19)
+
+### Bug Fixes
+
+- **table:** fix the problem that the table rendering is not timely ([#1024](https://github.com/ant-design/pro-components/issues/1024)) ([19d3af5](https://github.com/ant-design/pro-components/commit/19d3af58e692dbfa5a4b32644afe9672ba5719cf))
+
+## [2.11.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.11.1...@ant-design/pro-table@2.11.2) (2020-11-18)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.11.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.11.0...@ant-design/pro-table@2.11.1) (2020-11-17)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [2.11.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.10.1...@ant-design/pro-table@2.11.0) (2020-11-17)
+
+### Features
+
+- **form:** support readonly ([#963](https://github.com/ant-design/pro-components/issues/963)) ([2b27e91](https://github.com/ant-design/pro-components/commit/2b27e917707c530c2a9d9c91fa27c1b663a07bf4))
+
+## [2.10.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.10.0...@ant-design/pro-table@2.10.1) (2020-11-10)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [2.10.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.9.16...@ant-design/pro-table@2.10.0) (2020-11-09)
+
+### Features
+
+- **table:** 修复 ListToolBar 样式问题 & 调整部分 Table 样式的 demo ([#918](https://github.com/ant-design/pro-components/issues/918)) ([a217c6e](https://github.com/ant-design/pro-components/commit/a217c6ea309f5232fd1864b2d886f449f49f2b6a))
+
+## [2.9.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.9.15...@ant-design/pro-table@2.9.16) (2020-11-04)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.9.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.9.14...@ant-design/pro-table@2.9.15) (2020-11-02)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.9.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.9.13...@ant-design/pro-table@2.9.14) (2020-11-02)
+
+### Bug Fixes
+
+- **table:** table 工具栏：options 为 false 时，不显示父级节点 ([#866](https://github.com/ant-design/pro-components/issues/866)) ([11d310c](https://github.com/ant-design/pro-components/commit/11d310c4b3697bb4a1029ef69018c11bd4c77447))
+
 ## [2.9.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.9.12...@ant-design/pro-table@2.9.13) (2020-10-29)
 
 ### Bug Fixes

@@ -386,4 +386,62 @@ describe('LightFilter', () => {
 
     wrapper.unmount();
   });
+
+  it('allowClear false', async () => {
+    const wrapper = mount(
+      <LightFilter
+        initialValues={{
+          name1: 'yutingzhao1991',
+          name3: '2020-08-19',
+          sex: 'woman',
+        }}
+        onFinish={async (values) => console.log(values)}
+      >
+        <ProFormSelect
+          name="sex"
+          label="性别"
+          showSearch
+          allowClear={false}
+          valueEnum={{
+            man: '男',
+            woman: '女',
+          }}
+        />
+        <ProFormText name="name1" label="名称" allowClear={false} />
+        <ProFormDatePicker name="name3" label="不能清空的日期" allowClear={false} />
+        <ProFormSelect
+          name="sex"
+          label="性别"
+          showSearch
+          fieldProps={{
+            allowClear: false,
+          }}
+          valueEnum={{
+            man: '男',
+            woman: '女',
+          }}
+        />
+        <ProFormText
+          name="name4"
+          label="名称"
+          fieldProps={{
+            allowClear: false,
+          }}
+        />
+        <ProFormDatePicker
+          name="name5"
+          label="不能清空的日期"
+          fieldProps={{
+            allowClear: false,
+          }}
+        />
+      </LightFilter>,
+    );
+
+    expect(wrapper.find('.ant-pro-core-field-label .anticon-close').length).toEqual(0);
+    wrapper.find('.ant-pro-core-field-label').at(1).simulate('click');
+    expect(wrapper.find('.ant-input').length).toEqual(1);
+    expect(wrapper.find('.ant-input-suffix .close-circle').length).toEqual(0);
+    wrapper.unmount();
+  });
 });

@@ -29,7 +29,6 @@ describe('Table ColumnSetting', () => {
   });
 
   it('🎏 config provide render', async () => {
-    const callBack = jest.fn();
     const html = mount(
       <ConfigProvider prefixCls="qixian">
         <ProTable
@@ -39,7 +38,6 @@ describe('Table ColumnSetting', () => {
               title: 'Name',
               key: 'name',
               dataIndex: 'name',
-              render: (text) => callBack(text),
             },
           ]}
           request={request}
@@ -47,7 +45,7 @@ describe('Table ColumnSetting', () => {
         />
       </ConfigProvider>,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
     expect(html.render()).toMatchSnapshot();
   });
 

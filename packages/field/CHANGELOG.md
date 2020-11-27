@@ -2,6 +2,50 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.1.2...@ant-design/pro-field@1.2.0) (2020-11-27)
+
+### Features
+
+- **table:** support editor table ([#994](https://github.com/ant-design/pro-components/issues/994)) ([35f40fe](https://github.com/ant-design/pro-components/commit/35f40feb72dd10ea6fefb7d6a59943d43d0a7325))
+
+## [1.1.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.1.1...@ant-design/pro-field@1.1.2) (2020-11-19)
+
+### Bug Fixes
+
+- **table:** fix the problem that the table rendering is not timely ([#1024](https://github.com/ant-design/pro-components/issues/1024)) ([19d3af5](https://github.com/ant-design/pro-components/commit/19d3af58e692dbfa5a4b32644afe9672ba5719cf))
+
+## [1.1.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.1.0...@ant-design/pro-field@1.1.1) (2020-11-17)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+# [1.1.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.0.9...@ant-design/pro-field@1.1.0) (2020-11-17)
+
+### Bug Fixes
+
+- **field:** set the useSwr option revalidateOnFocus to false ([#950](https://github.com/ant-design/pro-components/issues/950)) ([e75b97b](https://github.com/ant-design/pro-components/commit/e75b97bc8a456da4eefc5545cc1c22d9b67ac2ac))
+- **field:** 解决只读模式默认值为空的情况不走 render 的问题 ([#630](https://github.com/ant-design/pro-components/issues/630)) ([3ac7297](https://github.com/ant-design/pro-components/commit/3ac72977d7c0af3f78060dd6cd2b3afcca691d4b))
+
+### Features
+
+- **form:** LightFilter support allowClear ([#974](https://github.com/ant-design/pro-components/issues/974)) ([6ef984a](https://github.com/ant-design/pro-components/commit/6ef984ae6ba9560737c200c0ca39e5d2f3d7286b))
+- **form:** support readonly ([#963](https://github.com/ant-design/pro-components/issues/963)) ([2b27e91](https://github.com/ant-design/pro-components/commit/2b27e917707c530c2a9d9c91fa27c1b663a07bf4))
+
+## [1.0.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.0.8...@ant-design/pro-field@1.0.9) (2020-11-10)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.0.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.0.7...@ant-design/pro-field@1.0.8) (2020-11-09)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.0.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.0.6...@ant-design/pro-field@1.0.7) (2020-11-04)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.0.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.0.5...@ant-design/pro-field@1.0.6) (2020-11-02)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
 ## [1.0.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.0.4...@ant-design/pro-field@1.0.5) (2020-10-29)
 
 **Note:** Version bump only for package @ant-design/pro-field
