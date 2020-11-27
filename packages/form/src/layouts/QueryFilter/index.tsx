@@ -261,7 +261,7 @@ const QueryFilterContent: React.FC<{
             textAlign: 'right',
           }}
         >
-          <Form.Item label=" " colon={false} className="pro-form-query-filter-actions">
+          <Form.Item label=" " colon={false} className="pro-form-query-filter-actions" style={{ marginBottom: 0 }}>
             <Actions
               key="pro-form-query-filter-actions"
               collapsed={collapsed}
