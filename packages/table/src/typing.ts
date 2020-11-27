@@ -330,7 +330,7 @@ export interface ProTableProps<T, U extends ParamsType>
   /**
    * 轮询
    */
-  polling?: false | number;
+  polling?: false | number | ((dataSource: T[]) => number | false);
 }
 
 export type ActionType = ProCoreActionType &

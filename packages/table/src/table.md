@@ -247,7 +247,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 ### ProTable
 
 | 属性 | 描述 | 类型 | 默认值 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | request | 获取 `dataSource` 的方法 | `(params?: {pageSize,current},sort,filter) => {data,success,total}` | - |
 | params | 用于 `request` 查询的多余参数，一旦变化会触发重新加载 | object | - | - |
 | postData | 对通过 `request` 获取的数据进行处理 | `(data: T[]) => T[]` | - |
@@ -276,6 +276,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | tableExtraRender | 自定义表格的主体函数 | `(props: ProTableProps<T, U>, dataSource: T[]) => React.ReactNode;` | - |
 | manualRequest | 是否需要手动触发首次请求, 配置为 `true` 时不可隐藏搜索表单 | `boolean` | false |
 | editable | 可编辑表格的相关配置 | [TableRowEditable<T>](#editable) | - |
+| polling | 表格轮询 | `false | number | ((dataSource: T[]) => false | number)` | false |
 
 ### 可编辑表格 EditableProTable
 

@@ -181,12 +181,20 @@ const ProTable = <T extends {}, U extends ParamsType>(
   React.useEffect(() => {
     let interval: any;
     if (polling) {
-      interval = setInterval(() => {
-        action.reload(!!polling);
-      }, polling);
+      let time: false | number = false;
+      if (typeof polling === 'number') {
+        time = polling;
+      } else {
+        time = polling(action.dataSource);
+      }
+      if (time) {
+        interval = setInterval(() => {
+          action.reload(true);
+        }, time);
+      }
     }
     return () => interval && clearInterval(interval);
-  }, [polling]);
+  }, [polling, action.dataSource]);
   // ============================ END ============================
 
   /**
