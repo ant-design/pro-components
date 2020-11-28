@@ -91,7 +91,7 @@ renderFormItem: (_, { type, defaultRender, formItemProps, fieldProps, ...rest },
   }
   const status = form.getFieldValue('state');
   if (status !== 'open') {
-    return <Input {...rest.fieldProps} placeholder="请输入test" />;
+    return <Input {...fieldProps} placeholder="请输入test" />;
   }
   return defaultRender(_);
 };
