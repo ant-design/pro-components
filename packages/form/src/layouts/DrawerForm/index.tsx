@@ -20,7 +20,7 @@ export type DrawerFormProps = Omit<FormProps, 'onFinish'> &
     /**
      * @name 用于触发抽屉打开的 dom
      */
-    trigger?: React.ReactNode;
+    trigger?: JSX.Element;
 
     /**
      * @name 受控的打开关闭
@@ -133,11 +133,14 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
         </div>,
         document.body,
       )}
-      {trigger && (
-        <div style={{ display: 'inline-block' }} onClick={() => setVisible(!visible)}>
-          {trigger}
-        </div>
-      )}
+      {trigger &&
+        React.cloneElement(trigger, {
+          ...trigger.props,
+          onClick: (e: any) => {
+            setVisible(!visible);
+            trigger.props?.onClick?.(e);
+          },
+        })}
     </>
   );
 };
