@@ -85,13 +85,13 @@ RTL means right-to-left.
 `renderFormItem` 可以完成重写渲染逻辑，传入 item 和 props 来进行渲染，需要注意的是我们必须要将 props 中的 `value` 和 `onChange` 必须要被赋值，否则 form 无法拿到参数。
 
 ```tsx | pure
-renderFormItem: (_, { type, defaultRender, ...rest }, form) => {
+renderFormItem: (_, { type, defaultRender, formItemProps, fieldProps, ...rest }, form) => {
   if (type === 'form') {
     return null;
   }
   const status = form.getFieldValue('state');
   if (status !== 'open') {
-    return <Input {...rest} placeholder="请输入" />;
+    return <Input {...rest.fieldProps} placeholder="请输入test" />;
   }
   return defaultRender(_);
 };
