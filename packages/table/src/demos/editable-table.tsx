@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { EditableProTable, ProColumns } from '@ant-design/pro-table';
 import ProField from '@ant-design/pro-field';
 import { ProFormRadio } from '@ant-design/pro-form';
+import ProCard from '@ant-design/pro-card';
 
 interface DataSourceType {
   id: React.Key;
@@ -38,7 +39,7 @@ const columns: ProColumns<DataSourceType>[] = [
         },
       ],
     },
-    width: 220,
+    width: '30%',
   },
   {
     title: '描述',
@@ -66,26 +67,8 @@ export default () => {
   const [dataSource, setDataSource] = useState<DataSourceType[]>([]);
   const [position, setPosition] = useState<'top' | 'end'>('top');
   return (
-    <div
-      style={{
-        display: 'flex',
-      }}
-    >
-      <ProField
-        mode="read"
-        valueType="jsonCode"
-        fieldProps={{
-          style: {
-            flex: 1,
-          },
-        }}
-        text={JSON.stringify(dataSource)}
-      />
-      <div
-        style={{
-          flex: 2,
-        }}
-      >
+    <div>
+      <div>
         <EditableProTable<DataSourceType>
           rowKey="id"
           headerTitle="可编辑表格"
@@ -127,6 +110,18 @@ export default () => {
           }}
         />
       </div>
+      <ProCard title="表格数据" headerBordered collapsible defaultCollapsed>
+        <ProField
+          fieldProps={{
+            style: {
+              width: '100%',
+            },
+          }}
+          mode="read"
+          valueType="jsonCode"
+          text={JSON.stringify(dataSource)}
+        />
+      </ProCard>
     </div>
   );
 };
