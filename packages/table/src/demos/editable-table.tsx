@@ -67,49 +67,47 @@ export default () => {
   const [dataSource, setDataSource] = useState<DataSourceType[]>([]);
   const [position, setPosition] = useState<'top' | 'end'>('top');
   return (
-    <div>
-      <div>
-        <EditableProTable<DataSourceType>
-          rowKey="id"
-          headerTitle="可编辑表格"
-          recordCreatorProps={{
-            position,
-            record: {
-              id: (Math.random() * 1000000).toFixed(0),
-            },
-          }}
-          toolBarRender={() => [
-            <ProFormRadio.Group
-              fieldProps={{
-                value: position,
-                onChange: (e) => setPosition(e.target.value),
-              }}
-              options={[
-                {
-                  label: '添加到顶部',
-                  value: 'top',
-                },
-                {
-                  label: '添加到底部',
-                  value: 'end',
-                },
-              ]}
-            />,
-          ]}
-          columns={columns}
-          request={async () => ({
-            data: defaultData,
-            total: 3,
-            success: true,
-          })}
-          value={dataSource}
-          onChange={setDataSource}
-          editable={{
-            editableKeys,
-            onChange: setEditableRowKeys,
-          }}
-        />
-      </div>
+    <>
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        headerTitle="可编辑表格"
+        recordCreatorProps={{
+          position,
+          record: {
+            id: (Math.random() * 1000000).toFixed(0),
+          },
+        }}
+        toolBarRender={() => [
+          <ProFormRadio.Group
+            fieldProps={{
+              value: position,
+              onChange: (e) => setPosition(e.target.value),
+            }}
+            options={[
+              {
+                label: '添加到顶部',
+                value: 'top',
+              },
+              {
+                label: '添加到底部',
+                value: 'end',
+              },
+            ]}
+          />,
+        ]}
+        columns={columns}
+        request={async () => ({
+          data: defaultData,
+          total: 3,
+          success: true,
+        })}
+        value={dataSource}
+        onChange={setDataSource}
+        editable={{
+          editableKeys,
+          onChange: setEditableRowKeys,
+        }}
+      />
       <ProCard title="表格数据" headerBordered collapsible defaultCollapsed>
         <ProField
           fieldProps={{
@@ -122,6 +120,6 @@ export default () => {
           text={JSON.stringify(dataSource)}
         />
       </ProCard>
-    </div>
+    </>
   );
 };
