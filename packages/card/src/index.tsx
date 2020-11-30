@@ -125,6 +125,10 @@ export type ProCardProps = {
    * 标签栏配置
    */
   tabs?: ProCardTabsProps;
+  /**
+   * 卡片点击事件
+   */
+  onClick?: React.MouseEventHandler<HTMLElement>;
 };
 
 const ProCard: ProCardType = (props) => {
@@ -154,6 +158,7 @@ const ProCard: ProCardType = (props) => {
     onCollapse,
     tabs,
     type,
+    onClick,
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const screens = useBreakpoint();
@@ -312,7 +317,7 @@ const ProCard: ProCardType = (props) => {
   );
 
   return (
-    <div className={cardCls} style={cardStyle}>
+    <div className={cardCls} style={cardStyle} onClick={onClick}>
       {(title || extra || collapsibleButton) && (
         <div className={headerCls} style={headStyle}>
           <div className={`${prefixCls}-title`}>
