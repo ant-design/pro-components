@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.12.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.12.0...@ant-design/pro-table@2.12.1) (2020-11-30)
+
+### Bug Fixes
+
+- **table:** fix editable table show rules error ([#1129](https://github.com/ant-design/pro-components/issues/1129)) ([a0c5af3](https://github.com/ant-design/pro-components/commit/a0c5af3c645b6c336f5d2a231a18eced4b8817b1))
+
 # [2.12.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.11.4...@ant-design/pro-table@2.12.0) (2020-11-27)
 
 ### Bug Fixes

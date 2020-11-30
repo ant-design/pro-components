@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.2.0...@ant-design/pro-field@1.2.1) (2020-11-30)
+
+### Bug Fixes
+
+- **form:** fix setState() call inside `Field` error ([#1137](https://github.com/ant-design/pro-components/issues/1137)) ([f72f9f6](https://github.com/ant-design/pro-components/commit/f72f9f6e07cd18c1c01d4679f19076df06b6fbf5))
+
 # [1.2.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.1.2...@ant-design/pro-field@1.2.0) (2020-11-27)
 
 ### Features
