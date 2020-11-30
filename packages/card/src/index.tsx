@@ -4,6 +4,7 @@ import { RightOutlined } from '@ant-design/icons';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { LabelIconTip } from '@ant-design/pro-utils';
 import classNames from 'classnames';
+import omit from 'omit.js';
 import { TabsProps } from 'antd/lib/tabs';
 import CardLoading from './components/CardLoading';
 import Divider from './components/Divider';
@@ -27,15 +28,7 @@ export type Gutter = number | Partial<Record<Breakpoint, number>>;
 
 export interface ProCardTabsProps extends TabsProps {}
 
-export type ProCardProps = {
-  /**
-   * 类名
-   */
-  className?: string;
-  /**
-   * 样式属性
-   */
-  style?: React.CSSProperties;
+export interface ProCardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
   /**
    * 标题样式
    */
@@ -125,7 +118,9 @@ export type ProCardProps = {
    * 标签栏配置
    */
   tabs?: ProCardTabsProps;
-};
+
+  prefixCls?: string;
+}
 
 const ProCard: ProCardType = (props) => {
   const {
@@ -154,6 +149,7 @@ const ProCard: ProCardType = (props) => {
     onCollapse,
     tabs,
     type,
+    ...rest
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const screens = useBreakpoint();
@@ -312,7 +308,7 @@ const ProCard: ProCardType = (props) => {
   );
 
   return (
-    <div className={cardCls} style={cardStyle}>
+    <div className={cardCls} style={cardStyle} {...omit(rest, ['id', 'prefixCls'])}>
       {(title || extra || collapsibleButton) && (
         <div className={headerCls} style={headStyle}>
           <div className={`${prefixCls}-title`}>
