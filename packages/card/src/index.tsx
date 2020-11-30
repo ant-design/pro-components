@@ -27,15 +27,7 @@ export type Gutter = number | Partial<Record<Breakpoint, number>>;
 
 export interface ProCardTabsProps extends TabsProps {}
 
-export type ProCardProps = {
-  /**
-   * 类名
-   */
-  className?: string;
-  /**
-   * 样式属性
-   */
-  style?: React.CSSProperties;
+export interface ProCardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
   /**
    * 标题样式
    */
@@ -125,11 +117,7 @@ export type ProCardProps = {
    * 标签栏配置
    */
   tabs?: ProCardTabsProps;
-  /**
-   * 卡片点击事件
-   */
-  onClick?: React.MouseEventHandler<HTMLDivElement>;
-};
+}
 
 const ProCard: ProCardType = (props) => {
   const {
