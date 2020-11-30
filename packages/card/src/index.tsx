@@ -4,6 +4,7 @@ import { RightOutlined } from '@ant-design/icons';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { LabelIconTip } from '@ant-design/pro-utils';
 import classNames from 'classnames';
+import omit from 'omit.js';
 import { TabsProps } from 'antd/lib/tabs';
 import CardLoading from './components/CardLoading';
 import Divider from './components/Divider';
@@ -117,6 +118,8 @@ export interface ProCardProps extends Omit<React.HTMLAttributes<HTMLDivElement>,
    * 标签栏配置
    */
   tabs?: ProCardTabsProps;
+
+  prefixCls?: string;
 }
 
 const ProCard: ProCardType = (props) => {
@@ -305,7 +308,7 @@ const ProCard: ProCardType = (props) => {
   );
 
   return (
-    <div className={cardCls} style={cardStyle} {...rest}>
+    <div className={cardCls} style={cardStyle} {...omit(rest, ['id', 'prefixCls'])}>
       {(title || extra || collapsibleButton) && (
         <div className={headerCls} style={headStyle}>
           <div className={`${prefixCls}-title`}>
