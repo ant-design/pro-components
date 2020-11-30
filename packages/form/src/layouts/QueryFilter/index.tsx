@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import React, { useState, ReactElement, useMemo } from 'react';
 import { Row, Col, Form, Divider } from 'antd';
-import { FormProps } from 'antd/lib/form/Form';
+import { FormInstance, FormProps } from 'antd/lib/form/Form';
 import RcResizeObserver from 'rc-resize-observer';
 import { useIntl } from '@ant-design/pro-provider';
 import { isBrowser } from '@ant-design/pro-utils';
@@ -149,6 +149,7 @@ const QueryFilterContent: React.FC<{
   resetText?: string;
   searchText?: string;
   split?: boolean;
+  form: FormInstance<any>;
   items: React.ReactNode[];
   submitter?: JSX.Element;
   showLength: number;
@@ -346,11 +347,12 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
           },
           titleRender: (title) => `${title}:`,
         }}
-        contentRender={(items, renderSubmitter) =>
+        contentRender={(items, renderSubmitter, form) =>
           width && (
             <QueryFilterContent
               spanSize={spanSize}
               collapsed={controlCollapsed}
+              form={form}
               collapseRender={collapseRender}
               defaultCollapsed={defaultCollapsed}
               onCollapse={onCollapse}
