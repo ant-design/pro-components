@@ -12,8 +12,8 @@ export default {
     search: 'ابحث',
     reset: 'إعادة تعيين',
     submit: 'ارسال',
-    collapsed: 'Expand',
-    expand: 'Collapse',
+    collapsed: 'مُقلص',
+    expand: 'مُوسع',
     inputPlaceholder: 'الرجاء الإدخال',
     selectPlaceholder: 'الرجاء الإختيار',
   },
@@ -25,8 +25,8 @@ export default {
   pagination: {
     total: {
       range: ' ',
-      total: 'of',
-      item: 'items',
+      total: 'من',
+      item: 'عناصر',
     },
   },
   tableToolBar: {
