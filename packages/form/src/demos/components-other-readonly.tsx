@@ -51,20 +51,20 @@ const Demo = () => (
             name: 'xxx.png',
             status: 'done',
             response: 'Server Error 500', // custom error message to show
-            url: 'http://www.baidu.com/xxx.png',
+            url: 'https://gw.alipayobjects.com/zos/antfincdn/7%24YOiS6YIm/huaban.png',
           },
           {
             uid: '2',
             name: 'yyy.png',
             status: 'done',
-            url: 'http://www.baidu.com/yyy.png',
+            url: 'https://gw.alipayobjects.com/zos/antfincdn/7%24YOiS6YIm/huaban.png',
           },
           {
             uid: '3',
             name: 'zzz.png',
             status: 'error',
             response: 'Server Error 500', // custom error message to show
-            url: 'http://www.baidu.com/zzz.png',
+            url: 'https://gw.alipayobjects.com/zos/antfincdn/7%24YOiS6YIm/huaban.png',
           },
         ],
         upload: [
@@ -73,20 +73,20 @@ const Demo = () => (
             name: 'xxx.png',
             status: 'done',
             response: 'Server Error 500', // custom error message to show
-            url: 'http://www.baidu.com/xxx.png',
+            url: 'https://gw.alipayobjects.com/zos/antfincdn/7%24YOiS6YIm/huaban.png',
           },
           {
             uid: '2',
             name: 'yyy.png',
             status: 'done',
-            url: 'http://www.baidu.com/yyy.png',
+            url: 'https://gw.alipayobjects.com/zos/antfincdn/7%24YOiS6YIm/huaban.png',
           },
           {
             uid: '3',
             name: 'zzz.png',
             status: 'error',
             response: 'Server Error 500', // custom error message to show
-            url: 'http://www.baidu.com/zzz.png',
+            url: 'https://gw.alipayobjects.com/zos/antfincdn/7%24YOiS6YIm/huaban.png',
           },
         ],
       }}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch } from 'antd';
+import Omit from 'omit.js';
 import { SwitchProps } from 'antd/lib/switch';
 import { ProFieldFC } from '../../index';
 
@@ -19,7 +20,13 @@ const FieldSwitch: ProFieldFC<{ text: boolean; fieldProps?: SwitchProps }> = (
     return dom || '-';
   }
   if (mode === 'edit' || mode === 'update') {
-    const dom = <Switch ref={ref} {...fieldProps} />;
+    const dom = (
+      <Switch
+        ref={ref}
+        {...Omit(fieldProps, ['value'])}
+        checked={fieldProps?.checked || fieldProps?.value}
+      />
+    );
     if (renderFormItem) {
       return renderFormItem(text, { mode, ...fieldProps }, dom);
     }
