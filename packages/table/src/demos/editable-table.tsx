@@ -79,6 +79,7 @@ export default () => {
         }}
         toolBarRender={() => [
           <ProFormRadio.Group
+            key="render"
             fieldProps={{
               value: position,
               onChange: (e) => setPosition(e.target.value),

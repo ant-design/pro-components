@@ -101,7 +101,7 @@ function EditableTable<T, U extends ParamsType = {}>(props: EditableProTableProp
               children: React.ReactNode;
             }) => (
               <thead className={className}>
-                {children}{' '}
+                {children}
                 <tr>
                   <td colSpan={rest.columns?.length}>{creatorButtonDom}</td>
                 </tr>
