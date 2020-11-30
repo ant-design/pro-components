@@ -25121,7 +25121,7 @@ exports[`table demos renders ./packages/table/src/demos/rtl_table.tsx correctly 
                       <a
                         class="ant-pro-form-collapse-button"
                       >
-                        Expand
+                        مُقلص
                         <span
                           aria-label="down"
                           class="anticon anticon-down"
@@ -26269,7 +26269,7 @@ exports[`table demos renders ./packages/table/src/demos/rtl_table.tsx correctly 
               <li
                 class="ant-pagination-total-text"
               >
-                  1-5 of 20 items
+                  1-5 من 20 عناصر
               </li>
               <li
                 aria-disabled="true"
