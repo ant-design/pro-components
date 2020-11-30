@@ -36,6 +36,7 @@ export interface BaseFormProps extends FormProps, CommonFormProps {
   contentRender?: (
     items: React.ReactNode[],
     submitter: ReactElement<Omit<SubmitterProps, 'form'>> | undefined,
+    form: FormInstance<any>,
   ) => React.ReactNode;
   fieldProps?: FieldProps;
   dateFormatter?: 'number' | 'string' | false;
@@ -102,7 +103,7 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
       />
     );
 
-  const content = contentRender ? contentRender(items, submitterNode) : items;
+  const content = contentRender ? contentRender(items, submitterNode, formRef.current) : items;
 
   const forgetUpdate = () => {
     setTimeout(() => updateState(true));
