@@ -43,6 +43,14 @@ export interface TableRowEditable<T> {
    * 删除行时的确认消息
    */
   deletePopconfirmMessage?: React.ReactNode;
+  /**
+   * 只能编辑一行的的提示
+   */
+  onlyOneLineEditorAlertMessage?: React.ReactNode;
+  /**
+   * 同时只能新增一行的提示
+   */
+  onlyAddOneLineAlertMessage?: React.ReactNode;
 }
 
 export type ActionRenderConfig<T> = {
@@ -330,7 +338,7 @@ function useEditable<RecordType>(
   const startEditable = (recordKey: React.Key) => {
     // 如果是单行的话，不允许多行编辑
     if (editableKeysSet.size > 0 && editableType === 'single') {
-      message.warn('只能同时编辑一行！');
+      message.warn(props.onlyOneLineEditorAlertMessage || '只能同时编辑一行！');
       return false;
     }
     editableKeysSet.add(recordKey);
@@ -425,12 +433,12 @@ function useEditable<RecordType>(
   const addEditRecord = (row: RecordType, options?: AddLineOptions) => {
     // 暂时不支持多行新增
     if (newLineRecordRef.current) {
-      message.warn('只能新增一行！');
+      message.warn(props.onlyAddOneLineAlertMessage || '只能新增一行！');
       return false;
     }
     // 如果是单行的话，不允许多行编辑
     if (editableKeysSet.size > 0 && editableType === 'single') {
-      message.warn('只能同时编辑一行！');
+      message.warn(props.onlyOneLineEditorAlertMessage || '只能同时编辑一行！');
       return false;
     }
 
