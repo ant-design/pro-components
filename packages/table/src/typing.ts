@@ -9,7 +9,7 @@ import {
   ProSchema,
   ProSchemaComponentTypes,
   SearchTransformKeyFn,
-  EditableFn,
+  ProTableEditableFnType,
 } from '@ant-design/pro-utils';
 import { CardProps } from 'antd/lib/card';
 import { FormItemProps, FormProps } from 'antd/lib/form';
@@ -139,7 +139,7 @@ export type ProColumnType<T = unknown> = ProSchema<
     /**
      * 可编辑表格是否可编辑
      */
-    editable?: boolean | EditableFn<T>;
+    editable?: boolean | ProTableEditableFnType<T>;
   },
   Partial<ActionType>
 >;

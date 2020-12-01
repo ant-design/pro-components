@@ -33,7 +33,7 @@ import {
   ProSchemaComponentTypes,
   ProCoreActionType,
   SearchTransformKeyFn,
-  EditableFn,
+  ProTableEditableFnType,
 } from './typing';
 
 export type {
@@ -43,7 +43,7 @@ export type {
   ProSchemaValueEnumMap,
   ProSchemaValueEnumObj,
   SearchTransformKeyFn,
-  EditableFn,
+  ProTableEditableFnType,
 };
 
 export {

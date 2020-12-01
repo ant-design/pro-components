@@ -7,6 +7,7 @@ import {
   LabelIconTip,
   omitUndefinedAndEmptyArr,
   ProSchemaComponentTypes,
+  ProTableEditableFnType,
 } from '@ant-design/pro-utils';
 import {
   ProFieldEmptyText,
@@ -254,6 +255,21 @@ const isMergeCell = (
 ) => dom && typeof dom === 'object' && dom?.props?.colSpan;
 
 /**
+ * 判断可不可编辑
+ */
+function notEditable<T>(
+  text: any,
+  rowData: T,
+  index: number,
+  editable?: ProTableEditableFnType<T> | boolean,
+) {
+  if (typeof editable === 'boolean') {
+    return editable === false;
+  }
+  return editable?.(text, rowData, index) === false;
+}
+
+/**
  * 这个组件负责单元格的具体渲染
  * @param param0
  */
@@ -310,11 +326,7 @@ export function columnRender<T>({
         </Form.Item>
       );
     }
-    if (
-      typeof columnProps?.editable === 'boolean'
-        ? columnProps?.editable === false
-        : columnProps?.editable?.(text, rowData, index) === false
-    ) {
+    if (notEditable(text, rowData, index, columnProps?.editable)) {
       return (
         <Form.Item shouldUpdate noStyle>
           {text}
