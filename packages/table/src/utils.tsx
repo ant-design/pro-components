@@ -391,10 +391,10 @@ export function genColumnList<T>(props: {
   const { columns, map, counter, columnEmptyText, type, editableUtils } = props;
   return (columns
     .map((columnProps, columnsIndex) => {
-      const { key, dataIndex, valueEnum, valueType, filters = [] } = columnProps;
+      const { key, dataIndex, valueEnum, valueType, children, filters = [] } = columnProps as ProColumnGroupType<T>;
       const columnKey = genColumnKey(key, columnsIndex);
       // 这些都没有，说明是普通的表格不需要 pro 管理
-      const noNeedPro = !dataIndex && !valueEnum && !valueType;
+      const noNeedPro = !dataIndex && !valueEnum && !valueType && !children;
       if (noNeedPro) {
         return columnProps;
       }
