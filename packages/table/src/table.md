@@ -323,6 +323,8 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | onDelete | 删除一行的时候触发 | `(key: React.Key, row: T) => Promise<void>` | - |
 | onChange | 编辑列被修改的时候 | `(editableKeys: React.Key[], editableRows: T[]) => void` | - |
 | deletePopconfirmMessage | 删除时弹出的确认框提示消息 | `ReactNode` | `删除此行？` |
+| onlyOneLineEditorAlertMessage | 只能编辑一行的的提示 | `ReactNode` | `只能同时编辑一行！` |
+| deletePopconfirmMessage | onlyAddOneLineAlertMessage | `ReactNode` | `只能新增一行！` |
 
 #### ColConfig
 
