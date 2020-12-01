@@ -209,8 +209,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     if (typeof rowKey === 'function') {
       return rowKey;
     }
-
-    return (record: T, index: number) => (record as any)?.[rowKey as string] || `${index}`;
+    return (record: T, index: number) => (record as any)?.[rowKey as string] ?? `${index}`;
   }, [props.rowKey]);
 
   /**

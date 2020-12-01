@@ -18,7 +18,11 @@ import Submitter, { SubmitterProps } from '../components/Submitter';
 import { GroupProps, FieldProps } from '../interface';
 
 export interface CommonFormProps {
-  submitter?: SubmitterProps | false;
+  submitter?:
+    | SubmitterProps<{
+        form?: FormInstance<any>;
+      }>
+    | false;
 
   /**
    * @name 表单结束后调用

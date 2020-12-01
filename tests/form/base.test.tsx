@@ -164,7 +164,7 @@ describe('ProForm', () => {
               key="submit"
               type="primary"
               onClick={() => {
-                form.submit();
+                form?.submit();
               }}
             >
               提交并发布
