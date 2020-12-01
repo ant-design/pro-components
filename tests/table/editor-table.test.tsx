@@ -18,6 +18,7 @@ interface DataSourceType {
     created_at?: string;
   };
   children?: DataSourceType[];
+  editable?: boolean;
 }
 
 const defaultData: DataSourceType[] = [
@@ -32,6 +33,7 @@ const defaultData: DataSourceType[] = [
   },
   {
     id: 624691229,
+    editable: false,
     title: '🐛 [BUG]无法创建工程npm create umi',
     labels: [{ name: 'bug', color: 'error' }],
     time: {
