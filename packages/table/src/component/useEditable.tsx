@@ -7,7 +7,7 @@ import { LoadingOutlined } from '@ant-design/icons';
 import { message, Popconfirm } from 'antd';
 import ReactDOM from 'react-dom';
 
-export type RowEditableType = 'singe' | 'multiple';
+export type RowEditableType = 'single' | 'multiple';
 
 export type ActionRenderFunction<T> = (row: T, config: ActionRenderConfig<T>) => React.ReactNode[];
 
@@ -279,7 +279,7 @@ function useEditable<RecordType>(
   >(undefined);
   newLineRecordRef.current = newLineRecord;
 
-  const editableType = props.type || 'singe';
+  const editableType = props.type || 'single';
   const [getRecordByKey] = useLazyKVMap(props.dataSource, 'children', props.getRowKey);
 
   const [editableKeys, setEditableRowKeys] = useMergedState<React.Key[]>([], {
@@ -300,7 +300,7 @@ function useEditable<RecordType>(
    * 提供了方便的 api 来去重什么的
    */
   const editableKeysSet = useMemo(() => {
-    const keys = editableType === 'singe' ? editableKeys.slice(0, 1) : editableKeys;
+    const keys = editableType === 'single' ? editableKeys.slice(0, 1) : editableKeys;
     return new Set(keys);
   }, [editableKeys.join(','), editableType]);
 
@@ -329,7 +329,7 @@ function useEditable<RecordType>(
    */
   const startEditable = (recordKey: React.Key) => {
     // 如果是单行的话，不允许多行编辑
-    if (editableKeysSet.size > 0 && editableType === 'singe') {
+    if (editableKeysSet.size > 0 && editableType === 'single') {
       message.warn('只能同时编辑一行！');
       return false;
     }
@@ -429,7 +429,7 @@ function useEditable<RecordType>(
       return false;
     }
     // 如果是单行的话，不允许多行编辑
-    if (editableKeysSet.size > 0 && editableType === 'singe') {
+    if (editableKeysSet.size > 0 && editableType === 'single') {
       message.warn('只能同时编辑一行！');
       return false;
     }

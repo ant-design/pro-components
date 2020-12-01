@@ -316,7 +316,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| type | 可编辑表格的类型，单行编辑或者多行编辑 | `singe` \| `multiple` | - |
+| type | 可编辑表格的类型，单行编辑或者多行编辑 | `single` \| `multiple` | - |
 | editableKeys | 正在编辑的行，受控属性。 默认 `key` 会使用 `rowKey` 的配置，如果没有配置会使用 `index`，建议使用 rowKey | `React.Key[]` | - |
 | actionRender | 自定义编辑模式的操作栏 | `(row: T, config: ActionRenderConfig<T>) => React.ReactNode[]` | - |
 | onSave | 保存一行的时候触发，只更新 | `(key: React.Key, row: T) => Promise<void>` | - |

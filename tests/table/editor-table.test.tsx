@@ -334,7 +334,7 @@ describe('EditorProTable', () => {
     ).toBeFalsy();
   });
 
-  it('📝 type=singe, only edit one rows', async () => {
+  it('📝 type=single, only edit one rows', async () => {
     const fn = jest.fn();
     const wrapper = mount(
       <EditorProTableDemo
@@ -657,7 +657,7 @@ describe('EditorProTable', () => {
     expect(fn).toBeCalled();
   });
 
-  it('📝 support add line when singe line edit', async () => {
+  it('📝 support add line when single line edit', async () => {
     const wrapper = mount(<EditorProTableDemo editorRowKeys={[624748504]} />);
     await waitForComponentToPaint(wrapper, 1000);
     expect(
