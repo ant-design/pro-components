@@ -129,10 +129,16 @@ export type ProColumnType<T = unknown> = ProSchema<
      * form 的排序
      */
     order?: number;
+
     /**
      * 传给 Form.Item 的 props
      */
     formItemProps?: Partial<Omit<FormItemProps, 'children'>>;
+
+    /**
+     * 可编辑表格是否可编辑
+     */
+    editable?: boolean;
   },
   Partial<ActionType>
 >;

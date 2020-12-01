@@ -397,6 +397,7 @@ ref.current.cancelEditable(rowKey);
 | fieldProps | 查询表单的 props，会透传给表单项 | `{ [prop: string]: any }` | - |
 | search | 配置列的搜索相关，false 为隐藏 | `false` \| `{ transform: (value: any) => any }` | true |
 | search.transform | 转化值的 key, 一般用于事件区间的转化 | `(value: any) => any` | - |
+| editable | 在编辑表格中是否是不可编辑的 | boolean | true |
 
 ### valueType 值类型
 
