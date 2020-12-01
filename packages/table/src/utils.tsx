@@ -310,7 +310,11 @@ export function columnRender<T>({
         </Form.Item>
       );
     }
-    if (columnProps.editable === false) {
+    if (
+      typeof columnProps?.editable === 'boolean'
+        ? columnProps?.editable === false
+        : columnProps?.editable?.(text, rowData, index) === false
+    ) {
       return (
         <Form.Item shouldUpdate noStyle>
           {text}
