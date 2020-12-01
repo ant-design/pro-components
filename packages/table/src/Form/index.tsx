@@ -7,7 +7,7 @@ import React, {
   useImperativeHandle,
   useMemo,
 } from 'react';
-import { FormInstance, FormItemProps, FormProps } from 'antd/lib/form';
+import { FormInstance, FormItemProps } from 'antd/lib/form';
 import { ConfigProvider } from 'antd';
 import { useIntl, IntlType } from '@ant-design/pro-provider';
 import ProForm, {
@@ -16,6 +16,7 @@ import ProForm, {
   ProFormField,
   BaseQueryFilterProps,
   QueryFilterProps,
+  ProFormProps,
 } from '@ant-design/pro-form';
 import classNames from 'classnames';
 import { ProFieldValueType } from '@ant-design/pro-field';
@@ -96,7 +97,7 @@ const getFromProps = (isForm: boolean, searchConfig: any, name: string) => {
 export interface TableFormItem<T, U = any> extends Omit<FormItemProps, 'children' | 'onReset'> {
   onSubmit?: (value: T, firstLoad: boolean) => void;
   onReset?: (value: T) => void;
-  form?: Omit<FormProps, 'form'>;
+  form?: Omit<ProFormProps, 'form'>;
   type?: ProSchemaComponentTypes;
   dateFormatter?: 'string' | 'number' | false;
   search?: false | SearchConfig;
