@@ -88,7 +88,9 @@ ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 �
 
 <code src="./demos/components-other.tsx" heigh="1774px"/>
 
-### 只读模式
+### 表单联动
+
+<code src="./demos/linkage-customization.tsx" heigh="1774px" />
 
 <code src="./demos/components-other-readonly.tsx" heigh="1774px" debug/>
 

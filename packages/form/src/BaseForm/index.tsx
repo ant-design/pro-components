@@ -18,7 +18,7 @@ import Submitter, { SubmitterProps } from '../components/Submitter';
 import { GroupProps, FieldProps } from '../interface';
 
 export interface CommonFormProps {
-  submitter?: Omit<SubmitterProps, 'form'> | false;
+  submitter?: SubmitterProps | false;
 
   /**
    * @name 表单结束后调用
@@ -35,7 +35,7 @@ export interface CommonFormProps {
 export interface BaseFormProps extends FormProps, CommonFormProps {
   contentRender?: (
     items: React.ReactNode[],
-    submitter: ReactElement<Omit<SubmitterProps, 'form'>> | undefined,
+    submitter: ReactElement<SubmitterProps> | undefined,
     form: FormInstance<any>,
   ) => React.ReactNode;
   fieldProps?: FieldProps;
@@ -84,7 +84,7 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
   const [, updateState] = useState(false);
 
   const items = React.Children.toArray(children);
-  const submitterProps: Omit<SubmitterProps, 'form'> =
+  const submitterProps: SubmitterProps =
     typeof submitter === 'boolean' || !submitter ? {} : submitter;
 
   /**

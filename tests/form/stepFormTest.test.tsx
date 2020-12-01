@@ -229,7 +229,7 @@ describe('StepsForm', () => {
         submitter={{
           render: (props) => {
             return (
-              <button type="button" id="rest" onClick={() => props?.onReset?.()}>
+              <button type="button" id="rest" onClick={() => props?.onPre?.()}>
                 rest
               </button>
             );
