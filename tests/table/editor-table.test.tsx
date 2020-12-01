@@ -18,7 +18,6 @@ interface DataSourceType {
     created_at?: string;
   };
   children?: DataSourceType[];
-  editable?: boolean;
 }
 
 const defaultData: DataSourceType[] = [
@@ -33,7 +32,6 @@ const defaultData: DataSourceType[] = [
   },
   {
     id: 624691229,
-    editable: false,
     title: '🐛 [BUG]无法创建工程npm create umi',
     labels: [{ name: 'bug', color: 'error' }],
     time: {
@@ -285,6 +283,35 @@ describe('EditorProTable', () => {
             renderFormItem: (item, config) => {
               return config.defaultRender(item);
             },
+          },
+        ]}
+        value={defaultData}
+      />,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('📝 columns support editable test', async () => {
+    const wrapper = mount(
+      <EditableProTable
+        rowKey="id"
+        editable={{
+          editableKeys: [624748504],
+        }}
+        columns={[
+          {
+            dataIndex: 'index',
+            valueType: 'indexBorder',
+            width: 48,
+            editable: (text, record, index) => {
+              return index === 1;
+            },
+          },
+          {
+            dataIndex: 'index',
+            valueType: 'indexBorder',
+            width: 48,
+            editable: false,
           },
         ]}
         value={defaultData}
