@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.7.1...@ant-design/pro-form@1.7.2) (2020-12-02)
+
+### Bug Fixes
+
+- **form:** fix optionRender no has form error ([#1147](https://github.com/ant-design/pro-components/issues/1147)) ([3398fb9](https://github.com/ant-design/pro-components/commit/3398fb999952eebf6b9ba5736e6dc5d44a5fecce))
+
 ## [1.7.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.7.0...@ant-design/pro-form@1.7.1) (2020-11-30)
 
 ### Bug Fixes
