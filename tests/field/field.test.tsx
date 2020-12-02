@@ -283,6 +283,7 @@ describe('Field', () => {
     'progress',
     'percent',
     'digit',
+    'second',
     'code',
     'jsonCode',
     'rate',

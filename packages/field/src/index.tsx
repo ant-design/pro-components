@@ -27,6 +27,8 @@ import FiledCheckbox from './components/Checkbox';
 import FiledRate from './components/Rate';
 import FiledSwitch from './components/Switch';
 import FieldDigit from './components/Digit';
+import FieldSecond from './components/Second';
+
 import FieldRadio from './components/Radio';
 
 export type ProFieldTextType = React.ReactNode | React.ReactNode[] | Moment | Moment[];
@@ -76,6 +78,7 @@ export type ProFieldValueType =
   | 'progress'
   | 'percent'
   | 'digit'
+  | 'second'
   | 'avatar'
   | 'code'
   | 'switch'
@@ -359,6 +362,10 @@ const defaultRenderText = (
 
   if (valueType === 'digit') {
     return <FieldDigit text={text as number} {...props} />;
+  }
+
+  if (valueType === 'second') {
+    return <FieldSecond text={text as number} {...props} />;
   }
 
   if (valueType === 'select' || (valueType === 'text' && (props.valueEnum || props.request))) {

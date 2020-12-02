@@ -37140,6 +37140,113 @@ exports[`table demos renders ./packages/table/src/demos/valueTypeNumber.tsx corr
           >
             <label
               class=""
+              for="digit"
+              title="数字"
+            >
+              数字
+            </label>
+          </div>
+          <div
+            class="ant-col ant-form-item-control"
+          >
+            <div
+              class="ant-form-item-control-input"
+            >
+              <div
+                class="ant-form-item-control-input-content"
+              >
+                <div
+                  class="ant-input-number"
+                  style="width: 100%;"
+                >
+                  <div
+                    class="ant-input-number-handler-wrap"
+                  >
+                    <span
+                      aria-label="Increase Value"
+                      class="ant-input-number-handler ant-input-number-handler-up"
+                      role="button"
+                      unselectable="on"
+                    >
+                      <span
+                        aria-label="up"
+                        class="anticon anticon-up ant-input-number-handler-up-inner"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="up"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                    <span
+                      aria-label="Decrease Value"
+                      class="ant-input-number-handler ant-input-number-handler-down"
+                      role="button"
+                      unselectable="on"
+                    >
+                      <span
+                        aria-label="down"
+                        class="anticon anticon-down ant-input-number-handler-down-inner"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="down"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                  </div>
+                  <div
+                    class="ant-input-number-input-wrap"
+                  >
+                    <input
+                      aria-valuemax="9007199254740991"
+                      aria-valuemin="0"
+                      autocomplete="off"
+                      class="ant-input-number-input"
+                      id="digit"
+                      max="9007199254740991"
+                      min="0"
+                      name="digit"
+                      placeholder="请输入"
+                      role="spinbutton"
+                      step="1"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-row ant-form-item ant-form-item-hidden"
+        >
+          <div
+            class="ant-col ant-form-item-label"
+            style="flex: 0 0 80px;"
+          >
+            <label
+              class=""
               for="percent"
               title="百分比"
             >
@@ -37501,6 +37608,9 @@ exports[`table demos renders ./packages/table/src/demos/valueTypeNumber.tsx corr
                         style="width: 150px; min-width: 150px;"
                       />
                       <col
+                        style="width: 150px; min-width: 150px;"
+                      />
+                      <col
                         style="width: 120px; min-width: 120px;"
                       />
                     </colgroup>
@@ -37517,6 +37627,11 @@ exports[`table demos renders ./packages/table/src/demos/valueTypeNumber.tsx corr
                           class="ant-table-cell"
                         >
                           金额
+                        </th>
+                        <th
+                          class="ant-table-cell"
+                        >
+                          数字
                         </th>
                         <th
                           class="ant-table-cell"
@@ -37582,6 +37697,13 @@ exports[`table demos renders ./packages/table/src/demos/valueTypeNumber.tsx corr
                           class="ant-table-cell"
                         >
                           <span>
+                            0秒
+                          </span>
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <span>
                             10.84%
                           </span>
                         </td>
@@ -37629,6 +37751,13 @@ exports[`table demos renders ./packages/table/src/demos/valueTypeNumber.tsx corr
                         >
                           <span>
                             ￥ 1680
+                          </span>
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <span>
+                            28分钟0秒
                           </span>
                         </td>
                         <td
