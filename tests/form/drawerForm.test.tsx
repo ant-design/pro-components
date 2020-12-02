@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import { ProFormText, DrawerForm } from '@ant-design/pro-form';
+import { ProFormText, DrawerForm, ModalForm } from '@ant-design/pro-form';
 import { Button } from 'antd';
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
@@ -83,6 +83,52 @@ describe('DrawerForm', () => {
 
     act(() => {
       wrapper.find('button.ant-drawer-close').simulate('click');
+    });
+
+    expect(fn).toBeCalledWith(false);
+  });
+
+  it('📦 drawer reset button will simulate modalProps.onClose', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <DrawerForm
+        visible
+        drawerProps={{
+          onClose: () => fn(false),
+        }}
+        trigger={<Button id="new">新建</Button>}
+        onVisibleChange={(visible) => fn(visible)}
+      >
+        <ProFormText name="name" />
+      </DrawerForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('button.ant-btn').at(0).simulate('click');
+    });
+
+    expect(fn).toBeCalledWith(false);
+  });
+
+  it('📦 modal reset button will simulate modalProps.onCancel', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <ModalForm
+        visible
+        modalProps={{
+          onCancel: () => fn(false),
+        }}
+        trigger={<Button id="new">新建</Button>}
+        onVisibleChange={(visible) => fn(visible)}
+      >
+        <ProFormText name="name" />
+      </ModalForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('button.ant-btn').at(0).simulate('click');
     });
 
     expect(fn).toBeCalledWith(false);

@@ -26,6 +26,9 @@ export default () => {
           新建表单
         </Button>
       }
+      modalProps={{
+        onCancel: () => console.log('run'),
+      }}
       onFinish={async (values) => {
         await waitTime(2000);
         console.log(values);

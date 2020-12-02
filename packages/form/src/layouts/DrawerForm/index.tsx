@@ -86,7 +86,10 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
                 resetText: '取消',
               },
               resetButtonProps: {
-                onClick: () => setVisible(false),
+                onClick: (e: any) => {
+                  setVisible(false);
+                  drawerProps?.onClose?.(e);
+                },
               },
               ...rest.submitter,
             }}
