@@ -257,7 +257,7 @@ const isMergeCell = (
 /**
  * 判断可不可编辑
  */
-function notEditable<T>(
+function isEditableCell<T>(
   text: any,
   rowData: T,
   index: number,
@@ -326,7 +326,7 @@ export function columnRender<T>({
         </Form.Item>
       );
     }
-    if (notEditable(text, rowData, index, columnProps?.editable)) {
+    if (isEditableCell(text, rowData, index, columnProps?.editable)) {
       return (
         <Form.Item shouldUpdate noStyle>
           {text}
