@@ -10,6 +10,7 @@ import {
   ProSchema,
   ProSchemaComponentTypes,
   SearchTransformKeyFn,
+  ProTableEditableFnType,
 } from '@ant-design/pro-utils';
 import { CardProps } from 'antd/lib/card';
 import { FormItemProps } from 'antd/lib/form';
@@ -130,10 +131,16 @@ export type ProColumnType<T = unknown> = ProSchema<
      * form 的排序
      */
     order?: number;
+
     /**
      * 传给 Form.Item 的 props
      */
     formItemProps?: Partial<Omit<FormItemProps, 'children'>>;
+
+    /**
+     * 可编辑表格是否可编辑
+     */
+    editable?: boolean | ProTableEditableFnType<T>;
   },
   Partial<ActionType>
 >;

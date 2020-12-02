@@ -291,6 +291,35 @@ describe('EditorProTable', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('📝 columns support editable test', async () => {
+    const wrapper = mount(
+      <EditableProTable
+        rowKey="id"
+        editable={{
+          editableKeys: [624748504],
+        }}
+        columns={[
+          {
+            dataIndex: 'index',
+            valueType: 'indexBorder',
+            width: 48,
+            editable: (text, record, index) => {
+              return index === 1;
+            },
+          },
+          {
+            dataIndex: 'index',
+            valueType: 'indexBorder',
+            width: 48,
+            editable: false,
+          },
+        ]}
+        value={defaultData}
+      />,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
   it('📝 support editorRowKeys', async () => {
     const wrapper = mount(<EditorProTableDemo editorRowKeys={[624748504]} />);
     await waitForComponentToPaint(wrapper, 1000);

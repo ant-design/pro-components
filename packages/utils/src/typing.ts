@@ -37,6 +37,8 @@ export type SearchTransformKeyFn = (
   object: any,
 ) => string | { [key: string]: any };
 
+export type ProTableEditableFnType<T> = (_: any, record: T, index: number) => boolean;
+
 // 支持的变形，还未完全支持完毕
 /**
  * 支持的变形，还未完全支持完毕
