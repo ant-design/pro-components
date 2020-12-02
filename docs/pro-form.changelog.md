@@ -9,6 +9,20 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.7.2
+
+`2020-12-02`
+
+- 🐛 fix(table): fix protable form types error [#1158](https://github.com/ant-design/pro-components/pull/1158) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix optionRender no has form error [#1147](https://github.com/ant-design/pro-components/pull/1147) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-form@1.7.1
+
+`2020-11-30`
+
+- 🐛 fix(form): fix setState() call inside `Field` error [#1137](https://github.com/ant-design/pro-components/pull/1137) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): No longer generate redundant dom [#1121](https://github.com/ant-design/pro-components/pull/1121) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-form@1.7.0
 
 `2020-11-27`

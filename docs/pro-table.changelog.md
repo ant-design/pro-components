@@ -9,6 +9,23 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.12.2
+
+`2020-12-02`
+
+- 🐛 fix(table): fix startEditable key=0 warning [#1162](https://github.com/ant-design/pro-components/pull/1162) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): support children of column in EditableProTable [#1161](https://github.com/ant-design/pro-components/pull/1161) [@shenzhim](https://github.com/shenzhim)
+- 🐛 fix(table): fix protable form types error [#1158](https://github.com/ant-design/pro-components/pull/1158) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): support onlyAddOneLineAlertMessage and onlyOneLineEditorAlertMessage [#1157](https://github.com/ant-design/pro-components/pull/1157) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(compiler): support editable [#1151](https://github.com/ant-design/pro-components/pull/1151) [@DerrickTel](https://github.com/DerrickTel)
+
+## @ant-design/pro-table@2.12.1
+
+`2020-11-30`
+
+- 🐛 fix(table): fix Whitespace warning [#1135](https://github.com/ant-design/pro-components/pull/1135) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix editable table show rules error [#1129](https://github.com/ant-design/pro-components/pull/1129) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.12.0
 
 `2020-11-27`

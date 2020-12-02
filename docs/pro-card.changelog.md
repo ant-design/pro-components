@@ -10,6 +10,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-card@1.6.1
+
+`2020-12-02`
+
+- 💥 feat(card): add onClick [#1138](https://github.com/ant-design/pro-components/pull/1138) [@DerrickTel](https://github.com/DerrickTel)
+
 ## @ant-design/pro-card@1.5.1
 
 `2020-11-19`
