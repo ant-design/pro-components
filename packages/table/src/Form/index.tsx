@@ -488,9 +488,13 @@ const FormSearch = <T, U = any>({
           }
         }}
         onReset={() => {
-          if (onReset) {
+          if (onReset && valueTypeRef.current) {
             const value = formInstanceRef.current?.getFieldsValue() as T;
-            onReset(value);
+            const finalValue = transformKeySubmitValue(
+              conversionSubmitValue(value, dateFormatter, valueTypeRef.current) as T,
+              transformKeyRef.current,
+            );
+            onReset(finalValue);
           }
         }}
         onFinish={() => {
