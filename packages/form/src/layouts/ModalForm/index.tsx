@@ -97,7 +97,10 @@ const ModalForm: React.FC<ModalFormProps> = ({
                 type: modalProps?.okType as 'text',
               },
               resetButtonProps: {
-                onClick: () => setVisible(false),
+                onClick: (e) => {
+                  modalProps?.onCancel?.(e);
+                  setVisible(false);
+                },
               },
               ...rest.submitter,
             }}
