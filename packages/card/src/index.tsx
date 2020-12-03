@@ -69,7 +69,7 @@ export interface ProCardProps extends Omit<React.HTMLAttributes<HTMLDivElement>,
   /**
    * 卡片类型
    */
-  type?: 'inner';
+  type?: 'default' | 'inner';
   /**
    * 指定 Flex 方向，仅在嵌套子卡片时有效
    */
@@ -118,7 +118,9 @@ export interface ProCardProps extends Omit<React.HTMLAttributes<HTMLDivElement>,
    * 标签栏配置
    */
   tabs?: ProCardTabsProps;
-
+  /**
+   * 前缀
+   */
   prefixCls?: string;
 }
 
