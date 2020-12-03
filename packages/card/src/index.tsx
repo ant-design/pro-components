@@ -13,14 +13,14 @@ import './style/index.less';
 
 const { useBreakpoint } = Grid;
 
-type ProCardType = React.FC<ProCardProps> & {
+type ProCardType = React.ForwardRefRenderFunction<HTMLDivElement, ProCardProps> & {
   isProCard: boolean;
   TabPane: typeof TabPane;
   Divider: typeof Divider;
   Group: typeof Group;
 };
 
-type ProCardChildType = React.ReactElement<ProCardProps, ProCardType>;
+type ProCardChildType = React.ReactElement<ProCardProps, any>;
 
 type ColSpanType = number | string;
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
@@ -124,7 +124,7 @@ export interface ProCardProps extends Omit<React.HTMLAttributes<HTMLDivElement>,
   prefixCls?: string;
 }
 
-const ProCard: ProCardType = (props) => {
+const ProCard: ProCardType = (props, ref) => {
   const {
     className,
     style,
@@ -310,7 +310,7 @@ const ProCard: ProCardType = (props) => {
   );
 
   return (
-    <div className={cardCls} style={cardStyle} {...omit(rest, ['id', 'prefixCls'])}>
+    <div className={cardCls} style={cardStyle} ref={ref} {...omit(rest, ['id', 'prefixCls'])}>
       {(title || extra || collapsibleButton) && (
         <div className={headerCls} style={headStyle}>
           <div className={`${prefixCls}-title`}>
@@ -344,4 +344,4 @@ ProCard.TabPane = TabPane;
 ProCard.Divider = Divider;
 ProCard.Group = Group;
 
-export default ProCard;
+export default React.forwardRef(ProCard);
