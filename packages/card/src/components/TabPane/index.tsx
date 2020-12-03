@@ -5,8 +5,15 @@ import classNames from 'classnames';
 import './index.less';
 import ProCard, { ProCardProps } from '../../index';
 
-export interface ProCardTabPaneProps extends TabPaneProps, ProCardProps {
+export interface ProCardTabPaneProps extends TabPaneProps {
+  /**
+   * key
+   */
   key?: string;
+  /**
+   * ProCard 相关属性透传
+   */
+  cardProps?: ProCardProps;
 }
 
 const TabPane: React.FC<ProCardTabPaneProps> = (props) => {
@@ -19,6 +26,7 @@ const TabPane: React.FC<ProCardTabPaneProps> = (props) => {
     children,
     className,
     style,
+    cardProps,
     ...rest
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -36,7 +44,7 @@ const TabPane: React.FC<ProCardTabPaneProps> = (props) => {
       destroyInactiveTabPane={destroyInactiveTabPane}
       {...rest}
     >
-      <ProCard {...rest}>{children}</ProCard>
+      <ProCard {...cardProps}>{children}</ProCard>
     </Tabs.TabPane>
   );
 };
