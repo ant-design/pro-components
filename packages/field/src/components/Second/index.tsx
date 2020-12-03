@@ -13,7 +13,7 @@ export type FieldDigitProps = {
  */
 export function formatSecond(result: number) {
   let formatText = '';
-  const h = Math.floor((result / 3600) % 24);
+  const h = Math.floor(result / 3600 / 24);
   const m = Math.floor((result / 60) % 60);
   const s = Math.floor(result % 60);
   formatText = `${s}秒`;
