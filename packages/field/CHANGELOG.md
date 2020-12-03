@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.3.0...@ant-design/pro-field@1.3.1) (2020-12-03)
+
+### Bug Fixes
+
+- **field:** fix formatSecond bug ([2874143](https://github.com/ant-design/pro-components/commit/2874143e586e957fbb113b6369f5fdce4ff169a3))
+
 # [1.3.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.2.2...@ant-design/pro-field@1.3.0) (2020-12-03)
 
 ### Features
