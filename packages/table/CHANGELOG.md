@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.13.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.12.2...@ant-design/pro-table@2.13.0) (2020-12-03)
+
+### Features
+
+- **field:** support new valueType `second` ([#1177](https://github.com/ant-design/pro-components/issues/1177)) ([3c45102](https://github.com/ant-design/pro-components/commit/3c45102763bbfa05b481aa0c8462912179a1dfbf))
+
 ## [2.12.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.12.1...@ant-design/pro-table@2.12.2) (2020-12-02)
 
 ### Bug Fixes
