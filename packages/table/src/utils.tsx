@@ -329,7 +329,7 @@ export function columnRender<T>({
     if (isEditableCell(text, rowData, index, columnProps?.editable)) {
       return (
         <Form.Item shouldUpdate noStyle>
-          {text}
+          {text || null}
         </Form.Item>
       );
     }
