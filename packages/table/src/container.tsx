@@ -47,7 +47,7 @@ function useCounter(props: UseCounterProps = {}) {
     setAction: (newAction?: ActionType) => {
       actionRef.current = newAction;
     },
-    sortKeyColumns: sortKeyColumns.current,
+    sortKeyColumns,
     setSortKeyColumns: (keys: string[]) => {
       sortKeyColumns.current = keys;
     },
