@@ -24,7 +24,7 @@
       &-header {
         padding-left: 0;
         padding-right: 0;
-        padding-bottom: @padding-md;
+        padding-bottom: @card-head-padding;
       }
 
       &-body {
@@ -58,7 +58,7 @@
   &-collapse {
     > .@{pro-card-prefix-cls} {
       &-header {
-        padding-bottom: @padding-md;
+        padding-bottom: @card-head-padding;
         border-bottom: 0;
       }
 
@@ -71,11 +71,11 @@
   &-header {
     display: flex;
     justify-content: space-between;
-    padding: @padding-md @card-body-padding;
+    padding: @card-head-padding @card-body-padding;
     padding-bottom: 0;
     &-border {
       & {
-        padding-bottom: @padding-md;
+        padding-bottom: @card-head-padding;
       }
       border-bottom: @border-width-base @border-style-base @border-color-split;
     }
