@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.13.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.13.1...@ant-design/pro-table@2.13.2) (2020-12-04)
+
+### Bug Fixes
+
+- **table:** onSave support newLineConfig ([576042c](https://github.com/ant-design/pro-components/commit/576042cc0ef5715a173b544320cdec5920ac18a8))
+
 ## [2.13.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.13.0...@ant-design/pro-table@2.13.1) (2020-12-03)
 
 **Note:** Version bump only for package @ant-design/pro-table
