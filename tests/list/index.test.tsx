@@ -4,6 +4,7 @@ import ProList from '@ant-design/pro-list';
 import { act } from 'react-dom/test-utils';
 import PaginationDemo from '../../packages/list/src/demos/pagination';
 import { waitForComponentToPaint } from '../util';
+import { Tag } from 'antd';
 
 describe('List', () => {
   it('🚏 base use', async () => {
@@ -29,6 +30,62 @@ describe('List', () => {
     );
     expect(html.find('.ant-pro-list-row-title').text()).toEqual('我是名称');
     expect(html.find('.ant-pro-list-row-description').text()).toEqual('desc text');
+  });
+
+  it('🚏 only has content', async () => {
+    const html = mount(
+      <ProList
+        dataSource={[
+          {
+            name: '我是名称',
+            desc: {
+              text: 'desc text',
+            },
+          },
+        ]}
+        metas={{
+          content: {
+            render: () => {
+              return (
+                <div>
+                  段落示意：蚂蚁金服设计平台
+                  design.alipay.com，用最小的工作量，无缝接入蚂蚁金服生态，提供跨越设计与开发的体验解决方案。蚂蚁金服设计平台
+                  design.alipay.com，用最小的工作量，无缝接入蚂蚁金服生态提供跨越设计与开发的体验解决方案。
+                </div>
+              );
+            },
+          },
+        }}
+      />,
+    );
+    expect(html.render()).toMatchSnapshot();
+  });
+
+  it('🚏 only has description', async () => {
+    const html = mount(
+      <ProList
+        dataSource={[
+          {
+            name: '我是名称',
+            desc: {
+              text: 'desc text',
+            },
+          },
+        ]}
+        metas={{
+          description: {
+            render: () => (
+              <>
+                <Tag>语雀专栏</Tag>
+                <Tag>设计语言</Tag>
+                <Tag>蚂蚁金服</Tag>
+              </>
+            ),
+          },
+        }}
+      />,
+    );
+    expect(html.render()).toMatchSnapshot();
   });
 
   it('🚏 empty', async () => {
