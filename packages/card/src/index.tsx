@@ -13,15 +13,6 @@ import './style/index.less';
 
 const { useBreakpoint } = Grid;
 
-type ProCardType = React.ForwardRefRenderFunction<HTMLDivElement, ProCardProps> & {
-  isProCard: boolean;
-  TabPane: typeof TabPane;
-  Divider: typeof Divider;
-  Group: typeof Group;
-};
-
-type ProCardChildType = React.ReactElement<ProCardProps, any>;
-
 type ColSpanType = number | string;
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type Gutter = number | Partial<Record<Breakpoint, number>>;
@@ -75,6 +66,10 @@ export interface ProCardProps extends Omit<React.HTMLAttributes<HTMLDivElement>,
    */
   direction?: 'column' | 'row';
   /**
+   * 尺寸
+   */
+  size?: 'default' | 'small';
+  /**
    * 加载中
    */
   loading?: boolean | ReactNode;
@@ -124,7 +119,17 @@ export interface ProCardProps extends Omit<React.HTMLAttributes<HTMLDivElement>,
   prefixCls?: string;
 }
 
-const ProCard: ProCardType = (props, ref) => {
+interface ProCardType extends React.ForwardRefExoticComponent<ProCardProps> {
+  isProCard: boolean;
+  TabPane: typeof TabPane;
+  Divider: typeof Divider;
+  Group: typeof Group;
+}
+
+type ProCardChildType = React.ReactElement<ProCardProps, any>;
+
+// @ts-ignore
+const ProCard: ProCardType = React.forwardRef<HTMLDivElement>((props: ProCardProps, ref) => {
   const {
     className,
     style,
@@ -143,6 +148,7 @@ const ProCard: ProCardType = (props, ref) => {
     headerBordered = false,
     bordered = false,
     children,
+    size,
     ghost = false,
     direction,
     collapsed: controlCollapsed,
@@ -276,6 +282,7 @@ const ProCard: ProCardType = (props, ref) => {
     [`${prefixCls}-loading`]: loading,
     [`${prefixCls}-split`]: split === 'vertical' || split === 'horizontal',
     [`${prefixCls}-ghost`]: ghost,
+    // [`${prefixCls}-size-${size}`]: size,
     [`${prefixCls}-type-${type}`]: type,
     [`${prefixCls}-collapse`]: collapsed,
   });
@@ -333,7 +340,7 @@ const ProCard: ProCardType = (props, ref) => {
       )}
     </div>
   );
-};
+});
 
 const Group = (props: PropsWithChildren<ProCardProps>) => (
   <ProCard bodyStyle={{ padding: 0 }} {...props} />
@@ -344,4 +351,4 @@ ProCard.TabPane = TabPane;
 ProCard.Divider = Divider;
 ProCard.Group = Group;
 
-export default React.forwardRef(ProCard);
+export default ProCard;
