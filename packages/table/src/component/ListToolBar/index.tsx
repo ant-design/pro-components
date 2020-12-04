@@ -197,7 +197,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
           {!multipleLine ? filtersNode : null}
           {actions && actions.length > 0 ? <Space align="center">{actions}</Space> : null}
           {settings?.length ? (
-            <Space size={16} align="center" className={`${prefixCls}-setting-items`}>
+            <Space size={12} align="center" className={`${prefixCls}-setting-items`}>
               {settings.map((setting, index) => {
                 const settingItem = getSettingItem(setting);
                 return (

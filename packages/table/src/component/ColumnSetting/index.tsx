@@ -134,7 +134,7 @@ const CheckboxList: React.FC<{
   }
   const move = (id: string, targetIndex: number) => {
     const newMap = { ...columnsMap };
-    const newColumns = [...sortKeyColumns];
+    const newColumns = [...sortKeyColumns.current];
     const findIndex = newColumns.findIndex((columnKey) => columnKey === id);
     if (findIndex < 0) {
       return;
@@ -169,10 +169,10 @@ const CheckboxList: React.FC<{
     );
   });
   return (
-    <DndProvider backend={HTML5Backend}>
+    <>
       {showTitle && <span className={`${className}-list-title`}>{listTitle}</span>}
       {listDom}
-    </DndProvider>
+    </>
   );
 };
 
@@ -207,23 +207,25 @@ const GroupCheckboxList: React.FC<{
         [`${className}-list-group`]: showRight || showLeft,
       })}
     >
-      <CheckboxList
-        title={intl.getMessage('tableToolBar.leftFixedTitle', '固定在左侧')}
-        list={leftList}
-        className={className}
-      />
-      {/* 如果没有任何固定，不需要显示title */}
-      <CheckboxList
-        list={list}
-        title={intl.getMessage('tableToolBar.noFixedTitle', '不固定')}
-        showTitle={showLeft || showRight}
-        className={className}
-      />
-      <CheckboxList
-        title={intl.getMessage('tableToolBar.rightFixedTitle', '固定在右侧')}
-        list={rightList}
-        className={className}
-      />
+      <DndProvider backend={HTML5Backend}>
+        <CheckboxList
+          title={intl.getMessage('tableToolBar.leftFixedTitle', '固定在左侧')}
+          list={leftList}
+          className={className}
+        />
+        {/* 如果没有任何固定，不需要显示title */}
+        <CheckboxList
+          list={list}
+          title={intl.getMessage('tableToolBar.noFixedTitle', '不固定')}
+          showTitle={showLeft || showRight}
+          className={className}
+        />
+        <CheckboxList
+          title={intl.getMessage('tableToolBar.rightFixedTitle', '固定在右侧')}
+          list={rightList}
+          className={className}
+        />
+      </DndProvider>
     </div>
   );
 };

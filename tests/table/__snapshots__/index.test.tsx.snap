@@ -1811,7 +1811,7 @@ exports[`BasicTable 🎏 base use 1`] = `
               >
                 <div
                   class="ant-space-item"
-                  style="margin-right: 16px;"
+                  style="margin-right: 12px;"
                 >
                   <div
                     class="ant-pro-table-list-toolbar-setting-item"
@@ -1841,7 +1841,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                 </div>
                 <div
                   class="ant-space-item"
-                  style="margin-right: 16px;"
+                  style="margin-right: 12px;"
                 >
                   <div
                     class="ant-pro-table-list-toolbar-setting-item"
@@ -7944,7 +7944,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
               >
                 <div
                   class="ant-space-item"
-                  style="margin-right: 16px;"
+                  style="margin-right: 12px;"
                 >
                   <div
                     class="ant-pro-table-list-toolbar-setting-item"
@@ -7974,7 +7974,7 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
                 </div>
                 <div
                   class="ant-space-item"
-                  style="margin-right: 16px;"
+                  style="margin-right: 12px;"
                 >
                   <div
                     class="ant-pro-table-list-toolbar-setting-item"
@@ -14665,7 +14665,7 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
               >
                 <div
                   class="ant-space-item"
-                  style="margin-right: 16px;"
+                  style="margin-right: 12px;"
                 >
                   <div
                     class="ant-pro-table-list-toolbar-setting-item"
@@ -14695,7 +14695,7 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
                 </div>
                 <div
                   class="ant-space-item"
-                  style="margin-right: 16px;"
+                  style="margin-right: 12px;"
                 >
                   <div
                     class="ant-pro-table-list-toolbar-setting-item"
