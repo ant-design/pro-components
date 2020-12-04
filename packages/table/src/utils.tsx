@@ -327,11 +327,11 @@ export function columnRender<T>({
       );
     }
     if (isEditableCell(text, rowData, index, columnProps?.editable)) {
-      return (
+      return text ? (
         <Form.Item shouldUpdate noStyle>
-          {text || null}
+          {text}
         </Form.Item>
-      );
+      ) : null;
     }
     if (columnProps.renderFormItem) {
       return (
