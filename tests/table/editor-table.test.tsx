@@ -652,6 +652,42 @@ describe('EditorProTable', () => {
     wrapper.unmount();
   });
 
+  it('📝 support onDelete return false', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <EditorProTableDemo
+        onDelete={async (key) => {
+          await waitTime(500);
+          fn(key);
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+    act(() => {
+      wrapper.find('#editor').at(1).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+
+    expect(
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists(),
+    ).toBeTruthy();
+
+    act(() => {
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(1).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+    act(() => {
+      wrapper.find('.ant-popconfirm .ant-popover-buttons .ant-btn-primary').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect(fn).toBeCalledWith(624691229);
+    wrapper.unmount();
+  });
+
   it('📝 support form rules', async () => {
     const fn = jest.fn();
     const wrapper = mount(<EditorProTableDemo onSave={(key, row) => fn(row.title)} />);
