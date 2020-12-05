@@ -82,7 +82,7 @@ export default () => {
         },
         actions: {
           render: () => {
-            return [<a>邀请</a>];
+            return <a key="invite">邀请</a>;
           },
         },
       }}
