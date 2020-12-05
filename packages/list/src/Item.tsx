@@ -120,7 +120,7 @@ function ProListItem(props: ItemProps) {
   return (
     <div className={className} style={style}>
       <List.Item
-        actions={actions}
+        actions={Array.isArray(actions) || !actions ? actions : [actions]}
         {...rest}
         onClick={() => {
           if (expandRowByClick) {
