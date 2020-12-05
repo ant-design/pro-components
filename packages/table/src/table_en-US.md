@@ -10,9 +10,19 @@ nav:
 
 # ProTable - Advanced Form
 
-ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码的问题，所以在其中做了封装了很多常用的逻辑。这些封装可以简单的分类为预设行为与预设逻辑。
+ProTable:
+- solves issues related to writing repetitive, boilerplate code for data tables in projects
+- encapsulates common logic involved in operating any one data table
 
-依托于 ProForm 的能力，ProForm 拥有多种形态，可以切换查询表单类型，设置变形成为一个简单的 Form 表单，执行新建等功能。
+ProTable provides:
+- predefined bahaviors
+- predefined logic
+
+ProTable relies on Proform to:
+- provide a variety of forms
+- allow you to switch among types of query forms
+- inject the desired transformation into a simple Form
+- create new objects or records
 
 ## 何时使用
 
