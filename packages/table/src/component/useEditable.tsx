@@ -176,7 +176,6 @@ const SaveEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
   form,
   row,
   newLineConfig,
-  cancelEditable,
 }) => {
   const [loading, setLoading] = useState<boolean>(false);
   return (
@@ -190,10 +189,11 @@ const SaveEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
             recursive: true,
           });
           const fields = form.getFieldValue([recordKey]);
-          cancelEditable(recordKey);
           await onSave?.(recordKey, { ...row, ...fields }, newLineConfig);
           form.resetFields([recordKey]);
         } catch (e) {
+          // eslint-disable-next-line no-console
+          console.log(e);
           setLoading(false);
         }
       }}
@@ -411,6 +411,7 @@ function useEditable<RecordType>(
         ) => {
           const { options } = isNewLine || {};
           await props?.onSave?.(recordKey, editRow);
+          cancelEditable(recordKey);
           if (isNewLine) {
             if (options?.position === 'top') {
               props.setDataSource([editRow, ...props.dataSource]);
