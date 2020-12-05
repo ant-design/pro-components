@@ -402,7 +402,7 @@ ref.current.cancelEditable(rowKey);
 | valueType | 值的类型 | `money` \| `option` \| `date` \| `dateTime` \| `time` \| `text`\| `index`\|`indexBorder` | `text` |
 | hideInSearch | 在查询表单中不展示此项 | boolean | - |
 | hideInTable | 在 Table 中不展示此列 | boolean | - |
-| hideInForm | 在 Form 模式下 中不展示此列 | boolean | - |
+| hideInForm | do not display this item in the Form component | boolean | - |
 | filters | 表头的筛选菜单项，当值为 true 时，自动使用 valueEnum 生成 | `boolean` \| `object[]` | false |
 | order | 查询表单中的权重，权重大排序靠前 | number | - |
 | renderFormItem | 渲染查询表单的输入组件 | `(item,props:{value,onChange}) => React.ReactNode` | - |
