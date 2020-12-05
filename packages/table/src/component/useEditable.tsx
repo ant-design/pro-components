@@ -39,12 +39,24 @@ export interface TableRowEditable<T> {
       row: T | undefined;
       options: AddLineOptions;
     },
-  ) => Promise<void>;
+  ) => Promise<boolean | void>;
+
+  /**
+   * 行保存的时候
+   */
+  onCancel?: (
+    key: React.Key,
+    row: T & { index: number },
+    newLineConfig?: {
+      row: T | undefined;
+      options: AddLineOptions;
+    },
+  ) => Promise<boolean | void>;
 
   /**
    * 行删除的时候
    */
-  onDelete?: (key: React.Key, row: T & { index: number }) => Promise<void>;
+  onDelete?: (key: React.Key, row: T & { index: number }) => Promise<boolean | void>;
 
   /**
    * 删除行时的确认消息
@@ -67,6 +79,7 @@ export type ActionRenderConfig<T> = {
   form: FormInstance<any>;
   cancelEditable: (key: React.Key) => void;
   onSave: TableRowEditable<T>['onSave'];
+  onCancel: TableRowEditable<T>['onCancel'];
   onDelete: TableRowEditable<T>['onDelete'];
   deletePopconfirmMessage: TableRowEditable<T>['deletePopconfirmMessage'];
   setEditableRowKeys: (value: React.Key[]) => void;
@@ -170,6 +183,10 @@ function editableRowByKey<RecordType>(
   return source;
 }
 
+/**
+ * 保存按钮的dom
+ * @param ActionRenderConfig
+ */
 const SaveEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
   recordKey,
   onSave,
@@ -189,7 +206,11 @@ const SaveEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
             recursive: true,
           });
           const fields = form.getFieldValue([recordKey]);
-          await onSave?.(recordKey, { ...row, ...fields }, newLineConfig);
+          const success = await onSave?.(recordKey, { ...row, ...fields }, newLineConfig);
+          if (success === false) {
+            setLoading(false);
+            return;
+          }
           form.resetFields([recordKey]);
         } catch (e) {
           // eslint-disable-next-line no-console
@@ -210,6 +231,10 @@ const SaveEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
   );
 };
 
+/**
+ * 删除按钮 dom
+ * @param ActionRenderConfig
+ */
 const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
   recordKey,
   onDelete,
@@ -221,8 +246,9 @@ const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
   const onConfirm = async () => {
     try {
       setLoading(true);
-      await onDelete?.(recordKey, row);
+      const success = await onDelete?.(recordKey, row);
       setLoading(false);
+      if (success === false) return;
       setTimeout(() => {
         cancelEditable(recordKey);
       }, 0);
@@ -247,13 +273,16 @@ const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
 };
 
 const defaultActionRender: ActionRenderFunction<any> = (row, config) => {
-  const { recordKey, newLineConfig, cancelEditable } = config;
+  const { recordKey, newLineConfig, form, onCancel, cancelEditable } = config;
   return [
     <SaveEditableAction key="save" {...config} row={row} />,
     !newLineConfig && <DeleteEditableAction key="delete" {...config} row={row} />,
     <a
       key="cancel"
-      onClick={() => {
+      onClick={async () => {
+        const fields = form.getFieldValue([recordKey]);
+        const success = await onCancel?.(recordKey, fields, newLineConfig);
+        if (success === false) return;
         cancelEditable(recordKey);
       }}
     >
@@ -383,6 +412,22 @@ function useEditable<RecordType>(
         cancelEditable,
         index: row.index,
         newLineConfig: newLineRecord,
+        onCancel: async (
+          recordKey: React.Key,
+          editRow: RecordType & {
+            index: number;
+          },
+          isNewLine?: {
+            row: RecordType | undefined;
+            options: AddLineOptions;
+          },
+        ) => {
+          const success = await props?.onCancel?.(recordKey, editRow, isNewLine);
+          if (success === false) {
+            return false;
+          }
+          return true;
+        },
         onDelete: async (
           recordKey: React.Key,
           editRow: RecordType & {
@@ -396,8 +441,12 @@ function useEditable<RecordType>(
             key: recordKey,
             childrenColumnName: props.childrenColumnName || 'children',
           };
-          await props?.onDelete?.(recordKey, editRow);
+          const success = await props?.onDelete?.(recordKey, editRow);
+          if (success === false) {
+            return false;
+          }
           props.setDataSource(editableRowByKey(actionProps, 'delete'));
+          return true;
         },
         onSave: async (
           recordKey: React.Key,
@@ -410,7 +459,10 @@ function useEditable<RecordType>(
           },
         ) => {
           const { options } = isNewLine || {};
-          await props?.onSave?.(recordKey, editRow);
+          const success = await props?.onSave?.(recordKey, editRow, isNewLine);
+          if (success === false) {
+            return false;
+          }
           cancelEditable(recordKey);
           if (isNewLine) {
             if (options?.position === 'top') {
@@ -418,7 +470,7 @@ function useEditable<RecordType>(
             } else {
               props.setDataSource([...props.dataSource, editRow]);
             }
-            return;
+            return true;
           }
           const actionProps = {
             data: props.dataSource,
@@ -428,6 +480,7 @@ function useEditable<RecordType>(
             childrenColumnName: props.childrenColumnName || 'children',
           };
           props.setDataSource(editableRowByKey(actionProps, 'update'));
+          return true;
         },
         form,
         editableKeys,

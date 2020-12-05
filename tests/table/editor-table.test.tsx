@@ -363,6 +363,36 @@ describe('EditorProTable', () => {
     ).toBeFalsy();
   });
 
+  it('📝 support cancel click render false', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <EditorProTableDemo
+        onEditorChange={(keys) => {
+          fn(keys);
+        }}
+        onCancel={async () => false}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+    act(() => {
+      wrapper.find('#editor').at(0).simulate('click');
+    });
+    await waitForComponentToPaint(wrapper, 1000);
+    expect(
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(0).find('input').exists(),
+    ).toBeTruthy();
+
+    act(() => {
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(0).find(`td a`).at(2).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect(
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(0).find('input').exists(),
+    ).toBeTruthy();
+  });
+
   it('📝 type=single, only edit one rows', async () => {
     const fn = jest.fn();
     const wrapper = mount(
@@ -460,6 +490,97 @@ describe('EditorProTable', () => {
     expect(fn).toBeCalledWith(624691229);
   });
 
+  it('📝 support onSave support false', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <EditorProTableDemo
+        onSave={async (key) => {
+          fn(key);
+          return false;
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+    act(() => {
+      wrapper.find('#editor').at(1).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+
+    expect(
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists(),
+    ).toBeTruthy();
+
+    act(() => {
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(0).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+
+    expect(
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists(),
+    ).toBeTruthy();
+
+    expect(fn).toBeCalledWith(624691229);
+  });
+
+  it('📝 support onCancel', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(<EditorProTableDemo onCancel={(key) => fn(key)} />);
+    await waitForComponentToPaint(wrapper, 1000);
+    act(() => {
+      wrapper.find('#editor').at(1).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+
+    expect(
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists(),
+    ).toBeTruthy();
+
+    act(() => {
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(2).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+
+    expect(fn).toBeCalledWith(624691229);
+  });
+
+  it('📝 support onCancel support false', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <EditorProTableDemo
+        onCancel={async (key) => {
+          fn(key);
+          return false;
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+    act(() => {
+      wrapper.find('#editor').at(1).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+
+    expect(
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists(),
+    ).toBeTruthy();
+
+    act(() => {
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(2).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+
+    expect(
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists(),
+    ).toBeTruthy();
+
+    expect(fn).toBeCalledWith(624691229);
+  });
+
   it('📝 onDelete auto close loading when error ', async () => {
     const wrapper = mount(
       <EditorProTableDemo
@@ -495,6 +616,43 @@ describe('EditorProTable', () => {
   });
 
   it('📝 support onDelete', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <EditorProTableDemo
+        onDelete={async (key) => {
+          await waitTime(500);
+          fn(key);
+          return false;
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+    act(() => {
+      wrapper.find('#editor').at(1).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+
+    expect(
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists(),
+    ).toBeTruthy();
+
+    act(() => {
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(1).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+    act(() => {
+      wrapper.find('.ant-popconfirm .ant-popover-buttons .ant-btn-primary').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect(fn).toBeCalledWith(624691229);
+    wrapper.unmount();
+  });
+
+  it('📝 support onDelete return false', async () => {
     const fn = jest.fn();
     const wrapper = mount(
       <EditorProTableDemo

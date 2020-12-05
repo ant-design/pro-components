@@ -315,12 +315,13 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 ### editable
 
 | 属性 | 描述 | 类型 | 默认值 |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | type | 可编辑表格的类型，单行编辑或者多行编辑 | `single` \| `multiple` | - |
 | editableKeys | 正在编辑的行，受控属性。 默认 `key` 会使用 `rowKey` 的配置，如果没有配置会使用 `index`，建议使用 rowKey | `React.Key[]` | - |
 | actionRender | 自定义编辑模式的操作栏 | `(row: T, config: ActionRenderConfig<T>) => React.ReactNode[]` | - |
-| onSave | 保存一行的时候触发，只更新 | `(key: React.Key, row: T) => Promise<void>` | - |
-| onDelete | 删除一行的时候触发 | `(key: React.Key, row: T) => Promise<void>` | - |
+| onSave | 保存一行的时候触发，只更新 | `(key: React.Key, row: T,newLine?:newLineConfig) => Promise<boolean | void>` | - |
+| onDelete | 删除一行的时候触发 | `(key: React.Key, row: T) => Promise<boolean | void>` | - |
+| onCancel | 编辑列被修改的时候 | `(key: React.Key, row: T,newLine?:newLineConfig) => Promise<boolean | void>` | - |
 | onChange | 编辑列被修改的时候 | `(editableKeys: React.Key[], editableRows: T[]) => void` | - |
 | deletePopconfirmMessage | 删除时弹出的确认框提示消息 | `ReactNode` | `删除此行？` |
 | onlyOneLineEditorAlertMessage | 只能编辑一行的的提示 | `ReactNode` | `只能同时编辑一行！` |
