@@ -622,6 +622,7 @@ describe('EditorProTable', () => {
         onDelete={async (key) => {
           await waitTime(500);
           fn(key);
+          return false;
         }}
       />,
     );
