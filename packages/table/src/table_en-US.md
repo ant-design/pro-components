@@ -1,5 +1,5 @@
 ---
-title: ProTable - 高级表格
+title: ProTable - Advanced Form
 order: 0
 group:
   path: /
@@ -8,7 +8,7 @@ nav:
   path: /components
 ---
 
-# ProTable - 高级表格
+# ProTable - Advanced Form
 
 ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码的问题，所以在其中做了封装了很多常用的逻辑。这些封装可以简单的分类为预设行为与预设逻辑。
 
