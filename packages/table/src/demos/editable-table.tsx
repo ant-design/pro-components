@@ -117,7 +117,6 @@ export default () => {
           editableKeys,
           onSave: async () => {
             await waitTime(2000);
-            throw new Error('111');
             setNewRecord({
               id: (Math.random() * 1000000).toFixed(0),
             });
