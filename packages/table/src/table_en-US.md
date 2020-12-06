@@ -306,7 +306,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | record   | 需要新增的行数据，一般来说包含唯一 key | `T`            | `{}`   |
 | position | 行增加在哪里，开始或者末尾             | `top` \| `end` | `end`  |
 
-#### Search 搜索表单
+#### Search - Search form
 
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
