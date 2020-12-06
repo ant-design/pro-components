@@ -261,7 +261,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | request | 获取 `dataSource` 的方法 | `(params?: {pageSize,current},sort,filter) => {data,success,total}` | - |
 | params |  Additional `request` query parameters - triggers reload on any changes | `object` | - |
 | postData | 对通过 `request` 获取的数据进行处理 | `(data: T[]) => T[]` | - |
-| defaultData | 默认的数据 | `T[]` | - |
+| defaultData | Default data | `T[]` | - |
 | actionRef | Table action 的引用，便于自定义触发 | `React.MutableRefObject<FormInstance>` | - |
 | formRef | 可以获取到查询表单的 form 实例，用于一些灵活的配置 | `React.MutableRefObject<ActionType>` | - |
 | toolBarRender | 渲染工具栏，支持返回一个 dom 数组，会自动增加 margin-right | `(action) => React.ReactNode[]` | - |
