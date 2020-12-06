@@ -277,7 +277,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | columnsStateMap | columns 的状态枚举 | `{key:{ show,fixed }}}` | - |
 | onColumnsStateChange | columns 状态发生改变 | `(props: {key:{ show,fixed }}}) => void` | - |
 | type | pro-table type | `"form"` | - |
-| form | antd form 的配置 | [FormProps](https://ant.design/components/form-cn/#API) | - |
+| form | antd form configuration | [FormProps](https://ant.design/components/form/#API) | - |
 | onSubmit | 提交表单时触发 | `(params: U) => void` | - |
 | onReset | 重置表单时触发 | `() => void` | - |
 | columnEmptyText | 空值时的显示，不设置时显示 `-`， false 可以关闭此功能 | `string` \| `false` | false |
