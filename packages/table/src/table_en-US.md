@@ -276,7 +276,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | onSizeChange | table 尺寸发生改变 | `(size: 'default' \| 'middle' \| 'small') => void` | - |
 | columnsStateMap | columns 的状态枚举 | `{key:{ show,fixed }}}` | - |
 | onColumnsStateChange | columns 状态发生改变 | `(props: {key:{ show,fixed }}}) => void` | - |
-| type | pro-table 类型 | `"form"` | - |
+| type | pro-table type | `"form"` | - |
 | form | antd form 的配置 | [FormProps](https://ant.design/components/form-cn/#API) | - |
 | onSubmit | 提交表单时触发 | `(params: U) => void` | - |
 | onReset | 重置表单时触发 | `() => void` | - |
