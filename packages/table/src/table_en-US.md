@@ -386,7 +386,7 @@ ref.current.startEditable(rowKey);
 ref.current.cancelEditable(rowKey);
 ```
 
-### Columns 列定义
+### Columns - Column definitions
 
 > 请求远程数据比较复杂，详细可以看[这里](/components/field#远程数据)。
 
