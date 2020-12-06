@@ -281,7 +281,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | onSubmit | 提交表单时触发 | `(params: U) => void` | - |
 | onReset | 重置表单时触发 | `() => void` | - |
 | columnEmptyText | 空值时的显示，不设置时显示 `-`， false 可以关闭此功能 | `string` \| `false` | false |
-| tableRender | 自定义渲染表格函数 | `(props,dom,domList:{ toolbar,alert,table}) => React.ReactNode` | - |
+| tableRender | Custom rendering function for the table | `(props,dom,domList:{ toolbar,alert,table}) => React.ReactNode` | - |
 | toolbar | 透传 `ListToolBar` 配置项 | [ListToolBarProps](#listtoolbarprops) | - |
 | tableExtraRender | 自定义表格的主体函数 | `(props: ProTableProps<T, U>, dataSource: T[]) => React.ReactNode;` | - |
 | manualRequest | 是否需要手动触发首次请求, 配置为 `true` 时不可隐藏搜索表单 | `boolean` | false |
