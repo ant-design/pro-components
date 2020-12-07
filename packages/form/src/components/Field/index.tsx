@@ -66,7 +66,7 @@ const ProFormField = React.forwardRef<
         fieldProps={{
           ...fieldProps,
           onChange: (...restParams: any) => {
-            fieldProps?.onChange?.(...restParams);
+            (fieldProps?.onChange as any)?.(...restParams);
             onChange?.(...restParams);
           },
         }}
