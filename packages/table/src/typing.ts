@@ -13,7 +13,7 @@ import {
   ProTableEditableFnType,
 } from '@ant-design/pro-utils';
 import { CardProps } from 'antd/lib/card';
-import { FormItemProps } from 'antd/lib/form';
+import { FormInstance, FormItemProps } from 'antd/lib/form';
 import { SpinProps } from 'antd/lib/spin';
 import { TableProps } from 'antd/lib/table';
 
@@ -135,7 +135,9 @@ export type ProColumnType<T = unknown> = ProSchema<
     /**
      * 传给 Form.Item 的 props
      */
-    formItemProps?: Partial<Omit<FormItemProps, 'children'>>;
+    formItemProps?:
+      | ((form: FormInstance<any>) => Partial<Omit<FormItemProps, 'children'>>)
+      | Partial<Omit<FormItemProps, 'children'>>;
 
     /**
      * 可编辑表格是否可编辑
