@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
-import { Button, Tag, Space } from 'antd';
+import { Button, Tag, Space, Input } from 'antd';
 import ProTable, { ProColumns, TableDropdown, ActionType } from '@ant-design/pro-table';
 import request from 'umi-request';
 
@@ -72,10 +72,25 @@ const columns: ProColumns<GithubIssueItem>[] = [
     width: '10%',
   },
   {
+    title: '动态表单',
+    key: 'direction',
+    hideInTable: true,
+    dataIndex: 'direction',
+    formItemProps: {
+      noStyle: true,
+    },
+    renderFormItem: () => {
+      return <Input />;
+    },
+  },
+  {
     title: '标签',
     dataIndex: 'labels',
     width: '10%',
     order: -1,
+    formItemProps: {
+      noStyle: true,
+    },
     renderFormItem: (_, { defaultRender }) => defaultRender(_),
     render: (_, record) => (
       <Space>
