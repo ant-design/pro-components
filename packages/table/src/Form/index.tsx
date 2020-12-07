@@ -178,6 +178,7 @@ export const formInputRender: React.FC<{
           },
           ...item.fieldProps,
         }}
+        formItemProps={formItemProps}
       >
         {React.cloneElement(dom, { ...rest, ...defaultProps })}
       </ProFormField>
