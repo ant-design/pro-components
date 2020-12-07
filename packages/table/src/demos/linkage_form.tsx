@@ -67,6 +67,12 @@ export default () => {
       valueType: 'indexBorder',
     },
     {
+      title: '日期范围',
+      dataIndex: 'dateRange',
+      valueType: 'dateRange',
+      fieldProps: { colSize: 2 },
+    },
+    {
       title: '标题',
       dataIndex: 'name',
     },
@@ -136,6 +142,7 @@ export default () => {
       dateFormatter="string"
       headerTitle="动态自定义搜索栏"
       search={{
+        span: 6,
         defaultCollapsed: false,
         optionRender: ({ searchText, resetText }, { form }) => [
           <Button
