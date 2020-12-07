@@ -1,4 +1,4 @@
-﻿import React from 'react';
+﻿import React, { useRef } from 'react';
 import { Button, message } from 'antd';
 import ProForm, {
   DrawerForm,
@@ -17,9 +17,11 @@ const waitTime = (time: number = 100) => {
 };
 
 export default () => {
+  const formRef = useRef();
   return (
     <DrawerForm
       title="新建表单"
+      formRef={formRef}
       trigger={
         <Button type="primary">
           <PlusOutlined />
@@ -29,6 +31,7 @@ export default () => {
       onFinish={async (values) => {
         await waitTime(2000);
         console.log(values);
+        console.log(formRef);
         message.success('提交成功！');
         // 不返回不会关闭弹框
         return true;

@@ -1,7 +1,7 @@
 import React from 'react';
 import ProField from '@ant-design/pro-field';
 import { SwitchProps } from 'antd/lib/switch';
-import { createField } from '../../BaseForm';
+import createField from '../../BaseForm/createField';
 import { ProFormItemProps } from '../../interface';
 
 export type ProFormSwitchProps = ProFormItemProps<SwitchProps> & {
@@ -20,11 +20,11 @@ const ProFormSwitch: React.FC<ProFormSwitchProps> = React.forwardRef(
         valueType="switch"
         mode="edit"
         fieldProps={{
-          text: fieldProps?.checked,
           ...fieldProps,
           unCheckedChildren,
           checkedChildren,
         }}
+        text={fieldProps?.checked}
         ref={ref}
         {...proFieldProps}
       />

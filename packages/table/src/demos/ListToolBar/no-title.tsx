@@ -38,6 +38,7 @@ const columns: ProColumns<TableListItem>[] = [
   {
     title: '创建者',
     dataIndex: 'creator',
+    valueType: 'select',
     valueEnum: {
       all: { text: '全部' },
       付小小: { text: '付小小' },
@@ -50,6 +51,7 @@ const columns: ProColumns<TableListItem>[] = [
   {
     title: '操作',
     key: 'option',
+    width: 120,
     valueType: 'option',
     render: () => [
       <a key="link">链路</a>,

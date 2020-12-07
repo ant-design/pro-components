@@ -64,7 +64,9 @@ describe('QueryFilter', () => {
         <ProFormText label="a" name="a" />
       </QueryFilter>,
     );
-    expect(wrapper.find('.ant-col.ant-form-item-label').prop('style')?.flex).toEqual('0 0 70px');
+    expect(wrapper.find('.ant-col.ant-form-item-label').at(0).prop('style')?.flex).toEqual(
+      '0 0 70px',
+    );
   });
 
   it('responsive 512', async () => {

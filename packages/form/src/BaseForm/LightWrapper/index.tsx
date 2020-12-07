@@ -71,6 +71,11 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
     return children as JSX.Element;
   }
 
+  let allowClear;
+  if (children && React.isValidElement(children)) {
+    allowClear = children.props.fieldProps?.allowClear;
+  }
+
   return (
     <FilterDropdown
       disabled={disabled}
@@ -93,6 +98,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
           disabled={disabled}
           expanded={open}
           formatter={labelFormatter}
+          allowClear={allowClear}
         />
       }
       footer={{
@@ -115,6 +121,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
                 onChange: (e: any) => {
                   setTempValue(e?.target ? e.target.value : e);
                 },
+                allowClear,
                 ...children.props.fieldProps,
               },
             })

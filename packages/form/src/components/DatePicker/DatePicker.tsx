@@ -1,7 +1,7 @@
 import React from 'react';
 import ProField from '@ant-design/pro-field';
 import { DatePickerProps } from 'antd/lib/date-picker';
-import { createField } from '../../BaseForm';
+import createField from '../../BaseForm/createField';
 import { ProFormItemProps } from '../../interface';
 
 const valueType = 'date';
@@ -9,9 +9,9 @@ const valueType = 'date';
  * 日期选择组件
  * @param
  */
-const ProFormDatePicker: React.FC<ProFormItemProps<
-  DatePickerProps
->> = React.forwardRef(({ proFieldProps, fieldProps }, ref) => (
+const ProFormDatePicker: React.FC<
+  ProFormItemProps<DatePickerProps>
+> = React.forwardRef(({ proFieldProps, fieldProps }, ref) => (
   <ProField
     ref={ref}
     text={fieldProps?.value}

@@ -15,7 +15,7 @@ exports[`descriptions demos renders ./packages/descriptions/src/demos/base.tsx c
       >
         <div
           class="ant-space-item"
-          style="margin-right: 8px;"
+          style="margin-right: 4px;"
         >
           高级定义列表
         </div>
@@ -29,7 +29,6 @@ exports[`descriptions demos renders ./packages/descriptions/src/demos/base.tsx c
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="info-circle"
               fill="currentColor"
               focusable="false"
@@ -103,7 +102,7 @@ exports[`descriptions demos renders ./packages/descriptions/src/demos/base.tsx c
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right: 8px;"
+                    style="margin-right: 4px;"
                   >
                     金额
                   </div>
@@ -117,7 +116,6 @@ exports[`descriptions demos renders ./packages/descriptions/src/demos/base.tsx c
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="info-circle"
                         fill="currentColor"
                         focusable="false"

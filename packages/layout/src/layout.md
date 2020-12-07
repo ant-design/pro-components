@@ -126,9 +126,19 @@ ProLayout 默认不提供页脚，要是和 Pro 官网相同的样式，需要�
 
 <code src="./demos/IconFont.tsx" iframe="500px" />
 
+### ghost 模式
+
+PageContainer 配置 `ghost` 可以将页头切换为透明模式。
+
+<code src="./demos/ghost.tsx" iframe="500px" />
+
 ### 嵌套布局
 
 <code src="./demos/Nested.tsx" iframe="500px" />
+
+### 自定义的 collapsed
+
+<code src="./demos/customize-collapsed.tsx" iframe="500px" />
 
 ## API
 
@@ -154,12 +164,12 @@ ProLayout 默认不提供页脚，要是和 Pro 官网相同的样式，需要�
 | navTheme | 导航的主题，side 和 mix 模式下是左侧菜单的主题，top 模式下是顶部菜单 | `light` \| `dark` | `dark` |
 | headerTheme | 顶部导航的主题，mix 模式生效 | `light` \| `dark` | `dark` |
 | fixedHeader | 是否固定 header 到顶部 | `boolean` | `false` |
-| fixSiderbar | 是否固定导航 | boolean | `false` |
+| fixSiderbar | 是否固定导航 | `boolean` | `false` |
 | breakpoint | 触发响应式布局的[断点](https://ant.design/components/grid-cn/#Col) | `Enum { 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' }` | `lg` |
-| menu | 关于 menu 的配置，暂时只有 locale,locale 可以关闭 menu 的自带的全球化 | { locale: boolean, defaultOpenAll: boolean } | `{ locale: true }` |
+| menu | 关于 menu 的配置，暂时只有 locale,locale 可以关闭 menu 的自带的全球化 | `{ locale: boolean, defaultOpenAll: boolean }` | `{ locale: true }` |
 | iconfontUrl | 使用 [IconFont](https://ant.design/components/icon-cn/#components-icon-demo-iconfont) 的图标配置 | `URL` | - |
 | locale | 当前 layout 的语言设置 | `zh-CN` \| `zh-TW` \| `en-US` | navigator.language |
-| settings | layout 的设置 | [`Settings`](#Settings) | [`Settings`](#Settings) | - |
+| settings | layout 的设置 | [`Settings`](#Settings) | - |
 | siderWidth | 侧边菜单宽度 | `number` | 208 |
 | defaultCollapsed | 默认的菜单的收起和展开 | `boolean` | - |
 | collapsed | 控制菜单的收起和展开 | `boolean` | - |
@@ -191,8 +201,8 @@ ProLayout 默认不提供页脚，要是和 Pro 官网相同的样式，需要�
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| settings | layout 的设置 | [`Settings`](#Settings) | [`Settings`](#Settings) | - |
-| onSettingChange | [`Settings`](#Settings) 发生更改事件 | (settings: [`Settings`](#Settings) ) => void | - |
+| settings | layout 的设置 | [`Settings`](#Settings) \| [`Settings`](#Settings) | - |
+| onSettingChange | [`Settings`](#Settings) 发生更改事件 | `(settings: [`Settings`](#Settings) ) => void` | - |
 | hideHintAlert | 删除下方的提示信息 | `boolean` | - |
 
 ### PageContainer

@@ -175,29 +175,36 @@ const LightFilter: React.FC<LightFilterProps> = (props) => {
       size={size}
       initialValues={initialValues}
       form={realForm}
-      contentRender={(items) => (
-        <LightFilterContainer
-          prefixCls={prefixCls}
-          items={items}
-          size={size}
-          bordered={bordered}
-          collapse={collapse}
-          collapseLabel={collapseLabel}
-          values={values}
-          onValuesChange={(newValues) => {
-            const newAllValues = {
-              ...values,
-              ...newValues,
-            };
-            setValues(newAllValues);
-            realForm.setFieldsValue(newAllValues);
-            realForm.submit();
-            if (onValuesChange) {
-              onValuesChange(newValues, newAllValues);
-            }
-          }}
-        />
-      )}
+      contentRender={(items) => {
+        return (
+          <LightFilterContainer
+            prefixCls={prefixCls}
+            items={items.flatMap((item: any) => {
+              if (item?.type.displayName === 'ProForm-Group') {
+                return item.props.children;
+              }
+              return item;
+            })}
+            size={size}
+            bordered={bordered}
+            collapse={collapse}
+            collapseLabel={collapseLabel}
+            values={values}
+            onValuesChange={(newValues) => {
+              const newAllValues = {
+                ...values,
+                ...newValues,
+              };
+              setValues(newAllValues);
+              realForm.setFieldsValue(newAllValues);
+              realForm.submit();
+              if (onValuesChange) {
+                onValuesChange(newValues, newAllValues);
+              }
+            }}
+          />
+        );
+      }}
       formItemProps={{
         colon: false,
         labelAlign: 'left',

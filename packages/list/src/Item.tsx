@@ -120,7 +120,7 @@ function ProListItem(props: ItemProps) {
   return (
     <div className={className} style={style}>
       <List.Item
-        actions={actions}
+        actions={Array.isArray(actions) || !actions ? actions : [actions]}
         {...rest}
         onClick={() => {
           if (expandRowByClick) {
@@ -141,19 +141,23 @@ function ProListItem(props: ItemProps) {
                   expanded,
                 })}
             </div>
-            <List.Item.Meta
-              avatar={avatar}
-              title={
-                <div className={`${className}-header-title`}>
-                  {title && <div className={`${className}-title`}>{title}</div>}
-                  {subTitle && <div className={`${className}-subTitle`}>{subTitle}</div>}
-                </div>
-              }
-              description={
-                description &&
-                needExpanded && <div className={`${className}-description`}>{description}</div>
-              }
-            />
+            {title || avatar || subTitle || description ? (
+              <List.Item.Meta
+                avatar={avatar}
+                title={
+                  title || subTitle ? (
+                    <div className={`${className}-header-title`}>
+                      {title && <div className={`${className}-title`}>{title}</div>}
+                      {subTitle && <div className={`${className}-subTitle`}>{subTitle}</div>}
+                    </div>
+                  ) : null
+                }
+                description={
+                  description &&
+                  needExpanded && <div className={`${className}-description`}>{description}</div>
+                }
+              />
+            ) : null}
           </div>
           {needExpanded && (content || expandedRowDom) && (
             <div className={`${className}-content`}>

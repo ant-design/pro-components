@@ -33,7 +33,7 @@ return <Field text="100" valueType="money" mode={state} />;
 | valueType | 格式化的类型 | ValueType | - |
 | mode | 组件的模式 | - | - |
 | plain | 精简模式 | - | - |
-| renderFormItem | 自定义 `mode=update | edit` 下的 dom 表现，一般用于渲染编辑框 | - | - |
+| renderFormItem | 自定义 `mode=update \| edit` 下的 dom 表现，一般用于渲染编辑框 | - | - |
 | render | 自定义 `mode=read` 下的 dom 表现，只是单纯的表现形式 | - | - |
 
 ## 远程数据
@@ -87,6 +87,7 @@ const columns = [
     title: '创建者',
     width: 120,
     dataIndex: 'creator',
+    valueType: 'select',
     fieldProps: {
       options: [
         {
@@ -126,6 +127,7 @@ const request = async () => [
   name="select2"
   label="Select"
   params={{}}
+  valueType="select"
   request={request}
   placeholder="Please select a country"
 />;
@@ -136,6 +138,7 @@ const columns = [
     title: '创建者',
     width: 120,
     dataIndex: 'creator',
+    valueType: 'select',
     request,
     params: {},
   },

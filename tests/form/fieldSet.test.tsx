@@ -1,11 +1,11 @@
 ﻿import React from 'react';
-import ProForm, { ProFromFieldSet, ProFormText, ProFormRate } from '@ant-design/pro-form';
+import ProForm, { ProFormFieldSet, ProFormText, ProFormRate } from '@ant-design/pro-form';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
 
-describe('ProFromFieldSet', () => {
-  it('ProFromFieldSet onChange', async () => {
+describe('ProFormFieldSet', () => {
+  it('ProFormFieldSet onChange', async () => {
     const fn = jest.fn();
     const valueFn = jest.fn();
     const html = mount(
@@ -13,7 +13,7 @@ describe('ProFromFieldSet', () => {
         onFinish={(values) => fn(values.list)}
         onValuesChange={(value) => valueFn(value.list)}
       >
-        <ProFromFieldSet name="list">
+        <ProFormFieldSet name="list">
           <ProFormText
             fieldProps={{
               id: 'filedSet1',
@@ -21,7 +21,7 @@ describe('ProFromFieldSet', () => {
             key="filedSet1"
           />
           <ProFormRate key="filedSet2" />
-        </ProFromFieldSet>
+        </ProFormFieldSet>
       </ProForm>,
     );
 
@@ -47,7 +47,7 @@ describe('ProFromFieldSet', () => {
     expect(fn).toBeCalledWith(['111', 2]);
   });
 
-  it('ProFromFieldSet transform', async () => {
+  it('ProFormFieldSet transform', async () => {
     const fn = jest.fn();
     const valueFn = jest.fn();
     const html = mount(
@@ -57,7 +57,7 @@ describe('ProFromFieldSet', () => {
           valueFn(value.list);
         }}
       >
-        <ProFromFieldSet
+        <ProFormFieldSet
           name="list"
           transform={(value) => {
             return {
@@ -78,7 +78,7 @@ describe('ProFromFieldSet', () => {
             }}
             key="filedSet2"
           />
-        </ProFromFieldSet>
+        </ProFormFieldSet>
       </ProForm>,
     );
 

@@ -229,7 +229,7 @@ describe('StepsForm', () => {
         submitter={{
           render: (props) => {
             return (
-              <button type="button" id="rest" onClick={() => props?.onReset?.()}>
+              <button type="button" id="rest" onClick={() => props?.onPre?.()}>
                 rest
               </button>
             );
@@ -296,7 +296,7 @@ describe('StepsForm', () => {
     const fn = jest.fn();
     const html = mount<StepsFormProps>(
       <StepsForm
-        current={0}
+        current={1}
         onCurrentChange={(current) => {
           fn(current);
         }}

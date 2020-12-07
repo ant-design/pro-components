@@ -2,6 +2,72 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.13.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.13.1...@ant-design/pro-table@2.13.2) (2020-12-04)
+
+### Bug Fixes
+
+- **table:** onSave support newLineConfig ([576042c](https://github.com/ant-design/pro-components/commit/576042cc0ef5715a173b544320cdec5920ac18a8))
+
+## [2.13.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.13.0...@ant-design/pro-table@2.13.1) (2020-12-03)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [2.13.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.12.2...@ant-design/pro-table@2.13.0) (2020-12-03)
+
+### Features
+
+- **field:** support new valueType `second` ([#1177](https://github.com/ant-design/pro-components/issues/1177)) ([3c45102](https://github.com/ant-design/pro-components/commit/3c45102763bbfa05b481aa0c8462912179a1dfbf))
+
+## [2.12.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.12.1...@ant-design/pro-table@2.12.2) (2020-12-02)
+
+### Bug Fixes
+
+- **table:** fix protable form types error ([#1158](https://github.com/ant-design/pro-components/issues/1158)) ([21c12f3](https://github.com/ant-design/pro-components/commit/21c12f3d828cb0747a1b10a4c71d9aa16d91f09e))
+- **table:** support children of column in EditableProTable ([#1161](https://github.com/ant-design/pro-components/issues/1161)) ([738c053](https://github.com/ant-design/pro-components/commit/738c053511f133e30a7f4642f735a4193f8d16b1))
+- **table:** support onlyAddOneLineAlertMessage and onlyOneLineEditorAlertMessage ([#1157](https://github.com/ant-design/pro-components/issues/1157)) ([9193b8a](https://github.com/ant-design/pro-components/commit/9193b8a6e3fd3fe0a7e621b50cdcb1f98694322b))
+
+## [2.12.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.12.0...@ant-design/pro-table@2.12.1) (2020-11-30)
+
+### Bug Fixes
+
+- **table:** fix editable table show rules error ([#1129](https://github.com/ant-design/pro-components/issues/1129)) ([a0c5af3](https://github.com/ant-design/pro-components/commit/a0c5af3c645b6c336f5d2a231a18eced4b8817b1))
+
+# [2.12.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.11.4...@ant-design/pro-table@2.12.0) (2020-11-27)
+
+### Bug Fixes
+
+- **table:** optimize table demos and table style. ([#1105](https://github.com/ant-design/pro-components/issues/1105)) ([6e6437e](https://github.com/ant-design/pro-components/commit/6e6437e621200932a24a9199ee729ff4253d71c0))
+
+### Features
+
+- **form:** add table demos and fix form layout styles ([#1069](https://github.com/ant-design/pro-components/issues/1069)) ([4a25cf2](https://github.com/ant-design/pro-components/commit/4a25cf2b2475e534598360e0d62b6a0a3cf69354))
+- **table:** support editor table ([#994](https://github.com/ant-design/pro-components/issues/994)) ([35f40fe](https://github.com/ant-design/pro-components/commit/35f40feb72dd10ea6fefb7d6a59943d43d0a7325))
+- **table:** table support fieldProps.onChange ([#1068](https://github.com/ant-design/pro-components/issues/1068)) ([b8fe662](https://github.com/ant-design/pro-components/commit/b8fe662fd042dda92c4ad0e35c24e1afe2870996))
+
+## [2.11.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.11.3...@ant-design/pro-table@2.11.4) (2020-11-19)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.11.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.11.2...@ant-design/pro-table@2.11.3) (2020-11-19)
+
+### Bug Fixes
+
+- **table:** fix the problem that the table rendering is not timely ([#1024](https://github.com/ant-design/pro-components/issues/1024)) ([19d3af5](https://github.com/ant-design/pro-components/commit/19d3af58e692dbfa5a4b32644afe9672ba5719cf))
+
+## [2.11.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.11.1...@ant-design/pro-table@2.11.2) (2020-11-18)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.11.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.11.0...@ant-design/pro-table@2.11.1) (2020-11-17)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [2.11.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.10.1...@ant-design/pro-table@2.11.0) (2020-11-17)
+
+### Features
+
+- **form:** support readonly ([#963](https://github.com/ant-design/pro-components/issues/963)) ([2b27e91](https://github.com/ant-design/pro-components/commit/2b27e917707c530c2a9d9c91fa27c1b663a07bf4))
+
 ## [2.10.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.10.0...@ant-design/pro-table@2.10.1) (2020-11-10)
 
 **Note:** Version bump only for package @ant-design/pro-table

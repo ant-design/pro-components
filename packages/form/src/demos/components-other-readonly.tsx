@@ -14,7 +14,7 @@ import ProForm, {
   ProFormDateRangePicker,
   ProFormUploadButton,
   ProFormUploadDragger,
-  ProFromFieldSet,
+  ProFormFieldSet,
 } from '@ant-design/pro-form';
 
 const Demo = () => (
@@ -37,26 +37,34 @@ const Demo = () => (
         list: ['1', '2', '3'],
         select: 'china',
         'radio-button': 'a',
+        date: Date.now(),
+        dateWeek: Date.now(),
+        dateMonth: Date.now(),
+        dateQuarter: Date.now(),
+        dateYear: Date.now(),
+        dateTime: Date.now(),
+        dateTimeRange: [Date.now(), Date.now() - 1000 * 60 * 60 * 24],
+        dateRange: [Date.now(), Date.now() - 1000 * 60 * 60 * 24],
         dragger: [
           {
             uid: '1',
             name: 'xxx.png',
             status: 'done',
             response: 'Server Error 500', // custom error message to show
-            url: 'http://www.baidu.com/xxx.png',
+            url: 'https://gw.alipayobjects.com/zos/antfincdn/7%24YOiS6YIm/huaban.png',
           },
           {
             uid: '2',
             name: 'yyy.png',
             status: 'done',
-            url: 'http://www.baidu.com/yyy.png',
+            url: 'https://gw.alipayobjects.com/zos/antfincdn/7%24YOiS6YIm/huaban.png',
           },
           {
             uid: '3',
             name: 'zzz.png',
             status: 'error',
             response: 'Server Error 500', // custom error message to show
-            url: 'http://www.baidu.com/zzz.png',
+            url: 'https://gw.alipayobjects.com/zos/antfincdn/7%24YOiS6YIm/huaban.png',
           },
         ],
         upload: [
@@ -65,20 +73,20 @@ const Demo = () => (
             name: 'xxx.png',
             status: 'done',
             response: 'Server Error 500', // custom error message to show
-            url: 'http://www.baidu.com/xxx.png',
+            url: 'https://gw.alipayobjects.com/zos/antfincdn/7%24YOiS6YIm/huaban.png',
           },
           {
             uid: '2',
             name: 'yyy.png',
             status: 'done',
-            url: 'http://www.baidu.com/yyy.png',
+            url: 'https://gw.alipayobjects.com/zos/antfincdn/7%24YOiS6YIm/huaban.png',
           },
           {
             uid: '3',
             name: 'zzz.png',
             status: 'error',
             response: 'Server Error 500', // custom error message to show
-            url: 'http://www.baidu.com/zzz.png',
+            url: 'https://gw.alipayobjects.com/zos/antfincdn/7%24YOiS6YIm/huaban.png',
           },
         ],
       }}
@@ -92,7 +100,6 @@ const Demo = () => (
         name="select"
         readonly
         label="Select"
-        hasFeedback
         valueEnum={{
           china: 'China',
           usa: 'U.S.A',
@@ -103,7 +110,6 @@ const Demo = () => (
       <ProFormSelect
         width="m"
         readonly
-        hasFeedback
         request={async () => [
           { label: '全部', value: 'all' },
           { label: '未解决', value: 'open' },
@@ -116,7 +122,6 @@ const Demo = () => (
       <ProFormSelect
         name="select-multiple"
         label="Select[multiple]"
-        hasFeedback
         readonly
         valueEnum={{
           red: 'Red',
@@ -204,16 +209,18 @@ const Demo = () => (
         action="/upload.do"
         extra="longgggggggggggggggggggggggggggggggggg"
       />
-      <ProFromFieldSet
+      <ProFormFieldSet
         name="list"
         label="组件列表"
         readonly
         transform={(value: any) => ({ startTime: value[0], endTime: value[1] })}
       >
         <ProFormText width="m" readonly />
+        -
         <ProFormText width="m" readonly />
+        -
         <ProFormText width="m" readonly />
-      </ProFromFieldSet>
+      </ProFormFieldSet>
       <ProForm.Group title="日期相关分组">
         <ProFormDatePicker readonly name="date" label="日期" />
         <ProFormDatePicker.Week readonly name="dateWeek" label="周" />

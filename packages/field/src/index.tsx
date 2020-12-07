@@ -27,6 +27,8 @@ import FiledCheckbox from './components/Checkbox';
 import FiledRate from './components/Rate';
 import FiledSwitch from './components/Switch';
 import FieldDigit from './components/Digit';
+import FieldSecond from './components/Second';
+
 import FieldRadio from './components/Radio';
 
 export type ProFieldTextType = React.ReactNode | React.ReactNode[] | Moment | Moment[];
@@ -76,6 +78,7 @@ export type ProFieldValueType =
   | 'progress'
   | 'percent'
   | 'digit'
+  | 'second'
   | 'avatar'
   | 'code'
   | 'switch'
@@ -107,7 +110,6 @@ type BaseProFieldFC = {
    * label
    */
   label?: React.ReactNode;
-
   /**
    * 映射值的类型
    */
@@ -233,12 +235,19 @@ const defaultRenderText = (
     return defaultRenderTextByObject(text, valueType, props);
   }
 
-  const { mode = 'read', emptyText } = props;
+  const { mode = 'read', emptyText = '-' } = props;
   if (emptyText !== false && mode === 'read' && valueType !== 'option' && valueType !== 'switch') {
     if (typeof text !== 'boolean' && typeof text !== 'number' && !text) {
-      return emptyText || '-';
+      const { fieldProps, render } = props;
+      if (render) {
+        return render(text, { mode, ...fieldProps }, <>{emptyText}</>);
+      }
+      return <>{emptyText}</>;
     }
   }
+
+  // eslint-disable-next-line no-param-reassign
+  delete props.emptyText;
 
   /**
    * 如果是金额的值
@@ -355,6 +364,10 @@ const defaultRenderText = (
     return <FieldDigit text={text as number} {...props} />;
   }
 
+  if (valueType === 'second') {
+    return <FieldSecond text={text as number} {...props} />;
+  }
+
   if (valueType === 'select' || (valueType === 'text' && (props.valueEnum || props.request))) {
     return <FiledSelect text={text as string} {...props} />;
   }
@@ -400,7 +413,7 @@ export type ProFieldPropsType = {
 } & RenderProps;
 
 const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
-  { text = '', valueType = 'text', onChange, value, ...rest },
+  { text, valueType = 'text', onChange, value, ...rest },
   ref,
 ) => {
   const intl = useIntl();
@@ -410,9 +423,10 @@ const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
     // fieldProps 优先级更高，在类似 LightFilter 场景下需要覆盖默认的 value 和 onChange
     ...omitUndefined(rest?.fieldProps),
   };
+
   return (
     <React.Fragment>
-      {defaultRenderText(text ?? fieldProps?.value, valueType || 'text', {
+      {defaultRenderText(text ?? fieldProps?.value ?? '', valueType || 'text', {
         ...rest,
         mode: rest.mode || 'read',
         ref,

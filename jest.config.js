@@ -14,7 +14,7 @@ module.exports = {
   collectCoverageFrom: [
     'packages/**/src/**/*.{ts,tsx}',
     '!packages/**/src/demos/**',
-    '!packages/**/src/component/ColumnSetting/DndItem.tsx',
+    '!packages/**/src/component/ColumnSetting/**',
   ],
   moduleNameMapper,
   testURL: 'http://localhost',

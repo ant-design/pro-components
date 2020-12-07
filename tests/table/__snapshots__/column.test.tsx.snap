@@ -176,13 +176,17 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
     <form
       class="qixian-form qixian-form-horizontal"
     >
+      <input
+        style="display: none;"
+        type="text"
+      />
       <div
         class="qixian-row qixian-row-start"
-        style="margin-left: -8px; margin-right: -8px;"
+        style="margin-left: -12px; margin-right: -12px;"
       >
         <div
           class="qixian-col qixian-col-8"
-          style="padding-left: 8px; padding-right: 8px;"
+          style="padding-left: 12px; padding-right: 12px;"
         >
           <div
             class="qixian-row qixian-form-item"
@@ -230,7 +234,6 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="close-circle"
                           fill="currentColor"
                           focusable="false"
@@ -252,42 +255,67 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
         </div>
         <div
           class="qixian-col qixian-col-8 qixian-col-offset-8"
-          style="padding-left: 8px; padding-right: 8px; text-align: right;"
+          style="padding-left: 12px; padding-right: 12px; text-align: right;"
         >
           <div
-            class="qixian-space qixian-space-horizontal qixian-space-align-center"
-            style="padding-top: 0px; margin-bottom: 24px;"
+            class="qixian-row qixian-form-item pro-form-query-filter-actions"
           >
             <div
-              class="qixian-space-item"
+              class="qixian-col qixian-form-item-label"
+            >
+              <label
+                class="qixian-form-item-no-colon"
+                title=" "
+              >
+                 
+              </label>
+            </div>
+            <div
+              class="qixian-col qixian-form-item-control"
             >
               <div
-                class="qixian-space qixian-space-horizontal qixian-space-align-center"
+                class="qixian-form-item-control-input"
               >
                 <div
-                  class="qixian-space-item"
-                  style="margin-right: 8px;"
+                  class="qixian-form-item-control-input-content"
                 >
-                  <button
-                    class="qixian-btn"
-                    type="button"
+                  <div
+                    class="qixian-space qixian-space-horizontal qixian-space-align-center"
                   >
-                    <span>
-                      重 置
-                    </span>
-                  </button>
-                </div>
-                <div
-                  class="qixian-space-item"
-                >
-                  <button
-                    class="qixian-btn qixian-btn-primary"
-                    type="button"
-                  >
-                    <span>
-                      查 询
-                    </span>
-                  </button>
+                    <div
+                      class="qixian-space-item"
+                    >
+                      <div
+                        class="qixian-space qixian-space-horizontal qixian-space-align-center"
+                      >
+                        <div
+                          class="qixian-space-item"
+                          style="margin-right: 8px;"
+                        >
+                          <button
+                            class="qixian-btn"
+                            type="button"
+                          >
+                            <span>
+                              重 置
+                            </span>
+                          </button>
+                        </div>
+                        <div
+                          class="qixian-space-item"
+                        >
+                          <button
+                            class="qixian-btn qixian-btn-primary"
+                            type="button"
+                          >
+                            <span>
+                              查 询
+                            </span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -318,17 +346,13 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
           >
             <div
               class="qixian-space-item"
-              style="margin-right: 16px;"
-            />
-            <div
-              class="qixian-space-item"
             >
               <div
                 class="qixian-space qixian-space-horizontal qixian-space-align-center qixian-pro-table-list-toolbar-setting-items"
               >
                 <div
                   class="qixian-space-item"
-                  style="margin-right: 16px;"
+                  style="margin-right: 12px;"
                 >
                   <div
                     class="qixian-pro-table-list-toolbar-setting-item"
@@ -341,7 +365,6 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="reload"
                           fill="currentColor"
                           focusable="false"
@@ -359,7 +382,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                 </div>
                 <div
                   class="qixian-space-item"
-                  style="margin-right: 16px;"
+                  style="margin-right: 12px;"
                 >
                   <div
                     class="qixian-pro-table-list-toolbar-setting-item"
@@ -373,7 +396,6 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class=""
                           data-icon="column-height"
                           fill="currentColor"
                           focusable="false"
@@ -403,7 +425,6 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="setting"
                         fill="currentColor"
                         focusable="false"
@@ -465,7 +486,9 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                       >
                         <td
                           class="qixian-table-cell"
-                        />
+                        >
+                          Edward King 0
+                        </td>
                       </tr>
                       <tr
                         class="qixian-table-row qixian-table-row-level-0"
@@ -473,7 +496,9 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                       >
                         <td
                           class="qixian-table-cell"
-                        />
+                        >
+                          Edward King 1
+                        </td>
                       </tr>
                       <tr
                         class="qixian-table-row qixian-table-row-level-0"
@@ -481,7 +506,9 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                       >
                         <td
                           class="qixian-table-cell"
-                        />
+                        >
+                          Edward King 2
+                        </td>
                       </tr>
                       <tr
                         class="qixian-table-row qixian-table-row-level-0"
@@ -489,7 +516,9 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                       >
                         <td
                           class="qixian-table-cell"
-                        />
+                        >
+                          Edward King 3
+                        </td>
                       </tr>
                       <tr
                         class="qixian-table-row qixian-table-row-level-0"
@@ -497,7 +526,9 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                       >
                         <td
                           class="qixian-table-cell"
-                        />
+                        >
+                          Edward King 4
+                        </td>
                       </tr>
                       <tr
                         class="qixian-table-row qixian-table-row-level-0"
@@ -505,7 +536,9 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                       >
                         <td
                           class="qixian-table-cell"
-                        />
+                        >
+                          Edward King 5
+                        </td>
                       </tr>
                       <tr
                         class="qixian-table-row qixian-table-row-level-0"
@@ -513,7 +546,9 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                       >
                         <td
                           class="qixian-table-cell"
-                        />
+                        >
+                          Edward King 6
+                        </td>
                       </tr>
                       <tr
                         class="qixian-table-row qixian-table-row-level-0"
@@ -521,7 +556,9 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                       >
                         <td
                           class="qixian-table-cell"
-                        />
+                        >
+                          Edward King 7
+                        </td>
                       </tr>
                       <tr
                         class="qixian-table-row qixian-table-row-level-0"
@@ -529,7 +566,9 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                       >
                         <td
                           class="qixian-table-cell"
-                        />
+                        >
+                          Edward King 8
+                        </td>
                       </tr>
                       <tr
                         class="qixian-table-row qixian-table-row-level-0"
@@ -537,7 +576,9 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                       >
                         <td
                           class="qixian-table-cell"
-                        />
+                        >
+                          Edward King 9
+                        </td>
                       </tr>
                       <tr
                         class="qixian-table-row qixian-table-row-level-0"
@@ -545,7 +586,9 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                       >
                         <td
                           class="qixian-table-cell"
-                        />
+                        >
+                          Edward King 10
+                        </td>
                       </tr>
                       <tr
                         class="qixian-table-row qixian-table-row-level-0"
@@ -553,7 +596,9 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                       >
                         <td
                           class="qixian-table-cell"
-                        />
+                        >
+                          Edward King 11
+                        </td>
                       </tr>
                       <tr
                         class="qixian-table-row qixian-table-row-level-0"
@@ -561,7 +606,9 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                       >
                         <td
                           class="qixian-table-cell"
-                        />
+                        >
+                          Edward King 12
+                        </td>
                       </tr>
                       <tr
                         class="qixian-table-row qixian-table-row-level-0"
@@ -569,7 +616,9 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                       >
                         <td
                           class="qixian-table-cell"
-                        />
+                        >
+                          Edward King 13
+                        </td>
                       </tr>
                       <tr
                         class="qixian-table-row qixian-table-row-level-0"
@@ -577,7 +626,9 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                       >
                         <td
                           class="qixian-table-cell"
-                        />
+                        >
+                          Edward King 14
+                        </td>
                       </tr>
                       <tr
                         class="qixian-table-row qixian-table-row-level-0"
@@ -585,7 +636,9 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                       >
                         <td
                           class="qixian-table-cell"
-                        />
+                        >
+                          Edward King 15
+                        </td>
                       </tr>
                       <tr
                         class="qixian-table-row qixian-table-row-level-0"
@@ -593,7 +646,9 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                       >
                         <td
                           class="qixian-table-cell"
-                        />
+                        >
+                          Edward King 16
+                        </td>
                       </tr>
                       <tr
                         class="qixian-table-row qixian-table-row-level-0"
@@ -601,7 +656,9 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                       >
                         <td
                           class="qixian-table-cell"
-                        />
+                        >
+                          Edward King 17
+                        </td>
                       </tr>
                       <tr
                         class="qixian-table-row qixian-table-row-level-0"
@@ -609,7 +666,9 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                       >
                         <td
                           class="qixian-table-cell"
-                        />
+                        >
+                          Edward King 18
+                        </td>
                       </tr>
                       <tr
                         class="qixian-table-row qixian-table-row-level-0"
@@ -617,7 +676,9 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                       >
                         <td
                           class="qixian-table-cell"
-                        />
+                        >
+                          Edward King 19
+                        </td>
                       </tr>
                     </tbody>
                   </table>
@@ -651,7 +712,6 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="left"
                       fill="currentColor"
                       focusable="false"
@@ -739,7 +799,6 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="double-right"
                         fill="currentColor"
                         focusable="false"
@@ -789,7 +848,6 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="right"
                       fill="currentColor"
                       focusable="false"
@@ -853,7 +911,6 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class=""
                         data-icon="down"
                         fill="currentColor"
                         focusable="false"

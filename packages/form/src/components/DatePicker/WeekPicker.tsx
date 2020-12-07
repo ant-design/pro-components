@@ -1,7 +1,7 @@
 import React from 'react';
 import ProField from '@ant-design/pro-field';
 import { WeekPickerProps } from 'antd/lib/date-picker';
-import { createField } from '../../BaseForm';
+import createField from '../../BaseForm/createField';
 import { ProFormItemProps } from '../../interface';
 
 const valueType = 'dateWeek';
@@ -9,9 +9,9 @@ const valueType = 'dateWeek';
  * 周选择组件
  * @param
  */
-const ProFormDatePickerWeek: React.FC<ProFormItemProps<
-  WeekPickerProps
->> = React.forwardRef(({ proFieldProps, fieldProps }, ref: any) => (
+const ProFormDatePickerWeek: React.FC<
+  ProFormItemProps<WeekPickerProps>
+> = React.forwardRef(({ proFieldProps, fieldProps }, ref: any) => (
   <ProField
     ref={ref}
     text={fieldProps?.value}

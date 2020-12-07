@@ -74,6 +74,13 @@ export default () => (
           width: 150,
         },
         {
+          title: '数字',
+          dataIndex: 'money',
+          key: 'digit',
+          valueType: 'second',
+          width: 150,
+        },
+        {
           title: '百分比',
           key: 'percent',
           width: 120,

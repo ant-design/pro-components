@@ -40,6 +40,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     dataIndex: 'state',
     initialValue: 'all',
     filters: true,
+    valueType: 'select',
     valueEnum: {
       all: { text: '全部', status: 'Default' },
       open: {
@@ -59,6 +60,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     hideInDescriptions: true,
     dataIndex: 'direction',
     filters: true,
+    valueType: 'select',
     valueEnum: {
       asc: '正序',
       desc: '倒序',
@@ -124,6 +126,9 @@ export default () => {
               params,
             })
           }
+          pagination={{
+            pageSize: 5,
+          }}
           rowKey="id"
           dateFormatter="string"
           headerTitle="查询 Table"

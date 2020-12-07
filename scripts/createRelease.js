@@ -9,7 +9,7 @@ const github = new GitHub({
 
 github.authenticate({
   type: 'token',
-  token: process.env.GITHUB_TOKEN,
+  token: process.env.GITHUB_TOKEN || process.env.GITHUB_AUTH,
 });
 
 const getChangelog = (content, version) => {

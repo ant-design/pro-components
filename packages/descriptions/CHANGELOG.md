@@ -2,6 +2,46 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.42](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.0.41...@ant-design/pro-descriptions@1.0.42) (2020-12-04)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.0.41](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.0.40...@ant-design/pro-descriptions@1.0.41) (2020-12-03)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.0.40](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.0.39...@ant-design/pro-descriptions@1.0.40) (2020-12-03)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.0.39](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.0.38...@ant-design/pro-descriptions@1.0.39) (2020-12-02)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.0.38](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.0.37...@ant-design/pro-descriptions@1.0.38) (2020-11-30)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.0.37](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.0.36...@ant-design/pro-descriptions@1.0.37) (2020-11-27)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.0.36](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.0.35...@ant-design/pro-descriptions@1.0.36) (2020-11-19)
+
+### Bug Fixes
+
+- **table:** fix the problem that the table rendering is not timely ([#1024](https://github.com/ant-design/pro-components/issues/1024)) ([19d3af5](https://github.com/ant-design/pro-components/commit/19d3af58e692dbfa5a4b32644afe9672ba5719cf))
+
+## [1.0.35](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.0.34...@ant-design/pro-descriptions@1.0.35) (2020-11-17)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.0.34](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.0.33...@ant-design/pro-descriptions@1.0.34) (2020-11-17)
+
+### Bug Fixes
+
+- **descriptions:** missing dependency use-json-comparison ([#996](https://github.com/ant-design/pro-components/issues/996)) ([a181f48](https://github.com/ant-design/pro-components/commit/a181f4857436b48d4475c427809dde9e0d641ef5))
+
 ## [1.0.33](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.0.32...@ant-design/pro-descriptions@1.0.33) (2020-11-10)
 
 **Note:** Version bump only for package @ant-design/pro-descriptions

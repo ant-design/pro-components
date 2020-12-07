@@ -2,8 +2,7 @@ import React from 'react';
 import ProField from '@ant-design/pro-field';
 import { RateProps } from 'antd/lib/rate';
 import { ProFormItemProps } from '../../interface';
-import { createField } from '../../BaseForm';
-
+import createField from '../../BaseForm/createField';
 /**
  * 评分组件
  * @param

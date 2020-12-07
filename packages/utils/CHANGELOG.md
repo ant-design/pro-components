@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.3.0...@ant-design/pro-utils@1.3.1) (2020-12-02)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+# [1.3.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.2.0...@ant-design/pro-utils@1.3.0) (2020-11-27)
+
+### Bug Fixes
+
+- **table:** optimize table demos and table style. ([#1105](https://github.com/ant-design/pro-components/issues/1105)) ([6e6437e](https://github.com/ant-design/pro-components/commit/6e6437e621200932a24a9199ee729ff4253d71c0))
+
+### Features
+
+- **table:** support editor table ([#994](https://github.com/ant-design/pro-components/issues/994)) ([35f40fe](https://github.com/ant-design/pro-components/commit/35f40feb72dd10ea6fefb7d6a59943d43d0a7325))
+
+# [1.2.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.1.0...@ant-design/pro-utils@1.2.0) (2020-11-17)
+
+### Features
+
+- **form:** LightFilter support allowClear ([#974](https://github.com/ant-design/pro-components/issues/974)) ([6ef984a](https://github.com/ant-design/pro-components/commit/6ef984ae6ba9560737c200c0ca39e5d2f3d7286b))
+- **form:** support readonly ([#963](https://github.com/ant-design/pro-components/issues/963)) ([2b27e91](https://github.com/ant-design/pro-components/commit/2b27e917707c530c2a9d9c91fa27c1b663a07bf4))
+
 # [1.1.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.0.7...@ant-design/pro-utils@1.1.0) (2020-11-09)
 
 ### Features

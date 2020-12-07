@@ -9,6 +9,47 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.12.2
+
+`2020-12-02`
+
+- 🐛 fix(table): fix startEditable key=0 warning [#1162](https://github.com/ant-design/pro-components/pull/1162) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): support children of column in EditableProTable [#1161](https://github.com/ant-design/pro-components/pull/1161) [@shenzhim](https://github.com/shenzhim)
+- 🐛 fix(table): fix protable form types error [#1158](https://github.com/ant-design/pro-components/pull/1158) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): support onlyAddOneLineAlertMessage and onlyOneLineEditorAlertMessage [#1157](https://github.com/ant-design/pro-components/pull/1157) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(compiler): support editable [#1151](https://github.com/ant-design/pro-components/pull/1151) [@DerrickTel](https://github.com/DerrickTel)
+
+## @ant-design/pro-table@2.12.1
+
+`2020-11-30`
+
+- 🐛 fix(table): fix Whitespace warning [#1135](https://github.com/ant-design/pro-components/pull/1135) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix editable table show rules error [#1129](https://github.com/ant-design/pro-components/pull/1129) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.12.0
+
+`2020-11-27`
+
+- 🐛 fix(table): optimize table demos and table style. [#1105](https://github.com/ant-design/pro-components/pull/1105) [@rdmclin2](https://github.com/rdmclin2)
+- 🐛 fix(table): fix filter sometime show 0 error [#1091](https://github.com/ant-design/pro-components/pull/1091) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(table): support editor table [#994](https://github.com/ant-design/pro-components/pull/994) [@chenshuai2144](https://github.com/chenshuai2144)
+- feat: add table demos and fix form layout styles [#1069](https://github.com/ant-design/pro-components/pull/1069) [@rdmclin2](https://github.com/rdmclin2)
+- 💥 feat(table): table support fieldProps.onChange [#1068](https://github.com/ant-design/pro-components/pull/1068) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.11.3
+
+`2020-11-19`
+
+- 🐛 fix(table): No more transparent formitem [#1028](https://github.com/ant-design/pro-components/pull/1028) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix the problem that the table rendering is not timely [#1024](https://github.com/ant-design/pro-components/pull/1024) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): if propsRowSelection || tableAlertRender =0 no render dom [#1025](https://github.com/ant-design/pro-components/pull/1025) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.11.0
+
+`2020-11-17`
+
+- 🐛 fix(table): fix render dom is 0 error [#984](https://github.com/ant-design/pro-components/pull/984) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.10.0
 
 `2020-11-09`

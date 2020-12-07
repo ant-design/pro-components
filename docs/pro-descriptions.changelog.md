@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-descriptions@1.0.34
+
+`2020-11-17`
+
+- fix: missing dependency use-json-comparison [#996](https://github.com/ant-design/pro-components/pull/996) [@afc163](https://github.com/afc163)
+
 ## @ant-design/pro-descriptions@1.0.10
 
 `2020-08-17`

@@ -93,12 +93,14 @@ export interface PageContainerProps extends PageHeaderTabConfig, Omit<PageHeader
  * In order to be compatible with the old version of the PageHeader
  * basically all the functions are implemented.
  */
-const renderFooter: React.SFC<Omit<
-  PageContainerProps & {
-    prefixedClassName: string;
-  },
-  'title'
->> = ({ tabList, tabActiveKey, onTabChange, tabBarExtraContent, tabProps, prefixedClassName }) => {
+const renderFooter: React.FC<
+  Omit<
+    PageContainerProps & {
+      prefixedClassName: string;
+    },
+    'title'
+  >
+> = ({ tabList, tabActiveKey, onTabChange, tabBarExtraContent, tabProps, prefixedClassName }) => {
   if (tabList && tabList.length) {
     return (
       <Tabs

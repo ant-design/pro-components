@@ -76,7 +76,6 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="menu-fold"
                   fill="currentColor"
                   focusable="false"
@@ -169,7 +168,6 @@ exports[`BasicLayout 🥩 base use 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="menu-fold"
                   fill="currentColor"
                   focusable="false"
@@ -262,7 +260,6 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="menu-fold"
                   fill="currentColor"
                   focusable="false"
@@ -356,7 +353,6 @@ exports[`BasicLayout 🥩 menuDataRender change date 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="menu-fold"
                   fill="currentColor"
                   focusable="false"
@@ -449,7 +445,6 @@ exports[`BasicLayout 🥩 menuDataRender change date 2`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="menu-fold"
                   fill="currentColor"
                   focusable="false"
@@ -586,7 +581,6 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="menu-fold"
                   fill="currentColor"
                   focusable="false"
@@ -679,7 +673,6 @@ exports[`BasicLayout 🥩 support loading 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="menu-fold"
                   fill="currentColor"
                   focusable="false"
@@ -871,7 +864,6 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="menu-fold"
                   fill="currentColor"
                   focusable="false"

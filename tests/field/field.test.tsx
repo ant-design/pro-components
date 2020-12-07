@@ -283,12 +283,13 @@ describe('Field', () => {
     'progress',
     'percent',
     'digit',
+    'second',
     'code',
     'jsonCode',
     'rate',
   ];
   valueTypes.forEach((valueType) => {
-    it(`🐴 valueType render ${valueType}`, async () => {
+    it(`🐴 valueType support render ${valueType}`, async () => {
       const html = render(
         <Field
           text="1994-07-29 12:00:00"
@@ -335,6 +336,18 @@ describe('Field', () => {
         />,
       );
       expect(html.text()).toBe('-');
+    });
+
+    it(`🐴 valueType support render ${valueType} when text is null`, async () => {
+      const html = render(
+        <Field
+          text={null}
+          render={() => <>qixian</>}
+          // @ts-ignore
+          valueType={valueType}
+        />,
+      );
+      expect(html.text()).toBe('qixian');
     });
   });
 
@@ -494,6 +507,22 @@ describe('Field', () => {
         mode="read"
       />,
     );
+    expect(html.text()).toBe('qixian');
+  });
+
+  it('🐴 keypress simulate', () => {
+    const html = mount(<Field text="qixian" valueType="textarea" mode="edit" />);
+    act(() => {
+      html.find('TextArea').at(0).simulate('keypress', {
+        key: 'Enter',
+        keyCode: 13,
+      });
+    });
+    act(() => {
+      html.setProps({
+        mode: 'read',
+      });
+    });
     expect(html.text()).toBe('qixian');
   });
 });

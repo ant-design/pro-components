@@ -10,6 +10,24 @@ group:
 
 # Change Log
 
+## @ant-design/pro-card@1.6.1
+
+`2020-12-02`
+
+- 💥 feat(card): add onClick [#1138](https://github.com/ant-design/pro-components/pull/1138) [@DerrickTel](https://github.com/DerrickTel)
+
+## @ant-design/pro-card@1.5.1
+
+`2020-11-19`
+
+- UI(card): divider style split [#1035](https://github.com/ant-design/pro-components/pull/1035) [@rdmclin2](https://github.com/rdmclin2)
+
+## @ant-design/pro-card@1.5.0
+
+`2020-11-17`
+
+- 💥 feat(card): pro-card support Group and Divider [#992](https://github.com/ant-design/pro-components/pull/992) [@rdmclin2](https://github.com/rdmclin2)
+
 ## @ant-design/pro-card@1.4.3
 
 `2020-10-29`

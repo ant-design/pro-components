@@ -2,6 +2,54 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.1.4...@ant-design/pro-list@1.1.5) (2020-12-04)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.1.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.1.3...@ant-design/pro-list@1.1.4) (2020-12-03)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.1.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.1.2...@ant-design/pro-list@1.1.3) (2020-12-03)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.1.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.1.1...@ant-design/pro-list@1.1.2) (2020-12-02)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.1.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.1.0...@ant-design/pro-list@1.1.1) (2020-11-30)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+# [1.1.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.0.14...@ant-design/pro-list@1.1.0) (2020-11-27)
+
+### Features
+
+- **table:** support editor table ([#994](https://github.com/ant-design/pro-components/issues/994)) ([35f40fe](https://github.com/ant-design/pro-components/commit/35f40feb72dd10ea6fefb7d6a59943d43d0a7325))
+
+## [1.0.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.0.13...@ant-design/pro-list@1.0.14) (2020-11-19)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.0.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.0.12...@ant-design/pro-list@1.0.13) (2020-11-19)
+
+### Bug Fixes
+
+- **table:** fix the problem that the table rendering is not timely ([#1024](https://github.com/ant-design/pro-components/issues/1024)) ([19d3af5](https://github.com/ant-design/pro-components/commit/19d3af58e692dbfa5a4b32644afe9672ba5719cf))
+
+## [1.0.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.0.11...@ant-design/pro-list@1.0.12) (2020-11-18)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.0.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.0.10...@ant-design/pro-list@1.0.11) (2020-11-17)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.0.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.0.9...@ant-design/pro-list@1.0.10) (2020-11-17)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
 ## [1.0.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.0.8...@ant-design/pro-list@1.0.9) (2020-11-10)
 
 **Note:** Version bump only for package @ant-design/pro-list

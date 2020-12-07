@@ -9,6 +9,25 @@ group:
 
 # Change Log
 
+## @ant-design/pro-field@1.2.0
+
+`2020-11-27`
+
+- 🐛 fix(field): fix ProFormTimePicker value no moment error [#1054](https://github.com/ant-design/pro-components/pull/1054) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-field@1.1.2
+
+`2020-11-19`
+
+- 🐛 fix(field): textarea stopPropagation enter [#1026](https://github.com/ant-design/pro-components/pull/1026) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-field@1.1.0
+
+`2020-11-17`
+
+- 🐛 fix(field): 解决只读模式默认值为空的情况不走 render 的问题 [#630](https://github.com/ant-design/pro-components/pull/630) [@ShawDanon](https://github.com/ShawDanon)
+- 💥 feat(field): set the useSwr option revalidateOnFocus to false [#950](https://github.com/ant-design/pro-components/pull/950) [@yingzhiji](https://github.com/yingzhiji)
+
 ## @ant-design/pro-field@1.0.9
 
 `2020-11-10`

@@ -18,8 +18,7 @@ export interface SearchConfig {
   submitText?: React.ReactNode;
 }
 
-export interface SubmitterProps {
-  form: FormInstance;
+export type SubmitterProps<T = {}> = {
   /**
    * @name 提交方法
    */
@@ -44,15 +43,19 @@ export interface SubmitterProps {
    * @name 自定义操作的渲染
    */
   render?:
-    | ((props: SubmitterProps, dom: JSX.Element[]) => React.ReactNode[] | React.ReactNode | false)
+    | ((
+        props: SubmitterProps & T,
+        dom: JSX.Element[],
+      ) => React.ReactNode[] | React.ReactNode | false)
     | false;
-}
+};
 
 /**
  * FormFooter 的组件，可以自动进行一些配置
  * @param props
  */
-const Submitter: React.FC<SubmitterProps> = (props) => {
+
+const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (props) => {
   const intl = useIntl();
   if (props.render === false) {
     return null;

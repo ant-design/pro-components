@@ -12,7 +12,7 @@ import { useIntl } from '@ant-design/pro-provider';
 import StepForm, { StepFormProps } from './StepForm';
 import './index.less';
 import { ProFormProps } from '../ProForm';
-import { CommonFormProps } from '../../BaseForm';
+import { SubmitterProps } from '../../components/Submitter';
 
 type Store = {
   [name: string]: any;
@@ -54,7 +54,15 @@ interface StepsFormProps<T = Store> extends FormProviderProps {
   /**
    * 按钮的统一配置，优先级低于分布表单的配置
    */
-  submitter?: CommonFormProps['submitter'];
+  submitter?:
+    | SubmitterProps<{
+        step: number;
+        onPre: () => void;
+        form?: FormInstance<any>;
+      }>
+    | false;
+
+  containerStyle?: React.CSSProperties;
 }
 
 export const StepsFormProvide = React.createContext<
@@ -90,6 +98,7 @@ const StepsForm: React.FC<StepsFormProps> & {
     stepsProps,
     onFinish,
     formProps,
+    containerStyle,
     ...rest
   } = props;
 
@@ -240,9 +249,10 @@ const StepsForm: React.FC<StepsFormProps> & {
     const submitterDom = getActionButton();
     if (submitter && submitter.render) {
       const submitterProps: any = {
-        form: formArrayRef.current[step],
+        form: formArrayRef.current[step]?.current,
         onSubmit,
-        onReset: () => {
+        step,
+        onPre: () => {
           if (step < 1) {
             return;
           }
@@ -326,14 +336,16 @@ const StepsForm: React.FC<StepsFormProps> & {
             stepsFormRender(
               <>
                 {finalStepsDom}
-                <div className={`${prefixCls}-container`}>{formDom}</div>
+                <div className={`${prefixCls}-container`} style={containerStyle}>
+                  {formDom}
+                </div>
               </>,
               submitterDom,
             )
           ) : (
             <>
               {finalStepsDom}
-              <div className={`${prefixCls}-container`}>
+              <div className={`${prefixCls}-container`} style={containerStyle}>
                 {formDom}
                 <Space>{renderSubmitter()}</Space>
               </div>

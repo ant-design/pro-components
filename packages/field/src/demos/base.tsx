@@ -39,6 +39,9 @@ export default () => {
         <Descriptions.Item label="数字">
           <Field text="19897979797979" valueType="digit" mode={state} plain={plain} />
         </Descriptions.Item>
+        <Descriptions.Item label="秒格式化">
+          <Field text={2000000} valueType="second" mode={state} plain={plain} />
+        </Descriptions.Item>
         <Descriptions.Item label="百分比">
           <Field text="100" valueType="percent" mode={state} plain={plain} />
         </Descriptions.Item>
