@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.13.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.13.2...@ant-design/pro-table@2.13.3) (2020-12-07)
+
+### Bug Fixes
+
+- **table:** fix formItemProps no work error ([#1222](https://github.com/ant-design/pro-components/issues/1222)) ([aed476d](https://github.com/ant-design/pro-components/commit/aed476d38006ad7b37aa5583a644e4a434ddc566))
+
 ## [2.13.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.13.1...@ant-design/pro-table@2.13.2) (2020-12-04)
 
 ### Bug Fixes

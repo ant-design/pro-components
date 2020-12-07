@@ -136,6 +136,10 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 
 <code src="./demos/Nested.tsx" iframe="500px" />
 
+### 自定义的 collapsed
+
+<code src="./demos/customize-collapsed.tsx" iframe="500px" />
+
 ## API
 
 ### ProLayout
