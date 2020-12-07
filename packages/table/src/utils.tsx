@@ -329,7 +329,6 @@ export function columnRender<T>({
         </Form.Item>
       );
     }
-
     if (columnProps.renderFormItem) {
       return (
         <Form.Item shouldUpdate noStyle>
