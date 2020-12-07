@@ -282,7 +282,7 @@ const ProCard: ProCardType = React.forwardRef<HTMLDivElement>((props: ProCardPro
     [`${prefixCls}-loading`]: loading,
     [`${prefixCls}-split`]: split === 'vertical' || split === 'horizontal',
     [`${prefixCls}-ghost`]: ghost,
-    // [`${prefixCls}-size-${size}`]: size,
+    [`${prefixCls}-size-${size}`]: size,
     [`${prefixCls}-type-${type}`]: type,
     [`${prefixCls}-collapse`]: collapsed,
   });
