@@ -47,11 +47,22 @@ const columns: ProColumns<DataSourceType>[] = [
         },
       ],
     },
+    editable: (text, record, index) => {
+      return index === 1;
+    },
     width: '30%',
   },
   {
     title: '描述',
     dataIndex: 'decs',
+    fieldProps: (from, { rowKey }) => {
+      if (from.getFieldValue([rowKey || '', 'title']) === '不好玩') {
+        return {
+          disabled: true,
+        };
+      }
+      return {};
+    },
   },
   {
     title: '操作',

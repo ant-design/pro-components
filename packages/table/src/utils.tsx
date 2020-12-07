@@ -14,6 +14,7 @@ import {
   proFieldParsingValueEnumToArray,
   ProFieldValueType,
 } from '@ant-design/pro-field';
+import { FormInstance } from 'antd/lib/form';
 import get from 'rc-util/lib/utils/get';
 import { IntlType } from '@ant-design/pro-provider';
 
@@ -288,6 +289,8 @@ export function columnRender<T>({
   const { renderText = (val: any) => val } = columnProps;
 
   const renderTextStr = renderText(text, rowData, index, action.current as ActionType);
+  const mode =
+    isEditable && !isEditableCell(text, rowData, index, columnProps?.editable) ? 'edit' : 'read';
 
   const textDom = defaultRenderText<T>({
     text: renderTextStr,
@@ -298,7 +301,7 @@ export function columnRender<T>({
     columnEmptyText,
     type,
     recordKey,
-    mode: isEditable ? 'edit' : 'read',
+    mode,
   });
 
   const dom: React.ReactNode = isEditable
@@ -308,7 +311,7 @@ export function columnRender<T>({
   /**
    * 如果是编辑模式，并且 renderFormItem 存在直接走 renderFormItem
    */
-  if (isEditable) {
+  if (mode === 'edit') {
     if (columnProps.valueType === 'option') {
       return (
         <Form.Item shouldUpdate noStyle>
@@ -325,13 +328,6 @@ export function columnRender<T>({
           )}
         </Form.Item>
       );
-    }
-    if (isEditableCell(text, rowData, index, columnProps?.editable)) {
-      return text ? (
-        <Form.Item shouldUpdate noStyle>
-          {text}
-        </Form.Item>
-      ) : null;
     }
     if (columnProps.renderFormItem) {
       return (
@@ -473,3 +469,22 @@ export function genColumnList<T>(props: {
     }
   >;
 }
+
+/**
+ * 因为 fieldProps 支持了 function
+ * 所以新增了这个方法
+ * @param fieldProps
+ * @param form
+ */
+export const getFieldPropsOrFormItemProps = (
+  fieldProps: any,
+  form?: FormInstance<any>,
+  extraProps?: any,
+): Object & {
+  onChange: any;
+} => {
+  if (typeof fieldProps === 'function') {
+    return fieldProps(form, extraProps);
+  }
+  return fieldProps;
+};
