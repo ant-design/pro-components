@@ -1,0 +1,59 @@
+@import (reference) '~antd/lib/style/themes/default';
+@import (reference) '~antd/lib/style/mixins/index.less';
+
+@pro-card-prefix-cls: ~'@{ant-prefix}-pro-card';
+@card-action-icon-size: 16px;
+
+.@{pro-card-prefix-cls} {
+  &-actions {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: @card-actions-background;
+    border-top: @border-width-base @border-style-base @border-color-split;
+    .clearfix;
+
+    & > li {
+      float: left;
+      margin: @card-actions-li-margin;
+      color: @text-color-secondary;
+      text-align: center;
+
+      > span {
+        position: relative;
+        display: block;
+        min-width: 32px;
+        font-size: @font-size-base;
+        line-height: @line-height-base;
+        cursor: pointer;
+
+        &:hover {
+          color: @primary-color;
+          transition: color 0.3s;
+        }
+
+        a:not(.@{ant-prefix}-btn),
+        > .anticon {
+          display: inline-block;
+          width: 100%;
+          color: @text-color-secondary;
+          line-height: 22px;
+          transition: color 0.3s;
+
+          &:hover {
+            color: @primary-color;
+          }
+        }
+
+        > .anticon {
+          font-size: @card-action-icon-size;
+          line-height: 22px;
+        }
+      }
+
+      &:not(:last-child) {
+        border-right: @border-width-base @border-style-base @border-color-split;
+      }
+    }
+  }
+}

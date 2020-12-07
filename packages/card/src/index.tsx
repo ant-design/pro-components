@@ -9,6 +9,7 @@ import { TabsProps } from 'antd/lib/tabs';
 import CardLoading from './components/CardLoading';
 import Divider from './components/Divider';
 import TabPane from './components/TabPane';
+import Actions from './components/Actions';
 import './style/index.less';
 
 const { useBreakpoint } = Grid;
@@ -82,6 +83,10 @@ export interface ProCardProps extends Omit<React.HTMLAttributes<HTMLDivElement>,
    */
   gutter?: Gutter | Gutter[];
   /**
+   * 操作按钮
+   */
+  actions?: React.ReactNode[];
+  /**
    * 拆分卡片方式
    */
   split?: 'vertical' | 'horizontal';
@@ -149,6 +154,7 @@ const ProCard: ProCardType = React.forwardRef<HTMLDivElement>((props: ProCardPro
     bordered = false,
     children,
     size,
+    actions,
     ghost = false,
     direction,
     collapsed: controlCollapsed,
@@ -316,6 +322,11 @@ const ProCard: ProCardType = React.forwardRef<HTMLDivElement>((props: ProCardPro
     />
   );
 
+  /**
+   * 操作按钮
+   */
+  const actionDom = <Actions actions={actions} prefixCls={prefixCls} />;
+
   return (
     <div className={cardCls} style={cardStyle} ref={ref} {...omit(rest, ['id', 'prefixCls'])}>
       {(title || extra || collapsibleButton) && (
@@ -338,6 +349,7 @@ const ProCard: ProCardType = React.forwardRef<HTMLDivElement>((props: ProCardPro
           {loading ? loadingDOM : childrenModified}
         </div>
       )}
+      {actionDom}
     </div>
   );
 });

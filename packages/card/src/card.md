@@ -98,6 +98,12 @@ group:
 
 <code src="./demos/loading.tsx" background="#f0f2f5" />
 
+### 操作项
+
+配置 `actions` 属性来配置卡片操作项。
+
+<code src="./demos/actions.tsx" background="#f0f2f5" />
+
 ### 无标题
 
 头部没有内容时会自动隐藏。
@@ -149,6 +155,7 @@ group:
 | split | 拆分卡片的方向 | `vertical` \| `horizontal`  | - |
 | type | 卡片类型 | `inner` \| `default` | - |
 | size | 卡片尺寸 | `default` \| `small` | - |
+| actions | 卡片操作组，位置在卡片底部 | `Array&lt;ReactNode>` | - |
 | direction | 指定 Flex 方向，仅在嵌套子卡片时有效，默认方向为 row 横向 | `column` | - |
 | bordered | 是否有边框 | `boolean` | false |
 | ghost | 幽灵模式，即是否取消卡片内容区域的 padding 和 卡片的背景颜色。 | `boolean` | false |
