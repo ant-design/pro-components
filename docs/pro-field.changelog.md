@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-field@1.3.0
+
+`2020-12-03`
+
+- 💥 feat(field): support new valueType `second` [#1177](https://github.com/ant-design/pro-components/pull/1177) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-field@1.2.0
 
 `2020-11-27`

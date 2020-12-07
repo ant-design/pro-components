@@ -9,6 +9,20 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.13.3
+
+`2020-12-07`
+
+- 🐛 fix(table): fix formItemProps no work error [#1222](https://github.com/ant-design/pro-components/pull/1222) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix toolbar setting provide error [#1190](https://github.com/ant-design/pro-components/pull/1190) [@chenshuai2144](https://github.com/chenshuai2144)
+- ✨ feat(table): support onCancel function [#1198](https://github.com/ant-design/pro-components/pull/1198) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.13.0
+
+`2020-12-03`
+
+- 💥 feat(table): onReset support search. transform [#1176](https://github.com/ant-design/pro-components/pull/1176) [@DerrickTel](https://github.com/DerrickTel)
+
 ## @ant-design/pro-table@2.12.2
 
 `2020-12-02`
