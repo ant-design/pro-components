@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.1.5...@ant-design/pro-list@1.1.6) (2020-12-07)
+
+### Bug Fixes
+
+- **list:** actions support react node ([#1200](https://github.com/ant-design/pro-components/issues/1200)) ([5465caf](https://github.com/ant-design/pro-components/commit/5465caf4365a6d95c64796cc08177516f8e3239f))
+- **list:** if title is null, remove header dom ([#1191](https://github.com/ant-design/pro-components/issues/1191)) ([93d85c0](https://github.com/ant-design/pro-components/commit/93d85c0a3997aa7d89feaa7537af052bc4a70a0a))
+
 ## [1.1.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.1.4...@ant-design/pro-list@1.1.5) (2020-12-04)
 
 **Note:** Version bump only for package @ant-design/pro-list
