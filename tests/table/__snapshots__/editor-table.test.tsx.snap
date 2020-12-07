@@ -1547,7 +1547,6 @@ exports[`EditorProTable 📝 renderFormItem run defaultRender 1`] = `
                             type="button"
                           />
                           <div
-                            _internalitemrender="[object Object]"
                             class="ant-row ant-form-item"
                             style="margin: -5px 0px;"
                           >
@@ -1562,7 +1561,6 @@ exports[`EditorProTable 📝 renderFormItem run defaultRender 1`] = `
                                     class="ant-form-item-control-input-content"
                                   >
                                     <div
-                                      _internalitemrender="[object Object]"
                                       class="ant-row ant-form-item"
                                       style="margin: -5px 0px;"
                                     >
