@@ -532,14 +532,18 @@ exports[`settingDrawer.test base user 1`] = `
                     />
                   </svg>
                 </span>
-                <span
-                  class="ant-alert-message"
+                <div
+                  class="ant-alert-content"
                 >
-                  Setting panel shows in development environment only, please manually modify
-                </span>
-                <span
-                  class="ant-alert-description"
-                />
+                  <div
+                    class="ant-alert-message"
+                  >
+                    Setting panel shows in development environment only, please manually modify
+                  </div>
+                  <div
+                    class="ant-alert-description"
+                  />
+                </div>
               </div>
               <button
                 class="ant-btn ant-btn-block"
@@ -1102,14 +1106,18 @@ exports[`settingDrawer.test hideColors = true 1`] = `
                     />
                   </svg>
                 </span>
-                <span
-                  class="ant-alert-message"
+                <div
+                  class="ant-alert-content"
                 >
-                  Setting panel shows in development environment only, please manually modify
-                </span>
-                <span
-                  class="ant-alert-description"
-                />
+                  <div
+                    class="ant-alert-message"
+                  >
+                    Setting panel shows in development environment only, please manually modify
+                  </div>
+                  <div
+                    class="ant-alert-description"
+                  />
+                </div>
               </div>
               <button
                 class="ant-btn ant-btn-block"
@@ -1704,14 +1712,18 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
                     />
                   </svg>
                 </span>
-                <span
-                  class="ant-alert-message"
+                <div
+                  class="ant-alert-content"
                 >
-                  Setting panel shows in development environment only, please manually modify
-                </span>
-                <span
-                  class="ant-alert-description"
-                />
+                  <div
+                    class="ant-alert-message"
+                  >
+                    Setting panel shows in development environment only, please manually modify
+                  </div>
+                  <div
+                    class="ant-alert-description"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -2846,14 +2858,18 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
                     />
                   </svg>
                 </span>
-                <span
-                  class="ant-alert-message"
+                <div
+                  class="ant-alert-content"
                 >
-                  Setting panel shows in development environment only, please manually modify
-                </span>
-                <span
-                  class="ant-alert-description"
-                />
+                  <div
+                    class="ant-alert-message"
+                  >
+                    Setting panel shows in development environment only, please manually modify
+                  </div>
+                  <div
+                    class="ant-alert-description"
+                  />
+                </div>
               </div>
               <button
                 class="ant-btn ant-btn-block"
@@ -3447,14 +3463,18 @@ exports[`settingDrawer.test settings = undefined 1`] = `
                     />
                   </svg>
                 </span>
-                <span
-                  class="ant-alert-message"
+                <div
+                  class="ant-alert-content"
                 >
-                  Setting panel shows in development environment only, please manually modify
-                </span>
-                <span
-                  class="ant-alert-description"
-                />
+                  <div
+                    class="ant-alert-message"
+                  >
+                    Setting panel shows in development environment only, please manually modify
+                  </div>
+                  <div
+                    class="ant-alert-description"
+                  />
+                </div>
               </div>
               <button
                 class="ant-btn ant-btn-block"

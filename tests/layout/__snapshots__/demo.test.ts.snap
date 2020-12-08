@@ -9336,14 +9336,18 @@ Array [
                     />
                   </svg>
                 </span>
-                <span
-                  class="ant-alert-message"
+                <div
+                  class="ant-alert-content"
                 >
-                  配置栏只在开发环境用于预览，生产环境不会展现，请拷贝后手动修改配置文件
-                </span>
-                <span
-                  class="ant-alert-description"
-                />
+                  <div
+                    class="ant-alert-message"
+                  >
+                    配置栏只在开发环境用于预览，生产环境不会展现，请拷贝后手动修改配置文件
+                  </div>
+                  <div
+                    class="ant-alert-description"
+                  />
+                </div>
               </div>
               <button
                 class="ant-btn ant-btn-block"

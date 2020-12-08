@@ -8044,55 +8044,59 @@ exports[`BasicTable 🎏 do not render Search  1`] = `
           data-show="true"
           role="alert"
         >
-          <span
-            class="ant-alert-message"
+          <div
+            class="ant-alert-content"
           >
             <div
-              class="ant-pro-table-alert-info"
+              class="ant-alert-message"
             >
               <div
-                class="ant-pro-table-alert-info-content"
+                class="ant-pro-table-alert-info"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  class="ant-pro-table-alert-info-content"
                 >
                   <div
-                    class="ant-space-item"
-                    style="margin-right: 8px;"
+                    class="ant-space ant-space-horizontal ant-space-align-center"
                   >
-                    已选择
-                  </div>
-                  <div
-                    class="ant-space-item"
-                    style="margin-right: 8px;"
-                  >
-                    1
-                  </div>
-                  <div
-                    class="ant-space-item"
-                    style="margin-right: 8px;"
-                  >
-                    项
-                  </div>
-                  <div
-                    class="ant-space-item"
-                  >
-                      
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 8px;"
+                    >
+                      已选择
+                    </div>
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 8px;"
+                    >
+                      1
+                    </div>
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 8px;"
+                    >
+                      项
+                    </div>
+                    <div
+                      class="ant-space-item"
+                    >
+                        
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div
-                class="ant-pro-table-alert-info-option"
-              >
-                <a>
-                  取消选择
-                </a>
+                <div
+                  class="ant-pro-table-alert-info-option"
+                >
+                  <a>
+                    取消选择
+                  </a>
+                </div>
               </div>
             </div>
-          </span>
-          <span
-            class="ant-alert-description"
-          />
+            <div
+              class="ant-alert-description"
+            />
+          </div>
         </div>
       </div>
       <div

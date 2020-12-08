@@ -2,11 +2,7 @@
 
 exports[`ProFormUpload ProFormUploadButton support disable 1`] = `
 <Button
-  block={false}
   disabled={true}
-  ghost={false}
-  htmlType="button"
-  loading={false}
 >
   <Wave>
     <button
@@ -119,11 +115,7 @@ exports[`ProFormUpload ProFormUploadButton support disable 1`] = `
 
 exports[`ProFormUpload ProFormUploadButton support disable 2`] = `
 <Button
-  block={false}
   disabled={true}
-  ghost={false}
-  htmlType="button"
-  loading={false}
   type="dashed"
 >
   <Wave>
@@ -237,11 +229,7 @@ exports[`ProFormUpload ProFormUploadButton support disable 2`] = `
 
 exports[`ProFormUpload ProFormUploadButton support disable 3`] = `
 <Button
-  block={false}
   disabled={true}
-  ghost={false}
-  htmlType="button"
-  loading={false}
 >
   <Wave>
     <button
