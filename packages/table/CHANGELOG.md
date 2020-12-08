@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.14.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.13.3...@ant-design/pro-table@2.14.0) (2020-12-08)
+
+### Bug Fixes
+
+- avoid exceptions when text is undefined ([#1192](https://github.com/ant-design/pro-components/issues/1192)) ([f12ed9b](https://github.com/ant-design/pro-components/commit/f12ed9bd589bfd4d5a0804f15f44f0606e1c3c49))
+
+### Features
+
+- **table:** fieldProps support function ([#1227](https://github.com/ant-design/pro-components/issues/1227)) ([bc34fb0](https://github.com/ant-design/pro-components/commit/bc34fb0ce11d006c83b06166f6cf8903bd5d3e1a))
+
 ## [2.13.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.13.2...@ant-design/pro-table@2.13.3) (2020-12-07)
 
 ### Bug Fixes

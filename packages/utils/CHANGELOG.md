@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.3.2...@ant-design/pro-utils@1.4.0) (2020-12-08)
+
+### Features
+
+- **table:** fieldProps support function ([#1227](https://github.com/ant-design/pro-components/issues/1227)) ([bc34fb0](https://github.com/ant-design/pro-components/commit/bc34fb0ce11d006c83b06166f6cf8903bd5d3e1a))
+
 ## [1.3.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.3.1...@ant-design/pro-utils@1.3.2) (2020-12-07)
 
 **Note:** Version bump only for package @ant-design/pro-utils

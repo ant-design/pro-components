@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.7.6...@ant-design/pro-form@1.8.0) (2020-12-08)
+
+### Features
+
+- **table:** fieldProps support function ([#1227](https://github.com/ant-design/pro-components/issues/1227)) ([bc34fb0](https://github.com/ant-design/pro-components/commit/bc34fb0ce11d006c83b06166f6cf8903bd5d3e1a))
+
 ## [1.7.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.7.5...@ant-design/pro-form@1.7.6) (2020-12-07)
 
 **Note:** Version bump only for package @ant-design/pro-form

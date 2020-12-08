@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.3.3...@ant-design/pro-field@1.3.4) (2020-12-08)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
 ## [1.3.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.3.2...@ant-design/pro-field@1.3.3) (2020-12-07)
 
 **Note:** Version bump only for package @ant-design/pro-field
