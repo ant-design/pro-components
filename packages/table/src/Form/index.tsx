@@ -31,7 +31,7 @@ import {
   SearchTransformKeyFn,
 } from '@ant-design/pro-utils';
 
-import { genColumnKey } from '../utils';
+import { genColumnKey, getFieldPropsOrFormItemProps } from '../utils';
 import { ProColumns } from '../index';
 import './index.less';
 
@@ -114,14 +114,21 @@ export interface TableFormItem<T, U = any> extends Omit<FormItemProps, 'children
 export const formInputRender: React.FC<{
   item: ProColumns<any>;
   value?: any;
-  form?: FormInstance;
+  form?: FormInstance<any>;
   type: ProSchemaComponentTypes;
   intl: IntlType;
   onChange?: (value: any) => void;
   onSelect?: (value: any) => void;
   [key: string]: any;
 }> = (props, ref: any) => {
-  const { item, intl, form, type, formItemProps, ...rest } = props;
+  const { item, intl, form, type, formItemProps: propsFormItemProps, ...rest } = props;
+
+  const formItemProps = getFieldPropsOrFormItemProps(
+    propsFormItemProps,
+    form,
+    item,
+  ) as FormItemProps<any>;
+
   const { valueType: itemValueType = 'text' } = item;
   // if function， run it
   const valueType =
@@ -187,6 +194,12 @@ export const formInputRender: React.FC<{
       </ProFormField>
     );
   }
+
+  const { onChange, ...restFieldProps } = getFieldPropsOrFormItemProps(
+    item.fieldProps || {},
+    form,
+    item,
+  );
 
   const finalValueType =
     !valueType || (['textarea', 'jsonCode', 'code'].includes(valueType) && type === 'table')

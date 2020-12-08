@@ -1512,10 +1512,21 @@ exports[`EditorProTable 📝 columns support editable test 1`] = `
                             class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
                             type="button"
                           />
+                          <div
+                            class="ant-pro-field-index-column ant-pro-field-index-column-border"
+                          >
+                            1
+                          </div>
                         </td>
                         <td
                           class="ant-table-cell"
-                        />
+                        >
+                          <div
+                            class="ant-pro-field-index-column ant-pro-field-index-column-border"
+                          >
+                            1
+                          </div>
+                        </td>
                       </tr>
                       <tr
                         class="ant-table-row ant-table-row-level-0"

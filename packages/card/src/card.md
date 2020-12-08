@@ -98,6 +98,12 @@ group:
 
 <code src="./demos/loading.tsx" background="#f0f2f5" />
 
+### 操作项
+
+配置 `actions` 属性来配置卡片操作项。
+
+<code src="./demos/actions.tsx" background="#f0f2f5" />
+
 ### 无标题
 
 头部没有内容时会自动隐藏。
@@ -147,7 +153,9 @@ group:
 | colSpan | 栅格布局宽度，24 栅格，支持指定宽度 px 或百分比, 支持响应式的对象写法 `{ xs: 8, sm: 16, md: 24}` | `number` \| `string` | 24 |
 | gutter | 数字或使用数组形式同时设置 [水平间距, 垂直间距], 支持响应式的对象写法 `{ xs: 8, sm: 16, md: 24}` | `number` \| `array` | 0 |
 | split | 拆分卡片的方向 | `vertical` \| `horizontal`  | - |
-| type | 卡片类型 | `inner` | - |
+| type | 卡片类型 | `inner` \| `default` | - |
+| size | 卡片尺寸 | `default` \| `small` | - |
+| actions | 卡片操作组，位置在卡片底部 | `Array&lt;ReactNode>` | - |
 | direction | 指定 Flex 方向，仅在嵌套子卡片时有效，默认方向为 row 横向 | `column` | - |
 | bordered | 是否有边框 | `boolean` | false |
 | ghost | 幽灵模式，即是否取消卡片内容区域的 padding 和 卡片的背景颜色。 | `boolean` | false |
@@ -170,13 +178,14 @@ group:
 
 ### ProCard.TabPane
 
-支持 `ProCard` 所有属性及 [Tabs.TabPane](https://ant.design/components/tabs-cn/#Tabs.TabPane) 的所有属性。
+支持 [Tabs.TabPane](https://ant.design/components/tabs-cn/#Tabs.TabPane) 的所有属性。
 
 | 参数 | 说明 | 类型 | 默认值 |
 | :-- | :-- | :-- | :-- |
 | key | 对应 activeKey，用于标定是否选中和 dom 更新，一定不要重复，不然会造成表现异常 | `string` | - |
 | tab | 选项卡头显示文字 | `ReactNode` | - |
 | disabled | 不可用 | `boolean` | false |
+| cardProps | ProCard 卡片属性透传 | `ProCard` | - |
 
 ### ProCard.Divider
 
