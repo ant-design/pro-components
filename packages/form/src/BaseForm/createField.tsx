@@ -98,6 +98,7 @@ function createField<P extends ProFormItemProps = any>(
       transform,
       readonly,
       allowClear,
+      colSize,
       formItemProps: propsFormItemProps,
       ...rest
     } = props;

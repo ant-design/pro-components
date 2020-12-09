@@ -209,21 +209,22 @@ const QueryFilterContent: React.FC<{
   /**
    * 是否需要展示 collapseRender
    */
-  const needCollapseRender = itemLength - 1 >= showLength ? undefined : false;
-
+  const needCollapseRender = itemLength - 1 >= showLength;
   return (
     <Row gutter={24} justify="start" key="resize-observer-row">
       {flatMapItems(items).map((item: React.ReactNode, index: number) => {
         // 如果 formItem 自己配置了 hidden，默认使用它自己的
         const hidden: boolean =
           (item as ReactElement<{ hidden: boolean }>)?.props?.hidden ||
-          (collapsed && index >= props.showLength);
+          (collapsed && (index >= props.showLength || totalSpan >= 24));
         const colSize = React.isValidElement<any>(item) ? item?.props?.colSize : 1;
         const colSpan = Math.min(spanSize.span * (colSize || 1), 24);
 
         // 每一列的key, 一般是存在的
         const itemKey =
           (React.isValidElement(item) && (item.key || `${item.props?.name}`)) || index;
+
+        currentSpan += colSpan;
 
         if (React.isValidElement(item) && hidden) {
           return React.cloneElement(item, {
@@ -239,7 +240,6 @@ const QueryFilterContent: React.FC<{
         totalSpan += colSpan;
         lastVisibleItemIndex = index;
 
-        currentSpan += colSpan;
         const colItem = (
           <Col key={itemKey} span={colSpan}>
             {item}
@@ -266,7 +266,7 @@ const QueryFilterContent: React.FC<{
             <Actions
               key="pro-form-query-filter-actions"
               collapsed={collapsed}
-              collapseRender={collapseRender || needCollapseRender}
+              collapseRender={needCollapseRender || currentSpan > 24 ? collapseRender : false}
               submitter={submitter}
               setCollapsed={setCollapsed}
             />

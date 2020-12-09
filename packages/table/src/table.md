@@ -203,6 +203,8 @@ const enUSIntl = createIntl('en_US', enUS);
 
 <code src="./demos/valueType_select.tsx" background="#f5f5f5" heigh="462px"/>
 
+<code src="./demos/config-provider.tsx" debug background="#f5f5f5" heigh="462px"/>
+
 ## API
 
 ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，并且封装了一些行为。这里只列出与 antd Table 不同的 api。
