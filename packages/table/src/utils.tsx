@@ -26,9 +26,8 @@ import {
   UseFetchDataAction,
 } from './typing';
 import { ColumnsState, useCounter } from './container';
-import defaultRenderText, { spellNamePath } from './defaultRender';
+import defaultRenderText from './defaultRender';
 import { UseEditableUtilType } from './component/useEditable';
-import InlineErrorFormItem from './component/InlineErrorFormItem';
 
 /**
  * 检查值是否存在
@@ -291,7 +290,6 @@ export function columnRender<T>({
   const renderTextStr = renderText(text, rowData, index, action.current as ActionType);
   const mode =
     isEditable && !isEditableCell(text, rowData, index, columnProps?.editable) ? 'edit' : 'read';
-
   const textDom = defaultRenderText<T>({
     text: renderTextStr,
     valueType: (columnProps.valueType as ProFieldValueType) || 'text',
@@ -304,9 +302,10 @@ export function columnRender<T>({
     mode,
   });
 
-  const dom: React.ReactNode = isEditable
-    ? textDom
-    : genEllipsis(genCopyable(textDom, columnProps, renderTextStr), columnProps, renderTextStr);
+  const dom: React.ReactNode =
+    mode === 'edit'
+      ? textDom
+      : genEllipsis(genCopyable(textDom, columnProps, renderTextStr), columnProps, renderTextStr);
 
   /**
    * 如果是编辑模式，并且 renderFormItem 存在直接走 renderFormItem
@@ -329,37 +328,7 @@ export function columnRender<T>({
         </Form.Item>
       );
     }
-    if (columnProps.renderFormItem) {
-      return (
-        <Form.Item shouldUpdate noStyle>
-          {(form: any) => {
-            const inputDom = columnProps.renderFormItem?.(
-              {
-                ...columnProps,
-                isEditable: true,
-              },
-              {
-                defaultRender: () => <>{dom}</>,
-                type,
-              },
-              form,
-            );
-            return (
-              <InlineErrorFormItem
-                initialValue={text}
-                name={spellNamePath(
-                  recordKey || index,
-                  columnProps?.key || columnProps?.dataIndex || index,
-                )}
-                {...columnProps.formItemProps}
-              >
-                {inputDom || dom}
-              </InlineErrorFormItem>
-            );
-          }}
-        </Form.Item>
-      );
-    }
+    return dom;
   }
 
   if (columnProps.render) {
