@@ -9,6 +9,19 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.15.0
+
+`2020-12-09`
+
+- 🐛 fix(table): remove unuse code [#1243](https://github.com/ant-design/pro-components/pull/1243) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(table): add "colSize" in fieldProps within proTable's columns to customize query form item width [#1229](https://github.com/ant-design/pro-components/pull/1229) [@LyndonXiao](https://github.com/LyndonXiao)
+
+## @ant-design/pro-table@2.14.0
+
+`2020-12-08`
+
+- 💥 feat(table): fieldProps support function [#1227](https://github.com/ant-design/pro-components/pull/1227) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.13.3
 
 `2020-12-07`

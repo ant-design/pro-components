@@ -140,7 +140,7 @@ export const formInputRender: React.FC<{
     item.fieldProps || {},
     form,
     item,
-  ) as any; 
+  ) as any;
 
   /**
    * 自定义 render

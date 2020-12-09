@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.8.1
+
+`2020-12-09`
+
+- 💥 feat(table): add "colSize" in fieldProps within proTable's columns to customize query form item width [#1229](https://github.com/ant-design/pro-components/pull/1229) [@LyndonXiao](https://github.com/LyndonXiao)
+
 ## @ant-design/pro-form@1.7.6
 
 `2020-12-07`

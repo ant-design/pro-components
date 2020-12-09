@@ -10,6 +10,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-card@1.7.0
+
+`2020-12-08`
+
+- 💥 feat(card): support ref, actions ,size. [#1225](https://github.com/ant-design/pro-components/pull/1225) [@rdmclin2](https://github.com/rdmclin2)
+
 ## @ant-design/pro-card@1.6.1
 
 `2020-12-02`
