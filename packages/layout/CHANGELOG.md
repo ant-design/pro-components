@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.6.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.5.19...@ant-design/pro-layout@6.6.0) (2020-12-09)
+
+### Features
+
+- **layout:** no use section dom ([#1239](https://github.com/ant-design/pro-components/issues/1239)) ([5f6dc2d](https://github.com/ant-design/pro-components/commit/5f6dc2d0c31a9cfa34b0bfe6fb53b432c437c4bd))
+
 ## [6.5.19](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.5.18...@ant-design/pro-layout@6.5.19) (2020-12-08)
 
 **Note:** Version bump only for package @ant-design/pro-layout

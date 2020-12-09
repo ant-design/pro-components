@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.15.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.14.0...@ant-design/pro-table@2.15.0) (2020-12-09)
+
+### Bug Fixes
+
+- **colsize:** fix colsize warning ([#1245](https://github.com/ant-design/pro-components/issues/1245)) ([af674b6](https://github.com/ant-design/pro-components/commit/af674b661f53ef7f537bd49bea32784274cf0d34))
+- **table:** remove unuse code ([#1243](https://github.com/ant-design/pro-components/issues/1243)) ([922496c](https://github.com/ant-design/pro-components/commit/922496cf7dafeb024a8c2cb742c9c4d60f6970eb))
+
+### Features
+
+- **table:** add "colSize" in fieldProps within proTable's columns to customize query form item width ([#1229](https://github.com/ant-design/pro-components/issues/1229)) ([4ca6370](https://github.com/ant-design/pro-components/commit/4ca63709fbc8df7b850bb5e81b1f11e578775f0f))
+
 # [2.14.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.13.3...@ant-design/pro-table@2.14.0) (2020-12-08)
 
 ### Bug Fixes

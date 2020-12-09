@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.8.0...@ant-design/pro-form@1.8.1) (2020-12-09)
+
+### Bug Fixes
+
+- **colsize:** fix colsize warning ([#1245](https://github.com/ant-design/pro-components/issues/1245)) ([af674b6](https://github.com/ant-design/pro-components/commit/af674b661f53ef7f537bd49bea32784274cf0d34))
+
 # [1.8.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.7.6...@ant-design/pro-form@1.8.0) (2020-12-08)
 
 ### Features
