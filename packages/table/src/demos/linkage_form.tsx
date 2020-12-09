@@ -67,12 +67,6 @@ export default () => {
       valueType: 'indexBorder',
     },
     {
-      title: '日期范围',
-      dataIndex: 'dateRange',
-      valueType: 'dateRange',
-      fieldProps: { colSize: 2 },
-    },
-    {
       title: '标题',
       dataIndex: 'name',
     },
