@@ -93,9 +93,9 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
         </div>
       </div>
     </aside>
-    <section
-      class="ant-layout"
-      style="position: relative;"
+    <div
+      class="ant-pro-basicLayout-layout"
+      style="position: relative; flex: 1;"
     >
       <header
         class="ant-layout-header"
@@ -112,7 +112,7 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
       <main
         class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
       />
-    </section>
+    </div>
   </section>
 </div>
 `;
@@ -122,7 +122,7 @@ exports[`BasicLayout 🥩 base use 1`] = `
   class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-side"
 >
   <section
-    class="ant-layout ant-layout-has-sider"
+    class="ant-layout"
     style="min-height:100%"
   >
     <aside
@@ -185,9 +185,9 @@ exports[`BasicLayout 🥩 base use 1`] = `
         </div>
       </div>
     </aside>
-    <section
-      class="ant-layout"
-      style="position:relative"
+    <div
+      class="ant-pro-basicLayout-layout"
+      style="position:relative;flex:1"
     >
       <header
         class="ant-layout-header"
@@ -204,7 +204,7 @@ exports[`BasicLayout 🥩 base use 1`] = `
       <main
         class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
       />
-    </section>
+    </div>
   </section>
 </div>
 `;
@@ -214,7 +214,7 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
   class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-side"
 >
   <section
-    class="ant-layout ant-layout-has-sider"
+    class="ant-layout"
     style="min-height:100%"
   >
     <aside
@@ -277,9 +277,9 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
         </div>
       </div>
     </aside>
-    <section
-      class="ant-layout"
-      style="position:relative"
+    <div
+      class="ant-pro-basicLayout-layout"
+      style="position:relative;flex:1"
     >
       <header
         class="ant-layout-header"
@@ -297,7 +297,7 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
         class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
         style="padding:56px"
       />
-    </section>
+    </div>
   </section>
 </div>
 `;
@@ -370,9 +370,9 @@ exports[`BasicLayout 🥩 menuDataRender change date 1`] = `
         </div>
       </div>
     </aside>
-    <section
-      class="ant-layout"
-      style="position: relative;"
+    <div
+      class="ant-pro-basicLayout-layout"
+      style="position: relative; flex: 1;"
     >
       <header
         class="ant-layout-header"
@@ -389,7 +389,7 @@ exports[`BasicLayout 🥩 menuDataRender change date 1`] = `
       <main
         class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
       />
-    </section>
+    </div>
   </section>
 </div>
 `;
@@ -462,9 +462,9 @@ exports[`BasicLayout 🥩 menuDataRender change date 2`] = `
         </div>
       </div>
     </aside>
-    <section
-      class="ant-layout"
-      style="position: relative;"
+    <div
+      class="ant-pro-basicLayout-layout"
+      style="position: relative; flex: 1;"
     >
       <header
         class="ant-layout-header"
@@ -481,7 +481,7 @@ exports[`BasicLayout 🥩 menuDataRender change date 2`] = `
       <main
         class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
       />
-    </section>
+    </div>
   </section>
 </div>
 `;
@@ -598,9 +598,9 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
         </div>
       </div>
     </aside>
-    <section
-      class="ant-layout"
-      style="position: relative;"
+    <div
+      class="ant-pro-basicLayout-layout"
+      style="position: relative; flex: 1;"
     >
       <header
         class="ant-layout-header"
@@ -617,7 +617,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
       <main
         class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
       />
-    </section>
+    </div>
   </section>
 </div>
 `;
@@ -690,9 +690,9 @@ exports[`BasicLayout 🥩 support loading 1`] = `
         </div>
       </div>
     </aside>
-    <section
-      class="ant-layout"
-      style="position: relative;"
+    <div
+      class="ant-pro-basicLayout-layout"
+      style="position: relative; flex: 1;"
     >
       <header
         class="ant-layout-header"
@@ -734,7 +734,7 @@ exports[`BasicLayout 🥩 support loading 1`] = `
           </div>
         </div>
       </main>
-    </section>
+    </div>
   </section>
 </div>
 `;
@@ -881,9 +881,9 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
         </div>
       </div>
     </aside>
-    <section
-      class="ant-layout"
-      style="position: relative;"
+    <div
+      class="ant-pro-basicLayout-layout"
+      style="position: relative; flex: 1;"
     >
       <header
         class="ant-layout-header"
@@ -900,7 +900,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
       <main
         class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
       />
-    </section>
+    </div>
   </section>
 </div>
 `;

@@ -29,7 +29,8 @@ describe('BasicLayout', () => {
     const menuContent = wrapper.find('.ant-pro-sider-menu');
     expect(menuContent.exists()).toBe(false);
     expect(
-      (wrapper.find('section.ant-layout section.ant-layout').props().style || {}).padding,
+      (wrapper.find('section.ant-layout div.ant-pro-basicLayout-layout').props().style || {})
+        .padding,
     ).toBe(undefined);
     wrapper.unmount();
   });
