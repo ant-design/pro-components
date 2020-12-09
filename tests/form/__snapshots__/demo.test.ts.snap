@@ -6266,8 +6266,8 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
         </div>
       </aside>
       <div
-        class="ant-pro-basicLayout-layout"
-        style="position: relative; flex: 1;"
+        class="ant-layout"
+        style="position: relative;"
       >
         <header
           class="ant-layout-header"

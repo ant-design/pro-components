@@ -133,8 +133,8 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
       </div>
     </div>
     <div
-      class="ant-pro-basicLayout-layout"
-      style="position:relative;flex:1"
+      class="ant-layout"
+      style="position:relative"
     >
       <header
         class="ant-layout-header"
@@ -322,8 +322,8 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
       </div>
     </div>
     <div
-      class="ant-pro-basicLayout-layout"
-      style="position:relative;flex:1"
+      class="ant-layout"
+      style="position:relative"
     >
       <header
         class="ant-layout-header"
@@ -503,8 +503,8 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
       </div>
     </div>
     <div
-      class="ant-pro-basicLayout-layout"
-      style="position:relative;flex:1"
+      class="ant-layout"
+      style="position:relative"
     >
       <header
         class="ant-layout-header"
@@ -679,8 +679,8 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
       </div>
     </div>
     <div
-      class="ant-pro-basicLayout-layout"
-      style="position:relative;flex:1"
+      class="ant-layout"
+      style="position:relative"
     >
       <header
         class="ant-layout-header"
@@ -849,8 +849,8 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
       </div>
     </div>
     <div
-      class="ant-pro-basicLayout-layout"
-      style="position:relative;flex:1"
+      class="ant-layout"
+      style="position:relative"
     >
       <header
         class="ant-layout-header"
@@ -1018,8 +1018,8 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
       </div>
     </div>
     <div
-      class="ant-pro-basicLayout-layout"
-      style="position:relative;flex:1"
+      class="ant-layout"
+      style="position:relative"
     >
       <header
         class="ant-layout-header"
@@ -1197,8 +1197,8 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
       </div>
     </div>
     <div
-      class="ant-pro-basicLayout-layout"
-      style="position:relative;flex:1"
+      class="ant-layout"
+      style="position:relative"
     >
       <header
         class="ant-layout-header"

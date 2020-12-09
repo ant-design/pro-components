@@ -450,13 +450,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
               }}
             >
               {siderMenuDom}
-              <div
-                style={{
-                  ...genLayoutStyle,
-                  flex: 1,
-                }}
-                className={`${baseClassName}-layout`}
-              >
+              <div style={genLayoutStyle} className={context.getPrefixCls('layout')}>
                 {headerDom}
                 <WrapContent
                   isChildrenLayout={isChildrenLayout}

@@ -200,8 +200,8 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
     style="min-height: 100%;"
   >
     <div
-      class="ant-pro-basicLayout-layout"
-      style="position: relative; flex: 1;"
+      class="ant-layout"
+      style="position: relative;"
     >
       <header
         class="ant-layout-header ant-pro-top-menu"
@@ -374,8 +374,8 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
     style="min-height: 100%;"
   >
     <div
-      class="ant-pro-basicLayout-layout"
-      style="position: relative; flex: 1;"
+      class="ant-layout"
+      style="position: relative;"
     >
       <header
         class="ant-layout-header ant-pro-top-menu"
