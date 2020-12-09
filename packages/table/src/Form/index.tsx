@@ -136,7 +136,7 @@ export const formInputRender: React.FC<{
       ? (itemValueType({}, type) as ProFieldValueType)
       : itemValueType) as ProFieldValueType) || 'text';
 
-  const { onChange, colSize, ...restFieldProps } = item.fieldProps || {};
+  const { colSize } = item.fieldProps || {};
 
   /**
    * 自定义 render
