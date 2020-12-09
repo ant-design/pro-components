@@ -196,12 +196,12 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
   class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-top-menu ant-pro-basicLayout-top"
 >
   <section
-    class="ant-layout ant-layout-has-sider"
+    class="ant-layout"
     style="min-height: 100%;"
   >
-    <section
-      class="ant-layout"
-      style="position: relative;"
+    <div
+      class="ant-pro-basicLayout-layout"
+      style="position: relative; flex: 1;"
     >
       <header
         class="ant-layout-header ant-pro-top-menu"
@@ -302,7 +302,7 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
           </div>
         </div>
       </main>
-    </section>
+    </div>
   </section>
 </div>
 `;
@@ -370,12 +370,12 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
   class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-top-menu ant-pro-basicLayout-top"
 >
   <section
-    class="ant-layout ant-layout-has-sider"
+    class="ant-layout"
     style="min-height: 100%;"
   >
-    <section
-      class="ant-layout"
-      style="position: relative;"
+    <div
+      class="ant-pro-basicLayout-layout"
+      style="position: relative; flex: 1;"
     >
       <header
         class="ant-layout-header ant-pro-top-menu"
@@ -466,7 +466,7 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
           </div>
         </div>
       </main>
-    </section>
+    </div>
   </section>
 </div>
 `;

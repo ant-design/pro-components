@@ -448,10 +448,15 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
                 minHeight: '100%',
                 ...style,
               }}
-              hasSider
             >
               {siderMenuDom}
-              <Layout style={genLayoutStyle}>
+              <div
+                style={{
+                  ...genLayoutStyle,
+                  flex: 1,
+                }}
+                className={`${baseClassName}-layout`}
+              >
                 {headerDom}
                 <WrapContent
                   isChildrenLayout={isChildrenLayout}
@@ -462,7 +467,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
                   {loading ? <PageLoading /> : children}
                 </WrapContent>
                 {footerDom}
-              </Layout>
+              </div>
             </Layout>
           </div>
         )}

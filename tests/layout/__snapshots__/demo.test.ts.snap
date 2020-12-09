@@ -136,9 +136,9 @@ exports[`layout demos renders ./packages/layout/src/demos/BreadcrumbsRepeat.tsx 
           </div>
         </div>
       </aside>
-      <section
-        class="ant-layout"
-        style="position: relative;"
+      <div
+        class="ant-pro-basicLayout-layout"
+        style="position: relative; flex: 1;"
       >
         <header
           class="ant-layout-header"
@@ -288,7 +288,7 @@ exports[`layout demos renders ./packages/layout/src/demos/BreadcrumbsRepeat.tsx 
             </div>
           </div>
         </main>
-      </section>
+      </div>
     </section>
   </div>
 </div>
@@ -632,9 +632,9 @@ exports[`layout demos renders ./packages/layout/src/demos/DefaultOpenAllMenu.tsx
           </div>
         </div>
       </aside>
-      <section
-        class="ant-layout"
-        style="position: relative;"
+      <div
+        class="ant-pro-basicLayout-layout"
+        style="position: relative; flex: 1;"
       >
         <header
           class="ant-layout-header"
@@ -716,7 +716,7 @@ exports[`layout demos renders ./packages/layout/src/demos/DefaultOpenAllMenu.tsx
             </div>
           </div>
         </main>
-      </section>
+      </div>
     </section>
   </div>
 </div>
@@ -896,9 +896,9 @@ exports[`layout demos renders ./packages/layout/src/demos/IconFont.tsx correctly
           </div>
         </div>
       </aside>
-      <section
-        class="ant-layout"
-        style="position: relative;"
+      <div
+        class="ant-pro-basicLayout-layout"
+        style="position: relative; flex: 1;"
       >
         <header
           class="ant-layout-header"
@@ -980,7 +980,7 @@ exports[`layout demos renders ./packages/layout/src/demos/IconFont.tsx correctly
             </div>
           </div>
         </main>
-      </section>
+      </div>
     </section>
   </div>
 </div>
@@ -1255,9 +1255,9 @@ exports[`layout demos renders ./packages/layout/src/demos/MultipleMenuOnePath.ts
           </div>
         </div>
       </aside>
-      <section
-        class="ant-layout"
-        style="position: relative;"
+      <div
+        class="ant-pro-basicLayout-layout"
+        style="position: relative; flex: 1;"
       >
         <header
           class="ant-layout-header"
@@ -1375,7 +1375,7 @@ exports[`layout demos renders ./packages/layout/src/demos/MultipleMenuOnePath.ts
             </div>
           </div>
         </main>
-      </section>
+      </div>
     </section>
   </div>
 </div>
@@ -1523,9 +1523,9 @@ exports[`layout demos renders ./packages/layout/src/demos/Nested.tsx correctly 1
           </div>
         </div>
       </aside>
-      <section
-        class="ant-layout"
-        style="position: relative;"
+      <div
+        class="ant-pro-basicLayout-layout"
+        style="position: relative; flex: 1;"
       >
         <main
           class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-content-disable-margin"
@@ -1671,9 +1671,9 @@ exports[`layout demos renders ./packages/layout/src/demos/Nested.tsx correctly 1
                   </div>
                 </div>
               </aside>
-              <section
-                class="ant-layout"
-                style="position: relative; min-height: 0;"
+              <div
+                class="ant-pro-basicLayout-layout"
+                style="position: relative; min-height: 0; flex: 1;"
               >
                 <header
                   class="ant-layout-header"
@@ -1816,11 +1816,11 @@ exports[`layout demos renders ./packages/layout/src/demos/Nested.tsx correctly 1
                     </div>
                   </div>
                 </main>
-              </section>
+              </div>
             </section>
           </div>
         </main>
-      </section>
+      </div>
     </section>
   </div>
 </div>
@@ -1834,12 +1834,12 @@ exports[`layout demos renders ./packages/layout/src/demos/TopmenuNested.tsx corr
     class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-top-menu ant-pro-basicLayout-top"
   >
     <section
-      class="ant-layout ant-layout-has-sider"
+      class="ant-layout"
       style="min-height: 100%;"
     >
-      <section
-        class="ant-layout"
-        style="position: relative;"
+      <div
+        class="ant-pro-basicLayout-layout"
+        style="position: relative; flex: 1;"
       >
         <header
           class="ant-layout-header ant-pro-top-menu"
@@ -2195,9 +2195,9 @@ exports[`layout demos renders ./packages/layout/src/demos/TopmenuNested.tsx corr
                   </div>
                 </div>
               </aside>
-              <section
-                class="ant-layout"
-                style="position: relative; min-height: 0;"
+              <div
+                class="ant-pro-basicLayout-layout"
+                style="position: relative; min-height: 0; flex: 1;"
               >
                 <header
                   class="ant-layout-header"
@@ -2315,11 +2315,11 @@ exports[`layout demos renders ./packages/layout/src/demos/TopmenuNested.tsx corr
                     </div>
                   </div>
                 </main>
-              </section>
+              </div>
             </section>
           </div>
         </main>
-      </section>
+      </div>
     </section>
   </div>
 </div>
@@ -2476,9 +2476,9 @@ exports[`layout demos renders ./packages/layout/src/demos/antd@4MenuIconFormServ
           </div>
         </div>
       </aside>
-      <section
-        class="ant-layout"
-        style="position: relative;"
+      <div
+        class="ant-pro-basicLayout-layout"
+        style="position: relative; flex: 1;"
       >
         <header
           class="ant-layout-header"
@@ -2562,7 +2562,7 @@ exports[`layout demos renders ./packages/layout/src/demos/antd@4MenuIconFormServ
             </div>
           </div>
         </main>
-      </section>
+      </div>
     </section>
   </div>
 </div>
@@ -2896,9 +2896,9 @@ Array [
           </div>
         </div>
       </aside>
-      <section
-        class="ant-layout"
-        style="position: relative;"
+      <div
+        class="ant-pro-basicLayout-layout"
+        style="position: relative; flex: 1;"
       >
         <header
           class="ant-layout-header"
@@ -3064,7 +3064,7 @@ Array [
             </div>
           </footer>
         </footer>
-      </section>
+      </div>
     </section>
   </div>,
 ]
@@ -3295,9 +3295,9 @@ exports[`layout demos renders ./packages/layout/src/demos/base.tsx correctly 1`]
           </div>
         </div>
       </aside>
-      <section
-        class="ant-layout"
-        style="position: relative;"
+      <div
+        class="ant-pro-basicLayout-layout"
+        style="position: relative; flex: 1;"
       >
         <header
           class="ant-layout-header"
@@ -4115,7 +4115,7 @@ exports[`layout demos renders ./packages/layout/src/demos/base.tsx correctly 1`]
             </div>
           </div>
         </main>
-      </section>
+      </div>
     </section>
   </div>
 </div>
@@ -4343,9 +4343,9 @@ exports[`layout demos renders ./packages/layout/src/demos/config-provider.tsx co
           </div>
         </div>
       </aside>
-      <section
-        class="qixian-layout"
-        style="position: relative;"
+      <div
+        class="qixian-pro-basicLayout-layout"
+        style="position: relative; flex: 1;"
       >
         <header
           class="qixian-layout-header"
@@ -5163,7 +5163,7 @@ exports[`layout demos renders ./packages/layout/src/demos/config-provider.tsx co
             </div>
           </div>
         </main>
-      </section>
+      </div>
     </section>
   </div>
 </div>
@@ -5347,9 +5347,9 @@ exports[`layout demos renders ./packages/layout/src/demos/customize-collapsed.ts
         </div>
       </div>
     </aside>
-    <section
-      class="ant-layout"
-      style="position: relative;"
+    <div
+      class="ant-pro-basicLayout-layout"
+      style="position: relative; flex: 1;"
     >
       <header
         class="ant-layout-header"
@@ -5878,7 +5878,7 @@ exports[`layout demos renders ./packages/layout/src/demos/customize-collapsed.ts
           </div>
         </div>
       </main>
-    </section>
+    </div>
   </section>
 </div>
 `;
@@ -6096,9 +6096,9 @@ exports[`layout demos renders ./packages/layout/src/demos/customizeMenu.tsx corr
           </div>
         </div>
       </aside>
-      <section
-        class="ant-layout"
-        style="position: relative;"
+      <div
+        class="ant-pro-basicLayout-layout"
+        style="position: relative; flex: 1;"
       >
         <header
           class="ant-layout-header"
@@ -6178,7 +6178,7 @@ exports[`layout demos renders ./packages/layout/src/demos/customizeMenu.tsx corr
             </div>
           </div>
         </main>
-      </section>
+      </div>
     </section>
   </div>
 </div>
@@ -6287,9 +6287,9 @@ Array [
           </div>
         </div>
       </aside>
-      <section
-        class="ant-layout"
-        style="position: relative;"
+      <div
+        class="ant-pro-basicLayout-layout"
+        style="position: relative; flex: 1;"
       >
         <header
           class="ant-layout-header"
@@ -6369,7 +6369,7 @@ Array [
             </div>
           </div>
         </main>
-      </section>
+      </div>
     </section>
   </div>,
 ]
@@ -6565,9 +6565,9 @@ exports[`layout demos renders ./packages/layout/src/demos/footer.tsx correctly 1
         </div>
       </div>
     </aside>
-    <section
-      class="ant-layout"
-      style="position: relative;"
+    <div
+      class="ant-pro-basicLayout-layout"
+      style="position: relative; flex: 1;"
     >
       <header
         class="ant-layout-header"
@@ -6699,7 +6699,7 @@ exports[`layout demos renders ./packages/layout/src/demos/footer.tsx correctly 1
           </div>
         </footer>
       </footer>
-    </section>
+    </div>
   </section>
 </div>
 `;
@@ -6906,9 +6906,9 @@ exports[`layout demos renders ./packages/layout/src/demos/ghost.tsx correctly 1`
           </div>
         </div>
       </aside>
-      <section
-        class="ant-layout"
-        style="position: relative;"
+      <div
+        class="ant-pro-basicLayout-layout"
+        style="position: relative; flex: 1;"
       >
         <header
           class="ant-layout-header"
@@ -7147,7 +7147,7 @@ exports[`layout demos renders ./packages/layout/src/demos/ghost.tsx correctly 1`
             </div>
           </div>
         </main>
-      </section>
+      </div>
     </section>
   </div>
 </div>
@@ -7356,9 +7356,9 @@ exports[`layout demos renders ./packages/layout/src/demos/hideMenu.tsx correctly
         </div>
       </aside>
     </div>
-    <section
-      class="ant-layout"
-      style="position: relative;"
+    <div
+      class="ant-pro-basicLayout-layout"
+      style="position: relative; flex: 1;"
     >
       <header
         class="ant-layout-header"
@@ -7438,7 +7438,7 @@ exports[`layout demos renders ./packages/layout/src/demos/hideMenu.tsx correctly
           </div>
         </div>
       </main>
-    </section>
+    </div>
   </section>
 </div>
 `;
@@ -7647,9 +7647,9 @@ exports[`layout demos renders ./packages/layout/src/demos/searchMenu.tsx correct
           </div>
         </div>
       </aside>
-      <section
-        class="ant-layout"
-        style="position: relative;"
+      <div
+        class="ant-pro-basicLayout-layout"
+        style="position: relative; flex: 1;"
       >
         <header
           class="ant-layout-header"
@@ -7767,7 +7767,7 @@ exports[`layout demos renders ./packages/layout/src/demos/searchMenu.tsx correct
             </div>
           </div>
         </main>
-      </section>
+      </div>
     </section>
   </div>
 </div>
@@ -7780,12 +7780,12 @@ Array [
     class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-mix"
   >
     <section
-      class="ant-layout ant-layout-has-sider"
+      class="ant-layout"
       style="min-height: 100%;"
     >
-      <section
-        class="ant-layout"
-        style="position: relative;"
+      <div
+        class="ant-pro-basicLayout-layout"
+        style="position: relative; flex: 1;"
       >
         <header
           class="ant-layout-header"
@@ -8012,36 +8012,36 @@ Array [
         >
           children
         </main>
-      </section>
+      </div>
     </section>
   </div>,
   <div
     class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-mix"
   >
     <section
-      class="ant-layout ant-layout-has-sider"
+      class="ant-layout"
       style="min-height: 100%; height: 100vh;"
     >
-      <section
-        class="ant-layout"
-        style="position: relative;"
+      <div
+        class="ant-pro-basicLayout-layout"
+        style="position: relative; flex: 1;"
       >
         <main
           class="ant-layout-content ant-pro-basicLayout-content"
         />
-      </section>
+      </div>
     </section>
   </div>,
   <div
     class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-mix"
   >
     <section
-      class="ant-layout ant-layout-has-sider"
+      class="ant-layout"
       style="min-height: 100%; height: 100vh;"
     >
-      <section
-        class="ant-layout"
-        style="position: relative;"
+      <div
+        class="ant-pro-basicLayout-layout"
+        style="position: relative; flex: 1;"
       >
         <header
           class="ant-layout-header"
@@ -8266,7 +8266,7 @@ Array [
         <main
           class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
         />
-      </section>
+      </div>
     </section>
   </div>,
   <div
@@ -8456,9 +8456,9 @@ Array [
           </div>
         </div>
       </aside>
-      <section
-        class="ant-layout"
-        style="position: relative;"
+      <div
+        class="ant-pro-basicLayout-layout"
+        style="position: relative; flex: 1;"
       >
         <header
           class="ant-layout-header"
@@ -8683,7 +8683,7 @@ Array [
         <main
           class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
         />
-      </section>
+      </div>
     </section>
   </div>,
   <div
