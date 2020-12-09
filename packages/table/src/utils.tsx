@@ -482,6 +482,7 @@ export const getFieldPropsOrFormItemProps = (
   extraProps?: any,
 ): Object & {
   onChange: any;
+  colSize: number;
 } => {
   if (typeof fieldProps === 'function') {
     return fieldProps(form, extraProps);

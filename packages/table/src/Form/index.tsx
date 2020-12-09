@@ -136,7 +136,11 @@ export const formInputRender: React.FC<{
       ? (itemValueType({}, type) as ProFieldValueType)
       : itemValueType) as ProFieldValueType) || 'text';
 
-  const { colSize } = item.fieldProps || {};
+  const { onChange, colSize, ...restFieldProps } = getFieldPropsOrFormItemProps(
+    item.fieldProps || {},
+    form,
+    item,
+  );
 
   /**
    * 自定义 render
@@ -194,12 +198,6 @@ export const formInputRender: React.FC<{
       </ProFormField>
     );
   }
-
-  const { onChange, ...restFieldProps } = getFieldPropsOrFormItemProps(
-    item.fieldProps || {},
-    form,
-    item,
-  );
 
   const finalValueType =
     !valueType || (['textarea', 'jsonCode', 'code'].includes(valueType) && type === 'table')
