@@ -136,6 +136,12 @@ export const formInputRender: React.FC<{
       ? (itemValueType({}, type) as ProFieldValueType)
       : itemValueType) as ProFieldValueType) || 'text';
 
+  const { onChange, colSize, ...restFieldProps } = getFieldPropsOrFormItemProps(
+    item.fieldProps || {},
+    form,
+    item,
+  ) as any; 
+
   /**
    * 自定义 render
    */
@@ -186,17 +192,12 @@ export const formInputRender: React.FC<{
           ...item.fieldProps,
         }}
         formItemProps={formItemProps}
+        colSize={colSize}
       >
         {React.cloneElement(dom, { ...rest, ...defaultProps })}
       </ProFormField>
     );
   }
-
-  const { onChange, ...restFieldProps } = getFieldPropsOrFormItemProps(
-    item.fieldProps || {},
-    form,
-    item,
-  );
 
   const finalValueType =
     !valueType || (['textarea', 'jsonCode', 'code'].includes(valueType) && type === 'table')
@@ -227,6 +228,7 @@ export const formInputRender: React.FC<{
       }}
       rules={undefined}
       key={`${item.dataIndex || ''}-${item.key || ''}-${item.index}`}
+      colSize={colSize}
     />
   );
 };
