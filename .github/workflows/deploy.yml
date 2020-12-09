@@ -1,7 +1,8 @@
 name: Deploy CI
 
 on:
-  push:
+  release:
+    types: [published]
     branches:
       - master
 
