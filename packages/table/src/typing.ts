@@ -3,7 +3,7 @@
   ProFieldValueObjectType,
   ProFieldValueType,
 } from '@ant-design/pro-field';
-import { ProFormProps } from '@ant-design/pro-form';
+import { ProFormProps, QueryFilterProps } from '@ant-design/pro-form';
 import { ParamsType } from '@ant-design/pro-provider';
 import {
   ProCoreActionType,
@@ -274,7 +274,7 @@ export interface ProTableProps<T, U extends ParamsType>
    * @name type="form" 和 搜索表单 的 Form 配置
    * @description 基本配置与 antd Form 相同, 但是劫持了 form 的配置
    */
-  form?: Omit<ProFormProps, 'form'>;
+  form?: Omit<ProFormProps & QueryFilterProps, 'form'>;
   /**
    * @name 如何格式化日期
    * @description 暂时只支持 moment
