@@ -137,8 +137,8 @@ exports[`layout demos renders ./packages/layout/src/demos/BreadcrumbsRepeat.tsx 
         </div>
       </aside>
       <div
-        class="ant-pro-basicLayout-layout"
-        style="position: relative; flex: 1;"
+        class="ant-layout"
+        style="position: relative;"
       >
         <header
           class="ant-layout-header"
@@ -633,8 +633,8 @@ exports[`layout demos renders ./packages/layout/src/demos/DefaultOpenAllMenu.tsx
         </div>
       </aside>
       <div
-        class="ant-pro-basicLayout-layout"
-        style="position: relative; flex: 1;"
+        class="ant-layout"
+        style="position: relative;"
       >
         <header
           class="ant-layout-header"
@@ -897,8 +897,8 @@ exports[`layout demos renders ./packages/layout/src/demos/IconFont.tsx correctly
         </div>
       </aside>
       <div
-        class="ant-pro-basicLayout-layout"
-        style="position: relative; flex: 1;"
+        class="ant-layout"
+        style="position: relative;"
       >
         <header
           class="ant-layout-header"
@@ -1256,8 +1256,8 @@ exports[`layout demos renders ./packages/layout/src/demos/MultipleMenuOnePath.ts
         </div>
       </aside>
       <div
-        class="ant-pro-basicLayout-layout"
-        style="position: relative; flex: 1;"
+        class="ant-layout"
+        style="position: relative;"
       >
         <header
           class="ant-layout-header"
@@ -1524,8 +1524,8 @@ exports[`layout demos renders ./packages/layout/src/demos/Nested.tsx correctly 1
         </div>
       </aside>
       <div
-        class="ant-pro-basicLayout-layout"
-        style="position: relative; flex: 1;"
+        class="ant-layout"
+        style="position: relative;"
       >
         <main
           class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-content-disable-margin"
@@ -1672,8 +1672,8 @@ exports[`layout demos renders ./packages/layout/src/demos/Nested.tsx correctly 1
                 </div>
               </aside>
               <div
-                class="ant-pro-basicLayout-layout"
-                style="position: relative; min-height: 0; flex: 1;"
+                class="ant-layout"
+                style="position: relative; min-height: 0;"
               >
                 <header
                   class="ant-layout-header"
@@ -1838,8 +1838,8 @@ exports[`layout demos renders ./packages/layout/src/demos/TopmenuNested.tsx corr
       style="min-height: 100%;"
     >
       <div
-        class="ant-pro-basicLayout-layout"
-        style="position: relative; flex: 1;"
+        class="ant-layout"
+        style="position: relative;"
       >
         <header
           class="ant-layout-header ant-pro-top-menu"
@@ -2196,8 +2196,8 @@ exports[`layout demos renders ./packages/layout/src/demos/TopmenuNested.tsx corr
                 </div>
               </aside>
               <div
-                class="ant-pro-basicLayout-layout"
-                style="position: relative; min-height: 0; flex: 1;"
+                class="ant-layout"
+                style="position: relative; min-height: 0;"
               >
                 <header
                   class="ant-layout-header"
@@ -2477,8 +2477,8 @@ exports[`layout demos renders ./packages/layout/src/demos/antd@4MenuIconFormServ
         </div>
       </aside>
       <div
-        class="ant-pro-basicLayout-layout"
-        style="position: relative; flex: 1;"
+        class="ant-layout"
+        style="position: relative;"
       >
         <header
           class="ant-layout-header"
@@ -2897,8 +2897,8 @@ Array [
         </div>
       </aside>
       <div
-        class="ant-pro-basicLayout-layout"
-        style="position: relative; flex: 1;"
+        class="ant-layout"
+        style="position: relative;"
       >
         <header
           class="ant-layout-header"
@@ -3296,8 +3296,8 @@ exports[`layout demos renders ./packages/layout/src/demos/base.tsx correctly 1`]
         </div>
       </aside>
       <div
-        class="ant-pro-basicLayout-layout"
-        style="position: relative; flex: 1;"
+        class="ant-layout"
+        style="position: relative;"
       >
         <header
           class="ant-layout-header"
@@ -4344,8 +4344,8 @@ exports[`layout demos renders ./packages/layout/src/demos/config-provider.tsx co
         </div>
       </aside>
       <div
-        class="qixian-pro-basicLayout-layout"
-        style="position: relative; flex: 1;"
+        class="qixian-layout"
+        style="position: relative;"
       >
         <header
           class="qixian-layout-header"
@@ -5348,8 +5348,8 @@ exports[`layout demos renders ./packages/layout/src/demos/customize-collapsed.ts
       </div>
     </aside>
     <div
-      class="ant-pro-basicLayout-layout"
-      style="position: relative; flex: 1;"
+      class="ant-layout"
+      style="position: relative;"
     >
       <header
         class="ant-layout-header"
@@ -6097,8 +6097,8 @@ exports[`layout demos renders ./packages/layout/src/demos/customizeMenu.tsx corr
         </div>
       </aside>
       <div
-        class="ant-pro-basicLayout-layout"
-        style="position: relative; flex: 1;"
+        class="ant-layout"
+        style="position: relative;"
       >
         <header
           class="ant-layout-header"
@@ -6288,8 +6288,8 @@ Array [
         </div>
       </aside>
       <div
-        class="ant-pro-basicLayout-layout"
-        style="position: relative; flex: 1;"
+        class="ant-layout"
+        style="position: relative;"
       >
         <header
           class="ant-layout-header"
@@ -6566,8 +6566,8 @@ exports[`layout demos renders ./packages/layout/src/demos/footer.tsx correctly 1
       </div>
     </aside>
     <div
-      class="ant-pro-basicLayout-layout"
-      style="position: relative; flex: 1;"
+      class="ant-layout"
+      style="position: relative;"
     >
       <header
         class="ant-layout-header"
@@ -6907,8 +6907,8 @@ exports[`layout demos renders ./packages/layout/src/demos/ghost.tsx correctly 1`
         </div>
       </aside>
       <div
-        class="ant-pro-basicLayout-layout"
-        style="position: relative; flex: 1;"
+        class="ant-layout"
+        style="position: relative;"
       >
         <header
           class="ant-layout-header"
@@ -7357,8 +7357,8 @@ exports[`layout demos renders ./packages/layout/src/demos/hideMenu.tsx correctly
       </aside>
     </div>
     <div
-      class="ant-pro-basicLayout-layout"
-      style="position: relative; flex: 1;"
+      class="ant-layout"
+      style="position: relative;"
     >
       <header
         class="ant-layout-header"
@@ -7648,8 +7648,8 @@ exports[`layout demos renders ./packages/layout/src/demos/searchMenu.tsx correct
         </div>
       </aside>
       <div
-        class="ant-pro-basicLayout-layout"
-        style="position: relative; flex: 1;"
+        class="ant-layout"
+        style="position: relative;"
       >
         <header
           class="ant-layout-header"
@@ -7784,8 +7784,8 @@ Array [
       style="min-height: 100%;"
     >
       <div
-        class="ant-pro-basicLayout-layout"
-        style="position: relative; flex: 1;"
+        class="ant-layout"
+        style="position: relative;"
       >
         <header
           class="ant-layout-header"
@@ -8023,8 +8023,8 @@ Array [
       style="min-height: 100%; height: 100vh;"
     >
       <div
-        class="ant-pro-basicLayout-layout"
-        style="position: relative; flex: 1;"
+        class="ant-layout"
+        style="position: relative;"
       >
         <main
           class="ant-layout-content ant-pro-basicLayout-content"
@@ -8040,8 +8040,8 @@ Array [
       style="min-height: 100%; height: 100vh;"
     >
       <div
-        class="ant-pro-basicLayout-layout"
-        style="position: relative; flex: 1;"
+        class="ant-layout"
+        style="position: relative;"
       >
         <header
           class="ant-layout-header"
@@ -8457,8 +8457,8 @@ Array [
         </div>
       </aside>
       <div
-        class="ant-pro-basicLayout-layout"
-        style="position: relative; flex: 1;"
+        class="ant-layout"
+        style="position: relative;"
       >
         <header
           class="ant-layout-header"
