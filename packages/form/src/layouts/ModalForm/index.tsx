@@ -5,9 +5,9 @@ import { ModalProps } from 'antd/lib/modal';
 import { Store } from 'antd/lib/form/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'omit.js';
+import { createPortal } from 'react-dom';
 
 import BaseForm, { CommonFormProps } from '../../BaseForm';
-import { createPortal } from 'react-dom';
 
 export type ModalFormProps = Omit<FormProps, 'onFinish'> &
   CommonFormProps & {
@@ -126,7 +126,7 @@ const ModalForm: React.FC<ModalFormProps> = ({
             {children}
           </BaseForm>
         </div>,
-        document.body,
+        context?.getPopupContainer?.(document.body) || document.body,
       )}
       {trigger &&
         React.cloneElement(trigger, {
