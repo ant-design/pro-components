@@ -1,6 +1,10 @@
 import React from 'react';
 import { Form } from 'antd';
-import ProField, { ProFieldEmptyText, ProFieldValueType } from '@ant-design/pro-field';
+import ProField, {
+  ProFieldEmptyText,
+  ProFieldPropsType,
+  ProFieldValueType,
+} from '@ant-design/pro-field';
 import { ProSchemaComponentTypes } from '@ant-design/pro-utils';
 import { FormInstance } from 'antd/lib/form/Form';
 
@@ -62,12 +66,56 @@ function defaultRenderText<T>(config: {
     });
   }
 
-  // 如果是编辑模式，需要用 Form.Item 包一下
-  if (config.mode === 'edit') {
+  /**
+   * 生成公用的  proField dom 配置
+   */
+  const proFieldProps: ProFieldPropsType = {
+    valueEnum: columnProps?.valueEnum,
+    request: columnProps?.request,
+    params: columnProps?.params,
+    proFieldKey: columnProps?.dataIndex?.toString() || columnProps?.key,
+    text: valueType === 'index' || valueType === 'indexBorder' ? config.index : text,
+    mode: config.mode,
+    emptyText: config.columnEmptyText,
+    renderFormItem: undefined,
+    valueType: valueType as ProFieldValueType,
+  };
+
+  if (config.mode !== 'edit') {
     return (
-      <Form.Item shouldUpdate noStyle>
-        {(form) => {
-          const dom = (
+      <ProField
+        fieldProps={getFieldPropsOrFormItemProps(columnProps?.fieldProps, undefined, columnProps)}
+        {...proFieldProps}
+      />
+    );
+  }
+
+  // 如果是编辑模式，需要用 Form.Item 包一下
+  return (
+    <Form.Item shouldUpdate noStyle>
+      {(form) => {
+        /**
+         * 获取 formItemProps Props
+         */
+        const formItemProps = getFieldPropsOrFormItemProps(
+          columnProps?.formItemProps,
+          form as FormInstance,
+          {
+            rowKey: config.recordKey || config.index,
+            ...columnProps,
+            isEditable: true,
+          },
+        );
+
+        const inputDom = (
+          <InlineErrorFormItem
+            initialValue={text}
+            name={spellNamePath(
+              config.recordKey || config.index,
+              columnProps?.key || columnProps?.dataIndex || config.index,
+            )}
+            {...formItemProps}
+          >
             <ProField
               fieldProps={getFieldPropsOrFormItemProps(
                 columnProps?.fieldProps,
@@ -78,26 +126,24 @@ function defaultRenderText<T>(config: {
                   isEditable: true,
                 },
               )}
-              valueEnum={columnProps?.valueEnum}
-              request={columnProps?.request}
-              params={columnProps?.params}
-              proFieldKey={columnProps?.dataIndex?.toString() || columnProps?.key}
-              text={valueType === 'index' || valueType === 'indexBorder' ? config.index : text}
-              mode={config.mode}
-              emptyText={config.columnEmptyText}
-              render={undefined}
-              renderFormItem={undefined}
-              valueType={valueType as ProFieldValueType}
+              {...proFieldProps}
             />
-          );
-          const formItemProps = getFieldPropsOrFormItemProps(
-            columnProps?.formItemProps,
-            form as FormInstance,
+          </InlineErrorFormItem>
+        );
+        /**
+         * renderFormItem 需要被自定义
+         */
+        if (columnProps?.renderFormItem) {
+          const renderDom = columnProps.renderFormItem?.(
             {
-              rowKey: config.recordKey || config.index,
               ...columnProps,
               isEditable: true,
             },
+            {
+              defaultRender: () => inputDom,
+              type: 'form',
+            },
+            form as any,
           );
           return (
             <InlineErrorFormItem
@@ -108,29 +154,14 @@ function defaultRenderText<T>(config: {
               )}
               {...formItemProps}
             >
-              {dom}
+              {renderDom}
             </InlineErrorFormItem>
           );
-        }}
-      </Form.Item>
-    );
-  }
-  const dom = (
-    <ProField
-      {...getFieldPropsOrFormItemProps(columnProps?.fieldProps, undefined, columnProps)}
-      valueEnum={columnProps?.valueEnum}
-      request={columnProps?.request}
-      params={columnProps?.params}
-      proFieldKey={columnProps?.dataIndex?.toString() || columnProps?.key}
-      text={valueType === 'index' || valueType === 'indexBorder' ? config.index : text}
-      mode={config.mode}
-      emptyText={config.columnEmptyText}
-      render={undefined}
-      renderFormItem={undefined}
-      valueType={valueType as ProFieldValueType}
-    />
+        }
+        return inputDom;
+      }}
+    </Form.Item>
   );
-  return dom;
 }
 
 export default defaultRenderText;

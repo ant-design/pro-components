@@ -18,19 +18,16 @@ type ActionType = {
   reload: () => void;
 };
 
-export type ProDescriptionsItemProps<T = {}> = Omit<
-  ProSchema<
-    T,
-    ProFieldValueType | ProFieldValueObjectType,
-    Omit<DescriptionsItemProps, 'children'> & {
-      // 隐藏这个字段，是个语法糖，方便一下权限的控制
-      hide?: boolean;
-      plain?: boolean;
-      mode?: ProFieldFCMode;
-      children?: React.ReactNode;
-    }
-  >,
-  'renderFormItem'
+export type ProDescriptionsItemProps<T = {}> = ProSchema<
+  T,
+  ProFieldValueType | ProFieldValueObjectType,
+  Omit<DescriptionsItemProps, 'children'> & {
+    // 隐藏这个字段，是个语法糖，方便一下权限的控制
+    hide?: boolean;
+    plain?: boolean;
+    mode?: ProFieldFCMode;
+    children?: React.ReactNode;
+  }
 >;
 
 export type ProDescriptionsProps<T = {}> = DescriptionsProps & {
