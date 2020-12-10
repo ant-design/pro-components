@@ -1,4 +1,5 @@
 ﻿import React, { useCallback, useMemo, useRef, useState } from 'react';
+import { useIntl } from '@ant-design/pro-provider';
 import { GetRowKey } from 'antd/lib/table/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { FormInstance } from 'antd/lib/form';
@@ -195,6 +196,7 @@ const SaveEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
   newLineConfig,
 }) => {
   const [loading, setLoading] = useState<boolean>(false);
+  const intl = useIntl();
   return (
     <a
       key="save"
@@ -226,7 +228,7 @@ const SaveEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
           }}
         />
       ) : null}
-      保存
+      {intl.getMessage('save', '保存')}
     </a>
   );
 };
@@ -243,6 +245,7 @@ const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
   cancelEditable,
 }) => {
   const [loading, setLoading] = useState<boolean>(false);
+  const intl = useIntl();
   const onConfirm = async () => {
     try {
       setLoading(true);
@@ -266,17 +269,16 @@ const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
             }}
           />
         ) : null}
-        删除
+        {intl.getMessage('save', '删除')}
       </a>
     </Popconfirm>
   );
 };
 
-const defaultActionRender: ActionRenderFunction<any> = (row, config) => {
+const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (row, config) => {
   const { recordKey, newLineConfig, form, onCancel, cancelEditable } = config;
-  return [
-    <SaveEditableAction key="save" {...config} row={row} />,
-    !newLineConfig && <DeleteEditableAction key="delete" {...config} row={row} />,
+  const intl = useIntl();
+  return (
     <a
       key="cancel"
       onClick={async () => {
@@ -286,8 +288,17 @@ const defaultActionRender: ActionRenderFunction<any> = (row, config) => {
         cancelEditable(recordKey);
       }}
     >
-      取消
-    </a>,
+      {intl.getMessage('save', '取消')}
+    </a>
+  );
+};
+
+const defaultActionRender: ActionRenderFunction<any> = (row, config) => {
+  const { newLineConfig } = config;
+  return [
+    <SaveEditableAction key="save" {...config} row={row} />,
+    !newLineConfig && <DeleteEditableAction key="delete" {...config} row={row} />,
+    <CancelEditableAction key="delete" {...config} row={row} />,
   ];
 };
 

@@ -1,5 +1,9 @@
 export default {
   moneySymbol: '￥',
+  save: '保存',
+  delete: '删除',
+  cancel: '取消',
+  add: '添加',
   tableForm: {
     search: '查詢',
     reset: '重置',

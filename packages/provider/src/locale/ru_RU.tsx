@@ -1,5 +1,9 @@
 export default {
   moneySymbol: '₽',
+  save: 'спасти',
+  delete: 'удалять',
+  cancel: 'Отмена',
+  add: 'добавить в',
   tableForm: {
     search: 'Найти',
     reset: 'Сброс',

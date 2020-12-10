@@ -1,5 +1,9 @@
 export default {
   moneySymbol: '$',
+  save: 'حفظ',
+  delete: 'حذف',
+  cancel: 'إلغاء',
+  add: 'اضف إليه',
   form: {
     lightFilter: {
       more: 'المزيد',

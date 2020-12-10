@@ -1,5 +1,9 @@
 export default {
   moneySymbol: '€',
+  save: 'salvar',
+  delete: 'Eliminar',
+  cancel: 'cancelar',
+  add: 'añadir',
   tableForm: {
     search: 'Buscar',
     reset: 'Limpiar',
