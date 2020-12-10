@@ -1,5 +1,9 @@
 export default {
   moneySymbol: 'RM',
+  save: 'berjimat',
+  delete: 'padam',
+  cancel: 'membatalkan',
+  add: 'Tambah ke',
   tableForm: {
     search: 'Cari',
     reset: 'Menetapkan semula',

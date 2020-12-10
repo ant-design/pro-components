@@ -1,5 +1,9 @@
 export default {
   moneySymbol: '₫',
+  save: 'tiết kiệm',
+  delete: 'xóa bỏ',
+  cancel: 'hủy bỏ',
+  add: 'Thêm vào',
   tableForm: {
     search: 'Tìm kiếm',
     reset: 'Làm lại',
