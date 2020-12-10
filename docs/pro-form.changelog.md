@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.9.0
+
+`2020-12-10`
+
+- 💥 feat(form): support getPopupContainer [#1251](https://github.com/ant-design/pro-components/pull/1251) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-form@1.8.1
 
 `2020-12-09`
