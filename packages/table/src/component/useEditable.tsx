@@ -269,7 +269,7 @@ const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
             }}
           />
         ) : null}
-        {intl.getMessage('save', '删除')}
+        {intl.getMessage('delete', '删除')}
       </a>
     </Popconfirm>
   );
@@ -288,7 +288,7 @@ const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
         cancelEditable(recordKey);
       }}
     >
-      {intl.getMessage('save', '取消')}
+      {intl.getMessage('cancel', '取消')}
     </a>
   );
 };
