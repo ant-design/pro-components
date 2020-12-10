@@ -8,6 +8,7 @@ import {
   omitUndefinedAndEmptyArr,
   ProSchemaComponentTypes,
   ProTableEditableFnType,
+  UseEditableUtilType,
 } from '@ant-design/pro-utils';
 import {
   ProFieldEmptyText,
@@ -27,7 +28,6 @@ import {
 } from './typing';
 import { ColumnsState, useCounter } from './container';
 import defaultRenderText from './defaultRender';
-import { UseEditableUtilType } from './component/useEditable';
 
 /**
  * 检查值是否存在

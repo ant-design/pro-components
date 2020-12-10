@@ -1,20 +1,27 @@
 import React, { useEffect } from 'react';
-import { Descriptions, Space } from 'antd';
+import { Descriptions, Space, Form } from 'antd';
+import { EditOutlined, CloseOutlined, CheckOutlined } from '@ant-design/icons';
 import toArray from 'rc-util/lib/Children/toArray';
-import Field, {
-  ProFieldValueType,
-  ProFieldFCMode,
-  ProFieldValueObjectType,
-} from '@ant-design/pro-field';
-import { LabelIconTip, ProSchema } from '@ant-design/pro-utils';
+import ProForm, { ProFormField } from '@ant-design/pro-form';
+import { ProFieldValueType, ProFieldFCMode, ProFieldValueObjectType } from '@ant-design/pro-field';
+import {
+  InlineErrorFormItem,
+  LabelIconTip,
+  ProSchema,
+  RowEditableConfig,
+  useEditableMap,
+  UseEditableMapUtilType,
+} from '@ant-design/pro-utils';
 import get from 'rc-util/lib/utils/get';
 import { stringify } from 'use-json-comparison';
 import ProSkeleton from '@ant-design/pro-skeleton';
+import { GetRowKey } from 'antd/lib/table/interface';
+import { FormInstance, FormProps } from 'antd/lib/form';
 import { DescriptionsItemProps } from 'antd/lib/descriptions/Item';
 import { DescriptionsProps } from 'antd/lib/descriptions';
 import useFetchData, { RequestData } from './useFetchData';
 
-type ActionType = {
+export type ActionType = {
   reload: () => void;
 };
 
@@ -30,7 +37,7 @@ export type ProDescriptionsItemProps<T = {}> = ProSchema<
   }
 >;
 
-export type ProDescriptionsProps<T = {}> = DescriptionsProps & {
+export type ProDescriptionsProps<RecordType = {}> = DescriptionsProps & {
   /**
    * params 参数
    * params 改变的时候会触发 reload
@@ -45,7 +52,7 @@ export type ProDescriptionsProps<T = {}> = DescriptionsProps & {
    */
   request?: (params: { [key: string]: any }) => Promise<RequestData>;
 
-  columns?: ProDescriptionsItemProps<T>[];
+  columns?: ProDescriptionsItemProps<RecordType>[];
 
   /**
    * 一些简单的操作
@@ -59,8 +66,31 @@ export type ProDescriptionsProps<T = {}> = DescriptionsProps & {
    * @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一
    */
   tip?: string;
+  /**
+   * form props 的相关配置
+   */
+  formProps?: FormProps;
+  /**
+   * @name 编辑相关的配置
+   */
+  editable?: RowEditableConfig<RecordType>;
+  /**
+   * 默认的数据源
+   */
+  dataSource?: RecordType;
+  /**
+   * 受控数据源改变
+   */
+  onDataSourceChange?: (value: RecordType) => void;
+
+  rowKey?: GetRowKey<RecordType>;
 };
 
+/**
+ * 根据 dataIndex 获取值，支持 dataIndex 为数组
+ * @param item
+ * @param entity
+ */
 const getDataFromConfig = (item: ProDescriptionsItemProps, entity: any) => {
   const { dataIndex } = item;
   if (dataIndex) {
@@ -75,10 +105,91 @@ const getDataFromConfig = (item: ProDescriptionsItemProps, entity: any) => {
   return item.children as string;
 };
 
+/**
+ * 这里会处理编辑的功能
+ * @param props
+ */
+export const FieldRender: React.FC<
+  ProDescriptionsItemProps<any> & {
+    text: any;
+    valueType: ProFieldValueType;
+    entity: any;
+    action: ActionType;
+    index: number;
+    editableUtils?: UseEditableMapUtilType;
+  }
+> = (props) => {
+  const {
+    valueEnum,
+    action,
+    index,
+    text,
+    entity,
+    mode,
+    render,
+    editableUtils,
+    valueType,
+    plain,
+    dataIndex,
+    request,
+    params,
+  } = props;
+
+  const field = (
+    <ProFormField
+      // @ts-ignore
+      text={text}
+      fieldProps={{
+        value: text,
+      }}
+      valueEnum={valueEnum}
+      mode={mode || 'read'}
+      render={() =>
+        render?.(text, entity, index, action, {
+          ...props,
+        })
+      }
+      ignoreFormItem
+      valueType={valueType}
+      plain={plain}
+      request={request}
+      params={params}
+    />
+  );
+  if (mode === 'read' || !mode) {
+    return field;
+  }
+  return (
+    <Space
+      style={{
+        margin: '-5px 0',
+        position: 'absolute',
+      }}
+    >
+      <InlineErrorFormItem initialValue={text} name={dataIndex}>
+        {field}
+      </InlineErrorFormItem>
+
+      <Form.Item noStyle shouldUpdate>
+        {(form) => (
+          <Space>
+            {editableUtils?.actionRender?.(dataIndex || index, form as FormInstance<any>, {
+              cancelText: <CloseOutlined />,
+              saveText: <CheckOutlined />,
+              deleteText: false,
+            })}
+          </Space>
+        )}
+      </Form.Item>
+    </Space>
+  );
+};
+
 const conversionProProSchemaToDescriptionsItem = (
   items: ProDescriptionsItemProps<any>[],
   entity: any,
   action: ActionType,
+  editableUtils?: UseEditableMapUtilType,
 ) => {
   const options: JSX.Element[] = [];
   // 因为 Descriptions 只是个语法糖，children 是不会执行的，所以需要这里处理一下
@@ -112,6 +223,11 @@ const conversionProProSchemaToDescriptionsItem = (
         ? (restItem.valueType(entity || {}, 'descriptions') as ProFieldValueType)
         : (restItem.valueType as ProFieldValueType);
 
+    const isEditable = editableUtils?.isEditable(dataIndex || index);
+
+    const fieldMode = mode || isEditable ? 'edit' : 'read';
+    const showEditIcon = editableUtils && fieldMode === 'read';
+    const Component = showEditIcon ? Space : React.Fragment;
     const field = (
       <Descriptions.Item
         {...restItem}
@@ -123,28 +239,25 @@ const conversionProProSchemaToDescriptionsItem = (
           />
         }
       >
-        <Field
-          valueEnum={valueEnum}
-          mode={mode || 'read'}
-          render={
-            // 虽然有点丑，但是不用自己拼类型了
-            render
-              ? (_, props, dom) => (
-                  <React.Fragment>
-                    {render(dom, entity, index, action, {
-                      ...item,
-                      ...props,
-                    })}
-                  </React.Fragment>
-                )
-              : undefined
-          }
-          valueType={valueType}
-          plain={plain}
-          text={text}
-          request={request}
-          params={request}
-        />
+        <Component>
+          <FieldRender
+            {...item}
+            mode={fieldMode}
+            text={text}
+            valueType={valueType}
+            entity={entity}
+            index={index}
+            action={action}
+            editableUtils={editableUtils}
+          />
+          {showEditIcon && (
+            <EditOutlined
+              onClick={() => {
+                editableUtils?.startEditable(dataIndex || index);
+              }}
+            />
+          )}
+        </Component>
       </Descriptions.Item>
     );
     // 如果类型是 option 自动放到右上角
@@ -164,8 +277,19 @@ const ProDescriptionsItem: React.FC<ProDescriptionsItemProps> = (props) => {
   return <Descriptions.Item {...props}>{props.children}</Descriptions.Item>;
 };
 
-const ProDescriptions = <T extends {}>(props: ProDescriptionsProps<T>) => {
-  const { request, columns, params = {}, actionRef, onRequestError, ...rest } = props;
+const ProDescriptions = <RecordType extends {}>(props: ProDescriptionsProps<RecordType>) => {
+  const {
+    request,
+    columns,
+    params = {},
+    dataSource,
+    onDataSourceChange,
+    formProps,
+    editable,
+    actionRef,
+    onRequestError,
+    ...rest
+  } = props;
 
   const action = useFetchData<RequestData>(
     async () => {
@@ -176,8 +300,26 @@ const ProDescriptions = <T extends {}>(props: ProDescriptionsProps<T>) => {
       onRequestError,
       effects: [stringify(params)],
       manual: !request,
+      dataSource,
+      onDataSourceChange,
     },
   );
+
+  const getRowKey = React.useMemo<GetRowKey<RecordType>>((): GetRowKey<RecordType> => {
+    return (_: RecordType, index?: number) => {
+      return `${index}`;
+    };
+  }, []);
+  /*
+   * 可编辑行的相关配置
+   */
+  const editableUtils = useEditableMap<any>({
+    ...props.editable,
+    getRowKey,
+    childrenColumnName: undefined,
+    dataSource: [action.dataSource],
+    setDataSource: action.setDataSource,
+  });
 
   /**
    * 支持 reload 的功能
@@ -193,8 +335,6 @@ const ProDescriptions = <T extends {}>(props: ProDescriptionsProps<T>) => {
   if (action.loading || (action.loading === undefined && request)) {
     return <ProSkeleton type="descriptions" list={false} pageHeader={false} />;
   }
-
-  const { dataSource = {} } = action;
 
   const getColumns = () => {
     // 因为 Descriptions 只是个语法糖，children 是不会执行的，所以需要这里处理一下
@@ -221,26 +361,34 @@ const ProDescriptions = <T extends {}>(props: ProDescriptionsProps<T>) => {
 
   const { options, children } = conversionProProSchemaToDescriptionsItem(
     getColumns(),
-    dataSource,
+    action.dataSource,
     actionRef?.current || action,
+    editable ? editableUtils : undefined,
   );
   return (
-    <Descriptions
-      {...rest}
-      extra={
-        rest.extra ? (
-          <Space>
-            {options}
-            {rest.extra}
-          </Space>
-        ) : (
-          options
-        )
-      }
-      title={<LabelIconTip label={rest.title} tooltip={rest.tooltip || rest.tip} />}
+    <ProForm
+      component={false}
+      submitter={false}
+      {...formProps}
+      onFinish={async (formData) => formProps?.onFinish?.(formData)}
     >
-      {children}
-    </Descriptions>
+      <Descriptions
+        {...rest}
+        extra={
+          rest.extra ? (
+            <Space>
+              {options}
+              {rest.extra}
+            </Space>
+          ) : (
+            options
+          )
+        }
+        title={<LabelIconTip label={rest.title} tooltip={rest.tooltip || rest.tip} />}
+      >
+        {children}
+      </Descriptions>
+    </ProForm>
   );
 };
 

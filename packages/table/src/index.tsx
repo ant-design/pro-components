@@ -17,6 +17,8 @@ import {
   frFRIntl,
   ptBRIntl,
 } from '@ant-design/pro-provider';
+import { RowEditableConfig } from '@ant-design/pro-utils';
+
 import { FieldStatus, ProFieldValueType, FieldIndexColumn } from '@ant-design/pro-field';
 import ProTable from './Table';
 import TableDropdown from './component/Dropdown';
@@ -27,9 +29,9 @@ import defaultRenderText from './defaultRender';
 import { ColumnsState } from './container';
 import { ActionType, ProColumns, ProColumnType, ProTableProps, RequestData } from './typing';
 import EditableProTable from './EditableTable';
-import { TableRowEditable } from './component/useEditable';
 
 type ProColumnsValueType = ProFieldValueType;
+type TableRowEditable<T> = RowEditableConfig<T>;
 
 export type {
   ProTableProps,

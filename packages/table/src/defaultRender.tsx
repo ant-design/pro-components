@@ -5,11 +5,10 @@ import ProField, {
   ProFieldPropsType,
   ProFieldValueType,
 } from '@ant-design/pro-field';
-import { ProSchemaComponentTypes } from '@ant-design/pro-utils';
+import { InlineErrorFormItem, ProSchemaComponentTypes } from '@ant-design/pro-utils';
 import { FormInstance } from 'antd/lib/form/Form';
 
 import { ProColumnType } from './index';
-import InlineErrorFormItem from './component/InlineErrorFormItem';
 import { getFieldPropsOrFormItemProps } from './utils';
 
 const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];

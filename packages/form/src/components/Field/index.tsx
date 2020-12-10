@@ -12,9 +12,11 @@ export type ProFormFieldProps = ProSchema<
   string,
   ProFieldValueType,
   ProFormItemProps<InputProps & SelectProps<string>> & {
+    mode?: 'edit' | 'read' | 'update';
     // 用来判断是不是被嵌套渲染的 dom
     isDefaultDom?: boolean;
     ref?: any;
+    plain?: boolean;
   }
 >;
 /**

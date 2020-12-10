@@ -11,6 +11,8 @@ import {
   ProSchemaComponentTypes,
   SearchTransformKeyFn,
   ProTableEditableFnType,
+  RowEditableConfig,
+  UseEditableUtilType,
 } from '@ant-design/pro-utils';
 import { CardProps } from 'antd/lib/card';
 import { FormInstance, FormItemProps } from 'antd/lib/form';
@@ -23,7 +25,6 @@ import { AlertRenderType } from './component/Alert';
 import { ListToolBarProps } from './component/ListToolBar';
 import { OptionConfig, ToolBarProps } from './component/ToolBar';
 import { DensitySize } from './component/ToolBar/DensityIcon';
-import { TableRowEditable, UseEditableUtilType } from './component/useEditable';
 import { ColumnsState, useCounter } from './container';
 import { SearchConfig, TableFormItem } from './Form';
 
@@ -331,7 +332,7 @@ export interface ProTableProps<T, U extends ParamsType>
   /**
    * @name 编辑行相关的配置
    */
-  editable?: TableRowEditable<T>;
+  editable?: RowEditableConfig<T>;
 
   /**
    *@name 可编辑表格修改数据的改变

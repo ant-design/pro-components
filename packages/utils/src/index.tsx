@@ -1,6 +1,7 @@
 import LabelIconTip from './components/LabelIconTip';
 import FilterDropdown from './components/FilterDropdown';
 import FieldLabel from './components/FieldLabel';
+import InlineErrorFormItem from './components/InlineErrorFormItem';
 
 import isBrowser from './isBrowser';
 import isImg from './isImg';
@@ -11,6 +12,13 @@ import pickProProps from './pickProProps';
 import omitUndefined from './omitUndefined';
 import omitUndefinedAndEmptyArr from './omitUndefinedAndEmptyArr';
 import pickProFormItemProps from './pickProFormItemProps';
+import useEditableArray, {
+  RowEditableConfig,
+  RowEditableType,
+  UseEditableType,
+  UseEditableUtilType,
+} from './useEditableArray';
+import useEditableMap, { UseEditableMapType, UseEditableMapUtilType } from './useEditableMap';
 
 /**
  * hooks
@@ -44,12 +52,20 @@ export type {
   ProSchemaValueEnumObj,
   SearchTransformKeyFn,
   ProTableEditableFnType,
+  RowEditableConfig,
+  RowEditableType,
+  UseEditableType,
+  UseEditableUtilType,
+  UseEditableMapType,
+  UseEditableMapUtilType,
 };
 
 export {
   LabelIconTip,
   FilterDropdown,
   FieldLabel,
+  InlineErrorFormItem,
+  // function
   transformKeySubmitValue,
   conversionSubmitValue,
   parseValueToMoment,
@@ -66,4 +82,7 @@ export {
   useDebounceFn,
   pickProProps,
   useDeepCompareEffect,
+  // hooks
+  useEditableArray,
+  useEditableMap,
 };
