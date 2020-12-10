@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.6.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.6.0...@ant-design/pro-layout@6.6.1) (2020-12-10)
+
+### Bug Fixes
+
+- **layout:** use ant class name ([#1252](https://github.com/ant-design/pro-components/issues/1252)) ([310e8ae](https://github.com/ant-design/pro-components/commit/310e8aecf40bada8ce27091d87429efe31f403a0))
+
 # [6.6.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.5.19...@ant-design/pro-layout@6.6.0) (2020-12-09)
 
 ### Features
