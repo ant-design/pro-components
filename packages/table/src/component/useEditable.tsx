@@ -282,7 +282,7 @@ const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
     <a
       key="cancel"
       onClick={async () => {
-        const fields = form.getFieldValue([recordKey]);
+        const fields = form?.getFieldValue([recordKey]);
         const success = await onCancel?.(recordKey, fields, newLineConfig);
         if (success === false) return;
         cancelEditable(recordKey);
