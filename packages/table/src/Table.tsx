@@ -33,7 +33,7 @@ import ErrorBoundary from './component/ErrorBoundary';
 
 import './index.less';
 import useEditable from './component/useEditable';
-import { ProTableProps, RequestData, TableRowSelection } from './typing';
+import { Bordered, BorderedType, ProTableProps, RequestData, TableRowSelection } from './typing';
 import { ActionType } from '.';
 
 /**
@@ -47,6 +47,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
   },
 ) => {
   const {
+    bordered,
     request,
     className: propsClassName,
     params = {},
@@ -338,9 +339,20 @@ const ProTable = <T extends {}, U extends ParamsType>(
     [props.onReset],
   );
 
+  const isBordered = (borderType: BorderedType, border?: Bordered) => {
+    if (border === undefined) {
+      return false;
+    }
+    // debugger
+    if (typeof border === 'boolean') {
+      return border;
+    }
+    return border[borderType];
+  };
+
   if ((!props.columns || props.columns.length < 1) && !props.tableViewRender) {
     return (
-      <Card bordered={false} bodyStyle={{ padding: 50 }}>
+      <Card bordered={isBordered('table', bordered)} bodyStyle={{ padding: 50 }}>
         <Empty />
       </Card>
     );
@@ -363,6 +375,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
         dateFormatter={rest.dateFormatter}
         search={search}
         form={rest.form}
+        bordered={isBordered('search', bordered)}
       />
     ) : null;
 
@@ -516,7 +529,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
    */
   const tableAreaDom = (
     <Card
-      bordered={false}
+      bordered={isBordered('table', bordered)}
       style={{
         height: '100%',
       }}
