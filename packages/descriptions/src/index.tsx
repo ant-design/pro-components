@@ -198,6 +198,7 @@ export const FieldRender: React.FC<
               >
                 <ProFormField
                   {...fieldConfig}
+                  // @ts-ignore
                   proFieldProps={{
                     ...fieldConfig.proFieldProps,
                     renderFormItem: renderFormItem
