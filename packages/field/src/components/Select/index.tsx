@@ -9,6 +9,7 @@ import React, {
 } from 'react';
 import { Select, Space, Spin } from 'antd';
 import {
+  ProFieldRequestData,
   ProFieldValueEnumType,
   ProSchemaValueEnumMap,
   ProSchemaValueEnumObj,
@@ -19,7 +20,6 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { useIntl } from '@ant-design/pro-provider';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
 import { SelectProps } from 'antd/lib/select';
-import { ProFieldRequestData } from 'packages/utils/src/typing';
 
 import LightSelect from './LightSelect';
 import TableStatus, { ProFieldBadgeColor, ProFieldStatusType } from '../Status';

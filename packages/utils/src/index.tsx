@@ -44,6 +44,7 @@ import {
   ProTableEditableFnType,
   ProFieldValueType,
   ProFieldValueEnumType,
+  ProFieldRequestData,
   ProFieldValueObjectType,
 } from './typing';
 import getFieldPropsOrFormItemProps from './getFieldPropsOrFormItemProps';
@@ -58,6 +59,7 @@ export type {
   ProTableEditableFnType,
   RowEditableConfig,
   RowEditableType,
+  ProFieldRequestData,
   UseEditableType,
   UseEditableUtilType,
   UseEditableMapType,
