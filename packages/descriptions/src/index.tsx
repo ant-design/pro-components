@@ -18,7 +18,6 @@ import {
 import get from 'rc-util/lib/utils/get';
 import { stringify } from 'use-json-comparison';
 import ProSkeleton from '@ant-design/pro-skeleton';
-import { GetRowKey } from 'antd/lib/table/interface';
 import { FormInstance, FormProps } from 'antd/lib/form';
 import { DescriptionsItemProps } from 'antd/lib/descriptions/Item';
 import { DescriptionsProps } from 'antd/lib/descriptions';
@@ -83,8 +82,6 @@ export type ProDescriptionsProps<RecordType = {}> = DescriptionsProps & {
    * 受控数据源改变
    */
   onDataSourceChange?: (value: RecordType) => void;
-
-  rowKey?: GetRowKey<RecordType>;
 };
 
 /**
@@ -364,17 +361,11 @@ const ProDescriptions = <RecordType extends {}>(props: ProDescriptionsProps<Reco
     },
   );
 
-  const getRowKey = React.useMemo<GetRowKey<RecordType>>((): GetRowKey<RecordType> => {
-    return (_: RecordType, index?: number) => {
-      return `${index}`;
-    };
-  }, []);
   /*
    * 可编辑行的相关配置
    */
   const editableUtils = useEditableMap<any>({
     ...props.editable,
-    getRowKey,
     childrenColumnName: undefined,
     dataSource: action.dataSource,
     setDataSource: action.setDataSource,

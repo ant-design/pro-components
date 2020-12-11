@@ -1,5 +1,4 @@
-﻿import React, { useCallback, useMemo, useRef, useState } from 'react';
-import { GetRowKey } from 'antd/lib/table/interface';
+﻿import React, { useCallback, useMemo } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { FormInstance } from 'antd/lib/form';
 import { message } from 'antd';
@@ -19,24 +18,8 @@ import {
  * @param params
  * @param action
  */
-function editableRowByKey<RecordType>(
-  params: {
-    data: RecordType;
-    key: RecordKey;
-    row: RecordType;
-  },
-  action: 'update' | 'delete',
-) {
-  const { row, data } = params;
-  const key = recordKeyToString(params.key);
-  const kvMap = new Map<React.Key, RecordType & { parentKey?: React.Key }>(
-    Object.entries({ ...data, ...row }),
-  );
-
-  if (action === 'delete') {
-    kvMap.delete(key);
-  }
-  return (Object.fromEntries(kvMap) as unknown) as RecordType;
+function editableRowByKey<RecordType>({ data, row }: { data: RecordType; row: RecordType }) {
+  return { ...data, ...row };
 }
 
 export type AddLineOptions = {
@@ -50,18 +33,11 @@ export type AddLineOptions = {
  */
 function useEditableMap<RecordType>(
   props: RowEditableConfig<RecordType> & {
-    getRowKey: GetRowKey<RecordType>;
     dataSource: RecordType;
     childrenColumnName: string | undefined;
     setDataSource: (dataSource: RecordType) => void;
   },
 ) {
-  const [newLineRecord, setNewLineRecord] = useState<NewLineConfig<any> | undefined>(undefined);
-  const newLineRecordRef = useRef<NewLineConfig<any> | undefined>(undefined);
-
-  // 这里这么做是为了存上次的状态，不然每次存一下再拿
-  newLineRecordRef.current = newLineRecord;
-
   const editableType = props.type || 'single';
 
   const [editableKeys, setEditableRowKeys] = useMergedState<React.Key[]>([], {
@@ -118,12 +94,6 @@ function useEditableMap<RecordType>(
   const cancelEditable = (recordKey: RecordKey) => {
     // 防止多次渲染
     ReactDOM.unstable_batchedUpdates(() => {
-      /**
-       * 如果这个是 new Line 直接删除
-       */
-      if (newLineRecord && newLineRecord.options.recordKey === recordKey) {
-        setNewLineRecord(undefined);
-      }
       editableKeysSet.delete(recordKeyToString(recordKey));
       setEditableRowKeys(Array.from(editableKeysSet));
     });
@@ -141,27 +111,6 @@ function useEditableMap<RecordType>(
     if (success === false) {
       return false;
     }
-    return true;
-  };
-
-  const onDelete = async (
-    recordKey: RecordKey,
-    editRow: RecordType & {
-      index: number;
-    },
-  ) => {
-    const actionProps = {
-      data: props.dataSource,
-      getRowKey: props.getRowKey,
-      row: editRow,
-      key: recordKey,
-      childrenColumnName: props.childrenColumnName || 'children',
-    };
-    const success = await props?.onDelete?.(recordKey, editRow);
-    if (success === false) {
-      return false;
-    }
-    props.setDataSource(editableRowByKey(actionProps, 'delete'));
     return true;
   };
 
@@ -192,7 +141,7 @@ function useEditableMap<RecordType>(
       key: recordKey,
       childrenColumnName: props.childrenColumnName || 'children',
     };
-    props.setDataSource(editableRowByKey(actionProps, 'update'));
+    props.setDataSource(editableRowByKey(actionProps));
     return true;
   };
 
@@ -201,56 +150,18 @@ function useEditableMap<RecordType>(
       (props.actionRender || defaultActionRender)(props.dataSource, {
         recordKey: recordKeyToString(key),
         cancelEditable,
-        newLineConfig: newLineRecord,
         onCancel,
-        onDelete,
+        onDelete: async () => false,
         onSave,
         editableKeys,
         setEditableRowKeys,
         form,
-        deletePopconfirmMessage: props.deletePopconfirmMessage || '删除此行？',
+        deletePopconfirmMessage: '删除此行？',
         editorType: 'Map',
         ...config,
       }),
     [editableKeys.join(',')],
   );
-
-  /**
-   * @name 增加新的行
-   * @description 同时只能支持一行,取消之后数据消息，不会触发 dataSource
-   * @param row
-   * @param options
-   */
-  const addEditRecord = (
-    recordKey: React.ReactText,
-    defaultValue: any,
-    options?: AddLineOptions,
-  ) => {
-    // 暂时不支持多行新增
-    if (newLineRecordRef.current) {
-      message.warn(props.onlyAddOneLineAlertMessage || '只能新增一行！');
-      return false;
-    }
-    // 如果是单行的话，不允许多行编辑
-    if (editableKeysSet.size > 0 && editableType === 'single') {
-      message.warn(props.onlyOneLineEditorAlertMessage || '只能同时编辑一行！');
-      return false;
-    }
-
-    // 防止多次渲染
-    ReactDOM.unstable_batchedUpdates(() => {
-      editableKeysSet.add(recordKey);
-      setEditableRowKeys(Array.from(editableKeysSet));
-      setNewLineRecord({
-        defaultValue,
-        options: {
-          ...options,
-          recordKey,
-        },
-      });
-    });
-    return true;
-  };
 
   return {
     editableKeys,
@@ -259,8 +170,6 @@ function useEditableMap<RecordType>(
     actionRender,
     startEditable,
     cancelEditable,
-    addEditRecord,
-    newLineRecord,
   };
 }
 
