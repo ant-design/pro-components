@@ -3,14 +3,16 @@ import { Descriptions, Space, Form } from 'antd';
 import { EditOutlined, CloseOutlined, CheckOutlined } from '@ant-design/icons';
 import toArray from 'rc-util/lib/Children/toArray';
 import ProForm, { ProFormField } from '@ant-design/pro-form';
-import { ProFieldValueType, ProFieldFCMode, ProFieldValueObjectType } from '@ant-design/pro-field';
+import { ProFieldValueType, ProFieldFCMode } from '@ant-design/pro-field';
 import {
   InlineErrorFormItem,
   LabelIconTip,
   ProSchema,
+  ProCoreActionType,
   RowEditableConfig,
   useEditableMap,
   UseEditableMapUtilType,
+  getFieldPropsOrFormItemProps,
 } from '@ant-design/pro-utils';
 import get from 'rc-util/lib/utils/get';
 import { stringify } from 'use-json-comparison';
@@ -21,21 +23,19 @@ import { DescriptionsItemProps } from 'antd/lib/descriptions/Item';
 import { DescriptionsProps } from 'antd/lib/descriptions';
 import useFetchData, { RequestData } from './useFetchData';
 
-export type ActionType = {
-  reload: () => void;
-};
-
 export type ProDescriptionsItemProps<T = {}> = ProSchema<
   T,
-  ProFieldValueType | ProFieldValueObjectType,
   Omit<DescriptionsItemProps, 'children'> & {
     // 隐藏这个字段，是个语法糖，方便一下权限的控制
     hide?: boolean;
     plain?: boolean;
+    copyable?: boolean;
+    ellipsis?: boolean;
     mode?: ProFieldFCMode;
     children?: React.ReactNode;
   }
 >;
+export type ProDescriptionsActionType = ProFieldValueType;
 
 export type ProDescriptionsProps<RecordType = {}> = DescriptionsProps & {
   /**
@@ -57,7 +57,7 @@ export type ProDescriptionsProps<RecordType = {}> = DescriptionsProps & {
   /**
    * 一些简单的操作
    */
-  actionRef?: React.MutableRefObject<ActionType | undefined>;
+  actionRef?: React.MutableRefObject<ProCoreActionType<any> | undefined>;
 
   loading?: boolean;
 
@@ -114,7 +114,7 @@ export const FieldRender: React.FC<
     text: any;
     valueType: ProFieldValueType;
     entity: any;
-    action: ActionType;
+    action: ProCoreActionType<any>;
     index: number;
     editableUtils?: UseEditableMapUtilType;
   }
@@ -132,69 +132,111 @@ export const FieldRender: React.FC<
     plain,
     dataIndex,
     request,
+    renderFormItem,
     params,
   } = props;
-  const field = (
-    <ProFormField
-      // @ts-ignore
-      text={text}
-      valueEnum={valueEnum}
-      mode={mode || 'read'}
-      proFieldProps={{
-        render: render
-          ? () =>
-              render?.(text, entity, index, action, {
-                ...props,
-              })
-          : undefined,
-      }}
-      ignoreFormItem
-      valueType={valueType}
-      plain={plain}
-      request={request}
-      params={params}
-    />
-  );
 
+  const fieldConfig = {
+    text,
+    valueEnum,
+    mode: mode || 'read',
+    proFieldProps: {
+      render: render
+        ? () =>
+            render?.(text, entity, index, action, {
+              ...props,
+              type: 'descriptions',
+            })
+        : undefined,
+    },
+    ignoreFormItem: true,
+    valueType,
+    request,
+    params,
+    plain,
+  };
+  /**
+   * 如果是只读模式，fieldProps 的 form是空的，所以需要兜底处理
+   */
   if (mode === 'read' || !mode || valueType === 'option') {
-    return field;
+    const fieldProps = getFieldPropsOrFormItemProps(props.fieldProps, undefined, {
+      ...props,
+      rowKey: dataIndex,
+      isEditable: false,
+    });
+    return <ProFormField {...fieldConfig} fieldProps={fieldProps} />;
   }
+
   return (
-    <Space
+    <div
       style={{
         margin: '-5px 0',
         position: 'absolute',
       }}
     >
-      <InlineErrorFormItem
-        style={{
-          margin: 0,
-        }}
-        initialValue={text}
-        name={dataIndex}
-      >
-        {field}
-      </InlineErrorFormItem>
-
       <Form.Item noStyle shouldUpdate>
-        {(form) => (
-          <Space>
-            {editableUtils?.actionRender?.(dataIndex || index, form as FormInstance<any>, {
-              cancelText: <CloseOutlined />,
-              saveText: <CheckOutlined />,
-              deleteText: false,
-            })}
-          </Space>
-        )}
+        {(form: FormInstance<any>) => {
+          const formItemProps = getFieldPropsOrFormItemProps(props.formItemProps, form, {
+            ...props,
+            rowKey: dataIndex,
+            isEditable: true,
+          });
+          const fieldProps = getFieldPropsOrFormItemProps(props.fieldProps, form, {
+            ...props,
+            rowKey: dataIndex,
+            isEditable: true,
+          });
+          return (
+            <Space>
+              <InlineErrorFormItem
+                style={{
+                  margin: 0,
+                }}
+                initialValue={text}
+                name={dataIndex}
+                {...formItemProps}
+              >
+                <ProFormField
+                  {...fieldConfig}
+                  proFieldProps={{
+                    ...fieldConfig.proFieldProps,
+                    renderFormItem: renderFormItem
+                      ? renderFormItem?.(
+                          {
+                            ...props,
+                            type: 'descriptions',
+                          },
+                          {
+                            isEditable: true,
+                            defaultRender: () => (
+                              <ProFormField {...fieldConfig} fieldProps={fieldProps} />
+                            ),
+                            type: 'descriptions',
+                          },
+                          form,
+                        )
+                      : undefined,
+                  }}
+                  fieldProps={fieldProps}
+                />
+              </InlineErrorFormItem>
+              {editableUtils?.actionRender?.(dataIndex || index, form as FormInstance<any>, {
+                cancelText: <CloseOutlined />,
+                saveText: <CheckOutlined />,
+                deleteText: false,
+              })}
+            </Space>
+          );
+        }}
       </Form.Item>
-    </Space>
+    </div>
   );
 };
 
 const conversionProProSchemaToDescriptionsItem = (
   items: ProDescriptionsItemProps<any>[],
   entity: any,
-  action: ActionType,
+  action: ProCoreActionType<any>,
   editableUtils?: UseEditableMapUtilType,
 ) => {
   const options: JSX.Element[] = [];
@@ -212,6 +254,7 @@ const conversionProProSchemaToDescriptionsItem = (
       dataIndex,
       request,
       params,
+      editable,
       ...restItem
     } = item as ProDescriptionsItemProps;
     const title =
@@ -232,7 +275,13 @@ const conversionProProSchemaToDescriptionsItem = (
     const isEditable = editableUtils?.isEditable(dataIndex || index);
 
     const fieldMode = mode || isEditable ? 'edit' : 'read';
-    const showEditIcon = editableUtils && fieldMode === 'read';
+
+    const showEditIcon =
+      editableUtils &&
+      fieldMode === 'read' &&
+      editable !== false &&
+      editable?.(text, entity, index) !== false;
+
     const Component = showEditIcon ? Space : React.Fragment;
 
     const field = (

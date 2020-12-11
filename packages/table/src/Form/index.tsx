@@ -29,9 +29,10 @@ import {
   conversionSubmitValue,
   transformKeySubmitValue,
   SearchTransformKeyFn,
+  getFieldPropsOrFormItemProps,
 } from '@ant-design/pro-utils';
 
-import { genColumnKey, getFieldPropsOrFormItemProps } from '../utils';
+import { genColumnKey } from '../utils';
 import { ProColumns } from '../index';
 import './index.less';
 
@@ -161,7 +162,10 @@ export const formInputRender: React.FC<{
 
     // 自动注入 onChange 和 value，用户自己很有可能忘记
     const dom = renderFormItem(
-      restItem,
+      {
+        ...restItem,
+        type: 'form',
+      },
       {
         ...rest,
         type,

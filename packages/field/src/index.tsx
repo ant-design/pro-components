@@ -392,7 +392,6 @@ const defaultRenderText = (
   }
 
   if (valueType === 'option') {
-    console.log(props, text);
     return <FieldOptions text={text} {...props} />;
   }
 

@@ -1,8 +1,4 @@
-﻿import {
-  ProFieldEmptyText,
-  ProFieldValueObjectType,
-  ProFieldValueType,
-} from '@ant-design/pro-field';
+﻿import { ProFieldEmptyText } from '@ant-design/pro-field';
 import { ProFormProps, QueryFilterProps } from '@ant-design/pro-form';
 import { ParamsType } from '@ant-design/pro-provider';
 import {
@@ -12,7 +8,6 @@ import {
   SearchTransformKeyFn,
   ProTableEditableFnType,
   RowEditableConfig,
-  UseEditableUtilType,
 } from '@ant-design/pro-utils';
 import { CardProps } from 'antd/lib/card';
 import { FormInstance, FormItemProps } from 'antd/lib/form';
@@ -76,7 +71,6 @@ export type ExtraProColumnType<T> = Omit<
 
 export type ProColumnType<T = unknown> = ProSchema<
   T,
-  ProFieldValueType | ProFieldValueObjectType,
   ExtraProColumnType<T> & {
     index?: number;
 
@@ -144,8 +138,7 @@ export type ProColumnType<T = unknown> = ProSchema<
      * 可编辑表格是否可编辑
      */
     editable?: boolean | ProTableEditableFnType<T>;
-  },
-  Partial<ActionType>
+  }
 >;
 
 export interface ProColumnGroupType<RecordType> extends ProColumnType<RecordType> {
@@ -351,10 +344,6 @@ export interface ProTableProps<T, U extends ParamsType>
   bordered?: Bordered;
 }
 
-export type ActionType = ProCoreActionType &
-  Omit<
-    UseEditableUtilType,
-    'newLineRecord' | 'editableKeys' | 'actionRender' | 'setEditableRowKeys'
-  > & {
-    fullScreen?: () => void;
-  };
+export type ActionType = ProCoreActionType & {
+  fullScreen?: () => void;
+};

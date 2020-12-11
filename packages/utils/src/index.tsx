@@ -43,6 +43,7 @@ import {
   SearchTransformKeyFn,
   ProTableEditableFnType,
 } from './typing';
+import getFieldPropsOrFormItemProps from './getFieldPropsOrFormItemProps';
 
 export type {
   ProSchema,
@@ -78,11 +79,12 @@ export {
   pickProFormItemProps,
   isUrl,
   isBrowser,
-  usePrevious,
-  useDebounceFn,
   pickProProps,
-  useDeepCompareEffect,
+  getFieldPropsOrFormItemProps,
   // hooks
   useEditableArray,
   useEditableMap,
+  useDeepCompareEffect,
+  usePrevious,
+  useDebounceFn,
 };

@@ -33,6 +33,7 @@ export default () => {
           key: 'state',
           dataIndex: 'state',
           valueType: 'select',
+          editable: false,
           valueEnum: {
             all: { text: '全部', status: 'Default' },
             open: {

@@ -15,7 +15,6 @@ import {
   proFieldParsingValueEnumToArray,
   ProFieldValueType,
 } from '@ant-design/pro-field';
-import { FormInstance } from 'antd/lib/form';
 import get from 'rc-util/lib/utils/get';
 import { IntlType } from '@ant-design/pro-provider';
 
@@ -343,6 +342,7 @@ export function columnRender<T>({
       {
         ...columnProps,
         isEditable,
+        type: 'table',
       },
     );
 
@@ -438,23 +438,3 @@ export function genColumnList<T>(props: {
     }
   >;
 }
-
-/**
- * 因为 fieldProps 支持了 function
- * 所以新增了这个方法
- * @param fieldProps
- * @param form
- */
-export const getFieldPropsOrFormItemProps = (
-  fieldProps: any,
-  form?: FormInstance<any>,
-  extraProps?: any,
-): Object & {
-  onChange: any;
-  colSize: number;
-} => {
-  if (typeof fieldProps === 'function') {
-    return fieldProps(form, extraProps);
-  }
-  return fieldProps;
-};
