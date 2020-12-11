@@ -140,11 +140,14 @@ export const FieldRender: React.FC<
       text={text}
       valueEnum={valueEnum}
       mode={mode || 'read'}
-      render={() =>
-        render?.(text, entity, index, action, {
-          ...props,
-        })
-      }
+      proFieldProps={{
+        render: render
+          ? () =>
+              render?.(text, entity, index, action, {
+                ...props,
+              })
+          : undefined,
+      }}
       ignoreFormItem
       valueType={valueType}
       plain={plain}
@@ -152,7 +155,8 @@ export const FieldRender: React.FC<
       params={params}
     />
   );
-  if (mode === 'read' || !mode) {
+
+  if (mode === 'read' || !mode || valueType === 'option') {
     return field;
   }
   return (
@@ -230,6 +234,7 @@ const conversionProProSchemaToDescriptionsItem = (
     const fieldMode = mode || isEditable ? 'edit' : 'read';
     const showEditIcon = editableUtils && fieldMode === 'read';
     const Component = showEditIcon ? Space : React.Fragment;
+
     const field = (
       <Descriptions.Item
         {...restItem}
@@ -252,7 +257,7 @@ const conversionProProSchemaToDescriptionsItem = (
             action={action}
             editableUtils={editableUtils}
           />
-          {showEditIcon && (
+          {showEditIcon && valueType !== 'option' && (
             <EditOutlined
               onClick={() => {
                 editableUtils?.startEditable(dataIndex || index);
@@ -367,8 +372,14 @@ const ProDescriptions = <RecordType extends {}>(props: ProDescriptionsProps<Reco
     actionRef?.current || action,
     editable ? editableUtils : undefined,
   );
+
+  /**
+   *  如果不是可编辑模式，没必要注入 ProForm
+   */
+  const FormComponent = editable ? ProForm : (dom: { children: any }) => dom.children;
+
   return (
-    <ProForm
+    <FormComponent
       component={false}
       submitter={false}
       {...formProps}
@@ -390,7 +401,7 @@ const ProDescriptions = <RecordType extends {}>(props: ProDescriptionsProps<Reco
       >
         {children}
       </Descriptions>
-    </ProForm>
+    </FormComponent>
   );
 };
 

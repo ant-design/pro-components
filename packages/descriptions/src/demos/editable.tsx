@@ -5,7 +5,10 @@ import ProDescriptions from '@ant-design/pro-descriptions';
 export default () => {
   return (
     <ProDescriptions
-      title="高级定义列表request columns"
+      formProps={{
+        onValuesChange: (e, f) => console.log(f),
+      }}
+      title="可编辑得定义列表"
       request={async () => {
         return Promise.resolve({
           success: true,
@@ -18,6 +21,7 @@ export default () => {
           },
         });
       }}
+      editable={{}}
       columns={[
         {
           title: '文本',

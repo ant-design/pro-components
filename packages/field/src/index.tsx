@@ -392,6 +392,7 @@ const defaultRenderText = (
   }
 
   if (valueType === 'option') {
+    console.log(props, text);
     return <FieldOptions text={text} {...props} />;
   }
 
@@ -423,7 +424,6 @@ const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
     // fieldProps 优先级更高，在类似 LightFilter 场景下需要覆盖默认的 value 和 onChange
     ...omitUndefined(rest?.fieldProps),
   };
-
   return (
     <React.Fragment>
       {defaultRenderText(text ?? fieldProps?.value ?? '', valueType || 'text', {
