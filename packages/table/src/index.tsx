@@ -17,9 +17,9 @@ import {
   frFRIntl,
   ptBRIntl,
 } from '@ant-design/pro-provider';
-import { RowEditableConfig } from '@ant-design/pro-utils';
+import { ProFieldValueType, RowEditableConfig } from '@ant-design/pro-utils';
 
-import { FieldStatus, ProFieldValueType, FieldIndexColumn } from '@ant-design/pro-field';
+import { FieldStatus, FieldIndexColumn } from '@ant-design/pro-field';
 import ProTable from './Table';
 import TableDropdown from './component/Dropdown';
 import ListToolBar, { ListToolBarProps } from './component/ListToolBar';

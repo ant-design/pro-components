@@ -42,6 +42,9 @@ import {
   ProCoreActionType,
   SearchTransformKeyFn,
   ProTableEditableFnType,
+  ProFieldValueType,
+  ProFieldValueEnumType,
+  ProFieldValueObjectType,
 } from './typing';
 import getFieldPropsOrFormItemProps from './getFieldPropsOrFormItemProps';
 
@@ -59,6 +62,9 @@ export type {
   UseEditableUtilType,
   UseEditableMapType,
   UseEditableMapUtilType,
+  ProFieldValueType,
+  ProFieldValueEnumType,
+  ProFieldValueObjectType,
 };
 
 export {

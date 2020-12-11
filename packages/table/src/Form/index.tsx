@@ -19,7 +19,6 @@ import ProForm, {
   ProFormProps,
 } from '@ant-design/pro-form';
 import classNames from 'classnames';
-import { ProFieldValueType } from '@ant-design/pro-field';
 import warningOnce from 'rc-util/lib/warning';
 import omit from 'omit.js';
 
@@ -30,6 +29,7 @@ import {
   transformKeySubmitValue,
   SearchTransformKeyFn,
   getFieldPropsOrFormItemProps,
+  ProFieldValueType,
 } from '@ant-design/pro-utils';
 
 import { genColumnKey } from '../utils';

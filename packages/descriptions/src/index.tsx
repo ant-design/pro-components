@@ -3,7 +3,7 @@ import { Descriptions, Space, Form } from 'antd';
 import { EditOutlined, CloseOutlined, CheckOutlined } from '@ant-design/icons';
 import toArray from 'rc-util/lib/Children/toArray';
 import ProForm, { ProFormField } from '@ant-design/pro-form';
-import { ProFieldValueType, ProFieldFCMode } from '@ant-design/pro-field';
+import { ProFieldFCMode } from '@ant-design/pro-field';
 import {
   InlineErrorFormItem,
   LabelIconTip,
@@ -13,6 +13,7 @@ import {
   useEditableMap,
   UseEditableMapUtilType,
   getFieldPropsOrFormItemProps,
+  ProFieldValueType,
 } from '@ant-design/pro-utils';
 import get from 'rc-util/lib/utils/get';
 import { stringify } from 'use-json-comparison';

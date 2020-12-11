@@ -9,6 +9,7 @@ import React, {
 } from 'react';
 import { Select, Space, Spin } from 'antd';
 import {
+  ProFieldValueEnumType,
   ProSchemaValueEnumMap,
   ProSchemaValueEnumObj,
   useDeepCompareEffect,
@@ -18,6 +19,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { useIntl } from '@ant-design/pro-provider';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
 import { SelectProps } from 'antd/lib/select';
+import { ProFieldRequestData } from 'packages/utils/src/typing';
 
 import LightSelect from './LightSelect';
 import TableStatus, { ProFieldBadgeColor, ProFieldStatusType } from '../Status';
@@ -25,7 +27,27 @@ import { ProFieldFC } from '../../index';
 
 let testId = 0;
 
-export type ProFieldValueEnumType = ProSchemaValueEnumMap | ProSchemaValueEnumObj;
+export type FieldSelectProps = {
+  text: string;
+  /**
+   * 值的枚举，如果存在枚举，Search 中会生成 select
+   */
+  valueEnum?: ProFieldValueEnumType;
+
+  /**
+   * 从服务器读取选项
+   */
+  request?: ProFieldRequestData;
+  /**
+   * 重新触发的时机
+   */
+  params?: any;
+
+  /**
+   * 组件的全局设置
+   */
+  fieldProps?: any;
+};
 
 export const ObjToMap = (value: ProFieldValueEnumType | undefined): ProSchemaValueEnumMap => {
   if (getType(value) === 'map') {
@@ -139,38 +161,6 @@ export const proFieldParsingValueEnumToArray = (
     });
   });
   return enumArray;
-};
-
-export type ProFieldRequestData = (
-  params: any,
-  props: FieldSelectProps,
-) => Promise<
-  {
-    label: React.ReactNode;
-    value: React.ReactText;
-  }[]
->;
-
-export type FieldSelectProps = {
-  text: string;
-  /**
-   * 值的枚举，如果存在枚举，Search 中会生成 select
-   */
-  valueEnum?: ProFieldValueEnumType;
-
-  /**
-   * 从服务器读取选项
-   */
-  request?: ProFieldRequestData;
-  /**
-   * 重新触发的时机
-   */
-  params?: any;
-
-  /**
-   * 组件的全局设置
-   */
-  fieldProps?: SelectProps<any>;
 };
 
 export const useFieldFetchData = (

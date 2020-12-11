@@ -1,7 +1,14 @@
 import React from 'react';
 import { Avatar } from 'antd';
 import { Moment } from 'moment';
-import { pickProProps, omitUndefined } from '@ant-design/pro-utils';
+import {
+  pickProProps,
+  omitUndefined,
+  ProFieldValueEnumType,
+  ProFieldValueType,
+  ProFieldValueObjectType,
+} from '@ant-design/pro-utils';
+
 import { useIntl } from '@ant-design/pro-provider';
 import FieldPercent from './components/Percent';
 import FieldIndexColumn from './components/IndexColumn';
@@ -18,8 +25,6 @@ import FieldPassword from './components/Password';
 import FieldStatus from './components/Status';
 import FieldOptions from './components/Options';
 import FiledSelect, {
-  ProFieldValueEnumType,
-  ProFieldRequestData,
   proFieldParsingText,
   proFieldParsingValueEnumToArray,
 } from './components/Select';
@@ -33,57 +38,7 @@ import FieldRadio from './components/Radio';
 
 export type ProFieldTextType = React.ReactNode | React.ReactNode[] | Moment | Moment[];
 
-export type { ProFieldValueEnumType };
 export type ProFieldEmptyText = string | false;
-
-/**
- * password 密码框
- * money 金额
- * option 操作 需要返回一个数组
- * date 日期 YYYY-MM-DD
- * dateRange 日期范围 YYYY-MM-DD[]
- * dateTime 日期和时间 YYYY-MM-DD HH:mm:ss
- * dateTimeRange 范围日期和时间 YYYY-MM-DD HH:mm:ss[]
- * time: 时间 HH:mm:ss
- * index：序列
- * progress: 进度条
- * percent: 百分比
- * digit 数值
- * avatar 头像
- * code 代码块
- * jsonCode json 的代码块，格式化了一下
- */
-export type ProFieldValueType =
-  | 'password'
-  | 'money'
-  | 'textarea'
-  | 'option'
-  | 'date'
-  | 'dateWeek'
-  | 'dateMonth'
-  | 'dateQuarter'
-  | 'dateYear'
-  | 'dateRange'
-  | 'dateTimeRange'
-  | 'dateTime'
-  | 'time'
-  | 'text'
-  | 'select'
-  | 'checkbox'
-  | 'rate'
-  | 'radio'
-  | 'radioButton'
-  | 'index'
-  | 'indexBorder'
-  | 'progress'
-  | 'percent'
-  | 'digit'
-  | 'second'
-  | 'avatar'
-  | 'code'
-  | 'switch'
-  | 'fromNow'
-  | 'jsonCode';
 
 export type ProFieldFCMode = 'read' | 'edit' | 'update';
 
@@ -147,18 +102,6 @@ export type ProFieldFC<T> = React.ForwardRefRenderFunction<
   any,
   BaseProFieldFC & ProRenderFieldProps & T
 >;
-
-// function return type
-export type ProFieldValueObjectType = {
-  type: 'progress' | 'money' | 'percent';
-  status?: 'normal' | 'active' | 'success' | 'exception' | undefined;
-  locale?: string;
-  /** percent */
-  showSymbol?: boolean;
-  showColor?: boolean;
-  precision?: number;
-  request?: ProFieldRequestData;
-};
 
 /**
  * value type by function
@@ -436,8 +379,6 @@ const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
   );
 };
 
-export type { ProFieldRequestData };
-
 export {
   FieldPercent,
   FieldIndexColumn,
@@ -453,5 +394,7 @@ export {
   proFieldParsingText,
   proFieldParsingValueEnumToArray,
 };
+
+export type { ProFieldValueType };
 
 export default React.forwardRef(ProField) as typeof ProField;

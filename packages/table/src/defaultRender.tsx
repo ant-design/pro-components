@@ -1,13 +1,10 @@
 import React from 'react';
 import { Form } from 'antd';
-import ProField, {
-  ProFieldEmptyText,
-  ProFieldPropsType,
-  ProFieldValueType,
-} from '@ant-design/pro-field';
+import ProField, { ProFieldEmptyText, ProFieldPropsType } from '@ant-design/pro-field';
 import {
   getFieldPropsOrFormItemProps,
   InlineErrorFormItem,
+  ProFieldValueType,
   ProSchemaComponentTypes,
 } from '@ant-design/pro-utils';
 import { FormInstance } from 'antd/lib/form/Form';

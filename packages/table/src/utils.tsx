@@ -6,15 +6,12 @@ import {
   isNil,
   LabelIconTip,
   omitUndefinedAndEmptyArr,
+  ProFieldValueType,
   ProSchemaComponentTypes,
   ProTableEditableFnType,
   UseEditableUtilType,
 } from '@ant-design/pro-utils';
-import {
-  ProFieldEmptyText,
-  proFieldParsingValueEnumToArray,
-  ProFieldValueType,
-} from '@ant-design/pro-field';
+import { ProFieldEmptyText, proFieldParsingValueEnumToArray } from '@ant-design/pro-field';
 import get from 'rc-util/lib/utils/get';
 import { IntlType } from '@ant-design/pro-provider';
 
