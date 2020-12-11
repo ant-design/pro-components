@@ -135,76 +135,82 @@ function useEditableMap<RecordType>(
     return true;
   };
 
+  const onCancel = async (
+    recordKey: RecordKey,
+    editRow: RecordType & {
+      index: number;
+    },
+    isNewLine?: NewLineConfig<any>,
+  ) => {
+    const success = await props?.onCancel?.(recordKey, editRow, isNewLine);
+    if (success === false) {
+      return false;
+    }
+    return true;
+  };
+
+  const onDelete = async (
+    recordKey: RecordKey,
+    editRow: RecordType & {
+      index: number;
+    },
+  ) => {
+    const actionProps = {
+      data: props.dataSource,
+      getRowKey: props.getRowKey,
+      row: editRow,
+      key: recordKey,
+      childrenColumnName: props.childrenColumnName || 'children',
+    };
+    const success = await props?.onDelete?.(recordKey, editRow);
+    if (success === false) {
+      return false;
+    }
+    props.setDataSource(editableRowByKey(actionProps, 'delete'));
+    return true;
+  };
+
+  const onSave = async (
+    recordKey: RecordKey,
+    editRow: RecordType & {
+      index: number;
+    },
+    isNewLine?: NewLineConfig<any>,
+  ) => {
+    const { options } = isNewLine || {};
+    const success = await props?.onSave?.(recordKey, editRow, isNewLine);
+    if (success === false) {
+      return false;
+    }
+    cancelEditable(recordKey);
+    if (isNewLine) {
+      if (options?.position === 'top') {
+        props.setDataSource({ editRow, ...props.dataSource });
+      } else {
+        props.setDataSource({ ...props.dataSource, editRow });
+      }
+      return true;
+    }
+    const actionProps = {
+      data: props.dataSource,
+      getRowKey: props.getRowKey,
+      row: editRow,
+      key: recordKey,
+      childrenColumnName: props.childrenColumnName || 'children',
+    };
+    props.setDataSource(editableRowByKey(actionProps, 'update'));
+    return true;
+  };
+
   const actionRender = useCallback(
     (key: RecordKey, form: FormInstance<any>, config?: ActionTypeText) =>
       (props.actionRender || defaultActionRender)(props.dataSource, {
         recordKey: recordKeyToString(key),
         cancelEditable,
         newLineConfig: newLineRecord,
-        onCancel: async (
-          recordKey: RecordKey,
-          editRow: RecordType & {
-            index: number;
-          },
-          isNewLine?: NewLineConfig<any>,
-        ) => {
-          const success = await props?.onCancel?.(recordKey, editRow, isNewLine);
-          if (success === false) {
-            return false;
-          }
-          return true;
-        },
-        onDelete: async (
-          recordKey: RecordKey,
-          editRow: RecordType & {
-            index: number;
-          },
-        ) => {
-          const actionProps = {
-            data: props.dataSource,
-            getRowKey: props.getRowKey,
-            row: editRow,
-            key: recordKey,
-            childrenColumnName: props.childrenColumnName || 'children',
-          };
-          const success = await props?.onDelete?.(recordKey, editRow);
-          if (success === false) {
-            return false;
-          }
-          props.setDataSource(editableRowByKey(actionProps, 'delete'));
-          return true;
-        },
-        onSave: async (
-          recordKey: RecordKey,
-          editRow: RecordType & {
-            index: number;
-          },
-          isNewLine?: NewLineConfig<any>,
-        ) => {
-          const { options } = isNewLine || {};
-          const success = await props?.onSave?.(recordKey, editRow, isNewLine);
-          if (success === false) {
-            return false;
-          }
-          cancelEditable(recordKey);
-          if (isNewLine) {
-            if (options?.position === 'top') {
-              props.setDataSource({ editRow, ...props.dataSource });
-            } else {
-              props.setDataSource({ ...props.dataSource, editRow });
-            }
-            return true;
-          }
-          const actionProps = {
-            data: props.dataSource,
-            getRowKey: props.getRowKey,
-            row: editRow,
-            key: recordKey,
-            childrenColumnName: props.childrenColumnName || 'children',
-          };
-          props.setDataSource(editableRowByKey(actionProps, 'update'));
-          return true;
-        },
+        onCancel,
+        onDelete,
+        onSave,
         editableKeys,
         setEditableRowKeys,
         form,

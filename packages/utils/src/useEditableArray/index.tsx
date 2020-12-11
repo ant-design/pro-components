@@ -224,18 +224,14 @@ export const SaveEditableAction: React.FC<ActionRenderConfig<any> & { row: any }
           const isMapEditor = editorType === 'Map';
           const namePath = Array.isArray(recordKey) ? recordKey : [recordKey];
           setLoading(true);
-          await form.validateFields(
-            [namePath],
-            // @ts-expect-error
-            isMapEditor
-              ? undefined
-              : {
-                  recursive: true,
-                },
-          );
+          // @ts-expect-error
+          await form.validateFields(namePath, {
+            recursive: true,
+          });
+
           const fields = form.getFieldValue(namePath);
-          const ecord = isMapEditor ? set(row, namePath, fields) : { ...row, ...fields };
-          const success = await onSave?.(recordKey, ecord, newLineConfig);
+          const record = isMapEditor ? set(row, namePath, fields) : { ...row, ...fields };
+          const success = await onSave?.(recordKey, record, newLineConfig);
           if (success === false) {
             setLoading(false);
             return;
