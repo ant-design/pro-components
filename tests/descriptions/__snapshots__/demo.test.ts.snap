@@ -243,7 +243,6 @@ Array [
                 >
                   <div
                     class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
-                    value="40"
                   >
                     <div
                       class="ant-progress-outer"
@@ -386,11 +385,6 @@ Array [
                   <pre
                     class=""
                     style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
-                    value="
-yarn run v1.22.0
-$ eslint --format=pretty ./packages
-Done in 9.70s.
-          "
                   >
                     <code>
                       
@@ -421,23 +415,6 @@ Done in 9.70s.
                   <pre
                     class=""
                     style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
-                    value="{
-  \\"compilerOptions\\": {
-    \\"target\\": \\"esnext\\",
-    \\"moduleResolution\\": \\"node\\",
-    \\"jsx\\": \\"preserve\\",
-    \\"esModuleInterop\\": true,
-    \\"experimentalDecorators\\": true,
-    \\"strict\\": true,
-    \\"forceConsistentCasingInFileNames\\": true,
-    \\"noImplicitReturns\\": true,
-    \\"suppressImplicitAnyIndexErrors\\": true,
-    \\"declaration\\": true,
-    \\"skipLibCheck\\": true
-  },
-  \\"include\\": [\\"**/src\\", \\"**/docs\\", \\"scripts\\", \\"**/demo\\", \\".eslintrc.js\\"]
-}
-"
                   >
                     <code>
                       {

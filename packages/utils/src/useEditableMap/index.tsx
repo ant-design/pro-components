@@ -22,7 +22,6 @@ import {
 function editableRowByKey<RecordType>(
   params: {
     data: RecordType;
-    getRowKey: GetRowKey<RecordType>;
     key: RecordKey;
     row: RecordType;
   },
@@ -30,14 +29,10 @@ function editableRowByKey<RecordType>(
 ) {
   const { row, data } = params;
   const key = recordKeyToString(params.key);
-  const kvMap = new Map<React.Key, RecordType & { parentKey?: React.Key }>(Object.entries(data));
+  const kvMap = new Map<React.Key, RecordType & { parentKey?: React.Key }>(
+    Object.entries({ ...data, ...row }),
+  );
 
-  if (action === 'update') {
-    kvMap.set(key, {
-      ...kvMap.get(key),
-      ...row,
-    });
-  }
   if (action === 'delete') {
     kvMap.delete(key);
   }
@@ -185,15 +180,14 @@ function useEditableMap<RecordType>(
     cancelEditable(recordKey);
     if (isNewLine) {
       if (options?.position === 'top') {
-        props.setDataSource({ editRow, ...props.dataSource });
+        props.setDataSource({ ...editRow, ...props.dataSource });
       } else {
-        props.setDataSource({ ...props.dataSource, editRow });
+        props.setDataSource({ ...props.dataSource, ...editRow });
       }
       return true;
     }
     const actionProps = {
       data: props.dataSource,
-      getRowKey: props.getRowKey,
       row: editRow,
       key: recordKey,
       childrenColumnName: props.childrenColumnName || 'children',

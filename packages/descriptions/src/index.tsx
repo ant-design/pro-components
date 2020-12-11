@@ -134,14 +134,10 @@ export const FieldRender: React.FC<
     request,
     params,
   } = props;
-
   const field = (
     <ProFormField
       // @ts-ignore
       text={text}
-      fieldProps={{
-        value: text,
-      }}
       valueEnum={valueEnum}
       mode={mode || 'read'}
       render={() =>
@@ -166,7 +162,13 @@ export const FieldRender: React.FC<
         position: 'absolute',
       }}
     >
-      <InlineErrorFormItem initialValue={text} name={dataIndex}>
+      <InlineErrorFormItem
+        style={{
+          margin: 0,
+        }}
+        initialValue={text}
+        name={dataIndex}
+      >
         {field}
       </InlineErrorFormItem>
 
@@ -317,7 +319,7 @@ const ProDescriptions = <RecordType extends {}>(props: ProDescriptionsProps<Reco
     ...props.editable,
     getRowKey,
     childrenColumnName: undefined,
-    dataSource: [action.dataSource],
+    dataSource: action.dataSource,
     setDataSource: action.setDataSource,
   });
 
@@ -361,7 +363,7 @@ const ProDescriptions = <RecordType extends {}>(props: ProDescriptionsProps<Reco
 
   const { options, children } = conversionProProSchemaToDescriptionsItem(
     getColumns(),
-    action.dataSource,
+    action.dataSource || {},
     actionRef?.current || action,
     editable ? editableUtils : undefined,
   );
