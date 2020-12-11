@@ -161,7 +161,7 @@ describe('Descriptions', () => {
     expect(fn).toBeCalledWith(['title']);
   });
 
-  fit('📝 renderFormItem run defaultRender', async () => {
+  it('📝 renderFormItem run defaultRender', async () => {
     const wrapper = mount(
       <Descriptions<DataSourceType>
         editable={{
