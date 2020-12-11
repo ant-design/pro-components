@@ -203,20 +203,21 @@ export const FieldRender: React.FC<
                   proFieldProps={{
                     ...fieldConfig.proFieldProps,
                     renderFormItem: renderFormItem
-                      ? renderFormItem?.(
-                          {
-                            ...props,
-                            type: 'descriptions',
-                          },
-                          {
-                            isEditable: true,
-                            defaultRender: () => (
-                              <ProFormField {...fieldConfig} fieldProps={fieldProps} />
-                            ),
-                            type: 'descriptions',
-                          },
-                          form,
-                        )
+                      ? () =>
+                          renderFormItem?.(
+                            {
+                              ...props,
+                              type: 'descriptions',
+                            },
+                            {
+                              isEditable: true,
+                              defaultRender: () => (
+                                <ProFormField {...fieldConfig} fieldProps={fieldProps} />
+                              ),
+                              type: 'descriptions',
+                            },
+                            form,
+                          )
                       : undefined,
                   }}
                   fieldProps={fieldProps}
