@@ -182,6 +182,7 @@ export type ProSchema<T = unknown, Extra = unknown> = {
    * 自定义的 formItemProps render
    */
   formItemProps?:
+    | FormItemProps
     | ((
         form: FormInstance<any>,
         config: ProSchema<T, Extra> & {
@@ -189,8 +190,7 @@ export type ProSchema<T = unknown, Extra = unknown> = {
           isEditable?: boolean;
           rowKey?: string;
         },
-      ) => FormItemProps)
-    | FormItemProps;
+      ) => FormItemProps);
 
   /**
    * 可编辑表格是否可编辑

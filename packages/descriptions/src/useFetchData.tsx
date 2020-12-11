@@ -66,7 +66,7 @@ const useFetchData = <T extends RequestData>(
       return;
     }
     fetchList();
-  }, [...effects, manual]);
+  }, [...(effects || []), manual]);
 
   return {
     dataSource: entity,

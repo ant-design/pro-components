@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import { Button, Tabs, Tag, Space, message } from 'antd';
-import ProDescriptions from '@ant-design/pro-descriptions';
+import ProDescriptions, { ProDescriptionsItemProps } from '@ant-design/pro-descriptions';
 import ProTable, { ProColumns, TableDropdown } from '@ant-design/pro-table';
 import request from 'umi-request';
 
@@ -145,7 +145,7 @@ export default () => {
           style={{
             background: '#fff',
           }}
-          columns={columns}
+          columns={columns as ProDescriptionsItemProps<GithubIssueItem>[]}
           request={async (params) => {
             const msg = await request<{
               data: GithubIssueItem[];
