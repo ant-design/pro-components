@@ -422,12 +422,7 @@ const ProDescriptions = <RecordType extends {}>(props: ProDescriptionsProps<Reco
   const FormComponent = editable ? ProForm : (dom: { children: any }) => dom.children;
 
   return (
-    <FormComponent
-      component={false}
-      submitter={false}
-      {...formProps}
-      onFinish={async (formData) => formProps?.onFinish?.(formData)}
-    >
+    <FormComponent component={false} submitter={false} {...formProps} onFinish={undefined}>
       <Descriptions
         {...rest}
         extra={
