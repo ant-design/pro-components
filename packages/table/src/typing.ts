@@ -153,8 +153,17 @@ export interface ProColumnGroupType<RecordType> extends ProColumnType<RecordType
 
 export type ProColumns<T = any> = ProColumnGroupType<T> | ProColumnType<T>;
 
+export type BorderedType = 'search' | 'table';
+
+export type Bordered =
+  | boolean
+  | {
+      search?: boolean;
+      table?: boolean;
+    };
+
 export interface ProTableProps<T, U extends ParamsType>
-  extends Omit<TableProps<T>, 'columns' | 'rowSelection'> {
+  extends Omit<TableProps<T>, 'columns' | 'rowSelection' | 'bordered'> {
   columns?: ProColumns<T>[];
   /**
    * @name  ListToolBar 的属性
@@ -337,6 +346,8 @@ export interface ProTableProps<T, U extends ParamsType>
    *@name 可编辑表格修改数据的改变
    */
   onDataSourceChange?: (dataSource: T[]) => void;
+
+  bordered?: Bordered;
 }
 
 export type ActionType = ProCoreActionType &
