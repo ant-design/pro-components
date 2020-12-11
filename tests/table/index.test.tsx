@@ -867,4 +867,51 @@ describe('BasicTable', () => {
 
     expect(fn).toBeCalledWith('name');
   });
+
+  it('🎏 bordered = true ', async () => {
+    const html = mount(
+      <ProTable
+        size="small"
+        bordered
+        columns={columns}
+        request={request}
+        rowKey="key"
+        rowSelection={{
+          selectedRowKeys: ['1'],
+        }}
+        params={{ keyword: 'test' }}
+        pagination={{
+          defaultCurrent: 10,
+        }}
+      />,
+    );
+
+    await waitForComponentToPaint(html, 1000);
+    expect(html.render()).toMatchSnapshot();
+  });
+
+  it('🎏 bordered = {search = true, table = false} ', async () => {
+    const html = mount(
+      <ProTable
+        size="small"
+        bordered={{
+          search: true,
+          table: false,
+        }}
+        columns={columns}
+        request={request}
+        rowKey="key"
+        rowSelection={{
+          selectedRowKeys: ['1'],
+        }}
+        params={{ keyword: 'test' }}
+        pagination={{
+          defaultCurrent: 10,
+        }}
+      />,
+    );
+
+    await waitForComponentToPaint(html, 1000);
+    expect(html.render()).toMatchSnapshot();
+  });
 });

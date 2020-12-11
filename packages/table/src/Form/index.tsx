@@ -104,6 +104,7 @@ export interface TableFormItem<T, U = any> extends Omit<FormItemProps, 'children
   columns: ProColumns<U>[];
   formRef?: React.MutableRefObject<FormInstance | undefined> | ((formRef: FormInstance) => void);
   submitButtonLoading?: boolean;
+  bordered?: boolean;
 }
 
 /**
@@ -298,6 +299,7 @@ const FormSearch = <T, U = any>({
   submitButtonLoading,
   search: searchConfig,
   form: formConfig = {},
+  bordered,
 }: TableFormItem<T, U>) => {
   /**
    * 为了支持 dom 的消失，支持了这个 api
@@ -488,6 +490,7 @@ const FormSearch = <T, U = any>({
       className={classNames(className, {
         [formClassName]: isForm,
         [getPrefixCls(`pro-table-search-${competentName}`)]: true,
+        [`${getPrefixCls('card')}-bordered`]: !!bordered,
       })}
     >
       <Competent
