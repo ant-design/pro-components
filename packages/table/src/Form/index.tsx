@@ -490,7 +490,7 @@ const FormSearch = <T, U = any>({
       className={classNames(className, {
         [formClassName]: isForm,
         [getPrefixCls(`pro-table-search-${competentName}`)]: true,
-        [`${getPrefixCls('card-bordered')}-bordered`]: !!bordered,
+        [`${getPrefixCls('card')}-bordered`]: !!bordered,
       })}
     >
       <Competent
