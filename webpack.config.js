@@ -9,19 +9,33 @@ const tailPkgs = readdirSync(path.join(__dirname, 'packages')).filter(
   (pkg) => pkg.charAt(0) !== '.',
 );
 
+const isCI = process.env.PRO_COMPONENTS_CI === 'CI';
+
+const externals = isCI
+  ? tailPkgs.reduce((pre, value) => {
+      return {
+        ...pre,
+        [`@ant-design/pro-${value}`]: `Pro${value
+          .toLowerCase()
+          .replace(/( |^)[a-z]/g, (L) => L.toUpperCase())}`,
+      };
+    }, {})
+  : {};
+
 const webPackConfigList = [];
 
 tailPkgs.forEach((pkg) => {
   const entry = {};
   entry[`${pkg}`] = `./packages/${pkg}/src/index.tsx`;
-  entry[`${pkg}.min`] = `./packages/${pkg}/src/index.tsx`;
-
+  if (!isCI) {
+    entry[`${pkg}.min`] = `./packages/${pkg}/src/index.tsx`;
+  }
   const config = {
     entry,
     output: {
       filename: '[name].js',
       library: `Pro${pkg.toLowerCase().replace(/( |^)[a-z]/g, (L) => L.toUpperCase())}`,
-      libraryExport: 'default',
+      libraryTarget: 'umd',
       path: path.resolve(__dirname, 'packages', pkg, 'dist'),
       globalObject: 'this',
     },
@@ -134,17 +148,20 @@ tailPkgs.forEach((pkg) => {
         'react-dom': 'ReactDOM',
         antd: 'antd',
         moment: 'moment',
+        ...externals,
       },
     ],
-    plugins: [
-      new ProgressBarPlugin(),
-      new MiniCssExtractPlugin({
-        // Options similar to the same options in webpackOptions.output
-        // both options are optional
-        filename: '[name].css',
-        chunkFilename: '[id].css',
-      }),
-    ],
+    plugins: isCI
+      ? [
+          new ProgressBarPlugin(),
+          new MiniCssExtractPlugin({
+            // Options similar to the same options in webpackOptions.output
+            // both options are optional
+            filename: '[name].css',
+            chunkFilename: '[id].css',
+          }),
+        ]
+      : [],
   };
   webPackConfigList.push(config);
 });
