@@ -101,7 +101,7 @@ export type ActionRenderConfig<T, LineConfig = NewLineConfig<T>> = {
   cancelEditable: (key: RecordKey) => void;
   onSave: RowEditableConfig<T>['onSave'];
   onCancel: RowEditableConfig<T>['onCancel'];
-  onDelete: RowEditableConfig<T>['onDelete'];
+  onDelete?: RowEditableConfig<T>['onDelete'];
   deletePopconfirmMessage: RowEditableConfig<T>['deletePopconfirmMessage'];
   setEditableRowKeys: (value: React.Key[]) => void;
   newLineConfig?: LineConfig;

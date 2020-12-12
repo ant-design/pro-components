@@ -141,7 +141,6 @@ function useEditableMap<RecordType>(
         recordKey: recordKeyToString(key),
         cancelEditable,
         onCancel,
-        onDelete: async () => false,
         onSave,
         editableKeys,
         setEditableRowKeys,
