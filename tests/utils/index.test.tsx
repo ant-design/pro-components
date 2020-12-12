@@ -6,16 +6,22 @@ import {
   isNil,
   InlineErrorFormItem,
   useDebounceFn,
+  pickProProps,
+  DropdownFooter,
 } from '@ant-design/pro-utils';
 import { mount } from 'enzyme';
 import { Form, Input } from 'antd';
 import moment, { Moment } from 'moment';
 import { act } from 'react-dom/test-utils';
 import { waitTime, waitForComponentToPaint } from '../util';
-import DropdownFooter from 'packages/utils/src/components/DropdownFooter';
 
 describe('utils', () => {
   it('📅 useDebounceFn', async () => {
+    pickProProps({
+      fieldProps: {
+        name: 'string',
+      },
+    });
     const fn = jest.fn();
     const App = (props: { deps: string[] }) => {
       const fetchData = useDebounceFn(async () => fn(), props.deps);

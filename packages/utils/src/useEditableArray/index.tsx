@@ -337,7 +337,7 @@ export function defaultActionRender<T>(row: T, config: ActionRenderConfig<T, New
  * 一个方便的hooks 用于维护编辑的状态
  * @param props
  */
-function useEditable<RecordType>(
+function useEditableArray<RecordType>(
   props: RowEditableConfig<RecordType> & {
     getRowKey: GetRowKey<RecordType>;
     dataSource: RecordType[];
@@ -562,8 +562,8 @@ function useEditable<RecordType>(
   };
 }
 
-export type UseEditableType = typeof useEditable;
+export type UseEditableType = typeof useEditableArray;
 
 export type UseEditableUtilType = ReturnType<UseEditableType>;
 
-export default useEditable;
+export default useEditableArray;

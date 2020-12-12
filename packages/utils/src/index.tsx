@@ -48,6 +48,7 @@ import {
   ProFieldValueObjectType,
 } from './typing';
 import getFieldPropsOrFormItemProps from './getFieldPropsOrFormItemProps';
+import DropdownFooter from './components/DropdownFooter';
 
 export type {
   ProSchema,
@@ -74,6 +75,7 @@ export {
   FilterDropdown,
   FieldLabel,
   InlineErrorFormItem,
+  DropdownFooter,
   // function
   transformKeySubmitValue,
   conversionSubmitValue,
