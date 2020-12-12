@@ -22,6 +22,8 @@ const externals = isCI
     }, {})
   : {};
 
+console.log(externals);
+
 const webPackConfigList = [];
 
 tailPkgs.forEach((pkg) => {
