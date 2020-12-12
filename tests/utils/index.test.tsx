@@ -4,12 +4,14 @@ import {
   parseValueToMoment,
   transformKeySubmitValue,
   isNil,
+  InlineErrorFormItem,
   useDebounceFn,
 } from '@ant-design/pro-utils';
 import { mount } from 'enzyme';
+import { Form, Input } from 'antd';
 import moment, { Moment } from 'moment';
 import { act } from 'react-dom/test-utils';
-import { waitTime } from '../util';
+import { waitTime, waitForComponentToPaint } from '../util';
 
 describe('utils', () => {
   it('📅 useDebounceFn', async () => {
@@ -183,6 +185,38 @@ describe('utils', () => {
       '1573862400000,1573862400000',
     );
   });
+
+  it('📅 InlineErrorFormItem onValuesChange', async () => {
+    const html = mount(
+      <Form>
+        <InlineErrorFormItem
+          rules={[
+            {
+              required: true,
+            },
+          ]}
+          trigger="click"
+          name="title"
+        >
+          <Input id="test" />
+        </InlineErrorFormItem>
+      </Form>,
+    );
+    act(() => {
+      html.find('Input#test').simulate('change', {
+        target: {
+          value: '',
+        },
+      });
+    });
+    await waitForComponentToPaint(html, 100);
+    act(() => {
+      html.find('div.ant-form-item-has-error input').simulate('click');
+    });
+    await waitForComponentToPaint(html, 100);
+    expect(html.find('div.ant-form-item-explain').exists()).toBeTruthy();
+  });
+
   it('📅 transformKeySubmitValue return string', async () => {
     const html = transformKeySubmitValue(
       {
