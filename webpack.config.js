@@ -43,17 +43,19 @@ tailPkgs.forEach((pkg) => {
     resolve: {
       extensions: ['.ts', '.tsx', '.json', '.css', '.js', '.less'],
     },
-    optimization: {
-      minimize: true,
-      minimizer: [
-        new TerserPlugin({
-          include: /\.min\.js$/,
-        }),
-        new OptimizeCSSAssetsPlugin({
-          include: /\.min\.js$/,
-        }),
-      ],
-    },
+    optimization: isCI
+      ? {
+          minimize: true,
+          minimizer: [
+            new TerserPlugin({
+              include: /\.min\.js$/,
+            }),
+            new OptimizeCSSAssetsPlugin({
+              include: /\.min\.js$/,
+            }),
+          ],
+        }
+      : undefined,
     module: {
       rules: [
         {
@@ -151,17 +153,15 @@ tailPkgs.forEach((pkg) => {
         ...externals,
       },
     ],
-    plugins: isCI
-      ? [
-          new ProgressBarPlugin(),
-          new MiniCssExtractPlugin({
-            // Options similar to the same options in webpackOptions.output
-            // both options are optional
-            filename: '[name].css',
-            chunkFilename: '[id].css',
-          }),
-        ]
-      : [],
+    plugins: [
+      new ProgressBarPlugin(),
+      new MiniCssExtractPlugin({
+        // Options similar to the same options in webpackOptions.output
+        // both options are optional
+        filename: '[name].css',
+        chunkFilename: '[id].css',
+      }),
+    ],
   };
   webPackConfigList.push(config);
 });
