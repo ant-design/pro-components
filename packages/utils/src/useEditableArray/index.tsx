@@ -508,9 +508,7 @@ function useEditableArray<RecordType>(
         setEditableRowKeys,
         deletePopconfirmMessage: props.deletePopconfirmMessage || '删除此行？',
       };
-      if (props.actionRender) {
-        return props.actionRender(row, config);
-      }
+      if (props.actionRender) props.actionRender(row, config);
       return defaultActionRender<RecordType>(row, config);
     },
     [editableKeys.join(',')],

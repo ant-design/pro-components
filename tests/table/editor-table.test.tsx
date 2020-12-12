@@ -218,6 +218,26 @@ describe('EditorProTable', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('📝 EditableProTable support recordCreatorProps=false', async () => {
+    const wrapper = render(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        recordCreatorProps={false}
+        columns={columns}
+        editable={{
+          editableKeys: [],
+          actionRender: () => [
+            <div key="test" id="test">
+              xx
+            </div>,
+          ],
+        }}
+        value={defaultData}
+      />,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('📝 EditableProTable support recordCreatorProps', async () => {
     const wrapper = render(
       <EditableProTable<DataSourceType>
