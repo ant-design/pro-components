@@ -12,6 +12,7 @@ import { Form, Input } from 'antd';
 import moment, { Moment } from 'moment';
 import { act } from 'react-dom/test-utils';
 import { waitTime, waitForComponentToPaint } from '../util';
+import DropdownFooter from 'packages/utils/src/components/DropdownFooter';
 
 describe('utils', () => {
   it('📅 useDebounceFn', async () => {
@@ -184,6 +185,18 @@ describe('utils', () => {
     expect((html as Moment[]).map((item) => item.valueOf()).join(',')).toBe(
       '1573862400000,1573862400000',
     );
+  });
+
+  it('📅 DropdownFooter click', async () => {
+    const html = mount(
+      <DropdownFooter>
+        <Input id="test" />
+      </DropdownFooter>,
+    );
+    act(() => {
+      html.find('.ant-pro-core-dropdown-footer').simulate('click');
+    });
+    expect(html.find('.ant-pro-core-dropdown-footer').exists()).toBeTruthy();
   });
 
   it('📅 InlineErrorFormItem onValuesChange', async () => {
