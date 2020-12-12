@@ -1,9 +1,11 @@
 export default {
   moneySymbol: '€',
-  save: 'enregistrer',
-  delete: 'supprimer',
-  cancel: 'Annuler',
-  add: 'Ajouter à',
+  editableTable: {
+    save: 'enregistrer',
+    delete: 'supprimer',
+    cancel: 'Annuler',
+    add: 'Ajouter à',
+  },
   tableForm: {
     search: 'Rechercher',
     reset: 'Réinitialiser',

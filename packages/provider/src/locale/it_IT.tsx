@@ -1,9 +1,11 @@
 export default {
   moneySymbol: '€',
-  save: 'gardar',
-  delete: 'eliminar',
-  cancel: 'cancelar',
-  add: 'Engadir a',
+  editableTable: {
+    save: 'gardar',
+    delete: 'eliminar',
+    cancel: 'cancelar',
+    add: 'Engadir a',
+  },
   tableForm: {
     search: 'Filtra',
     reset: 'Pulisci',

@@ -1,9 +1,11 @@
 export default {
   moneySymbol: 'RP',
-  save: 'menyimpan',
-  delete: 'menghapus',
-  cancel: 'membatalkan',
-  add: 'Tambahkan',
+  editableTable: {
+    save: 'menyimpan',
+    delete: 'menghapus',
+    cancel: 'membatalkan',
+    add: 'Tambahkan',
+  },
   form: {
     lightFilter: {
       more: 'Lebih',

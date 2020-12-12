@@ -1,9 +1,11 @@
 export default {
   moneySymbol: '₩',
-  save: '저장',
-  delete: '지우다',
-  cancel: '취소',
-  add: '추가',
+  editableTable: {
+    save: '저장',
+    delete: '지우다',
+    cancel: '취소',
+    add: '추가',
+  },
   form: {
     lightFilter: {
       more: '더보기',

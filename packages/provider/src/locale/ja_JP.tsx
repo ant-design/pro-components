@@ -1,9 +1,11 @@
 export default {
   moneySymbol: '¥',
-  save: 'セーブ',
-  delete: '削除',
-  cancel: 'キャンセル',
-  add: '追加',
+  editableTable: {
+    save: 'セーブ',
+    delete: '削除',
+    cancel: 'キャンセル',
+    add: '追加',
+  },
   tableForm: {
     search: '検索',
     reset: 'リセット',

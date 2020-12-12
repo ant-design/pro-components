@@ -1,8 +1,10 @@
 export default {
   moneySymbol: '￥',
-  save: '保存',
-  delete: '删除',
-  cancel: '取消',
+  editableTable: {
+    save: '保存',
+    delete: '删除',
+    cancel: '取消',
+  },
   add: '添加',
   form: {
     lightFilter: {
