@@ -7,7 +7,8 @@
   "scripts": {
     "bootstrap": "node ./scripts/bootstrap.js",
     "build": "father-build && webpack",
-    "changelog": "pro-changelog",
+    "size:build": "webpack",
+    "changelog": "PRO_COMPONENTS_CI=CI pro-changelog",
     "createRelease": "node ./scripts/createRelease.js",
     "deploy": "npm run site && gh-pages -d ./dist",
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./packages && npm run lint:prettier",
