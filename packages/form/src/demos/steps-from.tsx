@@ -26,7 +26,7 @@ export default () => {
         onFinish={async (values) => {
           console.log(values);
           await waitTime(1000);
-          message.success('提交成功！');
+          message.success('提交成功');
         }}
         formProps={{
           validateMessages: {

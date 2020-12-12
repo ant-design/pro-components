@@ -16,7 +16,7 @@ export default () => {
       onFinish={async (values) => {
         await waitTime(2000);
         console.log(values);
-        message.success('提交成功！');
+        message.success('提交成功');
       }}
       initialValues={{
         name: '蚂蚁设计有限公司',

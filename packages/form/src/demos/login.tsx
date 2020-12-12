@@ -22,7 +22,7 @@ export default () => {
       <ProForm
         onFinish={async () => {
           await waitTime(2000);
-          message.success('提交成功！');
+          message.success('提交成功');
         }}
         submitter={{
           searchConfig: {
@@ -91,7 +91,7 @@ export default () => {
           rules={[
             {
               required: true,
-              message: '请输入验证码！',
+              message: '请输入验证码',
             },
           ]}
           placeholder="请输入验证码"

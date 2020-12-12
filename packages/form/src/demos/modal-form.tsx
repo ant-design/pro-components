@@ -32,7 +32,7 @@ export default () => {
       onFinish={async (values) => {
         await waitTime(2000);
         console.log(values);
-        message.success('提交成功！');
+        message.success('提交成功');
         return true;
       }}
     >

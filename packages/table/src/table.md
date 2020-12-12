@@ -249,7 +249,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 ### ProTable
 
 | 属性 | 描述 | 类型 | 默认值 |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | request | 获取 `dataSource` 的方法 | `(params?: {pageSize,current},sort,filter) => {data,success,total}` | - |
 | params | 用于 `request` 查询的多余参数，一旦变化会触发重新加载 | `object` | - |
 | postData | 对通过 `request` 获取的数据进行处理 | `(data: T[]) => T[]` | - |
@@ -327,8 +327,8 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | onCancel | 编辑列被修改的时候 | `(key: React.Key, row: T,newLine?:newLineConfig) => Promise<boolean>` | - |
 | onChange | 编辑列被修改的时候 | `(editableKeys: React.Key[], editableRows: T[]) => void` | - |
 | deletePopconfirmMessage | 删除时弹出的确认框提示消息 | `ReactNode` | `删除此行？` |
-| onlyOneLineEditorAlertMessage | 只能编辑一行的的提示 | `ReactNode` | `只能同时编辑一行！` |
-| onlyAddOneLineAlertMessage | 只能同时新增一行的提示 | `ReactNode` | `只能新增一行！` |
+| onlyOneLineEditorAlertMessage | 只能编辑一行的的提示 | `ReactNode` | `只能同时编辑一行` |
+| onlyAddOneLineAlertMessage | 只能同时新增一行的提示 | `ReactNode` | `只能新增一行` |
 
 #### ColConfig
 
