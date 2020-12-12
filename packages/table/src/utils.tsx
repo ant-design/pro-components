@@ -6,15 +6,12 @@ import {
   isNil,
   LabelIconTip,
   omitUndefinedAndEmptyArr,
+  ProFieldValueType,
   ProSchemaComponentTypes,
   ProTableEditableFnType,
+  UseEditableUtilType,
 } from '@ant-design/pro-utils';
-import {
-  ProFieldEmptyText,
-  proFieldParsingValueEnumToArray,
-  ProFieldValueType,
-} from '@ant-design/pro-field';
-import { FormInstance } from 'antd/lib/form';
+import { ProFieldEmptyText, proFieldParsingValueEnumToArray } from '@ant-design/pro-field';
 import get from 'rc-util/lib/utils/get';
 import { IntlType } from '@ant-design/pro-provider';
 
@@ -27,7 +24,6 @@ import {
 } from './typing';
 import { ColumnsState, useCounter } from './container';
 import defaultRenderText from './defaultRender';
-import { UseEditableUtilType } from './component/useEditable';
 
 /**
  * 检查值是否存在
@@ -343,6 +339,7 @@ export function columnRender<T>({
       {
         ...columnProps,
         isEditable,
+        type: 'table',
       },
     );
 
@@ -438,23 +435,3 @@ export function genColumnList<T>(props: {
     }
   >;
 }
-
-/**
- * 因为 fieldProps 支持了 function
- * 所以新增了这个方法
- * @param fieldProps
- * @param form
- */
-export const getFieldPropsOrFormItemProps = (
-  fieldProps: any,
-  form?: FormInstance<any>,
-  extraProps?: any,
-): Object & {
-  onChange: any;
-  colSize: number;
-} => {
-  if (typeof fieldProps === 'function') {
-    return fieldProps(form, extraProps);
-  }
-  return fieldProps;
-};

@@ -19,7 +19,6 @@ import ProForm, {
   ProFormProps,
 } from '@ant-design/pro-form';
 import classNames from 'classnames';
-import { ProFieldValueType } from '@ant-design/pro-field';
 import warningOnce from 'rc-util/lib/warning';
 import omit from 'omit.js';
 
@@ -29,9 +28,11 @@ import {
   conversionSubmitValue,
   transformKeySubmitValue,
   SearchTransformKeyFn,
+  getFieldPropsOrFormItemProps,
+  ProFieldValueType,
 } from '@ant-design/pro-utils';
 
-import { genColumnKey, getFieldPropsOrFormItemProps } from '../utils';
+import { genColumnKey } from '../utils';
 import { ProColumns } from '../index';
 import './index.less';
 
@@ -161,7 +162,10 @@ export const formInputRender: React.FC<{
 
     // 自动注入 onChange 和 value，用户自己很有可能忘记
     const dom = renderFormItem(
-      restItem,
+      {
+        ...restItem,
+        type: 'form',
+      },
       {
         ...rest,
         type,

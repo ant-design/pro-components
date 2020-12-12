@@ -1,8 +1,4 @@
-﻿import {
-  ProFieldEmptyText,
-  ProFieldValueObjectType,
-  ProFieldValueType,
-} from '@ant-design/pro-field';
+﻿import { ProFieldEmptyText } from '@ant-design/pro-field';
 import { ProFormProps, QueryFilterProps } from '@ant-design/pro-form';
 import { ParamsType } from '@ant-design/pro-provider';
 import {
@@ -11,9 +7,9 @@ import {
   ProSchemaComponentTypes,
   SearchTransformKeyFn,
   ProTableEditableFnType,
+  RowEditableConfig,
 } from '@ant-design/pro-utils';
 import { CardProps } from 'antd/lib/card';
-import { FormInstance, FormItemProps } from 'antd/lib/form';
 import { SpinProps } from 'antd/lib/spin';
 import { TableProps } from 'antd/lib/table';
 
@@ -23,7 +19,6 @@ import { AlertRenderType } from './component/Alert';
 import { ListToolBarProps } from './component/ListToolBar';
 import { OptionConfig, ToolBarProps } from './component/ToolBar';
 import { DensitySize } from './component/ToolBar/DensityIcon';
-import { TableRowEditable, UseEditableUtilType } from './component/useEditable';
 import { ColumnsState, useCounter } from './container';
 import { SearchConfig, TableFormItem } from './Form';
 
@@ -75,7 +70,6 @@ export type ExtraProColumnType<T> = Omit<
 
 export type ProColumnType<T = unknown> = ProSchema<
   T,
-  ProFieldValueType | ProFieldValueObjectType,
   ExtraProColumnType<T> & {
     index?: number;
 
@@ -131,20 +125,11 @@ export type ProColumnType<T = unknown> = ProSchema<
      * form 的排序
      */
     order?: number;
-
-    /**
-     * 传给 Form.Item 的 props
-     */
-    formItemProps?:
-      | ((form: FormInstance<any>) => Partial<Omit<FormItemProps, 'children'>>)
-      | Partial<Omit<FormItemProps, 'children'>>;
-
     /**
      * 可编辑表格是否可编辑
      */
     editable?: boolean | ProTableEditableFnType<T>;
-  },
-  Partial<ActionType>
+  }
 >;
 
 export interface ProColumnGroupType<RecordType> extends ProColumnType<RecordType> {
@@ -340,7 +325,7 @@ export interface ProTableProps<T, U extends ParamsType>
   /**
    * @name 编辑行相关的配置
    */
-  editable?: TableRowEditable<T>;
+  editable?: RowEditableConfig<T>;
 
   /**
    *@name 可编辑表格修改数据的改变
@@ -350,10 +335,6 @@ export interface ProTableProps<T, U extends ParamsType>
   bordered?: Bordered;
 }
 
-export type ActionType = ProCoreActionType &
-  Omit<
-    UseEditableUtilType,
-    'newLineRecord' | 'editableKeys' | 'actionRender' | 'setEditableRowKeys'
-  > & {
-    fullScreen?: () => void;
-  };
+export type ActionType = ProCoreActionType & {
+  fullScreen?: () => void;
+};

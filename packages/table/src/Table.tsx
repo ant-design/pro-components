@@ -14,7 +14,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { stringify } from 'use-json-comparison';
 import { TablePaginationConfig } from 'antd/lib/table';
 import { TableCurrentDataSource, SorterResult, SortOrder } from 'antd/lib/table/interface';
-import { useDeepCompareEffect, omitUndefined } from '@ant-design/pro-utils';
+import { useDeepCompareEffect, omitUndefined, useEditableArray } from '@ant-design/pro-utils';
 
 import useFetchData from './useFetchData';
 import Container from './container';
@@ -32,7 +32,6 @@ import {
 import ErrorBoundary from './component/ErrorBoundary';
 
 import './index.less';
-import useEditable from './component/useEditable';
 import { Bordered, BorderedType, ProTableProps, RequestData, TableRowSelection } from './typing';
 import { ActionType } from '.';
 
@@ -216,7 +215,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
   /**
    * 可编辑行的相关配置
    */
-  const editableUtils = useEditable<any>({
+  const editableUtils = useEditableArray<any>({
     ...props.editable,
     getRowKey,
     childrenColumnName: props.expandable?.childrenColumnName,
@@ -444,7 +443,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     (column) => column.filters === undefined || column.filters === true,
   );
   const editableDataSource = (): T[] => {
-    const { options: newLineOptions, row } = editableUtils.newLineRecord || {};
+    const { options: newLineOptions, defaultValue: row } = editableUtils.newLineRecord || {};
     if (newLineOptions?.position === 'top') {
       return [row, ...action.dataSource];
     }
