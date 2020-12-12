@@ -32,7 +32,7 @@ export default () => {
         await waitTime(2000);
         console.log(values);
         console.log(formRef);
-        message.success('提交成功！');
+        message.success('提交成功');
         // 不返回不会关闭弹框
         return true;
       }}

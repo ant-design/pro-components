@@ -27,7 +27,7 @@ export default () => {
         onFinish={async () => {
           setLoading(true);
           await waitTime(1000);
-          message.success('提交成功！');
+          message.success('提交成功');
           setLoading(false);
         }}
         submitter={{

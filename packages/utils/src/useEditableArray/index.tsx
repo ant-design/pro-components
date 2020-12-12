@@ -404,7 +404,7 @@ function useEditableArray<RecordType>(
   const startEditable = (recordKey: React.Key) => {
     // 如果是单行的话，不允许多行编辑
     if (editableKeysSet.size > 0 && editableType === 'single') {
-      message.warn(props.onlyOneLineEditorAlertMessage || '只能同时编辑一行！');
+      message.warn(props.onlyOneLineEditorAlertMessage || '只能同时编辑一行');
       return false;
     }
     editableKeysSet.add(recordKey);
@@ -523,12 +523,12 @@ function useEditableArray<RecordType>(
   const addEditRecord = (row: RecordType, options?: AddLineOptions) => {
     // 暂时不支持多行新增
     if (newLineRecordRef.current) {
-      message.warn(props.onlyAddOneLineAlertMessage || '只能新增一行！');
+      message.warn(props.onlyAddOneLineAlertMessage || '只能新增一行');
       return false;
     }
     // 如果是单行的话，不允许多行编辑
     if (editableKeysSet.size > 0 && editableType === 'single') {
-      message.warn(props.onlyOneLineEditorAlertMessage || '只能同时编辑一行！');
+      message.warn(props.onlyOneLineEditorAlertMessage || '只能同时编辑一行');
       return false;
     }
 
