@@ -119,22 +119,12 @@ function useEditableMap<RecordType>(
     editRow: RecordType & {
       index: number;
     },
-    isNewLine?: NewLineConfig<any>,
   ) => {
-    const { options } = isNewLine || {};
-    const success = await props?.onSave?.(recordKey, editRow, isNewLine);
+    const success = await props?.onSave?.(recordKey, editRow);
     if (success === false) {
       return false;
     }
     cancelEditable(recordKey);
-    if (isNewLine) {
-      if (options?.position === 'top') {
-        props.setDataSource({ ...editRow, ...props.dataSource });
-      } else {
-        props.setDataSource({ ...props.dataSource, ...editRow });
-      }
-      return true;
-    }
     const actionProps = {
       data: props.dataSource,
       row: editRow,
