@@ -203,6 +203,8 @@ const enUSIntl = createIntl('en_US', enUS);
 
 <code src="./demos/valueType_select.tsx" background="#f5f5f5" heigh="462px"/>
 
+<code src="./demos/config-provider.tsx" debug background="#f5f5f5" heigh="462px"/>
+
 ## API
 
 ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，并且封装了一些行为。这里只列出与 antd Table 不同的 api。
@@ -247,7 +249,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 ### ProTable
 
 | 属性 | 描述 | 类型 | 默认值 |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | request | 获取 `dataSource` 的方法 | `(params?: {pageSize,current},sort,filter) => {data,success,total}` | - |
 | params | 用于 `request` 查询的多余参数，一旦变化会触发重新加载 | `object` | - |
 | postData | 对通过 `request` 获取的数据进行处理 | `(data: T[]) => T[]` | - |
@@ -276,6 +278,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | tableExtraRender | 自定义表格的主体函数 | `(props: ProTableProps<T, U>, dataSource: T[]) => React.ReactNode;` | - |
 | manualRequest | 是否需要手动触发首次请求, 配置为 `true` 时不可隐藏搜索表单 | `boolean` | false |
 | editable | 可编辑表格的相关配置 | [TableRowEditable<T>](#editable) | - |
+| bordered | Table 和 Search 外围 Card 组件的边框 | `boolean | {search?: boolean, table?: boolean}` | false |
 
 ### 可编辑表格 EditableProTable
 
@@ -315,17 +318,17 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 ### editable
 
 | 属性 | 描述 | 类型 | 默认值 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | type | 可编辑表格的类型，单行编辑或者多行编辑 | `single` \| `multiple` | - |
 | editableKeys | 正在编辑的行，受控属性。 默认 `key` 会使用 `rowKey` 的配置，如果没有配置会使用 `index`，建议使用 rowKey | `React.Key[]` | - |
 | actionRender | 自定义编辑模式的操作栏 | `(row: T, config: ActionRenderConfig<T>) => React.ReactNode[]` | - |
-| onSave | 保存一行的时候触发，只更新 | `(key: React.Key, row: T,newLine?:newLineConfig) => Promise<boolean | void>` | - |
-| onDelete | 删除一行的时候触发 | `(key: React.Key, row: T) => Promise<boolean | void>` | - |
-| onCancel | 编辑列被修改的时候 | `(key: React.Key, row: T,newLine?:newLineConfig) => Promise<boolean | void>` | - |
+| onSave | 保存一行的时候触发，只更新 | `(key: React.Key, row: T,newLine?:newLineConfig) => Promise<boolean>` | - |
+| onDelete | 删除一行的时候触发 | `(key: React.Key, row: T) => Promise<boolean>` | - |
+| onCancel | 编辑列被修改的时候 | `(key: React.Key, row: T,newLine?:newLineConfig) => Promise<boolean>` | - |
 | onChange | 编辑列被修改的时候 | `(editableKeys: React.Key[], editableRows: T[]) => void` | - |
 | deletePopconfirmMessage | 删除时弹出的确认框提示消息 | `ReactNode` | `删除此行？` |
-| onlyOneLineEditorAlertMessage | 只能编辑一行的的提示 | `ReactNode` | `只能同时编辑一行！` |
-| onlyAddOneLineAlertMessage | 只能同时新增一行的提示 | `ReactNode` | `只能新增一行！` |
+| onlyOneLineEditorAlertMessage | 只能编辑一行的的提示 | `ReactNode` | `只能同时编辑一行` |
+| onlyAddOneLineAlertMessage | 只能同时新增一行的提示 | `ReactNode` | `只能新增一行` |
 
 #### ColConfig
 

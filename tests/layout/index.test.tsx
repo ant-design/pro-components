@@ -28,9 +28,9 @@ describe('BasicLayout', () => {
     expect(menu.exists()).toBe(false);
     const menuContent = wrapper.find('.ant-pro-sider-menu');
     expect(menuContent.exists()).toBe(false);
-    expect(
-      (wrapper.find('section.ant-layout section.ant-layout').props().style || {}).padding,
-    ).toBe(undefined);
+    expect((wrapper.find('section.ant-layout div.ant-layout').props().style || {}).padding).toBe(
+      undefined,
+    );
     wrapper.unmount();
   });
 

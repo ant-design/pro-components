@@ -149,4 +149,70 @@ describe('BasicTable Search', () => {
       name: 'name',
     });
   });
+
+  it('🎏 fieldProps and formItemProps support function', async () => {
+    const ref = React.createRef<FormInstance | undefined>();
+    const html = mount(
+      <ProTable
+        type="form"
+        // @ts-ignore
+        formRef={ref}
+        size="small"
+        columns={[
+          {
+            title: 'Name',
+            key: 'name',
+            fieldProps: {
+              id: 'name',
+            },
+            dataIndex: 'name',
+          },
+          {
+            title: '状态',
+            dataIndex: 'status',
+            fieldProps: (form) => {
+              if (form.getFieldValue('name') === 'closed') {
+                return {
+                  disabled: true,
+                  id: 'status',
+                };
+              }
+              return {
+                id: 'status',
+              };
+            },
+            formItemProps: (form) => {
+              if (form.getFieldValue('name') === 'closed') {
+                return {
+                  noStyle: true,
+                };
+              }
+              return {};
+            },
+            filters: true,
+            valueEnum: {
+              0: { text: '关闭', status: 'Default' },
+              1: { text: '运行中', status: 'Processing' },
+              2: { text: '已上线', status: 'Success' },
+              3: { text: '异常', status: 'Error' },
+            },
+          },
+        ]}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 500);
+    /**
+     * 修改值
+     */
+    act(() => {
+      html.find('input#name').simulate('change', {
+        target: {
+          value: 'closed',
+        },
+      });
+    });
+    await waitForComponentToPaint(html, 500);
+    expect(html.find('.ant-select-disabled').exists()).toBeTruthy();
+  });
 });

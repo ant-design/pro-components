@@ -1,9 +1,5 @@
-﻿import {
-  ProFieldEmptyText,
-  ProFieldValueObjectType,
-  ProFieldValueType,
-} from '@ant-design/pro-field';
-import { ProFormProps } from '@ant-design/pro-form';
+﻿import { ProFieldEmptyText } from '@ant-design/pro-field';
+import { ProFormProps, QueryFilterProps } from '@ant-design/pro-form';
 import { ParamsType } from '@ant-design/pro-provider';
 import {
   ProCoreActionType,
@@ -11,9 +7,9 @@ import {
   ProSchemaComponentTypes,
   SearchTransformKeyFn,
   ProTableEditableFnType,
+  RowEditableConfig,
 } from '@ant-design/pro-utils';
 import { CardProps } from 'antd/lib/card';
-import { FormItemProps } from 'antd/lib/form';
 import { SpinProps } from 'antd/lib/spin';
 import { TableProps } from 'antd/lib/table';
 
@@ -23,7 +19,6 @@ import { AlertRenderType } from './component/Alert';
 import { ListToolBarProps } from './component/ListToolBar';
 import { OptionConfig, ToolBarProps } from './component/ToolBar';
 import { DensitySize } from './component/ToolBar/DensityIcon';
-import { TableRowEditable, UseEditableUtilType } from './component/useEditable';
 import { ColumnsState, useCounter } from './container';
 import { SearchConfig, TableFormItem } from './Form';
 
@@ -75,7 +70,6 @@ export type ExtraProColumnType<T> = Omit<
 
 export type ProColumnType<T = unknown> = ProSchema<
   T,
-  ProFieldValueType | ProFieldValueObjectType,
   ExtraProColumnType<T> & {
     index?: number;
 
@@ -131,18 +125,11 @@ export type ProColumnType<T = unknown> = ProSchema<
      * form 的排序
      */
     order?: number;
-
-    /**
-     * 传给 Form.Item 的 props
-     */
-    formItemProps?: Partial<Omit<FormItemProps, 'children'>>;
-
     /**
      * 可编辑表格是否可编辑
      */
     editable?: boolean | ProTableEditableFnType<T>;
-  },
-  Partial<ActionType>
+  }
 >;
 
 export interface ProColumnGroupType<RecordType> extends ProColumnType<RecordType> {
@@ -151,8 +138,17 @@ export interface ProColumnGroupType<RecordType> extends ProColumnType<RecordType
 
 export type ProColumns<T = any> = ProColumnGroupType<T> | ProColumnType<T>;
 
+export type BorderedType = 'search' | 'table';
+
+export type Bordered =
+  | boolean
+  | {
+      search?: boolean;
+      table?: boolean;
+    };
+
 export interface ProTableProps<T, U extends ParamsType>
-  extends Omit<TableProps<T>, 'columns' | 'rowSelection'> {
+  extends Omit<TableProps<T>, 'columns' | 'rowSelection' | 'bordered'> {
   columns?: ProColumns<T>[];
   /**
    * @name  ListToolBar 的属性
@@ -272,7 +268,7 @@ export interface ProTableProps<T, U extends ParamsType>
    * @name type="form" 和 搜索表单 的 Form 配置
    * @description 基本配置与 antd Form 相同, 但是劫持了 form 的配置
    */
-  form?: Omit<ProFormProps, 'form'>;
+  form?: Omit<ProFormProps & QueryFilterProps, 'form'>;
   /**
    * @name 如何格式化日期
    * @description 暂时只支持 moment
@@ -329,18 +325,16 @@ export interface ProTableProps<T, U extends ParamsType>
   /**
    * @name 编辑行相关的配置
    */
-  editable?: TableRowEditable<T>;
+  editable?: RowEditableConfig<T>;
 
   /**
    *@name 可编辑表格修改数据的改变
    */
   onDataSourceChange?: (dataSource: T[]) => void;
+
+  bordered?: Bordered;
 }
 
-export type ActionType = ProCoreActionType &
-  Omit<
-    UseEditableUtilType,
-    'newLineRecord' | 'editableKeys' | 'actionRender' | 'setEditableRowKeys'
-  > & {
-    fullScreen?: () => void;
-  };
+export type ActionType = ProCoreActionType & {
+  fullScreen?: () => void;
+};

@@ -68,6 +68,9 @@ const columns: ProColumns<GithubIssueItem>[] = [
   {
     title: '标签',
     dataIndex: 'labels',
+    renderFormItem: (_, { defaultRender }) => {
+      return defaultRender(_);
+    },
     render: (_, record) => (
       <Space>
         {record.labels.map(({ name, color }) => (

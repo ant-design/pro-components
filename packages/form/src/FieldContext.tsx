@@ -1,8 +1,7 @@
 import React from 'react';
 import { FormItemProps } from 'antd/lib/form';
 import { NamePath } from 'antd/lib/form/interface';
-import { ProFieldValueType } from '@ant-design/pro-field';
-import { SearchTransformKeyFn } from '@ant-design/pro-utils';
+import { ProFieldValueType, SearchTransformKeyFn } from '@ant-design/pro-utils';
 import { GroupProps, FieldProps } from './interface';
 
 export interface FiledContextProps {

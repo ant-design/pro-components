@@ -24,13 +24,13 @@ const defaultData: DataSourceType[] = [
   {
     id: 624748504,
     title: '活动名称一',
-    decs: '这个活动真好玩！',
+    decs: '这个活动真好玩',
     created_at: '2020-05-26T09:42:56Z',
   },
   {
     id: 624691229,
     title: '活动名称二',
-    decs: '这个活动真好玩！',
+    decs: '这个活动真好玩',
     created_at: '2020-05-26T08:19:22Z',
   },
 ];
@@ -47,11 +47,22 @@ const columns: ProColumns<DataSourceType>[] = [
         },
       ],
     },
+    editable: (text, record, index) => {
+      return index === 1;
+    },
     width: '30%',
   },
   {
     title: '描述',
     dataIndex: 'decs',
+    fieldProps: (from, { rowKey }) => {
+      if (from.getFieldValue([rowKey || '', 'title']) === '不好玩') {
+        return {
+          disabled: true,
+        };
+      }
+      return {};
+    },
   },
   {
     title: '操作',
@@ -82,6 +93,7 @@ export default () => {
       <EditableProTable<DataSourceType>
         rowKey="id"
         headerTitle="可编辑表格"
+        maxLength={5}
         recordCreatorProps={{
           position,
           record: newRecord,

@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.45](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.0.44...@ant-design/pro-descriptions@1.0.45) (2020-12-09)
+
+### Bug Fixes
+
+- **table:** remove unuse code ([#1243](https://github.com/ant-design/pro-components/issues/1243)) ([922496c](https://github.com/ant-design/pro-components/commit/922496cf7dafeb024a8c2cb742c9c4d60f6970eb))
+
+## [1.0.44](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.0.43...@ant-design/pro-descriptions@1.0.44) (2020-12-08)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.0.43](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.0.42...@ant-design/pro-descriptions@1.0.43) (2020-12-07)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
 ## [1.0.42](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.0.41...@ant-design/pro-descriptions@1.0.42) (2020-12-04)
 
 **Note:** Version bump only for package @ant-design/pro-descriptions

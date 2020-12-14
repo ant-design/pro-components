@@ -9,6 +9,31 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.9.0
+
+`2020-12-10`
+
+- 💥 feat(form): support getPopupContainer [#1251](https://github.com/ant-design/pro-components/pull/1251) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-form@1.8.1
+
+`2020-12-09`
+
+- 💥 feat(table): add "colSize" in fieldProps within proTable's columns to customize query form item width [#1229](https://github.com/ant-design/pro-components/pull/1229) [@LyndonXiao](https://github.com/LyndonXiao)
+
+## @ant-design/pro-form@1.7.6
+
+`2020-12-07`
+
+- 🐛 fix(table): fix formItemProps no work error [#1222](https://github.com/ant-design/pro-components/pull/1222) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-form@1.7.3
+
+`2020-12-03`
+
+- 🐛 fix(form): fix modalForm cancel button is invalid error [#1174](https://github.com/ant-design/pro-components/pull/1174) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(table): onReset support search. transform [#1176](https://github.com/ant-design/pro-components/pull/1176) [@DerrickTel](https://github.com/DerrickTel)
+
 ## @ant-design/pro-form@1.7.2
 
 `2020-12-02`

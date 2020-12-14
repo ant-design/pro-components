@@ -1,5 +1,4 @@
 @import (reference) '~antd/lib/style/themes/default';
-@import './common.less';
 
 @pro-card-prefix-cls: ~'@{ant-prefix}-pro-card';
 
@@ -17,6 +16,29 @@
     border: @border-width-base @border-style-base @border-color-split;
   }
 
+  &-size-small {
+    .@{pro-card-prefix-cls} {
+      &-header {
+        padding: @card-head-padding-sm @card-padding-base-sm;
+        padding-bottom: 0;
+
+        &-border {
+          & {
+            padding-bottom: @card-head-padding-sm;
+          }
+        }
+      }
+
+      &-title {
+        font-size: @card-head-font-size-sm;
+      }
+
+      &-body {
+        padding: @card-padding-base-sm;
+      }
+    }
+  }
+
   &-ghost {
     background-color: transparent;
 
@@ -24,7 +46,7 @@
       &-header {
         padding-left: 0;
         padding-right: 0;
-        padding-bottom: @padding-md;
+        padding-bottom: @card-head-padding;
       }
 
       &-body {
@@ -58,7 +80,7 @@
   &-collapse {
     > .@{pro-card-prefix-cls} {
       &-header {
-        padding-bottom: @padding-md;
+        padding-bottom: @card-head-padding;
         border-bottom: 0;
       }
 
@@ -71,18 +93,18 @@
   &-header {
     display: flex;
     justify-content: space-between;
-    padding: @padding-md @card-body-padding;
+    padding: @card-head-padding @card-padding-base;
     padding-bottom: 0;
     &-border {
       & {
-        padding-bottom: @padding-md;
+        padding-bottom: @card-head-padding;
       }
       border-bottom: @border-width-base @border-style-base @border-color-split;
     }
   }
 
   &-title {
-    font-size: @font-size-lg;
+    font-size: @card-head-font-size;
   }
 
   &-type-inner {
@@ -106,7 +128,7 @@
 
   &-body {
     display: block;
-    padding: @card-body-padding;
+    padding: @card-padding-base;
     height: 100%;
     box-sizing: border-box;
 

@@ -6265,7 +6265,7 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
           </div>
         </div>
       </aside>
-      <section
+      <div
         class="ant-layout"
         style="position: relative;"
       >
@@ -7706,7 +7706,7 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
             </div>
           </div>
         </main>
-      </section>
+      </div>
     </section>
   </div>
 </div>

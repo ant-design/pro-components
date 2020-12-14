@@ -19,7 +19,6 @@ import ProForm, {
   ProFormProps,
 } from '@ant-design/pro-form';
 import classNames from 'classnames';
-import { ProFieldValueType } from '@ant-design/pro-field';
 import warningOnce from 'rc-util/lib/warning';
 import omit from 'omit.js';
 
@@ -29,6 +28,8 @@ import {
   conversionSubmitValue,
   transformKeySubmitValue,
   SearchTransformKeyFn,
+  getFieldPropsOrFormItemProps,
+  ProFieldValueType,
 } from '@ant-design/pro-utils';
 
 import { genColumnKey } from '../utils';
@@ -104,6 +105,7 @@ export interface TableFormItem<T, U = any> extends Omit<FormItemProps, 'children
   columns: ProColumns<U>[];
   formRef?: React.MutableRefObject<FormInstance | undefined> | ((formRef: FormInstance) => void);
   submitButtonLoading?: boolean;
+  bordered?: boolean;
 }
 
 /**
@@ -114,20 +116,33 @@ export interface TableFormItem<T, U = any> extends Omit<FormItemProps, 'children
 export const formInputRender: React.FC<{
   item: ProColumns<any>;
   value?: any;
-  form?: FormInstance;
+  form?: FormInstance<any>;
   type: ProSchemaComponentTypes;
   intl: IntlType;
   onChange?: (value: any) => void;
   onSelect?: (value: any) => void;
   [key: string]: any;
 }> = (props, ref: any) => {
-  const { item, intl, form, type, formItemProps, ...rest } = props;
+  const { item, intl, form, type, formItemProps: propsFormItemProps, ...rest } = props;
+
+  const formItemProps = getFieldPropsOrFormItemProps(
+    propsFormItemProps,
+    form,
+    item,
+  ) as FormItemProps<any>;
+
   const { valueType: itemValueType = 'text' } = item;
   // if function， run it
   const valueType =
     ((typeof itemValueType === 'function'
       ? (itemValueType({}, type) as ProFieldValueType)
       : itemValueType) as ProFieldValueType) || 'text';
+
+  const { onChange, colSize, ...restFieldProps } = getFieldPropsOrFormItemProps(
+    item.fieldProps || {},
+    form,
+    item,
+  ) as any;
 
   /**
    * 自定义 render
@@ -147,7 +162,10 @@ export const formInputRender: React.FC<{
 
     // 自动注入 onChange 和 value，用户自己很有可能忘记
     const dom = renderFormItem(
-      restItem,
+      {
+        ...restItem,
+        type: 'form',
+      },
       {
         ...rest,
         type,
@@ -178,13 +196,13 @@ export const formInputRender: React.FC<{
           },
           ...item.fieldProps,
         }}
+        formItemProps={formItemProps}
+        colSize={colSize}
       >
         {React.cloneElement(dom, { ...rest, ...defaultProps })}
       </ProFormField>
     );
   }
-
-  const { onChange, ...restFieldProps } = item.fieldProps || {};
 
   const finalValueType =
     !valueType || (['textarea', 'jsonCode', 'code'].includes(valueType) && type === 'table')
@@ -215,6 +233,7 @@ export const formInputRender: React.FC<{
       }}
       rules={undefined}
       key={`${item.dataIndex || ''}-${item.key || ''}-${item.index}`}
+      colSize={colSize}
     />
   );
 };
@@ -284,6 +303,7 @@ const FormSearch = <T, U = any>({
   submitButtonLoading,
   search: searchConfig,
   form: formConfig = {},
+  bordered,
 }: TableFormItem<T, U>) => {
   /**
    * 为了支持 dom 的消失，支持了这个 api
@@ -474,6 +494,7 @@ const FormSearch = <T, U = any>({
       className={classNames(className, {
         [formClassName]: isForm,
         [getPrefixCls(`pro-table-search-${competentName}`)]: true,
+        [`${getPrefixCls('card')}-bordered`]: !!bordered,
       })}
     >
       <Competent

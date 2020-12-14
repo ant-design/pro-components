@@ -9,6 +9,18 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.6.1
+
+`2020-12-10`
+
+- 🐛 fix(layout): use ant class name [#1252](https://github.com/ant-design/pro-components/pull/1252) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-layout@6.6.0
+
+`2020-12-09`
+
+- 💥 feat(layout): no use section dom [#1239](https://github.com/ant-design/pro-components/pull/1239) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-layout@6.5.15
 
 `2020-11-17`

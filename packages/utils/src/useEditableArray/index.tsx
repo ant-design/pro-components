@@ -6,12 +6,33 @@ import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
 import { LoadingOutlined } from '@ant-design/icons';
 import { message, Popconfirm } from 'antd';
 import ReactDOM from 'react-dom';
+import set from 'rc-util/lib/utils/set';
 
 export type RowEditableType = 'single' | 'multiple';
 
-export type ActionRenderFunction<T> = (row: T, config: ActionRenderConfig<T>) => React.ReactNode[];
+export type RecordKey = React.Key | React.Key[];
 
-export interface TableRowEditable<T> {
+export const recordKeyToString = (rowKey: RecordKey): React.Key => {
+  if (Array.isArray(rowKey)) return rowKey.join(',');
+  return rowKey;
+};
+
+export type AddLineOptions = {
+  position?: 'top' | 'end';
+  recordKey?: RecordKey;
+};
+
+export type NewLineConfig<T> = {
+  defaultValue: T | undefined;
+  options: AddLineOptions;
+};
+
+export type ActionRenderFunction<T> = (
+  row: T,
+  config: ActionRenderConfig<T, NewLineConfig<T>>,
+) => React.ReactNode[];
+
+export interface RowEditableConfig<T> {
   /**
    * @name 编辑的类型，暂时只支持单选
    */
@@ -23,7 +44,7 @@ export interface TableRowEditable<T> {
   /**
    * 正在编辑的列修改的时候
    */
-  onChange?: (editableKeys: React.Key[], editableRows: T[]) => void;
+  onChange?: (editableKeys: React.Key[], editableRows: T[] | T) => void;
   /**
    * @name 自定义编辑的操作
    */
@@ -33,30 +54,24 @@ export interface TableRowEditable<T> {
    * 行保存的时候
    */
   onSave?: (
-    key: React.Key,
+    key: RecordKey,
     row: T & { index: number },
-    newLineConfig?: {
-      row: T | undefined;
-      options: AddLineOptions;
-    },
+    newLineConfig?: NewLineConfig<T>,
   ) => Promise<boolean | void>;
 
   /**
    * 行保存的时候
    */
   onCancel?: (
-    key: React.Key,
+    key: RecordKey,
     row: T & { index: number },
-    newLineConfig?: {
-      row: T | undefined;
-      options: AddLineOptions;
-    },
+    newLineConfig?: NewLineConfig<T>,
   ) => Promise<boolean | void>;
 
   /**
    * 行删除的时候
    */
-  onDelete?: (key: React.Key, row: T & { index: number }) => Promise<boolean | void>;
+  onDelete?: (key: RecordKey, row: T & { index: number }) => Promise<boolean | void>;
 
   /**
    * 删除行时的确认消息
@@ -71,23 +86,26 @@ export interface TableRowEditable<T> {
    */
   onlyAddOneLineAlertMessage?: React.ReactNode;
 }
-
-export type ActionRenderConfig<T> = {
-  editableKeys?: TableRowEditable<T>['editableKeys'];
-  recordKey: React.Key;
-  index: number;
-  form: FormInstance<any>;
-  cancelEditable: (key: React.Key) => void;
-  onSave: TableRowEditable<T>['onSave'];
-  onCancel: TableRowEditable<T>['onCancel'];
-  onDelete: TableRowEditable<T>['onDelete'];
-  deletePopconfirmMessage: TableRowEditable<T>['deletePopconfirmMessage'];
-  setEditableRowKeys: (value: React.Key[]) => void;
-  newLineConfig?: {
-    row: T | undefined;
-    options: AddLineOptions;
-  };
+export type ActionTypeText = {
+  deleteText?: React.ReactNode;
+  cancelText?: React.ReactNode;
+  saveText?: React.ReactNode;
+  editorType?: 'Array' | 'Map';
 };
+
+export type ActionRenderConfig<T, LineConfig = NewLineConfig<T>> = {
+  editableKeys?: RowEditableConfig<T>['editableKeys'];
+  recordKey: RecordKey;
+  index?: number;
+  form: FormInstance<any>;
+  cancelEditable: (key: RecordKey) => void;
+  onSave: RowEditableConfig<T>['onSave'];
+  onCancel: RowEditableConfig<T>['onCancel'];
+  onDelete?: RowEditableConfig<T>['onDelete'];
+  deletePopconfirmMessage: RowEditableConfig<T>['deletePopconfirmMessage'];
+  setEditableRowKeys: (value: React.Key[]) => void;
+  newLineConfig?: LineConfig;
+} & ActionTypeText;
 
 /**
  * 使用map 来删除数据，性能一般
@@ -100,12 +118,13 @@ function editableRowByKey<RecordType>(
     data: RecordType[];
     childrenColumnName: string;
     getRowKey: GetRowKey<RecordType>;
-    key: React.Key;
+    key: RecordKey;
     row: RecordType;
   },
   action: 'update' | 'delete',
 ) {
-  const { getRowKey, key, row, data, childrenColumnName } = params;
+  const { getRowKey, row, data, childrenColumnName } = params;
+  const key = recordKeyToString(params.key);
   const kvMap = new Map<React.Key, RecordType & { parentKey?: React.Key }>();
 
   /**
@@ -187,12 +206,14 @@ function editableRowByKey<RecordType>(
  * 保存按钮的dom
  * @param ActionRenderConfig
  */
-const SaveEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
+export const SaveEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
   recordKey,
   onSave,
   form,
   row,
+  children,
   newLineConfig,
+  editorType,
 }) => {
   const [loading, setLoading] = useState<boolean>(false);
   return (
@@ -200,18 +221,22 @@ const SaveEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
       key="save"
       onClick={async () => {
         try {
+          const isMapEditor = editorType === 'Map';
+          const namePath = Array.isArray(recordKey) ? recordKey : [recordKey];
           setLoading(true);
           // @ts-expect-error
-          await form.validateFields([recordKey], {
+          await form.validateFields(namePath, {
             recursive: true,
           });
-          const fields = form.getFieldValue([recordKey]);
-          const success = await onSave?.(recordKey, { ...row, ...fields }, newLineConfig);
+
+          const fields = form.getFieldValue(namePath);
+          const record = isMapEditor ? set(row, namePath, fields) : { ...row, ...fields };
+          const success = await onSave?.(recordKey, record, newLineConfig);
           if (success === false) {
             setLoading(false);
             return;
           }
-          form.resetFields([recordKey]);
+          form.resetFields([namePath]);
         } catch (e) {
           // eslint-disable-next-line no-console
           console.log(e);
@@ -226,7 +251,7 @@ const SaveEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
           }}
         />
       ) : null}
-      保存
+      {children || '保存'}
     </a>
   );
 };
@@ -235,10 +260,11 @@ const SaveEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
  * 删除按钮 dom
  * @param ActionRenderConfig
  */
-const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
+export const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
   recordKey,
   onDelete,
   row,
+  children,
   deletePopconfirmMessage,
   cancelEditable,
 }) => {
@@ -256,7 +282,7 @@ const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
       setLoading(false);
     }
   };
-  return (
+  return children !== false ? (
     <Popconfirm key="delete" title={deletePopconfirmMessage} onConfirm={onConfirm}>
       <a>
         {loading ? (
@@ -266,62 +292,63 @@ const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
             }}
           />
         ) : null}
-        删除
+        {children || '删除'}
       </a>
     </Popconfirm>
-  );
+  ) : null;
 };
 
-const defaultActionRender: ActionRenderFunction<any> = (row, config) => {
-  const { recordKey, newLineConfig, form, onCancel, cancelEditable } = config;
+export function defaultActionRender<T>(row: T, config: ActionRenderConfig<T, NewLineConfig<T>>) {
+  const {
+    recordKey,
+    newLineConfig,
+    form,
+    onCancel,
+    cancelEditable,
+    saveText,
+    cancelText,
+    deleteText,
+  } = config;
   return [
-    <SaveEditableAction key="save" {...config} row={row} />,
-    !newLineConfig && <DeleteEditableAction key="delete" {...config} row={row} />,
+    <SaveEditableAction key="save" {...config} row={row}>
+      {saveText}
+    </SaveEditableAction>,
+    !newLineConfig && (
+      <DeleteEditableAction key="delete" {...config} row={row}>
+        {deleteText}
+      </DeleteEditableAction>
+    ),
     <a
       key="cancel"
       onClick={async () => {
-        const fields = form.getFieldValue([recordKey]);
+        const namePath = Array.isArray(recordKey) ? recordKey : [recordKey];
+        const fields = form.getFieldValue(namePath);
         const success = await onCancel?.(recordKey, fields, newLineConfig);
         if (success === false) return;
         cancelEditable(recordKey);
       }}
     >
-      取消
+      {cancelText || '取消'}
     </a>,
   ];
-};
-
-export type AddLineOptions = {
-  position?: 'top' | 'end';
-  recordKey?: React.Key;
-};
+}
 
 /**
  * 一个方便的hooks 用于维护编辑的状态
  * @param props
  */
-function useEditable<RecordType>(
-  props: TableRowEditable<RecordType> & {
+function useEditableArray<RecordType>(
+  props: RowEditableConfig<RecordType> & {
     getRowKey: GetRowKey<RecordType>;
     dataSource: RecordType[];
     childrenColumnName: string | undefined;
     setDataSource: (dataSource: RecordType[]) => void;
   },
 ) {
-  const [newLineRecord, setNewLineRecord] = useState<
-    | {
-        row: RecordType | undefined;
-        options: AddLineOptions;
-      }
-    | undefined
-  >(undefined);
-  const newLineRecordRef = useRef<
-    | {
-        row: RecordType | undefined;
-        options: AddLineOptions;
-      }
-    | undefined
-  >(undefined);
+  const [newLineRecord, setNewLineRecord] = useState<NewLineConfig<RecordType> | undefined>(
+    undefined,
+  );
+  const newLineRecordRef = useRef<NewLineConfig<RecordType> | undefined>(undefined);
 
   // 这里这么做是为了存上次的状态，不然每次存一下再拿
   newLineRecordRef.current = newLineRecord;
@@ -377,7 +404,7 @@ function useEditable<RecordType>(
   const startEditable = (recordKey: React.Key) => {
     // 如果是单行的话，不允许多行编辑
     if (editableKeysSet.size > 0 && editableType === 'single') {
-      message.warn(props.onlyOneLineEditorAlertMessage || '只能同时编辑一行！');
+      message.warn(props.onlyOneLineEditorAlertMessage || '只能同时编辑一行');
       return false;
     }
     editableKeysSet.add(recordKey);
@@ -389,7 +416,7 @@ function useEditable<RecordType>(
    * 退出编辑状态
    * @param recordKey
    */
-  const cancelEditable = (recordKey: React.Key) => {
+  const cancelEditable = (recordKey: RecordKey) => {
     // 防止多次渲染
     ReactDOM.unstable_batchedUpdates(() => {
       /**
@@ -398,7 +425,7 @@ function useEditable<RecordType>(
       if (newLineRecord && newLineRecord.options.recordKey === recordKey) {
         setNewLineRecord(undefined);
       }
-      editableKeysSet.delete(recordKey);
+      editableKeysSet.delete(recordKeyToString(recordKey));
       setEditableRowKeys(Array.from(editableKeysSet));
     });
     return true;
@@ -407,20 +434,17 @@ function useEditable<RecordType>(
   const actionRender = useCallback(
     (row: RecordType & { index: number }, form: FormInstance<any>) => {
       const key = props.getRowKey(row, row.index);
-      const dom = (props.actionRender || defaultActionRender)(row, {
+      const config = {
         recordKey: key,
         cancelEditable,
         index: row.index,
         newLineConfig: newLineRecord,
         onCancel: async (
-          recordKey: React.Key,
+          recordKey: RecordKey,
           editRow: RecordType & {
             index: number;
           },
-          isNewLine?: {
-            row: RecordType | undefined;
-            options: AddLineOptions;
-          },
+          isNewLine?: NewLineConfig<RecordType>,
         ) => {
           const success = await props?.onCancel?.(recordKey, editRow, isNewLine);
           if (success === false) {
@@ -429,7 +453,7 @@ function useEditable<RecordType>(
           return true;
         },
         onDelete: async (
-          recordKey: React.Key,
+          recordKey: RecordKey,
           editRow: RecordType & {
             index: number;
           },
@@ -449,14 +473,11 @@ function useEditable<RecordType>(
           return true;
         },
         onSave: async (
-          recordKey: React.Key,
+          recordKey: RecordKey,
           editRow: RecordType & {
             index: number;
           },
-          isNewLine?: {
-            row: RecordType | undefined;
-            options: AddLineOptions;
-          },
+          isNewLine?: NewLineConfig<RecordType>,
         ) => {
           const { options } = isNewLine || {};
           const success = await props?.onSave?.(recordKey, editRow, isNewLine);
@@ -486,8 +507,9 @@ function useEditable<RecordType>(
         editableKeys,
         setEditableRowKeys,
         deletePopconfirmMessage: props.deletePopconfirmMessage || '删除此行？',
-      });
-      return dom;
+      };
+      if (props.actionRender) props.actionRender(row, config);
+      return defaultActionRender<RecordType>(row, config);
     },
     [editableKeys.join(',')],
   );
@@ -501,12 +523,12 @@ function useEditable<RecordType>(
   const addEditRecord = (row: RecordType, options?: AddLineOptions) => {
     // 暂时不支持多行新增
     if (newLineRecordRef.current) {
-      message.warn(props.onlyAddOneLineAlertMessage || '只能新增一行！');
+      message.warn(props.onlyAddOneLineAlertMessage || '只能新增一行');
       return false;
     }
     // 如果是单行的话，不允许多行编辑
     if (editableKeysSet.size > 0 && editableType === 'single') {
-      message.warn(props.onlyOneLineEditorAlertMessage || '只能同时编辑一行！');
+      message.warn(props.onlyOneLineEditorAlertMessage || '只能同时编辑一行');
       return false;
     }
 
@@ -516,7 +538,7 @@ function useEditable<RecordType>(
       editableKeysSet.add(recordKey);
       setEditableRowKeys(Array.from(editableKeysSet));
       setNewLineRecord({
-        row,
+        defaultValue: row,
         options: {
           ...options,
           recordKey,
@@ -538,8 +560,8 @@ function useEditable<RecordType>(
   };
 }
 
-export type UseEditableType = typeof useEditable;
+export type UseEditableType = typeof useEditableArray;
 
 export type UseEditableUtilType = ReturnType<UseEditableType>;
 
-export default useEditable;
+export default useEditableArray;

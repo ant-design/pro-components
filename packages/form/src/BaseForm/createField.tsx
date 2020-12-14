@@ -1,9 +1,12 @@
 ﻿import React, { useEffect, useContext } from 'react';
 import { Form } from 'antd';
-import { pickProFormItemProps, SearchTransformKeyFn } from '@ant-design/pro-utils';
+import {
+  pickProFormItemProps,
+  ProFieldValueType,
+  SearchTransformKeyFn,
+} from '@ant-design/pro-utils';
 import { FormItemProps } from 'antd/lib/form';
 import classnames from 'classnames';
-import { ProFieldValueType } from '@ant-design/pro-field';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
 import FieldContext from '../FieldContext';
 import LightWrapper from './LightWrapper';
@@ -98,6 +101,7 @@ function createField<P extends ProFormItemProps = any>(
       transform,
       readonly,
       allowClear,
+      colSize,
       formItemProps: propsFormItemProps,
       ...rest
     } = props;

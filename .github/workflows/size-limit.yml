@@ -9,7 +9,8 @@ jobs:
     env:
       CI_JOB_NUMBER: 1
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - uses: andresz1/size-limit-action@v1.4.0
         with:
+          build_script: size:build
           github_token: ${{ secrets.GITHUB_TOKEN }}

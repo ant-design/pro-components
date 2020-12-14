@@ -68,6 +68,12 @@ interface RequestData {
 
 <code src="./demos/columns.tsx" />
 
+### 可编辑得定义列表
+
+API 与 ProTable 相同
+
+<code src="./demos/editable.tsx" />
+
 ## API
 
 ### ProDescriptions

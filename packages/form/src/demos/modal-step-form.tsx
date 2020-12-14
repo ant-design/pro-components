@@ -32,7 +32,7 @@ export default () => {
           console.log(values);
           await waitTime(1000);
           setVisible(false);
-          message.success('提交成功！');
+          message.success('提交成功');
         }}
         formProps={{
           validateMessages: {

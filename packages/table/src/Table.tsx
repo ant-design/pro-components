@@ -14,7 +14,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { stringify } from 'use-json-comparison';
 import { TablePaginationConfig } from 'antd/lib/table';
 import { TableCurrentDataSource, SorterResult, SortOrder } from 'antd/lib/table/interface';
-import { useDeepCompareEffect, omitUndefined } from '@ant-design/pro-utils';
+import { useDeepCompareEffect, omitUndefined, useEditableArray } from '@ant-design/pro-utils';
 
 import useFetchData from './useFetchData';
 import Container from './container';
@@ -32,8 +32,7 @@ import {
 import ErrorBoundary from './component/ErrorBoundary';
 
 import './index.less';
-import useEditable from './component/useEditable';
-import { ProTableProps, RequestData, TableRowSelection } from './typing';
+import { Bordered, BorderedType, ProTableProps, RequestData, TableRowSelection } from './typing';
 import { ActionType } from '.';
 
 /**
@@ -47,6 +46,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
   },
 ) => {
   const {
+    bordered,
     request,
     className: propsClassName,
     params = {},
@@ -215,7 +215,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
   /**
    * 可编辑行的相关配置
    */
-  const editableUtils = useEditable<any>({
+  const editableUtils = useEditableArray<any>({
     ...props.editable,
     getRowKey,
     childrenColumnName: props.expandable?.childrenColumnName,
@@ -338,9 +338,20 @@ const ProTable = <T extends {}, U extends ParamsType>(
     [props.onReset],
   );
 
+  const isBordered = (borderType: BorderedType, border?: Bordered) => {
+    if (border === undefined) {
+      return false;
+    }
+    // debugger
+    if (typeof border === 'boolean') {
+      return border;
+    }
+    return border[borderType];
+  };
+
   if ((!props.columns || props.columns.length < 1) && !props.tableViewRender) {
     return (
-      <Card bordered={false} bodyStyle={{ padding: 50 }}>
+      <Card bordered={isBordered('table', bordered)} bodyStyle={{ padding: 50 }}>
         <Empty />
       </Card>
     );
@@ -363,6 +374,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
         dateFormatter={rest.dateFormatter}
         search={search}
         form={rest.form}
+        bordered={isBordered('search', bordered)}
       />
     ) : null;
 
@@ -431,7 +443,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     (column) => column.filters === undefined || column.filters === true,
   );
   const editableDataSource = (): T[] => {
-    const { options: newLineOptions, row } = editableUtils.newLineRecord || {};
+    const { options: newLineOptions, defaultValue: row } = editableUtils.newLineRecord || {};
     if (newLineOptions?.position === 'top') {
       return [row, ...action.dataSource];
     }
@@ -516,7 +528,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
    */
   const tableAreaDom = (
     <Card
-      bordered={false}
+      bordered={isBordered('table', bordered)}
       style={{
         height: '100%',
       }}

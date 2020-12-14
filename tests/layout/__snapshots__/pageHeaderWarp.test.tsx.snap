@@ -5,7 +5,7 @@ exports[`BasicLayout base use 1`] = `
   class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-side"
 >
   <section
-    class="ant-layout ant-layout-has-sider"
+    class="ant-layout"
     style="min-height:100%"
   >
     <aside
@@ -97,7 +97,7 @@ exports[`BasicLayout base use 1`] = `
         </div>
       </div>
     </aside>
-    <section
+    <div
       class="ant-layout"
       style="position:relative"
     >
@@ -150,7 +150,7 @@ exports[`BasicLayout base use 1`] = `
           </div>
         </div>
       </main>
-    </section>
+    </div>
   </section>
 </div>
 `;
@@ -160,7 +160,7 @@ exports[`BasicLayout content is text 1`] = `
   class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-side"
 >
   <section
-    class="ant-layout ant-layout-has-sider"
+    class="ant-layout"
     style="min-height:100%"
   >
     <aside
@@ -252,7 +252,7 @@ exports[`BasicLayout content is text 1`] = `
         </div>
       </div>
     </aside>
-    <section
+    <div
       class="ant-layout"
       style="position:relative"
     >
@@ -326,7 +326,7 @@ exports[`BasicLayout content is text 1`] = `
           </div>
         </div>
       </main>
-    </section>
+    </div>
   </section>
 </div>
 `;

@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.8.1...@ant-design/pro-form@1.9.0) (2020-12-10)
+
+### Features
+
+- **form:** support getPopupContainer ([#1251](https://github.com/ant-design/pro-components/issues/1251)) ([d1f20a9](https://github.com/ant-design/pro-components/commit/d1f20a9191783c3eb3992f284822e3ad2d2d9cea))
+
+## [1.8.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.8.0...@ant-design/pro-form@1.8.1) (2020-12-09)
+
+### Bug Fixes
+
+- **colsize:** fix colsize warning ([#1245](https://github.com/ant-design/pro-components/issues/1245)) ([af674b6](https://github.com/ant-design/pro-components/commit/af674b661f53ef7f537bd49bea32784274cf0d34))
+
+# [1.8.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.7.6...@ant-design/pro-form@1.8.0) (2020-12-08)
+
+### Features
+
+- **table:** fieldProps support function ([#1227](https://github.com/ant-design/pro-components/issues/1227)) ([bc34fb0](https://github.com/ant-design/pro-components/commit/bc34fb0ce11d006c83b06166f6cf8903bd5d3e1a))
+
+## [1.7.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.7.5...@ant-design/pro-form@1.7.6) (2020-12-07)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
 ## [1.7.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.7.4...@ant-design/pro-form@1.7.5) (2020-12-04)
 
 **Note:** Version bump only for package @ant-design/pro-form
