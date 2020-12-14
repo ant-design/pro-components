@@ -312,6 +312,9 @@ const ProTable = <T extends {}, U extends ParamsType>(
         const submitParams = {
           ...value,
           _timestamp: Date.now(),
+          current: action.current,
+          pageSize: action.pageSize,
+          total: action.total,
         };
         setFormSearch(beforeSearchSubmit(submitParams));
         if (!firstLoad) {
@@ -330,7 +333,14 @@ const ProTable = <T extends {}, U extends ParamsType>(
 
   const onReset = useCallback(
     (value) => {
-      setFormSearch(beforeSearchSubmit(value));
+      setFormSearch(
+        beforeSearchSubmit({
+          ...value,
+          current: action.current,
+          pageSize: action.pageSize,
+          total: action.total,
+        }),
+      );
       // back first page
       action.resetPageIndex();
       props.onReset?.();
@@ -342,7 +352,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     if (border === undefined) {
       return false;
     }
-    // debugger
+
     if (typeof border === 'boolean') {
       return border;
     }
