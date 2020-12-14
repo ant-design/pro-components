@@ -1,4 +1,5 @@
 import React from 'react';
+import { Input } from 'antd';
 
 import ProDescriptions from '@ant-design/pro-descriptions';
 
@@ -50,6 +51,9 @@ export default () => {
           title: '状态2',
           key: 'state2',
           dataIndex: 'state2',
+          renderFormItem: () => {
+            return <Input />;
+          },
         },
         {
           title: '时间',
