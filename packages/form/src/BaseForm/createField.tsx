@@ -11,6 +11,7 @@ import SizeContext from 'antd/lib/config-provider/SizeContext';
 import FieldContext from '../FieldContext';
 import LightWrapper from './LightWrapper';
 import { ProFormItemProps } from '../interface';
+import {SpanConfig} from "@ant-design/pro-form";
 
 export type ProFormItemCreateConfig = {
   /**
@@ -48,6 +49,7 @@ export interface ExtendsProps {
   allowClear?: boolean;
   bordered?: boolean;
   colSize?: number;
+  colConfig?: Partial<SpanConfig>
   /**
    * @name 网络请求用的输出，会触发reload
    * @description 需要与 request 配合使用
@@ -102,6 +104,7 @@ function createField<P extends ProFormItemProps = any>(
       readonly,
       allowClear,
       colSize,
+      colConfig,
       formItemProps: propsFormItemProps,
       ...rest
     } = props;

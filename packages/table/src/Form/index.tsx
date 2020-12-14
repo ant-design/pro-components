@@ -131,7 +131,7 @@ export const formInputRender: React.FC<{
     item,
   ) as FormItemProps<any>;
 
-  const { valueType: itemValueType = 'text' } = item;
+  const { valueType: itemValueType = 'text' , colConfig } = item;
   // if function， run it
   const valueType =
     ((typeof itemValueType === 'function'
@@ -198,6 +198,7 @@ export const formInputRender: React.FC<{
         }}
         formItemProps={formItemProps}
         colSize={colSize}
+        colConfig={colConfig}
       >
         {React.cloneElement(dom, { ...rest, ...defaultProps })}
       </ProFormField>
@@ -234,6 +235,7 @@ export const formInputRender: React.FC<{
       rules={undefined}
       key={`${item.dataIndex || ''}-${item.key || ''}-${item.index}`}
       colSize={colSize}
+      colConfig={colConfig}
     />
   );
 };

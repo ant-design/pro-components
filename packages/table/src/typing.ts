@@ -1,5 +1,5 @@
 ﻿import { ProFieldEmptyText } from '@ant-design/pro-field';
-import { ProFormProps, QueryFilterProps } from '@ant-design/pro-form';
+import {ProFormProps, QueryFilterProps, SpanConfig} from '@ant-design/pro-form';
 import { ParamsType } from '@ant-design/pro-provider';
 import {
   ProCoreActionType,
@@ -129,6 +129,11 @@ export type ProColumnType<T = unknown> = ProSchema<
      * 可编辑表格是否可编辑
      */
     editable?: boolean | ProTableEditableFnType<T>;
+
+    /**
+     * 可用来设置栅格布局宽度
+     */
+    colConfig?: Partial<SpanConfig>
   }
 >;
 

@@ -9,6 +9,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import BaseForm, { CommonFormProps } from '../../BaseForm';
 import Actions, { ActionsProps } from './Actions';
+import useMediaQuery from "use-media-antd-query";
 
 const CONFIG_SPAN_BREAKPOINTS = {
   xs: 513,
@@ -142,6 +143,18 @@ export type QueryFilterProps = Omit<FormProps, 'onFinish'> &
     onReset?: () => void;
   };
 
+function getColSpan(item: React.ReactNode, spanSize: number, windowSize: "xs" | "sm" | "md" | "lg" | "xl" | "xxl") {
+  let colSize = 0;
+  let colSpan = 24;
+  if (React.isValidElement(item)) {
+    const colConfig = item?.props?.colConfig && item?.props?.colConfig[windowSize];
+    colSize = item?.props?.colSize ?? 1;
+    if (colConfig) colSpan = colConfig;
+    else colSpan = Math.min(spanSize * (colSize || 1), 24);
+  }
+  return colSpan;
+}
+
 const QueryFilterContent: React.FC<{
   defaultCollapsed: boolean;
   onCollapse: undefined | ((collapsed: boolean) => void);
@@ -210,6 +223,9 @@ const QueryFilterContent: React.FC<{
    * 是否需要展示 collapseRender
    */
   const needCollapseRender = itemLength - 1 >= showLength;
+
+  const windowSize = useMediaQuery();
+
   return (
     <Row gutter={24} justify="start" key="resize-observer-row">
       {flatMapItems(items).map((item: React.ReactNode, index: number) => {
@@ -217,8 +233,8 @@ const QueryFilterContent: React.FC<{
         const hidden: boolean =
           (item as ReactElement<{ hidden: boolean }>)?.props?.hidden ||
           (collapsed && (index >= props.showLength || totalSpan >= 24));
-        const colSize = React.isValidElement<any>(item) ? item?.props?.colSize : 1;
-        const colSpan = Math.min(spanSize.span * (colSize || 1), 24);
+
+        const colSpan = getColSpan(item,spanSize.span,windowSize);
 
         // 每一列的key, 一般是存在的
         const itemKey =
