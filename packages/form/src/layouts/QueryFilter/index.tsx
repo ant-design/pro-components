@@ -9,7 +9,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import BaseForm, { CommonFormProps } from '../../BaseForm';
 import Actions, { ActionsProps } from './Actions';
-import useMediaQuery from "use-media-antd-query";
+import useMediaQuery from 'use-media-antd-query';
 
 const CONFIG_SPAN_BREAKPOINTS = {
   xs: 513,
@@ -143,13 +143,22 @@ export type QueryFilterProps = Omit<FormProps, 'onFinish'> &
     onReset?: () => void;
   };
 
-function getColSpan(item: React.ReactNode, spanSize: number, windowSize: "xs" | "sm" | "md" | "lg" | "xl" | "xxl") {
+function getColSpan(
+  item: React.ReactNode,
+  spanSize: number,
+  windowSize: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl',
+) {
   let colSize = 0;
   let colSpan = 24;
+  let colConfig = 0;
   if (React.isValidElement(item)) {
-    const colConfig = item?.props?.colConfig && item?.props?.colConfig[windowSize];
+    if (item?.props?.colConfig && typeof item?.props?.colConfig === 'number') {
+      colConfig = item?.props?.colConfig;
+    } else if (item?.props?.colConfig && item?.props?.colConfig[windowSize]) {
+      colConfig = item?.props?.colConfig[windowSize];
+    }
     colSize = item?.props?.colSize ?? 1;
-    if (colConfig) colSpan = colConfig;
+    if (colConfig > 0) colSpan = colConfig;
     else colSpan = Math.min(spanSize * (colSize || 1), 24);
   }
   return colSpan;
@@ -234,7 +243,7 @@ const QueryFilterContent: React.FC<{
           (item as ReactElement<{ hidden: boolean }>)?.props?.hidden ||
           (collapsed && (index >= props.showLength || totalSpan >= 24));
 
-        const colSpan = getColSpan(item,spanSize.span,windowSize);
+        const colSpan = getColSpan(item, spanSize.span, windowSize);
 
         // 每一列的key, 一般是存在的
         const itemKey =
