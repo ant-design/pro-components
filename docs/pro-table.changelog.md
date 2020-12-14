@@ -9,6 +9,14 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.16.0
+
+`2020-12-14`
+
+- 💥 feat(table): EditableTable support max length [#1286](https://github.com/ant-design/pro-components/pull/1286) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(desciption): support editable [#1273](https://github.com/ant-design/pro-components/pull/1273) [@chenshuai2144](https://github.com/chenshuai2144)
+- ✨ feat(table): support bordered(#1237) [#1275](https://github.com/ant-design/pro-components/pull/1275) [@DerrickTel](https://github.com/DerrickTel)
+
 ## @ant-design/pro-table@2.15.0
 
 `2020-12-09`

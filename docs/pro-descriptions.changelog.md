@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-descriptions@1.1.0
+
+`2020-12-14`
+
+- 🐛 fix(dependencies):add dependencies to pro-utils & pro-descriptions & pro-layout & pro-form [#1280](https://github.com/ant-design/pro-components/pull/1280) [@yanm1ng](https://github.com/yanm1ng)
+- feat(descriptions): support descriptions. [#1273](https://github.com/ant-design/pro-components/pull/1273)
+
 ## @ant-design/pro-descriptions@1.0.34
 
 `2020-11-17`

@@ -26,7 +26,7 @@ export default () => {
         {...defaultProps}
         layout="mix"
         menuExtraRender={() => 'dom'}
-        menuHeaderRender={false}
+        menuHeaderRender={() => <div />}
         headerTheme="light"
         navTheme="light"
         splitMenus
