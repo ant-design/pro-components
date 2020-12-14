@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.1.0...@ant-design/pro-descriptions@1.1.1) (2020-12-14)
+
+### Bug Fixes
+
+- **descriptions:** fix value and onChange no work error ([#1297](https://github.com/ant-design/pro-components/issues/1297)) ([18c0488](https://github.com/ant-design/pro-components/commit/18c04884e1731cc0ee199062bd6486a5722ecc57))
+
 # [1.1.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.0.45...@ant-design/pro-descriptions@1.1.0) (2020-12-14)
 
 ### Features
