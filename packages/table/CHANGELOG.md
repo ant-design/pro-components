@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.16.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.15.1...@ant-design/pro-table@2.16.0) (2020-12-14)
+
+### Features
+
+- **desciption:** support editable ([#1273](https://github.com/ant-design/pro-components/issues/1273)) ([bc8821b](https://github.com/ant-design/pro-components/commit/bc8821bce05faadaa7d9337ae2287131c41791e0))
+- **table:** EditableTable support max length ([#1286](https://github.com/ant-design/pro-components/issues/1286)) ([dac9844](https://github.com/ant-design/pro-components/commit/dac9844e42ed19d5a539b6b0eae42ea35d6f958d))
+
 ## [2.15.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.15.0...@ant-design/pro-table@2.15.1) (2020-12-10)
 
 **Note:** Version bump only for package @ant-design/pro-table
