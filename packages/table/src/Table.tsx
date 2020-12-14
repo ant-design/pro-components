@@ -312,9 +312,8 @@ const ProTable = <T extends {}, U extends ParamsType>(
         const submitParams = {
           ...value,
           _timestamp: Date.now(),
-          current: action.current,
-          pageSize: action.pageSize,
-          total: action.total,
+          current: action.current || 1,
+          pageSize: action.pageSize || 20,
         };
         setFormSearch(beforeSearchSubmit(submitParams));
         if (!firstLoad) {
@@ -336,9 +335,8 @@ const ProTable = <T extends {}, U extends ParamsType>(
       setFormSearch(
         beforeSearchSubmit({
           ...value,
-          current: action.current,
-          pageSize: action.pageSize,
-          total: action.total,
+          current: action.current || 1,
+          pageSize: action.pageSize || 20,
         }),
       );
       // back first page
