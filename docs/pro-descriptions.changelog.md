@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-descriptions@1.1.1
+
+`2020-12-14`
+
+- 🐛 fix(descriptions): fix value and onChange no work error [#1297](https://github.com/ant-design/pro-components/pull/1297) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-descriptions@1.1.0
 
 `2020-12-14`
