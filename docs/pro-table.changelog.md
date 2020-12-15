@@ -9,6 +9,14 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.16.1
+
+`2020-12-15`
+
+- 🐛 fix(table): table add requesting state [#1319](https://github.com/ant-design/pro-components/pull/1319) [@hengkx](https://github.com/hengkx)
+- 🐛 fix(table): change bordered to cardBorder [#1312](https://github.com/ant-design/pro-components/pull/1312) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix: 修复新旧值均为 map 类型的等价判断，一直返回 true 的问题 [#1302](https://github.com/ant-design/pro-components/pull/1302) [@zakrivi](https://github.com/zakrivi)
+
 ## @ant-design/pro-table@2.16.0
 
 `2020-12-14`

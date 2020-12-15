@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.6.4
+
+`2020-12-15`
+
+- 💄 UI(layout): Add transition effects to the ProLayout left menu [#1300](https://github.com/ant-design/pro-components/pull/1300) [@lizhongyue248](https://github.com/lizhongyue248)
+
 ## @ant-design/pro-layout@6.6.2
 
 `2020-12-14`
