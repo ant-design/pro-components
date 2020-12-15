@@ -872,7 +872,7 @@ describe('BasicTable', () => {
     const html = mount(
       <ProTable
         size="small"
-        bordered
+        cardBordered
         columns={columns}
         request={request}
         rowKey="key"
@@ -894,7 +894,7 @@ describe('BasicTable', () => {
     const html = mount(
       <ProTable
         size="small"
-        bordered={{
+        cardBordered={{
           search: true,
           table: false,
         }}
