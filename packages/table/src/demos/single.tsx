@@ -41,7 +41,6 @@ const columns: ProColumns<GithubIssueItem>[] = [
       ],
     },
     width: '30%',
-    search: false,
   },
   {
     title: '状态',

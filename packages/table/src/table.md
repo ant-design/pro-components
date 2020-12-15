@@ -390,20 +390,21 @@ ref.current.cancelEditable(rowKey);
 | tooltip | 会在 title 之后展示一个 icon，hover 之后提示一些信息 | string | - |
 | renderText | 类似 table 的 render，但是必须返回 string，如果只是希望转化枚举，可以使用 [valueEnum](#valueEnum) | `(text: any,record: T,index: number,action: UseFetchDataAction<RequestData<T>>) => string` | - |
 | render | 类似 table 的 render，第一个参数变成了 dom,增加了第四个参数 action | `(text: React.ReactNode,record: T,index: number,action: UseFetchDataAction<RequestData<T>>) => React.ReactNode \| React.ReactNode[]` | - |
-| ellipsis | 是否自动缩略 | boolean | - |
-| copyable | 是否支持复制 | boolean | - |
+| ellipsis | 是否自动缩略 | `boolean` | - |
+| copyable | 是否支持复制 | `boolean` | - |
 | valueEnum | 值的枚举，会自动转化把值当成 key 来取出要显示的内容 | [valueEnum](#valueenum) | - |
 | valueType | 值的类型 | `money` \| `option` \| `date` \| `dateTime` \| `time` \| `text`\| `index`\|`indexBorder` | `text` |
-| hideInSearch | 在查询表单中不展示此项 | boolean | - |
-| hideInTable | 在 Table 中不展示此列 | boolean | - |
-| hideInForm | 在 Form 模式下 中不展示此列 | boolean | - |
+| hideInSearch | 在查询表单中不展示此项 | `boolean` | - |
+| hideInTable | 在 Table 中不展示此列 | `boolean` | - |
+| hideInForm | 在 Form 模式下 中不展示此列 | `boolean` | - |
 | filters | 表头的筛选菜单项，当值为 true 时，自动使用 valueEnum 生成 | `boolean` \| `object[]` | false |
-| order | 查询表单中的权重，权重大排序靠前 | number | - |
+| order | 查询表单中的权重，权重大排序靠前 | `number` | - |
 | renderFormItem | 渲染查询表单的输入组件 | `(item,props:{value,onChange}) => React.ReactNode` | - |
 | fieldProps | 查询表单的 props，会透传给表单项 | `{ [prop: string]: any }` | - |
 | search | 配置列的搜索相关，false 为隐藏 | `false` \| `{ transform: (value: any) => any }` | true |
 | search.transform | 转化值的 key, 一般用于事件区间的转化 | `(value: any) => any` | - |
 | editable | 在编辑表格中是否可编辑的，函数的参数和 table 的 render 一样 | `false` \| `(text: any, record: T,index: number) => boolean` | true |
+| colSize | 一个表单项占用的格子数量, `占比= colSize*span`，`colSize` 默认为 1 ，`span` 为 8，`span`是`form={{span:8}}` 全局设置的 | `number` | - |
 
 ### valueType 值类型
 
