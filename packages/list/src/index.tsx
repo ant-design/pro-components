@@ -27,7 +27,10 @@ export interface ProListMetas<T> {
   [key: string]: ProListMeta<T> | undefined;
 }
 
-export type ProListProps<RecordType, U extends ParamsType> = ProTableProps<RecordType, U> &
+export type ProListProps<RecordType, U extends ParamsType> = Omit<
+  ProTableProps<RecordType, U>,
+  'size'
+> &
   AntdListProps<RecordType> & {
     metas?: ProListMetas<RecordType>;
     showActions?: 'hover' | 'always';
