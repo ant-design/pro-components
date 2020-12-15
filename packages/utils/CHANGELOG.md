@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.5.0...@ant-design/pro-utils@1.5.1) (2020-12-15)
+
+### Bug Fixes
+
+- **table:** 修复新旧值均为 map 类型的等价判断，一直返回 true 的问题 ([#1302](https://github.com/ant-design/pro-components/issues/1302)) ([d61afb9](https://github.com/ant-design/pro-components/commit/d61afb90bc51a6835acfd317d9bf8dac95a54405))
+
 # [1.5.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.4.0...@ant-design/pro-utils@1.5.0) (2020-12-14)
 
 ### Features
