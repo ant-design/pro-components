@@ -150,15 +150,13 @@ function getColSpan(
 ) {
   let colSize = 0;
   let colSpan = 24;
-  let colConfig = 0;
+  let colConfigSpan = 0;
   if (React.isValidElement(item)) {
-    if (item?.props?.colConfig && typeof item?.props?.colConfig === 'number') {
-      colConfig = item?.props?.colConfig;
-    } else if (item?.props?.colConfig && item?.props?.colConfig[windowSize]) {
-      colConfig = item?.props?.colConfig[windowSize];
-    }
+    const colConfig = item?.props?.colConfig;
+    if (colConfig && typeof colConfig === 'number') colConfigSpan = colConfig;
+    else if (colConfig && colConfig[windowSize]) colConfigSpan = colConfig[windowSize];
     colSize = item?.props?.colSize ?? 1;
-    if (colConfig > 0) colSpan = colConfig;
+    if (colConfigSpan > 0) colSpan = colConfigSpan;
     else colSpan = Math.min(spanSize * (colSize || 1), 24);
   }
   return colSpan;
@@ -263,6 +261,7 @@ const QueryFilterContent: React.FC<{
           totalSpan += 24 - (totalSpan % 24);
         }
         totalSpan += colSpan;
+
         lastVisibleItemIndex = index;
 
         const colItem = (
@@ -282,7 +281,7 @@ const QueryFilterContent: React.FC<{
         <Col
           key="submitter"
           span={spanSize.span}
-          offset={24 - spanSize.span - (totalSpan % 24)}
+          offset={totalSpan % 24 + spanSize.span <= 24 ? 24 - (totalSpan % 24 + spanSize.span) : 24 - spanSize.span}
           style={{
             textAlign: 'right',
           }}
