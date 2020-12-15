@@ -148,7 +148,7 @@ export type Bordered =
     };
 
 export interface ProTableProps<T, U extends ParamsType>
-  extends Omit<TableProps<T>, 'columns' | 'rowSelection' | 'bordered'> {
+  extends Omit<TableProps<T>, 'columns' | 'rowSelection'> {
   columns?: ProColumns<T>[];
   /**
    * @name  ListToolBar 的属性
@@ -331,8 +331,10 @@ export interface ProTableProps<T, U extends ParamsType>
    *@name 可编辑表格修改数据的改变
    */
   onDataSourceChange?: (dataSource: T[]) => void;
-
-  bordered?: Bordered;
+  /**
+   * @name 查询表单和 Table 的卡片 border 配置
+   */
+  cardBordered?: Bordered;
 }
 
 export type ActionType = ProCoreActionType & {
