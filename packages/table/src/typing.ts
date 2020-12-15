@@ -74,6 +74,13 @@ export type ProColumnType<T = unknown> = ProSchema<
     index?: number;
 
     /**
+     * 每个表单占据的格子大小
+     * @params 总宽度 = span* colSize
+     * @params 默认为 1
+     */
+    colSize?: number;
+
+    /**
      * 搜索表单的默认值
      */
     initialValue?: any;
