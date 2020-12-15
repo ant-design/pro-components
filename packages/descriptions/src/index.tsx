@@ -35,7 +35,7 @@ export type ProDescriptionsItemProps<T = {}> = ProSchema<
     children?: React.ReactNode;
   }
 >;
-export type ProDescriptionsActionType = ProFieldValueType;
+export type ProDescriptionsActionType = ProCoreActionType;
 
 export type ProDescriptionsProps<RecordType = {}> = DescriptionsProps & {
   /**
