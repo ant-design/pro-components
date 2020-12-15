@@ -309,11 +309,11 @@ const ProTable = <T extends {}, U extends ParamsType>(
   const onSubmit = useCallback(
     (value, firstLoad) => {
       if (type !== 'form') {
+        const pageInfo = pagination === false ? {} : pagination;
         const submitParams = {
           ...value,
           _timestamp: Date.now(),
-          current: pagination === false ? undefined : pagination?.current,
-          pageSize: pagination === false ? undefined : pagination?.pageSize,
+          ...pageInfo,
         };
         setFormSearch(beforeSearchSubmit(submitParams));
         if (!firstLoad) {
@@ -332,11 +332,12 @@ const ProTable = <T extends {}, U extends ParamsType>(
 
   const onReset = useCallback(
     (value) => {
+      const pageInfo = pagination === false ? {} : pagination;
+
       setFormSearch(
         beforeSearchSubmit({
           ...value,
-          current: pagination === false ? undefined : pagination?.current,
-          pageSize: pagination === false ? undefined : pagination?.pageSize,
+          ...pageInfo,
         }),
       );
       // back first page
