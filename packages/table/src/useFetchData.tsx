@@ -35,6 +35,8 @@ const useFetchData = <T extends RequestData<any>>(
     value: options?.loading,
   });
 
+  const [requesting, setRequesting] = useState(false);
+
   const [pageInfo, setPageInfo] = useState<PageInfo>({
     page: options?.current || options?.defaultCurrent || 1,
     total: 0,
@@ -63,10 +65,11 @@ const useFetchData = <T extends RequestData<any>>(
    * 请求数据
    */
   const fetchList = async () => {
-    if (loading || !mountRef.current) {
+    if (requesting || !mountRef.current) {
       return;
     }
     setLoading(true);
+    setRequesting(true);
 
     const { pageSize, page } = pageInfo;
     try {
@@ -82,6 +85,7 @@ const useFetchData = <T extends RequestData<any>>(
       if (!mountRef.current) {
         return;
       }
+      setRequesting(false);
       if (success !== false) {
         setDataAndLoading(data, dataTotal);
       } else {
@@ -92,6 +96,7 @@ const useFetchData = <T extends RequestData<any>>(
       }
     } catch (e) {
       setLoading(false);
+      setRequesting(false);
       // 如果没有传递这个方法的话，需要把错误抛出去，以免吞掉错误
       if (onRequestError === undefined) {
         throw new Error(e);
