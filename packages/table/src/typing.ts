@@ -74,6 +74,13 @@ export type ProColumnType<T = unknown> = ProSchema<
     index?: number;
 
     /**
+     * 每个表单占据的格子大小
+     * @params 总宽度 = span* colSize
+     * @params 默认为 1
+     */
+    colSize?: number;
+
+    /**
      * 搜索表单的默认值
      */
     initialValue?: any;
@@ -148,7 +155,7 @@ export type Bordered =
     };
 
 export interface ProTableProps<T, U extends ParamsType>
-  extends Omit<TableProps<T>, 'columns' | 'rowSelection' | 'bordered'> {
+  extends Omit<TableProps<T>, 'columns' | 'rowSelection'> {
   columns?: ProColumns<T>[];
   /**
    * @name  ListToolBar 的属性
@@ -331,8 +338,10 @@ export interface ProTableProps<T, U extends ParamsType>
    *@name 可编辑表格修改数据的改变
    */
   onDataSourceChange?: (dataSource: T[]) => void;
-
-  bordered?: Bordered;
+  /**
+   * @name 查询表单和 Table 的卡片 border 配置
+   */
+  cardBordered?: Bordered;
 }
 
 export type ActionType = ProCoreActionType & {

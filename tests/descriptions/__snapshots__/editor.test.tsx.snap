@@ -140,14 +140,14 @@ Array [
                                       class="ant-input"
                                       placeholder="请输入"
                                       type="text"
-                                      value=""
+                                      value="🐛 [BUG]yarn install命令 antd2.4.5会报错"
                                     />
                                     <span
                                       class="ant-input-suffix"
                                     >
                                       <span
                                         aria-label="close-circle"
-                                        class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                                        class="anticon anticon-close-circle ant-input-clear-icon"
                                         role="button"
                                         tabindex="-1"
                                       >

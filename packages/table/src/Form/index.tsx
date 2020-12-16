@@ -208,7 +208,6 @@ export const formInputRender: React.FC<{
     !valueType || (['textarea', 'jsonCode', 'code'].includes(valueType) && type === 'table')
       ? 'text'
       : (valueType as 'text');
-
   return (
     <ProFormField
       ref={ref}
@@ -233,7 +232,6 @@ export const formInputRender: React.FC<{
       }}
       rules={undefined}
       key={`${item.dataIndex || ''}-${item.key || ''}-${item.index}`}
-      colSize={colSize}
     />
   );
 };
@@ -266,6 +264,7 @@ export const proFormItemRender: (props: {
     filters,
     request,
     params,
+    colSize,
     ...rest
   } = item;
 
@@ -285,6 +284,7 @@ export const proFormItemRender: (props: {
     request,
     params,
     formItemProps,
+    colSize,
   });
   if (!dom) {
     return null;

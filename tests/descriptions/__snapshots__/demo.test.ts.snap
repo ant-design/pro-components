@@ -1065,7 +1065,7 @@ exports[`descriptions demos renders ./packages/descriptions/src/demos/request.ts
                 type="button"
               >
                 <span>
-                  提 交
+                  刷 新
                 </span>
               </button>
             </div>

@@ -35,7 +35,7 @@ export type ProDescriptionsItemProps<T = {}> = ProSchema<
     children?: React.ReactNode;
   }
 >;
-export type ProDescriptionsActionType = ProFieldValueType;
+export type ProDescriptionsActionType = ProCoreActionType;
 
 export type ProDescriptionsProps<RecordType = {}> = DescriptionsProps & {
   /**
@@ -184,6 +184,20 @@ export const FieldRender: React.FC<
             rowKey: dataIndex,
             isEditable: true,
           });
+          const dom = renderFormItem
+            ? renderFormItem?.(
+                {
+                  ...props,
+                  type: 'descriptions',
+                },
+                {
+                  isEditable: true,
+                  defaultRender: () => <ProFormField {...fieldConfig} fieldProps={fieldProps} />,
+                  type: 'descriptions',
+                },
+                form,
+              )
+            : undefined;
           return (
             <Space>
               <InlineErrorFormItem
@@ -194,31 +208,16 @@ export const FieldRender: React.FC<
                 name={dataIndex}
                 {...formItemProps}
               >
-                <ProFormField
-                  {...fieldConfig}
-                  // @ts-ignore
-                  proFieldProps={{
-                    ...fieldConfig.proFieldProps,
-                    renderFormItem: renderFormItem
-                      ? () =>
-                          renderFormItem?.(
-                            {
-                              ...props,
-                              type: 'descriptions',
-                            },
-                            {
-                              isEditable: true,
-                              defaultRender: () => (
-                                <ProFormField {...fieldConfig} fieldProps={fieldProps} />
-                              ),
-                              type: 'descriptions',
-                            },
-                            form,
-                          )
-                      : undefined,
-                  }}
-                  fieldProps={fieldProps}
-                />
+                {dom || (
+                  <ProFormField
+                    {...fieldConfig}
+                    // @ts-ignore
+                    proFieldProps={{
+                      ...fieldConfig.proFieldProps,
+                    }}
+                    fieldProps={fieldProps}
+                  />
+                )}
               </InlineErrorFormItem>
               {editableUtils?.actionRender?.(dataIndex || index, form as FormInstance<any>, {
                 cancelText: <CloseOutlined />,

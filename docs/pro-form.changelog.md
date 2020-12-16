@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.10.0
+
+`2020-12-14`
+
+- 🐛 fix(dependencies):add dependencies to pro-utils & pro-descriptions & pro-layout & pro-form [#1280](https://github.com/ant-design/pro-components/pull/1280) [@yanm1ng](https://github.com/yanm1ng)
+
 ## @ant-design/pro-form@1.9.0
 
 `2020-12-10`

@@ -35,6 +35,17 @@ import './index.less';
 import { Bordered, BorderedType, ProTableProps, RequestData, TableRowSelection } from './typing';
 import { ActionType } from '.';
 
+const isBordered = (borderType: BorderedType, border?: Bordered) => {
+  if (border === undefined) {
+    return false;
+  }
+  // debugger
+  if (typeof border === 'boolean') {
+    return border;
+  }
+  return border[borderType];
+};
+
 /**
  * 🏆 Use Ant Design Table like a Pro!
  * 更快 更好 更方便
@@ -46,7 +57,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
   },
 ) => {
   const {
-    bordered,
+    cardBordered,
     request,
     className: propsClassName,
     params = {},
@@ -357,10 +368,9 @@ const ProTable = <T extends {}, U extends ParamsType>(
     }
     return border[borderType];
   };
-
   if ((!props.columns || props.columns.length < 1) && !props.tableViewRender) {
     return (
-      <Card bordered={isBordered('table', bordered)} bodyStyle={{ padding: 50 }}>
+      <Card bordered={isBordered('table', cardBordered)} bodyStyle={{ padding: 50 }}>
         <Empty />
       </Card>
     );
@@ -383,7 +393,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
         dateFormatter={rest.dateFormatter}
         search={search}
         form={rest.form}
-        bordered={isBordered('search', bordered)}
+        bordered={isBordered('search', cardBordered)}
       />
     ) : null;
 
@@ -537,7 +547,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
    */
   const tableAreaDom = (
     <Card
-      bordered={isBordered('table', bordered)}
+      bordered={isBordered('table', cardBordered)}
       style={{
         height: '100%',
       }}

@@ -51,10 +51,7 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
     }
     value?.setHasFooterToolbar(true);
     return () => {
-      if (!value || !value?.setHasFooterToolbar) {
-        return;
-      }
-      value?.setHasFooterToolbar(false);
+      value?.setHasFooterToolbar?.(false);
     };
   }, []);
 

@@ -9,6 +9,19 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.6.4
+
+`2020-12-15`
+
+- 💄 UI(layout): Add transition effects to the ProLayout left menu [#1300](https://github.com/ant-design/pro-components/pull/1300) [@lizhongyue248](https://github.com/lizhongyue248)
+
+## @ant-design/pro-layout@6.6.2
+
+`2020-12-14`
+
+- 🐛 fix(layout): Recalculate menu when pathname is changed [#1288](https://github.com/ant-design/pro-components/pull/1288) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(dependencies):add dependencies to pro-utils & pro-descriptions & pro-layout & pro-form [#1280](https://github.com/ant-design/pro-components/pull/1280) [@yanm1ng](https://github.com/yanm1ng)
+
 ## @ant-design/pro-layout@6.6.1
 
 `2020-12-10`
