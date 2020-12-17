@@ -15,6 +15,7 @@ import { stringify } from 'use-json-comparison';
 import { TablePaginationConfig } from 'antd/lib/table';
 import { TableCurrentDataSource, SorterResult, SortOrder } from 'antd/lib/table/interface';
 import { useDeepCompareEffect, omitUndefined, useEditableArray } from '@ant-design/pro-utils';
+import omit from 'omit.js';
 
 import useFetchData from './useFetchData';
 import Container from './container';
@@ -320,11 +321,14 @@ const ProTable = <T extends {}, U extends ParamsType>(
   const onSubmit = useCallback(
     (value, firstLoad) => {
       if (type !== 'form') {
+        const pageInfo = pagination ? {} : (pagination as TablePaginationConfig);
         const submitParams = {
           ...value,
           _timestamp: Date.now(),
+          ...pageInfo,
         };
-        setFormSearch(beforeSearchSubmit(submitParams));
+        const omitParams = omit(beforeSearchSubmit(submitParams), Object.keys(pageInfo));
+        setFormSearch(omitParams);
         if (!firstLoad) {
           // back first page
           action.resetPageIndex();
@@ -341,7 +345,14 @@ const ProTable = <T extends {}, U extends ParamsType>(
 
   const onReset = useCallback(
     (value) => {
-      setFormSearch(beforeSearchSubmit(value));
+      const pageInfo = pagination === false ? {} : pagination;
+
+      setFormSearch(
+        beforeSearchSubmit({
+          ...value,
+          ...pageInfo,
+        }),
+      );
       // back first page
       action.resetPageIndex();
       props.onReset?.();
