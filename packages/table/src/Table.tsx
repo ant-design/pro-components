@@ -358,16 +358,6 @@ const ProTable = <T extends {}, U extends ParamsType>(
     [props.onReset],
   );
 
-  const isBordered = (borderType: BorderedType, border?: Bordered) => {
-    if (border === undefined) {
-      return false;
-    }
-
-    if (typeof border === 'boolean') {
-      return border;
-    }
-    return border[borderType];
-  };
   if ((!props.columns || props.columns.length < 1) && !props.tableViewRender) {
     return (
       <Card bordered={isBordered('table', cardBordered)} bodyStyle={{ padding: 50 }}>
