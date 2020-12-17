@@ -16,6 +16,7 @@ interface DataSourceType {
   id: React.Key;
   title?: string;
   decs?: string;
+  state?: string;
   created_at?: string;
   children?: DataSourceType[];
 }
@@ -25,12 +26,14 @@ const defaultData: DataSourceType[] = [
     id: 624748504,
     title: '活动名称一',
     decs: '这个活动真好玩',
+    state: 'open',
     created_at: '2020-05-26T09:42:56Z',
   },
   {
     id: 624691229,
     title: '活动名称二',
     decs: '这个活动真好玩',
+    state: 'closed',
     created_at: '2020-05-26T08:19:22Z',
   },
 ];
@@ -48,9 +51,26 @@ const columns: ProColumns<DataSourceType>[] = [
       ],
     },
     editable: (text, record, index) => {
-      return index === 1;
+      return index !== 1;
     },
     width: '30%',
+  },
+  {
+    title: '状态',
+    key: 'state',
+    dataIndex: 'state',
+    valueType: 'select',
+    valueEnum: {
+      all: { text: '全部', status: 'Default' },
+      open: {
+        text: '未解决',
+        status: 'Error',
+      },
+      closed: {
+        text: '已解决',
+        status: 'Success',
+      },
+    },
   },
   {
     title: '描述',
@@ -84,7 +104,7 @@ const columns: ProColumns<DataSourceType>[] = [
 export default () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>([]);
   const [dataSource, setDataSource] = useState<DataSourceType[]>([]);
-  const [position, setPosition] = useState<'top' | 'end'>('top');
+  const [position, setPosition] = useState<'top' | 'end'>('end');
   const [newRecord, setNewRecord] = useState({
     id: (Math.random() * 1000000).toFixed(0),
   });
