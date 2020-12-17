@@ -31,7 +31,7 @@ const FieldTimePicker: ProFieldFC<{
   if (mode === 'edit' || mode === 'update') {
     let dom;
     const { disabled, onChange, placeholder, allowClear, value } = fieldProps;
-    const momentValue = parseValueToMoment(value, format) as moment.Moment;
+    const momentValue = parseValueToMoment(value) as moment.Moment;
     if (light) {
       const valueStr: string = (momentValue && momentValue.format(format)) || '';
       dom = (
@@ -80,6 +80,7 @@ const FieldTimePicker: ProFieldFC<{
           format={format}
           bordered={plain === undefined ? true : !plain}
           {...fieldProps}
+          value={momentValue}
         />
       );
     }
