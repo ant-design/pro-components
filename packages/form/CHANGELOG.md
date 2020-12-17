@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.10.1...@ant-design/pro-form@1.10.2) (2020-12-17)
+
+### Bug Fixes
+
+- **form:** 修复 lightFilter 在 collapse 的情况下 form 失效的 bug ([#1323](https://github.com/ant-design/pro-components/issues/1323)) ([c026a83](https://github.com/ant-design/pro-components/commit/c026a8384c0d768129a45e79d1efc7396f64d49e))
+- **form:** 修复 ModalForm 和 DrawerForm 的编写错误 ([#1328](https://github.com/ant-design/pro-components/issues/1328)) ([27ed75a](https://github.com/ant-design/pro-components/commit/27ed75a6bf25d63179a265bd981fe4c663d119c8))
+
 ## [1.10.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.10.0...@ant-design/pro-form@1.10.1) (2020-12-15)
 
 **Note:** Version bump only for package @ant-design/pro-form

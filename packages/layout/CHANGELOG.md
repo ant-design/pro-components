@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.7.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.6.4...@ant-design/pro-layout@6.7.0) (2020-12-17)
+
+### Features
+
+- **layout:** support menu type group ([#1316](https://github.com/ant-design/pro-components/issues/1316)) ([e759256](https://github.com/ant-design/pro-components/commit/e75925644e35c876950ec21339fb0f9fd88168d6))
+
 ## [6.6.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.6.3...@ant-design/pro-layout@6.6.4) (2020-12-15)
 
 **Note:** Version bump only for package @ant-design/pro-layout
