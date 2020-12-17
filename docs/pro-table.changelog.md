@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.16.2
+
+`2020-12-17`
+
+- ✨ feat(table): beforeSearchSubmit support pagination [#1295](https://github.com/ant-design/pro-components/pull/1295) [@DerrickTel](https://github.com/DerrickTel)
+- ✨ feat(table): support colSize [#1322](https://github.com/ant-design/pro-components/pull/1322) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.16.1
 
 `2020-12-15`

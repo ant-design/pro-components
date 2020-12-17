@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.7.0
+
+`2020-12-17`
+
+- 💥 feat(layout): support menu type group [#1316](https://github.com/ant-design/pro-components/pull/1316) [@shiny](https://github.com/shiny)
+
 ## @ant-design/pro-layout@6.6.4
 
 `2020-12-15`

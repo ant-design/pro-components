@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.10.2
+
+`2020-12-17`
+
+- 🐛 fix(form): 修复 lightFilter 在 collapse 的情况下 form 失效的 bug [#1323](https://github.com/ant-design/pro-components/pull/1323) [@oldturkey](https://github.com/oldturkey)
+
 ## @ant-design/pro-form@1.10.0
 
 `2020-12-14`
