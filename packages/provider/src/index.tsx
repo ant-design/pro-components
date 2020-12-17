@@ -72,7 +72,7 @@ const intlMap = {
   'en-US': enUSIntl,
   'vi-VN': viVNIntl,
   'it-IT': itITIntl,
-  'js-JP': jaJPIntl,
+  'ja-JP': jaJPIntl,
   'es-ES': esESIntl,
   'ru-RU': ruRUIntl,
   'ms-MY': msMYIntl,
