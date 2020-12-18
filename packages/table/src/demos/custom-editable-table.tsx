@@ -165,7 +165,7 @@ const columns: ProColumns<DataSourceType>[] = [
 export default () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>([]);
   const [dataSource, setDataSource] = useState<DataSourceType[]>([]);
-  const [position, setPosition] = useState<'top' | 'end'>('end');
+  const [position, setPosition] = useState<'top' | 'bottom'>('bottom');
   const [newRecord, setNewRecord] = useState({
     id: (Math.random() * 1000000).toFixed(0),
   });
