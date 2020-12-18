@@ -654,8 +654,6 @@ describe('BasicLayout', () => {
     await waitForComponentToPaint(wrapper);
     expect(wrapper.render()).toMatchSnapshot();
   });
-<<<<<<< HEAD
-=======
 
   it('🥩 BasicLayout menu support menu.true', async () => {
     const wrapper = mount(
@@ -745,5 +743,4 @@ describe('BasicLayout', () => {
     await waitForComponentToPaint(wrapper, 100);
     expect(wrapper.find('.ant-pro-basicLayout-top').exists()).toBeTruthy();
   });
->>>>>>> upstream/master
 });
