@@ -14876,13 +14876,12 @@ Array [
                               class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
                             >
                               <label
-                                class="ant-radio-wrapper ant-radio-wrapper-checked"
+                                class="ant-radio-wrapper"
                               >
                                 <span
-                                  class="ant-radio ant-radio-checked"
+                                  class="ant-radio"
                                 >
                                   <input
-                                    checked=""
                                     class="ant-radio-input"
                                     type="radio"
                                     value="top"
@@ -14896,12 +14895,13 @@ Array [
                                 </span>
                               </label>
                               <label
-                                class="ant-radio-wrapper"
+                                class="ant-radio-wrapper ant-radio-wrapper-checked"
                               >
                                 <span
-                                  class="ant-radio"
+                                  class="ant-radio ant-radio-checked"
                                 >
                                   <input
+                                    checked=""
                                     class="ant-radio-input"
                                     type="radio"
                                     value="end"
@@ -14951,6 +14951,7 @@ Array [
                           style="width: 30%; min-width: 30%;"
                         />
                         <col />
+                        <col />
                         <col
                           style="width: 200px; min-width: 200px;"
                         />
@@ -14967,6 +14968,11 @@ Array [
                           <th
                             class="ant-table-cell"
                           >
+                            状态
+                          </th>
+                          <th
+                            class="ant-table-cell"
+                          >
                             描述
                           </th>
                           <th
@@ -14974,44 +14980,6 @@ Array [
                           >
                             操作
                           </th>
-                        </tr>
-                        <tr>
-                          <td
-                            colspan="3"
-                          >
-                            <button
-                              class="ant-btn ant-btn-dashed"
-                              style="display: block; margin: 10px 0px; width: 100%;"
-                              type="button"
-                            >
-                              <span
-                                aria-label="plus"
-                                class="anticon anticon-plus"
-                                role="img"
-                              >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="plus"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="64 64 896 896"
-                                  width="1em"
-                                >
-                                  <defs />
-                                  <path
-                                    d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-                                  />
-                                  <path
-                                    d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-                                  />
-                                </svg>
-                              </span>
-                              <span>
-                                添加一行数据
-                              </span>
-                            </button>
-                          </td>
                         </tr>
                       </thead>
                       <tbody
@@ -15025,6 +14993,22 @@ Array [
                             class="ant-table-cell"
                           >
                             活动名称一
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <span
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                            >
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-error"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                未解决
+                              </span>
+                            </span>
                           </td>
                           <td
                             class="ant-table-cell"
@@ -15059,6 +15043,22 @@ Array [
                           <td
                             class="ant-table-cell"
                           >
+                            <span
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                            >
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-success"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                已解决
+                              </span>
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
                             这个活动真好玩
                           </td>
                           <td
@@ -15085,6 +15085,38 @@ Array [
             </div>
           </div>
         </div>
+        <button
+          class="ant-btn ant-btn-dashed"
+          style="display: block; margin: 10px 0px; width: 100%;"
+          type="button"
+        >
+          <span
+            aria-label="plus"
+            class="anticon anticon-plus"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="plus"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <defs />
+              <path
+                d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+              />
+              <path
+                d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+              />
+            </svg>
+          </span>
+          <span>
+            添加一行数据
+          </span>
+        </button>
       </div>
     </div>
   </div>,
@@ -15135,12 +15167,14 @@ Array [
     "id": 624748504,
     "title": "活动名称一",
     "decs": "这个活动真好玩",
+    "state": "open",
     "created_at": "2020-05-26T09:42:56Z"
   },
   {
     "id": 624691229,
     "title": "活动名称二",
     "decs": "这个活动真好玩",
+    "state": "closed",
     "created_at": "2020-05-26T08:19:22Z"
   }
 ]
@@ -34132,17 +34166,9 @@ exports[`table demos renders ./packages/table/src/demos/valueType.tsx correctly 
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 16px;"
                             >
                               <a>
-                                操作
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                            >
-                              <a>
-                                删除
+                                编辑
                               </a>
                             </div>
                           </div>
@@ -34226,17 +34252,9 @@ exports[`table demos renders ./packages/table/src/demos/valueType.tsx correctly 
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 16px;"
                             >
                               <a>
-                                操作
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                            >
-                              <a>
-                                删除
+                                编辑
                               </a>
                             </div>
                           </div>
@@ -34320,17 +34338,9 @@ return { list: data.data, ...data };
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 16px;"
                             >
                               <a>
-                                操作
-                              </a>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                            >
-                              <a>
-                                删除
+                                编辑
                               </a>
                             </div>
                           </div>
@@ -35345,6 +35355,9 @@ exports[`table demos renders ./packages/table/src/demos/valueType_select.tsx cor
                       <col
                         style="width: 100px; min-width: 100px;"
                       />
+                      <col
+                        style="width: 120px; min-width: 120px;"
+                      />
                     </colgroup>
                     <thead
                       class="ant-table-thead"
@@ -35369,6 +35382,11 @@ exports[`table demos renders ./packages/table/src/demos/valueType_select.tsx cor
                           class="ant-table-cell"
                         >
                           多选状态
+                        </th>
+                        <th
+                          class="ant-table-cell"
+                        >
+                          操作
                         </th>
                       </tr>
                     </thead>
@@ -35451,6 +35469,21 @@ exports[`table demos renders ./packages/table/src/demos/valueType_select.tsx cor
                             </div>
                           </div>
                         </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <div
+                            class="ant-space ant-space-horizontal ant-space-align-center"
+                          >
+                            <div
+                              class="ant-space-item"
+                            >
+                              <a>
+                                编辑
+                              </a>
+                            </div>
+                          </div>
+                        </td>
                       </tr>
                       <tr
                         class="ant-table-row ant-table-row-level-0"
@@ -35525,6 +35558,21 @@ exports[`table demos renders ./packages/table/src/demos/valueType_select.tsx cor
                                   异常
                                 </span>
                               </span>
+                            </div>
+                          </div>
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <div
+                            class="ant-space ant-space-horizontal ant-space-align-center"
+                          >
+                            <div
+                              class="ant-space-item"
+                            >
+                              <a>
+                                编辑
+                              </a>
                             </div>
                           </div>
                         </td>
@@ -36473,7 +36521,17 @@ exports[`table demos renders ./packages/table/src/demos/valueTypeDate.tsx correc
                   <table
                     style="table-layout: auto;"
                   >
-                    <colgroup />
+                    <colgroup>
+                      <col />
+                      <col />
+                      <col />
+                      <col />
+                      <col />
+                      <col />
+                      <col
+                        style="width: 120px; min-width: 120px;"
+                      />
+                    </colgroup>
                     <thead
                       class="ant-table-thead"
                     >
@@ -36507,6 +36565,11 @@ exports[`table demos renders ./packages/table/src/demos/valueTypeDate.tsx correc
                           class="ant-table-cell"
                         >
                           关闭时间
+                        </th>
+                        <th
+                          class="ant-table-cell"
+                        >
+                          操作
                         </th>
                       </tr>
                     </thead>
@@ -36569,6 +36632,21 @@ exports[`table demos renders ./packages/table/src/demos/valueTypeDate.tsx correc
                             23:59:59
                           </span>
                         </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <div
+                            class="ant-space ant-space-horizontal ant-space-align-center"
+                          >
+                            <div
+                              class="ant-space-item"
+                            >
+                              <a>
+                                编辑
+                              </a>
+                            </div>
+                          </div>
+                        </td>
                       </tr>
                       <tr
                         class="ant-table-row ant-table-row-level-0"
@@ -36625,6 +36703,21 @@ exports[`table demos renders ./packages/table/src/demos/valueTypeDate.tsx correc
                           <span>
                             23:59:59
                           </span>
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <div
+                            class="ant-space ant-space-horizontal ant-space-align-center"
+                          >
+                            <div
+                              class="ant-space-item"
+                            >
+                              <a>
+                                编辑
+                              </a>
+                            </div>
+                          </div>
                         </td>
                       </tr>
                     </tbody>
@@ -37714,6 +37807,9 @@ exports[`table demos renders ./packages/table/src/demos/valueTypeNumber.tsx corr
                       <col
                         style="width: 120px; min-width: 120px;"
                       />
+                      <col
+                        style="width: 120px; min-width: 120px;"
+                      />
                     </colgroup>
                     <thead
                       class="ant-table-thead"
@@ -37743,6 +37839,11 @@ exports[`table demos renders ./packages/table/src/demos/valueTypeNumber.tsx corr
                           class="ant-table-cell"
                         >
                           百分比
+                        </th>
+                        <th
+                          class="ant-table-cell"
+                        >
+                          操作
                         </th>
                       </tr>
                     </thead>
@@ -37808,6 +37909,21 @@ exports[`table demos renders ./packages/table/src/demos/valueTypeNumber.tsx corr
                             10.84%
                           </span>
                         </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <div
+                            class="ant-space ant-space-horizontal ant-space-align-center"
+                          >
+                            <div
+                              class="ant-space-item"
+                            >
+                              <a>
+                                编辑
+                              </a>
+                            </div>
+                          </div>
+                        </td>
                       </tr>
                       <tr
                         class="ant-table-row ant-table-row-level-0"
@@ -37867,6 +37983,21 @@ exports[`table demos renders ./packages/table/src/demos/valueTypeNumber.tsx corr
                           <span>
                             20.84%
                           </span>
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <div
+                            class="ant-space ant-space-horizontal ant-space-align-center"
+                          >
+                            <div
+                              class="ant-space-item"
+                            >
+                              <a>
+                                编辑
+                              </a>
+                            </div>
+                          </div>
                         </td>
                       </tr>
                     </tbody>

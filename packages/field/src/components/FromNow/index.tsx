@@ -1,5 +1,6 @@
 import { DatePicker, Tooltip } from 'antd';
 import React, { useRef, useImperativeHandle } from 'react';
+import { parseValueToMoment } from '@ant-design/pro-utils';
 import { useIntl } from '@ant-design/pro-provider';
 import moment from 'moment';
 
@@ -12,7 +13,8 @@ import { ProFieldFC } from '../../index';
  */
 const FieldFromNow: ProFieldFC<{
   text: string;
-}> = ({ text, mode, render, renderFormItem, fieldProps }, ref) => {
+  format?: string;
+}> = ({ text, mode, render, renderFormItem, format, fieldProps }, ref) => {
   const intl = useIntl();
 
   const inputRef = useRef();
@@ -26,7 +28,9 @@ const FieldFromNow: ProFieldFC<{
 
   if (mode === 'read') {
     const dom = (
-      <Tooltip title={moment(text).format('YYYY-MM-DD HH:mm:ss')}>{moment(text).fromNow()}</Tooltip>
+      <Tooltip title={moment(text).format(format || 'YYYY-MM-DD HH:mm:ss')}>
+        {moment(text).fromNow()}
+      </Tooltip>
     );
     if (render) {
       return render(text, { mode, ...fieldProps }, <>{dom}</>);
@@ -35,7 +39,10 @@ const FieldFromNow: ProFieldFC<{
   }
   if (mode === 'edit' || mode === 'update') {
     const placeholder = intl.getMessage('tableForm.selectPlaceholder', '请选择');
-    const dom = <DatePicker placeholder={placeholder} ref={inputRef} {...fieldProps} />;
+    const momentValue = parseValueToMoment(fieldProps.value) as moment.Moment;
+    const dom = (
+      <DatePicker placeholder={placeholder} ref={inputRef} {...fieldProps} value={momentValue} />
+    );
     if (renderFormItem) {
       return renderFormItem(text, { mode, ...fieldProps }, dom);
     }
