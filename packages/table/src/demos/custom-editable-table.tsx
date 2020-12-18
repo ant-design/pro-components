@@ -193,7 +193,7 @@ export default () => {
               },
               {
                 label: '添加到底部',
-                value: 'end',
+                value: 'bottom',
               },
             ]}
           />,
