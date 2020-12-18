@@ -90,6 +90,7 @@ export default () => {
         ),
         actions: [
           <Button
+            key="key"
             type="primary"
             onClick={() => {
               alert('add');

@@ -52,6 +52,7 @@ const DetailList: React.FC<DetailListProps> = (props) => {
           const data = await getData(params);
           return { list: data.data, ...data };
         };`,
+        key: i,
       });
     }
 
@@ -66,6 +67,7 @@ const DetailList: React.FC<DetailListProps> = (props) => {
         pageSize: 3,
         showSizeChanger: false,
       }}
+      rowKey="key"
       toolBarRender={false}
       search={false}
     />
@@ -152,6 +154,7 @@ const IPList: React.FC<IPListProps> = (props) => {
           success: true,
         });
       }}
+      rowKey="ip"
       rowClassName={(record) => {
         return record.ip === ip ? styles['split-row-select-active'] : '';
       }}
@@ -161,7 +164,11 @@ const IPList: React.FC<IPListProps> = (props) => {
             alert(value);
           },
         },
-        actions: [<Button type="primary">新建项目</Button>],
+        actions: [
+          <Button key="list" type="primary">
+            新建项目
+          </Button>,
+        ],
       }}
       options={false}
       pagination={false}
