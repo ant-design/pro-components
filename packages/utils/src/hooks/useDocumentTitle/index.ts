@@ -7,7 +7,7 @@ function useDocumentTitle(
     id: string;
     pageName: string;
   },
-  appDefaultTitle: string,
+  appDefaultTitle: string | false,
 ) {
   const titleText = typeof titleInfo.pageName === 'string' ? titleInfo.title : appDefaultTitle;
   useEffect(() => {

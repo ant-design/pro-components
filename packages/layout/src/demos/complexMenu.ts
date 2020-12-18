@@ -30,25 +30,25 @@ export default [
         children: [
           {
             id: 2,
-            name: '_交易_买家_月表',
+            name: '月表',
             path: '/data_hui2',
           },
           {
-            name: '_航旅交易_买家_日表',
+            name: '日表',
             path: '/data_hui?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
           },
         ],
       },
       {
-        name: '域买家维度交易2',
+        name: '维度交易',
         path: '/',
         children: [
           {
-            name: '_交易_买家_月表',
+            name: '月表',
             path: '/data_hui3',
           },
           {
-            name: '_航旅交易_买家_日表',
+            name: '日表',
             key: 'tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
             path: '/data_hui4',
           },

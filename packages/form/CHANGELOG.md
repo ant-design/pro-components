@@ -2,6 +2,183 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.10.1...@ant-design/pro-form@1.10.2) (2020-12-17)
+
+### Bug Fixes
+
+- **form:** 修复 lightFilter 在 collapse 的情况下 form 失效的 bug ([#1323](https://github.com/ant-design/pro-components/issues/1323)) ([c026a83](https://github.com/ant-design/pro-components/commit/c026a8384c0d768129a45e79d1efc7396f64d49e))
+- **form:** 修复 ModalForm 和 DrawerForm 的编写错误 ([#1328](https://github.com/ant-design/pro-components/issues/1328)) ([27ed75a](https://github.com/ant-design/pro-components/commit/27ed75a6bf25d63179a265bd981fe4c663d119c8))
+
+## [1.10.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.10.0...@ant-design/pro-form@1.10.1) (2020-12-15)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+# [1.10.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.9.0...@ant-design/pro-form@1.10.0) (2020-12-14)
+
+### Features
+
+- **desciption:** support editable ([#1273](https://github.com/ant-design/pro-components/issues/1273)) ([bc8821b](https://github.com/ant-design/pro-components/commit/bc8821bce05faadaa7d9337ae2287131c41791e0))
+- **table:** EditableTable support max length ([#1286](https://github.com/ant-design/pro-components/issues/1286)) ([dac9844](https://github.com/ant-design/pro-components/commit/dac9844e42ed19d5a539b6b0eae42ea35d6f958d))
+
+# [1.9.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.8.1...@ant-design/pro-form@1.9.0) (2020-12-10)
+
+### Features
+
+- **form:** support getPopupContainer ([#1251](https://github.com/ant-design/pro-components/issues/1251)) ([d1f20a9](https://github.com/ant-design/pro-components/commit/d1f20a9191783c3eb3992f284822e3ad2d2d9cea))
+
+## [1.8.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.8.0...@ant-design/pro-form@1.8.1) (2020-12-09)
+
+### Bug Fixes
+
+- **colsize:** fix colsize warning ([#1245](https://github.com/ant-design/pro-components/issues/1245)) ([af674b6](https://github.com/ant-design/pro-components/commit/af674b661f53ef7f537bd49bea32784274cf0d34))
+
+# [1.8.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.7.6...@ant-design/pro-form@1.8.0) (2020-12-08)
+
+### Features
+
+- **table:** fieldProps support function ([#1227](https://github.com/ant-design/pro-components/issues/1227)) ([bc34fb0](https://github.com/ant-design/pro-components/commit/bc34fb0ce11d006c83b06166f6cf8903bd5d3e1a))
+
+## [1.7.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.7.5...@ant-design/pro-form@1.7.6) (2020-12-07)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.7.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.7.4...@ant-design/pro-form@1.7.5) (2020-12-04)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.7.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.7.3...@ant-design/pro-form@1.7.4) (2020-12-03)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.7.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.7.2...@ant-design/pro-form@1.7.3) (2020-12-03)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.7.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.7.1...@ant-design/pro-form@1.7.2) (2020-12-02)
+
+### Bug Fixes
+
+- **form:** fix optionRender no has form error ([#1147](https://github.com/ant-design/pro-components/issues/1147)) ([3398fb9](https://github.com/ant-design/pro-components/commit/3398fb999952eebf6b9ba5736e6dc5d44a5fecce))
+
+## [1.7.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.7.0...@ant-design/pro-form@1.7.1) (2020-11-30)
+
+### Bug Fixes
+
+- **form:** fix setState() call inside `Field` error ([#1137](https://github.com/ant-design/pro-components/issues/1137)) ([f72f9f6](https://github.com/ant-design/pro-components/commit/f72f9f6e07cd18c1c01d4679f19076df06b6fbf5))
+- **form:** No longer generate redundant dom ([#1121](https://github.com/ant-design/pro-components/issues/1121)) ([4fb8379](https://github.com/ant-design/pro-components/commit/4fb8379f0d24dcd7d40d924b1885a0a708851400))
+
+# [1.7.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.6.2...@ant-design/pro-form@1.7.0) (2020-11-27)
+
+### Bug Fixes
+
+- **form:** drawerForm&modalForm trigger 区域调整 ([#1063](https://github.com/ant-design/pro-components/issues/1063)) ([4865f50](https://github.com/ant-design/pro-components/commit/4865f50a79f97880064297c40f52ec021d3f40a9))
+- **table:** optimize table demos and table style. ([#1105](https://github.com/ant-design/pro-components/issues/1105)) ([6e6437e](https://github.com/ant-design/pro-components/commit/6e6437e621200932a24a9199ee729ff4253d71c0))
+
+### Features
+
+- **form:** add table demos and fix form layout styles ([#1069](https://github.com/ant-design/pro-components/issues/1069)) ([4a25cf2](https://github.com/ant-design/pro-components/commit/4a25cf2b2475e534598360e0d62b6a0a3cf69354))
+- **table:** support editor table ([#994](https://github.com/ant-design/pro-components/issues/994)) ([35f40fe](https://github.com/ant-design/pro-components/commit/35f40feb72dd10ea6fefb7d6a59943d43d0a7325))
+- **table:** table support fieldProps.onChange ([#1068](https://github.com/ant-design/pro-components/issues/1068)) ([b8fe662](https://github.com/ant-design/pro-components/commit/b8fe662fd042dda92c4ad0e35c24e1afe2870996))
+
+## [1.6.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.6.1...@ant-design/pro-form@1.6.2) (2020-11-19)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.6.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.6.0...@ant-design/pro-form@1.6.1) (2020-11-19)
+
+### Bug Fixes
+
+- **form:** modal and drawer render to body ([#1031](https://github.com/ant-design/pro-components/issues/1031)) ([807c052](https://github.com/ant-design/pro-components/commit/807c05265d3d327537233a2db265589bf6d58e60))
+- **table:** fix the problem that the table rendering is not timely ([#1024](https://github.com/ant-design/pro-components/issues/1024)) ([19d3af5](https://github.com/ant-design/pro-components/commit/19d3af58e692dbfa5a4b32644afe9672ba5719cf))
+
+# [1.6.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.5.1...@ant-design/pro-form@1.6.0) (2020-11-18)
+
+### Bug Fixes
+
+- ProFromFieldSet to ProFormFieldSet ([#1012](https://github.com/ant-design/pro-components/issues/1012)) ([9ecec85](https://github.com/ant-design/pro-components/commit/9ecec85928588c5ecca7bf65b1ac9fba65577c45))
+
+### Features
+
+- **form:** onFinish support reset form ([cf84064](https://github.com/ant-design/pro-components/commit/cf8406411b2445399290b476b3d8dff959507db3))
+
+## [1.5.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.5.0...@ant-design/pro-form@1.5.1) (2020-11-17)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+# [1.5.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.4.1...@ant-design/pro-form@1.5.0) (2020-11-17)
+
+### Bug Fixes
+
+- **form:** FieldSet igrone no Element ([aa40d77](https://github.com/ant-design/pro-components/commit/aa40d7744bfe4687699c8c5703baeefdc928f2ee))
+- **form:** fix form captcha loading error ([#945](https://github.com/ant-design/pro-components/issues/945)) ([2d3db9e](https://github.com/ant-design/pro-components/commit/2d3db9eac98dfaa40ba8248a4417b181a59d094b)), closes [#943](https://github.com/ant-design/pro-components/issues/943)
+
+### Features
+
+- **form:** LightFilter support allowClear ([#974](https://github.com/ant-design/pro-components/issues/974)) ([6ef984a](https://github.com/ant-design/pro-components/commit/6ef984ae6ba9560737c200c0ca39e5d2f3d7286b))
+- **form:** support readonly ([#963](https://github.com/ant-design/pro-components/issues/963)) ([2b27e91](https://github.com/ant-design/pro-components/commit/2b27e917707c530c2a9d9c91fa27c1b663a07bf4))
+
+## [1.4.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.4.0...@ant-design/pro-form@1.4.1) (2020-11-10)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+# [1.4.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.3.0...@ant-design/pro-form@1.4.0) (2020-11-09)
+
+### Features
+
+- **table:** 修复 ListToolBar 样式问题 & 调整部分 Table 样式的 demo ([#918](https://github.com/ant-design/pro-components/issues/918)) ([a217c6e](https://github.com/ant-design/pro-components/commit/a217c6ea309f5232fd1864b2d886f449f49f2b6a))
+
+# [1.3.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.2.1...@ant-design/pro-form@1.3.0) (2020-11-04)
+
+### Features
+
+- **form:** submit button text localization ([#896](https://github.com/ant-design/pro-components/issues/896)) ([d209ea1](https://github.com/ant-design/pro-components/commit/d209ea1073cf12672b04a585c1343e02f5841fd2))
+
+## [1.2.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.2.0...@ant-design/pro-form@1.2.1) (2020-11-02)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+# [1.2.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.1.6...@ant-design/pro-form@1.2.0) (2020-11-02)
+
+### Bug Fixes
+
+- **form:** Radio and Checkbox should support children ([#857](https://github.com/ant-design/pro-components/issues/857)) ([297757d](https://github.com/ant-design/pro-components/commit/297757dc1be40e94bbdb16c0f271414c27699e61))
+
+### Features
+
+- **form:** localize stepsform texts ([#868](https://github.com/ant-design/pro-components/issues/868)) ([4d0f86f](https://github.com/ant-design/pro-components/commit/4d0f86f2d4812265893ba1d4e8e8994787609de2))
+
+## [1.1.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.1.5...@ant-design/pro-form@1.1.6) (2020-10-29)
+
+### Bug Fixes
+
+- **table:** renderFormItem should run in form init ([#852](https://github.com/ant-design/pro-components/issues/852)) ([612b04a](https://github.com/ant-design/pro-components/commit/612b04a7225ccc93b8c081d268981d988c333d4c))
+
+## [1.1.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.1.4...@ant-design/pro-form@1.1.5) (2020-10-26)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.1.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.1.3...@ant-design/pro-form@1.1.4) (2020-10-23)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.1.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.1.2...@ant-design/pro-form@1.1.3) (2020-10-23)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.1.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.1.1...@ant-design/pro-form@1.1.2) (2020-10-22)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.1.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.1.0...@ant-design/pro-form@1.1.1) (2020-10-21)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+# [1.1.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.0.4...@ant-design/pro-form@1.1.0) (2020-10-19)
+
+### Features
+
+- **form:** add effective style to LightFilter when collapse ([#746](https://github.com/ant-design/pro-components/issues/746)) ([af7eb93](https://github.com/ant-design/pro-components/commit/af7eb93285f13b4b8fb087186515421e5c9a7a35))
+
 ## [1.0.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.0.3...@ant-design/pro-form@1.0.4) (2020-10-15)
 
 **Note:** Version bump only for package @ant-design/pro-form

@@ -10,6 +10,7 @@ import ProForm, {
 } from '@ant-design/pro-form';
 
 import ProCard from '@ant-design/pro-card';
+import { message } from 'antd';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -23,7 +24,11 @@ export default () => {
   return (
     <>
       <StepsForm
-        onFinish={async (values) => console.log(values)}
+        onFinish={async (values) => {
+          console.log(values);
+          await waitTime(1000);
+          message.success('提交成功');
+        }}
         formProps={{
           validateMessages: {
             required: '此项为必填项',
@@ -51,6 +56,7 @@ export default () => {
           >
             <ProFormText
               name="name"
+              width="m"
               label="迁移任务名称"
               tooltip="最长为 24 位，用于标定的唯一 id"
               placeholder="请输入名称"
@@ -68,6 +74,7 @@ export default () => {
             headerBordered
             collapsible
             style={{
+              minWidth: 800,
               marginBottom: 16,
             }}
           >
@@ -97,62 +104,80 @@ export default () => {
           </ProCard>
         </StepsForm.StepForm>
         <StepsForm.StepForm name="checkbox" title="第二步骤">
-          <ProFormCheckbox.Group
-            name="checkbox"
-            label="迁移类型"
-            width="l"
-            options={['结构迁移', '全量迁移', '增量迁移', '全量校验']}
-          />
-          <ProForm.Group>
-            <ProFormText name="dbname" label="业务 DB 用户名" />
-            <ProFormDatePicker name="datetime" label="记录保存时间" width="s" />
+          <ProCard
+            style={{
+              minWidth: 800,
+              marginBottom: 16,
+              maxWidth: '100%',
+            }}
+          >
+            <ProFormCheckbox.Group
+              name="checkbox"
+              label="迁移类型"
+              width="l"
+              options={['结构迁移', '全量迁移', '增量迁移', '全量校验']}
+            />
+            <ProForm.Group>
+              <ProFormText name="dbname" label="业务 DB 用户名" />
+              <ProFormDatePicker name="datetime" label="记录保存时间" width="s" />
+            </ProForm.Group>
             <ProFormCheckbox.Group
               name="checkbox"
               label="迁移类型"
               options={['完整 LOB', '不同步 LOB', '受限制 LOB']}
             />
-          </ProForm.Group>
+          </ProCard>
         </StepsForm.StepForm>
         <StepsForm.StepForm name="time" title="第三步骤">
-          <ProFormCheckbox.Group
-            name="checkbox"
-            label="部署单元"
-            rules={[
-              {
-                required: true,
-              },
-            ]}
-            options={['部署单元1', '部署单元2', '部署单元3']}
-          />
-          <ProFormSelect
-            label="部署分组策略"
-            name="remark"
-            rules={[
-              {
-                required: true,
-              },
-            ]}
-            initialValue="1"
-            options={[
-              {
-                value: '1',
-                label: '策略一',
-              },
-              { value: '2', label: '策略二' },
-            ]}
-          />
-          <ProFormSelect
-            label="Pod 调度策略"
-            name="remark2"
-            initialValue="2"
-            options={[
-              {
-                value: '1',
-                label: '策略一',
-              },
-              { value: '2', label: '策略二' },
-            ]}
-          />
+          <ProCard
+            style={{
+              marginBottom: 16,
+              minWidth: 800,
+              maxWidth: '100%',
+            }}
+          >
+            <ProFormCheckbox.Group
+              name="checkbox"
+              label="部署单元"
+              rules={[
+                {
+                  required: true,
+                },
+              ]}
+              options={['部署单元1', '部署单元2', '部署单元3']}
+            />
+            <ProFormSelect
+              label="部署分组策略"
+              name="remark"
+              rules={[
+                {
+                  required: true,
+                },
+              ]}
+              width="m"
+              initialValue="1"
+              options={[
+                {
+                  value: '1',
+                  label: '策略一',
+                },
+                { value: '2', label: '策略二' },
+              ]}
+            />
+            <ProFormSelect
+              label="Pod 调度策略"
+              name="remark2"
+              width="m"
+              initialValue="2"
+              options={[
+                {
+                  value: '1',
+                  label: '策略一',
+                },
+                { value: '2', label: '策略二' },
+              ]}
+            />
+          </ProCard>
         </StepsForm.StepForm>
       </StepsForm>
     </>

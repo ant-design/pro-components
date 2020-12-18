@@ -8,7 +8,7 @@ import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('descriptions', () => {
-  it('🥩 descriptions render valueEnum when data = 0', async () => {
+  it('🥩  descriptions render valueEnum when data = 0', async () => {
     const html = mount(
       <ProDescriptions
         columns={[
@@ -32,6 +32,61 @@ describe('descriptions', () => {
     );
     await waitForComponentToPaint(html, 200);
     expect(html.find('span.ant-badge-status-text').text()).toBe('关闭');
+  });
+
+  it('🎏 onLoadingChange test', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProDescriptions
+        size="small"
+        onLoadingChange={fn}
+        columns={[
+          {
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+        ]}
+        request={async () => {
+          return {
+            data: [],
+          };
+        }}
+      />,
+    );
+    await waitForComponentToPaint(html, 1000);
+    expect(fn).toBeCalled();
+  });
+
+  it('🎏 loading test', async () => {
+    const html = mount(
+      <ProDescriptions
+        columns={[
+          {
+            title: 'money',
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+        ]}
+        request={async () => {
+          return new Promise((resolve) => {
+            setTimeout(() => {
+              resolve({ data: [] });
+            }, 5000);
+          });
+        }}
+      />,
+    );
+    await waitForComponentToPaint(html, 1000);
+    expect(html.find('.ant-skeleton').exists()).toBeTruthy();
+
+    act(() => {
+      html.setProps({
+        loading: false,
+      });
+    });
+    await waitForComponentToPaint(html, 1000);
+    // props 指定为 false 后，无论 request 完成与否都不会出现 spin
+    expect(html.find('.ant-skeleton').exists()).toBeFalsy();
   });
 
   it('🥩 test reload', async () => {

@@ -30,6 +30,8 @@ const FieldCode: ProFieldFC<{
   if (mode === 'read') {
     const dom = (
       <pre
+        ref={ref}
+        {...fieldProps}
         style={{
           padding: 16,
           overflow: 'auto',
@@ -38,9 +40,8 @@ const FieldCode: ProFieldFC<{
           backgroundColor: '#f6f8fa',
           borderRadius: 3,
           width: 'min-content',
+          ...fieldProps.style,
         }}
-        ref={ref}
-        {...fieldProps}
       >
         <code>{code}</code>
       </pre>

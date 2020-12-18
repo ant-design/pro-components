@@ -1,4 +1,4 @@
-﻿import React from 'react';
+﻿import React, { useRef } from 'react';
 import { Button, message } from 'antd';
 import ProForm, {
   DrawerForm,
@@ -17,8 +17,11 @@ const waitTime = (time: number = 100) => {
 };
 
 export default () => {
+  const formRef = useRef();
   return (
     <DrawerForm
+      title="新建表单"
+      formRef={formRef}
       trigger={
         <Button type="primary">
           <PlusOutlined />
@@ -28,7 +31,8 @@ export default () => {
       onFinish={async (values) => {
         await waitTime(2000);
         console.log(values);
-        message.success('提交成功！');
+        console.log(formRef);
+        message.success('提交成功');
         // 不返回不会关闭弹框
         return true;
       }}
@@ -36,14 +40,15 @@ export default () => {
       <ProForm.Group>
         <ProFormText
           name="name"
+          width="m"
           label="签约客户名称"
           tooltip="最长为 24 位"
           placeholder="请输入名称"
         />
-        <ProFormText name="company" label="我方公司名称" placeholder="请输入名称" />
+        <ProFormText width="m" name="company" label="我方公司名称" placeholder="请输入名称" />
       </ProForm.Group>
       <ProForm.Group>
-        <ProFormText name="contract" label="合同名称" placeholder="请输入名称" />
+        <ProFormText width="m" name="contract" label="合同名称" placeholder="请输入名称" />
         <ProFormDateRangePicker name="contractTime" label="合同生效时间" />
       </ProForm.Group>
       <ProForm.Group>

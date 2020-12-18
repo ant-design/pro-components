@@ -101,6 +101,9 @@ async function release() {
       ]
         .concat(conventionalGraduate)
         .concat(conventionalPrerelease),
+      {
+        shell: false,
+      },
     );
   }
 

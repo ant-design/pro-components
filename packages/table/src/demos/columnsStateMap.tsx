@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Input } from 'antd';
 import ProTable, { ProColumns, ColumnsState } from '@ant-design/pro-table';
 
 const valueEnum = {
@@ -40,8 +39,8 @@ const columns: ProColumns<TableListItem>[] = [
     title: '状态',
     dataIndex: 'status',
     initialValue: 'all',
-    width: 100,
     filters: true,
+    valueType: 'select',
     valueEnum: {
       all: { text: '全部', status: 'Default' },
       close: { text: '关闭', status: 'Default' },
@@ -54,13 +53,11 @@ const columns: ProColumns<TableListItem>[] = [
     title: '创建时间',
     key: 'since',
     dataIndex: 'createdAt',
-    width: 200,
     valueType: 'dateTime',
   },
   {
     title: '更新时间',
     key: 'since2',
-    width: 120,
     dataIndex: 'createdAt',
     valueType: 'date',
   },
@@ -83,35 +80,31 @@ export default () => {
     },
   });
   return (
-    <>
-      <code>{JSON.stringify(columnsStateMap)}</code>
-      <ProTable<TableListItem, { keyWord?: string }>
-        columns={columns}
-        request={(params) =>
-          Promise.resolve({
-            data: tableListDataSource.filter((item) => {
-              if (!params?.keyWord) {
-                return true;
-              }
-              if (item.name.includes(params?.keyWord) || item.status.includes(params?.keyWord)) {
-                return true;
-              }
-              return false;
-            }),
-            success: true,
-          })
-        }
-        rowKey="key"
-        pagination={{
-          showSizeChanger: true,
-        }}
-        columnsStateMap={columnsStateMap}
-        onColumnsStateChange={(map) => setColumnsStateMap(map)}
-        search={false}
-        dateFormatter="string"
-        headerTitle="受控模式"
-        toolBarRender={() => [<Input.Search key="search" placeholder="请输入" />]}
-      />
-    </>
+    <ProTable<TableListItem, { keyWord?: string }>
+      columns={columns}
+      request={(params) =>
+        Promise.resolve({
+          data: tableListDataSource.filter((item) => {
+            if (!params?.keyWord) {
+              return true;
+            }
+            if (item.name.includes(params?.keyWord) || item.status.includes(params?.keyWord)) {
+              return true;
+            }
+            return false;
+          }),
+          success: true,
+        })
+      }
+      options={{
+        search: true,
+      }}
+      rowKey="key"
+      columnsStateMap={columnsStateMap}
+      onColumnsStateChange={(map) => setColumnsStateMap(map)}
+      search={false}
+      dateFormatter="string"
+      headerTitle="受控模式"
+    />
   );
 };

@@ -1,45 +1,26 @@
-import React, { ReactNode, useContext } from 'react';
+import React, { PropsWithChildren, ReactNode, useContext } from 'react';
 import { Grid, Tabs, ConfigProvider } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { LabelIconTip } from '@ant-design/pro-utils';
 import classNames from 'classnames';
-import { TabPaneProps, TabsProps } from 'antd/lib/tabs';
-import CardLoading from './cardLoading';
-import TabPane from './tabPane';
+import omit from 'omit.js';
+import { TabsProps } from 'antd/lib/tabs';
+import CardLoading from './components/CardLoading';
+import Divider from './components/Divider';
+import TabPane from './components/TabPane';
+import Actions from './components/Actions';
 import './style/index.less';
 
 const { useBreakpoint } = Grid;
-
-type ProCardType = React.FC<ProCardProps> & {
-  isProCard: boolean;
-  TabPane: typeof TabPane;
-};
-
-type ProCardChildType = React.ReactElement<ProCardProps, ProCardType>;
 
 type ColSpanType = number | string;
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type Gutter = number | Partial<Record<Breakpoint, number>>;
 
-/**
- * antd 默认直接导出了 rc 组件中的 Tab.Pane 组件。
- */
-type TabPane = TabPaneProps & {
-  key?: string;
-};
-
 export interface ProCardTabsProps extends TabsProps {}
 
-export type ProCardProps = {
-  /**
-   * 类名
-   */
-  className?: string;
-  /**
-   * 样式属性
-   */
-  style?: React.CSSProperties;
+export interface ProCardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
   /**
    * 标题样式
    */
@@ -80,7 +61,15 @@ export type ProCardProps = {
   /**
    * 卡片类型
    */
-  type?: 'inner';
+  type?: 'default' | 'inner';
+  /**
+   * 指定 Flex 方向，仅在嵌套子卡片时有效
+   */
+  direction?: 'column' | 'row';
+  /**
+   * 尺寸
+   */
+  size?: 'default' | 'small';
   /**
    * 加载中
    */
@@ -93,6 +82,10 @@ export type ProCardProps = {
    * 栅格间距
    */
   gutter?: Gutter | Gutter[];
+  /**
+   * 操作按钮
+   */
+  actions?: React.ReactNode[];
   /**
    * 拆分卡片方式
    */
@@ -125,9 +118,23 @@ export type ProCardProps = {
    * 标签栏配置
    */
   tabs?: ProCardTabsProps;
-};
+  /**
+   * 前缀
+   */
+  prefixCls?: string;
+}
 
-const ProCard: ProCardType = (props) => {
+interface ProCardType extends React.ForwardRefExoticComponent<ProCardProps> {
+  isProCard: boolean;
+  TabPane: typeof TabPane;
+  Divider: typeof Divider;
+  Group: typeof Group;
+}
+
+type ProCardChildType = React.ReactElement<ProCardProps, any>;
+
+// @ts-ignore
+const ProCard: ProCardType = React.forwardRef<HTMLDivElement>((props: ProCardProps, ref) => {
   const {
     className,
     style,
@@ -146,13 +153,17 @@ const ProCard: ProCardType = (props) => {
     headerBordered = false,
     bordered = false,
     children,
+    size,
+    actions,
     ghost = false,
+    direction,
     collapsed: controlCollapsed,
     collapsible = false,
     defaultCollapsed = false,
     onCollapse,
     tabs,
     type,
+    ...rest
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const screens = useBreakpoint();
@@ -277,17 +288,18 @@ const ProCard: ProCardType = (props) => {
     [`${prefixCls}-loading`]: loading,
     [`${prefixCls}-split`]: split === 'vertical' || split === 'horizontal',
     [`${prefixCls}-ghost`]: ghost,
+    [`${prefixCls}-size-${size}`]: size,
     [`${prefixCls}-type-${type}`]: type,
     [`${prefixCls}-collapse`]: collapsed,
   });
 
   const headerCls = classNames(`${prefixCls}-header`, {
-    [`${prefixCls}-header-border`]: headerBordered,
+    [`${prefixCls}-header-border`]: headerBordered || type === 'inner',
   });
 
   const bodyCls = classNames(`${prefixCls}-body`, {
     [`${prefixCls}-body-center`]: layout === 'center',
-    [`${prefixCls}-body-column`]: split === 'horizontal',
+    [`${prefixCls}-body-column`]: split === 'horizontal' || direction === 'column',
   });
 
   const loadingBlockStyle =
@@ -310,8 +322,13 @@ const ProCard: ProCardType = (props) => {
     />
   );
 
+  /**
+   * 操作按钮
+   */
+  const actionDom = <Actions actions={actions} prefixCls={prefixCls} />;
+
   return (
-    <div className={cardCls} style={cardStyle}>
+    <div className={cardCls} style={cardStyle} ref={ref} {...omit(rest, ['id', 'prefixCls'])}>
       {(title || extra || collapsibleButton) && (
         <div className={headerCls} style={headStyle}>
           <div className={`${prefixCls}-title`}>
@@ -332,11 +349,18 @@ const ProCard: ProCardType = (props) => {
           {loading ? loadingDOM : childrenModified}
         </div>
       )}
+      {actionDom}
     </div>
   );
-};
+});
+
+const Group = (props: PropsWithChildren<ProCardProps>) => (
+  <ProCard bodyStyle={{ padding: 0 }} {...props} />
+);
 
 ProCard.isProCard = true;
 ProCard.TabPane = TabPane;
+ProCard.Divider = Divider;
+ProCard.Group = Group;
 
 export default ProCard;

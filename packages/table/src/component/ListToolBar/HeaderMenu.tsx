@@ -1,17 +1,18 @@
 import React from 'react';
-import { Dropdown, Menu } from 'antd';
+import { Dropdown, Menu, Space, Tabs } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import './index.less';
 
 export interface ListToolBarMenuItem {
-  key: string;
+  key: React.Key;
   label: React.ReactNode;
+  disabled?: boolean;
 }
 
 export interface ListToolBarHeaderMenuProps {
-  type?: 'inline' | 'dropdown';
+  type?: 'inline' | 'dropdown' | 'tab';
   activeKey?: React.Key;
   items?: ListToolBarMenuItem[];
   onChange?: (activeKey?: React.Key) => void;
@@ -56,27 +57,39 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
     );
   }
 
+  if (type === 'tab') {
+    return (
+      <Tabs activeKey={activeItem.key as string} onTabClick={(key) => setActiveKey(key)}>
+        {items.map(({ label, key, ...rest }) => {
+          return <Tabs.TabPane tab={label} key={key} {...rest} />;
+        })}
+      </Tabs>
+    );
+  }
+
   return (
     <div className={classNames(`${prefixCls}-menu`, `${prefixCls}-dropdownmenu`)}>
       <Dropdown
         trigger={['click']}
         overlay={
           <Menu
-            selectedKeys={[activeItem.key]}
+            selectedKeys={[activeItem.key as string]}
             onClick={(item) => {
               setActiveKey(item.key);
             }}
           >
             {items.map((item) => (
-              <Menu.Item key={item.key}>{item.label}</Menu.Item>
+              <Menu.Item key={item.key} disabled={item.disabled}>
+                {item.label}
+              </Menu.Item>
             ))}
           </Menu>
         }
       >
-        <div className={`${prefixCls}-dropdownmenu-label`}>
+        <Space className={`${prefixCls}-dropdownmenu-label`}>
           {activeItem.label}
-          <DownOutlined style={{ fontSize: 14, marginLeft: 4 }} />
-        </div>
+          <DownOutlined />
+        </Space>
       </Dropdown>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useEffect } from 'react';
+import React, { useContext, useRef, useEffect, useImperativeHandle } from 'react';
 import { FormProps, FormInstance } from 'antd/lib/form/Form';
 
 import BaseForm, { CommonFormProps } from '../../BaseForm';
@@ -10,9 +10,19 @@ export interface StepFormProps
   step?: number;
 }
 
-const StepForm: React.FC<StepFormProps> = ({ onFinish, step, ...restProps }) => {
+const StepForm: React.FC<StepFormProps> = ({
+  onFinish,
+  step,
+  formRef: propFormRef,
+  ...restProps
+}) => {
   const formRef = useRef<FormInstance | undefined>();
   const context = useContext(StepsFormProvide);
+
+  /**
+   * 重置 formRef
+   */
+  useImperativeHandle(propFormRef, () => formRef.current, [formRef.current]);
 
   /**
    * dom 不存在的时候解除挂载
@@ -37,7 +47,9 @@ const StepForm: React.FC<StepFormProps> = ({ onFinish, step, ...restProps }) => 
           context?.onFormFinish(restProps.name, values);
         }
         if (onFinish) {
-          context?.setLoading(true);
+          context?.setLoading({
+            delay: 100,
+          });
           // 如果报错，直接抛出
           const success = await onFinish?.(values);
           if (success) {

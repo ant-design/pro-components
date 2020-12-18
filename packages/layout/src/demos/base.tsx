@@ -24,18 +24,15 @@ export default () => {
     <div
       id="test-pro-layout"
       style={{
-        transform: 'rotate(0)',
-        overflowX: 'hidden',
+        height: '100vh',
       }}
     >
       <ProLayout
         {...defaultProps}
-        style={{
-          maxHeight: '100vh',
-        }}
         location={{
           pathname,
         }}
+        fixSiderbar
         menuFooterRender={(props) => {
           return (
             <a

@@ -27,4 +27,6 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
   );
 });
 
+Group.displayName = 'ProForm-Group';
+
 export default Group;

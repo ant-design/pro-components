@@ -5,7 +5,7 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
   class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-side"
 >
   <section
-    class="ant-layout ant-layout-has-sider"
+    class="ant-layout"
     style="min-height:100%"
   >
     <div
@@ -36,6 +36,7 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
                   aria-label="Close"
                   class="ant-drawer-close"
                   style="--scroll-bar:0px"
+                  type="button"
                 >
                   <span
                     aria-label="close"
@@ -44,7 +45,6 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="close"
                       fill="currentColor"
                       focusable="false"
@@ -132,7 +132,7 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
         </div>
       </div>
     </div>
-    <section
+    <div
       class="ant-layout"
       style="position:relative"
     >
@@ -163,7 +163,6 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="menu-fold"
                 fill="currentColor"
                 focusable="false"
@@ -185,7 +184,7 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
       <main
         class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
       />
-    </section>
+    </div>
   </section>
 </div>
 `;
@@ -195,7 +194,7 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
   class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-side"
 >
   <section
-    class="ant-layout ant-layout-has-sider"
+    class="ant-layout"
     style="min-height:100%"
   >
     <div
@@ -226,6 +225,7 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
                   aria-label="Close"
                   class="ant-drawer-close"
                   style="--scroll-bar:0px"
+                  type="button"
                 >
                   <span
                     aria-label="close"
@@ -234,7 +234,6 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="close"
                       fill="currentColor"
                       focusable="false"
@@ -322,7 +321,7 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
         </div>
       </div>
     </div>
-    <section
+    <div
       class="ant-layout"
       style="position:relative"
     >
@@ -353,7 +352,6 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="menu-fold"
                 fill="currentColor"
                 focusable="false"
@@ -375,7 +373,7 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
       <main
         class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
       />
-    </section>
+    </div>
   </section>
 </div>
 `;
@@ -385,7 +383,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
   class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-mix"
 >
   <section
-    class="ant-layout ant-layout-has-sider"
+    class="ant-layout"
     style="min-height:100%"
   >
     <div
@@ -416,6 +414,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
                   aria-label="Close"
                   class="ant-drawer-close"
                   style="--scroll-bar:0px"
+                  type="button"
                 >
                   <span
                     aria-label="close"
@@ -424,7 +423,6 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="close"
                       fill="currentColor"
                       focusable="false"
@@ -504,7 +502,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
         </div>
       </div>
     </div>
-    <section
+    <div
       class="ant-layout"
       style="position:relative"
     >
@@ -530,7 +528,6 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="menu-unfold"
                 fill="currentColor"
                 focusable="false"
@@ -552,7 +549,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
       <main
         class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
       />
-    </section>
+    </div>
   </section>
 </div>
 `;
@@ -562,7 +559,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
   class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-mix"
 >
   <section
-    class="ant-layout ant-layout-has-sider"
+    class="ant-layout"
     style="min-height:100%"
   >
     <div
@@ -593,6 +590,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
                   aria-label="Close"
                   class="ant-drawer-close"
                   style="--scroll-bar:0px"
+                  type="button"
                 >
                   <span
                     aria-label="close"
@@ -601,7 +599,6 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="close"
                       fill="currentColor"
                       focusable="false"
@@ -681,7 +678,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
         </div>
       </div>
     </div>
-    <section
+    <div
       class="ant-layout"
       style="position:relative"
     >
@@ -707,7 +704,6 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="menu-unfold"
                 fill="currentColor"
                 focusable="false"
@@ -729,7 +725,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
       <main
         class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
       />
-    </section>
+    </div>
   </section>
 </div>
 `;
@@ -739,7 +735,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
   class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-mix"
 >
   <section
-    class="ant-layout ant-layout-has-sider"
+    class="ant-layout"
     style="min-height:100%"
   >
     <div
@@ -770,6 +766,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
                   aria-label="Close"
                   class="ant-drawer-close"
                   style="--scroll-bar:0px"
+                  type="button"
                 >
                   <span
                     aria-label="close"
@@ -778,7 +775,6 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="close"
                       fill="currentColor"
                       focusable="false"
@@ -852,7 +848,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
         </div>
       </div>
     </div>
-    <section
+    <div
       class="ant-layout"
       style="position:relative"
     >
@@ -877,7 +873,6 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="menu-unfold"
                 fill="currentColor"
                 focusable="false"
@@ -899,7 +894,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
       <main
         class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
       />
-    </section>
+    </div>
   </section>
 </div>
 `;
@@ -909,7 +904,7 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
   class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-mix"
 >
   <section
-    class="ant-layout ant-layout-has-sider"
+    class="ant-layout"
     style="min-height:100%"
   >
     <div
@@ -940,6 +935,7 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
                   aria-label="Close"
                   class="ant-drawer-close"
                   style="--scroll-bar:0px"
+                  type="button"
                 >
                   <span
                     aria-label="close"
@@ -948,7 +944,6 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="close"
                       fill="currentColor"
                       focusable="false"
@@ -1022,7 +1017,7 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
         </div>
       </div>
     </div>
-    <section
+    <div
       class="ant-layout"
       style="position:relative"
     >
@@ -1057,7 +1052,6 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="menu-fold"
                 fill="currentColor"
                 focusable="false"
@@ -1079,7 +1073,7 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
       <main
         class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
       />
-    </section>
+    </div>
   </section>
 </div>
 `;
@@ -1089,7 +1083,7 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
   class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-mix"
 >
   <section
-    class="ant-layout ant-layout-has-sider"
+    class="ant-layout"
     style="min-height:100%"
   >
     <div
@@ -1120,6 +1114,7 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
                   aria-label="Close"
                   class="ant-drawer-close"
                   style="--scroll-bar:0px"
+                  type="button"
                 >
                   <span
                     aria-label="close"
@@ -1128,7 +1123,6 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class=""
                       data-icon="close"
                       fill="currentColor"
                       focusable="false"
@@ -1202,7 +1196,7 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
         </div>
       </div>
     </div>
-    <section
+    <div
       class="ant-layout"
       style="position:relative"
     >
@@ -1237,7 +1231,6 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="menu-fold"
                 fill="currentColor"
                 focusable="false"
@@ -1259,7 +1252,7 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
       <main
         class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
       />
-    </section>
+    </div>
   </section>
 </div>
 `;

@@ -8,7 +8,7 @@ import ProForm, {
   ProFormTextArea,
   ProFormCheckbox,
 } from '@ant-design/pro-form';
-import { Button, Modal } from 'antd';
+import { Button, message, Modal } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 
 const waitTime = (time: number = 100) => {
@@ -32,6 +32,7 @@ export default () => {
           console.log(values);
           await waitTime(1000);
           setVisible(false);
+          message.success('提交成功');
         }}
         formProps={{
           validateMessages: {
@@ -41,6 +42,7 @@ export default () => {
         stepsFormRender={(dom, submitter) => {
           return (
             <Modal
+              title="分布表单"
               width={800}
               onCancel={() => setVisible(false)}
               visible={visible}
@@ -62,6 +64,7 @@ export default () => {
         >
           <ProFormText
             name="name"
+            width="m"
             label="实验名称"
             tooltip="最长为 24 位，用于标定的唯一 id"
             placeholder="请输入名称"
@@ -82,7 +85,7 @@ export default () => {
             options={['结构迁移', '全量迁移', '增量迁移', '全量校验']}
           />
           <ProForm.Group>
-            <ProFormText name="dbname" label="业务 DB 用户名" />
+            <ProFormText width="m" name="dbname" label="业务 DB 用户名" />
             <ProFormDatePicker name="datetime" label="记录保存时间" width="s" />
             <ProFormCheckbox.Group
               name="checkbox"
@@ -110,6 +113,7 @@ export default () => {
                 required: true,
               },
             ]}
+            width="m"
             initialValue="1"
             options={[
               {
@@ -122,6 +126,7 @@ export default () => {
           <ProFormSelect
             label="Pod 调度策略"
             name="remark2"
+            width="m"
             initialValue="2"
             options={[
               {

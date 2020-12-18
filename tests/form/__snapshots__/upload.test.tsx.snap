@@ -2,11 +2,7 @@
 
 exports[`ProFormUpload ProFormUploadButton support disable 1`] = `
 <Button
-  block={false}
   disabled={true}
-  ghost={false}
-  htmlType="button"
-  loading={false}
 >
   <Wave>
     <button
@@ -66,7 +62,6 @@ exports[`ProFormUpload ProFormUploadButton support disable 1`] = `
             role="img"
           >
             <IconReact
-              className=""
               icon={
                 Object {
                   "icon": Object {
@@ -91,7 +86,6 @@ exports[`ProFormUpload ProFormUploadButton support disable 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className=""
                 data-icon="upload"
                 fill="currentColor"
                 focusable="false"
@@ -121,11 +115,7 @@ exports[`ProFormUpload ProFormUploadButton support disable 1`] = `
 
 exports[`ProFormUpload ProFormUploadButton support disable 2`] = `
 <Button
-  block={false}
   disabled={true}
-  ghost={false}
-  htmlType="button"
-  loading={false}
   type="dashed"
 >
   <Wave>
@@ -186,7 +176,6 @@ exports[`ProFormUpload ProFormUploadButton support disable 2`] = `
             role="img"
           >
             <IconReact
-              className=""
               icon={
                 Object {
                   "icon": Object {
@@ -211,7 +200,6 @@ exports[`ProFormUpload ProFormUploadButton support disable 2`] = `
             >
               <svg
                 aria-hidden="true"
-                className=""
                 data-icon="upload"
                 fill="currentColor"
                 focusable="false"
@@ -241,11 +229,7 @@ exports[`ProFormUpload ProFormUploadButton support disable 2`] = `
 
 exports[`ProFormUpload ProFormUploadButton support disable 3`] = `
 <Button
-  block={false}
   disabled={true}
-  ghost={false}
-  htmlType="button"
-  loading={false}
 >
   <Wave>
     <button
@@ -305,7 +289,6 @@ exports[`ProFormUpload ProFormUploadButton support disable 3`] = `
             role="img"
           >
             <IconReact
-              className=""
               icon={
                 Object {
                   "icon": Object {
@@ -330,7 +313,6 @@ exports[`ProFormUpload ProFormUploadButton support disable 3`] = `
             >
               <svg
                 aria-hidden="true"
-                className=""
                 data-icon="upload"
                 fill="currentColor"
                 focusable="false"

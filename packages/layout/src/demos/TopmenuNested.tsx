@@ -6,7 +6,7 @@ import complexMenu from './complexMenu';
 export default () => (
   <div
     style={{
-      height: 400,
+      height: '100vh',
       overflow: 'auto',
     }}
   >

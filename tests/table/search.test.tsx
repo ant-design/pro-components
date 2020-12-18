@@ -5,9 +5,30 @@ import { act } from 'react-dom/test-utils';
 import { Input } from 'antd';
 import ProTable from '@ant-design/pro-table';
 import { request } from './demo';
-import { waitForComponentToPaint } from '../util';
+import { waitForComponentToPaint, spyElementPrototypes, waitTime } from '../util';
 
 describe('BasicTable Search', () => {
+  let domSpy: any;
+  let mockWidth: number;
+  let mockHeight: number;
+  let mockOffsetWidth: number;
+  let mockOffsetHeight: number;
+
+  beforeAll(() => {
+    domSpy = spyElementPrototypes(HTMLElement, {
+      getBoundingClientRect: () => ({
+        width: mockWidth,
+        height: mockHeight,
+      }),
+      offsetWidth: {
+        get: () => mockOffsetWidth,
+      },
+      offsetHeight: {
+        get: () => mockOffsetHeight,
+      },
+    });
+  });
+  process.env.NODE_ENV = 'TEST';
   const LINE_STR_COUNT = 20;
   // Mock offsetHeight
   // @ts-expect-error
@@ -35,9 +56,15 @@ describe('BasicTable Search', () => {
       get: originOffsetHeight,
     });
     window.getComputedStyle = originGetComputedStyle;
+    domSpy.mockRestore();
   });
 
   it('🎏 submit test', async () => {
+    mockHeight = 0;
+    mockWidth = 0;
+    mockOffsetHeight = 0;
+    mockOffsetWidth = 0;
+
     const fn = jest.fn();
     const html = mount(
       <ProTable
@@ -68,6 +95,11 @@ describe('BasicTable Search', () => {
     act(() => {
       html.find('button.ant-btn.ant-btn-primary').simulate('click');
     });
+
+    mockOffsetWidth = 500;
+
+    // @ts-ignore
+    html.triggerResize();
 
     await waitForComponentToPaint(html, 500);
 
@@ -100,7 +132,7 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 200);
+    await waitForComponentToPaint(html, 1000);
 
     act(() => {
       html.find('button.ant-btn').at(0).simulate('click');
@@ -295,8 +327,9 @@ describe('BasicTable Search', () => {
     expect(fn).toBeCalledTimes(1);
   });
 
-  it('🎏 renderFormItem test', async () => {
+  it('🎏 renderFormItem test and fieldProps onChange', async () => {
     const fn = jest.fn();
+    const onChangeFn = jest.fn();
     const html = mount(
       <ProTable
         size="small"
@@ -310,6 +343,9 @@ describe('BasicTable Search', () => {
             title: '金额',
             dataIndex: 'money',
             valueType: 'money',
+            fieldProps: {
+              onChange: (e: any) => onChangeFn(e.target.value),
+            },
             renderFormItem: () => <Input id="renderFormItem" />,
           },
           {
@@ -334,6 +370,7 @@ describe('BasicTable Search', () => {
         },
       });
     });
+    expect(onChangeFn).toBeCalledWith('12');
     expect(fn).toBeCalledWith('12');
   });
 
@@ -361,7 +398,7 @@ describe('BasicTable Search', () => {
       />,
     );
     await waitForComponentToPaint(html, 1000);
-    expect(html.find('div.ant-form-item').length).toBe(1);
+    expect(html.find('div.ant-form-item').length).toBe(2);
 
     html.setProps({
       columns: [
@@ -379,7 +416,9 @@ describe('BasicTable Search', () => {
     });
 
     await waitForComponentToPaint(html, 200);
-    expect(html.find('div.ant-form-item').length).toBe(2);
+    expect(html.find('div.ant-form-item').length).toBe(3);
+
+    html.unmount();
   });
 
   it('🎏 request load success false', async () => {
@@ -411,6 +450,8 @@ describe('BasicTable Search', () => {
     await waitForComponentToPaint(html, 600);
 
     expect(html.find('.ant-empty').exists()).toBeTruthy();
+
+    html.unmount();
   });
 
   it('🎏 request load null', async () => {
@@ -441,5 +482,53 @@ describe('BasicTable Search', () => {
       // @ts-ignore
       html.dive().html();
     }).toThrowError();
+    html.unmount();
+  });
+
+  it('🎏 request load more time', async () => {
+    const TableDemo: React.FC<{ v: boolean }> = ({ v }) => {
+      return v ? (
+        <ProTable
+          size="small"
+          search={false}
+          columns={[
+            {
+              title: '金额',
+              dataIndex: 'money',
+              valueType: 'money',
+              renderFormItem: () => <Input id="renderFormItem" />,
+            },
+            {
+              title: 'Name',
+              key: 'name',
+              dataIndex: 'name',
+            },
+          ]}
+          request={async () => {
+            await waitTime(600);
+            return {
+              data: [],
+            };
+          }}
+          rowKey="key"
+        />
+      ) : (
+        <>qixian</>
+      );
+    };
+
+    const html = mount(<TableDemo v />);
+
+    await waitTime(500);
+
+    act(() => {
+      html.setProps({
+        v: false,
+      });
+    });
+
+    await waitTime(500);
+
+    expect(html.render()).toMatchSnapshot();
   });
 });

@@ -1,11 +1,10 @@
 import { createContainer } from 'unstated-next';
 import { useState, useRef } from 'react';
-import { ColumnType } from 'antd/lib/table';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
-import { RequestData, ProColumns, ProTableProps } from './index';
-import { UseFetchDataAction } from './useFetchData';
+import { ProTableProps } from './index';
 import { DensitySize } from './component/ToolBar/DensityIcon';
+import { ActionType } from './typing';
 
 export type ColumnsState = {
   show?: boolean;
@@ -23,12 +22,13 @@ export interface UseCounterProps {
 }
 
 function useCounter(props: UseCounterProps = {}) {
-  const actionRef = useRef<UseFetchDataAction<RequestData<any>>>();
-  const [columns, setColumns] = useState<(ColumnType<any> & { index?: number })[]>([]);
+  const actionRef = useRef<ActionType>();
   const propsRef = useRef<ProTableProps<any, any>>();
+
+  // 共享状态比较难，就放到这里了
+  const [keyWords, setKeyWords] = useState<string | undefined>('');
   // 用于排序的数组
   const sortKeyColumns = useRef<string[]>([]);
-  const [proColumns, setProColumns] = useState<ProColumns<any>[]>([]);
 
   const [tableSize, setTableSize] = useMergedState<DensitySize>(props.size || 'middle', {
     value: props.size,
@@ -44,22 +44,20 @@ function useCounter(props: UseCounterProps = {}) {
 
   return {
     action: actionRef,
-    setAction: (newAction: UseFetchDataAction<RequestData<any>>) => {
+    setAction: (newAction?: ActionType) => {
       actionRef.current = newAction;
     },
-    sortKeyColumns: sortKeyColumns.current,
+    sortKeyColumns,
     setSortKeyColumns: (keys: string[]) => {
       sortKeyColumns.current = keys;
     },
-    columns,
-    setColumns,
     propsRef,
     columnsMap,
+    keyWords,
+    setKeyWords: (k: string | undefined) => setKeyWords(k),
     setTableSize,
     tableSize,
     setColumnsMap,
-    proColumns,
-    setProColumns,
   };
 }
 

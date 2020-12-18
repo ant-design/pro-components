@@ -3,8 +3,9 @@ import { FormProps } from 'antd/lib/form/Form';
 import { SizeType } from 'antd/lib/config-provider/SizeContext';
 import classNames from 'classnames';
 import { Form, ConfigProvider } from 'antd';
-import { FieldDropdown, FieldLabel } from '@ant-design/pro-utils';
+import { FilterDropdown, FieldLabel } from '@ant-design/pro-utils';
 import { useIntl } from '@ant-design/pro-provider';
+import { FilterOutlined } from '@ant-design/icons';
 import BaseForm, { CommonFormProps } from '../../BaseForm';
 import './index.less';
 
@@ -32,7 +33,7 @@ const LightFilterContainer: React.FC<{
   const {
     items,
     prefixCls,
-    size,
+    size = 'middle',
     collapse,
     collapseLabel,
     onValuesChange,
@@ -60,8 +61,28 @@ const LightFilterContainer: React.FC<{
     }
   });
 
+  const collapseLabelRender = () => {
+    if (collapseLabel) {
+      return collapseLabel;
+    }
+    if (collapse) {
+      return <FilterOutlined className={`${lightFilterClassName}-collapse-icon`} />;
+    }
+    return (
+      <FieldLabel
+        size={size}
+        label={intl.getMessage('form.lightFilter.more', '更多筛选')}
+        expanded={open}
+      />
+    );
+  };
+
   return (
-    <div className={classNames(lightFilterClassName, `${lightFilterClassName}-${size}`)}>
+    <div
+      className={classNames(lightFilterClassName, `${lightFilterClassName}-${size}`, {
+        [`${lightFilterClassName}-effective`]: Object.keys(values).some((key) => values[key]),
+      })}
+    >
       <div className={`${lightFilterClassName}-container`}>
         {outsideItems.map((child: any) => {
           const { key } = child;
@@ -81,19 +102,11 @@ const LightFilterContainer: React.FC<{
         })}
         {collapseItems.length ? (
           <div className={`${lightFilterClassName}-item`} key="more">
-            <FieldDropdown
+            <FilterDropdown
               padding={24}
               onVisibleChange={setOpen}
               visible={open}
-              label={
-                collapseLabel || (
-                  <FieldLabel
-                    size={size}
-                    label={intl.getMessage('form.lightFilter.more', '更多筛选')}
-                    expanded={open}
-                  />
-                )
-              }
+              label={collapseLabelRender()}
               footer={{
                 onConfirm: () => {
                   onValuesChange({
@@ -113,25 +126,28 @@ const LightFilterContainer: React.FC<{
               {collapseItems.map((child: any) => {
                 const { key } = child;
                 const { name, fieldProps } = child.props;
+                const newFieldProps = {
+                  ...fieldProps,
+                  onChange: (e: any) => {
+                    setMoreValues({
+                      ...moreValues,
+                      [name]: e?.target ? e.target.value : e,
+                    });
+                    return false;
+                  },
+                };
+                if (moreValues[name]) {
+                  newFieldProps[child.props.valuePropName || 'value'] = moreValues[name];
+                }
                 return (
                   <div className={`${lightFilterClassName}-line`} key={key}>
                     {React.cloneElement(child, {
-                      fieldProps: {
-                        ...fieldProps,
-                        [child.props.valuePropName || 'value']: moreValues[name],
-                        onChange: (e: any) => {
-                          setMoreValues({
-                            ...moreValues,
-                            [name]: e?.target ? e.target.value : e,
-                          });
-                          return false;
-                        },
-                      },
+                      fieldProps: newFieldProps,
                     })}
                   </div>
                 );
               })}
-            </FieldDropdown>
+            </FilterDropdown>
           </div>
         ) : null}
       </div>
@@ -162,29 +178,36 @@ const LightFilter: React.FC<LightFilterProps> = (props) => {
       size={size}
       initialValues={initialValues}
       form={realForm}
-      contentRender={(items) => (
-        <LightFilterContainer
-          prefixCls={prefixCls}
-          items={items}
-          size={size}
-          bordered={bordered}
-          collapse={collapse}
-          collapseLabel={collapseLabel}
-          values={values}
-          onValuesChange={(newValues) => {
-            const newAllValues = {
-              ...values,
-              ...newValues,
-            };
-            setValues(newAllValues);
-            realForm.setFieldsValue(newAllValues);
-            realForm.submit();
-            if (onValuesChange) {
-              onValuesChange(newValues, newAllValues);
-            }
-          }}
-        />
-      )}
+      contentRender={(items) => {
+        return (
+          <LightFilterContainer
+            prefixCls={prefixCls}
+            items={items.flatMap((item: any) => {
+              if (item?.type.displayName === 'ProForm-Group') {
+                return item.props.children;
+              }
+              return item;
+            })}
+            size={size}
+            bordered={bordered}
+            collapse={collapse}
+            collapseLabel={collapseLabel}
+            values={values}
+            onValuesChange={(newValues) => {
+              const newAllValues = {
+                ...values,
+                ...newValues,
+              };
+              setValues(newAllValues);
+              realForm.setFieldsValue(newAllValues);
+              realForm.submit();
+              if (onValuesChange) {
+                onValuesChange(newValues, newAllValues);
+              }
+            }}
+          />
+        );
+      }}
       formItemProps={{
         colon: false,
         labelAlign: 'left',

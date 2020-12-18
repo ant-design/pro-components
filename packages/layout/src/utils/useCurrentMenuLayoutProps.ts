@@ -8,7 +8,8 @@ const useCurrentMenuLayoutProps = (currentMenu: ProSettings) => {
   useEffect(() => {
     setCurrentMenuLayoutProps(
       omitUndefined({
-        layout: currentMenu.layout,
+        // 有时候会变成对象，是原来的方式
+        layout: typeof currentMenu.layout !== 'object' ? currentMenu.layout : undefined,
         navTheme: currentMenu.navTheme,
         menuRender: currentMenu.menuRender,
         footerRender: currentMenu.footerRender,

@@ -1,13 +1,21 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { Avatar } from 'antd';
 import { Moment } from 'moment';
-import { pickProProps, omitUndefined } from '@ant-design/pro-utils';
+import {
+  pickProProps,
+  omitUndefined,
+  ProFieldValueEnumType,
+  ProFieldValueType,
+  ProFieldValueObjectType,
+} from '@ant-design/pro-utils';
+
 import { useIntl } from '@ant-design/pro-provider';
 import FieldPercent from './components/Percent';
 import FieldIndexColumn from './components/IndexColumn';
 import FieldProgress from './components/Progress';
 import FieldMoney from './components/Money';
 import FieldDatePicker from './components/DatePicker';
+import FieldFromNow from './components/FromNow';
 import FieldRangePicker from './components/RangePicker';
 import FieldCode from './components/Code';
 import FieldTimePicker from './components/TimePicker';
@@ -17,59 +25,20 @@ import FieldPassword from './components/Password';
 import FieldStatus from './components/Status';
 import FieldOptions from './components/Options';
 import FiledSelect, {
-  ProFieldValueEnumType,
-  ProFieldRequestData,
   proFieldParsingText,
   proFieldParsingValueEnumToArray,
 } from './components/Select';
+import FiledCheckbox from './components/Checkbox';
+import FiledRate from './components/Rate';
+import FiledSwitch from './components/Switch';
 import FieldDigit from './components/Digit';
+import FieldSecond from './components/Second';
+
+import FieldRadio from './components/Radio';
 
 export type ProFieldTextType = React.ReactNode | React.ReactNode[] | Moment | Moment[];
 
-export type { ProFieldValueEnumType };
 export type ProFieldEmptyText = string | false;
-
-/**
- * password 密码框
- * money 金额
- * option 操作 需要返回一个数组
- * date 日期 YYYY-MM-DD
- * dateRange 日期范围 YYYY-MM-DD[]
- * dateTime 日期和时间 YYYY-MM-DD HH:mm:ss
- * dateTimeRange 范围日期和时间 YYYY-MM-DD HH:mm:ss[]
- * time: 时间 HH:mm:ss
- * index：序列
- * progress: 进度条
- * percent: 百分比
- * digit 数值
- * avatar 头像
- * code 代码块
- * jsonCode json 的代码块，格式化了一下
- */
-export type ProFieldValueType =
-  | 'password'
-  | 'money'
-  | 'textarea'
-  | 'option'
-  | 'date'
-  | 'dateWeek'
-  | 'dateMonth'
-  | 'dateQuarter'
-  | 'dateYear'
-  | 'dateRange'
-  | 'dateTimeRange'
-  | 'dateTime'
-  | 'time'
-  | 'text'
-  | 'select'
-  | 'index'
-  | 'indexBorder'
-  | 'progress'
-  | 'percent'
-  | 'digit'
-  | 'avatar'
-  | 'code'
-  | 'jsonCode';
 
 export type ProFieldFCMode = 'read' | 'edit' | 'update';
 
@@ -96,11 +65,12 @@ type BaseProFieldFC = {
    * label
    */
   label?: React.ReactNode;
-
   /**
    * 映射值的类型
    */
   valueEnum?: ProFieldValueEnumType;
+
+  proFieldKey?: React.Key;
 };
 
 /**
@@ -132,18 +102,6 @@ export type ProFieldFC<T> = React.ForwardRefRenderFunction<
   any,
   BaseProFieldFC & ProRenderFieldProps & T
 >;
-
-// function return type
-export type ProFieldValueObjectType = {
-  type: 'progress' | 'money' | 'percent';
-  status?: 'normal' | 'active' | 'success' | 'exception' | undefined;
-  locale?: string;
-  /** percent */
-  showSymbol?: boolean;
-  showColor?: boolean;
-  precision?: number;
-  request?: ProFieldRequestData;
-};
 
 /**
  * value type by function
@@ -220,12 +178,19 @@ const defaultRenderText = (
     return defaultRenderTextByObject(text, valueType, props);
   }
 
-  const { mode = 'read', emptyText } = props;
-  if (emptyText !== false && mode === 'read' && valueType !== 'option') {
+  const { mode = 'read', emptyText = '-' } = props;
+  if (emptyText !== false && mode === 'read' && valueType !== 'option' && valueType !== 'switch') {
     if (typeof text !== 'boolean' && typeof text !== 'number' && !text) {
-      return emptyText || '-';
+      const { fieldProps, render } = props;
+      if (render) {
+        return render(text, { mode, ...fieldProps }, <>{emptyText}</>);
+      }
+      return <>{emptyText}</>;
     }
   }
+
+  // eslint-disable-next-line no-param-reassign
+  delete props.emptyText;
 
   /**
    * 如果是金额的值
@@ -302,6 +267,10 @@ const defaultRenderText = (
     return <FieldTimePicker text={text as string} format="HH:mm:ss" {...props} />;
   }
 
+  if (valueType === 'fromNow') {
+    return <FieldFromNow text={text as string} {...props} />;
+  }
+
   if (valueType === 'index') {
     return <FieldIndexColumn>{(text as number) + 1}</FieldIndexColumn>;
   }
@@ -338,8 +307,31 @@ const defaultRenderText = (
     return <FieldDigit text={text as number} {...props} />;
   }
 
-  if (valueType === 'select' || props.valueEnum || props.request) {
+  if (valueType === 'second') {
+    return <FieldSecond text={text as number} {...props} />;
+  }
+
+  if (valueType === 'select' || (valueType === 'text' && (props.valueEnum || props.request))) {
     return <FiledSelect text={text as string} {...props} />;
+  }
+
+  if (valueType === 'checkbox') {
+    return <FiledCheckbox text={text as string} {...props} />;
+  }
+
+  if (valueType === 'radio') {
+    return <FieldRadio text={text as string} {...props} />;
+  }
+
+  if (valueType === 'radioButton') {
+    return <FieldRadio radioType="button" text={text as string} {...props} />;
+  }
+
+  if (valueType === 'rate') {
+    return <FiledRate text={text as string} {...props} />;
+  }
+  if (valueType === 'switch') {
+    return <FiledSwitch text={text as boolean} {...props} />;
   }
 
   if (valueType === 'option') {
@@ -355,13 +347,18 @@ const defaultRenderText = (
 
 export { defaultRenderText };
 
-const ProField: React.ForwardRefRenderFunction<
-  any,
-  {
-    text?: ProFieldTextType;
-    valueType?: ProFieldValueType | ProFieldValueObjectType;
-  } & RenderProps
-> = ({ text = '', valueType = 'text', onChange, value, ...rest }, ref) => {
+/**
+ * ProField 的类型
+ */
+export type ProFieldPropsType = {
+  text?: ProFieldTextType;
+  valueType?: ProFieldValueType | ProFieldValueObjectType;
+} & RenderProps;
+
+const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
+  { text, valueType = 'text', onChange, value, ...rest },
+  ref,
+) => {
   const intl = useIntl();
   const fieldProps = (value || onChange || rest?.fieldProps) && {
     value,
@@ -369,10 +366,9 @@ const ProField: React.ForwardRefRenderFunction<
     // fieldProps 优先级更高，在类似 LightFilter 场景下需要覆盖默认的 value 和 onChange
     ...omitUndefined(rest?.fieldProps),
   };
-
   return (
     <React.Fragment>
-      {defaultRenderText(text, valueType, {
+      {defaultRenderText(text ?? fieldProps?.value ?? '', valueType || 'text', {
         ...rest,
         mode: rest.mode || 'read',
         ref,
@@ -382,8 +378,6 @@ const ProField: React.ForwardRefRenderFunction<
     </React.Fragment>
   );
 };
-
-export type { ProFieldRequestData };
 
 export {
   FieldPercent,
@@ -400,5 +394,7 @@ export {
   proFieldParsingText,
   proFieldParsingValueEnumToArray,
 };
+
+export type { ProFieldValueType };
 
 export default React.forwardRef(ProField) as typeof ProField;

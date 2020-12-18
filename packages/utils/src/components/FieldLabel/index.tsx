@@ -19,6 +19,7 @@ export interface FieldLabelProps {
   formatter?: (value: any) => string;
   style?: React.CSSProperties;
   bordered?: boolean;
+  allowClear?: boolean;
 }
 
 const FieldLabel: React.FC<FieldLabelProps> = (props) => {
@@ -34,6 +35,7 @@ const FieldLabel: React.FC<FieldLabelProps> = (props) => {
     style,
     formatter,
     bordered,
+    allowClear = true,
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-core-field-label');
@@ -99,13 +101,14 @@ const FieldLabel: React.FC<FieldLabelProps> = (props) => {
           [`${prefixCls}-active`]: !!value,
           [`${prefixCls}-disabled`]: disabled,
           [`${prefixCls}-bordered`]: bordered,
+          [`${prefixCls}-allow-clear`]: allowClear,
         },
         className,
       )}
       style={style}
     >
       {getTextByValue(label, value)}
-      {value && (
+      {value && allowClear && (
         <CloseOutlined
           className={classNames(`${prefixCls}-icon`, `${prefixCls}-close`)}
           onClick={(e) => {

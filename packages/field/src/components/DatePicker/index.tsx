@@ -42,7 +42,7 @@ const FieldDatePicker: ProFieldFC<{
   const [open, setOpen] = useState<boolean>(false);
 
   if (mode === 'read') {
-    const dom = <span ref={ref}>{moment(text).format(format) || '-'}</span>;
+    const dom = <span ref={ref}>{text ? moment(text).format(format) : '-'}</span>;
     if (render) {
       return render(text, { mode, ...fieldProps }, <span>{dom}</span>);
     }
@@ -54,9 +54,10 @@ const FieldDatePicker: ProFieldFC<{
       disabled,
       value,
       onChange,
+      allowClear,
       placeholder = intl.getMessage('tableForm.selectPlaceholder', '请选择'),
     } = fieldProps;
-    const momentValue = parseValueToMoment(value, format) as moment.Moment;
+    const momentValue = parseValueToMoment(value) as moment.Moment;
     if (light) {
       const valueStr: string = (momentValue && momentValue.format(format)) || '';
       dom = (
@@ -95,6 +96,7 @@ const FieldDatePicker: ProFieldFC<{
                 onChange(null);
               }
             }}
+            allowClear={allowClear}
             bordered={bordered}
             expanded={open}
           />

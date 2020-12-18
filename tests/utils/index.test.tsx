@@ -1,12 +1,66 @@
+import React, { useEffect } from 'react';
 import {
   conversionSubmitValue,
   parseValueToMoment,
   transformKeySubmitValue,
   isNil,
+  InlineErrorFormItem,
+  useDebounceFn,
+  pickProProps,
+  DropdownFooter,
 } from '@ant-design/pro-utils';
+import { mount } from 'enzyme';
+import { Form, Input } from 'antd';
 import moment, { Moment } from 'moment';
+import { act } from 'react-dom/test-utils';
+import { waitTime, waitForComponentToPaint } from '../util';
 
 describe('utils', () => {
+  it('📅 useDebounceFn', async () => {
+    pickProProps({
+      fieldProps: {
+        name: 'string',
+      },
+    });
+    const fn = jest.fn();
+    const App = (props: { deps: string[] }) => {
+      const fetchData = useDebounceFn(async () => fn(), props.deps);
+      useEffect(() => {
+        fetchData.run();
+        return fetchData.cancel();
+      }, []);
+      return (
+        <div
+          id="test"
+          onClick={() => {
+            fetchData.run();
+            fetchData.run();
+          }}
+        />
+      );
+    };
+    const html = mount(<App deps={['name']} />);
+
+    act(() => {
+      html.find('#test').simulate('click');
+    });
+
+    await waitTime(100);
+
+    act(() => {
+      html.setProps({
+        deps: ['string'],
+      });
+    });
+    await waitTime(100);
+
+    act(() => {
+      html.unmount();
+    });
+
+    expect(fn).toBeCalledTimes(2);
+  });
+
   it('📅 conversionSubmitValue string', async () => {
     const html = conversionSubmitValue(
       {
@@ -138,6 +192,50 @@ describe('utils', () => {
       '1573862400000,1573862400000',
     );
   });
+
+  it('📅 DropdownFooter click', async () => {
+    const html = mount(
+      <DropdownFooter>
+        <Input id="test" />
+      </DropdownFooter>,
+    );
+    act(() => {
+      html.find('.ant-pro-core-dropdown-footer').simulate('click');
+    });
+    expect(html.find('.ant-pro-core-dropdown-footer').exists()).toBeTruthy();
+  });
+
+  it('📅 InlineErrorFormItem onValuesChange', async () => {
+    const html = mount(
+      <Form>
+        <InlineErrorFormItem
+          rules={[
+            {
+              required: true,
+            },
+          ]}
+          trigger="click"
+          name="title"
+        >
+          <Input id="test" />
+        </InlineErrorFormItem>
+      </Form>,
+    );
+    act(() => {
+      html.find('Input#test').simulate('change', {
+        target: {
+          value: '',
+        },
+      });
+    });
+    await waitForComponentToPaint(html, 100);
+    act(() => {
+      html.find('div.ant-form-item-has-error input').simulate('click');
+    });
+    await waitForComponentToPaint(html, 100);
+    expect(html.find('div.ant-form-item-explain').exists()).toBeTruthy();
+  });
+
   it('📅 transformKeySubmitValue return string', async () => {
     const html = transformKeySubmitValue(
       {

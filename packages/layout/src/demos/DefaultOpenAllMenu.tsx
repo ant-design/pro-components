@@ -6,13 +6,12 @@ import complexMenu from './complexMenu';
 export default () => (
   <div
     style={{
-      height: 400,
-      overflow: 'auto',
+      height: '100vh',
     }}
   >
     <ProLayout
       location={{
-        pathname: '/articles/new',
+        pathname: '/data_hui/data_hui2',
       }}
       route={{
         routes: complexMenu,

@@ -16,18 +16,26 @@ const FieldOptions: ProFieldFC<{}> = ({ text, mode: type, render, fieldProps }) 
       { mode: type, ...fieldProps },
       <></>,
     ) as unknown) as React.ReactNode[];
-
     if (!dom || dom?.length < 1) {
       return null;
     }
 
-    return <Space className={className}>{dom}</Space>;
+    return (
+      <Space size={16} className={className}>
+        {dom}
+      </Space>
+    );
   }
 
   if (!text || !Array.isArray(text)) {
     return text as JSX.Element;
   }
-  return <Space className={className}>{text}</Space>;
+
+  return (
+    <Space size={16} className={className}>
+      {text}
+    </Space>
+  );
 };
 
 export default FieldOptions;

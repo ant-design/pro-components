@@ -1,5 +1,5 @@
 import { DependencyList, useEffect, useRef } from 'react';
-import isDeepEqualReact from 'fast-deep-equal/react';
+import isDeepEqualReact from 'fast-deep-equal/es6/react';
 
 export const isDeepEqual: (a: any, b: any) => boolean = isDeepEqualReact;
 

@@ -1,7 +1,7 @@
 import { DatePicker, ConfigProvider } from 'antd';
 import React, { useState, useContext } from 'react';
 import moment from 'moment';
-import { FieldLabel } from '@ant-design/pro-utils';
+import { FieldLabel, parseValueToMoment } from '@ant-design/pro-utils';
 import { useIntl } from '@ant-design/pro-provider';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
 
@@ -60,9 +60,11 @@ const FieldRangePicker: ProFieldFC<{
     const {
       disabled,
       onChange,
+      allowClear,
       placeholder = intl.getMessage('tableForm.selectPlaceholder', '请选择'),
     } = fieldProps;
     let dom;
+    const momentValue = parseValueToMoment(fieldProps.value) as moment.Moment;
     if (light) {
       const valueStr: string =
         parsedStartText && parsedEndText && `${parsedStartText} ~ ${parsedEndText}`;
@@ -106,6 +108,7 @@ const FieldRangePicker: ProFieldFC<{
             placeholder={placeholder}
             size={size}
             value={valueStr}
+            allowClear={allowClear}
             onClear={() => {
               onChange(null);
               setActivePickerIndex(0);
@@ -126,6 +129,7 @@ const FieldRangePicker: ProFieldFC<{
           ]}
           bordered={plain === undefined ? true : !plain}
           {...fieldProps}
+          value={momentValue}
         />
       );
     }

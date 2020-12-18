@@ -47,13 +47,11 @@ export const columns: ProColumns[] = [
     key: 'index',
     dataIndex: 'index',
     valueType: 'index',
-    width: 72,
   },
   {
     title: '边框序号',
     dataIndex: 'indexBorder',
     valueType: 'indexBorder',
-    width: 72,
   },
   {
     title: 'Name',
@@ -72,6 +70,7 @@ export const columns: ProColumns[] = [
     dataIndex: 'sex',
     key: 'sex',
     filters: true,
+    valueType: 'select',
     valueEnum: {
       man: '男',
       woman: '女',
@@ -81,6 +80,7 @@ export const columns: ProColumns[] = [
     title: '状态',
     dataIndex: 'status',
     hideInForm: true,
+    valueType: 'select',
     valueEnum: {
       0: { text: '关闭', status: 'Default' },
       1: { text: '运行中', status: 'Processing' },
@@ -146,6 +146,7 @@ export const columns: ProColumns[] = [
     dataIndex: 'id',
     render: (text, row, index, action) => [
       <a
+        key="delete"
         onClick={() => {
           message.info('确认删除');
           action.reload();
@@ -154,6 +155,7 @@ export const columns: ProColumns[] = [
         delete
       </a>,
       <a
+        key="reload"
         onClick={() => {
           message.info('确认刷新');
           action.reload();
@@ -162,6 +164,7 @@ export const columns: ProColumns[] = [
         reload
       </a>,
       <TableDropdown
+        key="tableDropdown"
         onSelect={(key) => message.info(key)}
         menus={[
           { key: 'copy', name: '复制' },

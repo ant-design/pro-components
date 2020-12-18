@@ -4,7 +4,7 @@ import { UploadProps } from 'antd/lib/upload';
 import { ButtonProps } from 'antd/lib/button';
 import { UploadOutlined } from '@ant-design/icons';
 import { ProFormItemProps } from '../../interface';
-import { createField } from '../../BaseForm';
+import createField from '../../BaseForm/createField';
 
 export type ProFormDraggerProps = ProFormItemProps<UploadProps> & {
   icon?: React.ReactNode;
@@ -36,11 +36,13 @@ const ProFormUploadButton: React.ForwardRefRenderFunction<any, ProFormDraggerPro
     buttonProps,
     onChange,
     disabled,
+    proFieldProps,
   },
   ref,
 ) => {
   // 如果配置了 max ，并且 超过了文件列表的大小，就不展示按钮
-  const showUploadButton = max === undefined || !value || value?.length < max;
+  const showUploadButton =
+    (max === undefined || !value || value?.length < max) && proFieldProps?.mode !== 'read';
   return (
     <Upload
       action={action}

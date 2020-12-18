@@ -1,8 +1,6 @@
 @import (reference) '~antd/lib/style/themes/default';
-@pro-card-prefix-cls: ~'@{ant-prefix}-pro-card';
 
-@gradient-min: fade(@card-skeleton-bg, 20%);
-@gradient-max: fade(@card-skeleton-bg, 40%);
+@pro-card-prefix-cls: ~'@{ant-prefix}-pro-card';
 
 .@{pro-card-prefix-cls} {
   background-color: white;
@@ -18,6 +16,29 @@
     border: @border-width-base @border-style-base @border-color-split;
   }
 
+  &-size-small {
+    .@{pro-card-prefix-cls} {
+      &-header {
+        padding: @card-head-padding-sm @card-padding-base-sm;
+        padding-bottom: 0;
+
+        &-border {
+          & {
+            padding-bottom: @card-head-padding-sm;
+          }
+        }
+      }
+
+      &-title {
+        font-size: @card-head-font-size-sm;
+      }
+
+      &-body {
+        padding: @card-padding-base-sm;
+      }
+    }
+  }
+
   &-ghost {
     background-color: transparent;
 
@@ -25,7 +46,7 @@
       &-header {
         padding-left: 0;
         padding-right: 0;
-        padding-bottom: @padding-md;
+        padding-bottom: @card-head-padding;
       }
 
       &-body {
@@ -59,7 +80,8 @@
   &-collapse {
     > .@{pro-card-prefix-cls} {
       &-header {
-        padding-bottom: @padding-md;
+        padding-bottom: @card-head-padding;
+        border-bottom: 0;
       }
 
       &-body {
@@ -71,72 +93,18 @@
   &-header {
     display: flex;
     justify-content: space-between;
-    padding: @padding-md;
+    padding: @card-head-padding @card-padding-base;
     padding-bottom: 0;
     &-border {
       & {
-        padding-bottom: @padding-md;
+        padding-bottom: @card-head-padding;
       }
       border-bottom: @border-width-base @border-style-base @border-color-split;
     }
   }
 
   &-title {
-    font-size: @font-size-lg;
-  }
-
-  &-tabs {
-    // 上
-    .@{ant-prefix}-tabs-top > .@{ant-prefix}-tabs-nav {
-      margin-bottom: 0;
-      .@{ant-prefix}-tabs-nav-list {
-        padding-left: @padding-md;
-        margin-top: @margin-xs;
-      }
-    }
-
-    // 下
-    .@{ant-prefix}-tabs-bottom > .@{ant-prefix}-tabs-nav {
-      margin-top: 0;
-      .@{ant-prefix}-tabs-nav-list {
-        padding-left: @padding-md;
-      }
-    }
-
-    // 左
-    .@{ant-prefix}-tabs-left {
-      .@{ant-prefix}-tabs-content-holder {
-        .@{ant-prefix}-tabs-content {
-          .@{ant-prefix}-tabs-tabpane {
-            padding-left: 0;
-          }
-        }
-      }
-    }
-    // 直接子元素才设置
-    .@{ant-prefix}-tabs-left > .@{ant-prefix}-tabs-nav {
-      margin-right: 0;
-      .@{ant-prefix}-tabs-nav-list {
-        padding-top: @padding-md;
-      }
-    }
-
-    // 右
-    .@{ant-prefix}-tabs-right {
-      .@{ant-prefix}-tabs-content-holder {
-        .@{ant-prefix}-tabs-content {
-          .@{ant-prefix}-tabs-tabpane {
-            padding-right: 0;
-          }
-        }
-      }
-    }
-    // 直接子元素
-    .@{ant-prefix}-tabs-right > .@{ant-prefix}-tabs-nav {
-      .@{ant-prefix}-tabs-nav-list {
-        padding-top: @padding-md;
-      }
-    }
+    font-size: @card-head-font-size;
   }
 
   &-type-inner {
@@ -160,7 +128,7 @@
 
   &-body {
     display: block;
-    padding: @padding-md;
+    padding: @card-padding-base;
     height: 100%;
     box-sizing: border-box;
 
@@ -169,39 +137,6 @@
       justify-content: center;
       align-items: center;
     }
-  }
-
-  &-loading {
-    overflow: hidden;
-  }
-
-  &-loading &-body {
-    user-select: none;
-  }
-
-  &-loading-content {
-    p {
-      margin: 0;
-    }
-  }
-
-  &-loading-block {
-    height: 14px;
-    margin: 4px 0;
-    background: linear-gradient(90deg, @gradient-min, @gradient-max, @gradient-min);
-    background-size: 600% 600%;
-    border-radius: @card-radius;
-    animation: card-loading 1.4s ease infinite;
-  }
-}
-
-@keyframes card-loading {
-  0%,
-  100% {
-    background-position: 0 50%;
-  }
-  50% {
-    background-position: 100% 50%;
   }
 }
 

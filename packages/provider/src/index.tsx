@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 
 import { ConfigProvider as AntdConfigProvider } from 'antd';
 import { noteOnce } from 'rc-util/lib/warning';
+import arEG from './locale/ar_EG';
 import zhCN from './locale/zh_CN';
 import enUS from './locale/en_US';
 import viVN from './locale/vi_VN';
@@ -14,6 +15,8 @@ import zhTW from './locale/zh_TW';
 import frFR from './locale/fr_FR';
 import ptBR from './locale/pt_BR';
 import koKR from './locale/ko_KR';
+import idID from './locale/id_ID';
+import deDE from './locale/de_DE';
 
 export interface IntlType {
   locale: string;
@@ -47,6 +50,7 @@ const createIntl = (locale: string, localeMap: { [key: string]: any }): IntlType
   locale,
 });
 
+const arEGIntl = createIntl('ar_EG', arEG);
 const zhCNIntl = createIntl('zh_CN', zhCN);
 const enUSIntl = createIntl('en_US', enUS);
 const viVNIntl = createIntl('vi_VN', viVN);
@@ -59,13 +63,16 @@ const zhTWIntl = createIntl('zh_TW', zhTW);
 const frFRIntl = createIntl('fr_FR', frFR);
 const ptBRIntl = createIntl('pt_BR', ptBR);
 const koKRIntl = createIntl('ko_KR', koKR);
+const idIDNntl = createIntl('id_ID', idID);
+const deDEIntl = createIntl('de_DE', deDE);
 
 const intlMap = {
+  'ar-EG': arEGIntl,
   'zh-CN': zhCNIntl,
   'en-US': enUSIntl,
   'vi-VN': viVNIntl,
   'it-IT': itITIntl,
-  'js-JP': jaJPIntl,
+  'ja-JP': jaJPIntl,
   'es-ES': esESIntl,
   'ru-RU': ruRUIntl,
   'ms-MY': msMYIntl,
@@ -73,6 +80,8 @@ const intlMap = {
   'fr-FR': frFRIntl,
   'pt-BR': ptBRIntl,
   'ko-KR': koKRIntl,
+  'id-ID': idIDNntl,
+  'de-DE': deDEIntl,
 };
 
 const intlMapKeys = Object.keys(intlMap);
@@ -82,6 +91,7 @@ export type ParamsType = {
 };
 
 export {
+  arEGIntl,
   enUSIntl,
   zhCNIntl,
   viVNIntl,
@@ -94,6 +104,8 @@ export {
   frFRIntl,
   ptBRIntl,
   koKRIntl,
+  idIDNntl,
+  deDEIntl,
   intlMap,
   intlMapKeys,
 };

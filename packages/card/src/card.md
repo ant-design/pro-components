@@ -28,7 +28,7 @@ group:
 
 ### 栅格布局
 
-当嵌套子卡片时, 组件会自动切换为 `flex` 弹性盒布局。你还可以通过配置 `ghost` 属性为 `true` 方便页内布局。
+当嵌套子卡片时, 组件会自动切换为 `flex` 弹性盒布局，你可以将 `direction`设置为`column`来指定 Flex 方向，你还可以通过配置 `ghost` 属性为 `true` 来去掉背景色和 padding 方便页内布局。
 
  <code src="./demos/colspan.tsx"  background="#f0f2f5" />
 
@@ -61,6 +61,12 @@ group:
 
 <code src="./demos/gutter.tsx" background="#f0f2f5" />
 
+### 分组展示
+
+你可以嵌套卡片组件来将内容分组, 以及 `Divider` 子组件来分隔这些内容。
+
+<code src="./demos/divider.tsx" background="#f0f2f5" />
+
 ### 标题带分割线
 
 当添加分隔线时会自动增加标题的高度与内容区域分开。
@@ -91,6 +97,12 @@ group:
 配置 `loading`属性为`true`控制卡片加载中，也可以传入 DOM 给`loading`来自定义 loading 展示。
 
 <code src="./demos/loading.tsx" background="#f0f2f5" />
+
+### 操作项
+
+配置 `actions` 属性来配置卡片操作项。
+
+<code src="./demos/actions.tsx" background="#f0f2f5" />
 
 ### 无标题
 
@@ -128,12 +140,10 @@ group:
 
 <code src="./demos/steps-v.tsx" background="#f0f2f5" />
 
-### 横向步骤条
-
 ## API
 
 | 参数 | 说明 | 类型 | 默认值 |
-| :-- | :-- | :-- | :-- |
+| --- | --- | --- | --- |
 | title | 标题 | `React.ReactNode` | - |
 | subTitle | 副标题 | `React.ReactNode` | - |
 | tooltip | 标题右侧图标 hover 提示信息 | `string` | - |
@@ -143,13 +153,17 @@ group:
 | colSpan | 栅格布局宽度，24 栅格，支持指定宽度 px 或百分比, 支持响应式的对象写法 `{ xs: 8, sm: 16, md: 24}` | `number` \| `string` | 24 |
 | gutter | 数字或使用数组形式同时设置 [水平间距, 垂直间距], 支持响应式的对象写法 `{ xs: 8, sm: 16, md: 24}` | `number` \| `array` | 0 |
 | split | 拆分卡片的方向 | `vertical` \| `horizontal`  | - |
+| type | 卡片类型 | `inner` \| `default` | - |
+| size | 卡片尺寸 | `default` \| `small` | - |
+| actions | 卡片操作组，位置在卡片底部 | `Array&lt;ReactNode>` | - |
+| direction | 指定 Flex 方向，仅在嵌套子卡片时有效，默认方向为 row 横向 | `column` | - |
 | bordered | 是否有边框 | `boolean` | false |
 | ghost | 幽灵模式，即是否取消卡片内容区域的 padding 和 卡片的背景颜色。 | `boolean` | false |
 | headerBordered | 页头是否有分割线 | `boolean` | false |
 | collapsed | 受控属性，是否折叠 | `boolean` | false |
 | collapsible | 配置是否可折叠，受控时无效 | `boolean` | false |
 | defaultCollapsed | 默认折叠, 受控时无效 | `boolean` | false |
-| onCollapse | 收起卡片的事件，受控时无效 | `(collapsed: boolean) => void;` | - |
+| onCollapse | 收起卡片的事件，受控时无效 | `(collapsed: boolean) => void` | - |
 | tabs | 标签页配置 | 见下面 ProCardTabs | - |
 
 ### ProCardTabs
@@ -164,10 +178,19 @@ group:
 
 ### ProCard.TabPane
 
-支持 `ProCard` 所有属性及 [Tabs.TabPane](https://ant.design/components/tabs-cn/#Tabs.TabPane) 的所有属性。
+支持 [Tabs.TabPane](https://ant.design/components/tabs-cn/#Tabs.TabPane) 的所有属性。
 
 | 参数 | 说明 | 类型 | 默认值 |
 | :-- | :-- | :-- | :-- |
 | key | 对应 activeKey，用于标定是否选中和 dom 更新，一定不要重复，不然会造成表现异常 | `string` | - |
 | tab | 选项卡头显示文字 | `ReactNode` | - |
 | disabled | 不可用 | `boolean` | false |
+| cardProps | ProCard 卡片属性透传 | `ProCard` | - |
+
+### ProCard.Divider
+
+用于在将内容进行分组时进行分隔。
+
+### ProCard.Group
+
+属性同 ProCard，会取消卡片内容边距，用于将多个卡片进行分组。

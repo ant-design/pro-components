@@ -19,30 +19,36 @@ const waitTime = (time: number = 100) => {
 export default () => {
   return (
     <ModalForm
+      title="新建表单"
       trigger={
         <Button type="primary">
           <PlusOutlined />
           新建表单
         </Button>
       }
+      modalProps={{
+        onCancel: () => console.log('run'),
+      }}
       onFinish={async (values) => {
         await waitTime(2000);
         console.log(values);
-        message.success('提交成功！');
+        message.success('提交成功');
         return true;
       }}
     >
       <ProForm.Group>
         <ProFormText
+          width="m"
           name="name"
           label="签约客户名称"
           tooltip="最长为 24 位"
           placeholder="请输入名称"
         />
-        <ProFormText name="company" label="我方公司名称" placeholder="请输入名称" />
+
+        <ProFormText width="m" name="company" label="我方公司名称" placeholder="请输入名称" />
       </ProForm.Group>
       <ProForm.Group>
-        <ProFormText name="contract" label="合同名称" placeholder="请输入名称" />
+        <ProFormText width="m" name="contract" label="合同名称" placeholder="请输入名称" />
         <ProFormDateRangePicker name="contractTime" label="合同生效时间" />
       </ProForm.Group>
       <ProForm.Group>

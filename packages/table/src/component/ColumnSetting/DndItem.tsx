@@ -20,8 +20,18 @@ const ItemTypes = {
 
 const Card: React.FC<CardProps> = ({ id, end, move, children, index }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const [, drop] = useDrop({
+  const [{ isOver }, drop] = useDrop({
     accept: ItemTypes.CARD,
+    collect: (monitor) => {
+      const { index: dragIndex } = monitor.getItem() || {};
+      if (dragIndex === index) {
+        return {};
+      }
+      return {
+        isOver: monitor.isOver(),
+        dropClassName: dragIndex < index ? ' drop-over-downward' : ' drop-over-upward',
+      };
+    },
     hover(item: DragItem, monitor: DropTargetMonitor) {
       if (!ref.current) {
         return;
@@ -87,10 +97,17 @@ const Card: React.FC<CardProps> = ({ id, end, move, children, index }) => {
     },
   });
 
-  const opacity = isDragging ? 0.4 : 1;
+  const opacity = isDragging ? { opacity: 0.8, cursor: 'move' } : { cursor: 'move' };
+  const overStyle = isOver ? { border: '1px solid #DDD', margin: -1 } : {};
   drag(drop(ref));
   return (
-    <div ref={ref} style={{ opacity }}>
+    <div
+      ref={ref}
+      style={{
+        ...opacity,
+        ...overStyle,
+      }}
+    >
       {children}
     </div>
   );

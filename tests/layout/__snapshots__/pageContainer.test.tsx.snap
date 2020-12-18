@@ -1,5 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`PageContainer ⚡️ support fixHeader 1`] = `
+<div
+  class="ant-pro-page-container"
+>
+  <div
+    class="ant-pro-page-container-warp"
+  >
+    <div
+      class="ant-page-header ant-page-header-ghost"
+    >
+      <div
+        class="ant-page-header-heading"
+      >
+        <div
+          class="ant-page-header-heading-left"
+        >
+          <span
+            class="ant-page-header-heading-title"
+            title="期贤"
+          >
+            期贤
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-pro-grid-content"
+  >
+    <div
+      class="ant-pro-grid-content-children"
+    />
+  </div>
+</div>
+`;
+
 exports[`PageContainer ⚡️ support fixedHeader 1`] = `
 <div
   class="ant-pro-page-container"
@@ -94,15 +130,76 @@ exports[`PageContainer ⚡️ support footer 1`] = `
 </div>
 `;
 
+exports[`PageContainer ⚡️ support loading 1`] = `
+<div
+  class="ant-pro-page-container"
+>
+  <div
+    class="ant-pro-page-container-warp"
+  >
+    <div
+      class="ant-page-header ant-page-header-ghost"
+    >
+      <div
+        class="ant-page-header-heading"
+      >
+        <div
+          class="ant-page-header-heading-left"
+        >
+          <span
+            class="ant-page-header-heading-title"
+            title="期贤"
+          >
+            期贤
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-pro-grid-content"
+  >
+    <div
+      class="ant-pro-grid-content-children"
+    >
+      <div
+        style="padding-top:100px;text-align:center"
+      >
+        <div
+          class="ant-spin ant-spin-lg ant-spin-spinning"
+        >
+          <span
+            class="ant-spin-dot ant-spin-dot-spin"
+          >
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
 <div
   class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-top-menu ant-pro-basicLayout-top"
 >
   <section
-    class="ant-layout ant-layout-has-sider"
+    class="ant-layout"
     style="min-height: 100%;"
   >
-    <section
+    <div
       class="ant-layout"
       style="position: relative;"
     >
@@ -205,7 +302,7 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
           </div>
         </div>
       </main>
-    </section>
+    </div>
   </section>
 </div>
 `;
@@ -273,10 +370,10 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
   class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-top-menu ant-pro-basicLayout-top"
 >
   <section
-    class="ant-layout ant-layout-has-sider"
+    class="ant-layout"
     style="min-height: 100%;"
   >
-    <section
+    <div
       class="ant-layout"
       style="position: relative;"
     >
@@ -369,7 +466,7 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
           </div>
         </div>
       </main>
-    </section>
+    </div>
   </section>
 </div>
 `;
