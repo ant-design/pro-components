@@ -211,7 +211,11 @@ export type ProSchema<T = unknown, Extra = unknown> = {
    * @description 返回一个node，会自动包裹 value 和 onChange
    */
   renderFormItem?: (
-    schema: ProSchema<T, Extra> & { isEditable?: boolean; type: ProSchemaComponentTypes },
+    schema: ProSchema<T, Extra> & {
+      isEditable?: boolean;
+      index?: number;
+      type: ProSchemaComponentTypes;
+    },
     config: {
       onSelect?: (value: any) => void;
       type: ProSchemaComponentTypes;

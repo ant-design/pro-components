@@ -93,6 +93,7 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
   renderFormItem?: (
     item: ProSchema<T, U, Extra>,
     config: {
+      index?: number;
       value?: any;
       onChange?: (value: any) => void;
       onSelect?: (value: any) => void;
