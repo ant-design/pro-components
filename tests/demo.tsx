@@ -22,7 +22,7 @@ function ariaConvert(wrapper: CheerIO) {
 
   const matches = new Map();
 
-  function process(entry: CheerIOElement) {
+  function process(entry: any) {
     const { attribs, children } = entry;
     if (matches.has(entry)) return;
     matches.set(entry, true);

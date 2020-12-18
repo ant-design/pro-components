@@ -483,9 +483,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     pagination,
     onChange: (
       changePagination: TablePaginationConfig,
-      filters: {
-        [string: string]: React.ReactText[] | null;
-      },
+      filters: Record<string, (React.Key | boolean)[] | null>,
       sorter: SorterResult<T> | SorterResult<T>[],
       extra: TableCurrentDataSource<T>,
     ) => {

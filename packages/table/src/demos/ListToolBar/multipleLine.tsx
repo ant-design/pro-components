@@ -90,6 +90,7 @@ export default () => {
         ),
         actions: [
           <Dropdown
+            key="overlay"
             overlay={
               <Menu onClick={() => alert('menu click')}>
                 <Menu.Item key="1">菜单</Menu.Item>
@@ -108,6 +109,7 @@ export default () => {
             </Button>
           </Dropdown>,
           <Button
+            key="add"
             type="primary"
             onClick={() => {
               alert('add');

@@ -31878,6 +31878,7 @@ exports[`table demos renders ./packages/table/src/demos/split.tsx correctly 1`] 
                             >
                               <tr
                                 class="ant-table-row ant-table-row-level-0"
+                                data-row-key="106.14.98.104"
                               >
                                 <td
                                   class="ant-table-cell"
@@ -31919,6 +31920,7 @@ exports[`table demos renders ./packages/table/src/demos/split.tsx correctly 1`] 
                               </tr>
                               <tr
                                 class="ant-table-row ant-table-row-level-0"
+                                data-row-key="106.14.98.114"
                               >
                                 <td
                                   class="ant-table-cell"
@@ -31960,6 +31962,7 @@ exports[`table demos renders ./packages/table/src/demos/split.tsx correctly 1`] 
                               </tr>
                               <tr
                                 class="ant-table-row ant-table-row-level-0"
+                                data-row-key="106.14.98.124"
                               >
                                 <td
                                   class="ant-table-cell"
@@ -32001,6 +32004,7 @@ exports[`table demos renders ./packages/table/src/demos/split.tsx correctly 1`] 
                               </tr>
                               <tr
                                 class="ant-table-row ant-table-row-level-0"
+                                data-row-key="106.14.98.134"
                               >
                                 <td
                                   class="ant-table-cell"
@@ -32042,6 +32046,7 @@ exports[`table demos renders ./packages/table/src/demos/split.tsx correctly 1`] 
                               </tr>
                               <tr
                                 class="ant-table-row ant-table-row-level-0"
+                                data-row-key="106.14.98.144"
                               >
                                 <td
                                   class="ant-table-cell"
@@ -32083,6 +32088,7 @@ exports[`table demos renders ./packages/table/src/demos/split.tsx correctly 1`] 
                               </tr>
                               <tr
                                 class="ant-table-row ant-table-row-level-0"
+                                data-row-key="106.14.98.154"
                               >
                                 <td
                                   class="ant-table-cell"
@@ -32124,6 +32130,7 @@ exports[`table demos renders ./packages/table/src/demos/split.tsx correctly 1`] 
                               </tr>
                               <tr
                                 class="ant-table-row ant-table-row-level-0"
+                                data-row-key="106.14.98.164"
                               >
                                 <td
                                   class="ant-table-cell"
@@ -32165,6 +32172,7 @@ exports[`table demos renders ./packages/table/src/demos/split.tsx correctly 1`] 
                               </tr>
                               <tr
                                 class="ant-table-row ant-table-row-level-0"
+                                data-row-key="106.14.98.174"
                               >
                                 <td
                                   class="ant-table-cell"
@@ -32206,6 +32214,7 @@ exports[`table demos renders ./packages/table/src/demos/split.tsx correctly 1`] 
                               </tr>
                               <tr
                                 class="ant-table-row ant-table-row-level-0"
+                                data-row-key="106.14.98.184"
                               >
                                 <td
                                   class="ant-table-cell"
@@ -32247,6 +32256,7 @@ exports[`table demos renders ./packages/table/src/demos/split.tsx correctly 1`] 
                               </tr>
                               <tr
                                 class="ant-table-row ant-table-row-level-0"
+                                data-row-key="106.14.98.194"
                               >
                                 <td
                                   class="ant-table-cell"
@@ -32386,6 +32396,7 @@ exports[`table demos renders ./packages/table/src/demos/split.tsx correctly 1`] 
                             >
                               <tr
                                 class="ant-table-row ant-table-row-level-0"
+                                data-row-key="0"
                               >
                                 <td
                                   class="ant-table-cell"
@@ -32426,6 +32437,7 @@ exports[`table demos renders ./packages/table/src/demos/split.tsx correctly 1`] 
                               </tr>
                               <tr
                                 class="ant-table-row ant-table-row-level-0"
+                                data-row-key="1"
                               >
                                 <td
                                   class="ant-table-cell"
@@ -32466,6 +32478,7 @@ exports[`table demos renders ./packages/table/src/demos/split.tsx correctly 1`] 
                               </tr>
                               <tr
                                 class="ant-table-row ant-table-row-level-0"
+                                data-row-key="2"
                               >
                                 <td
                                   class="ant-table-cell"
