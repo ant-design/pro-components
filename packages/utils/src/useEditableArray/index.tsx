@@ -18,7 +18,7 @@ export const recordKeyToString = (rowKey: RecordKey): React.Key => {
 };
 
 export type AddLineOptions = {
-  position?: 'top' | 'end';
+  position?: 'top' | 'position';
   recordKey?: RecordKey;
 };
 
