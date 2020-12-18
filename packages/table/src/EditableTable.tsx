@@ -9,7 +9,7 @@ import { ProTableProps, ActionType } from './typing';
 
 export type RecordCreatorProps<T> = {
   record: T;
-  position?: 'top' | 'end';
+  position?: 'top' | 'bottom';
 };
 
 export type EditableProTableProps<T, U extends ParamsType> = Omit<
