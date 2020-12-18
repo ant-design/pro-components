@@ -251,6 +251,10 @@ const ProTable = <T extends {}, U extends ParamsType>(
     onCleanSelected: () => {
       // 清空选中行
       onCleanSelected();
+    },
+    resetAll: () => {
+      // 清空选中行
+      onCleanSelected();
       // 清空筛选
       setProFilter({});
       // 清空排序

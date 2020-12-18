@@ -289,16 +289,17 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | value | 同 dataSource，传入一个数组,是 table 渲染的元数据 | `T[]` | `undefined` |
 | onChange | dataSource 修改时触发，删除和修改都会触发,如果设置了 value，Table 会成为一个受控组件。 | `(value:T[])=>void` | `undefined` |
 | recordCreatorProps | 新建一行数据的相关配置 | [RecordCreatorProps](#recordcreator) & [ButtonProps](https://ant.design/components/button-cn/#API) | - |
-| maxLength | 最大的行数，到达最大行数新建按钮会自动小时 | number | - |
+| maxLength | 最大的行数，到达最大行数新建按钮会自动消失 | number | - |
 
 > 别的 API 与 ProTable 相同。
 
 #### RecordCreator
 
-| 属性     | 描述                                   | 类型           | 默认值 |
-| -------- | -------------------------------------- | -------------- | ------ |
-| record   | 需要新增的行数据，一般来说包含唯一 key | `T`            | `{}`   |
-| position | 行增加在哪里，开始或者末尾             | `top` \| `end` | `end`  |
+| 属性 | 描述 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| record | 需要新增的行数据，一般来说包含唯一 key | `T` | `{}` |
+| position | 行增加在哪里，开始或者末尾 | `top` \| `end` | `end` |
+| (...buttonProps) | antd 的 [ButtonProps](https://ant.design/components/button-cn/#API) | ButtonProps | — |
 
 #### Search 搜索表单
 

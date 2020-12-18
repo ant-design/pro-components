@@ -141,6 +141,7 @@ export function useActionType<T>(
   props: {
     fullScreen: () => void;
     onCleanSelected: () => void;
+    resetAll: () => void;
     editableUtils: UseEditableUtilType;
   },
 ) {
@@ -164,7 +165,7 @@ export function useActionType<T>(
         await action?.reload();
       },
       reset: async () => {
-        await props.onCleanSelected();
+        await props.resetAll();
         await action?.reset?.();
         await action?.reload();
       },
