@@ -834,7 +834,7 @@ describe('EditorProTable', () => {
     expect(fn).toBeCalled();
   });
 
-  it('📝 support add line for end', async () => {
+  it('📝 support add line for bottom', async () => {
     const fn = jest.fn();
     const wrapper = mount(<EditorProTableDemo onSave={fn} />);
     await waitForComponentToPaint(wrapper, 1000);

@@ -243,6 +243,11 @@ export interface ProTableProps<T, U extends ParamsType>
   onLoad?: (dataSource: T[]) => void;
 
   /**
+   * @name loading 被修改时触发，一般是网络请求导致的
+   */
+  onLoadingChange?: (loading: boolean | SpinProps | undefined) => void;
+
+  /**
    * @name 数据加载失败时触发
    */
   onRequestError?: (e: Error) => void;

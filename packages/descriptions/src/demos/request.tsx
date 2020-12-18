@@ -26,10 +26,11 @@ export default () => {
           onClick={() => {
             actionRef.current?.reload();
           }}
+          key="reload"
         >
           刷新
         </Button>
-        <Button>重置</Button>
+        <Button key="rest">重置</Button>
       </ProDescriptions.Item>
     </ProDescriptions>
   );

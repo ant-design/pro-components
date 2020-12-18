@@ -15310,7 +15310,7 @@ Array [
                                     checked=""
                                     class="ant-radio-input"
                                     type="radio"
-                                    value="end"
+                                    value="bottom"
                                   />
                                   <span
                                     class="ant-radio-inner"

@@ -23,7 +23,7 @@ function editableRowByKey<RecordType>({ data, row }: { data: RecordType; row: Re
 }
 
 export type AddLineOptions = {
-  position?: 'top' | 'end';
+  position?: 'top' | 'bottom';
   recordKey?: React.Key;
 };
 
