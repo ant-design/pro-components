@@ -142,6 +142,7 @@ function defaultRenderText<T>(config: {
             {
               defaultRender: () => inputDom,
               type: 'form',
+              isEditable: true,
             },
             form as any,
           );

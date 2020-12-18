@@ -103,7 +103,7 @@ function useEditableMap<RecordType>(
   const onCancel = async (
     recordKey: RecordKey,
     editRow: RecordType & {
-      index: number;
+      index?: number;
     },
     isNewLine?: NewLineConfig<any>,
   ) => {
@@ -117,7 +117,7 @@ function useEditableMap<RecordType>(
   const onSave = async (
     recordKey: RecordKey,
     editRow: RecordType & {
-      index: number;
+      index?: number;
     },
   ) => {
     const success = await props?.onSave?.(recordKey, editRow);
@@ -136,7 +136,7 @@ function useEditableMap<RecordType>(
   };
 
   const actionRender = useCallback(
-    (key: RecordKey, form: FormInstance<any>, config?: ActionTypeText) =>
+    (key: RecordKey, form: FormInstance<any>, config?: ActionTypeText<RecordType>) =>
       (props.actionRender || defaultActionRender)(props.dataSource, {
         recordKey: recordKeyToString(key),
         cancelEditable,
