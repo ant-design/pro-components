@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 export interface RequestData {
@@ -18,6 +18,8 @@ const useFetchData = <T extends RequestData>(
   options?: {
     effects?: any[];
     manual: boolean;
+    loading?: boolean;
+    onLoadingChange?: (loading?: boolean) => void;
     onRequestError?: (e: Error) => void;
     dataSource?: T['data'];
     defaultDataSource?: T['data'];
@@ -30,7 +32,10 @@ const useFetchData = <T extends RequestData>(
     value: dataSource,
     onChange: onDataSourceChange,
   });
-  const [loading, setLoading] = useState<boolean | undefined>(undefined);
+  const [loading, setLoading] = useMergedState<boolean | undefined>(options?.loading, {
+    value: options?.loading,
+    onChange: options?.onLoadingChange,
+  });
 
   const updateDataAndLoading = (data: T) => {
     setEntity(data);

@@ -61,6 +61,8 @@ export type ProDescriptionsProps<RecordType = {}> = DescriptionsProps & {
 
   loading?: boolean;
 
+  onLoadingChange?: (loading?: boolean) => void;
+
   tooltip?: string;
   /**
    * @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一
@@ -341,6 +343,8 @@ const ProDescriptions = <RecordType extends {}>(props: ProDescriptionsProps<Reco
     onDataSourceChange,
     formProps,
     editable,
+    loading,
+    onLoadingChange,
     actionRef,
     onRequestError,
     ...rest
@@ -356,6 +360,8 @@ const ProDescriptions = <RecordType extends {}>(props: ProDescriptionsProps<Reco
       effects: [stringify(params)],
       manual: !request,
       dataSource,
+      loading,
+      onLoadingChange,
       onDataSourceChange,
     },
   );

@@ -19,12 +19,14 @@ const useFetchData = <T extends RequestData<any>>(
     onLoad?: (dataSource: T['data']) => void;
     onRequestError?: (e: Error) => void;
     manual: boolean;
+    onLoadingChange?: (loading: UseFetchDataAction<T>['loading']) => void;
     pagination: boolean;
   },
 ): UseFetchDataAction<T> => {
   // 用于标定组件是否解除挂载，如果解除了就不要 setState
   const mountRef = useRef(true);
-  const { pagination, onLoad = () => null, manual, onRequestError } = options || {};
+  const { pagination, onLoadingChange, onLoad = () => null, manual, onRequestError } =
+    options || {};
 
   const [list, setList] = useMergedState<T['data']>(defaultData as any, {
     value: options?.dataSource,
@@ -33,6 +35,7 @@ const useFetchData = <T extends RequestData<any>>(
 
   const [loading, setLoading] = useMergedState<UseFetchDataAction<T>['loading']>(undefined, {
     value: options?.loading,
+    onChange: onLoadingChange,
   });
 
   const requesting = useRef(false);

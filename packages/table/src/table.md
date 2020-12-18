@@ -258,6 +258,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | formRef | 可以获取到查询表单的 form 实例，用于一些灵活的配置 | `MutableRefObject<ActionType>` | - |
 | toolBarRender | 渲染工具栏，支持返回一个 dom 数组，会自动增加 margin-right | `(action) => ReactNode[]` | - |
 | onLoad | 数据加载完成后触发,会多次触发 | `(dataSource: T[]) => void` | - |
+| onLoadingChange | loading 被修改时触发，一般是网络请求导致的 | `(loading:boolean)=>void` | - |
 | onRequestError | 数据加载失败时触发 | `(error) => void` | - |
 | tableClassName | 封装的 table 的 className | string | - |
 | tableStyle | 封装的 table 的 style | [CSSProperties](https://www.htmlhelp.com/reference/css/properties.html) | - |
