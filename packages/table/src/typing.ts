@@ -245,7 +245,7 @@ export interface ProTableProps<T, U extends ParamsType>
   /**
    * @name loading 被修改时触发，一般是网络请求导致的
    */
-  onLoadingChange: (loading: boolean | SpinProps | undefined) => void;
+  onLoadingChange?: (loading: boolean | SpinProps | undefined) => void;
 
   /**
    * @name 数据加载失败时触发

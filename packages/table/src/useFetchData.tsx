@@ -19,7 +19,7 @@ const useFetchData = <T extends RequestData<any>>(
     onLoad?: (dataSource: T['data']) => void;
     onRequestError?: (e: Error) => void;
     manual: boolean;
-    onLoadingChange: (loading: UseFetchDataAction<T>['loading']) => void;
+    onLoadingChange?: (loading: UseFetchDataAction<T>['loading']) => void;
     pagination: boolean;
   },
 ): UseFetchDataAction<T> => {

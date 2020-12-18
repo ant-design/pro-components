@@ -223,6 +223,35 @@ describe('BasicTable', () => {
     expect(fn).toBeCalled();
   });
 
+  it('🎏 onLoadingChange test', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProTable
+        size="small"
+        onLoadingChange={fn}
+        options={{
+          fullScreen: true,
+          reload: true,
+          setting: false,
+        }}
+        columns={[
+          {
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+        ]}
+        request={async () => {
+          return {
+            data: [],
+          };
+        }}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 1000);
+    expect(fn).toBeCalled();
+  });
+
   it('🎏 reload request test', async () => {
     const fn = jest.fn();
     const Reload = () => {
