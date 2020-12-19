@@ -37,7 +37,7 @@ const Demo = () => {
       />
       <ProFormRadio name="test" />
       <ProFormCheckbox name="test2" />
-      <ProFormSwitch width="l" label="是否打开" />
+      <ProFormSwitch width="lg" label="是否打开" />
       <ProFormUploadDragger
         title="拖动上传"
         icon={<SmileOutlined />}
