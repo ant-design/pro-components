@@ -56,15 +56,15 @@ export default () => {
           >
             <ProFormText
               name="name"
-              width="m"
+              width="md"
               label="迁移任务名称"
               tooltip="最长为 24 位，用于标定的唯一 id"
               placeholder="请输入名称"
               rules={[{ required: true }]}
             />
             <ProForm.Group title="节点" size={8}>
-              <ProFormSelect width="s" name="source" placeholder="选择来源节点" />
-              <ProFormSelect width="s" name="target" placeholder="选择目标节点" />
+              <ProFormSelect width="sm" name="source" placeholder="选择来源节点" />
+              <ProFormSelect width="sm" name="target" placeholder="选择目标节点" />
             </ProForm.Group>
           </ProCard>
 
@@ -86,7 +86,7 @@ export default () => {
               placeholder="请输入名称"
               width="xs"
             />
-            <ProFormText name="s" label="S号表单" placeholder="请输入名称" width="s" />
+            <ProFormText name="s" label="S号表单" placeholder="请输入名称" width="sm" />
             <ProFormDateRangePicker name="m" label="M 号表单" />
             <ProFormSelect
               name="l"
@@ -94,7 +94,7 @@ export default () => {
               fieldProps={{
                 mode: 'tags',
               }}
-              width="l"
+              width="lg"
               initialValue={['吴家豪', '周星星']}
               options={['吴家豪', '周星星', '陈拉风'].map((item) => ({
                 label: item,
@@ -114,12 +114,12 @@ export default () => {
             <ProFormCheckbox.Group
               name="checkbox"
               label="迁移类型"
-              width="l"
+              width="lg"
               options={['结构迁移', '全量迁移', '增量迁移', '全量校验']}
             />
             <ProForm.Group>
               <ProFormText name="dbname" label="业务 DB 用户名" />
-              <ProFormDatePicker name="datetime" label="记录保存时间" width="s" />
+              <ProFormDatePicker name="datetime" label="记录保存时间" width="sm" />
             </ProForm.Group>
             <ProFormCheckbox.Group
               name="checkbox"
@@ -154,7 +154,7 @@ export default () => {
                   required: true,
                 },
               ]}
-              width="m"
+              width="md"
               initialValue="1"
               options={[
                 {
@@ -167,7 +167,7 @@ export default () => {
             <ProFormSelect
               label="Pod 调度策略"
               name="remark2"
-              width="m"
+              width="md"
               initialValue="2"
               options={[
                 {

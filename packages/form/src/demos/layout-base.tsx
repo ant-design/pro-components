@@ -64,7 +64,7 @@ export default () => {
                   placeholder="请输入名称"
                 />
                 <ProFormText
-                  width="m"
+                  width="md"
                   name="company"
                   label="我方公司名称"
                   placeholder="请输入名称"
@@ -98,7 +98,7 @@ export default () => {
                   label="合同约定失效效方式"
                 />
               </ProForm.Group>
-              <ProFormText width="s" name="id" label="主合同编号" />
+              <ProFormText width="sm" name="id" label="主合同编号" />
               <ProFormText name="project" disabled label="项目名称" initialValue="xxxx项目" />
               <ProFormText
                 width="xs"

@@ -30,6 +30,10 @@ ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 �
 
 <code src="./demos/base.tsx" height="548px"/>
 
+### 互相依赖的表单项
+
+<code src="./demos/dependency.tsx" height="248px"/>
+
 ### 分步表单
 
 <code src="./demos/steps-from.tsx" height="532px"/>
@@ -532,8 +536,8 @@ ProFormFieldSet 可以将内部的多个 children 的值组合并且存储在 Pr
   label="组件列表"
   transform={(value: any) => ({ startTime: value[0], endTime: value[1] })}
 >
-  <ProFormText width="m" />
-  <ProFormText width="m" />
-  <ProFormText width="m" />
+  <ProFormText width="md" />
+  <ProFormText width="md" />
+  <ProFormText width="md" />
 </ProFormFieldSet>
 ```

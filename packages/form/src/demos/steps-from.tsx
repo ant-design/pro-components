@@ -45,25 +45,25 @@ export default () => {
           <ProFormText
             name="name"
             label="实验名称"
-            width="m"
+            width="md"
             tooltip="最长为 24 位，用于标定的唯一 id"
             placeholder="请输入名称"
             rules={[{ required: true }]}
           />
           <ProFormDatePicker name="date" label="日期" />
           <ProFormDateRangePicker name="dateTime" label="时间区间" />
-          <ProFormTextArea name="remark" label="备注" width="l" placeholder="请输入备注" />
+          <ProFormTextArea name="remark" label="备注" width="lg" placeholder="请输入备注" />
         </StepsForm.StepForm>
         <StepsForm.StepForm name="checkbox" title="设置参数">
           <ProFormCheckbox.Group
             name="checkbox"
             label="迁移类型"
-            width="l"
+            width="lg"
             options={['结构迁移', '全量迁移', '增量迁移', '全量校验']}
           />
           <ProForm.Group>
             <ProFormText name="dbname" label="业务 DB 用户名" />
-            <ProFormDatePicker name="datetime" label="记录保存时间" width="s" />
+            <ProFormDatePicker name="datetime" label="记录保存时间" width="sm" />
             <ProFormCheckbox.Group
               name="checkbox"
               label="迁移类型"
