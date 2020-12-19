@@ -324,47 +324,41 @@ const ProTable = <T extends {}, U extends ParamsType>(
     },
   };
 
-  const onSubmit = useCallback(
-    (value, firstLoad) => {
-      if (type !== 'form') {
-        const pageInfo = pagination ? {} : (pagination as TablePaginationConfig);
-        const submitParams = {
-          ...value,
-          _timestamp: Date.now(),
-          ...pageInfo,
-        };
-        const omitParams = omit(beforeSearchSubmit(submitParams), Object.keys(pageInfo));
-        setFormSearch(omitParams);
-        if (!firstLoad) {
-          // back first page
-          action.resetPageIndex();
-        }
+  const onSubmit = (value: U, firstLoad: boolean) => {
+    if (type !== 'form') {
+      const pageInfo = pagination ? {} : (pagination as TablePaginationConfig);
+      const submitParams = {
+        ...value,
+        _timestamp: Date.now(),
+        ...pageInfo,
+      };
+      const omitParams = omit(beforeSearchSubmit(submitParams), Object.keys(pageInfo));
+      setFormSearch(omitParams);
+      if (!firstLoad) {
+        // back first page
+        action.resetPageIndex();
       }
-      // 不是第一次提交就不触发，第一次提交是 js 触发的
-      // 为了解决 https://github.com/ant-design/pro-components/issues/579
-      if (props.onSubmit && !firstLoad) {
-        props.onSubmit(value);
-      }
-    },
-    [props.onSubmit],
-  );
+    }
+    // 不是第一次提交就不触发，第一次提交是 js 触发的
+    // 为了解决 https://github.com/ant-design/pro-components/issues/579
+    if (props.onSubmit && !firstLoad) {
+      props.onSubmit(value);
+    }
+  };
 
-  const onReset = useCallback(
-    (value) => {
-      const pageInfo = pagination === false ? {} : pagination;
+  const onReset = (value: Partial<U>) => {
+    const pageInfo = pagination === false ? {} : pagination;
 
-      setFormSearch(
-        beforeSearchSubmit({
-          ...value,
-          ...pageInfo,
-        }),
-      );
-      // back first page
-      action.resetPageIndex();
-      props.onReset?.();
-    },
-    [props.onReset],
-  );
+    setFormSearch(
+      beforeSearchSubmit({
+        ...value,
+        ...pageInfo,
+      }),
+    );
+    // back first page
+    action.resetPageIndex();
+    props.onReset?.();
+  };
 
   if ((!props.columns || props.columns.length < 1) && !props.tableViewRender) {
     return (
