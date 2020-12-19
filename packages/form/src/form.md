@@ -16,6 +16,33 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 
 ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 组件的结合，我们可以帮他们当成一个 FromItem 来使用，并且支持各种 `props`。每个 Field 都支持 `fieldProps` 属性来支持设置输入组件的`props`。 我们支持了 `placeholder` 的透传，你可以直接在组件上设置 `placeholder`。
 
+- 如果你想要设置默认值，请使用 `initialValues`,任何直接使用组件 `value` 和 `onChange` 的方式都有可能导致值绑定失效。
+
+- 如果想要表单联动或者做一些依赖，可以使用 render props 模式。通过包裹一个 `noStyle` 和 `shouldUpdate` 的 Form.Item 节点触发表单的单个渲染
+
+- 如果想要监听某个值，建议使用 `onValuesChange`。保持单向的数据流无论对开发者还是维护者都大有脾益
+
+- ProForm 没有黑科技，只是 antd 的 Form 的封装，如果要使用自定义的组件可以用 Form.Item 包裹后使用，支持混用。
+
+```tsx |pure
+// 设置整体默认值
+<ProForm initialValues={obj} />
+
+// 设置单个控件的
+<ProForm
+ onValuesChange={(changeValues) => console.log(changeValues)}
+>
+  <ProFormText initialValue="prop"/>
+</ProForm>
+
+// 使用自定义的控件
+<ProForm>
+  <Form.Item name="switch" label="Switch" valuePropName="checked">
+    <Switch />
+  </Form.Item>
+</ProForm>
+```
+
 ## 何时使用
 
 当你想快速实现一个表单但不想花太多时间去布局时 ProForm 是最好的选择。
