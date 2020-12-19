@@ -50,6 +50,7 @@ const columns: ProColumns<DataSourceType>[] = [
         },
       ],
     },
+    // 第二行不允许编辑
     editable: (text, record, index) => {
       return index !== 1;
     },

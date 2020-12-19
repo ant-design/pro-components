@@ -1,9 +1,10 @@
 import React, { useRef, useState } from 'react';
 import { EditableProTable, ProColumns } from '@ant-design/pro-table';
 import ProField from '@ant-design/pro-field';
-import { ProFormRadio } from '@ant-design/pro-form';
 import ProCard from '@ant-design/pro-card';
-import { Input, message, Space, Tag } from 'antd';
+import { Button, Input, message, Space, Tag } from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
+import { ActionType } from '../typing';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -108,9 +109,6 @@ const columns: ProColumns<DataSourceType>[] = [
         },
       ],
     },
-    editable: (text, record, index) => {
-      return index !== 1;
-    },
     width: '30%',
   },
   {
@@ -163,41 +161,31 @@ const columns: ProColumns<DataSourceType>[] = [
 ];
 
 export default () => {
+  const actionRef = useRef<ActionType>();
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>([]);
   const [dataSource, setDataSource] = useState<DataSourceType[]>([]);
-  const [position, setPosition] = useState<'top' | 'bottom'>('bottom');
-  const [newRecord, setNewRecord] = useState({
-    id: (Math.random() * 1000000).toFixed(0),
-  });
+
   return (
     <>
+      <Button
+        type="primary"
+        onClick={() => {
+          actionRef.current?.addEditRecord?.({
+            id: (Math.random() * 1000000).toFixed(0),
+            title: '新的一行',
+          });
+        }}
+        icon={<PlusOutlined />}
+      >
+        新建一行
+      </Button>
       <EditableProTable<DataSourceType>
         rowKey="id"
+        actionRef={actionRef}
         headerTitle="可编辑表格"
         maxLength={5}
-        recordCreatorProps={{
-          position,
-          record: newRecord,
-        }}
-        toolBarRender={() => [
-          <ProFormRadio.Group
-            key="render"
-            fieldProps={{
-              value: position,
-              onChange: (e) => setPosition(e.target.value),
-            }}
-            options={[
-              {
-                label: '添加到顶部',
-                value: 'top',
-              },
-              {
-                label: '添加到底部',
-                value: 'bottom',
-              },
-            ]}
-          />,
-        ]}
+        // 关闭默认的新建按钮
+        recordCreatorProps={false}
         columns={columns}
         request={async () => ({
           data: defaultData,
@@ -210,9 +198,6 @@ export default () => {
           editableKeys,
           onSave: async () => {
             await waitTime(2000);
-            setNewRecord({
-              id: (Math.random() * 1000000).toFixed(0),
-            });
           },
           onChange: setEditableRowKeys,
           actionRender: (row, config) => [
@@ -228,9 +213,11 @@ export default () => {
               保存
             </a>,
             <a
-              key="save"
+              key="cancel"
               onClick={async () => {
-                await config?.onCancel?.(config.recordKey, row);
+                const values = (await config?.form?.validateFields()) as DataSourceType;
+                config?.cancelEditable(config.recordKey);
+                await config?.onCancel?.(config.recordKey, { ...row, ...values });
               }}
             >
               取消
