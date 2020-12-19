@@ -136,6 +136,7 @@ function defaultRenderText<T>(config: {
           const renderDom = columnProps.renderFormItem?.(
             {
               ...columnProps,
+              index: config.index,
               isEditable: true,
               type: 'table',
             },
