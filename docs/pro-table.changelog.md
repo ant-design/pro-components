@@ -1,5 +1,5 @@
 ---
-title: pro-table
+title: ProTable - 更新日志
 nav:
   title: Change Log
   path: /changelog
@@ -8,6 +8,29 @@ group:
 ---
 
 # Change Log
+
+## @ant-design/pro-table@2.16.2
+
+`2020-12-17`
+
+- ✨ feat(table): beforeSearchSubmit support pagination [#1295](https://github.com/ant-design/pro-components/pull/1295) [@DerrickTel](https://github.com/DerrickTel)
+- ✨ feat(table): support colSize [#1322](https://github.com/ant-design/pro-components/pull/1322) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.16.1
+
+`2020-12-15`
+
+- 🐛 fix(table): table add requesting state [#1319](https://github.com/ant-design/pro-components/pull/1319) [@hengkx](https://github.com/hengkx)
+- 🐛 fix(table): change bordered to cardBorder [#1312](https://github.com/ant-design/pro-components/pull/1312) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix: 修复新旧值均为 map 类型的等价判断，一直返回 true 的问题 [#1302](https://github.com/ant-design/pro-components/pull/1302) [@zakrivi](https://github.com/zakrivi)
+
+## @ant-design/pro-table@2.16.0
+
+`2020-12-14`
+
+- 💥 feat(table): EditableTable support max length [#1286](https://github.com/ant-design/pro-components/pull/1286) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(desciption): support editable [#1273](https://github.com/ant-design/pro-components/pull/1273) [@chenshuai2144](https://github.com/chenshuai2144)
+- ✨ feat(table): support bordered(#1237) [#1275](https://github.com/ant-design/pro-components/pull/1275) [@DerrickTel](https://github.com/DerrickTel)
 
 ## @ant-design/pro-table@2.15.0
 

@@ -5,10 +5,10 @@ import { FormItemProps } from 'antd/lib/form';
 import { ConfigProviderWrap } from '@ant-design/pro-provider';
 import {
   conversionSubmitValue,
+  ProFieldValueType,
   SearchTransformKeyFn,
   transformKeySubmitValue,
 } from '@ant-design/pro-utils';
-import { ProFieldValueType } from '@ant-design/pro-field';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
 import { Store } from 'antd/lib/form/interface';
 import namePathSet from 'rc-util/lib/utils/set';

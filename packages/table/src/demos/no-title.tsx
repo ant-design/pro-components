@@ -64,7 +64,7 @@ const roleMenu = (
 
 const MemberList: React.FC = () => {
   const renderRemoveUser = (text: string) => (
-    <Popconfirm title={`确认${text}吗?`} okText="是" cancelText="否">
+    <Popconfirm key="popconfirm" title={`确认${text}吗?`} okText="是" cancelText="否">
       <a>{text}</a>
     </Popconfirm>
   );

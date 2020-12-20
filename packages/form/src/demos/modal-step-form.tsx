@@ -32,7 +32,7 @@ export default () => {
           console.log(values);
           await waitTime(1000);
           setVisible(false);
-          message.success('提交成功！');
+          message.success('提交成功');
         }}
         formProps={{
           validateMessages: {
@@ -64,7 +64,7 @@ export default () => {
         >
           <ProFormText
             name="name"
-            width="m"
+            width="md"
             label="实验名称"
             tooltip="最长为 24 位，用于标定的唯一 id"
             placeholder="请输入名称"
@@ -75,18 +75,18 @@ export default () => {
             <ProFormDateTimePicker name="dateTime" label="开始时间" />
             <ProFormDatePicker name="date" label="结束时间" />
           </ProForm.Group>
-          <ProFormTextArea name="remark" label="备注" width="l" placeholder="请输入备注" />
+          <ProFormTextArea name="remark" label="备注" width="lg" placeholder="请输入备注" />
         </StepsForm.StepForm>
         <StepsForm.StepForm name="checkbox" title="设置参数">
           <ProFormCheckbox.Group
             name="checkbox"
             label="迁移类型"
-            width="l"
+            width="lg"
             options={['结构迁移', '全量迁移', '增量迁移', '全量校验']}
           />
           <ProForm.Group>
-            <ProFormText width="m" name="dbname" label="业务 DB 用户名" />
-            <ProFormDatePicker name="datetime" label="记录保存时间" width="s" />
+            <ProFormText width="md" name="dbname" label="业务 DB 用户名" />
+            <ProFormDatePicker name="datetime" label="记录保存时间" width="sm" />
             <ProFormCheckbox.Group
               name="checkbox"
               label="迁移类型"
@@ -113,7 +113,7 @@ export default () => {
                 required: true,
               },
             ]}
-            width="m"
+            width="md"
             initialValue="1"
             options={[
               {
@@ -126,7 +126,7 @@ export default () => {
           <ProFormSelect
             label="Pod 调度策略"
             name="remark2"
-            width="m"
+            width="md"
             initialValue="2"
             options={[
               {

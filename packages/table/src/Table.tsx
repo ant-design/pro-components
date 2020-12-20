@@ -14,7 +14,8 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { stringify } from 'use-json-comparison';
 import { TablePaginationConfig } from 'antd/lib/table';
 import { TableCurrentDataSource, SorterResult, SortOrder } from 'antd/lib/table/interface';
-import { useDeepCompareEffect, omitUndefined } from '@ant-design/pro-utils';
+import { useDeepCompareEffect, omitUndefined, useEditableArray } from '@ant-design/pro-utils';
+import omit from 'omit.js';
 
 import useFetchData from './useFetchData';
 import Container from './container';
@@ -32,9 +33,19 @@ import {
 import ErrorBoundary from './component/ErrorBoundary';
 
 import './index.less';
-import useEditable from './component/useEditable';
-import { ProTableProps, RequestData, TableRowSelection } from './typing';
+import { Bordered, BorderedType, ProTableProps, RequestData, TableRowSelection } from './typing';
 import { ActionType } from '.';
+
+const isBordered = (borderType: BorderedType, border?: Bordered) => {
+  if (border === undefined) {
+    return false;
+  }
+  // debugger
+  if (typeof border === 'boolean') {
+    return border;
+  }
+  return border[borderType];
+};
 
 /**
  * 🏆 Use Ant Design Table like a Pro!
@@ -47,6 +58,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
   },
 ) => {
   const {
+    cardBordered,
     request,
     className: propsClassName,
     params = {},
@@ -67,6 +79,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     onColumnsStateChange,
     options,
     search,
+    onLoadingChange,
     rowSelection: propsRowSelection = false,
     beforeSearchSubmit = (searchParams: Partial<U>) => searchParams,
     tableAlertRender,
@@ -169,6 +182,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
       onDataSourceChange: props.onDataSourceChange,
       pagination: propsPagination !== false,
       onLoad,
+      onLoadingChange,
       onRequestError,
       manual: !request || (!formSearch && search !== false),
       effects: [stringify(params), stringify(formSearch), stringify(proFilter), stringify(proSort)],
@@ -215,7 +229,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
   /**
    * 可编辑行的相关配置
    */
-  const editableUtils = useEditable<any>({
+  const editableUtils = useEditableArray<any>({
     ...props.editable,
     getRowKey,
     childrenColumnName: props.expandable?.childrenColumnName,
@@ -237,6 +251,10 @@ const ProTable = <T extends {}, U extends ParamsType>(
       }
     },
     onCleanSelected: () => {
+      // 清空选中行
+      onCleanSelected();
+    },
+    resetAll: () => {
       // 清空选中行
       onCleanSelected();
       // 清空筛选
@@ -306,41 +324,45 @@ const ProTable = <T extends {}, U extends ParamsType>(
     },
   };
 
-  const onSubmit = useCallback(
-    (value, firstLoad) => {
-      if (type !== 'form') {
-        const submitParams = {
-          ...value,
-          _timestamp: Date.now(),
-        };
-        setFormSearch(beforeSearchSubmit(submitParams));
-        if (!firstLoad) {
-          // back first page
-          action.resetPageIndex();
-        }
+  const onSubmit = (value: U, firstLoad: boolean) => {
+    if (type !== 'form') {
+      const pageInfo = pagination ? {} : (pagination as TablePaginationConfig);
+      const submitParams = {
+        ...value,
+        _timestamp: Date.now(),
+        ...pageInfo,
+      };
+      const omitParams = omit(beforeSearchSubmit(submitParams), Object.keys(pageInfo));
+      setFormSearch(omitParams);
+      if (!firstLoad) {
+        // back first page
+        action.resetPageIndex();
       }
-      // 不是第一次提交就不触发，第一次提交是 js 触发的
-      // 为了解决 https://github.com/ant-design/pro-components/issues/579
-      if (props.onSubmit && !firstLoad) {
-        props.onSubmit(value);
-      }
-    },
-    [props.onSubmit],
-  );
+    }
+    // 不是第一次提交就不触发，第一次提交是 js 触发的
+    // 为了解决 https://github.com/ant-design/pro-components/issues/579
+    if (props.onSubmit && !firstLoad) {
+      props.onSubmit(value);
+    }
+  };
 
-  const onReset = useCallback(
-    (value) => {
-      setFormSearch(beforeSearchSubmit(value));
-      // back first page
-      action.resetPageIndex();
-      props.onReset?.();
-    },
-    [props.onReset],
-  );
+  const onReset = (value: Partial<U>) => {
+    const pageInfo = pagination === false ? {} : pagination;
+
+    setFormSearch(
+      beforeSearchSubmit({
+        ...value,
+        ...pageInfo,
+      }),
+    );
+    // back first page
+    action.resetPageIndex();
+    props.onReset?.();
+  };
 
   if ((!props.columns || props.columns.length < 1) && !props.tableViewRender) {
     return (
-      <Card bordered={false} bodyStyle={{ padding: 50 }}>
+      <Card bordered={isBordered('table', cardBordered)} bodyStyle={{ padding: 50 }}>
         <Empty />
       </Card>
     );
@@ -363,6 +385,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
         dateFormatter={rest.dateFormatter}
         search={search}
         form={rest.form}
+        bordered={isBordered('search', cardBordered)}
       />
     ) : null;
 
@@ -431,7 +454,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     (column) => column.filters === undefined || column.filters === true,
   );
   const editableDataSource = (): T[] => {
-    const { options: newLineOptions, row } = editableUtils.newLineRecord || {};
+    const { options: newLineOptions, defaultValue: row } = editableUtils.newLineRecord || {};
     if (newLineOptions?.position === 'top') {
       return [row, ...action.dataSource];
     }
@@ -458,9 +481,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     pagination,
     onChange: (
       changePagination: TablePaginationConfig,
-      filters: {
-        [string: string]: React.ReactText[] | null;
-      },
+      filters: Record<string, (React.Key | boolean)[] | null>,
       sorter: SorterResult<T> | SorterResult<T>[],
       extra: TableCurrentDataSource<T>,
     ) => {
@@ -516,7 +537,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
    */
   const tableAreaDom = (
     <Card
-      bordered={false}
+      bordered={isBordered('table', cardBordered)}
       style={{
         height: '100%',
       }}

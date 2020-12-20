@@ -1,5 +1,5 @@
 ---
-title: pro-card
+title: ProCard - 更新日志
 nav:
   title: Change Log
   path: /changelog

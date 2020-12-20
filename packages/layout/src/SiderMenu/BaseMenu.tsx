@@ -60,7 +60,7 @@ export interface BaseMenuProps
   postMenuData?: (menusData?: MenuDataItem[]) => MenuDataItem[];
 }
 
-const { SubMenu } = Menu;
+const { SubMenu, ItemGroup } = Menu;
 
 let IconFont = createFromIconfontCN({
   scriptUrl: defaultSettings.iconfontUrl,
@@ -102,7 +102,7 @@ class MenuUtil {
   getSubMenuOrItem = (item: MenuDataItem, isChildren: boolean): React.ReactNode => {
     if (Array.isArray(item.children) && item && item.children.length > 0) {
       const name = this.getIntlName(item);
-      const { subMenuItemRender, prefixCls } = this.props;
+      const { subMenuItemRender, prefixCls, menu } = this.props;
       //  get defaultTitle by menuItemRender
       const defaultTitle = item.icon ? (
         <span className={`${prefixCls}-menu-item`}>
@@ -117,11 +117,11 @@ class MenuUtil {
       const title = subMenuItemRender
         ? subMenuItemRender({ ...item, isUrl: false }, defaultTitle)
         : defaultTitle;
-
+      const MenuComponents: React.ElementType = menu?.type === 'group' ? ItemGroup : SubMenu;
       return (
-        <SubMenu title={title} key={item.key || item.path} onTitleClick={item.onTitleClick}>
+        <MenuComponents title={title} key={item.key || item.path} onTitleClick={item.onTitleClick}>
           {this.getNavMenuItems(item.children, true)}
-        </SubMenu>
+        </MenuComponents>
       );
     }
 

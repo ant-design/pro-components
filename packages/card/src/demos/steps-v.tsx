@@ -19,10 +19,15 @@ export default () => {
       </ProCard>
       <ProCard title="流量占用情况">
         <Space>
-          <Button type="primary" onClick={() => setCurrent(current + 1)} disabled={current === 5}>
+          <Button
+            key="primary"
+            type="primary"
+            onClick={() => setCurrent(current + 1)}
+            disabled={current === 5}
+          >
             下一步
           </Button>
-          <Button onClick={() => setCurrent(current - 1)} disabled={current === 0}>
+          <Button key="pre" onClick={() => setCurrent(current - 1)} disabled={current === 0}>
             上一步
           </Button>
         </Space>

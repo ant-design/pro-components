@@ -16,6 +16,7 @@ import frFR from './locale/fr_FR';
 import ptBR from './locale/pt_BR';
 import koKR from './locale/ko_KR';
 import idID from './locale/id_ID';
+import deDE from './locale/de_DE';
 
 export interface IntlType {
   locale: string;
@@ -63,6 +64,7 @@ const frFRIntl = createIntl('fr_FR', frFR);
 const ptBRIntl = createIntl('pt_BR', ptBR);
 const koKRIntl = createIntl('ko_KR', koKR);
 const idIDNntl = createIntl('id_ID', idID);
+const deDEIntl = createIntl('de_DE', deDE);
 
 const intlMap = {
   'ar-EG': arEGIntl,
@@ -70,7 +72,7 @@ const intlMap = {
   'en-US': enUSIntl,
   'vi-VN': viVNIntl,
   'it-IT': itITIntl,
-  'js-JP': jaJPIntl,
+  'ja-JP': jaJPIntl,
   'es-ES': esESIntl,
   'ru-RU': ruRUIntl,
   'ms-MY': msMYIntl,
@@ -79,6 +81,7 @@ const intlMap = {
   'pt-BR': ptBRIntl,
   'ko-KR': koKRIntl,
   'id-ID': idIDNntl,
+  'de-DE': deDEIntl,
 };
 
 const intlMapKeys = Object.keys(intlMap);
@@ -102,6 +105,7 @@ export {
   ptBRIntl,
   koKRIntl,
   idIDNntl,
+  deDEIntl,
   intlMap,
   intlMapKeys,
 };

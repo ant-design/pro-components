@@ -218,6 +218,48 @@ describe('EditorProTable', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('📝 EditableProTable support maxLength', async () => {
+    const wrapper = mount(
+      <EditableProTable<DataSourceType>
+        maxLength={2}
+        rowKey="id"
+        columns={columns}
+        value={defaultData}
+      />,
+    );
+    expect(wrapper.find('button.ant-btn-dashed').exists()).toBeFalsy();
+
+    act(() => {
+      wrapper.setProps({
+        maxLength: 20,
+      });
+    });
+
+    waitForComponentToPaint(wrapper, 100);
+
+    expect(wrapper.find('button.ant-btn-dashed').exists()).toBeTruthy();
+  });
+
+  it('📝 EditableProTable support actionRender', async () => {
+    const wrapper = render(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        recordCreatorProps={false}
+        columns={columns}
+        editable={{
+          editableKeys: [],
+          actionRender: () => [
+            <div key="test" id="test">
+              xx
+            </div>,
+          ],
+        }}
+        value={defaultData}
+      />,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('📝 EditableProTable support recordCreatorProps', async () => {
     const wrapper = render(
       <EditableProTable<DataSourceType>
@@ -792,7 +834,7 @@ describe('EditorProTable', () => {
     expect(fn).toBeCalled();
   });
 
-  it('📝 support add line for end', async () => {
+  it('📝 support add line for bottom', async () => {
     const fn = jest.fn();
     const wrapper = mount(<EditorProTableDemo onSave={fn} />);
     await waitForComponentToPaint(wrapper, 1000);

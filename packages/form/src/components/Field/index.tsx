@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ProField, { ProFieldValueType } from '@ant-design/pro-field';
+import ProField from '@ant-design/pro-field';
 import { InputProps } from 'antd/lib/input';
 import { SelectProps } from 'antd/lib/select';
 import { ProSchema } from '@ant-design/pro-utils';
@@ -10,11 +10,12 @@ import { ProFormItemProps } from '../../interface';
 
 export type ProFormFieldProps = ProSchema<
   string,
-  ProFieldValueType,
   ProFormItemProps<InputProps & SelectProps<string>> & {
+    mode?: 'edit' | 'read' | 'update';
     // 用来判断是不是被嵌套渲染的 dom
     isDefaultDom?: boolean;
     ref?: any;
+    plain?: boolean;
   }
 >;
 /**

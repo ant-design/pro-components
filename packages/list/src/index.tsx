@@ -27,24 +27,14 @@ export interface ProListMetas<T> {
   [key: string]: ProListMeta<T> | undefined;
 }
 
-export interface ProListProps<RecordType, U extends ParamsType>
-  extends Pick<
-      ProTableProps<RecordType, U>,
-      | 'dataSource'
-      | 'loading'
-      | 'toolBarRender'
-      | 'rowKey'
-      | 'headerTitle'
-      | 'options'
-      | 'search'
-      | 'expandable'
-      | 'rowSelection'
-      | 'request'
-    >,
-    AntdListProps<RecordType> {
-  metas?: ProListMetas<RecordType>;
-  showActions?: 'hover' | 'always';
-}
+export type ProListProps<RecordType, U extends ParamsType> = Omit<
+  ProTableProps<RecordType, U>,
+  'size'
+> &
+  AntdListProps<RecordType> & {
+    metas?: ProListMetas<RecordType>;
+    showActions?: 'hover' | 'always';
+  };
 
 export type Key = React.Key;
 

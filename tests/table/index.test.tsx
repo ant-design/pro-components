@@ -223,6 +223,35 @@ describe('BasicTable', () => {
     expect(fn).toBeCalled();
   });
 
+  it('🎏 onLoadingChange test', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProTable
+        size="small"
+        onLoadingChange={fn}
+        options={{
+          fullScreen: true,
+          reload: true,
+          setting: false,
+        }}
+        columns={[
+          {
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+        ]}
+        request={async () => {
+          return {
+            data: [],
+          };
+        }}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 1000);
+    expect(fn).toBeCalled();
+  });
+
   it('🎏 reload request test', async () => {
     const fn = jest.fn();
     const Reload = () => {
@@ -866,5 +895,52 @@ describe('BasicTable', () => {
     await waitForComponentToPaint(html, 600);
 
     expect(fn).toBeCalledWith('name');
+  });
+
+  it('🎏 bordered = true ', async () => {
+    const html = mount(
+      <ProTable
+        size="small"
+        cardBordered
+        columns={columns}
+        request={request}
+        rowKey="key"
+        rowSelection={{
+          selectedRowKeys: ['1'],
+        }}
+        params={{ keyword: 'test' }}
+        pagination={{
+          defaultCurrent: 10,
+        }}
+      />,
+    );
+
+    await waitForComponentToPaint(html, 1000);
+    expect(html.render()).toMatchSnapshot();
+  });
+
+  it('🎏 bordered = {search = true, table = false} ', async () => {
+    const html = mount(
+      <ProTable
+        size="small"
+        cardBordered={{
+          search: true,
+          table: false,
+        }}
+        columns={columns}
+        request={request}
+        rowKey="key"
+        rowSelection={{
+          selectedRowKeys: ['1'],
+        }}
+        params={{ keyword: 'test' }}
+        pagination={{
+          defaultCurrent: 10,
+        }}
+      />,
+    );
+
+    await waitForComponentToPaint(html, 1000);
+    expect(html.render()).toMatchSnapshot();
   });
 });

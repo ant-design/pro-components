@@ -126,20 +126,23 @@ const LightFilterContainer: React.FC<{
               {collapseItems.map((child: any) => {
                 const { key } = child;
                 const { name, fieldProps } = child.props;
+                const newFieldProps = {
+                  ...fieldProps,
+                  onChange: (e: any) => {
+                    setMoreValues({
+                      ...moreValues,
+                      [name]: e?.target ? e.target.value : e,
+                    });
+                    return false;
+                  },
+                };
+                if (moreValues[name]) {
+                  newFieldProps[child.props.valuePropName || 'value'] = moreValues[name];
+                }
                 return (
                   <div className={`${lightFilterClassName}-line`} key={key}>
                     {React.cloneElement(child, {
-                      fieldProps: {
-                        ...fieldProps,
-                        [child.props.valuePropName || 'value']: moreValues[name],
-                        onChange: (e: any) => {
-                          setMoreValues({
-                            ...moreValues,
-                            [name]: e?.target ? e.target.value : e,
-                          });
-                          return false;
-                        },
-                      },
+                      fieldProps: newFieldProps,
                     })}
                   </div>
                 );

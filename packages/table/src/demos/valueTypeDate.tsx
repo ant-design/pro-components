@@ -89,6 +89,22 @@ export default () => (
           dataIndex: 'updatedAt',
           valueType: 'time',
         },
+        {
+          title: '操作',
+          key: 'option',
+          width: 120,
+          valueType: 'option',
+          render: (_, row, index, action) => [
+            <a
+              key="a"
+              onClick={() => {
+                action.startEditable(row.key);
+              }}
+            >
+              编辑
+            </a>,
+          ],
+        },
       ]}
       request={() => {
         return Promise.resolve({

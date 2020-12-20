@@ -1,6 +1,7 @@
 ---
 title: ProTable - 高级表格
 order: 0
+legacy: /table
 group:
   path: /
 nav:
@@ -55,6 +56,10 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 ### 可编辑表格
 
 <code src="./demos/editable-table.tsx" background="#f5f5f5" height="420px"/>
+
+### 自定义可编辑表格
+
+<code src="./demos/custom-editable-table.tsx" background="#f5f5f5" height="420px"/>
 
 ### 通过 formRef 来操作查询表单
 
@@ -254,10 +259,11 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | params | 用于 `request` 查询的多余参数，一旦变化会触发重新加载 | `object` | - |
 | postData | 对通过 `request` 获取的数据进行处理 | `(data: T[]) => T[]` | - |
 | defaultData | 默认的数据 | `T[]` | - |
-| actionRef | Table action 的引用，便于自定义触发 | `React.MutableRefObject<FormInstance>` | - |
-| formRef | 可以获取到查询表单的 form 实例，用于一些灵活的配置 | `React.MutableRefObject<ActionType>` | - |
-| toolBarRender | 渲染工具栏，支持返回一个 dom 数组，会自动增加 margin-right | `(action) => React.ReactNode[]` | - |
+| actionRef | Table action 的引用，便于自定义触发 | `MutableRefObject<FormInstance>` | - |
+| formRef | 可以获取到查询表单的 form 实例，用于一些灵活的配置 | `MutableRefObject<ActionType>` | - |
+| toolBarRender | 渲染工具栏，支持返回一个 dom 数组，会自动增加 margin-right | `(action) => ReactNode[]` | - |
 | onLoad | 数据加载完成后触发,会多次触发 | `(dataSource: T[]) => void` | - |
+| onLoadingChange | loading 被修改时触发，一般是网络请求导致的 | `(loading:boolean)=>void` | - |
 | onRequestError | 数据加载失败时触发 | `(error) => void` | - |
 | tableClassName | 封装的 table 的 className | string | - |
 | tableStyle | 封装的 table 的 style | [CSSProperties](https://www.htmlhelp.com/reference/css/properties.html) | - |
@@ -273,11 +279,12 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | onSubmit | 提交表单时触发 | `(params: U) => void` | - |
 | onReset | 重置表单时触发 | `() => void` | - |
 | columnEmptyText | 空值时的显示，不设置时显示 `-`， false 可以关闭此功能 | `string` \| `false` | false |
-| tableRender | 自定义渲染表格函数 | `(props,dom,domList:{ toolbar,alert,table}) => React.ReactNode` | - |
+| tableRender | 自定义渲染表格函数 | `(props,dom,domList:{ toolbar,alert,table}) => ReactNode` | - |
 | toolbar | 透传 `ListToolBar` 配置项 | [ListToolBarProps](#listtoolbarprops) | - |
-| tableExtraRender | 自定义表格的主体函数 | `(props: ProTableProps<T, U>, dataSource: T[]) => React.ReactNode;` | - |
+| tableExtraRender | 自定义表格的主体函数 | `(props: ProTableProps<T, U>, dataSource: T[]) => ReactNode;` | - |
 | manualRequest | 是否需要手动触发首次请求, 配置为 `true` 时不可隐藏搜索表单 | `boolean` | false |
 | editable | 可编辑表格的相关配置 | [TableRowEditable<T>](#editable) | - |
+| cardBordered | Table 和 Search 外围 Card 组件的边框 | `boolean \| {search?: boolean, table?: boolean}` | false |
 
 ### 可编辑表格 EditableProTable
 
@@ -288,15 +295,17 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | value | 同 dataSource，传入一个数组,是 table 渲染的元数据 | `T[]` | `undefined` |
 | onChange | dataSource 修改时触发，删除和修改都会触发,如果设置了 value，Table 会成为一个受控组件。 | `(value:T[])=>void` | `undefined` |
 | recordCreatorProps | 新建一行数据的相关配置 | [RecordCreatorProps](#recordcreator) & [ButtonProps](https://ant.design/components/button-cn/#API) | - |
+| maxLength | 最大的行数，到达最大行数新建按钮会自动消失 | number | - |
 
 > 别的 API 与 ProTable 相同。
 
 #### RecordCreator
 
-| 属性     | 描述                                   | 类型           | 默认值 |
-| -------- | -------------------------------------- | -------------- | ------ |
-| record   | 需要新增的行数据，一般来说包含唯一 key | `T`            | `{}`   |
-| position | 行增加在哪里，开始或者末尾             | `top` \| `end` | `end`  |
+| 属性 | 描述 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| record | 需要新增的行数据，一般来说包含唯一 key | `T` | `{}` |
+| position | 行增加在哪里，开始或者末尾 | `top` \| `bottom` | `bottom` |
+| (...buttonProps) | antd 的 [ButtonProps](https://ant.design/components/button-cn/#API) | ButtonProps | — |
 
 #### Search 搜索表单
 
@@ -308,26 +317,25 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | submitText | 提交按钮的文本 | `string` | 提交 |
 | labelWidth | 标签的宽度 | `'number'` \| `'auto'` | 80 |
 | span | 配置查询表单的列数 | `'number'` \| [`'ColConfig'`](#ColConfig) | defaultColConfig |
-| collapseRender | 收起按钮的 render | `(collapsed: boolean,showCollapseButton?: boolean,) => React.ReactNode` | - |
+| collapseRender | 收起按钮的 render | `(collapsed: boolean,showCollapseButton?: boolean,) => ReactNode` | - |
 | defaultCollapsed | 默认是否收起 | `boolean` | true |
 | collapsed | 是否收起 | `boolean` | - |
 | onCollapse | 收起按钮的事件 | `(collapsed: boolean) => void;` | - |
-| optionRender | 自定义操作栏 | `((searchConfig,formProps) => React.ReactNode[])`\|`false` | - |
+| optionRender | 自定义操作栏 | `((searchConfig,formProps) => ReactNode[])`\|`false` | - |
 
-### editable
+### editable 编辑行配置
 
 | 属性 | 描述 | 类型 | 默认值 |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | type | 可编辑表格的类型，单行编辑或者多行编辑 | `single` \| `multiple` | - |
-| editableKeys | 正在编辑的行，受控属性。 默认 `key` 会使用 `rowKey` 的配置，如果没有配置会使用 `index`，建议使用 rowKey | `React.Key[]` | - |
-| actionRender | 自定义编辑模式的操作栏 | `(row: T, config: ActionRenderConfig<T>) => React.ReactNode[]` | - |
-| onSave | 保存一行的时候触发，只更新 | `(key: React.Key, row: T,newLine?:newLineConfig) => Promise<boolean>` | - |
-| onDelete | 删除一行的时候触发 | `(key: React.Key, row: T) => Promise<boolean>` | - |
-| onCancel | 编辑列被修改的时候 | `(key: React.Key, row: T,newLine?:newLineConfig) => Promise<boolean>` | - |
-| onChange | 编辑列被修改的时候 | `(editableKeys: React.Key[], editableRows: T[]) => void` | - |
+| editableKeys | 正在编辑的行，受控属性。 默认 `key` 会使用 `rowKey` 的配置，如果没有配置会使用 `index`，建议使用 rowKey | `Key[]` | - |
+| onChange | 行数据被修改的时候触发 | `(editableKeys: Key[], editableRows: T[]) => void` | - |
+| onSave | 保存一行的时候触发，只更新 | `(key: Key, row: T,newLine?:newLineConfig) => Promise<boolean>` | - |
+| onDelete | 删除一行的时候触发 | `(key: Key, row: T) => Promise<boolean>` | - |
+| onCancel | 取消编辑一行时触发 | `(key: Key, row: T,newLine?:newLineConfig) => Promise<boolean>` | - |
+| actionRender | 自定义编辑模式的操作栏 | `(row: T, config: ActionRenderConfig<T>) => ReactNode[]` | - |
 | deletePopconfirmMessage | 删除时弹出的确认框提示消息 | `ReactNode` | `删除此行？` |
-| onlyOneLineEditorAlertMessage | 只能编辑一行的的提示 | `ReactNode` | `只能同时编辑一行！` |
-| onlyAddOneLineAlertMessage | 只能同时新增一行的提示 | `ReactNode` | `只能新增一行！` |
+| onlyOneLineEditorAlertMessage | 只能编辑一行的的提示 | `ReactNode` | `只能同时编辑一行` |  | onlyAddOneLineAlertMessage | 只能同时新增一行的提示 | `ReactNode` | `只能新增一行` |
 
 #### ColConfig
 
@@ -352,8 +360,8 @@ interface ActionType {
   reloadAndRest: () => void;
   reset: () => void;
   clearSelected?: () => void;
-  startEditable: (rowKey: React.Key) => boolean;
-  cancelEditable: (rowKey: React.Key) => boolean;
+  startEditable: (rowKey: Key) => boolean;
+  cancelEditable: (rowKey: Key) => boolean;
 }
 
 const ref = useRef<ActionType>();
@@ -388,21 +396,22 @@ ref.current.cancelEditable(rowKey);
 | title | 与 antd 中基本相同，但是支持通过传入一个方法 | `ReactNode \| ((config: ProColumnType<T>, type: ProTableTypes) => ReactNode)` | - |
 | tooltip | 会在 title 之后展示一个 icon，hover 之后提示一些信息 | string | - |
 | renderText | 类似 table 的 render，但是必须返回 string，如果只是希望转化枚举，可以使用 [valueEnum](#valueEnum) | `(text: any,record: T,index: number,action: UseFetchDataAction<RequestData<T>>) => string` | - |
-| render | 类似 table 的 render，第一个参数变成了 dom,增加了第四个参数 action | `(text: React.ReactNode,record: T,index: number,action: UseFetchDataAction<RequestData<T>>) => React.ReactNode \| React.ReactNode[]` | - |
-| ellipsis | 是否自动缩略 | boolean | - |
-| copyable | 是否支持复制 | boolean | - |
+| render | 类似 table 的 render，第一个参数变成了 dom,增加了第四个参数 action | `(text: ReactNode,record: T,index: number,action: UseFetchDataAction<RequestData<T>>) => ReactNode \| ReactNode[]` | - |
+| ellipsis | 是否自动缩略 | `boolean` | - |
+| copyable | 是否支持复制 | `boolean` | - |
 | valueEnum | 值的枚举，会自动转化把值当成 key 来取出要显示的内容 | [valueEnum](#valueenum) | - |
 | valueType | 值的类型 | `money` \| `option` \| `date` \| `dateTime` \| `time` \| `text`\| `index`\|`indexBorder` | `text` |
-| hideInSearch | 在查询表单中不展示此项 | boolean | - |
-| hideInTable | 在 Table 中不展示此列 | boolean | - |
-| hideInForm | 在 Form 模式下 中不展示此列 | boolean | - |
+| hideInSearch | 在查询表单中不展示此项 | `boolean` | - |
+| hideInTable | 在 Table 中不展示此列 | `boolean` | - |
+| hideInForm | 在 Form 模式下 中不展示此列 | `boolean` | - |
 | filters | 表头的筛选菜单项，当值为 true 时，自动使用 valueEnum 生成 | `boolean` \| `object[]` | false |
-| order | 查询表单中的权重，权重大排序靠前 | number | - |
-| renderFormItem | 渲染查询表单的输入组件 | `(item,props:{value,onChange}) => React.ReactNode` | - |
+| order | 查询表单中的权重，权重大排序靠前 | `number` | - |
+| renderFormItem | 渲染查询表单的输入组件 | `(item,props:{value,onChange}) => ReactNode` | - |
 | fieldProps | 查询表单的 props，会透传给表单项 | `{ [prop: string]: any }` | - |
 | search | 配置列的搜索相关，false 为隐藏 | `false` \| `{ transform: (value: any) => any }` | true |
 | search.transform | 转化值的 key, 一般用于事件区间的转化 | `(value: any) => any` | - |
 | editable | 在编辑表格中是否可编辑的，函数的参数和 table 的 render 一样 | `false` \| `(text: any, record: T,index: number) => boolean` | true |
+| colSize | 一个表单项占用的格子数量, `占比= colSize*span`，`colSize` 默认为 1 ，`span` 为 8，`span`是`form={{span:8}}` 全局设置的 | `number` | - |
 
 ### valueType 值类型
 
@@ -518,9 +527,9 @@ const valueEnum = (row) =>
 ```typescript | pure
 interface IValueEnum {
   [key: string]:
-    | React.ReactNode
+    | ReactNode
     | {
-        text: React.ReactNode;
+        text: ReactNode;
         status: 'Success' | 'Error' | 'Processing' | 'Warning' | 'Default';
       };
 }
@@ -532,8 +541,8 @@ interface IValueEnum {
 
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| tableAlertRender | 自定义批量操作工具栏左侧信息区域, false 时不显示 | `({ selectedRowKeys: Key[], selectedRows: T[], onCleanSelected: ()=>void }) => React.ReactNode)`\|`false` | - |
-| tableAlertOptionRender | 自定义批量操作工具栏右侧选项区域, false 时不显示 | `({ selectedRowKeys: Key[], selectedRows: T[], onCleanSelected: ()=>void }) => React.ReactNode)`\|`false` | - |
+| tableAlertRender | 自定义批量操作工具栏左侧信息区域, false 时不显示 | `({ selectedRowKeys: Key[], selectedRows: T[], onCleanSelected: ()=>void }) => ReactNode)`\|`false` | - |
+| tableAlertOptionRender | 自定义批量操作工具栏右侧选项区域, false 时不显示 | `({ selectedRowKeys: Key[], selectedRows: T[], onCleanSelected: ()=>void }) => ReactNode)`\|`false` | - |
 
 ### 搜索表单
 

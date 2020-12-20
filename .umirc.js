@@ -121,7 +121,7 @@ export default {
           'https://gw.alipayobjects.com/os/lib/react/16.13.1/umd/react.development.js',
           'https://gw.alipayobjects.com/os/lib/react-dom/16.13.1/umd/react-dom.development.js',
           'https://gw.alipayobjects.com/os/lib/moment/2.29.0/min/moment-with-locales.js',
-          'https://gw.alipayobjects.com/os/lib/antd/4.6.6/dist/antd-with-locales.js',
+          'https://gw.alipayobjects.com/os/lib/antd/4.9.3/dist/antd-with-locales.js',
         ]
       : [],
 };

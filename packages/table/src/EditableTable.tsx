@@ -1,6 +1,7 @@
 ﻿import React, { useContext, useImperativeHandle, useMemo, useRef } from 'react';
 import { ParamsType } from '@ant-design/pro-provider';
 import { Button } from 'antd';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { PlusOutlined } from '@ant-design/icons';
 import { ButtonProps } from 'antd/lib/button';
 import ProTable from './Table';
@@ -8,7 +9,7 @@ import { ProTableProps, ActionType } from './typing';
 
 export type RecordCreatorProps<T> = {
   record: T;
-  position?: 'top' | 'end';
+  position?: 'top' | 'bottom';
 };
 
 export type EditableProTableProps<T, U extends ParamsType> = Omit<
@@ -31,6 +32,10 @@ export type EditableProTableProps<T, U extends ParamsType> = Omit<
           creatorButtonText?: React.ReactNode;
         })
     | false;
+  /**
+   * 最大行数
+   */
+  maxLength?: number;
 };
 
 const EditableTableActionContext = React.createContext<
@@ -57,15 +62,22 @@ function RecordCreator<T = {}>(props: RecordCreatorProps<T> & { children: JSX.El
  * @param props
  */
 function EditableTable<T, U extends ParamsType = {}>(props: EditableProTableProps<T, U>) {
-  const { value, onTableChange, onChange, recordCreatorProps, ...rest } = props;
+  const { onTableChange, maxLength, recordCreatorProps, ...rest } = props;
   const actionRef = useRef<ActionType>();
-
   useImperativeHandle(rest.actionRef, () => actionRef.current, [actionRef.current]);
+
+  const [value, setValue] = useMergedState<T[]>(() => props.value || [], {
+    value: props.value,
+    onChange: props.onChange,
+  });
 
   const { record, position, creatorButtonText, ...restButtonProps } = recordCreatorProps || {};
   const isTop = position === 'top';
-  const creatorButtonDom = useMemo(
-    () =>
+  const creatorButtonDom = useMemo(() => {
+    if (maxLength && maxLength <= value?.length) {
+      return false;
+    }
+    return (
       recordCreatorProps !== false && (
         <RecordCreator record={record || {}} position={position}>
           <Button
@@ -81,9 +93,9 @@ function EditableTable<T, U extends ParamsType = {}>(props: EditableProTableProp
             {creatorButtonText || '添加一行数据'}
           </Button>
         </RecordCreator>
-      ),
-    [recordCreatorProps],
-  );
+      )
+    );
+  }, [recordCreatorProps, maxLength, value.length]);
 
   const buttonRenderProps = useMemo(() => {
     if (!creatorButtonDom) {
@@ -135,7 +147,7 @@ function EditableTable<T, U extends ParamsType = {}>(props: EditableProTableProp
         actionRef={actionRef}
         onChange={onTableChange}
         dataSource={value}
-        onDataSourceChange={onChange}
+        onDataSourceChange={setValue}
       />
     </EditableTableActionContext.Provider>
   );

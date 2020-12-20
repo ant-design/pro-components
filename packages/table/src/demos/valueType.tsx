@@ -113,7 +113,16 @@ const columns: ProColumns<TableListItem>[] = [
     key: 'option',
     width: 120,
     valueType: 'option',
-    render: () => [<a key="a">操作</a>, <a key="b">删除</a>],
+    render: (_, row, index, action) => [
+      <a
+        key="a"
+        onClick={() => {
+          action.startEditable(row.key);
+        }}
+      >
+        编辑
+      </a>,
+    ],
   },
 ];
 
@@ -121,8 +130,7 @@ export default () => (
   <>
     <ProTable<TableListItem>
       columns={columns}
-      request={(params, sorter, filter) => {
-        console.log(params, sorter, filter);
+      request={() => {
         return Promise.resolve({
           total: 200,
           data: tableListDataSource,

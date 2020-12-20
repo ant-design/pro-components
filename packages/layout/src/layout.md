@@ -1,6 +1,7 @@
 ---
 title: ProLayout - 高级布局
 order: 0
+legacy: /layout
 group:
   path: /
 nav:
@@ -249,7 +250,12 @@ PageContainer 封装了 antd 的 PageHeader 组件，增加了 tabList 和 conte
       主操作
     </Button>,
   ]}
-  footer={[<Button>重置</Button>, <Button type="primary">提交</Button>]}
+  footer={[
+    <Button key="rest">重置</Button>,
+    <Button key="submit" type="primary">
+      提交
+    </Button>,
+  ]}
 >
   {children}
 </PageContainer>

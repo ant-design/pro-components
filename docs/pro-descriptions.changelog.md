@@ -1,5 +1,5 @@
 ---
-title: pro-descriptions
+title: ProDescriptions - 更新日志
 nav:
   title: Change Log
   path: /changelog
@@ -8,6 +8,19 @@ group:
 ---
 
 # Change Log
+
+## @ant-design/pro-descriptions@1.1.1
+
+`2020-12-14`
+
+- 🐛 fix(descriptions): fix value and onChange no work error [#1297](https://github.com/ant-design/pro-components/pull/1297) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-descriptions@1.1.0
+
+`2020-12-14`
+
+- 🐛 fix(dependencies):add dependencies to pro-utils & pro-descriptions & pro-layout & pro-form [#1280](https://github.com/ant-design/pro-components/pull/1280) [@yanm1ng](https://github.com/yanm1ng)
+- feat(descriptions): support descriptions. [#1273](https://github.com/ant-design/pro-components/pull/1273)
 
 ## @ant-design/pro-descriptions@1.0.34
 

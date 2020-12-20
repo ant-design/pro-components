@@ -41,7 +41,7 @@ export interface PureSettings {
   /**
    * @name menu 相关的一些配置
    */
-  menu?: { locale?: boolean; defaultOpenAll?: boolean; loading?: boolean };
+  menu?: { locale?: boolean; defaultOpenAll?: boolean; loading?: boolean; type?: 'sub' | 'group' };
   /**
    * @name Layout 的 title，也会显示在浏览器标签上
    * @description 设置为 false，在 layout 中只展示 pageName，而不是 pageName - title

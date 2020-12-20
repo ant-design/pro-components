@@ -95,7 +95,7 @@ const Demo = () => (
       }}
       onFinish={async (value) => console.log(value)}
     >
-      <ProFormText readonly width="m" name="name" label="name" />
+      <ProFormText readonly width="md" name="name" label="name" />
       <ProFormSelect
         name="select"
         readonly
@@ -108,7 +108,7 @@ const Demo = () => (
         rules={[{ required: true, message: 'Please select your country!' }]}
       />
       <ProFormSelect
-        width="m"
+        width="md"
         readonly
         request={async () => [
           { label: '全部', value: 'all' },
@@ -215,11 +215,11 @@ const Demo = () => (
         readonly
         transform={(value: any) => ({ startTime: value[0], endTime: value[1] })}
       >
-        <ProFormText width="m" readonly />
+        <ProFormText width="md" readonly />
         -
-        <ProFormText width="m" readonly />
+        <ProFormText width="md" readonly />
         -
-        <ProFormText width="m" readonly />
+        <ProFormText width="md" readonly />
       </ProFormFieldSet>
       <ProForm.Group title="日期相关分组">
         <ProFormDatePicker readonly name="date" label="日期" />

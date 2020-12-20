@@ -19,7 +19,6 @@ import ProForm, {
   ProFormProps,
 } from '@ant-design/pro-form';
 import classNames from 'classnames';
-import { ProFieldValueType } from '@ant-design/pro-field';
 import warningOnce from 'rc-util/lib/warning';
 import omit from 'omit.js';
 
@@ -29,9 +28,11 @@ import {
   conversionSubmitValue,
   transformKeySubmitValue,
   SearchTransformKeyFn,
+  getFieldPropsOrFormItemProps,
+  ProFieldValueType,
 } from '@ant-design/pro-utils';
 
-import { genColumnKey, getFieldPropsOrFormItemProps } from '../utils';
+import { genColumnKey } from '../utils';
 import { ProColumns } from '../index';
 import './index.less';
 
@@ -104,6 +105,7 @@ export interface TableFormItem<T, U = any> extends Omit<FormItemProps, 'children
   columns: ProColumns<U>[];
   formRef?: React.MutableRefObject<FormInstance | undefined> | ((formRef: FormInstance) => void);
   submitButtonLoading?: boolean;
+  bordered?: boolean;
 }
 
 /**
@@ -160,7 +162,10 @@ export const formInputRender: React.FC<{
 
     // 自动注入 onChange 和 value，用户自己很有可能忘记
     const dom = renderFormItem(
-      restItem,
+      {
+        ...restItem,
+        type: 'form',
+      },
       {
         ...rest,
         type,
@@ -203,7 +208,6 @@ export const formInputRender: React.FC<{
     !valueType || (['textarea', 'jsonCode', 'code'].includes(valueType) && type === 'table')
       ? 'text'
       : (valueType as 'text');
-
   return (
     <ProFormField
       ref={ref}
@@ -228,7 +232,6 @@ export const formInputRender: React.FC<{
       }}
       rules={undefined}
       key={`${item.dataIndex || ''}-${item.key || ''}-${item.index}`}
-      colSize={colSize}
     />
   );
 };
@@ -261,6 +264,7 @@ export const proFormItemRender: (props: {
     filters,
     request,
     params,
+    colSize,
     ...rest
   } = item;
 
@@ -280,6 +284,7 @@ export const proFormItemRender: (props: {
     request,
     params,
     formItemProps,
+    colSize,
   });
   if (!dom) {
     return null;
@@ -298,6 +303,7 @@ const FormSearch = <T, U = any>({
   submitButtonLoading,
   search: searchConfig,
   form: formConfig = {},
+  bordered,
 }: TableFormItem<T, U>) => {
   /**
    * 为了支持 dom 的消失，支持了这个 api
@@ -488,6 +494,7 @@ const FormSearch = <T, U = any>({
       className={classNames(className, {
         [formClassName]: isForm,
         [getPrefixCls(`pro-table-search-${competentName}`)]: true,
+        [`${getPrefixCls('card')}-bordered`]: !!bordered,
       })}
     >
       <Competent

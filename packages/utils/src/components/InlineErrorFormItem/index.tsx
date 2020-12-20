@@ -30,10 +30,13 @@ const InlineErrorFormItem: React.FC<FormItemProps> = (props) => {
           const { errors } = inputProps;
           return (
             <Popover
+              trigger={props.trigger}
               placement="topLeft"
               visible={errors.length > 0 && visible}
               content={<div>{errorList}</div>}
-              onVisibleChange={(v) => errors.length > 0 && setVisible(v)}
+              onVisibleChange={(v) => {
+                return errors.length > 0 && setVisible(v);
+              }}
             >
               <div>
                 {input}

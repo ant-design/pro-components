@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.5.0...@ant-design/pro-utils@1.5.1) (2020-12-15)
+
+### Bug Fixes
+
+- **table:** 修复新旧值均为 map 类型的等价判断，一直返回 true 的问题 ([#1302](https://github.com/ant-design/pro-components/issues/1302)) ([d61afb9](https://github.com/ant-design/pro-components/commit/d61afb90bc51a6835acfd317d9bf8dac95a54405))
+
+# [1.5.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.4.0...@ant-design/pro-utils@1.5.0) (2020-12-14)
+
+### Features
+
+- **desciption:** support editable ([#1273](https://github.com/ant-design/pro-components/issues/1273)) ([bc8821b](https://github.com/ant-design/pro-components/commit/bc8821bce05faadaa7d9337ae2287131c41791e0))
+- **table:** EditableTable support max length ([#1286](https://github.com/ant-design/pro-components/issues/1286)) ([dac9844](https://github.com/ant-design/pro-components/commit/dac9844e42ed19d5a539b6b0eae42ea35d6f958d))
+
 # [1.4.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.3.2...@ant-design/pro-utils@1.4.0) (2020-12-08)
 
 ### Features

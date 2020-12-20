@@ -1,16 +1,15 @@
 import React from 'react';
 import { Form } from 'antd';
-import ProField, {
-  ProFieldEmptyText,
-  ProFieldPropsType,
+import ProField, { ProFieldEmptyText, ProFieldPropsType } from '@ant-design/pro-field';
+import {
+  getFieldPropsOrFormItemProps,
+  InlineErrorFormItem,
   ProFieldValueType,
-} from '@ant-design/pro-field';
-import { ProSchemaComponentTypes } from '@ant-design/pro-utils';
+  ProSchemaComponentTypes,
+} from '@ant-design/pro-utils';
 import { FormInstance } from 'antd/lib/form/Form';
 
 import { ProColumnType } from './index';
-import InlineErrorFormItem from './component/InlineErrorFormItem';
-import { getFieldPropsOrFormItemProps } from './utils';
 
 const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
 
@@ -137,11 +136,14 @@ function defaultRenderText<T>(config: {
           const renderDom = columnProps.renderFormItem?.(
             {
               ...columnProps,
+              index: config.index,
               isEditable: true,
+              type: 'table',
             },
             {
               defaultRender: () => inputDom,
               type: 'form',
+              isEditable: true,
             },
             form as any,
           );
