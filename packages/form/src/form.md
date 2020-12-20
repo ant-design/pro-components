@@ -35,7 +35,29 @@ ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 �
   <ProFormText initialValue="prop"/>
 </ProForm>
 
-// 使用自定义的控件
+// 相互依赖的组件联动
+<ProForm>
+  <Form.Item noStyle shouldUpdate>
+    {(form) => {
+      return (
+        <ProFormSelect
+          options={[
+            {
+              value: "chapter",
+              label: "盖章后生效",
+            },
+          ]}
+          width="md"
+          name="useMode"
+          label={`与${form.getFieldValue("name")}合同约定生效方式`}
+        />
+      );
+    }}
+  </Form.Item>
+</ProForm>;
+
+
+// 使用自定义组件
 <ProForm>
   <Form.Item name="switch" label="Switch" valuePropName="checked">
     <Switch />
