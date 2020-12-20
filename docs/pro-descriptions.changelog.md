@@ -1,5 +1,5 @@
 ---
-title: pro-descriptions
+title: ProDescriptions - 更新日志
 nav:
   title: Change Log
   path: /changelog

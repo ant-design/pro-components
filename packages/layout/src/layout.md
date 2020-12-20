@@ -1,6 +1,7 @@
 ---
 title: ProLayout - 高级布局
 order: 0
+legacy: /layout
 group:
   path: /
 nav:

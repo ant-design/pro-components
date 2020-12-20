@@ -135,7 +135,7 @@ ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 �
 
 ### 固定页脚
 
-<code src="./demos/layout-base.tsx" height="764px"/>
+<code src="./demos/layout-base.tsx" iframe="764px" />
 
 ### 混合使用
 

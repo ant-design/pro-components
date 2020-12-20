@@ -1,6 +1,7 @@
 ---
 title: ProTable - 高级表格
 order: 0
+legacy: /table
 group:
   path: /
 nav:

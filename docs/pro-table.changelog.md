@@ -1,5 +1,5 @@
 ---
-title: pro-table
+title: ProTable - 更新日志
 nav:
   title: Change Log
   path: /changelog

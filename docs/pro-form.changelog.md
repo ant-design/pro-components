@@ -1,5 +1,5 @@
 ﻿---
-title: pro-form
+title: ProForm - 更新日志
 nav:
   title: Change Log
   path: /changelog

@@ -1,5 +1,6 @@
 ---
 title: ProDescriptions - 定义列表
+legacy: /descriptions
 group:
   path: /
 nav:
