@@ -7,7 +7,6 @@ import { ConfigProviderWrap } from '@ant-design/pro-provider';
 import type { ProFieldValueType, SearchTransformKeyFn } from '@ant-design/pro-utils';
 import { conversionSubmitValue, transformKeySubmitValue } from '@ant-design/pro-utils';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
-import type { Store } from 'antd/lib/form/interface';
 import namePathSet from 'rc-util/lib/utils/set';
 import type { ButtonProps } from 'antd/lib/button';
 import FieldContext from '../FieldContext';
@@ -26,7 +25,7 @@ export type CommonFormProps = {
    * @name 表单结束后调用
    * @description  支持异步操作，更加方便
    */
-  onFinish?: (formData: Store) => Promise<boolean | void>;
+  onFinish?: (formData: Record<string, any>) => Promise<boolean | void>;
 
   /**
    * @name 获取真正的可以获得值的 from
@@ -44,12 +43,7 @@ export type BaseFormProps = {
   dateFormatter?: 'number' | 'string' | false;
   formItemProps?: FormItemProps;
   groupProps?: GroupProps;
-  /**
-   * @name 表单结束后调用
-   * @description  支持异步操作，更加方便
-   */
-  onFinish?: (formData: Store) => Promise<boolean | void>;
-} & FormProps &
+} & Omit<FormProps, 'onFinish'> &
   CommonFormProps;
 
 const BaseForm: React.FC<BaseFormProps> = (props) => {

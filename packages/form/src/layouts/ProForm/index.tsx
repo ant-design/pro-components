@@ -5,11 +5,7 @@ import Group from '../../components/Group';
 import type { CommonFormProps } from '../../BaseForm';
 import BaseForm from '../../BaseForm';
 
-export type ProFormProps = {
-  // ProForm 基础表单，暂无特殊属性
-  onFinish?: (formData: any) => Promise<void>;
-} & FormProps &
-  CommonFormProps;
+export type ProFormProps = Omit<FormProps, 'onFinish'> & CommonFormProps;
 
 const ProForm: React.FC<ProFormProps> & {
   Group: typeof Group;
