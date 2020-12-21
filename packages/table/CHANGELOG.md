@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.16.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.16.2...@ant-design/pro-table@2.16.3) (2020-12-21)
+
+### Bug Fixes
+
+- **table:** 设置 pageSize 后,查询或重置没获取最新的 pageSize ([#1352](https://github.com/ant-design/pro-components/issues/1352)) ([535d93a](https://github.com/ant-design/pro-components/commit/535d93a5da4861a3901750b88e04f4728acfb20b))
+
 ## [2.16.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.16.1...@ant-design/pro-table@2.16.2) (2020-12-17)
 
 **Note:** Version bump only for package @ant-design/pro-table

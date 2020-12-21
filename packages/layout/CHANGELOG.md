@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.8.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.7.0...@ant-design/pro-layout@6.8.0) (2020-12-21)
+
+### Features
+
+- **descriptions:** descriptions support loading and onLoadinChange ([#1344](https://github.com/ant-design/pro-components/issues/1344)) ([b5afe9e](https://github.com/ant-design/pro-components/commit/b5afe9e6fd9dc1b06ef0e76b63aa6c7ab05bc3eb))
+
 # [6.7.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.6.4...@ant-design/pro-layout@6.7.0) (2020-12-17)
 
 ### Features
