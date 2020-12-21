@@ -50,7 +50,6 @@ const LightFilterContainer: React.FC<{
     return { ...values };
   });
   useEffect(() => {
-    console.log(values);
     setMoreValues({ ...values });
   }, [values]);
   items.forEach((item: any) => {
