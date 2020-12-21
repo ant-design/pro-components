@@ -1,4 +1,4 @@
-﻿import React, { useContext, useImperativeHandle, useRef } from 'react';
+﻿import React, { useContext, useImperativeHandle, useRef, useState } from 'react';
 import { ConfigProvider, Drawer } from 'antd';
 import { FormInstance, FormProps } from 'antd/lib/form';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -62,6 +62,11 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
     value: rest.visible,
     onChange: onVisibleChange,
   });
+
+  /** 设置 trigger 的情况下，懒渲染优化性能；使之可以直接配合表格操作等场景使用 */
+  const [isFirstRender, setIsFirstRender] = useState(true);
+  const shouldRenderForm = trigger ? !isFirstRender : true;
+
   /**
    * 同步 props 和 本地
    */
@@ -71,78 +76,80 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
   useImperativeHandle(rest.formRef, () => formRef.current, [formRef.current]);
 
   /**
-   * 不妨到 body 上会导致 z-index 的问题
+   * 不放到 body 上会导致 z-index 的问题
    * 遮罩什么的都遮不住了
    */
   return (
     <>
-      {createPortal(
-        <div>
-          <BaseForm
-            layout="vertical"
-            {...omit(rest, ['visible'])}
-            formRef={formRef}
-            submitter={{
-              searchConfig: {
-                submitText: '确认',
-                resetText: '取消',
-              },
-              resetButtonProps: {
-                onClick: (e: any) => {
-                  setVisible(false);
-                  drawerProps?.onClose?.(e);
+      {shouldRenderForm &&
+        createPortal(
+          <div>
+            <BaseForm
+              layout="vertical"
+              {...omit(rest, ['visible'])}
+              formRef={formRef}
+              submitter={{
+                searchConfig: {
+                  submitText: '确认',
+                  resetText: '取消',
                 },
-              },
-              ...rest.submitter,
-            }}
-            onFinish={async (values) => {
-              if (!onFinish) {
-                return;
-              }
-              const success = await onFinish(values);
-              if (success) {
-                formRef.current?.resetFields();
-                setVisible(false);
-              }
-            }}
-            contentRender={(item, submitter) => {
-              return (
-                <Drawer
-                  title={title}
-                  getContainer={false}
-                  width={width || 800}
-                  {...drawerProps}
-                  visible={visible}
-                  onClose={(e) => {
+                resetButtonProps: {
+                  onClick: (e: any) => {
                     setVisible(false);
                     drawerProps?.onClose?.(e);
-                  }}
-                  footer={
-                    <div
-                      style={{
-                        display: 'flex',
-                        justifyContent: 'flex-end',
-                      }}
-                    >
-                      {submitter}
-                    </div>
-                  }
-                >
-                  {item}
-                </Drawer>
-              );
-            }}
-          >
-            {children}
-          </BaseForm>
-        </div>,
-        context?.getPopupContainer?.(document.body) || document.body,
-      )}
+                  },
+                },
+                ...rest.submitter,
+              }}
+              onFinish={async (values) => {
+                if (!onFinish) {
+                  return;
+                }
+                const success = await onFinish(values);
+                if (success) {
+                  formRef.current?.resetFields();
+                  setVisible(false);
+                }
+              }}
+              contentRender={(item, submitter) => {
+                return (
+                  <Drawer
+                    title={title}
+                    getContainer={false}
+                    width={width || 800}
+                    {...drawerProps}
+                    visible={visible}
+                    onClose={(e) => {
+                      setVisible(false);
+                      drawerProps?.onClose?.(e);
+                    }}
+                    footer={
+                      <div
+                        style={{
+                          display: 'flex',
+                          justifyContent: 'flex-end',
+                        }}
+                      >
+                        {submitter}
+                      </div>
+                    }
+                  >
+                    {item}
+                  </Drawer>
+                );
+              }}
+            >
+              {children}
+            </BaseForm>
+          </div>,
+          context?.getPopupContainer?.(document.body) || document.body,
+        )}
       {trigger &&
         React.cloneElement(trigger, {
           ...trigger.props,
           onClick: (e: any) => {
             setVisible(!visible);
+            setIsFirstRender(false);
             trigger.props?.onClick?.(e);
           },
         })}

@@ -1,4 +1,4 @@
-﻿import React, { useContext, useImperativeHandle, useRef } from 'react';
+﻿import React, { useContext, useImperativeHandle, useRef, useState } from 'react';
 import { Modal, ConfigProvider } from 'antd';
 import { FormInstance, FormProps } from 'antd/lib/form';
 import { ModalProps } from 'antd/lib/modal';
@@ -64,6 +64,9 @@ const ModalForm: React.FC<ModalFormProps> = ({
     onChange: onVisibleChange,
   });
   const context = useContext(ConfigProvider.ConfigContext);
+  /** 设置 trigger 的情况下，懒渲染优化性能；使之可以直接配合表格操作等场景使用 */
+  const [isFirstRender, setIsFirstRender] = useState(true);
+  const shouldRenderForm = trigger ? !isFirstRender : true;
   /**
    * 同步 props 和 本地的 ref
    */
@@ -72,67 +75,69 @@ const ModalForm: React.FC<ModalFormProps> = ({
 
   return (
     <>
-      {createPortal(
-        <div>
-          <BaseForm
-            layout="vertical"
-            {...omit(rest, ['visible'])}
-            formRef={formRef}
-            onFinish={async (values) => {
-              if (!onFinish) {
-                return;
-              }
-              const success = await onFinish(values);
-              if (success) {
-                formRef.current?.resetFields();
-                setVisible(false);
-              }
-            }}
-            submitter={{
-              searchConfig: {
-                submitText: modalProps?.okText || context.locale?.Modal?.okText || '确认',
-                resetText: modalProps?.cancelText || context.locale?.Modal?.cancelText || '取消',
-              },
-              submitButtonProps: {
-                type: modalProps?.okType as 'text',
-              },
-              resetButtonProps: {
-                onClick: (e) => {
-                  modalProps?.onCancel?.(e);
+      {shouldRenderForm &&
+        createPortal(
+          <div>
+            <BaseForm
+              layout="vertical"
+              {...omit(rest, ['visible'])}
+              formRef={formRef}
+              onFinish={async (values) => {
+                if (!onFinish) {
+                  return;
+                }
+                const success = await onFinish(values);
+                if (success) {
+                  formRef.current?.resetFields();
                   setVisible(false);
+                }
+              }}
+              submitter={{
+                searchConfig: {
+                  submitText: modalProps?.okText || context.locale?.Modal?.okText || '确认',
+                  resetText: modalProps?.cancelText || context.locale?.Modal?.cancelText || '取消',
                 },
-              },
-              ...rest.submitter,
-            }}
-            contentRender={(item, submitter) => {
-              return (
-                <Modal
-                  title={title}
-                  getContainer={false}
-                  width={width || 800}
-                  {...modalProps}
-                  visible={visible}
-                  onCancel={(e) => {
-                    setVisible(false);
+                submitButtonProps: {
+                  type: modalProps?.okType as 'text',
+                },
+                resetButtonProps: {
+                  onClick: (e) => {
                     modalProps?.onCancel?.(e);
-                  }}
-                  footer={submitter}
-                >
-                  {item}
-                </Modal>
-              );
-            }}
-          >
-            {children}
-          </BaseForm>
-        </div>,
-        context?.getPopupContainer?.(document.body) || document.body,
-      )}
+                    setVisible(false);
+                  },
+                },
+                ...rest.submitter,
+              }}
+              contentRender={(item, submitter) => {
+                return (
+                  <Modal
+                    title={title}
+                    getContainer={false}
+                    width={width || 800}
+                    {...modalProps}
+                    visible={visible}
+                    onCancel={(e) => {
+                      setVisible(false);
+                      modalProps?.onCancel?.(e);
+                    }}
+                    footer={submitter}
+                  >
+                    {item}
+                  </Modal>
+                );
+              }}
+            >
+              {children}
+            </BaseForm>
+          </div>,
+          context?.getPopupContainer?.(document.body) || document.body,
+        )}
       {trigger &&
         React.cloneElement(trigger, {
           ...trigger.props,
           onClick: (e: any) => {
             setVisible(!visible);
+            setIsFirstRender(false);
             trigger.props?.onClick?.(e);
           },
         })}
