@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.10.3...@ant-design/pro-form@1.10.4) (2020-12-21)
+
+### Bug Fixes
+
+- **table:** form 修复问题和清空操作冲突，改成 hasOwnProperty 判断 ([#1363](https://github.com/ant-design/pro-components/issues/1363)) ([7820466](https://github.com/ant-design/pro-components/commit/7820466504bef2335e6900b8a658fb3214b507e3))
+
 ## [1.10.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.10.2...@ant-design/pro-form@1.10.3) (2020-12-21)
 
 **Note:** Version bump only for package @ant-design/pro-form
