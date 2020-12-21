@@ -1,4 +1,4 @@
-﻿import React, { useContext, useImperativeHandle, useRef, useState } from 'react';
+﻿import React, { useContext, useImperativeHandle, useRef } from 'react';
 import { ConfigProvider, Drawer } from 'antd';
 import { FormInstance, FormProps } from 'antd/lib/form';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -64,8 +64,8 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
   });
 
   /** 设置 trigger 的情况下，懒渲染优化性能；使之可以直接配合表格操作等场景使用 */
-  const [isFirstRender, setIsFirstRender] = useState(true);
-  const shouldRenderForm = trigger ? !isFirstRender : true;
+  const isFirstRender = useRef(true);
+  const shouldRenderForm = trigger ? !isFirstRender.current : true;
 
   /**
    * 同步 props 和 本地
@@ -149,7 +149,7 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
           ...trigger.props,
           onClick: (e: any) => {
             setVisible(!visible);
-            setIsFirstRender(false);
+            isFirstRender.current = false;
             trigger.props?.onClick?.(e);
           },
         })}

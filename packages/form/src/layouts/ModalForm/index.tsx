@@ -1,4 +1,4 @@
-﻿import React, { useContext, useImperativeHandle, useRef, useState } from 'react';
+﻿import React, { useContext, useImperativeHandle, useRef } from 'react';
 import { Modal, ConfigProvider } from 'antd';
 import { FormInstance, FormProps } from 'antd/lib/form';
 import { ModalProps } from 'antd/lib/modal';
@@ -65,8 +65,8 @@ const ModalForm: React.FC<ModalFormProps> = ({
   });
   const context = useContext(ConfigProvider.ConfigContext);
   /** 设置 trigger 的情况下，懒渲染优化性能；使之可以直接配合表格操作等场景使用 */
-  const [isFirstRender, setIsFirstRender] = useState(true);
-  const shouldRenderForm = trigger ? !isFirstRender : true;
+  const isFirstRender = useRef(true);
+  const shouldRenderForm = trigger ? !isFirstRender.current : true;
   /**
    * 同步 props 和 本地的 ref
    */
@@ -137,7 +137,7 @@ const ModalForm: React.FC<ModalFormProps> = ({
           ...trigger.props,
           onClick: (e: any) => {
             setVisible(!visible);
-            setIsFirstRender(false);
+            isFirstRender.current = false;
             trigger.props?.onClick?.(e);
           },
         })}
