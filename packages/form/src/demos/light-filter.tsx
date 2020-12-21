@@ -12,7 +12,7 @@ import {
   ProFormSlider,
 } from '@ant-design/pro-form';
 import { Radio } from 'antd';
-import { SizeType } from 'antd/lib/config-provider/SizeContext';
+import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 
 export default () => {
   const [size, setSize] = React.useState<SizeType>('middle');

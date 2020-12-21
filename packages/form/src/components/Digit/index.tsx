@@ -1,7 +1,7 @@
 import React from 'react';
-import { InputNumberProps } from 'antd/lib/input-number';
+import type { InputNumberProps } from 'antd/lib/input-number';
 import ProField from '@ant-design/pro-field';
-import { ProFormItemProps } from '../../interface';
+import type { ProFormItemProps } from '../../interface';
 import createField from '../../BaseForm/createField';
 
 type ProFormDigitProps = ProFormItemProps<InputNumberProps> & {

@@ -1,13 +1,15 @@
 import React from 'react';
 import { Form } from 'antd';
-import { FormProps } from 'antd/lib/form/Form';
+import type { FormProps } from 'antd/lib/form/Form';
 import Group from '../../components/Group';
-import BaseForm, { CommonFormProps } from '../../BaseForm';
+import type { CommonFormProps } from '../../BaseForm';
+import BaseForm from '../../BaseForm';
 
-export interface ProFormProps extends FormProps, CommonFormProps {
+export type ProFormProps = {
   // ProForm 基础表单，暂无特殊属性
   onFinish?: (formData: any) => Promise<void>;
-}
+} & FormProps &
+  CommonFormProps;
 
 const ProForm: React.FC<ProFormProps> & {
   Group: typeof Group;

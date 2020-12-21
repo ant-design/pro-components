@@ -4,8 +4,8 @@ import moment from 'moment';
 import { useIntl } from '@ant-design/pro-provider';
 import { FieldLabel, parseValueToMoment } from '@ant-design/pro-utils';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
-import { DatePickerProps } from 'antd/lib/date-picker';
-import { ProFieldFC } from '../../index';
+import type { DatePickerProps } from 'antd/lib/date-picker';
+import type { ProFieldFC } from '../../index';
 import './index.less';
 
 /**

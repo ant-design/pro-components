@@ -1,12 +1,18 @@
-import BasicLayout, { BasicLayoutProps } from './BasicLayout';
-import DefaultHeader, { HeaderViewProps as HeaderProps } from './Header';
-import TopNavHeader, { TopNavHeaderProps } from './TopNavHeader';
-import SettingDrawer, { SettingDrawerProps, SettingDrawerState } from './SettingDrawer';
+import type { BasicLayoutProps } from './BasicLayout';
+import BasicLayout from './BasicLayout';
+import type { HeaderViewProps as HeaderProps } from './Header';
+import DefaultHeader from './Header';
+import type { TopNavHeaderProps } from './TopNavHeader';
+import TopNavHeader from './TopNavHeader';
+import type { SettingDrawerProps, SettingDrawerState } from './SettingDrawer';
+import SettingDrawer from './SettingDrawer';
 
-import DefaultFooter, { FooterProps } from './Footer';
+import type { FooterProps } from './Footer';
+import DefaultFooter from './Footer';
 import GridContent from './GridContent';
 import PageContainer from './PageContainer';
-import RouteContext, { RouteContextType } from './RouteContext';
+import type { RouteContextType } from './RouteContext';
+import RouteContext from './RouteContext';
 import getMenuData from './utils/getMenuData';
 import getPageTitle from './getPageTitle';
 import PageLoading from './PageLoading';

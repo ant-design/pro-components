@@ -1,18 +1,20 @@
 import { PageHeader, Tabs, Affix, ConfigProvider } from 'antd';
-import React, { useContext, ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import React, { useContext } from 'react';
 import classNames from 'classnames';
-import { TabsProps, TabPaneProps } from 'antd/lib/tabs';
-import { PageHeaderProps } from 'antd/lib/page-header';
-import { AffixProps } from 'antd/lib/affix';
+import type { TabsProps, TabPaneProps } from 'antd/lib/tabs';
+import type { PageHeaderProps } from 'antd/lib/page-header';
+import type { AffixProps } from 'antd/lib/affix';
 
-import RouteContext, { RouteContextType } from '../RouteContext';
+import type { RouteContextType } from '../RouteContext';
+import RouteContext from '../RouteContext';
 import GridContent from '../GridContent';
 import FooterToolbar from '../FooterToolbar';
 import './index.less';
 import PageLoading from '../PageLoading';
-import { WithFalse } from '../typings';
+import type { WithFalse } from '../typings';
 
-export interface PageHeaderTabConfig {
+export type PageHeaderTabConfig = {
   /**
    * @name tabs 的列表
    */
@@ -48,9 +50,9 @@ export interface PageHeaderTabConfig {
    * @name 固定 PageHeader 到页面顶部
    */
   fixedHeader?: boolean;
-}
+};
 
-export interface PageContainerProps extends PageHeaderTabConfig, Omit<PageHeaderProps, 'title'> {
+export type PageContainerProps = {
   title?: React.ReactNode | false;
   content?: React.ReactNode;
   extraContent?: React.ReactNode;
@@ -86,7 +88,8 @@ export interface PageContainerProps extends PageHeaderTabConfig, Omit<PageHeader
    * @description 只加载内容区域
    */
   loading?: boolean;
-}
+} & PageHeaderTabConfig &
+  Omit<PageHeaderProps, 'title'>;
 
 /**
  * render Footer tabList

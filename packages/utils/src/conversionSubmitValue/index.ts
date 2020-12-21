@@ -82,9 +82,7 @@ const conversionMoment = (
 const conversionSubmitValue = <T = any>(
   value: T,
   dateFormatter: DateFormatter,
-  valueTypeMap: {
-    [key: string]: any;
-  },
+  valueTypeMap: Record<string, any>,
   parentKey?: string,
 ): T => {
   const tmpValue = {} as T;

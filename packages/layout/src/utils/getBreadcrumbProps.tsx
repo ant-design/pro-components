@@ -1,14 +1,14 @@
-import H from 'history';
-import { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/lib/breadcrumb';
+import type H from 'history';
+import type { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/lib/breadcrumb';
 import React from 'react';
 import pathToRegexp from 'path-to-regexp';
 import { isBrowser } from '@ant-design/pro-utils';
 
-import { ProSettings } from '../defaultSettings';
-import { MenuDataItem, MessageDescriptor } from '../typings';
+import type { ProSettings } from '../defaultSettings';
+import type { MenuDataItem, MessageDescriptor } from '../typings';
 import { urlToList } from './pathTools';
 
-export interface BreadcrumbProps {
+export type BreadcrumbProps = {
   breadcrumbList?: { title: string; href: string }[];
   home?: string;
   location?:
@@ -21,7 +21,7 @@ export interface BreadcrumbProps {
   formatMessage?: (message: MessageDescriptor) => string;
   breadcrumbRender?: (routers: AntdBreadcrumbProps['routes']) => AntdBreadcrumbProps['routes'];
   itemRender?: AntdBreadcrumbProps['itemRender'];
-}
+};
 
 // 渲染Breadcrumb 子节点
 // Render the Breadcrumb child node

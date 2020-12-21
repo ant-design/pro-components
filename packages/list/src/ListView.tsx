@@ -1,8 +1,8 @@
 import React from 'react';
 import { List } from 'antd';
-import { GetRowKey } from 'antd/lib/table/interface';
-import { ListProps } from 'antd/lib/list';
-import { ColumnType, TableProps } from 'antd/es/table';
+import type { GetRowKey } from 'antd/lib/table/interface';
+import type { ListProps } from 'antd/lib/list';
+import type { ColumnType, TableProps } from 'antd/es/table';
 import get from 'rc-util/lib/utils/get';
 import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
 import useSelection from 'antd/lib/table/hooks/useSelection';

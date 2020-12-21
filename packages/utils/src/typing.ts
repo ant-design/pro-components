@@ -1,6 +1,6 @@
-import { FormInstance, FormItemProps } from 'antd/lib/form';
-import { ReactNode } from 'react';
-import { UseEditableUtilType } from './useEditableArray';
+import type { FormInstance, FormItemProps } from 'antd/lib/form';
+import type { ReactNode } from 'react';
+import type { UseEditableUtilType } from './useEditableArray';
 
 /**
  * password 密码框
@@ -96,9 +96,7 @@ export type ProSchemaValueEnumType = {
   disabled?: boolean;
 };
 
-export type ProSchemaValueEnumObj = {
-  [key: string]: ProSchemaValueEnumType | ReactNode;
-};
+export type ProSchemaValueEnumObj = Record<string, ProSchemaValueEnumType | ReactNode>;
 
 /**
  * @name ValueEnum 的类型
@@ -110,7 +108,7 @@ export type SearchTransformKeyFn = (
   value: any,
   field: string,
   object: any,
-) => string | { [key: string]: any };
+) => string | Record<string, any>;
 
 export type ProTableEditableFnType<T> = (_: any, record: T, index: number) => boolean;
 
@@ -275,9 +273,7 @@ export type ProSchema<T = unknown, Extra = unknown> = {
   /**
    * @name 从服务器请求的参数，改变了会触发 reload
    */
-  params?: {
-    [key: string]: any;
-  };
+  params?: Record<string, any>;
   /**
    * @name 隐藏在 descriptions
    */

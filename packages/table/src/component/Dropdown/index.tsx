@@ -4,7 +4,7 @@ import { DownOutlined, EllipsisOutlined } from '@ant-design/icons';
 import { Dropdown, Menu, Button, ConfigProvider } from 'antd';
 import './index.less';
 
-export interface DropdownProps {
+export type DropdownProps = {
   className?: string;
   style?: React.CSSProperties;
   menus?: {
@@ -12,7 +12,7 @@ export interface DropdownProps {
     key: string;
   }[];
   onSelect?: (key: string) => void;
-}
+};
 
 /**
  * 一个简单的下拉菜单

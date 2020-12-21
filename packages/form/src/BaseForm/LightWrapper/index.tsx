@@ -1,12 +1,12 @@
 import React, { useState, useContext } from 'react';
 import classNames from 'classnames';
 import { FilterDropdown, FieldLabel, isDropdownValueType } from '@ant-design/pro-utils';
-import { SizeType } from 'antd/lib/config-provider/SizeContext';
+import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import { ConfigProvider } from 'antd';
 
 import './index.less';
 
-export interface LightWrapperProps {
+export type LightWrapperProps = {
   label?: React.ReactNode;
   disabled?: boolean;
   placeholder?: React.ReactNode;
@@ -22,7 +22,7 @@ export interface LightWrapperProps {
   id?: string;
   labelFormatter?: (value: any) => string;
   bordered?: boolean;
-}
+};
 
 const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (props, ref) => {
   const {

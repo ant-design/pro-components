@@ -6,20 +6,18 @@ import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { isUrl, isImg } from '@ant-design/pro-utils';
 
-import { MenuMode, MenuProps } from 'antd/lib/menu';
-import { MenuTheme } from 'antd/lib/menu/MenuContext';
-import defaultSettings, { PureSettings } from '../defaultSettings';
+import type { MenuMode, MenuProps } from 'antd/lib/menu';
+import type { MenuTheme } from 'antd/lib/menu/MenuContext';
+import type { PureSettings } from '../defaultSettings';
+import defaultSettings from '../defaultSettings';
 import { getOpenKeysFromMenuData } from '../utils/utils';
 
-import { MenuDataItem, MessageDescriptor, Route, RouterTypes, WithFalse } from '../typings';
+import type { MenuDataItem, MessageDescriptor, Route, RouterTypes, WithFalse } from '../typings';
 import MenuCounter from './Counter';
-import { PrivateSiderMenuProps } from './SiderMenu';
+import type { PrivateSiderMenuProps } from './SiderMenu';
 import { PageLoading } from '..';
 
-export interface BaseMenuProps
-  extends Partial<RouterTypes<Route>>,
-    Omit<MenuProps, 'openKeys' | 'onOpenChange' | 'title'>,
-    Partial<PureSettings> {
+export type BaseMenuProps = {
   className?: string;
   /**
    *默认的是否展开，会受到 breakpoint 的影响
@@ -58,7 +56,9 @@ export interface BaseMenuProps
     ) => React.ReactNode
   >;
   postMenuData?: (menusData?: MenuDataItem[]) => MenuDataItem[];
-}
+} & Partial<RouterTypes<Route>> &
+  Omit<MenuProps, 'openKeys' | 'onOpenChange' | 'title'> &
+  Partial<PureSettings>;
 
 const { SubMenu, ItemGroup } = Menu;
 

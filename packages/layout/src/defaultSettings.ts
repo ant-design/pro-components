@@ -1,14 +1,14 @@
-import { MenuTheme } from 'antd/es/menu/MenuContext';
+import type { MenuTheme } from 'antd/es/menu/MenuContext';
 
 export type ContentWidth = 'Fluid' | 'Fixed';
 
-export interface RenderSetting {
+export type RenderSetting = {
   headerRender?: false;
   footerRender?: false;
   menuRender?: false;
   menuHeaderRender?: false;
-}
-export interface PureSettings {
+};
+export type PureSettings = {
   /**
    * @name theme for nav menu
    */
@@ -67,7 +67,7 @@ export interface PureSettings {
    * @description 只在 mix 模式下生效
    */
   splitMenus?: boolean;
-}
+};
 
 export type ProSettings = PureSettings & RenderSetting;
 

@@ -4,7 +4,8 @@ import classNames from 'classnames';
 import Omit from 'omit.js';
 import { getFlatMenus } from '@umijs/route-utils';
 
-import SiderMenu, { PrivateSiderMenuProps, SiderMenuProps } from './SiderMenu';
+import type { PrivateSiderMenuProps, SiderMenuProps } from './SiderMenu';
+import SiderMenu from './SiderMenu';
 import MenuCounter from './Counter';
 
 const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {

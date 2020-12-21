@@ -8,12 +8,13 @@ import React, {
   useEffect,
 } from 'react';
 import { Table, ConfigProvider, Form, Card, Empty } from 'antd';
-import { useIntl, ParamsType, ConfigProviderWrap } from '@ant-design/pro-provider';
+import type { ParamsType } from '@ant-design/pro-provider';
+import { useIntl, ConfigProviderWrap } from '@ant-design/pro-provider';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { stringify } from 'use-json-comparison';
-import { TablePaginationConfig } from 'antd/lib/table';
-import { TableCurrentDataSource, SorterResult, SortOrder } from 'antd/lib/table/interface';
+import type { TablePaginationConfig } from 'antd/lib/table';
+import type { TableCurrentDataSource, SorterResult, SortOrder } from 'antd/lib/table/interface';
 import { useDeepCompareEffect, omitUndefined, useEditableArray } from '@ant-design/pro-utils';
 import omit from 'omit.js';
 
@@ -33,8 +34,14 @@ import {
 import ErrorBoundary from './component/ErrorBoundary';
 
 import './index.less';
-import { Bordered, BorderedType, ProTableProps, RequestData, TableRowSelection } from './typing';
-import { ActionType } from '.';
+import type {
+  Bordered,
+  BorderedType,
+  ProTableProps,
+  RequestData,
+  TableRowSelection,
+} from './typing';
+import type { ActionType } from '.';
 
 const isBordered = (borderType: BorderedType, border?: Bordered) => {
   if (border === undefined) {
@@ -116,12 +123,8 @@ const ProTable = <T extends {}, U extends ParamsType>(
 
   const [formSearch, setFormSearch] = useState<{} | undefined>(undefined);
 
-  const [proFilter, setProFilter] = useState<{
-    [key: string]: React.ReactText[];
-  }>({});
-  const [proSort, setProSort] = useState<{
-    [key: string]: SortOrder;
-  }>({});
+  const [proFilter, setProFilter] = useState<Record<string, React.ReactText[]>>({});
+  const [proSort, setProSort] = useState<Record<string, SortOrder>>({});
 
   /**
    * 获取 table 的 dom ref
@@ -495,9 +498,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
       // 制造筛选的数据
       // 制造一个排序的数据
       if (Array.isArray(sorter)) {
-        const data = sorter.reduce<{
-          [key: string]: any;
-        }>(
+        const data = sorter.reduce<Record<string, any>>(
           (pre, value) => ({
             ...pre,
             [`${value.field}`]: value.order,
@@ -601,7 +602,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
  * 更快 更好 更方便
  * @param props
  */
-const ProviderWarp = <T, U extends { [key: string]: any } = {}>(props: ProTableProps<T, U>) => {
+const ProviderWarp = <T, U extends Record<string, any> = {}>(props: ProTableProps<T, U>) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   return (
     <Container.Provider initialState={props}>

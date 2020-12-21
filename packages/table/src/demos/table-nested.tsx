@@ -1,12 +1,13 @@
 import React from 'react';
 import { Button, Tooltip, Tag } from 'antd';
 import { DownOutlined, QuestionCircleOutlined, EllipsisOutlined } from '@ant-design/icons';
-import ProTable, { ProColumns } from '@ant-design/pro-table';
+import type { ProColumns } from '@ant-design/pro-table';
+import ProTable from '@ant-design/pro-table';
 
-export interface Status {
+export type Status = {
   color: string;
   text: string;
-}
+};
 
 const statusMap = {
   0: {
@@ -31,14 +32,14 @@ const statusMap = {
   },
 };
 
-export interface TableListItem {
+export type TableListItem = {
   key: number;
   name: string;
   containers: number;
   creator: string;
   status: Status;
   createdAt: number;
-}
+};
 const tableListDataSource: TableListItem[] = [];
 
 const creators = ['付小小', '曲丽丽', '林东东', '陈帅帅', '兼某某'];

@@ -1,19 +1,20 @@
 import './GridContent.less';
 
-import React, { useContext, CSSProperties } from 'react';
+import type { CSSProperties } from 'react';
+import React, { useContext } from 'react';
 import classNames from 'classnames';
 import { ConfigProvider } from 'antd';
 
 import RouteContext from '../RouteContext';
-import { PureSettings } from '../defaultSettings';
+import type { PureSettings } from '../defaultSettings';
 
-interface GridContentProps {
+type GridContentProps = {
   contentWidth?: PureSettings['contentWidth'];
   children: React.ReactNode;
   className?: string;
   style?: CSSProperties;
   prefixCls?: string;
-}
+};
 
 /**
  * This component can support contentWidth so you don't need to calculate the width

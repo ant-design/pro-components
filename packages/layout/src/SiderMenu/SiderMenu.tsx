@@ -1,12 +1,14 @@
-import React, { CSSProperties } from 'react';
+import type { CSSProperties } from 'react';
+import React from 'react';
 import { Layout, Menu } from 'antd';
 import classNames from 'classnames';
-import { SiderProps } from 'antd/lib/layout/Sider';
+import type { SiderProps } from 'antd/lib/layout/Sider';
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
 
 import './index.less';
-import { WithFalse } from '../typings';
-import BaseMenu, { BaseMenuProps } from './BaseMenu';
+import type { WithFalse } from '../typings';
+import type { BaseMenuProps } from './BaseMenu';
+import BaseMenu from './BaseMenu';
 import MenuCounter from './Counter';
 
 const { Sider } = Layout;
@@ -54,8 +56,7 @@ export const defaultRenderLogoAndTitle = (
   );
 };
 
-export interface SiderMenuProps
-  extends Pick<BaseMenuProps, Exclude<keyof BaseMenuProps, ['onCollapse']>> {
+export type SiderMenuProps = {
   logo?: React.ReactNode;
   siderWidth?: number;
   menuHeaderRender?: WithFalse<
@@ -75,7 +76,7 @@ export interface SiderMenuProps
   links?: React.ReactNode[];
   onOpenChange?: (openKeys: WithFalse<string[]>) => void;
   getContainer?: false;
-}
+} & Pick<BaseMenuProps, Exclude<keyof BaseMenuProps, ['onCollapse']>>;
 
 export const defaultRenderCollapsedButton = (collapsed?: boolean) =>
   collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />;
