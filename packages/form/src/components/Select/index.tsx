@@ -5,7 +5,7 @@ import { ProSchema } from '@ant-design/pro-utils';
 import { ProFormItemProps } from '../../interface';
 import createField from '../../BaseForm/createField';
 
-type ProFormSelectProps = ProFormItemProps<SelectProps<any>> & {
+export type ProFormSelectProps = ProFormItemProps<SelectProps<any>> & {
   valueEnum?: ProSchema['valueEnum'];
   request?: ProSchema['request'];
   options?: SelectProps<any>['options'];
