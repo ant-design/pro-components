@@ -50,6 +50,7 @@ const LightFilterContainer: React.FC<{
     return { ...values };
   });
   useEffect(() => {
+    console.log(values);
     setMoreValues({ ...values });
   }, [values]);
   items.forEach((item: any) => {
@@ -136,7 +137,7 @@ const LightFilterContainer: React.FC<{
                     return false;
                   },
                 };
-                if (moreValues[name]) {
+                if (moreValues.hasOwnProperty(name)) {
                   newFieldProps[child.props.valuePropName || 'value'] = moreValues[name];
                 }
                 return (
