@@ -66,7 +66,7 @@ const ModalForm: React.FC<ModalFormProps> = ({
   const context = useContext(ConfigProvider.ConfigContext);
   /** 设置 trigger 的情况下，懒渲染优化性能；使之可以直接配合表格操作等场景使用 */
   const isFirstRender = useRef(true);
-  const shouldRenderForm = trigger ? !isFirstRender.current : true;
+  const shouldRenderForm = trigger ? !isFirstRender.current && !visible : true;
   /**
    * 同步 props 和 本地的 ref
    */
