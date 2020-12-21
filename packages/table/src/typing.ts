@@ -107,7 +107,7 @@ export type ProColumnType<T = unknown> = ProSchema<
       | false
       | {
           /**
-           * @name 转化值的key, 一般用于事件区间的转化
+           * @name 转化值的key, 一般用于时间区间的转化
            * @description transform: (value: any) => ({ startTime: value[0], endTime: value[1] }),
            */
           transform: SearchTransformKeyFn;
