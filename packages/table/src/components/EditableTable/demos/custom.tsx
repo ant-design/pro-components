@@ -4,11 +4,11 @@
 import React, { useRef, useState } from 'react';
 import type { ProColumns } from '@ant-design/pro-table';
 import { EditableProTable } from '@ant-design/pro-table';
+import type { ActionType } from '@ant-design/pro-table';
 import ProField from '@ant-design/pro-field';
 import ProCard from '@ant-design/pro-card';
 import { Button, Input, message, Space, Tag } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
-import type { ActionType } from '../../typing';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {

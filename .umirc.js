@@ -134,7 +134,7 @@ export default {
       },
       {
         title: '布局',
-        children: ['layout', 'card', 'PageContainer/index.md'],
+        children: ['layout', 'PageContainer/index.md', 'card'],
       },
       {
         title: '数据录入',
@@ -142,7 +142,7 @@ export default {
       },
       {
         title: '数据展示',
-        children: ['table', 'list', 'EditableTable/index.md', 'description'],
+        children: ['table', 'EditableTable/index.md', 'list', 'description'],
       },
       {
         title: '通用',

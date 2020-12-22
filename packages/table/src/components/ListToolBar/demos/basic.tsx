@@ -83,7 +83,7 @@ export default () => {
         subTitle: '这里是子标题',
         tooltip: '这是一个段描述',
         search: {
-          onSearch: (value) => {
+          onSearch: (value: string) => {
             alert(value);
           },
         },

@@ -129,7 +129,7 @@ export default () => {
         // 注释该行则默认不显示下拉选项
         selections: [Table.SELECTION_ALL, Table.SELECTION_INVERT],
       }}
-      tableAlertRender={({ selectedRowKeys, selectedRows, onCleanSelected }) => (
+      tableAlertRender={({ selectedRowKey, selectedRows, onCleanSelected }) => (
         <Space size={24}>
           <span>
             已选 {selectedRowKeys.length} 项
