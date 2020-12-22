@@ -1,0 +1,32 @@
+stages:
+  - install_ci
+  - install_ci_cd
+
+before_script:
+  - whoami
+  - uname -a
+  - shopt -s expand_aliases
+  - alias tyarn="yarn --registry=http://npm.tongyu.tech --cache-folder=$HOME/.yarn/.cache/tyarn --use-yarnrc=$HOME/.tyarnrc"
+  - node -v
+  - tyarn -v
+  - tyarn config list
+  - export
+
+install_ci:
+  stage: install_ci
+  script:
+    - node scripts/remove-depends.js
+    - tyarn
+    - tyarn ci
+  except:
+    - master
+
+install_ci_cd:
+  stage: install_ci_cd
+  script:
+    - node scripts/remove-depends.js
+    - tyarn
+    - tyarn ci
+    - tyarn cd
+  only:
+    - master

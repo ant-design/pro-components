@@ -1,7 +1,1 @@
-module.exports = {
-  extends: [require.resolve('@umijs/fabric/dist/eslint')],
-  rules: {
-    'import/no-extraneous-dependencies': 0,
-    'import/no-unresolved': 0,
-  },
-};
+module.exports = require('@ty-fee-tools/rc-config-preset/lib/eslintrc/app');
