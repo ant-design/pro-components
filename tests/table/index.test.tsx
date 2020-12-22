@@ -1,8 +1,9 @@
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 import React, { useRef } from 'react';
 import { Input, Button } from 'antd';
 import { act } from 'react-dom/test-utils';
-import ProTable, { ActionType, TableDropdown } from '@ant-design/pro-table';
+import type { ActionType } from '@ant-design/pro-table';
+import ProTable, { TableDropdown } from '@ant-design/pro-table';
 import { columns, request } from './demo';
 import { waitForComponentToPaint, waitTime } from '../util';
 
@@ -41,7 +42,7 @@ describe('BasicTable', () => {
   });
 
   it('🎏 base use', async () => {
-    const html = mount(
+    const html = render(
       <ProTable
         size="small"
         columns={columns}
@@ -70,12 +71,11 @@ describe('BasicTable', () => {
         ]}
       />,
     );
-    await waitForComponentToPaint(html, 1000);
-    expect(html.render()).toMatchSnapshot();
+    expect(html).toMatchSnapshot();
   });
 
   it('🎏 do not render Search ', async () => {
-    const html = mount(
+    const html = render(
       <ProTable
         size="small"
         columns={columns}
@@ -92,12 +92,11 @@ describe('BasicTable', () => {
       />,
     );
 
-    await waitForComponentToPaint(html, 1000);
-    expect(html.render()).toMatchSnapshot();
+    expect(html).toMatchSnapshot();
   });
 
   it('🎏  do not render default option', async () => {
-    const html = mount(
+    const html = render(
       <ProTable
         size="small"
         options={{
@@ -115,12 +114,11 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
-    expect(html.render()).toMatchSnapshot();
+    expect(html).toMatchSnapshot();
   });
 
   it('🎏 do not render setting', async () => {
-    const html = mount(
+    const html = render(
       <ProTable
         size="small"
         options={{
@@ -138,8 +136,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
-    expect(html.render()).toMatchSnapshot();
+    expect(html).toMatchSnapshot();
   });
 
   it('🎏 do not render pagination', async () => {
@@ -159,13 +156,17 @@ describe('BasicTable', () => {
         ]}
         pagination={false}
         request={async () => ({
-          data: [],
+          data: [
+            {
+              key: 'first',
+            },
+          ],
           success: true,
         })}
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 600);
     expect(html.find('ul.ant-pagination').exists()).toBeFalsy();
 
     act(() => {
@@ -174,7 +175,7 @@ describe('BasicTable', () => {
       });
     });
 
-    await waitForComponentToPaint(html, 20);
+    await waitForComponentToPaint(html, 600);
     expect(html.find('ul.ant-pagination').exists()).toBeTruthy();
   });
 
@@ -195,9 +196,16 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
-    html.find('ProTable').simulateError(new Error('test error'));
-    expect(html.render()).toMatchSnapshot();
+    await waitForComponentToPaint(html, 300);
+    act(() => {
+      html.find('ProTable').simulateError(new Error('test error'));
+    });
+    await waitForComponentToPaint(html, 10);
+    let dom = null;
+    act(() => {
+      dom = html.render();
+    });
+    expect(dom).toMatchSnapshot();
   });
 
   it('🎏 request test', async () => {
@@ -314,6 +322,7 @@ describe('BasicTable', () => {
     act(() => {
       html.find('Button#reload').simulate('click');
     });
+
     act(() => {
       html.find('Button#reload').simulate('click');
     });
@@ -350,6 +359,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
+
     await waitForComponentToPaint(html, 1000);
 
     expect(fn).toBeCalled();
@@ -387,6 +397,7 @@ describe('BasicTable', () => {
     act(() => {
       actionRef.current?.clearSelected?.();
     });
+
     expect(fn).toBeCalled();
     expect(onChangeFn).toBeCalled();
   });
@@ -799,13 +810,14 @@ describe('BasicTable', () => {
         loading: false,
       });
     });
+
     await waitForComponentToPaint(html, 1000);
     // props 指定为 false 后，无论 request 完成与否都不会出现 spin
     expect(html.find('.ant-spin').exists()).toBeFalsy();
   });
 
   it('🎏 columns = undefined', async () => {
-    const html = mount(
+    const html = render(
       <ProTable
         columns={undefined}
         request={async () => {
@@ -814,8 +826,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
-    expect(html.render()).toMatchSnapshot();
+    expect(html).toMatchSnapshot();
   });
 
   it('🎏 search = true', async () => {
@@ -831,6 +842,7 @@ describe('BasicTable', () => {
           return {
             data: [
               {
+                key: '1',
                 name: 'string',
               },
             ],
@@ -864,7 +876,7 @@ describe('BasicTable', () => {
     const fn = jest.fn();
     const html = mount(
       <ProTable<
-        {},
+        Record<string, unknown>,
         {
           test: string;
         }
@@ -904,7 +916,7 @@ describe('BasicTable', () => {
   });
 
   it('🎏 bordered = true ', async () => {
-    const html = mount(
+    const html = render(
       <ProTable
         size="small"
         cardBordered
@@ -921,12 +933,11 @@ describe('BasicTable', () => {
       />,
     );
 
-    await waitForComponentToPaint(html, 1000);
-    expect(html.render()).toMatchSnapshot();
+    expect(html).toMatchSnapshot();
   });
 
   it('🎏 bordered = {search = true, table = false} ', async () => {
-    const html = mount(
+    const html = render(
       <ProTable
         size="small"
         cardBordered={{
@@ -945,8 +956,6 @@ describe('BasicTable', () => {
         }}
       />,
     );
-
-    await waitForComponentToPaint(html, 1000);
-    expect(html.render()).toMatchSnapshot();
+    expect(html).toMatchSnapshot();
   });
 });
