@@ -138,7 +138,7 @@ const LightFilterContainer: React.FC<{
                     return false;
                   },
                 };
-                if (moreValues[name]) {
+                if (moreValues.hasOwnProperty(name)) {
                   newFieldProps[child.props.valuePropName || 'value'] = moreValues[name];
                 }
                 return (

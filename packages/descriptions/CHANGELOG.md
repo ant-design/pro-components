@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.1.2...@ant-design/pro-descriptions@1.2.0) (2020-12-21)
+
+### Features
+
+- **descriptions:** descriptions support loading and onLoadinChange ([#1344](https://github.com/ant-design/pro-components/issues/1344)) ([b5afe9e](https://github.com/ant-design/pro-components/commit/b5afe9e6fd9dc1b06ef0e76b63aa6c7ab05bc3eb))
+
 ## [1.1.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.1.1...@ant-design/pro-descriptions@1.1.2) (2020-12-15)
 
 **Note:** Version bump only for package @ant-design/pro-descriptions
