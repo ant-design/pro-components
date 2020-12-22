@@ -1,0 +1,56 @@
+export   default   {  
+  moneySymbol  :   '$'  ,  
+  form  :   {  
+    lightFilter  :   {  
+      more : 'More'  ,  
+      clear : 'Clear'  ,  
+      confirm : 'Confirm'  ,  
+      itemUnit : 'Items'  ,  
+    }  ,  
+  }  ,  
+  tableForm  :   {  
+    search  :   'Ara'  ,  
+    reset : 'Reset'  ,  
+    submit : 'Submit'  ,  
+    collapsed  :   'Daralt'  ,  
+    expand : 'Expand'  ,  
+    inputPlaceholder : 'Please Enter'  ,  
+    selectPlaceholder : 'Please Select'  ,  
+  }  ,  
+  alert  :   {  
+    clear : 'Clear'  ,  
+    selected : 'Selected'  ,  
+    item : 'Item'  ,  
+  }  ,  
+  pagination  :   {  
+    total  :   {  
+      range  :   ' '  ,  
+      total : 'well'  ,  
+      item : 'Item'  ,  
+    }  ,  
+  }  ,  
+  tableToolBar : {  
+    leftPin : 'Snap Left'  ,  
+    rightPin Pin to : ' Right'  ,  
+    noPin pinned : 'Not '  ,  
+    leftFixedTitle  :   'Sola Sabitle'  ,  
+    rightFixedTitle : 'Fixed to the right'  ,  
+    noFixedTitle : 'Not Fixed'  ,  
+    reset : 'Reset'  ,  
+    columnDisplay : 'Column Display'  ,  
+    columnSetting : 'Settings'  ,  
+    fullScreen : 'Tam Screen'  ,  
+    exitFullScreen : 'Close Full Screen'  ,  
+    reload  :   'Yenile'  ,  
+    density : 'Thickness'  ,  
+    densityDefault : 'Default'  ,  
+    densityLarger : 'Big'  ,  
+    densityMiddle  :   'Orta'  ,  
+    densitySmall : 'Small'  ,  
+  }  ,  
+  stepsForm : {  
+    next : 'Next'  ,  
+    prev : 'previous'  ,  
+    submit : 'Completion'  ,  
+  }  ,  
+}  ;  
