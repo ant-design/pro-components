@@ -6,13 +6,13 @@ import type { TabsProps, TabPaneProps } from 'antd/lib/tabs';
 import type { PageHeaderProps } from 'antd/lib/page-header';
 import type { AffixProps } from 'antd/lib/affix';
 
-import type { RouteContextType } from '../RouteContext';
-import RouteContext from '../RouteContext';
+import type { RouteContextType } from '../../RouteContext';
+import RouteContext from '../../RouteContext';
 import GridContent from '../GridContent';
 import FooterToolbar from '../FooterToolbar';
 import './index.less';
 import PageLoading from '../PageLoading';
-import type { WithFalse } from '../typings';
+import type { WithFalse } from '../../typings';
 
 export type PageHeaderTabConfig = {
   /**

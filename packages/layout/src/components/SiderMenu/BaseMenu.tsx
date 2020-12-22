@@ -8,14 +8,14 @@ import { isUrl, isImg } from '@ant-design/pro-utils';
 
 import type { MenuMode, MenuProps } from 'antd/lib/menu';
 import type { MenuTheme } from 'antd/lib/menu/MenuContext';
-import type { PureSettings } from '../defaultSettings';
-import defaultSettings from '../defaultSettings';
-import { getOpenKeysFromMenuData } from '../utils/utils';
+import type { PureSettings } from '../../defaultSettings';
+import defaultSettings from '../../defaultSettings';
+import { getOpenKeysFromMenuData } from '../../utils/utils';
 
-import type { MenuDataItem, MessageDescriptor, Route, RouterTypes, WithFalse } from '../typings';
+import type { MenuDataItem, MessageDescriptor, Route, RouterTypes, WithFalse } from '../../typings';
 import MenuCounter from './Counter';
 import type { PrivateSiderMenuProps } from './SiderMenu';
-import { PageLoading } from '..';
+import PageLoading from '../PageLoading';
 
 export type BaseMenuProps = {
   className?: string;

@@ -2,18 +2,18 @@ import './index.less';
 import React from 'react';
 import classNames from 'classnames';
 
-import type { HeaderViewProps } from '../Header';
+import type { HeaderViewProps } from '../../Header';
 import type { SiderMenuProps, PrivateSiderMenuProps } from '../SiderMenu/SiderMenu';
 import {
   defaultRenderLogo,
   defaultRenderLogoAndTitle,
   defaultRenderCollapsedButton,
 } from '../SiderMenu/SiderMenu';
-import type { PureSettings } from '../defaultSettings';
+import type { PureSettings } from '../../defaultSettings';
 import TopNavHeader from '../TopNavHeader';
-import type { MenuDataItem } from '../index';
-import type { WithFalse } from '../typings';
-import { clearMenuItem } from '../utils/utils';
+import type { MenuDataItem } from '../../index';
+import type { WithFalse } from '../../typings';
+import { clearMenuItem } from '../../utils/utils';
 
 export type GlobalHeaderProps = {
   collapsed?: boolean;

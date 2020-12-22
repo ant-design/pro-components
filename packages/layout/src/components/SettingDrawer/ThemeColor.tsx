@@ -5,7 +5,7 @@ import { CheckOutlined } from '@ant-design/icons';
 import { Tooltip } from 'antd';
 
 import React from 'react';
-import { genThemeToString } from '../utils/utils';
+import { genThemeToString } from '../../utils/utils';
 
 export type TagProps = {
   color: string;

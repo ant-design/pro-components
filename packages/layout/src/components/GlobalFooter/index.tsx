@@ -2,7 +2,7 @@ import './index.less';
 
 import React from 'react';
 import classNames from 'classnames';
-import type { WithFalse } from '../typings';
+import type { WithFalse } from '../../typings';
 
 export type GlobalFooterProps = {
   links?: WithFalse<
