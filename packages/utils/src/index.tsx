@@ -10,6 +10,7 @@ import isNil from './isNil';
 import isDropdownValueType from './isDropdownValueType';
 import pickProProps from './pickProProps';
 import omitUndefined from './omitUndefined';
+import omitBoolean from './omitBoolean';
 import omitUndefinedAndEmptyArr from './omitUndefinedAndEmptyArr';
 import pickProFormItemProps from './pickProFormItemProps';
 import type {
@@ -73,6 +74,7 @@ export type {
 };
 
 export {
+  omitBoolean,
   LabelIconTip,
   FilterDropdown,
   FieldLabel,

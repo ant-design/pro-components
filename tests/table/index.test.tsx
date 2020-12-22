@@ -158,7 +158,10 @@ describe('BasicTable', () => {
           },
         ]}
         pagination={false}
-        request={request}
+        request={async () => ({
+          data: [],
+          success: true,
+        })}
         rowKey="key"
       />,
     );
@@ -185,7 +188,10 @@ describe('BasicTable', () => {
             valueType: 'money',
           },
         ]}
-        request={request}
+        request={async () => ({
+          data: [],
+          success: true,
+        })}
         rowKey="key"
       />,
     );

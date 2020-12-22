@@ -60,7 +60,10 @@ export type BasicLayoutProps = Partial<RouterTypes<Route>> &
       (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
     >;
 
-    breadcrumbRender?: (routers: AntdBreadcrumbProps['routes']) => AntdBreadcrumbProps['routes'];
+    breadcrumbRender?: WithFalse<
+      (routers: AntdBreadcrumbProps['routes']) => AntdBreadcrumbProps['routes']
+    >;
+
     menuItemRender?: BaseMenuProps['menuItemRender'];
     pageTitleRender?: WithFalse<
       (

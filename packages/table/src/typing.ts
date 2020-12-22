@@ -65,7 +65,7 @@ export type TableRowSelection = TableProps<any>['rowSelection'];
 
 export type ExtraProColumnType<T> = Omit<
   ColumnType<T>,
-  'render' | 'children' | 'title' | 'filters'
+  'render' | 'children' | 'title' | 'filters' | 'onFilter'
 >;
 
 export type ProColumnType<T = unknown> = ProSchema<
@@ -127,6 +127,11 @@ export type ProColumnType<T = unknown> = ProSchema<
      * 表头的筛选菜单项
      */
     filters?: boolean | ColumnFilterItem[];
+
+    /**
+     * 筛选的函数，设置为 false 会关闭自带的本地筛选
+     */
+    onFilter?: false | ColumnType<T>['onFilter'];
 
     /**
      * form 的排序
