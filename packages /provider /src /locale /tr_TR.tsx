@@ -1,0 +1,56 @@
+export  default  { 
+  moneySymbol :  '$' , 
+  form :  { 
+    lightFilter :  { 
+      more :  'Daha Fazla' , 
+      clear :  'Temizle' , 
+      confirm :  'Onayla' , 
+      itemUnit :  'Öğeler' , 
+    } , 
+  } , 
+  tableForm :  { 
+    search :  'Ara' , 
+    reset :  'Sıfırla' , 
+    submit :  'Gönder' , 
+    collapsed :  'Daralt' , 
+    expand :  'Genişlet' , 
+    inputPlaceholder :  'Lütfen Giriniz' , 
+    selectPlaceholder :  'Lütfen Seçiniz' , 
+  } , 
+  alert :  { 
+    clear :  'Temizle' , 
+    selected :  'Seçildi' , 
+    item :  'Öğe' , 
+  } , 
+  pagination :  { 
+    total :  { 
+      range :  ' ' , 
+      total :  'nun' , 
+      item :  'Öğe' , 
+    } , 
+  } , 
+  tableToolBar : { 
+    leftPin :  'Sola Tuttur' , 
+    rightPin :  'Sağa Tuttur' , 
+    noPin :  'Tutturulmamış' , 
+    leftFixedTitle :  'Sola Sabitle' , 
+    rightFixedTitle :  'Sağa Sabitle' , 
+    noFixedTitle :  'Sabitlenmemiş' , 
+    reset :  'Sıfırla' , 
+    columnDisplay :  'Sütun Ekranı' , 
+    columnSetting :  'Ayarlar' , 
+    fullScreen :  'Tam Ekran' , 
+    exitFullScreen :  'Tam Ekranı Kapat' , 
+    reload :  'Yenile' , 
+    density :  'Kalınlık' , 
+    densityDefault :  'Varsayılan' , 
+    densityLarger :  'Büyük' , 
+    densityMiddle :  'Orta' , 
+    densitySmall :  'Küçük' , 
+  } , 
+  stepsForm : { 
+    next :  'Sıradaki' , 
+    prev :  'Önceki' , 
+    submit :  'Tamamlama' , 
+  } , 
+} ; 
