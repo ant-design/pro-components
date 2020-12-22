@@ -2,16 +2,17 @@ import React, { useState } from 'react';
 import { Button, Badge, Tooltip } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import { LightFilter, ProFormDatePicker } from '@ant-design/pro-form';
-import ProTable, { ProColumns } from '@ant-design/pro-table';
+import type { ProColumns } from '@ant-design/pro-table';
+import ProTable from '@ant-design/pro-table';
 
-export interface TableListItem {
+export type TableListItem = {
   key: number;
   name: string;
   containers: number;
   status: string;
   creator: string;
   createdAt: number;
-}
+};
 
 const valueEnum = {
   0: 'close',

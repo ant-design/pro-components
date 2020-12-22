@@ -1,10 +1,10 @@
 import React from 'react';
 import { Radio } from 'antd';
 import ProField from '@ant-design/pro-field';
-import { ProSchema } from '@ant-design/pro-utils';
-import { RadioGroupProps, RadioProps } from 'antd/lib/radio';
+import type { ProSchema } from '@ant-design/pro-utils';
+import type { RadioGroupProps, RadioProps } from 'antd/lib/radio';
 import createField from '../../BaseForm/createField';
-import { ProFormItemProps } from '../../interface';
+import type { ProFormItemProps } from '../../interface';
 
 export type ProFormRadioGroupProps = ProFormItemProps<RadioGroupProps> & {
   layout?: 'horizontal' | 'vertical';

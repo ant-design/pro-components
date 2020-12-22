@@ -2,9 +2,9 @@ import './index.less';
 
 import React from 'react';
 import classNames from 'classnames';
-import { WithFalse } from '../typings';
+import type { WithFalse } from '../typings';
 
-export interface GlobalFooterProps {
+export type GlobalFooterProps = {
   links?: WithFalse<
     {
       key?: string;
@@ -17,7 +17,7 @@ export interface GlobalFooterProps {
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
-}
+};
 
 export default ({
   className,

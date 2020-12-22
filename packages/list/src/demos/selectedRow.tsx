@@ -1,4 +1,5 @@
-import React, { useState, ReactText } from 'react';
+import type { ReactText } from 'react';
+import React, { useState } from 'react';
 import { Progress, Button } from 'antd';
 import ProList from '@ant-design/pro-list';
 

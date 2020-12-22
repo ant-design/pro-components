@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, DatePicker, Space, Table } from 'antd';
-import ProTable, { ProColumns } from '@ant-design/pro-table';
+import type { ProColumns } from '@ant-design/pro-table';
+import ProTable from '@ant-design/pro-table';
 
 const { RangePicker } = DatePicker;
 
@@ -18,7 +19,7 @@ const ProcessMap = {
   error: 'exception',
 };
 
-export interface TableListItem {
+export type TableListItem = {
   key: number;
   name: string;
   progress: number;
@@ -28,7 +29,7 @@ export interface TableListItem {
   status: string;
   createdAt: number;
   memo: string;
-}
+};
 const tableListDataSource: TableListItem[] = [];
 
 const creators = ['付小小', '曲丽丽', '林东东', '陈帅帅', '兼某某'];

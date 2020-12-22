@@ -1,16 +1,13 @@
 ﻿import React, { useEffect, useContext } from 'react';
 import { Form } from 'antd';
-import {
-  pickProFormItemProps,
-  ProFieldValueType,
-  SearchTransformKeyFn,
-} from '@ant-design/pro-utils';
-import { FormItemProps } from 'antd/lib/form';
+import type { ProFieldValueType, SearchTransformKeyFn } from '@ant-design/pro-utils';
+import { pickProFormItemProps } from '@ant-design/pro-utils';
+import type { FormItemProps } from 'antd/lib/form';
 import classnames from 'classnames';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
 import FieldContext from '../FieldContext';
 import LightWrapper from './LightWrapper';
-import { ProFormItemProps } from '../interface';
+import type { ProFormItemProps } from '../interface';
 
 export type ProFormItemCreateConfig = {
   /**
@@ -46,7 +43,7 @@ const WIDTH_SIZE_ENUM = {
 type ProFormComponent<P, Extends> = React.ComponentType<Omit<P & Extends, 'proFieldProps'>>;
 
 // 给控件扩展的通用的属性
-export interface ExtendsProps {
+export type ExtendsProps = {
   secondary?: boolean;
   allowClear?: boolean;
   bordered?: boolean;
@@ -78,7 +75,7 @@ export interface ExtendsProps {
    * @description 给 protable 开的口子
    */
   formItemProps?: FormItemProps;
-}
+};
 
 /**
  * 这个方法的主要作用的帮助 Field 增加 FormItem

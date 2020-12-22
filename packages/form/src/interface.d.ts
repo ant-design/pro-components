@@ -1,6 +1,6 @@
-import { FormItemProps } from 'antd/lib/form';
+import type { FormItemProps } from 'antd/lib/form';
 
-export interface GroupProps {
+export type GroupProps = {
   title?: React.ReactNode;
   /**
    * 组件之前的间隔
@@ -9,13 +9,13 @@ export interface GroupProps {
   style?: React.CSSProperties;
   titleStyle?: React.CSSProperties;
   titleRender?: (title: React.ReactNode, props: GroupProps) => React.ReactNode;
-}
+};
 
-export interface FieldProps {
+export type FieldProps = {
   style?: React.CSSProperties;
-}
+};
 
-export interface ProFormItemProps<T = {}> extends FormItemProps {
+export type ProFormItemProps<T = {}> = {
   fieldProps?: FieldProps & T;
   placeholder?: string | string[];
   secondary?: boolean;
@@ -38,4 +38,4 @@ export interface ProFormItemProps<T = {}> extends FormItemProps {
     label?: React.ReactNode;
     mode?: 'read';
   };
-}
+} & FormItemProps;

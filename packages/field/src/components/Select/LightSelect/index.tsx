@@ -1,16 +1,16 @@
 import React, { useState, useContext, useMemo } from 'react';
 import { Select, Input, ConfigProvider } from 'antd';
-import { SelectProps } from 'antd/es/select';
+import type { SelectProps } from 'antd/es/select';
 import { SearchOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import { FieldLabel } from '@ant-design/pro-utils';
 
 import './index.less';
 
-export interface LightSelectProps {
+export type LightSelectProps = {
   label?: string;
   placeholder?: string;
-}
+};
 
 const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightSelectProps> = (
   props,
@@ -41,9 +41,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
   const [open, setOpen] = useState<boolean>(false);
   const [keyword, setKeyword] = useState<string>('');
 
-  const valueMap: {
-    [key: string]: string;
-  } = useMemo(() => {
+  const valueMap: Record<string, string> = useMemo(() => {
     const values = {};
     options?.forEach(({ label: aLabel, value: aValue }) => {
       values[aValue] = aLabel || aValue;

@@ -1,24 +1,23 @@
 import React, { useRef, useCallback, useState, useEffect, useContext } from 'react';
 import { Form, Steps, ConfigProvider, Button, Space } from 'antd';
 import toArray from 'rc-util/lib/Children/toArray';
-import { FormProviderProps } from 'antd/lib/form/context';
+import type { FormProviderProps } from 'antd/lib/form/context';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { StepsProps } from 'antd/lib/steps';
+import type { StepsProps } from 'antd/lib/steps';
 import classNames from 'classnames';
-import { FormInstance } from 'antd/lib/form';
-import { ButtonProps } from 'antd/lib/button';
+import type { FormInstance } from 'antd/lib/form';
+import type { ButtonProps } from 'antd/lib/button';
 import { useIntl } from '@ant-design/pro-provider';
 
-import StepForm, { StepFormProps } from './StepForm';
+import type { StepFormProps } from './StepForm';
+import StepForm from './StepForm';
 import './index.less';
-import { ProFormProps } from '../ProForm';
-import { SubmitterProps } from '../../components/Submitter';
+import type { ProFormProps } from '../ProForm';
+import type { SubmitterProps } from '../../components/Submitter';
 
-type Store = {
-  [name: string]: any;
-};
+type Store = Record<string, any>;
 
-interface StepsFormProps<T = Store> extends FormProviderProps {
+type StepsFormProps<T = Store> = {
   /**
    * @name 提交方法
    * @description 返回 true 会重置步数，并且清空表单
@@ -32,10 +31,10 @@ interface StepsFormProps<T = Store> extends FormProviderProps {
    * 自定义步骤器
    */
   stepsRender?: (
-    steps: Array<{
+    steps: {
       key: string;
       title?: React.ReactNode;
-    }>,
+    }[],
     defaultDom: React.ReactNode,
   ) => React.ReactNode;
 
@@ -63,16 +62,14 @@ interface StepsFormProps<T = Store> extends FormProviderProps {
     | false;
 
   containerStyle?: React.CSSProperties;
-}
+} & FormProviderProps;
 
 export const StepsFormProvide = React.createContext<
   | {
       unRegForm: (name: string) => void;
       onFormFinish: (name: string, formData: any) => void;
       keyArray: string[];
-      formArrayRef: React.MutableRefObject<
-        Array<React.MutableRefObject<FormInstance<any> | undefined>>
-      >;
+      formArrayRef: React.MutableRefObject<React.MutableRefObject<FormInstance<any> | undefined>[]>;
       loading: ButtonProps['loading'];
       setLoading: React.Dispatch<React.SetStateAction<ButtonProps['loading']>>;
       formMapRef: React.MutableRefObject<Map<string, StepFormProps>>;
@@ -104,7 +101,7 @@ const StepsForm: React.FC<StepsFormProps> & {
 
   const formDataRef = useRef(new Map<string, Store>());
   const formMapRef = useRef(new Map<string, StepFormProps>());
-  const formArrayRef = useRef<Array<React.MutableRefObject<FormInstance<any> | undefined>>>([]);
+  const formArrayRef = useRef<React.MutableRefObject<FormInstance<any> | undefined>[]>([]);
   const [formArray, setFormArray] = useState<string[]>([]);
   const [loading, setLoading] = useState<ButtonProps['loading']>(false);
   const intl = useIntl();

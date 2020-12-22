@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import { Button, Select, ConfigProvider, Space } from 'antd';
-import ProTable, { ProColumns, ActionType } from '@ant-design/pro-table';
+import type { ProColumns, ActionType } from '@ant-design/pro-table';
+import ProTable from '@ant-design/pro-table';
 import moment from 'moment';
 import enUSIntl from 'antd/lib/locale/en_US';
 import zhCNIntl from 'antd/lib/locale/zh_CN';
@@ -29,11 +30,11 @@ const intlMap = {
   ptBRIntl,
 };
 
-interface GithubIssueItem {
+type GithubIssueItem = {
   key: number;
   name: string;
   createdAt: number;
-}
+};
 
 const columns: ProColumns<GithubIssueItem>[] = [
   {

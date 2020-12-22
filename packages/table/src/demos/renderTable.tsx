@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Card, Menu, Descriptions } from 'antd';
-import ProTable, { ProColumns } from '@ant-design/pro-table';
+import type { ProColumns } from '@ant-design/pro-table';
+import ProTable from '@ant-design/pro-table';
 import { MailOutlined } from '@ant-design/icons';
 
 const waitTime = (time: number = 100) => {
@@ -11,12 +12,12 @@ const waitTime = (time: number = 100) => {
   });
 };
 
-export interface TableListItem {
+export type TableListItem = {
   key: number;
   name: string;
   createdAt: number;
   progress: number;
-}
+};
 const tableListDataSource: TableListItem[] = [];
 
 for (let i = 0; i < 2; i += 1) {

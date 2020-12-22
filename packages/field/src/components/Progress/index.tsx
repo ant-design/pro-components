@@ -2,7 +2,7 @@ import { Progress, InputNumber } from 'antd';
 import toNumber from 'lodash.tonumber';
 import React, { useMemo } from 'react';
 
-import { ProFieldFC } from '../../index';
+import type { ProFieldFC } from '../../index';
 
 export function getProgressStatus(text: number): 'success' | 'exception' | 'normal' | 'active' {
   if (typeof text !== 'number') {

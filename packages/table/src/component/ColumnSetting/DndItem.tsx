@@ -1,19 +1,20 @@
 import React, { useRef } from 'react';
-import { XYCoord } from 'dnd-core';
-import { useDrag, useDrop, DropTargetMonitor } from 'react-dnd';
+import type { XYCoord } from 'dnd-core';
+import type { DropTargetMonitor } from 'react-dnd';
+import { useDrag, useDrop } from 'react-dnd';
 
-export interface CardProps {
+export type CardProps = {
   id: any;
   index: number;
   move?: (dragIndex: number, hoverIndex: number) => void;
   end: (id: string, dragIndex: number) => void;
-}
+};
 
-interface DragItem {
+type DragItem = {
   index: number;
   id: string;
   type: string;
-}
+};
 const ItemTypes = {
   CARD: 'card',
 };

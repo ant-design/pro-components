@@ -7,12 +7,12 @@ import { Tooltip } from 'antd';
 import React from 'react';
 import { genThemeToString } from '../utils/utils';
 
-export interface TagProps {
+export type TagProps = {
   color: string;
   check: boolean;
   className?: string;
   onClick?: () => void;
-}
+};
 
 const Tag: React.FC<TagProps> = React.forwardRef(({ color, check, ...rest }, ref) => (
   <div {...rest} style={{ backgroundColor: color }} ref={ref as any}>
@@ -20,7 +20,7 @@ const Tag: React.FC<TagProps> = React.forwardRef(({ color, check, ...rest }, ref
   </div>
 ));
 
-export interface ThemeColorProps {
+export type ThemeColorProps = {
   colors?: {
     key: string;
     color: string;
@@ -28,7 +28,7 @@ export interface ThemeColorProps {
   value: string;
   onChange: (color: string) => void;
   formatMessage: (data: { id: any; defaultMessage?: string }) => string;
-}
+};
 
 const ThemeColor: React.ForwardRefRenderFunction<HTMLDivElement, ThemeColorProps> = (
   { colors, value, onChange, formatMessage },

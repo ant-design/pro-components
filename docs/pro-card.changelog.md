@@ -1,7 +1,7 @@
 ---
 title: ProCard - 更新日志
 nav:
-  title: Change Log
+  title: 更新日志
   path: /changelog
   order: 99
 group:

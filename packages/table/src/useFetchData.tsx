@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { usePrevious, useDebounceFn, useDeepCompareEffect } from '@ant-design/pro-utils';
 import ReactDOM from 'react-dom';
-import { PageInfo, RequestData, UseFetchDataAction } from './typing';
+import type { PageInfo, RequestData, UseFetchDataAction } from './typing';
 
 const useFetchData = <T extends RequestData<any>>(
   getData: (params?: { pageSize: number; current: number }) => Promise<T>,

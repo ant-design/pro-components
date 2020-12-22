@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.less';
 
-export interface ProCardActionsProps {
+export type ProCardActionsProps = {
   /**
    * @description 自定义前缀
    * @ignore
@@ -11,7 +11,7 @@ export interface ProCardActionsProps {
    * 操作按钮
    */
   actions?: React.ReactNode[];
-}
+};
 
 const ProCardActions: React.FC<ProCardActionsProps> = (props) => {
   const { actions, prefixCls } = props;

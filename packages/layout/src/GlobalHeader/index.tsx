@@ -2,21 +2,20 @@ import './index.less';
 import React from 'react';
 import classNames from 'classnames';
 
-import { HeaderViewProps } from '../Header';
+import type { HeaderViewProps } from '../Header';
+import type { SiderMenuProps, PrivateSiderMenuProps } from '../SiderMenu/SiderMenu';
 import {
   defaultRenderLogo,
-  SiderMenuProps,
   defaultRenderLogoAndTitle,
   defaultRenderCollapsedButton,
-  PrivateSiderMenuProps,
 } from '../SiderMenu/SiderMenu';
-import { PureSettings } from '../defaultSettings';
+import type { PureSettings } from '../defaultSettings';
 import TopNavHeader from '../TopNavHeader';
-import { MenuDataItem } from '../index';
-import { WithFalse } from '../typings';
+import type { MenuDataItem } from '../index';
+import type { WithFalse } from '../typings';
 import { clearMenuItem } from '../utils/utils';
 
-export interface GlobalHeaderProps extends Partial<PureSettings> {
+export type GlobalHeaderProps = {
   collapsed?: boolean;
   onCollapse?: (collapsed: boolean) => void;
   isMobile?: boolean;
@@ -31,7 +30,7 @@ export interface GlobalHeaderProps extends Partial<PureSettings> {
   menuHeaderRender?: SiderMenuProps['menuHeaderRender'];
   collapsedButtonRender?: SiderMenuProps['collapsedButtonRender'];
   splitMenus?: boolean;
-}
+} & Partial<PureSettings>;
 
 const renderLogo = (
   menuHeaderRender: SiderMenuProps['menuHeaderRender'],

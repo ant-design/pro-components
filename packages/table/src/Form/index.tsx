@@ -7,33 +7,30 @@ import React, {
   useImperativeHandle,
   useMemo,
 } from 'react';
-import { FormInstance, FormItemProps } from 'antd/lib/form';
+import type { FormInstance, FormItemProps } from 'antd/lib/form';
 import { ConfigProvider } from 'antd';
-import { useIntl, IntlType } from '@ant-design/pro-provider';
-import ProForm, {
-  QueryFilter,
-  LightFilter,
-  ProFormField,
-  BaseQueryFilterProps,
-  QueryFilterProps,
-  ProFormProps,
-} from '@ant-design/pro-form';
+import type { IntlType } from '@ant-design/pro-provider';
+import { useIntl } from '@ant-design/pro-provider';
+import type { BaseQueryFilterProps, QueryFilterProps, ProFormProps } from '@ant-design/pro-form';
+import ProForm, { QueryFilter, LightFilter, ProFormField } from '@ant-design/pro-form';
 import classNames from 'classnames';
 import warningOnce from 'rc-util/lib/warning';
 import omit from 'omit.js';
 
+import type {
+  ProSchemaComponentTypes,
+  SearchTransformKeyFn,
+  ProFieldValueType,
+} from '@ant-design/pro-utils';
 import {
   useDeepCompareEffect,
-  ProSchemaComponentTypes,
   conversionSubmitValue,
   transformKeySubmitValue,
-  SearchTransformKeyFn,
   getFieldPropsOrFormItemProps,
-  ProFieldValueType,
 } from '@ant-design/pro-utils';
 
 import { genColumnKey } from '../utils';
-import { ProColumns } from '../index';
+import type { ProColumns } from '../index';
 import './index.less';
 
 export type SearchConfig = BaseQueryFilterProps & {
@@ -95,7 +92,7 @@ const getFromProps = (isForm: boolean, searchConfig: any, name: string) => {
   return {};
 };
 
-export interface TableFormItem<T, U = any> extends Omit<FormItemProps, 'children' | 'onReset'> {
+export type TableFormItem<T, U = any> = {
   onSubmit?: (value: T, firstLoad: boolean) => void;
   onReset?: (value: T) => void;
   form?: Omit<ProFormProps, 'form'>;
@@ -106,7 +103,7 @@ export interface TableFormItem<T, U = any> extends Omit<FormItemProps, 'children
   formRef?: React.MutableRefObject<FormInstance | undefined> | ((formRef: FormInstance) => void);
   submitButtonLoading?: boolean;
   bordered?: boolean;
-}
+} & Omit<FormItemProps, 'children' | 'onReset'>;
 
 /**
  * 把配置转化为输入控件
@@ -315,16 +312,12 @@ const FormSearch = <T, U = any>({
   /**
    * 保存 valueTypeRef，用于分辨是用什么方式格式化数据
    */
-  const valueTypeRef = useRef<{
-    [key: string]: ProFieldValueType;
-  }>();
+  const valueTypeRef = useRef<Record<string, ProFieldValueType>>();
 
   /**
    * 保存 transformKeyRef，用于对表单key transform
    */
-  const transformKeyRef = useRef<{
-    [key: string]: SearchTransformKeyFn;
-  }>({});
+  const transformKeyRef = useRef<Record<string, SearchTransformKeyFn>>({});
 
   const isForm = type === 'form';
   /**

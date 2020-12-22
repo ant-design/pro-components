@@ -1,6 +1,6 @@
 import React from 'react';
 import { InputNumber } from 'antd';
-import { ProFieldFC } from '../../index';
+import type { ProFieldFC } from '../../index';
 
 export type FieldDigitProps = {
   text: number;

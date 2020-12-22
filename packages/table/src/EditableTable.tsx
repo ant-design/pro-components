@@ -1,11 +1,11 @@
 ﻿import React, { useContext, useImperativeHandle, useMemo, useRef } from 'react';
-import { ParamsType } from '@ant-design/pro-provider';
+import type { ParamsType } from '@ant-design/pro-provider';
 import { Button } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { PlusOutlined } from '@ant-design/icons';
-import { ButtonProps } from 'antd/lib/button';
+import type { ButtonProps } from 'antd/lib/button';
 import ProTable from './Table';
-import { ProTableProps, ActionType } from './typing';
+import type { ProTableProps, ActionType } from './typing';
 
 export type RecordCreatorProps<T> = {
   record: T;

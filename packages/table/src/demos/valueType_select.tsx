@@ -1,5 +1,6 @@
 import React from 'react';
-import ProTable, { ProColumns } from '@ant-design/pro-table';
+import type { ProColumns } from '@ant-design/pro-table';
+import ProTable from '@ant-design/pro-table';
 
 const valueEnumMap = {
   0: 'running',
@@ -7,10 +8,10 @@ const valueEnumMap = {
   2: 'error',
 };
 
-export interface TableListItem {
+export type TableListItem = {
   key: number;
   status: string | number;
-}
+};
 const tableListDataSource: TableListItem[] = [];
 
 for (let i = 0; i < 2; i += 1) {

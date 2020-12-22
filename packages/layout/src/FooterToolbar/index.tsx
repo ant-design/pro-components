@@ -1,12 +1,14 @@
-import React, { useContext, useEffect, useMemo, ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import React, { useContext, useEffect, useMemo } from 'react';
 import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import omit from 'omit.js';
 
 import './index.less';
-import { RouteContext, RouteContextType } from '../index';
+import type { RouteContextType } from '../index';
+import { RouteContext } from '../index';
 
-export interface FooterToolbarProps {
+export type FooterToolbarProps = {
   extra?: React.ReactNode;
   style?: React.CSSProperties;
   className?: string;
@@ -15,7 +17,7 @@ export interface FooterToolbarProps {
     dom: JSX.Element,
   ) => ReactNode;
   prefixCls?: string;
-}
+};
 const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
   const { children, className, extra, style, renderContent, ...restProps } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);

@@ -1,7 +1,9 @@
 import React from 'react';
 import { List, Tooltip, Select, Switch } from 'antd';
-import defaultSettings, { ProSettings } from '../defaultSettings';
-import { getFormatMessage, SettingItemProps } from './index';
+import type { ProSettings } from '../defaultSettings';
+import defaultSettings from '../defaultSettings';
+import type { SettingItemProps } from './index';
+import { getFormatMessage } from './index';
 
 export const renderLayoutSettingItem = (item: SettingItemProps) => {
   const action = React.cloneElement(item.action, {

@@ -4,7 +4,7 @@ import { parseValueToMoment } from '@ant-design/pro-utils';
 import { useIntl } from '@ant-design/pro-provider';
 import moment from 'moment';
 
-import { ProFieldFC } from '../../index';
+import type { ProFieldFC } from '../../index';
 
 /**
  * 与当前的时间进行比较

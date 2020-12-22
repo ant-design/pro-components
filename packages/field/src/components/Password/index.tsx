@@ -4,7 +4,7 @@ import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { useIntl } from '@ant-design/pro-provider';
 
-import { ProFieldFC } from '../../index';
+import type { ProFieldFC } from '../../index';
 
 /**
  * 最基本的组件，就是个普通的 Input.Password

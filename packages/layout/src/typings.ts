@@ -1,16 +1,16 @@
-import * as H from 'history';
+import type * as H from 'history';
 
-import { RouteComponentProps as BasicRouteProps, match } from 'react-router-dom';
+import type { RouteComponentProps as BasicRouteProps, match } from 'react-router-dom';
 
-import React from 'react';
+import type React from 'react';
 
-export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+export type LinkProps = {
   to: H.LocationDescriptor;
   replace?: boolean;
   innerRef?: React.Ref<HTMLAnchorElement>;
-}
+} & React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
-export interface MenuDataItem {
+export type MenuDataItem = {
   /**
    * @name 子菜单
    */
@@ -58,21 +58,21 @@ export interface MenuDataItem {
   flatMenu?: boolean;
 
   [key: string]: any;
-}
+};
 
-export interface Route extends MenuDataItem {
+export type Route = {
   routes?: Route[];
-}
+} & MenuDataItem;
 export type WithFalse<T> = T | false;
 
-export interface RouterTypes<P> extends Omit<BasicRouteProps, 'location'> {
+export type RouterTypes<P> = {
   computedMatch?: match<P>;
   route?: Route;
   location: BasicRouteProps['location'] | { pathname?: string };
-}
+} & Omit<BasicRouteProps, 'location'>;
 
-export interface MessageDescriptor {
+export type MessageDescriptor = {
   id: any;
   description?: string;
   defaultMessage?: string;
-}
+};

@@ -8,7 +8,7 @@ const valueEnum = {
   3: 'error',
 };
 
-export interface TableListItem {
+export type TableListItem = {
   key: number;
   name: string;
   status: string;
@@ -19,7 +19,7 @@ export interface TableListItem {
   percent: number | string;
   createdAtRange: number[];
   code: string;
-}
+};
 const tableListDataSource: TableListItem[] = [];
 
 for (let i = 0; i < 2; i += 1) {
