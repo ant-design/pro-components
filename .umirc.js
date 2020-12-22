@@ -19,7 +19,7 @@ const alias = pkgList.reduce((pre, pkg) => {
 console.log(`🌼 alias list \n${chalk.blue(Object.keys(alias).join('\n'))}`);
 
 const tailPkgList = pkgList
-  .map((path) => [join('packages', path, 'src')])
+  .map((path) => [join('packages', path, 'src'), join('packages', path, 'src', 'components')])
   .reduce((acc, val) => acc.concat(val), []);
 
 const isProduction = process.env.NODE_ENV === 'production';
@@ -74,7 +74,9 @@ export default {
   // antd: {
   //   dark: true,
   // },
-  resolve: { includes: [...tailPkgList, 'docs'] },
+  resolve: {
+    includes: [...tailPkgList, 'docs'],
+  },
   navs: [
     null,
     {
@@ -128,23 +130,23 @@ export default {
     '/components': [
       {
         title: '架构设计',
-        children: ['components'],
+        children: ['components.md'],
       },
       {
         title: '布局',
-        children: ['layout', 'card'],
+        children: ['layout', 'card', 'PageContainer/index.md'],
       },
       {
-        title: '表单',
+        title: '数据录入',
         children: ['form', 'field'],
       },
       {
-        title: '表格',
-        children: ['table', 'list'],
+        title: '数据展示',
+        children: ['table', 'list', 'EditableTable/index.md', 'description'],
       },
       {
         title: '通用',
-        children: ['description', 'skeleton'],
+        children: ['skeleton'],
       },
     ],
   },
