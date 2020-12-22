@@ -1,3 +1,10 @@
+---
+title: '表格工具栏'
+nav:
+  title: 组件
+  path: /components
+---
+
 用于自定义表格的工具栏部分
 
 #### 代码演示

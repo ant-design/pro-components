@@ -25,11 +25,11 @@ import TableDropdown from './component/Dropdown';
 import type { ListToolBarProps } from './component/ListToolBar';
 import ListToolBar from './component/ListToolBar';
 
-import Search from './Form';
+import Search from './component/Form';
 import defaultRenderText from './defaultRender';
 import type { ColumnsState } from './container';
 import type { ActionType, ProColumns, ProColumnType, ProTableProps, RequestData } from './typing';
-import EditableProTable from './EditableTable';
+import EditableProTable from './component/EditableTable';
 
 type ProColumnsValueType = ProFieldValueType;
 type TableRowEditable<T> = RowEditableConfig<T>;

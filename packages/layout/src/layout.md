@@ -206,10 +206,6 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 | onSettingChange | [`Settings`](#Settings) 发生更改事件 | `(settings: [`Settings`](#Settings) ) => void` | - |
 | hideHintAlert | 删除下方的提示信息 | `boolean` | - |
 
-### PageContainer
-
-<embed src="../src/PageContainer/index.md" />
-
 ### PageLoading
 
 一个简单的加载页面
