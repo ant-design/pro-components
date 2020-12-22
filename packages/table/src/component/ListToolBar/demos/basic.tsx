@@ -1,6 +1,9 @@
+/**
+ * title: 基本使用
+ */
 import React from 'react';
 import { Button } from 'antd';
-import { EllipsisOutlined } from '@ant-design/icons';
+import { EllipsisOutlined, SettingOutlined, FullscreenOutlined } from '@ant-design/icons';
 import { LightFilter, ProFormDatePicker } from '@ant-design/pro-form';
 import type { ProColumns } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
@@ -39,7 +42,6 @@ const columns: ProColumns<TableListItem>[] = [
   {
     title: '创建者',
     dataIndex: 'creator',
-    valueType: 'select',
     valueEnum: {
       all: { text: '全部' },
       付小小: { text: '付小小' },
@@ -77,6 +79,9 @@ export default () => {
         });
       }}
       toolbar={{
+        title: '这里是标题',
+        subTitle: '这里是子标题',
+        tooltip: '这是一个段描述',
         search: {
           onSearch: (value) => {
             alert(value);
@@ -89,7 +94,7 @@ export default () => {
         ),
         actions: [
           <Button
-            key="primary"
+            key="key"
             type="primary"
             onClick={() => {
               alert('add');
@@ -97,6 +102,16 @@ export default () => {
           >
             添加
           </Button>,
+        ],
+        settings: [
+          {
+            icon: <SettingOutlined />,
+            tooltip: '设置',
+          },
+          {
+            icon: <FullscreenOutlined />,
+            tooltip: '全屏',
+          },
         ],
       }}
       rowKey="key"

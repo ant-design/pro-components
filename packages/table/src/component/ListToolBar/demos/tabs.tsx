@@ -1,6 +1,9 @@
+/**
+ * title: 带标签
+ * desc: 标签需配合 `multipleLine` 为 `true` 时使用。
+ */
 import React from 'react';
-import { Button } from 'antd';
-import { EllipsisOutlined, SettingOutlined, FullscreenOutlined } from '@ant-design/icons';
+import { EllipsisOutlined } from '@ant-design/icons';
 import { LightFilter, ProFormDatePicker } from '@ant-design/pro-form';
 import type { ProColumns } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
@@ -39,6 +42,7 @@ const columns: ProColumns<TableListItem>[] = [
   {
     title: '创建者',
     dataIndex: 'creator',
+    valueType: 'select',
     valueEnum: {
       all: { text: '全部' },
       付小小: { text: '付小小' },
@@ -51,8 +55,8 @@ const columns: ProColumns<TableListItem>[] = [
   {
     title: '操作',
     key: 'option',
-    width: 120,
     valueType: 'option',
+    width: 120,
     render: () => [
       <a key="link">链路</a>,
       <a key="warn">报警</a>,
@@ -76,40 +80,25 @@ export default () => {
         });
       }}
       toolbar={{
-        title: '这里是标题',
-        subTitle: '这里是子标题',
-        tooltip: '这是一个段描述',
-        search: {
-          onSearch: (value) => {
-            alert(value);
-          },
-        },
+        title: '标签',
+        multipleLine: true,
         filter: (
           <LightFilter>
             <ProFormDatePicker name="startdate" label="响应日期" />
           </LightFilter>
         ),
-        actions: [
-          <Button
-            key="key"
-            type="primary"
-            onClick={() => {
-              alert('add');
-            }}
-          >
-            添加
-          </Button>,
-        ],
-        settings: [
-          {
-            icon: <SettingOutlined />,
-            tooltip: '设置',
-          },
-          {
-            icon: <FullscreenOutlined />,
-            tooltip: '全屏',
-          },
-        ],
+        tabs: {
+          items: [
+            {
+              key: 'tab1',
+              tab: '标签一',
+            },
+            {
+              key: 'tab2',
+              tab: '标签二',
+            },
+          ],
+        },
       }}
       rowKey="key"
       search={false}

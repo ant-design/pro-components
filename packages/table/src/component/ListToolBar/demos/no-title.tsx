@@ -1,3 +1,7 @@
+/**
+ * title: 无标题
+ * desc: 没有标题的情况下搜索框会前置。
+ */
 import React from 'react';
 import { Button } from 'antd';
 import { EllipsisOutlined } from '@ant-design/icons';
@@ -52,8 +56,8 @@ const columns: ProColumns<TableListItem>[] = [
   {
     title: '操作',
     key: 'option',
-    valueType: 'option',
     width: 120,
+    valueType: 'option',
     render: () => [
       <a key="link">链路</a>,
       <a key="warn">报警</a>,
@@ -98,22 +102,6 @@ export default () => {
             添加
           </Button>,
         ],
-        menu: {
-          type: 'dropdown',
-          items: [
-            {
-              label: '全部事项',
-              key: 'all',
-            },
-            {
-              label: '已办事项',
-              key: 'done',
-            },
-          ],
-          onChange: (activeKey) => {
-            console.log('activeKey', activeKey);
-          },
-        },
       }}
       rowKey="key"
       search={false}
