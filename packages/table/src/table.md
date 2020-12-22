@@ -23,7 +23,7 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 
 ### 查询表格
 
-<code src="./demos/single.tsx" background="#f5f5f5" height="500px"/>
+<code src="./demos/single.tsx" background="#f5f5f5" height="500px" />
 
 ### DataSource
 
@@ -555,4 +555,4 @@ Form 的列是根据 `valueType` 来生成不同的类型。
 
 ### 列表工具栏
 
-<embed src="../src/component/ListToolBar/index.md" />
+<embed src="../src/components/ListToolBar/index.md" />
