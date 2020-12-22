@@ -5,8 +5,8 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 
 import './index.less';
-import type { RouteContextType } from '../index';
-import { RouteContext } from '../index';
+import type { RouteContextType } from '../../index';
+import { RouteContext } from '../../index';
 
 export type FooterToolbarProps = {
   extra?: React.ReactNode;

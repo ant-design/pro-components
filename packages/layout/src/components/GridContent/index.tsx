@@ -5,8 +5,8 @@ import React, { useContext } from 'react';
 import classNames from 'classnames';
 import { ConfigProvider } from 'antd';
 
-import RouteContext from '../RouteContext';
-import type { PureSettings } from '../defaultSettings';
+import RouteContext from '../../RouteContext';
+import type { PureSettings } from '../../defaultSettings';
 
 type GridContentProps = {
   contentWidth?: PureSettings['contentWidth'];
