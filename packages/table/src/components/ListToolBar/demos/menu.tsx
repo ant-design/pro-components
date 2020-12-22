@@ -81,7 +81,7 @@ export default () => {
       }}
       toolbar={{
         search: {
-          onSearch: (value: string) => {
+          onSearch: (value) => {
             alert(value);
           },
         },
@@ -113,7 +113,7 @@ export default () => {
               key: 'done',
             },
           ],
-          onChange: (activeKey: string) => {
+          onChange: (activeKey) => {
             console.log('activeKey', activeKey);
           },
         },
