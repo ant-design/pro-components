@@ -6,7 +6,7 @@ import type { SiderProps } from 'antd/lib/layout/Sider';
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
 
 import './index.less';
-import type { WithFalse } from '../typings';
+import type { WithFalse } from '../../typings';
 import type { BaseMenuProps } from './BaseMenu';
 import BaseMenu from './BaseMenu';
 import MenuCounter from './Counter';
