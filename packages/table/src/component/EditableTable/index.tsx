@@ -4,8 +4,8 @@ import { Button } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { PlusOutlined } from '@ant-design/icons';
 import type { ButtonProps } from 'antd/lib/button';
-import ProTable from './Table';
-import type { ProTableProps, ActionType } from './typing';
+import ProTable from '../../Table';
+import type { ProTableProps, ActionType } from '../../typing';
 
 export type RecordCreatorProps<T> = {
   record: T;

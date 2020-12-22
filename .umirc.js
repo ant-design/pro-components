@@ -109,7 +109,7 @@ export default {
     ios: false,
   },
   theme: {
-    '@s-site-menu-width': '208px',
+    '@s-site-menu-width': '258px',
   },
   links:
     process.env.NODE_ENV === 'development'
@@ -124,4 +124,28 @@ export default {
           'https://gw.alipayobjects.com/os/lib/antd/4.9.3/dist/antd-with-locales.js',
         ]
       : [],
+  menus: {
+    '/components': [
+      {
+        title: '架构设计',
+        children: ['components'],
+      },
+      {
+        title: '布局',
+        children: ['layout', 'card'],
+      },
+      {
+        title: '表单',
+        children: ['form', 'field'],
+      },
+      {
+        title: '表格',
+        children: ['table', 'list'],
+      },
+      {
+        title: '通用',
+        children: ['description', 'skeleton'],
+      },
+    ],
+  },
 };

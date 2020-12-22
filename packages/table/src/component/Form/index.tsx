@@ -29,8 +29,8 @@ import {
   getFieldPropsOrFormItemProps,
 } from '@ant-design/pro-utils';
 
-import { genColumnKey } from '../utils';
-import type { ProColumns } from '../index';
+import { genColumnKey } from '../../utils';
+import type { ProColumns } from '../../index';
 import './index.less';
 
 export type SearchConfig = BaseQueryFilterProps & {

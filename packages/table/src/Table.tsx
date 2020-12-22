@@ -22,7 +22,7 @@ import useFetchData from './useFetchData';
 import Container from './container';
 import Toolbar from './component/ToolBar';
 import Alert from './component/Alert';
-import FormSearch from './Form';
+import FormSearch from './component/Form';
 import {
   genColumnKey,
   mergePagination,
