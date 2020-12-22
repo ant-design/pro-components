@@ -82,7 +82,7 @@ export default () => {
       }}
       toolbar={{
         search: {
-          onSearch: (value) => {
+          onSearch: (value: string) => {
             alert(value);
           },
         },

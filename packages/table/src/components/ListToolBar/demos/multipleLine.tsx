@@ -84,7 +84,7 @@ export default () => {
       toolbar={{
         multipleLine: true,
         search: {
-          onSearch: (value) => {
+          onSearch: (value: string) => {
             alert(value);
           },
         },
