@@ -22,7 +22,7 @@ import type {
 import useEditableArray from './useEditableArray';
 import type { UseEditableMapType, UseEditableMapUtilType } from './useEditableMap';
 import useEditableMap from './useEditableMap';
-import useMountState from './useMountState';
+import useMountMergeState from './useMountMergeState';
 
 /**
  * hooks
@@ -102,5 +102,5 @@ export {
   useDeepCompareEffect,
   usePrevious,
   useDebounceFn,
-  useMountState,
+  useMountMergeState,
 };

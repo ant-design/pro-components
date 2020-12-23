@@ -3,9 +3,11 @@ import React from 'react';
 import { ListToolBar } from '@ant-design/pro-table';
 import { SettingOutlined, FullscreenOutlined } from '@ant-design/icons';
 import { Button, Input } from 'antd';
+import { act } from 'react-dom/test-utils';
+import { waitForComponentToPaint } from '../util';
 
 describe('Table valueEnum', () => {
-  it('ListToolBar onAction', () => {
+  it('ListToolBar onAction', async () => {
     const onAction = jest.fn();
     const wrapper = mount(
       <ListToolBar
@@ -23,11 +25,14 @@ describe('Table valueEnum', () => {
         ]}
       />,
     );
-    wrapper.find('button.ant-btn-primary').simulate('click');
+    await waitForComponentToPaint(wrapper, 1000);
+    act(() => {
+      wrapper.find('button.ant-btn-primary').simulate('click');
+    });
     expect(onAction).toHaveBeenLastCalledWith('add');
   });
 
-  it('ListToolBar onSettingClick', () => {
+  it('ListToolBar onSettingClick', async () => {
     const onClick = jest.fn();
     const wrapper = mount(
       <ListToolBar
@@ -47,12 +52,15 @@ describe('Table valueEnum', () => {
         ]}
       />,
     );
-    wrapper.find('.anticon-setting').simulate('click');
+    await waitForComponentToPaint(wrapper, 1000);
+    act(() => {
+      wrapper.find('.anticon-setting').simulate('click');
+    });
     expect(onClick).toHaveBeenLastCalledWith('s-value');
     expect(wrapper.find('.ant-divider').length).toEqual(0);
   });
 
-  it('ListToolBar search left', () => {
+  it('ListToolBar search left', async () => {
     const onSearch = jest.fn();
     const wrapper = mount(
       <ListToolBar
@@ -62,10 +70,17 @@ describe('Table valueEnum', () => {
         }}
       />,
     );
+    await waitForComponentToPaint(wrapper, 1000);
     const inputEle = wrapper.find('input');
-    inputEle.simulate('focus');
-    inputEle.simulate('change', { target: { value: 'input 值' } });
-    inputEle.simulate('keyDown', { keyCode: 13 });
+    act(() => {
+      inputEle.simulate('focus');
+    });
+    act(() => {
+      inputEle.simulate('change', { target: { value: 'input 值' } });
+    });
+    act(() => {
+      inputEle.simulate('keyDown', { keyCode: 13 });
+    });
     expect(wrapper.find('.ant-pro-table-list-toolbar-left input').prop('value')).toEqual(
       'input 值',
     );
@@ -73,7 +88,7 @@ describe('Table valueEnum', () => {
     expect(wrapper.find('input').prop('placeholder')).toEqual('自定义 placeholder');
   });
 
-  it('ListToolBar search right and custom input search', () => {
+  it('ListToolBar search right and custom input search', async () => {
     const onSearch = jest.fn();
     const wrapper = mount(
       <ListToolBar
@@ -81,10 +96,17 @@ describe('Table valueEnum', () => {
         search={<Input.Search placeholder="自定义 placeholder" onSearch={onSearch} />}
       />,
     );
+    await waitForComponentToPaint(wrapper, 1000);
     const inputEle = wrapper.find('input');
-    inputEle.simulate('focus');
-    inputEle.simulate('change', { target: { value: 'input 值' } });
-    inputEle.simulate('keyDown', { keyCode: 13 });
+    act(() => {
+      inputEle.simulate('focus');
+    });
+    act(() => {
+      inputEle.simulate('change', { target: { value: 'input 值' } });
+    });
+    act(() => {
+      inputEle.simulate('keyDown', { keyCode: 13 });
+    });
     expect(wrapper.find('.ant-pro-table-list-toolbar-right input').prop('value')).toEqual(
       'input 值',
     );
@@ -92,7 +114,7 @@ describe('Table valueEnum', () => {
     expect(wrapper.find('input').prop('placeholder')).toEqual('自定义 placeholder');
   });
 
-  it('ListToolBar dropdown menu', () => {
+  it('ListToolBar dropdown menu', async () => {
     const onChange = jest.fn();
     const wrapper = mount(
       <ListToolBar
@@ -112,14 +134,16 @@ describe('Table valueEnum', () => {
         }}
       />,
     );
-
+    await waitForComponentToPaint(wrapper, 1000);
     wrapper.find('.ant-pro-table-list-toolbar-dropdownmenu-label').at(0).simulate('click');
-    wrapper.find('.ant-dropdown-menu-item').at(1).simulate('click');
+    act(() => {
+      wrapper.find('.ant-dropdown-menu-item').at(1).simulate('click');
+    });
 
     expect(onChange).toHaveBeenCalledWith('done', undefined);
   });
 
-  it('ListToolBar tab menu', () => {
+  it('ListToolBar tab menu', async () => {
     const onChange = jest.fn();
     const wrapper = mount(
       <ListToolBar
@@ -139,13 +163,15 @@ describe('Table valueEnum', () => {
         }}
       />,
     );
-
-    wrapper.find('.ant-tabs-tab').at(1).simulate('click');
+    await waitForComponentToPaint(wrapper, 1000);
+    act(() => {
+      wrapper.find('.ant-tabs-tab').at(1).simulate('click');
+    });
 
     expect(onChange).toHaveBeenCalledWith('done', undefined);
   });
 
-  it('ListToolBar inline menu', () => {
+  it('ListToolBar inline menu', async () => {
     const onChange = jest.fn();
     const wrapper = mount(
       <ListToolBar
@@ -170,11 +196,14 @@ describe('Table valueEnum', () => {
         }}
       />,
     );
-    wrapper.find('.ant-pro-table-list-toolbar-inline-menu-item').at(1).simulate('click');
+    await waitForComponentToPaint(wrapper, 1000);
+    act(() => {
+      wrapper.find('.ant-pro-table-list-toolbar-inline-menu-item').at(1).simulate('click');
+    });
     expect(onChange).toHaveBeenCalledWith('done', undefined);
   });
 
-  it('ListToolBar render no menu with item empty', () => {
+  it('ListToolBar render no menu with item empty', async () => {
     const wrapper = mount(
       <ListToolBar
         menu={{
@@ -183,6 +212,7 @@ describe('Table valueEnum', () => {
         }}
       />,
     );
+    await waitForComponentToPaint(wrapper, 1000);
     expect(wrapper.find('.ant-pro-table-list-toolbar-menu').length).toBe(0);
   });
 });
