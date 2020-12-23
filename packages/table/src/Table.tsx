@@ -16,7 +16,6 @@ import { stringify } from 'use-json-comparison';
 import type { TablePaginationConfig } from 'antd/lib/table';
 import type { TableCurrentDataSource, SorterResult, SortOrder } from 'antd/lib/table/interface';
 import { useDeepCompareEffect, omitUndefined, useEditableArray } from '@ant-design/pro-utils';
-import omit from 'omit.js';
 
 import useFetchData from './useFetchData';
 import Container from './container';
@@ -88,7 +87,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     search,
     onLoadingChange,
     rowSelection: propsRowSelection = false,
-    beforeSearchSubmit = (searchParams: Partial<U>) => searchParams,
+    beforeSearchSubmit = (searchParams: Partial<U>, pagination: TablePaginationConfig) => searchParams,
     tableAlertRender,
     defaultClassName,
     formRef,
@@ -329,14 +328,11 @@ const ProTable = <T extends {}, U extends ParamsType>(
 
   const onSubmit = (value: U, firstLoad: boolean) => {
     if (type !== 'form') {
-      const pageInfo = pagination ? {} : (pagination as TablePaginationConfig);
       const submitParams = {
         ...value,
         _timestamp: Date.now(),
-        ...pageInfo,
       };
-      const omitParams = omit(beforeSearchSubmit(submitParams), Object.keys(pageInfo));
-      setFormSearch(omitParams);
+      setFormSearch(beforeSearchSubmit(submitParams, pagination) || submitParams);
       if (!firstLoad) {
         // back first page
         action.resetPageIndex();
@@ -350,14 +346,8 @@ const ProTable = <T extends {}, U extends ParamsType>(
   };
 
   const onReset = (value: Partial<U>) => {
-    const pageInfo = pagination === false ? {} : pagination;
-
-    setFormSearch(
-      beforeSearchSubmit({
-        ...value,
-        ...pageInfo,
-      }),
-    );
+    const searchParams = { ...value }
+    setFormSearch(beforeSearchSubmit(searchParams, pagination) || searchParams);
     // back first page
     action.resetPageIndex();
     props.onReset?.();
