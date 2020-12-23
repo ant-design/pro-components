@@ -1,21 +1,22 @@
 import React, { useContext } from 'react';
 import { Tooltip, Space, Input, ConfigProvider, Tabs } from 'antd';
 import { useIntl } from '@ant-design/pro-provider';
-import { TooltipProps } from 'antd/lib/tooltip';
-import { TabPaneProps } from 'antd/lib/tabs';
+import type { TooltipProps } from 'antd/lib/tooltip';
+import type { TabPaneProps } from 'antd/lib/tabs';
 import classNames from 'classnames';
-import { SearchProps } from 'antd/es/input';
+import type { SearchProps } from 'antd/es/input';
 import { LabelIconTip } from '@ant-design/pro-utils';
-import HeaderMenu, { ListToolBarHeaderMenuProps } from './HeaderMenu';
+import type { ListToolBarHeaderMenuProps } from './HeaderMenu';
+import HeaderMenu from './HeaderMenu';
 
 import './index.less';
 
-export interface ListToolBarSetting {
+export type ListToolBarSetting = {
   icon: React.ReactNode;
   tooltip?: string;
   key?: string;
   onClick?: (key?: string) => void;
-}
+};
 
 /**
  * antd 默认直接导出了 rc 组件中的 Tab.Pane 组件。
@@ -24,18 +25,18 @@ type TabPane = TabPaneProps & {
   key?: string;
 };
 
-export interface ListToolBarTabs {
+export type ListToolBarTabs = {
   activeKey?: string;
   onChange?: (activeKey: string) => void;
   items?: TabPane[];
-}
+};
 
 export type ListToolBarMenu = ListToolBarHeaderMenuProps;
 
 type SearchPropType = SearchProps | React.ReactNode | boolean;
 type SettingPropType = React.ReactNode | ListToolBarSetting;
 
-export interface ListToolBarProps {
+export type ListToolBarProps = {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
@@ -87,7 +88,7 @@ export interface ListToolBarProps {
    * 菜单配置
    */
   menu?: ListToolBarMenu;
-}
+};
 
 /**
  * 获取配置区域 DOM Item

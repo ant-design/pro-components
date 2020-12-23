@@ -11,9 +11,9 @@ const locales = {
   'it-IT': itITLocal,
 };
 
-interface GLocaleWindow {
+type GLocaleWindow = {
   g_locale: keyof typeof locales;
-}
+};
 
 export type LocaleType = keyof typeof locales;
 
@@ -29,9 +29,7 @@ const getLanguage = (): string => {
 
 export { getLanguage };
 
-export default (): {
-  [key: string]: string;
-} => {
+export default (): Record<string, string> => {
   const gLocale = getLanguage();
   if (locales[gLocale]) {
     return locales[gLocale];

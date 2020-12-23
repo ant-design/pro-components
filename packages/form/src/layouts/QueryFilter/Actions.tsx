@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import { Space, ConfigProvider } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
-import { useIntl, IntlType } from '@ant-design/pro-provider';
+import type { IntlType } from '@ant-design/pro-provider';
+import { useIntl } from '@ant-design/pro-provider';
 
-export interface ActionsProps {
+export type ActionsProps = {
   submitter: React.ReactNode;
   /**
    * 是否收起
@@ -32,7 +33,7 @@ export interface ActionsProps {
         intl: IntlType,
       ) => React.ReactNode)
     | false;
-}
+};
 
 const defaultCollapseRender: ActionsProps['collapseRender'] = (collapsed, _, intl) => {
   if (collapsed) {

@@ -1,9 +1,9 @@
+import type { IntlType } from '@ant-design/pro-provider';
 import {
   ConfigProviderWrap,
   ConfigProvider,
   ConfigConsumer,
   createIntl,
-  IntlType,
   arEGIntl,
   zhCNIntl,
   enUSIntl,
@@ -17,17 +17,18 @@ import {
   frFRIntl,
   ptBRIntl,
 } from '@ant-design/pro-provider';
-import { ProFieldValueType, RowEditableConfig } from '@ant-design/pro-utils';
+import type { ProFieldValueType, RowEditableConfig } from '@ant-design/pro-utils';
 
 import { FieldStatus, FieldIndexColumn } from '@ant-design/pro-field';
 import ProTable from './Table';
 import TableDropdown from './component/Dropdown';
-import ListToolBar, { ListToolBarProps } from './component/ListToolBar';
+import type { ListToolBarProps } from './component/ListToolBar';
+import ListToolBar from './component/ListToolBar';
 
 import Search from './Form';
 import defaultRenderText from './defaultRender';
-import { ColumnsState } from './container';
-import { ActionType, ProColumns, ProColumnType, ProTableProps, RequestData } from './typing';
+import type { ColumnsState } from './container';
+import type { ActionType, ProColumns, ProColumnType, ProTableProps, RequestData } from './typing';
 import EditableProTable from './EditableTable';
 
 type ProColumnsValueType = ProFieldValueType;

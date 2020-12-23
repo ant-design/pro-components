@@ -1,9 +1,10 @@
 import { Popconfirm, Space, Menu, Dropdown } from 'antd';
 import React from 'react';
-import ProTable, { ProColumns } from '@ant-design/pro-table';
+import type { ProColumns } from '@ant-design/pro-table';
+import ProTable from '@ant-design/pro-table';
 import { DownOutlined } from '@ant-design/icons';
 
-export interface Member {
+export type Member = {
   avatar: string;
   realName: string;
   nickName: string;
@@ -12,14 +13,15 @@ export interface Member {
   phone: string;
   role: RoleType;
   permission?: string[];
-}
+};
 
-export interface RoleMapType {
-  [propName: string]: {
+export type RoleMapType = Record<
+  string,
+  {
     name: string;
     desc: string;
-  };
-}
+  }
+>;
 
 export type RoleType = 'admin' | 'operator';
 

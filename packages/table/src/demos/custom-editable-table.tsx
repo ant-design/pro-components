@@ -1,10 +1,11 @@
 import React, { useRef, useState } from 'react';
-import { EditableProTable, ProColumns } from '@ant-design/pro-table';
+import type { ProColumns } from '@ant-design/pro-table';
+import { EditableProTable } from '@ant-design/pro-table';
 import ProField from '@ant-design/pro-field';
 import ProCard from '@ant-design/pro-card';
 import { Button, Input, message, Space, Tag } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
-import { ActionType } from '../typing';
+import type { ActionType } from '../typing';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -68,7 +69,7 @@ const TagList: React.FC<{
   );
 };
 
-interface DataSourceType {
+type DataSourceType = {
   id: React.Key;
   title?: string;
   labels?: {
@@ -78,7 +79,7 @@ interface DataSourceType {
   state?: string;
   created_at?: string;
   children?: DataSourceType[];
-}
+};
 
 const defaultData: DataSourceType[] = [
   {

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Button, Tooltip } from 'antd';
 import { DownOutlined, QuestionCircleOutlined } from '@ant-design/icons';
-import ProTable, { ProColumns, TableDropdown } from '@ant-design/pro-table';
+import type { ProColumns } from '@ant-design/pro-table';
+import ProTable, { TableDropdown } from '@ant-design/pro-table';
 
 const valueEnum = {
   0: 'close',
@@ -10,7 +11,7 @@ const valueEnum = {
   3: 'error',
 };
 
-export interface TableListItem {
+export type TableListItem = {
   key: number;
   name: string;
   containers: number;
@@ -18,7 +19,7 @@ export interface TableListItem {
   status: string;
   createdAt: number;
   memo: string;
-}
+};
 const tableListDataSource: TableListItem[] = [];
 
 const creators = ['付小小', '曲丽丽', '林东东', '陈帅帅', '兼某某'];

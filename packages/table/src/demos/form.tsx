@@ -1,12 +1,13 @@
 import React, { useRef, useState } from 'react';
 import { Button } from 'antd';
-import ProTable, { ProColumns } from '@ant-design/pro-table';
-import { FormInstance } from 'antd/lib/form';
+import type { ProColumns } from '@ant-design/pro-table';
+import ProTable from '@ant-design/pro-table';
+import type { FormInstance } from 'antd/lib/form';
 
-export interface TableListItem {
+export type TableListItem = {
   key: number;
   name: string;
-}
+};
 
 const columns: ProColumns<TableListItem>[] = [
   {

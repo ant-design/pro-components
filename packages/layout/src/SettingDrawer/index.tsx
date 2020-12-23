@@ -14,7 +14,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'omit.js';
-import defaultSettings, { ProSettings } from '../defaultSettings';
+import type { ProSettings } from '../defaultSettings';
+import defaultSettings from '../defaultSettings';
 
 import BlockCheckbox from './BlockCheckbox';
 import ThemeColor from './ThemeColor';
@@ -23,10 +24,10 @@ import { genStringToTheme } from '../utils/utils';
 import LayoutSetting, { renderLayoutSettingItem } from './LayoutChange';
 import RegionalSetting from './RegionalChange';
 
-interface BodyProps {
+type BodyProps = {
   title: string;
   prefixCls: string;
-}
+};
 
 type MergerSettingsType<T> = Partial<T> & {
   primaryColor?: string;
@@ -40,14 +41,14 @@ const Body: React.FC<BodyProps> = ({ children, prefixCls, title }) => (
   </div>
 );
 
-export interface SettingItemProps {
+export type SettingItemProps = {
   title: React.ReactNode;
   action: React.ReactElement;
   disabled?: boolean;
   disabledReason?: React.ReactNode;
-}
+};
 
-export interface SettingDrawerProps {
+export type SettingDrawerProps = {
   settings?: MergerSettingsType<ProSettings>;
   collapse?: boolean;
   getContainer?: any;
@@ -59,12 +60,12 @@ export interface SettingDrawerProps {
   hideCopyButton?: boolean;
   onCollapseChange?: (collapse: boolean) => void;
   onSettingChange?: (settings: MergerSettingsType<ProSettings>) => void;
-}
+};
 
-export interface SettingDrawerState extends MergerSettingsType<ProSettings> {
+export type SettingDrawerState = {
   collapse?: boolean;
   language?: string;
-}
+} & MergerSettingsType<ProSettings>;
 
 let oldSetting: MergerSettingsType<ProSettings> = {};
 

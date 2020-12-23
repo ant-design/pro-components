@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { EditableProTable, ProColumns } from '@ant-design/pro-table';
+import type { ProColumns } from '@ant-design/pro-table';
+import { EditableProTable } from '@ant-design/pro-table';
 import ProField from '@ant-design/pro-field';
 import { ProFormRadio } from '@ant-design/pro-form';
 import ProCard from '@ant-design/pro-card';
@@ -12,14 +13,14 @@ const waitTime = (time: number = 100) => {
   });
 };
 
-interface DataSourceType {
+type DataSourceType = {
   id: React.Key;
   title?: string;
   decs?: string;
   state?: string;
   created_at?: string;
   children?: DataSourceType[];
-}
+};
 
 const defaultData: DataSourceType[] = [
   {

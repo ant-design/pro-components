@@ -1,6 +1,6 @@
 ﻿import React, { useState } from 'react';
 import { Form, Popover } from 'antd';
-import { FormItemProps } from 'antd/lib/form';
+import type { FormItemProps } from 'antd/lib/form';
 
 const InlineErrorFormItem: React.FC<FormItemProps> = (props) => {
   const [visible, setVisible] = useState<boolean>(false);

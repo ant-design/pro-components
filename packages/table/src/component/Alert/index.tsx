@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import { Alert, Space, ConfigProvider } from 'antd';
 import './index.less';
-import { useIntl, IntlType } from '@ant-design/pro-provider';
+import type { IntlType } from '@ant-design/pro-provider';
+import { useIntl } from '@ant-design/pro-provider';
 
 export type AlertRenderType<T> =
   | ((props: {
@@ -12,13 +13,13 @@ export type AlertRenderType<T> =
     }) => React.ReactNode)
   | false;
 
-export interface TableAlertProps<T> {
+export type TableAlertProps<T> = {
   selectedRowKeys: (number | string)[];
   selectedRows: T[];
   alertInfoRender?: AlertRenderType<T>;
   onCleanSelected: () => void;
   alertOptionRender?: AlertRenderType<T>;
-}
+};
 
 const defaultAlertOptionRender = (props: { intl: IntlType; onCleanSelected: () => void }) => {
   const { intl, onCleanSelected } = props;

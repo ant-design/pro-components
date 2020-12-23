@@ -1,30 +1,32 @@
 import React, { useEffect } from 'react';
 import { ReloadOutlined, SettingOutlined } from '@ant-design/icons';
 import { Tooltip } from 'antd';
-import { SearchProps } from 'antd/lib/input';
-import { ColumnType } from 'antd/lib/table';
-import { useIntl, IntlType } from '@ant-design/pro-provider';
-import ListToolBar, { ListToolBarProps } from '../ListToolBar';
+import type { SearchProps } from 'antd/lib/input';
+import type { ColumnType } from 'antd/lib/table';
+import type { IntlType } from '@ant-design/pro-provider';
+import { useIntl } from '@ant-design/pro-provider';
+import type { ListToolBarProps } from '../ListToolBar';
+import ListToolBar from '../ListToolBar';
 import ColumnSetting from '../ColumnSetting';
 import './index.less';
 import FullScreenIcon from './FullscreenIcon';
 import DensityIcon from './DensityIcon';
 import Container from '../../container';
-import { ActionType } from '../../typing';
+import type { ActionType } from '../../typing';
 
-export interface OptionConfig {
+export type OptionConfig = {
   density?: boolean;
   fullScreen?: OptionsType;
   reload?: OptionsType;
   setting?: boolean;
   search?: (SearchProps & { name?: string }) | boolean;
-}
+};
 
 export type OptionsType =
   | ((e: React.MouseEvent<HTMLSpanElement>, action?: ActionType) => void)
   | boolean;
 
-export interface ToolBarProps<T = unknown> {
+export type ToolBarProps<T = unknown> = {
   headerTitle?: React.ReactNode;
   tooltip?: string;
   /**
@@ -47,7 +49,7 @@ export interface ToolBarProps<T = unknown> {
   onSearch?: (keyWords: string) => void;
   columns: ColumnType<T>[];
   editableUtils: any;
-}
+};
 
 function getButtonText({
   intl,

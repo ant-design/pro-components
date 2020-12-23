@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { DownOutlined, CloseOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
-import { SizeType } from 'antd/lib/config-provider/SizeContext';
+import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import { ConfigProvider } from 'antd';
 import { useIntl } from '@ant-design/pro-provider';
 import './index.less';
 
-export interface FieldLabelProps {
+export type FieldLabelProps = {
   label?: React.ReactNode;
   value?: any;
   disabled?: boolean;
@@ -20,7 +20,7 @@ export interface FieldLabelProps {
   style?: React.CSSProperties;
   bordered?: boolean;
   allowClear?: boolean;
-}
+};
 
 const FieldLabel: React.FC<FieldLabelProps> = (props) => {
   const {

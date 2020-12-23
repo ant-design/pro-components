@@ -1,9 +1,10 @@
-import React, { Fragment, ReactNode, useMemo } from 'react';
+import type { ReactNode } from 'react';
+import React, { Fragment, useMemo } from 'react';
 import { InputNumber } from 'antd';
 import toNumber from 'lodash.tonumber';
 
 import { getColorByRealValue, getSymbolByRealValue, getRealTextWithPrecision } from './util';
-import { ProFieldFC } from '../../index';
+import type { ProFieldFC } from '../../index';
 
 export type PercentPropInt = {
   prefix?: ReactNode;

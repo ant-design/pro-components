@@ -10,18 +10,19 @@ import { Checkbox, Popover, ConfigProvider, Tooltip } from 'antd';
 import { DndProvider } from 'react-dnd';
 import classNames from 'classnames';
 import { HTML5Backend } from 'react-dnd-html5-backend';
-import { ColumnType } from 'antd/lib/table';
+import type { ColumnType } from 'antd/lib/table';
 
-import Container, { ColumnsState } from '../../container';
+import type { ColumnsState } from '../../container';
+import Container from '../../container';
 import DnDItem from './DndItem';
 import './index.less';
 import DragIcon from './DragIcon';
 import { genColumnKey } from '../../utils';
-import { ProColumns } from '../../typing';
+import type { ProColumns } from '../../typing';
 
-interface ColumnSettingProps<T = any> {
+type ColumnSettingProps<T = any> = {
   columns: ColumnType<T>[];
-}
+};
 
 const ToolTipIcon: React.FC<{
   title: string;
@@ -55,11 +56,9 @@ const CheckboxListItem: React.FC<{
   columnKey: string | number;
   className?: string;
   title?: React.ReactNode;
-  columnsMap: {
-    [key: string]: ColumnsState;
-  };
+  columnsMap: Record<string, ColumnsState>;
   fixed?: boolean | 'left' | 'right';
-  setColumnsMap: (map: { [key: string]: ColumnsState }) => void;
+  setColumnsMap: (map: Record<string, ColumnsState>) => void;
 }> = ({ columnKey, className, columnsMap, title, setColumnsMap, fixed }) => {
   const intl = useIntl();
   const config = columnsMap[columnKey || 'null'] || { show: true };

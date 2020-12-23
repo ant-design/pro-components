@@ -1,15 +1,12 @@
 import React, { useRef, useState } from 'react';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
-import {
-  SiderMenuProps,
-  defaultRenderLogoAndTitle,
-  PrivateSiderMenuProps,
-} from '../SiderMenu/SiderMenu';
+import type { SiderMenuProps, PrivateSiderMenuProps } from '../SiderMenu/SiderMenu';
+import { defaultRenderLogoAndTitle } from '../SiderMenu/SiderMenu';
 import './index.less';
 
 import BaseMenu from '../SiderMenu/BaseMenu';
-import { GlobalHeaderProps } from '../GlobalHeader';
+import type { GlobalHeaderProps } from '../GlobalHeader';
 
 export type TopNavHeaderProps = SiderMenuProps & GlobalHeaderProps & PrivateSiderMenuProps & {};
 

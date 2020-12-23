@@ -1,28 +1,27 @@
 import React, { useEffect } from 'react';
 import { Space, Tooltip, Form, Typography } from 'antd';
 
-import { ColumnsType, TablePaginationConfig } from 'antd/lib/table';
-import {
-  isNil,
-  LabelIconTip,
-  omitUndefinedAndEmptyArr,
+import type { ColumnsType, TablePaginationConfig } from 'antd/lib/table';
+import type {
   ProFieldValueType,
   ProSchemaComponentTypes,
   ProTableEditableFnType,
   UseEditableUtilType,
 } from '@ant-design/pro-utils';
-import { ProFieldEmptyText, proFieldParsingValueEnumToArray } from '@ant-design/pro-field';
+import { isNil, LabelIconTip, omitUndefinedAndEmptyArr } from '@ant-design/pro-utils';
+import type { ProFieldEmptyText } from '@ant-design/pro-field';
+import { proFieldParsingValueEnumToArray } from '@ant-design/pro-field';
 import get from 'rc-util/lib/utils/get';
-import { IntlType } from '@ant-design/pro-provider';
+import type { IntlType } from '@ant-design/pro-provider';
 
-import {
+import type {
   ActionType,
   ProColumnGroupType,
   ProColumns,
   RequestData,
   UseFetchDataAction,
 } from './typing';
-import { ColumnsState, useCounter } from './container';
+import type { ColumnsState, useCounter } from './container';
 import defaultRenderText from './defaultRender';
 
 /**
@@ -193,10 +192,7 @@ export function postDataPipeline<T>(data: T, pipeline: PostDataType<T>[]) {
   }, data);
 }
 
-export const tableColumnSort = (columnsMap: { [key: string]: ColumnsState }) => (
-  a: any,
-  b: any,
-) => {
+export const tableColumnSort = (columnsMap: Record<string, ColumnsState>) => (a: any, b: any) => {
   const { fixed: aFixed, index: aIndex } = a;
   const { fixed: bFixed, index: bIndex } = b;
   if ((aFixed === 'left' && bFixed !== 'left') || (bFixed === 'right' && aFixed !== 'right')) {
@@ -236,7 +232,7 @@ export const defaultOnFilter = (value: string, record: any, dataIndex: string | 
 /**
  * 转化列的定义
  */
-interface ColumnRenderInterface<T> {
+type ColumnRenderInterface<T> = {
   columnProps: ProColumns<T>;
   text: any;
   rowData: T;
@@ -245,7 +241,7 @@ interface ColumnRenderInterface<T> {
   type: ProSchemaComponentTypes;
   counter: ReturnType<typeof useCounter>;
   editableUtils: UseEditableUtilType;
-}
+};
 
 const isMergeCell = (
   dom: any, // 如果是合并单元格的，直接返回对象
@@ -366,9 +362,7 @@ export function columnRender<T>({
  */
 export function genColumnList<T>(props: {
   columns: ProColumns<T>[];
-  map: {
-    [key: string]: ColumnsState;
-  };
+  map: Record<string, ColumnsState>;
   counter: ReturnType<typeof useCounter>;
   columnEmptyText: ProFieldEmptyText;
   type: ProSchemaComponentTypes;
@@ -430,9 +424,7 @@ export function genColumnList<T>(props: {
       };
       return omitUndefinedAndEmptyArr(tempColumns);
     })
-    .filter((item) => !item.hideInTable) as unknown) as Array<
-    ColumnsType<T>[number] & {
-      index?: number;
-    }
-  >;
+    .filter((item) => !item.hideInTable) as unknown) as (ColumnsType<T>[number] & {
+    index?: number;
+  })[];
 }

@@ -1,10 +1,8 @@
-import { SearchTransformKeyFn } from '../typing';
+import type { SearchTransformKeyFn } from '../typing';
 
 const transformKeySubmitValue = <T = any>(
   values: T,
-  dataFormatMap: {
-    [key: string]: SearchTransformKeyFn | undefined;
-  },
+  dataFormatMap: Record<string, SearchTransformKeyFn | undefined>,
 ) => {
   let result = {} as T;
   Object.keys(values).forEach((key) => {

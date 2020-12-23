@@ -1,23 +1,20 @@
-import React, { ReactElement, useRef, useState } from 'react';
+import type { ReactElement } from 'react';
+import React, { useRef, useState } from 'react';
 import { Form } from 'antd';
-import { FormProps, FormInstance } from 'antd/lib/form/Form';
-import { FormItemProps } from 'antd/lib/form';
+import type { FormProps, FormInstance } from 'antd/lib/form/Form';
+import type { FormItemProps } from 'antd/lib/form';
 import { ConfigProviderWrap } from '@ant-design/pro-provider';
-import {
-  conversionSubmitValue,
-  ProFieldValueType,
-  SearchTransformKeyFn,
-  transformKeySubmitValue,
-} from '@ant-design/pro-utils';
+import type { ProFieldValueType, SearchTransformKeyFn } from '@ant-design/pro-utils';
+import { conversionSubmitValue, transformKeySubmitValue } from '@ant-design/pro-utils';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
-import { Store } from 'antd/lib/form/interface';
 import namePathSet from 'rc-util/lib/utils/set';
-import { ButtonProps } from 'antd/lib/button';
+import type { ButtonProps } from 'antd/lib/button';
 import FieldContext from '../FieldContext';
-import Submitter, { SubmitterProps } from '../components/Submitter';
-import { GroupProps, FieldProps } from '../interface';
+import type { SubmitterProps } from '../components/Submitter';
+import Submitter from '../components/Submitter';
+import type { GroupProps, FieldProps } from '../interface';
 
-export interface CommonFormProps {
+export type CommonFormProps = {
   submitter?:
     | SubmitterProps<{
         form?: FormInstance<any>;
@@ -28,15 +25,15 @@ export interface CommonFormProps {
    * @name 表单结束后调用
    * @description  支持异步操作，更加方便
    */
-  onFinish?: (formData: Store) => Promise<boolean | void>;
+  onFinish?: (formData: Record<string, any>) => Promise<boolean | void>;
 
   /**
    * @name 获取真正的可以获得值的 from
    */
   formRef?: React.MutableRefObject<FormInstance | undefined>;
-}
+};
 
-export interface BaseFormProps extends FormProps, CommonFormProps {
+export type BaseFormProps = {
   contentRender?: (
     items: React.ReactNode[],
     submitter: ReactElement<SubmitterProps> | undefined,
@@ -46,12 +43,8 @@ export interface BaseFormProps extends FormProps, CommonFormProps {
   dateFormatter?: 'number' | 'string' | false;
   formItemProps?: FormItemProps;
   groupProps?: GroupProps;
-  /**
-   * @name 表单结束后调用
-   * @description  支持异步操作，更加方便
-   */
-  onFinish?: (formData: Store) => Promise<boolean | void>;
-}
+} & Omit<FormProps, 'onFinish'> &
+  CommonFormProps;
 
 const BaseForm: React.FC<BaseFormProps> = (props) => {
   const {
@@ -69,15 +62,11 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
 
   const [form] = Form.useForm();
   const formRef = useRef<FormInstance>(userForm || form);
-  const fieldsValueType = useRef<{
-    [key: string]: ProFieldValueType;
-  }>({});
+  const fieldsValueType = useRef<Record<string, ProFieldValueType>>({});
   /**
    * 保存 transformKeyRef，用于对表单key transform
    */
-  const transformKeyRef = useRef<{
-    [key: string]: SearchTransformKeyFn | undefined;
-  }>({});
+  const transformKeyRef = useRef<Record<string, SearchTransformKeyFn | undefined>>({});
 
   const [loading, setLoading] = useState<ButtonProps['loading']>(false);
 

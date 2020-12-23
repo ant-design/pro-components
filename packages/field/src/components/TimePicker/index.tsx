@@ -3,7 +3,7 @@ import React, { useState, useContext } from 'react';
 import moment from 'moment';
 import { FieldLabel, parseValueToMoment } from '@ant-design/pro-utils';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
-import { ProFieldFC } from '../../index';
+import type { ProFieldFC } from '../../index';
 
 /**
  * 日期选择组件

@@ -1,12 +1,12 @@
 import React from 'react';
 
 import ProField from '@ant-design/pro-field';
-import { InputProps } from 'antd/lib/input';
-import { SelectProps } from 'antd/lib/select';
-import { ProSchema } from '@ant-design/pro-utils';
+import type { InputProps } from 'antd/lib/input';
+import type { SelectProps } from 'antd/lib/select';
+import type { ProSchema } from '@ant-design/pro-utils';
 
 import createField from '../../BaseForm/createField';
-import { ProFormItemProps } from '../../interface';
+import type { ProFormItemProps } from '../../interface';
 
 export type ProFormFieldProps = ProSchema<
   string,

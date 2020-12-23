@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.2.4...@ant-design/pro-provider@1.2.5) (2020-12-21)
+
+### Bug Fixes
+
+- **locale:** correct spelling "js-JP" to "ja-JP" ([#1331](https://github.com/ant-design/pro-components/issues/1331)) ([ec8a23e](https://github.com/ant-design/pro-components/commit/ec8a23e7a75947aac49f82396eb4299063d3369b))
+
 ## [1.2.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.2.3...@ant-design/pro-provider@1.2.4) (2020-12-14)
 
 **Note:** Version bump only for package @ant-design/pro-provider

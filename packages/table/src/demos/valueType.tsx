@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
-import ProTable, { ProColumns } from '@ant-design/pro-table';
+import type { ProColumns } from '@ant-design/pro-table';
+import ProTable from '@ant-design/pro-table';
 import { Space } from 'antd';
 
 const valueEnum = {
@@ -10,7 +11,7 @@ const valueEnum = {
   3: 'error',
 };
 
-export interface TableListItem {
+export type TableListItem = {
   key: number;
   name: string;
   status: string | number;
@@ -22,7 +23,7 @@ export interface TableListItem {
   createdAtRange: number[];
   code: string;
   avatar: string;
-}
+};
 const tableListDataSource: TableListItem[] = [];
 
 for (let i = 0; i < 2; i += 1) {

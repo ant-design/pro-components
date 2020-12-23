@@ -1,11 +1,12 @@
-import React, { PropsWithChildren, ReactNode, useContext } from 'react';
+import type { PropsWithChildren, ReactNode } from 'react';
+import React, { useContext } from 'react';
 import { Grid, Tabs, ConfigProvider } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { LabelIconTip } from '@ant-design/pro-utils';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import { TabsProps } from 'antd/lib/tabs';
+import type { TabsProps } from 'antd/lib/tabs';
 import CardLoading from './components/CardLoading';
 import Divider from './components/Divider';
 import TabPane from './components/TabPane';
@@ -18,9 +19,9 @@ type ColSpanType = number | string;
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type Gutter = number | Partial<Record<Breakpoint, number>>;
 
-export interface ProCardTabsProps extends TabsProps {}
+export type ProCardTabsProps = {} & TabsProps;
 
-export interface ProCardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
+export type ProCardProps = {
   /**
    * 标题样式
    */
@@ -122,14 +123,14 @@ export interface ProCardProps extends Omit<React.HTMLAttributes<HTMLDivElement>,
    * 前缀
    */
   prefixCls?: string;
-}
+} & Omit<React.HTMLAttributes<HTMLDivElement>, 'title'>;
 
-interface ProCardType extends React.ForwardRefExoticComponent<ProCardProps> {
+type ProCardType = {
   isProCard: boolean;
   TabPane: typeof TabPane;
   Divider: typeof Divider;
   Group: typeof Group;
-}
+} & React.ForwardRefExoticComponent<ProCardProps>;
 
 type ProCardChildType = React.ReactElement<ProCardProps, any>;
 

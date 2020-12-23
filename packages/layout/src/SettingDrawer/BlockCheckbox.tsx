@@ -3,7 +3,7 @@ import { Tooltip } from 'antd';
 import { CheckOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 
-export interface BlockCheckboxProps {
+export type BlockCheckboxProps = {
   value: string;
   onChange: (key: string) => void;
   list?: {
@@ -12,7 +12,7 @@ export interface BlockCheckboxProps {
   }[];
   configType: string;
   prefixCls: string;
-}
+};
 
 const BlockCheckbox: React.FC<BlockCheckboxProps> = ({
   value,
