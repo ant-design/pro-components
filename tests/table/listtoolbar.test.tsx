@@ -10,8 +10,9 @@ describe('Table valueEnum', () => {
     const wrapper = mount(
       <ListToolBar
         actions={[
-          <Button>批量导入</Button>,
+          <Button key="import">批量导入</Button>,
           <Button
+            key="add"
             type="primary"
             onClick={() => {
               onAction('add');
@@ -39,6 +40,7 @@ describe('Table valueEnum', () => {
           },
           {
             icon: <FullscreenOutlined />,
+            key: 'm-value',
           },
           // 测试空的情况
           null,

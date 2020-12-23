@@ -458,7 +458,7 @@ describe('Field', () => {
   });
 
   it('🐴 options support empty dom', () => {
-    const html = mount(
+    const html = render(
       <Field
         // @ts-expect-error
         render={() => []}
@@ -467,39 +467,39 @@ describe('Field', () => {
         mode="read"
       />,
     );
-    expect(html.render()).toMatchSnapshot();
+    expect(html).toMatchSnapshot();
   });
 
   it('🐴 options support dom list', () => {
-    const html = mount(
+    const html = render(
       <Field
         text={[<Button key="add">新建</Button>, <Button key="edit">修改</Button>]}
         valueType="option"
         mode="read"
       />,
     );
-    expect(html.render()).toMatchSnapshot();
+    expect(html).toMatchSnapshot();
   });
 
   it('🐴 options support one dom', () => {
-    const html = mount(
+    const html = render(
       <Field text={[<Button key="add">新建</Button>]} valueType="option" mode="read" />,
     );
-    expect(html.render()).toMatchSnapshot();
+    expect(html).toMatchSnapshot();
   });
 
   it('🐴 progress support string number', () => {
-    const html = mount(<Field text="12" valueType="progress" mode="read" />);
-    expect(html.render()).toMatchSnapshot();
+    const html = render(<Field text="12" valueType="progress" mode="read" />);
+    expect(html).toMatchSnapshot();
   });
 
   it('🐴 progress support no number', () => {
-    const html = mount(<Field text="qixian" valueType="progress" mode="read" />);
-    expect(html.render()).toMatchSnapshot();
+    const html = render(<Field text="qixian" valueType="progress" mode="read" />);
+    expect(html).toMatchSnapshot();
   });
 
   it('🐴 valueType={}', () => {
-    const html = mount(
+    const html = render(
       <Field
         text="qixian"
         // @ts-expect-error

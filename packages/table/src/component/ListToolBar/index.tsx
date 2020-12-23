@@ -179,6 +179,27 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
    */
   const hasTitle = menu || title || subTitle || tooltip || tip;
 
+  /**
+   * 没有 key 的时候帮忙加一下 key
+   * 不加的话很烦人
+   */
+  const actionsDom = () => {
+    if (!Array.isArray(actions)) {
+      return actions;
+    }
+    return actions.map((action, index) => {
+      if (!React.isValidElement(action)) {
+        // eslint-disable-next-line react/no-array-index-key
+        return <React.Fragment key={index}>{action}</React.Fragment>;
+      }
+      return React.cloneElement(action, {
+        // eslint-disable-next-line react/no-array-index-key
+        key: index,
+        ...action?.props,
+      });
+    });
+  };
+
   return (
     <div style={style} className={classNames(`${prefixCls}`, className)}>
       <div className={`${prefixCls}-container`}>
@@ -196,7 +217,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
             <div className={`${prefixCls}-search`}>{searchNode}</div>
           ) : null}
           {!multipleLine ? filtersNode : null}
-          {actions && actions.length > 0 ? <Space align="center">{actions}</Space> : null}
+          {actions && actions.length > 0 ? <Space align="center">{actionsDom()}</Space> : null}
           {settings?.length ? (
             <Space size={12} align="center" className={`${prefixCls}-setting-items`}>
               {settings.map((setting, index) => {
