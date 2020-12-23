@@ -5,7 +5,11 @@ import type { FormProps, FormInstance } from 'antd/lib/form/Form';
 import type { FormItemProps } from 'antd/lib/form';
 import { ConfigProviderWrap } from '@ant-design/pro-provider';
 import type { ProFieldValueType, SearchTransformKeyFn } from '@ant-design/pro-utils';
-import { conversionSubmitValue, transformKeySubmitValue } from '@ant-design/pro-utils';
+import {
+  conversionSubmitValue,
+  transformKeySubmitValue,
+  useMountState,
+} from '@ant-design/pro-utils';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
 import namePathSet from 'rc-util/lib/utils/set';
 import type { ButtonProps } from 'antd/lib/button';
@@ -68,7 +72,7 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
    */
   const transformKeyRef = useRef<Record<string, SearchTransformKeyFn | undefined>>({});
 
-  const [loading, setLoading] = useState<ButtonProps['loading']>(false);
+  const [loading, setLoading] = useMountState<ButtonProps['loading']>(false);
 
   /**
    * 因为 protable 里面的值无法保证刚开始就存在

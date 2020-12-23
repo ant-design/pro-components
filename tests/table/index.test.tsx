@@ -95,7 +95,7 @@ describe('BasicTable', () => {
     expect(html).toMatchSnapshot();
   });
 
-  it('🎏  do not render default option', async () => {
+  it('🎏 do not render default option', async () => {
     const html = render(
       <ProTable
         size="small"
@@ -317,6 +317,7 @@ describe('BasicTable', () => {
       );
     };
     const html = mount(<Reload />);
+
     await waitForComponentToPaint(html, 1000);
 
     act(() => {
@@ -397,7 +398,7 @@ describe('BasicTable', () => {
     act(() => {
       actionRef.current?.clearSelected?.();
     });
-
+    await waitForComponentToPaint(html);
     expect(fn).toBeCalled();
     expect(onChangeFn).toBeCalled();
   });
@@ -588,6 +589,7 @@ describe('BasicTable', () => {
 
     expect(postFn).toBeCalled();
     // test useEffect render
+
     act(() => {
       html.unmount();
     });

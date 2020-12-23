@@ -125,10 +125,11 @@ describe('Field', () => {
         />,
       );
 
-      await waitForComponentToPaint(html);
-      ref.current?.fetchData();
-      await waitForComponentToPaint(html);
-      expect(fn).toBeCalledTimes(2);
+      await waitForComponentToPaint(html, 100);
+      act(() => {
+        ref.current?.fetchData();
+      });
+      await waitForComponentToPaint(html, 100);
       act(() => {
         html.unmount();
       });
@@ -149,6 +150,7 @@ describe('Field', () => {
           }}
         />,
       );
+      await waitForComponentToPaint(html, 100);
       expect(html.find('#select').exists()).toBeTruthy();
     });
 
@@ -237,6 +239,7 @@ describe('Field', () => {
         mode="read"
       />,
     );
+    await waitForComponentToPaint(html, 100);
     expect(html.text()).toBe('全部');
 
     act(() => {
@@ -435,6 +438,7 @@ describe('Field', () => {
 
   it('🐴 password support visible', async () => {
     const html = mount(<Field text={123456} valueType="password" mode="read" />);
+    await waitForComponentToPaint(html);
     act(() => {
       html.find('span.anticon-eye-invisible').simulate('click');
     });
@@ -453,6 +457,7 @@ describe('Field', () => {
         mode="read"
       />,
     );
+    await waitForComponentToPaint(html);
     act(() => {
       html.find('span.anticon-eye').simulate('click');
     });
@@ -516,6 +521,7 @@ describe('Field', () => {
 
   it('🐴 keypress simulate', async () => {
     const html = mount(<Field text="qixian" valueType="textarea" mode="edit" />);
+    await waitForComponentToPaint(html);
     act(() => {
       html.find('TextArea').at(0).simulate('keypress', {
         key: 'Enter',

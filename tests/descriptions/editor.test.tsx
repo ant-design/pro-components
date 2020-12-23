@@ -134,6 +134,7 @@ describe('Descriptions', () => {
     const wrapper = mount(
       <Descriptions<DataSourceType> columns={columns} dataSource={defaultData} />,
     );
+    await waitForComponentToPaint(wrapper, 100);
     expect(wrapper.find('ProForm').exists()).toBeFalsy();
   });
 
@@ -141,6 +142,7 @@ describe('Descriptions', () => {
     const wrapper = mount(
       <Descriptions<DataSourceType> columns={columns} dataSource={defaultData} editable={{}} />,
     );
+    await waitForComponentToPaint(wrapper, 100);
     expect(wrapper.find('ProForm').exists()).toBeTruthy();
   });
 

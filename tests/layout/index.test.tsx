@@ -197,31 +197,36 @@ describe('BasicLayout', () => {
   it('🥩 menuDataRender change date', async () => {
     const wrapper = mount(<BasicLayout menuDataRender={() => []} />);
     await waitForComponentToPaint(wrapper, 100);
-
-    expect(wrapper.render()).toMatchSnapshot();
-
-    wrapper.setProps({
-      menuDataRender: () => [
-        {
-          path: '/home',
-          name: '首页',
-          children: [
-            {
-              path: '/home/overview',
-              name: '概述',
-              exact: true,
-            },
-            {
-              path: '/home/search',
-              name: '搜索',
-              exact: true,
-            },
-          ],
-        },
-      ],
+    act(() => {
+      expect(wrapper.render()).toMatchSnapshot();
+    });
+    act(() => {
+      wrapper.setProps({
+        menuDataRender: () => [
+          {
+            path: '/home',
+            name: '首页',
+            children: [
+              {
+                path: '/home/overview',
+                name: '概述',
+                exact: true,
+              },
+              {
+                path: '/home/search',
+                name: '搜索',
+                exact: true,
+              },
+            ],
+          },
+        ],
+      });
     });
     await waitForComponentToPaint(wrapper, 100);
-    expect(wrapper.render()).toMatchSnapshot();
+
+    act(() => {
+      expect(wrapper.render()).toMatchSnapshot();
+    });
   });
 
   it('🥩 use onLogoClick', async () => {
@@ -238,7 +243,9 @@ describe('BasicLayout', () => {
     );
     await waitForComponentToPaint(wrapper);
     const logo = wrapper.find('#test_log');
-    logo.simulate('click');
+    act(() => {
+      logo.simulate('click');
+    });
     expect(onLogoClick).toHaveBeenCalled();
     act(() => {
       wrapper.unmount();
@@ -260,6 +267,7 @@ describe('BasicLayout', () => {
     await waitForComponentToPaint(wrapper);
     const logo = wrapper.find('#test_log');
     expect(logo.text()).toEqual('Logo');
+    await waitForComponentToPaint(wrapper);
     act(() => {
       wrapper.unmount();
     });
@@ -271,6 +279,8 @@ describe('BasicLayout', () => {
     await waitForComponentToPaint(wrapper);
     wrapper.find('.ant-pro-sider-collapsed-button').map((item) => item && item.simulate('click'));
     expect(onCollapse).toHaveBeenCalled();
+
+    await waitForComponentToPaint(wrapper);
     act(() => {
       wrapper.unmount();
     });
@@ -280,6 +290,8 @@ describe('BasicLayout', () => {
     const wrapper = mount(<BasicLayout />);
     await waitForComponentToPaint(wrapper);
     expect(wrapper.find('.ant-pro-sider').get(1).props.width).toBe(208);
+
+    await waitForComponentToPaint(wrapper);
     act(() => {
       wrapper.unmount();
     });
@@ -289,6 +301,8 @@ describe('BasicLayout', () => {
     const wrapper = mount(<BasicLayout siderWidth={160} />);
     await waitForComponentToPaint(wrapper);
     expect(wrapper.find('.ant-pro-sider').get(1).props.width).toBe(160);
+
+    await waitForComponentToPaint(wrapper);
     act(() => {
       wrapper.unmount();
     });
@@ -298,6 +312,8 @@ describe('BasicLayout', () => {
     const wrapper = mount(<BasicLayout collapsedButtonRender={false} />);
     await waitForComponentToPaint(wrapper);
     expect(wrapper.find('.ant-pro-sider-collapsed-button').exists()).toBe(false);
+
+    await waitForComponentToPaint(wrapper);
     act(() => {
       wrapper.unmount();
     });
@@ -307,6 +323,8 @@ describe('BasicLayout', () => {
     const wrapper = mount(<BasicLayout menuRender={false} />);
     await waitForComponentToPaint(wrapper);
     expect(wrapper.find('.ant-pro-sider-collapsed-button').exists()).toBe(false);
+
+    await waitForComponentToPaint(wrapper);
     act(() => {
       wrapper.unmount();
     });
@@ -324,9 +342,13 @@ describe('BasicLayout', () => {
     const dom = wrapper.find('#customize_collapsed_button');
     expect(dom.text()).toEqual('false');
 
-    wrapper.setProps({
-      collapsed: true,
+    act(() => {
+      wrapper.setProps({
+        collapsed: true,
+      });
     });
+
+    await waitForComponentToPaint(wrapper);
     expect(dom.text()).toEqual('true');
   });
 
@@ -336,6 +358,7 @@ describe('BasicLayout', () => {
     const dom = wrapper.find('#logo');
 
     expect(dom.exists()).toBe(false);
+    await waitForComponentToPaint(wrapper);
     act(() => {
       wrapper.unmount();
     });
@@ -359,6 +382,7 @@ describe('BasicLayout', () => {
     expect(dom.exists()).toBe(true);
 
     expect(dom.find('#customize_menu_header_text').text()).toEqual('customize_menu_header');
+    await waitForComponentToPaint(wrapper);
     act(() => {
       wrapper.unmount();
     });
@@ -385,6 +409,7 @@ describe('BasicLayout', () => {
       />,
     );
     expect(wrapper.find('div.chenshuai2144').exists()).toBeTruthy();
+    await waitForComponentToPaint(wrapper);
     act(() => {
       wrapper.unmount();
     });
@@ -395,6 +420,7 @@ describe('BasicLayout', () => {
     await waitForComponentToPaint(wrapper);
     const dom = wrapper.find('.ant-pro-sider-link');
     expect(dom.exists()).toBeTruthy();
+    await waitForComponentToPaint(wrapper);
     act(() => {
       wrapper.unmount();
     });
@@ -406,6 +432,7 @@ describe('BasicLayout', () => {
     const dom = wrapper.find('.ant-pro-sider-link');
 
     expect(dom.exists()).toBeFalsy();
+    await waitForComponentToPaint(wrapper);
     act(() => {
       wrapper.unmount();
     });
@@ -418,6 +445,7 @@ describe('BasicLayout', () => {
     expect(menu.exists()).toBe(false);
     const dom = wrapper.find('.ant-pro-sider-link');
     expect(dom.exists()).toBeFalsy();
+    await waitForComponentToPaint(wrapper);
     act(() => {
       wrapper.unmount();
     });
@@ -438,6 +466,7 @@ describe('BasicLayout', () => {
     const dom = wrapper.find('.ant-pro-sider-link');
 
     expect(dom.exists()).toBeFalsy();
+    await waitForComponentToPaint(wrapper);
     act(() => {
       wrapper.unmount();
     });
@@ -455,13 +484,16 @@ describe('BasicLayout', () => {
     );
 
     await waitForComponentToPaint(wrapper);
-    wrapper.setProps({
-      location: {
-        pathname: '/name',
-      },
+    act(() => {
+      wrapper.setProps({
+        location: {
+          pathname: '/name',
+        },
+      });
     });
 
     expect(onPageChange).toBeCalled();
+    await waitForComponentToPaint(wrapper);
     act(() => {
       wrapper.unmount();
     });
@@ -507,43 +539,49 @@ describe('BasicLayout', () => {
 
     let dom = wrapper.find('.ant-pro-fixed-header');
     expect(dom.exists()).toBeFalsy();
-    wrapper.setProps({
-      fixedHeader: true,
+    act(() => {
+      wrapper.setProps({
+        fixedHeader: true,
+      });
     });
     await waitForComponentToPaint(wrapper);
     dom = wrapper.find('header.ant-pro-fixed-header');
     expect(dom.exists()).toBeTruthy();
     expect(dom.props()?.style?.width).toBe('calc(100% - 48px)');
-
-    wrapper.setProps({
-      fixedHeader: true,
-      collapsed: false,
+    act(() => {
+      wrapper.setProps({
+        fixedHeader: true,
+        collapsed: false,
+      });
     });
 
     dom = wrapper.find('header.ant-pro-fixed-header');
     expect(dom.props()?.style?.width).toBe('calc(100% - 208px)');
-
-    wrapper.setProps({
-      fixedHeader: true,
-      collapsed: false,
-      siderWidth: 120,
+    act(() => {
+      wrapper.setProps({
+        fixedHeader: true,
+        collapsed: false,
+        siderWidth: 120,
+      });
     });
 
     dom = wrapper.find('header.ant-pro-fixed-header');
     expect(dom.props()?.style?.width).toBe('calc(100% - 120px)');
-
-    wrapper.setProps({
-      fixedHeader: true,
-      collapsed: false,
-      menuRender: false,
+    act(() => {
+      wrapper.setProps({
+        fixedHeader: true,
+        collapsed: false,
+        menuRender: false,
+      });
     });
 
     dom = wrapper.find('header.ant-pro-fixed-header');
     expect(dom.props()?.style?.width).toBe('100%');
-
-    wrapper.setProps({
-      fixedHeader: true,
-      layout: 'top',
+    act(() => {
+      wrapper.setProps({
+        fixedHeader: true,
+        layout: 'top',
+      });
     });
 
     dom = wrapper.find('header.ant-pro-fixed-header');
@@ -631,22 +669,24 @@ describe('BasicLayout', () => {
     expect(
       wrapper.find('.ant-design-pro').props().className?.includes('ant-pro-basicLayout-side'),
     ).toBeTruthy();
-
-    wrapper.setProps({
-      location: {
-        pathname: '/home/search',
-      },
+    act(() => {
+      wrapper.setProps({
+        location: {
+          pathname: '/home/search',
+        },
+      });
     });
 
     await waitForComponentToPaint(wrapper, 100);
     expect(
       wrapper.find('.ant-design-pro').props().className?.includes('ant-pro-basicLayout-mix'),
     ).toBeTruthy();
-
-    wrapper.setProps({
-      location: {
-        pathname: '/home',
-      },
+    act(() => {
+      wrapper.setProps({
+        location: {
+          pathname: '/home',
+        },
+      });
     });
     await waitForComponentToPaint(wrapper, 100);
 
@@ -694,7 +734,7 @@ describe('BasicLayout', () => {
   });
 
   it('🥩 BasicLayout menu support menu.true', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <BasicLayout
         menu={{
           loading: true,
@@ -730,8 +770,7 @@ describe('BasicLayout', () => {
         ]}
       />,
     );
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('🥩 BasicLayout support current menu', async () => {
@@ -751,18 +790,19 @@ describe('BasicLayout', () => {
     );
     await waitForComponentToPaint(wrapper);
     expect(wrapper.find('.ant-pro-basicLayout-side').exists()).toBeTruthy();
-
-    wrapper.setProps({
-      menu: {
-        loading: true,
-      },
-      menuDataRender: () => [
-        {
-          path: '/welcome',
-          name: '欢迎',
-          layout: 'top',
+    act(() => {
+      wrapper.setProps({
+        menu: {
+          loading: true,
         },
-      ],
+        menuDataRender: () => [
+          {
+            path: '/welcome',
+            name: '欢迎',
+            layout: 'top',
+          },
+        ],
+      });
     });
     await waitForComponentToPaint(wrapper);
 

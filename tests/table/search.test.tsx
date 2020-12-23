@@ -231,7 +231,10 @@ describe('BasicTable Search', () => {
     );
     await waitForComponentToPaint(html, 2000);
     MockDate.set(1479799364001);
-    ref.current?.submit();
+
+    act(() => {
+      ref.current?.submit();
+    });
     await waitForComponentToPaint(html, 1000);
     expect(fn).toBeCalledTimes(1);
 

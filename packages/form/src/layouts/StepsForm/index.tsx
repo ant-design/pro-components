@@ -8,6 +8,7 @@ import classNames from 'classnames';
 import type { FormInstance } from 'antd/lib/form';
 import type { ButtonProps } from 'antd/lib/button';
 import { useIntl } from '@ant-design/pro-provider';
+import { useMountState } from '@ant-design/pro-utils';
 
 import type { StepFormProps } from './StepForm';
 import StepForm from './StepForm';
@@ -98,12 +99,11 @@ const StepsForm: React.FC<StepsFormProps> & {
     containerStyle,
     ...rest
   } = props;
-
   const formDataRef = useRef(new Map<string, Store>());
   const formMapRef = useRef(new Map<string, StepFormProps>());
   const formArrayRef = useRef<React.MutableRefObject<FormInstance<any> | undefined>[]>([]);
   const [formArray, setFormArray] = useState<string[]>([]);
-  const [loading, setLoading] = useState<ButtonProps['loading']>(false);
+  const [loading, setLoading] = useMountState<ButtonProps['loading']>(false);
   const intl = useIntl();
 
   /**
@@ -155,7 +155,7 @@ const StepsForm: React.FC<StepsFormProps> & {
             ...cur,
           };
         }, {});
-        const success = await props.onFinish(values);
+        const success = props.onFinish(values);
         if (success) {
           setStep(0);
           formArrayRef.current.forEach((form) => form.current?.resetFields());

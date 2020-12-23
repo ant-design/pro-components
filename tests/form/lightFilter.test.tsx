@@ -284,6 +284,7 @@ describe('LightFilter', () => {
       // press Backspace
       wrapper.find('.ant-input').simulate('keyDown', { which: KeyCode.BACKSPACE });
     });
+
     await waitForComponentToPaint(wrapper);
 
     expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual(
@@ -294,7 +295,6 @@ describe('LightFilter', () => {
       wrapper.unmount();
     });
   });
-
   it(' 🪕 DateRangePicker', async () => {
     const onFinish = jest.fn();
     const wrapper = mount(
@@ -302,7 +302,7 @@ describe('LightFilter', () => {
         <ProFormDateRangePicker name="date" label="日期范围" />
       </LightFilter>,
     );
-
+    await waitForComponentToPaint(wrapper);
     expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('日期范围');
     act(() => {
       wrapper.find('.ant-pro-core-field-label').simulate('click');
@@ -346,7 +346,7 @@ describe('LightFilter', () => {
     expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual(
       '日期范围: 2016-11-01 ~ 2016-11-11',
     );
-
+    await waitForComponentToPaint(wrapper);
     act(() => {
       wrapper.unmount();
     });
@@ -359,7 +359,7 @@ describe('LightFilter', () => {
         <ProFormDateTimePicker name="datetime" label="日期时间" />
       </LightFilter>,
     );
-
+    await waitForComponentToPaint(wrapper);
     expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('日期时间');
     act(() => {
       wrapper.find('.ant-pro-core-field-label').simulate('click');
@@ -378,6 +378,8 @@ describe('LightFilter', () => {
       '日期时间: 2016-11-04 07:22:44',
     );
     expect(onFinish).toHaveBeenCalledWith({ datetime: '2016-11-04 07:22:44' });
+
+    await waitForComponentToPaint(wrapper);
     act(() => {
       wrapper.unmount();
     });
@@ -390,7 +392,7 @@ describe('LightFilter', () => {
         <ProFormTimePicker name="time" label="时间" />
       </LightFilter>,
     );
-
+    await waitForComponentToPaint(wrapper);
     expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('时间');
     act(() => {
       wrapper.find('.ant-pro-core-field-label').simulate('click');
@@ -404,11 +406,12 @@ describe('LightFilter', () => {
 
     await waitForComponentToPaint(wrapper);
     expect(onFinish).toHaveBeenCalledWith({ time: '07:22:44' });
+
+    await waitForComponentToPaint(wrapper);
     act(() => {
       wrapper.unmount();
     });
   });
-
   it(' 🪕 ProFormRadio', async () => {
     const onFinish = jest.fn();
     const wrapper = mount(
@@ -487,7 +490,7 @@ describe('LightFilter', () => {
         <ProFormDateRangePicker label="时间范围" name="range2" />
       </LightFilter>,
     );
-
+    await waitForComponentToPaint(wrapper);
     expect(wrapper.find('.collapselabel').text()).toEqual('open');
     expect(wrapper.find('.ant-pro-form-light-filter-effective').length).toEqual(1);
     act(() => {
@@ -507,7 +510,7 @@ describe('LightFilter', () => {
 
     expect(onChange).toHaveBeenCalledWith(undefined);
     expect(wrapper.find('.ant-pro-form-light-filter-effective').length).toEqual(0);
-
+    await waitForComponentToPaint(wrapper);
     act(() => {
       wrapper.unmount();
     });
@@ -563,7 +566,7 @@ describe('LightFilter', () => {
         />
       </LightFilter>,
     );
-
+    await waitForComponentToPaint(wrapper);
     expect(wrapper.find('.ant-pro-core-field-label .anticon-close').length).toEqual(0);
     act(() => {
       wrapper.find('.ant-pro-core-field-label').at(1).simulate('click');
