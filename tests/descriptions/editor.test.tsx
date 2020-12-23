@@ -157,7 +157,7 @@ describe('Descriptions', () => {
     act(() => {
       wrapper.find('span.anticon-edit').at(0).simulate('click');
     });
-
+    await waitForComponentToPaint(wrapper);
     expect(fn).toBeCalledWith(['title']);
   });
 

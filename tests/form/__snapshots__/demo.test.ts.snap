@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
+exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-vertical"
 >
@@ -705,7 +705,7 @@ exports[`form demos renders ./packages/form/src/demos/base.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`form demos renders ./packages/form/src/demos/components-other.tsx correctly 1`] = `
+exports[`form demos 📸 renders ./packages/form/src/demos/components-other.tsx correctly 1`] = `
 <div
   style="padding: 24px;"
 >
@@ -2951,7 +2951,7 @@ exports[`form demos renders ./packages/form/src/demos/components-other.tsx corre
 </div>
 `;
 
-exports[`form demos renders ./packages/form/src/demos/components-other-readonly.tsx correctly 1`] = `
+exports[`form demos 📸 renders ./packages/form/src/demos/components-other-readonly.tsx correctly 1`] = `
 <div
   style="padding: 24px;"
 >
@@ -4663,7 +4663,7 @@ exports[`form demos renders ./packages/form/src/demos/components-other-readonly.
 </div>
 `;
 
-exports[`form demos renders ./packages/form/src/demos/components-test.tsx correctly 1`] = `
+exports[`form demos 📸 renders ./packages/form/src/demos/components-test.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-vertical"
   id="validate_other"
@@ -5048,7 +5048,7 @@ exports[`form demos renders ./packages/form/src/demos/components-test.tsx correc
 </form>
 `;
 
-exports[`form demos renders ./packages/form/src/demos/dependency.tsx correctly 1`] = `
+exports[`form demos 📸 renders ./packages/form/src/demos/dependency.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-vertical"
 >
@@ -5286,7 +5286,7 @@ exports[`form demos renders ./packages/form/src/demos/dependency.tsx correctly 1
 </form>
 `;
 
-exports[`form demos renders ./packages/form/src/demos/drawer-form.tsx correctly 1`] = `
+exports[`form demos 📸 renders ./packages/form/src/demos/drawer-form.tsx correctly 1`] = `
 Array [
   <div>
     <form
@@ -6156,7 +6156,7 @@ Array [
 ]
 `;
 
-exports[`form demos renders ./packages/form/src/demos/label-col.tsx correctly 1`] = `
+exports[`form demos 📸 renders ./packages/form/src/demos/label-col.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
   id="basic"
@@ -6393,7 +6393,7 @@ exports[`form demos renders ./packages/form/src/demos/label-col.tsx correctly 1`
 </form>
 `;
 
-exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 1`] = `
+exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx correctly 1`] = `
 <div
   id="test-pro-layout"
   style="transform: rotate(0); overflow-x: hidden;"
@@ -7950,7 +7950,7 @@ exports[`form demos renders ./packages/form/src/demos/layout-base.tsx correctly 
 </div>
 `;
 
-exports[`form demos renders ./packages/form/src/demos/layout-change.tsx correctly 1`] = `
+exports[`form demos 📸 renders ./packages/form/src/demos/layout-change.tsx correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
@@ -8700,7 +8700,7 @@ Array [
 ]
 `;
 
-exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly 1`] = `
+exports[`form demos 📸 renders ./packages/form/src/demos/light-filter.tsx correctly 1`] = `
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline"
@@ -9585,7 +9585,7 @@ exports[`form demos renders ./packages/form/src/demos/light-filter.tsx correctly
 </div>
 `;
 
-exports[`form demos renders ./packages/form/src/demos/light-filter-bordered.tsx correctly 1`] = `
+exports[`form demos 📸 renders ./packages/form/src/demos/light-filter-bordered.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
 >
@@ -9950,7 +9950,7 @@ exports[`form demos renders ./packages/form/src/demos/light-filter-bordered.tsx 
 </form>
 `;
 
-exports[`form demos renders ./packages/form/src/demos/light-filter-collapse.tsx correctly 1`] = `
+exports[`form demos 📸 renders ./packages/form/src/demos/light-filter-collapse.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
 >
@@ -9996,7 +9996,7 @@ exports[`form demos renders ./packages/form/src/demos/light-filter-collapse.tsx 
 </form>
 `;
 
-exports[`form demos renders ./packages/form/src/demos/linkage-customization.tsx correctly 1`] = `
+exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization.tsx correctly 1`] = `
 <div
   class="ant-pro-card"
 >
@@ -11095,7 +11095,7 @@ exports[`form demos renders ./packages/form/src/demos/linkage-customization.tsx 
 </div>
 `;
 
-exports[`form demos renders ./packages/form/src/demos/login.tsx correctly 1`] = `
+exports[`form demos 📸 renders ./packages/form/src/demos/login.tsx correctly 1`] = `
 <div
   style="width: 330px; margin: auto;"
 >
@@ -11290,7 +11290,7 @@ exports[`form demos renders ./packages/form/src/demos/login.tsx correctly 1`] = 
 </div>
 `;
 
-exports[`form demos renders ./packages/form/src/demos/modal-form.tsx correctly 1`] = `
+exports[`form demos 📸 renders ./packages/form/src/demos/modal-form.tsx correctly 1`] = `
 Array [
   <div>
     <form
@@ -11347,7 +11347,7 @@ Array [
 ]
 `;
 
-exports[`form demos renders ./packages/form/src/demos/modal-step-form.tsx correctly 1`] = `
+exports[`form demos 📸 renders ./packages/form/src/demos/modal-step-form.tsx correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-primary"
@@ -11386,7 +11386,7 @@ Array [
 ]
 `;
 
-exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx correctly 1`] = `
+exports[`form demos 📸 renders ./packages/form/src/demos/multi-card-step-form.tsx correctly 1`] = `
 <div
   class="ant-pro-steps-form"
 >
@@ -13021,7 +13021,7 @@ exports[`form demos renders ./packages/form/src/demos/multi-card-step-form.tsx c
 </div>
 `;
 
-exports[`form demos renders ./packages/form/src/demos/query-filter.tsx correctly 1`] = `
+exports[`form demos 📸 renders ./packages/form/src/demos/query-filter.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
 >
@@ -13603,7 +13603,7 @@ exports[`form demos renders ./packages/form/src/demos/query-filter.tsx correctly
 </form>
 `;
 
-exports[`form demos renders ./packages/form/src/demos/query-filter-collapsed.tsx correctly 1`] = `
+exports[`form demos 📸 renders ./packages/form/src/demos/query-filter-collapsed.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
 >
@@ -14062,7 +14062,7 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-collapsed.tsx
 </form>
 `;
 
-exports[`form demos renders ./packages/form/src/demos/query-filter-vertical.tsx correctly 1`] = `
+exports[`form demos 📸 renders ./packages/form/src/demos/query-filter-vertical.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-vertical"
 >
@@ -14579,7 +14579,7 @@ exports[`form demos renders ./packages/form/src/demos/query-filter-vertical.tsx 
 </form>
 `;
 
-exports[`form demos renders ./packages/form/src/demos/search-filter.tsx correctly 1`] = `
+exports[`form demos 📸 renders ./packages/form/src/demos/search-filter.tsx correctly 1`] = `
 <div
   class="ant-card"
 >
@@ -15037,7 +15037,7 @@ exports[`form demos renders ./packages/form/src/demos/search-filter.tsx correctl
 </div>
 `;
 
-exports[`form demos renders ./packages/form/src/demos/steps-from.tsx correctly 1`] = `
+exports[`form demos 📸 renders ./packages/form/src/demos/steps-from.tsx correctly 1`] = `
 <div
   class="ant-pro-card"
 >

@@ -21,6 +21,7 @@ describe('QueryFilter', () => {
     act(() => {
       wrapper.find('.ant-btn-primary').simulate('submit');
     });
+    await waitForComponentToPaint(wrapper);
     expect(wrapper.find('.ant-input').length).toEqual(2);
     await waitForComponentToPaint(wrapper);
     expect(onFinish).toHaveBeenCalledWith({

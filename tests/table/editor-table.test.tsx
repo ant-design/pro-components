@@ -691,7 +691,9 @@ describe('EditorProTable', () => {
     await waitForComponentToPaint(wrapper, 1000);
 
     expect(fn).toBeCalledWith(624691229);
-    wrapper.unmount();
+    act(() => {
+      wrapper.unmount();
+    });
   });
 
   it('📝 support onDelete return false', async () => {
@@ -727,7 +729,9 @@ describe('EditorProTable', () => {
     await waitForComponentToPaint(wrapper, 1000);
 
     expect(fn).toBeCalledWith(624691229);
-    wrapper.unmount();
+    act(() => {
+      wrapper.unmount();
+    });
   });
 
   it('📝 support form rules', async () => {

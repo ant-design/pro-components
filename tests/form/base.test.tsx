@@ -260,10 +260,13 @@ describe('ProForm', () => {
         <ProFormDatePicker.Year name="dateYear" label="年" />
       </ProForm>,
     );
-
-    wrapper.find('.ant-picker-cell').at(2).simulate('click');
-    wrapper.find('.ant-btn-primary').simulate('submit');
-    await waitTime();
+    act(() => {
+      wrapper.find('.ant-picker-cell').at(2).simulate('click');
+    });
+    act(() => {
+      wrapper.find('.ant-btn-primary').simulate('submit');
+    });
+    await waitForComponentToPaint(wrapper);
     expect(onFinish).toHaveBeenCalledWith({
       date: '2020-09-01',
       dateWeek: '2020-37th',

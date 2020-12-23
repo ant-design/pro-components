@@ -24,7 +24,9 @@ describe('StepsForm', () => {
     expect(html.find('div.ant-steps-item-title').at(0).text()).toBe('表单1');
     expect(html.find('div.ant-steps-item-title').at(1).text()).toBe('表单2');
     expect(html.find('div.ant-steps-item-title').at(2).text()).toBe('表单3');
-    html.unmount();
+    act(() => {
+      html.unmount();
+    });
   });
 
   it('🐲 stepsRender', () => {
@@ -52,7 +54,9 @@ describe('StepsForm', () => {
 
     expect(html.find('.ant-steps').exists()).toBeTruthy();
     expect(html.find('div#test').exists()).toBeTruthy();
-    html.unmount();
+    act(() => {
+      html.unmount();
+    });
   });
 
   it('🐲 pre button ', async () => {
@@ -80,7 +84,9 @@ describe('StepsForm', () => {
       html.find('button.ant-btn').at(0).simulate('click');
     });
     expect(onCurrentChange).toBeCalledWith(0);
-    html.unmount();
+    act(() => {
+      html.unmount();
+    });
   });
 
   it('🐲 async onFinish', async () => {
@@ -121,7 +127,9 @@ describe('StepsForm', () => {
     });
     await waitForComponentToPaint(html);
     expect(onFinish).toBeCalled();
-    html.unmount();
+    act(() => {
+      html.unmount();
+    });
   });
 
   it('🐲 submit when onFinish is null', async () => {
@@ -160,7 +168,9 @@ describe('StepsForm', () => {
       html.find('button.ant-btn.ant-btn-primary').simulate('click');
     });
     await waitForComponentToPaint(html);
-    html.unmount();
+    act(() => {
+      html.unmount();
+    });
   });
 
   it('🐲 onFinish return true', async () => {
@@ -344,7 +354,9 @@ describe('StepsForm', () => {
     expect(
       html.find('.ant-pro-steps-form-step-active button.ant-btn.ant-btn-primary').exists(),
     ).toBeFalsy();
-    html.unmount();
+    act(() => {
+      html.unmount();
+    });
   });
 
   it('🐲 submitter render function', () => {
@@ -371,7 +383,9 @@ describe('StepsForm', () => {
 
     expect(html.find('button#next').exists()).toBeTruthy();
 
-    html.unmount();
+    act(() => {
+      html.unmount();
+    });
   });
 
   it('🐲 support stepsFormRender', () => {

@@ -588,7 +588,9 @@ describe('BasicTable', () => {
 
     expect(postFn).toBeCalled();
     // test useEffect render
-    html.unmount();
+    act(() => {
+      html.unmount();
+    });
   });
 
   it('🎏 fullscreen icon test', async () => {

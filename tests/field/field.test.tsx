@@ -2,7 +2,7 @@ import { render, mount } from 'enzyme';
 import { Button, Input } from 'antd';
 import React from 'react';
 import moment from 'moment';
-import { act } from 'react-test-renderer';
+import { act } from 'react-dom/test-utils';
 import Field from '@ant-design/pro-field';
 
 import Demo from './fixtures/demo';
@@ -129,7 +129,9 @@ describe('Field', () => {
       ref.current?.fetchData();
       await waitForComponentToPaint(html);
       expect(fn).toBeCalledTimes(2);
-      html.unmount();
+      act(() => {
+        html.unmount();
+      });
     });
 
     it(`🐴 ${valueType} support renderFormItem function`, async () => {
@@ -431,15 +433,16 @@ describe('Field', () => {
     expect(html.text()).toBe('- 100.0%');
   });
 
-  it('🐴 password support visible', () => {
+  it('🐴 password support visible', async () => {
     const html = mount(<Field text={123456} valueType="password" mode="read" />);
     act(() => {
       html.find('span.anticon-eye-invisible').simulate('click');
     });
+    await waitForComponentToPaint(html);
     expect(html.find('span.anticon-eye').exists()).toBeTruthy();
   });
 
-  it('🐴 password support controlled visible', () => {
+  it('🐴 password support controlled visible', async () => {
     const fn = jest.fn();
     const html = mount(
       <Field
@@ -453,11 +456,12 @@ describe('Field', () => {
     act(() => {
       html.find('span.anticon-eye').simulate('click');
     });
+    await waitForComponentToPaint(html);
     expect(html.find('span.anticon-eye-invisible').exists()).toBeFalsy();
     expect(fn).toBeCalledWith(false);
   });
 
-  it('🐴 options support empty dom', () => {
+  it('🐴 options support empty dom', async () => {
     const html = render(
       <Field
         // @ts-expect-error
@@ -510,7 +514,7 @@ describe('Field', () => {
     expect(html.text()).toBe('qixian');
   });
 
-  it('🐴 keypress simulate', () => {
+  it('🐴 keypress simulate', async () => {
     const html = mount(<Field text="qixian" valueType="textarea" mode="edit" />);
     act(() => {
       html.find('TextArea').at(0).simulate('keypress', {
@@ -518,11 +522,13 @@ describe('Field', () => {
         keyCode: 13,
       });
     });
+    await waitForComponentToPaint(html);
     act(() => {
       html.setProps({
         mode: 'read',
       });
     });
+    await waitForComponentToPaint(html);
     expect(html.text()).toBe('qixian');
   });
 });

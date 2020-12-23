@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`descriptions demos renders ./packages/descriptions/src/demos/base.tsx correctly 1`] = `
+exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.tsx correctly 1`] = `
 <div
   class="ant-descriptions"
 >
@@ -446,7 +446,7 @@ Done in 9.70s.
 </div>
 `;
 
-exports[`descriptions demos renders ./packages/descriptions/src/demos/columns.tsx correctly 1`] = `
+exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/columns.tsx correctly 1`] = `
 <div
   class="ant-descriptions"
 >
@@ -649,7 +649,7 @@ exports[`descriptions demos renders ./packages/descriptions/src/demos/columns.ts
 </div>
 `;
 
-exports[`descriptions demos renders ./packages/descriptions/src/demos/editable.tsx correctly 1`] = `
+exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/editable.tsx correctly 1`] = `
 Array [
   <input
     style="display: none;"
@@ -1031,7 +1031,7 @@ Array [
 ]
 `;
 
-exports[`descriptions demos renders ./packages/descriptions/src/demos/request.tsx correctly 1`] = `
+exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/request.tsx correctly 1`] = `
 <div
   class="ant-descriptions"
 >

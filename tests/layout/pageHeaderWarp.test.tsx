@@ -3,7 +3,7 @@ import React from 'react';
 import ProLayout, { PageContainer } from '@ant-design/pro-layout';
 import defaultProps from './defaultProps';
 import { waitForComponentToPaint } from '../util';
-import { act } from 'react-test-renderer';
+import { act } from 'react-dom/test-utils';
 
 describe('BasicLayout', () => {
   beforeAll(() => {
@@ -116,7 +116,9 @@ describe('BasicLayout', () => {
     await waitForComponentToPaint(wrapper);
     const domHeader = wrapper.find('ant-page-header');
     expect(domHeader.exists()).toBeFalsy();
-    wrapper.unmount();
+    act(() => {
+      wrapper.unmount();
+    });
   });
 
   it('pageHeaderRender is false', async () => {
@@ -128,6 +130,8 @@ describe('BasicLayout', () => {
     await waitForComponentToPaint(wrapper);
     const domHeader = wrapper.find('ant-page-header');
     expect(domHeader.exists()).toBeFalsy();
-    wrapper.unmount();
+    act(() => {
+      wrapper.unmount();
+    });
   });
 });
