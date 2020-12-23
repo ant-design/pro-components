@@ -406,7 +406,7 @@ ref.current.cancelEditable(rowKey);
 | hideInTable | 在 Table 中不展示此列 | `boolean` | - |
 | hideInForm | 在 Form 模式下 中不展示此列 | `boolean` | - |
 | filters | 表头的筛选菜单项，当值为 true 时，自动使用 valueEnum 生成 | `boolean` \| `object[]` | false |
-| onFilter | 筛选表单，为 true 时使用 ProTable 自带的 | `(value, record) => boolean` \| 'false' | false |
+| onFilter | 筛选表单，为 true 时使用 ProTable 自带的，为 false 时关闭本地筛选 | `(value, record) => boolean` \| 'false' | false |
 | order | 查询表单中的权重，权重大排序靠前 | `number` | - |
 | renderFormItem | 渲染查询表单的输入组件 | `(item,props:{value,onChange}) => ReactNode` | - |
 | fieldProps | 查询表单的 props，会透传给表单项 | `{ [prop: string]: any }` | - |

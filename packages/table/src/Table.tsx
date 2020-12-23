@@ -452,10 +452,13 @@ const ProTable = <T extends {}, U extends ParamsType>(
   /**
    * 如果所有列中的 filters=true| undefined
    * 说明是用的是本地筛选
+   * 任何一列配置 filters=false，就能绕过这个判断
    */
   const useLocaleFilter = propsColumns.every(
-    (column) => column.filters === undefined || column.filters === true,
+    (column) =>
+      (column.filters === undefined || column.filters === true) && column.onFilter !== false,
   );
+
   const editableDataSource = (): T[] => {
     const { options: newLineOptions, defaultValue: row } = editableUtils.newLineRecord || {};
     if (newLineOptions?.position === 'top') {
