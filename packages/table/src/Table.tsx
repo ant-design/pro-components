@@ -87,7 +87,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     search,
     onLoadingChange,
     rowSelection: propsRowSelection = false,
-    beforeSearchSubmit = (searchParams: Partial<U>) => searchParams,
+    beforeSearchSubmit = (searchParams) => searchParams,
     tableAlertRender,
     defaultClassName,
     formRef,
@@ -328,11 +328,12 @@ const ProTable = <T extends {}, U extends ParamsType>(
 
   const onSubmit = (value: U, firstLoad: boolean) => {
     if (type !== 'form') {
+      const pageInfo = pagination || {};
       const submitParams = {
         ...value,
         _timestamp: Date.now(),
       };
-      setFormSearch(beforeSearchSubmit(submitParams, pagination) || submitParams);
+      setFormSearch(beforeSearchSubmit(submitParams, pageInfo) || submitParams);
       if (!firstLoad) {
         // back first page
         action.resetPageIndex();
@@ -346,8 +347,9 @@ const ProTable = <T extends {}, U extends ParamsType>(
   };
 
   const onReset = (value: Partial<U>) => {
+    const pageInfo = pagination || {};
     const searchParams = { ...value };
-    setFormSearch(beforeSearchSubmit(searchParams, pagination) || searchParams);
+    setFormSearch(beforeSearchSubmit(searchParams, pageInfo) || searchParams);
     // back first page
     action.resetPageIndex();
     props.onReset?.();

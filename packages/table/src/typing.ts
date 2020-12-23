@@ -11,7 +11,7 @@ import type {
 } from '@ant-design/pro-utils';
 import type { CardProps } from 'antd/lib/card';
 import type { SpinProps } from 'antd/lib/spin';
-import type { TableProps } from 'antd/lib/table';
+import type { TableProps, TablePaginationConfig } from 'antd/lib/table';
 
 import type { ColumnFilterItem, ColumnType, SortOrder } from 'antd/lib/table/interface';
 import type { CSSProperties } from 'react';
@@ -286,7 +286,7 @@ export type ProTableProps<T, U extends ParamsType> = {
   /**
    * @name 格式化搜索表单提交数据
    */
-  beforeSearchSubmit?: (params: Partial<U>) => any;
+  beforeSearchSubmit?: (params: Partial<U>, pagination?: TablePaginationConfig) => any;
   /**
    * @name 自定义 table 的 alert
    * @description 设置或者返回false 即可关闭
