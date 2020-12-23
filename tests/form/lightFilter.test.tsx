@@ -571,7 +571,8 @@ describe('LightFilter', () => {
     act(() => {
       wrapper.find('.ant-pro-core-field-label').at(1).simulate('click');
     });
-    await waitForComponentToPaint(wrapper);
+    await waitForComponentToPaint(wrapper, 100);
+
     expect(wrapper.find('.ant-input').length).toEqual(1);
     expect(wrapper.find('.ant-input-suffix .close-circle').length).toEqual(0);
     act(() => {
