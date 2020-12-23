@@ -25,7 +25,7 @@ describe('Table valueEnum', () => {
         ]}
       />,
     );
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitForComponentToPaint(wrapper);
     act(() => {
       wrapper.find('button.ant-btn-primary').simulate('click');
     });
@@ -41,6 +41,17 @@ describe('Table valueEnum', () => {
             添加
           </Button>
         }
+      />,
+    );
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('ListToolBar action is empty array', async () => {
+    const wrapper = render(
+      <ListToolBar
+        // @ts-expect-error
+        actions={() => []}
       />,
     );
 

@@ -204,7 +204,7 @@ function ToolBar<T>({
   return (
     <ListToolBar
       title={headerTitle}
-      tip={tooltip || rest.tip}
+      tooltip={tooltip || rest.tip}
       search={options && getSearchConfig(options.search)}
       onSearch={onSearch}
       actions={actions}
