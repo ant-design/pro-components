@@ -1,4 +1,4 @@
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 import React from 'react';
 import { ListToolBar } from '@ant-design/pro-table';
 import { SettingOutlined, FullscreenOutlined } from '@ant-design/icons';
@@ -30,6 +30,36 @@ describe('Table valueEnum', () => {
       wrapper.find('button.ant-btn-primary').simulate('click');
     });
     expect(onAction).toHaveBeenLastCalledWith('add');
+  });
+
+  it('ListToolBar action no array', async () => {
+    const wrapper = render(
+      <ListToolBar
+        // @ts-expect-error
+        actions={
+          <Button key="add" type="primary">
+            添加
+          </Button>
+        }
+      />,
+    );
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('ListToolBar action no jsx', async () => {
+    const wrapper = render(
+      <ListToolBar
+        actions={[
+          <Button key="add" type="primary">
+            添加
+          </Button>,
+          'shuaxin',
+        ]}
+      />,
+    );
+
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('ListToolBar onSettingClick', async () => {
