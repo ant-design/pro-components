@@ -20,9 +20,9 @@ import omit from 'omit.js';
 
 import useFetchData from './useFetchData';
 import Container from './container';
-import Toolbar from './component/ToolBar';
-import Alert from './component/Alert';
-import FormSearch from './Form';
+import Toolbar from './components/ToolBar';
+import Alert from './components/Alert';
+import FormSearch from './components/Form';
 import {
   genColumnKey,
   mergePagination,
@@ -31,7 +31,7 @@ import {
   tableColumnSort,
   genColumnList,
 } from './utils';
-import ErrorBoundary from './component/ErrorBoundary';
+import ErrorBoundary from './components/ErrorBoundary';
 
 import './index.less';
 import type {
