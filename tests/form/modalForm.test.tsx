@@ -26,6 +26,95 @@ describe('ModalForm', () => {
     expect(fn).toBeCalledWith(true);
   });
 
+  it('📦 ModalForm first no render items', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <ModalForm
+        width={600}
+        trigger={<Button id="new">新建</Button>}
+        onVisibleChange={(visible) => fn(visible)}
+      >
+        <ProFormText
+          name="name"
+          fieldProps={{
+            id: 'test',
+          }}
+        />
+      </ModalForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    expect(wrapper.find('input#test').exists()).toBeFalsy();
+
+    act(() => {
+      wrapper.find('button#new').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(wrapper.find('input#test').exists()).toBeTruthy();
+  });
+
+  it('📦 ModalForm first render items', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <ModalForm
+        width={600}
+        modalProps={{
+          forceRender: true,
+        }}
+        onVisibleChange={(visible) => fn(visible)}
+      >
+        <ProFormText
+          name="name"
+          fieldProps={{
+            id: 'test',
+          }}
+        />
+      </ModalForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    expect(wrapper.find('input#test').exists()).toBeTruthy();
+  });
+
+  it('📦 ModalForm destroyOnClose', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <ModalForm
+        width={600}
+        modalProps={{ destroyOnClose: true }}
+        onVisibleChange={(visible) => fn(visible)}
+      >
+        <ProFormText
+          name="name"
+          fieldProps={{
+            id: 'test',
+          }}
+        />
+      </ModalForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    expect(wrapper.find('input#test').exists()).toBeFalsy();
+
+    act(() => {
+      wrapper.setProps({
+        visible: true,
+      });
+    });
+    await waitForComponentToPaint(wrapper);
+
+    expect(wrapper.find('input#test').exists()).toBeTruthy();
+
+    act(() => {
+      wrapper.setProps({
+        visible: false,
+      });
+    });
+    await waitForComponentToPaint(wrapper);
+
+    expect(wrapper.find('input#test').exists()).toBeFalsy();
+  });
+
   it('📦 modal close button will simulate onVisibleChange', async () => {
     const fn = jest.fn();
     const wrapper = mount(
