@@ -68,7 +68,7 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
   const isFirstRender = useRef(!drawerProps?.forceRender);
 
   /**
-   * isFirstRender.current 或者 trigger 为 true 的时候就渲染
+   * isFirstRender.current 或者 visible 为 true 的时候就渲染
    * 不渲染能会造成一些问题,比如再次打开值不对了
    * 只有手动配置 drawerProps?.destroyOnClose 为 true 的时候才会每次关闭的时候删除 dom
    */
@@ -91,6 +91,9 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
    * 如果 destroyOnClose ，重置一下表单
    */
   useEffect(() => {
+    if (visible) {
+      isFirstRender.current = false;
+    }
     if (!visible && drawerProps?.destroyOnClose) {
       formRef.current?.resetFields();
     }
@@ -171,7 +174,6 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
           ...trigger.props,
           onClick: (e: any) => {
             setVisible(!visible);
-            isFirstRender.current = false;
             trigger.props?.onClick?.(e);
           },
         })}
