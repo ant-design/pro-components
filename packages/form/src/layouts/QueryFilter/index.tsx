@@ -305,13 +305,14 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
     () => (typeof style?.width === 'number' ? style?.width : defaultWidth) as number,
   );
 
-  const spanSize = useMemo(() => getSpanConfig(layout, width + 16, span), [width]);
+  const spanSize = useMemo(() => getSpanConfig(layout, width + 16, span), [layout, width, span]);
 
-  const showLength = useMemo(
-    () =>
-      defaultColsNumber !== undefined ? defaultColsNumber : Math.max(1, 24 / spanSize.span - 1),
-    [defaultColsNumber, spanSize.span],
-  );
+  const showLength = useMemo(() => {
+    if (defaultColsNumber !== undefined) {
+      return defaultColsNumber;
+    }
+    return Math.max(1, 24 / spanSize.span - 1);
+  }, [defaultColsNumber, spanSize.span]);
 
   const labelFlexStyle = useMemo(() => {
     if (labelWidth && spanSize.layout !== 'vertical' && labelWidth !== 'auto') {

@@ -29,6 +29,10 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 
 <code src="./demos/dataSource.tsx" background="#f5f5f5" height="500px"/>
 
+### 动态设置
+
+<code src="./demos/dynamic-settings.tsx"  background="#f5f5f5" iframe="500px"/>
+
 ### 降级为普通表格
 
 <code src="./demos/normal.tsx" background="#f5f5f5" height="400px"/>
