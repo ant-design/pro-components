@@ -56,6 +56,7 @@ function ProList<RecordType, U extends Record<string, any> = {}>(
     expandable,
     showActions,
     rowSelection,
+    pagination: propsPagination = false,
     itemLayout,
     ...rest
   } = props;
@@ -92,6 +93,7 @@ function ProList<RecordType, U extends Record<string, any> = {}>(
   return (
     <ProTable<RecordType, U>
       {...(rest as any)}
+      pagination={propsPagination}
       search={search}
       options={options}
       className={classNames(prefixCls, className, listClassName)}
