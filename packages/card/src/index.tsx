@@ -1,34 +1,27 @@
-import React, { PropsWithChildren, ReactNode, useContext } from 'react';
+import type { PropsWithChildren, ReactNode } from 'react';
+import React, { useContext } from 'react';
 import { Grid, Tabs, ConfigProvider } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { LabelIconTip } from '@ant-design/pro-utils';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import { TabsProps } from 'antd/lib/tabs';
+import type { TabsProps } from 'antd/lib/tabs';
 import CardLoading from './components/CardLoading';
 import Divider from './components/Divider';
 import TabPane from './components/TabPane';
+import Actions from './components/Actions';
 import './style/index.less';
 
 const { useBreakpoint } = Grid;
-
-type ProCardType = React.FC<ProCardProps> & {
-  isProCard: boolean;
-  TabPane: typeof TabPane;
-  Divider: typeof Divider;
-  Group: typeof Group;
-};
-
-type ProCardChildType = React.ReactElement<ProCardProps, ProCardType>;
 
 type ColSpanType = number | string;
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type Gutter = number | Partial<Record<Breakpoint, number>>;
 
-export interface ProCardTabsProps extends TabsProps {}
+export type ProCardTabsProps = {} & TabsProps;
 
-export interface ProCardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
+export type ProCardProps = {
   /**
    * 标题样式
    */
@@ -69,11 +62,15 @@ export interface ProCardProps extends Omit<React.HTMLAttributes<HTMLDivElement>,
   /**
    * 卡片类型
    */
-  type?: 'inner';
+  type?: 'default' | 'inner';
   /**
    * 指定 Flex 方向，仅在嵌套子卡片时有效
    */
   direction?: 'column' | 'row';
+  /**
+   * 尺寸
+   */
+  size?: 'default' | 'small';
   /**
    * 加载中
    */
@@ -86,6 +83,10 @@ export interface ProCardProps extends Omit<React.HTMLAttributes<HTMLDivElement>,
    * 栅格间距
    */
   gutter?: Gutter | Gutter[];
+  /**
+   * 操作按钮
+   */
+  actions?: React.ReactNode[];
   /**
    * 拆分卡片方式
    */
@@ -118,11 +119,23 @@ export interface ProCardProps extends Omit<React.HTMLAttributes<HTMLDivElement>,
    * 标签栏配置
    */
   tabs?: ProCardTabsProps;
-
+  /**
+   * 前缀
+   */
   prefixCls?: string;
-}
+} & Omit<React.HTMLAttributes<HTMLDivElement>, 'title'>;
 
-const ProCard: ProCardType = (props) => {
+type ProCardType = {
+  isProCard: boolean;
+  TabPane: typeof TabPane;
+  Divider: typeof Divider;
+  Group: typeof Group;
+} & React.ForwardRefExoticComponent<ProCardProps>;
+
+type ProCardChildType = React.ReactElement<ProCardProps, any>;
+
+// @ts-ignore
+const ProCard: ProCardType = React.forwardRef<HTMLDivElement>((props: ProCardProps, ref) => {
   const {
     className,
     style,
@@ -141,6 +154,8 @@ const ProCard: ProCardType = (props) => {
     headerBordered = false,
     bordered = false,
     children,
+    size,
+    actions,
     ghost = false,
     direction,
     collapsed: controlCollapsed,
@@ -274,6 +289,7 @@ const ProCard: ProCardType = (props) => {
     [`${prefixCls}-loading`]: loading,
     [`${prefixCls}-split`]: split === 'vertical' || split === 'horizontal',
     [`${prefixCls}-ghost`]: ghost,
+    [`${prefixCls}-size-${size}`]: size,
     [`${prefixCls}-type-${type}`]: type,
     [`${prefixCls}-collapse`]: collapsed,
   });
@@ -307,8 +323,13 @@ const ProCard: ProCardType = (props) => {
     />
   );
 
+  /**
+   * 操作按钮
+   */
+  const actionDom = <Actions actions={actions} prefixCls={prefixCls} />;
+
   return (
-    <div className={cardCls} style={cardStyle} {...omit(rest, ['id', 'prefixCls'])}>
+    <div className={cardCls} style={cardStyle} ref={ref} {...omit(rest, ['id', 'prefixCls'])}>
       {(title || extra || collapsibleButton) && (
         <div className={headerCls} style={headStyle}>
           <div className={`${prefixCls}-title`}>
@@ -329,9 +350,10 @@ const ProCard: ProCardType = (props) => {
           {loading ? loadingDOM : childrenModified}
         </div>
       )}
+      {actionDom}
     </div>
   );
-};
+});
 
 const Group = (props: PropsWithChildren<ProCardProps>) => (
   <ProCard bodyStyle={{ padding: 0 }} {...props} />

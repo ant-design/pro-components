@@ -2,6 +2,52 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.8.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.7.0...@ant-design/pro-layout@6.8.0) (2020-12-21)
+
+### Features
+
+- **descriptions:** descriptions support loading and onLoadinChange ([#1344](https://github.com/ant-design/pro-components/issues/1344)) ([b5afe9e](https://github.com/ant-design/pro-components/commit/b5afe9e6fd9dc1b06ef0e76b63aa6c7ab05bc3eb))
+
+# [6.7.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.6.4...@ant-design/pro-layout@6.7.0) (2020-12-17)
+
+### Features
+
+- **layout:** support menu type group ([#1316](https://github.com/ant-design/pro-components/issues/1316)) ([e759256](https://github.com/ant-design/pro-components/commit/e75925644e35c876950ec21339fb0f9fd88168d6))
+
+## [6.6.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.6.3...@ant-design/pro-layout@6.6.4) (2020-12-15)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.6.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.6.2...@ant-design/pro-layout@6.6.3) (2020-12-14)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.6.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.6.1...@ant-design/pro-layout@6.6.2) (2020-12-14)
+
+### Bug Fixes
+
+- **layout:** Recalculate menu when pathname is changed ([#1288](https://github.com/ant-design/pro-components/issues/1288)) ([4062725](https://github.com/ant-design/pro-components/commit/406272522cb9d19fbe1ce68e100c200724c37d4f))
+
+## [6.6.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.6.0...@ant-design/pro-layout@6.6.1) (2020-12-10)
+
+### Bug Fixes
+
+- **layout:** use ant class name ([#1252](https://github.com/ant-design/pro-components/issues/1252)) ([310e8ae](https://github.com/ant-design/pro-components/commit/310e8aecf40bada8ce27091d87429efe31f403a0))
+
+# [6.6.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.5.19...@ant-design/pro-layout@6.6.0) (2020-12-09)
+
+### Features
+
+- **layout:** no use section dom ([#1239](https://github.com/ant-design/pro-components/issues/1239)) ([5f6dc2d](https://github.com/ant-design/pro-components/commit/5f6dc2d0c31a9cfa34b0bfe6fb53b432c437c4bd))
+
+## [6.5.19](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.5.18...@ant-design/pro-layout@6.5.19) (2020-12-08)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.5.18](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.5.17...@ant-design/pro-layout@6.5.18) (2020-12-07)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
 ## [6.5.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.5.16...@ant-design/pro-layout@6.5.17) (2020-12-02)
 
 **Note:** Version bump only for package @ant-design/pro-layout

@@ -9,19 +9,35 @@ const tailPkgs = readdirSync(path.join(__dirname, 'packages')).filter(
   (pkg) => pkg.charAt(0) !== '.',
 );
 
+const isCI = process.env.PRO_COMPONENTS_CI === 'CI';
+
+const externals = isCI
+  ? tailPkgs.reduce((pre, value) => {
+      return {
+        ...pre,
+        [`@ant-design/pro-${value}`]: `Pro${value
+          .toLowerCase()
+          .replace(/( |^)[a-z]/g, (L) => L.toUpperCase())}`,
+      };
+    }, {})
+  : {};
+
+console.log(externals);
+
 const webPackConfigList = [];
 
 tailPkgs.forEach((pkg) => {
   const entry = {};
   entry[`${pkg}`] = `./packages/${pkg}/src/index.tsx`;
-  entry[`${pkg}.min`] = `./packages/${pkg}/src/index.tsx`;
-
+  if (!isCI) {
+    entry[`${pkg}.min`] = `./packages/${pkg}/src/index.tsx`;
+  }
   const config = {
     entry,
     output: {
       filename: '[name].js',
       library: `Pro${pkg.toLowerCase().replace(/( |^)[a-z]/g, (L) => L.toUpperCase())}`,
-      libraryExport: 'default',
+      libraryTarget: 'umd',
       path: path.resolve(__dirname, 'packages', pkg, 'dist'),
       globalObject: 'this',
     },
@@ -29,17 +45,19 @@ tailPkgs.forEach((pkg) => {
     resolve: {
       extensions: ['.ts', '.tsx', '.json', '.css', '.js', '.less'],
     },
-    optimization: {
-      minimize: true,
-      minimizer: [
-        new TerserPlugin({
-          include: /\.min\.js$/,
-        }),
-        new OptimizeCSSAssetsPlugin({
-          include: /\.min\.js$/,
-        }),
-      ],
-    },
+    optimization: isCI
+      ? {
+          minimize: true,
+          minimizer: [
+            new TerserPlugin({
+              include: /\.min\.js$/,
+            }),
+            new OptimizeCSSAssetsPlugin({
+              include: /\.min\.js$/,
+            }),
+          ],
+        }
+      : undefined,
     module: {
       rules: [
         {
@@ -134,6 +152,7 @@ tailPkgs.forEach((pkg) => {
         'react-dom': 'ReactDOM',
         antd: 'antd',
         moment: 'moment',
+        ...externals,
       },
     ],
     plugins: [

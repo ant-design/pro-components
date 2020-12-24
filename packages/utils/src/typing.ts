@@ -1,7 +1,82 @@
-import { FormInstance } from 'antd/lib/form';
-import { ReactNode } from 'react';
+import type { FormInstance, FormItemProps } from 'antd/lib/form';
+import type { ReactNode } from 'react';
+import type { UseEditableUtilType } from './useEditableArray';
 
-type ProSchemaValueEnumType = {
+/**
+ * password 密码框
+ * money 金额
+ * option 操作 需要返回一个数组
+ * date 日期 YYYY-MM-DD
+ * dateRange 日期范围 YYYY-MM-DD[]
+ * dateTime 日期和时间 YYYY-MM-DD HH:mm:ss
+ * dateTimeRange 范围日期和时间 YYYY-MM-DD HH:mm:ss[]
+ * time: 时间 HH:mm:ss
+ * index：序列
+ * progress: 进度条
+ * percent: 百分比
+ * digit 数值
+ * avatar 头像
+ * code 代码块
+ * jsonCode json 的代码块，格式化了一下
+ */
+export type ProFieldValueType =
+  | 'password'
+  | 'money'
+  | 'textarea'
+  | 'option'
+  | 'date'
+  | 'dateWeek'
+  | 'dateMonth'
+  | 'dateQuarter'
+  | 'dateYear'
+  | 'dateRange'
+  | 'dateTimeRange'
+  | 'dateTime'
+  | 'time'
+  | 'text'
+  | 'select'
+  | 'checkbox'
+  | 'rate'
+  | 'radio'
+  | 'radioButton'
+  | 'index'
+  | 'indexBorder'
+  | 'progress'
+  | 'percent'
+  | 'digit'
+  | 'second'
+  | 'avatar'
+  | 'code'
+  | 'switch'
+  | 'fromNow'
+  | 'jsonCode';
+
+export type ProFieldRequestData<U = any> = (
+  params: U,
+  props: any,
+) => Promise<
+  {
+    label: React.ReactNode;
+    value: React.ReactText;
+    [key: string]: any;
+  }[]
+>;
+
+export type ProFieldValueEnumType = ProSchemaValueEnumMap | ProSchemaValueEnumObj;
+
+// function return type
+export type ProFieldValueObjectType = {
+  type: 'progress' | 'money' | 'percent';
+  status?: 'normal' | 'active' | 'success' | 'exception' | undefined;
+  locale?: string;
+  /** percent */
+  showSymbol?: boolean;
+  showColor?: boolean;
+  precision?: number;
+  request?: ProFieldRequestData;
+};
+
+export type ProSchemaValueEnumType = {
   /**
    * @name 演示的文案
    */
@@ -21,9 +96,7 @@ type ProSchemaValueEnumType = {
   disabled?: boolean;
 };
 
-export type ProSchemaValueEnumObj = {
-  [key: string]: ProSchemaValueEnumType | ReactNode;
-};
+export type ProSchemaValueEnumObj = Record<string, ProSchemaValueEnumType | ReactNode>;
 
 /**
  * @name ValueEnum 的类型
@@ -35,7 +108,7 @@ export type SearchTransformKeyFn = (
   value: any,
   field: string,
   object: any,
-) => string | { [key: string]: any };
+) => string | Record<string, any>;
 
 export type ProTableEditableFnType<T> = (_: any, record: T, index: number) => boolean;
 
@@ -50,17 +123,6 @@ export type ProSchemaComponentTypes =
   | 'table'
   | 'cardList'
   | undefined;
-
-export type ProFieldRequestData<T, U = any> = (
-  params: U,
-  props: T,
-) => Promise<
-  {
-    label: React.ReactNode;
-    value: React.ReactText;
-    [key: string]: any;
-  }[]
->;
 
 /**
  * 操作类型
@@ -83,12 +145,18 @@ export type ProCoreActionType<T = {}> = {
    * @name 清空选择
    */
   clearSelected?: () => void;
-} & T;
+} & Omit<
+  UseEditableUtilType,
+  'newLineRecord' | 'editableKeys' | 'actionRender' | 'setEditableRowKeys'
+> &
+  T;
+
+type ProSchemaValueType = ProFieldValueType | ProFieldValueObjectType;
 
 /**
  * 各个组件公共支持的 render
  */
-export type ProSchema<T = unknown, U = string, Extra = unknown, Action = {}> = {
+export type ProSchema<T = unknown, Extra = unknown, V = ProSchemaComponentTypes> = {
   /**
    * @name 确定这个列的唯一值
    */
@@ -98,21 +166,18 @@ export type ProSchema<T = unknown, U = string, Extra = unknown, Action = {}> = {
    * @description 支持一个数字，[a,b] 会转化为 obj.a.b
    */
   dataIndex?: string | number | (string | number)[];
+
   /**
    * 选择如何渲染相应的模式
    */
-  valueType?: ((entity: T, type: ProSchemaComponentTypes) => U) | U;
+  valueType?: ((entity: T, type: V) => ProSchemaValueType) | ProSchemaValueType;
 
   /**
    * @name 标题
    * @description 支持 ReactNode 和 方法
    */
   title?:
-    | ((
-        schema: ProSchema<T, U, Extra, Action>,
-        type: ProSchemaComponentTypes,
-        dom: React.ReactNode,
-      ) => React.ReactNode)
+    | ((schema: ProSchema<T, Extra>, type: V, dom: React.ReactNode) => React.ReactNode)
     | React.ReactNode;
 
   /**
@@ -129,8 +194,8 @@ export type ProSchema<T = unknown, U = string, Extra = unknown, Action = {}> = {
     dom: React.ReactNode,
     entity: T,
     index: number,
-    action: ProCoreActionType & Action,
-    schema: ProSchema<T, U, Extra & { isEditable?: boolean }, Action>,
+    action: ProCoreActionType,
+    schema: ProSchema<T, Extra> & { isEditable?: boolean; type: V },
   ) => React.ReactNode;
 
   /**
@@ -138,11 +203,16 @@ export type ProSchema<T = unknown, U = string, Extra = unknown, Action = {}> = {
    * @description 返回一个node，会自动包裹 value 和 onChange
    */
   renderFormItem?: (
-    item: ProSchema<T, U, Extra & { isEditable?: boolean }, Action>,
+    schema: ProSchema<T, Extra> & {
+      isEditable?: boolean;
+      index?: number;
+      type: V;
+    },
     config: {
       onSelect?: (value: any) => void;
-      type: ProSchemaComponentTypes;
-      defaultRender: (newItem: ProSchema<T, U, Extra>) => JSX.Element | null;
+      type: V;
+      isEditable?: boolean;
+      defaultRender: (newItem: ProSchema<T, Extra>) => JSX.Element | null;
     },
     form: FormInstance,
   ) => React.ReactNode;
@@ -152,8 +222,38 @@ export type ProSchema<T = unknown, U = string, Extra = unknown, Action = {}> = {
    * @description 必须要返回 string
    */
   renderText?: (text: any, record: T, index: number, action: ProCoreActionType) => any;
+  /**
+   * 自定义的 fieldProps render
+   */
+  fieldProps?:
+    | ((
+        form: FormInstance<any>,
+        config: ProSchema<T, Extra> & {
+          type: V;
+          isEditable?: boolean;
+          rowKey?: string;
+        },
+      ) => Object)
+    | Object;
 
-  fieldProps?: any;
+  /**
+   * 自定义的 formItemProps render
+   */
+  formItemProps?:
+    | FormItemProps
+    | ((
+        form: FormInstance<any>,
+        config: ProSchema<T, Extra> & {
+          type: V;
+          isEditable?: boolean;
+          rowKey?: string;
+        },
+      ) => FormItemProps);
+
+  /**
+   * 可编辑表格是否可编辑
+   */
+  editable?: false | ProTableEditableFnType<T>;
   /**
    * @name 映射值的类型
    */
@@ -167,9 +267,7 @@ export type ProSchema<T = unknown, U = string, Extra = unknown, Action = {}> = {
   /**
    * @name 从服务器请求的参数，改变了会触发 reload
    */
-  params?: {
-    [key: string]: any;
-  };
+  params?: Record<string, any>;
   /**
    * @name 隐藏在 descriptions
    */

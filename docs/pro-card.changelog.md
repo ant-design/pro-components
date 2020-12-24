@@ -1,7 +1,7 @@
 ---
-title: pro-card
+title: ProCard - 更新日志
 nav:
-  title: Change Log
+  title: 更新日志
   path: /changelog
   order: 99
 group:
@@ -9,6 +9,12 @@ group:
 ---
 
 # Change Log
+
+## @ant-design/pro-card@1.7.0
+
+`2020-12-08`
+
+- 💥 feat(card): support ref, actions ,size. [#1225](https://github.com/ant-design/pro-components/pull/1225) [@rdmclin2](https://github.com/rdmclin2)
 
 ## @ant-design/pro-card@1.6.1
 

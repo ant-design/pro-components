@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Space, ConfigProvider } from 'antd';
 import FieldContext from '../../FieldContext';
-import { GroupProps } from '../../interface';
+import type { GroupProps } from '../../interface';
 import './index.less';
 
 const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {

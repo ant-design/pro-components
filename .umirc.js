@@ -19,7 +19,7 @@ const alias = pkgList.reduce((pre, pkg) => {
 console.log(`🌼 alias list \n${chalk.blue(Object.keys(alias).join('\n'))}`);
 
 const tailPkgList = pkgList
-  .map((path) => [join('packages', path, 'src')])
+  .map((path) => [join('packages', path, 'src'), join('packages', path, 'src', 'components')])
   .reduce((acc, val) => acc.concat(val), []);
 
 const isProduction = process.env.NODE_ENV === 'production';
@@ -74,7 +74,9 @@ export default {
   // antd: {
   //   dark: true,
   // },
-  resolve: { includes: [...tailPkgList, 'docs'] },
+  resolve: {
+    includes: [...tailPkgList, 'docs'],
+  },
   navs: [
     null,
     {
@@ -109,7 +111,7 @@ export default {
     ios: false,
   },
   theme: {
-    '@s-site-menu-width': '208px',
+    '@s-site-menu-width': '258px',
   },
   links:
     process.env.NODE_ENV === 'development'
@@ -121,7 +123,31 @@ export default {
           'https://gw.alipayobjects.com/os/lib/react/16.13.1/umd/react.development.js',
           'https://gw.alipayobjects.com/os/lib/react-dom/16.13.1/umd/react-dom.development.js',
           'https://gw.alipayobjects.com/os/lib/moment/2.29.0/min/moment-with-locales.js',
-          'https://gw.alipayobjects.com/os/lib/antd/4.6.6/dist/antd-with-locales.js',
+          'https://gw.alipayobjects.com/os/lib/antd/4.9.3/dist/antd-with-locales.js',
         ]
       : [],
+  menus: {
+    '/components': [
+      {
+        title: '架构设计',
+        children: ['components.md'],
+      },
+      {
+        title: '布局',
+        children: ['layout', 'PageContainer/index.md', 'card'],
+      },
+      {
+        title: '数据录入',
+        children: ['form', 'field'],
+      },
+      {
+        title: '数据展示',
+        children: ['table', 'EditableTable/index.md', 'list', 'description'],
+      },
+      {
+        title: '通用',
+        children: ['skeleton'],
+      },
+    ],
+  },
 };

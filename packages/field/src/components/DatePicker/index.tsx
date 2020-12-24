@@ -4,8 +4,8 @@ import moment from 'moment';
 import { useIntl } from '@ant-design/pro-provider';
 import { FieldLabel, parseValueToMoment } from '@ant-design/pro-utils';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
-import { DatePickerProps } from 'antd/lib/date-picker';
-import { ProFieldFC } from '../../index';
+import type { DatePickerProps } from 'antd/lib/date-picker';
+import type { ProFieldFC } from '../../index';
 import './index.less';
 
 /**
@@ -57,7 +57,7 @@ const FieldDatePicker: ProFieldFC<{
       allowClear,
       placeholder = intl.getMessage('tableForm.selectPlaceholder', '请选择'),
     } = fieldProps;
-    const momentValue = parseValueToMoment(value, format) as moment.Moment;
+    const momentValue = parseValueToMoment(value) as moment.Moment;
     if (light) {
       const valueStr: string = (momentValue && momentValue.format(format)) || '';
       dom = (

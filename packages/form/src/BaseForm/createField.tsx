@@ -1,13 +1,13 @@
 ﻿import React, { useEffect, useContext } from 'react';
 import { Form } from 'antd';
-import { pickProFormItemProps, SearchTransformKeyFn } from '@ant-design/pro-utils';
-import { FormItemProps } from 'antd/lib/form';
+import type { ProFieldValueType, SearchTransformKeyFn } from '@ant-design/pro-utils';
+import { pickProFormItemProps } from '@ant-design/pro-utils';
+import type { FormItemProps } from 'antd/lib/form';
 import classnames from 'classnames';
-import { ProFieldValueType } from '@ant-design/pro-field';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
 import FieldContext from '../FieldContext';
 import LightWrapper from './LightWrapper';
-import { ProFormItemProps } from '../interface';
+import type { ProFormItemProps } from '../interface';
 
 export type ProFormItemCreateConfig = {
   /**
@@ -27,12 +27,15 @@ export type ProFormItemCreateConfig = {
 const WIDTH_SIZE_ENUM = {
   // 适用于短数字，短文本或者选项
   xs: 104,
-  // 适用于较短字段录入、如姓名、电话、ID 等。
   s: 216,
-  // 标准宽度，适用于大部分字段长度。
+  // 适用于较短字段录入、如姓名、电话、ID 等。
+  sm: 216,
   m: 328,
-  // 适用于较长字段录入，如长网址、标签组、文件路径等。
+  // 标准宽度，适用于大部分字段长度。
+  md: 328,
   l: 440,
+  // 适用于较长字段录入，如长网址、标签组、文件路径等。
+  lg: 440,
   // 适用于长文本录入，如长链接、描述、备注等，通常搭配自适应多行输入框或定高文本域使用。
   xl: 552,
 };
@@ -40,7 +43,7 @@ const WIDTH_SIZE_ENUM = {
 type ProFormComponent<P, Extends> = React.ComponentType<Omit<P & Extends, 'proFieldProps'>>;
 
 // 给控件扩展的通用的属性
-export interface ExtendsProps {
+export type ExtendsProps = {
   secondary?: boolean;
   allowClear?: boolean;
   bordered?: boolean;
@@ -72,7 +75,7 @@ export interface ExtendsProps {
    * @description 给 protable 开的口子
    */
   formItemProps?: FormItemProps;
-}
+};
 
 /**
  * 这个方法的主要作用的帮助 Field 增加 FormItem
@@ -98,6 +101,7 @@ function createField<P extends ProFormItemProps = any>(
       transform,
       readonly,
       allowClear,
+      colSize,
       formItemProps: propsFormItemProps,
       ...rest
     } = props;
@@ -153,6 +157,7 @@ function createField<P extends ProFormItemProps = any>(
       ...restFormItemProps,
       ...propsFormItemProps,
     };
+
     const field = (
       <Field
         // ProXxx 上面的 props 透传给 FieldProps，可能包含 Field 自定义的 props，

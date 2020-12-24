@@ -1,4 +1,4 @@
-import { MenuDataItem } from '../typings';
+import type { MenuDataItem } from '../typings';
 
 export const getOpenKeysFromMenuData = (menuData?: MenuDataItem[]) => {
   return (menuData || []).reduce((pre, item) => {

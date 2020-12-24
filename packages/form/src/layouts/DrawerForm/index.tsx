@@ -1,13 +1,14 @@
-﻿import React, { useImperativeHandle, useRef } from 'react';
-import { Drawer } from 'antd';
-import { FormInstance, FormProps } from 'antd/lib/form';
+﻿import React, { useContext, useImperativeHandle, useRef } from 'react';
+import { ConfigProvider, Drawer } from 'antd';
+import type { FormInstance, FormProps } from 'antd/lib/form';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { DrawerProps } from 'antd/lib/drawer';
-import { Store } from 'antd/lib/form/interface';
+import type { DrawerProps } from 'antd/lib/drawer';
+import type { Store } from 'antd/lib/form/interface';
 import { createPortal } from 'react-dom';
 import omit from 'omit.js';
 
-import BaseForm, { CommonFormProps } from '../../BaseForm';
+import type { CommonFormProps } from '../../BaseForm';
+import BaseForm from '../../BaseForm';
 
 export type DrawerFormProps = Omit<FormProps, 'onFinish'> &
   CommonFormProps & {
@@ -66,6 +67,8 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
    * 同步 props 和 本地
    */
   const formRef = useRef<FormInstance>();
+  const context = useContext(ConfigProvider.ConfigContext);
+
   useImperativeHandle(rest.formRef, () => formRef.current, [formRef.current]);
 
   /**
@@ -134,7 +137,7 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
             {children}
           </BaseForm>
         </div>,
-        document.body,
+        context?.getPopupContainer?.(document.body) || document.body,
       )}
       {trigger &&
         React.cloneElement(trigger, {

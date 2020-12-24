@@ -1,14 +1,14 @@
-import { MenuTheme } from 'antd/es/menu/MenuContext';
+import type { MenuTheme } from 'antd/es/menu/MenuContext';
 
 export type ContentWidth = 'Fluid' | 'Fixed';
 
-export interface RenderSetting {
+export type RenderSetting = {
   headerRender?: false;
   footerRender?: false;
   menuRender?: false;
   menuHeaderRender?: false;
-}
-export interface PureSettings {
+};
+export type PureSettings = {
   /**
    * @name theme for nav menu
    */
@@ -41,7 +41,7 @@ export interface PureSettings {
   /**
    * @name menu 相关的一些配置
    */
-  menu?: { locale?: boolean; defaultOpenAll?: boolean; loading?: boolean };
+  menu?: { locale?: boolean; defaultOpenAll?: boolean; loading?: boolean; type?: 'sub' | 'group' };
   /**
    * @name Layout 的 title，也会显示在浏览器标签上
    * @description 设置为 false，在 layout 中只展示 pageName，而不是 pageName - title
@@ -67,7 +67,7 @@ export interface PureSettings {
    * @description 只在 mix 模式下生效
    */
   splitMenus?: boolean;
-}
+};
 
 export type ProSettings = PureSettings & RenderSetting;
 

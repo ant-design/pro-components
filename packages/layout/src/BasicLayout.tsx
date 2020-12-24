@@ -1,7 +1,8 @@
 import './BasicLayout.less';
 
-import React, { CSSProperties, useContext, useEffect, useState } from 'react';
-import { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/lib/breadcrumb';
+import type { CSSProperties } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
+import type { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/lib/breadcrumb';
 import { Layout, ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import warning from 'warning';
@@ -12,20 +13,24 @@ import { useDeepCompareEffect, useDocumentTitle, isBrowser } from '@ant-design/p
 import Omit from 'omit.js';
 import { getMatchMenu } from '@umijs/route-utils';
 
-import Header, { HeaderViewProps } from './Header';
-import { MenuDataItem, MessageDescriptor, Route, RouterTypes, WithFalse } from './typings';
-import { getPageTitleInfo, GetPageTitleProps } from './getPageTitle';
-import defaultSettings, { ProSettings } from './defaultSettings';
-import getLocales, { LocaleType } from './locales';
-import { BaseMenuProps } from './SiderMenu/BaseMenu';
+import type { HeaderViewProps } from './Header';
+import Header from './Header';
+import type { MenuDataItem, MessageDescriptor, Route, RouterTypes, WithFalse } from './typings';
+import type { GetPageTitleProps } from './getPageTitle';
+import { getPageTitleInfo } from './getPageTitle';
+import type { ProSettings } from './defaultSettings';
+import defaultSettings from './defaultSettings';
+import type { LocaleType } from './locales';
+import getLocales from './locales';
+import type { BaseMenuProps } from './components/SiderMenu/BaseMenu';
 import Footer from './Footer';
 import RouteContext from './RouteContext';
-import SiderMenu from './SiderMenu';
-import { SiderMenuProps } from './SiderMenu/SiderMenu';
+import SiderMenu from './components/SiderMenu';
+import type { SiderMenuProps } from './components/SiderMenu/SiderMenu';
 import { getBreadcrumbProps } from './utils/getBreadcrumbProps';
 import getMenuData from './utils/getMenuData';
-import PageLoading from './PageLoading';
-import MenuCounter from './SiderMenu/Counter';
+import PageLoading from './components/PageLoading';
+import MenuCounter from './components/SiderMenu/Counter';
 import WrapContent from './WrapContent';
 import compatibleLayout from './utils/compatibleLayout';
 import useCurrentMenuLayoutProps from './utils/useCurrentMenuLayoutProps';
@@ -55,7 +60,10 @@ export type BasicLayoutProps = Partial<RouterTypes<Route>> &
       (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
     >;
 
-    breadcrumbRender?: (routers: AntdBreadcrumbProps['routes']) => AntdBreadcrumbProps['routes'];
+    breadcrumbRender?: WithFalse<
+      (routers: AntdBreadcrumbProps['routes']) => AntdBreadcrumbProps['routes']
+    >;
+
     menuItemRender?: BaseMenuProps['menuItemRender'];
     pageTitleRender?: WithFalse<
       (
@@ -194,7 +202,7 @@ const defaultPageTitleRender = (
 };
 
 export type BasicLayoutContext = { [K in 'location']: BasicLayoutProps[K] } & {
-  breadcrumb: { [path: string]: MenuDataItem };
+  breadcrumb: Record<string, MenuDataItem>;
 };
 
 const getPaddingLeft = (
@@ -252,21 +260,28 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   };
 
   const [menuInfoData, setMenuInfoData] = useMergedState<{
-    breadcrumb?: {
-      [key: string]: MenuDataItem;
-    };
+    breadcrumb?: Record<string, MenuDataItem>;
     breadcrumbMap?: Map<string, MenuDataItem>;
     menuData?: MenuDataItem[];
   }>(() => getMenuData(route?.routes || [], menu, formatMessage, menuDataRender));
 
   const { breadcrumb = {}, breadcrumbMap, menuData = [] } = menuInfoData;
 
-  const matchMenus = getMatchMenu(location.pathname || '/', menuData, true);
-  const matchMenuKeys = Array.from(new Set(matchMenus.map((item) => item.key || item.path || '')));
+  const matchMenus = useMemo(() => getMatchMenu(location.pathname || '/', menuData, true), [
+    location.pathname,
+    menuInfoData,
+  ]);
+
+  const matchMenuKeys = useMemo(
+    () => Array.from(new Set(matchMenus.map((item) => item.key || item.path || ''))),
+    [matchMenus],
+  );
 
   // 当前选中的menu，一般不会为空
   const currentMenu = (matchMenus[matchMenus.length - 1] || {}) as ProSettings & MenuDataItem;
+
   const currentMenuLayoutProps = useCurrentMenuLayoutProps(currentMenu);
+
   const { fixSiderbar, navTheme, layout: defaultPropsLayout, ...rest } = {
     ...props,
     ...currentMenuLayoutProps,
@@ -292,13 +307,13 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
       setMenuInfoData(infoData);
     });
     return () => window.cancelAnimationFrame && window.cancelAnimationFrame(animationFrameId);
-  }, [props.route, stringify(menu)]);
+  }, [props.route, stringify(menu), props.location?.pathname]);
 
   // If it is a fix menu, calculate padding
   // don't need padding in phone mode
   const hasLeftPadding = propsLayout !== 'top' && !isMobile;
 
-  const [collapsed, onCollapse] = useMergedState<boolean>(defaultCollapsed || false, {
+  const [collapsed, onCollapse] = useMergedState<boolean>(() => defaultCollapsed || false, {
     value: props.collapsed,
     onChange: propsOnCollapse,
   });
@@ -414,6 +429,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   }, [stringify(props.location)]);
 
   const [hasFooterToolbar, setHasFooterToolbar] = useState(false);
+
   useDocumentTitle(pageTitleInfo, props.title || defaultSettings.title);
 
   return (
@@ -448,10 +464,9 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
                 minHeight: '100%',
                 ...style,
               }}
-              hasSider
             >
               {siderMenuDom}
-              <Layout style={genLayoutStyle}>
+              <div style={genLayoutStyle} className={context.getPrefixCls('layout')}>
                 {headerDom}
                 <WrapContent
                   isChildrenLayout={isChildrenLayout}
@@ -462,7 +477,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
                   {loading ? <PageLoading /> : children}
                 </WrapContent>
                 {footerDom}
-              </Layout>
+              </div>
             </Layout>
           </div>
         )}

@@ -1,14 +1,17 @@
 /* eslint-disable no-param-reassign */
-import React, { useState, ReactElement, useMemo } from 'react';
+import type { ReactElement } from 'react';
+import React, { useMemo } from 'react';
 import { Row, Col, Form, Divider } from 'antd';
-import { FormInstance, FormProps } from 'antd/lib/form/Form';
+import type { FormInstance, FormProps } from 'antd/lib/form/Form';
 import RcResizeObserver from 'rc-resize-observer';
 import { useIntl } from '@ant-design/pro-provider';
-import { isBrowser } from '@ant-design/pro-utils';
+import { isBrowser, useMountMergeState } from '@ant-design/pro-utils';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
-import BaseForm, { CommonFormProps } from '../../BaseForm';
-import Actions, { ActionsProps } from './Actions';
+import type { CommonFormProps } from '../../BaseForm';
+import BaseForm from '../../BaseForm';
+import type { ActionsProps } from './Actions';
+import Actions from './Actions';
 
 const CONFIG_SPAN_BREAKPOINTS = {
   xs: 513,
@@ -209,21 +212,22 @@ const QueryFilterContent: React.FC<{
   /**
    * 是否需要展示 collapseRender
    */
-  const needCollapseRender = itemLength - 1 >= showLength ? undefined : false;
-
+  const needCollapseRender = itemLength - 1 >= showLength;
   return (
     <Row gutter={24} justify="start" key="resize-observer-row">
       {flatMapItems(items).map((item: React.ReactNode, index: number) => {
         // 如果 formItem 自己配置了 hidden，默认使用它自己的
         const hidden: boolean =
           (item as ReactElement<{ hidden: boolean }>)?.props?.hidden ||
-          (collapsed && index >= props.showLength);
+          (collapsed && (index >= props.showLength || totalSpan >= 24));
         const colSize = React.isValidElement<any>(item) ? item?.props?.colSize : 1;
         const colSpan = Math.min(spanSize.span * (colSize || 1), 24);
 
         // 每一列的key, 一般是存在的
         const itemKey =
           (React.isValidElement(item) && (item.key || `${item.props?.name}`)) || index;
+
+        currentSpan += colSpan;
 
         if (React.isValidElement(item) && hidden) {
           return React.cloneElement(item, {
@@ -239,7 +243,6 @@ const QueryFilterContent: React.FC<{
         totalSpan += colSpan;
         lastVisibleItemIndex = index;
 
-        currentSpan += colSpan;
         const colItem = (
           <Col key={itemKey} span={colSpan}>
             {item}
@@ -266,7 +269,7 @@ const QueryFilterContent: React.FC<{
             <Actions
               key="pro-form-query-filter-actions"
               collapsed={collapsed}
-              collapseRender={collapseRender || needCollapseRender}
+              collapseRender={needCollapseRender || currentSpan > 24 ? collapseRender : false}
               submitter={submitter}
               setCollapsed={setCollapsed}
             />
@@ -298,7 +301,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
     ...rest
   } = props;
 
-  const [width, setWidth] = useState(
+  const [width, setWidth] = useMountMergeState(
     () => (typeof style?.width === 'number' ? style?.width : defaultWidth) as number,
   );
 

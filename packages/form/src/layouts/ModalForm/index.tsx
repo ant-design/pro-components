@@ -1,13 +1,14 @@
 ﻿import React, { useContext, useImperativeHandle, useRef } from 'react';
 import { Modal, ConfigProvider } from 'antd';
-import { FormInstance, FormProps } from 'antd/lib/form';
-import { ModalProps } from 'antd/lib/modal';
-import { Store } from 'antd/lib/form/interface';
+import type { FormInstance, FormProps } from 'antd/lib/form';
+import type { ModalProps } from 'antd/lib/modal';
+import type { Store } from 'antd/lib/form/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'omit.js';
-
-import BaseForm, { CommonFormProps } from '../../BaseForm';
 import { createPortal } from 'react-dom';
+
+import type { CommonFormProps } from '../../BaseForm';
+import BaseForm from '../../BaseForm';
 
 export type ModalFormProps = Omit<FormProps, 'onFinish'> &
   CommonFormProps & {
@@ -126,7 +127,7 @@ const ModalForm: React.FC<ModalFormProps> = ({
             {children}
           </BaseForm>
         </div>,
-        document.body,
+        context?.getPopupContainer?.(document.body) || document.body,
       )}
       {trigger &&
         React.cloneElement(trigger, {

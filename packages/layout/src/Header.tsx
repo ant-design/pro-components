@@ -3,10 +3,11 @@ import './Header.less';
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import { Layout } from 'antd';
-import GlobalHeader, { GlobalHeaderProps } from './GlobalHeader';
-import TopNavHeader from './TopNavHeader';
-import { WithFalse } from './typings';
-import { PrivateSiderMenuProps } from './SiderMenu/SiderMenu';
+import type { GlobalHeaderProps } from './components/GlobalHeader';
+import GlobalHeader from './components/GlobalHeader';
+import TopNavHeader from './components/TopNavHeader';
+import type { WithFalse } from './typings';
+import type { PrivateSiderMenuProps } from './components/SiderMenu/SiderMenu';
 import { clearMenuItem } from './utils/utils';
 
 const { Header } = Layout;
@@ -27,9 +28,9 @@ export type HeaderViewProps = GlobalHeaderProps & {
   hasSiderMenu?: boolean;
 };
 
-interface HeaderViewState {
+type HeaderViewState = {
   visible: boolean;
-}
+};
 
 class HeaderView extends Component<HeaderViewProps & PrivateSiderMenuProps, HeaderViewState> {
   renderContent = () => {

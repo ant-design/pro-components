@@ -1,14 +1,14 @@
 import React, { useContext, useRef, useEffect, useImperativeHandle } from 'react';
-import { FormProps, FormInstance } from 'antd/lib/form/Form';
+import type { FormProps, FormInstance } from 'antd/lib/form/Form';
 
-import BaseForm, { CommonFormProps } from '../../BaseForm';
+import type { CommonFormProps } from '../../BaseForm';
+import BaseForm from '../../BaseForm';
 import { StepsFormProvide } from './index';
 
-export interface StepFormProps
-  extends Omit<FormProps, 'onFinish'>,
-    Omit<CommonFormProps, 'submitter'> {
+export type StepFormProps = {
   step?: number;
-}
+} & Omit<FormProps, 'onFinish'> &
+  Omit<CommonFormProps, 'submitter'>;
 
 const StepForm: React.FC<StepFormProps> = ({
   onFinish,
@@ -52,6 +52,7 @@ const StepForm: React.FC<StepFormProps> = ({
           });
           // 如果报错，直接抛出
           const success = await onFinish?.(values);
+
           if (success) {
             context?.next();
           }

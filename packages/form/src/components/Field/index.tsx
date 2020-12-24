@@ -1,20 +1,21 @@
 import React from 'react';
 
-import ProField, { ProFieldValueType } from '@ant-design/pro-field';
-import { InputProps } from 'antd/lib/input';
-import { SelectProps } from 'antd/lib/select';
-import { ProSchema } from '@ant-design/pro-utils';
+import ProField from '@ant-design/pro-field';
+import type { InputProps } from 'antd/lib/input';
+import type { SelectProps } from 'antd/lib/select';
+import type { ProSchema } from '@ant-design/pro-utils';
 
 import createField from '../../BaseForm/createField';
-import { ProFormItemProps } from '../../interface';
+import type { ProFormItemProps } from '../../interface';
 
 export type ProFormFieldProps = ProSchema<
   string,
-  ProFieldValueType,
   ProFormItemProps<InputProps & SelectProps<string>> & {
+    mode?: 'edit' | 'read' | 'update';
     // 用来判断是不是被嵌套渲染的 dom
     isDefaultDom?: boolean;
     ref?: any;
+    plain?: boolean;
   }
 >;
 /**
@@ -50,7 +51,7 @@ const ProFormField = React.forwardRef<
         return React.cloneElement(children, {
           ...restProps,
           onChange: (...restParams: any) => {
-            fieldProps?.onChange?.(...restParams);
+            (fieldProps?.onChange as any)?.(...restParams);
             onChange?.(...restParams);
           },
           ...children.props,
@@ -66,7 +67,7 @@ const ProFormField = React.forwardRef<
         fieldProps={{
           ...fieldProps,
           onChange: (...restParams: any) => {
-            fieldProps?.onChange?.(...restParams);
+            (fieldProps?.onChange as any)?.(...restParams);
             onChange?.(...restParams);
           },
         }}

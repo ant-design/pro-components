@@ -1,4 +1,5 @@
-import React, { CSSProperties } from 'react';
+import type { CSSProperties } from 'react';
+import React from 'react';
 import { Layout } from 'antd';
 import { ConfigProviderWrap } from '@ant-design/pro-provider';
 

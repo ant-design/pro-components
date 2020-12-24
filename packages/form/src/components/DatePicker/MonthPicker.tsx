@@ -1,8 +1,8 @@
 import React from 'react';
 import ProField from '@ant-design/pro-field';
-import { MonthPickerProps } from 'antd/lib/date-picker';
+import type { MonthPickerProps } from 'antd/lib/date-picker';
 import createField from '../../BaseForm/createField';
-import { ProFormItemProps } from '../../interface';
+import type { ProFormItemProps } from '../../interface';
 
 const valueType = 'dateMonth';
 /**

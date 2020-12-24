@@ -16,11 +16,12 @@ import frFR from './locale/fr_FR';
 import ptBR from './locale/pt_BR';
 import koKR from './locale/ko_KR';
 import idID from './locale/id_ID';
+import deDE from './locale/de_DE';
 
-export interface IntlType {
+export type IntlType = {
   locale: string;
   getMessage: (id: string, defaultMessage: string) => string;
-}
+};
 
 function get(source: object, path: string, defaultValue?: string): string | undefined {
   // a[3].b -> a.3.b
@@ -43,7 +44,7 @@ function get(source: object, path: string, defaultValue?: string): string | unde
  * @param locale
  * @param localeMap
  */
-const createIntl = (locale: string, localeMap: { [key: string]: any }): IntlType => ({
+const createIntl = (locale: string, localeMap: Record<string, any>): IntlType => ({
   getMessage: (id: string, defaultMessage: string) =>
     get(localeMap, id, defaultMessage) || defaultMessage,
   locale,
@@ -63,6 +64,7 @@ const frFRIntl = createIntl('fr_FR', frFR);
 const ptBRIntl = createIntl('pt_BR', ptBR);
 const koKRIntl = createIntl('ko_KR', koKR);
 const idIDNntl = createIntl('id_ID', idID);
+const deDEIntl = createIntl('de_DE', deDE);
 
 const intlMap = {
   'ar-EG': arEGIntl,
@@ -70,7 +72,7 @@ const intlMap = {
   'en-US': enUSIntl,
   'vi-VN': viVNIntl,
   'it-IT': itITIntl,
-  'js-JP': jaJPIntl,
+  'ja-JP': jaJPIntl,
   'es-ES': esESIntl,
   'ru-RU': ruRUIntl,
   'ms-MY': msMYIntl,
@@ -79,13 +81,12 @@ const intlMap = {
   'pt-BR': ptBRIntl,
   'ko-KR': koKRIntl,
   'id-ID': idIDNntl,
+  'de-DE': deDEIntl,
 };
 
 const intlMapKeys = Object.keys(intlMap);
 
-export type ParamsType = {
-  [key: string]: React.ReactText | React.ReactText[];
-};
+export type ParamsType = Record<string, React.ReactText | React.ReactText[]>;
 
 export {
   arEGIntl,
@@ -102,6 +103,7 @@ export {
   ptBRIntl,
   koKRIntl,
   idIDNntl,
+  deDEIntl,
   intlMap,
   intlMapKeys,
 };

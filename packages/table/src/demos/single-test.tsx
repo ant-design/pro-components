@@ -1,10 +1,11 @@
 import React, { useRef } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
-import { Button, Tag, Space } from 'antd';
-import ProTable, { ProColumns, TableDropdown, ActionType } from '@ant-design/pro-table';
+import { Button, Tag, Space, Input } from 'antd';
+import type { ProColumns, ActionType } from '@ant-design/pro-table';
+import ProTable, { TableDropdown } from '@ant-design/pro-table';
 import request from 'umi-request';
 
-interface GithubIssueItem {
+type GithubIssueItem = {
   url: string;
   id: number;
   number: number;
@@ -18,7 +19,7 @@ interface GithubIssueItem {
   created_at: string;
   updated_at: string;
   closed_at?: string;
-}
+};
 
 const columns: ProColumns<GithubIssueItem>[] = [
   {
@@ -72,10 +73,25 @@ const columns: ProColumns<GithubIssueItem>[] = [
     width: '10%',
   },
   {
+    title: '动态表单',
+    key: 'direction',
+    hideInTable: true,
+    dataIndex: 'direction',
+    formItemProps: {
+      noStyle: true,
+    },
+    renderFormItem: () => {
+      return <Input />;
+    },
+  },
+  {
     title: '标签',
     dataIndex: 'labels',
     width: '10%',
     order: -1,
+    formItemProps: {
+      noStyle: true,
+    },
     renderFormItem: (_, { defaultRender }) => defaultRender(_),
     render: (_, record) => (
       <Space>
@@ -90,6 +106,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
   {
     title: '创建时间',
     key: 'since',
+    colSize: 2,
     dataIndex: 'created_at',
     valueType: 'dateTime',
     width: '20%',

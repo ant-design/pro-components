@@ -1,8 +1,12 @@
 import React from 'react';
-import ProField, { ProFieldEmptyText, ProFieldValueType } from '@ant-design/pro-field';
-import { ProSchemaComponentTypes } from '@ant-design/pro-utils';
-import { ProColumnType } from './index';
-import InlineErrorFormItem from './component/InlineErrorFormItem';
+import { Form } from 'antd';
+import type { ProFieldEmptyText, ProFieldPropsType } from '@ant-design/pro-field';
+import ProField from '@ant-design/pro-field';
+import type { ProFieldValueType, ProSchemaComponentTypes } from '@ant-design/pro-utils';
+import { getFieldPropsOrFormItemProps, InlineErrorFormItem } from '@ant-design/pro-utils';
+import type { FormInstance } from 'antd/lib/form/Form';
+
+import type { ProColumnType } from './index';
 
 const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
 
@@ -58,38 +62,105 @@ function defaultRenderText<T>(config: {
     });
   }
 
-  const dom = (
-    <ProField
-      {...columnProps?.fieldProps}
-      valueEnum={columnProps?.valueEnum}
-      request={columnProps?.request}
-      params={columnProps?.params}
-      proFieldKey={columnProps?.dataIndex?.toString() || columnProps?.key}
-      text={valueType === 'index' || valueType === 'indexBorder' ? config.index : text}
-      mode={config.mode}
-      emptyText={config.columnEmptyText}
-      render={undefined}
-      renderFormItem={undefined}
-      valueType={valueType as ProFieldValueType}
-    />
-  );
+  /**
+   * 生成公用的  proField dom 配置
+   */
+  const proFieldProps: ProFieldPropsType = {
+    valueEnum: columnProps?.valueEnum,
+    request: columnProps?.request,
+    params: columnProps?.params,
+    proFieldKey: columnProps?.dataIndex?.toString() || columnProps?.key,
+    text: valueType === 'index' || valueType === 'indexBorder' ? config.index : text,
+    mode: config.mode,
+    emptyText: config.columnEmptyText,
+    renderFormItem: undefined,
+    valueType: valueType as ProFieldValueType,
+  };
 
-  // 如果是编辑模式，需要用 Form.Item 包一下
-  if (config.mode === 'edit') {
+  if (config.mode !== 'edit') {
     return (
-      <InlineErrorFormItem
-        initialValue={text}
-        name={spellNamePath(
-          config.recordKey || config.index,
-          columnProps?.key || columnProps?.dataIndex || config.index,
-        )}
-        {...columnProps?.formItemProps}
-      >
-        {dom}
-      </InlineErrorFormItem>
+      <ProField
+        fieldProps={getFieldPropsOrFormItemProps(columnProps?.fieldProps, undefined, columnProps)}
+        {...proFieldProps}
+      />
     );
   }
-  return dom;
+
+  // 如果是编辑模式，需要用 Form.Item 包一下
+  return (
+    <Form.Item shouldUpdate noStyle>
+      {(form) => {
+        /**
+         * 获取 formItemProps Props
+         */
+        const formItemProps = getFieldPropsOrFormItemProps(
+          columnProps?.formItemProps,
+          form as FormInstance,
+          {
+            rowKey: config.recordKey || config.index,
+            ...columnProps,
+            isEditable: true,
+          },
+        );
+
+        const inputDom = (
+          <InlineErrorFormItem
+            initialValue={text}
+            name={spellNamePath(
+              config.recordKey || config.index,
+              columnProps?.key || columnProps?.dataIndex || config.index,
+            )}
+            {...formItemProps}
+          >
+            <ProField
+              fieldProps={getFieldPropsOrFormItemProps(
+                columnProps?.fieldProps,
+                form as FormInstance,
+                {
+                  ...columnProps,
+                  rowKey: config.recordKey || config.index,
+                  isEditable: true,
+                },
+              )}
+              {...proFieldProps}
+            />
+          </InlineErrorFormItem>
+        );
+        /**
+         * renderFormItem 需要被自定义
+         */
+        if (columnProps?.renderFormItem) {
+          const renderDom = columnProps.renderFormItem?.(
+            {
+              ...columnProps,
+              index: config.index,
+              isEditable: true,
+              type: 'table',
+            },
+            {
+              defaultRender: () => inputDom,
+              type: 'form',
+              isEditable: true,
+            },
+            form as any,
+          );
+          return (
+            <InlineErrorFormItem
+              initialValue={text}
+              name={spellNamePath(
+                config.recordKey || config.index,
+                columnProps?.key || columnProps?.dataIndex || config.index,
+              )}
+              {...formItemProps}
+            >
+              {renderDom}
+            </InlineErrorFormItem>
+          );
+        }
+        return inputDom;
+      }}
+    </Form.Item>
+  );
 }
 
 export default defaultRenderText;

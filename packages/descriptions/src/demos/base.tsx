@@ -7,13 +7,11 @@ import { Button } from 'antd';
 export default () => {
   return (
     <>
-      <ProDescriptions
-        column={2}
-        title="高级定义列表"
-        tooltip="包含了从服务器请求，columns等功能！"
-      >
+      <ProDescriptions column={2} title="高级定义列表" tooltip="包含了从服务器请求，columns等功能">
         <ProDescriptions.Item label="文本" valueType="option">
-          <Button type="primary">提交</Button>
+          <Button key="primary" type="primary">
+            提交
+          </Button>
         </ProDescriptions.Item>
         <ProDescriptions.Item label="文本">这是一段文本</ProDescriptions.Item>
         <ProDescriptions.Item label="金额" tooltip="仅供参考，以实际为准" valueType="money">

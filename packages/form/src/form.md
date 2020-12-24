@@ -16,6 +16,55 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 
 ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 组件的结合，我们可以帮他们当成一个 FromItem 来使用，并且支持各种 `props`。每个 Field 都支持 `fieldProps` 属性来支持设置输入组件的`props`。 我们支持了 `placeholder` 的透传，你可以直接在组件上设置 `placeholder`。
 
+- 如果你想要设置默认值，请使用 `initialValues`,任何直接使用组件 `value` 和 `onChange` 的方式都有可能导致值绑定失效。
+
+- 如果想要表单联动或者做一些依赖，可以使用 render props 模式。通过包裹一个 `noStyle` 和 `shouldUpdate` 的 Form.Item 节点触发表单的单个渲染
+
+- 如果想要监听某个值，建议使用 `onValuesChange`。保持单向的数据流无论对开发者还是维护者都大有脾益
+
+- ProForm 没有黑科技，只是 antd 的 Form 的封装，如果要使用自定义的组件可以用 Form.Item 包裹后使用，支持混用。
+
+```tsx |pure
+// 设置整体默认值
+<ProForm initialValues={obj} />
+
+// 设置单个控件的
+<ProForm
+ onValuesChange={(changeValues) => console.log(changeValues)}
+>
+  <ProFormText initialValue="prop"/>
+</ProForm>
+
+// 相互依赖的组件联动
+<ProForm>
+  <Form.Item noStyle shouldUpdate>
+    {(form) => {
+      return (
+        <ProFormSelect
+          options={[
+            {
+              value: "chapter",
+              label: "盖章后生效",
+            },
+          ]}
+          width="md"
+          name="useMode"
+          label={`与${form.getFieldValue("name")}合同约定生效方式`}
+        />
+      );
+    }}
+  </Form.Item>
+</ProForm>;
+
+
+// 使用自定义组件
+<ProForm>
+  <Form.Item name="switch" label="Switch" valuePropName="checked">
+    <Switch />
+  </Form.Item>
+</ProForm>
+```
+
 ## 何时使用
 
 当你想快速实现一个表单但不想花太多时间去布局时 ProForm 是最好的选择。
@@ -29,6 +78,10 @@ ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 �
 ### 基本使用
 
 <code src="./demos/base.tsx" height="548px"/>
+
+### 互相依赖的表单项
+
+<code src="./demos/dependency.tsx" height="248px"/>
 
 ### 分步表单
 
@@ -82,7 +135,7 @@ ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 �
 
 ### 固定页脚
 
-<code src="./demos/layout-base.tsx" height="764px"/>
+<code src="./demos/layout-base.tsx" iframe="764px" />
 
 ### 混合使用
 
@@ -230,28 +283,28 @@ StepsForm 本质上是一个 Provider ，增加步骤条和一些相关的 API�
 ModalForm 组合了 Modal 和 ProForm 可以减少繁琐的状态管理。
 
 | 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | trigger | 用于触发 Modal 打开的 dom，一般是 button | `ReactNode` | - |
 | visible | 是否打开 | `boolean` | - |
 | onVisibleChange | visible 改变时触发 | `(visible:boolean)=>void` | - |
-| modalProps | Modal 的 props，使用方式与 [antd](https://ant.design/components/modal-cn/) 相同，但是去掉了 current 和 onChange | [props](https://ant.design/components/modal-cn/#API) | - |
+| modalProps | Modal 的 props，使用方式与 [antd](https://ant.design/components/modal-cn/) 相同。注意：不支持 'visible'，请使用全局的 visible | [props](https://ant.design/components/modal-cn/#API) | - |
 | title | 弹框的标题 | `ReactNode` | - |
 | width | 弹框的宽度 | `Number` | - |
-| onFinish | 提交数据时触发，如果返回一个 true，会关掉弹框并且重置表单 | `async (values)=>boolean | void` | - |
+| onFinish | 提交数据时触发，如果返回一个 true，会关掉弹框并且重置表单 | `async (values)=>boolean` | - |
 
 ### DrawerForm
 
 DrawerForm 组合了 Drawer 和 ProForm 可以减少繁琐的状态管理。
 
 | 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | trigger | 用于触发 Modal 打开的 dom，一般是 button | `ReactNode` | - |
 | visible | 是否打开 | `boolean` | - |
 | onVisibleChange | visible 改变时触发 | `(visible:boolean)=>void` | - |
-| drawerProps | Modal 的 props，使用方式与 [antd](https://ant.design/components/modal-cn/) 相同，但是去掉了 current 和 onChange | [props](https://ant.design/components/modal-cn/#API) | - |
+| drawerProps | Drawer 的 props，使用方式与 [antd](https://ant.design/components/drawer-cn/) 相同。注意：不支持 'visible'，请使用全局的 visible | [props](https://ant.design/components/drawer-cn/#API) | - |
 | title | 抽屉的标题 | `ReactNode` | - |
 | width | 抽屉的宽度 | `Number` | - |
-| onFinish | 提交数据时触发，如果返回一个 true，会关掉抽屉并且重置表单 | `async (values)=>boolean | void` | - |
+| onFinish | 提交数据时触发，如果返回一个 true，会关掉抽屉并且重置表单 | `async (values)=>boolean` | - |
 
 ## Fields API
 
@@ -532,8 +585,8 @@ ProFormFieldSet 可以将内部的多个 children 的值组合并且存储在 Pr
   label="组件列表"
   transform={(value: any) => ({ startTime: value[0], endTime: value[1] })}
 >
-  <ProFormText width="m" />
-  <ProFormText width="m" />
-  <ProFormText width="m" />
+  <ProFormText width="md" />
+  <ProFormText width="md" />
+  <ProFormText width="md" />
 </ProFormFieldSet>
 ```

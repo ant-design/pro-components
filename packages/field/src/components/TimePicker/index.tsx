@@ -3,7 +3,7 @@ import React, { useState, useContext } from 'react';
 import moment from 'moment';
 import { FieldLabel, parseValueToMoment } from '@ant-design/pro-utils';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
-import { ProFieldFC } from '../../index';
+import type { ProFieldFC } from '../../index';
 
 /**
  * 日期选择组件
@@ -31,7 +31,7 @@ const FieldTimePicker: ProFieldFC<{
   if (mode === 'edit' || mode === 'update') {
     let dom;
     const { disabled, onChange, placeholder, allowClear, value } = fieldProps;
-    const momentValue = parseValueToMoment(value, format) as moment.Moment;
+    const momentValue = parseValueToMoment(value) as moment.Moment;
     if (light) {
       const valueStr: string = (momentValue && momentValue.format(format)) || '';
       dom = (
@@ -80,6 +80,7 @@ const FieldTimePicker: ProFieldFC<{
           format={format}
           bordered={plain === undefined ? true : !plain}
           {...fieldProps}
+          value={momentValue}
         />
       );
     }

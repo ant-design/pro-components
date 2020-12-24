@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Space, ConfigProvider } from 'antd';
-import { ProFieldFC } from '../../index';
+import type { ProFieldFC } from '../../index';
 
 /**
  * 一般用于放多个按钮
@@ -16,7 +16,6 @@ const FieldOptions: ProFieldFC<{}> = ({ text, mode: type, render, fieldProps }) 
       { mode: type, ...fieldProps },
       <></>,
     ) as unknown) as React.ReactNode[];
-
     if (!dom || dom?.length < 1) {
       return null;
     }

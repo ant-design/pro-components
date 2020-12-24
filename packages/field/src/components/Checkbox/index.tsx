@@ -1,11 +1,12 @@
 ﻿import React, { useContext, useImperativeHandle, useRef } from 'react';
 import { Checkbox, ConfigProvider, Space, Spin } from 'antd';
 import classNames from 'classnames';
-import { CheckboxGroupProps } from 'antd/lib/checkbox';
-import { ProFieldFC } from '../../index';
+import type { CheckboxGroupProps } from 'antd/lib/checkbox';
+import type { ProFieldFC } from '../../index';
 
 import './index.less';
-import { FieldSelectProps, ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
+import type { FieldSelectProps } from '../Select';
+import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
 
 export type GroupProps = {
   layout?: 'horizontal' | 'vertical';

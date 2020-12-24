@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
-import ProTable, { ProColumns } from '@ant-design/pro-table';
+import type { ProColumns } from '@ant-design/pro-table';
+import ProTable from '@ant-design/pro-table';
 import { Space } from 'antd';
 
 const valueEnum = {
@@ -10,7 +11,7 @@ const valueEnum = {
   3: 'error',
 };
 
-export interface TableListItem {
+export type TableListItem = {
   key: number;
   name: string;
   status: string | number;
@@ -22,7 +23,7 @@ export interface TableListItem {
   createdAtRange: number[];
   code: string;
   avatar: string;
-}
+};
 const tableListDataSource: TableListItem[] = [];
 
 for (let i = 0; i < 2; i += 1) {
@@ -113,7 +114,16 @@ const columns: ProColumns<TableListItem>[] = [
     key: 'option',
     width: 120,
     valueType: 'option',
-    render: () => [<a key="a">操作</a>, <a key="b">删除</a>],
+    render: (_, row, index, action) => [
+      <a
+        key="a"
+        onClick={() => {
+          action.startEditable(row.key);
+        }}
+      >
+        编辑
+      </a>,
+    ],
   },
 ];
 
@@ -121,8 +131,7 @@ export default () => (
   <>
     <ProTable<TableListItem>
       columns={columns}
-      request={(params, sorter, filter) => {
-        console.log(params, sorter, filter);
+      request={() => {
         return Promise.resolve({
           total: 200,
           data: tableListDataSource,

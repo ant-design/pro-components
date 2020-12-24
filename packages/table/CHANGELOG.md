@@ -2,6 +2,62 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.16.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.16.3...@ant-design/pro-table@2.16.4) (2020-12-21)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.16.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.16.2...@ant-design/pro-table@2.16.3) (2020-12-21)
+
+### Bug Fixes
+
+- **table:** 设置 pageSize 后,查询或重置没获取最新的 pageSize ([#1352](https://github.com/ant-design/pro-components/issues/1352)) ([535d93a](https://github.com/ant-design/pro-components/commit/535d93a5da4861a3901750b88e04f4728acfb20b))
+
+## [2.16.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.16.1...@ant-design/pro-table@2.16.2) (2020-12-17)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.16.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.16.0...@ant-design/pro-table@2.16.1) (2020-12-15)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [2.16.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.15.1...@ant-design/pro-table@2.16.0) (2020-12-14)
+
+### Features
+
+- **desciption:** support editable ([#1273](https://github.com/ant-design/pro-components/issues/1273)) ([bc8821b](https://github.com/ant-design/pro-components/commit/bc8821bce05faadaa7d9337ae2287131c41791e0))
+- **table:** EditableTable support max length ([#1286](https://github.com/ant-design/pro-components/issues/1286)) ([dac9844](https://github.com/ant-design/pro-components/commit/dac9844e42ed19d5a539b6b0eae42ea35d6f958d))
+
+## [2.15.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.15.0...@ant-design/pro-table@2.15.1) (2020-12-10)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [2.15.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.14.0...@ant-design/pro-table@2.15.0) (2020-12-09)
+
+### Bug Fixes
+
+- **colsize:** fix colsize warning ([#1245](https://github.com/ant-design/pro-components/issues/1245)) ([af674b6](https://github.com/ant-design/pro-components/commit/af674b661f53ef7f537bd49bea32784274cf0d34))
+- **table:** remove unuse code ([#1243](https://github.com/ant-design/pro-components/issues/1243)) ([922496c](https://github.com/ant-design/pro-components/commit/922496cf7dafeb024a8c2cb742c9c4d60f6970eb))
+
+### Features
+
+- **table:** add "colSize" in fieldProps within proTable's columns to customize query form item width ([#1229](https://github.com/ant-design/pro-components/issues/1229)) ([4ca6370](https://github.com/ant-design/pro-components/commit/4ca63709fbc8df7b850bb5e81b1f11e578775f0f))
+
+# [2.14.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.13.3...@ant-design/pro-table@2.14.0) (2020-12-08)
+
+### Bug Fixes
+
+- avoid exceptions when text is undefined ([#1192](https://github.com/ant-design/pro-components/issues/1192)) ([f12ed9b](https://github.com/ant-design/pro-components/commit/f12ed9bd589bfd4d5a0804f15f44f0606e1c3c49))
+
+### Features
+
+- **table:** fieldProps support function ([#1227](https://github.com/ant-design/pro-components/issues/1227)) ([bc34fb0](https://github.com/ant-design/pro-components/commit/bc34fb0ce11d006c83b06166f6cf8903bd5d3e1a))
+
+## [2.13.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.13.2...@ant-design/pro-table@2.13.3) (2020-12-07)
+
+### Bug Fixes
+
+- **table:** fix formItemProps no work error ([#1222](https://github.com/ant-design/pro-components/issues/1222)) ([aed476d](https://github.com/ant-design/pro-components/commit/aed476d38006ad7b37aa5583a644e4a434ddc566))
+
 ## [2.13.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.13.1...@ant-design/pro-table@2.13.2) (2020-12-04)
 
 ### Bug Fixes

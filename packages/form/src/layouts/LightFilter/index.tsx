@@ -1,19 +1,21 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { FormProps } from 'antd/lib/form/Form';
-import { SizeType } from 'antd/lib/config-provider/SizeContext';
+import type { FormProps } from 'antd/lib/form/Form';
+import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import classNames from 'classnames';
 import { Form, ConfigProvider } from 'antd';
 import { FilterDropdown, FieldLabel } from '@ant-design/pro-utils';
 import { useIntl } from '@ant-design/pro-provider';
 import { FilterOutlined } from '@ant-design/icons';
-import BaseForm, { CommonFormProps } from '../../BaseForm';
+import type { CommonFormProps } from '../../BaseForm';
+import BaseForm from '../../BaseForm';
 import './index.less';
 
-export interface LightFilterProps extends Omit<FormProps, 'onFinish'>, CommonFormProps {
+export type LightFilterProps = {
   collapse?: boolean;
   collapseLabel?: React.ReactNode;
   bordered?: boolean;
-}
+} & Omit<FormProps, 'onFinish'> &
+  CommonFormProps;
 
 /**
  * 单行的查询表单，一般用于配合 table 或者 list使用
@@ -126,20 +128,23 @@ const LightFilterContainer: React.FC<{
               {collapseItems.map((child: any) => {
                 const { key } = child;
                 const { name, fieldProps } = child.props;
+                const newFieldProps = {
+                  ...fieldProps,
+                  onChange: (e: any) => {
+                    setMoreValues({
+                      ...moreValues,
+                      [name]: e?.target ? e.target.value : e,
+                    });
+                    return false;
+                  },
+                };
+                if (moreValues.hasOwnProperty(name)) {
+                  newFieldProps[child.props.valuePropName || 'value'] = moreValues[name];
+                }
                 return (
                   <div className={`${lightFilterClassName}-line`} key={key}>
                     {React.cloneElement(child, {
-                      fieldProps: {
-                        ...fieldProps,
-                        [child.props.valuePropName || 'value']: moreValues[name],
-                        onChange: (e: any) => {
-                          setMoreValues({
-                            ...moreValues,
-                            [name]: e?.target ? e.target.value : e,
-                          });
-                          return false;
-                        },
-                      },
+                      fieldProps: newFieldProps,
                     })}
                   </div>
                 );

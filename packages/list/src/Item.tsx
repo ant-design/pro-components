@@ -2,16 +2,16 @@ import React, { useContext } from 'react';
 import { List, Skeleton, ConfigProvider } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { ListGridType } from 'antd/lib/list';
-import { ExpandableConfig } from 'antd/lib/table/interface';
+import type { ListGridType } from 'antd/lib/list';
+import type { ExpandableConfig } from 'antd/lib/table/interface';
 import classNames from 'classnames';
 
-export interface RenderExpandIconProps {
+export type RenderExpandIconProps = {
   prefixCls: string;
   expanded: boolean;
   expandIcon: React.ReactNode;
   onExpand: (expanded: boolean) => void;
-}
+};
 
 export function renderExpandIcon({
   prefixCls,
@@ -39,7 +39,7 @@ export function renderExpandIcon({
   );
 }
 
-export interface ItemProps {
+export type ItemProps = {
   title?: React.ReactNode;
   subTitle?: React.ReactNode;
   checkbox?: React.ReactNode;
@@ -66,7 +66,7 @@ export interface ItemProps {
   expandable?: ExpandableConfig<any>;
   showActions?: 'hover' | 'always';
   type?: 'new' | 'top' | 'inline' | 'subheader';
-}
+};
 
 function ProListItem(props: ItemProps) {
   const { prefixCls: customizePrefixCls } = props;
@@ -120,7 +120,7 @@ function ProListItem(props: ItemProps) {
   return (
     <div className={className} style={style}>
       <List.Item
-        actions={actions}
+        actions={Array.isArray(actions) || !actions ? actions : [actions]}
         {...rest}
         onClick={() => {
           if (expandRowByClick) {
@@ -141,19 +141,23 @@ function ProListItem(props: ItemProps) {
                   expanded,
                 })}
             </div>
-            <List.Item.Meta
-              avatar={avatar}
-              title={
-                <div className={`${className}-header-title`}>
-                  {title && <div className={`${className}-title`}>{title}</div>}
-                  {subTitle && <div className={`${className}-subTitle`}>{subTitle}</div>}
-                </div>
-              }
-              description={
-                description &&
-                needExpanded && <div className={`${className}-description`}>{description}</div>
-              }
-            />
+            {title || avatar || subTitle || description ? (
+              <List.Item.Meta
+                avatar={avatar}
+                title={
+                  title || subTitle ? (
+                    <div className={`${className}-header-title`}>
+                      {title && <div className={`${className}-title`}>{title}</div>}
+                      {subTitle && <div className={`${className}-subTitle`}>{subTitle}</div>}
+                    </div>
+                  ) : null
+                }
+                description={
+                  description &&
+                  needExpanded && <div className={`${className}-description`}>{description}</div>
+                }
+              />
+            ) : null}
           </div>
           {needExpanded && (content || expandedRowDom) && (
             <div className={`${className}-content`}>

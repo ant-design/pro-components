@@ -1,26 +1,31 @@
 import React, {
   useContext,
   useRef,
-  useState,
   useCallback,
   useMemo,
   useImperativeHandle,
   useEffect,
 } from 'react';
 import { Table, ConfigProvider, Form, Card, Empty } from 'antd';
-import { useIntl, ParamsType, ConfigProviderWrap } from '@ant-design/pro-provider';
+import type { ParamsType } from '@ant-design/pro-provider';
+import { useIntl, ConfigProviderWrap } from '@ant-design/pro-provider';
 import classNames from 'classnames';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { stringify } from 'use-json-comparison';
-import { TablePaginationConfig } from 'antd/lib/table';
-import { TableCurrentDataSource, SorterResult, SortOrder } from 'antd/lib/table/interface';
-import { useDeepCompareEffect, omitUndefined } from '@ant-design/pro-utils';
+import type { TablePaginationConfig } from 'antd/lib/table';
+import type { TableCurrentDataSource, SorterResult, SortOrder } from 'antd/lib/table/interface';
+import {
+  useDeepCompareEffect,
+  omitUndefined,
+  useMountMergeState,
+  useEditableArray,
+} from '@ant-design/pro-utils';
+import omit from 'omit.js';
 
 import useFetchData from './useFetchData';
 import Container from './container';
-import Toolbar from './component/ToolBar';
-import Alert from './component/Alert';
-import FormSearch from './Form';
+import Toolbar from './components/ToolBar';
+import Alert from './components/Alert';
+import FormSearch from './components/Form';
 import {
   genColumnKey,
   mergePagination,
@@ -29,12 +34,28 @@ import {
   tableColumnSort,
   genColumnList,
 } from './utils';
-import ErrorBoundary from './component/ErrorBoundary';
+import ErrorBoundary from './components/ErrorBoundary';
 
 import './index.less';
-import useEditable from './component/useEditable';
-import { ProTableProps, RequestData, TableRowSelection } from './typing';
-import { ActionType } from '.';
+import type {
+  Bordered,
+  BorderedType,
+  ProTableProps,
+  RequestData,
+  TableRowSelection,
+} from './typing';
+import type { ActionType } from '.';
+
+const isBordered = (borderType: BorderedType, border?: Bordered) => {
+  if (border === undefined) {
+    return false;
+  }
+  // debugger
+  if (typeof border === 'boolean') {
+    return border;
+  }
+  return border[borderType];
+};
 
 /**
  * 🏆 Use Ant Design Table like a Pro!
@@ -47,6 +68,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
   },
 ) => {
   const {
+    cardBordered,
     request,
     className: propsClassName,
     params = {},
@@ -67,6 +89,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     onColumnsStateChange,
     options,
     search,
+    onLoadingChange,
     rowSelection: propsRowSelection = false,
     beforeSearchSubmit = (searchParams: Partial<U>) => searchParams,
     tableAlertRender,
@@ -90,25 +113,21 @@ const ProTable = <T extends {}, U extends ParamsType>(
     }
   }, [actionRef.current]);
 
-  const [selectedRowKeys, setSelectedRowKeys] = useMergedState<React.ReactText[]>([], {
+  const [selectedRowKeys, setSelectedRowKeys] = useMountMergeState<React.ReactText[]>([], {
     value: propsRowSelection ? propsRowSelection.selectedRowKeys : undefined,
   });
 
-  const [selectedRows, setSelectedRows] = useState<T[]>([]);
+  const [selectedRows, setSelectedRows] = useMountMergeState<T[]>([]);
 
   const setSelectedRowsAndKey = (keys: React.ReactText[], rows: T[]) => {
     setSelectedRowKeys(keys);
     setSelectedRows(rows);
   };
 
-  const [formSearch, setFormSearch] = useState<{} | undefined>(undefined);
+  const [formSearch, setFormSearch] = useMountMergeState<{} | undefined>(undefined);
 
-  const [proFilter, setProFilter] = useState<{
-    [key: string]: React.ReactText[];
-  }>({});
-  const [proSort, setProSort] = useState<{
-    [key: string]: SortOrder;
-  }>({});
+  const [proFilter, setProFilter] = useMountMergeState<Record<string, React.ReactText[]>>({});
+  const [proSort, setProSort] = useMountMergeState<Record<string, SortOrder>>({});
 
   /**
    * 获取 table 的 dom ref
@@ -169,6 +188,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
       onDataSourceChange: props.onDataSourceChange,
       pagination: propsPagination !== false,
       onLoad,
+      onLoadingChange,
       onRequestError,
       manual: !request || (!formSearch && search !== false),
       effects: [stringify(params), stringify(formSearch), stringify(proFilter), stringify(proSort)],
@@ -181,10 +201,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
    */
   const pagination = useMemo(() => mergePagination<T>(propsPagination, action, intl), [
     propsPagination,
-    action.total,
-    action.pageSize,
-    action.current,
-    action.setPageInfo,
+    action,
     intl,
   ]);
 
@@ -215,7 +232,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
   /**
    * 可编辑行的相关配置
    */
-  const editableUtils = useEditable<any>({
+  const editableUtils = useEditableArray<any>({
     ...props.editable,
     getRowKey,
     childrenColumnName: props.expandable?.childrenColumnName,
@@ -237,6 +254,10 @@ const ProTable = <T extends {}, U extends ParamsType>(
       }
     },
     onCleanSelected: () => {
+      // 清空选中行
+      onCleanSelected();
+    },
+    resetAll: () => {
       // 清空选中行
       onCleanSelected();
       // 清空筛选
@@ -261,7 +282,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
       type,
       editableUtils,
     }).sort(tableColumnSort(counter.columnsMap));
-  }, [propsColumns, editableUtils.editableKeys.join(',') || 'null', counter.columnsMap, getRowKey]);
+  }, [propsColumns, counter, columnEmptyText, type, editableUtils]);
 
   /**
    * Table Column 变化的时候更新一下，这个参数将会用于渲染
@@ -306,41 +327,45 @@ const ProTable = <T extends {}, U extends ParamsType>(
     },
   };
 
-  const onSubmit = useCallback(
-    (value, firstLoad) => {
-      if (type !== 'form') {
-        const submitParams = {
-          ...value,
-          _timestamp: Date.now(),
-        };
-        setFormSearch(beforeSearchSubmit(submitParams));
-        if (!firstLoad) {
-          // back first page
-          action.resetPageIndex();
-        }
+  const onSubmit = (value: U, firstLoad: boolean) => {
+    if (type !== 'form') {
+      const pageInfo = pagination ? {} : (pagination as TablePaginationConfig);
+      const submitParams = {
+        ...value,
+        _timestamp: Date.now(),
+        ...pageInfo,
+      };
+      const omitParams = omit(beforeSearchSubmit(submitParams), Object.keys(pageInfo));
+      setFormSearch(omitParams);
+      if (!firstLoad) {
+        // back first page
+        action.resetPageIndex();
       }
-      // 不是第一次提交就不触发，第一次提交是 js 触发的
-      // 为了解决 https://github.com/ant-design/pro-components/issues/579
-      if (props.onSubmit && !firstLoad) {
-        props.onSubmit(value);
-      }
-    },
-    [props.onSubmit],
-  );
+    }
+    // 不是第一次提交就不触发，第一次提交是 js 触发的
+    // 为了解决 https://github.com/ant-design/pro-components/issues/579
+    if (props.onSubmit && !firstLoad) {
+      props.onSubmit(value);
+    }
+  };
 
-  const onReset = useCallback(
-    (value) => {
-      setFormSearch(beforeSearchSubmit(value));
-      // back first page
-      action.resetPageIndex();
-      props.onReset?.();
-    },
-    [props.onReset],
-  );
+  const onReset = (value: Partial<U>) => {
+    const pageInfo = pagination === false ? {} : pagination;
+
+    setFormSearch(
+      beforeSearchSubmit({
+        ...value,
+        ...pageInfo,
+      }),
+    );
+    // back first page
+    action.resetPageIndex();
+    props.onReset?.();
+  };
 
   if ((!props.columns || props.columns.length < 1) && !props.tableViewRender) {
     return (
-      <Card bordered={false} bodyStyle={{ padding: 50 }}>
+      <Card bordered={isBordered('table', cardBordered)} bodyStyle={{ padding: 50 }}>
         <Empty />
       </Card>
     );
@@ -363,6 +388,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
         dateFormatter={rest.dateFormatter}
         search={search}
         form={rest.form}
+        bordered={isBordered('search', cardBordered)}
       />
     ) : null;
 
@@ -426,12 +452,15 @@ const ProTable = <T extends {}, U extends ParamsType>(
   /**
    * 如果所有列中的 filters=true| undefined
    * 说明是用的是本地筛选
+   * 任何一列配置 filters=false，就能绕过这个判断
    */
   const useLocaleFilter = propsColumns.every(
-    (column) => column.filters === undefined || column.filters === true,
+    (column) =>
+      (column.filters === undefined || column.filters === true) && column.onFilter !== false,
   );
+
   const editableDataSource = (): T[] => {
-    const { options: newLineOptions, row } = editableUtils.newLineRecord || {};
+    const { options: newLineOptions, defaultValue: row } = editableUtils.newLineRecord || {};
     if (newLineOptions?.position === 'top') {
       return [row, ...action.dataSource];
     }
@@ -458,9 +487,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
     pagination,
     onChange: (
       changePagination: TablePaginationConfig,
-      filters: {
-        [string: string]: React.ReactText[] | null;
-      },
+      filters: Record<string, (React.Key | boolean)[] | null>,
       sorter: SorterResult<T> | SorterResult<T>[],
       extra: TableCurrentDataSource<T>,
     ) => {
@@ -474,9 +501,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
       // 制造筛选的数据
       // 制造一个排序的数据
       if (Array.isArray(sorter)) {
-        const data = sorter.reduce<{
-          [key: string]: any;
-        }>(
+        const data = sorter.reduce<Record<string, any>>(
           (pre, value) => ({
             ...pre,
             [`${value.field}`]: value.order,
@@ -516,7 +541,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
    */
   const tableAreaDom = (
     <Card
-      bordered={false}
+      bordered={isBordered('table', cardBordered)}
       style={{
         height: '100%',
       }}
@@ -580,7 +605,9 @@ const ProTable = <T extends {}, U extends ParamsType>(
  * 更快 更好 更方便
  * @param props
  */
-const ProviderWarp = <T, U extends { [key: string]: any } = {}>(props: ProTableProps<T, U>) => {
+const ProviderWarp = <T, U extends Record<string, any> = Record<string, any>>(
+  props: ProTableProps<T, U>,
+) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   return (
     <Container.Provider initialState={props}>

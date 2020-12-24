@@ -6,12 +6,12 @@ import styles from './search-filter.module.less';
 
 const { TabPane } = Tabs;
 
-interface AdvancedSearchProps {
+type AdvancedSearchProps = {
   onFilterChange?: (allValues: any) => void;
   onSearch?: (text: string) => void;
   onTypeChange?: (type: string) => void;
   defaultType?: string;
-}
+};
 
 const AdvancedSearch: React.FC<AdvancedSearchProps> = (props) => {
   const { onSearch, onTypeChange, defaultType = 'articles', onFilterChange } = props;

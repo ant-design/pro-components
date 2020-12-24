@@ -2,6 +2,45 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.1.13...@ant-design/pro-list@1.1.14) (2020-12-21)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.1.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.1.12...@ant-design/pro-list@1.1.13) (2020-12-21)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.1.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.1.11...@ant-design/pro-list@1.1.12) (2020-12-17)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.1.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.1.10...@ant-design/pro-list@1.1.11) (2020-12-15)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.1.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.1.9...@ant-design/pro-list@1.1.10) (2020-12-14)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.1.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.1.8...@ant-design/pro-list@1.1.9) (2020-12-10)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.1.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.1.7...@ant-design/pro-list@1.1.8) (2020-12-09)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.1.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.1.6...@ant-design/pro-list@1.1.7) (2020-12-08)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.1.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.1.5...@ant-design/pro-list@1.1.6) (2020-12-07)
+
+### Bug Fixes
+
+- **list:** actions support react node ([#1200](https://github.com/ant-design/pro-components/issues/1200)) ([5465caf](https://github.com/ant-design/pro-components/commit/5465caf4365a6d95c64796cc08177516f8e3239f))
+- **list:** if title is null, remove header dom ([#1191](https://github.com/ant-design/pro-components/issues/1191)) ([93d85c0](https://github.com/ant-design/pro-components/commit/93d85c0a3997aa7d89feaa7537af052bc4a70a0a))
+
 ## [1.1.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.1.4...@ant-design/pro-list@1.1.5) (2020-12-04)
 
 **Note:** Version bump only for package @ant-design/pro-list

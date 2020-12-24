@@ -1,14 +1,15 @@
 import React from 'react';
 import { Button, Tooltip } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
-import ProTable, { ProColumns, TableDropdown } from '@ant-design/pro-table';
+import type { ProColumns } from '@ant-design/pro-table';
+import ProTable, { TableDropdown } from '@ant-design/pro-table';
 
-export interface TableListItem {
+export type TableListItem = {
   key: number;
   name: string;
   creator: string;
   createdAt: number;
-}
+};
 const tableListDataSource: TableListItem[] = [];
 
 const creators = ['付小小', '曲丽丽', '林东东', '陈帅帅', '兼某某'];

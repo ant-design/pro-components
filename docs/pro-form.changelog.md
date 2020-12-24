@@ -1,13 +1,50 @@
 ﻿---
-title: pro-form
+title: ProForm - 更新日志
 nav:
-  title: Change Log
+  title: 更新日志
   path: /changelog
 group:
   path: /
 ---
 
 # Change Log
+
+## @ant-design/pro-form@1.10.2
+
+`2020-12-17`
+
+- 🐛 fix(form): 修复 lightFilter 在 collapse 的情况下 form 失效的 bug [#1323](https://github.com/ant-design/pro-components/pull/1323) [@oldturkey](https://github.com/oldturkey)
+
+## @ant-design/pro-form@1.10.0
+
+`2020-12-14`
+
+- 🐛 fix(dependencies):add dependencies to pro-utils & pro-descriptions & pro-layout & pro-form [#1280](https://github.com/ant-design/pro-components/pull/1280) [@yanm1ng](https://github.com/yanm1ng)
+
+## @ant-design/pro-form@1.9.0
+
+`2020-12-10`
+
+- 💥 feat(form): support getPopupContainer [#1251](https://github.com/ant-design/pro-components/pull/1251) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-form@1.8.1
+
+`2020-12-09`
+
+- 💥 feat(table): add "colSize" in fieldProps within proTable's columns to customize query form item width [#1229](https://github.com/ant-design/pro-components/pull/1229) [@LyndonXiao](https://github.com/LyndonXiao)
+
+## @ant-design/pro-form@1.7.6
+
+`2020-12-07`
+
+- 🐛 fix(table): fix formItemProps no work error [#1222](https://github.com/ant-design/pro-components/pull/1222) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-form@1.7.3
+
+`2020-12-03`
+
+- 🐛 fix(form): fix modalForm cancel button is invalid error [#1174](https://github.com/ant-design/pro-components/pull/1174) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(table): onReset support search. transform [#1176](https://github.com/ant-design/pro-components/pull/1176) [@DerrickTel](https://github.com/DerrickTel)
 
 ## @ant-design/pro-form@1.7.2
 

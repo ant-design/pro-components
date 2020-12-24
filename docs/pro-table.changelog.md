@@ -1,13 +1,63 @@
 ---
-title: pro-table
+title: ProTable - 更新日志
 nav:
-  title: Change Log
+  title: 更新日志
   path: /changelog
 group:
   path: /
 ---
 
 # Change Log
+
+## @ant-design/pro-table@2.16.2
+
+`2020-12-17`
+
+- ✨ feat(table): beforeSearchSubmit support pagination [#1295](https://github.com/ant-design/pro-components/pull/1295) [@DerrickTel](https://github.com/DerrickTel)
+- ✨ feat(table): support colSize [#1322](https://github.com/ant-design/pro-components/pull/1322) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.16.1
+
+`2020-12-15`
+
+- 🐛 fix(table): table add requesting state [#1319](https://github.com/ant-design/pro-components/pull/1319) [@hengkx](https://github.com/hengkx)
+- 🐛 fix(table): change bordered to cardBorder [#1312](https://github.com/ant-design/pro-components/pull/1312) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix: 修复新旧值均为 map 类型的等价判断，一直返回 true 的问题 [#1302](https://github.com/ant-design/pro-components/pull/1302) [@zakrivi](https://github.com/zakrivi)
+
+## @ant-design/pro-table@2.16.0
+
+`2020-12-14`
+
+- 💥 feat(table): EditableTable support max length [#1286](https://github.com/ant-design/pro-components/pull/1286) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(desciption): support editable [#1273](https://github.com/ant-design/pro-components/pull/1273) [@chenshuai2144](https://github.com/chenshuai2144)
+- ✨ feat(table): support bordered(#1237) [#1275](https://github.com/ant-design/pro-components/pull/1275) [@DerrickTel](https://github.com/DerrickTel)
+
+## @ant-design/pro-table@2.15.0
+
+`2020-12-09`
+
+- 🐛 fix(table): remove unuse code [#1243](https://github.com/ant-design/pro-components/pull/1243) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(table): add "colSize" in fieldProps within proTable's columns to customize query form item width [#1229](https://github.com/ant-design/pro-components/pull/1229) [@LyndonXiao](https://github.com/LyndonXiao)
+
+## @ant-design/pro-table@2.14.0
+
+`2020-12-08`
+
+- 💥 feat(table): fieldProps support function [#1227](https://github.com/ant-design/pro-components/pull/1227) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.13.3
+
+`2020-12-07`
+
+- 🐛 fix(table): fix formItemProps no work error [#1222](https://github.com/ant-design/pro-components/pull/1222) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix toolbar setting provide error [#1190](https://github.com/ant-design/pro-components/pull/1190) [@chenshuai2144](https://github.com/chenshuai2144)
+- ✨ feat(table): support onCancel function [#1198](https://github.com/ant-design/pro-components/pull/1198) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.13.0
+
+`2020-12-03`
+
+- 💥 feat(table): onReset support search. transform [#1176](https://github.com/ant-design/pro-components/pull/1176) [@DerrickTel](https://github.com/DerrickTel)
 
 ## @ant-design/pro-table@2.12.2
 
