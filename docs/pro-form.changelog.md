@@ -9,6 +9,26 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.11.0
+
+`2020-12-24`
+
+- 🐛 fix(form): run validateFields before onGetCaptcha [#1396](https://github.com/ant-design/pro-components/pull/1396) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(form): 懒加载 DrawerForm 和 ModalFrom 优化性能 [#1370](https://github.com/ant-design/pro-components/pull/1370) [@Deturium](https://github.com/Deturium)
+- 💥 feat(chore): adjust information structure [#1383](https://github.com/ant-design/pro-components/pull/1383) [@rdmclin2](https://github.com/rdmclin2)
+
+## @ant-design/pro-form@1.10.4
+
+`2020-12-21`
+
+- 🐛 fix(compiler): form 修复问题和清空操作冲突，改成 hasOwnProperty 判断 [#1363](https://github.com/ant-design/pro-components/pull/1363) [@oldturkey](https://github.com/oldturkey)
+
+## @ant-design/pro-form@1.10.3
+
+`2020-12-21`
+
+- 🐛 fix(form): use same width enum like antd [#1351](https://github.com/ant-design/pro-components/pull/1351) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-form@1.10.2
 
 `2020-12-17`
