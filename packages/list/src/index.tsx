@@ -5,6 +5,7 @@ import type { ProTableProps, ProColumnType } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
 import type { ParamsType } from '@ant-design/pro-provider';
 import { ConfigProvider } from 'antd';
+import { PaginationConfig } from 'antd/lib/pagination';
 import ListView from './ListView';
 
 import './index.less';
@@ -47,8 +48,6 @@ function ProList<RecordType, U extends Record<string, any> = {}>(
   const {
     metas: metals,
     split,
-    pagination,
-    size,
     footer,
     rowKey,
     className,
@@ -92,7 +91,7 @@ function ProList<RecordType, U extends Record<string, any> = {}>(
 
   return (
     <ProTable<RecordType, U>
-      {...rest}
+      {...(rest as any)}
       search={search}
       options={options}
       className={classNames(prefixCls, className, listClassName)}
@@ -108,20 +107,20 @@ function ProList<RecordType, U extends Record<string, any> = {}>(
           padding: '0 24px',
         },
       }}
-      tableViewRender={({ columns, dataSource, loading }) => {
+      tableViewRender={({ columns, size, pagination, dataSource, loading }) => {
         return (
           <ListView
             prefixCls={prefixCls}
             columns={columns}
             dataSource={dataSource || []}
-            size={size}
+            size={size as 'large'}
             footer={footer}
             split={split}
             rowKey={rowKey}
             expandable={expandable}
             rowSelection={rowSelection === false ? undefined : rowSelection}
             showActions={showActions}
-            pagination={pagination}
+            pagination={pagination as PaginationConfig}
             itemLayout={itemLayout}
             loading={loading}
           />
