@@ -99,6 +99,25 @@ Array [
                                   添加到底部
                                 </span>
                               </label>
+                              <label
+                                class="ant-radio-wrapper"
+                              >
+                                <span
+                                  class="ant-radio"
+                                >
+                                  <input
+                                    class="ant-radio-input"
+                                    type="radio"
+                                    value="hidden"
+                                  />
+                                  <span
+                                    class="ant-radio-inner"
+                                  />
+                                </span>
+                                <span>
+                                  隐藏
+                                </span>
+                              </label>
                             </div>
                           </div>
                         </div>
@@ -208,9 +227,17 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
+                                style="margin-right: 16px;"
                               >
                                 <a>
                                   编辑
+                                </a>
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <a>
+                                  删除
                                 </a>
                               </div>
                             </div>
@@ -254,9 +281,17 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
+                                style="margin-right: 16px;"
                               >
                                 <a>
                                   编辑
+                                </a>
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <a>
+                                  删除
                                 </a>
                               </div>
                             </div>
@@ -466,10 +501,10 @@ Array [
                         />
                         <col />
                         <col
-                          style="width: 40%; min-width: 40%;"
+                          style="width: 20%; min-width: 20%;"
                         />
                         <col
-                          style="width: 200px; min-width: 200px;"
+                          style="width: 250px; min-width: 250px;"
                         />
                       </colgroup>
                       <thead
