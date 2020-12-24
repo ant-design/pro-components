@@ -247,7 +247,7 @@ describe('ProForm', () => {
     expect(wrapper.find('button#test').text()).toBe('重新获取');
   });
 
-  fit('📦  ProFormCaptcha onGetCaptcha throw error', async () => {
+  it('📦  ProFormCaptcha onGetCaptcha throw error', async () => {
     const wrapper = mount(
       <ProForm>
         <ProFormCaptcha
