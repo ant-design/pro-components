@@ -331,13 +331,10 @@ const ProTable = <T extends {}, U extends ParamsType>(
     if (type !== 'form') {
       // 只传入 pagination 中的 current 和 pageSize 参数
       const pageInfo = pagination
-        ? ['current', 'pageSize'].reduce((info, key) => {
-            if (pagination[key]) {
-              // eslint-disable-next-line no-param-reassign
-              info[key] = pagination[key];
-            }
-            return info;
-          }, {})
+        ? omitUndefined({
+            current: pagination.current,
+            pageSize: pagination.pageSize,
+          })
         : {};
 
       const submitParams = {
@@ -361,13 +358,10 @@ const ProTable = <T extends {}, U extends ParamsType>(
 
   const onReset = (value: Partial<U>) => {
     const pageInfo = pagination
-      ? ['current', 'pageSize'].reduce((info, key) => {
-          if (pagination[key]) {
-            // eslint-disable-next-line no-param-reassign
-            info[key] = pagination[key];
-          }
-          return info;
-        }, {})
+      ? omitUndefined({
+          current: pagination.current,
+          pageSize: pagination.pageSize,
+        })
       : {};
 
     const omitParams = omit(beforeSearchSubmit({ ...value, ...pageInfo }), Object.keys(pageInfo));
