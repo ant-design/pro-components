@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.17.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.16.4...@ant-design/pro-table@2.17.0) (2020-12-24)
+
+### Bug Fixes
+
+- **table:** Filter de parameters van beforeSearchSubmit ([#1384](https://github.com/ant-design/pro-components/issues/1384)) ([5bd26f0](https://github.com/ant-design/pro-components/commit/5bd26f09fa7d633e42aac333bed3a34535557e3c)), closes [#1382](https://github.com/ant-design/pro-components/issues/1382)
+
+### Features
+
+- **chore:** adjust information structure ([#1383](https://github.com/ant-design/pro-components/issues/1383)) ([76b3f29](https://github.com/ant-design/pro-components/commit/76b3f2929c5a5dcd4ed78e723b2a01e3a5cdfbf5)), closes [#1376](https://github.com/ant-design/pro-components/issues/1376) [#1380](https://github.com/ant-design/pro-components/issues/1380)
+
 ## [2.16.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.16.3...@ant-design/pro-table@2.16.4) (2020-12-21)
 
 **Note:** Version bump only for package @ant-design/pro-table

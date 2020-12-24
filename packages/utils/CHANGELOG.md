@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.5.2...@ant-design/pro-utils@1.6.0) (2020-12-24)
+
+### Features
+
+- **form:** 懒加载 DrawerForm 和 ModalFrom 优化性能 ([#1370](https://github.com/ant-design/pro-components/issues/1370)) ([743a0ce](https://github.com/ant-design/pro-components/commit/743a0ce00d00e326b02dd83a3ab349405ef92aff))
+
 ## [1.5.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.5.1...@ant-design/pro-utils@1.5.2) (2020-12-21)
 
 **Note:** Version bump only for package @ant-design/pro-utils
