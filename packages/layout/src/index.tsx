@@ -11,6 +11,7 @@ import type { FooterProps } from './Footer';
 import DefaultFooter from './Footer';
 import GridContent from './components/GridContent';
 import PageContainer from './components/PageContainer';
+import type { PageContainerProps } from './components/PageContainer';
 import type { RouteContextType } from './RouteContext';
 import RouteContext from './RouteContext';
 import getMenuData from './utils/getMenuData';
@@ -42,6 +43,7 @@ export {
 
 export type {
   FooterProps,
+  PageContainerProps,
   TopNavHeaderProps,
   BasicLayoutProps,
   RouteContextType,
