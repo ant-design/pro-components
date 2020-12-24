@@ -329,7 +329,16 @@ const ProTable = <T extends {}, U extends ParamsType>(
 
   const onSubmit = (value: U, firstLoad: boolean) => {
     if (type !== 'form') {
-      const pageInfo = pagination ? {} : (pagination as TablePaginationConfig);
+      const pageInfo = pagination
+        ? ['current', 'pageSize'].reduce((info, key) => {
+            if (pagination[key]) {
+              // eslint-disable-next-line no-param-reassign
+              info[key] = pagination[key];
+            }
+            return info;
+          }, {})
+        : {};
+
       const submitParams = {
         ...value,
         _timestamp: Date.now(),
@@ -350,14 +359,18 @@ const ProTable = <T extends {}, U extends ParamsType>(
   };
 
   const onReset = (value: Partial<U>) => {
-    const pageInfo = pagination === false ? {} : pagination;
+    const pageInfo = pagination
+      ? ['current', 'pageSize'].reduce((info, key) => {
+          if (pagination[key]) {
+            // eslint-disable-next-line no-param-reassign
+            info[key] = pagination[key];
+          }
+          return info;
+        }, {})
+      : {};
 
-    setFormSearch(
-      beforeSearchSubmit({
-        ...value,
-        ...pageInfo,
-      }),
-    );
+    const omitParams = omit(beforeSearchSubmit({ ...value, ...pageInfo }), Object.keys(pageInfo));
+    setFormSearch(omitParams);
     // back first page
     action.resetPageIndex();
     props.onReset?.();
