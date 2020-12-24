@@ -1,12 +1,13 @@
 import React, { useRef } from 'react';
 import { Button, InputNumber } from 'antd';
+import type { TableRowEditable, ProColumns, ActionType } from '@ant-design/pro-table';
+import { EditableProTable } from '@ant-design/pro-table';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { EditableProTable, TableRowEditable, ProColumns, ActionType } from '@ant-design/pro-table';
 import { mount, render } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint, waitTime } from '../util';
 
-interface DataSourceType {
+type DataSourceType = {
   id: number;
   title?: string;
   labels?: {
@@ -18,7 +19,7 @@ interface DataSourceType {
     created_at?: string;
   };
   children?: DataSourceType[];
-}
+};
 
 const defaultData: DataSourceType[] = [
   {
@@ -227,6 +228,7 @@ describe('EditorProTable', () => {
         value={defaultData}
       />,
     );
+    await waitForComponentToPaint(wrapper, 100);
     expect(wrapper.find('button.ant-btn-dashed').exists()).toBeFalsy();
 
     act(() => {
@@ -235,7 +237,7 @@ describe('EditorProTable', () => {
       });
     });
 
-    waitForComponentToPaint(wrapper, 100);
+    await waitForComponentToPaint(wrapper, 100);
 
     expect(wrapper.find('button.ant-btn-dashed').exists()).toBeTruthy();
   });
@@ -267,7 +269,6 @@ describe('EditorProTable', () => {
         recordCreatorProps={{
           creatorButtonText: '测试添加数据',
           record: { id: 9999 },
-          icon: 'qixian',
         }}
         columns={columns}
         value={defaultData}
@@ -283,7 +284,6 @@ describe('EditorProTable', () => {
         recordCreatorProps={{
           creatorButtonText: '测试添加数据',
           record: { id: 9999 },
-          icon: 'qixian',
           position: 'top',
         }}
         columns={columns}
@@ -311,7 +311,7 @@ describe('EditorProTable', () => {
   });
 
   it('📝 renderFormItem run defaultRender', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <EditableProTable<DataSourceType>
         rowKey="id"
         editable={{
@@ -330,11 +330,11 @@ describe('EditorProTable', () => {
         value={defaultData}
       />,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('📝 columns support editable test', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <EditableProTable
         rowKey="id"
         editable={{
@@ -359,7 +359,7 @@ describe('EditorProTable', () => {
         value={defaultData}
       />,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('📝 support editorRowKeys', async () => {
@@ -691,7 +691,9 @@ describe('EditorProTable', () => {
     await waitForComponentToPaint(wrapper, 1000);
 
     expect(fn).toBeCalledWith(624691229);
-    wrapper.unmount();
+    act(() => {
+      wrapper.unmount();
+    });
   });
 
   it('📝 support onDelete return false', async () => {
@@ -727,7 +729,9 @@ describe('EditorProTable', () => {
     await waitForComponentToPaint(wrapper, 1000);
 
     expect(fn).toBeCalledWith(624691229);
-    wrapper.unmount();
+    act(() => {
+      wrapper.unmount();
+    });
   });
 
   it('📝 support form rules', async () => {

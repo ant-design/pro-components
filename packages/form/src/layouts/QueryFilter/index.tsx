@@ -1,14 +1,17 @@
 /* eslint-disable no-param-reassign */
-import React, { useState, ReactElement, useMemo } from 'react';
+import type { ReactElement } from 'react';
+import React, { useMemo } from 'react';
 import { Row, Col, Form, Divider } from 'antd';
-import { FormInstance, FormProps } from 'antd/lib/form/Form';
+import type { FormInstance, FormProps } from 'antd/lib/form/Form';
 import RcResizeObserver from 'rc-resize-observer';
 import { useIntl } from '@ant-design/pro-provider';
-import { isBrowser } from '@ant-design/pro-utils';
+import { isBrowser, useMountMergeState } from '@ant-design/pro-utils';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
-import BaseForm, { CommonFormProps } from '../../BaseForm';
-import Actions, { ActionsProps } from './Actions';
+import type { CommonFormProps } from '../../BaseForm';
+import BaseForm from '../../BaseForm';
+import type { ActionsProps } from './Actions';
+import Actions from './Actions';
 
 const CONFIG_SPAN_BREAKPOINTS = {
   xs: 513,
@@ -298,7 +301,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
     ...rest
   } = props;
 
-  const [width, setWidth] = useState(
+  const [width, setWidth] = useMountMergeState(
     () => (typeof style?.width === 'number' ? style?.width : defaultWidth) as number,
   );
 

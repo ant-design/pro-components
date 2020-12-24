@@ -18,10 +18,10 @@ import koKR from './locale/ko_KR';
 import idID from './locale/id_ID';
 import deDE from './locale/de_DE';
 
-export interface IntlType {
+export type IntlType = {
   locale: string;
   getMessage: (id: string, defaultMessage: string) => string;
-}
+};
 
 function get(source: object, path: string, defaultValue?: string): string | undefined {
   // a[3].b -> a.3.b
@@ -44,7 +44,7 @@ function get(source: object, path: string, defaultValue?: string): string | unde
  * @param locale
  * @param localeMap
  */
-const createIntl = (locale: string, localeMap: { [key: string]: any }): IntlType => ({
+const createIntl = (locale: string, localeMap: Record<string, any>): IntlType => ({
   getMessage: (id: string, defaultMessage: string) =>
     get(localeMap, id, defaultMessage) || defaultMessage,
   locale,
@@ -86,9 +86,7 @@ const intlMap = {
 
 const intlMapKeys = Object.keys(intlMap);
 
-export type ParamsType = {
-  [key: string]: React.ReactText | React.ReactText[];
-};
+export type ParamsType = Record<string, React.ReactText | React.ReactText[]>;
 
 export {
   arEGIntl,

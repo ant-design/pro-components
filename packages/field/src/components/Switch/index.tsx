@@ -1,8 +1,8 @@
 import React from 'react';
 import { Switch } from 'antd';
 import Omit from 'omit.js';
-import { SwitchProps } from 'antd/lib/switch';
-import { ProFieldFC } from '../../index';
+import type { SwitchProps } from 'antd/lib/switch';
+import type { ProFieldFC } from '../../index';
 
 /**
  * 评分组件

@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import './index.less';
 
-export interface ProCardDividerProps {
+export type ProCardDividerProps = {
   /**
    * @description 自定义前缀
    * @ignore
@@ -20,7 +20,7 @@ export interface ProCardDividerProps {
    * @ignore
    */
   className?: string;
-}
+};
 
 const ProCardDivider: React.FC<ProCardDividerProps> = (props) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);

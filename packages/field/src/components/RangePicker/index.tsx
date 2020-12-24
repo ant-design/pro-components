@@ -5,7 +5,7 @@ import { FieldLabel, parseValueToMoment } from '@ant-design/pro-utils';
 import { useIntl } from '@ant-design/pro-provider';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
 
-import { ProFieldFC } from '../../index';
+import type { ProFieldFC } from '../../index';
 
 const ACTIVE_PICKER_INDEX_LEFT = 0;
 const ACTIVE_PICKER_INDEX_RIGHT = 1;

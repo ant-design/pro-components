@@ -1,12 +1,13 @@
 ﻿import React, { useCallback, useMemo, useRef, useState } from 'react';
-import { GetRowKey } from 'antd/lib/table/interface';
+import type { GetRowKey } from 'antd/lib/table/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { FormInstance } from 'antd/lib/form';
+import type { FormInstance } from 'antd/lib/form';
 import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
 import { LoadingOutlined } from '@ant-design/icons';
 import { message, Popconfirm } from 'antd';
 import ReactDOM from 'react-dom';
 import set from 'rc-util/lib/utils/set';
+import useMountMergeState from '../useMountMergeState';
 
 export type RowEditableType = 'single' | 'multiple';
 
@@ -32,7 +33,7 @@ export type ActionRenderFunction<T> = (
   config: ActionRenderConfig<T, NewLineConfig<T>>,
 ) => React.ReactNode[];
 
-export interface RowEditableConfig<T> {
+export type RowEditableConfig<T> = {
   /**
    * @name 编辑的类型，暂时只支持单选
    */
@@ -85,7 +86,7 @@ export interface RowEditableConfig<T> {
    * 同时只能新增一行的提示
    */
   onlyAddOneLineAlertMessage?: React.ReactNode;
-}
+};
 export type ActionTypeText<T> = {
   deleteText?: React.ReactNode;
   cancelText?: React.ReactNode;
@@ -216,7 +217,7 @@ export const SaveEditableAction: React.FC<ActionRenderConfig<any> & { row: any }
   newLineConfig,
   editorType,
 }) => {
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useMountMergeState<boolean>(false);
   return (
     <a
       key="save"
@@ -269,7 +270,7 @@ export const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any
   deletePopconfirmMessage,
   cancelEditable,
 }) => {
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useMountMergeState<boolean>(false);
   const onConfirm = async () => {
     try {
       setLoading(true);

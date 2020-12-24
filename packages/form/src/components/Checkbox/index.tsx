@@ -1,10 +1,10 @@
 import React from 'react';
 import { Checkbox } from 'antd';
 import ProField from '@ant-design/pro-field';
-import { ProSchema } from '@ant-design/pro-utils';
-import { CheckboxGroupProps, CheckboxProps } from 'antd/lib/checkbox';
+import type { ProSchema } from '@ant-design/pro-utils';
+import type { CheckboxGroupProps, CheckboxProps } from 'antd/lib/checkbox';
 import createField from '../../BaseForm/createField';
-import { ProFormItemProps } from '../../interface';
+import type { ProFormItemProps } from '../../interface';
 
 export type ProFormCheckboxGroupProps = ProFormItemProps<CheckboxGroupProps> & {
   layout?: 'horizontal' | 'vertical';

@@ -1,12 +1,17 @@
 import React, { useState, useContext } from 'react';
 import classNames from 'classnames';
-import { FilterDropdown, FieldLabel, isDropdownValueType } from '@ant-design/pro-utils';
-import { SizeType } from 'antd/lib/config-provider/SizeContext';
+import {
+  FilterDropdown,
+  FieldLabel,
+  isDropdownValueType,
+  useMountMergeState,
+} from '@ant-design/pro-utils';
+import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import { ConfigProvider } from 'antd';
 
 import './index.less';
 
-export interface LightWrapperProps {
+export type LightWrapperProps = {
   label?: React.ReactNode;
   disabled?: boolean;
   placeholder?: React.ReactNode;
@@ -22,7 +27,7 @@ export interface LightWrapperProps {
   id?: string;
   labelFormatter?: (value: any) => string;
   bordered?: boolean;
-}
+};
 
 const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (props, ref) => {
   const {
@@ -46,7 +51,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-light-wrapper');
   const [tempValue, setTempValue] = useState<string | undefined>(props[valuePropName]);
-  const [open, setOpen] = useState<boolean>(false);
+  const [open, setOpen] = useMountMergeState<boolean>(false);
 
   const isDropdown =
     React.isValidElement(children) && isDropdownValueType(children.props.valueType);

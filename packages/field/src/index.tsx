@@ -1,13 +1,12 @@
 import React from 'react';
 import { Avatar } from 'antd';
-import { Moment } from 'moment';
-import {
-  pickProProps,
-  omitUndefined,
+import type { Moment } from 'moment';
+import type {
   ProFieldValueEnumType,
   ProFieldValueType,
   ProFieldValueObjectType,
 } from '@ant-design/pro-utils';
+import { pickProProps, omitUndefined } from '@ant-design/pro-utils';
 
 import { useIntl } from '@ant-design/pro-provider';
 import FieldPercent from './components/Percent';

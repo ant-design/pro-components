@@ -1,16 +1,16 @@
-﻿import React, { useCallback, useMemo } from 'react';
+﻿import type React from 'react';
+import { useCallback, useMemo } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { FormInstance } from 'antd/lib/form';
+import type { FormInstance } from 'antd/lib/form';
 import { message } from 'antd';
 import ReactDOM from 'react-dom';
-import {
+import type {
   ActionTypeText,
-  defaultActionRender,
   NewLineConfig,
   RecordKey,
-  recordKeyToString,
   RowEditableConfig,
 } from '../useEditableArray';
+import { defaultActionRender, recordKeyToString } from '../useEditableArray';
 
 /**
  * 使用map 来删除数据，性能一般

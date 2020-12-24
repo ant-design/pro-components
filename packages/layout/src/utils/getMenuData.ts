@@ -1,9 +1,9 @@
 import { transformRoute } from '@umijs/route-utils';
 
-import { MenuDataItem, Route, MessageDescriptor } from '../typings';
+import type { MenuDataItem, Route, MessageDescriptor } from '../typings';
 
 function fromEntries(iterable: any) {
-  return [...iterable].reduce((obj: { [key: string]: MenuDataItem }, [key, val]) => {
+  return [...iterable].reduce((obj: Record<string, MenuDataItem>, [key, val]) => {
     // eslint-disable-next-line no-param-reassign
     obj[key] = val;
     return obj;

@@ -1,7 +1,7 @@
 ---
 title: ProLayout - 更新日志
 nav:
-  title: Change Log
+  title: 更新日志
   path: /changelog
 group:
   path: /

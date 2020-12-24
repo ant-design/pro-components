@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import ProLayout, { PageContainer, MenuDataItem } from '@ant-design/pro-layout';
+import type { MenuDataItem } from '@ant-design/pro-layout';
+import ProLayout, { PageContainer } from '@ant-design/pro-layout';
 import { Button } from 'antd';
 import customMenuDate from './customMenu';
 

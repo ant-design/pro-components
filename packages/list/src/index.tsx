@@ -1,8 +1,9 @@
 import React, { useMemo, useContext } from 'react';
-import { ListProps } from 'antd/lib/list';
+import type { ListProps } from 'antd/lib/list';
 import classNames from 'classnames';
-import ProTable, { ProTableProps, ProColumnType } from '@ant-design/pro-table';
-import { ParamsType } from '@ant-design/pro-provider';
+import type { ProTableProps, ProColumnType } from '@ant-design/pro-table';
+import ProTable from '@ant-design/pro-table';
+import type { ParamsType } from '@ant-design/pro-provider';
 import { ConfigProvider } from 'antd';
 import ListView from './ListView';
 
@@ -15,7 +16,7 @@ type ProListMeta<T> = Pick<
   'dataIndex' | 'valueType' | 'render' | 'search' | 'title' | 'valueEnum'
 >;
 
-export interface ProListMetas<T> {
+export type ProListMetas<T> = {
   type?: ProListMeta<T>;
   title?: ProListMeta<T>;
   subTitle?: ProListMeta<T>;
@@ -25,7 +26,7 @@ export interface ProListMetas<T> {
   content?: ProListMeta<T>;
   actions?: ProListMeta<T>;
   [key: string]: ProListMeta<T> | undefined;
-}
+};
 
 export type ProListProps<RecordType, U extends ParamsType> = Omit<
   ProTableProps<RecordType, U>,
@@ -40,7 +41,7 @@ export type Key = React.Key;
 
 export type TriggerEventHandler<RecordType> = (record: RecordType) => void;
 
-function ProList<RecordType, U extends { [key: string]: any } = {}>(
+function ProList<RecordType, U extends Record<string, any> = {}>(
   props: ProListProps<RecordType, U>,
 ) {
   const {

@@ -15,15 +15,22 @@ import ProFormUploadButton from './components/UploadButton';
 import ProFormField from './components/Field';
 import ProFormSelect from './components/Select';
 import ProFormDigit from './components/Digit';
-import ProFormFieldSet, { ProFormFieldSetProps } from './components/FieldSet';
-import ProFormCaptcha, { ProFormCaptchaProps } from './components/Captcha';
+import type { ProFormFieldSetProps } from './components/FieldSet';
+import ProFormFieldSet from './components/FieldSet';
+import type { ProFormCaptchaProps } from './components/Captcha';
+import ProFormCaptcha from './components/Captcha';
 
-import ProForm, { ProFormProps } from './layouts/ProForm';
-import QueryFilter, { BaseQueryFilterProps, QueryFilterProps } from './layouts/QueryFilter';
+import type { ProFormProps } from './layouts/ProForm';
+import ProForm from './layouts/ProForm';
+import type { BaseQueryFilterProps, QueryFilterProps } from './layouts/QueryFilter';
+import QueryFilter from './layouts/QueryFilter';
 import LightFilter from './layouts/LightFilter';
-import StepsForm, { StepFormProps, StepsFormProps } from './layouts/StepsForm';
-import ModalForm, { ModalFormProps } from './layouts/ModalForm';
-import DrawerForm, { DrawerFormProps } from './layouts/DrawerForm';
+import type { StepFormProps, StepsFormProps } from './layouts/StepsForm';
+import StepsForm from './layouts/StepsForm';
+import type { ModalFormProps } from './layouts/ModalForm';
+import ModalForm from './layouts/ModalForm';
+import type { DrawerFormProps } from './layouts/DrawerForm';
+import DrawerForm from './layouts/DrawerForm';
 import './index.less';
 
 export type {

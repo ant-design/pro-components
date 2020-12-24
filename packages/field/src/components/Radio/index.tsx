@@ -1,11 +1,12 @@
 ﻿import React, { useContext, useImperativeHandle, useRef } from 'react';
 import { Radio, ConfigProvider, Spin } from 'antd';
 import classNames from 'classnames';
-import { RadioGroupProps } from 'antd/lib/radio';
-import { ProFieldFC } from '../../index';
+import type { RadioGroupProps } from 'antd/lib/radio';
+import type { ProFieldFC } from '../../index';
 
 import './index.less';
-import { FieldSelectProps, ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
+import type { FieldSelectProps } from '../Select';
+import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
 
 export type GroupProps = {
   layout?: 'horizontal' | 'vertical';

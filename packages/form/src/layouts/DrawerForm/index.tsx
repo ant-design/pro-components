@@ -1,13 +1,14 @@
 ﻿import React, { useContext, useEffect, useMemo, useImperativeHandle, useRef } from 'react';
 import { ConfigProvider, Drawer } from 'antd';
-import { FormInstance, FormProps } from 'antd/lib/form';
+import type { FormInstance, FormProps } from 'antd/lib/form';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { DrawerProps } from 'antd/lib/drawer';
-import { Store } from 'antd/lib/form/interface';
+import type { DrawerProps } from 'antd/lib/drawer';
+import type { Store } from 'antd/lib/form/interface';
 import { createPortal } from 'react-dom';
 import omit from 'omit.js';
 
-import BaseForm, { CommonFormProps } from '../../BaseForm';
+import type { CommonFormProps } from '../../BaseForm';
+import BaseForm from '../../BaseForm';
 
 export type DrawerFormProps = Omit<FormProps, 'onFinish'> &
   CommonFormProps & {

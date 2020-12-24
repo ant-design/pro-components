@@ -1,4 +1,4 @@
-﻿import { FormInstance } from 'antd/lib/form';
+﻿import type { FormInstance } from 'antd/lib/form';
 
 /**
  * 因为 fieldProps 支持了 function
