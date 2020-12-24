@@ -65,8 +65,9 @@ const ModalForm: React.FC<ModalFormProps> = ({
     onChange: onVisibleChange,
   });
   const context = useContext(ConfigProvider.ConfigContext);
+
   /** 设置 trigger 的情况下，懒渲染优化性能；使之可以直接配合表格操作等场景使用 */
-  const isFirstRender = useRef(true);
+  const isFirstRender = useRef(!modalProps?.forceRender);
   /**
    * isFirstRender.current 或者 trigger 为 true 的时候就渲染
    * 不渲染能会造成一些问题, 比如再次打开值不对了
