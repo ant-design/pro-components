@@ -247,6 +247,80 @@ describe('ProForm', () => {
     expect(wrapper.find('button#test').text()).toBe('重新获取');
   });
 
+  it('📦  ProFormCaptcha onGetCaptcha throw error', async () => {
+    const wrapper = mount(
+      <ProForm>
+        <ProFormCaptcha
+          onGetCaptcha={async () => {
+            await waitTime(10);
+            throw new Error('TEST');
+          }}
+          captchaTextRender={(timing) => (timing ? '重新获取' : '获取')}
+          captchaProps={{
+            id: 'test',
+          }}
+          label="name"
+          name="name"
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+    act(() => {
+      wrapper.find('Button#test').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+
+    expect(wrapper.find('button#test').text()).toBe('获 取');
+  });
+
+  it('📦  ProFormCaptcha onGetCaptcha support rules', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <ProForm>
+        <ProFormCaptcha
+          onGetCaptcha={async () => {
+            fn();
+            await waitTime(10);
+          }}
+          rules={[
+            {
+              required: true,
+            },
+          ]}
+          captchaProps={{
+            id: 'test',
+          }}
+          label="name"
+          name="name"
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+    act(() => {
+      wrapper.find('Button#test').simulate('click');
+    });
+
+    expect(fn).not.toBeCalled();
+    act(() => {
+      wrapper
+        .find('input')
+        .at(1)
+        .simulate('change', {
+          target: {
+            value: 'tech',
+          },
+        });
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('Button#test').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(fn).toBeCalled();
+  });
+
   it('📦  DatePicker', async () => {
     const onFinish = jest.fn();
     const wrapper = mount(
