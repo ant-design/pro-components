@@ -329,7 +329,14 @@ const ProTable = <T extends {}, U extends ParamsType>(
 
   const onSubmit = (value: U, firstLoad: boolean) => {
     if (type !== 'form') {
-      const pageInfo = pagination ? {} : (pagination as TablePaginationConfig);
+      // 只传入 pagination 中的 current 和 pageSize 参数
+      const pageInfo = pagination
+        ? omitUndefined({
+            current: pagination.current,
+            pageSize: pagination.pageSize,
+          })
+        : {};
+
       const submitParams = {
         ...value,
         _timestamp: Date.now(),
@@ -350,14 +357,15 @@ const ProTable = <T extends {}, U extends ParamsType>(
   };
 
   const onReset = (value: Partial<U>) => {
-    const pageInfo = pagination === false ? {} : pagination;
+    const pageInfo = pagination
+      ? omitUndefined({
+          current: pagination.current,
+          pageSize: pagination.pageSize,
+        })
+      : {};
 
-    setFormSearch(
-      beforeSearchSubmit({
-        ...value,
-        ...pageInfo,
-      }),
-    );
+    const omitParams = omit(beforeSearchSubmit({ ...value, ...pageInfo }), Object.keys(pageInfo));
+    setFormSearch(omitParams);
     // back first page
     action.resetPageIndex();
     props.onReset?.();

@@ -144,6 +144,45 @@ describe('BasicTable Search', () => {
     expect(resetFn).toBeCalledTimes(1);
   });
 
+  it('🎏 reset test when pagination is false', async () => {
+    const fn = jest.fn();
+    const resetFn = jest.fn();
+    const html = mount(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            title: '金额',
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+          },
+        ]}
+        onReset={resetFn}
+        pagination={false}
+        request={(params) => {
+          fn();
+          return request(params);
+        }}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 1000);
+
+    act(() => {
+      html.find('button.ant-btn').at(0).simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 500);
+
+    expect(fn).toBeCalledTimes(2);
+    expect(resetFn).toBeCalledTimes(1);
+  });
+
   it('🎏 manualRequest test by button', async () => {
     const fn = jest.fn();
     const html = mount(
