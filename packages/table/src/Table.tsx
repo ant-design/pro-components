@@ -329,6 +329,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
 
   const onSubmit = (value: U, firstLoad: boolean) => {
     if (type !== 'form') {
+      // 只传入 pagination 中的 current 和 pageSize 参数
       const pageInfo = pagination
         ? ['current', 'pageSize'].reduce((info, key) => {
             if (pagination[key]) {
