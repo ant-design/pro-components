@@ -5,7 +5,7 @@ import pathToRegexp from 'path-to-regexp';
 import { isBrowser } from '@ant-design/pro-utils';
 
 import type { ProSettings } from '../defaultSettings';
-import type { MenuDataItem, MessageDescriptor } from '../typings';
+import type { MenuDataItem, MessageDescriptor, WithFalse } from '../typings';
 import { urlToList } from './pathTools';
 
 export type BreadcrumbProps = {
@@ -19,7 +19,9 @@ export type BreadcrumbProps = {
   menu?: ProSettings['menu'];
   breadcrumbMap?: Map<string, MenuDataItem>;
   formatMessage?: (message: MessageDescriptor) => string;
-  breadcrumbRender?: (routers: AntdBreadcrumbProps['routes']) => AntdBreadcrumbProps['routes'];
+  breadcrumbRender?: WithFalse<
+    (routers: AntdBreadcrumbProps['routes']) => AntdBreadcrumbProps['routes']
+  >;
   itemRender?: AntdBreadcrumbProps['itemRender'];
 };
 
@@ -146,7 +148,7 @@ export const getBreadcrumbProps = (props: BreadcrumbProps): BreadcrumbListReturn
   if (breadcrumbRender) {
     routes = breadcrumbRender(routes) || [];
   }
-  if (routes && routes.length < 2) {
+  if ((routes && routes.length < 2) || breadcrumbRender === false) {
     routes = undefined;
   }
   return {

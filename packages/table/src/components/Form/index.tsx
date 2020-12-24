@@ -14,15 +14,14 @@ import { useIntl } from '@ant-design/pro-provider';
 import type { BaseQueryFilterProps, QueryFilterProps, ProFormProps } from '@ant-design/pro-form';
 import ProForm, { QueryFilter, LightFilter, ProFormField } from '@ant-design/pro-form';
 import classNames from 'classnames';
-import warningOnce from 'rc-util/lib/warning';
 import omit from 'omit.js';
-
 import type {
   ProSchemaComponentTypes,
   SearchTransformKeyFn,
   ProFieldValueType,
 } from '@ant-design/pro-utils';
 import {
+  omitBoolean,
   useDeepCompareEffect,
   conversionSubmitValue,
   transformKeySubmitValue,
@@ -120,7 +119,7 @@ export const formInputRender: React.FC<{
   onSelect?: (value: any) => void;
   [key: string]: any;
 }> = (props, ref: any) => {
-  const { item, intl, form, type, formItemProps: propsFormItemProps, ...rest } = props;
+  const { item, intl, form, type, formItemProps: propsFormItemProps, colSize, ...rest } = props;
 
   const formItemProps = getFieldPropsOrFormItemProps(
     propsFormItemProps,
@@ -135,7 +134,7 @@ export const formInputRender: React.FC<{
       ? (itemValueType({}, type) as ProFieldValueType)
       : itemValueType) as ProFieldValueType) || 'text';
 
-  const { onChange, colSize, ...restFieldProps } = getFieldPropsOrFormItemProps(
+  const { onChange, ...restFieldProps } = getFieldPropsOrFormItemProps(
     item.fieldProps || {},
     form,
     item,
@@ -377,20 +376,16 @@ const FormSearch = <T, U = any>({
     const transformKeyMap = {};
 
     columns.forEach((item) => {
-      const { key, dataIndex, index, valueType, search, hideInSearch } = item;
-      warningOnce(
-        typeof hideInSearch !== 'boolean',
-        `'hideInSearch' will be deprecated, please use 'search'`,
-      );
+      const { key, dataIndex, index, valueType, search } = item;
       // 以key为主,理论上key唯一
       const finalKey = genColumnKey((key || dataIndex) as string, index);
       // 如果是() => ValueType 需要特殊处理一下
       tempMap[finalKey] =
         typeof valueType === 'function' ? valueType(item as any, type) : valueType;
-
-      if (search !== false && search) {
+      const columnSearchConfig = omitBoolean(search);
+      if (columnSearchConfig) {
         transformKeyMap[finalKey] = (value: any, fieldName: string, target: any) =>
-          search?.transform(value, fieldName, target);
+          columnSearchConfig.transform(value, fieldName, target);
       }
     });
     // 触发一个 submit，之所以这里触发是为了保证 value 都被 format了

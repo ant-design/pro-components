@@ -49,10 +49,6 @@ export type ListToolBarProps = {
    */
   subTitle?: React.ReactNode;
   /**
-   * @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一
-   */
-  tip?: string | TooltipProps;
-  /**
    * 标题提示
    */
   tooltip?: string | TooltipProps;
@@ -126,7 +122,6 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
   prefixCls: customizePrefixCls,
   title,
   subTitle,
-  tip,
   tooltip,
   className,
   style,
@@ -177,15 +172,44 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
   /**
    * 有没有 title，判断了多个场景
    */
-  const hasTitle = menu || title || subTitle || tooltip || tip;
+  const hasTitle = menu || title || subTitle || tooltip;
+  /**
+   * 没有 key 的时候帮忙加一下 key
+   * 不加的话很烦人
+   */
+  const renderActionsDom = () => {
+    if (!Array.isArray(actions)) {
+      return actions;
+    }
+    if (actions.length < 1) {
+      return null;
+    }
+    return (
+      <Space align="center">
+        {actions.map((action, index) => {
+          if (!React.isValidElement(action)) {
+            // eslint-disable-next-line react/no-array-index-key
+            return <React.Fragment key={index}>{action}</React.Fragment>;
+          }
+          return React.cloneElement(action, {
+            // eslint-disable-next-line react/no-array-index-key
+            key: index,
+            ...action?.props,
+          });
+        })}
+      </Space>
+    );
+  };
+
+  const actionDom = renderActionsDom();
 
   return (
     <div style={style} className={classNames(`${prefixCls}`, className)}>
       <div className={`${prefixCls}-container`}>
         <Space className={`${prefixCls}-left`}>
-          {tooltip || tip || title || subTitle ? (
+          {tooltip || title || subTitle ? (
             <div className={`${prefixCls}-title`}>
-              <LabelIconTip tooltip={tooltip || tip} label={title} subTitle={subTitle} />
+              <LabelIconTip tooltip={tooltip} label={title} subTitle={subTitle} />
             </div>
           ) : null}
           {menu && <HeaderMenu {...menu} prefixCls={prefixCls} />}
@@ -196,7 +220,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
             <div className={`${prefixCls}-search`}>{searchNode}</div>
           ) : null}
           {!multipleLine ? filtersNode : null}
-          {actions && actions.length > 0 ? <Space align="center">{actions}</Space> : null}
+          {actionDom}
           {settings?.length ? (
             <Space size={12} align="center" className={`${prefixCls}-setting-items`}>
               {settings.map((setting, index) => {

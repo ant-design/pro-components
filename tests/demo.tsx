@@ -94,7 +94,7 @@ function demoTest(component: string, options: Options = {}) {
       if (Array.isArray(options.skip) && options.skip.some((c) => file.includes(c))) {
         testMethod = test.skip;
       }
-      testMethod(`renders ${file} correctly`, async () => {
+      testMethod(`📸 renders ${file} correctly`, async () => {
         MockDate.set(moment('2016-11-22').valueOf());
         const Demo = require(`.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
         const wrapper = mount(<Demo />);

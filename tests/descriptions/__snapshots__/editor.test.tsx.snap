@@ -3,7 +3,7 @@
 exports[`Descriptions 📝 columns support editable test 1`] = `
 Array [
   <input
-    style="display: none;"
+    style="display:none"
     type="text"
   />,
   <div
@@ -72,7 +72,7 @@ Array [
 exports[`Descriptions 📝 renderFormItem run defaultRender 1`] = `
 Array [
   <input
-    style="display: none;"
+    style="display:none"
     type="text"
   />,
   <div
@@ -110,18 +110,18 @@ Array [
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    style="margin: -5px 0px; position: absolute;"
+                    style="margin:-5px 0;position:absolute"
                   >
                     <div
                       class="ant-space ant-space-horizontal ant-space-align-center"
                     >
                       <div
                         class="ant-space-item"
-                        style="margin-right: 8px;"
+                        style="margin-right:8px"
                       >
                         <div
                           class="ant-row ant-form-item"
-                          style="margin: 0px;"
+                          style="margin:0"
                         >
                           <div
                             class="ant-col ant-form-item-control"
@@ -175,7 +175,7 @@ Array [
                       </div>
                       <div
                         class="ant-space-item"
-                        style="margin-right: 8px;"
+                        style="margin-right:8px"
                       >
                         <a>
                           <span
@@ -201,7 +201,7 @@ Array [
                       </div>
                       <div
                         class="ant-space-item"
-                        style="margin-right: 8px;"
+                        style="margin-right:8px"
                       />
                       <div
                         class="ant-space-item"

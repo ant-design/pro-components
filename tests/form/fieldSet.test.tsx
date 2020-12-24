@@ -32,13 +32,14 @@ describe('ProFormFieldSet', () => {
         },
       });
     });
+    await waitForComponentToPaint(html);
     expect(valueFn).toBeCalledWith(['111']);
 
     act(() => {
       html.find('li > div').at(1).simulate('click');
     });
     expect(valueFn).toBeCalledWith(['111', 2]);
-
+    await waitForComponentToPaint(html);
     act(() => {
       html.find('button.ant-btn.ant-btn-primary').simulate('click');
     });

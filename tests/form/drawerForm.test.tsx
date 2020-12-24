@@ -42,7 +42,7 @@ describe('DrawerForm', () => {
     act(() => {
       wrapper.find('button.ant-drawer-close').simulate('click');
     });
-
+    await waitForComponentToPaint(wrapper);
     expect(fn).toBeCalledWith(false);
   });
 
@@ -62,6 +62,7 @@ describe('DrawerForm', () => {
     act(() => {
       wrapper.find('.ant-drawer-footer button.ant-btn').at(0).simulate('click');
     });
+    await waitForComponentToPaint(wrapper);
     expect(fn).toBeCalledWith(false);
   });
 
@@ -84,7 +85,7 @@ describe('DrawerForm', () => {
     act(() => {
       wrapper.find('button.ant-drawer-close').simulate('click');
     });
-
+    await waitForComponentToPaint(wrapper);
     expect(fn).toBeCalledWith(false);
   });
 
@@ -130,7 +131,7 @@ describe('DrawerForm', () => {
     act(() => {
       wrapper.find('button.ant-btn').at(0).simulate('click');
     });
-
+    await waitForComponentToPaint(wrapper);
     expect(fn).toBeCalledWith(false);
   });
 

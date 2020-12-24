@@ -2,6 +2,7 @@ import { mount } from 'enzyme';
 import React from 'react';
 import ProCard from '@ant-design/pro-card';
 import { waitForComponentToPaint } from '../util';
+import { act } from 'react-dom/test-utils';
 
 describe('Field', () => {
   it('🥩 collapsible onCollapse', async () => {
@@ -12,7 +13,9 @@ describe('Field', () => {
       </ProCard>,
     );
     await waitForComponentToPaint(wrapper);
-    wrapper.find('AntdIcon.ant-pro-card-collapsible-icon').simulate('click');
+    act(() => {
+      wrapper.find('AntdIcon.ant-pro-card-collapsible-icon').simulate('click');
+    });
     expect(fn).toBeCalled();
   });
 
@@ -59,9 +62,9 @@ describe('Field', () => {
         </ProCard.TabPane>
       </ProCard>,
     );
-
-    wrapper.find('.ant-pro-card-tabs .ant-tabs-tab').at(1).simulate('click');
-
+    act(() => {
+      wrapper.find('.ant-pro-card-tabs .ant-tabs-tab').at(1).simulate('click');
+    });
     expect(fn).toHaveBeenCalledWith('tab2');
   });
 });

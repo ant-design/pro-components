@@ -22,7 +22,7 @@ describe('ModalForm', () => {
     act(() => {
       wrapper.find('button#new').simulate('click');
     });
-
+    await waitForComponentToPaint(wrapper);
     expect(fn).toBeCalledWith(true);
   });
 
@@ -42,7 +42,7 @@ describe('ModalForm', () => {
     act(() => {
       wrapper.find('button.ant-modal-close').simulate('click');
     });
-
+    await waitForComponentToPaint(wrapper);
     expect(fn).toBeCalledWith(false);
   });
 
@@ -84,7 +84,7 @@ describe('ModalForm', () => {
     act(() => {
       wrapper.find('button.ant-modal-close').simulate('click');
     });
-
+    await waitForComponentToPaint(wrapper);
     expect(fn).toBeCalledWith(false);
   });
 
