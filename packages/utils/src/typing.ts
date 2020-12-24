@@ -156,7 +156,7 @@ type ProSchemaValueType = ProFieldValueType | ProFieldValueObjectType;
 /**
  * 各个组件公共支持的 render
  */
-export type ProSchema<T = unknown, Extra = unknown> = {
+export type ProSchema<T = unknown, Extra = unknown, V = ProSchemaComponentTypes> = {
   /**
    * @name 确定这个列的唯一值
    */
@@ -170,20 +170,14 @@ export type ProSchema<T = unknown, Extra = unknown> = {
   /**
    * 选择如何渲染相应的模式
    */
-  valueType?:
-    | ((entity: T, type: ProSchemaComponentTypes) => ProSchemaValueType)
-    | ProSchemaValueType;
+  valueType?: ((entity: T, type: V) => ProSchemaValueType) | ProSchemaValueType;
 
   /**
    * @name 标题
    * @description 支持 ReactNode 和 方法
    */
   title?:
-    | ((
-        schema: ProSchema<T, Extra>,
-        type: ProSchemaComponentTypes,
-        dom: React.ReactNode,
-      ) => React.ReactNode)
+    | ((schema: ProSchema<T, Extra>, type: V, dom: React.ReactNode) => React.ReactNode)
     | React.ReactNode;
 
   /**
@@ -201,7 +195,7 @@ export type ProSchema<T = unknown, Extra = unknown> = {
     entity: T,
     index: number,
     action: ProCoreActionType,
-    schema: ProSchema<T, Extra> & { isEditable?: boolean; type: ProSchemaComponentTypes },
+    schema: ProSchema<T, Extra> & { isEditable?: boolean; type: V },
   ) => React.ReactNode;
 
   /**
@@ -212,11 +206,11 @@ export type ProSchema<T = unknown, Extra = unknown> = {
     schema: ProSchema<T, Extra> & {
       isEditable?: boolean;
       index?: number;
-      type: ProSchemaComponentTypes;
+      type: V;
     },
     config: {
       onSelect?: (value: any) => void;
-      type: ProSchemaComponentTypes;
+      type: V;
       isEditable?: boolean;
       defaultRender: (newItem: ProSchema<T, Extra>) => JSX.Element | null;
     },
@@ -235,7 +229,7 @@ export type ProSchema<T = unknown, Extra = unknown> = {
     | ((
         form: FormInstance<any>,
         config: ProSchema<T, Extra> & {
-          type: ProSchemaComponentTypes;
+          type: V;
           isEditable?: boolean;
           rowKey?: string;
         },
@@ -250,7 +244,7 @@ export type ProSchema<T = unknown, Extra = unknown> = {
     | ((
         form: FormInstance<any>,
         config: ProSchema<T, Extra> & {
-          type: ProSchemaComponentTypes;
+          type: V;
           isEditable?: boolean;
           rowKey?: string;
         },

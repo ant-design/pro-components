@@ -1,6 +1,950 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`layout demos renders ./packages/layout/src/demos/BreadcrumbsRepeat.tsx correctly 1`] = `
+exports[`layout demos 📸 renders ./packages/layout/src/components/PageContainer/demos/basic.tsx correctly 1`] = `
+<div
+  style="box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); background: rgb(245, 247, 250); transform: rotate(0);"
+>
+  <div
+    style="overflow-x: hidden; height: 400px;"
+  >
+    <div
+      class="ant-pro-page-container ant-pro-page-container-ghost"
+    >
+      <div
+        class="ant-pro-page-container-warp"
+      >
+        <div
+          class="ant-page-header has-breadcrumb has-footer ant-page-header-ghost"
+        >
+          <div
+            class="ant-breadcrumb"
+          >
+            <span>
+              <span
+                class="ant-breadcrumb-link"
+              >
+                <a
+                  href="#/"
+                >
+                  一级页面
+                </a>
+              </span>
+              <span
+                class="ant-breadcrumb-separator"
+              >
+                /
+              </span>
+            </span>
+            <span>
+              <span
+                class="ant-breadcrumb-link"
+              >
+                <a
+                  href="#/"
+                >
+                  二级页面
+                </a>
+              </span>
+              <span
+                class="ant-breadcrumb-separator"
+              >
+                /
+              </span>
+            </span>
+            <span>
+              <span
+                class="ant-breadcrumb-link"
+              >
+                <span>
+                  当前页面
+                </span>
+              </span>
+              <span
+                class="ant-breadcrumb-separator"
+              >
+                /
+              </span>
+            </span>
+          </div>
+          <div
+            class="ant-page-header-heading"
+          >
+            <div
+              class="ant-page-header-heading-left"
+            >
+              <span
+                class="ant-page-header-heading-title"
+                title="页面标题"
+              >
+                页面标题
+              </span>
+            </div>
+            <span
+              class="ant-page-header-heading-extra"
+            >
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  次要按钮
+                </span>
+              </button>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  次要按钮
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  主要按钮
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-dropdown-trigger"
+                style="padding: 0px 8px;"
+                type="button"
+              >
+                <span
+                  aria-label="ellipsis"
+                  class="anticon anticon-ellipsis"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="ellipsis"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </span>
+          </div>
+          <div
+            class="ant-page-header-footer"
+          >
+            <div
+              class="ant-tabs ant-tabs-top ant-pro-page-container-tabs"
+            >
+              <div
+                class="ant-tabs-nav"
+                role="tablist"
+              >
+                <div
+                  class="ant-tabs-nav-wrap"
+                >
+                  <div
+                    class="ant-tabs-nav-list"
+                    style="transform: translate(0px, 0px);"
+                  >
+                    <div
+                      class="ant-tabs-tab ant-tabs-tab-active"
+                    >
+                      <div
+                        aria-controls="rc-tabs-test-panel-base"
+                        aria-selected="true"
+                        class="ant-tabs-tab-btn"
+                        id="rc-tabs-test-tab-base"
+                        role="tab"
+                        tabindex="0"
+                      >
+                        基本信息
+                      </div>
+                    </div>
+                    <div
+                      class="ant-tabs-tab"
+                    >
+                      <div
+                        aria-controls="rc-tabs-test-panel-info"
+                        aria-selected="false"
+                        class="ant-tabs-tab-btn"
+                        id="rc-tabs-test-tab-info"
+                        role="tab"
+                        tabindex="0"
+                      >
+                        详细信息
+                      </div>
+                    </div>
+                    <div
+                      class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+                      style="left: 0px; width: 0px;"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+                >
+                  <button
+                    aria-controls="rc-tabs-test-more-popup"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-hidden="true"
+                    class="ant-tabs-nav-more"
+                    id="rc-tabs-test-more"
+                    style="visibility: hidden; order: 1;"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      aria-label="ellipsis"
+                      class="anticon anticon-ellipsis"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="ellipsis"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </div>
+              <div
+                class="ant-tabs-content-holder"
+              >
+                <div
+                  class="ant-tabs-content ant-tabs-content-top"
+                >
+                  <div
+                    aria-hidden="false"
+                    aria-labelledby="rc-tabs-test-tab-base"
+                    class="ant-tabs-tabpane ant-tabs-tabpane-active"
+                    id="rc-tabs-test-panel-base"
+                    role="tabpanel"
+                    tabindex="0"
+                  />
+                  <div
+                    aria-hidden="true"
+                    aria-labelledby="rc-tabs-test-tab-info"
+                    class="ant-tabs-tabpane"
+                    id="rc-tabs-test-panel-info"
+                    role="tabpanel"
+                    style="display: none;"
+                    tabindex="-1"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-pro-grid-content"
+      >
+        <div
+          class="ant-pro-grid-content-children"
+        >
+          <div>
+            <div
+              class="ant-pro-page-container-children-content"
+            >
+              <div
+                class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
+              >
+                <div
+                  class="ant-pro-card-body ant-pro-card-body-column"
+                >
+                  <div
+                    class="ant-pro-card"
+                    style="margin-bottom: 16px; height: 200px;"
+                  >
+                    <div
+                      class="ant-pro-card-body"
+                    />
+                  </div>
+                  <div
+                    class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
+                    style="margin-bottom: 16px; height: 200px;"
+                  >
+                    <div
+                      class="ant-pro-card-body"
+                    >
+                      <div
+                        class="ant-pro-card ant-pro-card-span-16"
+                        style="margin-right: 16px;"
+                      >
+                        <div
+                          class="ant-pro-card-body"
+                        />
+                      </div>
+                      <div
+                        class="ant-pro-card ant-pro-card-span-8"
+                      >
+                        <div
+                          class="ant-pro-card-body"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-pro-footer-bar"
+      >
+        <div
+          class="ant-pro-footer-bar-left"
+        />
+        <div
+          class="ant-pro-footer-bar-right"
+        >
+          <button
+            class="ant-btn"
+            type="button"
+          >
+            <span>
+              重 置
+            </span>
+          </button>
+          <button
+            class="ant-btn ant-btn-primary"
+            type="button"
+          >
+            <span>
+              提 交
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`layout demos 📸 renders ./packages/layout/src/components/PageContainer/demos/fixHeader.tsx correctly 1`] = `
+<div
+  style="box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); background: rgb(245, 247, 250); transform: rotate(0);"
+>
+  <div
+    style="overflow-x: hidden; height: 400px;"
+  >
+    <div
+      class="ant-pro-page-container"
+    >
+      <div>
+        <div
+          class=""
+        >
+          <div
+            class="ant-pro-page-container-warp"
+          >
+            <div
+              class="ant-page-header has-breadcrumb has-footer ant-page-header-ghost"
+            >
+              <div
+                class="ant-breadcrumb"
+              >
+                <span>
+                  <span
+                    class="ant-breadcrumb-link"
+                  >
+                    <a
+                      href="#/"
+                    >
+                      一级页面
+                    </a>
+                  </span>
+                  <span
+                    class="ant-breadcrumb-separator"
+                  >
+                    /
+                  </span>
+                </span>
+                <span>
+                  <span
+                    class="ant-breadcrumb-link"
+                  >
+                    <a
+                      href="#/"
+                    >
+                      二级页面
+                    </a>
+                  </span>
+                  <span
+                    class="ant-breadcrumb-separator"
+                  >
+                    /
+                  </span>
+                </span>
+                <span>
+                  <span
+                    class="ant-breadcrumb-link"
+                  >
+                    <span>
+                      当前页面
+                    </span>
+                  </span>
+                  <span
+                    class="ant-breadcrumb-separator"
+                  >
+                    /
+                  </span>
+                </span>
+              </div>
+              <div
+                class="ant-page-header-heading"
+              >
+                <div
+                  class="ant-page-header-heading-left"
+                >
+                  <span
+                    class="ant-page-header-heading-title"
+                    title="页面标题"
+                  >
+                    页面标题
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ant-page-header-footer"
+              >
+                <div
+                  class="ant-tabs ant-tabs-top ant-pro-page-container-tabs"
+                >
+                  <div
+                    class="ant-tabs-nav"
+                    role="tablist"
+                  >
+                    <div
+                      class="ant-tabs-nav-wrap"
+                    >
+                      <div
+                        class="ant-tabs-nav-list"
+                        style="transform: translate(0px, 0px);"
+                      >
+                        <div
+                          class="ant-tabs-tab ant-tabs-tab-active"
+                        >
+                          <div
+                            aria-controls="rc-tabs-test-panel-1"
+                            aria-selected="true"
+                            class="ant-tabs-tab-btn"
+                            id="rc-tabs-test-tab-1"
+                            role="tab"
+                            tabindex="0"
+                          >
+                            已选择
+                          </div>
+                        </div>
+                        <div
+                          class="ant-tabs-tab"
+                        >
+                          <div
+                            aria-controls="rc-tabs-test-panel-2"
+                            aria-selected="false"
+                            class="ant-tabs-tab-btn"
+                            id="rc-tabs-test-tab-2"
+                            role="tab"
+                            tabindex="0"
+                          >
+                            可点击
+                          </div>
+                        </div>
+                        <div
+                          class="ant-tabs-tab ant-tabs-tab-disabled"
+                        >
+                          <div
+                            aria-controls="rc-tabs-test-panel-3"
+                            aria-disabled="true"
+                            aria-selected="false"
+                            class="ant-tabs-tab-btn"
+                            id="rc-tabs-test-tab-3"
+                            role="tab"
+                          >
+                            禁用
+                          </div>
+                        </div>
+                        <div
+                          class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+                          style="left: 0px; width: 0px;"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+                    >
+                      <button
+                        aria-controls="rc-tabs-test-more-popup"
+                        aria-expanded="false"
+                        aria-haspopup="listbox"
+                        aria-hidden="true"
+                        class="ant-tabs-nav-more"
+                        id="rc-tabs-test-more"
+                        style="visibility: hidden; order: 1;"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <span
+                          aria-label="ellipsis"
+                          class="anticon anticon-ellipsis"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="ellipsis"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                            />
+                          </svg>
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-tabs-content-holder"
+                  >
+                    <div
+                      class="ant-tabs-content ant-tabs-content-top"
+                    >
+                      <div
+                        aria-hidden="false"
+                        aria-labelledby="rc-tabs-test-tab-1"
+                        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+                        id="rc-tabs-test-panel-1"
+                        role="tabpanel"
+                        tabindex="0"
+                      />
+                      <div
+                        aria-hidden="true"
+                        aria-labelledby="rc-tabs-test-tab-2"
+                        class="ant-tabs-tabpane"
+                        id="rc-tabs-test-panel-2"
+                        role="tabpanel"
+                        style="display: none;"
+                        tabindex="-1"
+                      />
+                      <div
+                        aria-hidden="true"
+                        aria-labelledby="rc-tabs-test-tab-3"
+                        class="ant-tabs-tabpane"
+                        id="rc-tabs-test-panel-3"
+                        role="tabpanel"
+                        style="display: none;"
+                        tabindex="-1"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-pro-grid-content"
+      >
+        <div
+          class="ant-pro-grid-content-children"
+        >
+          <div>
+            <div
+              class="ant-pro-page-container-children-content"
+            >
+              <div
+                class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
+              >
+                <div
+                  class="ant-pro-card-body ant-pro-card-body-column"
+                >
+                  <div
+                    class="ant-pro-card"
+                    style="margin-bottom: 16px; height: 200px;"
+                  >
+                    <div
+                      class="ant-pro-card-body"
+                    />
+                  </div>
+                  <div
+                    class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
+                    style="margin-bottom: 16px; height: 200px;"
+                  >
+                    <div
+                      class="ant-pro-card-body"
+                    >
+                      <div
+                        class="ant-pro-card ant-pro-card-span-16"
+                        style="margin-right: 16px;"
+                      >
+                        <div
+                          class="ant-pro-card-body"
+                        />
+                      </div>
+                      <div
+                        class="ant-pro-card ant-pro-card-span-8"
+                      >
+                        <div
+                          class="ant-pro-card-body"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`layout demos 📸 renders ./packages/layout/src/components/PageContainer/demos/hideBreadMenu.tsx correctly 1`] = `
+<div
+  style="box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); background: rgb(245, 247, 250); transform: rotate(0);"
+>
+  <div
+    style="overflow-x: hidden; height: 400px;"
+  >
+    <div
+      class="ant-pro-page-container ant-pro-page-container-ghost"
+    >
+      <div
+        class="ant-pro-page-container-warp"
+      >
+        <div
+          class="ant-page-header ant-page-header-ghost"
+        >
+          <div
+            class="ant-page-header-heading"
+          >
+            <div
+              class="ant-page-header-heading-left"
+            >
+              <span
+                class="ant-page-header-heading-title"
+                title="页面标题"
+              >
+                页面标题
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-page-header-content"
+          >
+            <div
+              class="ant-pro-page-container-detail"
+            >
+              <div
+                class="ant-pro-page-container-main"
+              >
+                <div
+                  class="ant-pro-page-container-row"
+                >
+                  <div
+                    class="ant-pro-page-container-content"
+                  >
+                    <div
+                      class="ant-descriptions"
+                      style="margin-bottom: -16px;"
+                    >
+                      <div
+                        class="ant-descriptions-view"
+                      >
+                        <table>
+                          <tbody>
+                            <tr
+                              class="ant-descriptions-row"
+                            >
+                              <td
+                                class="ant-descriptions-item"
+                                colspan="1"
+                              >
+                                <div
+                                  class="ant-descriptions-item-container"
+                                >
+                                  <span
+                                    class="ant-descriptions-item-label"
+                                  >
+                                    创建人
+                                  </span>
+                                  <span
+                                    class="ant-descriptions-item-content"
+                                  >
+                                    曲丽丽
+                                  </span>
+                                </div>
+                              </td>
+                              <td
+                                class="ant-descriptions-item"
+                                colspan="1"
+                              >
+                                <div
+                                  class="ant-descriptions-item-container"
+                                >
+                                  <span
+                                    class="ant-descriptions-item-label"
+                                  >
+                                    关联表单
+                                  </span>
+                                  <span
+                                    class="ant-descriptions-item-content"
+                                  >
+                                    <a>
+                                      421421
+                                    </a>
+                                  </span>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr
+                              class="ant-descriptions-row"
+                            >
+                              <td
+                                class="ant-descriptions-item"
+                                colspan="1"
+                              >
+                                <div
+                                  class="ant-descriptions-item-container"
+                                >
+                                  <span
+                                    class="ant-descriptions-item-label"
+                                  >
+                                    创建时间
+                                  </span>
+                                  <span
+                                    class="ant-descriptions-item-content"
+                                  >
+                                    2017-01-10
+                                  </span>
+                                </div>
+                              </td>
+                              <td
+                                class="ant-descriptions-item"
+                                colspan="1"
+                              >
+                                <div
+                                  class="ant-descriptions-item-container"
+                                >
+                                  <span
+                                    class="ant-descriptions-item-label"
+                                  >
+                                    单据备注
+                                  </span>
+                                  <span
+                                    class="ant-descriptions-item-content"
+                                  >
+                                    浙江省杭州市西湖区工专路
+                                  </span>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-pro-grid-content"
+      >
+        <div
+          class="ant-pro-grid-content-children"
+        >
+          <div>
+            <div
+              class="ant-pro-page-container-children-content"
+            >
+              <div
+                class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
+              >
+                <div
+                  class="ant-pro-card-body ant-pro-card-body-column"
+                >
+                  <div
+                    class="ant-pro-card"
+                    style="margin-bottom: 16px; height: 200px;"
+                  >
+                    <div
+                      class="ant-pro-card-body"
+                    />
+                  </div>
+                  <div
+                    class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
+                    style="margin-bottom: 16px; height: 200px;"
+                  >
+                    <div
+                      class="ant-pro-card-body"
+                    >
+                      <div
+                        class="ant-pro-card ant-pro-card-span-16"
+                        style="margin-right: 16px;"
+                      >
+                        <div
+                          class="ant-pro-card-body"
+                        />
+                      </div>
+                      <div
+                        class="ant-pro-card ant-pro-card-span-8"
+                      >
+                        <div
+                          class="ant-pro-card-body"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`layout demos 📸 renders ./packages/layout/src/components/PageContainer/demos/loading.tsx correctly 1`] = `
+<div
+  style="box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); background: rgb(245, 247, 250); height: 400px;"
+>
+  <div
+    class="ant-pro-page-container ant-pro-page-container-ghost"
+  >
+    <div
+      class="ant-pro-page-container-warp"
+    >
+      <div
+        class="ant-page-header has-breadcrumb ant-page-header-ghost"
+      >
+        <div
+          class="ant-breadcrumb"
+        >
+          <span>
+            <span
+              class="ant-breadcrumb-link"
+            >
+              <a
+                href="#/"
+              >
+                一级页面
+              </a>
+            </span>
+            <span
+              class="ant-breadcrumb-separator"
+            >
+              /
+            </span>
+          </span>
+          <span>
+            <span
+              class="ant-breadcrumb-link"
+            >
+              <a
+                href="#/"
+              >
+                二级页面
+              </a>
+            </span>
+            <span
+              class="ant-breadcrumb-separator"
+            >
+              /
+            </span>
+          </span>
+          <span>
+            <span
+              class="ant-breadcrumb-link"
+            >
+              <span>
+                当前页面
+              </span>
+            </span>
+            <span
+              class="ant-breadcrumb-separator"
+            >
+              /
+            </span>
+          </span>
+        </div>
+        <div
+          class="ant-page-header-heading"
+        >
+          <div
+            class="ant-page-header-heading-left"
+          >
+            <span
+              class="ant-page-header-heading-title"
+              title="页面标题"
+            >
+              页面标题
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-pro-grid-content"
+    >
+      <div
+        class="ant-pro-grid-content-children"
+      >
+        <div
+          style="padding-top: 100px; text-align: center;"
+        >
+          <div
+            class="ant-spin ant-spin-lg ant-spin-spinning"
+          >
+            <span
+              class="ant-spin-dot ant-spin-dot-spin"
+            >
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat.tsx correctly 1`] = `
 <div
   style="height: 100vh;"
 >
@@ -294,7 +1238,7 @@ exports[`layout demos renders ./packages/layout/src/demos/BreadcrumbsRepeat.tsx 
 </div>
 `;
 
-exports[`layout demos renders ./packages/layout/src/demos/DefaultOpenAllMenu.tsx correctly 1`] = `
+exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMenu.tsx correctly 1`] = `
 <div
   style="height: 100vh;"
 >
@@ -722,7 +1666,7 @@ exports[`layout demos renders ./packages/layout/src/demos/DefaultOpenAllMenu.tsx
 </div>
 `;
 
-exports[`layout demos renders ./packages/layout/src/demos/IconFont.tsx correctly 1`] = `
+exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx correctly 1`] = `
 <div
   style="height: 100vh;"
 >
@@ -986,7 +1930,7 @@ exports[`layout demos renders ./packages/layout/src/demos/IconFont.tsx correctly
 </div>
 `;
 
-exports[`layout demos renders ./packages/layout/src/demos/MenuGroup.tsx correctly 1`] = `
+exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx correctly 1`] = `
 <div
   style="height: 100vh;"
 >
@@ -1359,7 +2303,7 @@ exports[`layout demos renders ./packages/layout/src/demos/MenuGroup.tsx correctl
 </div>
 `;
 
-exports[`layout demos renders ./packages/layout/src/demos/MultipleMenuOnePath.tsx correctly 1`] = `
+exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePath.tsx correctly 1`] = `
 <div
   style="height: 100vh;"
 >
@@ -1754,7 +2698,7 @@ exports[`layout demos renders ./packages/layout/src/demos/MultipleMenuOnePath.ts
 </div>
 `;
 
-exports[`layout demos renders ./packages/layout/src/demos/Nested.tsx correctly 1`] = `
+exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correctly 1`] = `
 <div
   style="height: 100vh;"
 >
@@ -2199,7 +3143,7 @@ exports[`layout demos renders ./packages/layout/src/demos/Nested.tsx correctly 1
 </div>
 `;
 
-exports[`layout demos renders ./packages/layout/src/demos/TopmenuNested.tsx correctly 1`] = `
+exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx correctly 1`] = `
 <div
   style="height: 100vh; overflow: auto;"
 >
@@ -2698,7 +3642,7 @@ exports[`layout demos renders ./packages/layout/src/demos/TopmenuNested.tsx corr
 </div>
 `;
 
-exports[`layout demos renders ./packages/layout/src/demos/antd@4MenuIconFormServe.tsx correctly 1`] = `
+exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFormServe.tsx correctly 1`] = `
 <div
   id="test"
   style="transform: rotate(0); overflow-x: hidden;"
@@ -2941,7 +3885,7 @@ exports[`layout demos renders ./packages/layout/src/demos/antd@4MenuIconFormServ
 </div>
 `;
 
-exports[`layout demos renders ./packages/layout/src/demos/api.tsx correctly 1`] = `
+exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly 1`] = `
 Array [
   <button
     aria-checked="false"
@@ -3443,7 +4387,7 @@ Array [
 ]
 `;
 
-exports[`layout demos renders ./packages/layout/src/demos/base.tsx correctly 1`] = `
+exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctly 1`] = `
 <div
   id="test-pro-layout"
   style="height: 100vh;"
@@ -4494,7 +5438,7 @@ exports[`layout demos renders ./packages/layout/src/demos/base.tsx correctly 1`]
 </div>
 `;
 
-exports[`layout demos renders ./packages/layout/src/demos/config-provider.tsx correctly 1`] = `
+exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.tsx correctly 1`] = `
 <div
   id="test-pro-layout"
   style="transform: rotate(0); overflow-x: hidden;"
@@ -5542,7 +6486,7 @@ exports[`layout demos renders ./packages/layout/src/demos/config-provider.tsx co
 </div>
 `;
 
-exports[`layout demos renders ./packages/layout/src/demos/customize-collapsed.tsx correctly 1`] = `
+exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collapsed.tsx correctly 1`] = `
 <div
   class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side"
 >
@@ -6256,7 +7200,7 @@ exports[`layout demos renders ./packages/layout/src/demos/customize-collapsed.ts
 </div>
 `;
 
-exports[`layout demos renders ./packages/layout/src/demos/customizeMenu.tsx correctly 1`] = `
+exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx correctly 1`] = `
 <div
   style="height: 100vh;"
 >
@@ -6557,7 +7501,7 @@ exports[`layout demos renders ./packages/layout/src/demos/customizeMenu.tsx corr
 </div>
 `;
 
-exports[`layout demos renders ./packages/layout/src/demos/dynamicMenu.tsx correctly 1`] = `
+exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx correctly 1`] = `
 Array [
   <button
     class="ant-btn"
@@ -6748,7 +7692,7 @@ Array [
 ]
 `;
 
-exports[`layout demos renders ./packages/layout/src/demos/footer.tsx correctly 1`] = `
+exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correctly 1`] = `
 <div
   class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
 >
@@ -7077,7 +8021,7 @@ exports[`layout demos renders ./packages/layout/src/demos/footer.tsx correctly 1
 </div>
 `;
 
-exports[`layout demos renders ./packages/layout/src/demos/ghost.tsx correctly 1`] = `
+exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correctly 1`] = `
 <div
   style="height: 100vh;"
 >
@@ -7526,7 +8470,7 @@ exports[`layout demos renders ./packages/layout/src/demos/ghost.tsx correctly 1`
 </div>
 `;
 
-exports[`layout demos renders ./packages/layout/src/demos/hideMenu.tsx correctly 1`] = `
+exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx correctly 1`] = `
 <div
   class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
 >
@@ -7816,7 +8760,7 @@ exports[`layout demos renders ./packages/layout/src/demos/hideMenu.tsx correctly
 </div>
 `;
 
-exports[`layout demos renders ./packages/layout/src/demos/searchMenu.tsx correctly 1`] = `
+exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx correctly 1`] = `
 <div
   style="height: 100vh;"
 >
@@ -8146,7 +9090,7 @@ exports[`layout demos renders ./packages/layout/src/demos/searchMenu.tsx correct
 </div>
 `;
 
-exports[`layout demos renders ./packages/layout/src/demos/splitMenus.tsx correctly 1`] = `
+exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx correctly 1`] = `
 Array [
   "children",
   <div

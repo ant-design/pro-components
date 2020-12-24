@@ -5,36 +5,7 @@ import ProTable from '@ant-design/pro-table';
 import { request } from './demo';
 import { waitForComponentToPaint } from '../util';
 
-describe('BasicTable', () => {
-  const LINE_STR_COUNT = 20;
-  // Mock offsetHeight
-  // @ts-expect-error
-  const originOffsetHeight = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'offsetHeight')
-    .get;
-  Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
-    get() {
-      let html = this.innerHTML;
-      html = html.replace(/<[^>]*>/g, '');
-      const lines = Math.ceil(html.length / LINE_STR_COUNT);
-      return lines * 16;
-    },
-  });
-
-  // Mock getComputedStyle
-  const originGetComputedStyle = window.getComputedStyle;
-  window.getComputedStyle = (ele) => {
-    const style = originGetComputedStyle(ele);
-    style.lineHeight = '16px';
-    return style;
-  };
-
-  afterAll(() => {
-    Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
-      get: originOffsetHeight,
-    });
-    window.getComputedStyle = originGetComputedStyle;
-  });
-
+describe('BasicTable pagination', () => {
   it('🎏 pagination current test', async () => {
     const fn = jest.fn();
     const onChangeFn = jest.fn();
@@ -49,7 +20,10 @@ describe('BasicTable', () => {
         ]}
         request={(params) => {
           fn(params.current);
-          return request(params);
+          return request({
+            pageSize: 10,
+            current: 1,
+          });
         }}
         pagination={{
           onChange: onChangeFn(),
@@ -65,7 +39,7 @@ describe('BasicTable', () => {
     act(() => {
       html.find('li.ant-pagination-item.ant-pagination-item-2').simulate('click');
     });
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 200);
 
     expect(fn).toBeCalledWith(1);
   });
@@ -85,7 +59,10 @@ describe('BasicTable', () => {
         request={(params) => {
           fn(params.pageSize);
           currentFn(params.current);
-          return request(params);
+          return request({
+            pageSize: 10,
+            current: 1,
+          });
         }}
         pagination={{
           pageSize: 50,
@@ -98,14 +75,14 @@ describe('BasicTable', () => {
 
     expect(fn).toBeCalledWith(50);
     expect(currentFn).toBeCalledWith(1);
-
-    html.setProps({
-      pagination: {
-        pageSize: 10,
-      },
+    act(() => {
+      html.setProps({
+        pagination: {
+          pageSize: 10,
+        },
+      });
     });
-
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 200);
 
     expect(fn).toBeCalledWith(10);
   });
@@ -139,14 +116,15 @@ describe('BasicTable', () => {
     expect(fn).toBeCalledWith(2);
 
     expect(pageSizeFn).toBeCalledWith(20);
-
-    html.setProps({
-      pagination: {
-        current: 3,
-      },
+    act(() => {
+      html.setProps({
+        pagination: {
+          current: 3,
+        },
+      });
     });
 
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 200);
 
     expect(fn).toBeCalledWith(3);
   });
@@ -164,24 +142,27 @@ describe('BasicTable', () => {
         ]}
         request={(params) => {
           fn(params.pageSize);
-          return request(params);
+          return request({
+            pageSize: 10,
+            current: 1,
+          });
         }}
         pagination={false}
-        onRequestError={fn}
+        onRequestError={() => null}
         rowKey="key"
       />,
     );
     await waitForComponentToPaint(html, 1000);
 
     expect(fn).toBeCalledWith(undefined);
-
-    html.setProps({
-      pagination: {
-        pageSize: 10,
-      },
+    act(() => {
+      html.setProps({
+        pagination: {
+          pageSize: 10,
+        },
+      });
     });
-
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 200);
 
     expect(fn).toBeCalledWith(10);
   });

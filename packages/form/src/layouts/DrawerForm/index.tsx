@@ -1,4 +1,4 @@
-﻿import React, { useContext, useImperativeHandle, useRef } from 'react';
+﻿import React, { useContext, useEffect, useMemo, useImperativeHandle, useRef } from 'react';
 import { ConfigProvider, Drawer } from 'antd';
 import type { FormInstance, FormProps } from 'antd/lib/form';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -63,16 +63,46 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
     value: rest.visible,
     onChange: onVisibleChange,
   });
+
+  /** 设置 trigger 的情况下，懒渲染优化性能；使之可以直接配合表格操作等场景使用 */
+  const isFirstRender = useRef(!drawerProps?.forceRender);
+
+  /**
+   * isFirstRender.current 或者 visible 为 true 的时候就渲染
+   * 不渲染能会造成一些问题,比如再次打开值不对了
+   * 只有手动配置 drawerProps?.destroyOnClose 为 true 的时候才会每次关闭的时候删除 dom
+   */
+  const shouldRenderFormItems = useMemo(() => {
+    if (isFirstRender.current && visible === false) {
+      return false;
+    }
+    if (visible === false && drawerProps?.destroyOnClose) {
+      return false;
+    }
+    return true;
+  }, [visible, drawerProps?.destroyOnClose]);
   /**
    * 同步 props 和 本地
    */
   const formRef = useRef<FormInstance>();
   const context = useContext(ConfigProvider.ConfigContext);
 
+  /**
+   * 如果 destroyOnClose ，重置一下表单
+   */
+  useEffect(() => {
+    if (visible) {
+      isFirstRender.current = false;
+    }
+    if (!visible && drawerProps?.destroyOnClose) {
+      formRef.current?.resetFields();
+    }
+  }, [drawerProps?.destroyOnClose, visible]);
+
   useImperativeHandle(rest.formRef, () => formRef.current, [formRef.current]);
 
   /**
-   * 不妨到 body 上会导致 z-index 的问题
+   * 不放到 body 上会导致 z-index 的问题
    * 遮罩什么的都遮不住了
    */
   return (
@@ -129,7 +159,7 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
                     </div>
                   }
                 >
-                  {item}
+                  {shouldRenderFormItems ? item : null}
                 </Drawer>
               );
             }}

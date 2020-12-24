@@ -7,6 +7,7 @@ import { LoadingOutlined } from '@ant-design/icons';
 import { message, Popconfirm } from 'antd';
 import ReactDOM from 'react-dom';
 import set from 'rc-util/lib/utils/set';
+import useMountMergeState from '../useMountMergeState';
 
 export type RowEditableType = 'single' | 'multiple';
 
@@ -216,7 +217,7 @@ export const SaveEditableAction: React.FC<ActionRenderConfig<any> & { row: any }
   newLineConfig,
   editorType,
 }) => {
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useMountMergeState<boolean>(false);
   return (
     <a
       key="save"
@@ -269,7 +270,7 @@ export const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any
   deletePopconfirmMessage,
   cancelEditable,
 }) => {
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useMountMergeState<boolean>(false);
   const onConfirm = async () => {
     try {
       setLoading(true);

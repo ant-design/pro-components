@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`skeleton demos renders ./packages/skeleton/src/demos/descriptions.tsx correctly 1`] = `
+exports[`skeleton demos 📸 renders ./packages/skeleton/src/demos/descriptions.tsx correctly 1`] = `
 <div
   style="background: rgb(250, 250, 250); padding: 24px;"
 >
@@ -689,7 +689,7 @@ exports[`skeleton demos renders ./packages/skeleton/src/demos/descriptions.tsx c
 </div>
 `;
 
-exports[`skeleton demos renders ./packages/skeleton/src/demos/list.tsx correctly 1`] = `
+exports[`skeleton demos 📸 renders ./packages/skeleton/src/demos/list.tsx correctly 1`] = `
 <div
   style="background: rgb(250, 250, 250); padding: 24px;"
 >
@@ -1204,7 +1204,7 @@ exports[`skeleton demos renders ./packages/skeleton/src/demos/list.tsx correctly
 </div>
 `;
 
-exports[`skeleton demos renders ./packages/skeleton/src/demos/result.tsx correctly 1`] = `
+exports[`skeleton demos 📸 renders ./packages/skeleton/src/demos/result.tsx correctly 1`] = `
 <div
   style="background: rgb(250, 250, 250); padding: 24px;"
 >
