@@ -21,7 +21,7 @@ import type {
   RequestData,
   UseFetchDataAction,
 } from './typing';
-import type { ColumnsState, useCounter } from './container';
+import type { ColumnsState, useContainer } from './container';
 import defaultRenderText from './defaultRender';
 
 /**
@@ -239,7 +239,7 @@ type ColumnRenderInterface<T> = {
   index: number;
   columnEmptyText?: ProFieldEmptyText;
   type: ProSchemaComponentTypes;
-  counter: ReturnType<typeof useCounter>;
+  counter: ReturnType<typeof useContainer>;
   editableUtils: UseEditableUtilType;
 };
 
@@ -363,7 +363,7 @@ export function columnRender<T>({
 export function genColumnList<T>(props: {
   columns: ProColumns<T>[];
   map: Record<string, ColumnsState>;
-  counter: ReturnType<typeof useCounter>;
+  counter: ReturnType<typeof useContainer>;
   columnEmptyText: ProFieldEmptyText;
   type: ProSchemaComponentTypes;
   editableUtils: UseEditableUtilType;
