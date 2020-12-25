@@ -19,7 +19,7 @@ import { AlertRenderType } from './component/Alert';
 import { ListToolBarProps } from './component/ListToolBar';
 import { OptionConfig, ToolBarProps } from './component/ToolBar';
 import { DensitySize } from './component/ToolBar/DensityIcon';
-import { ColumnsState, useCounter } from './container';
+import { ColumnsState, useContainer } from './container';
 import { SearchConfig, TableFormItem } from './Form';
 
 export interface PageInfo {
@@ -58,7 +58,7 @@ export interface ColumnRenderInterface<T> {
   index: number;
   columnEmptyText?: ProFieldEmptyText;
   type: ProSchemaComponentTypes;
-  counter: ReturnType<typeof useCounter>;
+  counter: ReturnType<typeof useContainer>;
 }
 
 export type TableRowSelection = TableProps<any>['rowSelection'];
