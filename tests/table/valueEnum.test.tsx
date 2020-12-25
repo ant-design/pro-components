@@ -25,6 +25,7 @@ describe('Table valueEnum', () => {
           data: [
             {
               status: 2,
+              key: '1',
             },
           ],
         })}
@@ -57,7 +58,9 @@ describe('Table valueEnum', () => {
     act(() => {
       html.find('form.ant-form div.ant-select').simulate('click');
     });
-    expect(html.find('div.ant-select-dropdown').render()).toMatchSnapshot();
+    act(() => {
+      expect(html.find('div.ant-select-dropdown').render()).toMatchSnapshot();
+    });
     expect(html.find('td.ant-table-cell').text()).toBe('已上线');
   });
 });

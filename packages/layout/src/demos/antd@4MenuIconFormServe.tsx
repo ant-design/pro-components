@@ -1,6 +1,7 @@
 import React from 'react';
 
-import ProLayout, { PageContainer, MenuDataItem } from '@ant-design/pro-layout';
+import type { MenuDataItem } from '@ant-design/pro-layout';
+import ProLayout, { PageContainer } from '@ant-design/pro-layout';
 import { SmileOutlined, HeartOutlined } from '@ant-design/icons';
 
 const IconMap = {

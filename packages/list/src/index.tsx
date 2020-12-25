@@ -1,9 +1,11 @@
 import React, { useMemo, useContext } from 'react';
-import { ListProps } from 'antd/lib/list';
+import type { ListProps } from 'antd/lib/list';
 import classNames from 'classnames';
-import ProTable, { ProTableProps, ProColumnType } from '@ant-design/pro-table';
-import { ParamsType } from '@ant-design/pro-provider';
+import type { ProTableProps, ProColumnType } from '@ant-design/pro-table';
+import ProTable from '@ant-design/pro-table';
+import type { ParamsType } from '@ant-design/pro-provider';
 import { ConfigProvider } from 'antd';
+import { PaginationConfig } from 'antd/lib/pagination';
 import ListView from './ListView';
 
 import './index.less';
@@ -15,7 +17,7 @@ type ProListMeta<T> = Pick<
   'dataIndex' | 'valueType' | 'render' | 'search' | 'title' | 'valueEnum'
 >;
 
-export interface ProListMetas<T> {
+export type ProListMetas<T> = {
   type?: ProListMeta<T>;
   title?: ProListMeta<T>;
   subTitle?: ProListMeta<T>;
@@ -25,7 +27,7 @@ export interface ProListMetas<T> {
   content?: ProListMeta<T>;
   actions?: ProListMeta<T>;
   [key: string]: ProListMeta<T> | undefined;
-}
+};
 
 export type ProListProps<RecordType, U extends ParamsType> = Omit<
   ProTableProps<RecordType, U>,
@@ -40,14 +42,12 @@ export type Key = React.Key;
 
 export type TriggerEventHandler<RecordType> = (record: RecordType) => void;
 
-function ProList<RecordType, U extends { [key: string]: any } = {}>(
+function ProList<RecordType, U extends Record<string, any> = {}>(
   props: ProListProps<RecordType, U>,
 ) {
   const {
     metas: metals,
     split,
-    pagination,
-    size,
     footer,
     rowKey,
     className,
@@ -56,6 +56,7 @@ function ProList<RecordType, U extends { [key: string]: any } = {}>(
     expandable,
     showActions,
     rowSelection,
+    pagination: propsPagination = false,
     itemLayout,
     ...rest
   } = props;
@@ -91,7 +92,8 @@ function ProList<RecordType, U extends { [key: string]: any } = {}>(
 
   return (
     <ProTable<RecordType, U>
-      {...rest}
+      {...(rest as any)}
+      pagination={propsPagination}
       search={search}
       options={options}
       className={classNames(prefixCls, className, listClassName)}
@@ -107,20 +109,20 @@ function ProList<RecordType, U extends { [key: string]: any } = {}>(
           padding: '0 24px',
         },
       }}
-      tableViewRender={({ columns, dataSource, loading }) => {
+      tableViewRender={({ columns, size, pagination, dataSource, loading }) => {
         return (
           <ListView
             prefixCls={prefixCls}
             columns={columns}
             dataSource={dataSource || []}
-            size={size}
+            size={size as 'large'}
             footer={footer}
             split={split}
             rowKey={rowKey}
             expandable={expandable}
             rowSelection={rowSelection === false ? undefined : rowSelection}
             showActions={showActions}
-            pagination={pagination}
+            pagination={pagination as PaginationConfig}
             itemLayout={itemLayout}
             loading={loading}
           />

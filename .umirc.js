@@ -19,7 +19,7 @@ const alias = pkgList.reduce((pre, pkg) => {
 console.log(`🌼 alias list \n${chalk.blue(Object.keys(alias).join('\n'))}`);
 
 const tailPkgList = pkgList
-  .map((path) => [join('packages', path, 'src')])
+  .map((path) => [join('packages', path, 'src'), join('packages', path, 'src', 'components')])
   .reduce((acc, val) => acc.concat(val), []);
 
 const isProduction = process.env.NODE_ENV === 'production';
@@ -74,14 +74,29 @@ export default {
   // antd: {
   //   dark: true,
   // },
-  resolve: { includes: [...tailPkgList, 'docs'] },
-  navs: [
-    null,
-    {
-      title: 'GitHub',
-      path: 'https://github.com/ant-design/pro-components',
-    },
+  resolve: {
+    includes: [...tailPkgList, 'docs'],
+  },
+  locales: [
+    ['zh-CN', '中文'],
+    ['en-US', 'English'],
   ],
+  navs: {
+    'en-US': [
+      null,
+      {
+        title: 'GitHub',
+        path: 'https://github.com/ant-design/pro-components',
+      },
+    ],
+    'zh-CN': [
+      null,
+      {
+        title: 'GitHub',
+        path: 'https://github.com/ant-design/pro-components',
+      },
+    ],
+  },
   analytics: isProduction
     ? {
         ga: 'UA-173569162-1',
@@ -109,7 +124,7 @@ export default {
     ios: false,
   },
   theme: {
-    '@s-site-menu-width': '208px',
+    '@s-site-menu-width': '258px',
   },
   links:
     process.env.NODE_ENV === 'development'
@@ -124,4 +139,50 @@ export default {
           'https://gw.alipayobjects.com/os/lib/antd/4.9.3/dist/antd-with-locales.js',
         ]
       : [],
+  menus: {
+    '/components': [
+      {
+        title: '架构设计',
+        children: ['components.md'],
+      },
+      {
+        title: '布局',
+        children: ['layout', 'PageContainer/index', 'card'],
+      },
+      {
+        title: '数据录入',
+        children: ['form'],
+      },
+      {
+        title: '数据展示',
+        children: ['table', 'EditableTable/index', 'list', 'description'],
+      },
+      {
+        title: '通用',
+        children: ['skeleton', 'field'],
+      },
+    ],
+    '/en-US/components': [
+      {
+        title: 'Architecture Design',
+        children: ['components'],
+      },
+      {
+        title: 'Layout',
+        children: ['layout', 'PageContainer/index', 'card'],
+      },
+      {
+        title: 'Data entry',
+        children: ['form'],
+      },
+      {
+        title: 'Data Display',
+        children: ['table', 'EditableTable/index', 'list', 'description'],
+      },
+      {
+        title: 'General',
+        children: ['skeleton', 'field'],
+      },
+    ],
+  },
 };

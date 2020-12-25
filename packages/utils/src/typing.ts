@@ -1,6 +1,6 @@
-import { FormInstance, FormItemProps } from 'antd/lib/form';
-import { ReactNode } from 'react';
-import { UseEditableUtilType } from './useEditableArray';
+import type { FormInstance, FormItemProps } from 'antd/lib/form';
+import type { ReactNode } from 'react';
+import type { UseEditableUtilType } from './useEditableArray';
 
 /**
  * password 密码框
@@ -96,9 +96,7 @@ export type ProSchemaValueEnumType = {
   disabled?: boolean;
 };
 
-export type ProSchemaValueEnumObj = {
-  [key: string]: ProSchemaValueEnumType | ReactNode;
-};
+export type ProSchemaValueEnumObj = Record<string, ProSchemaValueEnumType | ReactNode>;
 
 /**
  * @name ValueEnum 的类型
@@ -110,7 +108,7 @@ export type SearchTransformKeyFn = (
   value: any,
   field: string,
   object: any,
-) => string | { [key: string]: any };
+) => string | Record<string, any>;
 
 export type ProTableEditableFnType<T> = (_: any, record: T, index: number) => boolean;
 
@@ -158,7 +156,7 @@ type ProSchemaValueType = ProFieldValueType | ProFieldValueObjectType;
 /**
  * 各个组件公共支持的 render
  */
-export type ProSchema<T = unknown, Extra = unknown> = {
+export type ProSchema<T = unknown, Extra = unknown, V = ProSchemaComponentTypes> = {
   /**
    * @name 确定这个列的唯一值
    */
@@ -172,20 +170,14 @@ export type ProSchema<T = unknown, Extra = unknown> = {
   /**
    * 选择如何渲染相应的模式
    */
-  valueType?:
-    | ((entity: T, type: ProSchemaComponentTypes) => ProSchemaValueType)
-    | ProSchemaValueType;
+  valueType?: ((entity: T, type: V) => ProSchemaValueType) | ProSchemaValueType;
 
   /**
    * @name 标题
    * @description 支持 ReactNode 和 方法
    */
   title?:
-    | ((
-        schema: ProSchema<T, Extra>,
-        type: ProSchemaComponentTypes,
-        dom: React.ReactNode,
-      ) => React.ReactNode)
+    | ((schema: ProSchema<T, Extra>, type: V, dom: React.ReactNode) => React.ReactNode)
     | React.ReactNode;
 
   /**
@@ -203,7 +195,7 @@ export type ProSchema<T = unknown, Extra = unknown> = {
     entity: T,
     index: number,
     action: ProCoreActionType,
-    schema: ProSchema<T, Extra> & { isEditable?: boolean; type: ProSchemaComponentTypes },
+    schema: ProSchema<T, Extra> & { isEditable?: boolean; type: V },
   ) => React.ReactNode;
 
   /**
@@ -214,11 +206,11 @@ export type ProSchema<T = unknown, Extra = unknown> = {
     schema: ProSchema<T, Extra> & {
       isEditable?: boolean;
       index?: number;
-      type: ProSchemaComponentTypes;
+      type: V;
     },
     config: {
       onSelect?: (value: any) => void;
-      type: ProSchemaComponentTypes;
+      type: V;
       isEditable?: boolean;
       defaultRender: (newItem: ProSchema<T, Extra>) => JSX.Element | null;
     },
@@ -237,7 +229,7 @@ export type ProSchema<T = unknown, Extra = unknown> = {
     | ((
         form: FormInstance<any>,
         config: ProSchema<T, Extra> & {
-          type: ProSchemaComponentTypes;
+          type: V;
           isEditable?: boolean;
           rowKey?: string;
         },
@@ -252,7 +244,7 @@ export type ProSchema<T = unknown, Extra = unknown> = {
     | ((
         form: FormInstance<any>,
         config: ProSchema<T, Extra> & {
-          type: ProSchemaComponentTypes;
+          type: V;
           isEditable?: boolean;
           rowKey?: string;
         },
@@ -275,9 +267,7 @@ export type ProSchema<T = unknown, Extra = unknown> = {
   /**
    * @name 从服务器请求的参数，改变了会触发 reload
    */
-  params?: {
-    [key: string]: any;
-  };
+  params?: Record<string, any>;
   /**
    * @name 隐藏在 descriptions
    */

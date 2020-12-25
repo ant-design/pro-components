@@ -8,7 +8,7 @@ import { waitTime, waitForComponentToPaint } from '../util';
 describe('ProForm', () => {
   it('📦  submit props actionsRender=false', async () => {
     const wrapper = mount(<ProForm submitter={false} />);
-    await waitTime();
+    await waitForComponentToPaint(wrapper);
     expect(wrapper.render()).toMatchSnapshot();
   });
 
@@ -73,7 +73,7 @@ describe('ProForm', () => {
         }}
       />,
     );
-    await waitTime();
+    await waitForComponentToPaint(wrapper);
     expect(wrapper.render()).toMatchSnapshot();
   });
 
@@ -85,7 +85,7 @@ describe('ProForm', () => {
         }}
       />,
     );
-    await waitTime();
+    await waitForComponentToPaint(wrapper);
     expect(wrapper.render()).toMatchSnapshot();
   });
 
@@ -101,7 +101,7 @@ describe('ProForm', () => {
         }}
       />,
     );
-    await waitTime();
+    await waitForComponentToPaint(wrapper);
     expect(wrapper.render()).toMatchSnapshot();
   });
 
@@ -119,13 +119,16 @@ describe('ProForm', () => {
         }}
       />,
     );
-    await waitTime();
-    expect(wrapper.render()).toMatchSnapshot();
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      expect(wrapper.render()).toMatchSnapshot();
+    });
 
     act(() => {
       wrapper.find('button.test_button').simulate('click');
     });
-
+    await waitForComponentToPaint(wrapper);
     expect(fn).toBeCalled();
   });
 
@@ -143,9 +146,10 @@ describe('ProForm', () => {
         }}
       />,
     );
-    await waitTime();
-    expect(wrapper.render()).toMatchSnapshot();
-
+    await waitForComponentToPaint(wrapper);
+    act(() => {
+      expect(wrapper.render()).toMatchSnapshot();
+    });
     act(() => {
       wrapper.find('button.test_button').simulate('click');
     });
@@ -176,12 +180,12 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
-    await waitTime();
+    await waitForComponentToPaint(wrapper);
     act(() => {
       wrapper.find('button#submit').simulate('click');
     });
 
-    await waitTime(100);
+    await waitForComponentToPaint(wrapper, 100);
 
     expect(onFinish).toBeCalled();
   });
@@ -208,8 +212,10 @@ describe('ProForm', () => {
       wrapper.find('Button#test').simulate('click');
     });
     await waitForComponentToPaint(wrapper, 100);
+
     expect(wrapper.find('button#test').text()).toBe('2 秒后重新获取');
     await waitForComponentToPaint(wrapper, 1200);
+
     expect(wrapper.find('button#test').text()).toBe('1 秒后重新获取');
 
     await waitForComponentToPaint(wrapper, 2000);
@@ -241,6 +247,80 @@ describe('ProForm', () => {
     expect(wrapper.find('button#test').text()).toBe('重新获取');
   });
 
+  it('📦  ProFormCaptcha onGetCaptcha throw error', async () => {
+    const wrapper = mount(
+      <ProForm>
+        <ProFormCaptcha
+          onGetCaptcha={async () => {
+            await waitTime(10);
+            throw new Error('TEST');
+          }}
+          captchaTextRender={(timing) => (timing ? '重新获取' : '获取')}
+          captchaProps={{
+            id: 'test',
+          }}
+          label="name"
+          name="name"
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+    act(() => {
+      wrapper.find('Button#test').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+
+    expect(wrapper.find('button#test').text()).toBe('获 取');
+  });
+
+  it('📦  ProFormCaptcha onGetCaptcha support rules', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <ProForm>
+        <ProFormCaptcha
+          onGetCaptcha={async () => {
+            fn();
+            await waitTime(10);
+          }}
+          rules={[
+            {
+              required: true,
+            },
+          ]}
+          captchaProps={{
+            id: 'test',
+          }}
+          label="name"
+          name="name"
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+    act(() => {
+      wrapper.find('Button#test').simulate('click');
+    });
+
+    expect(fn).not.toBeCalled();
+    act(() => {
+      wrapper
+        .find('input')
+        .at(1)
+        .simulate('change', {
+          target: {
+            value: 'tech',
+          },
+        });
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('Button#test').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(fn).toBeCalled();
+  });
+
   it('📦  DatePicker', async () => {
     const onFinish = jest.fn();
     const wrapper = mount(
@@ -260,10 +340,13 @@ describe('ProForm', () => {
         <ProFormDatePicker.Year name="dateYear" label="年" />
       </ProForm>,
     );
-
-    wrapper.find('.ant-picker-cell').at(2).simulate('click');
-    wrapper.find('.ant-btn-primary').simulate('submit');
-    await waitTime();
+    act(() => {
+      wrapper.find('.ant-picker-cell').at(2).simulate('click');
+    });
+    act(() => {
+      wrapper.find('.ant-btn-primary').simulate('submit');
+    });
+    await waitForComponentToPaint(wrapper);
     expect(onFinish).toHaveBeenCalledWith({
       date: '2020-09-01',
       dateWeek: '2020-37th',

@@ -1,13 +1,13 @@
 import React from 'react';
-import { FormInstance } from 'antd/lib/form';
+import type { FormInstance } from 'antd/lib/form';
 import { Button, Space } from 'antd';
 import { useIntl } from '@ant-design/pro-provider';
-import { ButtonProps } from 'antd/lib/button';
+import type { ButtonProps } from 'antd/lib/button';
 
 /**
  * @name 用于配置操作栏
  */
-export interface SearchConfig {
+export type SearchConfig = {
   /**
    * @name 重置按钮的文本
    */
@@ -16,7 +16,7 @@ export interface SearchConfig {
    * @name 提交按钮的文本
    */
   submitText?: React.ReactNode;
-}
+};
 
 export type SubmitterProps<T = {}> = {
   /**

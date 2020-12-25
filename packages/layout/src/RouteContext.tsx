@@ -1,9 +1,9 @@
 import { createContext } from 'react';
-import { BreadcrumbListReturn } from './utils/getBreadcrumbProps';
-import { PureSettings } from './defaultSettings';
-import { MenuDataItem } from './typings';
+import type { BreadcrumbListReturn } from './utils/getBreadcrumbProps';
+import type { PureSettings } from './defaultSettings';
+import type { MenuDataItem } from './typings';
 
-export interface RouteContextType extends Partial<PureSettings> {
+export type RouteContextType = {
   breadcrumb?: BreadcrumbListReturn;
   menuData?: MenuDataItem[];
   isMobile?: boolean;
@@ -24,7 +24,7 @@ export interface RouteContextType extends Partial<PureSettings> {
   matchMenus?: MenuDataItem[];
   matchMenuKeys?: string[];
   currentMenu?: PureSettings & MenuDataItem;
-}
+} & Partial<PureSettings>;
 
 const routeContext: React.Context<RouteContextType> = createContext({});
 

@@ -1,15 +1,12 @@
 import React from 'react';
 import { Form } from 'antd';
-import ProField, { ProFieldEmptyText, ProFieldPropsType } from '@ant-design/pro-field';
-import {
-  getFieldPropsOrFormItemProps,
-  InlineErrorFormItem,
-  ProFieldValueType,
-  ProSchemaComponentTypes,
-} from '@ant-design/pro-utils';
-import { FormInstance } from 'antd/lib/form/Form';
+import type { ProFieldEmptyText, ProFieldPropsType } from '@ant-design/pro-field';
+import ProField from '@ant-design/pro-field';
+import type { ProFieldValueType, ProSchemaComponentTypes } from '@ant-design/pro-utils';
+import { getFieldPropsOrFormItemProps, InlineErrorFormItem } from '@ant-design/pro-utils';
+import type { FormInstance } from 'antd/lib/form/Form';
 
-import { ProColumnType } from './index';
+import type { ProColumnType } from './index';
 
 const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
 

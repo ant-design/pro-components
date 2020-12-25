@@ -1,7 +1,7 @@
-﻿import { ProFieldEmptyText } from '@ant-design/pro-field';
-import { ProFormProps, QueryFilterProps } from '@ant-design/pro-form';
-import { ParamsType } from '@ant-design/pro-provider';
-import {
+﻿import type { ProFieldEmptyText } from '@ant-design/pro-field';
+import type { ProFormProps, QueryFilterProps } from '@ant-design/pro-form';
+import type { ParamsType } from '@ant-design/pro-provider';
+import type {
   ProCoreActionType,
   ProSchema,
   ProSchemaComponentTypes,
@@ -9,32 +9,32 @@ import {
   ProTableEditableFnType,
   RowEditableConfig,
 } from '@ant-design/pro-utils';
-import { CardProps } from 'antd/lib/card';
-import { SpinProps } from 'antd/lib/spin';
-import { TableProps } from 'antd/lib/table';
+import type { CardProps } from 'antd/lib/card';
+import type { SpinProps } from 'antd/lib/spin';
+import type { TableProps } from 'antd/lib/table';
 
-import { ColumnFilterItem, ColumnType, SortOrder } from 'antd/lib/table/interface';
-import { CSSProperties } from 'react';
-import { AlertRenderType } from './component/Alert';
-import { ListToolBarProps } from './component/ListToolBar';
-import { OptionConfig, ToolBarProps } from './component/ToolBar';
-import { DensitySize } from './component/ToolBar/DensityIcon';
-import { ColumnsState, useContainer } from './container';
-import { SearchConfig, TableFormItem } from './Form';
+import type { ColumnFilterItem, ColumnType, SortOrder } from 'antd/lib/table/interface';
+import type { CSSProperties } from 'react';
+import type { AlertRenderType } from './components/Alert';
+import type { ListToolBarProps } from './components/ListToolBar';
+import type { OptionConfig, ToolBarProps } from './components/ToolBar';
+import type { DensitySize } from './components/ToolBar/DensityIcon';
+import type { ColumnsState, useCounter } from './container';
+import type { SearchConfig, TableFormItem } from './components/Form';
 
-export interface PageInfo {
+export type PageInfo = {
   page: number;
   pageSize: number;
   total: number;
-}
+};
 
-export interface RequestData<T> {
+export type RequestData<T> = {
   data: T[];
   success?: boolean;
   total?: number;
   [key: string]: any;
-}
-export interface UseFetchDataAction<T extends RequestData<any>> {
+};
+export type UseFetchDataAction<T extends RequestData<any>> = {
   dataSource: T['data'];
   setDataSource: (dataSource: T['data']) => void;
   loading: boolean | SpinProps | undefined;
@@ -46,26 +46,26 @@ export interface UseFetchDataAction<T extends RequestData<any>> {
   resetPageIndex: () => void;
   reset: () => void;
   setPageInfo: (pageInfo: Partial<PageInfo>) => void;
-}
+};
 
 /**
  * 转化列的定义
  */
-export interface ColumnRenderInterface<T> {
+export type ColumnRenderInterface<T> = {
   item: ProColumns<T>;
   text: any;
   row: T;
   index: number;
   columnEmptyText?: ProFieldEmptyText;
   type: ProSchemaComponentTypes;
-  counter: ReturnType<typeof useContainer>;
-}
+  counter: ReturnType<typeof useCounter>;
+};
 
 export type TableRowSelection = TableProps<any>['rowSelection'];
 
 export type ExtraProColumnType<T> = Omit<
   ColumnType<T>,
-  'render' | 'children' | 'title' | 'filters'
+  'render' | 'children' | 'title' | 'filters' | 'onFilter'
 >;
 
 export type ProColumnType<T = unknown> = ProSchema<
@@ -107,7 +107,7 @@ export type ProColumnType<T = unknown> = ProSchema<
       | false
       | {
           /**
-           * @name 转化值的key, 一般用于时间区间的转化
+           * @name 转化值的key, 一般用于事件区间的转化
            * @description transform: (value: any) => ({ startTime: value[0], endTime: value[1] }),
            */
           transform: SearchTransformKeyFn;
@@ -129,6 +129,11 @@ export type ProColumnType<T = unknown> = ProSchema<
     filters?: boolean | ColumnFilterItem[];
 
     /**
+     * 筛选的函数，设置为 false 会关闭自带的本地筛选
+     */
+    onFilter?: false | ColumnType<T>['onFilter'];
+
+    /**
      * form 的排序
      */
     order?: number;
@@ -139,9 +144,9 @@ export type ProColumnType<T = unknown> = ProSchema<
   }
 >;
 
-export interface ProColumnGroupType<RecordType> extends ProColumnType<RecordType> {
+export type ProColumnGroupType<RecordType> = {
   children: ProColumns<RecordType>[];
-}
+} & ProColumnType<RecordType>;
 
 export type ProColumns<T = any> = ProColumnGroupType<T> | ProColumnType<T>;
 
@@ -154,8 +159,7 @@ export type Bordered =
       table?: boolean;
     };
 
-export interface ProTableProps<T, U extends ParamsType>
-  extends Omit<TableProps<T>, 'columns' | 'rowSelection'> {
+export type ProTableProps<T, U extends ParamsType> = {
   columns?: ProColumns<T>[];
   /**
    * @name  ListToolBar 的属性
@@ -163,11 +167,9 @@ export interface ProTableProps<T, U extends ParamsType>
   toolbar?: ListToolBarProps;
   params?: U;
 
-  columnsStateMap?: {
-    [key: string]: ColumnsState;
-  };
+  columnsStateMap?: Record<string, ColumnsState>;
 
-  onColumnsStateChange?: (map: { [key: string]: ColumnsState }) => void;
+  onColumnsStateChange?: (map: Record<string, ColumnsState>) => void;
 
   onSizeChange?: (size: DensitySize) => void;
 
@@ -208,10 +210,8 @@ export interface ProTableProps<T, U extends ParamsType>
       current?: number;
       keyword?: string;
     },
-    sort: {
-      [key: string]: SortOrder;
-    },
-    filter: { [key: string]: React.ReactText[] },
+    sort: Record<string, SortOrder>,
+    filter: Record<string, React.ReactText[]>,
   ) => Promise<RequestData<T>>;
 
   /**
@@ -347,7 +347,7 @@ export interface ProTableProps<T, U extends ParamsType>
    * @name 查询表单和 Table 的卡片 border 配置
    */
   cardBordered?: Bordered;
-}
+} & Omit<TableProps<T>, 'columns' | 'rowSelection'>;
 
 export type ActionType = ProCoreActionType & {
   fullScreen?: () => void;

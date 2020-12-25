@@ -323,7 +323,7 @@ describe('List', () => {
     expect(onRequest).toHaveBeenCalledWith(
       {
         current: 1,
-        pageSize: 20,
+        pageSize: 5,
         title: 'test',
       },
       {},

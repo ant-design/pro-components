@@ -96,11 +96,11 @@ describe('BasicTable Search', () => {
       html.find('button.ant-btn.ant-btn-primary').simulate('click');
     });
 
-    mockOffsetWidth = 500;
-
-    // @ts-ignore
-    html.triggerResize();
-
+    act(() => {
+      mockOffsetWidth = 500;
+      // @ts-ignore
+      html.triggerResize();
+    });
     await waitForComponentToPaint(html, 500);
 
     expect(fn).toBeCalledTimes(1);
@@ -125,6 +125,45 @@ describe('BasicTable Search', () => {
           },
         ]}
         onReset={resetFn}
+        request={(params) => {
+          fn();
+          return request(params);
+        }}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 1000);
+
+    act(() => {
+      html.find('button.ant-btn').at(0).simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 500);
+
+    expect(fn).toBeCalledTimes(2);
+    expect(resetFn).toBeCalledTimes(1);
+  });
+
+  it('🎏 reset test when pagination is false', async () => {
+    const fn = jest.fn();
+    const resetFn = jest.fn();
+    const html = mount(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            title: '金额',
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+          },
+        ]}
+        onReset={resetFn}
+        pagination={false}
         request={(params) => {
           fn();
           return request(params);
@@ -173,14 +212,15 @@ describe('BasicTable Search', () => {
           },
         ]}
         manualRequest
-        request={(params) => {
+        request={async (params) => {
           fn();
+          await waitTime(500);
           return request(params);
         }}
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
 
     act(() => {
       html.find('button.ant-btn').at(0).simulate('click');
@@ -222,16 +262,20 @@ describe('BasicTable Search', () => {
         ]}
         formRef={ref}
         manualRequest
-        request={(params) => {
+        request={async (params) => {
           fn();
+          await waitTime(200);
           return request(params);
         }}
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 2000);
+    await waitForComponentToPaint(html, 1000);
     MockDate.set(1479799364001);
-    ref.current?.submit();
+
+    act(() => {
+      ref.current?.submit();
+    });
     await waitForComponentToPaint(html, 1000);
     expect(fn).toBeCalledTimes(1);
 
@@ -266,7 +310,8 @@ describe('BasicTable Search', () => {
             dataIndex: 'name',
           },
         ]}
-        request={(params) => {
+        request={async (params) => {
+          await waitTime(200);
           return request(params);
         }}
         rowKey="key"
@@ -305,7 +350,12 @@ describe('BasicTable Search', () => {
             },
           },
         ]}
-        request={(params) => request(params)}
+        request={async () => {
+          return {
+            data: [],
+            success: true,
+          };
+        }}
         onSubmit={(values) => {
           fn(values);
           formValues = values as any;
@@ -313,7 +363,7 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 200);
+    await waitForComponentToPaint(html, 300);
 
     act(() => {
       html.find('button.ant-btn.ant-btn-primary').simulate('click');
@@ -354,13 +404,17 @@ describe('BasicTable Search', () => {
             dataIndex: 'name',
           },
         ]}
-        request={(params) => {
-          return request(params);
+        request={async () => {
+          await waitTime(500);
+          return {
+            data: [],
+            success: true,
+          };
         }}
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 200);
+    await waitForComponentToPaint(html, 1000);
 
     expect(html.find('#renderFormItem').exists()).toBeTruthy();
     act(() => {
@@ -391,8 +445,12 @@ describe('BasicTable Search', () => {
             dataIndex: 'name',
           },
         ]}
-        request={(params) => {
-          return request(params);
+        request={async () => {
+          await waitTime(500);
+          return {
+            data: [],
+            success: true,
+          };
         }}
         rowKey="key"
       />,
@@ -418,7 +476,9 @@ describe('BasicTable Search', () => {
     await waitForComponentToPaint(html, 200);
     expect(html.find('div.ant-form-item').length).toBe(3);
 
-    html.unmount();
+    act(() => {
+      html.unmount();
+    });
   });
 
   it('🎏 request load success false', async () => {
@@ -451,7 +511,9 @@ describe('BasicTable Search', () => {
 
     expect(html.find('.ant-empty').exists()).toBeTruthy();
 
-    html.unmount();
+    act(() => {
+      html.unmount();
+    });
   });
 
   it('🎏 request load null', async () => {
@@ -482,7 +544,9 @@ describe('BasicTable Search', () => {
       // @ts-ignore
       html.dive().html();
     }).toThrowError();
-    html.unmount();
+    act(() => {
+      html.unmount();
+    });
   });
 
   it('🎏 request load more time', async () => {

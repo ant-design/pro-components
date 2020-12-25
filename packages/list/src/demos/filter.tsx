@@ -3,7 +3,7 @@ import { Button, Tag, Space } from 'antd';
 import ProList from '@ant-design/pro-list';
 import request from 'umi-request';
 
-interface GithubIssueItem {
+type GithubIssueItem = {
   url: string;
   id: number;
   number: number;
@@ -17,7 +17,7 @@ interface GithubIssueItem {
   created_at: string;
   updated_at: string;
   closed_at?: string;
-}
+};
 
 export default () => (
   <ProList<GithubIssueItem>

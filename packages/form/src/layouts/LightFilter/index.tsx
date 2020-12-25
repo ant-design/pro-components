@@ -1,19 +1,21 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { FormProps } from 'antd/lib/form/Form';
-import { SizeType } from 'antd/lib/config-provider/SizeContext';
+import type { FormProps } from 'antd/lib/form/Form';
+import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import classNames from 'classnames';
 import { Form, ConfigProvider } from 'antd';
 import { FilterDropdown, FieldLabel } from '@ant-design/pro-utils';
 import { useIntl } from '@ant-design/pro-provider';
 import { FilterOutlined } from '@ant-design/icons';
-import BaseForm, { CommonFormProps } from '../../BaseForm';
+import type { CommonFormProps } from '../../BaseForm';
+import BaseForm from '../../BaseForm';
 import './index.less';
 
-export interface LightFilterProps extends Omit<FormProps, 'onFinish'>, CommonFormProps {
+export type LightFilterProps = {
   collapse?: boolean;
   collapseLabel?: React.ReactNode;
   bordered?: boolean;
-}
+} & Omit<FormProps, 'onFinish'> &
+  CommonFormProps;
 
 /**
  * 单行的查询表单，一般用于配合 table 或者 list使用
