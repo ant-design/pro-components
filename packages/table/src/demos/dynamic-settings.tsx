@@ -77,7 +77,7 @@ const initData = {
   hasData: true,
   tableLayout: undefined,
   search: true,
-  span: 8,
+  span: 24,
   toolBarRender: true,
   collapseRender: true,
   options: {
@@ -177,6 +177,10 @@ const DynamicSettings = () => {
             <ProFormSelect
               tooltip={`search={{span:8}}`}
               options={[
+                {
+                  label: '24',
+                  value: 24,
+                },
                 {
                   label: '12',
                   value: 12,
