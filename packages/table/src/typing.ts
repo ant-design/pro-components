@@ -131,7 +131,7 @@ export type ProColumnType<T = unknown> = ProSchema<
     /**
      * 筛选的函数，设置为 false 会关闭自带的本地筛选
      */
-    onFilter?: false | ColumnType<T>['onFilter'];
+    onFilter?: boolean | ColumnType<T>['onFilter'];
 
     /**
      * form 的排序
