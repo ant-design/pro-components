@@ -61,7 +61,9 @@ function RecordCreator<T = {}>(props: RecordCreatorProps<T> & { children: JSX.El
  * 可以直接放到 Form 中的可编辑表格
  * @param props
  */
-function EditableTable<T, U extends ParamsType = {}>(props: EditableProTableProps<T, U>) {
+function EditableTable<T extends Record<string, unknown>, U extends ParamsType = ParamsType>(
+  props: EditableProTableProps<T, U>,
+) {
   const { onTableChange, maxLength, recordCreatorProps, ...rest } = props;
   const actionRef = useRef<ActionType>();
   useImperativeHandle(rest.actionRef, () => actionRef.current, [actionRef.current]);
@@ -137,7 +139,7 @@ function EditableTable<T, U extends ParamsType = {}>(props: EditableProTableProp
 
   return (
     <EditableTableActionContext.Provider value={actionRef}>
-      <ProTable
+      <ProTable<T, U>
         search={false}
         options={false}
         pagination={false}

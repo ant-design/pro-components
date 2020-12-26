@@ -86,7 +86,7 @@ const intlMap = {
 
 const intlMapKeys = Object.keys(intlMap);
 
-export type ParamsType = Record<string, React.ReactText | React.ReactText[]>;
+export type ParamsType = Record<string, unknown>;
 
 export {
   arEGIntl,

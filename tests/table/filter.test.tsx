@@ -21,6 +21,7 @@ describe('BasicTable Search', () => {
             title: '状态',
             dataIndex: 'status',
             filters: true,
+            onFilter: true,
             valueEnum: {
               0: { text: '关闭', status: 'Default' },
               1: { text: '运行中', status: 'Processing' },
@@ -91,6 +92,7 @@ describe('BasicTable Search', () => {
             title: '状态',
             dataIndex: ['name', 'status'],
             filters: true,
+            onFilter: true,
             valueEnum: {
               0: { text: '关闭', status: 'Default' },
               1: { text: '运行中', status: 'Processing' },
@@ -161,6 +163,7 @@ describe('BasicTable Search', () => {
             title: '状态',
             dataIndex: 'status',
             filters: [{ text: '关闭', value: 0 }],
+            onFilter: true,
             valueEnum: {
               0: { text: '关闭', status: 'Default' },
               1: { text: '运行中', status: 'Processing' },
@@ -257,6 +260,7 @@ describe('BasicTable Search', () => {
             dataIndex: 'status',
             hideInForm: true,
             filters: true,
+            onFilter: true,
             valueEnum: {
               0: { text: '关闭', status: 'Default' },
               1: { text: '运行中', status: 'Processing' },
@@ -314,6 +318,7 @@ describe('BasicTable Search', () => {
             dataIndex: 'status',
             hideInForm: true,
             filters: true,
+            onFilter: true,
             valueEnum: {
               0: { text: '关闭', status: 'Default' },
               1: { text: '运行中', status: 'Processing' },

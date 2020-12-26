@@ -5,7 +5,8 @@ import type { ProTableProps, ProColumnType } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
 import type { ParamsType } from '@ant-design/pro-provider';
 import { ConfigProvider } from 'antd';
-import { PaginationConfig } from 'antd/lib/pagination';
+import type { PaginationConfig } from 'antd/lib/pagination';
+
 import ListView from './ListView';
 
 import './index.less';
@@ -42,9 +43,10 @@ export type Key = React.Key;
 
 export type TriggerEventHandler<RecordType> = (record: RecordType) => void;
 
-function ProList<RecordType, U extends Record<string, any> = {}>(
-  props: ProListProps<RecordType, U>,
-) {
+function ProList<
+  RecordType extends Record<string, any>,
+  U extends Record<string, any> = Record<string, any>
+>(props: ProListProps<RecordType, U>) {
   const {
     metas: metals,
     split,
