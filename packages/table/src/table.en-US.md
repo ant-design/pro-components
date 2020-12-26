@@ -134,7 +134,7 @@ Here is the full amount of text
 
 ```typescript | pure
 const enLocale = {
-  tableFrom: {
+  tableForm: {
     search: 'Query',
     reset: 'Reset',
     submit: 'Submit',
@@ -460,7 +460,7 @@ return { type: 'money', locale: 'en-Us' };
 return { type: 'percent', showSymbol: true | false, precision: 2 };
 ```
 
-The valueEnum needs to be passed in as an enumeration and ProTable will automatically get the responsive enumeration based on the value and generate a dropdown box in the from. It looks like this.
+The valueEnum needs to be passed in as an enumeration and ProTable will automatically get the responsive enumeration based on the value and generate a dropdown box in the form. It looks like this.
 
 ```ts | pure
 const valueEnum = {
@@ -499,7 +499,7 @@ const valueEnum = (row) =>
       };
 ```
 
-> It's worth noting here that there is no row in the from, so a null is passed in, and you can use this to determine what options to display in the from.
+> It's worth noting here that there is no row in the form, so a null is passed in, and you can use this to determine what options to display in the form.
 
 ### valueEnum
 

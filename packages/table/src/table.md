@@ -138,7 +138,7 @@ ProTable 内置了国际化的支持，作为一个文本量比较少的组件�
 
 ```typescript | pure
 const enLocale = {
-  tableFrom: {
+  tableForm: {
     search: 'Query',
     reset: 'Reset',
     submit: 'Submit',
@@ -465,7 +465,7 @@ return { type: 'money', locale: 'en-Us' };
 return { type: 'percent', showSymbol: true | false, precision: 2 };
 ```
 
-valueEnum 需要传入一个枚举，ProTable 会自动根据值获取响应的枚举，并且在 from 中生成一个下拉框。看起来是这样的：
+valueEnum 需要传入一个枚举，ProTable 会自动根据值获取响应的枚举，并且在 form 中生成一个下拉框。看起来是这样的：
 
 ```ts | pure
 const valueEnum = {
@@ -504,7 +504,7 @@ const valueEnum = (row) =>
       };
 ```
 
-> 这里值得注意的是在 from 中并没有 row，所以传入了一个 null，你可以根据这个来判断要在 from 中显示什么选项。
+> 这里值得注意的是在 form 中并没有 row，所以传入了一个 null，你可以根据这个来判断要在 form 中显示什么选项。
 
 ### valueEnum
 
