@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.17.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.17.1...@ant-design/pro-table@2.17.2) (2020-12-25)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.17.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.17.0...@ant-design/pro-table@2.17.1) (2020-12-25)
+
+### Bug Fixes
+
+- **layout:** add PageLoading ([0153505](https://github.com/ant-design/pro-components/commit/0153505ccf6e009137d2e75d41f80830c709174d))
+
 # [2.17.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.16.4...@ant-design/pro-table@2.17.0) (2020-12-24)
 
 ### Bug Fixes
