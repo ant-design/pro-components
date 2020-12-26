@@ -15575,7 +15575,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
             style="display: none;"
             type="text"
           />
-          <div>
+          <div
+            class="ant-pro-form-group"
+          >
             <div
               class="ant-pro-form-group-title"
             >
@@ -15999,7 +16001,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="ant-pro-form-group"
+          >
             <div
               class="ant-pro-form-group-title"
             >
@@ -16485,7 +16489,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="ant-pro-form-group"
+          >
             <div
               class="ant-pro-form-group-title"
             >
