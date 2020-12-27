@@ -2,333 +2,329 @@
 
 exports[`layout demos 📸 renders ./packages/layout/src/components/PageContainer/demos/basic.tsx correctly 1`] = `
 <div
-  style="box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); background: rgb(245, 247, 250); transform: rotate(0);"
+  style="overflow-x: hidden; height: 400px;"
 >
   <div
-    style="overflow-x: hidden; height: 400px;"
+    class="ant-pro-page-container ant-pro-page-container-ghost"
   >
     <div
-      class="ant-pro-page-container ant-pro-page-container-ghost"
+      class="ant-pro-page-container-warp"
     >
       <div
-        class="ant-pro-page-container-warp"
+        class="ant-page-header has-breadcrumb has-footer ant-page-header-ghost"
       >
         <div
-          class="ant-page-header has-breadcrumb has-footer ant-page-header-ghost"
+          class="ant-breadcrumb"
         >
-          <div
-            class="ant-breadcrumb"
-          >
-            <span>
-              <span
-                class="ant-breadcrumb-link"
-              >
-                <a
-                  href="#/"
-                >
-                  一级页面
-                </a>
-              </span>
-              <span
-                class="ant-breadcrumb-separator"
-              >
-                /
-              </span>
-            </span>
-            <span>
-              <span
-                class="ant-breadcrumb-link"
-              >
-                <a
-                  href="#/"
-                >
-                  二级页面
-                </a>
-              </span>
-              <span
-                class="ant-breadcrumb-separator"
-              >
-                /
-              </span>
-            </span>
-            <span>
-              <span
-                class="ant-breadcrumb-link"
-              >
-                <span>
-                  当前页面
-                </span>
-              </span>
-              <span
-                class="ant-breadcrumb-separator"
-              >
-                /
-              </span>
-            </span>
-          </div>
-          <div
-            class="ant-page-header-heading"
-          >
-            <div
-              class="ant-page-header-heading-left"
-            >
-              <span
-                class="ant-page-header-heading-title"
-                title="页面标题"
-              >
-                页面标题
-              </span>
-            </div>
+          <span>
             <span
-              class="ant-page-header-heading-extra"
+              class="ant-breadcrumb-link"
             >
-              <button
-                class="ant-btn"
-                type="button"
+              <a
+                href="#/"
               >
-                <span>
-                  次要按钮
-                </span>
-              </button>
-              <button
-                class="ant-btn"
-                type="button"
-              >
-                <span>
-                  次要按钮
-                </span>
-              </button>
-              <button
-                class="ant-btn ant-btn-primary"
-                type="button"
-              >
-                <span>
-                  主要按钮
-                </span>
-              </button>
-              <button
-                class="ant-btn ant-dropdown-trigger"
-                style="padding: 0px 8px;"
-                type="button"
-              >
-                <span
-                  aria-label="ellipsis"
-                  class="anticon anticon-ellipsis"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="ellipsis"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                    />
-                  </svg>
-                </span>
-              </button>
+                一级页面
+              </a>
             </span>
-          </div>
+            <span
+              class="ant-breadcrumb-separator"
+            >
+              /
+            </span>
+          </span>
+          <span>
+            <span
+              class="ant-breadcrumb-link"
+            >
+              <a
+                href="#/"
+              >
+                二级页面
+              </a>
+            </span>
+            <span
+              class="ant-breadcrumb-separator"
+            >
+              /
+            </span>
+          </span>
+          <span>
+            <span
+              class="ant-breadcrumb-link"
+            >
+              <span>
+                当前页面
+              </span>
+            </span>
+            <span
+              class="ant-breadcrumb-separator"
+            >
+              /
+            </span>
+          </span>
+        </div>
+        <div
+          class="ant-page-header-heading"
+        >
           <div
-            class="ant-page-header-footer"
+            class="ant-page-header-heading-left"
+          >
+            <span
+              class="ant-page-header-heading-title"
+              title="页面标题"
+            >
+              页面标题
+            </span>
+          </div>
+          <span
+            class="ant-page-header-heading-extra"
+          >
+            <button
+              class="ant-btn"
+              type="button"
+            >
+              <span>
+                次要按钮
+              </span>
+            </button>
+            <button
+              class="ant-btn"
+              type="button"
+            >
+              <span>
+                次要按钮
+              </span>
+            </button>
+            <button
+              class="ant-btn ant-btn-primary"
+              type="button"
+            >
+              <span>
+                主要按钮
+              </span>
+            </button>
+            <button
+              class="ant-btn ant-dropdown-trigger"
+              style="padding: 0px 8px;"
+              type="button"
+            >
+              <span
+                aria-label="ellipsis"
+                class="anticon anticon-ellipsis"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="ellipsis"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </span>
+        </div>
+        <div
+          class="ant-page-header-footer"
+        >
+          <div
+            class="ant-tabs ant-tabs-top ant-pro-page-container-tabs"
           >
             <div
-              class="ant-tabs ant-tabs-top ant-pro-page-container-tabs"
+              class="ant-tabs-nav"
+              role="tablist"
             >
               <div
-                class="ant-tabs-nav"
-                role="tablist"
+                class="ant-tabs-nav-wrap"
               >
                 <div
-                  class="ant-tabs-nav-wrap"
+                  class="ant-tabs-nav-list"
+                  style="transform: translate(0px, 0px);"
                 >
                   <div
-                    class="ant-tabs-nav-list"
-                    style="transform: translate(0px, 0px);"
+                    class="ant-tabs-tab ant-tabs-tab-active"
                   >
                     <div
-                      class="ant-tabs-tab ant-tabs-tab-active"
+                      aria-controls="rc-tabs-test-panel-base"
+                      aria-selected="true"
+                      class="ant-tabs-tab-btn"
+                      id="rc-tabs-test-tab-base"
+                      role="tab"
+                      tabindex="0"
                     >
-                      <div
-                        aria-controls="rc-tabs-test-panel-base"
-                        aria-selected="true"
-                        class="ant-tabs-tab-btn"
-                        id="rc-tabs-test-tab-base"
-                        role="tab"
-                        tabindex="0"
-                      >
-                        基本信息
-                      </div>
+                      基本信息
                     </div>
-                    <div
-                      class="ant-tabs-tab"
-                    >
-                      <div
-                        aria-controls="rc-tabs-test-panel-info"
-                        aria-selected="false"
-                        class="ant-tabs-tab-btn"
-                        id="rc-tabs-test-tab-info"
-                        role="tab"
-                        tabindex="0"
-                      >
-                        详细信息
-                      </div>
-                    </div>
-                    <div
-                      class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-                      style="left: 0px; width: 0px;"
-                    />
                   </div>
-                </div>
-                <div
-                  class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
-                >
-                  <button
-                    aria-controls="rc-tabs-test-more-popup"
-                    aria-expanded="false"
-                    aria-haspopup="listbox"
-                    aria-hidden="true"
-                    class="ant-tabs-nav-more"
-                    id="rc-tabs-test-more"
-                    style="visibility: hidden; order: 1;"
-                    tabindex="-1"
-                    type="button"
+                  <div
+                    class="ant-tabs-tab"
                   >
-                    <span
-                      aria-label="ellipsis"
-                      class="anticon anticon-ellipsis"
-                      role="img"
+                    <div
+                      aria-controls="rc-tabs-test-panel-info"
+                      aria-selected="false"
+                      class="ant-tabs-tab-btn"
+                      id="rc-tabs-test-tab-info"
+                      role="tab"
+                      tabindex="0"
                     >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="ellipsis"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                        />
-                      </svg>
-                    </span>
-                  </button>
+                      详细信息
+                    </div>
+                  </div>
+                  <div
+                    class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+                    style="left: 0px; width: 0px;"
+                  />
                 </div>
               </div>
               <div
-                class="ant-tabs-content-holder"
+                class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+              >
+                <button
+                  aria-controls="rc-tabs-test-more-popup"
+                  aria-expanded="false"
+                  aria-haspopup="listbox"
+                  aria-hidden="true"
+                  class="ant-tabs-nav-more"
+                  id="rc-tabs-test-more"
+                  style="visibility: hidden; order: 1;"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-label="ellipsis"
+                    class="anticon anticon-ellipsis"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="ellipsis"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-tabs-content-holder"
+            >
+              <div
+                class="ant-tabs-content ant-tabs-content-top"
               >
                 <div
-                  class="ant-tabs-content ant-tabs-content-top"
+                  aria-hidden="false"
+                  aria-labelledby="rc-tabs-test-tab-base"
+                  class="ant-tabs-tabpane ant-tabs-tabpane-active"
+                  id="rc-tabs-test-panel-base"
+                  role="tabpanel"
+                  tabindex="0"
+                />
+                <div
+                  aria-hidden="true"
+                  aria-labelledby="rc-tabs-test-tab-info"
+                  class="ant-tabs-tabpane"
+                  id="rc-tabs-test-panel-info"
+                  role="tabpanel"
+                  style="display: none;"
+                  tabindex="-1"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-pro-grid-content"
+    >
+      <div
+        class="ant-pro-grid-content-children"
+      >
+        <div>
+          <div
+            class="ant-pro-page-container-children-content"
+          >
+            <div
+              class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
+            >
+              <div
+                class="ant-pro-card-body ant-pro-card-body-column"
+              >
+                <div
+                  class="ant-pro-card"
+                  style="margin-bottom: 16px; height: 200px;"
                 >
                   <div
-                    aria-hidden="false"
-                    aria-labelledby="rc-tabs-test-tab-base"
-                    class="ant-tabs-tabpane ant-tabs-tabpane-active"
-                    id="rc-tabs-test-panel-base"
-                    role="tabpanel"
-                    tabindex="0"
+                    class="ant-pro-card-body"
                   />
+                </div>
+                <div
+                  class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
+                  style="margin-bottom: 16px; height: 200px;"
+                >
                   <div
-                    aria-hidden="true"
-                    aria-labelledby="rc-tabs-test-tab-info"
-                    class="ant-tabs-tabpane"
-                    id="rc-tabs-test-panel-info"
-                    role="tabpanel"
-                    style="display: none;"
-                    tabindex="-1"
-                  />
+                    class="ant-pro-card-body"
+                  >
+                    <div
+                      class="ant-pro-card ant-pro-card-span-16"
+                      style="margin-right: 16px;"
+                    >
+                      <div
+                        class="ant-pro-card-body"
+                      />
+                    </div>
+                    <div
+                      class="ant-pro-card ant-pro-card-span-8"
+                    >
+                      <div
+                        class="ant-pro-card-body"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+    <div
+      class="ant-pro-footer-bar"
+    >
       <div
-        class="ant-pro-grid-content"
-      >
-        <div
-          class="ant-pro-grid-content-children"
-        >
-          <div>
-            <div
-              class="ant-pro-page-container-children-content"
-            >
-              <div
-                class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
-              >
-                <div
-                  class="ant-pro-card-body ant-pro-card-body-column"
-                >
-                  <div
-                    class="ant-pro-card"
-                    style="margin-bottom: 16px; height: 200px;"
-                  >
-                    <div
-                      class="ant-pro-card-body"
-                    />
-                  </div>
-                  <div
-                    class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
-                    style="margin-bottom: 16px; height: 200px;"
-                  >
-                    <div
-                      class="ant-pro-card-body"
-                    >
-                      <div
-                        class="ant-pro-card ant-pro-card-span-16"
-                        style="margin-right: 16px;"
-                      >
-                        <div
-                          class="ant-pro-card-body"
-                        />
-                      </div>
-                      <div
-                        class="ant-pro-card ant-pro-card-span-8"
-                      >
-                        <div
-                          class="ant-pro-card-body"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+        class="ant-pro-footer-bar-left"
+      />
       <div
-        class="ant-pro-footer-bar"
+        class="ant-pro-footer-bar-right"
       >
-        <div
-          class="ant-pro-footer-bar-left"
-        />
-        <div
-          class="ant-pro-footer-bar-right"
+        <button
+          class="ant-btn"
+          type="button"
         >
-          <button
-            class="ant-btn"
-            type="button"
-          >
-            <span>
-              重 置
-            </span>
-          </button>
-          <button
-            class="ant-btn ant-btn-primary"
-            type="button"
-          >
-            <span>
-              提 交
-            </span>
-          </button>
-        </div>
+          <span>
+            重 置
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            提 交
+          </span>
+        </button>
       </div>
     </div>
   </div>
@@ -337,222 +333,218 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
 
 exports[`layout demos 📸 renders ./packages/layout/src/components/PageContainer/demos/fixHeader.tsx correctly 1`] = `
 <div
-  style="box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); background: rgb(245, 247, 250); transform: rotate(0);"
+  style="overflow-x: hidden; height: 400px;"
 >
   <div
-    style="overflow-x: hidden; height: 400px;"
+    class="ant-pro-page-container"
   >
-    <div
-      class="ant-pro-page-container"
-    >
-      <div>
+    <div>
+      <div
+        class=""
+      >
         <div
-          class=""
+          class="ant-pro-page-container-warp"
         >
           <div
-            class="ant-pro-page-container-warp"
+            class="ant-page-header has-breadcrumb has-footer ant-page-header-ghost"
           >
             <div
-              class="ant-page-header has-breadcrumb has-footer ant-page-header-ghost"
+              class="ant-breadcrumb"
+            >
+              <span>
+                <span
+                  class="ant-breadcrumb-link"
+                >
+                  <a
+                    href="#/"
+                  >
+                    一级页面
+                  </a>
+                </span>
+                <span
+                  class="ant-breadcrumb-separator"
+                >
+                  /
+                </span>
+              </span>
+              <span>
+                <span
+                  class="ant-breadcrumb-link"
+                >
+                  <a
+                    href="#/"
+                  >
+                    二级页面
+                  </a>
+                </span>
+                <span
+                  class="ant-breadcrumb-separator"
+                >
+                  /
+                </span>
+              </span>
+              <span>
+                <span
+                  class="ant-breadcrumb-link"
+                >
+                  <span>
+                    当前页面
+                  </span>
+                </span>
+                <span
+                  class="ant-breadcrumb-separator"
+                >
+                  /
+                </span>
+              </span>
+            </div>
+            <div
+              class="ant-page-header-heading"
             >
               <div
-                class="ant-breadcrumb"
+                class="ant-page-header-heading-left"
               >
-                <span>
-                  <span
-                    class="ant-breadcrumb-link"
-                  >
-                    <a
-                      href="#/"
-                    >
-                      一级页面
-                    </a>
-                  </span>
-                  <span
-                    class="ant-breadcrumb-separator"
-                  >
-                    /
-                  </span>
-                </span>
-                <span>
-                  <span
-                    class="ant-breadcrumb-link"
-                  >
-                    <a
-                      href="#/"
-                    >
-                      二级页面
-                    </a>
-                  </span>
-                  <span
-                    class="ant-breadcrumb-separator"
-                  >
-                    /
-                  </span>
-                </span>
-                <span>
-                  <span
-                    class="ant-breadcrumb-link"
-                  >
-                    <span>
-                      当前页面
-                    </span>
-                  </span>
-                  <span
-                    class="ant-breadcrumb-separator"
-                  >
-                    /
-                  </span>
-                </span>
-              </div>
-              <div
-                class="ant-page-header-heading"
-              >
-                <div
-                  class="ant-page-header-heading-left"
+                <span
+                  class="ant-page-header-heading-title"
+                  title="页面标题"
                 >
-                  <span
-                    class="ant-page-header-heading-title"
-                    title="页面标题"
-                  >
-                    页面标题
-                  </span>
-                </div>
+                  页面标题
+                </span>
               </div>
+            </div>
+            <div
+              class="ant-page-header-footer"
+            >
               <div
-                class="ant-page-header-footer"
+                class="ant-tabs ant-tabs-top ant-pro-page-container-tabs"
               >
                 <div
-                  class="ant-tabs ant-tabs-top ant-pro-page-container-tabs"
+                  class="ant-tabs-nav"
+                  role="tablist"
                 >
                   <div
-                    class="ant-tabs-nav"
-                    role="tablist"
+                    class="ant-tabs-nav-wrap"
                   >
                     <div
-                      class="ant-tabs-nav-wrap"
+                      class="ant-tabs-nav-list"
+                      style="transform: translate(0px, 0px);"
                     >
                       <div
-                        class="ant-tabs-nav-list"
-                        style="transform: translate(0px, 0px);"
+                        class="ant-tabs-tab ant-tabs-tab-active"
                       >
                         <div
-                          class="ant-tabs-tab ant-tabs-tab-active"
+                          aria-controls="rc-tabs-test-panel-1"
+                          aria-selected="true"
+                          class="ant-tabs-tab-btn"
+                          id="rc-tabs-test-tab-1"
+                          role="tab"
+                          tabindex="0"
                         >
-                          <div
-                            aria-controls="rc-tabs-test-panel-1"
-                            aria-selected="true"
-                            class="ant-tabs-tab-btn"
-                            id="rc-tabs-test-tab-1"
-                            role="tab"
-                            tabindex="0"
-                          >
-                            已选择
-                          </div>
+                          已选择
                         </div>
-                        <div
-                          class="ant-tabs-tab"
-                        >
-                          <div
-                            aria-controls="rc-tabs-test-panel-2"
-                            aria-selected="false"
-                            class="ant-tabs-tab-btn"
-                            id="rc-tabs-test-tab-2"
-                            role="tab"
-                            tabindex="0"
-                          >
-                            可点击
-                          </div>
-                        </div>
-                        <div
-                          class="ant-tabs-tab ant-tabs-tab-disabled"
-                        >
-                          <div
-                            aria-controls="rc-tabs-test-panel-3"
-                            aria-disabled="true"
-                            aria-selected="false"
-                            class="ant-tabs-tab-btn"
-                            id="rc-tabs-test-tab-3"
-                            role="tab"
-                          >
-                            禁用
-                          </div>
-                        </div>
-                        <div
-                          class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-                          style="left: 0px; width: 0px;"
-                        />
                       </div>
-                    </div>
-                    <div
-                      class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
-                    >
-                      <button
-                        aria-controls="rc-tabs-test-more-popup"
-                        aria-expanded="false"
-                        aria-haspopup="listbox"
-                        aria-hidden="true"
-                        class="ant-tabs-nav-more"
-                        id="rc-tabs-test-more"
-                        style="visibility: hidden; order: 1;"
-                        tabindex="-1"
-                        type="button"
+                      <div
+                        class="ant-tabs-tab"
                       >
-                        <span
-                          aria-label="ellipsis"
-                          class="anticon anticon-ellipsis"
-                          role="img"
+                        <div
+                          aria-controls="rc-tabs-test-panel-2"
+                          aria-selected="false"
+                          class="ant-tabs-tab-btn"
+                          id="rc-tabs-test-tab-2"
+                          role="tab"
+                          tabindex="0"
                         >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="ellipsis"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                            />
-                          </svg>
-                        </span>
-                      </button>
+                          可点击
+                        </div>
+                      </div>
+                      <div
+                        class="ant-tabs-tab ant-tabs-tab-disabled"
+                      >
+                        <div
+                          aria-controls="rc-tabs-test-panel-3"
+                          aria-disabled="true"
+                          aria-selected="false"
+                          class="ant-tabs-tab-btn"
+                          id="rc-tabs-test-tab-3"
+                          role="tab"
+                        >
+                          禁用
+                        </div>
+                      </div>
+                      <div
+                        class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+                        style="left: 0px; width: 0px;"
+                      />
                     </div>
                   </div>
                   <div
-                    class="ant-tabs-content-holder"
+                    class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+                  >
+                    <button
+                      aria-controls="rc-tabs-test-more-popup"
+                      aria-expanded="false"
+                      aria-haspopup="listbox"
+                      aria-hidden="true"
+                      class="ant-tabs-nav-more"
+                      id="rc-tabs-test-more"
+                      style="visibility: hidden; order: 1;"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        aria-label="ellipsis"
+                        class="anticon anticon-ellipsis"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="ellipsis"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                          />
+                        </svg>
+                      </span>
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="ant-tabs-content-holder"
+                >
+                  <div
+                    class="ant-tabs-content ant-tabs-content-top"
                   >
                     <div
-                      class="ant-tabs-content ant-tabs-content-top"
-                    >
-                      <div
-                        aria-hidden="false"
-                        aria-labelledby="rc-tabs-test-tab-1"
-                        class="ant-tabs-tabpane ant-tabs-tabpane-active"
-                        id="rc-tabs-test-panel-1"
-                        role="tabpanel"
-                        tabindex="0"
-                      />
-                      <div
-                        aria-hidden="true"
-                        aria-labelledby="rc-tabs-test-tab-2"
-                        class="ant-tabs-tabpane"
-                        id="rc-tabs-test-panel-2"
-                        role="tabpanel"
-                        style="display: none;"
-                        tabindex="-1"
-                      />
-                      <div
-                        aria-hidden="true"
-                        aria-labelledby="rc-tabs-test-tab-3"
-                        class="ant-tabs-tabpane"
-                        id="rc-tabs-test-panel-3"
-                        role="tabpanel"
-                        style="display: none;"
-                        tabindex="-1"
-                      />
-                    </div>
+                      aria-hidden="false"
+                      aria-labelledby="rc-tabs-test-tab-1"
+                      class="ant-tabs-tabpane ant-tabs-tabpane-active"
+                      id="rc-tabs-test-panel-1"
+                      role="tabpanel"
+                      tabindex="0"
+                    />
+                    <div
+                      aria-hidden="true"
+                      aria-labelledby="rc-tabs-test-tab-2"
+                      class="ant-tabs-tabpane"
+                      id="rc-tabs-test-panel-2"
+                      role="tabpanel"
+                      style="display: none;"
+                      tabindex="-1"
+                    />
+                    <div
+                      aria-hidden="true"
+                      aria-labelledby="rc-tabs-test-tab-3"
+                      class="ant-tabs-tabpane"
+                      id="rc-tabs-test-panel-3"
+                      role="tabpanel"
+                      style="display: none;"
+                      tabindex="-1"
+                    />
                   </div>
                 </div>
               </div>
@@ -560,52 +552,52 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
           </div>
         </div>
       </div>
+    </div>
+    <div
+      class="ant-pro-grid-content"
+    >
       <div
-        class="ant-pro-grid-content"
+        class="ant-pro-grid-content-children"
       >
-        <div
-          class="ant-pro-grid-content-children"
-        >
-          <div>
+        <div>
+          <div
+            class="ant-pro-page-container-children-content"
+          >
             <div
-              class="ant-pro-page-container-children-content"
+              class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
             >
               <div
-                class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
+                class="ant-pro-card-body ant-pro-card-body-column"
               >
                 <div
-                  class="ant-pro-card-body ant-pro-card-body-column"
+                  class="ant-pro-card"
+                  style="margin-bottom: 16px; height: 200px;"
                 >
                   <div
-                    class="ant-pro-card"
-                    style="margin-bottom: 16px; height: 200px;"
-                  >
-                    <div
-                      class="ant-pro-card-body"
-                    />
-                  </div>
+                    class="ant-pro-card-body"
+                  />
+                </div>
+                <div
+                  class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
+                  style="margin-bottom: 16px; height: 200px;"
+                >
                   <div
-                    class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
-                    style="margin-bottom: 16px; height: 200px;"
+                    class="ant-pro-card-body"
                   >
                     <div
-                      class="ant-pro-card-body"
+                      class="ant-pro-card ant-pro-card-span-16"
+                      style="margin-right: 16px;"
                     >
                       <div
-                        class="ant-pro-card ant-pro-card-span-16"
-                        style="margin-right: 16px;"
-                      >
-                        <div
-                          class="ant-pro-card-body"
-                        />
-                      </div>
+                        class="ant-pro-card-body"
+                      />
+                    </div>
+                    <div
+                      class="ant-pro-card ant-pro-card-span-8"
+                    >
                       <div
-                        class="ant-pro-card ant-pro-card-span-8"
-                      >
-                        <div
-                          class="ant-pro-card-body"
-                        />
-                      </div>
+                        class="ant-pro-card-body"
+                      />
                     </div>
                   </div>
                 </div>
@@ -621,147 +613,143 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
 
 exports[`layout demos 📸 renders ./packages/layout/src/components/PageContainer/demos/hideBreadMenu.tsx correctly 1`] = `
 <div
-  style="box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); background: rgb(245, 247, 250); transform: rotate(0);"
+  style="overflow-x: hidden; height: 400px;"
 >
   <div
-    style="overflow-x: hidden; height: 400px;"
+    class="ant-pro-page-container ant-pro-page-container-ghost"
   >
     <div
-      class="ant-pro-page-container ant-pro-page-container-ghost"
+      class="ant-pro-page-container-warp"
     >
       <div
-        class="ant-pro-page-container-warp"
+        class="ant-page-header ant-page-header-ghost"
       >
         <div
-          class="ant-page-header ant-page-header-ghost"
+          class="ant-page-header-heading"
         >
           <div
-            class="ant-page-header-heading"
+            class="ant-page-header-heading-left"
           >
-            <div
-              class="ant-page-header-heading-left"
+            <span
+              class="ant-page-header-heading-title"
+              title="页面标题"
             >
-              <span
-                class="ant-page-header-heading-title"
-                title="页面标题"
-              >
-                页面标题
-              </span>
-            </div>
+              页面标题
+            </span>
           </div>
+        </div>
+        <div
+          class="ant-page-header-content"
+        >
           <div
-            class="ant-page-header-content"
+            class="ant-pro-page-container-detail"
           >
             <div
-              class="ant-pro-page-container-detail"
+              class="ant-pro-page-container-main"
             >
               <div
-                class="ant-pro-page-container-main"
+                class="ant-pro-page-container-row"
               >
                 <div
-                  class="ant-pro-page-container-row"
+                  class="ant-pro-page-container-content"
                 >
                   <div
-                    class="ant-pro-page-container-content"
+                    class="ant-descriptions"
+                    style="margin-bottom: -16px;"
                   >
                     <div
-                      class="ant-descriptions"
-                      style="margin-bottom: -16px;"
+                      class="ant-descriptions-view"
                     >
-                      <div
-                        class="ant-descriptions-view"
-                      >
-                        <table>
-                          <tbody>
-                            <tr
-                              class="ant-descriptions-row"
+                      <table>
+                        <tbody>
+                          <tr
+                            class="ant-descriptions-row"
+                          >
+                            <td
+                              class="ant-descriptions-item"
+                              colspan="1"
                             >
-                              <td
-                                class="ant-descriptions-item"
-                                colspan="1"
+                              <div
+                                class="ant-descriptions-item-container"
                               >
-                                <div
-                                  class="ant-descriptions-item-container"
+                                <span
+                                  class="ant-descriptions-item-label"
                                 >
-                                  <span
-                                    class="ant-descriptions-item-label"
-                                  >
-                                    创建人
-                                  </span>
-                                  <span
-                                    class="ant-descriptions-item-content"
-                                  >
-                                    曲丽丽
-                                  </span>
-                                </div>
-                              </td>
-                              <td
-                                class="ant-descriptions-item"
-                                colspan="1"
-                              >
-                                <div
-                                  class="ant-descriptions-item-container"
+                                  创建人
+                                </span>
+                                <span
+                                  class="ant-descriptions-item-content"
                                 >
-                                  <span
-                                    class="ant-descriptions-item-label"
-                                  >
-                                    关联表单
-                                  </span>
-                                  <span
-                                    class="ant-descriptions-item-content"
-                                  >
-                                    <a>
-                                      421421
-                                    </a>
-                                  </span>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr
-                              class="ant-descriptions-row"
+                                  曲丽丽
+                                </span>
+                              </div>
+                            </td>
+                            <td
+                              class="ant-descriptions-item"
+                              colspan="1"
                             >
-                              <td
-                                class="ant-descriptions-item"
-                                colspan="1"
+                              <div
+                                class="ant-descriptions-item-container"
                               >
-                                <div
-                                  class="ant-descriptions-item-container"
+                                <span
+                                  class="ant-descriptions-item-label"
                                 >
-                                  <span
-                                    class="ant-descriptions-item-label"
-                                  >
-                                    创建时间
-                                  </span>
-                                  <span
-                                    class="ant-descriptions-item-content"
-                                  >
-                                    2017-01-10
-                                  </span>
-                                </div>
-                              </td>
-                              <td
-                                class="ant-descriptions-item"
-                                colspan="1"
+                                  关联表单
+                                </span>
+                                <span
+                                  class="ant-descriptions-item-content"
+                                >
+                                  <a>
+                                    421421
+                                  </a>
+                                </span>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr
+                            class="ant-descriptions-row"
+                          >
+                            <td
+                              class="ant-descriptions-item"
+                              colspan="1"
+                            >
+                              <div
+                                class="ant-descriptions-item-container"
                               >
-                                <div
-                                  class="ant-descriptions-item-container"
+                                <span
+                                  class="ant-descriptions-item-label"
                                 >
-                                  <span
-                                    class="ant-descriptions-item-label"
-                                  >
-                                    单据备注
-                                  </span>
-                                  <span
-                                    class="ant-descriptions-item-content"
-                                  >
-                                    浙江省杭州市西湖区工专路
-                                  </span>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
+                                  创建时间
+                                </span>
+                                <span
+                                  class="ant-descriptions-item-content"
+                                >
+                                  2017-01-10
+                                </span>
+                              </div>
+                            </td>
+                            <td
+                              class="ant-descriptions-item"
+                              colspan="1"
+                            >
+                              <div
+                                class="ant-descriptions-item-container"
+                              >
+                                <span
+                                  class="ant-descriptions-item-label"
+                                >
+                                  单据备注
+                                </span>
+                                <span
+                                  class="ant-descriptions-item-content"
+                                >
+                                  浙江省杭州市西湖区工专路
+                                </span>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </div>
@@ -770,52 +758,52 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
           </div>
         </div>
       </div>
+    </div>
+    <div
+      class="ant-pro-grid-content"
+    >
       <div
-        class="ant-pro-grid-content"
+        class="ant-pro-grid-content-children"
       >
-        <div
-          class="ant-pro-grid-content-children"
-        >
-          <div>
+        <div>
+          <div
+            class="ant-pro-page-container-children-content"
+          >
             <div
-              class="ant-pro-page-container-children-content"
+              class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
             >
               <div
-                class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
+                class="ant-pro-card-body ant-pro-card-body-column"
               >
                 <div
-                  class="ant-pro-card-body ant-pro-card-body-column"
+                  class="ant-pro-card"
+                  style="margin-bottom: 16px; height: 200px;"
                 >
                   <div
-                    class="ant-pro-card"
-                    style="margin-bottom: 16px; height: 200px;"
-                  >
-                    <div
-                      class="ant-pro-card-body"
-                    />
-                  </div>
+                    class="ant-pro-card-body"
+                  />
+                </div>
+                <div
+                  class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
+                  style="margin-bottom: 16px; height: 200px;"
+                >
                   <div
-                    class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
-                    style="margin-bottom: 16px; height: 200px;"
+                    class="ant-pro-card-body"
                   >
                     <div
-                      class="ant-pro-card-body"
+                      class="ant-pro-card ant-pro-card-span-16"
+                      style="margin-right: 16px;"
                     >
                       <div
-                        class="ant-pro-card ant-pro-card-span-16"
-                        style="margin-right: 16px;"
-                      >
-                        <div
-                          class="ant-pro-card-body"
-                        />
-                      </div>
+                        class="ant-pro-card-body"
+                      />
+                    </div>
+                    <div
+                      class="ant-pro-card ant-pro-card-span-8"
+                    >
                       <div
-                        class="ant-pro-card ant-pro-card-span-8"
-                      >
-                        <div
-                          class="ant-pro-card-body"
-                        />
-                      </div>
+                        class="ant-pro-card-body"
+                      />
                     </div>
                   </div>
                 </div>
@@ -3644,100 +3632,59 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
 
 exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFormServe.tsx correctly 1`] = `
 <div
-  id="test"
-  style="transform: rotate(0); overflow-x: hidden;"
+  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
 >
-  <div
-    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
+  <section
+    class="ant-layout ant-layout-has-sider"
+    style="min-height: 100%; height: 500px;"
   >
-    <section
-      class="ant-layout ant-layout-has-sider"
-      style="min-height: 100%; height: 500px;"
+    <aside
+      class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-layout-side"
+      style="overflow: hidden; flex: 0 0 48px; max-width: 48px; min-width: 48px; width: 48px;"
     >
-      <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-layout-side"
-        style="overflow: hidden; flex: 0 0 48px; max-width: 48px; min-width: 48px; width: 48px;"
+      <div
+        class="ant-layout-sider-children"
       >
         <div
-          class="ant-layout-sider-children"
+          class="ant-pro-sider-logo ant-pro-sider-collapsed"
+          id="logo"
         >
-          <div
-            class="ant-pro-sider-logo ant-pro-sider-collapsed"
-            id="logo"
+          <a>
+            <img
+              alt="logo"
+              src="https://gw.alipayobjects.com/zos/antfincdn/PmY%24TNNDBI/logo.svg"
+            />
+          </a>
+        </div>
+        <div
+          style="flex: 1; overflow-y: auto; overflow-x: hidden;"
+        >
+          <ul
+            class="ant-menu ant-menu-dark ant-menu-inline-collapsed ant-pro-sider-menu ant-menu-root ant-menu-vertical"
+            role="menu"
+            style="width: 100%;"
           >
-            <a>
-              <img
-                alt="logo"
-                src="https://gw.alipayobjects.com/zos/antfincdn/PmY%24TNNDBI/logo.svg"
-              />
-            </a>
-          </div>
-          <div
-            style="flex: 1; overflow-y: auto; overflow-x: hidden;"
-          >
-            <ul
-              class="ant-menu ant-menu-dark ant-menu-inline-collapsed ant-pro-sider-menu ant-menu-root ant-menu-vertical"
-              role="menu"
-              style="width: 100%;"
+            <li
+              class="ant-menu-submenu ant-menu-submenu-vertical ant-menu-submenu-selected"
+              role="menuitem"
             >
-              <li
-                class="ant-menu-submenu ant-menu-submenu-vertical ant-menu-submenu-selected"
-                role="menuitem"
-              >
-                <div
-                  aria-expanded="false"
-                  aria-haspopup="true"
-                  class="ant-menu-submenu-title"
-                  role="button"
-                >
-                  <span
-                    class="ant-pro-menu-item"
-                  >
-                    <span
-                      aria-label="smile"
-                      class="anticon anticon-smile"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="smile"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
-                        />
-                      </svg>
-                    </span>
-                    <span
-                      class="ant-pro-menu-item-title"
-                    >
-                      welcome
-                    </span>
-                  </span>
-                  <i
-                    class="ant-menu-submenu-arrow"
-                  />
-                </div>
-              </li>
-              <li
-                class="ant-menu-item ant-menu-item-only-child"
-                role="menuitem"
+              <div
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="ant-menu-submenu-title"
+                role="button"
               >
                 <span
                   class="ant-pro-menu-item"
                 >
                   <span
-                    aria-label="heart"
-                    class="anticon anticon-heart"
+                    aria-label="smile"
+                    class="anticon anticon-smile"
                     role="img"
                   >
                     <svg
                       aria-hidden="true"
-                      data-icon="heart"
+                      data-icon="smile"
                       fill="currentColor"
                       focusable="false"
                       height="1em"
@@ -3745,38 +3692,36 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                       width="1em"
                     >
                       <path
-                        d="M923 283.6a260.04 260.04 0 00-56.9-82.8 264.4 264.4 0 00-84-55.5A265.34 265.34 0 00679.7 125c-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 00-56.9 82.8c-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5 0 201.2-356 429.3-356 429.3z"
+                        d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
                       />
                     </svg>
                   </span>
                   <span
                     class="ant-pro-menu-item-title"
                   >
-                    demo
+                    welcome
                   </span>
                 </span>
-              </li>
-            </ul>
-          </div>
-          <div
-            class="ant-pro-sider-links"
-          >
-            <ul
-              class="ant-menu ant-menu-dark ant-menu-inline-collapsed ant-pro-sider-link-menu ant-menu-root ant-menu-vertical"
-              role="menu"
+                <i
+                  class="ant-menu-submenu-arrow"
+                />
+              </div>
+            </li>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
             >
-              <li
-                class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
-                role="menuitem"
+              <span
+                class="ant-pro-menu-item"
               >
                 <span
-                  aria-label="menu-unfold"
-                  class="anticon anticon-menu-unfold"
+                  aria-label="heart"
+                  class="anticon anticon-heart"
                   role="img"
                 >
                   <svg
                     aria-hidden="true"
-                    data-icon="menu-unfold"
+                    data-icon="heart"
                     fill="currentColor"
                     focusable="false"
                     height="1em"
@@ -3784,104 +3729,142 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                     width="1em"
                   >
                     <path
-                      d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM142.4 642.1L298.7 519a8.84 8.84 0 000-13.9L142.4 381.9c-5.8-4.6-14.4-.5-14.4 6.9v246.3a8.9 8.9 0 0014.4 7z"
+                      d="M923 283.6a260.04 260.04 0 00-56.9-82.8 264.4 264.4 0 00-84-55.5A265.34 265.34 0 00679.7 125c-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 00-56.9 82.8c-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5 0 201.2-356 429.3-356 429.3z"
                     />
                   </svg>
                 </span>
-              </li>
-            </ul>
-          </div>
+                <span
+                  class="ant-pro-menu-item-title"
+                >
+                  demo
+                </span>
+              </span>
+            </li>
+          </ul>
         </div>
-      </aside>
-      <div
-        class="ant-layout"
-        style="position: relative;"
+        <div
+          class="ant-pro-sider-links"
+        >
+          <ul
+            class="ant-menu ant-menu-dark ant-menu-inline-collapsed ant-pro-sider-link-menu ant-menu-root ant-menu-vertical"
+            role="menu"
+          >
+            <li
+              class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
+              role="menuitem"
+            >
+              <span
+                aria-label="menu-unfold"
+                class="anticon anticon-menu-unfold"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="menu-unfold"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM142.4 642.1L298.7 519a8.84 8.84 0 000-13.9L142.4 381.9c-5.8-4.6-14.4-.5-14.4 6.9v246.3a8.9 8.9 0 0014.4 7z"
+                  />
+                </svg>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+    <div
+      class="ant-layout"
+      style="position: relative;"
+    >
+      <header
+        class="ant-layout-header"
+        style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       >
-        <header
-          class="ant-layout-header"
-          style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
+        <div
+          class="ant-pro-global-header ant-pro-global-header-layout-side"
         >
           <div
-            class="ant-pro-global-header ant-pro-global-header-layout-side"
-          >
-            <div
-              style="flex: 1;"
-            />
-          </div>
-        </header>
-        <main
-          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+            style="flex: 1;"
+          />
+        </div>
+      </header>
+      <main
+        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+      >
+        <div
+          class="ant-pro-page-container"
         >
           <div
-            class="ant-pro-page-container"
+            class="ant-pro-page-container-warp"
           >
             <div
-              class="ant-pro-page-container-warp"
+              class="ant-page-header ant-page-header-ghost"
             >
               <div
-                class="ant-page-header ant-page-header-ghost"
+                class="ant-page-header-heading"
               >
                 <div
-                  class="ant-page-header-heading"
+                  class="ant-page-header-heading-left"
                 >
-                  <div
-                    class="ant-page-header-heading-left"
+                  <span
+                    class="ant-page-header-heading-title"
+                    title="one"
                   >
-                    <span
-                      class="ant-page-header-heading-title"
-                      title="one"
-                    >
-                      one
-                    </span>
-                  </div>
+                    one
+                  </span>
                 </div>
+              </div>
+              <div
+                class="ant-page-header-content"
+              >
                 <div
-                  class="ant-page-header-content"
+                  class="ant-pro-page-container-detail"
                 >
                   <div
-                    class="ant-pro-page-container-detail"
+                    class="ant-pro-page-container-main"
                   >
                     <div
-                      class="ant-pro-page-container-main"
+                      class="ant-pro-page-container-row"
                     >
                       <div
-                        class="ant-pro-page-container-row"
+                        class="ant-pro-page-container-content"
                       >
-                        <div
-                          class="ant-pro-page-container-content"
-                        >
-                          欢迎使用
-                        </div>
+                        欢迎使用
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+          <div
+            class="ant-pro-grid-content"
+          >
             <div
-              class="ant-pro-grid-content"
+              class="ant-pro-grid-content-children"
             >
-              <div
-                class="ant-pro-grid-content-children"
-              >
-                <div>
+              <div>
+                <div
+                  class="ant-pro-page-container-children-content"
+                >
                   <div
-                    class="ant-pro-page-container-children-content"
+                    style="height: 120vh;"
                   >
-                    <div
-                      style="height: 120vh;"
-                    >
-                      Hello World
-                    </div>
+                    Hello World
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </main>
-      </div>
-    </section>
-  </div>
+        </div>
+      </main>
+    </div>
+  </section>
 </div>
 `;
 
@@ -5439,10 +5422,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
 `;
 
 exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.tsx correctly 1`] = `
-<div
-  id="test-pro-layout"
-  style="transform: rotate(0); overflow-x: hidden;"
->
+Array [
   <div
     class="ant-design-pro qixian-pro-basicLayout screen-md qixian-pro-basicLayout-side"
   >
@@ -6482,8 +6462,729 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
         </main>
       </div>
     </section>
-  </div>
-</div>
+  </div>,
+  <div
+    class="qixian-drawer qixian-drawer-right"
+    style="z-index: 999;"
+    tabindex="-1"
+  >
+    <div
+      class="qixian-drawer-mask"
+    />
+    <div
+      class="qixian-drawer-content-wrapper"
+      style="transform: translateX(100%); width: 300px;"
+    >
+      <div
+        class="qixian-drawer-content"
+      >
+        <div
+          class="qixian-drawer-wrapper-body"
+        >
+          <div
+            class="qixian-drawer-header-no-title"
+          >
+            <button
+              aria-label="Close"
+              class="qixian-drawer-close"
+              type="button"
+            >
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+          <div
+            class="qixian-drawer-body"
+          >
+            <div
+              class="ant-pro-setting-drawer-content"
+            >
+              <div
+                style="margin-bottom: 24px;"
+              >
+                <h3
+                  class="ant-pro-setting-drawer-title"
+                >
+                  整体风格设置
+                </h3>
+                <div
+                  class="ant-pro-setting-drawer-block-checkbox"
+                  style="min-height: 42px;"
+                >
+                  <div
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item"
+                  >
+                    <span
+                      aria-label="check"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      role="img"
+                      style="display: none;"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="check"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-dark ant-pro-setting-drawer-block-checkbox-theme-item"
+                  >
+                    <span
+                      aria-label="check"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      role="img"
+                      style="display: block;"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="check"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div
+                style="margin-bottom: 24px;"
+              >
+                <h3
+                  class="ant-pro-setting-drawer-title"
+                >
+                  主题色
+                </h3>
+                <div
+                  class="theme-color"
+                >
+                  <div
+                    class="theme-color-content"
+                  >
+                    <div
+                      class="theme-color-block"
+                      style="background-color: rgb(24, 144, 255);"
+                    >
+                      <span
+                        aria-label="check"
+                        class="anticon anticon-check"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="check"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="qixian-divider qixian-divider-horizontal"
+                role="separator"
+              />
+              <div
+                style="margin-bottom: 24px;"
+              >
+                <h3
+                  class="ant-pro-setting-drawer-title"
+                >
+                  导航模式
+                </h3>
+                <div
+                  class="ant-pro-setting-drawer-block-checkbox"
+                  style="min-height: 42px;"
+                >
+                  <div
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item"
+                  >
+                    <span
+                      aria-label="check"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      role="img"
+                      style="display: block;"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="check"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item"
+                  >
+                    <span
+                      aria-label="check"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      role="img"
+                      style="display: none;"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="check"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item"
+                  >
+                    <span
+                      aria-label="check"
+                      class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                      role="img"
+                      style="display: none;"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="check"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="qixian-list"
+              >
+                <div
+                  class="qixian-spin-nested-loading"
+                >
+                  <div
+                    class="qixian-spin-container"
+                  >
+                    <ul
+                      class="qixian-list-items"
+                    >
+                      <li
+                        class="qixian-list-item"
+                      >
+                        <span
+                          style="opacity: 1;"
+                        >
+                          内容区域宽度
+                        </span>
+                        <ul
+                          class="qixian-list-item-action"
+                        >
+                          <li>
+                            <div
+                              class="qixian-select qixian-select-sm content-width qixian-select-single qixian-select-show-arrow"
+                              style="width: 80px;"
+                            >
+                              <div
+                                class="qixian-select-selector"
+                              >
+                                <span
+                                  class="qixian-select-selection-search"
+                                >
+                                  <input
+                                    aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+                                    aria-autocomplete="list"
+                                    aria-controls="rc_select_TEST_OR_SSR_list"
+                                    aria-haspopup="listbox"
+                                    aria-owns="rc_select_TEST_OR_SSR_list"
+                                    autocomplete="off"
+                                    class="qixian-select-selection-search-input"
+                                    id="rc_select_TEST_OR_SSR"
+                                    readonly=""
+                                    role="combobox"
+                                    style="opacity: 0;"
+                                    type="search"
+                                    unselectable="on"
+                                    value=""
+                                  />
+                                </span>
+                                <span
+                                  class="qixian-select-selection-item"
+                                  title="流式"
+                                >
+                                  流式
+                                </span>
+                              </div>
+                              <span
+                                aria-hidden="true"
+                                class="qixian-select-arrow"
+                                style="user-select: none;"
+                                unselectable="on"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down qixian-select-suffix"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </span>
+                            </div>
+                          </li>
+                        </ul>
+                      </li>
+                      <li
+                        class="qixian-list-item"
+                      >
+                        <span
+                          style="opacity: 1;"
+                        >
+                          固定 Header
+                        </span>
+                        <ul
+                          class="qixian-list-item-action"
+                        >
+                          <li>
+                            <button
+                              aria-checked="false"
+                              class="qixian-switch qixian-switch-small fixed-header"
+                              role="switch"
+                              type="button"
+                            >
+                              <div
+                                class="qixian-switch-handle"
+                              />
+                              <span
+                                class="qixian-switch-inner"
+                              />
+                            </button>
+                          </li>
+                        </ul>
+                      </li>
+                      <li
+                        class="qixian-list-item"
+                      >
+                        <span
+                          style="opacity: 1;"
+                        >
+                          固定侧边菜单
+                        </span>
+                        <ul
+                          class="qixian-list-item-action"
+                        >
+                          <li>
+                            <button
+                              aria-checked="false"
+                              class="qixian-switch qixian-switch-small fix-siderbar"
+                              role="switch"
+                              type="button"
+                            >
+                              <div
+                                class="qixian-switch-handle"
+                              />
+                              <span
+                                class="qixian-switch-inner"
+                              />
+                            </button>
+                          </li>
+                        </ul>
+                      </li>
+                      <li
+                        class="qixian-list-item"
+                      >
+                        <span
+                          style="opacity: 0.5;"
+                        >
+                          自动分割菜单
+                        </span>
+                        <ul
+                          class="qixian-list-item-action"
+                        >
+                          <li>
+                            <button
+                              aria-checked="false"
+                              class="qixian-switch qixian-switch-small split-menus qixian-switch-disabled"
+                              disabled=""
+                              role="switch"
+                              type="button"
+                            >
+                              <div
+                                class="qixian-switch-handle"
+                              />
+                              <span
+                                class="qixian-switch-inner"
+                              />
+                            </button>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="qixian-divider qixian-divider-horizontal"
+                role="separator"
+              />
+              <div
+                style="margin-bottom: 24px;"
+              >
+                <h3
+                  class="ant-pro-setting-drawer-title"
+                >
+                  内容区域
+                </h3>
+                <div
+                  class="qixian-list"
+                >
+                  <div
+                    class="qixian-spin-nested-loading"
+                  >
+                    <div
+                      class="qixian-spin-container"
+                    >
+                      <ul
+                        class="qixian-list-items"
+                      >
+                        <li
+                          class="qixian-list-item"
+                        >
+                          <span
+                            style="opacity: 1;"
+                          >
+                            顶栏
+                          </span>
+                          <ul
+                            class="qixian-list-item-action"
+                          >
+                            <li>
+                              <button
+                                aria-checked="true"
+                                class="qixian-switch qixian-switch-small regional-header qixian-switch-checked"
+                                role="switch"
+                                type="button"
+                              >
+                                <div
+                                  class="qixian-switch-handle"
+                                />
+                                <span
+                                  class="qixian-switch-inner"
+                                />
+                              </button>
+                            </li>
+                          </ul>
+                        </li>
+                        <li
+                          class="qixian-list-item"
+                        >
+                          <span
+                            style="opacity: 1;"
+                          >
+                            页脚
+                          </span>
+                          <ul
+                            class="qixian-list-item-action"
+                          >
+                            <li>
+                              <button
+                                aria-checked="true"
+                                class="qixian-switch qixian-switch-small regional-footer qixian-switch-checked"
+                                role="switch"
+                                type="button"
+                              >
+                                <div
+                                  class="qixian-switch-handle"
+                                />
+                                <span
+                                  class="qixian-switch-inner"
+                                />
+                              </button>
+                            </li>
+                          </ul>
+                        </li>
+                        <li
+                          class="qixian-list-item"
+                        >
+                          <span
+                            style="opacity: 1;"
+                          >
+                            菜单
+                          </span>
+                          <ul
+                            class="qixian-list-item-action"
+                          >
+                            <li>
+                              <button
+                                aria-checked="true"
+                                class="qixian-switch qixian-switch-small regional-menu qixian-switch-checked"
+                                role="switch"
+                                type="button"
+                              >
+                                <div
+                                  class="qixian-switch-handle"
+                                />
+                                <span
+                                  class="qixian-switch-inner"
+                                />
+                              </button>
+                            </li>
+                          </ul>
+                        </li>
+                        <li
+                          class="qixian-list-item"
+                        >
+                          <span
+                            style="opacity: 1;"
+                          >
+                            菜单头
+                          </span>
+                          <ul
+                            class="qixian-list-item-action"
+                          >
+                            <li>
+                              <button
+                                aria-checked="true"
+                                class="qixian-switch qixian-switch-small regional-menuHeader qixian-switch-checked"
+                                role="switch"
+                                type="button"
+                              >
+                                <div
+                                  class="qixian-switch-handle"
+                                />
+                                <span
+                                  class="qixian-switch-inner"
+                                />
+                              </button>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="qixian-divider qixian-divider-horizontal"
+                role="separator"
+              />
+              <div
+                style="margin-bottom: 24px;"
+              >
+                <h3
+                  class="ant-pro-setting-drawer-title"
+                >
+                  其他设置
+                </h3>
+                <div
+                  class="qixian-list"
+                >
+                  <div
+                    class="qixian-spin-nested-loading"
+                  >
+                    <div
+                      class="qixian-spin-container"
+                    >
+                      <ul
+                        class="qixian-list-items"
+                      >
+                        <li
+                          class="qixian-list-item"
+                        >
+                          <span
+                            style="opacity: 1;"
+                          >
+                            色弱模式
+                          </span>
+                          <ul
+                            class="qixian-list-item-action"
+                          >
+                            <li>
+                              <button
+                                aria-checked="false"
+                                class="qixian-switch qixian-switch-small color-weak"
+                                role="switch"
+                                type="button"
+                              >
+                                <div
+                                  class="qixian-switch-handle"
+                                />
+                                <span
+                                  class="qixian-switch-inner"
+                                />
+                              </button>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="qixian-divider qixian-divider-horizontal"
+                role="separator"
+              />
+              <div
+                class="qixian-alert qixian-alert-warning"
+                data-show="true"
+                role="alert"
+                style="margin-bottom: 16px;"
+              >
+                <span
+                  aria-label="notification"
+                  class="anticon anticon-notification qixian-alert-icon"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="notification"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M880 112c-3.8 0-7.7.7-11.6 2.3L292 345.9H128c-8.8 0-16 7.4-16 16.6v299c0 9.2 7.2 16.6 16 16.6h101.7c-3.7 11.6-5.7 23.9-5.7 36.4 0 65.9 53.8 119.5 120 119.5 55.4 0 102.1-37.6 115.9-88.4l408.6 164.2c3.9 1.5 7.8 2.3 11.6 2.3 16.9 0 32-14.2 32-33.2V145.2C912 126.2 897 112 880 112zM344 762.3c-26.5 0-48-21.4-48-47.8 0-11.2 3.9-21.9 11-30.4l84.9 34.1c-2 24.6-22.7 44.1-47.9 44.1zm496 58.4L318.8 611.3l-12.9-5.2H184V417.9h121.9l12.9-5.2L840 203.3v617.4z"
+                    />
+                  </svg>
+                </span>
+                <div
+                  class="qixian-alert-content"
+                >
+                  <div
+                    class="qixian-alert-message"
+                  >
+                    配置栏只在开发环境用于预览，生产环境不会展现，请拷贝后手动修改配置文件
+                  </div>
+                  <div
+                    class="qixian-alert-description"
+                  />
+                </div>
+              </div>
+              <button
+                class="qixian-btn qixian-btn-block"
+                style="margin-bottom: 24px;"
+                type="button"
+              >
+                <span
+                  aria-label="copy"
+                  class="anticon anticon-copy"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="copy"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                    />
+                  </svg>
+                </span>
+                <span>
+                  拷贝设置
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-pro-setting-drawer-handle"
+      >
+        <span
+          aria-label="setting"
+          class="anticon anticon-setting"
+          role="img"
+          style="color: rgb(255, 255, 255); font-size: 20px;"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="setting"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 009.3-35.2l-.9-2.6a443.74 443.74 0 00-79.7-137.9l-1.8-2.1a32.12 32.12 0 00-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 00-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 00-25.8 25.7l-15.8 85.4a351.86 351.86 0 00-99 57.4l-81.9-29.1a32 32 0 00-35.1 9.5l-1.8 2.1a446.02 446.02 0 00-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 00-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0035.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0025.8 25.7l2.7.5a449.4 449.4 0 00159 0l2.7-.5a32.05 32.05 0 0025.8-25.7l15.7-85a350 350 0 0099.7-57.6l81.3 28.9a32 32 0 0035.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 01-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 01-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 01512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 01400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 01624 502c0 29.9-11.7 58-32.8 79.2z"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+  </div>,
+]
 `;
 
 exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collapsed.tsx correctly 1`] = `
