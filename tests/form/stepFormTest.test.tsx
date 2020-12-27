@@ -219,7 +219,7 @@ describe('StepsForm', () => {
     expect(fn).toBeCalled();
     expect(currentFn).toBeCalledWith(0);
 
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
     act(() => {
       html.unmount();
     });
