@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { Button, Result, Avatar, Tag, Input } from 'antd';
-import { CrownOutlined, UserOutlined, SmileOutlined } from '@ant-design/icons';
-import ProLayout, { PageContainer } from '@ant-design/pro-layout';
+import { Button, Result, Avatar, Typography, Space } from 'antd';
+import { CrownOutlined, LeftOutlined, UserOutlined, SmileOutlined } from '@ant-design/icons';
+import ProLayout from '@ant-design/pro-layout';
 
 const defaultProps = {
   routes: [
     {
-      path: '/welcome',
-      name: '欢迎',
+      path: '/admin/sub-page1',
+      name: '一级页面',
       icon: <CrownOutlined />,
       component: './Welcome',
     },
@@ -35,7 +35,27 @@ export default () => {
         location={{
           pathname,
         }}
-        navTheme="light"
+        menuHeaderRender={(logo, title, props) => {
+          if (props?.collapsed) {
+            return (
+              <Space>
+                <LeftOutlined
+                  style={{
+                    fontSize: 24,
+                  }}
+                />
+              </Space>
+            );
+          }
+          return (
+            <Space direction="vertical">
+              <Button size="small" icon={<LeftOutlined />}>
+                返回应用列表
+              </Button>
+              <Typography.Text strong>alipay_dev_gzone</Typography.Text>
+            </Space>
+          );
+        }}
         fixSiderbar
         headerRender={false}
         onMenuHeaderClick={(e) => console.log(e)}
@@ -54,53 +74,22 @@ export default () => {
           </div>
         )}
       >
-        <PageContainer
-          onBack={() => null}
-          tags={<Tag color="blue">状态一</Tag>}
-          header={{
-            style: {
-              padding: '4px 16px',
-              position: 'fixed',
-              top: 0,
-              width: '100%',
-              left: 0,
-              zIndex: 999,
-              boxShadow: '0 2px 8px #f0f1f2',
-            },
-          }}
+        <div
           style={{
-            paddingTop: 48,
+            height: '120vh',
           }}
-          extra={[
-            <Input.Search
-              key="search"
-              style={{
-                width: 240,
-              }}
-            />,
-            <Button key="3">操作一</Button>,
-            <Button key="2" type="primary">
-              操作一
-            </Button>,
-          ]}
         >
-          <div
+          <Result
+            status="404"
             style={{
-              height: '120vh',
+              height: '100%',
+              background: '#fff',
             }}
-          >
-            <Result
-              status="404"
-              style={{
-                height: '100%',
-                background: '#fff',
-              }}
-              title="Hello World"
-              subTitle="Sorry, you are not authorized to access this page."
-              extra={<Button type="primary">Back Home</Button>}
-            />
-          </div>
-        </PageContainer>
+            title="Hello World"
+            subTitle="Sorry, you are not authorized to access this page."
+            extra={<Button type="primary">Back Home</Button>}
+          />
+        </div>
       </ProLayout>
     </>
   );
