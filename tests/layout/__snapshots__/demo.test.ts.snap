@@ -4400,7 +4400,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
       style="min-height: 100%;"
     >
       <div
-        style="width: 208px; overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px;"
+        style="width: 208px; overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px; transition: background-color 0.3s, min-width 0.3s, max-width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);"
       />
       <aside
         class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side"
@@ -6495,7 +6495,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
     style="min-height: 100%;"
   >
     <div
-      style="width: 208px; overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px;"
+      style="width: 208px; overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px; transition: background-color 0.3s, min-width 0.3s, max-width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);"
     />
     <aside
       class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side"
@@ -8769,10 +8769,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
     style="min-height: 100%;"
   >
     <div
-      style="width: 208px; overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px;"
+      style="width: 208px; overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px; transition: background-color 0.3s, min-width 0.3s, max-width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);"
     />
     <aside
-      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side"
+      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
       style="overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px; width: 208px;"
     >
       <div
@@ -8781,6 +8781,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
         <div
           class="ant-pro-sider-logo"
           id="logo"
+          style="background-color: rgb(238, 238, 238);"
         >
           <div
             class="ant-space ant-space-vertical"
@@ -8819,13 +8820,27 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
             </div>
             <div
               class="ant-space-item"
+              style="margin-bottom: 8px;"
+            >
+              <b>
+                alipay_dev_gzone
+              </b>
+            </div>
+            <div
+              class="ant-space-item"
+              style="margin-bottom: 8px;"
+            >
+              <span>
+                Creation Time 2017-01-10
+              </span>
+            </div>
+            <div
+              class="ant-space-item"
             >
               <span
-                class="ant-typography"
+                class="ant-tag ant-tag-warning"
               >
-                <strong>
-                  alipay_dev_gzone
-                </strong>
+                运行中
               </span>
             </div>
           </div>
@@ -8834,12 +8849,12 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
           style="flex: 1; overflow-y: auto; overflow-x: hidden;"
         >
           <ul
-            class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-light ant-pro-sider-menu ant-menu-root ant-menu-inline"
             role="menu"
             style="width: 100%;"
           >
             <li
-              class="ant-menu-item ant-menu-item-only-child"
+              class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
               role="menuitem"
               style="padding-left: 16px;"
             >
@@ -8952,7 +8967,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
           class="ant-pro-sider-links"
         >
           <ul
-            class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-light ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
             role="menu"
           >
             <li
@@ -9339,7 +9354,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
     style="min-height: 100%;"
   >
     <div
-      style="width: 208px; overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px;"
+      style="width: 208px; overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px; transition: background-color 0.3s, min-width 0.3s, max-width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);"
     />
     <aside
       class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
@@ -10840,7 +10855,7 @@ Array [
       style="min-height: 100%; height: 100vh;"
     >
       <div
-        style="width: 208px; overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px;"
+        style="width: 208px; overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px; transition: background-color 0.3s, min-width 0.3s, max-width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);"
       />
       <aside
         class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix"

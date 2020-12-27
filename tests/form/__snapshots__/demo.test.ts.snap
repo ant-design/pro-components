@@ -5688,7 +5688,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
     style="min-height: 100%;"
   >
     <div
-      style="width: 48px; overflow: hidden; flex: 0 0 48px; max-width: 48px; min-width: 48px;"
+      style="width: 48px; overflow: hidden; flex: 0 0 48px; max-width: 48px; min-width: 48px; transition: background-color 0.3s, min-width 0.3s, max-width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);"
     />
     <aside
       class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light"

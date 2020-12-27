@@ -76,6 +76,7 @@ export type SiderMenuProps = {
   links?: React.ReactNode[];
   onOpenChange?: (openKeys: WithFalse<string[]>) => void;
   getContainer?: false;
+  logoStyle?: CSSProperties;
 } & Pick<BaseMenuProps, Exclude<keyof BaseMenuProps, ['onCollapse']>>;
 
 export const defaultRenderCollapsedButton = (collapsed?: boolean) =>
@@ -105,6 +106,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     prefixCls,
     onOpenChange,
     headerHeight,
+    logoStyle,
   } = props;
   const baseClassName = `${prefixCls}-sider`;
   const { flatMenuKeys } = MenuCounter.useContainer();
@@ -139,6 +141,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
             flex: `0 0 ${collapsed ? 48 : siderWidth}px`,
             maxWidth: collapsed ? 48 : siderWidth,
             minWidth: collapsed ? 48 : siderWidth,
+            transition: `background-color 0.3s, min-width 0.3s, max-width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1)`,
             ...style,
           }}
         />
@@ -172,6 +175,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
             })}
             onClick={layout !== 'mix' ? onMenuHeaderClick : undefined}
             id="logo"
+            style={logoStyle}
           >
             {headerDom}
           </div>
