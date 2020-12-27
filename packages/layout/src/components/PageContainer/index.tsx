@@ -68,7 +68,7 @@ export type PageContainerProps = {
    * @name PageHeader 的配置
    * @description 与 antd 完全相同
    */
-  header?: PageHeaderProps & {
+  header?: Partial<PageHeaderProps> & {
     children?: React.ReactNode;
   };
 
