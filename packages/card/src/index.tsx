@@ -317,11 +317,12 @@ const ProCard: ProCardType = React.forwardRef<HTMLDivElement>((props: ProCardPro
     <RightOutlined
       rotate={!collapsed ? 90 : undefined}
       className={`${prefixCls}-collapsible-icon`}
-      onClick={() => {
-        setCollapsed(!collapsed);
-      }}
     />
   );
+
+  const titleCls = classNames(`${prefixCls}-title`, {
+    [`${prefixCls}-title-collapsible`]: collapsibleButton,
+  });
 
   /**
    * 操作按钮
@@ -332,7 +333,12 @@ const ProCard: ProCardType = React.forwardRef<HTMLDivElement>((props: ProCardPro
     <div className={cardCls} style={cardStyle} ref={ref} {...omit(rest, ['id', 'prefixCls'])}>
       {(title || extra || collapsibleButton) && (
         <div className={headerCls} style={headStyle}>
-          <div className={`${prefixCls}-title`}>
+          <div
+            className={titleCls}
+            onClick={() => {
+              if (collapsibleButton) setCollapsed(!collapsed);
+            }}
+          >
             {collapsibleButton}
             <LabelIconTip label={title} tooltip={tooltip || tip} subTitle={subTitle} />
           </div>
