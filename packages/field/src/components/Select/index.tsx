@@ -295,7 +295,8 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
     // 如果有 label 直接就用 label
     // @ts-ignore
     if (rest.text?.label) {
-      return pickLabel(rest.text);
+      // @ts-ignore
+      return rest.text?.label;
     }
 
     const dom = (
