@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.11.3
+
+`2020-12-28`
+
+- 🐛 fix(form): fix ProFormSet no work error [#1420](https://github.com/ant-design/pro-components/pull/1420) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix QueryFilter span style error [#1419](https://github.com/ant-design/pro-components/pull/1419) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-form@1.11.0
 
 `2020-12-24`

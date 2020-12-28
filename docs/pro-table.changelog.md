@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.17.3
+
+`2020-12-28`
+
+- 🐛 fix(table): fix onfilter no work error [#1422](https://github.com/ant-design/pro-components/pull/1422) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.17.0
 
 `2020-12-24`
