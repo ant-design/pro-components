@@ -10848,13 +10848,12 @@ exports[`form demos 📸 renders ./packages/form/src/demos/multi-card-step-form.
             class="ant-pro-card-header ant-pro-card-header-border"
           >
             <div
-              class="ant-pro-card-title"
+              class="ant-pro-card-title ant-pro-card-title-collapsible"
             >
               <span
                 aria-label="right"
                 class="anticon anticon-right ant-pro-card-collapsible-icon"
                 role="img"
-                tabindex="-1"
               >
                 <svg
                   aria-hidden="true"
@@ -11148,13 +11147,12 @@ exports[`form demos 📸 renders ./packages/form/src/demos/multi-card-step-form.
             class="ant-pro-card-header ant-pro-card-header-border"
           >
             <div
-              class="ant-pro-card-title"
+              class="ant-pro-card-title ant-pro-card-title-collapsible"
             >
               <span
                 aria-label="right"
                 class="anticon anticon-right ant-pro-card-collapsible-icon"
                 role="img"
-                tabindex="-1"
               >
                 <svg
                   aria-hidden="true"
