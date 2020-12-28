@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.18.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.17.3...@ant-design/pro-table@2.18.0) (2020-12-28)
+
+### Features
+
+- **field:** 在 labelInVaue 的场景下能显示备选项里不存在的 valuezhi ([#1390](https://github.com/ant-design/pro-components/issues/1390)) ([e89f65e](https://github.com/ant-design/pro-components/commit/e89f65e86c0d21cf3b591dc300a3af6862545d82))
+
 ## [2.17.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.17.2...@ant-design/pro-table@2.17.3) (2020-12-28)
 
 ### Bug Fixes

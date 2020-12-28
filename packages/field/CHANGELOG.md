@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.4.5...@ant-design/pro-field@1.5.0) (2020-12-28)
+
+### Features
+
+- **field:** 在 labelInVaue 的场景下能显示备选项里不存在的 valuezhi ([#1390](https://github.com/ant-design/pro-components/issues/1390)) ([e89f65e](https://github.com/ant-design/pro-components/commit/e89f65e86c0d21cf3b591dc300a3af6862545d82))
+
 ## [1.4.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.4.4...@ant-design/pro-field@1.4.5) (2020-12-28)
 
 **Note:** Version bump only for package @ant-design/pro-field
