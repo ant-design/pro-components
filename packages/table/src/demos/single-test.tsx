@@ -50,7 +50,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     title: '状态',
     dataIndex: 'state',
     initialValue: 'all',
-    filters: true,
+    onFilter: true,
     order: 2,
     fieldProps: {
       noStyle: true,

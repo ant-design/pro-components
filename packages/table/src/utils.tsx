@@ -8,7 +8,7 @@ import type {
   ProTableEditableFnType,
   UseEditableUtilType,
 } from '@ant-design/pro-utils';
-import { isNil, LabelIconTip, omitUndefinedAndEmptyArr } from '@ant-design/pro-utils';
+import { isNil, LabelIconTip, omitBoolean, omitUndefinedAndEmptyArr } from '@ant-design/pro-utils';
 import type { ProFieldEmptyText } from '@ant-design/pro-field';
 import { proFieldParsingValueEnumToArray } from '@ant-design/pro-field';
 import get from 'rc-util/lib/utils/get';
@@ -21,7 +21,7 @@ import type {
   RequestData,
   UseFetchDataAction,
 } from './typing';
-import type { ColumnsState, useCounter } from './container';
+import type { ColumnsState, useContainer } from './container';
 import defaultRenderText from './defaultRender';
 
 /**
@@ -239,7 +239,7 @@ type ColumnRenderInterface<T> = {
   index: number;
   columnEmptyText?: ProFieldEmptyText;
   type: ProSchemaComponentTypes;
-  counter: ReturnType<typeof useCounter>;
+  counter: ReturnType<typeof useContainer>;
   editableUtils: UseEditableUtilType;
 };
 
@@ -363,7 +363,7 @@ export function columnRender<T>({
 export function genColumnList<T>(props: {
   columns: ProColumns<T>[];
   map: Record<string, ColumnsState>;
-  counter: ReturnType<typeof useCounter>;
+  counter: ReturnType<typeof useContainer>;
   columnEmptyText: ProFieldEmptyText;
   type: ProSchemaComponentTypes;
   editableUtils: UseEditableUtilType;
@@ -377,6 +377,7 @@ export function genColumnList<T>(props: {
         valueEnum,
         valueType,
         children,
+        onFilter,
         filters = [],
       } = columnProps as ProColumnGroupType<T>;
       const columnKey = genColumnKey(key, columnsIndex);
@@ -388,10 +389,6 @@ export function genColumnList<T>(props: {
       const { propsRef } = counter;
       const config = map[columnKey] || { fixed: columnProps.fixed };
       const tempColumns = {
-        onFilter:
-          !propsRef.current?.request || filters === true
-            ? (value: string, row: T) => defaultOnFilter(value, row, dataIndex as string[])
-            : undefined,
         index: columnsIndex,
         ...columnProps,
         title: renderColumnsTitle(columnProps),
@@ -402,6 +399,10 @@ export function genColumnList<T>(props: {
                 (valueItem) => valueItem && valueItem.value !== 'all',
               )
             : filters,
+        onFilter:
+          !propsRef.current?.request || (filters === true && onFilter !== undefined)
+            ? (value: string, row: T) => defaultOnFilter(value, row, dataIndex as string[])
+            : omitBoolean(onFilter),
         ellipsis: false,
         fixed: config.fixed,
         width: columnProps.width || (columnProps.fixed ? 200 : undefined),

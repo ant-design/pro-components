@@ -19,7 +19,7 @@ import type { AlertRenderType } from './components/Alert';
 import type { ListToolBarProps } from './components/ListToolBar';
 import type { OptionConfig, ToolBarProps } from './components/ToolBar';
 import type { DensitySize } from './components/ToolBar/DensityIcon';
-import type { ColumnsState, useCounter } from './container';
+import type { ColumnsState, useContainer } from './container';
 import type { SearchConfig, TableFormItem } from './components/Form';
 
 export type PageInfo = {
@@ -58,14 +58,14 @@ export type ColumnRenderInterface<T> = {
   index: number;
   columnEmptyText?: ProFieldEmptyText;
   type: ProSchemaComponentTypes;
-  counter: ReturnType<typeof useCounter>;
+  counter: ReturnType<typeof useContainer>;
 };
 
 export type TableRowSelection = TableProps<any>['rowSelection'];
 
 export type ExtraProColumnType<T> = Omit<
   ColumnType<T>,
-  'render' | 'children' | 'title' | 'filters'
+  'render' | 'children' | 'title' | 'filters' | 'onFilter'
 >;
 
 export type ProColumnType<T = unknown> = ProSchema<
@@ -107,7 +107,7 @@ export type ProColumnType<T = unknown> = ProSchema<
       | false
       | {
           /**
-           * @name 转化值的key, 一般用于时间区间的转化
+           * @name 转化值的key, 一般用于事件区间的转化
            * @description transform: (value: any) => ({ startTime: value[0], endTime: value[1] }),
            */
           transform: SearchTransformKeyFn;
@@ -127,6 +127,11 @@ export type ProColumnType<T = unknown> = ProSchema<
      * 表头的筛选菜单项
      */
     filters?: boolean | ColumnFilterItem[];
+
+    /**
+     * 筛选的函数，设置为 false 会关闭自带的本地筛选
+     */
+    onFilter?: boolean | ColumnType<T>['onFilter'];
 
     /**
      * form 的排序

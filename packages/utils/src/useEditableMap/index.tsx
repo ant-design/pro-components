@@ -5,6 +5,7 @@ import type { FormInstance } from 'antd/lib/form';
 import { message } from 'antd';
 import ReactDOM from 'react-dom';
 import type {
+  ActionRenderConfig,
   ActionTypeText,
   NewLineConfig,
   RecordKey,
@@ -136,8 +137,8 @@ function useEditableMap<RecordType>(
   };
 
   const actionRender = useCallback(
-    (key: RecordKey, form: FormInstance<any>, config?: ActionTypeText<RecordType>) =>
-      (props.actionRender || defaultActionRender)(props.dataSource, {
+    (key: RecordKey, form: FormInstance<any>, config?: ActionTypeText<RecordType>) => {
+      const renderConfig: ActionRenderConfig<RecordType, NewLineConfig<RecordType>> = {
         recordKey: recordKeyToString(key),
         cancelEditable,
         onCancel,
@@ -148,7 +149,16 @@ function useEditableMap<RecordType>(
         deletePopconfirmMessage: '删除此行？',
         editorType: 'Map',
         ...config,
-      }),
+      };
+      const defaultDoms = defaultActionRender(props.dataSource, renderConfig);
+      if (props.actionRender)
+        return props.actionRender(props.dataSource, renderConfig, {
+          save: defaultDoms[0],
+          delete: defaultDoms[1],
+          cancel: defaultDoms[2],
+        });
+      return defaultDoms;
+    },
     [editableKeys.join(',')],
   );
 

@@ -10,6 +10,7 @@ import isNil from './isNil';
 import isDropdownValueType from './isDropdownValueType';
 import pickProProps from './pickProProps';
 import omitUndefined from './omitUndefined';
+import omitBoolean from './omitBoolean';
 import omitUndefinedAndEmptyArr from './omitUndefinedAndEmptyArr';
 import pickProFormItemProps from './pickProFormItemProps';
 import type {
@@ -21,6 +22,7 @@ import type {
 import useEditableArray from './useEditableArray';
 import type { UseEditableMapType, UseEditableMapUtilType } from './useEditableMap';
 import useEditableMap from './useEditableMap';
+import useMountMergeState from './useMountMergeState';
 
 /**
  * hooks
@@ -73,6 +75,7 @@ export type {
 };
 
 export {
+  omitBoolean,
   LabelIconTip,
   FilterDropdown,
   FieldLabel,
@@ -99,4 +102,5 @@ export {
   useDeepCompareEffect,
   usePrevious,
   useDebounceFn,
+  useMountMergeState,
 };

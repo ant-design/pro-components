@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.11.2...@ant-design/pro-form@1.11.3) (2020-12-28)
+
+### Bug Fixes
+
+- **form:** fix ProFormSet no work error ([#1420](https://github.com/ant-design/pro-components/issues/1420)) ([e5c6f18](https://github.com/ant-design/pro-components/commit/e5c6f188e83bc9db282a57735f5f60f583999e07))
+- **form:** fix QueryFilter span style error ([#1419](https://github.com/ant-design/pro-components/issues/1419)) ([857aa70](https://github.com/ant-design/pro-components/commit/857aa704ec4f98a8e5637fe4a96b5ffb7a5cf03f))
+- fix typo ([#1412](https://github.com/ant-design/pro-components/issues/1412)) ([2f629ba](https://github.com/ant-design/pro-components/commit/2f629ba193746c2829e48fadcbab779d6e4a8cef))
+
+## [1.11.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.11.1...@ant-design/pro-form@1.11.2) (2020-12-25)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.11.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.0.0-beta.3...@ant-design/pro-form@1.11.1) (2020-12-25)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+# [1.11.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.10.4...@ant-design/pro-form@1.11.0) (2020-12-24)
+
+### Features
+
+- **chore:** adjust information structure ([#1383](https://github.com/ant-design/pro-components/issues/1383)) ([76b3f29](https://github.com/ant-design/pro-components/commit/76b3f2929c5a5dcd4ed78e723b2a01e3a5cdfbf5)), closes [#1376](https://github.com/ant-design/pro-components/issues/1376) [#1380](https://github.com/ant-design/pro-components/issues/1380)
+- **form:** 懒加载 DrawerForm 和 ModalFrom 优化性能 ([#1370](https://github.com/ant-design/pro-components/issues/1370)) ([743a0ce](https://github.com/ant-design/pro-components/commit/743a0ce00d00e326b02dd83a3ab349405ef92aff))
+
 ## [1.10.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.10.3...@ant-design/pro-form@1.10.4) (2020-12-21)
 
 ### Bug Fixes

@@ -1,8 +1,9 @@
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 import React, { useRef } from 'react';
 import { Input, Button } from 'antd';
 import { act } from 'react-dom/test-utils';
-import ProTable, { ActionType, TableDropdown } from '@ant-design/pro-table';
+import type { ActionType } from '@ant-design/pro-table';
+import ProTable, { TableDropdown } from '@ant-design/pro-table';
 import { columns, request } from './demo';
 import { waitForComponentToPaint, waitTime } from '../util';
 
@@ -41,7 +42,7 @@ describe('BasicTable', () => {
   });
 
   it('🎏 base use', async () => {
-    const html = mount(
+    const html = render(
       <ProTable
         size="small"
         columns={columns}
@@ -70,12 +71,11 @@ describe('BasicTable', () => {
         ]}
       />,
     );
-    await waitForComponentToPaint(html, 1000);
-    expect(html.render()).toMatchSnapshot();
+    expect(html).toMatchSnapshot();
   });
 
   it('🎏 do not render Search ', async () => {
-    const html = mount(
+    const html = render(
       <ProTable
         size="small"
         columns={columns}
@@ -92,12 +92,11 @@ describe('BasicTable', () => {
       />,
     );
 
-    await waitForComponentToPaint(html, 1000);
-    expect(html.render()).toMatchSnapshot();
+    expect(html).toMatchSnapshot();
   });
 
-  it('🎏  do not render default option', async () => {
-    const html = mount(
+  it('🎏 do not render default option', async () => {
+    const html = render(
       <ProTable
         size="small"
         options={{
@@ -115,12 +114,11 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
-    expect(html.render()).toMatchSnapshot();
+    expect(html).toMatchSnapshot();
   });
 
   it('🎏 do not render setting', async () => {
-    const html = mount(
+    const html = render(
       <ProTable
         size="small"
         options={{
@@ -138,8 +136,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
-    expect(html.render()).toMatchSnapshot();
+    expect(html).toMatchSnapshot();
   });
 
   it('🎏 do not render pagination', async () => {
@@ -158,11 +155,18 @@ describe('BasicTable', () => {
           },
         ]}
         pagination={false}
-        request={request}
+        request={async () => ({
+          data: [
+            {
+              key: 'first',
+            },
+          ],
+          success: true,
+        })}
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 600);
     expect(html.find('ul.ant-pagination').exists()).toBeFalsy();
 
     act(() => {
@@ -171,7 +175,7 @@ describe('BasicTable', () => {
       });
     });
 
-    await waitForComponentToPaint(html, 20);
+    await waitForComponentToPaint(html, 600);
     expect(html.find('ul.ant-pagination').exists()).toBeTruthy();
   });
 
@@ -185,13 +189,23 @@ describe('BasicTable', () => {
             valueType: 'money',
           },
         ]}
-        request={request}
+        request={async () => ({
+          data: [],
+          success: true,
+        })}
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
-    html.find('ProTable').simulateError(new Error('test error'));
-    expect(html.render()).toMatchSnapshot();
+    await waitForComponentToPaint(html, 300);
+    act(() => {
+      html.find('ProTable').simulateError(new Error('test error'));
+    });
+    await waitForComponentToPaint(html, 10);
+    let dom = null;
+    act(() => {
+      dom = html.render();
+    });
+    expect(dom).toMatchSnapshot();
   });
 
   it('🎏 request test', async () => {
@@ -219,7 +233,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
     expect(fn).toBeCalled();
   });
 
@@ -248,7 +262,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
     expect(fn).toBeCalled();
   });
 
@@ -303,16 +317,18 @@ describe('BasicTable', () => {
       );
     };
     const html = mount(<Reload />);
-    await waitForComponentToPaint(html, 1000);
+
+    await waitForComponentToPaint(html, 1200);
 
     act(() => {
       html.find('Button#reload').simulate('click');
     });
+
     act(() => {
       html.find('Button#reload').simulate('click');
     });
 
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
 
     // 因为有 loading 的控制，所有只会触发两次
     expect(fn).toBeCalledTimes(2);
@@ -321,7 +337,7 @@ describe('BasicTable', () => {
       html.find('Button#reset').simulate('click');
     });
 
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
 
     expect(fn).toBeCalledTimes(3);
   });
@@ -344,7 +360,8 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+
+    await waitForComponentToPaint(html, 1200);
 
     expect(fn).toBeCalled();
   });
@@ -376,11 +393,12 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
 
     act(() => {
       actionRef.current?.clearSelected?.();
     });
+    await waitForComponentToPaint(html);
     expect(fn).toBeCalled();
     expect(onChangeFn).toBeCalled();
   });
@@ -417,13 +435,13 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
 
     act(() => {
       html.find('.ant-pro-table-list-toolbar-setting-item span.anticon-reload').simulate('click');
     });
 
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
     expect(fn).toBeCalledTimes(2);
   });
 
@@ -456,13 +474,13 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
 
     act(() => {
       html.find('.ant-pro-table-list-toolbar-setting-item span.anticon-reload').simulate('click');
     });
 
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
     expect(fn).toBeCalledTimes(2);
   });
 
@@ -502,7 +520,7 @@ describe('BasicTable', () => {
       html.find('.ant-dropdown-menu .ant-dropdown-menu-item').at(0).simulate('click');
     });
 
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
     expect(fn).toBeCalledWith('large');
   });
 
@@ -531,7 +549,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
     act(() => {
       actionRef.current?.reload(true);
     });
@@ -541,7 +559,7 @@ describe('BasicTable', () => {
     act(() => {
       actionRef.current?.reload(true);
     });
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
     expect(fn).toBeCalledTimes(2);
   });
 
@@ -567,11 +585,14 @@ describe('BasicTable', () => {
       />,
     );
 
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
 
     expect(postFn).toBeCalled();
     // test useEffect render
-    html.unmount();
+
+    act(() => {
+      html.unmount();
+    });
   });
 
   it('🎏 fullscreen icon test', async () => {
@@ -597,7 +618,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
 
     act(() => {
       html
@@ -605,7 +626,7 @@ describe('BasicTable', () => {
         .simulate('click');
     });
 
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
 
     expect(fn).toBeCalledTimes(1);
   });
@@ -635,7 +656,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
 
     act(() => {
       html
@@ -643,7 +664,7 @@ describe('BasicTable', () => {
         .simulate('click');
     });
 
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
 
     expect(fn).not.toBeCalled();
   });
@@ -709,7 +730,7 @@ describe('BasicTable', () => {
         .find('.ant-pro-table-list-toolbar-setting-item span.anticon-fullscreen')
         .simulate('click');
     });
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
 
     expect(!!document.fullscreenElement).toBeTruthy();
 
@@ -749,18 +770,18 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
 
     act(() => {
       html
         .find('.ant-pro-table-list-toolbar-setting-item span.anticon-column-height')
         .simulate('click');
     });
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
     act(() => {
       html.find('.ant-dropdown-menu-item').at(1).simulate('click');
     });
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
 
     expect(fn).toBeCalledWith('middle');
   });
@@ -785,7 +806,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
     expect(html.find('.ant-spin').exists()).toBeTruthy();
 
     act(() => {
@@ -793,13 +814,14 @@ describe('BasicTable', () => {
         loading: false,
       });
     });
-    await waitForComponentToPaint(html, 1000);
+
+    await waitForComponentToPaint(html, 1200);
     // props 指定为 false 后，无论 request 完成与否都不会出现 spin
     expect(html.find('.ant-spin').exists()).toBeFalsy();
   });
 
   it('🎏 columns = undefined', async () => {
-    const html = mount(
+    const html = render(
       <ProTable
         columns={undefined}
         request={async () => {
@@ -808,8 +830,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
-    expect(html.render()).toMatchSnapshot();
+    expect(html).toMatchSnapshot();
   });
 
   it('🎏 search = true', async () => {
@@ -825,6 +846,7 @@ describe('BasicTable', () => {
           return {
             data: [
               {
+                key: '1',
                 name: 'string',
               },
             ],
@@ -833,7 +855,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
 
     act(() => {
       html.find('.ant-pro-table-list-toolbar-search input').simulate('change', {
@@ -858,7 +880,7 @@ describe('BasicTable', () => {
     const fn = jest.fn();
     const html = mount(
       <ProTable<
-        {},
+        Record<string, unknown>,
         {
           test: string;
         }
@@ -898,7 +920,7 @@ describe('BasicTable', () => {
   });
 
   it('🎏 bordered = true ', async () => {
-    const html = mount(
+    const html = render(
       <ProTable
         size="small"
         cardBordered
@@ -915,12 +937,11 @@ describe('BasicTable', () => {
       />,
     );
 
-    await waitForComponentToPaint(html, 1000);
-    expect(html.render()).toMatchSnapshot();
+    expect(html).toMatchSnapshot();
   });
 
   it('🎏 bordered = {search = true, table = false} ', async () => {
-    const html = mount(
+    const html = render(
       <ProTable
         size="small"
         cardBordered={{
@@ -939,8 +960,6 @@ describe('BasicTable', () => {
         }}
       />,
     );
-
-    await waitForComponentToPaint(html, 1000);
-    expect(html.render()).toMatchSnapshot();
+    expect(html).toMatchSnapshot();
   });
 });

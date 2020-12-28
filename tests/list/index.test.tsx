@@ -299,7 +299,7 @@ describe('List', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
     expect(html.find('.ant-pro-list-row-title').length).toEqual(2);
     act(() => {
       html.find('.ant-pro-core-field-label').simulate('click');
@@ -319,11 +319,11 @@ describe('List', () => {
       html.find('.ant-btn.ant-btn-primary').simulate('click');
     });
 
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
     expect(onRequest).toHaveBeenCalledWith(
       {
         current: 1,
-        pageSize: 20,
+        pageSize: 5,
         title: 'test',
       },
       {},

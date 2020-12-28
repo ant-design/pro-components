@@ -6,35 +6,6 @@ import { getFetchData } from './demo';
 import { waitForComponentToPaint } from '../util';
 
 describe('BasicTable Search', () => {
-  const LINE_STR_COUNT = 20;
-  // Mock offsetHeight
-  // @ts-expect-error
-  const originOffsetHeight = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'offsetHeight')
-    .get;
-  Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
-    get() {
-      let html = this.innerHTML;
-      html = html.replace(/<[^>]*>/g, '');
-      const lines = Math.ceil(html.length / LINE_STR_COUNT);
-      return lines * 16;
-    },
-  });
-
-  // Mock getComputedStyle
-  const originGetComputedStyle = window.getComputedStyle;
-  window.getComputedStyle = (ele) => {
-    const style = originGetComputedStyle(ele);
-    style.lineHeight = '16px';
-    return style;
-  };
-
-  afterAll(() => {
-    Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
-      get: originOffsetHeight,
-    });
-    window.getComputedStyle = originGetComputedStyle;
-  });
-
   it('🎏 filter test', async () => {
     const fn = jest.fn();
     const html = mount(
@@ -50,6 +21,7 @@ describe('BasicTable Search', () => {
             title: '状态',
             dataIndex: 'status',
             filters: true,
+            onFilter: true,
             valueEnum: {
               0: { text: '关闭', status: 'Default' },
               1: { text: '运行中', status: 'Processing' },
@@ -63,10 +35,12 @@ describe('BasicTable Search', () => {
           {
             status: 0,
             money: '1',
+            key: '2',
           },
           {
             money: '2',
             status: 1,
+            key: '1',
           },
         ]}
         rowKey="key"
@@ -118,6 +92,7 @@ describe('BasicTable Search', () => {
             title: '状态',
             dataIndex: ['name', 'status'],
             filters: true,
+            onFilter: true,
             valueEnum: {
               0: { text: '关闭', status: 'Default' },
               1: { text: '运行中', status: 'Processing' },
@@ -131,10 +106,12 @@ describe('BasicTable Search', () => {
           {
             status: 0,
             money: '1',
+            key: '1',
           },
           {
             money: '2',
             status: 1,
+            key: '2',
           },
         ]}
         rowKey="key"
@@ -186,6 +163,7 @@ describe('BasicTable Search', () => {
             title: '状态',
             dataIndex: 'status',
             filters: [{ text: '关闭', value: 0 }],
+            onFilter: true,
             valueEnum: {
               0: { text: '关闭', status: 'Default' },
               1: { text: '运行中', status: 'Processing' },
@@ -207,12 +185,14 @@ describe('BasicTable Search', () => {
                   status: 0,
                   money: '1',
                 },
+                key: '2',
               },
               {
                 name: {
                   money: '2',
                   status: 1,
                 },
+                key: '1',
               },
             ],
           };
@@ -280,6 +260,7 @@ describe('BasicTable Search', () => {
             dataIndex: 'status',
             hideInForm: true,
             filters: true,
+            onFilter: true,
             valueEnum: {
               0: { text: '关闭', status: 'Default' },
               1: { text: '运行中', status: 'Processing' },
@@ -337,6 +318,7 @@ describe('BasicTable Search', () => {
             dataIndex: 'status',
             hideInForm: true,
             filters: true,
+            onFilter: true,
             valueEnum: {
               0: { text: '关闭', status: 'Default' },
               1: { text: '运行中', status: 'Processing' },

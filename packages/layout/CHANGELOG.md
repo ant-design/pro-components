@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.9.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.9.2...@ant-design/pro-layout@6.9.3) (2020-12-28)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.9.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.9.1...@ant-design/pro-layout@6.9.2) (2020-12-25)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.9.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.9.0...@ant-design/pro-layout@6.9.1) (2020-12-25)
+
+### Bug Fixes
+
+- **layout:** add PageLoading ([0153505](https://github.com/ant-design/pro-components/commit/0153505ccf6e009137d2e75d41f80830c709174d))
+- **layout:** export PageContainerProps ([f8e7c67](https://github.com/ant-design/pro-components/commit/f8e7c672a0a295630471efb61438b25fda361ca4))
+
+# [6.9.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.8.0...@ant-design/pro-layout@6.9.0) (2020-12-24)
+
+### Features
+
+- **chore:** adjust information structure ([#1383](https://github.com/ant-design/pro-components/issues/1383)) ([76b3f29](https://github.com/ant-design/pro-components/commit/76b3f2929c5a5dcd4ed78e723b2a01e3a5cdfbf5)), closes [#1376](https://github.com/ant-design/pro-components/issues/1376) [#1380](https://github.com/ant-design/pro-components/issues/1380)
+
 # [6.8.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.7.0...@ant-design/pro-layout@6.8.0) (2020-12-21)
 
 ### Features

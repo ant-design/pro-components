@@ -29,6 +29,10 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 
 <code src="./demos/dataSource.tsx" background="#f5f5f5" height="500px"/>
 
+### 动态设置
+
+<code src="./demos/dynamic-settings.tsx"  background="#f5f5f5" iframe="500px"/>
+
 ### 降级为普通表格
 
 <code src="./demos/normal.tsx" background="#f5f5f5" height="400px"/>
@@ -134,7 +138,7 @@ ProTable 内置了国际化的支持，作为一个文本量比较少的组件�
 
 ```typescript | pure
 const enLocale = {
-  tableFrom: {
+  tableForm: {
     search: 'Query',
     reset: 'Reset',
     submit: 'Submit',
@@ -259,7 +263,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | onRequestError | 数据加载失败时触发 | `(error) => void` | - |
 | tableClassName | 封装的 table 的 className | string | - |
 | tableStyle | 封装的 table 的 style | [CSSProperties](https://www.htmlhelp.com/reference/css/properties.html) | - |
-| options | table 工具栏，设为 false 时不显示 | `{{ fullScreen: boolean \| function, reload: boolean \| function,setting: true }}` | `{ fullScreen: true, reload:true, setting: true}` |
+| options | table 工具栏，设为 false 时不显示 | `{{ fullScreen: boolean \| function, reload: boolean \| function,setting: true, density?: boolean }}` | `{ fullScreen: false, reload:true, setting: true}` |
 | search | 是否显示搜索表单，传入对象时为搜索表单的配置 | `false` \| [SearchConfig](#search-搜索表单) | true |
 | dateFormatter | 转化 moment 格式数据为特定类型，false 不做转化 | `"string"` \| `"number"` \| `false` | `"string"` |
 | beforeSearchSubmit | 搜索之前进行一些修改 | `(params:T)=>T` | - |
@@ -275,7 +279,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | toolbar | 透传 `ListToolBar` 配置项 | [ListToolBarProps](#listtoolbarprops) | - |
 | tableExtraRender | 自定义表格的主体函数 | `(props: ProTableProps<T, U>, dataSource: T[]) => ReactNode;` | - |
 | manualRequest | 是否需要手动触发首次请求, 配置为 `true` 时不可隐藏搜索表单 | `boolean` | false |
-| editable | 可编辑表格的相关配置 | [TableRowEditable<T>](#editable) | - |
+| editable | 可编辑表格的相关配置 | [TableRowEditable<T>](<(/components/editable-table)#editable-编辑行配置>) | - |
 | cardBordered | Table 和 Search 外围 Card 组件的边框 | `boolean \| {search?: boolean, table?: boolean}` | false |
 
 #### RecordCreator
@@ -302,21 +306,6 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | onCollapse | 收起按钮的事件 | `(collapsed: boolean) => void;` | - |
 | optionRender | 自定义操作栏 | `((searchConfig,formProps) => ReactNode[])`\|`false` | - |
 
-### editable 编辑行配置
-
-| 属性 | 描述 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| type | 可编辑表格的类型，单行编辑或者多行编辑 | `single` \| `multiple` | - |
-| editableKeys | 正在编辑的行，受控属性。 默认 `key` 会使用 `rowKey` 的配置，如果没有配置会使用 `index`，建议使用 rowKey | `Key[]` | - |
-| onChange | 行数据被修改的时候触发 | `(editableKeys: Key[], editableRows: T[]) => void` | - |
-| onSave | 保存一行的时候触发，只更新 | `(key: Key, row: T,newLine?:newLineConfig) => Promise<boolean>` | - |
-| onDelete | 删除一行的时候触发 | `(key: Key, row: T) => Promise<boolean>` | - |
-| onCancel | 取消编辑一行时触发 | `(key: Key, row: T,newLine?:newLineConfig) => Promise<boolean>` | - |
-| actionRender | 自定义编辑模式的操作栏 | `(row: T, config: ActionRenderConfig<T>) => ReactNode[]` | - |
-| deletePopconfirmMessage | 删除时弹出的确认框提示消息 | `ReactNode` | `删除此行？` |
-| onlyOneLineEditorAlertMessage | 只能编辑一行的的提示 | `ReactNode` | `只能同时编辑一行` |
-| onlyAddOneLineAlertMessage | 只能同时新增一行的提示 | `ReactNode` | `只能新增一行` |
-
 #### ColConfig
 
 ```tsx | pure
@@ -327,6 +316,22 @@ const defaultColConfig = {
   lg: 12,
   xl: 8,
   xxl: 6,
+};
+```
+
+#### 菜单栏 options 配置
+
+```tsx | pure
+export type OptionsType =
+  | ((e: React.MouseEvent<HTMLSpanElement>, action?: ActionType) => void)
+  | boolean;
+
+export type OptionConfig = {
+  density?: boolean;
+  fullScreen?: OptionsType;
+  reload?: OptionsType;
+  setting?: boolean;
+  search?: (SearchProps & { name?: string }) | boolean;
 };
 ```
 
@@ -385,12 +390,13 @@ ref.current.cancelEditable(rowKey);
 | hideInTable | 在 Table 中不展示此列 | `boolean` | - |
 | hideInForm | 在 Form 模式下 中不展示此列 | `boolean` | - |
 | filters | 表头的筛选菜单项，当值为 true 时，自动使用 valueEnum 生成 | `boolean` \| `object[]` | false |
+| onFilter | 筛选表单，为 true 时使用 ProTable 自带的，为 false 时关闭本地筛选 | `(value, record) => boolean` \| 'false' | false |
 | order | 查询表单中的权重，权重大排序靠前 | `number` | - |
 | renderFormItem | 渲染查询表单的输入组件 | `(item,props:{value,onChange}) => ReactNode` | - |
 | fieldProps | 查询表单的 props，会透传给表单项 | `{ [prop: string]: any }` | - |
 | search | 配置列的搜索相关，false 为隐藏 | `false` \| `{ transform: (value: any) => any }` | true |
 | search.transform | 转化值的 key, 一般用于事件区间的转化 | `(value: any) => any` | - |
-| editable | 在编辑表格中是否可编辑的，函数的参数和 table 的 render 一样 | `false` \| `(text: any, record: T,index: number) => boolean` | true |
+| [editable](/components/editable-table) | 在编辑表格中是否可编辑的，函数的参数和 table 的 render 一样 | `false` \| `(text: any, record: T,index: number) => boolean` | true |
 | colSize | 一个表单项占用的格子数量, `占比= colSize*span`，`colSize` 默认为 1 ，`span` 为 8，`span`是`form={{span:8}}` 全局设置的 | `number` | - |
 
 ### valueType 值类型
@@ -459,7 +465,7 @@ return { type: 'money', locale: 'en-Us' };
 return { type: 'percent', showSymbol: true | false, precision: 2 };
 ```
 
-valueEnum 需要传入一个枚举，ProTable 会自动根据值获取响应的枚举，并且在 from 中生成一个下拉框。看起来是这样的：
+valueEnum 需要传入一个枚举，ProTable 会自动根据值获取响应的枚举，并且在 form 中生成一个下拉框。看起来是这样的：
 
 ```ts | pure
 const valueEnum = {
@@ -498,7 +504,7 @@ const valueEnum = (row) =>
       };
 ```
 
-> 这里值得注意的是在 from 中并没有 row，所以传入了一个 null，你可以根据这个来判断要在 from 中显示什么选项。
+> 这里值得注意的是在 form 中并没有 row，所以传入了一个 null，你可以根据这个来判断要在 form 中显示什么选项。
 
 ### valueEnum
 

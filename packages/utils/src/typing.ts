@@ -170,20 +170,14 @@ export type ProSchema<T = unknown, Extra = unknown, V = ProSchemaComponentTypes>
   /**
    * 选择如何渲染相应的模式
    */
-  valueType?:
-    | ((entity: T, type: V) => ProSchemaValueType)
-    | ProSchemaValueType;
+  valueType?: ((entity: T, type: V) => ProSchemaValueType) | ProSchemaValueType;
 
   /**
    * @name 标题
    * @description 支持 ReactNode 和 方法
    */
   title?:
-    | ((
-        schema: ProSchema<T, Extra>,
-        type: V,
-        dom: React.ReactNode,
-      ) => React.ReactNode)
+    | ((schema: ProSchema<T, Extra>, type: V, dom: React.ReactNode) => React.ReactNode)
     | React.ReactNode;
 
   /**

@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.2.2...@ant-design/pro-list@1.2.3) (2020-12-28)
+
+### Bug Fixes
+
+- **table:** fix onfilter no work error ([#1422](https://github.com/ant-design/pro-components/issues/1422)) ([4fb9e4b](https://github.com/ant-design/pro-components/commit/4fb9e4b8a85a1374ab0d0710b6796d3b09ced06a))
+
+## [1.2.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.2.1...@ant-design/pro-list@1.2.2) (2020-12-25)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.2.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.2.0...@ant-design/pro-list@1.2.1) (2020-12-25)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+# [1.2.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.1.14...@ant-design/pro-list@1.2.0) (2020-12-24)
+
+### Bug Fixes
+
+- **list:** fix list pagination no work error ([#1393](https://github.com/ant-design/pro-components/issues/1393)) ([0cb0ca8](https://github.com/ant-design/pro-components/commit/0cb0ca8ee57e6333762bab18969164f4f2c01e46))
+
+### Features
+
+- **chore:** adjust information structure ([#1383](https://github.com/ant-design/pro-components/issues/1383)) ([76b3f29](https://github.com/ant-design/pro-components/commit/76b3f2929c5a5dcd4ed78e723b2a01e3a5cdfbf5)), closes [#1376](https://github.com/ant-design/pro-components/issues/1376) [#1380](https://github.com/ant-design/pro-components/issues/1380)
+
 ## [1.1.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.1.13...@ant-design/pro-list@1.1.14) (2020-12-21)
 
 **Note:** Version bump only for package @ant-design/pro-list

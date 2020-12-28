@@ -58,6 +58,7 @@ const ProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((props, r
       setTiming(true);
     } catch (error) {
       setLoading(false);
+      // eslint-disable-next-line no-console
       console.log(error);
     }
   }, []);
@@ -83,7 +84,7 @@ const ProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((props, r
 
   return (
     <Form.Item noStyle shouldUpdate>
-      {({ getFieldValue }) => (
+      {({ getFieldValue, validateFields }) => (
         <div
           style={{
             ...fieldProps?.style,
@@ -109,9 +110,15 @@ const ProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((props, r
             disabled={timing}
             loading={loading}
             {...captchaProps}
-            onClick={() => {
-              const mobile = getFieldValue('mobile');
-              onGetCaptcha(mobile);
+            onClick={async () => {
+              try {
+                await validateFields([name].flat(1) as string[]);
+                const mobile = getFieldValue([name].flat(1) as string[]);
+                onGetCaptcha(mobile);
+              } catch (error) {
+                // eslint-disable-next-line no-console
+                console.log(error);
+              }
             }}
           >
             {captchaTextRender(timing, count)}

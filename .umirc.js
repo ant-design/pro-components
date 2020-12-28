@@ -77,13 +77,26 @@ export default {
   resolve: {
     includes: [...tailPkgList, 'docs'],
   },
-  navs: [
-    null,
-    {
-      title: 'GitHub',
-      path: 'https://github.com/ant-design/pro-components',
-    },
+  locales: [
+    ['zh-CN', '中文'],
+    ['en-US', 'English'],
   ],
+  navs: {
+    'en-US': [
+      null,
+      {
+        title: 'GitHub',
+        path: 'https://github.com/ant-design/pro-components',
+      },
+    ],
+    'zh-CN': [
+      null,
+      {
+        title: 'GitHub',
+        path: 'https://github.com/ant-design/pro-components',
+      },
+    ],
+  },
   analytics: isProduction
     ? {
         ga: 'UA-173569162-1',
@@ -134,19 +147,41 @@ export default {
       },
       {
         title: '布局',
-        children: ['layout', 'PageContainer/index.md', 'card'],
+        children: ['layout', 'PageContainer/index', 'card'],
       },
       {
         title: '数据录入',
-        children: ['form', 'field'],
+        children: ['form'],
       },
       {
         title: '数据展示',
-        children: ['table', 'EditableTable/index.md', 'list', 'description'],
+        children: ['table', 'EditableTable/index', 'list', 'description'],
       },
       {
         title: '通用',
-        children: ['skeleton'],
+        children: ['skeleton', 'field'],
+      },
+    ],
+    '/en-US/components': [
+      {
+        title: 'Architecture Design',
+        children: ['components'],
+      },
+      {
+        title: 'Layout',
+        children: ['layout', 'PageContainer/index', 'card'],
+      },
+      {
+        title: 'Data entry',
+        children: ['form'],
+      },
+      {
+        title: 'Data Display',
+        children: ['table', 'EditableTable/index', 'list', 'description'],
+      },
+      {
+        title: 'General',
+        children: ['skeleton', 'field'],
       },
     ],
   },
