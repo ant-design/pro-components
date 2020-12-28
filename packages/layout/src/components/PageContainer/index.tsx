@@ -174,18 +174,32 @@ const defaultPageHeaderRender = (
   if (!title && title !== false) {
     pageHeaderTitle = value.title;
   }
+  const pageHeaderProps = {
+    ...value,
+    title: pageHeaderTitle,
+    ...restProps,
+    footer: renderFooter({
+      ...restProps,
+      prefixedClassName: value.prefixedClassName,
+    }),
+    ...header,
+  };
+
+  if (
+    !pageHeaderProps.title &&
+    !pageHeaderProps.subTitle &&
+    !pageHeaderProps.breadcrumb?.itemRender &&
+    !pageHeaderProps.breadcrumb?.routes?.length &&
+    !pageHeaderProps.extra &&
+    !pageHeaderProps.tags &&
+    !pageHeaderProps.footer &&
+    !pageHeaderProps.avatar &&
+    !pageHeaderProps.backIcon
+  ) {
+    return null;
+  }
   return (
-    <PageHeader
-      {...value}
-      title={pageHeaderTitle}
-      {...restProps}
-      footer={renderFooter({
-        ...restProps,
-        prefixedClassName: value.prefixedClassName,
-      })}
-      {...header}
-      prefixCls={prefixCls}
-    >
+    <PageHeader {...pageHeaderProps} prefixCls={prefixCls}>
       {header?.children || renderPageHeader(content, extraContent, value.prefixedClassName)}
     </PageHeader>
   );
