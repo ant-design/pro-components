@@ -57,7 +57,6 @@ export const ObjToMap = (value: ProFieldValueEnumType | undefined): ProSchemaVal
   return new Map(Object.entries(value || {}));
 };
 
-
 /**
  * 转化 text 和 valueEnum
  * 通过 type 来添加 Status
