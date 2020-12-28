@@ -57,12 +57,6 @@ export const ObjToMap = (value: ProFieldValueEnumType | undefined): ProSchemaVal
   return new Map(Object.entries(value || {}));
 };
 
-export const pickLabel = (text: any) => {
-  if (text?.label) {
-    return text?.label;
-  }
-  return text;
-};
 
 /**
  * 转化 text 和 valueEnum
