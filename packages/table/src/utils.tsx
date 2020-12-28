@@ -400,7 +400,8 @@ export function genColumnList<T>(props: {
               )
             : filters,
         onFilter:
-          !propsRef.current?.request || (filters === true && onFilter !== undefined)
+          (!propsRef.current?.request && onFilter !== undefined) ||
+          (filters === true && onFilter !== undefined)
             ? (value: string, row: T) => defaultOnFilter(value, row, dataIndex as string[])
             : omitBoolean(onFilter),
         ellipsis: false,
