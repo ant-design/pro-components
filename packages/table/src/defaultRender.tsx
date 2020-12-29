@@ -3,6 +3,7 @@ import { Form } from 'antd';
 import type { ProFieldEmptyText, ProFieldPropsType } from '@ant-design/pro-field';
 import ProField from '@ant-design/pro-field';
 import type { ProFieldValueType, ProSchemaComponentTypes } from '@ant-design/pro-utils';
+import { runFunction } from '@ant-design/pro-utils';
 import { getFieldPropsOrFormItemProps, InlineErrorFormItem } from '@ant-design/pro-utils';
 import type { FormInstance } from 'antd/lib/form/Form';
 
@@ -25,15 +26,6 @@ export const spellNamePath = (
   return [base, dataIndex];
 };
 
-/**
- * 如果 valueEnum 是个方法执行一下它
- */
-export function runValueEnum<T>(valueEnum: any, row?: T) {
-  if (typeof valueEnum === 'function') {
-    return valueEnum(row);
-  }
-  return valueEnum;
-}
 /**
  * 根据不同的类型来转化数值
  * @param text
@@ -75,7 +67,7 @@ function defaultRenderText<T>(config: {
    * 生成公用的  proField dom 配置
    */
   const proFieldProps: ProFieldPropsType = {
-    valueEnum: runValueEnum<T>(columnProps?.valueEnum, rowData),
+    valueEnum: runFunction<[T | undefined]>(columnProps?.valueEnum, rowData),
     request: columnProps?.request,
     params: columnProps?.params,
     proFieldKey: columnProps?.dataIndex?.toString() || columnProps?.key,

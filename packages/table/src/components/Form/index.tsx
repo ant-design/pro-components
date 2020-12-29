@@ -20,6 +20,7 @@ import type {
   SearchTransformKeyFn,
   ProFieldValueType,
 } from '@ant-design/pro-utils';
+import { runFunction } from '@ant-design/pro-utils';
 import {
   omitBoolean,
   useDeepCompareEffect,
@@ -31,7 +32,6 @@ import {
 import { genColumnKey } from '../../utils';
 import type { ProColumns } from '../../index';
 import './index.less';
-import { runValueEnum } from '../../defaultRender';
 
 export type SearchConfig = BaseQueryFilterProps & {
   filterType?: 'query' | 'light';
@@ -210,7 +210,7 @@ export const formInputRender: React.FC<{
       ref={ref}
       tooltip={item.tooltip || item.tip}
       isDefaultDom
-      valueEnum={runValueEnum(item.valueEnum, undefined)}
+      valueEnum={runFunction<[undefined]>(item.valueEnum, undefined)}
       name={item.key || item.dataIndex}
       onChange={onChange}
       fieldProps={{

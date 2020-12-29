@@ -2,10 +2,11 @@ import React, { useEffect } from 'react';
 import { Space, Tooltip, Form, Typography } from 'antd';
 
 import type { ColumnsType, TablePaginationConfig } from 'antd/lib/table';
-import type {
+import {
   ProFieldValueType,
   ProSchemaComponentTypes,
   ProTableEditableFnType,
+  runFunction,
   UseEditableUtilType,
 } from '@ant-design/pro-utils';
 import { isNil, LabelIconTip, omitBoolean, omitUndefinedAndEmptyArr } from '@ant-design/pro-utils';
@@ -22,7 +23,7 @@ import type {
   UseFetchDataAction,
 } from './typing';
 import type { ColumnsState, useContainer } from './container';
-import defaultRenderText, { runValueEnum } from './defaultRender';
+import defaultRenderText from './defaultRender';
 
 /**
  * 检查值是否存在
@@ -395,9 +396,9 @@ export function genColumnList<T>(props: {
         valueEnum,
         filters:
           filters === true
-            ? proFieldParsingValueEnumToArray(runValueEnum(valueEnum, {})).filter(
-                (valueItem) => valueItem && valueItem.value !== 'all',
-              )
+            ? proFieldParsingValueEnumToArray(
+                runFunction<[undefined]>(valueEnum, undefined),
+              ).filter((valueItem) => valueItem && valueItem.value !== 'all')
             : filters,
         onFilter:
           (!propsRef.current?.request && onFilter === true) ||
