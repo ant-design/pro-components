@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.9.4
+
+`2020-12-28`
+
+- 🐛 fix(layout): fix props is null, no render pageheader [#1432](https://github.com/ant-design/pro-components/pull/1432) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-layout@6.9.3
 
 `2020-12-28`
