@@ -161,6 +161,7 @@ export function useActionType<T>(
       reloadAndRest: async () => {
         // reload 之后大概率会切换数据，清空一下选择。
         props.onCleanSelected();
+        await action.resetPageIndex();
         await action?.reload();
       },
       reset: async () => {
