@@ -3,6 +3,7 @@ import { Form } from 'antd';
 import type { ProFieldEmptyText, ProFieldPropsType } from '@ant-design/pro-field';
 import ProField from '@ant-design/pro-field';
 import type { ProFieldValueType, ProSchemaComponentTypes } from '@ant-design/pro-utils';
+import { runFunction } from '@ant-design/pro-utils';
 import { getFieldPropsOrFormItemProps, InlineErrorFormItem } from '@ant-design/pro-utils';
 import type { FormInstance } from 'antd/lib/form/Form';
 
@@ -66,7 +67,7 @@ function defaultRenderText<T>(config: {
    * 生成公用的  proField dom 配置
    */
   const proFieldProps: ProFieldPropsType = {
-    valueEnum: columnProps?.valueEnum,
+    valueEnum: runFunction<[T | undefined]>(columnProps?.valueEnum, rowData),
     request: columnProps?.request,
     params: columnProps?.params,
     proFieldKey: columnProps?.dataIndex?.toString() || columnProps?.key,

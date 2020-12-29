@@ -53,6 +53,7 @@ import type {
 } from './typing';
 import getFieldPropsOrFormItemProps from './getFieldPropsOrFormItemProps';
 import DropdownFooter from './components/DropdownFooter';
+import { runFunction } from './runFunction';
 
 export type {
   ProSchema,
@@ -95,6 +96,7 @@ export {
   isUrl,
   isBrowser,
   pickProProps,
+  runFunction,
   getFieldPropsOrFormItemProps,
   // hooks
   useEditableArray,

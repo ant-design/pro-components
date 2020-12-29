@@ -20,6 +20,7 @@ import type {
   SearchTransformKeyFn,
   ProFieldValueType,
 } from '@ant-design/pro-utils';
+import { runFunction } from '@ant-design/pro-utils';
 import {
   omitBoolean,
   useDeepCompareEffect,
@@ -209,7 +210,7 @@ export const formInputRender: React.FC<{
       ref={ref}
       tooltip={item.tooltip || item.tip}
       isDefaultDom
-      valueEnum={item.valueEnum}
+      valueEnum={runFunction<[undefined]>(item.valueEnum, undefined)}
       name={item.key || item.dataIndex}
       onChange={onChange}
       fieldProps={{
