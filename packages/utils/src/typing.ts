@@ -257,7 +257,10 @@ export type ProSchema<T = unknown, Extra = unknown, V = ProSchemaComponentTypes>
   /**
    * @name 映射值的类型
    */
-  valueEnum?: ProSchemaValueEnumObj | ProSchemaValueEnumMap;
+  valueEnum?:
+    | ((row: T) => ProSchemaValueEnumObj | ProSchemaValueEnumMap)
+    | ProSchemaValueEnumObj
+    | ProSchemaValueEnumMap;
 
   /**
    * @name 从服务器请求枚举

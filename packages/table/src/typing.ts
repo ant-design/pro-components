@@ -159,6 +159,10 @@ export type Bordered =
       table?: boolean;
     };
 
+/**
+ * ProTable 的类型定义
+ * 继承自 antd 的 Table
+ */
 export type ProTableProps<T, U extends ParamsType> = {
   columns?: ProColumns<T>[];
   /**

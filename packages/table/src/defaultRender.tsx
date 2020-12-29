@@ -26,6 +26,15 @@ export const spellNamePath = (
 };
 
 /**
+ * 如果 valueEnum 是个方法执行一下它
+ */
+export function runValueEnum<T>(valueEnum: any, row?: T) {
+  if (typeof valueEnum === 'function') {
+    return valueEnum(row);
+  }
+  return valueEnum;
+}
+/**
  * 根据不同的类型来转化数值
  * @param text
  * @param valueType
@@ -66,7 +75,7 @@ function defaultRenderText<T>(config: {
    * 生成公用的  proField dom 配置
    */
   const proFieldProps: ProFieldPropsType = {
-    valueEnum: columnProps?.valueEnum,
+    valueEnum: runValueEnum<T>(columnProps?.valueEnum, rowData),
     request: columnProps?.request,
     params: columnProps?.params,
     proFieldKey: columnProps?.dataIndex?.toString() || columnProps?.key,

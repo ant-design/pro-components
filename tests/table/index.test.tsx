@@ -139,6 +139,67 @@ describe('BasicTable', () => {
     expect(html).toMatchSnapshot();
   });
 
+  it('🎏 valueEnum support function', async () => {
+    const html = mount(
+      <ProTable
+        size="small"
+        options={false}
+        columns={[
+          {
+            title: '状态',
+            dataIndex: 'status',
+            valueType: 'select',
+            valueEnum: (row) => {
+              if (row) {
+                return {
+                  0: { text: '1关闭', status: 'Default' },
+                  1: { text: '1运行中', status: 'Processing' },
+                  2: { text: '1已上线', status: 'Success' },
+                  3: { text: '1异常', status: 'Error' },
+                };
+              }
+              return {
+                0: { text: '关闭', status: 'Default' },
+                1: { text: '运行中', status: 'Processing' },
+                2: { text: '已上线', status: 'Success' },
+                3: { text: '异常', status: 'Error' },
+              };
+            },
+          },
+          {
+            dataIndex: 'status',
+            valueType: 'select',
+            fieldProps: {
+              open: true,
+            },
+            valueEnum: (row) => {
+              if (!row) {
+                return {
+                  0: { text: '1关闭', status: 'Default' },
+                  1: { text: '1运行中', status: 'Processing' },
+                  2: { text: '1已上线', status: 'Success' },
+                  3: { text: '1异常', status: 'Error' },
+                };
+              }
+              return {
+                0: { text: '关闭', status: 'Default' },
+                1: { text: '运行中', status: 'Processing' },
+                2: { text: '已上线', status: 'Success' },
+                3: { text: '异常', status: 'Error' },
+              };
+            },
+          },
+        ]}
+        request={request}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 1200);
+    act(() => {
+      expect(html.render()).toMatchSnapshot();
+    });
+  });
+
   it('🎏 do not render pagination', async () => {
     const html = mount(
       <ProTable

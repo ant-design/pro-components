@@ -31,6 +31,7 @@ import {
 import { genColumnKey } from '../../utils';
 import type { ProColumns } from '../../index';
 import './index.less';
+import { runValueEnum } from '../../defaultRender';
 
 export type SearchConfig = BaseQueryFilterProps & {
   filterType?: 'query' | 'light';
@@ -209,7 +210,7 @@ export const formInputRender: React.FC<{
       ref={ref}
       tooltip={item.tooltip || item.tip}
       isDefaultDom
-      valueEnum={item.valueEnum}
+      valueEnum={runValueEnum(item.valueEnum, undefined)}
       name={item.key || item.dataIndex}
       onChange={onChange}
       fieldProps={{

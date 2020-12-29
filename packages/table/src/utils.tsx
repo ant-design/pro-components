@@ -22,7 +22,7 @@ import type {
   UseFetchDataAction,
 } from './typing';
 import type { ColumnsState, useContainer } from './container';
-import defaultRenderText from './defaultRender';
+import defaultRenderText, { runValueEnum } from './defaultRender';
 
 /**
  * 检查值是否存在
@@ -395,7 +395,7 @@ export function genColumnList<T>(props: {
         valueEnum,
         filters:
           filters === true
-            ? proFieldParsingValueEnumToArray(valueEnum).filter(
+            ? proFieldParsingValueEnumToArray(runValueEnum(valueEnum, {})).filter(
                 (valueItem) => valueItem && valueItem.value !== 'all',
               )
             : filters,
