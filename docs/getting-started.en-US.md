@@ -1,22 +1,22 @@
 ---
-title: 快速开始
+title: Quick Start
 order: 2
 group:
   path: /
 nav:
-  title: 文档
+  title: Documentation
   path: /docs
 ---
 
-## 安装
+## Installation
 
-当前 ProComponents 每一个组件都是一个独立的包，你需要在你的项目中安装对应的 npm 包并使用。
+Currently each component of ProComponents is a separate package, you need to install the corresponding npm package in your project and use it.
 
 ```shell
 $ npm i @ant-design/pro-table --save
 ```
 
-当前 ProComponents 提供了如下组件可直接使用：
+Current ProComponents provides the following components for direct use.
 
 - `npm i @ant-design/pro-form --save`
 - `npm i @ant-design/pro-layout --save`
@@ -26,9 +26,9 @@ $ npm i @ant-design/pro-table --save
 - `npm i @ant-design/pro-card --save`
 - `npm i @ant-design/pro-skeleton --save`
 
-## 在项目中使用
+## Using in a project
 
-每一个包都是一个独立的组件包，使用示例如下 ：
+Each package is a separate component package, and is used in the following example.
 
 ```tsx
 import React from 'react';
@@ -47,7 +47,7 @@ export default () => {
 };
 ```
 
-我们所有的包都使用 less 来进行样式管理，方便进行主题的自定义。如果你没有 less-loader 可以尝试从 `dist` 中导入 css。
+All our packages use less for style management and easy theme customization. If you don't have less-loader you can try to import css from `dist`.
 
 ```tsx | pure
 import '@ant-design/pro-form/dist/form.css';
@@ -55,4 +55,4 @@ import '@ant-design/pro-table/dist/table.css';
 import '@ant-design/pro-layout/dist/layout.css';
 ```
 
-建议还是使用 less，可以方便进行主题自定义，来可以做到按需加载。
+It's recommended to use less, it's easier to customize the theme and to load it on demand.
