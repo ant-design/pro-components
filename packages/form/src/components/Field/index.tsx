@@ -4,6 +4,7 @@ import ProField from '@ant-design/pro-field';
 import type { InputProps } from 'antd/lib/input';
 import type { SelectProps } from 'antd/lib/select';
 import type { ProSchema } from '@ant-design/pro-utils';
+import { runFunction } from '@ant-design/pro-utils';
 
 import createField from '../../BaseForm/createField';
 import type { ProFormItemProps } from '../../interface';
@@ -41,6 +42,7 @@ const ProFormField = React.forwardRef<
       valueType,
       initialValue,
       onChange,
+      valueEnum,
       ...restProps
     },
     ref,
@@ -71,6 +73,7 @@ const ProFormField = React.forwardRef<
             onChange?.(...restParams);
           },
         }}
+        valueEnum={runFunction(valueEnum)}
         {...proFieldProps}
         {...restProps}
         ref={ref}
