@@ -99,7 +99,7 @@ export type TableFormItem<T, U = any> = {
   type?: ProSchemaComponentTypes;
   dateFormatter?: 'string' | 'number' | false;
   search?: false | SearchConfig;
-  columns: ProColumns<U>[];
+  columns: ProColumns<U, any>[];
   formRef?: React.MutableRefObject<FormInstance | undefined> | ((formRef: FormInstance) => void);
   submitButtonLoading?: boolean;
   bordered?: boolean;
