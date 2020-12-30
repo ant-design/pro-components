@@ -68,7 +68,7 @@ export type ExtraProColumnType<T> = Omit<
   'render' | 'children' | 'title' | 'filters' | 'onFilter'
 >;
 
-export type ProColumnType<T = unknown> = ProSchema<
+export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
   T,
   ExtraProColumnType<T> & {
     index?: number;
@@ -141,14 +141,18 @@ export type ProColumnType<T = unknown> = ProSchema<
      * 可编辑表格是否可编辑
      */
     editable?: boolean | ProTableEditableFnType<T>;
-  }
+  },
+  ProSchemaComponentTypes,
+  ValueType
 >;
 
-export type ProColumnGroupType<RecordType> = {
+export type ProColumnGroupType<RecordType, ValueType> = {
   children: ProColumns<RecordType>[];
-} & ProColumnType<RecordType>;
+} & ProColumnType<RecordType, ValueType>;
 
-export type ProColumns<T = any> = ProColumnGroupType<T> | ProColumnType<T>;
+export type ProColumns<T = any, ValueType = 'text'> =
+  | ProColumnGroupType<T, ValueType>
+  | ProColumnType<T, ValueType>;
 
 export type BorderedType = 'search' | 'table';
 
@@ -163,8 +167,8 @@ export type Bordered =
  * ProTable 的类型定义
  * 继承自 antd 的 Table
  */
-export type ProTableProps<T, U extends ParamsType> = {
-  columns?: ProColumns<T>[];
+export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
+  columns?: ProColumns<T, ValueType>[];
   /**
    * @name  ListToolBar 的属性
    */
@@ -186,7 +190,7 @@ export type ProTableProps<T, U extends ParamsType> = {
    * @name 渲染 table
    */
   tableRender?: (
-    props: ProTableProps<T, U>,
+    props: ProTableProps<T, U, ValueType>,
     defaultDom: JSX.Element,
     /**
      * 各个区域的 dom

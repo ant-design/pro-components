@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
-
+import type { ProRenderFieldPropsType } from '@ant-design/pro-utils';
 import { ConfigProvider as AntdConfigProvider } from 'antd';
+
 import { noteOnce } from 'rc-util/lib/warning';
+
 import arEG from './locale/ar_EG';
 import zhCN from './locale/zh_CN';
 import enUS from './locale/en_US';
@@ -23,7 +25,11 @@ export type IntlType = {
   getMessage: (id: string, defaultMessage: string) => string;
 };
 
-function get(source: object, path: string, defaultValue?: string): string | undefined {
+function get(
+  source: Record<string, unknown>,
+  path: string,
+  defaultValue?: string,
+): string | undefined {
   // a[3].b -> a.3.b
   const paths = path.replace(/\[(\d+)\]/g, '.$1').split('.');
   let result = source;
@@ -63,7 +69,7 @@ const zhTWIntl = createIntl('zh_TW', zhTW);
 const frFRIntl = createIntl('fr_FR', frFR);
 const ptBRIntl = createIntl('pt_BR', ptBR);
 const koKRIntl = createIntl('ko_KR', koKR);
-const idIDNntl = createIntl('id_ID', idID);
+const idIDIntl = createIntl('id_ID', idID);
 const deDEIntl = createIntl('de_DE', deDE);
 
 const intlMap = {
@@ -80,7 +86,7 @@ const intlMap = {
   'fr-FR': frFRIntl,
   'pt-BR': ptBRIntl,
   'ko-KR': koKRIntl,
-  'id-ID': idIDNntl,
+  'id-ID': idIDIntl,
   'de-DE': deDEIntl,
 };
 
@@ -102,19 +108,23 @@ export {
   frFRIntl,
   ptBRIntl,
   koKRIntl,
-  idIDNntl,
+  idIDIntl,
   deDEIntl,
   intlMap,
   intlMapKeys,
 };
 
-const ConfigContext = React.createContext<{
+export type ConfigContextPropsType = {
   intl: IntlType;
-}>({
+  valueTypeMap: Record<string, ProRenderFieldPropsType>;
+};
+
+const ConfigContext = React.createContext<ConfigContextPropsType>({
   intl: {
     ...zhCNIntl,
     locale: 'default',
   },
+  valueTypeMap: {},
 });
 
 const { Consumer: ConfigConsumer, Provider: ConfigProvider } = ConfigContext;
@@ -140,7 +150,7 @@ const findIntlKeyByAntdLocaleKey = (localeKey: string | undefined) => {
  *  如果没有配置 locale，这里组件会根据 antd 的 key 来自动选择
  * @param param0
  */
-const ConfigProviderWrap: React.FC<{}> = ({ children }) => {
+const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({ children }) => {
   const { locale } = useContext(AntdConfigProvider.ConfigContext);
   return (
     <ConfigConsumer>

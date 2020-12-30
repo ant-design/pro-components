@@ -1,6 +1,65 @@
 import type { FormInstance, FormItemProps } from 'antd/lib/form';
+import type { Moment } from 'moment';
 import type { ReactNode } from 'react';
 import type { UseEditableUtilType } from './useEditableArray';
+
+export type BaseProFieldFC = {
+  /**
+   * 值的类型
+   */
+  text: React.ReactNode;
+
+  fieldProps?: any;
+  /**
+   * 模式类型
+   */
+  mode: ProFieldFCMode;
+  /**
+   * 简约模式
+   */
+  plain?: boolean;
+  /**
+   * 轻量模式
+   */
+  light?: boolean;
+  /**
+   * label
+   */
+  label?: React.ReactNode;
+  /**
+   * 映射值的类型
+   */
+  valueEnum?: ProFieldValueEnumType;
+
+  proFieldKey?: React.Key;
+};
+
+export type ProFieldTextType = React.ReactNode | React.ReactNode[] | Moment | Moment[];
+
+export type ProFieldFCMode = 'read' | 'edit' | 'update';
+
+/**
+ * render 第二个参数，里面包含了一些常用的参数
+ */
+export type ProFieldFCRenderProps = {
+  mode?: ProFieldFCMode;
+  placeholder?: string;
+  value?: any;
+  onChange?: (value: any) => void;
+} & BaseProFieldFC;
+
+export type ProRenderFieldPropsType = {
+  render?:
+    | ((
+        text: any,
+        props: Omit<ProFieldFCRenderProps, 'value' | 'onChange'>,
+        dom: JSX.Element,
+      ) => JSX.Element)
+    | undefined;
+  renderFormItem?:
+    | ((text: any, props: ProFieldFCRenderProps, dom: JSX.Element) => JSX.Element)
+    | undefined;
+};
 
 /**
  * password 密码框
@@ -151,12 +210,17 @@ export type ProCoreActionType<T = {}> = {
 > &
   T;
 
-type ProSchemaValueType = ProFieldValueType | ProFieldValueObjectType;
+type ProSchemaValueType<ValueType> = (ValueType | ProFieldValueType) | ProFieldValueObjectType;
 
 /**
  * 各个组件公共支持的 render
  */
-export type ProSchema<T = unknown, Extra = unknown, V = ProSchemaComponentTypes> = {
+export type ProSchema<
+  T = unknown,
+  Extra = unknown,
+  V = ProSchemaComponentTypes,
+  ValueType = 'text'
+> = {
   /**
    * @name 确定这个列的唯一值
    */
@@ -170,7 +234,9 @@ export type ProSchema<T = unknown, Extra = unknown, V = ProSchemaComponentTypes>
   /**
    * 选择如何渲染相应的模式
    */
-  valueType?: ((entity: T, type: V) => ProSchemaValueType) | ProSchemaValueType;
+  valueType?:
+    | ((entity: T, type: V) => ProSchemaValueType<ValueType>)
+    | ProSchemaValueType<ValueType>;
 
   /**
    * @name 标题

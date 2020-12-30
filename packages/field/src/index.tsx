@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Avatar } from 'antd';
-import type { Moment } from 'moment';
 import type {
-  ProFieldValueEnumType,
   ProFieldValueType,
   ProFieldValueObjectType,
+  BaseProFieldFC,
+  ProRenderFieldPropsType,
+  ProFieldFCRenderProps,
+  ProFieldTextType,
 } from '@ant-design/pro-utils';
 import { pickProProps, omitUndefined } from '@ant-design/pro-utils';
 
-import { useIntl } from '@ant-design/pro-provider';
+import ConfigContext, { useIntl } from '@ant-design/pro-provider';
 import FieldPercent from './components/Percent';
 import FieldIndexColumn from './components/IndexColumn';
 import FieldProgress from './components/Progress';
@@ -35,71 +37,14 @@ import FieldSecond from './components/Second';
 
 import FieldRadio from './components/Radio';
 
-export type ProFieldTextType = React.ReactNode | React.ReactNode[] | Moment | Moment[];
-
 export type ProFieldEmptyText = string | false;
-
-export type ProFieldFCMode = 'read' | 'edit' | 'update';
-
-type BaseProFieldFC = {
-  /**
-   * 值的类型
-   */
-  text: React.ReactNode;
-
-  fieldProps?: any;
-  /**
-   * 模式类型
-   */
-  mode: ProFieldFCMode;
-  /**
-   * 简约模式
-   */
-  plain?: boolean;
-  /**
-   * 轻量模式
-   */
-  light?: boolean;
-  /**
-   * label
-   */
-  label?: React.ReactNode;
-  /**
-   * 映射值的类型
-   */
-  valueEnum?: ProFieldValueEnumType;
-
-  proFieldKey?: React.Key;
-};
-
-/**
- * render 第二个参数，里面包含了一些常用的参数
- */
-export type ProFieldFCRenderProps = {
-  mode?: ProFieldFCMode;
-  value?: any;
-  onChange?: (value: any) => void;
-} & BaseProFieldFC;
-
-export type ProRenderFieldProps = {
-  render?:
-    | ((
-        text: any,
-        props: Omit<ProFieldFCRenderProps, 'value' | 'onChange'>,
-        dom: JSX.Element,
-      ) => JSX.Element)
-    | undefined;
-  renderFormItem?:
-    | ((text: any, props: ProFieldFCRenderProps, dom: JSX.Element) => JSX.Element)
-    | undefined;
-};
 
 /**
  * 默认的 Field 需要实现的功能
  */
 export type ProFieldFC<T> = React.ForwardRefRenderFunction<
   any,
-  BaseProFieldFC & ProRenderFieldProps & T
+  BaseProFieldFC & ProRenderFieldPropsType & T
 >;
 
 /**
@@ -108,7 +53,7 @@ export type ProFieldFC<T> = React.ForwardRefRenderFunction<
 export type ProFieldValueTypeFunction<T> = (item: T) => ProFieldValueType | ProFieldValueObjectType;
 
 type RenderProps = Omit<ProFieldFCRenderProps, 'text'> &
-  ProRenderFieldProps & {
+  ProRenderFieldPropsType & {
     emptyText?: React.ReactNode;
     visible?: boolean;
     onVisible?: (visible: boolean) => void;
@@ -172,12 +117,44 @@ const defaultRenderText = (
   text: ProFieldTextType,
   valueType: ProFieldValueType | ProFieldValueObjectType,
   props: RenderProps,
+  valueTypeMap: Record<string, ProRenderFieldPropsType>,
 ): React.ReactNode => {
   if (typeof valueType === 'object') {
     return defaultRenderTextByObject(text, valueType, props);
   }
-
   const { mode = 'read', emptyText = '-' } = props;
+
+  const customValueTypeConfig = valueTypeMap[valueType as string];
+  if (customValueTypeConfig) {
+    // eslint-disable-next-line no-param-reassign
+    delete props.ref;
+    if (mode === 'read') {
+      return (
+        customValueTypeConfig.render?.(
+          text,
+          {
+            text,
+            ...props,
+            mode: mode || 'read',
+          },
+          <>{text}</>,
+        ) || null
+      );
+    }
+    if (mode === 'update' || mode === 'edit') {
+      return (
+        customValueTypeConfig.renderFormItem?.(
+          text,
+          {
+            text,
+            ...props,
+          },
+          <>{text}</>,
+        ) || null
+      );
+    }
+  }
+
   if (emptyText !== false && mode === 'read' && valueType !== 'option' && valueType !== 'switch') {
     if (typeof text !== 'boolean' && typeof text !== 'number' && !text) {
       const { fieldProps, render } = props;
@@ -359,21 +336,28 @@ const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
   ref,
 ) => {
   const intl = useIntl();
+  const context = useContext(ConfigContext);
   const fieldProps = (value || onChange || rest?.fieldProps) && {
     value,
     onChange,
     // fieldProps 优先级更高，在类似 LightFilter 场景下需要覆盖默认的 value 和 onChange
     ...omitUndefined(rest?.fieldProps),
   };
+
   return (
     <React.Fragment>
-      {defaultRenderText(text ?? fieldProps?.value ?? '', valueType || 'text', {
-        ...rest,
-        mode: rest.mode || 'read',
-        ref,
-        placeholder: intl.getMessage('tableForm.inputPlaceholder', '请输入'),
-        fieldProps: pickProProps(fieldProps),
-      })}
+      {defaultRenderText(
+        text ?? fieldProps?.value ?? '',
+        valueType || 'text',
+        {
+          ...rest,
+          mode: rest.mode || 'read',
+          ref,
+          placeholder: intl.getMessage('tableForm.inputPlaceholder', '请输入'),
+          fieldProps: pickProProps(fieldProps),
+        },
+        context.valueTypeMap,
+      )}
     </React.Fragment>
   );
 };

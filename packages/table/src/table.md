@@ -204,6 +204,10 @@ const enUSIntl = createIntl('en_US', enUS);
 
 <code src="./demos/valueType_select.tsx" background="#f5f5f5" heigh="462px"/>
 
+### 自定义 valueType
+
+<code src="./demos/customization-value-type.tsx"  background="#f5f5f5" heigh="462px"/>
+
 <code src="./demos/config-provider.tsx" debug background="#f5f5f5" heigh="462px"/>
 
 ## API

@@ -50,6 +50,10 @@ import type {
   ProFieldValueEnumType,
   ProFieldRequestData,
   ProFieldValueObjectType,
+  ProRenderFieldPropsType,
+  BaseProFieldFC,
+  ProFieldFCRenderProps,
+  ProFieldTextType,
 } from './typing';
 import getFieldPropsOrFormItemProps from './getFieldPropsOrFormItemProps';
 import DropdownFooter from './components/DropdownFooter';
@@ -71,6 +75,10 @@ export type {
   UseEditableMapType,
   UseEditableMapUtilType,
   ProFieldValueType,
+  ProRenderFieldPropsType,
+  ProFieldFCRenderProps,
+  BaseProFieldFC,
+  ProFieldTextType,
   ProFieldValueEnumType,
   ProFieldValueObjectType,
 };
