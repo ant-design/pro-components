@@ -13797,7 +13797,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
               <div
                 class="ant-pro-table-list-toolbar-title"
               >
-                样式类
+                自定义 valueType
               </div>
             </div>
           </div>

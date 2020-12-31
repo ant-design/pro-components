@@ -1,6 +1,6 @@
 import React, { useContext, useRef, useState } from 'react';
 import type { ProColumns } from '@ant-design/pro-table';
-import ProTable from '@ant-design/pro-table';
+import ProDescriptions from '@ant-design/pro-descriptions';
 import ProProvider from '@ant-design/pro-provider';
 import { Input, Space, Tag } from 'antd';
 
@@ -19,24 +19,20 @@ export type TableListItem = {
     value: number;
   }[];
 };
-const tableListDataSource: TableListItem[] = [];
-
-for (let i = 0; i < 5; i += 1) {
-  tableListDataSource.push({
-    key: i,
-    name: `TradeCode ${i}`,
-    status: [
-      {
-        value: Math.floor(Math.random() * 10),
-        label: valueEnum[Math.floor(Math.random() * 10) % 4],
-      },
-      {
-        value: Math.floor(Math.random() * 10),
-        label: valueEnum[Math.floor(Math.random() * 10) % 4],
-      },
-    ],
-  });
-}
+const tableListDataSource: TableListItem = {
+  key: 1,
+  name: `TradeCode 1`,
+  status: [
+    {
+      value: Math.floor(Math.random() * 10),
+      label: valueEnum[Math.floor(Math.random() * 10) % 4],
+    },
+    {
+      value: Math.floor(Math.random() * 10),
+      label: valueEnum[Math.floor(Math.random() * 10) % 4],
+    },
+  ],
+};
 
 const TagList: React.FC<{
   value?: {
@@ -112,10 +108,10 @@ const columns: ProColumns<TableListItem, 'link' | 'tags'>[] = [
       <a
         key="a"
         onClick={() => {
-          action.startEditable(row.key);
+          action.reload();
         }}
       >
-        编辑
+        刷新
       </a>,
     ],
   },
@@ -149,17 +145,16 @@ export default () => {
         },
       }}
     >
-      <ProTable<TableListItem, Record<string, any>, 'link' | 'tags'>
+      <ProDescriptions<TableListItem, 'link' | 'tags'>
         columns={columns}
+        editable={{}}
         request={() => {
           return Promise.resolve({
-            total: 200,
             data: tableListDataSource,
             success: true,
           });
         }}
-        rowKey="key"
-        headerTitle="自定义 valueType"
+        title="自定义 valueType"
       />
     </ProProvider.Provider>
   );
