@@ -61,7 +61,7 @@ function RecordCreator<T = {}>(props: RecordCreatorProps<T> & { children: JSX.El
  * 可以直接放到 Form 中的可编辑表格
  * @param props
  */
-function EditableTable<T extends Record<string, unknown>, U extends ParamsType = ParamsType>(
+function EditableTable<T extends Record<string, any>, U extends ParamsType = ParamsType>(
   props: EditableProTableProps<T, U>,
 ) {
   const { onTableChange, maxLength, recordCreatorProps, ...rest } = props;

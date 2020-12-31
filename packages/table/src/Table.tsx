@@ -62,7 +62,7 @@ const isBordered = (borderType: BorderedType, border?: Bordered) => {
  * 更快 更好 更方便
  * @param props
  */
-const ProTable = <T extends Record<string, unknown>, U extends ParamsType>(
+const ProTable = <T extends Record<string, any>, U extends ParamsType>(
   props: ProTableProps<T, U> & {
     defaultClassName: string;
   },
@@ -129,7 +129,7 @@ const ProTable = <T extends Record<string, unknown>, U extends ParamsType>(
     [setSelectedRowKeys, setSelectedRows],
   );
 
-  const [formSearch, setFormSearch] = useMountMergeState<Record<string, unknown> | undefined>(
+  const [formSearch, setFormSearch] = useMountMergeState<Record<string, any> | undefined>(
     undefined,
   );
 
@@ -618,7 +618,7 @@ const ProTable = <T extends Record<string, unknown>, U extends ParamsType>(
  * 更快 更好 更方便
  * @param props
  */
-const ProviderWarp = <T extends Record<string, unknown>, U extends ParamsType = ParamsType>(
+const ProviderWarp = <T extends Record<string, any>, U extends ParamsType = ParamsType>(
   props: ProTableProps<T, U>,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
