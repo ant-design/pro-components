@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.11.5...@ant-design/pro-form@1.11.6) (2020-12-31)
+
+### Bug Fixes
+
+- **form:** add defaultXXX warning ([#1457](https://github.com/ant-design/pro-components/issues/1457)) ([805607b](https://github.com/ant-design/pro-components/commit/805607b46e1d076ae7199bef9aa68301f75dedcd))
+
 ## [1.11.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.11.4...@ant-design/pro-form@1.11.5) (2020-12-28)
 
 **Note:** Version bump only for package @ant-design/pro-form

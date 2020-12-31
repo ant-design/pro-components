@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.18.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.18.1...@ant-design/pro-table@2.18.2) (2020-12-31)
+
+### Bug Fixes
+
+- **table:** reloadAndRest should reset page index ([#1444](https://github.com/ant-design/pro-components/issues/1444)) ([629cec2](https://github.com/ant-design/pro-components/commit/629cec2a172e07a967be6db50abf57da84f16048))
+
 ## [2.18.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.18.0...@ant-design/pro-table@2.18.1) (2020-12-28)
 
 ### Bug Fixes
