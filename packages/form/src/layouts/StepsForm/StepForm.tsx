@@ -1,5 +1,6 @@
 import React, { useContext, useRef, useEffect, useImperativeHandle } from 'react';
 import type { FormProps, FormInstance } from 'antd/lib/form/Form';
+import { noteOnce } from 'rc-util/lib/warning';
 
 import type { CommonFormProps } from '../../BaseForm';
 import BaseForm from '../../BaseForm';
@@ -19,6 +20,8 @@ const StepForm: React.FC<StepFormProps> = ({
   const formRef = useRef<FormInstance | undefined>();
   const context = useContext(StepsFormProvide);
 
+  // eslint-disable-next-line @typescript-eslint/dot-notation
+  noteOnce(!!restProps['submitter'], 'StepForm 不包含提交按钮，请在 StepsForm 上');
   /**
    * 重置 formRef
    */
