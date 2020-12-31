@@ -129,28 +129,24 @@ const defaultRenderText = (
     // eslint-disable-next-line no-param-reassign
     delete props.ref;
     if (mode === 'read') {
-      return (
-        customValueTypeConfig.render?.(
+      return customValueTypeConfig.render?.(
+        text,
+        {
           text,
-          {
-            text,
-            ...props,
-            mode: mode || 'read',
-          },
-          <>{text}</>,
-        ) || null
+          ...props,
+          mode: mode || 'read',
+        },
+        <>{text}</>,
       );
     }
     if (mode === 'update' || mode === 'edit') {
-      return (
-        customValueTypeConfig.renderFormItem?.(
+      return customValueTypeConfig.renderFormItem?.(
+        text,
+        {
           text,
-          {
-            text,
-            ...props,
-          },
-          <>{text}</>,
-        ) || null
+          ...props,
+        },
+        <>{text}</>,
       );
     }
   }
