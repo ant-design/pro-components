@@ -454,7 +454,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
             class="qixian-spin-container"
           >
             <div
-              class="qixian-table qixian-table-small"
+              class="qixian-table qixian-table-small qixian-table-empty"
             >
               <div
                 class="qixian-table-container"
@@ -481,203 +481,57 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                       class="qixian-table-tbody"
                     >
                       <tr
-                        class="qixian-table-row qixian-table-row-level-0"
-                        data-row-key="0"
+                        class="qixian-table-placeholder"
                       >
                         <td
                           class="qixian-table-cell"
                         >
-                          Edward King 0
-                        </td>
-                      </tr>
-                      <tr
-                        class="qixian-table-row qixian-table-row-level-0"
-                        data-row-key="1"
-                      >
-                        <td
-                          class="qixian-table-cell"
-                        >
-                          Edward King 1
-                        </td>
-                      </tr>
-                      <tr
-                        class="qixian-table-row qixian-table-row-level-0"
-                        data-row-key="2"
-                      >
-                        <td
-                          class="qixian-table-cell"
-                        >
-                          Edward King 2
-                        </td>
-                      </tr>
-                      <tr
-                        class="qixian-table-row qixian-table-row-level-0"
-                        data-row-key="3"
-                      >
-                        <td
-                          class="qixian-table-cell"
-                        >
-                          Edward King 3
-                        </td>
-                      </tr>
-                      <tr
-                        class="qixian-table-row qixian-table-row-level-0"
-                        data-row-key="4"
-                      >
-                        <td
-                          class="qixian-table-cell"
-                        >
-                          Edward King 4
-                        </td>
-                      </tr>
-                      <tr
-                        class="qixian-table-row qixian-table-row-level-0"
-                        data-row-key="5"
-                      >
-                        <td
-                          class="qixian-table-cell"
-                        >
-                          Edward King 5
-                        </td>
-                      </tr>
-                      <tr
-                        class="qixian-table-row qixian-table-row-level-0"
-                        data-row-key="6"
-                      >
-                        <td
-                          class="qixian-table-cell"
-                        >
-                          Edward King 6
-                        </td>
-                      </tr>
-                      <tr
-                        class="qixian-table-row qixian-table-row-level-0"
-                        data-row-key="7"
-                      >
-                        <td
-                          class="qixian-table-cell"
-                        >
-                          Edward King 7
-                        </td>
-                      </tr>
-                      <tr
-                        class="qixian-table-row qixian-table-row-level-0"
-                        data-row-key="8"
-                      >
-                        <td
-                          class="qixian-table-cell"
-                        >
-                          Edward King 8
-                        </td>
-                      </tr>
-                      <tr
-                        class="qixian-table-row qixian-table-row-level-0"
-                        data-row-key="9"
-                      >
-                        <td
-                          class="qixian-table-cell"
-                        >
-                          Edward King 9
-                        </td>
-                      </tr>
-                      <tr
-                        class="qixian-table-row qixian-table-row-level-0"
-                        data-row-key="10"
-                      >
-                        <td
-                          class="qixian-table-cell"
-                        >
-                          Edward King 10
-                        </td>
-                      </tr>
-                      <tr
-                        class="qixian-table-row qixian-table-row-level-0"
-                        data-row-key="11"
-                      >
-                        <td
-                          class="qixian-table-cell"
-                        >
-                          Edward King 11
-                        </td>
-                      </tr>
-                      <tr
-                        class="qixian-table-row qixian-table-row-level-0"
-                        data-row-key="12"
-                      >
-                        <td
-                          class="qixian-table-cell"
-                        >
-                          Edward King 12
-                        </td>
-                      </tr>
-                      <tr
-                        class="qixian-table-row qixian-table-row-level-0"
-                        data-row-key="13"
-                      >
-                        <td
-                          class="qixian-table-cell"
-                        >
-                          Edward King 13
-                        </td>
-                      </tr>
-                      <tr
-                        class="qixian-table-row qixian-table-row-level-0"
-                        data-row-key="14"
-                      >
-                        <td
-                          class="qixian-table-cell"
-                        >
-                          Edward King 14
-                        </td>
-                      </tr>
-                      <tr
-                        class="qixian-table-row qixian-table-row-level-0"
-                        data-row-key="15"
-                      >
-                        <td
-                          class="qixian-table-cell"
-                        >
-                          Edward King 15
-                        </td>
-                      </tr>
-                      <tr
-                        class="qixian-table-row qixian-table-row-level-0"
-                        data-row-key="16"
-                      >
-                        <td
-                          class="qixian-table-cell"
-                        >
-                          Edward King 16
-                        </td>
-                      </tr>
-                      <tr
-                        class="qixian-table-row qixian-table-row-level-0"
-                        data-row-key="17"
-                      >
-                        <td
-                          class="qixian-table-cell"
-                        >
-                          Edward King 17
-                        </td>
-                      </tr>
-                      <tr
-                        class="qixian-table-row qixian-table-row-level-0"
-                        data-row-key="18"
-                      >
-                        <td
-                          class="qixian-table-cell"
-                        >
-                          Edward King 18
-                        </td>
-                      </tr>
-                      <tr
-                        class="qixian-table-row qixian-table-row-level-0"
-                        data-row-key="19"
-                      >
-                        <td
-                          class="qixian-table-cell"
-                        >
-                          Edward King 19
+                          <div
+                            class="qixian-empty qixian-empty-normal"
+                          >
+                            <div
+                              class="qixian-empty-image"
+                            >
+                              <svg
+                                class="qixian-empty-img-simple"
+                                height="41"
+                                viewBox="0 0 64 41"
+                                width="64"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <g
+                                  fill="none"
+                                  fill-rule="evenodd"
+                                  transform="translate(0 1)"
+                                >
+                                  <ellipse
+                                    class="qixian-empty-img-simple-ellipse"
+                                    cx="32"
+                                    cy="33"
+                                    rx="32"
+                                    ry="7"
+                                  />
+                                  <g
+                                    class="qixian-empty-img-simple-g"
+                                    fill-rule="nonzero"
+                                  >
+                                    <path
+                                      d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                                    />
+                                    <path
+                                      class="qixian-empty-img-simple-path"
+                                      d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                    />
+                                  </g>
+                                </g>
+                              </svg>
+                            </div>
+                            <p
+                              class="qixian-empty-description"
+                            >
+                              No Data
+                            </p>
+                          </div>
                         </td>
                       </tr>
                     </tbody>
@@ -685,248 +539,6 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                 </div>
               </div>
             </div>
-            <ul
-              class="qixian-pagination mini qixian-table-pagination qixian-table-pagination-right"
-              unselectable="unselectable"
-            >
-              <li
-                class="qixian-pagination-total-text"
-              >
-                第 1-20 条/总共 200 条
-              </li>
-              <li
-                aria-disabled="true"
-                class="qixian-pagination-prev qixian-pagination-disabled"
-                title="Previous Page"
-              >
-                <button
-                  class="qixian-pagination-item-link"
-                  disabled=""
-                  tabindex="-1"
-                  type="button"
-                >
-                  <span
-                    aria-label="left"
-                    class="anticon anticon-left"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="left"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-                      />
-                    </svg>
-                  </span>
-                </button>
-              </li>
-              <li
-                class="qixian-pagination-item qixian-pagination-item-1 qixian-pagination-item-active"
-                tabindex="0"
-                title="1"
-              >
-                <a
-                  rel="nofollow"
-                >
-                  1
-                </a>
-              </li>
-              <li
-                class="qixian-pagination-item qixian-pagination-item-2"
-                tabindex="0"
-                title="2"
-              >
-                <a
-                  rel="nofollow"
-                >
-                  2
-                </a>
-              </li>
-              <li
-                class="qixian-pagination-item qixian-pagination-item-3"
-                tabindex="0"
-                title="3"
-              >
-                <a
-                  rel="nofollow"
-                >
-                  3
-                </a>
-              </li>
-              <li
-                class="qixian-pagination-item qixian-pagination-item-4"
-                tabindex="0"
-                title="4"
-              >
-                <a
-                  rel="nofollow"
-                >
-                  4
-                </a>
-              </li>
-              <li
-                class="qixian-pagination-item qixian-pagination-item-5 qixian-pagination-item-before-jump-next"
-                tabindex="0"
-                title="5"
-              >
-                <a
-                  rel="nofollow"
-                >
-                  5
-                </a>
-              </li>
-              <li
-                class="qixian-pagination-jump-next qixian-pagination-jump-next-custom-icon"
-                tabindex="0"
-                title="Next 5 Pages"
-              >
-                <a
-                  class="qixian-pagination-item-link"
-                >
-                  <div
-                    class="qixian-pagination-item-container"
-                  >
-                    <span
-                      aria-label="double-right"
-                      class="anticon anticon-double-right qixian-pagination-item-link-icon"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="double-right"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1A7.98 7.98 0 00188 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5zm304 0L581.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H492c-6.7 0-10.4 7.7-6.3 12.9L751.1 512 485.7 851.1A7.98 7.98 0 00492 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
-                        />
-                      </svg>
-                    </span>
-                    <span
-                      class="qixian-pagination-item-ellipsis"
-                    >
-                      •••
-                    </span>
-                  </div>
-                </a>
-              </li>
-              <li
-                class="qixian-pagination-item qixian-pagination-item-10"
-                tabindex="0"
-                title="10"
-              >
-                <a
-                  rel="nofollow"
-                >
-                  10
-                </a>
-              </li>
-              <li
-                aria-disabled="false"
-                class="qixian-pagination-next"
-                tabindex="0"
-                title="Next Page"
-              >
-                <button
-                  class="qixian-pagination-item-link"
-                  tabindex="-1"
-                  type="button"
-                >
-                  <span
-                    aria-label="right"
-                    class="anticon anticon-right"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="right"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                      />
-                    </svg>
-                  </span>
-                </button>
-              </li>
-              <li
-                class="qixian-pagination-options"
-              >
-                <div
-                  class="qixian-select qixian-select-sm qixian-pagination-options-size-changer qixian-select-single qixian-select-show-arrow"
-                >
-                  <div
-                    class="qixian-select-selector"
-                  >
-                    <span
-                      class="qixian-select-selection-search"
-                    >
-                      <input
-                        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
-                        aria-autocomplete="list"
-                        aria-controls="rc_select_TEST_OR_SSR_list"
-                        aria-haspopup="listbox"
-                        aria-owns="rc_select_TEST_OR_SSR_list"
-                        autocomplete="off"
-                        class="qixian-select-selection-search-input"
-                        id="rc_select_TEST_OR_SSR"
-                        readonly=""
-                        role="combobox"
-                        style="opacity: 0;"
-                        type="search"
-                        unselectable="on"
-                        value=""
-                      />
-                    </span>
-                    <span
-                      class="qixian-select-selection-item"
-                      title="20 / page"
-                    >
-                      20 / page
-                    </span>
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="qixian-select-arrow"
-                    style="user-select: none;"
-                    unselectable="on"
-                  >
-                    <span
-                      aria-label="down"
-                      class="anticon anticon-down qixian-select-suffix"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="down"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                </div>
-              </li>
-            </ul>
           </div>
         </div>
       </div>
