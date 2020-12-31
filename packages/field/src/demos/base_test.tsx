@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Radio, Switch, Space, Descriptions } from 'antd';
-import type { ProFieldFCMode } from 'packages/utils/src/typing';
+import type { ProFieldFCMode } from '@ant-design/pro-utils';
+
 import moment from 'moment';
 
 import Field from '@ant-design/pro-field';

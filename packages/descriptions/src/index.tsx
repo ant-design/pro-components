@@ -24,7 +24,7 @@ import type { DescriptionsItemProps } from 'antd/lib/descriptions/Item';
 import type { DescriptionsProps } from 'antd/lib/descriptions';
 import type { RequestData } from './useFetchData';
 import useFetchData from './useFetchData';
-import type { ProFieldFCMode } from 'packages/utils/src/typing';
+import type { ProFieldFCMode } from '@ant-design/pro-utils';
 
 export type ProDescriptionsItemProps<T = {}> = ProSchema<
   T,
