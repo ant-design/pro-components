@@ -5,7 +5,7 @@ import ProTable from '@ant-design/pro-table';
 import { act } from 'react-dom/test-utils';
 import { Input } from 'antd';
 
-import { waitForComponentToPaint, waitTime } from '../util';
+import { waitForComponentToPaint } from '../util';
 
 const Demo = () => {
   const values = useContext(ProProvider);
@@ -110,7 +110,7 @@ describe('Table valueEnum', () => {
 
   it('🎏 customization valueType', async () => {
     const html = mount(<Demo />);
-    await waitTime();
+    await waitForComponentToPaint(html, 1200);
     act(() => {
       expect(html.render()).toMatchSnapshot();
     });
