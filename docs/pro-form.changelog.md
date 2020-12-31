@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.11.6
+
+`2020-12-31`
+
+- 🐛 fix(form): add defaultXXX warning [#1457](https://github.com/ant-design/pro-components/pull/1457) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-form@1.11.3
 
 `2020-12-28`
