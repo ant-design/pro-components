@@ -10509,7 +10509,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/login.tsx correctly 1
               </span>
               <input
                 class="ant-input ant-input-lg"
-                id="id"
+                id="phone"
                 placeholder="请输入手机号"
                 type="text"
                 value=""
