@@ -160,8 +160,8 @@ function createField<P extends ProFormItemProps = any>(
     };
 
     noteOnce(
-      // @ts-ignore
-      !!rest?.defaultValue,
+      // eslint-disable-next-line @typescript-eslint/dot-notation
+      !!rest['defaultValue'],
       '请不要在 Form 中使用 defaultXXX。如果需要默认值请使用 initialValues 和 initialValue。',
     );
 
