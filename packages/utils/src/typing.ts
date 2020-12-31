@@ -43,7 +43,7 @@ export type ProFieldFCMode = 'read' | 'edit' | 'update';
  */
 export type ProFieldFCRenderProps = {
   mode?: ProFieldFCMode;
-  placeholder?: string;
+  placeholder?: string | string[];
   value?: any;
   onChange?: (value: any) => void;
 } & BaseProFieldFC;

@@ -3,7 +3,6 @@ import { Descriptions, Space, Form } from 'antd';
 import { EditOutlined, CloseOutlined, CheckOutlined } from '@ant-design/icons';
 import toArray from 'rc-util/lib/Children/toArray';
 import ProForm, { ProFormField } from '@ant-design/pro-form';
-import type { ProFieldFCMode } from '@ant-design/pro-field';
 import type {
   ProSchema,
   ProCoreActionType,
@@ -25,6 +24,7 @@ import type { DescriptionsItemProps } from 'antd/lib/descriptions/Item';
 import type { DescriptionsProps } from 'antd/lib/descriptions';
 import type { RequestData } from './useFetchData';
 import useFetchData from './useFetchData';
+import type { ProFieldFCMode } from 'packages/utils/src/typing';
 
 export type ProDescriptionsItemProps<T = {}> = ProSchema<
   T,
