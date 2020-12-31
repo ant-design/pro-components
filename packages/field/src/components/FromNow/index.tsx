@@ -1,5 +1,5 @@
 import { DatePicker, Tooltip } from 'antd';
-import React, { useRef } from 'react';
+import React from 'react';
 import { parseValueToMoment } from '@ant-design/pro-utils';
 import { useIntl } from '@ant-design/pro-provider';
 import moment from 'moment';
