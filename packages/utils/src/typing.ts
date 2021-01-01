@@ -3,64 +3,6 @@ import type { Moment } from 'moment';
 import type { ReactNode } from 'react';
 import type { UseEditableUtilType } from './useEditableArray';
 
-export type BaseProFieldFC = {
-  /**
-   * 值的类型
-   */
-  text: React.ReactNode;
-
-  fieldProps?: any;
-  /**
-   * 模式类型
-   */
-  mode: ProFieldFCMode;
-  /**
-   * 简约模式
-   */
-  plain?: boolean;
-  /**
-   * 轻量模式
-   */
-  light?: boolean;
-  /**
-   * label
-   */
-  label?: React.ReactNode;
-  /**
-   * 映射值的类型
-   */
-  valueEnum?: ProFieldValueEnumType;
-
-  proFieldKey?: React.Key;
-};
-
-export type ProFieldTextType = React.ReactNode | React.ReactNode[] | Moment | Moment[];
-
-export type ProFieldFCMode = 'read' | 'edit' | 'update';
-
-/**
- * render 第二个参数，里面包含了一些常用的参数
- */
-export type ProFieldFCRenderProps = {
-  mode?: ProFieldFCMode;
-  placeholder?: string | string[];
-  value?: any;
-  onChange?: (value: any) => void;
-} & BaseProFieldFC;
-
-export type ProRenderFieldPropsType = {
-  render?:
-    | ((
-        text: any,
-        props: Omit<ProFieldFCRenderProps, 'value' | 'onChange'>,
-        dom: JSX.Element,
-      ) => JSX.Element)
-    | undefined;
-  renderFormItem?:
-    | ((text: any, props: ProFieldFCRenderProps, dom: JSX.Element) => JSX.Element)
-    | undefined;
-};
-
 /**
  * password 密码框
  * money 金额
@@ -156,6 +98,8 @@ export type ProSchemaValueEnumType = {
 };
 
 export type ProSchemaValueEnumObj = Record<string, ProSchemaValueEnumType | ReactNode>;
+
+export type ProFieldTextType = React.ReactNode | React.ReactNode[] | Moment | Moment[];
 
 /**
  * @name ValueEnum 的类型

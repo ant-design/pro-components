@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import type { ProRenderFieldPropsType } from '@ant-design/pro-utils';
 import { ConfigProvider as AntdConfigProvider } from 'antd';
 
 import { noteOnce } from 'rc-util/lib/warning';
@@ -19,6 +18,84 @@ import ptBR from './locale/pt_BR';
 import koKR from './locale/ko_KR';
 import idID from './locale/id_ID';
 import deDE from './locale/de_DE';
+
+export type ProSchemaValueEnumType = {
+  /**
+   * @name 演示的文案
+   */
+  text: React.ReactNode;
+
+  /**
+   * @name 预定的颜色
+   */
+  status: string;
+  /**
+   * @name 自定义的颜色
+   */
+  color?: string;
+  /**
+   * @name 是否禁用
+   */
+  disabled?: boolean;
+};
+
+export type ProSchemaValueEnumObj = Record<string, ProSchemaValueEnumType | React.ReactNode>;
+
+export type BaseProFieldFC = {
+  /**
+   * 值的类型
+   */
+  text: React.ReactNode;
+
+  fieldProps?: any;
+  /**
+   * 模式类型
+   */
+  mode: ProFieldFCMode;
+  /**
+   * 简约模式
+   */
+  plain?: boolean;
+  /**
+   * 轻量模式
+   */
+  light?: boolean;
+  /**
+   * label
+   */
+  label?: React.ReactNode;
+  /**
+   * 映射值的类型
+   */
+  valueEnum?: any;
+
+  proFieldKey?: React.Key;
+};
+
+export type ProFieldFCMode = 'read' | 'edit' | 'update';
+
+/**
+ * render 第二个参数，里面包含了一些常用的参数
+ */
+export type ProFieldFCRenderProps = {
+  mode?: ProFieldFCMode;
+  placeholder?: string | string[];
+  value?: any;
+  onChange?: (value: any) => void;
+} & BaseProFieldFC;
+
+export type ProRenderFieldPropsType = {
+  render?:
+    | ((
+        text: any,
+        props: Omit<ProFieldFCRenderProps, 'value' | 'onChange'>,
+        dom: JSX.Element,
+      ) => JSX.Element)
+    | undefined;
+  renderFormItem?:
+    | ((text: any, props: ProFieldFCRenderProps, dom: JSX.Element) => JSX.Element)
+    | undefined;
+};
 
 export type IntlType = {
   locale: string;

@@ -49,16 +49,18 @@ import type {
   ProFieldValueType,
   ProFieldValueEnumType,
   ProFieldRequestData,
-  ProFieldFCMode,
   ProFieldValueObjectType,
-  ProRenderFieldPropsType,
-  BaseProFieldFC,
-  ProFieldFCRenderProps,
   ProFieldTextType,
 } from './typing';
 import getFieldPropsOrFormItemProps from './getFieldPropsOrFormItemProps';
 import DropdownFooter from './components/DropdownFooter';
 import { runFunction } from './runFunction';
+import type {
+  BaseProFieldFC,
+  ProFieldFCMode,
+  ProFieldFCRenderProps,
+  ProRenderFieldPropsType,
+} from '@ant-design/pro-provider';
 
 export type {
   ProSchema,
