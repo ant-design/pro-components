@@ -27,9 +27,6 @@ export default () => {
         <ProFormText
           width="md"
           name="name"
-          fieldProps={{
-            defaultValue: '',
-          }}
           label="签约客户名称"
           tooltip="最长为 24 位"
           placeholder="请输入名称"
