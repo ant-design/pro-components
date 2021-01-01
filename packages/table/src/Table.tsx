@@ -62,8 +62,8 @@ const isBordered = (borderType: BorderedType, border?: Bordered) => {
  * 更快 更好 更方便
  * @param props
  */
-const ProTable = <T extends Record<string, any>, U extends ParamsType>(
-  props: ProTableProps<T, U> & {
+const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType>(
+  props: ProTableProps<T, U, ValueType> & {
     defaultClassName: string;
   },
 ) => {
@@ -618,15 +618,19 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType>(
  * 更快 更好 更方便
  * @param props
  */
-const ProviderWarp = <T extends Record<string, any>, U extends ParamsType = ParamsType>(
-  props: ProTableProps<T, U>,
+const ProviderWarp = <
+  T extends Record<string, any>,
+  U extends ParamsType = ParamsType,
+  ValueType = 'text'
+>(
+  props: ProTableProps<T, U, ValueType>,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   return (
     <Container.Provider initialState={props}>
       <ConfigProviderWrap>
         <ErrorBoundary>
-          <ProTable defaultClassName={getPrefixCls('pro-table')} {...props} />
+          <ProTable<T, U, ValueType> defaultClassName={getPrefixCls('pro-table')} {...props} />
         </ErrorBoundary>
       </ConfigProviderWrap>
     </Container.Provider>

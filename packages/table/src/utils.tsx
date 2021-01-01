@@ -363,7 +363,7 @@ export function columnRender<T>({
  * @param columnEmptyText
  */
 export function genColumnList<T>(props: {
-  columns: ProColumns<T>[];
+  columns: ProColumns<T, any>[];
   map: Record<string, ColumnsState>;
   counter: ReturnType<typeof useContainer>;
   columnEmptyText: ProFieldEmptyText;
@@ -381,7 +381,7 @@ export function genColumnList<T>(props: {
         children,
         onFilter,
         filters = [],
-      } = columnProps as ProColumnGroupType<T>;
+      } = columnProps as ProColumnGroupType<T, any>;
       const columnKey = genColumnKey(key, columnsIndex);
       // 这些都没有，说明是普通的表格不需要 pro 管理
       const noNeedPro = !dataIndex && !valueEnum && !valueType && !children;
@@ -409,8 +409,11 @@ export function genColumnList<T>(props: {
         ellipsis: false,
         fixed: config.fixed,
         width: columnProps.width || (columnProps.fixed ? 200 : undefined),
-        children: (columnProps as ProColumnGroupType<T>).children
-          ? genColumnList({ ...props, columns: (columnProps as ProColumnGroupType<T>)?.children })
+        children: (columnProps as ProColumnGroupType<T, any>).children
+          ? genColumnList({
+              ...props,
+              columns: (columnProps as ProColumnGroupType<T, any>)?.children,
+            })
           : undefined,
         render: (text: any, rowData: T, index: number) => {
           const renderProps = {

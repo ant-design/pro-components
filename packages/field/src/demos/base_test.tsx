@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Radio, Switch, Space, Descriptions } from 'antd';
+import type { ProFieldFCMode } from '@ant-design/pro-utils';
+
 import moment from 'moment';
 
-import type { ProFieldFCMode } from '@ant-design/pro-field';
 import Field from '@ant-design/pro-field';
 
 export default () => {
@@ -167,6 +168,12 @@ export default () => {
 
         <Descriptions.Item label="进度条">
           <Field text="40" valueType="progress" mode={state} plain={plain} />
+        </Descriptions.Item>
+        <Descriptions.Item label="进度条">
+          <Field text="40%" valueType="progress" mode={state} plain={plain} />
+        </Descriptions.Item>
+        <Descriptions.Item label="进度条">
+          <Field text="love" valueType="progress" mode={state} plain={plain} />
         </Descriptions.Item>
         <Descriptions.Item label="百分比">
           <Space>

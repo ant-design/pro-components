@@ -1,4 +1,5 @@
 import type { FormInstance, FormItemProps } from 'antd/lib/form';
+import type { Moment } from 'moment';
 import type { ReactNode } from 'react';
 import type { UseEditableUtilType } from './useEditableArray';
 
@@ -96,13 +97,15 @@ export type ProSchemaValueEnumType = {
   disabled?: boolean;
 };
 
-export type ProSchemaValueEnumObj = Record<string, ProSchemaValueEnumType | ReactNode>;
-
 /**
  * @name ValueEnum 的类型
  * @description 支持 Map 和 Object
  */
 export type ProSchemaValueEnumMap = Map<React.ReactText, ProSchemaValueEnumType | ReactNode>;
+
+export type ProSchemaValueEnumObj = Record<string, ProSchemaValueEnumType | ReactNode>;
+
+export type ProFieldTextType = React.ReactNode | React.ReactNode[] | Moment | Moment[];
 
 export type SearchTransformKeyFn = (
   value: any,
@@ -151,12 +154,17 @@ export type ProCoreActionType<T = {}> = {
 > &
   T;
 
-type ProSchemaValueType = ProFieldValueType | ProFieldValueObjectType;
+type ProSchemaValueType<ValueType> = (ValueType | ProFieldValueType) | ProFieldValueObjectType;
 
 /**
  * 各个组件公共支持的 render
  */
-export type ProSchema<T = unknown, Extra = unknown, V = ProSchemaComponentTypes> = {
+export type ProSchema<
+  T = unknown,
+  Extra = unknown,
+  V = ProSchemaComponentTypes,
+  ValueType = 'text'
+> = {
   /**
    * @name 确定这个列的唯一值
    */
@@ -170,7 +178,9 @@ export type ProSchema<T = unknown, Extra = unknown, V = ProSchemaComponentTypes>
   /**
    * 选择如何渲染相应的模式
    */
-  valueType?: ((entity: T, type: V) => ProSchemaValueType) | ProSchemaValueType;
+  valueType?:
+    | ((entity: T, type: V) => ProSchemaValueType<ValueType>)
+    | ProSchemaValueType<ValueType>;
 
   /**
    * @name 标题
