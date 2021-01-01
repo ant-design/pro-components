@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.2.8...@ant-design/pro-provider@1.3.0) (2021-01-01)
+
+### Features
+
+- **table:** support customization valueType ([#1456](https://github.com/ant-design/pro-components/issues/1456)) ([cbce5ba](https://github.com/ant-design/pro-components/commit/cbce5baf9ae456a1ab32a748e7ac86ee592b4344))
+
 ## [1.2.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.2.7...@ant-design/pro-provider@1.2.8) (2020-12-31)
 
 **Note:** Version bump only for package @ant-design/pro-provider

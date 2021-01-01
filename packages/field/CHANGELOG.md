@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.5.3...@ant-design/pro-field@1.6.0) (2021-01-01)
+
+### Features
+
+- **table:** support customization valueType ([#1456](https://github.com/ant-design/pro-components/issues/1456)) ([cbce5ba](https://github.com/ant-design/pro-components/commit/cbce5baf9ae456a1ab32a748e7ac86ee592b4344))
+
 ## [1.5.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.5.2...@ant-design/pro-field@1.5.3) (2020-12-31)
 
 **Note:** Version bump only for package @ant-design/pro-field
