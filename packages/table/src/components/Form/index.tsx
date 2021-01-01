@@ -8,7 +8,7 @@ import React, {
   useMemo,
 } from 'react';
 import type { FormInstance, FormItemProps } from 'antd/lib/form';
-import { ConfigProvider, Form } from 'antd';
+import { ConfigProvider } from 'antd';
 import type { IntlType } from '@ant-design/pro-provider';
 import { useIntl } from '@ant-design/pro-provider';
 import type { BaseQueryFilterProps, QueryFilterProps, ProFormProps } from '@ant-design/pro-form';
@@ -144,7 +144,7 @@ export const formInputRender: React.FC<{
   /**
    * 自定义 render
    */
-  if (item.renderFormItem) {
+  if (item.renderFormItem && form) {
     /**
      *删除 renderFormItem 防止重复的 dom 渲染
      */
@@ -306,9 +306,8 @@ const FormSearch = <T, U = any>({
    * 为了支持 dom 的消失，支持了这个 api
    */
   const intl = useIntl();
-  const [form] = Form.useForm();
 
-  const formInstanceRef = useRef<FormInstance | undefined>(form);
+  const formInstanceRef = useRef<FormInstance | undefined>();
 
   /**
    * 保存 valueTypeRef，用于分辨是用什么方式格式化数据
