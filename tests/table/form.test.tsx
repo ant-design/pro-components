@@ -201,11 +201,14 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 500);
+    await waitForComponentToPaint(html, 4000);
+
     /**
      * 修改值
      */
     act(() => {
+      console.log(html.find('input').debug());
+
       html.find('input#name').simulate('change', {
         target: {
           value: 'closed',

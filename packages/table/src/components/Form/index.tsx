@@ -8,7 +8,7 @@ import React, {
   useMemo,
 } from 'react';
 import type { FormInstance, FormItemProps } from 'antd/lib/form';
-import { ConfigProvider } from 'antd';
+import { ConfigProvider, Form } from 'antd';
 import type { IntlType } from '@ant-design/pro-provider';
 import { useIntl } from '@ant-design/pro-provider';
 import type { BaseQueryFilterProps, QueryFilterProps, ProFormProps } from '@ant-design/pro-form';
@@ -306,8 +306,9 @@ const FormSearch = <T, U = any>({
    * 为了支持 dom 的消失，支持了这个 api
    */
   const intl = useIntl();
+  const [form] = Form.useForm();
 
-  const formInstanceRef = useRef<FormInstance | undefined>();
+  const formInstanceRef = useRef<FormInstance | undefined>(form);
 
   /**
    * 保存 valueTypeRef，用于分辨是用什么方式格式化数据
@@ -369,7 +370,7 @@ const FormSearch = <T, U = any>({
     }
   }, [formInstanceRef.current]);
 
-  useDeepCompareEffect(() => {
+  const genTransform = () => {
     const tempMap = {};
     const transformKeyMap = {};
 
@@ -389,6 +390,9 @@ const FormSearch = <T, U = any>({
 
     valueTypeRef.current = tempMap;
     transformKeyRef.current = transformKeyMap;
+  };
+  useDeepCompareEffect(() => {
+    genTransform();
   }, [columns]);
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -414,7 +418,7 @@ const FormSearch = <T, U = any>({
         return false;
       })
       .sort((a, b) => (b.order || 0) - (a.order || 0));
-  }, [columns]);
+  }, [columns, type]);
 
   const columnsListRef = useRef<JSX.Element[]>([]);
 
@@ -437,14 +441,14 @@ const FormSearch = <T, U = any>({
       columnsListRef.current = newFormItemList;
       return newFormItemList;
     },
-    [formInstanceRef.current],
+    [isForm, type],
   );
 
   const [domList, setDomList] = useState<JSX.Element[]>(() => updateDomList(columnsList));
 
   useDeepCompareEffect(() => {
     if (columnsList.length < 1) return;
-    updateDomList(columnsList);
+    setDomList(updateDomList(columnsList));
   }, [columnsList]);
 
   const className = getPrefixCls('pro-table-search');
@@ -479,23 +483,24 @@ const FormSearch = <T, U = any>({
         [`${getPrefixCls('card')}-bordered`]: !!bordered,
       })}
     >
-      {domList.length > 0 && (
+      {domList?.length > 0 && (
         <Competent
           {...loadingProps}
           {...getFromProps(isForm, searchConfig, competentName)}
           {...formConfig}
-          onInit={() => {
-            // 触发一个 submit，之所以这里触发是为了保证 value 都被 format了
-            if (valueTypeRef.current && type !== 'form') {
-              // 下面才去赋值，所以用 setTimeout 延时一下，略微性能好一点
-              submit(true);
-            }
-          }}
           formRef={formInstanceRef}
           onValuesChange={(change, all) => {
             setDomList(updateDomList(columnsList));
             if (formConfig.onValuesChange) {
               formConfig.onValuesChange(change, all);
+            }
+          }}
+          onInit={() => {
+            genTransform();
+            // 触发一个 submit，之所以这里触发是为了保证 value 都被 format了
+            if (valueTypeRef.current && type !== 'form') {
+              // 下面才去赋值，所以用 setTimeout 延时一下，略微性能好一点
+              submit(true);
             }
           }}
           onReset={() => {
