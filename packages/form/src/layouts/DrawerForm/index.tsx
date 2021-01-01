@@ -9,6 +9,7 @@ import omit from 'omit.js';
 
 import type { CommonFormProps } from '../../BaseForm';
 import BaseForm from '../../BaseForm';
+import { noteOnce } from 'rc-util/lib/warning';
 
 export type DrawerFormProps = Omit<FormProps, 'onFinish'> &
   CommonFormProps & {
@@ -63,6 +64,12 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
     value: rest.visible,
     onChange: onVisibleChange,
   });
+
+  noteOnce(
+    // eslint-disable-next-line @typescript-eslint/dot-notation
+    !rest['footer'] || !drawerProps?.footer,
+    'DrawerForm 是一个 ProForm 的特殊布局，如果想自定义按钮，请使用 submit.render 自定义。',
+  );
 
   /** 设置 trigger 的情况下，懒渲染优化性能；使之可以直接配合表格操作等场景使用 */
   const isFirstRender = useRef(!drawerProps?.forceRender);
