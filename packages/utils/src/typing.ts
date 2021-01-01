@@ -97,15 +97,15 @@ export type ProSchemaValueEnumType = {
   disabled?: boolean;
 };
 
-export type ProSchemaValueEnumObj = Record<string, ProSchemaValueEnumType | ReactNode>;
-
-export type ProFieldTextType = React.ReactNode | React.ReactNode[] | Moment | Moment[];
-
 /**
  * @name ValueEnum 的类型
  * @description 支持 Map 和 Object
  */
 export type ProSchemaValueEnumMap = Map<React.ReactText, ProSchemaValueEnumType | ReactNode>;
+
+export type ProSchemaValueEnumObj = Record<string, ProSchemaValueEnumType | ReactNode>;
+
+export type ProFieldTextType = React.ReactNode | React.ReactNode[] | Moment | Moment[];
 
 export type SearchTransformKeyFn = (
   value: any,

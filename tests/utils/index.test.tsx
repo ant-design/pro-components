@@ -11,7 +11,8 @@ import {
 } from '@ant-design/pro-utils';
 import { mount } from 'enzyme';
 import { Form, Input } from 'antd';
-import moment, { Moment } from 'moment';
+import type { Moment } from 'moment';
+import moment from 'moment';
 import { act } from 'react-dom/test-utils';
 import { waitTime, waitForComponentToPaint } from '../util';
 

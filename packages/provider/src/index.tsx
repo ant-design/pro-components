@@ -39,6 +39,12 @@ export type ProSchemaValueEnumType = {
   disabled?: boolean;
 };
 
+/**
+ * @name ValueEnum 的类型
+ * @description 支持 Map 和 Object
+ */
+export type ProSchemaValueEnumMap = Map<React.ReactText, ProSchemaValueEnumType | React.ReactNode>;
+
 export type ProSchemaValueEnumObj = Record<string, ProSchemaValueEnumType | React.ReactNode>;
 
 export type BaseProFieldFC = {
@@ -67,7 +73,7 @@ export type BaseProFieldFC = {
   /**
    * 映射值的类型
    */
-  valueEnum?: any;
+  valueEnum?: ProSchemaValueEnumObj | ProSchemaValueEnumMap;
 
   proFieldKey?: React.Key;
 };
