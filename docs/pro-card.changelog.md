@@ -10,6 +10,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-card@1.9.0
+
+`2020-12-31`
+
+- 💥 feat(card): support collapsible title [#1433](https://github.com/ant-design/pro-components/pull/1433) [@rdmclin2](https://github.com/rdmclin2)
+
 ## @ant-design/pro-card@1.7.0
 
 `2020-12-08`

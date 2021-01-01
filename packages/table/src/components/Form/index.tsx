@@ -144,7 +144,7 @@ export const formInputRender: React.FC<{
   /**
    * 自定义 render
    */
-  if (item.renderFormItem) {
+  if (item.renderFormItem && form) {
     /**
      *删除 renderFormItem 防止重复的 dom 渲染
      */
@@ -323,32 +323,29 @@ const FormSearch = <T, U = any>({
   /**
    *提交表单，根据两种模式不同，方法不相同
    */
-  const submit = useCallback(
-    async (firstLoad: boolean) => {
-      let value;
-      // 如果不是表单模式，不用进行验证
-      if (!isForm) {
-        value = formInstanceRef.current?.getFieldsValue();
-      } else {
-        try {
-          value = await formInstanceRef.current?.validateFields();
-        } catch (error) {
-          // console.log(error)
-        }
+  const submit = async (firstLoad: boolean) => {
+    let value;
+    // 如果不是表单模式，不用进行验证
+    if (!isForm) {
+      value = formInstanceRef.current?.getFieldsValue();
+    } else {
+      try {
+        value = await formInstanceRef.current?.validateFields();
+      } catch (error) {
+        // console.log(error)
       }
-      if (onSubmit && valueTypeRef.current) {
-        // 转化值
-        // moment -> string
-        // key: [value, value] -> { key:value, key: value }
-        const finalValue = transformKeySubmitValue(
-          conversionSubmitValue(value, dateFormatter, valueTypeRef.current) as T,
-          transformKeyRef.current,
-        );
-        onSubmit(finalValue, firstLoad);
-      }
-    },
-    [formInstanceRef.current, onSubmit],
-  );
+    }
+    if (onSubmit && valueTypeRef.current) {
+      // 转化值
+      // moment -> string
+      // key: [value, value] -> { key:value, key: value }
+      const finalValue = transformKeySubmitValue(
+        conversionSubmitValue(value, dateFormatter, valueTypeRef.current) as T,
+        transformKeyRef.current,
+      );
+      onSubmit(finalValue, firstLoad);
+    }
+  };
 
   useImperativeHandle(
     formRef,
@@ -372,7 +369,7 @@ const FormSearch = <T, U = any>({
     }
   }, [formInstanceRef.current]);
 
-  useDeepCompareEffect(() => {
+  const genTransform = () => {
     const tempMap = {};
     const transformKeyMap = {};
 
@@ -389,15 +386,12 @@ const FormSearch = <T, U = any>({
           columnSearchConfig.transform(value, fieldName, target);
       }
     });
-    // 触发一个 submit，之所以这里触发是为了保证 value 都被 format了
-    if (!valueTypeRef.current && type !== 'form') {
-      // 下面才去赋值，所以用 setTimeout 延时一下，略微性能好一点
-      setTimeout(() => {
-        submit(true);
-      }, 0);
-    }
+
     valueTypeRef.current = tempMap;
     transformKeyRef.current = transformKeyMap;
+  };
+  useDeepCompareEffect(() => {
+    genTransform();
   }, [columns]);
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -423,10 +417,9 @@ const FormSearch = <T, U = any>({
         return false;
       })
       .sort((a, b) => (b.order || 0) - (a.order || 0));
-  }, [columns]);
+  }, [columns, type]);
 
-  const [domList, setDomList] = useState<JSX.Element[]>([]);
-  const columnsListRef = useRef(domList);
+  const columnsListRef = useRef<JSX.Element[]>([]);
 
   const updateDomList = useCallback(
     (list: ProColumns<any>[]) => {
@@ -445,15 +438,17 @@ const FormSearch = <T, U = any>({
         )
         .filter((item) => !!item) as JSX.Element[];
       columnsListRef.current = newFormItemList;
-      setDomList(newFormItemList);
+      return newFormItemList;
     },
-    [formInstanceRef.current],
+    [isForm, type],
   );
 
+  const [domList, setDomList] = useState<JSX.Element[]>(() => updateDomList(columnsList));
+
   useDeepCompareEffect(() => {
-    if (columnsList.length < 1 || !formInstanceRef.current) return;
-    updateDomList(columnsList);
-  }, [columnsList, formInstanceRef.current]);
+    if (columnsList.length < 1) return;
+    setDomList(updateDomList(columnsList));
+  }, [columnsList]);
 
   const className = getPrefixCls('pro-table-search');
   const formClassName = getPrefixCls('pro-table-form');
@@ -478,6 +473,7 @@ const FormSearch = <T, U = any>({
     }),
     [submitButtonLoading],
   );
+
   return (
     <div
       className={classNames(className, {
@@ -486,34 +482,44 @@ const FormSearch = <T, U = any>({
         [`${getPrefixCls('card')}-bordered`]: !!bordered,
       })}
     >
-      <Competent
-        {...loadingProps}
-        {...getFromProps(isForm, searchConfig, competentName)}
-        {...formConfig}
-        formRef={formInstanceRef}
-        onValuesChange={(change, all) => {
-          updateDomList(columnsList);
-          if (formConfig.onValuesChange) {
-            formConfig.onValuesChange(change, all);
-          }
-        }}
-        onReset={() => {
-          if (onReset && valueTypeRef.current) {
-            const value = formInstanceRef.current?.getFieldsValue() as T;
-            const finalValue = transformKeySubmitValue(
-              conversionSubmitValue(value, dateFormatter, valueTypeRef.current) as T,
-              transformKeyRef.current,
-            );
-            onReset(finalValue);
-          }
-        }}
-        onFinish={() => {
-          submit(false);
-        }}
-        initialValues={formConfig.initialValues}
-      >
-        {domList}
-      </Competent>
+      {domList?.length > 0 && (
+        <Competent
+          {...loadingProps}
+          {...getFromProps(isForm, searchConfig, competentName)}
+          {...formConfig}
+          formRef={formInstanceRef}
+          onValuesChange={(change, all) => {
+            setDomList(updateDomList(columnsList));
+            if (formConfig.onValuesChange) {
+              formConfig.onValuesChange(change, all);
+            }
+          }}
+          onInit={() => {
+            genTransform();
+            // 触发一个 submit，之所以这里触发是为了保证 value 都被 format了
+            if (valueTypeRef.current && type !== 'form') {
+              // 下面才去赋值，所以用 setTimeout 延时一下，略微性能好一点
+              submit(true);
+            }
+          }}
+          onReset={() => {
+            if (onReset && valueTypeRef.current) {
+              const value = formInstanceRef.current?.getFieldsValue() as T;
+              const finalValue = transformKeySubmitValue(
+                conversionSubmitValue(value, dateFormatter, valueTypeRef.current) as T,
+                transformKeyRef.current,
+              );
+              onReset(finalValue);
+            }
+          }}
+          onFinish={() => {
+            submit(false);
+          }}
+          initialValues={formConfig.initialValues}
+        >
+          {domList}
+        </Competent>
+      )}
     </div>
   );
 };

@@ -26,8 +26,8 @@ const LightFilterContainer: React.FC<{
   items: React.ReactNode[];
   prefixCls: string;
   size?: SizeType;
-  values?: Record<string, unknown>;
-  onValuesChange: (values: Record<string, unknown>) => void;
+  values?: Record<string, any>;
+  onValuesChange: (values: Record<string, any>) => void;
   collapse?: boolean;
   collapseLabel?: React.ReactNode;
   bordered?: boolean;
@@ -48,7 +48,7 @@ const LightFilterContainer: React.FC<{
   const collapseItems: React.ReactNode[] = [];
 
   const [open, setOpen] = useState<boolean>(false);
-  const [moreValues, setMoreValues] = useState<Record<string, unknown>>(() => {
+  const [moreValues, setMoreValues] = useState<Record<string, any>>(() => {
     return { ...values };
   });
   useEffect(() => {
@@ -172,7 +172,7 @@ const LightFilter: React.FC<LightFilterProps> = (props) => {
   const prefixCls = getPrefixCls('pro-form');
   const [form] = Form.useForm();
   const realForm = userForm || form;
-  const [values, setValues] = useState<Record<string, unknown>>(() => {
+  const [values, setValues] = useState<Record<string, any>>(() => {
     return { ...initialValues };
   });
   return (

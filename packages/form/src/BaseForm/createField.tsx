@@ -4,6 +4,7 @@ import type { ProFieldValueType, SearchTransformKeyFn } from '@ant-design/pro-ut
 import { pickProFormItemProps } from '@ant-design/pro-utils';
 import type { FormItemProps } from 'antd/lib/form';
 import classnames from 'classnames';
+import { noteOnce } from 'rc-util/lib/warning';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
 import FieldContext from '../FieldContext';
 import LightWrapper from './LightWrapper';
@@ -157,6 +158,12 @@ function createField<P extends ProFormItemProps = any>(
       ...restFormItemProps,
       ...propsFormItemProps,
     };
+
+    noteOnce(
+      // eslint-disable-next-line @typescript-eslint/dot-notation
+      !rest['defaultValue'],
+      '请不要在 Form 中使用 defaultXXX。如果需要默认值请使用 initialValues 和 initialValue。',
+    );
 
     const field = (
       <Field

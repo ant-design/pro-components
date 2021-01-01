@@ -1,5 +1,4 @@
-import type { ReactElement } from 'react';
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Form } from 'antd';
 import type { FormProps, FormInstance } from 'antd/lib/form/Form';
 import type { FormItemProps } from 'antd/lib/form';
@@ -40,10 +39,11 @@ export type CommonFormProps = {
 export type BaseFormProps = {
   contentRender?: (
     items: React.ReactNode[],
-    submitter: ReactElement<SubmitterProps> | undefined,
+    submitter: React.ReactElement<SubmitterProps> | undefined,
     form: FormInstance<any>,
   ) => React.ReactNode;
   fieldProps?: FieldProps;
+  onInit?: () => void;
   dateFormatter?: 'number' | 'string' | false;
   formItemProps?: FormItemProps;
   groupProps?: GroupProps;
@@ -61,6 +61,7 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
     dateFormatter = 'string',
     form: userForm,
     formRef: propsFormRef,
+    onInit,
     ...rest
   } = props;
 
@@ -78,7 +79,7 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
    * 因为 protable 里面的值无法保证刚开始就存在
    * 所以多进行了一次触发，这样可以解决部分问题
    */
-  const [, updateState] = useMountMergeState(false);
+  const [isUpdate, updateState] = useMountMergeState(false);
 
   const items = React.Children.toArray(children);
   const submitterProps: SubmitterProps =
@@ -105,6 +106,11 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
   const forgetUpdate = () => {
     setTimeout(() => updateState(true));
   };
+  useEffect(() => {
+    if (isUpdate) {
+      onInit?.();
+    }
+  }, [isUpdate]);
 
   return (
     // 增加国际化的能力，与 table 组件可以统一
@@ -159,7 +165,7 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
             <Form.Item noStyle shouldUpdate>
               {(formInstance) => {
                 // 支持 fromRef，这里 ref 里面可以随时拿到最新的值
-                if (propsFormRef && !propsFormRef.current) forgetUpdate();
+                if (propsFormRef && !isUpdate) forgetUpdate();
                 if (propsFormRef) propsFormRef.current = formInstance as FormInstance;
                 formRef.current = formInstance as FormInstance;
               }}

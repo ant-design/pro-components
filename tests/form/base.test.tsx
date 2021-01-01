@@ -277,16 +277,20 @@ describe('ProForm', () => {
     const fn = jest.fn();
     const wrapper = mount(
       <ProForm>
-        <ProFormCaptcha
-          onGetCaptcha={async () => {
-            fn();
-            await waitTime(10);
-          }}
+        <ProFormText
+          name="phone"
           rules={[
             {
               required: true,
             },
           ]}
+        />
+        <ProFormCaptcha
+          onGetCaptcha={async () => {
+            fn();
+            await waitTime(10);
+          }}
+          phoneName="phone"
           captchaProps={{
             id: 'test',
           }}

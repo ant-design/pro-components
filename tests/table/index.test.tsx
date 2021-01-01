@@ -941,7 +941,7 @@ describe('BasicTable', () => {
     const fn = jest.fn();
     const html = mount(
       <ProTable<
-        Record<string, unknown>,
+        Record<string, any>,
         {
           test: string;
         }

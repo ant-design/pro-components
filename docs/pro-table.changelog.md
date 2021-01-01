@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.18.2
+
+`2020-12-31`
+
+- 🐛 fix(table): reloadAndRest should reset page index [#1444](https://github.com/ant-design/pro-components/pull/1444) [@chenshuai2144](https://github.com/chenshuai2144)
+- ✨ feat(table): valueEnum support function [#1443](https://github.com/ant-design/pro-components/pull/1443) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.17.3
 
 `2020-12-28`

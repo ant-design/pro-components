@@ -62,7 +62,7 @@ const isBordered = (borderType: BorderedType, border?: Bordered) => {
  * 更快 更好 更方便
  * @param props
  */
-const ProTable = <T extends Record<string, unknown>, U extends ParamsType, ValueType>(
+const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType>(
   props: ProTableProps<T, U, ValueType> & {
     defaultClassName: string;
   },
@@ -129,7 +129,7 @@ const ProTable = <T extends Record<string, unknown>, U extends ParamsType, Value
     [setSelectedRowKeys, setSelectedRows],
   );
 
-  const [formSearch, setFormSearch] = useMountMergeState<Record<string, unknown> | undefined>(
+  const [formSearch, setFormSearch] = useMountMergeState<Record<string, any> | undefined>(
     undefined,
   );
 
@@ -619,7 +619,7 @@ const ProTable = <T extends Record<string, unknown>, U extends ParamsType, Value
  * @param props
  */
 const ProviderWarp = <
-  T extends Record<string, unknown>,
+  T extends Record<string, any>,
   U extends ParamsType = ParamsType,
   ValueType = 'text'
 >(
