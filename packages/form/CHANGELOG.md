@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.12.0...@ant-design/pro-form@1.13.0) (2021-01-02)
+
+### Bug Fixes
+
+- **form:** add footer warning ([#1469](https://github.com/ant-design/pro-components/issues/1469)) ([4dd1590](https://github.com/ant-design/pro-components/commit/4dd15900a13227704ebe8d769ba840eec0362bbd))
+- **form:** fix form submitButtonProps no work error ([#1476](https://github.com/ant-design/pro-components/issues/1476)) ([e6bea59](https://github.com/ant-design/pro-components/commit/e6bea5945218cbea5d5009b489f8f4fca6fc05fe))
+
+### Features
+
+- **from:** support ProFormDependency ([#1475](https://github.com/ant-design/pro-components/issues/1475)) ([a761e47](https://github.com/ant-design/pro-components/commit/a761e4796c1162082d60b26a53102bdb8146b63c))
+
 # [1.12.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.11.7...@ant-design/pro-form@1.12.0) (2021-01-01)
 
 ### Bug Fixes

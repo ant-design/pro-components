@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.6.0...@ant-design/pro-field@1.6.1) (2021-01-02)
+
+### Bug Fixes
+
+- **form:** fix the problem of attribute priority ([#1472](https://github.com/ant-design/pro-components/issues/1472)) ([c926728](https://github.com/ant-design/pro-components/commit/c9267281e09642e0c7b8c852a6f3abcb8881a2a9))
+
 # [1.6.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.5.3...@ant-design/pro-field@1.6.0) (2021-01-01)
 
 ### Features

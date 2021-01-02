@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.9.2...@ant-design/pro-card@1.9.3) (2021-01-02)
+
+### Bug Fixes
+
+- **card:** fix the wrong background color issue ([#1474](https://github.com/ant-design/pro-components/issues/1474)) ([5ee711a](https://github.com/ant-design/pro-components/commit/5ee711a9f57ba333a251a942e5cc71609e18feec))
+
 ## [1.9.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.9.1...@ant-design/pro-card@1.9.2) (2021-01-01)
 
 **Note:** Version bump only for package @ant-design/pro-card

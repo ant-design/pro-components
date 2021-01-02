@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.19.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.19.0...@ant-design/pro-table@2.19.1) (2021-01-02)
+
+### Bug Fixes
+
+- **table:** fix colSize no work error ([#1470](https://github.com/ant-design/pro-components/issues/1470)) ([fe1ce2e](https://github.com/ant-design/pro-components/commit/fe1ce2e8129187fc31427f0d63efc3b0c8663fca))
+- **table:** fix the compatibility problem of sorting ([#1471](https://github.com/ant-design/pro-components/issues/1471)) ([ee3191a](https://github.com/ant-design/pro-components/commit/ee3191afdecbd7ec6bed8b2e1982115747e317df))
+
 # [2.19.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.18.3...@ant-design/pro-table@2.19.0) (2021-01-01)
 
 ### Bug Fixes
