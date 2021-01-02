@@ -91,9 +91,9 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (props) => 
       {resetText}
     </Button>,
     <Button
+      type="primary"
       {...submitButtonProps}
       key="submit"
-      type="primary"
       onClick={(e) => {
         form.submit();
         onSubmit?.();
