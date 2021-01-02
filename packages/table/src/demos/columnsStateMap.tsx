@@ -77,6 +77,7 @@ export default () => {
   const [columnsStateMap, setColumnsStateMap] = useState<Record<string, ColumnsState>>({
     name: {
       show: false,
+      order: 2,
     },
   });
   return (
