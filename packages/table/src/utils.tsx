@@ -389,7 +389,10 @@ export function genColumnList<T>(props: {
       // 这些都没有，说明是普通的表格不需要 pro 管理
       const noNeedPro = !dataIndex && !valueEnum && !valueType && !children;
       if (noNeedPro) {
-        return columnProps;
+        return {
+          index: columnsIndex,
+          ...columnProps,
+        };
       }
       const { propsRef } = counter;
       const config = map[columnKey] || { fixed: columnProps.fixed };
