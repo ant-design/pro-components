@@ -416,7 +416,12 @@ const FormSearch = <T, U = any>({
         }
         return false;
       })
-      .sort((a, b) => (b.order || b.index || 0) - (a.order || a.index || 0));
+      .sort((a, b) => {
+        if (b.order || a.order) {
+          return (b.order || 0) - (a.order || 0);
+        }
+        return (b.index || 0) - (a.index || 0);
+      });
   }, [columns, type]);
 
   const columnsListRef = useRef<JSX.Element[]>([]);
