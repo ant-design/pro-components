@@ -134,7 +134,7 @@ const ModalForm: React.FC<ModalFormProps> = ({
                 resetText: modalProps?.cancelText || context.locale?.Modal?.cancelText || '取消',
               },
               submitButtonProps: {
-                type: modalProps?.okType as 'text',
+                type: (modalProps?.okType as 'text') || 'primary',
               },
               resetButtonProps: {
                 onClick: (e) => {
