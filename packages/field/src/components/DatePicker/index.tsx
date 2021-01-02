@@ -68,11 +68,11 @@ const FieldDatePicker: ProFieldFC<{
           }}
         >
           <DatePicker
-            {...fieldProps}
             picker={picker}
             showTime={showTime}
             format={format}
             ref={ref}
+            {...fieldProps}
             value={momentValue}
             onChange={(v) => {
               if (onChange) {
@@ -105,13 +105,13 @@ const FieldDatePicker: ProFieldFC<{
     } else {
       dom = (
         <DatePicker
-          {...fieldProps}
           picker={picker}
           showTime={showTime}
           format={format}
           placeholder={placeholder}
-          ref={ref}
           bordered={plain === undefined ? true : !plain}
+          ref={ref}
+          {...fieldProps}
           value={momentValue}
         />
       );
