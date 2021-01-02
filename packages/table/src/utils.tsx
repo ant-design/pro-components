@@ -206,7 +206,7 @@ export const tableColumnSort = (columnsMap: Record<string, ColumnsState>) => (a:
   // 如果没有index，在 dataIndex 或者 key 不存在的时候他会报错
   const aKey = a.key || `${aIndex}`;
   const bKey = b.key || `${bIndex}`;
-  return (columnsMap[aKey]?.order || 0) - (columnsMap[bKey]?.order || 0);
+  return (columnsMap[aKey]?.order || a.index || 0) - (columnsMap[bKey]?.order || b.index || 0);
 };
 
 /**
