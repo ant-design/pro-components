@@ -30,6 +30,7 @@ export default () => {
           },
           render: (_, dom) => dom.pop(),
           submitButtonProps: {
+            type: 'ghost',
             size: 'large',
             style: {
               width: '100%',
