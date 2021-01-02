@@ -120,7 +120,7 @@ export const formInputRender: React.FC<{
   onSelect?: (value: any) => void;
   [key: string]: any;
 }> = (props, ref: any) => {
-  const { item, intl, form, type, formItemProps: propsFormItemProps, ...rest } = props;
+  const { item, intl, form, type, formItemProps: propsFormItemProps, colSize, ...rest } = props;
 
   const formItemProps = getFieldPropsOrFormItemProps(
     propsFormItemProps,
@@ -194,6 +194,7 @@ export const formInputRender: React.FC<{
           ...item.fieldProps,
         }}
         formItemProps={formItemProps}
+        colSize={colSize}
       >
         {React.cloneElement(dom, { ...rest, ...defaultProps })}
       </ProFormField>
@@ -415,7 +416,12 @@ const FormSearch = <T, U = any>({
         }
         return false;
       })
-      .sort((a, b) => (b.order || 0) - (a.order || 0));
+      .sort((a, b) => {
+        if (b.order || a.order) {
+          return (b.order || 0) - (a.order || 0);
+        }
+        return (b.index || 0) - (a.index || 0);
+      });
   }, [columns, type]);
 
   const columnsListRef = useRef<JSX.Element[]>([]);

@@ -206,7 +206,10 @@ export const tableColumnSort = (columnsMap: Record<string, ColumnsState>) => (a:
   // 如果没有index，在 dataIndex 或者 key 不存在的时候他会报错
   const aKey = a.key || `${aIndex}`;
   const bKey = b.key || `${bIndex}`;
-  return (columnsMap[aKey]?.order || 0) - (columnsMap[bKey]?.order || 0);
+  if (columnsMap[aKey]?.order || columnsMap[bKey]?.order) {
+    return (columnsMap[aKey]?.order || 0) - (columnsMap[bKey]?.order || 0);
+  }
+  return (a.index || 0) - (b.index || 0);
 };
 
 /**
@@ -386,7 +389,10 @@ export function genColumnList<T>(props: {
       // 这些都没有，说明是普通的表格不需要 pro 管理
       const noNeedPro = !dataIndex && !valueEnum && !valueType && !children;
       if (noNeedPro) {
-        return columnProps;
+        return {
+          index: columnsIndex,
+          ...columnProps,
+        };
       }
       const { propsRef } = counter;
       const config = map[columnKey] || { fixed: columnProps.fixed };
