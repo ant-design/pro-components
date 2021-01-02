@@ -39,10 +39,10 @@ const FieldTimePicker: ProFieldFC<{
           }}
         >
           <DatePicker.TimePicker
-            {...fieldProps}
             value={momentValue}
             format={format}
             ref={ref}
+            {...fieldProps}
             onChange={(v) => {
               if (onChange) {
                 onChange(v);
