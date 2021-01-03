@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Space, Tooltip, Form, Typography } from 'antd';
 
 import type { ColumnsType, TablePaginationConfig } from 'antd/lib/table';
-import {
+import type {
   ProFieldValueType,
   ProSchemaComponentTypes,
   ProTableEditableFnType,
-  runFunction,
   UseEditableUtilType,
 } from '@ant-design/pro-utils';
+import { runFunction } from '@ant-design/pro-utils';
 import { isNil, LabelIconTip, omitBoolean, omitUndefinedAndEmptyArr } from '@ant-design/pro-utils';
 import type { ProFieldEmptyText } from '@ant-design/pro-field';
 import { proFieldParsingValueEnumToArray } from '@ant-design/pro-field';
@@ -149,33 +149,31 @@ export function useActionType<T>(
    * 这里生成action的映射，保证 action 总是使用的最新
    * 只需要渲染一次即可
    */
-  useEffect(() => {
-    const userAction: ActionType = {
-      ...props.editableUtils,
-      reload: async (resetPageIndex?: boolean) => {
-        // 如果为 true，回到第一页
-        if (resetPageIndex) {
-          await props.onCleanSelected();
-        }
-        await action?.reload();
-      },
-      reloadAndRest: async () => {
-        // reload 之后大概率会切换数据，清空一下选择。
-        props.onCleanSelected();
-        await action.resetPageIndex();
-        await action?.reload();
-      },
-      reset: async () => {
-        await props.resetAll();
-        await action?.reset?.();
-        await action?.reload();
-      },
-      fullScreen: () => props.fullScreen(),
-      clearSelected: () => props.onCleanSelected(),
-    };
-    // eslint-disable-next-line no-param-reassign
-    ref.current = userAction;
-  }, [props.editableUtils]);
+  const userAction: ActionType = {
+    ...props.editableUtils,
+    reload: async (resetPageIndex?: boolean) => {
+      // 如果为 true，回到第一页
+      if (resetPageIndex) {
+        await props.onCleanSelected();
+      }
+      await action?.reload();
+    },
+    reloadAndRest: async () => {
+      // reload 之后大概率会切换数据，清空一下选择。
+      props.onCleanSelected();
+      await action.resetPageIndex();
+      await action?.reload();
+    },
+    reset: async () => {
+      await props.resetAll();
+      await action?.reset?.();
+      await action?.reload();
+    },
+    fullScreen: () => props.fullScreen(),
+    clearSelected: () => props.onCleanSelected(),
+  };
+  // eslint-disable-next-line no-param-reassign
+  ref.current = userAction;
 }
 
 type PostDataType<T> = (data: T) => T;
