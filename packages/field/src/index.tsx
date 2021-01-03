@@ -36,6 +36,7 @@ import FieldDigit from './components/Digit';
 import FieldSecond from './components/Second';
 
 import FieldRadio from './components/Radio';
+import FieldImage from './components/Image';
 
 export type ProFieldEmptyText = string | false;
 
@@ -312,6 +313,10 @@ const defaultRenderText = (
 
   if (valueType === 'password') {
     return <FieldPassword text={text as string} {...props} />;
+  }
+
+  if (valueType === 'image') {
+    return <FieldImage text={text as string} {...props} />;
   }
 
   return <FieldText text={text as string} {...props} />;

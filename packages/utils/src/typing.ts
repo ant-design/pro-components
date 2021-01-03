@@ -50,6 +50,7 @@ export type ProFieldValueType =
   | 'code'
   | 'switch'
   | 'fromNow'
+  | 'image'
   | 'jsonCode';
 
 export type ProFieldRequestData<U = any> = (
