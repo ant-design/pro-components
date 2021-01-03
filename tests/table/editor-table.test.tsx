@@ -84,6 +84,9 @@ const columns: ProColumns<DataSourceType>[] = [
     title: '标题',
     dataIndex: 'title',
     copyable: true,
+    fieldProps: {
+      onChange: () => null,
+    },
     ellipsis: true,
     tip: '标题过长会自动收缩',
     formItemProps: {
