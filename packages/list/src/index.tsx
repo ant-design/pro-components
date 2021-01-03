@@ -72,11 +72,8 @@ function ProList<
   const proTableColumns: ProColumnType<RecordType>[] = useMemo(() => {
     const columns: ProColumnType<RecordType>[] = [];
     Object.keys(metals || {}).forEach((key) => {
-      if (!metals || !metals[key]) {
-        return;
-      }
-      const meta = metals[key];
-      let { valueType } = meta || {};
+      const meta = metals![key] || {};
+      let { valueType } = meta;
       if (!valueType) {
         // 给默认的 valueType
         if (key === 'avatar') {
