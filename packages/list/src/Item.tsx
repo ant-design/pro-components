@@ -183,26 +183,4 @@ function ProListItem(props: ItemProps) {
   );
 }
 
-/**
- * 简单的，只包含 title 和 actions 的分组标题
- * @param param0
- */
-const ProListSubItem: React.FC<{
-  title?: React.ReactNode;
-  actions?: React.ReactNode[];
-  className?: string;
-  prefixCls?: string;
-  style?: React.CSSProperties;
-}> = ({ style, prefixCls, title, actions, ...rest }) => {
-  const defaultClassName = `${prefixCls}-row`;
-  const { className = defaultClassName } = rest;
-  return (
-    <div key="subheader" style={style} className={`${className} ${className}-subheader`}>
-      <div className={`${className}-subheader-title`}>{title}</div>
-      <div className={`${className}-subheader-actions`}>{actions}</div>
-    </div>
-  );
-};
-export { ProListSubItem };
-
 export default ProListItem;
