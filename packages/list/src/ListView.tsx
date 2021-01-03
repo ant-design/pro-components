@@ -3,6 +3,7 @@ import { List } from 'antd';
 import type { GetRowKey } from 'antd/lib/table/interface';
 import type { ListProps } from 'antd/lib/list';
 import type { ColumnType, TableProps } from 'antd/es/table';
+import type { ActionType } from '@ant-design/pro-table';
 import get from 'rc-util/lib/utils/get';
 import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
 import useSelection from 'antd/lib/table/hooks/useSelection';
@@ -21,6 +22,7 @@ export type ListViewProps<RecordType> = AntdListProps<RecordType> &
     rowSelection?: TableProps<RecordType>['rowSelection'];
     prefixCls: string;
     dataSource: RecordType[];
+    actionRef: React.MutableRefObject<ActionType | undefined>;
   };
 
 function ListView<RecordType>(props: ListViewProps<RecordType>) {
@@ -30,6 +32,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     rowKey,
     showActions,
     prefixCls,
+    actionRef,
     expandable: expandableConfig,
     rowSelection,
     pagination, // List 的 pagination 默认是 false
@@ -140,6 +143,9 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
    * 所以看起来有点奇怪
    */
   const selectItemDom = selectItemRender([])[0];
+  if (!actionRef.current) {
+    return null;
+  }
 
   return (
     <List<RecordType>
@@ -159,14 +165,18 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
             }
           });
         });
-
         let checkboxDom;
         if (selectItemDom && selectItemDom.render) {
           checkboxDom = selectItemDom.render(item, item, index);
         }
+        const { isEditable, recordKey } = actionRef.current?.isEditable({ ...item, index }) || {};
+
         return (
           <ProListItem
+            key={recordKey}
             {...listItemProps}
+            recordKey={recordKey}
+            isEditable={isEditable || false}
             expandable={expandableConfig}
             expand={mergedExpandedKeys.has(getRowKey(item, index))}
             onExpand={() => {

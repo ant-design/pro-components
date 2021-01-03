@@ -104,11 +104,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   } = props;
   const actionRef = useRef<ActionType>();
 
-  /**
-   * 绑定 action ref
-   */
-  useImperativeHandle(propsActionRef, () => actionRef.current, [actionRef.current]);
-
   useEffect(() => {
     if (typeof propsActionRef === 'function' && actionRef.current) {
       propsActionRef(actionRef.current);
@@ -277,6 +272,21 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     },
     editableUtils,
   });
+
+  if (propsActionRef) {
+    // @ts-ignore
+    propsActionRef.current = actionRef.current;
+  }
+  /**
+   * 绑定 action ref
+   */
+  useImperativeHandle(
+    propsActionRef,
+    () => {
+      return actionRef.current;
+    },
+    [editableUtils],
+  );
 
   // ---------- 列计算相关 start  -----------------
   const tableColumn = useMemo(() => {
