@@ -1,5 +1,6 @@
 import { mount } from 'enzyme';
-import React, { useState, ReactText } from 'react';
+import type { ReactText } from 'react';
+import React, { useState } from 'react';
 import ProList from '@ant-design/pro-list';
 import { act } from 'react-dom/test-utils';
 import PaginationDemo from '../../packages/list/src/demos/pagination';
@@ -126,6 +127,35 @@ describe('List', () => {
     const html = mount(<Wrapper />);
     expect(html.find('.ant-pro-list-row-description').length).toEqual(0);
     html.find('.ant-pro-list-row-expand-icon').simulate('click');
+    expect(html.find('.ant-pro-list-row-content').text()).toEqual('我是内容');
+    expect(onExpand).toHaveBeenCalledWith(true, expect.objectContaining({ name: '我是名称' }));
+  });
+
+  it('🚏 expandable support expandRowByClick', async () => {
+    const onExpand = jest.fn();
+    const Wrapper = () => {
+      const [expandedRowKeys, onExpandedRowsChange] = useState<ReactText[]>([]);
+      return (
+        <ProList
+          dataSource={[
+            {
+              name: '我是名称',
+              content: <div>我是内容</div>,
+            },
+          ]}
+          metas={{
+            title: {
+              dataIndex: 'name',
+            },
+            content: {},
+          }}
+          expandable={{ expandedRowKeys, onExpandedRowsChange, onExpand, expandRowByClick: true }}
+        />
+      );
+    };
+    const html = mount(<Wrapper />);
+    expect(html.find('.ant-pro-list-row-description').length).toEqual(0);
+    html.find('.ant-list-item').simulate('click');
     expect(html.find('.ant-pro-list-row-content').text()).toEqual('我是内容');
     expect(onExpand).toHaveBeenCalledWith(true, expect.objectContaining({ name: '我是名称' }));
   });
