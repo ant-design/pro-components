@@ -333,11 +333,15 @@ const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
 ) => {
   const intl = useIntl();
   const context = useContext(ConfigContext);
+
   const fieldProps = (value || onChange || rest?.fieldProps) && {
     value,
-    onChange,
     // fieldProps 优先级更高，在类似 LightFilter 场景下需要覆盖默认的 value 和 onChange
     ...omitUndefined(rest?.fieldProps),
+    onChange: (...restParams: any[]) => {
+      onChange?.(...restParams);
+      rest?.fieldProps?.onChange?.(...restParams);
+    },
   };
 
   return (

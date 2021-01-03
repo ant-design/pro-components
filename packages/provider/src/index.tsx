@@ -87,7 +87,7 @@ export type ProFieldFCRenderProps = {
   mode?: ProFieldFCMode;
   placeholder?: string | string[];
   value?: any;
-  onChange?: (value: any) => void;
+  onChange?: (...rest: any[]) => void;
 } & BaseProFieldFC;
 
 export type ProRenderFieldPropsType = {
