@@ -4,6 +4,7 @@ import type { ProFieldFC } from '../../index';
 
 export type FieldImageProps = {
   text: string;
+  width?: number;
 };
 
 /**
@@ -20,10 +21,12 @@ const FieldImage: ProFieldFC<FieldImageProps> = ({
   render,
   renderFormItem,
   fieldProps,
+  width,
+  plain,
   ...rest
 }) => {
   if (type === 'read') {
-    const dom = <Image width={32} src={text} />;
+    const dom = <Image width={width || 32} src={text} />;
     if (render) {
       return render(text, { mode: type, ...fieldProps }, dom);
     }

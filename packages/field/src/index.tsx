@@ -106,6 +106,10 @@ const defaultRenderTextByObject = (
       />
     );
   }
+
+  if (valueType.type === 'image') {
+    return <FieldImage {...props} text={text as string} width={valueType.width} />;
+  }
   return text;
 };
 
