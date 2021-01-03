@@ -143,9 +143,6 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
    * 所以看起来有点奇怪
    */
   const selectItemDom = selectItemRender([])[0];
-  if (!actionRef.current) {
-    return null;
-  }
 
   return (
     <List<RecordType>
