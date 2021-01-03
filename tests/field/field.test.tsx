@@ -328,6 +328,7 @@ describe('Field', () => {
     'code',
     'jsonCode',
     'rate',
+    'image',
   ];
   valueTypes.forEach((valueType) => {
     it(`🐴 valueType support render ${valueType}`, async () => {

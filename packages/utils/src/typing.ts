@@ -50,6 +50,7 @@ export type ProFieldValueType =
   | 'code'
   | 'switch'
   | 'fromNow'
+  | 'image'
   | 'jsonCode';
 
 export type ProFieldRequestData<U = any> = (
@@ -67,7 +68,7 @@ export type ProFieldValueEnumType = ProSchemaValueEnumMap | ProSchemaValueEnumOb
 
 // function return type
 export type ProFieldValueObjectType = {
-  type: 'progress' | 'money' | 'percent';
+  type: 'progress' | 'money' | 'percent' | 'image';
   status?: 'normal' | 'active' | 'success' | 'exception' | undefined;
   locale?: string;
   /** percent */
@@ -75,6 +76,11 @@ export type ProFieldValueObjectType = {
   showColor?: boolean;
   precision?: number;
   request?: ProFieldRequestData;
+
+  /**
+   * image
+   */
+  width?: number;
 };
 
 export type ProSchemaValueEnumType = {
