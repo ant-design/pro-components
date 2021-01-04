@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-field@1.7.0
+
+`2021-01-05`
+
+- 🐛 fix(table): fix fieldProps.onChange no work error [#1479](https://github.com/ant-design/pro-components/pull/1479) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(field): support image valueType [#1480](https://github.com/ant-design/pro-components/pull/1480) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-field@1.5.2
 
 `2020-12-31`

@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.20.0
+
+`2021-01-05`
+
+- 🐛 fix(list): fix editable for list [#1481](https://github.com/ant-design/pro-components/pull/1481) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix fieldProps.onChange no work error [#1479](https://github.com/ant-design/pro-components/pull/1479) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.19.1
 
 `2021-01-03`
