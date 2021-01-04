@@ -9,6 +9,26 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.13.0
+
+`2021-01-03`
+
+- 🐛 fix(form): fix form submitButtonProps no work error [#1476](https://github.com/ant-design/pro-components/pull/1476) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix the problem of attribute priority [#1472](https://github.com/ant-design/pro-components/pull/1472) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): add footer warning [#1469](https://github.com/ant-design/pro-components/pull/1469) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-form@1.12.0
+
+`2021-01-01`
+
+- 🐛 fix(table): fix table form submit time error [#1466](https://github.com/ant-design/pro-components/pull/1466) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-form@1.11.7
+
+`2020-12-31`
+
+- 🐛 fix(form): fix ProFormCaptcha name error [#1459](https://github.com/ant-design/pro-components/pull/1459) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-form@1.11.6
 
 `2020-12-31`

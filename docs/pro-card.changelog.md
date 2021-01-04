@@ -10,6 +10,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-card@1.9.3
+
+`2021-01-03`
+
+- 🐛 fix(card): fix the wrong background color issue [#1474](https://github.com/ant-design/pro-components/pull/1474) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-card@1.9.0
 
 `2020-12-31`

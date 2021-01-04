@@ -9,6 +9,20 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.19.1
+
+`2021-01-03`
+
+- 🐛 fix(table): fix the compatibility problem of sorting [#1471](https://github.com/ant-design/pro-components/pull/1471) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix colSize no work error [#1470](https://github.com/ant-design/pro-components/pull/1470) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.19.0
+
+`2021-01-01`
+
+- 🐛 fix(table): fix table form submit time error [#1466](https://github.com/ant-design/pro-components/pull/1466) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(table): support customization valueType [#1456](https://github.com/ant-design/pro-components/pull/1456) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.18.2
 
 `2020-12-31`
