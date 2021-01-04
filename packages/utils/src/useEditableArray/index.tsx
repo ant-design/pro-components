@@ -31,6 +31,11 @@ export type NewLineConfig<T> = {
 export type ActionRenderFunction<T> = (
   row: T,
   config: ActionRenderConfig<T, NewLineConfig<T>>,
+  defaultDoms: {
+    save: React.ReactNode;
+    delete: React.ReactNode;
+    cancel: React.ReactNode;
+  },
 ) => React.ReactNode[];
 
 export type RowEditableConfig<T> = {
@@ -315,11 +320,11 @@ export function defaultActionRender<T>(row: T, config: ActionRenderConfig<T, New
     <SaveEditableAction key="save" {...config} row={row}>
       {saveText}
     </SaveEditableAction>,
-    !newLineConfig && (
+    !newLineConfig ? (
       <DeleteEditableAction key="delete" {...config} row={row}>
         {deleteText}
       </DeleteEditableAction>
-    ),
+    ) : null,
     <a
       key="cancel"
       onClick={async () => {
@@ -545,8 +550,15 @@ function useEditableArray<RecordType>(
         setEditableRowKeys,
         deletePopconfirmMessage: props.deletePopconfirmMessage || '删除此行？',
       };
-      if (props.actionRender) return props.actionRender(row, config);
-      return defaultActionRender<RecordType>(row, config);
+      const defaultDoms = defaultActionRender<RecordType>(row, config);
+
+      if (props.actionRender)
+        return props.actionRender(row, config, {
+          save: defaultDoms[0],
+          delete: defaultDoms[1],
+          cancel: defaultDoms[2],
+        });
+      return defaultDoms;
     },
     [editableKeys.join(',')],
   );

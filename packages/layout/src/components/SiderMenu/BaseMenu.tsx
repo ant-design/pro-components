@@ -126,7 +126,12 @@ class MenuUtil {
     }
 
     return (
-      <Menu.Item inlineIndent={24} disabled={item.disabled} key={item.key || item.path}>
+      <Menu.Item
+        inlineIndent={24}
+        disabled={item.disabled}
+        key={item.key || item.path}
+        onClick={item.onTitleClick}
+      >
         {this.getMenuItemPath(item, isChildren)}
       </Menu.Item>
     );

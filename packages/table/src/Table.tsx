@@ -62,8 +62,8 @@ const isBordered = (borderType: BorderedType, border?: Bordered) => {
  * 更快 更好 更方便
  * @param props
  */
-const ProTable = <T extends {}, U extends ParamsType>(
-  props: ProTableProps<T, U> & {
+const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType>(
+  props: ProTableProps<T, U, ValueType> & {
     defaultClassName: string;
   },
 ) => {
@@ -99,14 +99,11 @@ const ProTable = <T extends {}, U extends ParamsType>(
     columnEmptyText = '-',
     manualRequest = false,
     toolbar,
+    rowKey,
     ...rest
   } = props;
   const actionRef = useRef<ActionType>();
 
-  /**
-   * 绑定 action ref
-   */
-  useImperativeHandle(propsActionRef, () => actionRef.current, [actionRef.current]);
   useEffect(() => {
     if (typeof propsActionRef === 'function' && actionRef.current) {
       propsActionRef(actionRef.current);
@@ -119,12 +116,17 @@ const ProTable = <T extends {}, U extends ParamsType>(
 
   const [selectedRows, setSelectedRows] = useMountMergeState<T[]>([]);
 
-  const setSelectedRowsAndKey = (keys: React.ReactText[], rows: T[]) => {
-    setSelectedRowKeys(keys);
-    setSelectedRows(rows);
-  };
+  const setSelectedRowsAndKey = useCallback(
+    (keys: React.ReactText[], rows: T[]) => {
+      setSelectedRowKeys(keys);
+      setSelectedRows(rows);
+    },
+    [setSelectedRowKeys, setSelectedRows],
+  );
 
-  const [formSearch, setFormSearch] = useMountMergeState<{} | undefined>(undefined);
+  const [formSearch, setFormSearch] = useMountMergeState<Record<string, any> | undefined>(
+    undefined,
+  );
 
   const [proFilter, setProFilter] = useMountMergeState<Record<string, React.ReactText[]>>({});
   const [proSort, setProSort] = useMountMergeState<Record<string, SortOrder>>({});
@@ -215,19 +217,18 @@ const ProTable = <T extends {}, U extends ParamsType>(
       propsRowSelection.onChange([], []);
     }
     setSelectedRowsAndKey([], []);
-  }, [setSelectedRowKeys, propsRowSelection]);
+  }, [propsRowSelection, setSelectedRowsAndKey]);
 
   counter.setAction(actionRef.current);
   counter.propsRef.current = props;
 
   // ============================ RowKey ============================
   const getRowKey = React.useMemo<any>(() => {
-    const { rowKey } = props;
     if (typeof rowKey === 'function') {
       return rowKey;
     }
     return (record: T, index: number) => (record as any)?.[rowKey as string] ?? `${index}`;
-  }, [props.rowKey]);
+  }, [rowKey]);
 
   /**
    * 可编辑行的相关配置
@@ -272,6 +273,21 @@ const ProTable = <T extends {}, U extends ParamsType>(
     editableUtils,
   });
 
+  if (propsActionRef) {
+    // @ts-ignore
+    propsActionRef.current = actionRef.current;
+  }
+  /**
+   * 绑定 action ref
+   */
+  useImperativeHandle(
+    propsActionRef,
+    () => {
+      return actionRef.current;
+    },
+    [editableUtils],
+  );
+
   // ---------- 列计算相关 start  -----------------
   const tableColumn = useMemo(() => {
     return genColumnList<T>({
@@ -283,7 +299,6 @@ const ProTable = <T extends {}, U extends ParamsType>(
       editableUtils,
     }).sort(tableColumnSort(counter.columnsMap));
   }, [propsColumns, counter, columnEmptyText, type, editableUtils]);
-
   /**
    * Table Column 变化的时候更新一下，这个参数将会用于渲染
    */
@@ -533,7 +548,7 @@ const ProTable = <T extends {}, U extends ParamsType>(
    */
   const baseTableDom = (
     <Form component={false}>
-      <Table<T> {...tableProps} tableLayout={tableLayout} />
+      <Table<T> {...tableProps} rowKey={rowKey} tableLayout={tableLayout} />
     </Form>
   );
 
@@ -613,15 +628,19 @@ const ProTable = <T extends {}, U extends ParamsType>(
  * 更快 更好 更方便
  * @param props
  */
-const ProviderWarp = <T, U extends Record<string, any> = Record<string, any>>(
-  props: ProTableProps<T, U>,
+const ProviderWarp = <
+  T extends Record<string, any>,
+  U extends ParamsType = ParamsType,
+  ValueType = 'text'
+>(
+  props: ProTableProps<T, U, ValueType>,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   return (
     <Container.Provider initialState={props}>
       <ConfigProviderWrap>
         <ErrorBoundary>
-          <ProTable defaultClassName={getPrefixCls('pro-table')} {...props} />
+          <ProTable<T, U, ValueType> defaultClassName={getPrefixCls('pro-table')} {...props} />
         </ErrorBoundary>
       </ConfigProviderWrap>
     </Container.Provider>

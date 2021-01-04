@@ -59,6 +59,7 @@ const columns: ProColumns<TableListItem>[] = [
     dataIndex: 'status',
     initialValue: 'all',
     filters: true,
+    onFilter: true,
     valueEnum: {
       all: { text: '全部', status: 'Default' },
       close: { text: '待发布', status: 'Default' },

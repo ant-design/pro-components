@@ -2,6 +2,61 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.19.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.19.0...@ant-design/pro-table@2.19.1) (2021-01-02)
+
+### Bug Fixes
+
+- **table:** fix colSize no work error ([#1470](https://github.com/ant-design/pro-components/issues/1470)) ([fe1ce2e](https://github.com/ant-design/pro-components/commit/fe1ce2e8129187fc31427f0d63efc3b0c8663fca))
+- **table:** fix the compatibility problem of sorting ([#1471](https://github.com/ant-design/pro-components/issues/1471)) ([ee3191a](https://github.com/ant-design/pro-components/commit/ee3191afdecbd7ec6bed8b2e1982115747e317df))
+
+# [2.19.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.18.3...@ant-design/pro-table@2.19.0) (2021-01-01)
+
+### Bug Fixes
+
+- **table:** fix table form submit time error ([#1466](https://github.com/ant-design/pro-components/issues/1466)) ([5591a87](https://github.com/ant-design/pro-components/commit/5591a8754d0e911eecdd8bdac7b5d010e2824451))
+
+### Features
+
+- **table:** support customization valueType ([#1456](https://github.com/ant-design/pro-components/issues/1456)) ([cbce5ba](https://github.com/ant-design/pro-components/commit/cbce5baf9ae456a1ab32a748e7ac86ee592b4344))
+
+## [2.18.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.18.2...@ant-design/pro-table@2.18.3) (2020-12-31)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.18.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.18.1...@ant-design/pro-table@2.18.2) (2020-12-31)
+
+### Bug Fixes
+
+- **table:** reloadAndRest should reset page index ([#1444](https://github.com/ant-design/pro-components/issues/1444)) ([629cec2](https://github.com/ant-design/pro-components/commit/629cec2a172e07a967be6db50abf57da84f16048))
+
+## [2.18.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.18.0...@ant-design/pro-table@2.18.1) (2020-12-28)
+
+### Bug Fixes
+
+- **layout:** not use important ([babf934](https://github.com/ant-design/pro-components/commit/babf9340678e7b82f75752db113dbb11330295d6))
+
+# [2.18.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.17.3...@ant-design/pro-table@2.18.0) (2020-12-28)
+
+### Features
+
+- **field:** 在 labelInVaue 的场景下能显示备选项里不存在的 valuezhi ([#1390](https://github.com/ant-design/pro-components/issues/1390)) ([e89f65e](https://github.com/ant-design/pro-components/commit/e89f65e86c0d21cf3b591dc300a3af6862545d82))
+
+## [2.17.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.17.2...@ant-design/pro-table@2.17.3) (2020-12-28)
+
+### Bug Fixes
+
+- **table:** fix onfilter no work error ([#1422](https://github.com/ant-design/pro-components/issues/1422)) ([4fb9e4b](https://github.com/ant-design/pro-components/commit/4fb9e4b8a85a1374ab0d0710b6796d3b09ced06a))
+
+## [2.17.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.17.1...@ant-design/pro-table@2.17.2) (2020-12-25)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.17.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.17.0...@ant-design/pro-table@2.17.1) (2020-12-25)
+
+### Bug Fixes
+
+- **layout:** add PageLoading ([0153505](https://github.com/ant-design/pro-components/commit/0153505ccf6e009137d2e75d41f80830c709174d))
+
 # [2.17.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.16.4...@ant-design/pro-table@2.17.0) (2020-12-24)
 
 ### Bug Fixes

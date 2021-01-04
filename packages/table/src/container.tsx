@@ -12,14 +12,14 @@ export type ColumnsState = {
   order?: number;
 };
 
-export type UseCounterProps = {
+export type UseContainerProps = {
   columnsStateMap?: Record<string, ColumnsState>;
   onColumnsStateChange?: (map: Record<string, ColumnsState>) => void;
   size?: DensitySize;
   onSizeChange?: (size: DensitySize) => void;
 };
 
-function useCounter(props: UseCounterProps = {}) {
+function useContainer(props: UseContainerProps = {}) {
   const actionRef = useRef<ActionType>();
   const propsRef = useRef<ProTableProps<any, any>>();
 
@@ -60,10 +60,10 @@ function useCounter(props: UseCounterProps = {}) {
   };
 }
 
-const Counter = createContainer<ReturnType<typeof useCounter>, UseCounterProps>(useCounter);
+const Container = createContainer<ReturnType<typeof useContainer>, UseContainerProps>(useContainer);
 
-export type CounterType = typeof useCounter;
+export type ContainerType = typeof useContainer;
 
-export { useCounter };
+export { useContainer };
 
-export default Counter;
+export default Container;

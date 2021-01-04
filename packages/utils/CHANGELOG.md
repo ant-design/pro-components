@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.6.4...@ant-design/pro-utils@1.7.0) (2021-01-01)
+
+### Bug Fixes
+
+- **table:** fix table form submit time error ([#1466](https://github.com/ant-design/pro-components/issues/1466)) ([5591a87](https://github.com/ant-design/pro-components/commit/5591a8754d0e911eecdd8bdac7b5d010e2824451))
+
+### Features
+
+- **table:** support customization valueType ([#1456](https://github.com/ant-design/pro-components/issues/1456)) ([cbce5ba](https://github.com/ant-design/pro-components/commit/cbce5baf9ae456a1ab32a748e7ac86ee592b4344))
+
+## [1.6.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.6.3...@ant-design/pro-utils@1.6.4) (2020-12-31)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [1.6.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.6.2...@ant-design/pro-utils@1.6.3) (2020-12-31)
+
+### Bug Fixes
+
+- **compiler:** 当 value 值为 0 时，fieldLabel 显示异常 bug ([#1435](https://github.com/ant-design/pro-components/issues/1435)) ([d233a99](https://github.com/ant-design/pro-components/commit/d233a99587a35b36431e0ffbc47adbcc2504232f))
+
+## [1.6.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.6.1...@ant-design/pro-utils@1.6.2) (2020-12-28)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [1.6.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.6.0...@ant-design/pro-utils@1.6.1) (2020-12-25)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
 # [1.6.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.5.2...@ant-design/pro-utils@1.6.0) (2020-12-24)
 
 ### Features

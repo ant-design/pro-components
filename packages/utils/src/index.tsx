@@ -50,9 +50,17 @@ import type {
   ProFieldValueEnumType,
   ProFieldRequestData,
   ProFieldValueObjectType,
+  ProFieldTextType,
 } from './typing';
 import getFieldPropsOrFormItemProps from './getFieldPropsOrFormItemProps';
 import DropdownFooter from './components/DropdownFooter';
+import { runFunction } from './runFunction';
+import type {
+  BaseProFieldFC,
+  ProFieldFCMode,
+  ProFieldFCRenderProps,
+  ProRenderFieldPropsType,
+} from '@ant-design/pro-provider';
 
 export type {
   ProSchema,
@@ -70,6 +78,11 @@ export type {
   UseEditableMapType,
   UseEditableMapUtilType,
   ProFieldValueType,
+  ProRenderFieldPropsType,
+  ProFieldFCRenderProps,
+  ProFieldFCMode,
+  BaseProFieldFC,
+  ProFieldTextType,
   ProFieldValueEnumType,
   ProFieldValueObjectType,
 };
@@ -95,6 +108,7 @@ export {
   isUrl,
   isBrowser,
   pickProProps,
+  runFunction,
   getFieldPropsOrFormItemProps,
   // hooks
   useEditableArray,

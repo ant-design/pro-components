@@ -3,7 +3,7 @@
 @pro-card-prefix-cls: ~'@{ant-prefix}-pro-card';
 
 .@{pro-card-prefix-cls} {
-  background-color: white;
+  background-color: @white;
   margin: 0;
   padding: 0;
   display: flex;
@@ -105,6 +105,9 @@
 
   &-title {
     font-size: @card-head-font-size;
+    &-collapsible {
+      cursor: pointer;
+    }
   }
 
   &-type-inner {

@@ -138,7 +138,7 @@ ProTable 内置了国际化的支持，作为一个文本量比较少的组件�
 
 ```typescript | pure
 const enLocale = {
-  tableFrom: {
+  tableForm: {
     search: 'Query',
     reset: 'Reset',
     submit: 'Submit',
@@ -204,6 +204,10 @@ const enUSIntl = createIntl('en_US', enUS);
 
 <code src="./demos/valueType_select.tsx" background="#f5f5f5" heigh="462px"/>
 
+### 自定义 valueType
+
+<code src="./demos/customization-value-type.tsx"  background="#f5f5f5" heigh="462px"/>
+
 <code src="./demos/config-provider.tsx" debug background="#f5f5f5" heigh="462px"/>
 
 ## API
@@ -263,7 +267,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | onRequestError | 数据加载失败时触发 | `(error) => void` | - |
 | tableClassName | 封装的 table 的 className | string | - |
 | tableStyle | 封装的 table 的 style | [CSSProperties](https://www.htmlhelp.com/reference/css/properties.html) | - |
-| options | table 工具栏，设为 false 时不显示 | `{{ fullScreen: boolean \| function, reload: boolean \| function,setting: true }}` | `{ fullScreen: true, reload:true, setting: true}` |
+| options | table 工具栏，设为 false 时不显示 | `{{ fullScreen: boolean \| function, reload: boolean \| function,setting: true, density?: boolean }}` | `{ fullScreen: false, reload:true, setting: true}` |
 | search | 是否显示搜索表单，传入对象时为搜索表单的配置 | `false` \| [SearchConfig](#search-搜索表单) | true |
 | dateFormatter | 转化 moment 格式数据为特定类型，false 不做转化 | `"string"` \| `"number"` \| `false` | `"string"` |
 | beforeSearchSubmit | 搜索之前进行一些修改 | `(params:T)=>T` | - |
@@ -316,6 +320,22 @@ const defaultColConfig = {
   lg: 12,
   xl: 8,
   xxl: 6,
+};
+```
+
+#### 菜单栏 options 配置
+
+```tsx | pure
+export type OptionsType =
+  | ((e: React.MouseEvent<HTMLSpanElement>, action?: ActionType) => void)
+  | boolean;
+
+export type OptionConfig = {
+  density?: boolean;
+  fullScreen?: OptionsType;
+  reload?: OptionsType;
+  setting?: boolean;
+  search?: (SearchProps & { name?: string }) | boolean;
 };
 ```
 
@@ -449,7 +469,7 @@ return { type: 'money', locale: 'en-Us' };
 return { type: 'percent', showSymbol: true | false, precision: 2 };
 ```
 
-valueEnum 需要传入一个枚举，ProTable 会自动根据值获取响应的枚举，并且在 from 中生成一个下拉框。看起来是这样的：
+valueEnum 需要传入一个枚举，ProTable 会自动根据值获取响应的枚举，并且在 form 中生成一个下拉框。看起来是这样的：
 
 ```ts | pure
 const valueEnum = {
@@ -488,7 +508,7 @@ const valueEnum = (row) =>
       };
 ```
 
-> 这里值得注意的是在 from 中并没有 row，所以传入了一个 null，你可以根据这个来判断要在 from 中显示什么选项。
+> 这里值得注意的是在 form 中并没有 row，所以传入了一个 null，你可以根据这个来判断要在 form 中显示什么选项。
 
 ### valueEnum
 

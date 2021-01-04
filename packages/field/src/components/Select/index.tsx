@@ -94,6 +94,7 @@ export const proFieldParsingText = (
   if (Status) {
     return <Status>{domText.text}</Status>;
   }
+
   // 如果不存在使用颜色
   if (color) {
     return <ProFieldBadgeColor color={color}>{domText.text}</ProFieldBadgeColor>;
@@ -284,6 +285,13 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
           return { ...pre, [cur.value]: cur.label };
         }, {})
       : undefined;
+    // 如果有 label 直接就用 label
+    // @ts-ignore
+    if (rest.text?.label) {
+      // @ts-ignore
+      return rest.text?.label;
+    }
+
     const dom = (
       <>
         {proFieldParsingText(

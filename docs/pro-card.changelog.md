@@ -10,6 +10,18 @@ group:
 
 # Change Log
 
+## @ant-design/pro-card@1.9.3
+
+`2021-01-03`
+
+- 🐛 fix(card): fix the wrong background color issue [#1474](https://github.com/ant-design/pro-components/pull/1474) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-card@1.9.0
+
+`2020-12-31`
+
+- 💥 feat(card): support collapsible title [#1433](https://github.com/ant-design/pro-components/pull/1433) [@rdmclin2](https://github.com/rdmclin2)
+
 ## @ant-design/pro-card@1.7.0
 
 `2020-12-08`

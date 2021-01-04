@@ -2,6 +2,47 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.10.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.9.7...@ant-design/pro-layout@6.10.0) (2021-01-01)
+
+### Features
+
+- **table:** support customization valueType ([#1456](https://github.com/ant-design/pro-components/issues/1456)) ([cbce5ba](https://github.com/ant-design/pro-components/commit/cbce5baf9ae456a1ab32a748e7ac86ee592b4344))
+
+## [6.9.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.9.6...@ant-design/pro-layout@6.9.7) (2020-12-31)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.9.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.9.5...@ant-design/pro-layout@6.9.6) (2020-12-31)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.9.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.9.4...@ant-design/pro-layout@6.9.5) (2020-12-28)
+
+### Bug Fixes
+
+- **layout:** not use important ([babf934](https://github.com/ant-design/pro-components/commit/babf9340678e7b82f75752db113dbb11330295d6))
+
+## [6.9.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.9.3...@ant-design/pro-layout@6.9.4) (2020-12-28)
+
+### Bug Fixes
+
+- **layout:** fix props is null, no render pageheader ([#1432](https://github.com/ant-design/pro-components/issues/1432)) ([e0574ce](https://github.com/ant-design/pro-components/commit/e0574ce2f97c8848dfc1fa549a0751d7b855a652))
+
+## [6.9.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.9.2...@ant-design/pro-layout@6.9.3) (2020-12-28)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.9.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.9.1...@ant-design/pro-layout@6.9.2) (2020-12-25)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.9.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.9.0...@ant-design/pro-layout@6.9.1) (2020-12-25)
+
+### Bug Fixes
+
+- **layout:** add PageLoading ([0153505](https://github.com/ant-design/pro-components/commit/0153505ccf6e009137d2e75d41f80830c709174d))
+- **layout:** export PageContainerProps ([f8e7c67](https://github.com/ant-design/pro-components/commit/f8e7c672a0a295630471efb61438b25fda361ca4))
+
 # [6.9.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.8.0...@ant-design/pro-layout@6.9.0) (2020-12-24)
 
 ### Features
