@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.3.0...@ant-design/pro-provider@1.3.1) (2021-01-04)
+
+### Bug Fixes
+
+- **table:** fix fieldProps.onChange no work error ([#1479](https://github.com/ant-design/pro-components/issues/1479)) ([784731f](https://github.com/ant-design/pro-components/commit/784731f90f11330e524464ca3080803731f44048))
+
 # [1.3.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.2.8...@ant-design/pro-provider@1.3.0) (2021-01-01)
 
 ### Features

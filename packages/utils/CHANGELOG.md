@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.7.0...@ant-design/pro-utils@1.8.0) (2021-01-04)
+
+### Features
+
+- **field:** support image valueType ([#1480](https://github.com/ant-design/pro-components/issues/1480)) ([08b36e2](https://github.com/ant-design/pro-components/commit/08b36e24ff077392572c625b6fb3d119afeb44ea))
+
 # [1.7.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.6.4...@ant-design/pro-utils@1.7.0) (2021-01-01)
 
 ### Bug Fixes
