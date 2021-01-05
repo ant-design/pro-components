@@ -1,16 +1,17 @@
 import React, { useRef } from 'react';
 import { InputNumber } from 'antd';
-import { RowEditableConfig } from '@ant-design/pro-utils';
+import type { RowEditableConfig } from '@ant-design/pro-utils';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import Descriptions, {
+import type {
   ProDescriptionsActionType,
   ProDescriptionsItemProps,
 } from '@ant-design/pro-descriptions';
+import Descriptions from '@ant-design/pro-descriptions';
 import { mount, render } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
 
-interface DataSourceType {
+type DataSourceType = {
   id: number;
   title?: string;
   labels?: {
@@ -22,7 +23,7 @@ interface DataSourceType {
     created_at?: string;
   };
   children?: DataSourceType;
-}
+};
 
 const defaultData: DataSourceType = {
   id: 624748504,
