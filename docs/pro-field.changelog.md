@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-field@1.8.0
+
+`2021-01-05`
+
+- 💥 feat(field): text use CompositionInput [#1499](https://github.com/ant-design/pro-components/pull/1499) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-field@1.7.0
 
 `2021-01-05`
