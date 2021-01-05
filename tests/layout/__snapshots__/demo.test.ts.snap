@@ -3632,14 +3632,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
 
 exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFormServe.tsx correctly 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
+  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side"
 >
   <section
     class="ant-layout ant-layout-has-sider"
     style="min-height: 100%; height: 500px;"
   >
+    <div
+      style="width: 48px; overflow: hidden; flex: 0 0 48px; max-width: 48px; min-width: 48px; transition: background-color 0.3s, min-width 0.3s, max-width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);"
+    />
     <aside
-      class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-layout-side"
+      class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side"
       style="overflow: hidden; flex: 0 0 48px; max-width: 48px; min-width: 48px; width: 48px;"
     >
       <div
