@@ -483,7 +483,7 @@ describe('Field', () => {
     expect(html.find('span.anticon-eye').exists()).toBeTruthy();
   });
 
-  fit('🐴 valueType=text', async () => {
+  it('🐴 valueType=text', async () => {
     const html = mount(<Field text="100" valueType="text" mode="edit" />);
     await waitForComponentToPaint(html);
     html.find('input').simulate('compositionstart', {
