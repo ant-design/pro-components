@@ -99,6 +99,7 @@ function defaultRenderText<T>(config: {
           form as FormInstance,
           {
             rowKey: config.recordKey || config.index,
+            rowIndex: config.index,
             ...columnProps,
             isEditable: true,
           },
@@ -120,6 +121,7 @@ function defaultRenderText<T>(config: {
                 {
                   ...columnProps,
                   rowKey: config.recordKey || config.index,
+                  rowIndex: config.index,
                   isEditable: true,
                 },
               )}

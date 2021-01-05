@@ -250,6 +250,7 @@ export type ProSchema<
           type: V;
           isEditable?: boolean;
           rowKey?: string;
+          rowIndex: number;
         },
       ) => Object)
     | Object;
@@ -265,6 +266,7 @@ export type ProSchema<
           type: V;
           isEditable?: boolean;
           rowKey?: string;
+          rowIndex: number;
         },
       ) => FormItemProps);
 
