@@ -42,6 +42,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     dataIndex: 'state',
     initialValue: 'all',
     filters: true,
+    onFilter: true,
     valueType: 'select',
     valueEnum: {
       all: { text: '全部', status: 'Default' },
@@ -62,6 +63,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     hideInDescriptions: true,
     dataIndex: 'direction',
     filters: true,
+    onFilter: true,
     valueType: 'select',
     valueEnum: {
       asc: '正序',

@@ -4,6 +4,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { FormInstance } from 'antd/lib/form';
 import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
 import { LoadingOutlined } from '@ant-design/icons';
+import { useIntl } from '@ant-design/pro-provider';
 import { message, Popconfirm } from 'antd';
 import ReactDOM from 'react-dom';
 import set from 'rc-util/lib/utils/set';
@@ -31,6 +32,11 @@ export type NewLineConfig<T> = {
 export type ActionRenderFunction<T> = (
   row: T,
   config: ActionRenderConfig<T, NewLineConfig<T>>,
+  defaultDoms: {
+    save: React.ReactNode;
+    delete: React.ReactNode;
+    cancel: React.ReactNode;
+  },
 ) => React.ReactNode[];
 
 export type RowEditableConfig<T> = {
@@ -315,11 +321,11 @@ export function defaultActionRender<T>(row: T, config: ActionRenderConfig<T, New
     <SaveEditableAction key="save" {...config} row={row}>
       {saveText}
     </SaveEditableAction>,
-    !newLineConfig && (
+    !newLineConfig ? (
       <DeleteEditableAction key="delete" {...config} row={row}>
         {deleteText}
       </DeleteEditableAction>
-    ),
+    ) : null,
     <a
       key="cancel"
       onClick={async () => {
@@ -467,10 +473,19 @@ function useEditableArray<RecordType>(
     return true;
   };
 
+  // Internationalization
+  const intl = useIntl();
+  const saveText = intl.getMessage('editableTable.action.save', '保存');
+  const deleteText = intl.getMessage('editableTable.action.delete', '删除');
+  const cancelText = intl.getMessage('editableTable.action.cancel', '取消');
+
   const actionRender = useCallback(
     (row: RecordType & { index: number }, form: FormInstance<any>) => {
       const key = props.getRowKey(row, row.index);
       const config = {
+        saveText,
+        cancelText,
+        deleteText,
         addEditRecord,
         recordKey: key,
         cancelEditable,
@@ -545,8 +560,15 @@ function useEditableArray<RecordType>(
         setEditableRowKeys,
         deletePopconfirmMessage: props.deletePopconfirmMessage || '删除此行？',
       };
-      if (props.actionRender) return props.actionRender(row, config);
-      return defaultActionRender<RecordType>(row, config);
+      const defaultDoms = defaultActionRender<RecordType>(row, config);
+
+      if (props.actionRender)
+        return props.actionRender(row, config, {
+          save: defaultDoms[0],
+          delete: defaultDoms[1],
+          cancel: defaultDoms[2],
+        });
+      return defaultDoms;
     },
     [editableKeys.join(',')],
   );

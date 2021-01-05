@@ -1,4 +1,5 @@
 ﻿import { Button, Input, Form } from 'antd';
+import { NamePath } from 'antd/lib/form/interface';
 import type { ButtonProps } from 'antd/lib/button';
 import type { InputProps } from 'antd/lib/input';
 import React, { useState, useCallback, useEffect } from 'react';
@@ -10,6 +11,11 @@ export type ProFormCaptchaProps = ProFormItemProps<InputProps> & {
    * @name 倒计时的秒数
    */
   countDown?: number;
+
+  /**
+   * 手机号的 name
+   */
+  phoneName?: NamePath;
 
   /**
    * @name 获取验证码的方法
@@ -38,6 +44,7 @@ const ProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((props, r
   const {
     rules,
     name,
+    phoneName,
     fieldProps,
     captchaTextRender = (paramsTiming, paramsCount) => {
       return paramsTiming ? `${paramsCount} 秒后重新获取` : '获取验证码';
@@ -112,9 +119,13 @@ const ProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((props, r
             {...captchaProps}
             onClick={async () => {
               try {
-                await validateFields([name].flat(1) as string[]);
-                const mobile = getFieldValue([name].flat(1) as string[]);
-                onGetCaptcha(mobile);
+                if (phoneName) {
+                  await validateFields([phoneName].flat(1) as string[]);
+                  const mobile = getFieldValue([phoneName].flat(1) as string[]);
+                  await onGetCaptcha(mobile);
+                } else {
+                  await onGetCaptcha('');
+                }
               } catch (error) {
                 // eslint-disable-next-line no-console
                 console.log(error);

@@ -23,7 +23,7 @@ describe('Table ColumnSetting', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
     expect(callBack).toBeCalled();
     expect(callBack).toBeCalledWith('Edward King 0');
   });
@@ -66,7 +66,7 @@ describe('Table ColumnSetting', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
     expect(callBack).toBeCalled();
     expect(callBack).toBeCalledWith('Edward King 0');
   });
@@ -88,7 +88,7 @@ describe('Table ColumnSetting', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
     expect(html.find('td.ant-table-cell')).toMatchSnapshot();
   });
 });

@@ -19,7 +19,7 @@ import type { AlertRenderType } from './components/Alert';
 import type { ListToolBarProps } from './components/ListToolBar';
 import type { OptionConfig, ToolBarProps } from './components/ToolBar';
 import type { DensitySize } from './components/ToolBar/DensityIcon';
-import type { ColumnsState, useCounter } from './container';
+import type { ColumnsState, useContainer } from './container';
 import type { SearchConfig, TableFormItem } from './components/Form';
 
 export type PageInfo = {
@@ -58,7 +58,7 @@ export type ColumnRenderInterface<T> = {
   index: number;
   columnEmptyText?: ProFieldEmptyText;
   type: ProSchemaComponentTypes;
-  counter: ReturnType<typeof useCounter>;
+  counter: ReturnType<typeof useContainer>;
 };
 
 export type TableRowSelection = TableProps<any>['rowSelection'];
@@ -68,7 +68,7 @@ export type ExtraProColumnType<T> = Omit<
   'render' | 'children' | 'title' | 'filters' | 'onFilter'
 >;
 
-export type ProColumnType<T = unknown> = ProSchema<
+export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
   T,
   ExtraProColumnType<T> & {
     index?: number;
@@ -107,7 +107,7 @@ export type ProColumnType<T = unknown> = ProSchema<
       | false
       | {
           /**
-           * @name 转化值的key, 一般用于时间区间的转化
+           * @name 转化值的key, 一般用于事件区间的转化
            * @description transform: (value: any) => ({ startTime: value[0], endTime: value[1] }),
            */
           transform: SearchTransformKeyFn;
@@ -131,7 +131,7 @@ export type ProColumnType<T = unknown> = ProSchema<
     /**
      * 筛选的函数，设置为 false 会关闭自带的本地筛选
      */
-    onFilter?: false | ColumnType<T>['onFilter'];
+    onFilter?: boolean | ColumnType<T>['onFilter'];
 
     /**
      * form 的排序
@@ -141,14 +141,18 @@ export type ProColumnType<T = unknown> = ProSchema<
      * 可编辑表格是否可编辑
      */
     editable?: boolean | ProTableEditableFnType<T>;
-  }
+  },
+  ProSchemaComponentTypes,
+  ValueType
 >;
 
-export type ProColumnGroupType<RecordType> = {
+export type ProColumnGroupType<RecordType, ValueType> = {
   children: ProColumns<RecordType>[];
-} & ProColumnType<RecordType>;
+} & ProColumnType<RecordType, ValueType>;
 
-export type ProColumns<T = any> = ProColumnGroupType<T> | ProColumnType<T>;
+export type ProColumns<T = any, ValueType = 'text'> =
+  | ProColumnGroupType<T, ValueType>
+  | ProColumnType<T, ValueType>;
 
 export type BorderedType = 'search' | 'table';
 
@@ -159,8 +163,12 @@ export type Bordered =
       table?: boolean;
     };
 
-export type ProTableProps<T, U extends ParamsType> = {
-  columns?: ProColumns<T>[];
+/**
+ * ProTable 的类型定义
+ * 继承自 antd 的 Table
+ */
+export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
+  columns?: ProColumns<T, ValueType>[];
   /**
    * @name  ListToolBar 的属性
    */
@@ -182,7 +190,7 @@ export type ProTableProps<T, U extends ParamsType> = {
    * @name 渲染 table
    */
   tableRender?: (
-    props: ProTableProps<T, U>,
+    props: ProTableProps<T, U, ValueType>,
     defaultDom: JSX.Element,
     /**
      * 各个区域的 dom

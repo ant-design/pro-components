@@ -45,14 +45,25 @@
         content: '';
       }
 
-      // 亮色主题
-      &-light {
+      &-realDark {
+        background-color: fade(@menu-dark-bg, 85%);
         &::before {
-          background-color: #fff;
+          background-color: fade(@menu-dark-bg, 65%);
           content: '';
         }
         &::after {
-          background-color: #fff;
+          background-color: fade(@menu-dark-bg, 85%);
+        }
+      }
+
+      // 亮色主题
+      &-light {
+        &::before {
+          background-color: @white;
+          content: '';
+        }
+        &::after {
+          background-color: @white;
         }
       }
 
@@ -66,7 +77,7 @@
           z-index: 1;
         }
         &::after {
-          background-color: #fff;
+          background-color: @white;
         }
       }
 
@@ -84,7 +95,7 @@
       // 顶部菜单布局
       &-mix {
         &::before {
-          background-color: #fff;
+          background-color: @white;
           content: '';
         }
         &::after {

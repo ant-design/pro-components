@@ -2,6 +2,54 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.2.10...@ant-design/pro-list@1.2.11) (2021-01-05)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.2.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.2.9...@ant-design/pro-list@1.2.10) (2021-01-04)
+
+### Bug Fixes
+
+- **list:** fix editable for list ([#1481](https://github.com/ant-design/pro-components/issues/1481)) ([64c8fb9](https://github.com/ant-design/pro-components/commit/64c8fb91dc9cdea2575f3018ce63fdf101b63c2b))
+
+## [1.2.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.2.8...@ant-design/pro-list@1.2.9) (2021-01-02)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.2.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.2.7...@ant-design/pro-list@1.2.8) (2021-01-01)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.2.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.2.6...@ant-design/pro-list@1.2.7) (2020-12-31)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.2.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.2.5...@ant-design/pro-list@1.2.6) (2020-12-31)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.2.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.2.4...@ant-design/pro-list@1.2.5) (2020-12-28)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.2.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.2.3...@ant-design/pro-list@1.2.4) (2020-12-28)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.2.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.2.2...@ant-design/pro-list@1.2.3) (2020-12-28)
+
+### Bug Fixes
+
+- **table:** fix onfilter no work error ([#1422](https://github.com/ant-design/pro-components/issues/1422)) ([4fb9e4b](https://github.com/ant-design/pro-components/commit/4fb9e4b8a85a1374ab0d0710b6796d3b09ced06a))
+
+## [1.2.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.2.1...@ant-design/pro-list@1.2.2) (2020-12-25)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.2.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.2.0...@ant-design/pro-list@1.2.1) (2020-12-25)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
 # [1.2.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.1.14...@ant-design/pro-list@1.2.0) (2020-12-24)
 
 ### Bug Fixes

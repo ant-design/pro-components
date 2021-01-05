@@ -7,6 +7,21 @@
   .@{pro-list-prefix-cls}-row {
     padding: 0 18px 0 24px;
 
+    &.@{pro-list-prefix-cls}-row-editable {
+      .@{ant-prefix}-list-item {
+        &-meta {
+          &-avatar,
+          &-description,
+          &-title {
+            padding: 6px 0;
+          }
+        }
+        &-action {
+          display: block;
+        }
+      }
+    }
+
     &.@{pro-list-prefix-cls}-row-selected {
       background-color: @table-selected-row-bg;
 

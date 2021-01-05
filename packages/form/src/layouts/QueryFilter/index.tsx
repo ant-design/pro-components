@@ -154,7 +154,7 @@ const QueryFilterContent: React.FC<{
   split?: boolean;
   form: FormInstance<any>;
   items: React.ReactNode[];
-  submitter?: JSX.Element;
+  submitter?: JSX.Element | false;
   showLength: number;
   collapseRender: QueryFilterProps['collapseRender'];
   spanSize: {
@@ -168,10 +168,13 @@ const QueryFilterContent: React.FC<{
   const resetText = props.resetText || intl.getMessage('tableForm.reset', '重置');
   const searchText = props.searchText || intl.getMessage('tableForm.search', '搜索');
 
-  const [collapsed, setCollapsed] = useMergedState<boolean>(() => props.defaultCollapsed, {
-    value: props.collapsed,
-    onChange: props.onCollapse,
-  });
+  const [collapsed, setCollapsed] = useMergedState<boolean>(
+    () => props.defaultCollapsed && !!props.submitter,
+    {
+      value: props.collapsed,
+      onChange: props.onCollapse,
+    },
+  );
 
   const { optionRender, collapseRender, split, items, spanSize, showLength, onReset } = props;
 
@@ -199,12 +202,11 @@ const QueryFilterContent: React.FC<{
       onReset,
       ...props.submitter.props,
     });
-  }, [props.submitter, optionRender]);
+  }, [props, resetText, searchText, optionRender, onReset]);
 
   // totalSpan 统计控件占的位置，计算 offset 保证查询按钮在最后一列
   let totalSpan = 0;
   const itemLength = items.length;
-  let lastVisibleItemIndex = itemLength - 1;
 
   // for split compute
   let currentSpan = 0;
@@ -241,17 +243,18 @@ const QueryFilterContent: React.FC<{
           totalSpan += 24 - (totalSpan % 24);
         }
         totalSpan += colSpan;
-        lastVisibleItemIndex = index;
 
         const colItem = (
           <Col key={itemKey} span={colSpan}>
             {item}
           </Col>
         );
-        if (split && currentSpan % 24 === 0 && index <= lastVisibleItemIndex) {
+        if (split && currentSpan % 24 === 0 && index < itemLength - 1) {
           return [
             colItem,
-            <Divider key="line" style={{ marginTop: -8, marginBottom: 16 }} dashed />,
+            <Col span="24" key="line">
+              <Divider style={{ marginTop: -8, marginBottom: 16 }} dashed />
+            </Col>,
           ];
         }
         return colItem;
@@ -305,13 +308,14 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
     () => (typeof style?.width === 'number' ? style?.width : defaultWidth) as number,
   );
 
-  const spanSize = useMemo(() => getSpanConfig(layout, width + 16, span), [width]);
+  const spanSize = useMemo(() => getSpanConfig(layout, width + 16, span), [layout, width, span]);
 
-  const showLength = useMemo(
-    () =>
-      defaultColsNumber !== undefined ? defaultColsNumber : Math.max(1, 24 / spanSize.span - 1),
-    [defaultColsNumber, spanSize.span],
-  );
+  const showLength = useMemo(() => {
+    if (defaultColsNumber !== undefined) {
+      return defaultColsNumber;
+    }
+    return Math.max(1, 24 / spanSize.span - 1);
+  }, [defaultColsNumber, spanSize.span]);
 
   const labelFlexStyle = useMemo(() => {
     if (labelWidth && spanSize.layout !== 'vertical' && labelWidth !== 'auto') {
@@ -348,10 +352,9 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
             display: 'inline-block',
             marginRight: 16,
           },
-          titleRender: (title) => `${title}:`,
         }}
         contentRender={(items, renderSubmitter, form) =>
-          width && (
+          width ? (
             <QueryFilterContent
               spanSize={spanSize}
               collapsed={controlCollapsed}
@@ -366,7 +369,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
               split={split}
               showLength={showLength}
             />
-          )
+          ) : null
         }
       />
     </RcResizeObserver>

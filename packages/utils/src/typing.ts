@@ -1,4 +1,5 @@
 import type { FormInstance, FormItemProps } from 'antd/lib/form';
+import type { Moment } from 'moment';
 import type { ReactNode } from 'react';
 import type { UseEditableUtilType } from './useEditableArray';
 
@@ -49,6 +50,7 @@ export type ProFieldValueType =
   | 'code'
   | 'switch'
   | 'fromNow'
+  | 'image'
   | 'jsonCode';
 
 export type ProFieldRequestData<U = any> = (
@@ -66,7 +68,7 @@ export type ProFieldValueEnumType = ProSchemaValueEnumMap | ProSchemaValueEnumOb
 
 // function return type
 export type ProFieldValueObjectType = {
-  type: 'progress' | 'money' | 'percent';
+  type: 'progress' | 'money' | 'percent' | 'image';
   status?: 'normal' | 'active' | 'success' | 'exception' | undefined;
   locale?: string;
   /** percent */
@@ -74,6 +76,11 @@ export type ProFieldValueObjectType = {
   showColor?: boolean;
   precision?: number;
   request?: ProFieldRequestData;
+
+  /**
+   * image
+   */
+  width?: number;
 };
 
 export type ProSchemaValueEnumType = {
@@ -96,13 +103,15 @@ export type ProSchemaValueEnumType = {
   disabled?: boolean;
 };
 
-export type ProSchemaValueEnumObj = Record<string, ProSchemaValueEnumType | ReactNode>;
-
 /**
  * @name ValueEnum 的类型
  * @description 支持 Map 和 Object
  */
 export type ProSchemaValueEnumMap = Map<React.ReactText, ProSchemaValueEnumType | ReactNode>;
+
+export type ProSchemaValueEnumObj = Record<string, ProSchemaValueEnumType | ReactNode>;
+
+export type ProFieldTextType = React.ReactNode | React.ReactNode[] | Moment | Moment[];
 
 export type SearchTransformKeyFn = (
   value: any,
@@ -151,12 +160,17 @@ export type ProCoreActionType<T = {}> = {
 > &
   T;
 
-type ProSchemaValueType = ProFieldValueType | ProFieldValueObjectType;
+type ProSchemaValueType<ValueType> = (ValueType | ProFieldValueType) | ProFieldValueObjectType;
 
 /**
  * 各个组件公共支持的 render
  */
-export type ProSchema<T = unknown, Extra = unknown, V = ProSchemaComponentTypes> = {
+export type ProSchema<
+  T = unknown,
+  Extra = unknown,
+  V = ProSchemaComponentTypes,
+  ValueType = 'text'
+> = {
   /**
    * @name 确定这个列的唯一值
    */
@@ -170,7 +184,9 @@ export type ProSchema<T = unknown, Extra = unknown, V = ProSchemaComponentTypes>
   /**
    * 选择如何渲染相应的模式
    */
-  valueType?: ((entity: T, type: V) => ProSchemaValueType) | ProSchemaValueType;
+  valueType?:
+    | ((entity: T, type: V) => ProSchemaValueType<ValueType>)
+    | ProSchemaValueType<ValueType>;
 
   /**
    * @name 标题
@@ -259,7 +275,10 @@ export type ProSchema<T = unknown, Extra = unknown, V = ProSchemaComponentTypes>
   /**
    * @name 映射值的类型
    */
-  valueEnum?: ProSchemaValueEnumObj | ProSchemaValueEnumMap;
+  valueEnum?:
+    | ((row: T) => ProSchemaValueEnumObj | ProSchemaValueEnumMap)
+    | ProSchemaValueEnumObj
+    | ProSchemaValueEnumMap;
 
   /**
    * @name 从服务器请求枚举

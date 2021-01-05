@@ -73,8 +73,8 @@ const FieldPercent: ProFieldFC<PercentPropInt> = (
         parser={(value) =>
           value ? value.replace(new RegExp(`\\${prefix}\\s?|(,*)`, 'g'), '') : ''
         }
-        {...rest}
         {...fieldProps}
+        {...rest}
       />
     );
     if (renderFormItem) {

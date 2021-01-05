@@ -12,17 +12,14 @@ import type { ProFieldFC } from '../../index';
 const FieldTimePicker: ProFieldFC<{
   text: string | number;
   format: string;
-}> = (
-  { text, mode, light, label, format = 'HH:mm:ss', render, renderFormItem, plain, fieldProps },
-  ref,
-) => {
+}> = ({ text, mode, light, label, format, render, renderFormItem, plain, fieldProps }, ref) => {
   const [open, setOpen] = useState<boolean>(false);
   const size = useContext(SizeContext);
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-date-picker');
 
   if (mode === 'read') {
-    const dom = <span ref={ref}>{text ? moment(text).format(format) : '-'}</span>;
+    const dom = <span ref={ref}>{text ? moment(text).format(format || 'HH:mm:ss') : '-'}</span>;
     if (render) {
       return render(text, { mode, ...fieldProps }, <span>{dom}</span>);
     }
@@ -33,7 +30,7 @@ const FieldTimePicker: ProFieldFC<{
     const { disabled, onChange, placeholder, allowClear, value } = fieldProps;
     const momentValue = parseValueToMoment(value) as moment.Moment;
     if (light) {
-      const valueStr: string = (momentValue && momentValue.format(format)) || '';
+      const valueStr: string = (momentValue && momentValue.format(format || 'HH:mm:ss')) || '';
       dom = (
         <div
           className={`${prefixCls}-light`}
@@ -42,10 +39,10 @@ const FieldTimePicker: ProFieldFC<{
           }}
         >
           <DatePicker.TimePicker
-            {...fieldProps}
             value={momentValue}
             format={format}
             ref={ref}
+            {...fieldProps}
             onChange={(v) => {
               if (onChange) {
                 onChange(v);

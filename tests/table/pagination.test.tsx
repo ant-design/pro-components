@@ -32,7 +32,7 @@ describe('BasicTable pagination', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
 
     expect(fn).toBeCalledWith(1);
 
@@ -71,7 +71,7 @@ describe('BasicTable pagination', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
 
     expect(fn).toBeCalledWith(50);
     expect(currentFn).toBeCalledWith(1);
@@ -111,7 +111,7 @@ describe('BasicTable pagination', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
 
     expect(fn).toBeCalledWith(2);
 
@@ -124,7 +124,7 @@ describe('BasicTable pagination', () => {
       });
     });
 
-    await waitForComponentToPaint(html, 200);
+    await waitForComponentToPaint(html, 1200);
 
     expect(fn).toBeCalledWith(3);
   });
@@ -152,7 +152,7 @@ describe('BasicTable pagination', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
 
     expect(fn).toBeCalledWith(undefined);
     act(() => {

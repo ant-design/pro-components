@@ -42,89 +42,102 @@ const defaultData: DataSourceType[] = [
   },
 ];
 
-const columns: ProColumns<DataSourceType>[] = [
-  {
-    title: '活动名称',
-    dataIndex: 'title',
-    formItemProps: (form, { rowIndex }) => {
-      return {
-        rules: rowIndex > 2 ? [{ required: true, message: '此项为必填项' }] : [],
-      };
-    },
-    // 第二行不允许编辑
-    editable: (text, record, index) => {
-      return index !== 1;
-    },
-    width: '30%',
-  },
-  {
-    title: '状态',
-    key: 'state',
-    dataIndex: 'state',
-    valueType: 'select',
-    valueEnum: {
-      all: { text: '全部', status: 'Default' },
-      open: {
-        text: '未解决',
-        status: 'Error',
-      },
-      closed: {
-        text: '已解决',
-        status: 'Success',
-      },
-    },
-  },
-  {
-    title: '描述',
-    dataIndex: 'decs',
-    fieldProps: (from, { rowKey, rowIndex }) => {
-      if (from.getFieldValue([rowKey || '', 'title']) === '不好玩') {
-        return {
-          disabled: true,
-        };
-      }
-      if (rowIndex < 2) {
-        return {
-          disabled: true,
-        };
-      }
-      return {};
-    },
-  },
-  {
-    title: '操作',
-    valueType: 'option',
-    width: 200,
-    render: (text, record, _, action) => [
-      <a
-        key="editable"
-        onClick={() => {
-          action.startEditable?.(record.id);
-        }}
-      >
-        编辑
-      </a>,
-    ],
-  },
-];
-
 export default () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>([]);
   const [dataSource, setDataSource] = useState<DataSourceType[]>([]);
-  const [position, setPosition] = useState<'top' | 'bottom'>('bottom');
+  const [position, setPosition] = useState<'top' | 'bottom' | 'hidden'>('bottom');
   const [newRecord, setNewRecord] = useState({
     id: (Math.random() * 1000000).toFixed(0),
   });
+
+  const columns: ProColumns<DataSourceType>[] = [
+    {
+      title: '活动名称',
+      dataIndex: 'title',
+      formItemProps: (form, { rowIndex }) => {
+        return {
+          rules: rowIndex > 2 ? [{ required: true, message: '此项为必填项' }] : [],
+        };
+      },
+      // 第二行不允许编辑
+      editable: (text, record, index) => {
+        return index !== 0;
+      },
+      width: '30%',
+    },
+    {
+      title: '状态',
+      key: 'state',
+      dataIndex: 'state',
+      valueType: 'select',
+      valueEnum: {
+        all: { text: '全部', status: 'Default' },
+        open: {
+          text: '未解决',
+          status: 'Error',
+        },
+        closed: {
+          text: '已解决',
+          status: 'Success',
+        },
+      },
+    },
+    {
+      title: '描述',
+      dataIndex: 'decs',
+      fieldProps: (from, { rowKey, rowIndex }) => {
+        if (from.getFieldValue([rowKey || '', 'title']) === '不好玩') {
+          return {
+            disabled: true,
+          };
+        }
+        if (rowIndex < 2) {
+          return {
+            disabled: true,
+          };
+        }
+        return {};
+      },
+    },
+    {
+      title: '操作',
+      valueType: 'option',
+      width: 200,
+      render: (text, record, _, action) => [
+        <a
+          key="editable"
+          onClick={() => {
+            action.startEditable?.(record.id);
+          }}
+        >
+          编辑
+        </a>,
+        <a
+          key="delete"
+          onClick={() => {
+            setDataSource(dataSource.filter((item) => item.id !== record.id));
+          }}
+        >
+          删除
+        </a>,
+      ],
+    },
+  ];
+
   return (
     <>
       <EditableProTable<DataSourceType>
         rowKey="id"
         headerTitle="可编辑表格"
         maxLength={5}
-        recordCreatorProps={{
-          position,
-          record: newRecord,
-        }}
+        recordCreatorProps={
+          position !== 'hidden'
+            ? {
+                position: position as 'top',
+                record: newRecord,
+              }
+            : false
+        }
         toolBarRender={() => [
           <ProFormRadio.Group
             key="render"
@@ -140,6 +153,10 @@ export default () => {
               {
                 label: '添加到底部',
                 value: 'bottom',
+              },
+              {
+                label: '隐藏',
+                value: 'hidden',
               },
             ]}
           />,

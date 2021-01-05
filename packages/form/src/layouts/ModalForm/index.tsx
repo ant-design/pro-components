@@ -9,6 +9,7 @@ import { createPortal } from 'react-dom';
 
 import type { CommonFormProps } from '../../BaseForm';
 import BaseForm from '../../BaseForm';
+import { noteOnce } from 'rc-util/lib/warning';
 
 export type ModalFormProps = Omit<FormProps, 'onFinish'> &
   CommonFormProps & {
@@ -64,6 +65,13 @@ const ModalForm: React.FC<ModalFormProps> = ({
     value: rest.visible,
     onChange: onVisibleChange,
   });
+
+  noteOnce(
+    // eslint-disable-next-line @typescript-eslint/dot-notation
+    !rest['footer'] || !modalProps?.footer,
+    'ModalForm 是一个 ProForm 的特殊布局，如果想自定义按钮，请使用 submit.render 自定义。',
+  );
+
   const context = useContext(ConfigProvider.ConfigContext);
 
   /** 设置 trigger 的情况下，懒渲染优化性能；使之可以直接配合表格操作等场景使用 */
@@ -126,7 +134,7 @@ const ModalForm: React.FC<ModalFormProps> = ({
                 resetText: modalProps?.cancelText || context.locale?.Modal?.cancelText || '取消',
               },
               submitButtonProps: {
-                type: modalProps?.okType as 'text',
+                type: (modalProps?.okType as 'text') || 'primary',
               },
               resetButtonProps: {
                 onClick: (e) => {

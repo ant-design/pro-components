@@ -2,9 +2,11 @@
 import { useCallback, useMemo } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { FormInstance } from 'antd/lib/form';
+import { useIntl } from '@ant-design/pro-provider';
 import { message } from 'antd';
 import ReactDOM from 'react-dom';
 import type {
+  ActionRenderConfig,
   ActionTypeText,
   NewLineConfig,
   RecordKey,
@@ -135,9 +137,15 @@ function useEditableMap<RecordType>(
     return true;
   };
 
+  // Internationalization
+  const intl = useIntl();
+  const saveText = intl.getMessage('editableTable.action.save', '保存');
+  const deleteText = intl.getMessage('editableTable.action.delete', '删除');
+  const cancelText = intl.getMessage('editableTable.action.cancel', '取消');
+
   const actionRender = useCallback(
-    (key: RecordKey, form: FormInstance<any>, config?: ActionTypeText<RecordType>) =>
-      (props.actionRender || defaultActionRender)(props.dataSource, {
+    (key: RecordKey, form: FormInstance<any>, config?: ActionTypeText<RecordType>) => {
+      const renderConfig: ActionRenderConfig<RecordType, NewLineConfig<RecordType>> = {
         recordKey: recordKeyToString(key),
         cancelEditable,
         onCancel,
@@ -145,10 +153,22 @@ function useEditableMap<RecordType>(
         editableKeys,
         setEditableRowKeys,
         form,
+        saveText,
+        cancelText,
+        deleteText,
         deletePopconfirmMessage: '删除此行？',
         editorType: 'Map',
         ...config,
-      }),
+      };
+      const defaultDoms = defaultActionRender(props.dataSource, renderConfig);
+      if (props.actionRender)
+        return props.actionRender(props.dataSource, renderConfig, {
+          save: defaultDoms[0],
+          delete: defaultDoms[1],
+          cancel: defaultDoms[2],
+        });
+      return defaultDoms;
+    },
     [editableKeys.join(',')],
   );
 

@@ -7,7 +7,6 @@
   "scripts": {
     "bootstrap": "node ./scripts/bootstrap.js",
     "build": "father-build && webpack",
-    "size:build": "cross-env PRO_COMPONENTS_CI='CI'  webpack",
     "changelog": "pro-changelog",
     "createRelease": "node ./scripts/createRelease.js",
     "deploy": "npm run site && gh-pages -d ./dist",
@@ -17,11 +16,13 @@
     "release": "npm run test && node ./scripts/release.js",
     "site": "dumi build",
     "size": "npm run build && size-limit",
+    "size:build": "cross-env PRO_COMPONENTS_CI='CI'  webpack",
     "start": "cross-env NODE_OPTIONS='--max-old-space-size=4096' dumi dev",
     "sync:tnpm": "node -e 'require(\"./scripts/syncTNPM\")()'",
     "test": "umi-test",
     "test:coverage": "umi-test --coverage",
     "test:update": "umi-test --updateSnapshot",
+    "tsc": "tsc --noEmit",
     "tsc:duplicate": "tsc -p ./tests/tsconfig.duplicate.json",
     "update:deps": "yarn upgrade-interactive --latest"
   },

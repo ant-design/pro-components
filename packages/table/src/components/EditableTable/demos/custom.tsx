@@ -135,14 +135,14 @@ const columns: ProColumns<DataSourceType>[] = [
   {
     title: '标签',
     dataIndex: 'labels',
-    width: '40%',
+    width: '20%',
     renderFormItem: (_, { isEditable }) => (isEditable ? <TagList /> : <Input />),
     render: (_, row) => row?.labels?.map((item) => <Tag key={item.key}>{item.label}</Tag>),
   },
   {
     title: '操作',
     valueType: 'option',
-    width: 200,
+    width: 250,
     render: (text, record, _, action) => [
       <a
         key="editable"
