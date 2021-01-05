@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.3.1...@ant-design/pro-provider@1.4.0) (2021-01-05)
+
+### Features
+
+- **table:** add 'internationalization for editabletable action' option ([#1491](https://github.com/ant-design/pro-components/issues/1491)) ([6e40765](https://github.com/ant-design/pro-components/commit/6e407652deb168cfa6432d67546d4b23dff0971e))
+
 ## [1.3.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.3.0...@ant-design/pro-provider@1.3.1) (2021-01-04)
 
 ### Bug Fixes
