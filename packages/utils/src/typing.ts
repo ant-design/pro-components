@@ -227,6 +227,8 @@ export type ProSchema<
     config: {
       onSelect?: (value: any) => void;
       type: V;
+      recordKey?: React.Key | React.Key[];
+      record?: T;
       isEditable?: boolean;
       defaultRender: (newItem: ProSchema<T, Extra>) => JSX.Element | null;
     },
