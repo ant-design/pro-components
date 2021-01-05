@@ -9,7 +9,7 @@ export default () => {
       formProps={{
         onValuesChange: (e, f) => console.log(f),
       }}
-      title="可编辑得定义列表"
+      title="可编辑的定义列表"
       request={async () => {
         return Promise.resolve({
           success: true,
@@ -22,7 +22,6 @@ export default () => {
           },
         });
       }}
-      editable={{}}
       columns={[
         {
           title: '文本',

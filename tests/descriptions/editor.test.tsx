@@ -188,7 +188,7 @@ describe('Descriptions', () => {
     const wrapper = render(
       <Descriptions
         editable={{
-          editableKeys: ['index'],
+          editableKeys: ['title'],
         }}
         columns={[
           {
@@ -206,6 +206,35 @@ describe('Descriptions', () => {
       />,
     );
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it('📝 support actionRender', async () => {
+    const wrapper = render(
+      <Descriptions
+        editable={{
+          editableKeys: ['title'],
+          actionRender: () => [
+            <div key="test" id="test">
+              xx
+            </div>,
+          ],
+        }}
+        columns={[
+          {
+            dataIndex: 'title',
+            editable: (text, record, index) => {
+              return index === 1;
+            },
+          },
+          {
+            dataIndex: 'title2',
+            editable: false,
+          },
+        ]}
+        dataSource={defaultData}
+      />,
+    );
+    expect(wrapper.find('div#test').text()).toBe('xx');
   });
 
   it('📝 support editorRowKeys', async () => {
