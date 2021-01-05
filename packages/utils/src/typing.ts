@@ -232,6 +232,7 @@ export type ProSchema<T = unknown, Extra = unknown, V = ProSchemaComponentTypes>
           type: V;
           isEditable?: boolean;
           rowKey?: string;
+          rowIndex: number;
         },
       ) => Object)
     | Object;
@@ -247,6 +248,7 @@ export type ProSchema<T = unknown, Extra = unknown, V = ProSchemaComponentTypes>
           type: V;
           isEditable?: boolean;
           rowKey?: string;
+          rowIndex: number;
         },
       ) => FormItemProps);
 
