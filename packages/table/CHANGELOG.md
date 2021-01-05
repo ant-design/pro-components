@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.21.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.20.1...@ant-design/pro-table@2.21.0) (2021-01-05)
+
+### Features
+
+- **field:** text use CompositionInput ([#1499](https://github.com/ant-design/pro-components/issues/1499)) ([4f26efb](https://github.com/ant-design/pro-components/commit/4f26efb81a7592868e6e863ca6fbb59cb6918016))
+
 ## [2.20.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.20.0...@ant-design/pro-table@2.20.1) (2021-01-05)
 
 **Note:** Version bump only for package @ant-design/pro-table
