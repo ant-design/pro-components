@@ -49,6 +49,7 @@ export default () => (
     style={{
       height: 500,
     }}
+    fixSiderbar
     collapsed
     location={{
       pathname: '/welcome',
