@@ -4,6 +4,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { FormInstance } from 'antd/lib/form';
 import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
 import { LoadingOutlined } from '@ant-design/icons';
+import { useIntl } from '@ant-design/pro-provider';
 import { message, Popconfirm } from 'antd';
 import ReactDOM from 'react-dom';
 import set from 'rc-util/lib/utils/set';
@@ -472,10 +473,19 @@ function useEditableArray<RecordType>(
     return true;
   };
 
+  // Internationalization
+  const intl = useIntl();
+  const saveText = intl.getMessage('editableTable.action.save', '保存');
+  const deleteText = intl.getMessage('editableTable.action.delete', '删除');
+  const cancelText = intl.getMessage('editableTable.action.cancel', '取消');
+
   const actionRender = useCallback(
     (row: RecordType & { index: number }, form: FormInstance<any>) => {
       const key = props.getRowKey(row, row.index);
       const config = {
+        saveText,
+        cancelText,
+        deleteText,
         addEditRecord,
         recordKey: key,
         cancelEditable,
