@@ -141,6 +141,8 @@ function defaultRenderText<T>(config: {
             {
               defaultRender: () => inputDom,
               type: 'form',
+              recordKey: config.recordKey,
+              record: form.getFieldValue([config.recordKey || config.index]),
               isEditable: true,
             },
             form as any,

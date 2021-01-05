@@ -203,6 +203,8 @@ export const FieldRender: React.FC<
                 },
                 {
                   isEditable: true,
+                  recordKey: dataIndex,
+                  record: form.getFieldValue([dataIndex].flat(1) as React.ReactText[]),
                   defaultRender: () => <ProFormField {...fieldConfig} fieldProps={fieldProps} />,
                   type: 'descriptions',
                 },
