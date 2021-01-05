@@ -33,6 +33,69 @@ ProForm 的主要功能是预设了很多 layout，如果需要切换只需要�
 
 <code src="../packages/form/src/demos/layout-change.tsx">
 
+## 与网络请求库配置使用
+
+ProTable，ProList 使用了新的数据结构，如果你使用了我们约定的参数使用起来会非常简单。
+
+```tsx | pure
+const msg: {
+  data: T[];
+  page: number;
+  success: boolean;
+  total: number;
+} = {
+  data: [],
+  page: 1,
+  success: true,
+  total: 0,
+};
+```
+
+如果你的后端数据使用了自己熟悉的 url，虽然我们可以用的 request 来转化，但是每个 table 都需要配置就比较麻烦。如果你使用 umi 的 request，我们可以定义一个全局的转化器。我们需要在 app.tsx 中配置
+
+```tsx | pure
+import { RequestConfig } from 'umi';
+
+export const request: RequestConfig = {
+  errorConfig: {
+    adaptor: (resData) => {
+      // resData 是我们自己的数据
+      return {
+        ...resData,
+        total: resData.sum,
+        success: resData.ok,
+        errorMessage: resData.message,
+      };
+    },
+  },
+};
+
+// 使用时
+import { request } from 'umi';
+
+<ProTable request={request('/list')} />;
+```
+
+如果使用了 fetch ，可以对 fetch 进行自定义。
+
+```tsx | pure
+const request = (url, options) => {
+  return fetch(url, options)
+    .then((res) => res.json())
+    .then((resData) => {
+      return Promise.resolve({
+        ...resData,
+        total: resData.sum,
+        success: resData.ok,
+        errorMessage: resData.message,
+      });
+    });
+};
+
+// 使用时
+<ProTable request={request('/list')} />;
+```
+
 ## 通用配置
 
 ProTable，ProDescriptions 公用一套配置，可以使用同样的 columns 和 request 来生成数据，唯一的不同是 Table 需要数组，而 ProDescriptions 只需要一个对象。以下是具体的配置：
