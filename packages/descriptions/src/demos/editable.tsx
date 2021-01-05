@@ -22,6 +22,7 @@ export default () => {
           },
         });
       }}
+      editable={{}}
       columns={[
         {
           title: '文本',
