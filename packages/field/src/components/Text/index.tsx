@@ -5,10 +5,11 @@ import { useIntl } from '@ant-design/pro-provider';
 
 import type { ProFieldFC } from '../../index';
 
-const CompositionInput: React.FC<InputProps> = (props) => {
+const CompositionInput: React.FC<InputProps> = React.forwardRef<any, InputProps>((props, ref) => {
   const compositionRef = useRef<boolean>(true);
   return (
     <Input
+      ref={ref}
       {...props}
       onCompositionStart={() => {
         compositionRef.current = false;
@@ -23,7 +24,7 @@ const CompositionInput: React.FC<InputProps> = (props) => {
       }}
     />
   );
-};
+});
 /**
  * 最基本的组件，就是个普通的 Input
  * @param
