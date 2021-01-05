@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.20.1
+
+`2021-01-05`
+
+- 💥 feat(table): add 'internationalization for editabletable action' option [#1491](https://github.com/ant-design/pro-components/pull/1491) [@yanglu758](https://github.com/yanglu758)
+
 ## @ant-design/pro-table@2.20.0
 
 `2021-01-05`
