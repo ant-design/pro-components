@@ -105,7 +105,7 @@ export default () => {
           },
           actions: {
             render: () => {
-              return [<a>邀请</a>];
+              return [<a key="init">邀请</a>];
             },
           },
         }}

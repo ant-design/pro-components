@@ -12,18 +12,28 @@ const FieldOptions: ProFieldFC<{}> = ({ text, mode: type, render, fieldProps }) 
   const className = getPrefixCls('pro-field-option');
 
   if (render) {
-    const dom = (render(
+    const doms = (render(
       text,
       { mode: type, ...fieldProps },
       <></>,
     ) as unknown) as React.ReactNode[];
-    if (!dom || dom?.length < 1) {
+    if (!doms || doms?.length < 1) {
       return null;
     }
 
     return (
       <Space size={16} className={className}>
-        {dom}
+        {doms.map((dom, index) => {
+          if (!React.isValidElement(dom)) {
+            // eslint-disable-next-line react/no-array-index-key
+            return <React.Fragment key={index}>{dom}</React.Fragment>;
+          }
+          return React.cloneElement(dom, {
+            // eslint-disable-next-line react/no-array-index-key
+            key: index,
+            ...dom?.props,
+          });
+        })}
       </Space>
     );
   }
