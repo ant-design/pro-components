@@ -52,11 +52,10 @@ export type FieldMoneyProps = {
 
 /**
  * 金额组件
- * @param FieldMoneyProps
- * {
- *    text: number;
- *    moneySymbol?: string;
- * }
+ *
+ * @param FieldMoneyProps {
+ *     text: number;
+ *     moneySymbol?: string; }
  */
 const FieldMoney: ProFieldFC<FieldMoneyProps> = (
   { text, mode: type, locale = '', render, renderFormItem, fieldProps, ...rest },

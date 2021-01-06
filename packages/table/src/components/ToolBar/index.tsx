@@ -29,9 +29,7 @@ export type OptionsType =
 export type ToolBarProps<T = unknown> = {
   headerTitle?: React.ReactNode;
   tooltip?: string;
-  /**
-   * @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一
-   */
+  /** @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一 */
   tip?: string;
   toolbar?: ListToolBarProps;
   toolBarRender?: (
@@ -78,6 +76,7 @@ function getButtonText({
 
 /**
  * 渲染默认的 工具栏
+ *
  * @param options
  * @param className
  */
@@ -180,9 +179,7 @@ function ToolBar<T>({
   const getSearchConfig = (search: OptionConfig['search']) => {
     if (!search) return false;
 
-    /**
-     * 受控的value 和 onChange
-     */
+    /** 受控的value 和 onChange */
     const defaultSearchConfig = {
       value: counter.keyWords,
       onChange: (e: React.ChangeEvent<HTMLInputElement>) => counter.setKeyWords(e.target.value),

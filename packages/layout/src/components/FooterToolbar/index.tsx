@@ -44,9 +44,7 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
     </>
   );
 
-  /**
-   * 告诉 props 是否存在 footerBar
-   */
+  /** 告诉 props 是否存在 footerBar */
   useEffect(() => {
     if (!value || !value?.setHasFooterToolbar) {
       return () => {};

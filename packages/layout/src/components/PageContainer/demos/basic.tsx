@@ -1,8 +1,4 @@
-/**
- * uuid: 7adba566
- * title: 基本使用
- * desc: 基本使用情况
- */
+/** Uuid: 7adba566 title: 基本使用 desc: 基本使用情况 */
 import React from 'react';
 import { EllipsisOutlined } from '@ant-design/icons';
 import { Button, Dropdown, Menu } from 'antd';

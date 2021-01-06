@@ -20,59 +20,40 @@ import idID from './locale/id_ID';
 import deDE from './locale/de_DE';
 
 export type ProSchemaValueEnumType = {
-  /**
-   * @name 演示的文案
-   */
+  /** @name 演示的文案 */
   text: React.ReactNode;
 
-  /**
-   * @name 预定的颜色
-   */
+  /** @name 预定的颜色 */
   status: string;
-  /**
-   * @name 自定义的颜色
-   */
+  /** @name 自定义的颜色 */
   color?: string;
-  /**
-   * @name 是否禁用
-   */
+  /** @name 是否禁用 */
   disabled?: boolean;
 };
 
 /**
+ * 支持 Map 和 Object
+ *
  * @name ValueEnum 的类型
- * @description 支持 Map 和 Object
  */
 export type ProSchemaValueEnumMap = Map<React.ReactText, ProSchemaValueEnumType | React.ReactNode>;
 
 export type ProSchemaValueEnumObj = Record<string, ProSchemaValueEnumType | React.ReactNode>;
 
 export type BaseProFieldFC = {
-  /**
-   * 值的类型
-   */
+  /** 值的类型 */
   text: React.ReactNode;
 
   fieldProps?: any;
-  /**
-   * 模式类型
-   */
+  /** 模式类型 */
   mode: ProFieldFCMode;
-  /**
-   * 简约模式
-   */
+  /** 简约模式 */
   plain?: boolean;
-  /**
-   * 轻量模式
-   */
+  /** 轻量模式 */
   light?: boolean;
-  /**
-   * label
-   */
+  /** Label */
   label?: React.ReactNode;
-  /**
-   * 映射值的类型
-   */
+  /** 映射值的类型 */
   valueEnum?: ProSchemaValueEnumObj | ProSchemaValueEnumMap;
 
   proFieldKey?: React.Key;
@@ -80,9 +61,7 @@ export type BaseProFieldFC = {
 
 export type ProFieldFCMode = 'read' | 'edit' | 'update';
 
-/**
- * render 第二个参数，里面包含了一些常用的参数
- */
+/** Render 第二个参数，里面包含了一些常用的参数 */
 export type ProFieldFCRenderProps = {
   mode?: ProFieldFCMode;
   placeholder?: string | string[];
@@ -130,6 +109,7 @@ function get(
 
 /**
  * 创建一个操作函数
+ *
  * @param locale
  * @param localeMap
  */
@@ -214,6 +194,7 @@ const { Consumer: ConfigConsumer, Provider: ConfigProvider } = ConfigContext;
 
 /**
  * 根据 antd 的 key 来找到的 locale 插件的 key
+ *
  * @param localeKey
  */
 const findIntlKeyByAntdLocaleKey = (localeKey: string | undefined) => {
@@ -230,7 +211,8 @@ const findIntlKeyByAntdLocaleKey = (localeKey: string | undefined) => {
 };
 
 /**
- *  如果没有配置 locale，这里组件会根据 antd 的 key 来自动选择
+ * 如果没有配置 locale，这里组件会根据 antd 的 key 来自动选择
+ *
  * @param param0
  */
 const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({ children }) => {

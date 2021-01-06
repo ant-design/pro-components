@@ -1,7 +1,4 @@
-/**
- * title: 双行布局
- * desc: 双行的情况下会有双行的布局形式。
- */
+/** Title: 双行布局 desc: 双行的情况下会有双行的布局形式。 */
 import React from 'react';
 import { Button, Dropdown, Menu } from 'antd';
 import { EllipsisOutlined, DownOutlined } from '@ant-design/icons';

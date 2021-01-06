@@ -15,8 +15,8 @@ import type {
 import { defaultActionRender, recordKeyToString } from '../useEditableArray';
 
 /**
- * 使用map 来删除数据，性能一般
- * 但是准确率比较高
+ * 使用map 来删除数据，性能一般 但是准确率比较高
+ *
  * @param params
  * @param action
  */
@@ -31,6 +31,7 @@ export type AddLineOptions = {
 
 /**
  * 一个方便的hooks 用于维护编辑的状态
+ *
  * @param props
  */
 function useEditableMap<RecordType>(
@@ -54,18 +55,13 @@ function useEditableMap<RecordType>(
         }
       : undefined,
   });
-  /**
-   * 一个用来标志的set
-   * 提供了方便的 api 来去重什么的
-   */
+  /** 一个用来标志的set 提供了方便的 api 来去重什么的 */
   const editableKeysSet = useMemo(() => {
     const keys = editableType === 'single' ? editableKeys.slice(0, 1) : editableKeys;
     return new Set(keys);
   }, [editableKeys.join(','), editableType]);
 
-  /**
-   * 这行是不是编辑状态
-   */
+  /** 这行是不是编辑状态 */
   const isEditable = useCallback(
     (recordKey: RecordKey) => {
       if (editableKeys.includes(recordKeyToString(recordKey))) return true;
@@ -76,6 +72,7 @@ function useEditableMap<RecordType>(
 
   /**
    * 进入编辑状态
+   *
    * @param recordKey
    */
   const startEditable = (recordKey: RecordKey) => {
@@ -91,6 +88,7 @@ function useEditableMap<RecordType>(
 
   /**
    * 退出编辑状态
+   *
    * @param recordKey
    */
   const cancelEditable = (recordKey: RecordKey) => {

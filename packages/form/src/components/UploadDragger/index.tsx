@@ -11,9 +11,7 @@ export type ProFormDraggerProps = ProFormItemProps<DraggerProps> & {
   action?: UploadProps['action'];
   accept?: UploadProps['accept'];
   description?: React.ReactNode;
-  /**
-   * 最大文件个数
-   */
+  /** 最大文件个数 */
   max?: number;
   value?: UploadProps['fileList'];
   onChange?: UploadProps['onChange'];
@@ -21,6 +19,7 @@ export type ProFormDraggerProps = ProFormItemProps<DraggerProps> & {
 
 /**
  * 拖动上传组件
+ *
  * @param
  */
 const ProFormUploadDragger: React.FC<ProFormDraggerProps> = React.forwardRef(

@@ -21,9 +21,7 @@ const CONFIG_SPAN_BREAKPOINTS = {
   xl: 1057,
   xxl: Infinity,
 };
-/**
- * 配置表单列变化的容器宽度断点
- */
+/** 配置表单列变化的容器宽度断点 */
 const BREAKPOINTS = {
   vertical: [
     // [breakpoint, cols, layout]
@@ -43,6 +41,7 @@ const BREAKPOINTS = {
 
 /**
  * 合并用户和默认的配置
+ *
  * @param layout
  * @param width
  */
@@ -93,33 +92,25 @@ export type BaseQueryFilterProps = Omit<ActionsProps, 'submitter' | 'setCollapse
   defaultColsNumber?: number;
   labelWidth?: number | 'auto';
   split?: boolean;
-  /**
-   * 配置列数
-   */
+  /** 配置列数 */
   span?: SpanConfig;
 
-  /**
-   * 查询按钮的文本
-   */
+  /** 查询按钮的文本 */
   searchText?: string;
-  /**
-   * 重置按钮的文本
-   */
+  /** 重置按钮的文本 */
   resetText?: string;
 
   form?: FormProps['form'];
   /**
+   * @param searchConfig 基础的配置
+   * @param props 更加详细的配置 {
+   *     type?: 'form' | 'list' | 'table' | 'cardList' | undefined;
+   *     form: FormInstance;
+   *     submit: () => void;
+   *     collapse: boolean;
+   *     setCollapse: (collapse: boolean) => void;
+   *     showCollapseButton: boolean; }
    * @name 底部操作栏的 render
-   * @params searchConfig 基础的配置
-   * @params props 更加详细的配置
-   * {
-      type?: 'form' | 'list' | 'table' | 'cardList' | undefined;
-      form: FormInstance;
-      submit: () => void;
-      collapse: boolean;
-      setCollapse: (collapse: boolean) => void;
-      showCollapseButton: boolean;
-   * }
    */
   optionRender?:
     | ((
@@ -211,9 +202,7 @@ const QueryFilterContent: React.FC<{
   // for split compute
   let currentSpan = 0;
 
-  /**
-   * 是否需要展示 collapseRender
-   */
+  /** 是否需要展示 collapseRender */
   const needCollapseRender = itemLength - 1 >= showLength;
   return (
     <Row gutter={24} justify="start" key="resize-observer-row">

@@ -149,6 +149,7 @@ const DescriptionsItemSkeleton: React.FC<{
 
 /**
  * Table 的子项目骨架屏
+ *
  * @param param0
  */
 export const TableItemSkeleton = ({
@@ -214,6 +215,7 @@ export const TableItemSkeleton = ({
 
 /**
  * Table 骨架屏
+ *
  * @param param0
  */
 export const TableSkeleton: React.FC<{

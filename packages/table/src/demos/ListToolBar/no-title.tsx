@@ -1,7 +1,4 @@
-/**
- * title: 无标题
- * desc: 没有标题的情况下搜索框会前置。
- */
+/** Title: 无标题 desc: 没有标题的情况下搜索框会前置。 */
 import React from 'react';
 import { Button } from 'antd';
 import { EllipsisOutlined } from '@ant-design/icons';

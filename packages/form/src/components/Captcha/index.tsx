@@ -7,29 +7,19 @@ import createField from '../../BaseForm/createField';
 import type { ProFormItemProps } from '../../interface';
 
 export type ProFormCaptchaProps = ProFormItemProps<InputProps> & {
-  /**
-   * @name 倒计时的秒数
-   */
+  /** @name 倒计时的秒数 */
   countDown?: number;
 
-  /**
-   * 手机号的 name
-   */
+  /** 手机号的 name */
   phoneName?: NamePath;
 
-  /**
-   * @name 获取验证码的方法
-   */
+  /** @name 获取验证码的方法 */
   onGetCaptcha: (mobile: string) => Promise<void>;
 
-  /**
-   * @name 渲染按钮的文字
-   */
+  /** @name 渲染按钮的文字 */
   captchaTextRender?: (timing: boolean, count: number) => React.ReactNode;
 
-  /**
-   * @name 获取按钮验证码的props
-   */
+  /** @name 获取按钮验证码的props */
   captchaProps?: ButtonProps;
 
   value?: any;

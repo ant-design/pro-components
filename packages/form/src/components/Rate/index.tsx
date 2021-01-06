@@ -5,6 +5,7 @@ import type { ProFormItemProps } from '../../interface';
 import createField from '../../BaseForm/createField';
 /**
  * 评分组件
+ *
  * @param
  */
 const ProFormRate: React.ForwardRefRenderFunction<any, ProFormItemProps<RateProps>> = (

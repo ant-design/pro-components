@@ -13,6 +13,7 @@ const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
 
 /**
  * 拼接用于编辑的 key
+ *
  * @param base 基本的 key
  * @param dataIndex 需要拼接的key
  */
@@ -28,6 +29,7 @@ export const spellNamePath = (
 
 /**
  * 根据不同的类型来转化数值
+ *
  * @param text
  * @param valueType
  */
@@ -63,9 +65,7 @@ function defaultRenderText<T>(config: {
     });
   }
 
-  /**
-   * 生成公用的  proField dom 配置
-   */
+  /** 生成公用的 proField dom 配置 */
   const proFieldProps: ProFieldPropsType = {
     valueEnum: runFunction<[T | undefined]>(columnProps?.valueEnum, rowData),
     request: columnProps?.request,
@@ -91,9 +91,7 @@ function defaultRenderText<T>(config: {
   return (
     <Form.Item shouldUpdate noStyle>
       {(form) => {
-        /**
-         * 获取 formItemProps Props
-         */
+        /** 获取 formItemProps Props */
         const formItemProps = getFieldPropsOrFormItemProps(
           columnProps?.formItemProps,
           form as FormInstance,
@@ -129,9 +127,7 @@ function defaultRenderText<T>(config: {
             />
           </InlineErrorFormItem>
         );
-        /**
-         * renderFormItem 需要被自定义
-         */
+        /** RenderFormItem 需要被自定义 */
         if (columnProps?.renderFormItem) {
           const renderDom = columnProps.renderFormItem?.(
             {

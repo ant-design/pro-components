@@ -1,8 +1,4 @@
-/**
- * uuid: da2b07c7
- * title: 固定表头
- * desc: 通过 `fixedHeader` 固定表头，只有在溢出容器时才会开始计算。
- */
+/** Uuid: da2b07c7 title: 固定表头 desc: 通过 `fixedHeader` 固定表头，只有在溢出容器时才会开始计算。 */
 import React from 'react';
 import { PageContainer } from '@ant-design/pro-layout';
 import ProCard from '@ant-design/pro-card';

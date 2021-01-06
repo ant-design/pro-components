@@ -6,6 +6,7 @@ import type { ProFormItemProps } from '../../interface';
 import createField from '../../BaseForm/createField';
 /**
  * 文本选择组件
+ *
  * @param
  */
 const ProFormTextArea: React.ForwardRefRenderFunction<any, ProFormItemProps<TextAreaProps>> = (

@@ -3,13 +3,12 @@ import './index.less';
 
 export type ProCardActionsProps = {
   /**
-   * @description 自定义前缀
+   * 自定义前缀
+   *
    * @ignore
    */
   prefixCls?: string;
-  /**
-   * 操作按钮
-   */
+  /** 操作按钮 */
   actions?: React.ReactNode[];
 };
 

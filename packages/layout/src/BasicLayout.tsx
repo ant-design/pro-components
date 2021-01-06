@@ -40,14 +40,10 @@ export type BasicLayoutProps = Partial<RouterTypes<Route>> &
   SiderMenuProps &
   HeaderViewProps & {
     pure?: boolean;
-    /**
-     *@name logo url
-     */
+    /** @name logo url */
     logo?: React.ReactNode | WithFalse<() => React.ReactNode>;
 
-    /**
-     *@name 页面切换的时候触发
-     */
+    /** @name 页面切换的时候触发 */
     onPageChange?: (location?: RouterTypes<Route>['location']) => void;
 
     loading?: boolean;
@@ -83,18 +79,14 @@ export type BasicLayoutProps = Partial<RouterTypes<Route>> &
     itemRender?: AntdBreadcrumbProps['itemRender'];
 
     formatMessage?: (message: MessageDescriptor) => string;
-    /**
-     * 是否禁用移动端模式，有的管理系统不需要移动端模式，此属性设置为true即可
-     */
+    /** 是否禁用移动端模式，有的管理系统不需要移动端模式，此属性设置为true即可 */
     disableMobile?: boolean;
     contentStyle?: CSSProperties;
     isChildrenLayout?: boolean;
 
     className?: string;
 
-    /**
-     * 兼用 content的 margin
-     */
+    /** 兼用 content的 margin */
     disableContentMargin?: boolean;
   };
 
@@ -127,9 +119,7 @@ const renderSiderMenu = (props: BasicLayoutProps, matchMenuKeys: string[]): Reac
   }
   let { menuData } = props;
 
-  /**
-   * 如果是分割菜单模式，需要专门实现一下
-   */
+  /** 如果是分割菜单模式，需要专门实现一下 */
   if (splitMenus && openKeys !== false && !isMobile) {
     const [key] = matchMenuKeys;
     if (key) {
@@ -217,8 +207,8 @@ const getPaddingLeft = (
 };
 
 /**
- * 🌃 Powerful and easy to use beautiful layout
- * 🏄‍ Support multiple topics and layout types
+ * 🌃 Powerful and easy to use beautiful layout 🏄‍ Support multiple topics and layout types
+ *
  * @param props
  */
 const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
@@ -293,10 +283,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
 
   const isMobile = (colSize === 'sm' || colSize === 'xs') && !props.disableMobile;
 
-  /**
-   *  如果 menuRender 不存在，可以做一下性能优化
-   *  只要 routers 没有更新就不需要重新计算
-   */
+  /** 如果 menuRender 不存在，可以做一下性能优化 只要 routers 没有更新就不需要重新计算 */
   useDeepCompareEffect(() => {
     if (menu?.loading) {
       return () => null;
@@ -398,9 +385,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     [`${baseClassName}-${propsLayout}`]: propsLayout,
   });
 
-  /**
-   * 计算 slider 的宽度
-   */
+  /** 计算 slider 的宽度 */
   const leftSiderWidth = getPaddingLeft(!!hasLeftPadding, collapsed, siderWidth);
 
   // siderMenuDom 为空的时候，不需要 padding
@@ -418,9 +403,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     [`${baseClassName}-content-disable-margin`]: disableContentMargin,
   });
 
-  /**
-   * 页面切换的时候触发
-   */
+  /** 页面切换的时候触发 */
   useEffect(() => {
     const { onPageChange } = props;
     if (onPageChange) {

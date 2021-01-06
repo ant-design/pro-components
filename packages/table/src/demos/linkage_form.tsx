@@ -15,9 +15,7 @@ const MySelect: React.FC<{
   state: {
     type: number;
   };
-  /**
-   * value 和 onChange 会被自动注入
-   */
+  /** Value 和 onChange 会被自动注入 */
   value?: string;
   onChange?: (value: string) => void;
 }> = (props) => {

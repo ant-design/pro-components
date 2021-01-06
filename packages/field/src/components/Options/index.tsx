@@ -4,6 +4,7 @@ import type { ProFieldFC } from '../../index';
 
 /**
  * 一般用于放多个按钮
+ *
  * @param
  */
 const FieldOptions: ProFieldFC<{}> = ({ text, mode: type, render, fieldProps }) => {

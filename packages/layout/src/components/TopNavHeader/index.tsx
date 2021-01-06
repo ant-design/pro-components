@@ -12,6 +12,7 @@ export type TopNavHeaderProps = SiderMenuProps & GlobalHeaderProps & PrivateSide
 
 /**
  * 抽离出来是为了防止 rightSize 经常改变导致菜单 render
+ *
  * @param param0
  */
 const RightContent: React.FC<TopNavHeaderProps> = ({ rightContentRender, ...props }) => {

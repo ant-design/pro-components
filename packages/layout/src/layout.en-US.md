@@ -25,50 +25,31 @@ ProLayout extends umi's router configuration, adding name, icon, locale, hideInM
 
 ```ts | pure
 export interface MenuDataItem {
-  /**
-   * @name submenu
-   */
+  /** @name submenu */
   children?: MenuDataItem[];
-  /**
-   * @name Hide child nodes in the menu
-   */
+  /** @name Hide child nodes in the menu */
   hideChildrenInMenu?: boolean;
-  /**
-   * @name hideSelf and children in menu
-   */
+  /** @name hideSelf and children in menu */
   hideInMenu?: boolean;
-  /**
-   * @name Icon of the menu
-   */
+  /** @name Icon of the menu */
   icon?: React.ReactNode;
-  /**
-   * @name Internationalization key for custom menus
-   */
+  /** @name Internationalization key for custom menus */
   locale?: string | false;
-  /**
-   * @name The name of the menu
-   */
+  /** @name The name of the menu */
   name?: string;
-  /**
-   * @name is used to calibrate the selected value, default is path
-   */
+  /** @name is used to calibrate the selected value, default is path */
   key?: string;
-  /**
-   * @name disable menu option
-   */
+  /** @name disable menu option */
   disabled?: boolean;
-  /**
-   * @name path
-   */
+  /** @name path */
   path?: string;
   /**
+   * When this node is selected, the node of parentKeys is also selected
+   *
    * @name custom parent node
-   * @description When this node is selected, the node of parentKeys is also selected
    */
   parentKeys?: string[];
-  /**
-   * @name hides itself and elevates child nodes to its level
-   */
+  /** @name hides itself and elevates child nodes to its level */
   flatMenu?: boolean;
 
   [key: string]: any;
@@ -285,29 +266,17 @@ const title = getPageTitle({
 // You can get this type by importing { Settings } from '@ant-design/pro-layout/defaultSettings'
 // to get this type
 export interface Settings {
-  /**
-   * theme for nav menu
-   */
+  /** Theme for nav menu */
   navTheme: 'light' | 'dark';
-  /**
-   * primary color of ant design
-   */
+  /** Primary color of ant design */
   primaryColor: string;
-  /**
-   * nav menu position: `side` or `top`
-   */
+  /** Nav menu position: `side` or `top` */
   layout: 'side' | 'top';
-  /**
-   * layout of content: `Fluid` or `Fixed`, only works when layout is top
-   */
+  /** Layout of content: `Fluid` or `Fixed`, only works when layout is top */
   contentWidth: 'Fluid' | 'Fixed';
-  /**
-   * sticky header
-   */
+  /** Sticky header */
   fixedHeader: boolean;
-  /**
-   * sticky siderbar
-   */
+  /** Sticky siderbar */
   fixSiderbar: boolean;
   menu: { locale: boolean };
   title: string;

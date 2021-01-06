@@ -53,6 +53,7 @@ const convertMoment = (value: moment.Moment, dateFormatter: DateFormatter, value
 
 /**
  * 根据不同的格式转化 moment
+ *
  * @param value
  * @param dateFormatter
  * @param valueType
@@ -72,9 +73,8 @@ const conversionMoment = (
 };
 
 /**
- * 这里主要是来转化一下数据
- * 将 moment 转化为 string
- * 将 all 默认删除
+ * 这里主要是来转化一下数据 将 moment 转化为 string 将 all 默认删除
+ *
  * @param value
  * @param dateFormatter
  * @param proColumnsMap

@@ -7,8 +7,8 @@ import moment from 'moment';
 import type { ProFieldFC } from '../../index';
 
 /**
- * 与当前的时间进行比较
- * http://momentjs.cn/docs/displaying/fromnow.html
+ * 与当前的时间进行比较 http://momentjs.cn/docs/displaying/fromnow.html
+ *
  * @param
  */
 const FieldFromNow: ProFieldFC<{

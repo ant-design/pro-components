@@ -1,8 +1,4 @@
-/**
- * uuid: a4621ef5
- * title: 隐藏面包屑
- * desc: 不配置 `header` 属性中的 `breadcrumb` 即可。
- */
+/** Uuid: a4621ef5 title: 隐藏面包屑 desc: 不配置 `header` 属性中的 `breadcrumb` 即可。 */
 import React from 'react';
 import { Descriptions } from 'antd';
 import { PageContainer } from '@ant-design/pro-layout';

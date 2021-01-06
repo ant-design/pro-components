@@ -43,9 +43,7 @@ describe('BasicTable Search', () => {
     await waitForComponentToPaint(html);
     expect(fn).toBeCalledTimes(1);
 
-    /**
-     * 修改值
-     */
+    /** 修改值 */
     act(() => {
       html
         .find('.ant-form input.ant-input')
@@ -187,9 +185,7 @@ describe('BasicTable Search', () => {
       />,
     );
     await waitForComponentToPaint(html, 500);
-    /**
-     * 修改值
-     */
+    /** 修改值 */
     act(() => {
       ref.current?.setFieldsValue({
         name: 'name',
@@ -260,9 +256,7 @@ describe('BasicTable Search', () => {
     );
     await waitForComponentToPaint(html, 1200);
 
-    /**
-     * 修改值
-     */
+    /** 修改值 */
     act(() => {
       html.find('input#name').simulate('change', {
         target: {

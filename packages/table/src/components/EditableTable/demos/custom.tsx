@@ -1,6 +1,4 @@
-/**
- * title: 自定义可编辑表格
- */
+/** Title: 自定义可编辑表格 */
 import React, { useRef, useState } from 'react';
 import type { ProColumns } from '@ant-design/pro-table';
 import { EditableProTable } from '@ant-design/pro-table';

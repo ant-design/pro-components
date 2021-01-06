@@ -13,7 +13,8 @@ export type LightSelectProps = {
 };
 
 /**
- * 如果有 label  就优先使用 label
+ * 如果有 label 就优先使用 label
+ *
  * @param valueMap
  * @param v
  */

@@ -89,9 +89,7 @@ class HeaderView extends Component<HeaderViewProps & PrivateSiderMenuProps, Head
       [`${prefixCls}-top-menu`]: isTop,
     });
 
-    /**
-     * 计算侧边栏的宽度，不然导致左边的样式会出问题
-     */
+    /** 计算侧边栏的宽度，不然导致左边的样式会出问题 */
     const width =
       layout !== 'mix' && needSettingWidth
         ? `calc(100% - ${collapsed ? 48 : siderWidth}px)`

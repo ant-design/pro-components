@@ -17,7 +17,8 @@ export type PercentPropInt = {
 
 /**
  * 百分比组件
- * @param  PercentPropInt
+ *
+ * @param PercentPropInt
  */
 const FieldPercent: ProFieldFC<PercentPropInt> = (
   {

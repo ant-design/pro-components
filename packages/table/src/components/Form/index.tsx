@@ -38,7 +38,8 @@ export type SearchConfig = BaseQueryFilterProps & {
 };
 
 /**
- *  获取当前选择的 Form Layout 配置
+ * 获取当前选择的 Form Layout 配置
+ *
  * @param isForm
  * @param searchConfig
  * @returns LightFilter | QueryFilter | ProForm
@@ -64,6 +65,7 @@ const getFormCompetent = (isForm: boolean, searchConfig?: SearchConfig | false) 
 
 /**
  * 获取需要传给相应表单的props
+ *
  * @param searchConfig
  * @param name
  */
@@ -107,6 +109,7 @@ export type TableFormItem<T, U = any> = {
 
 /**
  * 把配置转化为输入控件
+ *
  * @param props
  * @param ref
  */
@@ -141,13 +144,9 @@ export const formInputRender: React.FC<{
     item,
   ) as any;
 
-  /**
-   * 自定义 render
-   */
+  /** 自定义 render */
   if (item.renderFormItem && form) {
-    /**
-     *删除 renderFormItem 防止重复的 dom 渲染
-     */
+    /** 删除 renderFormItem 防止重复的 dom 渲染 */
     const { renderFormItem, ...restItem } = item;
     const defaultRender = (newItem: ProColumns<any>) =>
       formInputRender({
@@ -302,27 +301,19 @@ const FormSearch = <T, U = any>({
   form: formConfig = {},
   bordered,
 }: TableFormItem<T, U>) => {
-  /**
-   * 为了支持 dom 的消失，支持了这个 api
-   */
+  /** 为了支持 dom 的消失，支持了这个 api */
   const intl = useIntl();
 
   const formInstanceRef = useRef<FormInstance | undefined>();
 
-  /**
-   * 保存 valueTypeRef，用于分辨是用什么方式格式化数据
-   */
+  /** 保存 valueTypeRef，用于分辨是用什么方式格式化数据 */
   const valueTypeRef = useRef<Record<string, ProFieldValueType>>();
 
-  /**
-   * 保存 transformKeyRef，用于对表单key transform
-   */
+  /** 保存 transformKeyRef，用于对表单key transform */
   const transformKeyRef = useRef<Record<string, SearchTransformKeyFn>>({});
 
   const isForm = type === 'form';
-  /**
-   *提交表单，根据两种模式不同，方法不相同
-   */
+  /** 提交表单，根据两种模式不同，方法不相同 */
   const submit = async (firstLoad: boolean) => {
     let value;
     // 如果不是表单模式，不用进行验证

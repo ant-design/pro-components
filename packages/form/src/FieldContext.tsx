@@ -12,9 +12,7 @@ export type FiledContextProps = {
     name: NamePath,
     obj: {
       valueType?: ProFieldValueType;
-      /**
-       * 数据转化的地方
-       */
+      /** 数据转化的地方 */
       transform?: SearchTransformKeyFn;
     },
   ) => void;

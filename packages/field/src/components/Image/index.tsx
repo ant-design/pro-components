@@ -9,11 +9,10 @@ export type FieldImageProps = {
 
 /**
  * 数字组件
- * @param FieldImageProps
- * {
- *    text: number;
- *    moneySymbol?: string;
- * }
+ *
+ * @param FieldImageProps {
+ *     text: number;
+ *     moneySymbol?: string; }
  */
 const FieldImage: ProFieldFC<FieldImageProps> = ({
   text,

@@ -4,17 +4,11 @@ import { Row, Col } from 'antd';
 import './index.less';
 
 type CardLoadingProps = {
-  /**
-   * 类名
-   */
+  /** 类名 */
   className?: string;
-  /**
-   * 样式属性
-   */
+  /** 样式属性 */
   style?: React.CSSProperties;
-  /**
-   * prefix
-   */
+  /** Prefix */
   prefix?: string;
 };
 
