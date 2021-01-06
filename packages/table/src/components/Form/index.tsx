@@ -102,7 +102,7 @@ export type TableFormItem<T, U = any> = {
   dateFormatter?: 'string' | 'number' | false;
   search?: false | SearchConfig;
   columns: ProColumns<U, any>[];
-  formRef?: React.MutableRefObject<FormInstance | undefined> | ((formRef: FormInstance) => void);
+  formRef?: React.MutableRefObject<FormInstance | undefined>;
   submitButtonLoading?: boolean;
   bordered?: boolean;
 } & Omit<FormItemProps, 'children' | 'onReset'>;
@@ -350,15 +350,6 @@ const FormSearch = <T, U = any>({
       } as any),
     [formInstanceRef.current],
   );
-
-  useEffect(() => {
-    if (!formRef) {
-      return;
-    }
-    if (typeof formRef === 'function' && formInstanceRef.current) {
-      formRef(formInstanceRef.current);
-    }
-  }, [formInstanceRef.current]);
 
   const genTransform = () => {
     const tempMap = {};

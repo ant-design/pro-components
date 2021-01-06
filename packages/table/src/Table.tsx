@@ -253,6 +253,10 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       counter.setKeyWords(undefined);
       // 重置页码
       action.resetPageIndex();
+
+      // 重置表单
+      formRef?.current?.resetFields();
+      setFormSearch({});
     },
     editableUtils,
   });
