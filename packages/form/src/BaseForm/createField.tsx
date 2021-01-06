@@ -164,6 +164,10 @@ function createField<P extends ProFormItemProps = any>(
         fieldProps={{
           allowClear,
           ...realFieldProps,
+          style: {
+            width: typeof width === 'number' ? width : undefined,
+            ...realFieldProps?.style,
+          },
           className: classnames(realFieldProps?.className, {
             [`pro-field-${width}`]: width && WIDTH_SIZE_ENUM[width],
           }),
