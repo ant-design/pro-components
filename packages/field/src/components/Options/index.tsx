@@ -2,6 +2,19 @@ import React, { useContext } from 'react';
 import { Space, ConfigProvider } from 'antd';
 import type { ProFieldFC } from '../../index';
 
+const addArrayKeys = (doms: React.ReactNode[]) =>
+  doms.map((dom, index) => {
+    if (!React.isValidElement(dom)) {
+      // eslint-disable-next-line react/no-array-index-key
+      return <React.Fragment key={index}>{dom}</React.Fragment>;
+    }
+    return React.cloneElement(dom, {
+      // eslint-disable-next-line react/no-array-index-key
+      key: index,
+      ...dom?.props,
+    });
+  });
+
 /**
  * 一般用于放多个按钮
  *
@@ -12,18 +25,18 @@ const FieldOptions: ProFieldFC<{}> = ({ text, mode: type, render, fieldProps }) 
   const className = getPrefixCls('pro-field-option');
 
   if (render) {
-    const dom = (render(
+    const doms = (render(
       text,
       { mode: type, ...fieldProps },
       <></>,
     ) as unknown) as React.ReactNode[];
-    if (!dom || dom?.length < 1) {
+    if (!doms || doms?.length < 1) {
       return null;
     }
 
     return (
       <Space size={16} className={className}>
-        {dom}
+        {addArrayKeys(doms)}
       </Space>
     );
   }
@@ -34,7 +47,7 @@ const FieldOptions: ProFieldFC<{}> = ({ text, mode: type, render, fieldProps }) 
 
   return (
     <Space size={16} className={className}>
-      {text}
+      {addArrayKeys(text)}
     </Space>
   );
 };

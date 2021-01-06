@@ -3930,10 +3930,16 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
                       >
                         <div
                           class="ant-space-item"
+                          style="margin-right: 16px;"
                         >
                           <a>
                             邀请
                           </a>
+                        </div>
+                        <div
+                          class="ant-space-item"
+                        >
+                          发布
                         </div>
                       </div>
                     </li>
@@ -4058,10 +4064,16 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
                       >
                         <div
                           class="ant-space-item"
+                          style="margin-right: 16px;"
                         >
                           <a>
                             邀请
                           </a>
+                        </div>
+                        <div
+                          class="ant-space-item"
+                        >
+                          发布
                         </div>
                       </div>
                     </li>
@@ -4186,10 +4198,16 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
                       >
                         <div
                           class="ant-space-item"
+                          style="margin-right: 16px;"
                         >
                           <a>
                             邀请
                           </a>
+                        </div>
+                        <div
+                          class="ant-space-item"
+                        >
+                          发布
                         </div>
                       </div>
                     </li>
@@ -4314,10 +4332,16 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
                       >
                         <div
                           class="ant-space-item"
+                          style="margin-right: 16px;"
                         >
                           <a>
                             邀请
                           </a>
+                        </div>
+                        <div
+                          class="ant-space-item"
+                        >
+                          发布
                         </div>
                       </div>
                     </li>
