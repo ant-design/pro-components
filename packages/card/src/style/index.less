@@ -3,14 +3,14 @@
 @pro-card-prefix-cls: ~'@{ant-prefix}-pro-card';
 
 .@{pro-card-prefix-cls} {
-  background-color: @component-background;
-  margin: 0;
-  padding: 0;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  border-radius: @card-radius;
   width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: @component-background;
+  border-radius: @card-radius;
 
   &-border {
     border: @border-width-base @border-style-base @border-color-split;
@@ -44,9 +44,9 @@
 
     > .@{pro-card-prefix-cls} {
       &-header {
-        padding-left: 0;
         padding-right: 0;
         padding-bottom: @card-head-padding;
+        padding-left: 0;
       }
 
       &-body {
@@ -117,8 +117,8 @@
   }
 
   &-collapsible-icon {
-    color: @icon-color-hover;
     margin-right: 8px;
+    color: @icon-color-hover;
 
     & svg {
       transition: transform @animation-duration-base;
@@ -131,22 +131,22 @@
 
   &-body {
     display: block;
-    padding: @card-padding-base;
-    height: 100%;
     box-sizing: border-box;
+    height: 100%;
+    padding: @card-padding-base;
 
     &-center {
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
     }
   }
 }
 
 .loop-grid-columns(@index) when (@index > 0) {
   .@{pro-card-prefix-cls}-span-@{index} {
-    width: percentage((@index / @grid-columns));
     flex-grow: 0;
+    width: percentage((@index / @grid-columns));
   }
   .loop-grid-columns((@index - 1));
 }
