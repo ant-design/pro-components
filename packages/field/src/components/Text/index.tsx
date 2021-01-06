@@ -5,30 +5,48 @@ import { useIntl } from '@ant-design/pro-provider';
 
 import type { ProFieldFC } from '../../index';
 
-const CompositionInput: React.FC<InputProps> = React.forwardRef<any, InputProps>((props, ref) => {
-  const compositionRef = useRef<boolean>(true);
+const CompositionInput: React.FC<
+  InputProps & {
+    composition: boolean;
+  }
+> = React.forwardRef<
+  any,
+  InputProps & {
+    composition: boolean;
+  }
+>((props, ref) => {
+  const compositionRef = useRef<boolean | undefined>(true);
   const [innerValue, setInnerValue] = useState(props.value);
   useEffect(() => {
     setInnerValue(props.value);
   }, [props.value]);
-
+  const { composition, ...rest } = props;
   return (
     <Input
       ref={ref}
-      {...props}
-      value={innerValue}
-      onCompositionStart={() => {
-        compositionRef.current = false;
-      }}
-      onCompositionEnd={() => {
-        compositionRef.current = true;
-      }}
-      onChange={(e) => {
-        setInnerValue(e.target.value);
-        if (compositionRef.current) {
-          props?.onChange?.(e);
-        }
-      }}
+      {...rest}
+      {...(composition
+        ? {
+            value: innerValue,
+            onCompositionStart: () => {
+              compositionRef.current = false;
+            },
+            onCompositionEnd: (e) => {
+              if (compositionRef.current === undefined) {
+                props?.onChange?.((e as unknown) as React.ChangeEvent<HTMLInputElement>);
+              }
+              compositionRef.current = true;
+            },
+            onChange: (e) => {
+              setInnerValue(e.target.value);
+              if (compositionRef.current) {
+                props?.onChange?.(e);
+              } else {
+                compositionRef.current = undefined;
+              }
+            },
+          }
+        : {})}
     />
   );
 });

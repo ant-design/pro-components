@@ -101,7 +101,6 @@ const request = (url, options) => {
 ProTable，ProDescriptions 公用一套配置，可以使用同样的 columns 和 request 来生成数据，唯一的不同是 Table 需要数组，而 ProDescriptions 只需要一个对象。以下是具体的配置：
 
 ```tsx | pure
-/** 各个组件公共支持的 render */
 export type ProSchema<T = unknown, U = string, Extra = unknown> = {
   /** @name 确定这个列的唯一值 */
   key?: React.ReactText;

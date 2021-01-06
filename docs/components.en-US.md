@@ -93,7 +93,7 @@ ProTable, ProDescriptions share a common set of configurations that can use the 
 ```tsx | pure
 /**
  * Commonly supported render for each component
- */export type
+ */
 export type ProSchema<T = unknown, U = string, Extra = unknown> = {
   /**
    * @name Determines the unique value of this column
