@@ -1,5 +1,5 @@
 import { Input } from 'antd';
-import React, { useRef, useImperativeHandle } from 'react';
+import React, { useRef, useImperativeHandle, useState, useEffect } from 'react';
 import type { InputProps } from 'antd/lib/input';
 import { useIntl } from '@ant-design/pro-provider';
 
@@ -7,10 +7,16 @@ import type { ProFieldFC } from '../../index';
 
 const CompositionInput: React.FC<InputProps> = React.forwardRef<any, InputProps>((props, ref) => {
   const compositionRef = useRef<boolean>(true);
+  const [innerValue, setInnerValue] = useState(props.value);
+  useEffect(() => {
+    setInnerValue(props.value);
+  }, [props.value]);
+
   return (
     <Input
       ref={ref}
       {...props}
+      value={innerValue}
       onCompositionStart={() => {
         compositionRef.current = false;
       }}
@@ -18,6 +24,7 @@ const CompositionInput: React.FC<InputProps> = React.forwardRef<any, InputProps>
         compositionRef.current = true;
       }}
       onChange={(e) => {
+        setInnerValue(e.target.value);
         if (compositionRef.current) {
           props?.onChange?.(e);
         }
