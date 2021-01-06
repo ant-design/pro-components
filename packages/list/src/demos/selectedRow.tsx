@@ -73,7 +73,7 @@ export default () => {
         },
         actions: {
           render: () => {
-            return [<a key="init">邀请</a>];
+            return [<a key="init">邀请</a>, '发布'];
           },
         },
       }}
