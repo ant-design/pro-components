@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.8.0...@ant-design/pro-field@1.8.1) (2021-01-06)
+
+### Bug Fixes
+
+- **field:** fix CompositionInput no work on 搜狗 ([5a8742c](https://github.com/ant-design/pro-components/commit/5a8742c893af0c6504d0460aef65209261da8221))
+
 # [1.8.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.7.1...@ant-design/pro-field@1.8.0) (2021-01-05)
 
 ### Features
