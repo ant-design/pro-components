@@ -570,6 +570,13 @@ describe('Field', () => {
     expect(html).toMatchSnapshot();
   });
 
+  it('🐴 options support dom text', () => {
+    const html = render(
+      <Field text={['新建', <Button key="edit">修改</Button>]} valueType="option" mode="read" />,
+    );
+    expect(html).toMatchSnapshot();
+  });
+
   it('🐴 options support one dom', () => {
     const html = render(
       <Field text={[<Button key="add">新建</Button>]} valueType="option" mode="read" />,
