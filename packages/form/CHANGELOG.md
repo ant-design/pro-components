@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.13.4...@ant-design/pro-form@1.13.5) (2021-01-07)
+
+### Bug Fixes
+
+- **form:** fix form width no work error ([#1516](https://github.com/ant-design/pro-components/issues/1516)) ([0ce87ea](https://github.com/ant-design/pro-components/commit/0ce87ea5093aece6e0245d9c72ee0edc6137bb28))
+
 ## [1.13.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.13.3...@ant-design/pro-form@1.13.4) (2021-01-06)
 
 **Note:** Version bump only for package @ant-design/pro-form

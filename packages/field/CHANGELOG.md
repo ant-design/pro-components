@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.8.1...@ant-design/pro-field@1.8.2) (2021-01-07)
+
+### Bug Fixes
+
+- **filed:** auto insert dom key ([#1517](https://github.com/ant-design/pro-components/issues/1517)) ([d4be88a](https://github.com/ant-design/pro-components/commit/d4be88a4cf2c499a6190111602c4bfcbbc75daaf))
+- **filed:** fix composition event error ([77e011e](https://github.com/ant-design/pro-components/commit/77e011e2e389b931078a5bbf79d2452fc56fa909))
+
 ## [1.8.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.8.0...@ant-design/pro-field@1.8.1) (2021-01-06)
 
 ### Bug Fixes

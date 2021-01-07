@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.22.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.21.1...@ant-design/pro-table@2.22.0) (2021-01-07)
+
+### Features
+
+- **table:** reset will rest form values ([#1518](https://github.com/ant-design/pro-components/issues/1518)) ([b4b218f](https://github.com/ant-design/pro-components/commit/b4b218fb68c6f30d1428ec5c4ff085f87d960ac5))
+
 ## [2.21.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.21.0...@ant-design/pro-table@2.21.1) (2021-01-06)
 
 **Note:** Version bump only for package @ant-design/pro-table
