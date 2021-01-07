@@ -7,6 +7,7 @@ import createField from '../../BaseForm/createField';
 const valueType = 'text';
 /**
  * 文本组件
+ *
  * @param
  */
 const ProFormText = createField<ProFormItemProps<InputProps>>(

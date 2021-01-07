@@ -43,9 +43,10 @@ const columns: ProColumnType<DataType>[] = [
     title: 'Action',
     key: 'action',
     sorter: true,
+    valueType: 'option',
     render: () => [
-      <a>Delete</a>,
-      <a className="ant-dropdown-link">
+      <a key="delete">Delete</a>,
+      <a key="link" className="ant-dropdown-link">
         More actions <DownOutlined />
       </a>,
     ],

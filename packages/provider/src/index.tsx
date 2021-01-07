@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
-
 import { ConfigProvider as AntdConfigProvider } from 'antd';
+
 import { noteOnce } from 'rc-util/lib/warning';
+
 import arEG from './locale/ar_EG';
 import zhCN from './locale/zh_CN';
 import enUS from './locale/en_US';
@@ -18,12 +19,79 @@ import koKR from './locale/ko_KR';
 import idID from './locale/id_ID';
 import deDE from './locale/de_DE';
 
+export type ProSchemaValueEnumType = {
+  /** @name 演示的文案 */
+  text: React.ReactNode;
+
+  /** @name 预定的颜色 */
+  status: string;
+  /** @name 自定义的颜色 */
+  color?: string;
+  /** @name 是否禁用 */
+  disabled?: boolean;
+};
+
+/**
+ * 支持 Map 和 Object
+ *
+ * @name ValueEnum 的类型
+ */
+export type ProSchemaValueEnumMap = Map<React.ReactText, ProSchemaValueEnumType | React.ReactNode>;
+
+export type ProSchemaValueEnumObj = Record<string, ProSchemaValueEnumType | React.ReactNode>;
+
+export type BaseProFieldFC = {
+  /** 值的类型 */
+  text: React.ReactNode;
+
+  fieldProps?: any;
+  /** 模式类型 */
+  mode: ProFieldFCMode;
+  /** 简约模式 */
+  plain?: boolean;
+  /** 轻量模式 */
+  light?: boolean;
+  /** Label */
+  label?: React.ReactNode;
+  /** 映射值的类型 */
+  valueEnum?: ProSchemaValueEnumObj | ProSchemaValueEnumMap;
+
+  proFieldKey?: React.Key;
+};
+
+export type ProFieldFCMode = 'read' | 'edit' | 'update';
+
+/** Render 第二个参数，里面包含了一些常用的参数 */
+export type ProFieldFCRenderProps = {
+  mode?: ProFieldFCMode;
+  placeholder?: string | string[];
+  value?: any;
+  onChange?: (...rest: any[]) => void;
+} & BaseProFieldFC;
+
+export type ProRenderFieldPropsType = {
+  render?:
+    | ((
+        text: any,
+        props: Omit<ProFieldFCRenderProps, 'value' | 'onChange'>,
+        dom: JSX.Element,
+      ) => JSX.Element)
+    | undefined;
+  renderFormItem?:
+    | ((text: any, props: ProFieldFCRenderProps, dom: JSX.Element) => JSX.Element)
+    | undefined;
+};
+
 export type IntlType = {
   locale: string;
   getMessage: (id: string, defaultMessage: string) => string;
 };
 
-function get(source: object, path: string, defaultValue?: string): string | undefined {
+function get(
+  source: Record<string, unknown>,
+  path: string,
+  defaultValue?: string,
+): string | undefined {
   // a[3].b -> a.3.b
   const paths = path.replace(/\[(\d+)\]/g, '.$1').split('.');
   let result = source;
@@ -41,6 +109,7 @@ function get(source: object, path: string, defaultValue?: string): string | unde
 
 /**
  * 创建一个操作函数
+ *
  * @param locale
  * @param localeMap
  */
@@ -63,7 +132,7 @@ const zhTWIntl = createIntl('zh_TW', zhTW);
 const frFRIntl = createIntl('fr_FR', frFR);
 const ptBRIntl = createIntl('pt_BR', ptBR);
 const koKRIntl = createIntl('ko_KR', koKR);
-const idIDNntl = createIntl('id_ID', idID);
+const idIDIntl = createIntl('id_ID', idID);
 const deDEIntl = createIntl('de_DE', deDE);
 
 const intlMap = {
@@ -80,13 +149,13 @@ const intlMap = {
   'fr-FR': frFRIntl,
   'pt-BR': ptBRIntl,
   'ko-KR': koKRIntl,
-  'id-ID': idIDNntl,
+  'id-ID': idIDIntl,
   'de-DE': deDEIntl,
 };
 
 const intlMapKeys = Object.keys(intlMap);
 
-export type ParamsType = Record<string, React.ReactText | React.ReactText[]>;
+export type ParamsType = Record<string, any>;
 
 export {
   arEGIntl,
@@ -102,25 +171,30 @@ export {
   frFRIntl,
   ptBRIntl,
   koKRIntl,
-  idIDNntl,
+  idIDIntl,
   deDEIntl,
   intlMap,
   intlMapKeys,
 };
 
-const ConfigContext = React.createContext<{
+export type ConfigContextPropsType = {
   intl: IntlType;
-}>({
+  valueTypeMap: Record<string, ProRenderFieldPropsType>;
+};
+
+const ConfigContext = React.createContext<ConfigContextPropsType>({
   intl: {
     ...zhCNIntl,
     locale: 'default',
   },
+  valueTypeMap: {},
 });
 
 const { Consumer: ConfigConsumer, Provider: ConfigProvider } = ConfigContext;
 
 /**
  * 根据 antd 的 key 来找到的 locale 插件的 key
+ *
  * @param localeKey
  */
 const findIntlKeyByAntdLocaleKey = (localeKey: string | undefined) => {
@@ -137,10 +211,11 @@ const findIntlKeyByAntdLocaleKey = (localeKey: string | undefined) => {
 };
 
 /**
- *  如果没有配置 locale，这里组件会根据 antd 的 key 来自动选择
+ * 如果没有配置 locale，这里组件会根据 antd 的 key 来自动选择
+ *
  * @param param0
  */
-const ConfigProviderWrap: React.FC<{}> = ({ children }) => {
+const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({ children }) => {
   const { locale } = useContext(AntdConfigProvider.ConfigContext);
   return (
     <ConfigConsumer>

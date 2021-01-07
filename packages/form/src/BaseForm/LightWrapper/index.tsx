@@ -29,7 +29,7 @@ export type LightWrapperProps = {
   bordered?: boolean;
 };
 
-const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (props, ref) => {
+const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (props) => {
   const {
     label,
     size,
@@ -59,7 +59,6 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
   if (!light || customLightMode || isDropdown) {
     if (React.isValidElement(children)) {
       return React.cloneElement(children, {
-        ref,
         value,
         onChange,
         ...children.props,
@@ -117,7 +116,6 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
       <div className={classNames(`${prefixCls}-container`, className)} style={style}>
         {React.isValidElement(children)
           ? React.cloneElement(children, {
-              ref,
               ...children.props,
               fieldProps: {
                 className: `${prefixCls}-field`,
@@ -136,4 +134,4 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
   );
 };
 
-export default React.forwardRef(LightWrapper);
+export default LightWrapper;

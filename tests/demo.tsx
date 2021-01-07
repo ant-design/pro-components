@@ -12,10 +12,9 @@ const USE_REPLACEMENT = false;
 const testDist = process.env.LIB_DIR === 'dist';
 
 /**
- * rc component will generate id for aria usage.
- * It's created as `test-uuid` when env === 'test'.
- * Or `f7fa7a3c-a675-47bc-912e-0c45fb6a74d9`(randomly) when not test env.
- * So we need hack of this to modify the `aria-controls`.
+ * Rc component will generate id for aria usage. It's created as `test-uuid` when env === 'test'. Or
+ * `f7fa7a3c-a675-47bc-912e-0c45fb6a74d9`(randomly) when not test env. So we need hack of this to
+ * modify the `aria-controls`.
  */
 function ariaConvert(wrapper: CheerIO) {
   if (!testDist || !USE_REPLACEMENT) return wrapper;
@@ -86,7 +85,7 @@ function demoTest(component: string, options: Options = {}) {
     window.getComputedStyle = originGetComputedStyle;
   });
   // 支持 demos 下的所有非_开头的tsx文件
-  const files = glob.sync(`./packages/${component}/**/demos/[!_]*.tsx`);
+  const files = glob.sync(`./packages/${component}/**/demos/**/[!_]*.tsx`);
 
   describe(`${component} demos`, () => {
     files.forEach((file) => {

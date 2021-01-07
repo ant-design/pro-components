@@ -20,6 +20,10 @@ nav:
 
 <code src="./demos/base.tsx" background="#f5f5f5" />
 
+### 编辑列表
+
+<code src="./demos/editable.tsx" background="#f5f5f5" />
+
 ### 支持展开的列表
 
 <code src="./demos/expand.tsx" background="#f5f5f5" />

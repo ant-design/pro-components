@@ -1,18 +1,24 @@
 import React from 'react';
 import { Button } from 'antd';
-import ProForm, { ProFormText, ProFormCaptcha, ProFormDatePicker } from '@ant-design/pro-form';
+import ProForm, {
+  ProFormText,
+  ProFormCaptcha,
+  ProFormDatePicker,
+  ProFormDependency,
+  ProFormSelect,
+} from '@ant-design/pro-form';
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
 import { waitTime, waitForComponentToPaint } from '../util';
 
 describe('ProForm', () => {
-  it('📦  submit props actionsRender=false', async () => {
+  it('📦 submit props actionsRender=false', async () => {
     const wrapper = mount(<ProForm submitter={false} />);
     await waitForComponentToPaint(wrapper);
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('📦  onFinish should simulate button loading', async () => {
+  it('📦 onFinish should simulate button loading', async () => {
     const fn = jest.fn();
     const wrapper = mount(
       <ProForm
@@ -32,7 +38,7 @@ describe('ProForm', () => {
     expect(fn).toBeCalled();
   });
 
-  it('📦  submit props actionsRender=()=>false', async () => {
+  it('📦 submit props actionsRender=()=>false', async () => {
     const wrapper = mount(
       <ProForm
         submitter={{
@@ -44,7 +50,7 @@ describe('ProForm', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('📦  ProForm support enter submit', async () => {
+  it('📦 ProForm support enter submit', async () => {
     const fn = jest.fn();
     const wrapper = mount(
       <ProForm
@@ -65,7 +71,7 @@ describe('ProForm', () => {
     expect(fn).toBeCalled();
   });
 
-  it('📦  submit props actionsRender=false', async () => {
+  it('📦 submit props actionsRender=false', async () => {
     const wrapper = mount(
       <ProForm
         submitter={{
@@ -77,7 +83,7 @@ describe('ProForm', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('📦  submit props actionsRender=()=>[]', async () => {
+  it('📦 submit props actionsRender=()=>[]', async () => {
     const wrapper = mount(
       <ProForm
         submitter={{
@@ -89,7 +95,7 @@ describe('ProForm', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('📦  submit props render=()=>[]', async () => {
+  it('📦 submit props render=()=>[]', async () => {
     const wrapper = mount(
       <ProForm
         submitter={{
@@ -105,7 +111,7 @@ describe('ProForm', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('📦  submitter props support submitButtonProps', async () => {
+  it('📦 submitter props support submitButtonProps', async () => {
     const fn = jest.fn();
     const wrapper = mount(
       <ProForm
@@ -132,7 +138,7 @@ describe('ProForm', () => {
     expect(fn).toBeCalled();
   });
 
-  it('📦  submitter props support resetButtonProps', async () => {
+  it('📦 submitter props support resetButtonProps', async () => {
     const fn = jest.fn();
     const wrapper = mount(
       <ProForm
@@ -156,7 +162,7 @@ describe('ProForm', () => {
     expect(fn).toBeCalled();
   });
 
-  it('📦  submitter.render simulate onFinish', async () => {
+  it('📦 submitter.render simulate onFinish', async () => {
     const onFinish = jest.fn();
     const wrapper = mount(
       <ProForm
@@ -190,7 +196,7 @@ describe('ProForm', () => {
     expect(onFinish).toBeCalled();
   });
 
-  it('📦  ProFormCaptcha support onGetCaptcha', async () => {
+  it('📦 ProFormCaptcha support onGetCaptcha', async () => {
     const wrapper = mount(
       <ProForm>
         <ProFormCaptcha
@@ -222,7 +228,7 @@ describe('ProForm', () => {
     expect(wrapper.find('Button#test').text()).toBe('获取验证码');
   });
 
-  it('📦  ProFormCaptcha support captchaTextRender', async () => {
+  it('📦 ProFormCaptcha support captchaTextRender', async () => {
     const wrapper = mount(
       <ProForm>
         <ProFormCaptcha
@@ -247,7 +253,7 @@ describe('ProForm', () => {
     expect(wrapper.find('button#test').text()).toBe('重新获取');
   });
 
-  it('📦  ProFormCaptcha onGetCaptcha throw error', async () => {
+  it('📦 ProFormCaptcha onGetCaptcha throw error', async () => {
     const wrapper = mount(
       <ProForm>
         <ProFormCaptcha
@@ -273,20 +279,24 @@ describe('ProForm', () => {
     expect(wrapper.find('button#test').text()).toBe('获 取');
   });
 
-  it('📦  ProFormCaptcha onGetCaptcha support rules', async () => {
+  it('📦 ProFormCaptcha onGetCaptcha support rules', async () => {
     const fn = jest.fn();
     const wrapper = mount(
       <ProForm>
-        <ProFormCaptcha
-          onGetCaptcha={async () => {
-            fn();
-            await waitTime(10);
-          }}
+        <ProFormText
+          name="phone"
           rules={[
             {
               required: true,
             },
           ]}
+        />
+        <ProFormCaptcha
+          onGetCaptcha={async () => {
+            fn();
+            await waitTime(10);
+          }}
+          phoneName="phone"
           captchaProps={{
             id: 'test',
           }}
@@ -321,7 +331,78 @@ describe('ProForm', () => {
     expect(fn).toBeCalled();
   });
 
-  it('📦  DatePicker', async () => {
+  it('📦 ProFormDependency', async () => {
+    const onFinish = jest.fn();
+    const wrapper = mount(
+      <ProForm
+        onFinish={onFinish}
+        initialValues={{
+          name: '蚂蚁设计有限公司',
+          name2: '蚂蚁设计集团',
+          useMode: 'chapter',
+        }}
+      >
+        <ProFormText
+          width="md"
+          name="name"
+          label="签约客户名称"
+          tooltip="最长为 24 位"
+          placeholder="请输入名称"
+        />
+        <ProFormText
+          width="md"
+          name={['name2', 'text']}
+          label="签约客户名称"
+          tooltip="最长为 24 位"
+          placeholder="请输入名称"
+        />
+        {/*  ProFormDependency 会自动注入并且 进行 shouldUpdate 的比对  */}
+        <ProFormDependency name={['name', ['name2', 'text']]}>
+          {(values) => {
+            return (
+              <ProFormSelect
+                options={[
+                  {
+                    value: 'chapter',
+                    label: '盖章后生效',
+                  },
+                ]}
+                width="md"
+                name="useMode"
+                label={
+                  <span id="label_text">{`与《${values?.name || ''}》 与 《${
+                    values?.name2?.text || ''
+                  }》合同约定生效方式`}</span>
+                }
+              />
+            );
+          }}
+        </ProFormDependency>
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('input#name').simulate('change', {
+        target: {
+          value: 'test',
+        },
+      });
+    });
+
+    act(() => {
+      wrapper.find('input#name2_text').simulate('change', {
+        target: {
+          value: 'test2',
+        },
+      });
+    });
+
+    expect(wrapper.find('span#label_text').text()).toBe('与《test》 与 《test2》合同约定生效方式');
+  });
+
+  it('📦 DatePicker', async () => {
     const onFinish = jest.fn();
     const wrapper = mount(
       <ProForm

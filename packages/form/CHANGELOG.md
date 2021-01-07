@@ -2,6 +2,77 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.13.4...@ant-design/pro-form@1.13.5) (2021-01-07)
+
+### Bug Fixes
+
+- **form:** fix form width no work error ([#1516](https://github.com/ant-design/pro-components/issues/1516)) ([0ce87ea](https://github.com/ant-design/pro-components/commit/0ce87ea5093aece6e0245d9c72ee0edc6137bb28))
+
+## [1.13.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.13.3...@ant-design/pro-form@1.13.4) (2021-01-06)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.13.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.13.2...@ant-design/pro-form@1.13.3) (2021-01-05)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.13.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.13.1...@ant-design/pro-form@1.13.2) (2021-01-05)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.13.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.13.0...@ant-design/pro-form@1.13.1) (2021-01-04)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+# [1.13.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.12.0...@ant-design/pro-form@1.13.0) (2021-01-02)
+
+### Bug Fixes
+
+- **form:** add footer warning ([#1469](https://github.com/ant-design/pro-components/issues/1469)) ([4dd1590](https://github.com/ant-design/pro-components/commit/4dd15900a13227704ebe8d769ba840eec0362bbd))
+- **form:** fix form submitButtonProps no work error ([#1476](https://github.com/ant-design/pro-components/issues/1476)) ([e6bea59](https://github.com/ant-design/pro-components/commit/e6bea5945218cbea5d5009b489f8f4fca6fc05fe))
+
+### Features
+
+- **from:** support ProFormDependency ([#1475](https://github.com/ant-design/pro-components/issues/1475)) ([a761e47](https://github.com/ant-design/pro-components/commit/a761e4796c1162082d60b26a53102bdb8146b63c))
+
+# [1.12.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.11.7...@ant-design/pro-form@1.12.0) (2021-01-01)
+
+### Bug Fixes
+
+- **table:** fix table form submit time error ([#1466](https://github.com/ant-design/pro-components/issues/1466)) ([5591a87](https://github.com/ant-design/pro-components/commit/5591a8754d0e911eecdd8bdac7b5d010e2824451))
+
+### Features
+
+- **table:** support customization valueType ([#1456](https://github.com/ant-design/pro-components/issues/1456)) ([cbce5ba](https://github.com/ant-design/pro-components/commit/cbce5baf9ae456a1ab32a748e7ac86ee592b4344))
+
+## [1.11.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.11.6...@ant-design/pro-form@1.11.7) (2020-12-31)
+
+### Bug Fixes
+
+- **form:** fix ProFormCaptcha name error ([#1459](https://github.com/ant-design/pro-components/issues/1459)) ([92c56bf](https://github.com/ant-design/pro-components/commit/92c56bf5eb3e4dee82c56092bc28b2e376054b32))
+
+## [1.11.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.11.5...@ant-design/pro-form@1.11.6) (2020-12-31)
+
+### Bug Fixes
+
+- **form:** add defaultXXX warning ([#1457](https://github.com/ant-design/pro-components/issues/1457)) ([805607b](https://github.com/ant-design/pro-components/commit/805607b46e1d076ae7199bef9aa68301f75dedcd))
+
+## [1.11.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.11.4...@ant-design/pro-form@1.11.5) (2020-12-28)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.11.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.11.3...@ant-design/pro-form@1.11.4) (2020-12-28)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.11.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.11.2...@ant-design/pro-form@1.11.3) (2020-12-28)
+
+### Bug Fixes
+
+- **form:** fix ProFormSet no work error ([#1420](https://github.com/ant-design/pro-components/issues/1420)) ([e5c6f18](https://github.com/ant-design/pro-components/commit/e5c6f188e83bc9db282a57735f5f60f583999e07))
+- **form:** fix QueryFilter span style error ([#1419](https://github.com/ant-design/pro-components/issues/1419)) ([857aa70](https://github.com/ant-design/pro-components/commit/857aa704ec4f98a8e5637fe4a96b5ffb7a5cf03f))
+- fix typo ([#1412](https://github.com/ant-design/pro-components/issues/1412)) ([2f629ba](https://github.com/ant-design/pro-components/commit/2f629ba193746c2829e48fadcbab779d6e4a8cef))
+
 ## [1.11.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.11.1...@ant-design/pro-form@1.11.2) (2020-12-25)
 
 **Note:** Version bump only for package @ant-design/pro-form

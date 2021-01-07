@@ -30,7 +30,7 @@ $ npm i @ant-design/pro-table --save
 
 每一个包都是一个独立的组件包，使用示例如下 ：
 
-```jsx
+```tsx
 import React from 'react';
 import ProForm, { ProFormText } from '@ant-design/pro-form';
 

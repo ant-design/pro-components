@@ -244,6 +244,7 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
 
   /**
    * 设置全部选中，或全部未选中
+   *
    * @param show
    */
   const setAllSelectAction = (show: boolean = true) => {

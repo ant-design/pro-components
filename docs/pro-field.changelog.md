@@ -9,6 +9,31 @@ group:
 
 # Change Log
 
+## @ant-design/pro-field@1.8.0
+
+`2021-01-05`
+
+- 💥 feat(field): text use CompositionInput [#1499](https://github.com/ant-design/pro-components/pull/1499) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-field@1.7.0
+
+`2021-01-05`
+
+- 🐛 fix(table): fix fieldProps.onChange no work error [#1479](https://github.com/ant-design/pro-components/pull/1479) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(field): support image valueType [#1480](https://github.com/ant-design/pro-components/pull/1480) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-field@1.5.2
+
+`2020-12-31`
+
+- 🐛 fix(field): 当 value 值为 0 时，fieldLabel 显示异常 bug [#1435](https://github.com/ant-design/pro-components/pull/1435) [@oldturkey](https://github.com/oldturkey)
+
+## @ant-design/pro-field@1.5.0
+
+`2020-12-28`
+
+- 💥 feat(field): 在 labelInVaue 的场景下能显示备选项里不存在的 valuezhi [#1390](https://github.com/ant-design/pro-components/pull/1390) [@oldturkey](https://github.com/oldturkey)
+
 ## @ant-design/pro-field@1.3.0
 
 `2020-12-03`

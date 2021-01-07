@@ -21,9 +21,7 @@ const CONFIG_SPAN_BREAKPOINTS = {
   xl: 1057,
   xxl: Infinity,
 };
-/**
- * 配置表单列变化的容器宽度断点
- */
+/** 配置表单列变化的容器宽度断点 */
 const BREAKPOINTS = {
   vertical: [
     // [breakpoint, cols, layout]
@@ -43,6 +41,7 @@ const BREAKPOINTS = {
 
 /**
  * 合并用户和默认的配置
+ *
  * @param layout
  * @param width
  */
@@ -93,33 +92,25 @@ export type BaseQueryFilterProps = Omit<ActionsProps, 'submitter' | 'setCollapse
   defaultColsNumber?: number;
   labelWidth?: number | 'auto';
   split?: boolean;
-  /**
-   * 配置列数
-   */
+  /** 配置列数 */
   span?: SpanConfig;
 
-  /**
-   * 查询按钮的文本
-   */
+  /** 查询按钮的文本 */
   searchText?: string;
-  /**
-   * 重置按钮的文本
-   */
+  /** 重置按钮的文本 */
   resetText?: string;
 
   form?: FormProps['form'];
   /**
+   * @param searchConfig 基础的配置
+   * @param props 更加详细的配置 {
+   *     type?: 'form' | 'list' | 'table' | 'cardList' | undefined;
+   *     form: FormInstance;
+   *     submit: () => void;
+   *     collapse: boolean;
+   *     setCollapse: (collapse: boolean) => void;
+   *     showCollapseButton: boolean; }
    * @name 底部操作栏的 render
-   * @params searchConfig 基础的配置
-   * @params props 更加详细的配置
-   * {
-      type?: 'form' | 'list' | 'table' | 'cardList' | undefined;
-      form: FormInstance;
-      submit: () => void;
-      collapse: boolean;
-      setCollapse: (collapse: boolean) => void;
-      showCollapseButton: boolean;
-   * }
    */
   optionRender?:
     | ((
@@ -154,7 +145,7 @@ const QueryFilterContent: React.FC<{
   split?: boolean;
   form: FormInstance<any>;
   items: React.ReactNode[];
-  submitter?: JSX.Element;
+  submitter?: JSX.Element | false;
   showLength: number;
   collapseRender: QueryFilterProps['collapseRender'];
   spanSize: {
@@ -168,10 +159,13 @@ const QueryFilterContent: React.FC<{
   const resetText = props.resetText || intl.getMessage('tableForm.reset', '重置');
   const searchText = props.searchText || intl.getMessage('tableForm.search', '搜索');
 
-  const [collapsed, setCollapsed] = useMergedState<boolean>(() => props.defaultCollapsed, {
-    value: props.collapsed,
-    onChange: props.onCollapse,
-  });
+  const [collapsed, setCollapsed] = useMergedState<boolean>(
+    () => props.defaultCollapsed && !!props.submitter,
+    {
+      value: props.collapsed,
+      onChange: props.onCollapse,
+    },
+  );
 
   const { optionRender, collapseRender, split, items, spanSize, showLength, onReset } = props;
 
@@ -199,19 +193,16 @@ const QueryFilterContent: React.FC<{
       onReset,
       ...props.submitter.props,
     });
-  }, [props.submitter, optionRender]);
+  }, [props, resetText, searchText, optionRender, onReset]);
 
   // totalSpan 统计控件占的位置，计算 offset 保证查询按钮在最后一列
   let totalSpan = 0;
   const itemLength = items.length;
-  let lastVisibleItemIndex = itemLength - 1;
 
   // for split compute
   let currentSpan = 0;
 
-  /**
-   * 是否需要展示 collapseRender
-   */
+  /** 是否需要展示 collapseRender */
   const needCollapseRender = itemLength - 1 >= showLength;
   return (
     <Row gutter={24} justify="start" key="resize-observer-row">
@@ -241,17 +232,18 @@ const QueryFilterContent: React.FC<{
           totalSpan += 24 - (totalSpan % 24);
         }
         totalSpan += colSpan;
-        lastVisibleItemIndex = index;
 
         const colItem = (
           <Col key={itemKey} span={colSpan}>
             {item}
           </Col>
         );
-        if (split && currentSpan % 24 === 0 && index <= lastVisibleItemIndex) {
+        if (split && currentSpan % 24 === 0 && index < itemLength - 1) {
           return [
             colItem,
-            <Divider key="line" style={{ marginTop: -8, marginBottom: 16 }} dashed />,
+            <Col span="24" key="line">
+              <Divider style={{ marginTop: -8, marginBottom: 16 }} dashed />
+            </Col>,
           ];
         }
         return colItem;
@@ -349,10 +341,9 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
             display: 'inline-block',
             marginRight: 16,
           },
-          titleRender: (title) => `${title}:`,
         }}
         contentRender={(items, renderSubmitter, form) =>
-          width && (
+          width ? (
             <QueryFilterContent
               spanSize={spanSize}
               collapsed={controlCollapsed}
@@ -367,7 +358,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
               split={split}
               showLength={showLength}
             />
-          )
+          ) : null
         }
       />
     </RcResizeObserver>

@@ -1,8 +1,6 @@
-/**
- * title: 带标签
- * desc: 标签需配合 `multipleLine` 为 `true` 时使用。
- */
+/** Title: 标题下拉菜单 */
 import React from 'react';
+import { Button } from 'antd';
 import { EllipsisOutlined } from '@ant-design/icons';
 import { LightFilter, ProFormDatePicker } from '@ant-design/pro-form';
 import type { ProColumns } from '@ant-design/pro-table';
@@ -80,24 +78,42 @@ export default () => {
         });
       }}
       toolbar={{
-        title: '标签',
-        multipleLine: true,
+        search: {
+          onSearch: (value) => {
+            alert(value);
+          },
+        },
         filter: (
           <LightFilter>
             <ProFormDatePicker name="startdate" label="响应日期" />
           </LightFilter>
         ),
-        tabs: {
+        actions: [
+          <Button
+            key="primary"
+            type="primary"
+            onClick={() => {
+              alert('add');
+            }}
+          >
+            添加
+          </Button>,
+        ],
+        menu: {
+          type: 'dropdown',
           items: [
             {
-              key: 'tab1',
-              tab: '标签一',
+              label: '全部事项',
+              key: 'all',
             },
             {
-              key: 'tab2',
-              tab: '标签二',
+              label: '已办事项',
+              key: 'done',
             },
           ],
+          onChange: (activeKey) => {
+            console.log('activeKey', activeKey);
+          },
         },
       }}
       rowKey="key"

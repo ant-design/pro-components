@@ -66,6 +66,8 @@ export type ItemProps = {
   expandable?: ExpandableConfig<any>;
   showActions?: 'hover' | 'always';
   type?: 'new' | 'top' | 'inline' | 'subheader';
+  isEditable: boolean;
+  recordKey: string | number | undefined;
 };
 
 function ProListItem(props: ItemProps) {
@@ -81,8 +83,10 @@ function ProListItem(props: ItemProps) {
     prefixCls: restPrefixCls,
     actions,
     item,
+    recordKey,
     avatar,
     description,
+    isEditable,
     checkbox,
     index = 0,
     selected,
@@ -111,9 +115,11 @@ function ProListItem(props: ItemProps) {
       [`${propsClassName}-selected`]: selected,
       [`${propsClassName}-show-action-hover`]: showActions === 'hover',
       [`${propsClassName}-type-${type}`]: type,
+      [`${propsClassName}-editable`]: isEditable,
     },
     propsClassName,
   );
+
   const needExpanded = expanded || Object.values(expandableConfig || {}).length === 0;
   const expandedRowDom = expandedRowRender && expandedRowRender(item, index, indentSize, expanded);
 
@@ -176,27 +182,5 @@ function ProListItem(props: ItemProps) {
     </div>
   );
 }
-
-/**
- * 简单的，只包含 title 和 actions 的分组标题
- * @param param0
- */
-const ProListSubItem: React.FC<{
-  title?: React.ReactNode;
-  actions?: React.ReactNode[];
-  className?: string;
-  prefixCls?: string;
-  style?: React.CSSProperties;
-}> = ({ style, prefixCls, title, actions, ...rest }) => {
-  const defaultClassName = `${prefixCls}-row`;
-  const { className = defaultClassName } = rest;
-  return (
-    <div key="subheader" style={style} className={`${className} ${className}-subheader`}>
-      <div className={`${className}-subheader-title`}>{title}</div>
-      <div className={`${className}-subheader-actions`}>{actions}</div>
-    </div>
-  );
-};
-export { ProListSubItem };
 
 export default ProListItem;

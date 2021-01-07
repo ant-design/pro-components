@@ -33,6 +33,59 @@ The main feature of ProForm is that it has a lot of pre-defined layouts, so if y
 
 <code src="../packages/form/src/demos/layout-change.tsx">
 
+## Configuring Use with the Web Request Library
+
+ProTable, ProList uses a new data structure which is very easy to use if you use the parameters we have agreed upon.
+
+``tsx | pure const msg: { data: T[]; page: number; success: boolean; total: number; } = { data: [], page: 1, success: true, total: 0, };
+
+````
+
+If your backend data uses a familiar url, we could use a request to convert it, but it would be a pain to configure each table. If you're using umi's request, we can define a global transformer. We need to configure this in app.tsx
+
+```tsx | pure
+import { RequestConfig } from 'umi';
+
+export const request: RequestConfig = {
+  errorConfig: {
+    adaptor: (resData) => {
+      // resData is our own data
+      return {
+        ... . resData,
+        total: resData.sum,
+        success: resData.ok,
+        errorMessage: resData.message,
+      };
+    },
+  },
+};
+
+// when used
+import { request } from 'umi';
+
+<ProTable request={request('/list')} />;
+````
+
+If fetch is used, you can customize fetch.
+
+```tsx | pure
+const request = (url, options) => {
+  return fetch(url, options)
+    .then((res) => res.json())
+    .then((resData) => {
+      return Promise.resolve({
+        ... . resData,
+        total: resData.sum,
+        success: resData.ok,
+        errorMessage: resData.message,
+      });
+    });
+};
+
+// when used
+<ProTable request={request('/list')} />;
+```
+
 ## General Configuration
 
 ProTable, ProDescriptions share a common set of configurations that can use the same columns and requests to generate data, the only difference being that Table requires an array, while ProDescriptions only requires an object. Here are the specific configurations.
@@ -40,7 +93,7 @@ ProTable, ProDescriptions share a common set of configurations that can use the 
 ```tsx | pure
 /**
  * Commonly supported render for each component
- */export type
+ */
 export type ProSchema<T = unknown, U = string, Extra = unknown> = {
   /**
    * @name Determines the unique value of this column

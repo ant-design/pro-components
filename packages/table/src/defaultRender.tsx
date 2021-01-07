@@ -3,6 +3,7 @@ import { Form } from 'antd';
 import type { ProFieldEmptyText, ProFieldPropsType } from '@ant-design/pro-field';
 import ProField from '@ant-design/pro-field';
 import type { ProFieldValueType, ProSchemaComponentTypes } from '@ant-design/pro-utils';
+import { runFunction } from '@ant-design/pro-utils';
 import { getFieldPropsOrFormItemProps, InlineErrorFormItem } from '@ant-design/pro-utils';
 import type { FormInstance } from 'antd/lib/form/Form';
 
@@ -12,6 +13,7 @@ const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
 
 /**
  * 拼接用于编辑的 key
+ *
  * @param base 基本的 key
  * @param dataIndex 需要拼接的key
  */
@@ -27,6 +29,7 @@ export const spellNamePath = (
 
 /**
  * 根据不同的类型来转化数值
+ *
  * @param text
  * @param valueType
  */
@@ -62,11 +65,9 @@ function defaultRenderText<T>(config: {
     });
   }
 
-  /**
-   * 生成公用的  proField dom 配置
-   */
+  /** 生成公用的 proField dom 配置 */
   const proFieldProps: ProFieldPropsType = {
-    valueEnum: columnProps?.valueEnum,
+    valueEnum: runFunction<[T | undefined]>(columnProps?.valueEnum, rowData),
     request: columnProps?.request,
     params: columnProps?.params,
     proFieldKey: columnProps?.dataIndex?.toString() || columnProps?.key,
@@ -90,14 +91,13 @@ function defaultRenderText<T>(config: {
   return (
     <Form.Item shouldUpdate noStyle>
       {(form) => {
-        /**
-         * 获取 formItemProps Props
-         */
+        /** 获取 formItemProps Props */
         const formItemProps = getFieldPropsOrFormItemProps(
           columnProps?.formItemProps,
           form as FormInstance,
           {
             rowKey: config.recordKey || config.index,
+            rowIndex: config.index,
             ...columnProps,
             isEditable: true,
           },
@@ -119,6 +119,7 @@ function defaultRenderText<T>(config: {
                 {
                   ...columnProps,
                   rowKey: config.recordKey || config.index,
+                  rowIndex: config.index,
                   isEditable: true,
                 },
               )}
@@ -126,9 +127,7 @@ function defaultRenderText<T>(config: {
             />
           </InlineErrorFormItem>
         );
-        /**
-         * renderFormItem 需要被自定义
-         */
+        /** RenderFormItem 需要被自定义 */
         if (columnProps?.renderFormItem) {
           const renderDom = columnProps.renderFormItem?.(
             {
@@ -140,6 +139,8 @@ function defaultRenderText<T>(config: {
             {
               defaultRender: () => inputDom,
               type: 'form',
+              recordKey: config.recordKey,
+              record: form.getFieldValue([config.recordKey || config.index]),
               isEditable: true,
             },
             form as any,

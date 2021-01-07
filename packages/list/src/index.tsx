@@ -1,11 +1,12 @@
-import React, { useMemo, useContext } from 'react';
+import React, { useMemo, useContext, useRef, useImperativeHandle } from 'react';
 import type { ListProps } from 'antd/lib/list';
 import classNames from 'classnames';
-import type { ProTableProps, ProColumnType } from '@ant-design/pro-table';
+import type { ProTableProps, ProColumnType, ActionType } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
 import type { ParamsType } from '@ant-design/pro-provider';
-import { ConfigProvider } from 'antd';
-import { PaginationConfig } from 'antd/lib/pagination';
+import { ConfigProvider, Form } from 'antd';
+import type { PaginationConfig } from 'antd/lib/pagination';
+
 import ListView from './ListView';
 
 import './index.less';
@@ -42,9 +43,10 @@ export type Key = React.Key;
 
 export type TriggerEventHandler<RecordType> = (record: RecordType) => void;
 
-function ProList<RecordType, U extends Record<string, any> = {}>(
-  props: ProListProps<RecordType, U>,
-) {
+function ProList<
+  RecordType extends Record<string, any>,
+  U extends Record<string, any> = Record<string, any>
+>(props: ProListProps<RecordType, U>) {
   const {
     metas: metals,
     split,
@@ -61,20 +63,27 @@ function ProList<RecordType, U extends Record<string, any> = {}>(
     ...rest
   } = props;
 
+  const actionRef = useRef<ActionType>();
+
+  useImperativeHandle(rest.actionRef, () => actionRef.current, [actionRef.current]);
+
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
   const proTableColumns: ProColumnType<RecordType>[] = useMemo(() => {
     const columns: ProColumnType<RecordType>[] = [];
     Object.keys(metals || {}).forEach((key) => {
-      if (!metals || !metals[key]) {
-        return;
-      }
-      const meta = metals[key];
-      let { valueType } = meta || {};
+      const meta = metals![key] || {};
+      let { valueType } = meta;
       if (!valueType) {
         // 给默认的 valueType
         if (key === 'avatar') {
           valueType = 'avatar';
+        }
+        if (key === 'actions') {
+          valueType = 'option';
+        }
+        if (key === 'description') {
+          valueType = 'textarea';
         }
       }
       columns.push({
@@ -85,6 +94,7 @@ function ProList<RecordType, U extends Record<string, any> = {}>(
     });
     return columns;
   }, [metals]);
+
   const prefixCls = getPrefixCls('pro-list');
   const listClassName = classNames(prefixCls, {
     [`${prefixCls}-no-split`]: !split,
@@ -93,6 +103,7 @@ function ProList<RecordType, U extends Record<string, any> = {}>(
   return (
     <ProTable<RecordType, U>
       {...(rest as any)}
+      actionRef={actionRef}
       pagination={propsPagination}
       search={search}
       options={options}
@@ -111,21 +122,24 @@ function ProList<RecordType, U extends Record<string, any> = {}>(
       }}
       tableViewRender={({ columns, size, pagination, dataSource, loading }) => {
         return (
-          <ListView
-            prefixCls={prefixCls}
-            columns={columns}
-            dataSource={dataSource || []}
-            size={size as 'large'}
-            footer={footer}
-            split={split}
-            rowKey={rowKey}
-            expandable={expandable}
-            rowSelection={rowSelection === false ? undefined : rowSelection}
-            showActions={showActions}
-            pagination={pagination as PaginationConfig}
-            itemLayout={itemLayout}
-            loading={loading}
-          />
+          <Form component={false}>
+            <ListView
+              prefixCls={prefixCls}
+              columns={columns}
+              actionRef={actionRef}
+              dataSource={dataSource || []}
+              size={size as 'large'}
+              footer={footer}
+              split={split}
+              rowKey={rowKey}
+              expandable={expandable}
+              rowSelection={rowSelection === false ? undefined : rowSelection}
+              showActions={showActions}
+              pagination={pagination as PaginationConfig}
+              itemLayout={itemLayout}
+              loading={loading}
+            />
+          </Form>
         );
       }}
     />

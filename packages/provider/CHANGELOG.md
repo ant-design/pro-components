@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.0...@ant-design/pro-provider@1.4.1) (2021-01-07)
+
+**Note:** Version bump only for package @ant-design/pro-provider
+
+# [1.4.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.3.1...@ant-design/pro-provider@1.4.0) (2021-01-05)
+
+### Features
+
+- **table:** add 'internationalization for editabletable action' option ([#1491](https://github.com/ant-design/pro-components/issues/1491)) ([6e40765](https://github.com/ant-design/pro-components/commit/6e407652deb168cfa6432d67546d4b23dff0971e))
+
+## [1.3.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.3.0...@ant-design/pro-provider@1.3.1) (2021-01-04)
+
+### Bug Fixes
+
+- **table:** fix fieldProps.onChange no work error ([#1479](https://github.com/ant-design/pro-components/issues/1479)) ([784731f](https://github.com/ant-design/pro-components/commit/784731f90f11330e524464ca3080803731f44048))
+
+# [1.3.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.2.8...@ant-design/pro-provider@1.3.0) (2021-01-01)
+
+### Features
+
+- **table:** support customization valueType ([#1456](https://github.com/ant-design/pro-components/issues/1456)) ([cbce5ba](https://github.com/ant-design/pro-components/commit/cbce5baf9ae456a1ab32a748e7ac86ee592b4344))
+
+## [1.2.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.2.7...@ant-design/pro-provider@1.2.8) (2020-12-31)
+
+**Note:** Version bump only for package @ant-design/pro-provider
+
+## [1.2.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.2.6...@ant-design/pro-provider@1.2.7) (2020-12-28)
+
+### Bug Fixes
+
+- **table:** fix onfilter no work error ([#1422](https://github.com/ant-design/pro-components/issues/1422)) ([4fb9e4b](https://github.com/ant-design/pro-components/commit/4fb9e4b8a85a1374ab0d0710b6796d3b09ced06a))
+
 ## [1.2.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.2.5...@ant-design/pro-provider@1.2.6) (2020-12-24)
 
 **Note:** Version bump only for package @ant-design/pro-provider

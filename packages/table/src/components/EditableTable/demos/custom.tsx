@@ -1,6 +1,4 @@
-/**
- * title: 自定义可编辑表格
- */
+/** Title: 自定义可编辑表格 */
 import React, { useRef, useState } from 'react';
 import type { ProColumns } from '@ant-design/pro-table';
 import { EditableProTable } from '@ant-design/pro-table';
@@ -136,7 +134,10 @@ const columns: ProColumns<DataSourceType>[] = [
     title: '标签',
     dataIndex: 'labels',
     width: '20%',
-    renderFormItem: (_, { isEditable }) => (isEditable ? <TagList /> : <Input />),
+    renderFormItem: (_, { isEditable, record, recordKey }) => {
+      console.log(record, recordKey);
+      return isEditable ? <TagList /> : <Input />;
+    },
     render: (_, row) => row?.labels?.map((item) => <Tag key={item.key}>{item.label}</Tag>),
   },
   {

@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Avatar } from 'antd';
-import type { Moment } from 'moment';
 import type {
-  ProFieldValueEnumType,
   ProFieldValueType,
   ProFieldValueObjectType,
+  BaseProFieldFC,
+  ProRenderFieldPropsType,
+  ProFieldFCRenderProps,
+  ProFieldTextType,
 } from '@ant-design/pro-utils';
 import { pickProProps, omitUndefined } from '@ant-design/pro-utils';
 
-import { useIntl } from '@ant-design/pro-provider';
+import ConfigContext, { useIntl } from '@ant-design/pro-provider';
 import FieldPercent from './components/Percent';
 import FieldIndexColumn from './components/IndexColumn';
 import FieldProgress from './components/Progress';
@@ -34,81 +36,21 @@ import FieldDigit from './components/Digit';
 import FieldSecond from './components/Second';
 
 import FieldRadio from './components/Radio';
-
-export type ProFieldTextType = React.ReactNode | React.ReactNode[] | Moment | Moment[];
+import FieldImage from './components/Image';
 
 export type ProFieldEmptyText = string | false;
 
-export type ProFieldFCMode = 'read' | 'edit' | 'update';
-
-type BaseProFieldFC = {
-  /**
-   * 值的类型
-   */
-  text: React.ReactNode;
-
-  fieldProps?: any;
-  /**
-   * 模式类型
-   */
-  mode: ProFieldFCMode;
-  /**
-   * 简约模式
-   */
-  plain?: boolean;
-  /**
-   * 轻量模式
-   */
-  light?: boolean;
-  /**
-   * label
-   */
-  label?: React.ReactNode;
-  /**
-   * 映射值的类型
-   */
-  valueEnum?: ProFieldValueEnumType;
-
-  proFieldKey?: React.Key;
-};
-
-/**
- * render 第二个参数，里面包含了一些常用的参数
- */
-export type ProFieldFCRenderProps = {
-  mode?: ProFieldFCMode;
-  value?: any;
-  onChange?: (value: any) => void;
-} & BaseProFieldFC;
-
-export type ProRenderFieldProps = {
-  render?:
-    | ((
-        text: any,
-        props: Omit<ProFieldFCRenderProps, 'value' | 'onChange'>,
-        dom: JSX.Element,
-      ) => JSX.Element)
-    | undefined;
-  renderFormItem?:
-    | ((text: any, props: ProFieldFCRenderProps, dom: JSX.Element) => JSX.Element)
-    | undefined;
-};
-
-/**
- * 默认的 Field 需要实现的功能
- */
+/** 默认的 Field 需要实现的功能 */
 export type ProFieldFC<T> = React.ForwardRefRenderFunction<
   any,
-  BaseProFieldFC & ProRenderFieldProps & T
+  BaseProFieldFC & ProRenderFieldPropsType & T
 >;
 
-/**
- * value type by function
- */
+/** Value type by function */
 export type ProFieldValueTypeFunction<T> = (item: T) => ProFieldValueType | ProFieldValueObjectType;
 
 type RenderProps = Omit<ProFieldFCRenderProps, 'text'> &
-  ProRenderFieldProps & {
+  ProRenderFieldPropsType & {
     emptyText?: React.ReactNode;
     visible?: boolean;
     onVisible?: (visible: boolean) => void;
@@ -116,8 +58,9 @@ type RenderProps = Omit<ProFieldFCRenderProps, 'text'> &
   };
 
 /**
- * render valueType object
- * @param text string | number
+ * Render valueType object
+ *
+ * @param text String | number
  * @param valueType ProColumnsValueObjectType
  */
 const defaultRenderTextByObject = (
@@ -160,11 +103,16 @@ const defaultRenderTextByObject = (
       />
     );
   }
+
+  if (valueType.type === 'image') {
+    return <FieldImage {...props} text={text as string} width={valueType.width} />;
+  }
   return text;
 };
 
 /**
  * 根据不同的类型来转化数值
+ *
  * @param text
  * @param valueType
  */
@@ -172,12 +120,40 @@ const defaultRenderText = (
   text: ProFieldTextType,
   valueType: ProFieldValueType | ProFieldValueObjectType,
   props: RenderProps,
+  valueTypeMap: Record<string, ProRenderFieldPropsType>,
 ): React.ReactNode => {
   if (typeof valueType === 'object') {
     return defaultRenderTextByObject(text, valueType, props);
   }
-
   const { mode = 'read', emptyText = '-' } = props;
+
+  const customValueTypeConfig = valueTypeMap[valueType as string];
+  if (customValueTypeConfig) {
+    // eslint-disable-next-line no-param-reassign
+    delete props.ref;
+    if (mode === 'read') {
+      return customValueTypeConfig.render?.(
+        text,
+        {
+          text,
+          ...props,
+          mode: mode || 'read',
+        },
+        <>{text}</>,
+      );
+    }
+    if (mode === 'update' || mode === 'edit') {
+      return customValueTypeConfig.renderFormItem?.(
+        text,
+        {
+          text,
+          ...props,
+        },
+        <>{text}</>,
+      );
+    }
+  }
+
   if (emptyText !== false && mode === 'read' && valueType !== 'option' && valueType !== 'switch') {
     if (typeof text !== 'boolean' && typeof text !== 'number' && !text) {
       const { fieldProps, render } = props;
@@ -191,67 +167,49 @@ const defaultRenderText = (
   // eslint-disable-next-line no-param-reassign
   delete props.emptyText;
 
-  /**
-   * 如果是金额的值
-   */
+  /** 如果是金额的值 */
   if (valueType === 'money') {
     return <FieldMoney {...props} text={text as number} />;
   }
 
-  /**
-   *如果是日期的值
-   */
+  /** 如果是日期的值 */
   if (valueType === 'date') {
     return <FieldDatePicker text={text as string} format="YYYY-MM-DD" {...props} />;
   }
 
-  /**
-   *如果是周的值
-   */
+  /** 如果是周的值 */
   if (valueType === 'dateWeek') {
     return <FieldDatePicker text={text as string} format="YYYY-wo" picker="week" {...props} />;
   }
 
-  /**
-   *如果是月的值
-   */
+  /** 如果是月的值 */
   if (valueType === 'dateMonth') {
     return <FieldDatePicker text={text as string} format="YYYY-MM" picker="month" {...props} />;
   }
 
-  /**
-   *如果是季度的值
-   */
+  /** 如果是季度的值 */
   if (valueType === 'dateQuarter') {
     return <FieldDatePicker text={text as string} format="YYYY-\QQ" picker="quarter" {...props} />;
   }
 
-  /**
-   *如果是年的值
-   */
+  /** 如果是年的值 */
   if (valueType === 'dateYear') {
     return <FieldDatePicker text={text as string} format="YYYY" picker="year" {...props} />;
   }
 
-  /**
-   *如果是日期范围的值
-   */
+  /** 如果是日期范围的值 */
   if (valueType === 'dateRange') {
     return <FieldRangePicker text={text as string[]} format="YYYY-MM-DD" {...props} />;
   }
 
-  /**
-   *如果是日期加时间类型的值
-   */
+  /** 如果是日期加时间类型的值 */
   if (valueType === 'dateTime') {
     return (
       <FieldDatePicker text={text as string} format="YYYY-MM-DD HH:mm:ss" showTime {...props} />
     );
   }
 
-  /**
-   *如果是日期加时间类型的值的值
-   */
+  /** 如果是日期加时间类型的值的值 */
   if (valueType === 'dateTimeRange') {
     // 值不存在的时候显示 "-"
     return (
@@ -259,9 +217,7 @@ const defaultRenderText = (
     );
   }
 
-  /**
-   *如果是时间类型的值
-   */
+  /** 如果是时间类型的值 */
   if (valueType === 'time') {
     return <FieldTimePicker text={text as string} format="HH:mm:ss" {...props} />;
   }
@@ -341,14 +297,16 @@ const defaultRenderText = (
     return <FieldPassword text={text as string} {...props} />;
   }
 
+  if (valueType === 'image') {
+    return <FieldImage text={text as string} {...props} />;
+  }
+
   return <FieldText text={text as string} {...props} />;
 };
 
 export { defaultRenderText };
 
-/**
- * ProField 的类型
- */
+/** ProField 的类型 */
 export type ProFieldPropsType = {
   text?: ProFieldTextType;
   valueType?: ProFieldValueType | ProFieldValueObjectType;
@@ -359,21 +317,32 @@ const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
   ref,
 ) => {
   const intl = useIntl();
+  const context = useContext(ConfigContext);
+
   const fieldProps = (value || onChange || rest?.fieldProps) && {
     value,
-    onChange,
     // fieldProps 优先级更高，在类似 LightFilter 场景下需要覆盖默认的 value 和 onChange
     ...omitUndefined(rest?.fieldProps),
+    onChange: (...restParams: any[]) => {
+      onChange?.(...restParams);
+      rest?.fieldProps?.onChange?.(...restParams);
+    },
   };
+
   return (
     <React.Fragment>
-      {defaultRenderText(text ?? fieldProps?.value ?? '', valueType || 'text', {
-        ...rest,
-        mode: rest.mode || 'read',
-        ref,
-        placeholder: intl.getMessage('tableForm.inputPlaceholder', '请输入'),
-        fieldProps: pickProProps(fieldProps),
-      })}
+      {defaultRenderText(
+        text ?? fieldProps?.value ?? '',
+        valueType || 'text',
+        {
+          ...rest,
+          mode: rest.mode || 'read',
+          ref,
+          placeholder: intl.getMessage('tableForm.inputPlaceholder', '请输入'),
+          fieldProps: pickProProps(fieldProps),
+        },
+        context.valueTypeMap,
+      )}
     </React.Fragment>
   );
 };

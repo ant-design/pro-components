@@ -19,6 +19,8 @@ import type { ProFormFieldSetProps } from './components/FieldSet';
 import ProFormFieldSet from './components/FieldSet';
 import type { ProFormCaptchaProps } from './components/Captcha';
 import ProFormCaptcha from './components/Captcha';
+import ProFormDependency from './components/Dependency';
+import type { ProFormDependencyProps } from './components/Dependency';
 
 import type { ProFormProps } from './layouts/ProForm';
 import ProForm from './layouts/ProForm';
@@ -43,6 +45,7 @@ export type {
   StepsFormProps,
   QueryFilterProps,
   ProFormFieldSetProps,
+  ProFormDependencyProps,
 };
 export {
   // controls
@@ -65,6 +68,7 @@ export {
   ProFormFieldSet,
   ProFormCaptcha,
   ProFormDateTimeRangePicker,
+  ProFormDependency,
   // layouts
   QueryFilter,
   LightFilter,

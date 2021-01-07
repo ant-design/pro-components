@@ -13,25 +13,25 @@
   }
 
   &-title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     color: @heading-color;
     font-weight: 500;
     font-size: @font-size-lg;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
   }
 
   &-search:not(:last-child) {
     display: flex;
-    justify-content: flex-start;
     align-items: center;
+    justify-content: flex-start;
   }
 
   &-setting-item {
-    font-size: @font-size-lg;
-    color: @icon-color-hover;
-    cursor: pointer;
     padding: 0 4px;
+    color: @icon-color-hover;
+    font-size: @font-size-lg;
+    cursor: pointer;
     &:hover {
       color: @primary-color;
     }
@@ -39,8 +39,8 @@
 
   &-left {
     display: flex;
-    justify-content: flex-start;
     align-items: center;
+    justify-content: flex-start;
   }
 
   &-right {
@@ -78,8 +78,8 @@
     }
   }
   &-dropdownmenu-label {
-    font-size: @font-size-lg;
     font-weight: bold;
+    font-size: @font-size-lg;
     text-align: center;
     cursor: pointer;
   }

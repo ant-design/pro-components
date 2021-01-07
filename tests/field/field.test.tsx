@@ -205,9 +205,45 @@ describe('Field', () => {
     expect(html.text()).toBe('default');
   });
 
-  it('🐴 select text=null & valueEnum & request=null ', async () => {
-    const html = render(<Field text={null} valueType="select" mode="read" />);
-    expect(html.text()).toBe('-');
+  it('🐴 select labelInValue use label', async () => {
+    const html = render(
+      <Field
+        text={{ label: '不解决', value: 'test' }}
+        fieldProps={{
+          labelInValue: true,
+        }}
+        valueType="select"
+        mode="read"
+        options={[
+          { label: '全部', value: 'all' },
+          { label: '未解决', value: 'open' },
+          { label: '已解决', value: 'closed' },
+          { label: '解决中', value: 'processing' },
+        ]}
+      />,
+    );
+    expect(html.text()).toBe('不解决');
+  });
+
+  it('🐴 select labelInValue use label', async () => {
+    const html = render(
+      <Field
+        fieldProps={{
+          labelInValue: true,
+          value: { label: '不解决', value: 'test' },
+        }}
+        light
+        valueType="select"
+        mode="edit"
+        options={[
+          { label: '全部', value: 'all' },
+          { label: '未解决', value: 'open' },
+          { label: '已解决', value: 'closed' },
+          { label: '解决中', value: 'processing' },
+        ]}
+      />,
+    );
+    expect(html.find('.ant-pro-core-field-label').text()).toBe('不解决');
   });
 
   it('🐴 select text=null & valueEnum=null ', async () => {
@@ -292,6 +328,7 @@ describe('Field', () => {
     'code',
     'jsonCode',
     'rate',
+    'image',
   ];
   valueTypes.forEach((valueType) => {
     it(`🐴 valueType support render ${valueType}`, async () => {
@@ -446,6 +483,49 @@ describe('Field', () => {
     expect(html.find('span.anticon-eye').exists()).toBeTruthy();
   });
 
+  it('🐴 valueType=text', async () => {
+    const html = mount(
+      <Field
+        text="100"
+        fieldProps={{
+          composition: true,
+        }}
+        valueType="text"
+        mode="edit"
+      />,
+    );
+    await waitForComponentToPaint(html);
+    html.find('input').simulate('compositionstart', {
+      target: {
+        value: 'xxx',
+      },
+    });
+    await waitForComponentToPaint(html);
+
+    html.find('input').simulate('change', {
+      target: {
+        value: 'xxx',
+      },
+    });
+
+    await waitForComponentToPaint(html);
+
+    html.find('input').simulate('compositionend', {
+      target: {
+        value: 'xxx',
+      },
+    });
+
+    await waitForComponentToPaint(html);
+
+    html.find('input').simulate('change', {
+      target: {
+        value: 'xxx',
+      },
+    });
+    expect(html.find('input').props().value).toBe('xxx');
+  });
+
   it('🐴 password support controlled visible', async () => {
     const fn = jest.fn();
     const html = mount(
@@ -486,6 +566,13 @@ describe('Field', () => {
         valueType="option"
         mode="read"
       />,
+    );
+    expect(html).toMatchSnapshot();
+  });
+
+  it('🐴 options support dom text', () => {
+    const html = render(
+      <Field text={['新建', <Button key="edit">修改</Button>]} valueType="option" mode="read" />,
     );
     expect(html).toMatchSnapshot();
   });

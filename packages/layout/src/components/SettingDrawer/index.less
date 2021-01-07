@@ -17,14 +17,14 @@
     display: flex;
     &-item {
       position: relative;
-      margin-right: 16px;
-      box-shadow: 0 1px 2.5px 0 rgba(0, 0, 0, 0.18);
-      border-radius: 4px;
-      overflow: hidden;
-      cursor: pointer;
       width: 44px;
       height: 36px;
+      margin-right: 16px;
+      overflow: hidden;
       background-color: #f0f2f5;
+      border-radius: 4px;
+      box-shadow: 0 1px 2.5px 0 rgba(0, 0, 0, 0.18);
+      cursor: pointer;
 
       &::before {
         position: absolute;
@@ -45,14 +45,25 @@
         content: '';
       }
 
-      // 亮色主题
-      &-light {
+      &-realDark {
+        background-color: fade(@menu-dark-bg, 85%);
         &::before {
-          background-color: #fff;
+          background-color: fade(@menu-dark-bg, 65%);
           content: '';
         }
         &::after {
-          background-color: #fff;
+          background-color: fade(@menu-dark-bg, 85%);
+        }
+      }
+
+      // 亮色主题
+      &-light {
+        &::before {
+          background-color: @white;
+          content: '';
+        }
+        &::after {
+          background-color: @white;
         }
       }
 
@@ -61,12 +72,12 @@
       // 侧边菜单布局
       &-side {
         &::before {
+          z-index: 1;
           background-color: @menu-dark-bg;
           content: '';
-          z-index: 1;
         }
         &::after {
-          background-color: #fff;
+          background-color: @white;
         }
       }
 
@@ -84,7 +95,7 @@
       // 顶部菜单布局
       &-mix {
         &::before {
-          background-color: #fff;
+          background-color: @white;
           content: '';
         }
         &::after {
@@ -94,8 +105,8 @@
     }
     &-selectIcon {
       position: absolute;
-      bottom: 4px;
       right: 6px;
+      bottom: 4px;
       color: @primary-color;
       font-weight: bold;
       font-size: 14px;

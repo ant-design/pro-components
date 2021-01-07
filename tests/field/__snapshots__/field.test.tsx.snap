@@ -2572,6 +2572,31 @@ exports[`Field 🐴 options support dom list 1`] = `
 </div>
 `;
 
+exports[`Field 🐴 options support dom text 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
+>
+  <div
+    class="ant-space-item"
+    style="margin-right:16px"
+  >
+    新建
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        修 改
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
 exports[`Field 🐴 options support empty dom 1`] = `null`;
 
 exports[`Field 🐴 options support one dom 1`] = `

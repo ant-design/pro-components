@@ -134,7 +134,7 @@ Here is the full amount of text
 
 ```typescript | pure
 const enLocale = {
-  tableFrom: {
+  tableForm: {
     search: 'Query',
     reset: 'Reset',
     submit: 'Submit',
@@ -460,7 +460,7 @@ return { type: 'money', locale: 'en-Us' };
 return { type: 'percent', showSymbol: true | false, precision: 2 };
 ```
 
-The valueEnum needs to be passed in as an enumeration and ProTable will automatically get the responsive enumeration based on the value and generate a dropdown box in the from. It looks like this.
+The valueEnum needs to be passed in as an enumeration and ProTable will automatically get the responsive enumeration based on the value and generate a dropdown box in the form. It looks like this.
 
 ```ts | pure
 const valueEnum = {
@@ -499,7 +499,7 @@ const valueEnum = (row) =>
       };
 ```
 
-> It's worth noting here that there is no row in the from, so a null is passed in, and you can use this to determine what options to display in the from.
+> It's worth noting here that there is no row in the form, so a null is passed in, and you can use this to determine what options to display in the form.
 
 ### valueEnum
 
@@ -554,6 +554,63 @@ Form's columns are generated with different types based on `valueType`.
 | index | don't show |
 | progress | don't show |
 
-### List toolbar
+### ListToolbar
 
-<embed src="../src/components/ListToolBar/index.md" />
+Toolbar section for customizing forms.
+
+#### Code Demo
+
+<code src="./demos/ListToolBar/basic.tsx" background="#f0f2f5"/>
+
+<code src="./demos/ListToolBar/no-title.tsx" background="#f0f2f5"/>
+
+<code src="./demos/ListToolBar/multipleLine.tsx" background="#f0f2f5"/>
+
+<code src="./demos/ListToolBar/tabs.tsx" background="#f0f2f5"/>
+
+<code src="./demos/ListToolBar/menu.tsx" background="#f0f2f5"/>
+
+#### ListToolBarProps
+
+Toolbar configuration properties for lists and tables
+
+| Parameters | Description | Type | Default |
+| --- | --- | --- | --- |
+| title | title | `ReactNode` | - |
+| subTitle | subTitle | `ReactNode` | - |
+| description | description | `ReactNode` | - |
+| search | query area | `ReactNode` \| `SearchProps` | - |
+| actions | actions area | `ReactNode[]` | - |
+| settings | settings area | `(ReactNode \| Setting)[]` | - |
+| filter | The filter area, usually used with `LightFilter` | `ReactNode` | - |
+| multipleLine | Whether to display multiple lines | `boolean` | `false` |
+| menu | menu configuration | `ListToolBarMenu` | - |
+| tabs | Tabs configuration, only valid if `multipleLine` is true | `ListToolBarTabs` | - |
+
+SearchProps is a property of antd's [Input.Search](https://ant.design/components/input-cn/#Input.Search).
+
+#### Setting
+
+| Parameters | Description                 | Type                  | Default |
+| ---------- | --------------------------- | --------------------- | ------- |
+| icon       | icon                        | `ReactNode`           | -       |
+| tooltip    | tooltip Description         | `string`              | -       |
+| key        | operation unique identifier | `string`              | -       |
+| onClick    | set to be triggered         | `(key: string)=>void` | -       |
+
+#### ListToolBarMenu
+
+| parameters | description                  | type                                  | default    |
+| ---------- | ---------------------------- | ------------------------------------- | ---------- |
+| type       | type                         | `inline` \| `dropdown` \| `tab`       | `dropdown` |
+| activeKey  | current value                | string                                | -          |
+| items      | menu items                   | `{ key: string; label: ReactNode }[]` | -          |
+| onChange   | Callback for switching menus | `(activeKey)=>void`                   | -          |
+
+#### ListToolBarTabs
+
+| parameters | description                      | type                                | default |
+| ---------- | -------------------------------- | ----------------------------------- | ------- |
+| activeKey  | currently selected item          | `string`                            | -       |
+| items      | menu items                       | `{ key: string; tab: ReactNode }[]` | -       |
+| onChange   | Callback for toggling menu items | `(activeKey)=>void`                 | -       |

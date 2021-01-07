@@ -9,44 +9,37 @@ import { createPortal } from 'react-dom';
 
 import type { CommonFormProps } from '../../BaseForm';
 import BaseForm from '../../BaseForm';
+import { noteOnce } from 'rc-util/lib/warning';
 
 export type ModalFormProps = Omit<FormProps, 'onFinish'> &
   CommonFormProps & {
     /**
+     * 接受返回一个boolean，返回 true 会关掉这个弹窗
+     *
      * @name 表单结束后调用
-     * @description  接受返回一个boolean，返回 true 会关掉这个弹窗
      */
     onFinish?: (formData: Store) => Promise<boolean | void>;
 
-    /**
-     * @name 用于触发抽屉打开的 dom
-     */
+    /** @name 用于触发抽屉打开的 dom */
     trigger?: JSX.Element;
 
-    /**
-     * @name 受控的打开关闭
-     */
+    /** @name 受控的打开关闭 */
     visible?: ModalProps['visible'];
 
-    /**
-     * @name 打开关闭的事件
-     */
+    /** @name 打开关闭的事件 */
     onVisibleChange?: (visible: boolean) => void;
 
     /**
+     * 不支持 'visible'，请使用全局的 visible
+     *
      * @name 弹框的属性
-     * @description 不支持 'visible'，请使用全局的 visible
      */
     modalProps?: Omit<ModalProps, 'visible'>;
 
-    /**
-     * @name 弹框的标题
-     */
+    /** @name 弹框的标题 */
     title?: ModalProps['title'];
 
-    /**
-     * @name 弹框的宽度
-     */
+    /** @name 弹框的宽度 */
     width?: ModalProps['width'];
   };
 
@@ -64,14 +57,20 @@ const ModalForm: React.FC<ModalFormProps> = ({
     value: rest.visible,
     onChange: onVisibleChange,
   });
+
+  noteOnce(
+    // eslint-disable-next-line @typescript-eslint/dot-notation
+    !rest['footer'] || !modalProps?.footer,
+    'ModalForm 是一个 ProForm 的特殊布局，如果想自定义按钮，请使用 submit.render 自定义。',
+  );
+
   const context = useContext(ConfigProvider.ConfigContext);
 
   /** 设置 trigger 的情况下，懒渲染优化性能；使之可以直接配合表格操作等场景使用 */
   const isFirstRender = useRef(!modalProps?.forceRender);
   /**
-   * isFirstRender.current 或者 visible 为 true 的时候就渲染
-   * 不渲染能会造成一些问题, 比如再次打开值不对了
-   * 只有手动配置 drawerProps?.destroyOnClose 为 true 的时候才会每次关闭的时候删除 dom
+   * IsFirstRender.current 或者 visible 为 true 的时候就渲染 不渲染能会造成一些问题, 比如再次打开值不对了 只有手动配置
+   * drawerProps?.destroyOnClose 为 true 的时候才会每次关闭的时候删除 dom
    */
   const shouldRenderFormItems = useMemo(() => {
     if (isFirstRender.current && visible === false) {
@@ -83,14 +82,10 @@ const ModalForm: React.FC<ModalFormProps> = ({
     return true;
   }, [visible, modalProps?.destroyOnClose]);
 
-  /**
-   * 同步 props 和 本地的 ref
-   */
+  /** 同步 props 和 本地的 ref */
   const formRef = useRef<FormInstance>();
 
-  /**
-   * 如果 destroyOnClose ，重置一下表单
-   */
+  /** 如果 destroyOnClose ，重置一下表单 */
   useEffect(() => {
     if (visible) {
       isFirstRender.current = false;
@@ -126,7 +121,7 @@ const ModalForm: React.FC<ModalFormProps> = ({
                 resetText: modalProps?.cancelText || context.locale?.Modal?.cancelText || '取消',
               },
               submitButtonProps: {
-                type: modalProps?.okType as 'text',
+                type: (modalProps?.okType as 'text') || 'primary',
               },
               resetButtonProps: {
                 onClick: (e) => {

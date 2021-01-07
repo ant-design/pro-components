@@ -57,11 +57,12 @@ const FieldSet: React.FC<ProFormFieldSetProps> = ({
 const ProFormFieldSet: React.FC<
   FormItemProps & {
     space?: SpaceProps;
+    fieldProps?: any;
   }
 > = React.forwardRef(({ children, space, valuePropName, ...rest }, ref) => {
   useImperativeHandle(ref, () => {}, []);
   return (
-    <FieldSet space={space} valuePropName={valuePropName} {...rest}>
+    <FieldSet space={space} valuePropName={valuePropName} {...rest.fieldProps} {...rest}>
       {children}
     </FieldSet>
   );

@@ -1,16 +1,18 @@
 import { render, mount } from 'enzyme';
 import React from 'react';
-import BasicLayout, {
-  PageContainer,
-  BasicLayoutProps,
-  FooterToolbar,
-} from '@ant-design/pro-layout';
+import type { BasicLayoutProps } from '@ant-design/pro-layout';
+import BasicLayout, { PageContainer, FooterToolbar } from '@ant-design/pro-layout';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
 
 describe('PageContainer', () => {
   it('💄 base use', async () => {
     const html = render(<PageContainer title="期贤" />);
+    expect(html).toMatchSnapshot();
+  });
+
+  it('💄 config is null', async () => {
+    const html = render(<PageContainer />);
     expect(html).toMatchSnapshot();
   });
 
@@ -110,6 +112,7 @@ describe('PageContainer', () => {
     const wrapper = mount<BasicLayoutProps>(
       <BasicLayout>
         <PageContainer
+          title="期贤"
           footer={[
             <button type="button" key="button">
               qixian

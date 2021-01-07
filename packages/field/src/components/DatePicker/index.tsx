@@ -10,6 +10,7 @@ import './index.less';
 
 /**
  * 日期选择组件
+ *
  * @param
  */
 const FieldDatePicker: ProFieldFC<{
@@ -22,7 +23,7 @@ const FieldDatePicker: ProFieldFC<{
   {
     text,
     mode,
-    format = 'YYYY-MM-DD',
+    format,
     label,
     light,
     render,
@@ -42,7 +43,7 @@ const FieldDatePicker: ProFieldFC<{
   const [open, setOpen] = useState<boolean>(false);
 
   if (mode === 'read') {
-    const dom = <span ref={ref}>{text ? moment(text).format(format) : '-'}</span>;
+    const dom = <span ref={ref}>{text ? moment(text).format(format || 'YYYY-MM-DD') : '-'}</span>;
     if (render) {
       return render(text, { mode, ...fieldProps }, <span>{dom}</span>);
     }
@@ -68,11 +69,11 @@ const FieldDatePicker: ProFieldFC<{
           }}
         >
           <DatePicker
-            {...fieldProps}
             picker={picker}
             showTime={showTime}
             format={format}
             ref={ref}
+            {...fieldProps}
             value={momentValue}
             onChange={(v) => {
               if (onChange) {
@@ -105,13 +106,13 @@ const FieldDatePicker: ProFieldFC<{
     } else {
       dom = (
         <DatePicker
-          {...fieldProps}
           picker={picker}
           showTime={showTime}
           format={format}
           placeholder={placeholder}
-          ref={ref}
           bordered={plain === undefined ? true : !plain}
+          ref={ref}
+          {...fieldProps}
           value={momentValue}
         />
       );

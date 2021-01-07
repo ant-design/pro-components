@@ -50,7 +50,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     title: '状态',
     dataIndex: 'state',
     initialValue: 'all',
-    filters: true,
+    onFilter: true,
     order: 2,
     fieldProps: {
       noStyle: true,
@@ -89,6 +89,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     dataIndex: 'labels',
     width: '10%',
     order: -1,
+    colSize: 2,
     formItemProps: {
       noStyle: true,
     },
@@ -106,7 +107,6 @@ const columns: ProColumns<GithubIssueItem>[] = [
   {
     title: '创建时间',
     key: 'since',
-    colSize: 2,
     dataIndex: 'created_at',
     valueType: 'dateTime',
     width: '20%',
@@ -182,9 +182,6 @@ export default () => {
         }
         pagination={{
           pageSize: 5,
-        }}
-        formRef={(ref) => {
-          console.log(ref);
         }}
         rowKey="id"
         dateFormatter="string"

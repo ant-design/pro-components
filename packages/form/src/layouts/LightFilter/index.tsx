@@ -18,16 +18,16 @@ export type LightFilterProps = {
   CommonFormProps;
 
 /**
- * 单行的查询表单，一般用于配合 table 或者 list使用
- * 有时也会用于 card 的额外区域
+ * 单行的查询表单，一般用于配合 table 或者 list使用 有时也会用于 card 的额外区域
+ *
  * @param props
  */
 const LightFilterContainer: React.FC<{
   items: React.ReactNode[];
   prefixCls: string;
   size?: SizeType;
-  values?: object;
-  onValuesChange: (values: object) => void;
+  values?: Record<string, any>;
+  onValuesChange: (values: Record<string, any>) => void;
   collapse?: boolean;
   collapseLabel?: React.ReactNode;
   bordered?: boolean;
@@ -48,7 +48,7 @@ const LightFilterContainer: React.FC<{
   const collapseItems: React.ReactNode[] = [];
 
   const [open, setOpen] = useState<boolean>(false);
-  const [moreValues, setMoreValues] = useState<object>(() => {
+  const [moreValues, setMoreValues] = useState<Record<string, any>>(() => {
     return { ...values };
   });
   useEffect(() => {
@@ -172,7 +172,7 @@ const LightFilter: React.FC<LightFilterProps> = (props) => {
   const prefixCls = getPrefixCls('pro-form');
   const [form] = Form.useForm();
   const realForm = userForm || form;
-  const [values, setValues] = useState<object>(() => {
+  const [values, setValues] = useState<Record<string, any>>(() => {
     return { ...initialValues };
   });
   return (

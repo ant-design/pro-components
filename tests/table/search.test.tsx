@@ -90,7 +90,7 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
 
     act(() => {
       html.find('button.ant-btn.ant-btn-primary').simulate('click');
@@ -132,7 +132,7 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
 
     act(() => {
       html.find('button.ant-btn').at(0).simulate('click');
@@ -171,7 +171,7 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
 
     act(() => {
       html.find('button.ant-btn').at(0).simulate('click');
@@ -270,13 +270,13 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
     MockDate.set(1479799364001);
 
     act(() => {
       ref.current?.submit();
     });
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
     expect(fn).toBeCalledTimes(1);
 
     MockDate.set(1479799364000);
@@ -414,7 +414,7 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
 
     expect(html.find('#renderFormItem').exists()).toBeTruthy();
     act(() => {
@@ -455,7 +455,7 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
     expect(html.find('div.ant-form-item').length).toBe(2);
 
     html.setProps({

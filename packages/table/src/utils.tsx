@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Space, Tooltip, Form, Typography } from 'antd';
 
 import type { ColumnsType, TablePaginationConfig } from 'antd/lib/table';
@@ -8,6 +8,7 @@ import type {
   ProTableEditableFnType,
   UseEditableUtilType,
 } from '@ant-design/pro-utils';
+import { runFunction } from '@ant-design/pro-utils';
 import { isNil, LabelIconTip, omitBoolean, omitUndefinedAndEmptyArr } from '@ant-design/pro-utils';
 import type { ProFieldEmptyText } from '@ant-design/pro-field';
 import { proFieldParsingValueEnumToArray } from '@ant-design/pro-field';
@@ -25,14 +26,15 @@ import type { ColumnsState, useContainer } from './container';
 import defaultRenderText from './defaultRender';
 
 /**
- * 检查值是否存在
- * 为了 避开 0 和 false
+ * 检查值是否存在 为了 避开 0 和 false
+ *
  * @param value
  */
 export const checkUndefinedOrNull = (value: any) => value !== undefined && value !== null;
 
 /**
- *  根据 key 和 dataIndex 生成唯一 id
+ * 根据 key 和 dataIndex 生成唯一 id
+ *
  * @param key 用户设置的 key
  * @param dataIndex 在对象中的数据
  * @param index 序列号，理论上唯一
@@ -46,6 +48,7 @@ export const genColumnKey = (key?: React.ReactText | undefined, index?: number):
 
 /**
  * 生成 Ellipsis 的 tooltip
+ *
  * @param dom
  * @param item
  * @param text
@@ -90,6 +93,7 @@ export const genCopyable = (dom: React.ReactNode, item: ProColumns<any>, text: s
 
 /**
  * 合并用户 props 和 预设的 props
+ *
  * @param pagination
  * @param action
  * @param intl
@@ -130,6 +134,7 @@ export function mergePagination<T>(
 
 /**
  * 获取用户的 action 信息
+ *
  * @param actionRef
  * @param counter
  * @param onCleanSelected
@@ -144,42 +149,39 @@ export function useActionType<T>(
     editableUtils: UseEditableUtilType;
   },
 ) {
-  /**
-   * 这里生成action的映射，保证 action 总是使用的最新
-   * 只需要渲染一次即可
-   */
-  useEffect(() => {
-    const userAction: ActionType = {
-      ...props.editableUtils,
-      reload: async (resetPageIndex?: boolean) => {
-        // 如果为 true，回到第一页
-        if (resetPageIndex) {
-          await props.onCleanSelected();
-        }
-        await action?.reload();
-      },
-      reloadAndRest: async () => {
-        // reload 之后大概率会切换数据，清空一下选择。
-        props.onCleanSelected();
-        await action?.reload();
-      },
-      reset: async () => {
-        await props.resetAll();
-        await action?.reset?.();
-        await action?.reload();
-      },
-      fullScreen: () => props.fullScreen(),
-      clearSelected: () => props.onCleanSelected(),
-    };
-    // eslint-disable-next-line no-param-reassign
-    ref.current = userAction;
-  }, [props.editableUtils]);
+  /** 这里生成action的映射，保证 action 总是使用的最新 只需要渲染一次即可 */
+  const userAction: ActionType = {
+    ...props.editableUtils,
+    reload: async (resetPageIndex?: boolean) => {
+      // 如果为 true，回到第一页
+      if (resetPageIndex) {
+        await props.onCleanSelected();
+      }
+      await action?.reload();
+    },
+    reloadAndRest: async () => {
+      // reload 之后大概率会切换数据，清空一下选择。
+      props.onCleanSelected();
+      await action.resetPageIndex();
+      await action?.reload();
+    },
+    reset: async () => {
+      await props.resetAll();
+      await action?.reset?.();
+      await action?.reload();
+    },
+    fullScreen: () => props.fullScreen(),
+    clearSelected: () => props.onCleanSelected(),
+  };
+  // eslint-disable-next-line no-param-reassign
+  ref.current = userAction;
 }
 
 type PostDataType<T> = (data: T) => T;
 
 /**
  * 一个转化的 pipeline 列表
+ *
  * @param data
  * @param pipeline
  */
@@ -204,12 +206,15 @@ export const tableColumnSort = (columnsMap: Record<string, ColumnsState>) => (a:
   // 如果没有index，在 dataIndex 或者 key 不存在的时候他会报错
   const aKey = a.key || `${aIndex}`;
   const bKey = b.key || `${bIndex}`;
-  return (columnsMap[aKey]?.order || 0) - (columnsMap[bKey]?.order || 0);
+  if (columnsMap[aKey]?.order || columnsMap[bKey]?.order) {
+    return (columnsMap[aKey]?.order || 0) - (columnsMap[bKey]?.order || 0);
+  }
+  return (a.index || 0) - (b.index || 0);
 };
 
 /**
- * render title
- * @description 增加了 icon 的功能
+ * 增加了 icon 的功能 render title
+ *
  * @param item
  */
 export const renderColumnsTitle = (item: ProColumns<any>) => {
@@ -229,9 +234,7 @@ export const defaultOnFilter = (value: string, record: any, dataIndex: string | 
   return String(itemValue) === String(value);
 };
 
-/**
- * 转化列的定义
- */
+/** 转化列的定义 */
 type ColumnRenderInterface<T> = {
   columnProps: ProColumns<T>;
   text: any;
@@ -247,9 +250,7 @@ const isMergeCell = (
   dom: any, // 如果是合并单元格的，直接返回对象
 ) => dom && typeof dom === 'object' && dom?.props?.colSpan;
 
-/**
- * 判断可不可编辑
- */
+/** 判断可不可编辑 */
 function isEditableCell<T>(
   text: any,
   rowData: T,
@@ -264,6 +265,7 @@ function isEditableCell<T>(
 
 /**
  * 这个组件负责单元格的具体渲染
+ *
  * @param param0
  */
 export function columnRender<T>({
@@ -300,9 +302,7 @@ export function columnRender<T>({
       ? textDom
       : genEllipsis(genCopyable(textDom, columnProps, renderTextStr), columnProps, renderTextStr);
 
-  /**
-   * 如果是编辑模式，并且 renderFormItem 存在直接走 renderFormItem
-   */
+  /** 如果是编辑模式，并且 renderFormItem 存在直接走 renderFormItem */
   if (mode === 'edit') {
     if (columnProps.valueType === 'option') {
       return (
@@ -354,14 +354,14 @@ export function columnRender<T>({
 }
 
 /**
- * 转化 columns 到 pro 的格式
- * 主要是 render 方法的自行实现
+ * 转化 columns 到 pro 的格式 主要是 render 方法的自行实现
+ *
  * @param columns
  * @param map
  * @param columnEmptyText
  */
 export function genColumnList<T>(props: {
-  columns: ProColumns<T>[];
+  columns: ProColumns<T, any>[];
   map: Record<string, ColumnsState>;
   counter: ReturnType<typeof useContainer>;
   columnEmptyText: ProFieldEmptyText;
@@ -379,12 +379,15 @@ export function genColumnList<T>(props: {
         children,
         onFilter,
         filters = [],
-      } = columnProps as ProColumnGroupType<T>;
+      } = columnProps as ProColumnGroupType<T, any>;
       const columnKey = genColumnKey(key, columnsIndex);
       // 这些都没有，说明是普通的表格不需要 pro 管理
       const noNeedPro = !dataIndex && !valueEnum && !valueType && !children;
       if (noNeedPro) {
-        return columnProps;
+        return {
+          index: columnsIndex,
+          ...columnProps,
+        };
       }
       const { propsRef } = counter;
       const config = map[columnKey] || { fixed: columnProps.fixed };
@@ -395,19 +398,23 @@ export function genColumnList<T>(props: {
         valueEnum,
         filters:
           filters === true
-            ? proFieldParsingValueEnumToArray(valueEnum).filter(
-                (valueItem) => valueItem && valueItem.value !== 'all',
-              )
+            ? proFieldParsingValueEnumToArray(
+                runFunction<[undefined]>(valueEnum, undefined),
+              ).filter((valueItem) => valueItem && valueItem.value !== 'all')
             : filters,
         onFilter:
-          !propsRef.current?.request || filters === true
+          (!propsRef.current?.request && onFilter === true) ||
+          (filters === true && onFilter !== undefined)
             ? (value: string, row: T) => defaultOnFilter(value, row, dataIndex as string[])
             : omitBoolean(onFilter),
         ellipsis: false,
         fixed: config.fixed,
         width: columnProps.width || (columnProps.fixed ? 200 : undefined),
-        children: (columnProps as ProColumnGroupType<T>).children
-          ? genColumnList({ ...props, columns: (columnProps as ProColumnGroupType<T>)?.children })
+        children: (columnProps as ProColumnGroupType<T, any>).children
+          ? genColumnList({
+              ...props,
+              columns: (columnProps as ProColumnGroupType<T, any>)?.children,
+            })
           : undefined,
         render: (text: any, rowData: T, index: number) => {
           const renderProps = {

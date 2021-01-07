@@ -15,40 +15,28 @@ import PageLoading from '../PageLoading';
 import type { WithFalse } from '../../typings';
 
 export type PageHeaderTabConfig = {
-  /**
-   * @name tabs 的列表
-   */
+  /** @name tabs 的列表 */
   tabList?: (TabPaneProps & { key?: React.ReactText })[];
 
-  /**
-   * @name 当前选中 tab 的 key
-   */
+  /** @name 当前选中 tab 的 key */
   tabActiveKey?: TabsProps['activeKey'];
 
-  /**
-   * @name tab 修改时触发
-   */
+  /** @name tab 修改时触发 */
   onTabChange?: TabsProps['onChange'];
 
-  /**
-   * @name tab 上多余的区域
-   */
+  /** @name tab 上多余的区域 */
   tabBarExtraContent?: TabsProps['tabBarExtraContent'];
 
-  /**
-   * @name tabs 的其他配置
-   */
+  /** @name tabs 的其他配置 */
   tabProps?: TabsProps;
 
   /**
-   * @name 固定 PageHeader 到页面顶部
    * @deprecated 请使用 fixedHeader
+   * @name 固定 PageHeader 到页面顶部
    */
   fixHeader?: boolean;
 
-  /**
-   * @name 固定 PageHeader 到页面顶部
-   */
+  /** @name 固定 PageHeader 到页面顶部 */
   fixedHeader?: boolean;
 };
 
@@ -59,42 +47,40 @@ export type PageContainerProps = {
   prefixCls?: string;
   footer?: ReactNode[];
 
-  /**
-   * @name 是否显示背景色
-   */
+  /** @name 是否显示背景色 */
   ghost?: boolean;
 
   /**
+   * 与 antd 完全相同
+   *
    * @name PageHeader 的配置
-   * @description 与 antd 完全相同
    */
-  header?: PageHeaderProps & {
+  header?: Partial<PageHeaderProps> & {
     children?: React.ReactNode;
   };
 
-  /**
-   * @name 自定义 pageHeader
-   */
+  /** @name 自定义 pageHeader */
   pageHeaderRender?: WithFalse<(props: PageContainerProps) => React.ReactNode>;
 
   /**
+   * 与 antd 完全相同
+   *
    * @name 固钉的配置
-   * @description 与 antd 完全相同
    */
   affixProps?: AffixProps;
 
   /**
+   * 只加载内容区域
+   *
    * @name 是否加载
-   * @description 只加载内容区域
    */
   loading?: boolean;
 } & PageHeaderTabConfig &
   Omit<PageHeaderProps, 'title'>;
 
 /**
- * render Footer tabList
- * In order to be compatible with the old version of the PageHeader
- * basically all the functions are implemented.
+ * Render Footer tabList In order to be compatible with the old version of the PageHeader basically
+ * all the functions are implemented.
  */
 const renderFooter: React.FC<
   Omit<
@@ -174,18 +160,32 @@ const defaultPageHeaderRender = (
   if (!title && title !== false) {
     pageHeaderTitle = value.title;
   }
+  const pageHeaderProps = {
+    ...value,
+    title: pageHeaderTitle,
+    ...restProps,
+    footer: renderFooter({
+      ...restProps,
+      prefixedClassName: value.prefixedClassName,
+    }),
+    ...header,
+  };
+
+  if (
+    !pageHeaderProps.title &&
+    !pageHeaderProps.subTitle &&
+    !pageHeaderProps.breadcrumb?.itemRender &&
+    !pageHeaderProps.breadcrumb?.routes?.length &&
+    !pageHeaderProps.extra &&
+    !pageHeaderProps.tags &&
+    !pageHeaderProps.footer &&
+    !pageHeaderProps.avatar &&
+    !pageHeaderProps.backIcon
+  ) {
+    return null;
+  }
   return (
-    <PageHeader
-      {...value}
-      title={pageHeaderTitle}
-      {...restProps}
-      footer={renderFooter({
-        ...restProps,
-        prefixedClassName: value.prefixedClassName,
-      })}
-      {...header}
-      prefixCls={prefixCls}
-    >
+    <PageHeader {...pageHeaderProps} prefixCls={prefixCls}>
       {header?.children || renderPageHeader(content, extraContent, value.prefixedClassName)}
     </PageHeader>
   );

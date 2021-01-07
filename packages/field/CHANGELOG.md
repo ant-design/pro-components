@@ -2,6 +2,75 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.8.1...@ant-design/pro-field@1.8.2) (2021-01-07)
+
+### Bug Fixes
+
+- **filed:** auto insert dom key ([#1517](https://github.com/ant-design/pro-components/issues/1517)) ([d4be88a](https://github.com/ant-design/pro-components/commit/d4be88a4cf2c499a6190111602c4bfcbbc75daaf))
+- **filed:** fix composition event error ([77e011e](https://github.com/ant-design/pro-components/commit/77e011e2e389b931078a5bbf79d2452fc56fa909))
+
+## [1.8.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.8.0...@ant-design/pro-field@1.8.1) (2021-01-06)
+
+### Bug Fixes
+
+- **field:** fix CompositionInput no work on 搜狗 ([5a8742c](https://github.com/ant-design/pro-components/commit/5a8742c893af0c6504d0460aef65209261da8221))
+
+# [1.8.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.7.1...@ant-design/pro-field@1.8.0) (2021-01-05)
+
+### Features
+
+- **field:** text use CompositionInput ([#1499](https://github.com/ant-design/pro-components/issues/1499)) ([4f26efb](https://github.com/ant-design/pro-components/commit/4f26efb81a7592868e6e863ca6fbb59cb6918016))
+
+## [1.7.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.7.0...@ant-design/pro-field@1.7.1) (2021-01-05)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+# [1.7.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.6.1...@ant-design/pro-field@1.7.0) (2021-01-04)
+
+### Bug Fixes
+
+- **table:** fix fieldProps.onChange no work error ([#1479](https://github.com/ant-design/pro-components/issues/1479)) ([784731f](https://github.com/ant-design/pro-components/commit/784731f90f11330e524464ca3080803731f44048))
+
+### Features
+
+- **field:** support image valueType ([#1480](https://github.com/ant-design/pro-components/issues/1480)) ([08b36e2](https://github.com/ant-design/pro-components/commit/08b36e24ff077392572c625b6fb3d119afeb44ea))
+
+## [1.6.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.6.0...@ant-design/pro-field@1.6.1) (2021-01-02)
+
+### Bug Fixes
+
+- **form:** fix the problem of attribute priority ([#1472](https://github.com/ant-design/pro-components/issues/1472)) ([c926728](https://github.com/ant-design/pro-components/commit/c9267281e09642e0c7b8c852a6f3abcb8881a2a9))
+
+# [1.6.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.5.3...@ant-design/pro-field@1.6.0) (2021-01-01)
+
+### Features
+
+- **table:** support customization valueType ([#1456](https://github.com/ant-design/pro-components/issues/1456)) ([cbce5ba](https://github.com/ant-design/pro-components/commit/cbce5baf9ae456a1ab32a748e7ac86ee592b4344))
+
+## [1.5.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.5.2...@ant-design/pro-field@1.5.3) (2020-12-31)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.5.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.5.1...@ant-design/pro-field@1.5.2) (2020-12-31)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.5.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.5.0...@ant-design/pro-field@1.5.1) (2020-12-28)
+
+### Bug Fixes
+
+- **layout:** not use important ([babf934](https://github.com/ant-design/pro-components/commit/babf9340678e7b82f75752db113dbb11330295d6))
+
+# [1.5.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.4.5...@ant-design/pro-field@1.5.0) (2020-12-28)
+
+### Features
+
+- **field:** 在 labelInVaue 的场景下能显示备选项里不存在的 valuezhi ([#1390](https://github.com/ant-design/pro-components/issues/1390)) ([e89f65e](https://github.com/ant-design/pro-components/commit/e89f65e86c0d21cf3b591dc300a3af6862545d82))
+
+## [1.4.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.4.4...@ant-design/pro-field@1.4.5) (2020-12-28)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
 ## [1.4.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.4.3...@ant-design/pro-field@1.4.4) (2020-12-25)
 
 **Note:** Version bump only for package @ant-design/pro-field

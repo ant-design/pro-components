@@ -14,7 +14,7 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
   const className = getPrefixCls('pro-form-group');
   const titleDom = titleRender ? titleRender(title, props) : title;
   return (
-    <div style={style} ref={ref}>
+    <div className={className} style={style} ref={ref}>
       {titleDom && (
         <div className={`${className}-title`} style={titleStyle}>
           {titleDom}

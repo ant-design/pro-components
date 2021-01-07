@@ -9,6 +9,46 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.20.1
+
+`2021-01-05`
+
+- 💥 feat(table): add 'internationalization for editabletable action' option [#1491](https://github.com/ant-design/pro-components/pull/1491) [@yanglu758](https://github.com/yanglu758)
+
+## @ant-design/pro-table@2.20.0
+
+`2021-01-05`
+
+- 🐛 fix(list): fix editable for list [#1481](https://github.com/ant-design/pro-components/pull/1481) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix fieldProps.onChange no work error [#1479](https://github.com/ant-design/pro-components/pull/1479) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.19.1
+
+`2021-01-03`
+
+- 🐛 fix(table): fix the compatibility problem of sorting [#1471](https://github.com/ant-design/pro-components/pull/1471) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix colSize no work error [#1470](https://github.com/ant-design/pro-components/pull/1470) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.19.0
+
+`2021-01-01`
+
+- 🐛 fix(table): fix table form submit time error [#1466](https://github.com/ant-design/pro-components/pull/1466) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(table): support customization valueType [#1456](https://github.com/ant-design/pro-components/pull/1456) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.18.2
+
+`2020-12-31`
+
+- 🐛 fix(table): reloadAndRest should reset page index [#1444](https://github.com/ant-design/pro-components/pull/1444) [@chenshuai2144](https://github.com/chenshuai2144)
+- ✨ feat(table): valueEnum support function [#1443](https://github.com/ant-design/pro-components/pull/1443) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.17.3
+
+`2020-12-28`
+
+- 🐛 fix(table): fix onfilter no work error [#1422](https://github.com/ant-design/pro-components/pull/1422) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.17.0
 
 `2020-12-24`

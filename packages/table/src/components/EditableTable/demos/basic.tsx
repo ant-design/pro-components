@@ -1,6 +1,4 @@
-/**
- * title: 可编辑表格
- */
+/** Title: 可编辑表格 */
 import React, { useState } from 'react';
 import type { ProColumns } from '@ant-design/pro-table';
 import { EditableProTable } from '@ant-design/pro-table';
@@ -54,13 +52,10 @@ export default () => {
     {
       title: '活动名称',
       dataIndex: 'title',
-      formItemProps: {
-        rules: [
-          {
-            required: true,
-            message: '此项为必填项',
-          },
-        ],
+      formItemProps: (form, { rowIndex }) => {
+        return {
+          rules: rowIndex > 2 ? [{ required: true, message: '此项为必填项' }] : [],
+        };
       },
       // 第二行不允许编辑
       editable: (text, record, index) => {
@@ -88,8 +83,13 @@ export default () => {
     {
       title: '描述',
       dataIndex: 'decs',
-      fieldProps: (from, { rowKey }) => {
+      fieldProps: (from, { rowKey, rowIndex }) => {
         if (from.getFieldValue([rowKey || '', 'title']) === '不好玩') {
+          return {
+            disabled: true,
+          };
+        }
+        if (rowIndex < 2) {
           return {
             disabled: true,
           };

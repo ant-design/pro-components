@@ -20,17 +20,16 @@ type Store = Record<string, any>;
 
 type StepsFormProps<T = Store> = {
   /**
+   * 返回 true 会重置步数，并且清空表单
+   *
    * @name 提交方法
-   * @description 返回 true 会重置步数，并且清空表单
    */
   onFinish?: (values: T) => Promise<boolean | void>;
   current?: number;
   stepsProps?: StepsProps;
   formProps?: ProFormProps;
   onCurrentChange?: (current: number) => void;
-  /**
-   * 自定义步骤器
-   */
+  /** 自定义步骤器 */
   stepsRender?: (
     steps: {
       key: string;
@@ -41,19 +40,19 @@ type StepsFormProps<T = Store> = {
 
   /**
    * 自定义单个表单
-   * @param form from 的 dom，可以放置到别的位置
+   *
+   * @param form From 的 dom，可以放置到别的位置
    */
   stepFormRender?: (from: React.ReactNode) => React.ReactNode;
 
   /**
    * 自定义整个表单区域
-   * @param form from 的 dom，可以放置到别的位置
+   *
+   * @param form From 的 dom，可以放置到别的位置
    * @param submitter 操作按钮
    */
   stepsFormRender?: (from: React.ReactNode, submitter: React.ReactNode) => React.ReactNode;
-  /**
-   * 按钮的统一配置，优先级低于分布表单的配置
-   */
+  /** 按钮的统一配置，优先级低于分布表单的配置 */
   submitter?:
     | SubmitterProps<{
         step: number;
@@ -106,40 +105,29 @@ const StepsForm: React.FC<StepsFormProps> & {
   const [loading, setLoading] = useMountMergeState<ButtonProps['loading']>(false);
   const intl = useIntl();
 
-  /**
-   * 受控的方式来操作表单
-   */
+  /** 受控的方式来操作表单 */
   const [step, setStep] = useMergedState<number>(0, {
     value: props.current,
     onChange: props.onCurrentChange,
   });
 
-  /**
-   * 注册一个form进入，方便进行 props 的修改
-   */
+  /** 注册一个form进入，方便进行 props 的修改 */
   const regForm = useCallback((name: string, childrenFormProps: StepFormProps) => {
     formMapRef.current.set(name, childrenFormProps);
   }, []);
 
-  /**
-   * 接触挂载掉这个 form，同时步数 -1
-   */
+  /** 接触挂载掉这个 form，同时步数 -1 */
   const unRegForm = useCallback((name: string) => {
     formMapRef.current.delete(name);
     formDataRef.current.delete(name);
   }, []);
 
-  /**
-   * children 计算完成之后，重新生成一下当前的步骤列表
-   */
+  /** Children 计算完成之后，重新生成一下当前的步骤列表 */
   useEffect(() => {
     setFormArray(Array.from(formMapRef.current.keys()));
   }, [Array.from(formMapRef.current.keys()).join(',')]);
 
-  /**
-   * proForm处理了一下 from 的数据，在其中做了一些操作
-   * 如果使用 Provider 自带的，自带的数据处理就无法生效了
-   */
+  /** ProForm处理了一下 from 的数据，在其中做了一些操作 如果使用 Provider 自带的，自带的数据处理就无法生效了 */
   const onFormFinish = useCallback(
     async (name: string, formData: any) => {
       formDataRef.current.set(name, formData);
@@ -268,9 +256,7 @@ const StepsForm: React.FC<StepsFormProps> & {
     const itemProps = item.props as StepFormProps;
     const name = itemProps.name || `${index}`;
     regForm(name, itemProps);
-    /**
-     * 是否是当前的表单
-     */
+    /** 是否是当前的表单 */
     const isShow = step === index;
 
     const config = isShow

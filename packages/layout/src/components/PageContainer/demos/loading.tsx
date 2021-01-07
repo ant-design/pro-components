@@ -1,8 +1,4 @@
-/**
- * uuid: 7f462cb4
- * title: 页面加载中
- * desc: 通过 `lodding` 属性配置页面加载。
- */
+/** Uuid: 7f462cb4 title: 页面加载中 desc: 通过 `lodding` 属性配置页面加载。 */
 import React from 'react';
 import { PageContainer } from '@ant-design/pro-layout';
 

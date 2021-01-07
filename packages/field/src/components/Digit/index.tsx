@@ -8,11 +8,10 @@ export type FieldDigitProps = {
 
 /**
  * 数字组件
- * @param FieldDigitProps
- * {
- *    text: number;
- *    moneySymbol?: string;
- * }
+ *
+ * @param FieldDigitProps {
+ *     text: number;
+ *     moneySymbol?: string; }
  */
 const FieldDigit: ProFieldFC<FieldDigitProps> = (
   { text, mode: type, render, renderFormItem, fieldProps, ...rest },

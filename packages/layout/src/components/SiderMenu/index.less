@@ -9,17 +9,19 @@
   position: relative;
   background-color: @layout-sider-background;
   border-right: 0;
-  transition: background-color 0.3s, min-width 0.3s, max-width 0.3s;
+  transition: background-color 0.3s, min-width 0.3s,
+    max-width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 
   // 这里关掉了动画，不然使用无法兼容
   .@{ant-prefix}-menu {
     background: transparent;
-    &-submenu-title,
+
     &-item {
-      span.anticon {
-        transition: none;
-      }
-      transition: none;
+      padding: 0 16px;
+    }
+
+    &-inline-collapsed > .@{ant-prefix}-menu-submenu > .@{ant-prefix}-menu-submenu-title {
+      padding: 0 16px;
     }
   }
 
@@ -38,8 +40,8 @@
     display: flex;
     align-items: center;
     padding: 16px 16px;
-    line-height: 32px;
     cursor: pointer;
+    transition: padding 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 
     > a {
       display: flex;
@@ -63,6 +65,7 @@
       font-size: 18px;
       line-height: 32px;
       vertical-align: middle;
+      animation: pro-layout-title-hide 0.3s;
     }
   }
 
@@ -194,5 +197,20 @@
   }
   .drawer .drawer-content {
     background: @layout-sider-background;
+  }
+}
+
+@keyframes pro-layout-title-hide {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  80% {
+    display: none;
+    opacity: 0;
+  }
+  100% {
+    display: unset;
+    opacity: 1;
   }
 }

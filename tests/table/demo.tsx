@@ -71,6 +71,7 @@ export const columns: ProColumns[] = [
     dataIndex: 'sex',
     key: 'sex',
     filters: true,
+    onFilter: true,
     valueType: 'select',
     valueEnum: {
       man: '男',

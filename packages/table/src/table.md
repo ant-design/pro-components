@@ -138,7 +138,7 @@ ProTable 内置了国际化的支持，作为一个文本量比较少的组件�
 
 ```typescript | pure
 const enLocale = {
-  tableFrom: {
+  tableForm: {
     search: 'Query',
     reset: 'Reset',
     submit: 'Submit',
@@ -203,6 +203,10 @@ const enUSIntl = createIntl('en_US', enUS);
 #### valueType - 选择类
 
 <code src="./demos/valueType_select.tsx" background="#f5f5f5" heigh="462px"/>
+
+### 自定义 valueType
+
+<code src="./demos/customization-value-type.tsx"  background="#f5f5f5" heigh="462px"/>
 
 <code src="./demos/config-provider.tsx" debug background="#f5f5f5" heigh="462px"/>
 
@@ -465,7 +469,7 @@ return { type: 'money', locale: 'en-Us' };
 return { type: 'percent', showSymbol: true | false, precision: 2 };
 ```
 
-valueEnum 需要传入一个枚举，ProTable 会自动根据值获取响应的枚举，并且在 from 中生成一个下拉框。看起来是这样的：
+valueEnum 需要传入一个枚举，ProTable 会自动根据值获取响应的枚举，并且在 form 中生成一个下拉框。看起来是这样的：
 
 ```ts | pure
 const valueEnum = {
@@ -504,7 +508,7 @@ const valueEnum = (row) =>
       };
 ```
 
-> 这里值得注意的是在 from 中并没有 row，所以传入了一个 null，你可以根据这个来判断要在 from 中显示什么选项。
+> 这里值得注意的是在 form 中并没有 row，所以传入了一个 null，你可以根据这个来判断要在 form 中显示什么选项。
 
 ### valueEnum
 
@@ -561,4 +565,61 @@ Form 的列是根据 `valueType` 来生成不同的类型。
 
 ### 列表工具栏
 
-<embed src="../src/components/ListToolBar/index.md" />
+用于自定义表格的工具栏部分。
+
+#### 代码演示
+
+<code src="./demos/ListToolBar/basic.tsx" background="#f0f2f5"/>
+
+<code src="./demos/ListToolBar/no-title.tsx" background="#f0f2f5"/>
+
+<code src="./demos/ListToolBar/multipleLine.tsx" background="#f0f2f5"/>
+
+<code src="./demos/ListToolBar/tabs.tsx" background="#f0f2f5"/>
+
+<code src="./demos/ListToolBar/menu.tsx" background="#f0f2f5"/>
+
+#### ListToolBarProps
+
+列表和表格的工具栏配置属性
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| title | 标题 | `ReactNode` | - |
+| subTitle | 子标题 | `ReactNode` | - |
+| description | 描述 | `ReactNode` | - |
+| search | 查询区 | `ReactNode` \| `SearchProps` | - |
+| actions | 操作区 | `ReactNode[]` | - |
+| settings | 设置区 | `(ReactNode \| Setting)[]` | - |
+| filter | 过滤区，通常配合 `LightFilter` 使用 | `ReactNode` | - |
+| multipleLine | 是否多行展示 | `boolean` | `false` |
+| menu | 菜单配置 | `ListToolBarMenu` | - |
+| tabs | 标签页配置，仅当 `multipleLine` 为 true 时有效 | `ListToolBarTabs` | - |
+
+SearchProps 为 antd 的 [Input.Search](https://ant.design/components/input-cn/#Input.Search) 的属性。
+
+#### Setting
+
+| 参数    | 说明         | 类型                  | 默认值 |
+| ------- | ------------ | --------------------- | ------ |
+| icon    | 图标         | `ReactNode`           | -      |
+| tooltip | tooltip 描述 | `string`              | -      |
+| key     | 操作唯一标识 | `string`              | -      |
+| onClick | 设置被触发   | `(key: string)=>void` | -      |
+
+#### ListToolBarMenu
+
+| 参数      | 说明           | 类型                                  | 默认值     |
+| --------- | -------------- | ------------------------------------- | ---------- |
+| type      | 类型           | `inline` \| `dropdown` \| `tab`       | `dropdown` |
+| activeKey | 当前值         | string                                | -          |
+| items     | 菜单项         | `{ key: string; label: ReactNode }[]` | -          |
+| onChange  | 切换菜单的回调 | `(activeKey)=>void`                   | -          |
+
+#### ListToolBarTabs
+
+| 参数      | 说明           | 类型                                | 默认值 |
+| --------- | -------------- | ----------------------------------- | ------ |
+| activeKey | 当前选中项     | `string`                            | -      |
+| items     | 菜单项         | `{ key: string; tab: ReactNode }[]` | -      |
+| onChange  | 切换菜单的回调 | `(activeKey)=>void`                 | -      |

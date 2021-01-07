@@ -91,14 +91,13 @@ const FieldLabel: React.FC<FieldLabelProps> = (props) => {
     }
     return placeholder || aLabel;
   };
-
   return (
     <span
       className={classNames(
         prefixCls,
         `${prefixCls}-${size}`,
         {
-          [`${prefixCls}-active`]: !!value,
+          [`${prefixCls}-active`]: !!value || value === 0,
           [`${prefixCls}-disabled`]: disabled,
           [`${prefixCls}-bordered`]: bordered,
           [`${prefixCls}-allow-clear`]: allowClear,
@@ -108,7 +107,7 @@ const FieldLabel: React.FC<FieldLabelProps> = (props) => {
       style={style}
     >
       {getTextByValue(label, value)}
-      {value && allowClear && (
+      {(value || value === 0) && allowClear && (
         <CloseOutlined
           className={classNames(`${prefixCls}-icon`, `${prefixCls}-close`)}
           onClick={(e) => {

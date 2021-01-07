@@ -12,6 +12,27 @@ export type LightSelectProps = {
   placeholder?: string;
 };
 
+/**
+ * 如果有 label 就优先使用 label
+ *
+ * @param valueMap
+ * @param v
+ */
+const getValueOrLabel = (
+  valueMap: Record<string, string>,
+  v:
+    | {
+        label: string;
+        value: string;
+      }
+    | string,
+) => {
+  if (typeof v !== 'object') {
+    return valueMap[v] || v;
+  }
+  return valueMap[v?.value] || v.label;
+};
+
 const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightSelectProps> = (
   props,
   ref,
@@ -33,6 +54,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
     options,
     onSearch,
     allowClear,
+    labelInValue,
     ...restProps
   } = props;
   const { placeholder = label } = props;
@@ -47,7 +69,11 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
       values[aValue] = aLabel || aValue;
     });
     return values;
-  }, [children, options]);
+  }, [options]);
+
+  const filterValue = Array.isArray(value)
+    ? value.map((v) => getValueOrLabel(valueMap, v))
+    : getValueOrLabel(valueMap, value);
 
   return (
     <div
@@ -70,6 +96,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
         allowClear={allowClear}
         value={value}
         mode={mode}
+        labelInValue={labelInValue}
         size={size}
         disabled={disabled}
         onChange={(v, option) => {
@@ -133,7 +160,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
         expanded={open}
         bordered={bordered}
         allowClear={allowClear}
-        value={Array.isArray(value) ? value.map((v) => valueMap[v] || v) : valueMap[value] || value}
+        value={filterValue || value?.label || value}
         onClear={() => {
           onChange?.(undefined, undefined as any);
         }}

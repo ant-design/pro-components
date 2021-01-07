@@ -19,6 +19,7 @@ type GridContentProps = {
 /**
  * This component can support contentWidth so you don't need to calculate the width
  * contentWidth=Fixed, width will is 1200
+ *
  * @param props
  */
 const GridContent: React.FC<GridContentProps> = (props) => {

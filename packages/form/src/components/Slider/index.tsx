@@ -14,6 +14,7 @@ export type ProFormSliderProps = ProFormItemProps<SliderBaseProps> & {
 };
 /**
  * 文本选择组件
+ *
  * @param
  */
 const ProFormSlider: React.ForwardRefRenderFunction<any, ProFormSliderProps> = (

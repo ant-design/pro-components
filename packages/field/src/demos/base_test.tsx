@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Radio, Switch, Space, Descriptions } from 'antd';
+import type { ProFieldFCMode } from '@ant-design/pro-utils';
+
 import moment from 'moment';
 
-import type { ProFieldFCMode } from '@ant-design/pro-field';
 import Field from '@ant-design/pro-field';
 
 export default () => {
@@ -33,6 +34,17 @@ export default () => {
         </Descriptions.Item>
         <Descriptions.Item label="文本">
           <Field text="这是一段文本" valueType="text" mode={state} plain={plain} />
+        </Descriptions.Item>
+        <Descriptions.Item label="图片">
+          <Field
+            text="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+            valueType={{
+              type: 'image',
+              width: 100,
+            }}
+            mode={state}
+            plain={plain}
+          />
         </Descriptions.Item>
         <Descriptions.Item label="金额">
           <Field text="100" valueType="money" mode={state} plain={plain} />
@@ -167,6 +179,12 @@ export default () => {
 
         <Descriptions.Item label="进度条">
           <Field text="40" valueType="progress" mode={state} plain={plain} />
+        </Descriptions.Item>
+        <Descriptions.Item label="进度条">
+          <Field text="40%" valueType="progress" mode={state} plain={plain} />
+        </Descriptions.Item>
+        <Descriptions.Item label="进度条">
+          <Field text="love" valueType="progress" mode={state} plain={plain} />
         </Descriptions.Item>
         <Descriptions.Item label="百分比">
           <Space>

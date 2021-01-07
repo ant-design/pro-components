@@ -2,6 +2,7 @@
 import { useCallback, useMemo } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { FormInstance } from 'antd/lib/form';
+import { useIntl } from '@ant-design/pro-provider';
 import { message } from 'antd';
 import ReactDOM from 'react-dom';
 import type {
@@ -14,8 +15,8 @@ import type {
 import { defaultActionRender, recordKeyToString } from '../useEditableArray';
 
 /**
- * 使用map 来删除数据，性能一般
- * 但是准确率比较高
+ * 使用map 来删除数据，性能一般 但是准确率比较高
+ *
  * @param params
  * @param action
  */
@@ -30,6 +31,7 @@ export type AddLineOptions = {
 
 /**
  * 一个方便的hooks 用于维护编辑的状态
+ *
  * @param props
  */
 function useEditableMap<RecordType>(
@@ -53,18 +55,13 @@ function useEditableMap<RecordType>(
         }
       : undefined,
   });
-  /**
-   * 一个用来标志的set
-   * 提供了方便的 api 来去重什么的
-   */
+  /** 一个用来标志的set 提供了方便的 api 来去重什么的 */
   const editableKeysSet = useMemo(() => {
     const keys = editableType === 'single' ? editableKeys.slice(0, 1) : editableKeys;
     return new Set(keys);
   }, [editableKeys.join(','), editableType]);
 
-  /**
-   * 这行是不是编辑状态
-   */
+  /** 这行是不是编辑状态 */
   const isEditable = useCallback(
     (recordKey: RecordKey) => {
       if (editableKeys.includes(recordKeyToString(recordKey))) return true;
@@ -75,6 +72,7 @@ function useEditableMap<RecordType>(
 
   /**
    * 进入编辑状态
+   *
    * @param recordKey
    */
   const startEditable = (recordKey: RecordKey) => {
@@ -90,6 +88,7 @@ function useEditableMap<RecordType>(
 
   /**
    * 退出编辑状态
+   *
    * @param recordKey
    */
   const cancelEditable = (recordKey: RecordKey) => {
@@ -136,6 +135,12 @@ function useEditableMap<RecordType>(
     return true;
   };
 
+  // Internationalization
+  const intl = useIntl();
+  const saveText = intl.getMessage('editableTable.action.save', '保存');
+  const deleteText = intl.getMessage('editableTable.action.delete', '删除');
+  const cancelText = intl.getMessage('editableTable.action.cancel', '取消');
+
   const actionRender = useCallback(
     (key: RecordKey, form: FormInstance<any>, config?: ActionTypeText<RecordType>) => {
       const renderConfig: ActionRenderConfig<RecordType, NewLineConfig<RecordType>> = {
@@ -146,6 +151,9 @@ function useEditableMap<RecordType>(
         editableKeys,
         setEditableRowKeys,
         form,
+        saveText,
+        cancelText,
+        deleteText,
         deletePopconfirmMessage: '删除此行？',
         editorType: 'Map',
         ...config,

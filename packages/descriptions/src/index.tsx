@@ -3,13 +3,13 @@ import { Descriptions, Space, Form } from 'antd';
 import { EditOutlined, CloseOutlined, CheckOutlined } from '@ant-design/icons';
 import toArray from 'rc-util/lib/Children/toArray';
 import ProForm, { ProFormField } from '@ant-design/pro-form';
-import type { ProFieldFCMode } from '@ant-design/pro-field';
 import type {
   ProSchema,
   ProCoreActionType,
   RowEditableConfig,
   UseEditableMapUtilType,
   ProFieldValueType,
+  ProSchemaComponentTypes,
 } from '@ant-design/pro-utils';
 import {
   InlineErrorFormItem,
@@ -25,8 +25,9 @@ import type { DescriptionsItemProps } from 'antd/lib/descriptions/Item';
 import type { DescriptionsProps } from 'antd/lib/descriptions';
 import type { RequestData } from './useFetchData';
 import useFetchData from './useFetchData';
+import type { ProFieldFCMode } from '@ant-design/pro-utils';
 
-export type ProDescriptionsItemProps<T = {}> = ProSchema<
+export type ProDescriptionsItemProps<T = Record<string, any>, ValueType = 'text'> = ProSchema<
   T,
   Omit<DescriptionsItemProps, 'children'> & {
     // 隐藏这个字段，是个语法糖，方便一下权限的控制
@@ -36,30 +37,26 @@ export type ProDescriptionsItemProps<T = {}> = ProSchema<
     ellipsis?: boolean;
     mode?: ProFieldFCMode;
     children?: React.ReactNode;
-  }
+  },
+  ProSchemaComponentTypes,
+  ValueType
 >;
 export type ProDescriptionsActionType = ProCoreActionType;
 
-export type ProDescriptionsProps<RecordType = {}> = DescriptionsProps & {
-  /**
-   * params 参数
-   * params 改变的时候会触发 reload
-   */
+export type ProDescriptionsProps<
+  RecordType = Record<string, any>,
+  ValueType = 'text'
+> = DescriptionsProps & {
+  /** Params 参数 params 改变的时候会触发 reload */
   params?: Record<string, any>;
-  /**
-   * 网络请求报错
-   */
+  /** 网络请求报错 */
   onRequestError?: (e: Error) => void;
-  /**
-   * 获取数据的方法
-   */
+  /** 获取数据的方法 */
   request?: (params: Record<string, any>) => Promise<RequestData>;
 
-  columns?: ProDescriptionsItemProps<RecordType>[];
+  columns?: ProDescriptionsItemProps<RecordType, ValueType>[];
 
-  /**
-   * 一些简单的操作
-   */
+  /** 一些简单的操作 */
   actionRef?: React.MutableRefObject<ProCoreActionType<any> | undefined>;
 
   loading?: boolean;
@@ -67,30 +64,21 @@ export type ProDescriptionsProps<RecordType = {}> = DescriptionsProps & {
   onLoadingChange?: (loading?: boolean) => void;
 
   tooltip?: string;
-  /**
-   * @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一
-   */
+  /** @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一 */
   tip?: string;
-  /**
-   * form props 的相关配置
-   */
+  /** Form props 的相关配置 */
   formProps?: FormProps;
-  /**
-   * @name 编辑相关的配置
-   */
+  /** @name 编辑相关的配置 */
   editable?: RowEditableConfig<RecordType>;
-  /**
-   * 默认的数据源
-   */
+  /** 默认的数据源 */
   dataSource?: RecordType;
-  /**
-   * 受控数据源改变
-   */
+  /** 受控数据源改变 */
   onDataSourceChange?: (value: RecordType) => void;
 };
 
 /**
  * 根据 dataIndex 获取值，支持 dataIndex 为数组
+ *
  * @param item
  * @param entity
  */
@@ -110,6 +98,7 @@ const getDataFromConfig = (item: ProDescriptionsItemProps, entity: any) => {
 
 /**
  * 这里会处理编辑的功能
+ *
  * @param props
  */
 export const FieldRender: React.FC<
@@ -158,9 +147,7 @@ export const FieldRender: React.FC<
     params,
     plain,
   };
-  /**
-   * 如果是只读模式，fieldProps 的 form是空的，所以需要兜底处理
-   */
+  /** 如果是只读模式，fieldProps 的 form是空的，所以需要兜底处理 */
   if (mode === 'read' || !mode || valueType === 'option') {
     const fieldProps = getFieldPropsOrFormItemProps(props.fieldProps, undefined, {
       ...props,
@@ -197,6 +184,8 @@ export const FieldRender: React.FC<
                 },
                 {
                   isEditable: true,
+                  recordKey: dataIndex,
+                  record: form.getFieldValue([dataIndex].flat(1) as React.ReactText[]),
                   defaultRender: () => <ProFormField {...fieldConfig} fieldProps={fieldProps} />,
                   type: 'descriptions',
                 },
@@ -337,7 +326,9 @@ const ProDescriptionsItem: React.FC<ProDescriptionsItemProps> = (props) => {
   return <Descriptions.Item {...props}>{props.children}</Descriptions.Item>;
 };
 
-const ProDescriptions = <RecordType extends {}>(props: ProDescriptionsProps<RecordType>) => {
+const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'text'>(
+  props: ProDescriptionsProps<RecordType, ValueType>,
+) => {
   const {
     request,
     columns,
@@ -379,9 +370,7 @@ const ProDescriptions = <RecordType extends {}>(props: ProDescriptionsProps<Reco
     setDataSource: action.setDataSource,
   });
 
-  /**
-   * 支持 reload 的功能
-   */
+  /** 支持 reload 的功能 */
   useEffect(() => {
     if (actionRef) {
       actionRef.current = { reload: action.reload };
@@ -424,9 +413,7 @@ const ProDescriptions = <RecordType extends {}>(props: ProDescriptionsProps<Reco
     editable ? editableUtils : undefined,
   );
 
-  /**
-   *  如果不是可编辑模式，没必要注入 ProForm
-   */
+  /** 如果不是可编辑模式，没必要注入 ProForm */
   const FormComponent = editable ? ProForm : (dom: { children: any }) => dom.children;
 
   return (

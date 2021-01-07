@@ -2,6 +2,7 @@ import React from 'react';
 import type { SelectProps } from 'antd/lib/select';
 import ProField from '@ant-design/pro-field';
 import type { ProSchema } from '@ant-design/pro-utils';
+import { runFunction } from '@ant-design/pro-utils';
 import type { ProFormItemProps } from '../../interface';
 import createField from '../../BaseForm/createField';
 
@@ -15,6 +16,7 @@ export type ProFormSelectProps = ProFormItemProps<SelectProps<any>> & {
 
 /**
  * 文本选择组件
+ *
  * @param
  */
 const ProFormSelect = React.forwardRef<any, ProFormSelectProps>(
@@ -22,7 +24,7 @@ const ProFormSelect = React.forwardRef<any, ProFormSelectProps>(
     return (
       <ProField
         mode="edit"
-        valueEnum={valueEnum}
+        valueEnum={runFunction(valueEnum)}
         request={request}
         valueType="select"
         fieldProps={{

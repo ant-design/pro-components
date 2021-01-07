@@ -6,6 +6,7 @@ import './index.less';
 
 /**
  * 在 form 的 label 后面增加一个 tips 来展示一些说明文案
+ *
  * @param props
  */
 const LabelIconTip: React.FC<{

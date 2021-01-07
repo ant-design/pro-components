@@ -69,11 +69,15 @@ interface RequestData {
 
 <code src="./demos/columns.tsx" />
 
-### 可编辑得定义列表
+### 可编辑的定义列表
 
 API 与 ProTable 相同
 
 <code src="./demos/editable.tsx" />
+
+### 自定义 valueType
+
+<code src="./demos/customization-value-type.tsx" />
 
 ## API
 

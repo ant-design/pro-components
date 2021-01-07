@@ -2,6 +2,46 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.9.6...@ant-design/pro-card@1.9.7) (2021-01-07)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [1.9.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.9.5...@ant-design/pro-card@1.9.6) (2021-01-05)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [1.9.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.9.4...@ant-design/pro-card@1.9.5) (2021-01-05)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [1.9.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.9.3...@ant-design/pro-card@1.9.4) (2021-01-04)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [1.9.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.9.2...@ant-design/pro-card@1.9.3) (2021-01-02)
+
+### Bug Fixes
+
+- **card:** fix the wrong background color issue ([#1474](https://github.com/ant-design/pro-components/issues/1474)) ([5ee711a](https://github.com/ant-design/pro-components/commit/5ee711a9f57ba333a251a942e5cc71609e18feec))
+
+## [1.9.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.9.1...@ant-design/pro-card@1.9.2) (2021-01-01)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [1.9.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.9.0...@ant-design/pro-card@1.9.1) (2020-12-31)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+# [1.9.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.8.3...@ant-design/pro-card@1.9.0) (2020-12-31)
+
+### Features
+
+- **card:** support collapsible title ([#1433](https://github.com/ant-design/pro-components/issues/1433)) ([b78338f](https://github.com/ant-design/pro-components/commit/b78338f467f3ff8d51fd4962ad6495c06942e55c))
+
+## [1.8.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.8.2...@ant-design/pro-card@1.8.3) (2020-12-28)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
 ## [1.8.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.8.1...@ant-design/pro-card@1.8.2) (2020-12-25)
 
 **Note:** Version bump only for package @ant-design/pro-card

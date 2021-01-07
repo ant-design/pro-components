@@ -219,7 +219,7 @@ describe('StepsForm', () => {
     expect(fn).toBeCalled();
     expect(currentFn).toBeCalledWith(0);
 
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
     act(() => {
       html.unmount();
     });
@@ -311,9 +311,7 @@ describe('StepsForm', () => {
       </StepsForm>,
     );
     await waitForComponentToPaint(html);
-    /**
-     *  因为上一步有限制，所以应该不触发
-     */
+    /** 因为上一步有限制，所以应该不触发 */
     act(() => {
       html.find('button#rest').simulate('click');
     });
@@ -354,9 +352,7 @@ describe('StepsForm', () => {
       </StepsForm>,
     );
     await waitForComponentToPaint(html);
-    /**
-     *  因为下一步有限制，所以应该不触发
-     */
+    /** 因为下一步有限制，所以应该不触发 */
     act(() => {
       html.find('button#rest').simulate('click');
     });

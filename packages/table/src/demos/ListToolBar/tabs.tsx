@@ -1,9 +1,5 @@
-/**
- * title: 无标题
- * desc: 没有标题的情况下搜索框会前置。
- */
+/** Title: 带标签 desc: 标签需配合 `multipleLine` 为 `true` 时使用。 */
 import React from 'react';
-import { Button } from 'antd';
 import { EllipsisOutlined } from '@ant-design/icons';
 import { LightFilter, ProFormDatePicker } from '@ant-design/pro-form';
 import type { ProColumns } from '@ant-design/pro-table';
@@ -56,8 +52,8 @@ const columns: ProColumns<TableListItem>[] = [
   {
     title: '操作',
     key: 'option',
-    width: 120,
     valueType: 'option',
+    width: 120,
     render: () => [
       <a key="link">链路</a>,
       <a key="warn">报警</a>,
@@ -81,27 +77,25 @@ export default () => {
         });
       }}
       toolbar={{
-        search: {
-          onSearch: (value: string) => {
-            alert(value);
-          },
-        },
+        title: '标签',
+        multipleLine: true,
         filter: (
           <LightFilter>
             <ProFormDatePicker name="startdate" label="响应日期" />
           </LightFilter>
         ),
-        actions: [
-          <Button
-            key="primary"
-            type="primary"
-            onClick={() => {
-              alert('add');
-            }}
-          >
-            添加
-          </Button>,
-        ],
+        tabs: {
+          items: [
+            {
+              key: 'tab1',
+              tab: '标签一',
+            },
+            {
+              key: 'tab2',
+              tab: '标签二',
+            },
+          ],
+        },
       }}
       rowKey="key"
       search={false}

@@ -53,7 +53,7 @@ describe('descriptions', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
     expect(fn).toBeCalled();
   });
 
@@ -76,7 +76,7 @@ describe('descriptions', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
     expect(html.find('.ant-skeleton').exists()).toBeTruthy();
 
     act(() => {
@@ -84,7 +84,7 @@ describe('descriptions', () => {
         loading: false,
       });
     });
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
     // props 指定为 false 后，无论 request 完成与否都不会出现 spin
     expect(html.find('.ant-skeleton').exists()).toBeFalsy();
   });

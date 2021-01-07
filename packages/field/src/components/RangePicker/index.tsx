@@ -12,6 +12,7 @@ const ACTIVE_PICKER_INDEX_RIGHT = 1;
 
 /**
  * 日期范围选择组件
+ *
  * @param
  */
 const FieldRangePicker: ProFieldFC<{
@@ -19,18 +20,7 @@ const FieldRangePicker: ProFieldFC<{
   format: string;
   showTime?: boolean;
 }> = (
-  {
-    text,
-    mode,
-    format = 'YYYY-MM-DD',
-    label,
-    render,
-    renderFormItem,
-    plain,
-    showTime,
-    fieldProps,
-    light,
-  },
+  { text, mode, format, label, render, renderFormItem, plain, showTime, fieldProps, light },
   ref,
 ) => {
   const intl = useIntl();
@@ -41,8 +31,8 @@ const FieldRangePicker: ProFieldFC<{
   const [open, setOpen] = useState<boolean>(false);
   // activePickerIndex for https://github.com/ant-design/ant-design/issues/22158
   const [activePickerIndex, setActivePickerIndex] = useState<0 | 1>();
-  const parsedStartText: string = startText ? moment(startText).format(format) : '';
-  const parsedEndText: string = endText ? moment(endText).format(format) : '';
+  const parsedStartText: string = startText ? moment(startText).format(format || 'YYYY-MM-DD') : '';
+  const parsedEndText: string = endText ? moment(endText).format(format || 'YYYY-MM-DD') : '';
 
   if (mode === 'read') {
     const dom = (

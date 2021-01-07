@@ -7,13 +7,9 @@ import type { ProCardProps } from '../../index';
 import ProCard from '../../index';
 
 export type ProCardTabPaneProps = {
-  /**
-   * key
-   */
+  /** Key */
   key?: string;
-  /**
-   * ProCard 相关属性透传
-   */
+  /** ProCard 相关属性透传 */
   cardProps?: ProCardProps;
 } & TabPaneProps;
 

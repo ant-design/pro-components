@@ -11,6 +11,7 @@ export type ProFormSwitchProps = ProFormItemProps<SwitchProps> & {
 
 /**
  * 单选 Switch
+ *
  * @param
  */
 const ProFormSwitch: React.FC<ProFormSwitchProps> = React.forwardRef(

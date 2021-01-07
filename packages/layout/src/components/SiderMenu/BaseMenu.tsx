@@ -19,9 +19,7 @@ import PageLoading from '../PageLoading';
 
 export type BaseMenuProps = {
   className?: string;
-  /**
-   *默认的是否展开，会受到 breakpoint 的影响
-   */
+  /** 默认的是否展开，会受到 breakpoint 的影响 */
   defaultCollapsed?: boolean;
   collapsed?: boolean;
   splitMenus?: boolean;
@@ -32,9 +30,7 @@ export type BaseMenuProps = {
   openKeys?: WithFalse<string[]> | undefined;
   handleOpenChange?: (openKeys: string[]) => void;
 
-  /**
-   * 要给菜单的props, 参考antd-menu的属性。https://ant.design/components/menu-cn/
-   */
+  /** 要给菜单的props, 参考antd-menu的属性。https://ant.design/components/menu-cn/ */
   menuProps?: MenuProps;
   style?: React.CSSProperties;
   theme?: MenuTheme;
@@ -96,9 +92,7 @@ class MenuUtil {
   getNavMenuItems = (menusData: MenuDataItem[] = [], isChildren: boolean): React.ReactNode[] =>
     menusData.map((item) => this.getSubMenuOrItem(item, isChildren)).filter((item) => item);
 
-  /**
-   * get SubMenu or Item
-   */
+  /** Get SubMenu or Item */
   getSubMenuOrItem = (item: MenuDataItem, isChildren: boolean): React.ReactNode => {
     if (Array.isArray(item.children) && item && item.children.length > 0) {
       const name = this.getIntlName(item);
@@ -126,7 +120,12 @@ class MenuUtil {
     }
 
     return (
-      <Menu.Item inlineIndent={24} disabled={item.disabled} key={item.key || item.path}>
+      <Menu.Item
+        inlineIndent={24}
+        disabled={item.disabled}
+        key={item.key || item.path}
+        onClick={item.onTitleClick}
+      >
         {this.getMenuItemPath(item, isChildren)}
       </Menu.Item>
     );
@@ -150,8 +149,8 @@ class MenuUtil {
   };
 
   /**
-   * 判断是否是http链接.返回 Link 或 a
-   * Judge whether it is http link.return a or Link
+   * 判断是否是http链接.返回 Link 或 a Judge whether it is http link.return a or Link
+   *
    * @memberof SiderMenu
    */
   getMenuItemPath = (item: MenuDataItem, isChildren: boolean) => {
@@ -204,6 +203,7 @@ class MenuUtil {
 
 /**
  * 生成openKeys 的对象，因为设置了openKeys 就会变成受控，所以需要一个空对象
+ *
  * @param BaseMenuProps
  */
 const getOpenKeysProps = (

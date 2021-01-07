@@ -3,21 +3,13 @@ import { MenuTheme } from 'antd/es/menu/MenuContext';
 export type ContentWidth = 'Fluid' | 'Fixed';
 
 export interface RenderSetting {
-  /**
-   * @name false 时不展示顶栏
-   */
+  /** @name false 时不展示顶栏 */
   headerRender?: false;
-  /**
-   * @name false 时不展示页脚
-   */
+  /** @name false 时不展示页脚 */
   footerRender?: false;
-  /**
-   * @name false 时不展示菜单
-   */
+  /** @name false 时不展示菜单 */
   menuRender?: false;
-  /**
-   * @name false 时不展示菜单顶栏
-   */
+  /** @name false 时不展示菜单顶栏 */
   menuHeaderRender?: false;
 }
 export interface PureSettings {
@@ -27,23 +19,18 @@ export interface PureSettings {
    */
   navTheme: MenuTheme | 'realDark' | undefined;
   /**
+   * Side 为正常模式，top菜单显示在顶部，mix 两种兼有
+   *
    * @name nav menu position: `side` or `top`
    * @name 导航菜单的位置
-   * @description side 为正常模式，top菜单显示在顶部，mix 两种兼有
    */
   layout: 'side' | 'top' | 'mix';
-  /**
-   * layout of content: `Fluid` or `Fixed`, only works when layout is top
-   */
+  /** Layout of content: `Fluid` or `Fixed`, only works when layout is top */
   contentWidth: ContentWidth;
 
-  /**
-   * sticky header
-   */
+  /** Sticky header */
   fixedHeader: boolean;
-  /**
-   * sticky siderbar
-   */
+  /** Sticky siderbar */
   fixSiderbar: boolean;
   menu: { locale?: boolean; defaultOpenAll?: boolean };
   title: string;

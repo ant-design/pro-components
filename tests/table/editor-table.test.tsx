@@ -84,6 +84,9 @@ const columns: ProColumns<DataSourceType>[] = [
     title: '标题',
     dataIndex: 'title',
     copyable: true,
+    fieldProps: {
+      onChange: () => null,
+    },
     ellipsis: true,
     tip: '标题过长会自动收缩',
     formItemProps: {
@@ -248,8 +251,13 @@ describe('EditorProTable', () => {
         rowKey="id"
         recordCreatorProps={false}
         columns={columns}
+        request={async () => ({
+          data: defaultData,
+          total: 3,
+          success: true,
+        })}
         editable={{
-          editableKeys: [],
+          editableKeys: [624748504],
           actionRender: () => [
             <div key="test" id="test">
               xx
@@ -259,7 +267,7 @@ describe('EditorProTable', () => {
         value={defaultData}
       />,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find('div#test').text()).toBe('xx');
   });
 
   it('📝 EditableProTable support recordCreatorProps', async () => {

@@ -1,31 +1,77 @@
 ﻿import React, { useState } from 'react';
-import { Button, Result } from 'antd';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
+import type { BasicLayoutProps } from '@ant-design/pro-layout';
 
 import ProLayout, { PageContainer } from '@ant-design/pro-layout';
+import { ProFormRadio } from '@ant-design/pro-form';
 import defaultProps from './_defaultProps';
 
 export default () => {
   const [pathname, setPathname] = useState('/welcome');
   const [collapsed, setCollapsed] = useState(false);
+  const [position, setPosition] = useState<'header' | 'menu'>('header');
+  const children = (
+    <PageContainer>
+      <div
+        style={{
+          height: '120vh',
+        }}
+      >
+        <ProFormRadio.Group
+          label="按钮的位置"
+          options={['header', 'menu'].map((value) => ({
+            label: value,
+            value,
+          }))}
+          fieldProps={{
+            value: position,
+            onChange: (e) => setPosition(e.target.value),
+          }}
+        />
+      </div>
+    </PageContainer>
+  );
+  const props: BasicLayoutProps = {
+    ...defaultProps,
+    location: {
+      pathname,
+    },
+    navTheme: 'light',
+    collapsed,
+    fixSiderbar: true,
+    collapsedButtonRender: false,
+    menuItemRender: (item, dom) => (
+      <a
+        onClick={() => {
+          setPathname(item.path || '/welcome');
+        }}
+      >
+        {dom}
+      </a>
+    ),
+  };
+  if (position === 'menu') {
+    return (
+      <ProLayout
+        {...props}
+        postMenuData={(menuData) => {
+          return [
+            {
+              icon: collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />,
+              name: ' ',
+              onTitleClick: () => setCollapsed(!collapsed),
+            },
+            ...(menuData || []),
+          ];
+        }}
+      >
+        {children}
+      </ProLayout>
+    );
+  }
   return (
     <ProLayout
-      {...defaultProps}
-      location={{
-        pathname,
-      }}
-      collapsed={collapsed}
-      collapsedButtonRender={false}
-      fixSiderbar
-      menuItemRender={(item, dom) => (
-        <a
-          onClick={() => {
-            setPathname(item.path || '/welcome');
-          }}
-        >
-          {dom}
-        </a>
-      )}
+      {...props}
       headerContentRender={() => {
         return (
           <div
@@ -40,35 +86,7 @@ export default () => {
         );
       }}
     >
-      <PageContainer
-        tabList={[
-          {
-            tab: '基本信息',
-            key: 'base',
-          },
-          {
-            tab: '详细信息',
-            key: 'info',
-          },
-        ]}
-      >
-        <div
-          style={{
-            height: '120vh',
-          }}
-        >
-          <Result
-            status="404"
-            style={{
-              height: '100%',
-              background: '#fff',
-            }}
-            title="Hello World"
-            subTitle="Sorry, you are not authorized to access this page."
-            extra={<Button type="primary">Back Home</Button>}
-          />
-        </div>
-      </PageContainer>
+      {children}
     </ProLayout>
   );
 };
