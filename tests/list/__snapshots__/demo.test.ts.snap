@@ -1261,25 +1261,9 @@ exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 
                   >
                     <li>
                       <div>
-                        <div
-                          class="ant-space ant-space-horizontal ant-space-align-center"
-                        >
-                          <div
-                            class="ant-space-item"
-                            style="margin-right: 16px;"
-                          >
-                            <a>
-                              邀请
-                            </a>
-                          </div>
-                          <div
-                            class="ant-space-item"
-                          >
-                            <a>
-                              邀请
-                            </a>
-                          </div>
-                        </div>
+                        <a>
+                          邀请
+                        </a>
                       </div>
                     </li>
                   </ul>
@@ -1388,25 +1372,9 @@ exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 
                   >
                     <li>
                       <div>
-                        <div
-                          class="ant-space ant-space-horizontal ant-space-align-center"
-                        >
-                          <div
-                            class="ant-space-item"
-                            style="margin-right: 16px;"
-                          >
-                            <a>
-                              邀请
-                            </a>
-                          </div>
-                          <div
-                            class="ant-space-item"
-                          >
-                            <a>
-                              邀请
-                            </a>
-                          </div>
-                        </div>
+                        <a>
+                          邀请
+                        </a>
                       </div>
                     </li>
                   </ul>
@@ -1515,25 +1483,9 @@ exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 
                   >
                     <li>
                       <div>
-                        <div
-                          class="ant-space ant-space-horizontal ant-space-align-center"
-                        >
-                          <div
-                            class="ant-space-item"
-                            style="margin-right: 16px;"
-                          >
-                            <a>
-                              邀请
-                            </a>
-                          </div>
-                          <div
-                            class="ant-space-item"
-                          >
-                            <a>
-                              邀请
-                            </a>
-                          </div>
-                        </div>
+                        <a>
+                          邀请
+                        </a>
                       </div>
                     </li>
                   </ul>
@@ -1642,25 +1594,9 @@ exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 
                   >
                     <li>
                       <div>
-                        <div
-                          class="ant-space ant-space-horizontal ant-space-align-center"
-                        >
-                          <div
-                            class="ant-space-item"
-                            style="margin-right: 16px;"
-                          >
-                            <a>
-                              邀请
-                            </a>
-                          </div>
-                          <div
-                            class="ant-space-item"
-                          >
-                            <a>
-                              邀请
-                            </a>
-                          </div>
-                        </div>
+                        <a>
+                          邀请
+                        </a>
                       </div>
                     </li>
                   </ul>
