@@ -27,8 +27,7 @@ import {
   transformKeySubmitValue,
   getFieldPropsOrFormItemProps,
 } from '@ant-design/pro-utils';
-
-import { genColumnKey } from '../../utils';
+import namePathSet from 'rc-util/lib/utils/set';
 import type { ProColumns } from '../../index';
 import './index.less';
 
@@ -351,20 +350,27 @@ const FormSearch = <T, U = any>({
   );
 
   const genTransform = () => {
-    const tempMap = {};
-    const transformKeyMap = {};
+    let tempMap = {};
+    let transformKeyMap = {};
 
     columns.forEach((item) => {
       const { key, dataIndex, index, valueType, search } = item;
       // 以key为主,理论上key唯一
-      const finalKey = genColumnKey((key || dataIndex) as string, index);
+      const finalKey = [key || dataIndex || index].flat(1) as string[];
       // 如果是() => ValueType 需要特殊处理一下
-      tempMap[finalKey] =
-        typeof valueType === 'function' ? valueType(item as any, type) : valueType;
+      tempMap = namePathSet(
+        transformKeyMap,
+        finalKey,
+        typeof valueType === 'function' ? valueType(item as any, type) : valueType,
+      );
       const columnSearchConfig = omitBoolean(search);
       if (columnSearchConfig) {
-        transformKeyMap[finalKey] = (value: any, fieldName: string, target: any) =>
-          columnSearchConfig.transform(value, fieldName, target);
+        transformKeyMap = namePathSet(
+          transformKeyMap,
+          finalKey,
+          (value: any, fieldName: string, target: any) =>
+            columnSearchConfig.transform(value, fieldName, target),
+        );
       }
     });
 
