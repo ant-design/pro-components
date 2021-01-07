@@ -28,10 +28,17 @@
   }
 
   &-setting-item {
-    padding: 0 4px;
+    margin: 0 4px;
     color: @icon-color-hover;
     font-size: @font-size-lg;
     cursor: pointer;
+
+    span {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
     &:hover {
       color: @primary-color;
     }
@@ -41,11 +48,13 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    line-height: 1;
   }
 
   &-right {
     display: flex;
     justify-content: flex-end;
+    line-height: 1;
   }
 
   &-extra-line {
