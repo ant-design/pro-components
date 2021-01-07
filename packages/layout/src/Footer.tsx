@@ -46,10 +46,17 @@ export type FooterProps = {
   prefixCls?: string;
 };
 
-const FooterView: React.FC<FooterProps> = ({ links, copyright, style, className, prefixCls }: FooterProps) => (
+const FooterView: React.FC<FooterProps> = ({
+  links,
+  copyright,
+  style,
+  className,
+  prefixCls,
+}: FooterProps) => (
   <Footer className={className} style={{ padding: 0, ...style }}>
     <GlobalFooter
       links={links !== undefined ? links : defaultLinks}
+      prefixCls={prefixCls}
       copyright={
         copyright === false ? null : (
           <Fragment>
