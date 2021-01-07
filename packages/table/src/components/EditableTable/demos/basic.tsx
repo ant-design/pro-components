@@ -89,7 +89,7 @@ export default () => {
             disabled: true,
           };
         }
-        if (rowIndex < 2) {
+        if (rowIndex > 9) {
           return {
             disabled: true,
           };
