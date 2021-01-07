@@ -11,7 +11,7 @@ import type { CommonFormProps } from '../../BaseForm';
 import BaseForm from '../../BaseForm';
 import { noteOnce } from 'rc-util/lib/warning';
 
-export type ModalFormProps = Omit<FormProps, 'onFinish'> &
+export type ModalFormProps = Omit<FormProps, 'onFinish' | 'title'> &
   CommonFormProps & {
     /**
      * 接受返回一个boolean，返回 true 会关掉这个弹窗
