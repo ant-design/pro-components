@@ -18,6 +18,7 @@ import {
   omitUndefined,
   useMountMergeState,
   useEditableArray,
+  ErrorBoundary,
 } from '@ant-design/pro-utils';
 import omit from 'omit.js';
 
@@ -34,7 +35,6 @@ import {
   tableColumnSort,
   genColumnList,
 } from './utils';
-import ErrorBoundary from './components/ErrorBoundary';
 
 import './index.less';
 import type {

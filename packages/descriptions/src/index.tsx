@@ -15,6 +15,7 @@ import {
   InlineErrorFormItem,
   LabelIconTip,
   useEditableMap,
+  ErrorBoundary,
   getFieldPropsOrFormItemProps,
 } from '@ant-design/pro-utils';
 import get from 'rc-util/lib/utils/get';
@@ -417,24 +418,26 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
   const FormComponent = editable ? ProForm : (dom: { children: any }) => dom.children;
 
   return (
-    <FormComponent component={false} submitter={false} {...formProps} onFinish={undefined}>
-      <Descriptions
-        {...rest}
-        extra={
-          rest.extra ? (
-            <Space>
-              {options}
-              {rest.extra}
-            </Space>
-          ) : (
-            options
-          )
-        }
-        title={<LabelIconTip label={rest.title} tooltip={rest.tooltip || rest.tip} />}
-      >
-        {children}
-      </Descriptions>
-    </FormComponent>
+    <ErrorBoundary>
+      <FormComponent component={false} submitter={false} {...formProps} onFinish={undefined}>
+        <Descriptions
+          {...rest}
+          extra={
+            rest.extra ? (
+              <Space>
+                {options}
+                {rest.extra}
+              </Space>
+            ) : (
+              options
+            )
+          }
+          title={<LabelIconTip label={rest.title} tooltip={rest.tooltip || rest.tip} />}
+        >
+          {children}
+        </Descriptions>
+      </FormComponent>
+    </ErrorBoundary>
   );
 };
 
