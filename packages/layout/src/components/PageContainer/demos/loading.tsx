@@ -7,7 +7,6 @@ export default () => (
     style={{
       boxShadow: '0 0 8px rgba(0, 0, 0, 0.2)',
       background: '#F5F7FA',
-      height: 400,
     }}
   >
     <PageContainer
