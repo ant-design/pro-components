@@ -417,6 +417,19 @@ describe('Field', () => {
       />,
     );
     expect(html).toMatchSnapshot();
+
+    html = render(
+      <Field
+        text="100"
+        valueType={{
+          type: 'money',
+          moneySymbol: '',
+          locale: 'en_US',
+        }}
+        mode="read"
+      />,
+    );
+    expect(html).toMatchSnapshot();
   });
 
   it('🐴 percent valueType is Object', async () => {

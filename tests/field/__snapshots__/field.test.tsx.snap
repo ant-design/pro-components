@@ -2540,6 +2540,12 @@ exports[`Field 🐴 money valueType is Object 2`] = `
 </span>
 `;
 
+exports[`Field 🐴 money valueType is Object 3`] = `
+<span>
+  ￥ 100
+</span>
+`;
+
 exports[`Field 🐴 options support dom list 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
