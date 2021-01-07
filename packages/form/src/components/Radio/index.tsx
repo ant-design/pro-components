@@ -15,7 +15,7 @@ export type ProFormRadioGroupProps = ProFormItemProps<RadioGroupProps> & {
 };
 
 const RadioGroup: React.FC<ProFormRadioGroupProps> = React.forwardRef(
-  ({ fieldProps, options, radioType, proFieldProps }, ref: any) => {
+  ({ fieldProps, options, radioType, layout, proFieldProps }, ref: any) => {
     return (
       <ProField
         mode="edit"
@@ -23,6 +23,7 @@ const RadioGroup: React.FC<ProFormRadioGroupProps> = React.forwardRef(
         ref={ref}
         fieldProps={{
           options,
+          layout,
           ...fieldProps,
         }}
         {...proFieldProps}
