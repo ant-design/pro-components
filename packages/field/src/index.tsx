@@ -127,7 +127,7 @@ const defaultRenderText = (
   }
   const { mode = 'read', emptyText = '-' } = props;
 
-  const customValueTypeConfig = valueTypeMap[valueType as string];
+  const customValueTypeConfig = valueTypeMap && valueTypeMap[valueType as string];
   if (customValueTypeConfig) {
     // eslint-disable-next-line no-param-reassign
     delete props.ref;
