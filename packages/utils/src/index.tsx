@@ -57,6 +57,7 @@ import type {
   ProFieldFCRenderProps,
   ProRenderFieldPropsType,
 } from '@ant-design/pro-provider';
+import ErrorBoundary from './components/ErrorBoundary';
 
 export type {
   ProSchema,
@@ -90,6 +91,7 @@ export {
   FieldLabel,
   InlineErrorFormItem,
   DropdownFooter,
+  ErrorBoundary,
   // function
   transformKeySubmitValue,
   conversionSubmitValue,
