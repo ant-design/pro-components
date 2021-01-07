@@ -391,6 +391,13 @@ export function genColumnList<T>(props: {
       }
       const { propsRef } = counter;
       const config = map[columnKey] || { fixed: columnProps.fixed };
+
+      const genOnFilter = () => {
+        if (!propsRef.current?.request || onFilter === true) {
+          return (value: string, row: T) => defaultOnFilter(value, row, dataIndex as string[]);
+        }
+        return omitBoolean(onFilter);
+      };
       const tempColumns = {
         index: columnsIndex,
         ...columnProps,
@@ -402,11 +409,7 @@ export function genColumnList<T>(props: {
                 runFunction<[undefined]>(valueEnum, undefined),
               ).filter((valueItem) => valueItem && valueItem.value !== 'all')
             : filters,
-        onFilter:
-          (!propsRef.current?.request && onFilter === true) ||
-          (filters === true && onFilter !== undefined)
-            ? (value: string, row: T) => defaultOnFilter(value, row, dataIndex as string[])
-            : omitBoolean(onFilter),
+        onFilter: genOnFilter(),
         ellipsis: false,
         fixed: config.fixed,
         width: columnProps.width || (columnProps.fixed ? 200 : undefined),
