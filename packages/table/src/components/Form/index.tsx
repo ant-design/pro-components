@@ -435,7 +435,7 @@ const FormSearch = <T, U = any>({
     [isForm, type],
   );
 
-  const [domList, setDomList] = useState<JSX.Element[]>(() => updateDomList(columnsList));
+  const [domList, setDomList] = useState<JSX.Element[]>(() => []);
 
   useDeepCompareEffect(() => {
     if (columnsList.length < 1) return;
