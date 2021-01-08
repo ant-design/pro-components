@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.2.14...@ant-design/pro-list@1.2.15) (2021-01-08)
+
+### Bug Fixes
+
+- **list:** the action of a list is no longer bubbled ([#1543](https://github.com/ant-design/pro-components/issues/1543)) ([e8d35f9](https://github.com/ant-design/pro-components/commit/e8d35f9fd2655b53e88b6c9ea519d8e6a7c68b12))
+
 ## [1.2.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.2.13...@ant-design/pro-list@1.2.14) (2021-01-07)
 
 ### Bug Fixes

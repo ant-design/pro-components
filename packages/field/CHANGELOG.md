@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.8.2...@ant-design/pro-field@1.8.3) (2021-01-08)
+
+### Bug Fixes
+
+- **filed:** moneySymbol support config ([#1545](https://github.com/ant-design/pro-components/issues/1545)) ([9f60b04](https://github.com/ant-design/pro-components/commit/9f60b0417b441a43c07716e7ea192eeb79648f20))
+- **form:** fix ProFormRadio.Group vertical style error ([#1542](https://github.com/ant-design/pro-components/issues/1542)) ([e7d42d7](https://github.com/ant-design/pro-components/commit/e7d42d704961965d0aa9e38c53868e4242044fa7))
+- **table:** add exception handling ([#1525](https://github.com/ant-design/pro-components/issues/1525)) ([137c6c5](https://github.com/ant-design/pro-components/commit/137c6c574dff2570d6ae30c858ab4b48d62c0b0e))
+
 ## [1.8.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.8.1...@ant-design/pro-field@1.8.2) (2021-01-07)
 
 ### Bug Fixes

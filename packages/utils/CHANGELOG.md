@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.10.1...@ant-design/pro-utils@1.10.2) (2021-01-08)
+
+### Bug Fixes
+
+- **descriptions:** support ErrorBoundary ([#1541](https://github.com/ant-design/pro-components/issues/1541)) ([15a1601](https://github.com/ant-design/pro-components/commit/15a1601e2f553ab97aae8133f8b6b924698b42ff))
+- **filed:** moneySymbol support config ([#1545](https://github.com/ant-design/pro-components/issues/1545)) ([9f60b04](https://github.com/ant-design/pro-components/commit/9f60b0417b441a43c07716e7ea192eeb79648f20))
+- **form:** fix transform no work when namePath is array ([#1537](https://github.com/ant-design/pro-components/issues/1537)) ([ca244fe](https://github.com/ant-design/pro-components/commit/ca244fe2c17a2a397909340d23cbed49a1b2c5a9))
+
 ## [1.10.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.10.0...@ant-design/pro-utils@1.10.1) (2021-01-07)
 
 **Note:** Version bump only for package @ant-design/pro-utils

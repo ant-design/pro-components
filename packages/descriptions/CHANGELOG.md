@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.4.2...@ant-design/pro-descriptions@1.4.3) (2021-01-08)
+
+### Bug Fixes
+
+- **descriptions:** support ErrorBoundary ([#1541](https://github.com/ant-design/pro-components/issues/1541)) ([15a1601](https://github.com/ant-design/pro-components/commit/15a1601e2f553ab97aae8133f8b6b924698b42ff))
+
 ## [1.4.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.4.1...@ant-design/pro-descriptions@1.4.2) (2021-01-07)
 
 **Note:** Version bump only for package @ant-design/pro-descriptions

@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-card",
-  "version": "1.9.7",
+  "version": "1.9.8",
   "description": "@ant-design/pro-card",
   "keywords": [
     "antd",
@@ -34,7 +34,7 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
-    "@ant-design/pro-utils": "1.10.1",
+    "@ant-design/pro-utils": "1.10.2",
     "classnames": "^2.2.6"
   },
   "peerDependencies": {
