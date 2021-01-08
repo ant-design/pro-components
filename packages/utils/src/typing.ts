@@ -63,6 +63,7 @@ export type ProFieldValueObjectType = {
   showSymbol?: boolean;
   showColor?: boolean;
   precision?: number;
+  moneySymbol?: string;
   request?: ProFieldRequestData;
 
   /** Image */

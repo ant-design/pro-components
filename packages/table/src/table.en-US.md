@@ -387,7 +387,7 @@ ref.current.cancelEditable(rowKey);
 | filters | Filter menu item in table header, automatically generated with valueEnum when value is true | `boolean` \| `object[]` | false |
 | onFilter | Filter form, use ProTable's own when true, turn off local filtering when false | `(value, record) => boolean` \| 'false' | false |
 | order | Query the weight of the form, with the higher weight sorted first | `number` | - |
-| renderFormItem | Render the input component of the query form | `(item,props:{value,onChange}) => ReactNode` | - |
+| renderFormItem | Render the input component of the query form | `(item,{ type, defaultRender, formItemProps, fieldProps, ...rest },form) => ReactNode` | - |
 | fieldProps | The props of the query form that will be passed through to the form item | `{ [prop: string]: any }` | - |
 | search | search-related configuration columns, false is hidden | `false` \| `{ transform: (value: any) => any }` | true |
 | search.transform | The key of the transformed value, typically used for transforming event intervals | `(value: any) => any` | - |

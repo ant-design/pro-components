@@ -96,6 +96,7 @@ export default () => (
       search={{
         defaultCollapsed: false,
         span: 12,
+        labelWidth: 'auto',
       }}
       rowKey="key"
       headerTitle="样式类"

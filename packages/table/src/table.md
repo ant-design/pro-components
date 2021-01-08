@@ -105,7 +105,6 @@ renderFormItem: (_, { type, defaultRender, formItemProps, fieldProps, ...rest },
     item: ProColumns<T>,
     config: {
       value?: any;
-      onChange?: (value: any) => void;
       onSelect?: (value: any) => void;
       type: ProTableTypes;
       defaultRender: (newItem: ProColumns<any>) => JSX.Element | null;
@@ -396,7 +395,7 @@ ref.current.cancelEditable(rowKey);
 | filters | 表头的筛选菜单项，当值为 true 时，自动使用 valueEnum 生成 | `boolean` \| `object[]` | false |
 | onFilter | 筛选表单，为 true 时使用 ProTable 自带的，为 false 时关闭本地筛选 | `(value, record) => boolean` \| 'false' | false |
 | order | 查询表单中的权重，权重大排序靠前 | `number` | - |
-| renderFormItem | 渲染查询表单的输入组件 | `(item,props:{value,onChange}) => ReactNode` | - |
+| renderFormItem | 渲染查询表单的输入组件 | `(item,{ type, defaultRender, formItemProps, fieldProps, ...rest },form) => ReactNode` | - |
 | fieldProps | 查询表单的 props，会透传给表单项 | `{ [prop: string]: any }` | - |
 | search | 配置列的搜索相关，false 为隐藏 | `false` \| `{ transform: (value: any) => any }` | true |
 | search.transform | 转化值的 key, 一般用于事件区间的转化 | `(value: any) => any` | - |

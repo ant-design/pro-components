@@ -88,6 +88,7 @@ const defaultRenderTextByObject = (
         {...props}
         fieldProps={pickFormItemProps}
         text={text as number}
+        moneySymbol={valueType.moneySymbol}
       />
     );
   }

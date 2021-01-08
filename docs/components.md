@@ -150,7 +150,6 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
     config: {
       index?: number;
       value?: any;
-      onChange?: (value: any) => void;
       onSelect?: (value: any) => void;
       type: ProSchemaComponentTypes;
       defaultRender: (newItem: ProSchema<T, U, Extra>) => JSX.Element | null;
