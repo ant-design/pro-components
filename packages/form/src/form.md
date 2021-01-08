@@ -194,16 +194,25 @@ ProForm 是 antd Form 的再封装，如果你想要自定义表单元素，ProF
       submitText: '提交',
     },
     // 配置按钮的属性
-    resetButtonProps: {},
+    resetButtonProps: {
+      style: {
+        // 隐藏重置按钮
+        display: 'none',
+      },
+    },
     submitButtonProps: {},
 
     // 完全自定义整个区域
     render: (props, doms) => {
-      return (
-        <button type="button" id="rest" onClick={() => props?.onReset?.()}>
-          rest
-        </button>
-      );
+      console.log(props);
+      return [
+        <button type="button" key="rest" onClick={() => props.form?.resetFields()}>
+          重置
+        </button>,
+        <button type="button" key="submit" onClick={() => props.form?.submit?.()}>
+          提交
+        </button>,
+      ];
     },
   }}
 />
@@ -305,6 +314,48 @@ DrawerForm 组合了 Drawer 和 ProForm 可以减少繁琐的状态管理。
 | title | 抽屉的标题 | `ReactNode` | - |
 | width | 抽屉的宽度 | `Number` | - |
 | onFinish | 提交数据时触发，如果返回一个 true，会关掉抽屉并且重置表单 | `async (values)=>boolean` | - |
+
+### ProFormFieldSet
+
+ProFormFieldSet 可以将内部的多个 children 的值组合并且存储在 ProForm 中，并且可以通过 `transform` 在提交时转化。下面是一个简单的用法,可以方便的组合多个输入框，并且格式化为想要的数据。
+
+```tsx | pure
+<ProFormFieldSet
+  name="list"
+  label="组件列表"
+  transform={(value: any) => ({ startTime: value[0], endTime: value[1] })}
+>
+  <ProFormText width="md" />
+  <ProFormText width="md" />
+  <ProFormText width="md" />
+</ProFormFieldSet>
+```
+
+### ProFormDependency
+
+ProFormDependency 是一个简化版本的 Form.Item，它默认内置了 noStyle 与 shouldUpdate，我们只需要配置 name 来确定我们依赖哪个数据，ProFormDependency 会自动处理 diff 和值获取的功能。
+
+name 参数必须要是一个数组，如果是嵌套的结构可以这样配置 `name={['name', ['name2', 'text']]}`。配置的 name 的值会在 renderProps 中传入。`name={['name', ['name2', 'text']]}` 传入的 values 的值 为 `{ name: string,name2: { text:string } }`。
+
+```tsx | pure
+<ProFormDependency name={['name']}>
+  {(values) => {
+    return (
+      <ProFormSelect
+        options={[
+          {
+            value: 'chapter',
+            label: '盖章后生效',
+          },
+        ]}
+        width="md"
+        name="useMode"
+        label={`与《${values?.name || ''}》合同约定生效方式`}
+      />
+    );
+  }}
+</ProFormDependency>
+```
 
 ## Fields API
 
@@ -573,20 +624,4 @@ ProForm 自带的 Filed ,与 valueType 基本上一一对应。
   max={10}
   fieldProps={{ precision: 0 }}
 />
-```
-
-### ProFormFieldSet
-
-ProFormFieldSet 可以将内部的多个 children 的值组合并且存储在 ProForm 中，并且可以通过 `transform` 在提交时转化。下面是一个简单的用法,可以方便的组合多个输入框，并且格式化为想要的数据。
-
-```tsx | pure
-<ProFormFieldSet
-  name="list"
-  label="组件列表"
-  transform={(value: any) => ({ startTime: value[0], endTime: value[1] })}
->
-  <ProFormText width="md" />
-  <ProFormText width="md" />
-  <ProFormText width="md" />
-</ProFormFieldSet>
 ```
