@@ -20050,7 +20050,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
             >
               <label
                 class=""
@@ -20119,7 +20118,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
             >
               <label
                 class=""
@@ -20227,7 +20225,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
         >
           <div
             class="ant-col ant-form-item-label"
-            style="flex: 0 0 80px;"
           >
             <label
               class=""
@@ -31294,7 +31291,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
             >
               <label
                 class=""
@@ -31363,7 +31359,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
             >
               <label
                 class=""
@@ -31475,7 +31470,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
             >
               <label
                 class=""
@@ -39007,7 +39001,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
             >
               <label
                 class=""
@@ -39129,7 +39122,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
             >
               <label
                 class=""
@@ -39245,7 +39237,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
             >
               <label
                 class=""
@@ -39361,7 +39352,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
             >
               <label
                 class=""
