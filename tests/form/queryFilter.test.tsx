@@ -33,7 +33,6 @@ describe('QueryFilter', () => {
     const onFinish = jest.fn();
     const wrapper = mount(
       <QueryFilter
-        defaultColsNumber={1}
         defaultCollapsed
         onFinish={onFinish}
         initialValues={{
@@ -43,13 +42,14 @@ describe('QueryFilter', () => {
       >
         <ProFormText label="a" name="a" />
         <ProFormText label="b" name="b" />
+        <ProFormText label="c" name="c" />
       </QueryFilter>,
     );
     act(() => {
       wrapper.find('.ant-btn-primary').simulate('submit');
     });
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-input').length).toEqual(2);
+    expect(wrapper.find('.ant-input').length).toEqual(3);
     expect(wrapper.find('.ant-row.ant-form-item-hidden').length).toEqual(1);
     expect(wrapper.find('.anticon-down').length).toEqual(1);
     expect(onFinish).toHaveBeenCalledWith({

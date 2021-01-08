@@ -196,63 +196,72 @@ const QueryFilterContent: React.FC<{
   }, [props, resetText, searchText, optionRender, onReset]);
 
   // totalSpan 统计控件占的位置，计算 offset 保证查询按钮在最后一列
-  let totalSpan = 0;
+  let totalSpan = submitter ? spanSize.span : 0;
   const itemLength = items.length;
 
   // for split compute
-  let currentSpan = 0;
+  let currentSpan = submitter ? spanSize.span : 0;
 
   /** 是否需要展示 collapseRender */
   const needCollapseRender = itemLength - 1 >= showLength;
+
+  const doms = flatMapItems(items).map((item: React.ReactNode, index: number) => {
+    // 如果 formItem 自己配置了 hidden，默认使用它自己的
+    const hidden: boolean =
+      (item as ReactElement<{ hidden: boolean }>)?.props?.hidden ||
+      // 如果收起了
+      (collapsed &&
+        // 如果 超过显示长度 且 总长度超过了 24
+        index >= showLength &&
+        totalSpan >= 24);
+
+    const colSize = React.isValidElement<any>(item) ? item?.props?.colSize : 1;
+
+    const colSpan = Math.min(spanSize.span * (colSize || 1), 24);
+
+    // 每一列的key, 一般是存在的
+    const itemKey = (React.isValidElement(item) && (item.key || `${item.props?.name}`)) || index;
+
+    currentSpan += colSpan;
+
+    if (React.isValidElement(item) && hidden) {
+      return React.cloneElement(item, {
+        hidden: true,
+        key: itemKey || index,
+      });
+    }
+
+    if (24 - (totalSpan % 24) < colSpan) {
+      // 如果当前行空余位置放不下，那么折行
+      totalSpan += 24 - (totalSpan % 24);
+    }
+
+    totalSpan += colSpan;
+
+    const colItem = (
+      <Col key={itemKey} span={colSpan}>
+        {item}
+      </Col>
+    );
+    if (split && currentSpan % 24 === 0 && index < itemLength - 1) {
+      return [
+        colItem,
+        <Col span="24" key="line">
+          <Divider style={{ marginTop: -8, marginBottom: 16 }} dashed />
+        </Col>,
+      ];
+    }
+    return colItem;
+  });
+
   return (
     <Row gutter={24} justify="start" key="resize-observer-row">
-      {flatMapItems(items).map((item: React.ReactNode, index: number) => {
-        // 如果 formItem 自己配置了 hidden，默认使用它自己的
-        const hidden: boolean =
-          (item as ReactElement<{ hidden: boolean }>)?.props?.hidden ||
-          (collapsed && (index >= props.showLength || totalSpan >= 24));
-        const colSize = React.isValidElement<any>(item) ? item?.props?.colSize : 1;
-        const colSpan = Math.min(spanSize.span * (colSize || 1), 24);
-
-        // 每一列的key, 一般是存在的
-        const itemKey =
-          (React.isValidElement(item) && (item.key || `${item.props?.name}`)) || index;
-
-        currentSpan += colSpan;
-
-        if (React.isValidElement(item) && hidden) {
-          return React.cloneElement(item, {
-            hidden: true,
-            key: itemKey || index,
-          });
-        }
-
-        if (24 - (totalSpan % 24) < colSpan) {
-          // 如果当前行空余位置放不下，那么折行
-          totalSpan += 24 - (totalSpan % 24);
-        }
-        totalSpan += colSpan;
-
-        const colItem = (
-          <Col key={itemKey} span={colSpan}>
-            {item}
-          </Col>
-        );
-        if (split && currentSpan % 24 === 0 && index < itemLength - 1) {
-          return [
-            colItem,
-            <Col span="24" key="line">
-              <Divider style={{ marginTop: -8, marginBottom: 16 }} dashed />
-            </Col>,
-          ];
-        }
-        return colItem;
-      })}
+      {doms}
       {submitter && (
         <Col
           key="submitter"
           span={spanSize.span}
-          offset={24 - spanSize.span - (totalSpan % 24)}
+          offset={24 - spanSize.span - ((totalSpan - spanSize.span) % 24)}
           style={{
             textAlign: 'right',
           }}
@@ -261,7 +270,7 @@ const QueryFilterContent: React.FC<{
             <Actions
               key="pro-form-query-filter-actions"
               collapsed={collapsed}
-              collapseRender={needCollapseRender || currentSpan > 24 ? collapseRender : false}
+              collapseRender={needCollapseRender && currentSpan > 24 ? collapseRender : false}
               submitter={submitter}
               setCollapsed={setCollapsed}
             />

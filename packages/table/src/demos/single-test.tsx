@@ -89,7 +89,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     dataIndex: 'labels',
     width: '10%',
     order: -1,
-    colSize: 2,
+    colSize: 1.5,
     formItemProps: {
       noStyle: true,
     },
