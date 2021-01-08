@@ -121,7 +121,7 @@ export const formInputRender: React.FC<{
   onSelect?: (value: any) => void;
   [key: string]: any;
 }> = (props, ref: any) => {
-  const { item, intl, form, type, formItemProps: propsFormItemProps, colSize, ...rest } = props;
+  const { item, intl, form, type, formItemProps: propsFormItemProps, ...rest } = props;
 
   const formItemProps = getFieldPropsOrFormItemProps(
     propsFormItemProps,
@@ -191,7 +191,6 @@ export const formInputRender: React.FC<{
           ...item.fieldProps,
         }}
         formItemProps={formItemProps}
-        colSize={colSize}
       >
         {React.cloneElement(dom, { ...rest, ...defaultProps })}
       </ProFormField>
@@ -202,6 +201,7 @@ export const formInputRender: React.FC<{
     !valueType || (['textarea', 'jsonCode', 'code'].includes(valueType) && type === 'table')
       ? 'text'
       : (valueType as 'text');
+
   return (
     <ProFormField
       ref={ref}

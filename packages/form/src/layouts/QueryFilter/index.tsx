@@ -209,9 +209,14 @@ const QueryFilterContent: React.FC<{
     // 如果 formItem 自己配置了 hidden，默认使用它自己的
     const hidden: boolean =
       (item as ReactElement<{ hidden: boolean }>)?.props?.hidden ||
-      (collapsed && index >= showLength && totalSpan >= 24);
+      // 如果收起了
+      (collapsed &&
+        // 如果 超过显示长度 且 总长度超过了 24
+        index >= showLength &&
+        totalSpan >= 24);
 
     const colSize = React.isValidElement<any>(item) ? item?.props?.colSize : 1;
+
     const colSpan = Math.min(spanSize.span * (colSize || 1), 24);
 
     // 每一列的key, 一般是存在的
@@ -230,6 +235,7 @@ const QueryFilterContent: React.FC<{
       // 如果当前行空余位置放不下，那么折行
       totalSpan += 24 - (totalSpan % 24);
     }
+
     totalSpan += colSpan;
 
     const colItem = (
