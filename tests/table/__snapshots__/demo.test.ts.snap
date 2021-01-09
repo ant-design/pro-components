@@ -16722,52 +16722,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
               </div>
               <div
                 class="ant-space-item"
-                style="margin-right: 32px;"
-              >
-                <div
-                  class="ant-row ant-form-item"
-                >
-                  <div
-                    class="ant-col ant-form-item-label"
-                  >
-                    <label
-                      class=""
-                      for="bordered"
-                      title="Bordered"
-                    >
-                      Bordered
-                    </label>
-                  </div>
-                  <div
-                    class="ant-col ant-form-item-control"
-                  >
-                    <div
-                      class="ant-form-item-control-input"
-                    >
-                      <div
-                        class="ant-form-item-control-input-content"
-                      >
-                        <button
-                          aria-checked="true"
-                          class="ant-switch ant-switch-checked"
-                          id="bordered"
-                          role="switch"
-                          type="button"
-                        >
-                          <div
-                            class="ant-switch-handle"
-                          />
-                          <span
-                            class="ant-switch-inner"
-                          />
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="ant-space-item"
               >
                 <div
                   class="ant-row ant-form-item"
