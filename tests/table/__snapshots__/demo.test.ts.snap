@@ -38100,11 +38100,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
               >
                 <input
                   class="ant-input"
-                  hidden=""
                   id="image"
-                  name="image"
                   placeholder="请输入"
-                  profieldkey="image"
                   style="width: 100%;"
                   type="text"
                   value=""
