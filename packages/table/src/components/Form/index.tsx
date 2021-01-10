@@ -1,11 +1,4 @@
-import React, {
-  useContext,
-  useRef,
-  useCallback,
-  useState,
-  useImperativeHandle,
-  useMemo,
-} from 'react';
+import React, { useContext, useRef, useCallback, useState, useMemo } from 'react';
 import type { FormInstance, FormItemProps } from 'antd/lib/form';
 import { ConfigProvider } from 'antd';
 import type { IntlType } from '@ant-design/pro-provider';
@@ -100,7 +93,7 @@ export type TableFormItem<T, U = any> = {
   dateFormatter?: 'string' | 'number' | false;
   search?: false | SearchConfig;
   columns: ProColumns<U, any>[];
-  formRef?: React.MutableRefObject<FormInstance | undefined>;
+  formRef: React.MutableRefObject<FormInstance | undefined>;
   submitButtonLoading?: boolean;
   bordered?: boolean;
 } & Omit<FormItemProps, 'children' | 'onReset'>;
@@ -192,7 +185,7 @@ export const formInputRender: React.FC<{
         }}
         formItemProps={formItemProps}
       >
-        {React.cloneElement(dom, { ...rest, ...defaultProps })}
+        {React.cloneElement(dom, omit({ ...rest, ...defaultProps }, ['colSize']))}
       </ProFormField>
     );
   }
@@ -302,8 +295,6 @@ const FormSearch = <T, U = any>({
   /** 为了支持 dom 的消失，支持了这个 api */
   const intl = useIntl();
 
-  const formInstanceRef = useRef<FormInstance | undefined>();
-
   /** 保存 valueTypeRef，用于分辨是用什么方式格式化数据 */
   const valueTypeRef = useRef<Record<string, ProFieldValueType>>();
 
@@ -316,10 +307,10 @@ const FormSearch = <T, U = any>({
     let value;
     // 如果不是表单模式，不用进行验证
     if (!isForm) {
-      value = formInstanceRef.current?.getFieldsValue();
+      value = formRef.current?.getFieldsValue();
     } else {
       try {
-        value = await formInstanceRef.current?.validateFields();
+        value = await formRef.current?.validateFields();
       } catch (error) {
         // console.log(error)
       }
@@ -335,19 +326,6 @@ const FormSearch = <T, U = any>({
       onSubmit(finalValue, firstLoad);
     }
   };
-
-  useImperativeHandle(
-    formRef,
-    () =>
-      ({
-        ...formInstanceRef.current,
-        submit: () => {
-          submit(false);
-          formInstanceRef.current?.submit();
-        },
-      } as any),
-    [formInstanceRef.current],
-  );
 
   const genTransform = () => {
     let tempMap = {};
@@ -419,7 +397,7 @@ const FormSearch = <T, U = any>({
         .map((item, index) =>
           proFormItemRender({
             isForm,
-            formInstance: formInstanceRef.current,
+            formInstance: formRef.current,
             item: {
               index,
               ...item,
@@ -435,7 +413,7 @@ const FormSearch = <T, U = any>({
     [isForm, type],
   );
 
-  const [domList, setDomList] = useState<JSX.Element[]>(() => updateDomList(columnsList));
+  const [domList, setDomList] = useState<JSX.Element[]>(() => []);
 
   useDeepCompareEffect(() => {
     if (columnsList.length < 1) return;
@@ -479,7 +457,7 @@ const FormSearch = <T, U = any>({
           {...loadingProps}
           {...getFromProps(isForm, searchConfig, competentName)}
           {...formConfig}
-          formRef={formInstanceRef}
+          formRef={formRef}
           onValuesChange={(change, all) => {
             setDomList(updateDomList(columnsList));
             if (formConfig.onValuesChange) {
@@ -490,13 +468,14 @@ const FormSearch = <T, U = any>({
             genTransform();
             // 触发一个 submit，之所以这里触发是为了保证 value 都被 format了
             if (valueTypeRef.current && type !== 'form') {
-              // 下面才去赋值，所以用 setTimeout 延时一下，略微性能好一点
+              // 重新计算一下dom
+              setDomList(updateDomList(columnsList));
               submit(true);
             }
           }}
           onReset={() => {
             if (onReset && valueTypeRef.current) {
-              const value = formInstanceRef.current?.getFieldsValue() as T;
+              const value = formRef.current?.getFieldsValue() as T;
               const finalValue = transformKeySubmitValue(
                 conversionSubmitValue(value, dateFormatter, valueTypeRef.current) as T,
                 transformKeyRef.current,

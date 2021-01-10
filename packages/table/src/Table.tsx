@@ -94,7 +94,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     beforeSearchSubmit = (searchParams: Partial<U>) => searchParams,
     tableAlertRender,
     defaultClassName,
-    formRef,
+    formRef: propRef,
     type = 'table',
     columnEmptyText = '-',
     manualRequest = false,
@@ -103,6 +103,9 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     ...rest
   } = props;
   const actionRef = useRef<ActionType>();
+
+  const defaultFormRef = useRef();
+  const formRef = propRef || defaultFormRef;
 
   useEffect(() => {
     if (typeof propsActionRef === 'function' && actionRef.current) {
@@ -297,7 +300,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
 
   /** 同步 Pagination，支持受控的 页码 和 pageSize */
   useDeepCompareEffect(() => {
-    const { current, pageSize } = propsPagination || {};
+    const { current = action.current, pageSize = action.pageSize } = propsPagination || {};
     if (
       propsPagination &&
       (current || pageSize) &&

@@ -42,7 +42,7 @@ describe('BasicTable', () => {
   });
 
   it('🎏 base use', async () => {
-    const html = render(
+    const html = mount(
       <ProTable
         size="small"
         columns={columns}
@@ -71,11 +71,14 @@ describe('BasicTable', () => {
         ]}
       />,
     );
-    expect(html).toMatchSnapshot();
+    await waitForComponentToPaint(html, 1000);
+    act(() => {
+      expect(html.render()).toMatchSnapshot();
+    });
   });
 
   it('🎏 do not render Search ', async () => {
-    const html = render(
+    const html = mount(
       <ProTable
         size="small"
         columns={columns}
@@ -92,11 +95,14 @@ describe('BasicTable', () => {
       />,
     );
 
-    expect(html).toMatchSnapshot();
+    await waitForComponentToPaint(html, 1000);
+    act(() => {
+      expect(html.render()).toMatchSnapshot();
+    });
   });
 
   it('🎏 do not render default option', async () => {
-    const html = render(
+    const html = mount(
       <ProTable
         size="small"
         options={{
@@ -114,11 +120,14 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    expect(html).toMatchSnapshot();
+    await waitForComponentToPaint(html, 1000);
+    act(() => {
+      expect(html.render()).toMatchSnapshot();
+    });
   });
 
   it('🎏 do not render setting', async () => {
-    const html = render(
+    const html = mount(
       <ProTable
         size="small"
         options={{
@@ -136,7 +145,10 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    expect(html).toMatchSnapshot();
+    await waitForComponentToPaint(html, 1000);
+    act(() => {
+      expect(html.render()).toMatchSnapshot();
+    });
   });
 
   it('🎏 valueEnum support function', async () => {
