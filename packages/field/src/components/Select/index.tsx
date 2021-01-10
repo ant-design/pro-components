@@ -177,10 +177,11 @@ export const useFieldFetchData = (
   const proFieldKeyRef = useRef(cacheKey);
 
   const getOptionsFormValueEnum = useCallback((valueEnum) => {
-    return proFieldParsingValueEnumToArray(ObjToMap(valueEnum)).map(({ value, text }) => ({
+    return proFieldParsingValueEnumToArray(ObjToMap(valueEnum)).map(({ value, text, ...rest }) => ({
       label: text,
       value,
       key: value,
+      ...rest,
     }));
   }, []);
 
