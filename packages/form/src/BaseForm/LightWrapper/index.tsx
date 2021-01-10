@@ -72,6 +72,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
         },
       });
     }
+
     return children as JSX.Element;
   }
 

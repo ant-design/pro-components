@@ -160,6 +160,7 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
                 if (propsFormRef && !isUpdate) forgetUpdate();
                 if (propsFormRef) propsFormRef.current = formInstance as FormInstance;
                 formRef.current = formInstance as FormInstance;
+                return null;
               }}
             </Form.Item>
             {content}
