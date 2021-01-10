@@ -1821,13 +1821,14 @@ Array [
                     class="ant-checkbox-group ant-pro-field-checkbox-horizontal"
                   >
                     <label
-                      class="ant-checkbox-wrapper ant-checkbox-group-item"
+                      class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-group-item"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-checkbox-disabled"
                       >
                         <input
                           class="ant-checkbox-input"
+                          disabled=""
                           type="checkbox"
                           value="all"
                         />
@@ -1919,13 +1920,14 @@ Array [
                     class="ant-checkbox-group ant-pro-field-checkbox-horizontal"
                   >
                     <label
-                      class="ant-checkbox-wrapper ant-checkbox-group-item"
+                      class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-group-item"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-checkbox-disabled"
                       >
                         <input
                           class="ant-checkbox-input"
+                          disabled=""
                           type="checkbox"
                           value="all"
                         />
@@ -2021,13 +2023,14 @@ Array [
                     class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
                   >
                     <label
-                      class="ant-radio-wrapper"
+                      class="ant-radio-wrapper ant-radio-wrapper-disabled"
                     >
                       <span
-                        class="ant-radio"
+                        class="ant-radio ant-radio-disabled"
                       >
                         <input
                           class="ant-radio-input"
+                          disabled=""
                           type="radio"
                           value="all"
                         />
@@ -2119,13 +2122,14 @@ Array [
                     class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
                   >
                     <label
-                      class="ant-radio-button-wrapper"
+                      class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
                     >
                       <span
-                        class="ant-radio-button"
+                        class="ant-radio-button ant-radio-button-disabled"
                       >
                         <input
                           class="ant-radio-button-input"
+                          disabled=""
                           type="radio"
                           value="all"
                         />
