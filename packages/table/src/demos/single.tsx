@@ -59,6 +59,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
       closed: {
         text: '已解决',
         status: 'Success',
+        disabled: true,
       },
       processing: {
         text: '解决中',
