@@ -168,7 +168,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       delete (actionParams as any)._timestamp;
       const response = await request((actionParams as unknown) as U, proSort, proFilter);
       const responseData = postDataPipeline<T[]>(
-        response.data,
+        response.data!,
         [postData].filter((item) => item) as any,
       );
       if (Array.isArray(response)) {

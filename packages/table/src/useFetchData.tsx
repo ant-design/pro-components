@@ -10,32 +10,32 @@ import type { PageInfo, RequestData, UseFetchDataAction } from './typing';
 
 const useFetchData = <T extends RequestData<any>>(
   getData: (params?: { pageSize: number; current: number }) => Promise<T>,
-  defaultData: Partial<T['data']>,
+  defaultData: any[],
   options: {
     dataSource?: any;
-    loading: UseFetchDataAction<T>['loading'];
+    loading: UseFetchDataAction['loading'];
     onDataSourceChange?: (dataSource?: any) => void;
     current?: number;
     pageSize?: number;
     defaultCurrent?: number;
     defaultPageSize?: number;
     effects?: any[];
-    onLoad?: (dataSource: T['data']) => void;
+    onLoad?: (dataSource: any[]) => void;
     onRequestError?: (e: Error) => void;
     manual: boolean;
-    onLoadingChange?: (loading: UseFetchDataAction<T>['loading']) => void;
+    onLoadingChange?: (loading: UseFetchDataAction['loading']) => void;
     pagination: boolean;
   },
-): UseFetchDataAction<T> => {
+): UseFetchDataAction => {
   const { pagination, onLoadingChange, onLoad = () => null, manual, onRequestError } =
     options || {};
 
-  const [list, setList] = useMountMergeState<T['data']>(defaultData as any, {
+  const [list, setList] = useMountMergeState<any[]>(defaultData as any, {
     value: options?.dataSource,
     onChange: options?.onDataSourceChange,
   });
 
-  const [loading, setLoading] = useMountMergeState<UseFetchDataAction<T>['loading']>(undefined, {
+  const [loading, setLoading] = useMountMergeState<UseFetchDataAction['loading']>(undefined, {
     value: options?.loading,
     onChange: onLoadingChange,
   });
@@ -76,7 +76,7 @@ const useFetchData = <T extends RequestData<any>>(
 
     const { pageSize, page } = pageInfo;
     try {
-      const { data, success, total: dataTotal = 0 } = await getData(
+      const { data = [], success, total: dataTotal = 0 } = await getData(
         pagination !== false
           ? {
               current: page,
@@ -121,7 +121,7 @@ const useFetchData = <T extends RequestData<any>>(
     // (pageIndex - 1 || 1) 至少要第一页
     // 在第一页大于 10
     // 第二页也应该是大于 10
-    if (page !== undefined && list.length <= pageSize) {
+    if (page !== undefined && list && list.length <= pageSize) {
       fetchListDebounce.run();
     }
   }, [pageInfo.page]);
