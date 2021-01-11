@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.10.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.10.5...@ant-design/pro-layout@6.10.6) (2021-01-11)
+
+### Bug Fixes
+
+- **layout:** fix layout headerTitleRender props type error ([#1570](https://github.com/ant-design/pro-components/issues/1570)) ([e366905](https://github.com/ant-design/pro-components/commit/e36690588613683a69d4eeb309f28758ddb1f8a8))
+
 ## [6.10.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.10.4...@ant-design/pro-layout@6.10.5) (2021-01-08)
 
 **Note:** Version bump only for package @ant-design/pro-layout

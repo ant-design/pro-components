@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.23.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.22.2...@ant-design/pro-table@2.23.0) (2021-01-11)
+
+### Bug Fixes
+
+- **table:** optimised type to suit oneapi ([#1576](https://github.com/ant-design/pro-components/issues/1576)) ([44054e2](https://github.com/ant-design/pro-components/commit/44054e2cc64fb4f8d21c39612271f01cb3fc39d8))
+
+### Features
+
+- **table:** editable table add tableViewRender ([#1572](https://github.com/ant-design/pro-components/issues/1572)) ([457f814](https://github.com/ant-design/pro-components/commit/457f81405debc2e7f0daf8bce8ab30e07dfbaa6f))
+
 ## [2.22.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.22.1...@ant-design/pro-table@2.22.2) (2021-01-11)
 
 ### Bug Fixes

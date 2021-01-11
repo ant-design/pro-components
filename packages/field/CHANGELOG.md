@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.8.4...@ant-design/pro-field@1.8.5) (2021-01-11)
+
+### Bug Fixes
+
+- **form:** lightSelect searchInput allowClear ([#1568](https://github.com/ant-design/pro-components/issues/1568)) ([39f7eb2](https://github.com/ant-design/pro-components/commit/39f7eb235f898b8af371cdc7fae3b876c74a31e9))
+
 ## [1.8.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.8.3...@ant-design/pro-field@1.8.4) (2021-01-11)
 
 ### Bug Fixes
