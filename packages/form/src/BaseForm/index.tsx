@@ -1,11 +1,15 @@
 import type { ReactElement } from 'react';
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { Form } from 'antd';
 import type { FormProps, FormInstance } from 'antd/lib/form/Form';
 import type { FormItemProps } from 'antd/lib/form';
 import { ConfigProviderWrap } from '@ant-design/pro-provider';
 import type { ProFieldValueType, SearchTransformKeyFn } from '@ant-design/pro-utils';
-import { conversionSubmitValue, transformKeySubmitValue } from '@ant-design/pro-utils';
+import {
+  conversionSubmitValue,
+  transformKeySubmitValue,
+  useMountMergeState,
+} from '@ant-design/pro-utils';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
 import namePathSet from 'rc-util/lib/utils/set';
 import type { ButtonProps } from 'antd/lib/button';
@@ -68,13 +72,13 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
    */
   const transformKeyRef = useRef<Record<string, SearchTransformKeyFn | undefined>>({});
 
-  const [loading, setLoading] = useState<ButtonProps['loading']>(false);
+  const [loading, setLoading] = useMountMergeState<ButtonProps['loading']>(false);
 
   /**
    * 因为 protable 里面的值无法保证刚开始就存在
    * 所以多进行了一次触发，这样可以解决部分问题
    */
-  const [, updateState] = useState(false);
+  const [, updateState] = useMountMergeState(false);
 
   const items = React.Children.toArray(children);
   const submitterProps: SubmitterProps =

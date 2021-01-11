@@ -2,7 +2,7 @@ import { render, mount } from 'enzyme';
 import { Button, Input } from 'antd';
 import React from 'react';
 import moment from 'moment';
-import { act } from 'react-test-renderer';
+import { act } from 'react-dom/test-utils';
 import Field from '@ant-design/pro-field';
 
 import Demo from './fixtures/demo';
@@ -125,11 +125,14 @@ describe('Field', () => {
         />,
       );
 
-      await waitForComponentToPaint(html);
-      ref.current?.fetchData();
-      await waitForComponentToPaint(html);
-      expect(fn).toBeCalledTimes(2);
-      html.unmount();
+      await waitForComponentToPaint(html, 100);
+      act(() => {
+        ref.current?.fetchData();
+      });
+      await waitForComponentToPaint(html, 100);
+      act(() => {
+        html.unmount();
+      });
     });
 
     it(`🐴 ${valueType} support renderFormItem function`, async () => {
@@ -147,6 +150,7 @@ describe('Field', () => {
           }}
         />,
       );
+      await waitForComponentToPaint(html, 100);
       expect(html.find('#select').exists()).toBeTruthy();
     });
 
@@ -235,6 +239,7 @@ describe('Field', () => {
         mode="read"
       />,
     );
+    await waitForComponentToPaint(html, 100);
     expect(html.text()).toBe('全部');
 
     act(() => {
@@ -431,15 +436,17 @@ describe('Field', () => {
     expect(html.text()).toBe('- 100.0%');
   });
 
-  it('🐴 password support visible', () => {
+  it('🐴 password support visible', async () => {
     const html = mount(<Field text={123456} valueType="password" mode="read" />);
+    await waitForComponentToPaint(html);
     act(() => {
       html.find('span.anticon-eye-invisible').simulate('click');
     });
+    await waitForComponentToPaint(html);
     expect(html.find('span.anticon-eye').exists()).toBeTruthy();
   });
 
-  it('🐴 password support controlled visible', () => {
+  it('🐴 password support controlled visible', async () => {
     const fn = jest.fn();
     const html = mount(
       <Field
@@ -450,15 +457,17 @@ describe('Field', () => {
         mode="read"
       />,
     );
+    await waitForComponentToPaint(html);
     act(() => {
       html.find('span.anticon-eye').simulate('click');
     });
+    await waitForComponentToPaint(html);
     expect(html.find('span.anticon-eye-invisible').exists()).toBeFalsy();
     expect(fn).toBeCalledWith(false);
   });
 
-  it('🐴 options support empty dom', () => {
-    const html = mount(
+  it('🐴 options support empty dom', async () => {
+    const html = render(
       <Field
         // @ts-expect-error
         render={() => []}
@@ -467,39 +476,39 @@ describe('Field', () => {
         mode="read"
       />,
     );
-    expect(html.render()).toMatchSnapshot();
+    expect(html).toMatchSnapshot();
   });
 
   it('🐴 options support dom list', () => {
-    const html = mount(
+    const html = render(
       <Field
         text={[<Button key="add">新建</Button>, <Button key="edit">修改</Button>]}
         valueType="option"
         mode="read"
       />,
     );
-    expect(html.render()).toMatchSnapshot();
+    expect(html).toMatchSnapshot();
   });
 
   it('🐴 options support one dom', () => {
-    const html = mount(
+    const html = render(
       <Field text={[<Button key="add">新建</Button>]} valueType="option" mode="read" />,
     );
-    expect(html.render()).toMatchSnapshot();
+    expect(html).toMatchSnapshot();
   });
 
   it('🐴 progress support string number', () => {
-    const html = mount(<Field text="12" valueType="progress" mode="read" />);
-    expect(html.render()).toMatchSnapshot();
+    const html = render(<Field text="12" valueType="progress" mode="read" />);
+    expect(html).toMatchSnapshot();
   });
 
   it('🐴 progress support no number', () => {
-    const html = mount(<Field text="qixian" valueType="progress" mode="read" />);
-    expect(html.render()).toMatchSnapshot();
+    const html = render(<Field text="qixian" valueType="progress" mode="read" />);
+    expect(html).toMatchSnapshot();
   });
 
   it('🐴 valueType={}', () => {
-    const html = mount(
+    const html = render(
       <Field
         text="qixian"
         // @ts-expect-error
@@ -510,19 +519,22 @@ describe('Field', () => {
     expect(html.text()).toBe('qixian');
   });
 
-  it('🐴 keypress simulate', () => {
+  it('🐴 keypress simulate', async () => {
     const html = mount(<Field text="qixian" valueType="textarea" mode="edit" />);
+    await waitForComponentToPaint(html);
     act(() => {
       html.find('TextArea').at(0).simulate('keypress', {
         key: 'Enter',
         keyCode: 13,
       });
     });
+    await waitForComponentToPaint(html);
     act(() => {
       html.setProps({
         mode: 'read',
       });
     });
+    await waitForComponentToPaint(html);
     expect(html.text()).toBe('qixian');
   });
 });

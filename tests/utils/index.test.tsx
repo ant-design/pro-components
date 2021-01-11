@@ -55,7 +55,9 @@ describe('utils', () => {
     await waitTime(100);
 
     act(() => {
-      html.unmount();
+      act(() => {
+        html.unmount();
+      });
     });
 
     expect(fn).toBeCalledTimes(2);

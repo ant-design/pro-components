@@ -1,4 +1,4 @@
-﻿import React, { useContext, useImperativeHandle, useRef } from 'react';
+﻿import React, { useContext, useEffect, useImperativeHandle, useMemo, useRef } from 'react';
 import { Modal, ConfigProvider } from 'antd';
 import type { FormInstance, FormProps } from 'antd/lib/form';
 import type { ModalProps } from 'antd/lib/modal';
@@ -65,10 +65,41 @@ const ModalForm: React.FC<ModalFormProps> = ({
     onChange: onVisibleChange,
   });
   const context = useContext(ConfigProvider.ConfigContext);
+
+  /** 设置 trigger 的情况下，懒渲染优化性能；使之可以直接配合表格操作等场景使用 */
+  const isFirstRender = useRef(!modalProps?.forceRender);
+  /**
+   * isFirstRender.current 或者 visible 为 true 的时候就渲染
+   * 不渲染能会造成一些问题, 比如再次打开值不对了
+   * 只有手动配置 drawerProps?.destroyOnClose 为 true 的时候才会每次关闭的时候删除 dom
+   */
+  const shouldRenderFormItems = useMemo(() => {
+    if (isFirstRender.current && visible === false) {
+      return false;
+    }
+    if (visible === false && modalProps?.destroyOnClose) {
+      return false;
+    }
+    return true;
+  }, [visible, modalProps?.destroyOnClose]);
+
   /**
    * 同步 props 和 本地的 ref
    */
   const formRef = useRef<FormInstance>();
+
+  /**
+   * 如果 destroyOnClose ，重置一下表单
+   */
+  useEffect(() => {
+    if (visible) {
+      isFirstRender.current = false;
+    }
+    if (!visible && modalProps?.destroyOnClose) {
+      formRef.current?.resetFields();
+    }
+  }, [modalProps?.destroyOnClose, visible]);
+
   useImperativeHandle(rest.formRef, () => formRef.current, [formRef.current]);
 
   return (
@@ -119,7 +150,7 @@ const ModalForm: React.FC<ModalFormProps> = ({
                   }}
                   footer={submitter}
                 >
-                  {item}
+                  {shouldRenderFormItems ? item : null}
                 </Modal>
               );
             }}

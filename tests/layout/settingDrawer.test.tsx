@@ -76,7 +76,9 @@ describe('settingDrawer.test', () => {
     );
     await waitForComponentToPaint(html);
     expect(fn).toBeCalled();
-    html.unmount();
+    act(() => {
+      html.unmount();
+    });
   });
 
   it('hideCopyButton = true', () => {

@@ -28,6 +28,10 @@ export default () => {
           新建表单
         </Button>
       }
+      drawerProps={{
+        forceRender: true,
+        destroyOnClose: true,
+      }}
       onFinish={async (values) => {
         await waitTime(2000);
         console.log(values);

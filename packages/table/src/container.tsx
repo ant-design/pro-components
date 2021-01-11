@@ -3,7 +3,7 @@ import { useState, useRef } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import type { ProTableProps } from './index';
-import type { DensitySize } from './component/ToolBar/DensityIcon';
+import type { DensitySize } from './components/ToolBar/DensityIcon';
 import type { ActionType } from './typing';
 
 export type ColumnsState = {

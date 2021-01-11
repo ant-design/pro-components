@@ -942,7 +942,29 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
         style="display:block;margin:10px 0;width:100%"
         type="button"
       >
-        qixian
+        <span
+          aria-label="plus"
+          class="anticon anticon-plus"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="plus"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <defs />
+            <path
+              d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+            />
+            <path
+              d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+            />
+          </svg>
+        </span>
         <span>
           测试添加数据
         </span>
@@ -1106,7 +1128,29 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
                             style="display:block;margin:10px 0;width:100%"
                             type="button"
                           >
-                            qixian
+                            <span
+                              aria-label="plus"
+                              class="anticon anticon-plus"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="plus"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <defs />
+                                <path
+                                  d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                                />
+                                <path
+                                  d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                                />
+                              </svg>
+                            </span>
                             <span>
                               测试添加数据
                             </span>
@@ -1917,11 +1961,11 @@ exports[`EditorProTable 📝 columns support editable test 1`] = `
 >
   <div
     class="ant-card"
-    style="height: 100%;"
+    style="height:100%"
   >
     <div
       class="ant-card-body"
-      style="padding: 0px;"
+      style="padding:0"
     >
       <div
         class="ant-table-wrapper"
@@ -1942,14 +1986,14 @@ exports[`EditorProTable 📝 columns support editable test 1`] = `
                   class="ant-table-content"
                 >
                   <table
-                    style="table-layout: auto;"
+                    style="table-layout:auto"
                   >
                     <colgroup>
                       <col
-                        style="width: 48px; min-width: 48px;"
+                        style="width:48px;min-width:48px"
                       />
                       <col
-                        style="width: 48px; min-width: 48px;"
+                        style="width:48px;min-width:48px"
                       />
                     </colgroup>
                     <thead
@@ -1976,7 +2020,7 @@ exports[`EditorProTable 📝 columns support editable test 1`] = `
                         >
                           <span
                             class="ant-table-row-indent indent-level-0"
-                            style="padding-left: 0px;"
+                            style="padding-left:0px"
                           />
                           <button
                             aria-label="Expand row"
@@ -2008,7 +2052,7 @@ exports[`EditorProTable 📝 columns support editable test 1`] = `
                         >
                           <span
                             class="ant-table-row-indent indent-level-0"
-                            style="padding-left: 0px;"
+                            style="padding-left:0px"
                           />
                           <button
                             aria-label="Expand row"
@@ -2040,7 +2084,7 @@ exports[`EditorProTable 📝 columns support editable test 1`] = `
                         >
                           <span
                             class="ant-table-row-indent indent-level-0"
-                            style="padding-left: 0px;"
+                            style="padding-left:0px"
                           />
                           <button
                             aria-label="Expand row"
@@ -2073,7 +2117,7 @@ exports[`EditorProTable 📝 columns support editable test 1`] = `
       </div>
       <button
         class="ant-btn ant-btn-dashed"
-        style="display: block; margin: 10px 0px; width: 100%;"
+        style="display:block;margin:10px 0;width:100%"
         type="button"
       >
         <span
@@ -2115,11 +2159,11 @@ exports[`EditorProTable 📝 renderFormItem run defaultRender 1`] = `
 >
   <div
     class="ant-card"
-    style="height: 100%;"
+    style="height:100%"
   >
     <div
       class="ant-card-body"
-      style="padding: 0px;"
+      style="padding:0"
     >
       <div
         class="ant-table-wrapper"
@@ -2140,11 +2184,11 @@ exports[`EditorProTable 📝 renderFormItem run defaultRender 1`] = `
                   class="ant-table-content"
                 >
                   <table
-                    style="table-layout: auto;"
+                    style="table-layout:auto"
                   >
                     <colgroup>
                       <col
-                        style="width: 48px; min-width: 48px;"
+                        style="width:48px;min-width:48px"
                       />
                     </colgroup>
                     <thead
@@ -2168,7 +2212,7 @@ exports[`EditorProTable 📝 renderFormItem run defaultRender 1`] = `
                         >
                           <span
                             class="ant-table-row-indent indent-level-0"
-                            style="padding-left: 0px;"
+                            style="padding-left:0px"
                           />
                           <button
                             aria-label="Expand row"
@@ -2177,7 +2221,7 @@ exports[`EditorProTable 📝 renderFormItem run defaultRender 1`] = `
                           />
                           <div
                             class="ant-row ant-form-item"
-                            style="margin: -5px 0px;"
+                            style="margin:-5px 0"
                           >
                             <div
                               class="ant-col ant-form-item-control"
@@ -2191,7 +2235,7 @@ exports[`EditorProTable 📝 renderFormItem run defaultRender 1`] = `
                                   >
                                     <div
                                       class="ant-row ant-form-item"
-                                      style="margin: -5px 0px;"
+                                      style="margin:-5px 0"
                                     >
                                       <div
                                         class="ant-col ant-form-item-control"
@@ -2229,7 +2273,7 @@ exports[`EditorProTable 📝 renderFormItem run defaultRender 1`] = `
                         >
                           <span
                             class="ant-table-row-indent indent-level-0"
-                            style="padding-left: 0px;"
+                            style="padding-left:0px"
                           />
                           <button
                             aria-label="Expand row"
@@ -2252,7 +2296,7 @@ exports[`EditorProTable 📝 renderFormItem run defaultRender 1`] = `
                         >
                           <span
                             class="ant-table-row-indent indent-level-0"
-                            style="padding-left: 0px;"
+                            style="padding-left:0px"
                           />
                           <button
                             aria-label="Expand row"
@@ -2276,7 +2320,7 @@ exports[`EditorProTable 📝 renderFormItem run defaultRender 1`] = `
       </div>
       <button
         class="ant-btn ant-btn-dashed"
-        style="display: block; margin: 10px 0px; width: 100%;"
+        style="display:block;margin:10px 0;width:100%"
         type="button"
       >
         <span

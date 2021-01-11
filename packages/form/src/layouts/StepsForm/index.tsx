@@ -1,4 +1,4 @@
-import React, { useRef, useCallback, useState, useEffect, useContext } from 'react';
+import React, { useRef, useCallback, useEffect, useContext } from 'react';
 import { Form, Steps, ConfigProvider, Button, Space } from 'antd';
 import toArray from 'rc-util/lib/Children/toArray';
 import type { FormProviderProps } from 'antd/lib/form/context';
@@ -8,6 +8,7 @@ import classNames from 'classnames';
 import type { FormInstance } from 'antd/lib/form';
 import type { ButtonProps } from 'antd/lib/button';
 import { useIntl } from '@ant-design/pro-provider';
+import { useMountMergeState } from '@ant-design/pro-utils';
 
 import type { StepFormProps } from './StepForm';
 import StepForm from './StepForm';
@@ -71,7 +72,7 @@ export const StepsFormProvide = React.createContext<
       keyArray: string[];
       formArrayRef: React.MutableRefObject<React.MutableRefObject<FormInstance<any> | undefined>[]>;
       loading: ButtonProps['loading'];
-      setLoading: React.Dispatch<React.SetStateAction<ButtonProps['loading']>>;
+      setLoading: React.Dispatch<ButtonProps['loading']>;
       formMapRef: React.MutableRefObject<Map<string, StepFormProps>>;
       next: () => void;
     }
@@ -98,12 +99,11 @@ const StepsForm: React.FC<StepsFormProps> & {
     containerStyle,
     ...rest
   } = props;
-
   const formDataRef = useRef(new Map<string, Store>());
   const formMapRef = useRef(new Map<string, StepFormProps>());
   const formArrayRef = useRef<React.MutableRefObject<FormInstance<any> | undefined>[]>([]);
-  const [formArray, setFormArray] = useState<string[]>([]);
-  const [loading, setLoading] = useState<ButtonProps['loading']>(false);
+  const [formArray, setFormArray] = useMountMergeState<string[]>([]);
+  const [loading, setLoading] = useMountMergeState<ButtonProps['loading']>(false);
   const intl = useIntl();
 
   /**
@@ -155,7 +155,7 @@ const StepsForm: React.FC<StepsFormProps> & {
             ...cur,
           };
         }, {});
-        const success = await props.onFinish(values);
+        const success = props.onFinish(values);
         if (success) {
           setStep(0);
           formArrayRef.current.forEach((form) => form.current?.resetFields());

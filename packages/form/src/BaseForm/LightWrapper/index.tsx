@@ -1,6 +1,11 @@
 import React, { useState, useContext } from 'react';
 import classNames from 'classnames';
-import { FilterDropdown, FieldLabel, isDropdownValueType } from '@ant-design/pro-utils';
+import {
+  FilterDropdown,
+  FieldLabel,
+  isDropdownValueType,
+  useMountMergeState,
+} from '@ant-design/pro-utils';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import { ConfigProvider } from 'antd';
 
@@ -46,7 +51,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-light-wrapper');
   const [tempValue, setTempValue] = useState<string | undefined>(props[valuePropName]);
-  const [open, setOpen] = useState<boolean>(false);
+  const [open, setOpen] = useMountMergeState<boolean>(false);
 
   const isDropdown =
     React.isValidElement(children) && isDropdownValueType(children.props.valueType);

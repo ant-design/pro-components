@@ -2,6 +2,7 @@ import { mount } from 'enzyme';
 
 import React from 'react';
 import BasicLayout from '@ant-design/pro-layout';
+import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
 
 it('🐲 layout=sidemenu', async () => {
@@ -10,7 +11,9 @@ it('🐲 layout=sidemenu', async () => {
   await waitForComponentToPaint(wrapper);
   const menu = wrapper.find('.ant-pro-sider-menu');
   expect(menu.exists()).toBe(true);
-  wrapper.unmount();
+  act(() => {
+    wrapper.unmount();
+  });
 });
 
 it('🐲 layout=topmenu', async () => {
@@ -19,5 +22,7 @@ it('🐲 layout=topmenu', async () => {
   await waitForComponentToPaint(wrapper);
   const menu = wrapper.find('.ant-pro-sider-menu');
   expect(menu.exists()).toBe(false);
-  wrapper.unmount();
+  act(() => {
+    wrapper.unmount();
+  });
 });

@@ -21,15 +21,15 @@ import type { ProFieldValueType, RowEditableConfig } from '@ant-design/pro-utils
 
 import { FieldStatus, FieldIndexColumn } from '@ant-design/pro-field';
 import ProTable from './Table';
-import TableDropdown from './component/Dropdown';
-import type { ListToolBarProps } from './component/ListToolBar';
-import ListToolBar from './component/ListToolBar';
+import TableDropdown from './components/Dropdown';
+import type { ListToolBarProps } from './components/ListToolBar';
+import ListToolBar from './components/ListToolBar';
 
-import Search from './Form';
+import Search from './components/Form';
 import defaultRenderText from './defaultRender';
 import type { ColumnsState } from './container';
 import type { ActionType, ProColumns, ProColumnType, ProTableProps, RequestData } from './typing';
-import EditableProTable from './EditableTable';
+import EditableProTable from './components/EditableTable';
 
 type ProColumnsValueType = ProFieldValueType;
 type TableRowEditable<T> = RowEditableConfig<T>;

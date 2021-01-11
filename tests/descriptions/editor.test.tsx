@@ -6,7 +6,7 @@ import Descriptions, {
   ProDescriptionsActionType,
   ProDescriptionsItemProps,
 } from '@ant-design/pro-descriptions';
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
 
@@ -134,6 +134,7 @@ describe('Descriptions', () => {
     const wrapper = mount(
       <Descriptions<DataSourceType> columns={columns} dataSource={defaultData} />,
     );
+    await waitForComponentToPaint(wrapper, 100);
     expect(wrapper.find('ProForm').exists()).toBeFalsy();
   });
 
@@ -141,6 +142,7 @@ describe('Descriptions', () => {
     const wrapper = mount(
       <Descriptions<DataSourceType> columns={columns} dataSource={defaultData} editable={{}} />,
     );
+    await waitForComponentToPaint(wrapper, 100);
     expect(wrapper.find('ProForm').exists()).toBeTruthy();
   });
 
@@ -157,12 +159,12 @@ describe('Descriptions', () => {
     act(() => {
       wrapper.find('span.anticon-edit').at(0).simulate('click');
     });
-
+    await waitForComponentToPaint(wrapper);
     expect(fn).toBeCalledWith(['title']);
   });
 
   it('📝 renderFormItem run defaultRender', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Descriptions<DataSourceType>
         editable={{
           editableKeys: ['title'],
@@ -178,11 +180,11 @@ describe('Descriptions', () => {
         dataSource={defaultData}
       />,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('📝 columns support editable test', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Descriptions
         editable={{
           editableKeys: ['index'],
@@ -202,7 +204,7 @@ describe('Descriptions', () => {
         dataSource={defaultData}
       />,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('📝 support editorRowKeys', async () => {

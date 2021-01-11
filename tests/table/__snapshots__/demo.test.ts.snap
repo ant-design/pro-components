@@ -1,6 +1,709 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`table demos renders ./packages/table/src/demos/ListToolBar/basic.tsx correctly 1`] = `
+exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/demos/basic.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-pro-table"
+    id="ant-design-pro-table"
+  >
+    <div
+      class="ant-card"
+      style="height: 100%;"
+    >
+      <div
+        class="ant-card-body"
+        style="padding-top: 0px; padding-bottom: 0px;"
+      >
+        <div
+          class="ant-pro-table-list-toolbar"
+        >
+          <div
+            class="ant-pro-table-list-toolbar-container"
+          >
+            <div
+              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
+            >
+              <div
+                class="ant-space-item"
+              >
+                <div
+                  class="ant-pro-table-list-toolbar-title"
+                >
+                  可编辑表格
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right"
+            >
+              <div
+                class="ant-space-item"
+              >
+                <div
+                  class="ant-space ant-space-horizontal ant-space-align-center"
+                >
+                  <div
+                    class="ant-space-item"
+                  >
+                    <div
+                      class="ant-row ant-form-item"
+                    >
+                      <div
+                        class="ant-col ant-form-item-control"
+                      >
+                        <div
+                          class="ant-form-item-control-input"
+                        >
+                          <div
+                            class="ant-form-item-control-input-content"
+                          >
+                            <div
+                              class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
+                            >
+                              <label
+                                class="ant-radio-wrapper"
+                              >
+                                <span
+                                  class="ant-radio"
+                                >
+                                  <input
+                                    class="ant-radio-input"
+                                    type="radio"
+                                    value="top"
+                                  />
+                                  <span
+                                    class="ant-radio-inner"
+                                  />
+                                </span>
+                                <span>
+                                  添加到顶部
+                                </span>
+                              </label>
+                              <label
+                                class="ant-radio-wrapper ant-radio-wrapper-checked"
+                              >
+                                <span
+                                  class="ant-radio ant-radio-checked"
+                                >
+                                  <input
+                                    checked=""
+                                    class="ant-radio-input"
+                                    type="radio"
+                                    value="bottom"
+                                  />
+                                  <span
+                                    class="ant-radio-inner"
+                                  />
+                                </span>
+                                <span>
+                                  添加到底部
+                                </span>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-table-wrapper"
+        >
+          <div
+            class="ant-spin-nested-loading"
+          >
+            <div
+              class="ant-spin-container"
+            >
+              <div
+                class="ant-table ant-table-middle"
+              >
+                <div
+                  class="ant-table-container"
+                >
+                  <div
+                    class="ant-table-content"
+                  >
+                    <table
+                      style="table-layout: auto;"
+                    >
+                      <colgroup>
+                        <col
+                          style="width: 30%; min-width: 30%;"
+                        />
+                        <col />
+                        <col />
+                        <col
+                          style="width: 200px; min-width: 200px;"
+                        />
+                      </colgroup>
+                      <thead
+                        class="ant-table-thead"
+                      >
+                        <tr>
+                          <th
+                            class="ant-table-cell"
+                          >
+                            活动名称
+                          </th>
+                          <th
+                            class="ant-table-cell"
+                          >
+                            状态
+                          </th>
+                          <th
+                            class="ant-table-cell"
+                          >
+                            描述
+                          </th>
+                          <th
+                            class="ant-table-cell"
+                          >
+                            操作
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody
+                        class="ant-table-tbody"
+                      >
+                        <tr
+                          class="ant-table-row ant-table-row-level-0"
+                          data-row-key="624748504"
+                        >
+                          <td
+                            class="ant-table-cell"
+                          >
+                            活动名称一
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <span
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                            >
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-error"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                未解决
+                              </span>
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            这个活动真好玩
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center"
+                            >
+                              <div
+                                class="ant-space-item"
+                              >
+                                <a>
+                                  编辑
+                                </a>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr
+                          class="ant-table-row ant-table-row-level-0"
+                          data-row-key="624691229"
+                        >
+                          <td
+                            class="ant-table-cell"
+                          >
+                            活动名称二
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <span
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                            >
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-success"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                已解决
+                              </span>
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            这个活动真好玩
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center"
+                            >
+                              <div
+                                class="ant-space-item"
+                              >
+                                <a>
+                                  编辑
+                                </a>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          class="ant-btn ant-btn-dashed"
+          style="display: block; margin: 10px 0px; width: 100%;"
+          type="button"
+        >
+          <span
+            aria-label="plus"
+            class="anticon anticon-plus"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="plus"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <defs />
+              <path
+                d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+              />
+              <path
+                d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+              />
+            </svg>
+          </span>
+          <span>
+            添加一行数据
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-pro-card ant-pro-card-collapse"
+  >
+    <div
+      class="ant-pro-card-header ant-pro-card-header-border"
+    >
+      <div
+        class="ant-pro-card-title"
+      >
+        <span
+          aria-label="right"
+          class="anticon anticon-right ant-pro-card-collapsible-icon"
+          role="img"
+          tabindex="-1"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="right"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+            />
+          </svg>
+        </span>
+        表格数据
+      </div>
+      <div
+        class="ant-pro-card-extra"
+      />
+    </div>
+    <div
+      class="ant-pro-card-body"
+    >
+      <pre
+        style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px; width: 100%;"
+      >
+        <code>
+          [
+  {
+    "id": 624748504,
+    "title": "活动名称一",
+    "decs": "这个活动真好玩",
+    "state": "open",
+    "created_at": "2020-05-26T09:42:56Z"
+  },
+  {
+    "id": 624691229,
+    "title": "活动名称二",
+    "decs": "这个活动真好玩",
+    "state": "closed",
+    "created_at": "2020-05-26T08:19:22Z"
+  }
+]
+        </code>
+      </pre>
+    </div>
+  </div>,
+]
+`;
+
+exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/demos/custom.tsx correctly 1`] = `
+Array [
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span
+      aria-label="plus"
+      class="anticon anticon-plus"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="plus"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <defs />
+        <path
+          d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+        />
+        <path
+          d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+        />
+      </svg>
+    </span>
+    <span>
+      新建一行
+    </span>
+  </button>,
+  <div
+    class="ant-pro-table"
+    id="ant-design-pro-table"
+  >
+    <div
+      class="ant-card"
+      style="height: 100%;"
+    >
+      <div
+        class="ant-card-body"
+        style="padding-top: 0px; padding-bottom: 0px;"
+      >
+        <div
+          class="ant-pro-table-list-toolbar"
+        >
+          <div
+            class="ant-pro-table-list-toolbar-container"
+          >
+            <div
+              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
+            >
+              <div
+                class="ant-space-item"
+              >
+                <div
+                  class="ant-pro-table-list-toolbar-title"
+                >
+                  可编辑表格
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-table-wrapper"
+        >
+          <div
+            class="ant-spin-nested-loading"
+          >
+            <div
+              class="ant-spin-container"
+            >
+              <div
+                class="ant-table ant-table-middle"
+              >
+                <div
+                  class="ant-table-container"
+                >
+                  <div
+                    class="ant-table-content"
+                  >
+                    <table
+                      style="table-layout: auto;"
+                    >
+                      <colgroup>
+                        <col
+                          style="width: 30%; min-width: 30%;"
+                        />
+                        <col />
+                        <col
+                          style="width: 40%; min-width: 40%;"
+                        />
+                        <col
+                          style="width: 200px; min-width: 200px;"
+                        />
+                      </colgroup>
+                      <thead
+                        class="ant-table-thead"
+                      >
+                        <tr>
+                          <th
+                            class="ant-table-cell"
+                          >
+                            活动名称
+                          </th>
+                          <th
+                            class="ant-table-cell"
+                          >
+                            状态
+                          </th>
+                          <th
+                            class="ant-table-cell"
+                          >
+                            标签
+                          </th>
+                          <th
+                            class="ant-table-cell"
+                          >
+                            操作
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody
+                        class="ant-table-tbody"
+                      >
+                        <tr
+                          class="ant-table-row ant-table-row-level-0"
+                          data-row-key="624748504"
+                        >
+                          <td
+                            class="ant-table-cell"
+                          >
+                            活动名称一
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <span
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                            >
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-error"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                未解决
+                              </span>
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <span
+                              class="ant-tag"
+                            >
+                              川妹子
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center"
+                            >
+                              <div
+                                class="ant-space-item"
+                                style="margin-right: 16px;"
+                              >
+                                <a>
+                                  编辑
+                                </a>
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <a>
+                                  复制此行到末尾
+                                </a>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr
+                          class="ant-table-row ant-table-row-level-0"
+                          data-row-key="624691229"
+                        >
+                          <td
+                            class="ant-table-cell"
+                          >
+                            活动名称二
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <span
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                            >
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-success"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                已解决
+                              </span>
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <span
+                              class="ant-tag"
+                            >
+                              西北汉子
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center"
+                            >
+                              <div
+                                class="ant-space-item"
+                                style="margin-right: 16px;"
+                              >
+                                <a>
+                                  编辑
+                                </a>
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <a>
+                                  复制此行到末尾
+                                </a>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-pro-card ant-pro-card-collapse"
+  >
+    <div
+      class="ant-pro-card-header ant-pro-card-header-border"
+    >
+      <div
+        class="ant-pro-card-title"
+      >
+        <span
+          aria-label="right"
+          class="anticon anticon-right ant-pro-card-collapsible-icon"
+          role="img"
+          tabindex="-1"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="right"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+            />
+          </svg>
+        </span>
+        表格数据
+      </div>
+      <div
+        class="ant-pro-card-extra"
+      />
+    </div>
+    <div
+      class="ant-pro-card-body"
+    >
+      <pre
+        style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px; width: 100%;"
+      >
+        <code>
+          [
+  {
+    "id": 624748504,
+    "title": "活动名称一",
+    "labels": [
+      {
+        "key": "woman",
+        "label": "川妹子"
+      }
+    ],
+    "state": "open",
+    "created_at": "2020-05-26T09:42:56Z"
+  },
+  {
+    "id": 624691229,
+    "title": "活动名称二",
+    "labels": [
+      {
+        "key": "man",
+        "label": "西北汉子"
+      }
+    ],
+    "state": "closed",
+    "created_at": "2020-05-26T08:19:22Z"
+  }
+]
+        </code>
+      </pre>
+    </div>
+  </div>,
+]
+`;
+
+exports[`table demos 📸 renders ./packages/table/src/components/ListToolBar/demos/basic.tsx correctly 1`] = `
 <div
   class="ant-pro-table"
   id="ant-design-pro-table"
@@ -973,7 +1676,7 @@ exports[`table demos renders ./packages/table/src/demos/ListToolBar/basic.tsx co
 </div>
 `;
 
-exports[`table demos renders ./packages/table/src/demos/ListToolBar/menu.tsx correctly 1`] = `
+exports[`table demos 📸 renders ./packages/table/src/components/ListToolBar/demos/menu.tsx correctly 1`] = `
 <div
   class="ant-pro-table"
   id="ant-design-pro-table"
@@ -1963,7 +2666,7 @@ exports[`table demos renders ./packages/table/src/demos/ListToolBar/menu.tsx cor
 </div>
 `;
 
-exports[`table demos renders ./packages/table/src/demos/ListToolBar/multipleLine.tsx correctly 1`] = `
+exports[`table demos 📸 renders ./packages/table/src/components/ListToolBar/demos/multipleLine.tsx correctly 1`] = `
 <div
   class="ant-pro-table"
   id="ant-design-pro-table"
@@ -2953,7 +3656,7 @@ exports[`table demos renders ./packages/table/src/demos/ListToolBar/multipleLine
 </div>
 `;
 
-exports[`table demos renders ./packages/table/src/demos/ListToolBar/no-title.tsx correctly 1`] = `
+exports[`table demos 📸 renders ./packages/table/src/components/ListToolBar/demos/no-title.tsx correctly 1`] = `
 <div
   class="ant-pro-table"
   id="ant-design-pro-table"
@@ -3901,7 +4604,7 @@ exports[`table demos renders ./packages/table/src/demos/ListToolBar/no-title.tsx
 </div>
 `;
 
-exports[`table demos renders ./packages/table/src/demos/ListToolBar/tabs.tsx correctly 1`] = `
+exports[`table demos 📸 renders ./packages/table/src/components/ListToolBar/demos/tabs.tsx correctly 1`] = `
 <div
   class="ant-pro-table"
   id="ant-design-pro-table"
@@ -4899,7 +5602,7 @@ exports[`table demos renders ./packages/table/src/demos/ListToolBar/tabs.tsx cor
 </div>
 `;
 
-exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctly 1`] = `
+exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx correctly 1`] = `
 <div
   class="ant-pro-table"
   id="ant-design-pro-table"
@@ -6187,7 +6890,7 @@ exports[`table demos renders ./packages/table/src/demos/batchOption.tsx correctl
 </div>
 `;
 
-exports[`table demos renders ./packages/table/src/demos/columnsStateMap.tsx correctly 1`] = `
+exports[`table demos 📸 renders ./packages/table/src/demos/columnsStateMap.tsx correctly 1`] = `
 <div
   class="ant-pro-table"
   id="ant-design-pro-table"
@@ -6777,7 +7480,7 @@ exports[`table demos renders ./packages/table/src/demos/columnsStateMap.tsx corr
 </div>
 `;
 
-exports[`table demos renders ./packages/table/src/demos/config-provider.tsx correctly 1`] = `
+exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx correctly 1`] = `
 <div
   class="qixian-pro-table"
   id="ant-design-pro-table"
@@ -11051,7 +11754,7 @@ exports[`table demos renders ./packages/table/src/demos/config-provider.tsx corr
 </div>
 `;
 
-exports[`table demos renders ./packages/table/src/demos/crud.tsx correctly 1`] = `
+exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 1`] = `
 Array [
   <div
     class="ant-tabs ant-tabs-top"
@@ -12860,340 +13563,7 @@ Array [
 ]
 `;
 
-exports[`table demos renders ./packages/table/src/demos/custom-editable-table.tsx correctly 1`] = `
-Array [
-  <button
-    class="ant-btn ant-btn-primary"
-    type="button"
-  >
-    <span
-      aria-label="plus"
-      class="anticon anticon-plus"
-      role="img"
-    >
-      <svg
-        aria-hidden="true"
-        data-icon="plus"
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        viewBox="64 64 896 896"
-        width="1em"
-      >
-        <defs />
-        <path
-          d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-        />
-        <path
-          d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-        />
-      </svg>
-    </span>
-    <span>
-      新建一行
-    </span>
-  </button>,
-  <div
-    class="ant-pro-table"
-    id="ant-design-pro-table"
-  >
-    <div
-      class="ant-card"
-      style="height: 100%;"
-    >
-      <div
-        class="ant-card-body"
-        style="padding-top: 0px; padding-bottom: 0px;"
-      >
-        <div
-          class="ant-pro-table-list-toolbar"
-        >
-          <div
-            class="ant-pro-table-list-toolbar-container"
-          >
-            <div
-              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
-            >
-              <div
-                class="ant-space-item"
-              >
-                <div
-                  class="ant-pro-table-list-toolbar-title"
-                >
-                  可编辑表格
-                </div>
-              </div>
-            </div>
-            <div
-              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right"
-            />
-          </div>
-        </div>
-        <div
-          class="ant-table-wrapper"
-        >
-          <div
-            class="ant-spin-nested-loading"
-          >
-            <div
-              class="ant-spin-container"
-            >
-              <div
-                class="ant-table ant-table-middle"
-              >
-                <div
-                  class="ant-table-container"
-                >
-                  <div
-                    class="ant-table-content"
-                  >
-                    <table
-                      style="table-layout: auto;"
-                    >
-                      <colgroup>
-                        <col
-                          style="width: 30%; min-width: 30%;"
-                        />
-                        <col />
-                        <col
-                          style="width: 40%; min-width: 40%;"
-                        />
-                        <col
-                          style="width: 200px; min-width: 200px;"
-                        />
-                      </colgroup>
-                      <thead
-                        class="ant-table-thead"
-                      >
-                        <tr>
-                          <th
-                            class="ant-table-cell"
-                          >
-                            活动名称
-                          </th>
-                          <th
-                            class="ant-table-cell"
-                          >
-                            状态
-                          </th>
-                          <th
-                            class="ant-table-cell"
-                          >
-                            标签
-                          </th>
-                          <th
-                            class="ant-table-cell"
-                          >
-                            操作
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody
-                        class="ant-table-tbody"
-                      >
-                        <tr
-                          class="ant-table-row ant-table-row-level-0"
-                          data-row-key="624748504"
-                        >
-                          <td
-                            class="ant-table-cell"
-                          >
-                            活动名称一
-                          </td>
-                          <td
-                            class="ant-table-cell"
-                          >
-                            <span
-                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                            >
-                              <span
-                                class="ant-badge-status-dot ant-badge-status-error"
-                              />
-                              <span
-                                class="ant-badge-status-text"
-                              >
-                                未解决
-                              </span>
-                            </span>
-                          </td>
-                          <td
-                            class="ant-table-cell"
-                          >
-                            <span
-                              class="ant-tag"
-                            >
-                              川妹子
-                            </span>
-                          </td>
-                          <td
-                            class="ant-table-cell"
-                          >
-                            <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
-                            >
-                              <div
-                                class="ant-space-item"
-                                style="margin-right: 16px;"
-                              >
-                                <a>
-                                  编辑
-                                </a>
-                              </div>
-                              <div
-                                class="ant-space-item"
-                              >
-                                <a>
-                                  复制此行到末尾
-                                </a>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr
-                          class="ant-table-row ant-table-row-level-0"
-                          data-row-key="624691229"
-                        >
-                          <td
-                            class="ant-table-cell"
-                          >
-                            活动名称二
-                          </td>
-                          <td
-                            class="ant-table-cell"
-                          >
-                            <span
-                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                            >
-                              <span
-                                class="ant-badge-status-dot ant-badge-status-success"
-                              />
-                              <span
-                                class="ant-badge-status-text"
-                              >
-                                已解决
-                              </span>
-                            </span>
-                          </td>
-                          <td
-                            class="ant-table-cell"
-                          >
-                            <span
-                              class="ant-tag"
-                            >
-                              西北汉子
-                            </span>
-                          </td>
-                          <td
-                            class="ant-table-cell"
-                          >
-                            <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
-                            >
-                              <div
-                                class="ant-space-item"
-                                style="margin-right: 16px;"
-                              >
-                                <a>
-                                  编辑
-                                </a>
-                              </div>
-                              <div
-                                class="ant-space-item"
-                              >
-                                <a>
-                                  复制此行到末尾
-                                </a>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>,
-  <div
-    class="ant-pro-card ant-pro-card-collapse"
-  >
-    <div
-      class="ant-pro-card-header ant-pro-card-header-border"
-    >
-      <div
-        class="ant-pro-card-title"
-      >
-        <span
-          aria-label="right"
-          class="anticon anticon-right ant-pro-card-collapsible-icon"
-          role="img"
-          tabindex="-1"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="right"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-            />
-          </svg>
-        </span>
-        表格数据
-      </div>
-      <div
-        class="ant-pro-card-extra"
-      />
-    </div>
-    <div
-      class="ant-pro-card-body"
-    >
-      <pre
-        style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px; width: 100%;"
-      >
-        <code>
-          [
-  {
-    "id": 624748504,
-    "title": "活动名称一",
-    "labels": [
-      {
-        "key": "woman",
-        "label": "川妹子"
-      }
-    ],
-    "state": "open",
-    "created_at": "2020-05-26T09:42:56Z"
-  },
-  {
-    "id": 624691229,
-    "title": "活动名称二",
-    "labels": [
-      {
-        "key": "man",
-        "label": "西北汉子"
-      }
-    ],
-    "state": "closed",
-    "created_at": "2020-05-26T08:19:22Z"
-  }
-]
-        </code>
-      </pre>
-    </div>
-  </div>,
-]
-`;
-
-exports[`table demos renders ./packages/table/src/demos/dataSource.tsx correctly 1`] = `
+exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx correctly 1`] = `
 <div
   class="ant-pro-table"
   id="ant-design-pro-table"
@@ -15148,377 +15518,7 @@ exports[`table demos renders ./packages/table/src/demos/dataSource.tsx correctly
 </div>
 `;
 
-exports[`table demos renders ./packages/table/src/demos/editable-table.tsx correctly 1`] = `
-Array [
-  <div
-    class="ant-pro-table"
-    id="ant-design-pro-table"
-  >
-    <div
-      class="ant-card"
-      style="height: 100%;"
-    >
-      <div
-        class="ant-card-body"
-        style="padding-top: 0px; padding-bottom: 0px;"
-      >
-        <div
-          class="ant-pro-table-list-toolbar"
-        >
-          <div
-            class="ant-pro-table-list-toolbar-container"
-          >
-            <div
-              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
-            >
-              <div
-                class="ant-space-item"
-              >
-                <div
-                  class="ant-pro-table-list-toolbar-title"
-                >
-                  可编辑表格
-                </div>
-              </div>
-            </div>
-            <div
-              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right"
-            >
-              <div
-                class="ant-space-item"
-              >
-                <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
-                >
-                  <div
-                    class="ant-space-item"
-                  >
-                    <div
-                      class="ant-row ant-form-item"
-                    >
-                      <div
-                        class="ant-col ant-form-item-control"
-                      >
-                        <div
-                          class="ant-form-item-control-input"
-                        >
-                          <div
-                            class="ant-form-item-control-input-content"
-                          >
-                            <div
-                              class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
-                            >
-                              <label
-                                class="ant-radio-wrapper"
-                              >
-                                <span
-                                  class="ant-radio"
-                                >
-                                  <input
-                                    class="ant-radio-input"
-                                    type="radio"
-                                    value="top"
-                                  />
-                                  <span
-                                    class="ant-radio-inner"
-                                  />
-                                </span>
-                                <span>
-                                  添加到顶部
-                                </span>
-                              </label>
-                              <label
-                                class="ant-radio-wrapper ant-radio-wrapper-checked"
-                              >
-                                <span
-                                  class="ant-radio ant-radio-checked"
-                                >
-                                  <input
-                                    checked=""
-                                    class="ant-radio-input"
-                                    type="radio"
-                                    value="bottom"
-                                  />
-                                  <span
-                                    class="ant-radio-inner"
-                                  />
-                                </span>
-                                <span>
-                                  添加到底部
-                                </span>
-                              </label>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="ant-table-wrapper"
-        >
-          <div
-            class="ant-spin-nested-loading"
-          >
-            <div
-              class="ant-spin-container"
-            >
-              <div
-                class="ant-table ant-table-middle"
-              >
-                <div
-                  class="ant-table-container"
-                >
-                  <div
-                    class="ant-table-content"
-                  >
-                    <table
-                      style="table-layout: auto;"
-                    >
-                      <colgroup>
-                        <col
-                          style="width: 30%; min-width: 30%;"
-                        />
-                        <col />
-                        <col />
-                        <col
-                          style="width: 200px; min-width: 200px;"
-                        />
-                      </colgroup>
-                      <thead
-                        class="ant-table-thead"
-                      >
-                        <tr>
-                          <th
-                            class="ant-table-cell"
-                          >
-                            活动名称
-                          </th>
-                          <th
-                            class="ant-table-cell"
-                          >
-                            状态
-                          </th>
-                          <th
-                            class="ant-table-cell"
-                          >
-                            描述
-                          </th>
-                          <th
-                            class="ant-table-cell"
-                          >
-                            操作
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody
-                        class="ant-table-tbody"
-                      >
-                        <tr
-                          class="ant-table-row ant-table-row-level-0"
-                          data-row-key="624748504"
-                        >
-                          <td
-                            class="ant-table-cell"
-                          >
-                            活动名称一
-                          </td>
-                          <td
-                            class="ant-table-cell"
-                          >
-                            <span
-                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                            >
-                              <span
-                                class="ant-badge-status-dot ant-badge-status-error"
-                              />
-                              <span
-                                class="ant-badge-status-text"
-                              >
-                                未解决
-                              </span>
-                            </span>
-                          </td>
-                          <td
-                            class="ant-table-cell"
-                          >
-                            这个活动真好玩
-                          </td>
-                          <td
-                            class="ant-table-cell"
-                          >
-                            <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
-                            >
-                              <div
-                                class="ant-space-item"
-                              >
-                                <a>
-                                  编辑
-                                </a>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr
-                          class="ant-table-row ant-table-row-level-0"
-                          data-row-key="624691229"
-                        >
-                          <td
-                            class="ant-table-cell"
-                          >
-                            活动名称二
-                          </td>
-                          <td
-                            class="ant-table-cell"
-                          >
-                            <span
-                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                            >
-                              <span
-                                class="ant-badge-status-dot ant-badge-status-success"
-                              />
-                              <span
-                                class="ant-badge-status-text"
-                              >
-                                已解决
-                              </span>
-                            </span>
-                          </td>
-                          <td
-                            class="ant-table-cell"
-                          >
-                            这个活动真好玩
-                          </td>
-                          <td
-                            class="ant-table-cell"
-                          >
-                            <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
-                            >
-                              <div
-                                class="ant-space-item"
-                              >
-                                <a>
-                                  编辑
-                                </a>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <button
-          class="ant-btn ant-btn-dashed"
-          style="display: block; margin: 10px 0px; width: 100%;"
-          type="button"
-        >
-          <span
-            aria-label="plus"
-            class="anticon anticon-plus"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="plus"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <defs />
-              <path
-                d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-              />
-              <path
-                d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-              />
-            </svg>
-          </span>
-          <span>
-            添加一行数据
-          </span>
-        </button>
-      </div>
-    </div>
-  </div>,
-  <div
-    class="ant-pro-card ant-pro-card-collapse"
-  >
-    <div
-      class="ant-pro-card-header ant-pro-card-header-border"
-    >
-      <div
-        class="ant-pro-card-title"
-      >
-        <span
-          aria-label="right"
-          class="anticon anticon-right ant-pro-card-collapsible-icon"
-          role="img"
-          tabindex="-1"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="right"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-            />
-          </svg>
-        </span>
-        表格数据
-      </div>
-      <div
-        class="ant-pro-card-extra"
-      />
-    </div>
-    <div
-      class="ant-pro-card-body"
-    >
-      <pre
-        style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px; width: 100%;"
-      >
-        <code>
-          [
-  {
-    "id": 624748504,
-    "title": "活动名称一",
-    "decs": "这个活动真好玩",
-    "state": "open",
-    "created_at": "2020-05-26T09:42:56Z"
-  },
-  {
-    "id": 624691229,
-    "title": "活动名称二",
-    "decs": "这个活动真好玩",
-    "state": "closed",
-    "created_at": "2020-05-26T08:19:22Z"
-  }
-]
-        </code>
-      </pre>
-    </div>
-  </div>,
-]
-`;
-
-exports[`table demos renders ./packages/table/src/demos/form.tsx correctly 1`] = `
+exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 1`] = `
 <div
   class="ant-pro-table"
   id="ant-design-pro-table"
@@ -16024,7 +16024,7 @@ exports[`table demos renders ./packages/table/src/demos/form.tsx correctly 1`] =
 </div>
 `;
 
-exports[`table demos renders ./packages/table/src/demos/intl.tsx correctly 1`] = `
+exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 1`] = `
 <div
   class="ant-pro-table"
   id="ant-design-pro-table"
@@ -16942,7 +16942,7 @@ exports[`table demos renders ./packages/table/src/demos/intl.tsx correctly 1`] =
 </div>
 `;
 
-exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctly 1`] = `
+exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx correctly 1`] = `
 <div
   class="ant-pro-table"
   id="ant-design-pro-table"
@@ -18123,7 +18123,7 @@ exports[`table demos renders ./packages/table/src/demos/lightfilter.tsx correctl
 </div>
 `;
 
-exports[`table demos renders ./packages/table/src/demos/linkage_form.tsx correctly 1`] = `
+exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx correctly 1`] = `
 <div
   class="ant-pro-table"
   id="ant-design-pro-table"
@@ -18943,7 +18943,7 @@ exports[`table demos renders ./packages/table/src/demos/linkage_form.tsx correct
 </div>
 `;
 
-exports[`table demos renders ./packages/table/src/demos/listToolBar.tsx correctly 1`] = `
+exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx correctly 1`] = `
 <div
   class="ant-pro-table"
   id="ant-design-pro-table"
@@ -21061,7 +21061,7 @@ exports[`table demos renders ./packages/table/src/demos/listToolBar.tsx correctl
 </div>
 `;
 
-exports[`table demos renders ./packages/table/src/demos/no-title.tsx correctly 1`] = `
+exports[`table demos 📸 renders ./packages/table/src/demos/no-title.tsx correctly 1`] = `
 <div
   class="ant-pro-table"
   id="ant-design-pro-table"
@@ -21796,7 +21796,7 @@ exports[`table demos renders ./packages/table/src/demos/no-title.tsx correctly 1
 </div>
 `;
 
-exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`] = `
+exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctly 1`] = `
 <div
   class="ant-pro-table"
   id="ant-design-pro-table"
@@ -23116,7 +23116,7 @@ exports[`table demos renders ./packages/table/src/demos/normal.tsx correctly 1`]
 </div>
 `;
 
-exports[`table demos renders ./packages/table/src/demos/pollinga.tsx correctly 1`] = `
+exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correctly 1`] = `
 <div
   class="ant-pro-table"
   id="ant-design-pro-table"
@@ -24183,7 +24183,7 @@ exports[`table demos renders ./packages/table/src/demos/pollinga.tsx correctly 1
 </div>
 `;
 
-exports[`table demos renders ./packages/table/src/demos/renderTable.tsx correctly 1`] = `
+exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx correctly 1`] = `
 <div
   class="ant-pro-table"
   id="ant-design-pro-table"
@@ -25143,7 +25143,7 @@ exports[`table demos renders ./packages/table/src/demos/renderTable.tsx correctl
 </div>
 `;
 
-exports[`table demos renders ./packages/table/src/demos/rtl_table.tsx correctly 1`] = `
+exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx correctly 1`] = `
 <div
   class="ant-pro-table"
   id="ant-design-pro-table"
@@ -26819,7 +26819,7 @@ exports[`table demos renders ./packages/table/src/demos/rtl_table.tsx correctly 
 </div>
 `;
 
-exports[`table demos renders ./packages/table/src/demos/search.tsx correctly 1`] = `
+exports[`table demos 📸 renders ./packages/table/src/demos/search.tsx correctly 1`] = `
 <div
   class="ant-pro-table"
   id="ant-design-pro-table"
@@ -27268,7 +27268,7 @@ exports[`table demos renders ./packages/table/src/demos/search.tsx correctly 1`]
 </div>
 `;
 
-exports[`table demos renders ./packages/table/src/demos/search_option.tsx correctly 1`] = `
+exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx correctly 1`] = `
 <div
   class="ant-pro-table"
   id="ant-design-pro-table"
@@ -28082,7 +28082,7 @@ exports[`table demos renders ./packages/table/src/demos/search_option.tsx correc
 </div>
 `;
 
-exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`] = `
+exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctly 1`] = `
 <div
   class="ant-pro-table"
   id="ant-design-pro-table"
@@ -29848,7 +29848,7 @@ exports[`table demos renders ./packages/table/src/demos/single.tsx correctly 1`]
 </div>
 `;
 
-exports[`table demos renders ./packages/table/src/demos/single-test.tsx correctly 1`] = `
+exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx correctly 1`] = `
 Array [
   <div
     class="ant-pro-table"
@@ -32045,7 +32045,7 @@ Array [
 ]
 `;
 
-exports[`table demos renders ./packages/table/src/demos/split.tsx correctly 1`] = `
+exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-card-contain-card ant-pro-card-split"
 >
@@ -32996,7 +32996,7 @@ exports[`table demos renders ./packages/table/src/demos/split.tsx correctly 1`] 
 </div>
 `;
 
-exports[`table demos renders ./packages/table/src/demos/table-nested.tsx correctly 1`] = `
+exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx correctly 1`] = `
 <div
   class="ant-pro-table"
   id="ant-design-pro-table"
@@ -34008,7 +34008,7 @@ exports[`table demos renders ./packages/table/src/demos/table-nested.tsx correct
 </div>
 `;
 
-exports[`table demos renders ./packages/table/src/demos/valueType.tsx correctly 1`] = `
+exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx correctly 1`] = `
 <div
   class="ant-pro-table"
   id="ant-design-pro-table"
@@ -34947,7 +34947,7 @@ return { list: data.data, ...data };
 </div>
 `;
 
-exports[`table demos renders ./packages/table/src/demos/valueType_select.tsx correctly 1`] = `
+exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.tsx correctly 1`] = `
 <div
   class="ant-pro-table"
   id="ant-design-pro-table"
@@ -36085,7 +36085,7 @@ exports[`table demos renders ./packages/table/src/demos/valueType_select.tsx cor
 </div>
 `;
 
-exports[`table demos renders ./packages/table/src/demos/valueTypeDate.tsx correctly 1`] = `
+exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx correctly 1`] = `
 <div
   class="ant-pro-table"
   id="ant-design-pro-table"
@@ -37321,7 +37321,7 @@ exports[`table demos renders ./packages/table/src/demos/valueTypeDate.tsx correc
 </div>
 `;
 
-exports[`table demos renders ./packages/table/src/demos/valueTypeNumber.tsx correctly 1`] = `
+exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx correctly 1`] = `
 <div
   class="ant-pro-table"
   id="ant-design-pro-table"

@@ -2,7 +2,7 @@ import { mount } from 'enzyme';
 import React from 'react';
 import { QueryFilter, ProFormText } from '@ant-design/pro-form';
 import { act } from 'react-dom/test-utils';
-import { waitTime } from '../util';
+import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('QueryFilter', () => {
   it('basic use', async () => {
@@ -18,9 +18,12 @@ describe('QueryFilter', () => {
         <ProFormText label="b" name="b" />
       </QueryFilter>,
     );
-    wrapper.find('.ant-btn-primary').simulate('submit');
+    act(() => {
+      wrapper.find('.ant-btn-primary').simulate('submit');
+    });
+    await waitForComponentToPaint(wrapper);
     expect(wrapper.find('.ant-input').length).toEqual(2);
-    await waitTime();
+    await waitForComponentToPaint(wrapper);
     expect(onFinish).toHaveBeenCalledWith({
       a: 'testa',
     });
@@ -42,8 +45,10 @@ describe('QueryFilter', () => {
         <ProFormText label="b" name="b" />
       </QueryFilter>,
     );
-    wrapper.find('.ant-btn-primary').simulate('submit');
-    await waitTime();
+    act(() => {
+      wrapper.find('.ant-btn-primary').simulate('submit');
+    });
+    await waitForComponentToPaint(wrapper);
     expect(wrapper.find('.ant-input').length).toEqual(2);
     expect(wrapper.find('.ant-row.ant-form-item-hidden').length).toEqual(1);
     expect(wrapper.find('.anticon-down').length).toEqual(1);

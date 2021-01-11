@@ -157,6 +157,7 @@ function createField<P extends ProFormItemProps = any>(
       ...restFormItemProps,
       ...propsFormItemProps,
     };
+
     const field = (
       <Field
         // ProXxx 上面的 props 透传给 FieldProps，可能包含 Field 自定义的 props，

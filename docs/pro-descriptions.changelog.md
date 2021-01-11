@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-descriptions@1.2.0
+
+`2020-12-21`
+
+- 💥 feat(descriptions): descriptions support loading and onLoadingChange [#1344](https://github.com/ant-design/pro-components/pull/1344) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-descriptions@1.1.1
 
 `2020-12-14`

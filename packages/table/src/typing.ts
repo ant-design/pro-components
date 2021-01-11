@@ -15,12 +15,12 @@ import type { TableProps } from 'antd/lib/table';
 
 import type { ColumnFilterItem, ColumnType, SortOrder } from 'antd/lib/table/interface';
 import type { CSSProperties } from 'react';
-import type { AlertRenderType } from './component/Alert';
-import type { ListToolBarProps } from './component/ListToolBar';
-import type { OptionConfig, ToolBarProps } from './component/ToolBar';
-import type { DensitySize } from './component/ToolBar/DensityIcon';
+import type { AlertRenderType } from './components/Alert';
+import type { ListToolBarProps } from './components/ListToolBar';
+import type { OptionConfig, ToolBarProps } from './components/ToolBar';
+import type { DensitySize } from './components/ToolBar/DensityIcon';
 import type { ColumnsState, useCounter } from './container';
-import type { SearchConfig, TableFormItem } from './Form';
+import type { SearchConfig, TableFormItem } from './components/Form';
 
 export type PageInfo = {
   page: number;
@@ -65,7 +65,7 @@ export type TableRowSelection = TableProps<any>['rowSelection'];
 
 export type ExtraProColumnType<T> = Omit<
   ColumnType<T>,
-  'render' | 'children' | 'title' | 'filters'
+  'render' | 'children' | 'title' | 'filters' | 'onFilter'
 >;
 
 export type ProColumnType<T = unknown> = ProSchema<
@@ -127,6 +127,11 @@ export type ProColumnType<T = unknown> = ProSchema<
      * 表头的筛选菜单项
      */
     filters?: boolean | ColumnFilterItem[];
+
+    /**
+     * 筛选的函数，设置为 false 会关闭自带的本地筛选
+     */
+    onFilter?: false | ColumnType<T>['onFilter'];
 
     /**
      * form 的排序

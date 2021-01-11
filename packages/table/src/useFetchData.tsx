@@ -1,6 +1,10 @@
-import { useState, useRef, useEffect } from 'react';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { usePrevious, useDebounceFn, useDeepCompareEffect } from '@ant-design/pro-utils';
+import { useRef, useEffect } from 'react';
+import {
+  usePrevious,
+  useDebounceFn,
+  useDeepCompareEffect,
+  useMountMergeState,
+} from '@ant-design/pro-utils';
 import ReactDOM from 'react-dom';
 import type { PageInfo, RequestData, UseFetchDataAction } from './typing';
 
@@ -23,24 +27,22 @@ const useFetchData = <T extends RequestData<any>>(
     pagination: boolean;
   },
 ): UseFetchDataAction<T> => {
-  // 用于标定组件是否解除挂载，如果解除了就不要 setState
-  const mountRef = useRef(true);
   const { pagination, onLoadingChange, onLoad = () => null, manual, onRequestError } =
     options || {};
 
-  const [list, setList] = useMergedState<T['data']>(defaultData as any, {
+  const [list, setList] = useMountMergeState<T['data']>(defaultData as any, {
     value: options?.dataSource,
     onChange: options?.onDataSourceChange,
   });
 
-  const [loading, setLoading] = useMergedState<UseFetchDataAction<T>['loading']>(undefined, {
+  const [loading, setLoading] = useMountMergeState<UseFetchDataAction<T>['loading']>(undefined, {
     value: options?.loading,
     onChange: onLoadingChange,
   });
 
   const requesting = useRef(false);
 
-  const [pageInfo, setPageInfo] = useState<PageInfo>({
+  const [pageInfo, setPageInfo] = useMountMergeState<PageInfo>({
     page: options?.current || options?.defaultCurrent || 1,
     total: 0,
     pageSize: options?.pageSize || options?.defaultPageSize || 20,
@@ -68,7 +70,7 @@ const useFetchData = <T extends RequestData<any>>(
    * 请求数据
    */
   const fetchList = async () => {
-    if (loading || requesting.current || !mountRef.current) {
+    if (loading || requesting.current) {
       return;
     }
     setLoading(true);
@@ -85,10 +87,7 @@ const useFetchData = <T extends RequestData<any>>(
           : undefined,
       );
       requesting.current = false;
-      // Do nothing when component unmounted before getData resolved
-      if (!mountRef.current) {
-        return;
-      }
+
       if (success !== false) {
         setDataAndLoading(data, dataTotal);
       } else {
@@ -156,11 +155,9 @@ const useFetchData = <T extends RequestData<any>>(
     if (manual) {
       return () => null;
     }
-    mountRef.current = true;
     fetchListDebounce.run();
     return () => {
       fetchListDebounce.cancel();
-      mountRef.current = false;
     };
   }, [...effects, manual]);
 

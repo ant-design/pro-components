@@ -9,6 +9,27 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.17.0
+
+`2020-12-24`
+
+- 🐛 fix(table): Filter de parameters van beforeSearchSubmit [#1384](https://github.com/ant-design/pro-components/pull/1384) [@lzbabd](https://github.com/lzbabd)
+- 🐛 fix(table): settings max height (#1376) [#1380](https://github.com/ant-design/pro-components/pull/1380) [@DerrickTel](https://github.com/DerrickTel)
+
+## @ant-design/pro-table@2.16.4
+
+`2020-12-21`
+
+- 🐛 fix(compiler): form 修复问题和清空操作冲突，改成 hasOwnProperty 判断 [#1363](https://github.com/ant-design/pro-components/pull/1363) [@oldturkey](https://github.com/oldturkey)
+
+## @ant-design/pro-table@2.16.3
+
+`2020-12-21`
+
+- 🐛 fix(table): 设置 pageSize 后,查询或重置没获取最新的 pageSize [#1352](https://github.com/ant-design/pro-components/pull/1352) [@poyiding](https://github.com/poyiding)
+- fix(table): fix renderFormItem no have index error [#1349](https://github.com/ant-design/pro-components/pull/1349) [@chenshuai2144](https://github.com/chenshuai2144)
+- ✨ feat(table): support onLoadingChange [#1341](https://github.com/ant-design/pro-components/pull/1341) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.16.2
 
 `2020-12-17`

@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-list@1.2.0
+
+`2020-12-24`
+
+- 🐛 fix(list): fix list pagination no work error [#1393](https://github.com/ant-design/pro-components/pull/1393) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-list@1.1.6
 
 `2020-12-07`

@@ -22,15 +22,15 @@ import type { ProSettings } from './defaultSettings';
 import defaultSettings from './defaultSettings';
 import type { LocaleType } from './locales';
 import getLocales from './locales';
-import type { BaseMenuProps } from './SiderMenu/BaseMenu';
+import type { BaseMenuProps } from './components/SiderMenu/BaseMenu';
 import Footer from './Footer';
 import RouteContext from './RouteContext';
-import SiderMenu from './SiderMenu';
-import type { SiderMenuProps } from './SiderMenu/SiderMenu';
+import SiderMenu from './components/SiderMenu';
+import type { SiderMenuProps } from './components/SiderMenu/SiderMenu';
 import { getBreadcrumbProps } from './utils/getBreadcrumbProps';
 import getMenuData from './utils/getMenuData';
-import PageLoading from './PageLoading';
-import MenuCounter from './SiderMenu/Counter';
+import PageLoading from './components/PageLoading';
+import MenuCounter from './components/SiderMenu/Counter';
 import WrapContent from './WrapContent';
 import compatibleLayout from './utils/compatibleLayout';
 import useCurrentMenuLayoutProps from './utils/useCurrentMenuLayoutProps';
@@ -60,7 +60,10 @@ export type BasicLayoutProps = Partial<RouterTypes<Route>> &
       (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
     >;
 
-    breadcrumbRender?: (routers: AntdBreadcrumbProps['routes']) => AntdBreadcrumbProps['routes'];
+    breadcrumbRender?: WithFalse<
+      (routers: AntdBreadcrumbProps['routes']) => AntdBreadcrumbProps['routes']
+    >;
+
     menuItemRender?: BaseMenuProps['menuItemRender'];
     pageTitleRender?: WithFalse<
       (

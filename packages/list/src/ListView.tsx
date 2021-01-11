@@ -32,7 +32,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     prefixCls,
     expandable: expandableConfig,
     rowSelection,
-    pagination = false, // List 的 pagination 默认是 false
+    pagination, // List 的 pagination 默认是 false
     ...rest
   } = props;
 

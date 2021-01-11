@@ -1,11 +1,11 @@
 /* eslint-disable no-param-reassign */
 import type { ReactElement } from 'react';
-import React, { useState, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { Row, Col, Form, Divider } from 'antd';
 import type { FormInstance, FormProps } from 'antd/lib/form/Form';
 import RcResizeObserver from 'rc-resize-observer';
 import { useIntl } from '@ant-design/pro-provider';
-import { isBrowser } from '@ant-design/pro-utils';
+import { isBrowser, useMountMergeState } from '@ant-design/pro-utils';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import type { CommonFormProps } from '../../BaseForm';
@@ -301,7 +301,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
     ...rest
   } = props;
 
-  const [width, setWidth] = useState(
+  const [width, setWidth] = useMountMergeState(
     () => (typeof style?.width === 'number' ? style?.width : defaultWidth) as number,
   );
 

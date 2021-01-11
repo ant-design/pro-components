@@ -2,21 +2,22 @@ import type { BasicLayoutProps } from './BasicLayout';
 import BasicLayout from './BasicLayout';
 import type { HeaderViewProps as HeaderProps } from './Header';
 import DefaultHeader from './Header';
-import type { TopNavHeaderProps } from './TopNavHeader';
-import TopNavHeader from './TopNavHeader';
-import type { SettingDrawerProps, SettingDrawerState } from './SettingDrawer';
-import SettingDrawer from './SettingDrawer';
+import type { TopNavHeaderProps } from './components/TopNavHeader';
+import TopNavHeader from './components/TopNavHeader';
+import type { SettingDrawerProps, SettingDrawerState } from './components/SettingDrawer';
+import SettingDrawer from './components/SettingDrawer';
 
 import type { FooterProps } from './Footer';
 import DefaultFooter from './Footer';
-import GridContent from './GridContent';
-import PageContainer from './PageContainer';
+import GridContent from './components/GridContent';
+import PageContainer from './components/PageContainer';
+import type { PageContainerProps } from './components/PageContainer';
 import type { RouteContextType } from './RouteContext';
 import RouteContext from './RouteContext';
 import getMenuData from './utils/getMenuData';
 import getPageTitle from './getPageTitle';
-import PageLoading from './PageLoading';
-import FooterToolbar from './FooterToolbar';
+import PageLoading from './components/PageLoading';
+import FooterToolbar from './components/FooterToolbar';
 
 export type { ProSettings as Settings, ProSettings } from './defaultSettings';
 
@@ -42,6 +43,7 @@ export {
 
 export type {
   FooterProps,
+  PageContainerProps,
   TopNavHeaderProps,
   BasicLayoutProps,
   RouteContextType,

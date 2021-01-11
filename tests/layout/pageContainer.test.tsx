@@ -5,7 +5,7 @@ import BasicLayout, {
   BasicLayoutProps,
   FooterToolbar,
 } from '@ant-design/pro-layout';
-import { act } from 'react-test-renderer';
+import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
 
 describe('PageContainer', () => {
@@ -166,7 +166,9 @@ describe('PageContainer', () => {
     expect(wrapper.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe('100%');
     expect(wrapper.render()).toMatchSnapshot();
     // test useUseEffect render function
-    wrapper.unmount();
+    act(() => {
+      wrapper.unmount();
+    });
   });
 
   it('🐲 footer is null, do not render footerToolbar ', async () => {
