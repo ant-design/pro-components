@@ -2,6 +2,8 @@ import type { SearchTransformKeyFn } from '../typing';
 import get from 'rc-util/lib/utils/get';
 import namePathSet from 'rc-util/lib/utils/set';
 
+export type DataFormatMapType = Record<string, SearchTransformKeyFn | undefined>;
+
 const transformKeySubmitValue = <T = any>(
   values: T,
   dataFormatMap: Record<string, SearchTransformKeyFn | undefined>,

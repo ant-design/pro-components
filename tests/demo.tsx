@@ -1,6 +1,7 @@
 import React from 'react';
 import glob from 'glob';
-import { render, mount } from 'enzyme';
+import type { render } from 'enzyme';
+import { mount } from 'enzyme';
 import MockDate from 'mockdate';
 import moment from 'moment';
 import { waitForComponentToPaint } from './util';

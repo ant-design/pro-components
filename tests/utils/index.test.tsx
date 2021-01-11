@@ -278,14 +278,19 @@ describe('utils', () => {
         time: '2019-11-16 12:50:26',
         name: 'qixian',
         money: 20,
-        dateTimeRange: ['2019-11-16 12:50:26', '2019-11-16 12:55:26'],
+        dateTimeRange: {
+          time: ['2019-11-16 12:50:26', '2019-11-16 12:55:26'],
+        },
         dateRange: ['2019-11-16 12:50:26', '2019-11-16 12:55:26'],
       },
       {
-        dateTimeRange: (value: any) => ({
-          dateTimeRange1: value[0],
-          dateTimeRange2: value[1],
-        }),
+        dateTimeRange: {
+          // @ts-ignore
+          time: (value: any) => ({
+            dateTimeRange1: value[0],
+            dateTimeRange2: value[1],
+          }),
+        },
         dateRange: (value: any) => ({
           dateRange1: value[0],
           dateRange2: value[1],
@@ -294,17 +299,12 @@ describe('utils', () => {
     );
     const htmlKeys = Object.keys(html).sort();
     expect(htmlKeys).toEqual(
-      [
-        'dateTimeRange1',
-        'dateTimeRange2',
-        'dateRange1',
-        'dateRange2',
-        'dataTime',
-        'time',
-        'name',
-        'money',
-      ].sort(),
+      ['dateTimeRange', 'dateRange1', 'dateRange2', 'dataTime', 'time', 'name', 'money'].sort(),
     );
+
+    const arrayKeys = Object.keys(html.dateTimeRange).sort();
+    expect(arrayKeys).toEqual(['dateTimeRange1', 'dateTimeRange2'].sort());
+
     expect(htmlKeys).not.toEqual(
       ['dataTime', 'time', 'name', 'money', 'dateTimeRange', 'dateRange'].sort(),
     );
@@ -312,8 +312,8 @@ describe('utils', () => {
     expect(html.time).toBe('2019-11-16 12:50:26');
     expect(html.name).toBe('qixian');
     expect(html.money).toBe(20);
-    expect((html as any).dateTimeRange1).toBe('2019-11-16 12:50:26');
-    expect((html as any).dateTimeRange2).toBe('2019-11-16 12:55:26');
+    expect((html as any).dateTimeRange.dateTimeRange1).toBe('2019-11-16 12:50:26');
+    expect((html as any).dateTimeRange.dateTimeRange2).toBe('2019-11-16 12:55:26');
     expect((html as any).dateRange1).toBe('2019-11-16 12:50:26');
     expect((html as any).dateRange2).toBe('2019-11-16 12:55:26');
   });
