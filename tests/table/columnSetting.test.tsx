@@ -211,7 +211,10 @@ describe('Table ColumnSetting', () => {
     });
     await waitForComponentToPaint(html);
 
-    expect(html.find('span.ant-checkbox.ant-checkbox-checked').length).toBe(2);
+    expect(
+      html.find('span.ant-checkbox.ant-checkbox-checked').length +
+        html.find('span.ant-tree-checkbox.ant-tree-checkbox-checked').length,
+    ).toBe(2);
 
     expect(callBack).toBeCalled();
   });
@@ -257,14 +260,11 @@ describe('Table ColumnSetting', () => {
     await waitForComponentToPaint(html, 200);
 
     act(() => {
-      html
-        .find('.ant-pro-table-column-setting-list .ant-checkbox-wrapper')
-        .find('.ant-checkbox-input')
-        .simulate('change', {
-          target: {
-            checked: false,
-          },
-        });
+      html.find('.ant-pro-table-column-setting-list .ant-tree-checkbox').simulate('click', {
+        target: {
+          checked: false,
+        },
+      });
     });
 
     await waitForComponentToPaint(html, 200);
@@ -272,18 +272,14 @@ describe('Table ColumnSetting', () => {
     expect(html.find('span.ant-checkbox.ant-checkbox-checked').length).toBe(0);
 
     act(() => {
-      html
-        .find('.ant-pro-table-column-setting-list .ant-checkbox-wrapper')
-        .find('.ant-checkbox-input')
-        .simulate('change', {
-          target: {
-            checked: true,
-          },
-        });
+      html.find('.ant-pro-table-column-setting-list .ant-tree-checkbox').simulate('click');
     });
     await waitForComponentToPaint(html);
 
-    expect(html.find('span.ant-checkbox.ant-checkbox-checked').length).toBe(2);
+    expect(
+      html.find('span.ant-checkbox.ant-checkbox-checked').length +
+        html.find('span.ant-tree-checkbox.ant-tree-checkbox-checked').length,
+    ).toBe(2);
 
     expect(callBack).toBeCalled();
   });
