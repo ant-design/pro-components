@@ -7,13 +7,21 @@ const transformKeySubmitValue = <T = any>(
   dataFormatMap: Record<string, SearchTransformKeyFn | undefined>,
   parentsKey?: React.Key,
 ) => {
+  if (Object.keys(dataFormatMap).length < 1) {
+    return values;
+  }
+
   let result = {} as T;
 
   Object.keys(values).forEach((entryKey) => {
     const key = parentsKey ? [parentsKey, entryKey] : [entryKey];
     const itemValue = values[entryKey];
     if (typeof itemValue === 'object' && !Array.isArray(itemValue)) {
-      namePathSet(result, [entryKey], transformKeySubmitValue(itemValue, dataFormatMap, entryKey));
+      result = namePathSet(
+        result,
+        [entryKey],
+        transformKeySubmitValue(itemValue, dataFormatMap, entryKey),
+      );
       return;
     }
     const transformFunction = get(dataFormatMap, key);
