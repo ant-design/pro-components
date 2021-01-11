@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.23.0
+
+`2021-01-11`
+
+- 🐛 fix(table): optimised type to suit oneapi [#1576](https://github.com/ant-design/pro-components/pull/1576) [@chenshuai2144](https://github.com/chenshuai2144)
+- feat: editable table add tableViewRender [#1572](https://github.com/ant-design/pro-components/pull/1572) [@tolerance-go](https://github.com/tolerance-go)
+
 ## @ant-design/pro-table@2.22.1
 
 `2021-01-08`

@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.13.8
+
+`2021-01-11`
+
+- fix(form): fix namePath is array error [#1579](https://github.com/ant-design/pro-components/pull/1579) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): lightSelect searchInput allowClear [#1568](https://github.com/ant-design/pro-components/pull/1568) [@oldturkey](https://github.com/oldturkey)
+
 ## @ant-design/pro-form@1.13.6
 
 `2021-01-08`
