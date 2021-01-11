@@ -127,7 +127,7 @@ function EditableTable<T, U extends ParamsType = {}>(props: EditableProTableProp
       tableViewRender: (_: any, dom: any) => {
         return (
           <>
-            {dom}
+            {props.tableViewRender?.(_, dom) ?? dom}
             {creatorButtonDom}
           </>
         );
