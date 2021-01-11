@@ -43,7 +43,7 @@ ProList 与 antd 的 [List](https://ant.design/components/list-cn/) 相比，主
 | avatar | 列表项的头像 | AvatarProps \| string | - |
 | actions | 操作列表项 | React.ReactNode[] | - |
 | description | 列表项的描述，与 title 不在一行 | React.ReactNode[] | - |
-| expandedRowClassName | 多余展开的 css | string | - |
+| expandedRowClassName | 额外展开的 css | string | - |
 | expand | 列表项是否展开 | boolean | - |
 | onExpand | 列表项展开收起的回调 | (expand: boolean) => void | - |
 | expandable | 列表项展开配置 | [object](https://ant.design/components/table-cn/#expandable) | - |

@@ -24,7 +24,7 @@ export type PageHeaderTabConfig = {
   /** @name tab 修改时触发 */
   onTabChange?: TabsProps['onChange'];
 
-  /** @name tab 上多余的区域 */
+  /** @name tab 上额外的区域 */
   tabBarExtraContent?: TabsProps['tabBarExtraContent'];
 
   /** @name tabs 的其他配置 */
