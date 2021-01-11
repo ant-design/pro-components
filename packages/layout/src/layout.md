@@ -25,50 +25,31 @@ ProLayout 扩展了 umi 的 router 配置，新增了 name，icon，locale,hideI
 
 ```ts | pure
 export interface MenuDataItem {
-  /**
-   * @name 子菜单
-   */
+  /** @name 子菜单 */
   children?: MenuDataItem[];
-  /**
-   * @name 在菜单中隐藏子节点
-   */
+  /** @name 在菜单中隐藏子节点 */
   hideChildrenInMenu?: boolean;
-  /**
-   * @name 在菜单中隐藏自己和子节点
-   */
+  /** @name 在菜单中隐藏自己和子节点 */
   hideInMenu?: boolean;
-  /**
-   * @name 菜单的icon
-   */
+  /** @name 菜单的icon */
   icon?: React.ReactNode;
-  /**
-   * @name 自定义菜单的国际化 key
-   */
+  /** @name 自定义菜单的国际化 key */
   locale?: string | false;
-  /**
-   * @name 菜单的名字
-   */
+  /** @name 菜单的名字 */
   name?: string;
-  /**
-   * @name 用于标定选中的值，默认是 path
-   */
+  /** @name 用于标定选中的值，默认是 path */
   key?: string;
-  /**
-   * @name disable 菜单选项
-   */
+  /** @name disable 菜单选项 */
   disabled?: boolean;
-  /**
-   * @name 路径
-   */
+  /** @name 路径 */
   path?: string;
   /**
+   * 当此节点被选中的时候也会选中 parentKeys 的节点
+   *
    * @name 自定义父节点
-   * @description 当此节点被选中的时候也会选中 parentKeys 的节点
    */
   parentKeys?: string[];
-  /**
-   * @name 隐藏自己，并且将子节点提升到与自己平级
-   */
+  /** @name 隐藏自己，并且将子节点提升到与自己平级 */
   flatMenu?: boolean;
 
   [key: string]: any;
@@ -185,7 +166,7 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 | onCollapse | 菜单的折叠收起事件 | `(collapsed: boolean) => void` | - |
 | onPageChange | 页面切换时触发 | `(location: Location) => void` | - |
 | headerRender | 自定义头的 render 方法 | `(props: BasicLayoutProps) => ReactNode` | - |
-| headerTitleRender | 自定义头标题的方法,mix 模式下生效 | `(props: BasicLayoutProps) => ReactNode` | - |
+| headerTitleRender | 自定义头标题的方法,mix 模式下生效 | `(logo,title,props)=>ReactNode` | - |
 | headerContentRender | 自定义头内容的方法 | `(props: BasicLayoutProps) => ReactNode` | - |
 | rightContentRender | 自定义头右部的 render 方法 | `(props: HeaderViewProps) => ReactNode` | - |
 | collapsedButtonRender | 自定义 collapsed button 的方法 | `(collapsed: boolean) => ReactNode` | - |
@@ -293,29 +274,17 @@ const title = getPageTitle({
 // 可以通过 import { Settings } from '@ant-design/pro-layout/defaultSettings'
 // 来获取这个类型
 export interface Settings {
-  /**
-   * theme for nav menu
-   */
+  /** Theme for nav menu */
   navTheme: 'light' | 'dark';
-  /**
-   * primary color of ant design
-   */
+  /** Primary color of ant design */
   primaryColor: string;
-  /**
-   * nav menu position: `side` or `top`
-   */
+  /** Nav menu position: `side` or `top` */
   layout: 'side' | 'top';
-  /**
-   * layout of content: `Fluid` or `Fixed`, only works when layout is top
-   */
+  /** Layout of content: `Fluid` or `Fixed`, only works when layout is top */
   contentWidth: 'Fluid' | 'Fixed';
-  /**
-   * sticky header
-   */
+  /** Sticky header */
   fixedHeader: boolean;
-  /**
-   * sticky siderbar
-   */
+  /** Sticky siderbar */
   fixSiderbar: boolean;
   menu: { locale: boolean };
   title: string;

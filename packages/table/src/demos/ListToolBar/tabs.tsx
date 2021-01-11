@@ -1,7 +1,4 @@
-/**
- * title: 带标签
- * desc: 标签需配合 `multipleLine` 为 `true` 时使用。
- */
+/** Title: 带标签 desc: 标签需配合 `multipleLine` 为 `true` 时使用。 */
 import React from 'react';
 import { EllipsisOutlined } from '@ant-design/icons';
 import { LightFilter, ProFormDatePicker } from '@ant-design/pro-form';

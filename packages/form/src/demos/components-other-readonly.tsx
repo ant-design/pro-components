@@ -95,6 +95,8 @@ const Demo = () => (
       }}
       onFinish={async (value) => console.log(value)}
     >
+      <ProFormText width={500} name="name2" label="name" />
+
       <ProFormText readonly width="md" name="name" label="name" />
       <ProFormSelect
         name="select"

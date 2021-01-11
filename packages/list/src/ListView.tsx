@@ -51,9 +51,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
 
   // 合并分页的的配置
   const [mergedPagination] = usePagination(dataSource.length, pagination as any, () => {});
-  /**
-   * 根据分页来回去不同的数据，模拟 table
-   */
+  /** 根据分页来回去不同的数据，模拟 table */
   const pageData = React.useMemo<RecordType[]>(() => {
     if (
       pagination === false ||
@@ -74,9 +72,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     mergedPagination && mergedPagination.total,
   ]);
 
-  /**
-   * 提供和 table 一样的 rowSelection 配置
-   */
+  /** 提供和 table 一样的 rowSelection 配置 */
   const [selectItemRender, selectedKeySet] = useSelection(rowSelection, {
     getRowKey,
     getRecordByKey,
@@ -137,11 +133,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     [getRowKey, mergedExpandedKeys, dataSource, onExpand, onExpandedRowsChange],
   );
 
-  /**
-   * 这个是 选择框的 render 方法
-   * 为了兼容 antd 的 table,用了同样的渲染逻辑
-   * 所以看起来有点奇怪
-   */
+  /** 这个是 选择框的 render 方法 为了兼容 antd 的 table,用了同样的渲染逻辑 所以看起来有点奇怪 */
   const selectItemDom = selectItemRender([])[0];
 
   return (

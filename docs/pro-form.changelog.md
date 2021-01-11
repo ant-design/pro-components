@@ -9,6 +9,15 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.13.6
+
+`2021-01-08`
+
+- 🐛 fix(form): fix defaultColsNumber no work error [#1551](https://github.com/ant-design/pro-components/pull/1551) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix ProFormRadio.Group vertical style error [#1542](https://github.com/ant-design/pro-components/pull/1542) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix transform no work when namePath is array [#1537](https://github.com/ant-design/pro-components/pull/1537) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix ModalForm and DrawerFrom props error [#1534](https://github.com/ant-design/pro-components/pull/1534) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-form@1.13.0
 
 `2021-01-03`

@@ -335,10 +335,10 @@ describe('utils', () => {
     );
     const htmlKeys = Object.keys(html).sort();
     expect(htmlKeys).toEqual(
-      ['dataTime', 'time', 'name', 'money', 'dateTimeRange', 'dateRange'].sort(),
+      ['dateRange', 'dateTimeRange', 'money', 'name', 'new-dataTime', 'new-time'].sort(),
     );
-    expect(html.dataTime).toBe('2019-11-16 12:50:26');
-    expect(html.time).toBe('2019-11-16 12:50:26');
+    expect(html['new-dataTime']).toBe('2019-11-16 12:50:26');
+    expect(html['new-time']).toBe('2019-11-16 12:50:26');
     expect(html.name).toBe('qixian');
     expect(html.money).toBe(20);
     expect(html.dateTimeRange.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:55:26');

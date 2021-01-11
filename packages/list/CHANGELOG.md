@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.2.15...@ant-design/pro-list@1.2.16) (2021-01-11)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.2.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.2.14...@ant-design/pro-list@1.2.15) (2021-01-08)
+
+### Bug Fixes
+
+- **list:** the action of a list is no longer bubbled ([#1543](https://github.com/ant-design/pro-components/issues/1543)) ([e8d35f9](https://github.com/ant-design/pro-components/commit/e8d35f9fd2655b53e88b6c9ea519d8e6a7c68b12))
+
+## [1.2.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.2.13...@ant-design/pro-list@1.2.14) (2021-01-07)
+
+### Bug Fixes
+
+- **filed:** auto insert dom key ([#1517](https://github.com/ant-design/pro-components/issues/1517)) ([d4be88a](https://github.com/ant-design/pro-components/commit/d4be88a4cf2c499a6190111602c4bfcbbc75daaf))
+
+## [1.2.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.2.12...@ant-design/pro-list@1.2.13) (2021-01-06)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
 ## [1.2.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.2.11...@ant-design/pro-list@1.2.12) (2021-01-05)
 
 **Note:** Version bump only for package @ant-design/pro-list

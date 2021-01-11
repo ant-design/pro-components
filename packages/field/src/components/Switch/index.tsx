@@ -6,6 +6,7 @@ import type { ProFieldFC } from '../../index';
 
 /**
  * 评分组件
+ *
  * @param
  */
 const FieldSwitch: ProFieldFC<{ text: boolean; fieldProps?: SwitchProps }> = (

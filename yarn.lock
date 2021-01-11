@@ -7252,6 +7252,11 @@ commander@^6.2.0:
   resolved "https://registry.npm.taobao.org/commander/download/commander-6.2.1.tgz?cache=0&sync_timestamp=1607933281807&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcommander%2Fdownload%2Fcommander-6.2.1.tgz#0792eb682dfbc325999bb2b84fddddba110ac73c"
   integrity sha1-B5LraC37wyWZm7K4T93duhEKxzw=
 
+comment-parser@^0.7.6:
+  version "0.7.6"
+  resolved "https://registry.npm.taobao.org/comment-parser/download/comment-parser-0.7.6.tgz#0e743a53c8e646c899a1323db31f6cd337b10f12"
+  integrity sha1-DnQ6U8jmRsiZoTI9sx9s0zexDxI=
+
 commondir@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npm.taobao.org/commondir/download/commondir-1.0.1.tgz#ddd800da0c66127393cca5950ea968a3aaf1253b"
@@ -14253,6 +14258,11 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.npm.taobao.org/lines-and-columns/download/lines-and-columns-1.1.6.tgz#1c00c743b433cd0a4e80758f7b64a57440d9ff00"
   integrity sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=
 
+linguist-languages@^7.11.1:
+  version "7.12.1"
+  resolved "https://registry.npm.taobao.org/linguist-languages/download/linguist-languages-7.12.1.tgz#bf4928f25953ce3e00369cf956ac4d016923d55f"
+  integrity sha1-v0ko8llTzj4ANpz5VqxNAWkj1V8=
+
 lint-staged@^10.0.2:
   version "10.5.3"
   resolved "https://registry.npm.taobao.org/lint-staged/download/lint-staged-10.5.3.tgz?cache=0&sync_timestamp=1607094258641&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Flint-staged%2Fdownload%2Flint-staged-10.5.3.tgz#c682838b3eadd4c864d1022da05daa0912fb1da5"
@@ -17822,6 +17832,14 @@ postcss-selector-parser@^6.0.0, postcss-selector-parser@^6.0.2, postcss-selector
     uniq "^1.0.1"
     util-deprecate "^1.0.2"
 
+postcss-sorting@5.0.1, postcss-sorting@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.npm.taobao.org/postcss-sorting/download/postcss-sorting-5.0.1.tgz?cache=0&sync_timestamp=1600302289143&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fpostcss-sorting%2Fdownload%2Fpostcss-sorting-5.0.1.tgz#10d5d0059eea8334dacc820c0121864035bc3f11"
+  integrity sha1-ENXQBZ7qgzTazIIMASGGQDW8PxE=
+  dependencies:
+    lodash "^4.17.14"
+    postcss "^7.0.17"
+
 postcss-sorting@^4.1.0:
   version "4.1.0"
   resolved "https://registry.npm.taobao.org/postcss-sorting/download/postcss-sorting-4.1.0.tgz?cache=0&sync_timestamp=1600302289143&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fpostcss-sorting%2Fdownload%2Fpostcss-sorting-4.1.0.tgz#a107f0bf3852977fa64e4442bc340c88d5aacdb3"
@@ -17829,14 +17847,6 @@ postcss-sorting@^4.1.0:
   dependencies:
     lodash "^4.17.4"
     postcss "^7.0.0"
-
-postcss-sorting@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.npm.taobao.org/postcss-sorting/download/postcss-sorting-5.0.1.tgz?cache=0&sync_timestamp=1600302289143&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fpostcss-sorting%2Fdownload%2Fpostcss-sorting-5.0.1.tgz#10d5d0059eea8334dacc820c0121864035bc3f11"
-  integrity sha1-ENXQBZ7qgzTazIIMASGGQDW8PxE=
-  dependencies:
-    lodash "^4.17.14"
-    postcss "^7.0.17"
 
 postcss-svgo@^4.0.2:
   version "4.0.2"
@@ -17945,6 +17955,22 @@ prepend-http@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npm.taobao.org/prepend-http/download/prepend-http-2.0.0.tgz#e92434bfa5ea8c19f41cdfd401d741a3c819d897"
   integrity sha1-6SQ0v6XqjBn0HN/UAddBo8gZ2Jc=
+
+prettier-plugin-jsdoc@^0.2.13:
+  version "0.2.13"
+  resolved "https://registry.npm.taobao.org/prettier-plugin-jsdoc/download/prettier-plugin-jsdoc-0.2.13.tgz#78f87d884018def8c2ff467e6825c078f42592a0"
+  integrity sha1-ePh9iEAY3vjC/0Z+aCXAePQlkqA=
+  dependencies:
+    comment-parser "^0.7.6"
+    linguist-languages "^7.11.1"
+
+prettier-plugin-style-order@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.npm.taobao.org/prettier-plugin-style-order/download/prettier-plugin-style-order-0.2.2.tgz#cef2b6af3cfbeb52c821717daff4d8c0c824c012"
+  integrity sha1-zvK2rzz761LIIXF9r/TYwMgkwBI=
+  dependencies:
+    postcss-sorting "5.0.1"
+    resolve-cwd "^3.0.0"
 
 prettier@1.15.3:
   version "1.15.3"

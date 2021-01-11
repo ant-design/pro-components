@@ -3,6 +3,10 @@ import { InputNumber } from 'antd';
 import { useIntl } from '@ant-design/pro-provider';
 import type { ProFieldFC } from '../../index';
 
+const defaultMoneyIntl = new Intl.NumberFormat('zh-Hans-CN', {
+  currency: 'CNY',
+});
+
 const moneyIntl = new Intl.NumberFormat('zh-Hans-CN', {
   currency: 'CNY',
   style: 'currency',
@@ -24,7 +28,7 @@ const msMoneyIntl = new Intl.NumberFormat('ms-MY', {
   currency: 'MYR',
 });
 
-const getTextByLocale = (locale: string, paramsText: number) => {
+const getTextByLocale = (locale: string | undefined, paramsText: number) => {
   let text = paramsText;
   if (typeof text === 'string') {
     text = Number(text);
@@ -41,6 +45,9 @@ const getTextByLocale = (locale: string, paramsText: number) => {
   if (locale === 'ms_MY') {
     return msMoneyIntl.format(text);
   }
+  if (locale === undefined) {
+    return defaultMoneyIntl.format(text);
+  }
   return moneyIntl.format(text);
 };
 
@@ -52,20 +59,25 @@ export type FieldMoneyProps = {
 
 /**
  * 金额组件
- * @param FieldMoneyProps
- * {
- *    text: number;
- *    moneySymbol?: string;
- * }
+ *
+ * @param FieldMoneyProps {
+ *     text: number;
+ *     moneySymbol?: string; }
  */
 const FieldMoney: ProFieldFC<FieldMoneyProps> = (
   { text, mode: type, locale = '', render, renderFormItem, fieldProps, ...rest },
   ref,
 ) => {
   const intl = useIntl();
-  const moneySymbol = intl.getMessage('moneySymbol', rest.moneySymbol || '￥');
+  const moneySymbol =
+    rest.moneySymbol === undefined ? intl.getMessage('moneySymbol', '￥') : rest.moneySymbol;
+
   if (type === 'read') {
-    const dom = <span ref={ref}>{getTextByLocale(locale || intl.locale, text)}</span>;
+    const dom = (
+      <span ref={ref}>
+        {getTextByLocale(moneySymbol ? locale || intl.locale || 'zh-CN' : undefined, text)}
+      </span>
+    );
     if (render) {
       return render(text, { mode: type, ...fieldProps }, dom);
     }

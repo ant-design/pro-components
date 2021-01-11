@@ -21,9 +21,7 @@ const CONFIG_SPAN_BREAKPOINTS = {
   xl: 1057,
   xxl: Infinity,
 };
-/**
- * 配置表单列变化的容器宽度断点
- */
+/** 配置表单列变化的容器宽度断点 */
 const BREAKPOINTS = {
   vertical: [
     // [breakpoint, cols, layout]
@@ -43,6 +41,7 @@ const BREAKPOINTS = {
 
 /**
  * 合并用户和默认的配置
+ *
  * @param layout
  * @param width
  */
@@ -93,33 +92,25 @@ export type BaseQueryFilterProps = Omit<ActionsProps, 'submitter' | 'setCollapse
   defaultColsNumber?: number;
   labelWidth?: number | 'auto';
   split?: boolean;
-  /**
-   * 配置列数
-   */
+  /** 配置列数 */
   span?: SpanConfig;
 
-  /**
-   * 查询按钮的文本
-   */
+  /** 查询按钮的文本 */
   searchText?: string;
-  /**
-   * 重置按钮的文本
-   */
+  /** 重置按钮的文本 */
   resetText?: string;
 
   form?: FormProps['form'];
   /**
+   * @param searchConfig 基础的配置
+   * @param props 更加详细的配置 {
+   *     type?: 'form' | 'list' | 'table' | 'cardList' | undefined;
+   *     form: FormInstance;
+   *     submit: () => void;
+   *     collapse: boolean;
+   *     setCollapse: (collapse: boolean) => void;
+   *     showCollapseButton: boolean; }
    * @name 底部操作栏的 render
-   * @params searchConfig 基础的配置
-   * @params props 更加详细的配置
-   * {
-      type?: 'form' | 'list' | 'table' | 'cardList' | undefined;
-      form: FormInstance;
-      submit: () => void;
-      collapse: boolean;
-      setCollapse: (collapse: boolean) => void;
-      showCollapseButton: boolean;
-   * }
    */
   optionRender?:
     | ((
@@ -205,65 +196,72 @@ const QueryFilterContent: React.FC<{
   }, [props, resetText, searchText, optionRender, onReset]);
 
   // totalSpan 统计控件占的位置，计算 offset 保证查询按钮在最后一列
-  let totalSpan = 0;
+  let totalSpan = submitter ? spanSize.span : 0;
   const itemLength = items.length;
 
   // for split compute
-  let currentSpan = 0;
+  let currentSpan = submitter ? spanSize.span : 0;
 
-  /**
-   * 是否需要展示 collapseRender
-   */
+  /** 是否需要展示 collapseRender */
   const needCollapseRender = itemLength - 1 >= showLength;
+
+  const doms = flatMapItems(items).map((item: React.ReactNode, index: number) => {
+    // 如果 formItem 自己配置了 hidden，默认使用它自己的
+    const hidden: boolean =
+      (item as ReactElement<{ hidden: boolean }>)?.props?.hidden ||
+      // 如果收起了
+      (collapsed &&
+        // 如果 超过显示长度 且 总长度超过了 24
+        index >= showLength &&
+        totalSpan >= 24);
+
+    const colSize = React.isValidElement<any>(item) ? item?.props?.colSize : 1;
+
+    const colSpan = Math.min(spanSize.span * (colSize || 1), 24);
+
+    // 每一列的key, 一般是存在的
+    const itemKey = (React.isValidElement(item) && (item.key || `${item.props?.name}`)) || index;
+
+    currentSpan += colSpan;
+
+    if (React.isValidElement(item) && hidden) {
+      return React.cloneElement(item, {
+        hidden: true,
+        key: itemKey || index,
+      });
+    }
+
+    if (24 - (totalSpan % 24) < colSpan) {
+      // 如果当前行空余位置放不下，那么折行
+      totalSpan += 24 - (totalSpan % 24);
+    }
+
+    totalSpan += colSpan;
+
+    const colItem = (
+      <Col key={itemKey} span={colSpan}>
+        {item}
+      </Col>
+    );
+    if (split && currentSpan % 24 === 0 && index < itemLength - 1) {
+      return [
+        colItem,
+        <Col span="24" key="line">
+          <Divider style={{ marginTop: -8, marginBottom: 16 }} dashed />
+        </Col>,
+      ];
+    }
+    return colItem;
+  });
+
   return (
     <Row gutter={24} justify="start" key="resize-observer-row">
-      {flatMapItems(items).map((item: React.ReactNode, index: number) => {
-        // 如果 formItem 自己配置了 hidden，默认使用它自己的
-        const hidden: boolean =
-          (item as ReactElement<{ hidden: boolean }>)?.props?.hidden ||
-          (collapsed && (index >= props.showLength || totalSpan >= 24));
-        const colSize = React.isValidElement<any>(item) ? item?.props?.colSize : 1;
-        const colSpan = Math.min(spanSize.span * (colSize || 1), 24);
-
-        // 每一列的key, 一般是存在的
-        const itemKey =
-          (React.isValidElement(item) && (item.key || `${item.props?.name}`)) || index;
-
-        currentSpan += colSpan;
-
-        if (React.isValidElement(item) && hidden) {
-          return React.cloneElement(item, {
-            hidden: true,
-            key: itemKey || index,
-          });
-        }
-
-        if (24 - (totalSpan % 24) < colSpan) {
-          // 如果当前行空余位置放不下，那么折行
-          totalSpan += 24 - (totalSpan % 24);
-        }
-        totalSpan += colSpan;
-
-        const colItem = (
-          <Col key={itemKey} span={colSpan}>
-            {item}
-          </Col>
-        );
-        if (split && currentSpan % 24 === 0 && index < itemLength - 1) {
-          return [
-            colItem,
-            <Col span="24" key="line">
-              <Divider style={{ marginTop: -8, marginBottom: 16 }} dashed />
-            </Col>,
-          ];
-        }
-        return colItem;
-      })}
+      {doms}
       {submitter && (
         <Col
           key="submitter"
           span={spanSize.span}
-          offset={24 - spanSize.span - (totalSpan % 24)}
+          offset={24 - spanSize.span - ((totalSpan - spanSize.span) % 24)}
           style={{
             textAlign: 'right',
           }}
@@ -272,7 +270,7 @@ const QueryFilterContent: React.FC<{
             <Actions
               key="pro-form-query-filter-actions"
               collapsed={collapsed}
-              collapseRender={needCollapseRender || currentSpan > 24 ? collapseRender : false}
+              collapseRender={needCollapseRender && currentSpan > 24 ? collapseRender : false}
               submitter={submitter}
               setCollapsed={setCollapsed}
             />

@@ -194,16 +194,24 @@ The second argument to > render is the default dom array, the first is the reset
       submitText: 'submit',
     },
     // Configure the properties of the button
-    resetButtonProps: {},
+    resetButtonProps: {
+      style: {
+        // Hide the reset button
+        display: 'none',
+      },
+    },
     submitButtonProps: {},
 
     // Fully customize the entire area
     render: (props, doms) => {
-      return (
-        <button type="button" id="rest" onClick={() => props?.onReset? ()}>
+      return [
+        <button type="button" key="rest" onClick={() => props.form?.resetFields()}>
           rest
-        </button>
-      );
+        </button>,
+        <button type="button" key="submit" onClick={() => props.form?.submit?.()}>
+          submit
+        </button>,
+      ];
     },
   }}
 />

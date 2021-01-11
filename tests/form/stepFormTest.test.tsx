@@ -311,9 +311,7 @@ describe('StepsForm', () => {
       </StepsForm>,
     );
     await waitForComponentToPaint(html);
-    /**
-     *  因为上一步有限制，所以应该不触发
-     */
+    /** 因为上一步有限制，所以应该不触发 */
     act(() => {
       html.find('button#rest').simulate('click');
     });
@@ -354,9 +352,7 @@ describe('StepsForm', () => {
       </StepsForm>,
     );
     await waitForComponentToPaint(html);
-    /**
-     *  因为下一步有限制，所以应该不触发
-     */
+    /** 因为下一步有限制，所以应该不触发 */
     act(() => {
       html.find('button#rest').simulate('click');
     });

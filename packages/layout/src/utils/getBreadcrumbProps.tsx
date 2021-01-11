@@ -123,10 +123,7 @@ export type BreadcrumbListReturn = Pick<
   Extract<keyof AntdBreadcrumbProps, 'routes' | 'itemRender'>
 >;
 
-/**
- * 将参数转化为面包屑
- * Convert parameters into breadcrumbs
- */
+/** 将参数转化为面包屑 Convert parameters into breadcrumbs */
 export const genBreadcrumbProps = (props: BreadcrumbProps): AntdBreadcrumbProps['routes'] => {
   const { location, breadcrumbMap } = getBreadcrumbFromProps(props);
 

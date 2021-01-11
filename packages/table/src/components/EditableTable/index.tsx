@@ -18,23 +18,17 @@ export type EditableProTableProps<T, U extends ParamsType> = Omit<
 > & {
   value?: T[];
   onChange?: (value: T[]) => void;
-  /**
-   * @name 原先的 table OnChange
-   */
+  /** @name 原先的 table OnChange */
   onTableChange?: ProTableProps<T, U>['onChange'];
 
-  /**
-   * @name 新建按钮的设置
-   */
+  /** @name 新建按钮的设置 */
   recordCreatorProps?:
     | (RecordCreatorProps<T> &
         ButtonProps & {
           creatorButtonText?: React.ReactNode;
         })
     | false;
-  /**
-   * 最大行数
-   */
+  /** 最大行数 */
   maxLength?: number;
 };
 
@@ -42,9 +36,7 @@ const EditableTableActionContext = React.createContext<
   React.MutableRefObject<ActionType | undefined> | undefined
 >(undefined);
 
-/**
- * 可编辑表格的按钮
- */
+/** 可编辑表格的按钮 */
 function RecordCreator<T = {}>(props: RecordCreatorProps<T> & { children: JSX.Element }) {
   const { children, record, position } = props;
   const actionRef = useContext(EditableTableActionContext);
@@ -59,6 +51,7 @@ function RecordCreator<T = {}>(props: RecordCreatorProps<T> & { children: JSX.El
 
 /**
  * 可以直接放到 Form 中的可编辑表格
+ *
  * @param props
  */
 function EditableTable<T extends Record<string, any>, U extends ParamsType = ParamsType>(
@@ -129,7 +122,7 @@ function EditableTable<T extends Record<string, any>, U extends ParamsType = Par
       tableViewRender: (_: any, dom: any) => {
         return (
           <>
-            {dom}
+            {props.tableViewRender?.(_, dom) ?? dom}
             {creatorButtonDom}
           </>
         );

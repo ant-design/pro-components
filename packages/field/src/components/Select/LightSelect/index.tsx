@@ -13,7 +13,8 @@ export type LightSelectProps = {
 };
 
 /**
- * 如果有 label  就优先使用 label
+ * 如果有 label 就优先使用 label
+ *
  * @param valueMap
  * @param v
  */
@@ -119,6 +120,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
                 <div style={{ margin: '4px 8px' }}>
                   <Input
                     value={keyword}
+                    allowClear={allowClear}
                     onChange={(e) => {
                       setKeyword(e.target.value.toLowerCase());
                       onSearch?.(e.target.value);

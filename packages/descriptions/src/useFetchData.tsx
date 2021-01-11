@@ -41,9 +41,7 @@ const useFetchData = <T extends RequestData>(
     setEntity(data);
     setLoading(false);
   };
-  /**
-   * 请求数据
-   */
+  /** 请求数据 */
   const fetchList = async () => {
     if (loading) {
       return;

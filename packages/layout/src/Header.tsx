@@ -16,12 +16,11 @@ export type HeaderViewProps = GlobalHeaderProps & {
   isMobile?: boolean;
   collapsed?: boolean;
   logo?: React.ReactNode;
-
   headerRender?: WithFalse<
     (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
   >;
   headerTitleRender?: WithFalse<
-    (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
+    (logo: React.ReactNode, title: React.ReactNode, props: HeaderViewProps) => React.ReactNode
   >;
   headerContentRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
   siderWidth?: number;
@@ -89,9 +88,7 @@ class HeaderView extends Component<HeaderViewProps & PrivateSiderMenuProps, Head
       [`${prefixCls}-top-menu`]: isTop,
     });
 
-    /**
-     * 计算侧边栏的宽度，不然导致左边的样式会出问题
-     */
+    /** 计算侧边栏的宽度，不然导致左边的样式会出问题 */
     const width =
       layout !== 'mix' && needSettingWidth
         ? `calc(100% - ${collapsed ? 48 : siderWidth}px)`

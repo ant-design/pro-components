@@ -25,14 +25,13 @@ export type CommonFormProps = {
     | false;
 
   /**
+   * 支持异步操作，更加方便
+   *
    * @name 表单结束后调用
-   * @description  支持异步操作，更加方便
    */
   onFinish?: (formData: Record<string, any>) => Promise<boolean | void>;
 
-  /**
-   * @name 获取真正的可以获得值的 from
-   */
+  /** @name 获取真正的可以获得值的 from */
   formRef?: React.MutableRefObject<FormInstance | undefined>;
 };
 
@@ -68,26 +67,19 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
   const [form] = Form.useForm();
   const formRef = useRef<FormInstance>(userForm || form);
   const fieldsValueType = useRef<Record<string, ProFieldValueType>>({});
-  /**
-   * 保存 transformKeyRef，用于对表单key transform
-   */
+  /** 保存 transformKeyRef，用于对表单key transform */
   const transformKeyRef = useRef<Record<string, SearchTransformKeyFn | undefined>>({});
 
   const [loading, setLoading] = useMountMergeState<ButtonProps['loading']>(false);
 
-  /**
-   * 因为 protable 里面的值无法保证刚开始就存在
-   * 所以多进行了一次触发，这样可以解决部分问题
-   */
+  /** 因为 protable 里面的值无法保证刚开始就存在 所以多进行了一次触发，这样可以解决部分问题 */
   const [isUpdate, updateState] = useMountMergeState(false);
 
   const items = React.Children.toArray(children);
   const submitterProps: SubmitterProps =
     typeof submitter === 'boolean' || !submitter ? {} : submitter;
 
-  /**
-   * 渲染提交按钮与重置按钮
-   */
+  /** 渲染提交按钮与重置按钮 */
   const submitterNode =
     submitter === false ? undefined : (
       <Submitter
@@ -168,6 +160,7 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
                 if (propsFormRef && !isUpdate) forgetUpdate();
                 if (propsFormRef) propsFormRef.current = formInstance as FormInstance;
                 formRef.current = formInstance as FormInstance;
+                return null;
               }}
             </Form.Item>
             {content}

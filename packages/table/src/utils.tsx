@@ -26,14 +26,15 @@ import type { ColumnsState, useContainer } from './container';
 import defaultRenderText from './defaultRender';
 
 /**
- * 检查值是否存在
- * 为了 避开 0 和 false
+ * 检查值是否存在 为了 避开 0 和 false
+ *
  * @param value
  */
 export const checkUndefinedOrNull = (value: any) => value !== undefined && value !== null;
 
 /**
- *  根据 key 和 dataIndex 生成唯一 id
+ * 根据 key 和 dataIndex 生成唯一 id
+ *
  * @param key 用户设置的 key
  * @param dataIndex 在对象中的数据
  * @param index 序列号，理论上唯一
@@ -47,6 +48,7 @@ export const genColumnKey = (key?: React.ReactText | undefined, index?: number):
 
 /**
  * 生成 Ellipsis 的 tooltip
+ *
  * @param dom
  * @param item
  * @param text
@@ -91,6 +93,7 @@ export const genCopyable = (dom: React.ReactNode, item: ProColumns<any>, text: s
 
 /**
  * 合并用户 props 和 预设的 props
+ *
  * @param pagination
  * @param action
  * @param intl
@@ -131,6 +134,7 @@ export function mergePagination<T>(
 
 /**
  * 获取用户的 action 信息
+ *
  * @param actionRef
  * @param counter
  * @param onCleanSelected
@@ -145,10 +149,7 @@ export function useActionType<T>(
     editableUtils: UseEditableUtilType;
   },
 ) {
-  /**
-   * 这里生成action的映射，保证 action 总是使用的最新
-   * 只需要渲染一次即可
-   */
+  /** 这里生成action的映射，保证 action 总是使用的最新 只需要渲染一次即可 */
   const userAction: ActionType = {
     ...props.editableUtils,
     reload: async (resetPageIndex?: boolean) => {
@@ -180,6 +181,7 @@ type PostDataType<T> = (data: T) => T;
 
 /**
  * 一个转化的 pipeline 列表
+ *
  * @param data
  * @param pipeline
  */
@@ -211,8 +213,8 @@ export const tableColumnSort = (columnsMap: Record<string, ColumnsState>) => (a:
 };
 
 /**
- * render title
- * @description 增加了 icon 的功能
+ * 增加了 icon 的功能 render title
+ *
  * @param item
  */
 export const renderColumnsTitle = (item: ProColumns<any>) => {
@@ -232,9 +234,7 @@ export const defaultOnFilter = (value: string, record: any, dataIndex: string | 
   return String(itemValue) === String(value);
 };
 
-/**
- * 转化列的定义
- */
+/** 转化列的定义 */
 type ColumnRenderInterface<T> = {
   columnProps: ProColumns<T>;
   text: any;
@@ -250,9 +250,7 @@ const isMergeCell = (
   dom: any, // 如果是合并单元格的，直接返回对象
 ) => dom && typeof dom === 'object' && dom?.props?.colSpan;
 
-/**
- * 判断可不可编辑
- */
+/** 判断可不可编辑 */
 function isEditableCell<T>(
   text: any,
   rowData: T,
@@ -267,6 +265,7 @@ function isEditableCell<T>(
 
 /**
  * 这个组件负责单元格的具体渲染
+ *
  * @param param0
  */
 export function columnRender<T>({
@@ -303,9 +302,7 @@ export function columnRender<T>({
       ? textDom
       : genEllipsis(genCopyable(textDom, columnProps, renderTextStr), columnProps, renderTextStr);
 
-  /**
-   * 如果是编辑模式，并且 renderFormItem 存在直接走 renderFormItem
-   */
+  /** 如果是编辑模式，并且 renderFormItem 存在直接走 renderFormItem */
   if (mode === 'edit') {
     if (columnProps.valueType === 'option') {
       return (
@@ -357,8 +354,8 @@ export function columnRender<T>({
 }
 
 /**
- * 转化 columns 到 pro 的格式
- * 主要是 render 方法的自行实现
+ * 转化 columns 到 pro 的格式 主要是 render 方法的自行实现
+ *
  * @param columns
  * @param map
  * @param columnEmptyText
@@ -394,6 +391,13 @@ export function genColumnList<T>(props: {
       }
       const { propsRef } = counter;
       const config = map[columnKey] || { fixed: columnProps.fixed };
+
+      const genOnFilter = () => {
+        if (!propsRef.current?.request || onFilter === true) {
+          return (value: string, row: T) => defaultOnFilter(value, row, dataIndex as string[]);
+        }
+        return omitBoolean(onFilter);
+      };
       const tempColumns = {
         index: columnsIndex,
         ...columnProps,
@@ -405,11 +409,7 @@ export function genColumnList<T>(props: {
                 runFunction<[undefined]>(valueEnum, undefined),
               ).filter((valueItem) => valueItem && valueItem.value !== 'all')
             : filters,
-        onFilter:
-          (!propsRef.current?.request && onFilter === true) ||
-          (filters === true && onFilter !== undefined)
-            ? (value: string, row: T) => defaultOnFilter(value, row, dataIndex as string[])
-            : omitBoolean(onFilter),
+        onFilter: genOnFilter(),
         ellipsis: false,
         fixed: config.fixed,
         width: columnProps.width || (columnProps.fixed ? 200 : undefined),

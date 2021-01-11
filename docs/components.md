@@ -101,27 +101,22 @@ const request = (url, options) => {
 ProTable，ProDescriptions 公用一套配置，可以使用同样的 columns 和 request 来生成数据，唯一的不同是 Table 需要数组，而 ProDescriptions 只需要一个对象。以下是具体的配置：
 
 ```tsx | pure
-/**
- * 各个组件公共支持的 render
- */
 export type ProSchema<T = unknown, U = string, Extra = unknown> = {
-  /**
-   * @name 确定这个列的唯一值
-   */
+  /** @name 确定这个列的唯一值 */
   key?: React.ReactText;
   /**
+   * 支持一个数字，[a,b] 会转化为 obj.a.b
+   *
    * @name 与实体映射的key
-   * @description 支持一个数字，[a,b] 会转化为 obj.a.b
    */
   dataIndex?: string | number | (string | number)[];
-  /**
-   * 选择如何渲染相应的模式
-   */
+  /** 选择如何渲染相应的模式 */
   valueType?: ((entity: T, type: ProSchemaComponentTypes) => U) | U;
 
   /**
+   * 支持 ReactNode 和 方法
+   *
    * @name 标题
-   * @description 支持 ReactNode 和 方法
    */
   title?:
     | ((
@@ -131,14 +126,10 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
       ) => React.ReactNode)
     | React.ReactNode;
 
-  /**
-   *@name 展示一个 icon，hover 是展示一些提示信息
-   */
+  /** @name 展示一个 icon，hover 是展示一些提示信息 */
   tooltip?: string;
 
-  /**
-   * @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一
-   */
+  /** @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一 */
   tip?: string;
 
   render?: (
@@ -150,15 +141,15 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
   ) => React.ReactNode;
 
   /**
+   * 返回一个node，会自动包裹 value 和 onChange
+   *
    * @name 自定义编辑模式
-   * @description 返回一个node，会自动包裹 value 和 onChange
    */
   renderFormItem?: (
     item: ProSchema<T, U, Extra>,
     config: {
       index?: number;
       value?: any;
-      onChange?: (value: any) => void;
       onSelect?: (value: any) => void;
       type: ProSchemaComponentTypes;
       defaultRender: (newItem: ProSchema<T, U, Extra>) => JSX.Element | null;
@@ -167,31 +158,24 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
   ) => React.ReactNode;
 
   /**
+   * 必须要返回 string
+   *
    * @name 自定义 render
-   * @description 必须要返回 string
    */
   renderText?: (text: any, record: T, index: number, action: ProCoreActionType) => any;
 
   fieldProps?: any;
-  /**
-   * @name 映射值的类型
-   */
+  /** @name 映射值的类型 */
   valueEnum?: ProSchemaValueEnumObj | ProSchemaValueEnumMap;
 
-  /**
-   * @name 从服务器请求枚举
-   */
+  /** @name 从服务器请求枚举 */
   request?: ProFieldRequestData<ProSchema>;
 
-  /**
-   * @name 从服务器请求的参数，改变了会触发 reload
-   */
+  /** @name 从服务器请求的参数，改变了会触发 reload */
   params?: {
     [key: string]: any;
   };
-  /**
-   * @name 隐藏在 descriptions
-   */
+  /** @name 隐藏在 descriptions */
   hideInDescriptions?: boolean;
 } & Extra;
 ```

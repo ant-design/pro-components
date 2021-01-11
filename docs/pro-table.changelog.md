@@ -9,6 +9,14 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.22.1
+
+`2021-01-08`
+
+- 🐛 fix(table): fix filters or onFilter style error [#1539](https://github.com/ant-design/pro-components/pull/1539) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix hover dom style error [#1538](https://github.com/ant-design/pro-components/pull/1538) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): add exception handling [#1525](https://github.com/ant-design/pro-components/pull/1525) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.20.1
 
 `2021-01-05`

@@ -8,6 +8,7 @@ export type FieldDigitProps = {
 
 /**
  * 格式化秒
+ *
  * @param result
  * @returns {string}
  */
@@ -28,6 +29,7 @@ export function formatSecond(result: number) {
 
 /**
  * 格式化秒
+ *
  * @param FieldSecond
  */
 const Second: ProFieldFC<FieldDigitProps> = (

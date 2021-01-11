@@ -9,18 +9,18 @@ import type { FieldSelectProps } from '../Select';
 import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
 
 export type GroupProps = {
-  layout?: 'horizontal' | 'vertical';
   options?: RadioGroupProps['options'];
   radioType?: 'button' | 'radio';
 } & FieldSelectProps;
 
 /**
  * 单选组件
+ *
  * @param param0
  * @param ref
  */
 const FieldRadio: ProFieldFC<GroupProps> = (
-  { layout = 'horizontal', radioType, renderFormItem, mode, render, ...rest },
+  { radioType, renderFormItem, mode, render, ...rest },
   ref,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -57,7 +57,10 @@ const FieldRadio: ProFieldFC<GroupProps> = (
       <Radio.Group
         ref={radioRef}
         {...rest.fieldProps}
-        className={classNames(rest.fieldProps?.className, `${layoutClassName}-${layout}`)}
+        className={classNames(
+          rest.fieldProps?.className,
+          `${layoutClassName}-${rest.fieldProps.layout || 'horizontal'}`,
+        )}
         options={undefined}
       >
         {options

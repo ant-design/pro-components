@@ -135,7 +135,6 @@ const DynamicSettings = () => {
             <ProFormSwitch label="Expandable" name="expandable" />
             <ProFormSwitch label="RowSelection" name="rowSelection" />
             <ProFormSwitch label="HasData" name="hasData" />
-            <ProFormSwitch label="Bordered" name="bordered" />
             <ProFormSwitch label="Pagination" name="pagination" />
           </ProForm.Group>
           <ProForm.Group title="工具栏">

@@ -262,6 +262,7 @@ const getThemeList = (settings: Partial<ProSettings>) => {
 
 /**
  * 初始化的时候需要做的工作
+ *
  * @param param0
  */
 const initState = (
@@ -358,6 +359,7 @@ const genCopySettingJson = (settingState: MergerSettingsType<ProSettings>) =>
 
 /**
  * 可视化配置组件
+ *
  * @param props
  */
 const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
@@ -404,9 +406,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
       ...propsSettings,
     };
 
-    /**
-     * 如果不是浏览器 都没有必要做了
-     */
+    /** 如果不是浏览器 都没有必要做了 */
     if (!isBrowser()) {
       return () => null;
     }
@@ -420,6 +420,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
 
   /**
    * 修改设置
+   *
    * @param key
    * @param value
    * @param hideMessageLoading
@@ -473,9 +474,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   const themeList = getThemeList(settingState);
 
   useEffect(() => {
-    /**
-     * 如果不是浏览器 都没有必要做了
-     */
+    /** 如果不是浏览器 都没有必要做了 */
     if (!isBrowser()) {
       return;
     }

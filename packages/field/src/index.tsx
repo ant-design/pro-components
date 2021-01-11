@@ -40,17 +40,13 @@ import FieldImage from './components/Image';
 
 export type ProFieldEmptyText = string | false;
 
-/**
- * 默认的 Field 需要实现的功能
- */
+/** 默认的 Field 需要实现的功能 */
 export type ProFieldFC<T> = React.ForwardRefRenderFunction<
   any,
   BaseProFieldFC & ProRenderFieldPropsType & T
 >;
 
-/**
- * value type by function
- */
+/** Value type by function */
 export type ProFieldValueTypeFunction<T> = (item: T) => ProFieldValueType | ProFieldValueObjectType;
 
 type RenderProps = Omit<ProFieldFCRenderProps, 'text'> &
@@ -62,8 +58,9 @@ type RenderProps = Omit<ProFieldFCRenderProps, 'text'> &
   };
 
 /**
- * render valueType object
- * @param text string | number
+ * Render valueType object
+ *
+ * @param text String | number
  * @param valueType ProColumnsValueObjectType
  */
 const defaultRenderTextByObject = (
@@ -91,6 +88,7 @@ const defaultRenderTextByObject = (
         {...props}
         fieldProps={pickFormItemProps}
         text={text as number}
+        moneySymbol={valueType.moneySymbol}
       />
     );
   }
@@ -115,6 +113,7 @@ const defaultRenderTextByObject = (
 
 /**
  * 根据不同的类型来转化数值
+ *
  * @param text
  * @param valueType
  */
@@ -129,7 +128,7 @@ const defaultRenderText = (
   }
   const { mode = 'read', emptyText = '-' } = props;
 
-  const customValueTypeConfig = valueTypeMap[valueType as string];
+  const customValueTypeConfig = valueTypeMap && valueTypeMap[valueType as string];
   if (customValueTypeConfig) {
     // eslint-disable-next-line no-param-reassign
     delete props.ref;
@@ -169,67 +168,49 @@ const defaultRenderText = (
   // eslint-disable-next-line no-param-reassign
   delete props.emptyText;
 
-  /**
-   * 如果是金额的值
-   */
+  /** 如果是金额的值 */
   if (valueType === 'money') {
     return <FieldMoney {...props} text={text as number} />;
   }
 
-  /**
-   *如果是日期的值
-   */
+  /** 如果是日期的值 */
   if (valueType === 'date') {
     return <FieldDatePicker text={text as string} format="YYYY-MM-DD" {...props} />;
   }
 
-  /**
-   *如果是周的值
-   */
+  /** 如果是周的值 */
   if (valueType === 'dateWeek') {
     return <FieldDatePicker text={text as string} format="YYYY-wo" picker="week" {...props} />;
   }
 
-  /**
-   *如果是月的值
-   */
+  /** 如果是月的值 */
   if (valueType === 'dateMonth') {
     return <FieldDatePicker text={text as string} format="YYYY-MM" picker="month" {...props} />;
   }
 
-  /**
-   *如果是季度的值
-   */
+  /** 如果是季度的值 */
   if (valueType === 'dateQuarter') {
     return <FieldDatePicker text={text as string} format="YYYY-\QQ" picker="quarter" {...props} />;
   }
 
-  /**
-   *如果是年的值
-   */
+  /** 如果是年的值 */
   if (valueType === 'dateYear') {
     return <FieldDatePicker text={text as string} format="YYYY" picker="year" {...props} />;
   }
 
-  /**
-   *如果是日期范围的值
-   */
+  /** 如果是日期范围的值 */
   if (valueType === 'dateRange') {
     return <FieldRangePicker text={text as string[]} format="YYYY-MM-DD" {...props} />;
   }
 
-  /**
-   *如果是日期加时间类型的值
-   */
+  /** 如果是日期加时间类型的值 */
   if (valueType === 'dateTime') {
     return (
       <FieldDatePicker text={text as string} format="YYYY-MM-DD HH:mm:ss" showTime {...props} />
     );
   }
 
-  /**
-   *如果是日期加时间类型的值的值
-   */
+  /** 如果是日期加时间类型的值的值 */
   if (valueType === 'dateTimeRange') {
     // 值不存在的时候显示 "-"
     return (
@@ -237,9 +218,7 @@ const defaultRenderText = (
     );
   }
 
-  /**
-   *如果是时间类型的值
-   */
+  /** 如果是时间类型的值 */
   if (valueType === 'time') {
     return <FieldTimePicker text={text as string} format="HH:mm:ss" {...props} />;
   }
@@ -328,9 +307,7 @@ const defaultRenderText = (
 
 export { defaultRenderText };
 
-/**
- * ProField 的类型
- */
+/** ProField 的类型 */
 export type ProFieldPropsType = {
   text?: ProFieldTextType;
   valueType?: ProFieldValueType | ProFieldValueObjectType;

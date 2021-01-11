@@ -83,6 +83,9 @@ export default () => {
         }}
         rowKey="key"
         rowSelection={{}}
+        search={{
+          labelWidth: 'auto',
+        }}
         dateFormatter="string"
         headerTitle={
           <Space>

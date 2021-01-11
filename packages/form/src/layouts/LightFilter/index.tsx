@@ -18,8 +18,8 @@ export type LightFilterProps = {
   CommonFormProps;
 
 /**
- * 单行的查询表单，一般用于配合 table 或者 list使用
- * 有时也会用于 card 的额外区域
+ * 单行的查询表单，一般用于配合 table 或者 list使用 有时也会用于 card 的额外区域
+ *
  * @param props
  */
 const LightFilterContainer: React.FC<{

@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.10.5
+
+`2021-01-08`
+
+- 💥 feat(layout): footer add prop prefixCls [#1523](https://github.com/ant-design/pro-components/pull/1523) [@CoderAha](https://github.com/CoderAha)
+
 ## @ant-design/pro-layout@6.9.4
 
 `2020-12-28`

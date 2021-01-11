@@ -66,9 +66,7 @@ const useFetchData = <T extends RequestData<any>>(
 
   const { effects = [] } = options || {};
 
-  /**
-   * 请求数据
-   */
+  /** 请求数据 */
   const fetchList = async () => {
     if (loading || requesting.current) {
       return;
@@ -110,9 +108,7 @@ const useFetchData = <T extends RequestData<any>>(
 
   const fetchListDebounce = useDebounceFn(fetchList, [], 10);
 
-  /**
-   * pageIndex 改变的时候自动刷新
-   */
+  /** PageIndex 改变的时候自动刷新 */
   useEffect(() => {
     const { page, pageSize } = pageInfo;
     // 如果上次的页码为空或者两次页码等于是没必要查询的
@@ -135,18 +131,13 @@ const useFetchData = <T extends RequestData<any>>(
     if (!prePageSize) {
       return;
     }
-    /**
-     * 切换页面的时候清空一下数据，不然会造成判断失误。
-     * 会认为是本地分页而不是服务器分页从而不请求数据
-     */
+    /** 切换页面的时候清空一下数据，不然会造成判断失误。 会认为是本地分页而不是服务器分页从而不请求数据 */
     setList([]);
     setPageInfo({ ...pageInfo, page: 1 });
     fetchListDebounce.run();
   }, [pageInfo.pageSize]);
 
-  /**
-   * 重置pageIndex 到 1
-   */
+  /** 重置pageIndex 到 1 */
   const resetPageIndex = () => {
     setPageInfo({ ...pageInfo, page: 1 });
   };
