@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.22.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.22.1...@ant-design/pro-table@2.22.2) (2021-01-11)
+
+### Bug Fixes
+
+- **field:** fix valueEnum disabled no work error ([#1567](https://github.com/ant-design/pro-components/issues/1567)) ([a643747](https://github.com/ant-design/pro-components/commit/a643747da6acc5784c75ce6e9bc119a0965ddb29))
+
 ## [2.22.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.22.0...@ant-design/pro-table@2.22.1) (2021-01-08)
 
 ### Bug Fixes

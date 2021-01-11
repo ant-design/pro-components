@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.8.3...@ant-design/pro-field@1.8.4) (2021-01-11)
+
+### Bug Fixes
+
+- **field:** fix valueEnum disabled no work error ([#1567](https://github.com/ant-design/pro-components/issues/1567)) ([a643747](https://github.com/ant-design/pro-components/commit/a643747da6acc5784c75ce6e9bc119a0965ddb29))
+- **table:** rmeove unuse keys ([666446c](https://github.com/ant-design/pro-components/commit/666446c1c995694446496fc17075b3a5b30a232a))
+
 ## [1.8.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.8.2...@ant-design/pro-field@1.8.3) (2021-01-08)
 
 ### Bug Fixes
