@@ -122,7 +122,7 @@ function EditableTable<T extends Record<string, any>, U extends ParamsType = Par
       tableViewRender: (_: any, dom: any) => {
         return (
           <>
-            {dom}
+            {props.tableViewRender?.(_, dom) ?? dom}
             {creatorButtonDom}
           </>
         );
