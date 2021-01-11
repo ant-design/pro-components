@@ -49,7 +49,38 @@ describe('ProForm', () => {
     await waitForComponentToPaint(wrapper);
     expect(wrapper.render()).toMatchSnapshot();
   });
-
+  it('📦 ProForm support namePath is array', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <ProForm
+        initialValues={{
+          name: {
+            test: 'test',
+          },
+          test: 'test2',
+        }}
+        onFinish={async (params) => {
+          fn(params);
+        }}
+      >
+        <ProFormText name={['name', 'test']} />
+        <ProFormText name="test" />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+    act(() => {
+      wrapper.find('button.ant-btn-primary').simulate('keypress', {
+        key: 'Enter',
+      });
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(fn).toBeCalledWith({
+      name: {
+        test: 'test',
+      },
+      test: 'test2',
+    });
+  });
   it('📦 ProForm support enter submit', async () => {
     const fn = jest.fn();
     const wrapper = mount(
