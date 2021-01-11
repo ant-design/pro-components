@@ -375,8 +375,8 @@ ref.current.cancelEditable(rowKey);
 | --- | --- | --- | --- | --- |
 | title | is basically the same as in antd, but supports passing in a method | `ReactNode \| ((config: ProColumnType<T>, type: ProTableTypes) => ReactNode)` | - - |
 | tooltip | will show an icon after the title, and hover to prompt for some information | string | - |
-| renderText | similar to render for table, but must return string, if you just want to transform the enumeration, you can use [valueEnum](#valueEnum) | `(text: any,record: T,index: number, action: UseFetchDataAction<RequestData<T>>) => string` | - | render |
-| render | similar to render of table, the first parameter becomes dom, and the fourth parameter action is added | `(text: ReactNode,record: T,index: number,action: UseFetchDataAction<RequestData<T>>) => string RequestData<T>>) => ReactNode \| ReactNode[]` | - |
+| renderText | similar to render for table, but must return string, if you just want to transform the enumeration, you can use [valueEnum](#valueEnum) | `(text: any,record: T,index: number, action: UseFetchDataAction<T>) => string` | - | render |
+| render | similar to render of table, the first parameter becomes dom, and the fourth parameter action is added | `(text: ReactNode,record: T,index: number,action: UseFetchDataAction<T>) => string RequestData<T>>) => ReactNode \| ReactNode[]` | - |
 | ellipsis | whether to auto-indent | `boolean` | - |
 | copyable | whether to support copying | `boolean` | - |
 | valueEnum | An enumeration of values that will be automatically transformed to treat the value as a key to retrieve the content to be displayed | [valueEnum](#valueenum) | - |
