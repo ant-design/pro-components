@@ -166,7 +166,7 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 | onCollapse | 菜单的折叠收起事件 | `(collapsed: boolean) => void` | - |
 | onPageChange | 页面切换时触发 | `(location: Location) => void` | - |
 | headerRender | 自定义头的 render 方法 | `(props: BasicLayoutProps) => ReactNode` | - |
-| headerTitleRender | 自定义头标题的方法,mix 模式下生效 | `(props: BasicLayoutProps) => ReactNode` | - |
+| headerTitleRender | 自定义头标题的方法,mix 模式下生效 | `(logo,title,props)=>ReactNode` | - |
 | headerContentRender | 自定义头内容的方法 | `(props: BasicLayoutProps) => ReactNode` | - |
 | rightContentRender | 自定义头右部的 render 方法 | `(props: HeaderViewProps) => ReactNode` | - |
 | collapsedButtonRender | 自定义 collapsed button 的方法 | `(collapsed: boolean) => ReactNode` | - |
