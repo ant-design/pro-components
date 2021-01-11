@@ -20,6 +20,8 @@ import type { ProColumns } from '../../typing';
 
 type ColumnSettingProps<T = any> = {
   columns: ColumnType<T>[];
+  draggable?: boolean;
+  checkable?: boolean;
 };
 
 const ToolTipIcon: React.FC<{
@@ -96,8 +98,10 @@ const CheckboxList: React.FC<{
   list: (ProColumns<any> & { index?: number })[];
   className?: string;
   title: string;
+  draggable: boolean;
+  checkable: boolean;
   showTitle?: boolean;
-}> = ({ list, className, showTitle = true, title: listTitle }) => {
+}> = ({ list, draggable, checkable, className, showTitle = true, title: listTitle }) => {
   const { columnsMap, setColumnsMap, sortKeyColumns, setSortKeyColumns } = Container.useContainer();
   const show = list && list.length > 0;
   if (!show) {
@@ -147,8 +151,8 @@ const CheckboxList: React.FC<{
   const listDom = (
     <Tree
       itemHeight={24}
-      draggable
-      checkable
+      draggable={draggable}
+      checkable={checkable}
       onDrop={(info) => {
         const dropKey = info.node.key;
         const dragKey = info.dragNode.key;
@@ -194,7 +198,9 @@ const CheckboxList: React.FC<{
 const GroupCheckboxList: React.FC<{
   localColumns: (ProColumns<any> & { index?: number })[];
   className?: string;
-}> = ({ localColumns, className }) => {
+  draggable: boolean;
+  checkable: boolean;
+}> = ({ localColumns, className, draggable, checkable }) => {
   const rightList: (ProColumns<any> & { index?: number })[] = [];
   const leftList: (ProColumns<any> & { index?: number })[] = [];
   const list: (ProColumns<any> & { index?: number })[] = [];
@@ -224,11 +230,15 @@ const GroupCheckboxList: React.FC<{
       <CheckboxList
         title={intl.getMessage('tableToolBar.leftFixedTitle', '固定在左侧')}
         list={leftList}
+        draggable={draggable}
+        checkable={checkable}
         className={className}
       />
       {/* 如果没有任何固定，不需要显示title */}
       <CheckboxList
         list={list}
+        draggable={draggable}
+        checkable={checkable}
         title={intl.getMessage('tableToolBar.noFixedTitle', '不固定')}
         showTitle={showLeft || showRight}
         className={className}
@@ -236,6 +246,8 @@ const GroupCheckboxList: React.FC<{
       <CheckboxList
         title={intl.getMessage('tableToolBar.rightFixedTitle', '固定在右侧')}
         list={rightList}
+        draggable={draggable}
+        checkable={checkable}
         className={className}
       />
     </div>
@@ -315,7 +327,14 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
       overlayClassName={`${className}-overlay`}
       trigger="click"
       placement="bottomRight"
-      content={<GroupCheckboxList className={className} localColumns={localColumns} />}
+      content={
+        <GroupCheckboxList
+          checkable={props.checkable ?? true}
+          draggable={props.draggable ?? true}
+          className={className}
+          localColumns={localColumns}
+        />
+      }
     >
       <Tooltip title={intl.getMessage('tableToolBar.columnSetting', '列设置')}>
         <SettingOutlined />

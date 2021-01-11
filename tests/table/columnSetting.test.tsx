@@ -260,11 +260,7 @@ describe('Table ColumnSetting', () => {
     await waitForComponentToPaint(html, 200);
 
     act(() => {
-      html.find('.ant-pro-table-column-setting-list .ant-tree-checkbox').simulate('click', {
-        target: {
-          checked: false,
-        },
-      });
+      html.find('.ant-pro-table-column-setting-list .ant-tree-checkbox').simulate('click');
     });
 
     await waitForComponentToPaint(html, 200);
@@ -282,5 +278,101 @@ describe('Table ColumnSetting', () => {
     ).toBe(2);
 
     expect(callBack).toBeCalled();
+  });
+
+  it('🎏 columnSetting close checkable', async () => {
+    const html = mount(
+      <ProTable
+        size="small"
+        options={{
+          setting: {
+            draggable: false,
+            checkable: false,
+          },
+        }}
+        columns={[
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+            copyable: true,
+          },
+          {
+            title: 'Name2',
+            key: 'name2',
+            dataIndex: 'name2',
+            copyable: true,
+          },
+        ]}
+        request={async () => {
+          return {
+            data: [
+              {
+                key: 1,
+                name: `TradeCode ${1}`,
+                createdAt: 1602572994055,
+              },
+            ],
+            success: true,
+          };
+        }}
+        rowKey="key"
+      />,
+    );
+
+    await waitForComponentToPaint(html, 200);
+    act(() => {
+      const icon = html.find('.ant-pro-table-list-toolbar-setting-item .anticon-setting');
+      icon.simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 200);
+
+    expect(html.find('span.ant-tree-checkbox.ant-tree-checkbox-checked').length).toBe(0);
+  });
+
+  it('🎏 columnSetting open checkable', async () => {
+    const html = mount(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+            copyable: true,
+          },
+          {
+            title: 'Name2',
+            key: 'name2',
+            dataIndex: 'name2',
+            copyable: true,
+          },
+        ]}
+        request={async () => {
+          return {
+            data: [
+              {
+                key: 1,
+                name: `TradeCode ${1}`,
+                createdAt: 1602572994055,
+              },
+            ],
+            success: true,
+          };
+        }}
+        rowKey="key"
+      />,
+    );
+
+    await waitForComponentToPaint(html, 200);
+    act(() => {
+      const icon = html.find('.ant-pro-table-list-toolbar-setting-item .anticon-setting');
+      icon.simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 500);
+
+    expect(html.find('span.ant-tree-checkbox.ant-tree-checkbox-checked').length).toBe(2);
   });
 });
