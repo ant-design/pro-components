@@ -29,14 +29,14 @@ export type PageInfo = {
 };
 
 export type RequestData<T> = {
-  data: T[];
+  data?: T[];
   success?: boolean;
   total?: number;
   [key: string]: any;
 };
-export type UseFetchDataAction<T extends RequestData<any>> = {
-  dataSource: T['data'];
-  setDataSource: (dataSource: T['data']) => void;
+export type UseFetchDataAction = {
+  dataSource: any[];
+  setDataSource: (dataSource: any[]) => void;
   loading: boolean | SpinProps | undefined;
   current: number;
   pageSize: number;
