@@ -97,6 +97,7 @@ API 与 ProTable 相同
 | layout | 描述布局 | `horizontal` \| `vertical` | `horizontal` |
 | colon | 配置 `ProDescriptions.Item` 的 `colon` 的默认值 | boolean | true |
 | request | 请求数据，不设置 columns 时 ProDescriptions.Item 需设置对应的 dataIndex | - | - |
+| onRequestError | 处理 request 的错误，默认会直接抛出错误 | - | - |
 | columns | 列定义，与 request 配合使用 [columns](/components/table#columns) | - | - |
 | editable | 编辑的相关配置 | [EditableConfig]('#editable') | - |
 

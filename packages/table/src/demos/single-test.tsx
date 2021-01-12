@@ -89,7 +89,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     dataIndex: 'labels',
     width: '10%',
     order: -1,
-    colSize: 2,
+    colSize: 1.5,
     formItemProps: {
       noStyle: true,
     },
@@ -182,9 +182,6 @@ export default () => {
         }
         pagination={{
           pageSize: 5,
-        }}
-        formRef={(ref) => {
-          console.log(ref);
         }}
         rowKey="id"
         dateFormatter="string"

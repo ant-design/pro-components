@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.22.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.22.1...@ant-design/pro-table@2.22.2) (2021-01-11)
+
+### Bug Fixes
+
+- **field:** fix valueEnum disabled no work error ([#1567](https://github.com/ant-design/pro-components/issues/1567)) ([a643747](https://github.com/ant-design/pro-components/commit/a643747da6acc5784c75ce6e9bc119a0965ddb29))
+
+## [2.22.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.22.0...@ant-design/pro-table@2.22.1) (2021-01-08)
+
+### Bug Fixes
+
+- **descriptions:** support ErrorBoundary ([#1541](https://github.com/ant-design/pro-components/issues/1541)) ([15a1601](https://github.com/ant-design/pro-components/commit/15a1601e2f553ab97aae8133f8b6b924698b42ff))
+- **form:** fix defaultColsNumber no work error ([#1551](https://github.com/ant-design/pro-components/issues/1551)) ([4a30512](https://github.com/ant-design/pro-components/commit/4a305123f82ed26f9bac170aad887a6398c51cdd))
+- **form:** fix transform no work when namePath is array ([#1537](https://github.com/ant-design/pro-components/issues/1537)) ([ca244fe](https://github.com/ant-design/pro-components/commit/ca244fe2c17a2a397909340d23cbed49a1b2c5a9))
+- **table:** fix filters or onFilter style error ([#1539](https://github.com/ant-design/pro-components/issues/1539)) ([d6cde92](https://github.com/ant-design/pro-components/commit/d6cde927e8f43fc453b50ff20454016861bbd792))
+- **table:** fix hover dom style error ([#1538](https://github.com/ant-design/pro-components/issues/1538)) ([7a152aa](https://github.com/ant-design/pro-components/commit/7a152aa8cd177d6902de5acf05277b2341508539))
+
+# [2.22.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.21.1...@ant-design/pro-table@2.22.0) (2021-01-07)
+
+### Features
+
+- **table:** reset will rest form values ([#1518](https://github.com/ant-design/pro-components/issues/1518)) ([b4b218f](https://github.com/ant-design/pro-components/commit/b4b218fb68c6f30d1428ec5c4ff085f87d960ac5))
+
+## [2.21.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.21.0...@ant-design/pro-table@2.21.1) (2021-01-06)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
 # [2.21.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.20.1...@ant-design/pro-table@2.21.0) (2021-01-05)
 
 ### Features

@@ -372,7 +372,7 @@ ref.current.cancelEditable(rowKey);
 > Requesting remote data is more complicated, see [here](/components/field#RemoteData) for details.
 
 | Properties | Description | Type | Default |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | title | is basically the same as in antd, but supports passing in a method | `ReactNode \| ((config: ProColumnType<T>, type: ProTableTypes) => ReactNode)` | - - |
 | tooltip | will show an icon after the title, and hover to prompt for some information | string | - |
 | renderText | similar to render for table, but must return string, if you just want to transform the enumeration, you can use [valueEnum](#valueEnum) | `(text: any,record: T,index: number, action: UseFetchDataAction<RequestData<T>>) => string` | - | render |
@@ -387,7 +387,7 @@ ref.current.cancelEditable(rowKey);
 | filters | Filter menu item in table header, automatically generated with valueEnum when value is true | `boolean` \| `object[]` | false |
 | onFilter | Filter form, use ProTable's own when true, turn off local filtering when false | `(value, record) => boolean` \| 'false' | false |
 | order | Query the weight of the form, with the higher weight sorted first | `number` | - |
-| renderFormItem | Render the input component of the query form | `(item,props:{value,onChange}) => ReactNode` | - |
+| renderFormItem | Render the input component of the query form | `(item,{ type, defaultRender, formItemProps, fieldProps, ...rest },form) => ReactNode` | - |
 | fieldProps | The props of the query form that will be passed through to the form item | `{ [prop: string]: any }` | - |
 | search | search-related configuration columns, false is hidden | `false` \| `{ transform: (value: any) => any }` | true |
 | search.transform | The key of the transformed value, typically used for transforming event intervals | `(value: any) => any` | - |
@@ -401,7 +401,7 @@ ProTable wraps some common value types to reduce repetitive `render` operations,
 The following values are now supported
 
 | type | description | example |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | money | Converts the value to an amount | ¥10,000.26 |
 | date | date | 2019-11-16 |
 | dateRange | dateRange | dateRange | 2019-11-16 2019-11-18 |

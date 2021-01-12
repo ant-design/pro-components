@@ -107,6 +107,25 @@ const Demo = () => (
         ]}
       />
       <ProFormRadio.Group
+        name="radio-vertical"
+        layout="vertical"
+        label="Radio.Group"
+        options={[
+          {
+            label: 'item 1',
+            value: 'a',
+          },
+          {
+            label: 'item 2',
+            value: 'b',
+          },
+          {
+            label: 'item 3',
+            value: 'c',
+          },
+        ]}
+      />
+      <ProFormRadio.Group
         name="radio-button"
         label="Radio.Button"
         radioType="button"

@@ -7,6 +7,7 @@ import type { ProFormItemProps } from '../../interface';
 const valueType = 'dateMonth';
 /**
  * 周选择组件
+ *
  * @param
  */
 const ProFormDatePickerMonth: React.FC<ProFormItemProps<MonthPickerProps>> = React.forwardRef(

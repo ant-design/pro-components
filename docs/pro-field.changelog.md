@@ -1,5 +1,5 @@
 ﻿---
-title: PProField - 更新日志
+title: ProField - 更新日志
 nav:
   title: 更新日志
   path: /changelog
@@ -8,6 +8,12 @@ group:
 ---
 
 # Change Log
+
+## @ant-design/pro-field@1.8.4
+
+`2021-01-11`
+
+- 🐛 fix(field): fix valueEnum disabled no work error [#1567](https://github.com/ant-design/pro-components/pull/1567) [@chenshuai2144](https://github.com/chenshuai2144)
 
 ## @ant-design/pro-field@1.8.0
 

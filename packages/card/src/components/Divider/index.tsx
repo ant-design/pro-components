@@ -6,17 +6,20 @@ import './index.less';
 
 export type ProCardDividerProps = {
   /**
-   * @description 自定义前缀
+   * 自定义前缀
+   *
    * @ignore
    */
   prefixCls?: string;
   /**
-   * @description 样式
+   * 样式
+   *
    * @ignore
    */
   style?: React.CSSProperties;
   /**
-   * @description className
+   * ClassName
+   *
    * @ignore
    */
   className?: string;

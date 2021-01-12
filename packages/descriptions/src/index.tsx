@@ -15,6 +15,7 @@ import {
   InlineErrorFormItem,
   LabelIconTip,
   useEditableMap,
+  ErrorBoundary,
   getFieldPropsOrFormItemProps,
 } from '@ant-design/pro-utils';
 import get from 'rc-util/lib/utils/get';
@@ -47,25 +48,16 @@ export type ProDescriptionsProps<
   RecordType = Record<string, any>,
   ValueType = 'text'
 > = DescriptionsProps & {
-  /**
-   * params 参数
-   * params 改变的时候会触发 reload
-   */
+  /** Params 参数 params 改变的时候会触发 reload */
   params?: Record<string, any>;
-  /**
-   * 网络请求报错
-   */
+  /** 网络请求报错 */
   onRequestError?: (e: Error) => void;
-  /**
-   * 获取数据的方法
-   */
+  /** 获取数据的方法 */
   request?: (params: Record<string, any>) => Promise<RequestData>;
 
   columns?: ProDescriptionsItemProps<RecordType, ValueType>[];
 
-  /**
-   * 一些简单的操作
-   */
+  /** 一些简单的操作 */
   actionRef?: React.MutableRefObject<ProCoreActionType<any> | undefined>;
 
   loading?: boolean;
@@ -73,30 +65,21 @@ export type ProDescriptionsProps<
   onLoadingChange?: (loading?: boolean) => void;
 
   tooltip?: string;
-  /**
-   * @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一
-   */
+  /** @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一 */
   tip?: string;
-  /**
-   * form props 的相关配置
-   */
+  /** Form props 的相关配置 */
   formProps?: FormProps;
-  /**
-   * @name 编辑相关的配置
-   */
+  /** @name 编辑相关的配置 */
   editable?: RowEditableConfig<RecordType>;
-  /**
-   * 默认的数据源
-   */
+  /** 默认的数据源 */
   dataSource?: RecordType;
-  /**
-   * 受控数据源改变
-   */
+  /** 受控数据源改变 */
   onDataSourceChange?: (value: RecordType) => void;
 };
 
 /**
  * 根据 dataIndex 获取值，支持 dataIndex 为数组
+ *
  * @param item
  * @param entity
  */
@@ -116,6 +99,7 @@ const getDataFromConfig = (item: ProDescriptionsItemProps, entity: any) => {
 
 /**
  * 这里会处理编辑的功能
+ *
  * @param props
  */
 export const FieldRender: React.FC<
@@ -164,9 +148,7 @@ export const FieldRender: React.FC<
     params,
     plain,
   };
-  /**
-   * 如果是只读模式，fieldProps 的 form是空的，所以需要兜底处理
-   */
+  /** 如果是只读模式，fieldProps 的 form是空的，所以需要兜底处理 */
   if (mode === 'read' || !mode || valueType === 'option') {
     const fieldProps = getFieldPropsOrFormItemProps(props.fieldProps, undefined, {
       ...props,
@@ -389,9 +371,7 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
     setDataSource: action.setDataSource,
   });
 
-  /**
-   * 支持 reload 的功能
-   */
+  /** 支持 reload 的功能 */
   useEffect(() => {
     if (actionRef) {
       actionRef.current = { reload: action.reload };
@@ -434,30 +414,30 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
     editable ? editableUtils : undefined,
   );
 
-  /**
-   *  如果不是可编辑模式，没必要注入 ProForm
-   */
+  /** 如果不是可编辑模式，没必要注入 ProForm */
   const FormComponent = editable ? ProForm : (dom: { children: any }) => dom.children;
 
   return (
-    <FormComponent component={false} submitter={false} {...formProps} onFinish={undefined}>
-      <Descriptions
-        {...rest}
-        extra={
-          rest.extra ? (
-            <Space>
-              {options}
-              {rest.extra}
-            </Space>
-          ) : (
-            options
-          )
-        }
-        title={<LabelIconTip label={rest.title} tooltip={rest.tooltip || rest.tip} />}
-      >
-        {children}
-      </Descriptions>
-    </FormComponent>
+    <ErrorBoundary>
+      <FormComponent component={false} submitter={false} {...formProps} onFinish={undefined}>
+        <Descriptions
+          {...rest}
+          extra={
+            rest.extra ? (
+              <Space>
+                {options}
+                {rest.extra}
+              </Space>
+            ) : (
+              options
+            )
+          }
+          title={<LabelIconTip label={rest.title} tooltip={rest.tooltip || rest.tip} />}
+        >
+          {children}
+        </Descriptions>
+      </FormComponent>
+    </ErrorBoundary>
   );
 };
 

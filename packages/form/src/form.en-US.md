@@ -156,7 +156,7 @@ ProForm is a wrapper around antd Form, if you want to customize form elements, P
 > antd's From api View [here](https://ant.design/components/form-cn/)
 
 | Parameters | Description | Type | Default |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | onFinish | Callback event after form is submitted and data validation is successful, same as antd 4 `Form` component API | `(values)=>Promise<void>` | - |
 | onReset | Callback for clicking the reset button, the reset button will be rendered only after it is set | `(e)=>void` | - |
 | submitter | Submitter button-related configuration | `boolean` \| `SubmitterProps` | `true` |
@@ -194,16 +194,24 @@ The second argument to > render is the default dom array, the first is the reset
       submitText: 'submit',
     },
     // Configure the properties of the button
-    resetButtonProps: {},
+    resetButtonProps: {
+      style: {
+        // Hide the reset button
+        display: 'none',
+      },
+    },
     submitButtonProps: {},
 
     // Fully customize the entire area
     render: (props, doms) => {
-      return (
-        <button type="button" id="rest" onClick={() => props?.onReset? ()}>
+      return [
+        <button type="button" key="rest" onClick={() => props.form?.resetFields()}>
           rest
-        </button>
-      );
+        </button>,
+        <button type="button" key="submit" onClick={() => props.form?.submit?.()}>
+          submit
+        </button>,
+      ];
     },
   }}
 />
@@ -231,7 +239,7 @@ Note that the values of the breakpoints are the size of the form container and n
 ##### Rules for default layout
 
 | container-width breakpoint | single-row display form single-column count (including action area) | default layout |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- |
 | `≧ 1352px` | 4 columns | `horizontal` |
 | `≧ 1062px` | 3 columns | `horizontal` |
 | `≧ 701px && < 1063px` | 3 columns | `horizontal` | `≧ 701px && < 1063px` | 3 columns |
@@ -295,7 +303,7 @@ ProForm comes with Filed , which basically corresponds to valueType.
 ### Common properties
 
 | parameter | description | type | default |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | width | The length of the Field, we summarize the common Field lengths and suitable scenarios, support some enumeration "xs" , "s" , "m" , "l" , "x" | `number \| "xs" \| "s" \| "m" \| "l" \| "x"` | - | tooltip |
 | tooltip | will add an icon next to the label to show the configured information when hovered | `string \| tooltipProps` | - |
 | secondary | Whether secondary control, only valid for LightFilter | `boolean` | `false` |
@@ -468,7 +476,7 @@ Same as [slider](https://ant.design/components/slider-cn/).
 Same as [upload](https://ant.design/components/upload-cn/). Dragger style is preset, otherwise it is the same as Upload.
 
 | Parameters  | Description               | Type            | Default                          |
-| ----------- | ------------------------- | --------------- | -------------------------------- | -------------------------------------------- |
+| ----------- | ------------------------- | --------------- | -------------------------------- |
 | icon        | The chart of the Dragger. | `ReactNode`     | InboxOutlined                    |
 | title       | Title                     | Dragger's title | `ReactNode`                      | 'Click or drag files to this area to upload' |
 | description | Dragger's description     | `ReactNode`     | 'Support single or bulk uploads' |

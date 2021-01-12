@@ -11,17 +11,11 @@ import LightWrapper from './LightWrapper';
 import type { ProFormItemProps } from '../interface';
 
 export type ProFormItemCreateConfig = {
-  /**
-   * 自定义类型
-   */
+  /** 自定义类型 */
   valueType?: ProFieldValueType;
-  /**
-   * 自定义 lightMode
-   */
+  /** 自定义 lightMode */
   customLightMode?: boolean;
-  /**
-   * light mode 自定义的 label 模式
-   */
+  /** Light mode 自定义的 label 模式 */
   lightFilterLabelFormatter?: (value: any) => string;
 } & FormItemProps;
 
@@ -50,37 +44,36 @@ export type ExtendsProps = {
   bordered?: boolean;
   colSize?: number;
   /**
+   * 需要与 request 配合使用
+   *
    * @name 网络请求用的输出，会触发reload
-   * @description 需要与 request 配合使用
    */
   params?: any;
 
-  /**
-   * @name 需要放在formItem 时使用
-   */
+  /** @name 需要放在formItem 时使用 */
   ignoreFormItem?: boolean;
 
   /**
+   * 实验性质，可能 api 会有改动，谨慎使用
+   *
    * @name 只读模式
-   * @description 实验性质，可能 api 会有改动，谨慎使用
    */
   readonly?: boolean;
 
-  /**
-   * @name 提交时转化值，一般用于数组类型
-   */
+  /** @name 提交时转化值，一般用于数组类型 */
   transform?: SearchTransformKeyFn;
 
   /**
+   * 给 protable 开的口子
+   *
    * @name 自定义的 formItemProps
-   * @description 给 protable 开的口子
    */
   formItemProps?: FormItemProps;
 };
 
 /**
- * 这个方法的主要作用的帮助 Field 增加 FormItem
- * 同时也会处理 lightFilter
+ * 这个方法的主要作用的帮助 Field 增加 FormItem 同时也会处理 lightFilter
+ *
  * @param Field
  * @param config
  */
@@ -113,9 +106,7 @@ function createField<P extends ProFormItemProps = any>(
       valuePropName = 'value',
       ...defaultFormItemProps
     } = config || {};
-    /**
-     * 从 context 中拿到的值
-     */
+    /** 从 context 中拿到的值 */
     const { fieldProps, formItemProps, setFieldValueType } = React.useContext(FieldContext);
     useEffect(() => {
       // 如果 setFieldValueType 和 props.name 不存在不存入
@@ -173,6 +164,10 @@ function createField<P extends ProFormItemProps = any>(
         fieldProps={{
           allowClear,
           ...realFieldProps,
+          style: {
+            width: typeof width === 'number' ? width : undefined,
+            ...realFieldProps?.style,
+          },
           className: classnames(realFieldProps?.className, {
             [`pro-field-${width}`]: width && WIDTH_SIZE_ENUM[width],
           }),
@@ -186,9 +181,7 @@ function createField<P extends ProFormItemProps = any>(
       />
     );
 
-    /**
-     * 被放到 FormSet 的时候
-     */
+    /** 被放到 FormSet 的时候 */
     if (ignoreFormItem) {
       return field;
     }

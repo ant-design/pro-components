@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.8.3...@ant-design/pro-field@1.8.4) (2021-01-11)
+
+### Bug Fixes
+
+- **field:** fix valueEnum disabled no work error ([#1567](https://github.com/ant-design/pro-components/issues/1567)) ([a643747](https://github.com/ant-design/pro-components/commit/a643747da6acc5784c75ce6e9bc119a0965ddb29))
+- **table:** rmeove unuse keys ([666446c](https://github.com/ant-design/pro-components/commit/666446c1c995694446496fc17075b3a5b30a232a))
+
+## [1.8.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.8.2...@ant-design/pro-field@1.8.3) (2021-01-08)
+
+### Bug Fixes
+
+- **filed:** moneySymbol support config ([#1545](https://github.com/ant-design/pro-components/issues/1545)) ([9f60b04](https://github.com/ant-design/pro-components/commit/9f60b0417b441a43c07716e7ea192eeb79648f20))
+- **form:** fix ProFormRadio.Group vertical style error ([#1542](https://github.com/ant-design/pro-components/issues/1542)) ([e7d42d7](https://github.com/ant-design/pro-components/commit/e7d42d704961965d0aa9e38c53868e4242044fa7))
+- **table:** add exception handling ([#1525](https://github.com/ant-design/pro-components/issues/1525)) ([137c6c5](https://github.com/ant-design/pro-components/commit/137c6c574dff2570d6ae30c858ab4b48d62c0b0e))
+
+## [1.8.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.8.1...@ant-design/pro-field@1.8.2) (2021-01-07)
+
+### Bug Fixes
+
+- **filed:** auto insert dom key ([#1517](https://github.com/ant-design/pro-components/issues/1517)) ([d4be88a](https://github.com/ant-design/pro-components/commit/d4be88a4cf2c499a6190111602c4bfcbbc75daaf))
+- **filed:** fix composition event error ([77e011e](https://github.com/ant-design/pro-components/commit/77e011e2e389b931078a5bbf79d2452fc56fa909))
+
+## [1.8.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.8.0...@ant-design/pro-field@1.8.1) (2021-01-06)
+
+### Bug Fixes
+
+- **field:** fix CompositionInput no work on 搜狗 ([5a8742c](https://github.com/ant-design/pro-components/commit/5a8742c893af0c6504d0460aef65209261da8221))
+
 # [1.8.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.7.1...@ant-design/pro-field@1.8.0) (2021-01-05)
 
 ### Features

@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.13.6...@ant-design/pro-form@1.13.7) (2021-01-11)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.13.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.13.5...@ant-design/pro-form@1.13.6) (2021-01-08)
+
+### Bug Fixes
+
+- **form:** fix defaultColsNumber no work error ([#1551](https://github.com/ant-design/pro-components/issues/1551)) ([4a30512](https://github.com/ant-design/pro-components/commit/4a305123f82ed26f9bac170aad887a6398c51cdd))
+- **form:** fix ModalForm and DrawerFrom props error ([#1534](https://github.com/ant-design/pro-components/issues/1534)) ([9d4e028](https://github.com/ant-design/pro-components/commit/9d4e028d4a508013bf407a5920c9e541faa28a63))
+- **form:** fix ProFormRadio.Group vertical style error ([#1542](https://github.com/ant-design/pro-components/issues/1542)) ([e7d42d7](https://github.com/ant-design/pro-components/commit/e7d42d704961965d0aa9e38c53868e4242044fa7))
+
+## [1.13.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.13.4...@ant-design/pro-form@1.13.5) (2021-01-07)
+
+### Bug Fixes
+
+- **form:** fix form width no work error ([#1516](https://github.com/ant-design/pro-components/issues/1516)) ([0ce87ea](https://github.com/ant-design/pro-components/commit/0ce87ea5093aece6e0245d9c72ee0edc6137bb28))
+
+## [1.13.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.13.3...@ant-design/pro-form@1.13.4) (2021-01-06)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
 ## [1.13.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.13.2...@ant-design/pro-form@1.13.3) (2021-01-05)
 
 **Note:** Version bump only for package @ant-design/pro-form

@@ -40,35 +40,23 @@ export type ActionRenderFunction<T> = (
 ) => React.ReactNode[];
 
 export type RowEditableConfig<T> = {
-  /**
-   * @name 编辑的类型，暂时只支持单选
-   */
+  /** @name 编辑的类型，暂时只支持单选 */
   type?: RowEditableType;
-  /**
-   * @name 正在编辑的列
-   */
+  /** @name 正在编辑的列 */
   editableKeys?: React.Key[];
-  /**
-   * 正在编辑的列修改的时候
-   */
+  /** 正在编辑的列修改的时候 */
   onChange?: (editableKeys: React.Key[], editableRows: T[] | T) => void;
-  /**
-   * @name 自定义编辑的操作
-   */
+  /** @name 自定义编辑的操作 */
   actionRender?: ActionRenderFunction<T>;
 
-  /**
-   * 行保存的时候
-   */
+  /** 行保存的时候 */
   onSave?: (
     key: RecordKey,
     row: T & { index?: number },
     newLineConfig?: NewLineConfig<T>,
   ) => Promise<any | void>;
 
-  /**
-   * 行保存的时候
-   */
+  /** 行保存的时候 */
   onCancel?: (
     key: RecordKey,
     row: T & { index?: number },
@@ -80,17 +68,11 @@ export type RowEditableConfig<T> = {
    */
   onDelete?: (key: RecordKey, row: T & { index?: number }) => Promise<any | void>;
 
-  /**
-   * 删除行时的确认消息
-   */
+  /** 删除行时的确认消息 */
   deletePopconfirmMessage?: React.ReactNode;
-  /**
-   * 只能编辑一行的的提示
-   */
+  /** 只能编辑一行的的提示 */
   onlyOneLineEditorAlertMessage?: React.ReactNode;
-  /**
-   * 同时只能新增一行的提示
-   */
+  /** 同时只能新增一行的提示 */
   onlyAddOneLineAlertMessage?: React.ReactNode;
 };
 export type ActionTypeText<T> = {
@@ -116,8 +98,8 @@ export type ActionRenderConfig<T, LineConfig = NewLineConfig<T>> = {
 } & ActionTypeText<T>;
 
 /**
- * 使用map 来删除数据，性能一般
- * 但是准确率比较高
+ * 使用map 来删除数据，性能一般 但是准确率比较高
+ *
  * @param params
  * @param action
  */
@@ -137,6 +119,7 @@ function editableRowByKey<RecordType>(
 
   /**
    * 打平这个数组
+   *
    * @param records
    * @param parentKey
    */
@@ -212,6 +195,7 @@ function editableRowByKey<RecordType>(
 
 /**
  * 保存按钮的dom
+ *
  * @param ActionRenderConfig
  */
 export const SaveEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
@@ -264,6 +248,7 @@ export const SaveEditableAction: React.FC<ActionRenderConfig<any> & { row: any }
 
 /**
  * 删除按钮 dom
+ *
  * @param ActionRenderConfig
  */
 export const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
@@ -344,6 +329,7 @@ export function defaultActionRender<T>(row: T, config: ActionRenderConfig<T, New
 
 /**
  * 一个方便的hooks 用于维护编辑的状态
+ *
  * @param props
  */
 function useEditableArray<RecordType>(
@@ -378,18 +364,13 @@ function useEditableArray<RecordType>(
         }
       : undefined,
   });
-  /**
-   * 一个用来标志的set
-   * 提供了方便的 api 来去重什么的
-   */
+  /** 一个用来标志的set 提供了方便的 api 来去重什么的 */
   const editableKeysSet = useMemo(() => {
     const keys = editableType === 'single' ? editableKeys.slice(0, 1) : editableKeys;
     return new Set(keys);
   }, [editableKeys.join(','), editableType]);
 
-  /**
-   * 这行是不是编辑状态
-   */
+  /** 这行是不是编辑状态 */
   const isEditable = useCallback(
     (row: RecordType & { index: number }) => {
       const recordKey = props.getRowKey(row, row.index);
@@ -408,6 +389,7 @@ function useEditableArray<RecordType>(
 
   /**
    * 进入编辑状态
+   *
    * @param recordKey
    */
   const startEditable = (recordKey: React.Key) => {
@@ -423,14 +405,13 @@ function useEditableArray<RecordType>(
 
   /**
    * 退出编辑状态
+   *
    * @param recordKey
    */
   const cancelEditable = (recordKey: RecordKey) => {
     // 防止多次渲染
     ReactDOM.unstable_batchedUpdates(() => {
-      /**
-       * 如果这个是 new Line 直接删除
-       */
+      /** 如果这个是 new Line 直接删除 */
       if (newLineRecord && newLineRecord.options.recordKey === recordKey) {
         setNewLineRecord(undefined);
       }
@@ -441,10 +422,11 @@ function useEditableArray<RecordType>(
   };
 
   /**
-   * @name 增加新的行
-   * @description 同时只能支持一行,取消之后数据消息，不会触发 dataSource
+   * 同时只能支持一行,取消之后数据消息，不会触发 dataSource
+   *
    * @param row
    * @param options
+   * @name 增加新的行
    */
   const addEditRecord = (row: RecordType, options?: AddLineOptions) => {
     // 暂时不支持多行新增

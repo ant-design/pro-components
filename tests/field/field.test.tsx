@@ -417,6 +417,19 @@ describe('Field', () => {
       />,
     );
     expect(html).toMatchSnapshot();
+
+    html = render(
+      <Field
+        text="100"
+        valueType={{
+          type: 'money',
+          moneySymbol: '',
+          locale: 'en_US',
+        }}
+        mode="read"
+      />,
+    );
+    expect(html).toMatchSnapshot();
   });
 
   it('🐴 percent valueType is Object', async () => {
@@ -484,7 +497,16 @@ describe('Field', () => {
   });
 
   it('🐴 valueType=text', async () => {
-    const html = mount(<Field text="100" valueType="text" mode="edit" />);
+    const html = mount(
+      <Field
+        text="100"
+        fieldProps={{
+          composition: true,
+        }}
+        valueType="text"
+        mode="edit"
+      />,
+    );
     await waitForComponentToPaint(html);
     html.find('input').simulate('compositionstart', {
       target: {
@@ -557,6 +579,13 @@ describe('Field', () => {
         valueType="option"
         mode="read"
       />,
+    );
+    expect(html).toMatchSnapshot();
+  });
+
+  it('🐴 options support dom text', () => {
+    const html = render(
+      <Field text={['新建', <Button key="edit">修改</Button>]} valueType="option" mode="read" />,
     );
     expect(html).toMatchSnapshot();
   });

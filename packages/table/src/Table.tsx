@@ -18,6 +18,7 @@ import {
   omitUndefined,
   useMountMergeState,
   useEditableArray,
+  ErrorBoundary,
 } from '@ant-design/pro-utils';
 import omit from 'omit.js';
 
@@ -34,7 +35,6 @@ import {
   tableColumnSort,
   genColumnList,
 } from './utils';
-import ErrorBoundary from './components/ErrorBoundary';
 
 import './index.less';
 import type {
@@ -58,8 +58,8 @@ const isBordered = (borderType: BorderedType, border?: Bordered) => {
 };
 
 /**
- * 🏆 Use Ant Design Table like a Pro!
- * 更快 更好 更方便
+ * 🏆 Use Ant Design Table like a Pro! 更快 更好 更方便
+ *
  * @param props
  */
 const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType>(
@@ -94,7 +94,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     beforeSearchSubmit = (searchParams: Partial<U>) => searchParams,
     tableAlertRender,
     defaultClassName,
-    formRef,
+    formRef: propRef,
     type = 'table',
     columnEmptyText = '-',
     manualRequest = false,
@@ -103,6 +103,9 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     ...rest
   } = props;
   const actionRef = useRef<ActionType>();
+
+  const defaultFormRef = useRef();
+  const formRef = propRef || defaultFormRef;
 
   useEffect(() => {
     if (typeof propsActionRef === 'function' && actionRef.current) {
@@ -131,22 +134,14 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   const [proFilter, setProFilter] = useMountMergeState<Record<string, React.ReactText[]>>({});
   const [proSort, setProSort] = useMountMergeState<Record<string, SortOrder>>({});
 
-  /**
-   * 获取 table 的 dom ref
-   */
+  /** 获取 table 的 dom ref */
   const rootRef = useRef<HTMLDivElement>(null);
   const intl = useIntl();
 
-  /**
-   * 是否首次加载的指示器
-   */
+  /** 是否首次加载的指示器 */
   const manualRequestRef = useRef<boolean>(manualRequest);
 
-  /**
-   * 需要初始化 不然默认可能报错
-   * 这里取了 defaultCurrent 和 current
-   * 为了保证不会重复刷新
-   */
+  /** 需要初始化 不然默认可能报错 这里取了 defaultCurrent 和 current 为了保证不会重复刷新 */
   const fetchPagination =
     typeof propsPagination === 'object'
       ? (propsPagination as TablePaginationConfig)
@@ -198,9 +193,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   );
   // ============================ END ============================
 
-  /**
-   * 页面编辑的计算
-   */
+  /** 页面编辑的计算 */
   const pagination = useMemo(() => mergePagination<T>(propsPagination, action, intl), [
     propsPagination,
     action,
@@ -209,9 +202,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
 
   const counter = Container.useContainer();
 
-  /**
-   * 清空所有的选中项
-   */
+  /** 清空所有的选中项 */
   const onCleanSelected = useCallback(() => {
     if (propsRowSelection && propsRowSelection.onChange) {
       propsRowSelection.onChange([], []);
@@ -230,9 +221,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     return (record: T, index: number) => (record as any)?.[rowKey as string] ?? `${index}`;
   }, [rowKey]);
 
-  /**
-   * 可编辑行的相关配置
-   */
+  /** 可编辑行的相关配置 */
   const editableUtils = useEditableArray<any>({
     ...props.editable,
     getRowKey,
@@ -240,9 +229,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     dataSource: action.dataSource,
     setDataSource: action.setDataSource,
   });
-  /**
-   * 绑定 action
-   */
+  /** 绑定 action */
   useActionType(actionRef, action, {
     fullScreen: () => {
       if (!rootRef.current || !document.fullscreenEnabled) {
@@ -269,6 +256,10 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       counter.setKeyWords(undefined);
       // 重置页码
       action.resetPageIndex();
+
+      // 重置表单
+      formRef?.current?.resetFields();
+      setFormSearch({});
     },
     editableUtils,
   });
@@ -277,9 +268,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     // @ts-ignore
     propsActionRef.current = actionRef.current;
   }
-  /**
-   * 绑定 action ref
-   */
+  /** 绑定 action ref */
   useImperativeHandle(
     propsActionRef,
     () => {
@@ -299,9 +288,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       editableUtils,
     }).sort(tableColumnSort(counter.columnsMap));
   }, [propsColumns, counter, columnEmptyText, type, editableUtils]);
-  /**
-   * Table Column 变化的时候更新一下，这个参数将会用于渲染
-   */
+  /** Table Column 变化的时候更新一下，这个参数将会用于渲染 */
   useDeepCompareEffect(() => {
     if (tableColumn && tableColumn.length > 0) {
       // 重新生成key的字符串用于排序
@@ -311,11 +298,9 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   }, [tableColumn]);
   // ---------- 列计算相关 end-----------------
 
-  /**
-   * 同步 Pagination，支持受控的 页码 和 pageSize
-   */
+  /** 同步 Pagination，支持受控的 页码 和 pageSize */
   useDeepCompareEffect(() => {
-    const { current, pageSize } = propsPagination || {};
+    const { current = action.current, pageSize = action.pageSize } = propsPagination || {};
     if (
       propsPagination &&
       (current || pageSize) &&
@@ -328,9 +313,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     }
   }, [propsPagination && propsPagination.pageSize, propsPagination && propsPagination.current]);
 
-  /**
-   * 行选择相关的问题
-   */
+  /** 行选择相关的问题 */
   const rowSelection: TableRowSelection = {
     selectedRowKeys,
     ...propsRowSelection,
@@ -395,9 +378,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   }
 
   const className = classNames(defaultClassName, propsClassName);
-  /**
-   * 查询表单相关的配置
-   */
+  /** 查询表单相关的配置 */
   const searchNode =
     search !== false || type === 'form' ? (
       <FormSearch<U, T>
@@ -415,14 +396,10 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       />
     ) : null;
 
-  /**
-   * 是不是 LightFilter, LightFilter 有一些特殊的处理
-   */
+  /** 是不是 LightFilter, LightFilter 有一些特殊的处理 */
   const isLightFilter: boolean = search !== false && search?.filterType === 'light';
 
-  /**
-   * 根据表单类型的不同决定是否生成 toolbarProps
-   */
+  /** 根据表单类型的不同决定是否生成 toolbarProps */
   const toolbarProps = isLightFilter
     ? {
         filter: searchNode,
@@ -459,9 +436,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         toolbar={toolbarProps}
       />
     ) : undefined;
-  /**
-   * 内置的多选操作栏
-   */
+  /** 内置的多选操作栏 */
   const alertDom = propsRowSelection !== false && (
     <Alert<T>
       selectedRowKeys={selectedRowKeys}
@@ -472,14 +447,11 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     />
   );
 
-  /**
-   * 如果所有列中的 filters=true| undefined
-   * 说明是用的是本地筛选
-   * 任何一列配置 filters=false，就能绕过这个判断
-   */
+  /** 如果所有列中的 filters=true| undefined 说明是用的是本地筛选 任何一列配置 filters=false，就能绕过这个判断 */
   const useLocaleFilter = propsColumns.every(
     (column) =>
-      (column.filters === undefined || column.filters === true) && column.onFilter !== false,
+      (column.filters === true && column.onFilter === true) ||
+      (column.filters === undefined && column.onFilter === undefined),
   );
 
   const editableDataSource = (): T[] => {
@@ -538,30 +510,22 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     },
   };
 
-  /**
-   * 如果有 ellipsis ，设置 tableLayout 为 fixed
-   */
+  /** 如果有 ellipsis ，设置 tableLayout 为 fixed */
   const tableLayout = props.columns?.some((item) => item.ellipsis) ? 'fixed' : 'auto';
 
-  /**
-   * 默认的 table dom，如果是编辑模式，外面还要包个 form
-   */
+  /** 默认的 table dom，如果是编辑模式，外面还要包个 form */
   const baseTableDom = (
     <Form component={false}>
       <Table<T> {...tableProps} rowKey={rowKey} tableLayout={tableLayout} />
     </Form>
   );
 
-  /**
-   * 自定义的 render
-   */
+  /** 自定义的 render */
   const tableDom = props.tableViewRender
     ? props.tableViewRender(tableProps, baseTableDom)
     : baseTableDom;
 
-  /**
-   * table 区域的 dom，为了方便 render
-   */
+  /** Table 区域的 dom，为了方便 render */
   const tableAreaDom = (
     <Card
       bordered={isBordered('table', cardBordered)}
@@ -624,8 +588,8 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
 };
 
 /**
- * 🏆 Use Ant Design Table like a Pro!
- * 更快 更好 更方便
+ * 🏆 Use Ant Design Table like a Pro! 更快 更好 更方便
+ *
  * @param props
  */
 const ProviderWarp = <

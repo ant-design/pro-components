@@ -55,6 +55,7 @@ export default () => (
     headerTitle="查询 Table"
     search={{
       defaultCollapsed: false,
+      labelWidth: 'auto',
       optionRender: ({ searchText, resetText }, { form }) => {
         return [
           <Button

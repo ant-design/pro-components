@@ -1,12 +1,4 @@
-import React, {
-  useContext,
-  useEffect,
-  useRef,
-  useCallback,
-  useState,
-  useImperativeHandle,
-  useMemo,
-} from 'react';
+import React, { useContext, useRef, useCallback, useState, useMemo } from 'react';
 import type { FormInstance, FormItemProps } from 'antd/lib/form';
 import { ConfigProvider } from 'antd';
 import type { IntlType } from '@ant-design/pro-provider';
@@ -28,8 +20,7 @@ import {
   transformKeySubmitValue,
   getFieldPropsOrFormItemProps,
 } from '@ant-design/pro-utils';
-
-import { genColumnKey } from '../../utils';
+import namePathSet from 'rc-util/lib/utils/set';
 import type { ProColumns } from '../../index';
 import './index.less';
 
@@ -38,7 +29,8 @@ export type SearchConfig = BaseQueryFilterProps & {
 };
 
 /**
- *  获取当前选择的 Form Layout 配置
+ * 获取当前选择的 Form Layout 配置
+ *
  * @param isForm
  * @param searchConfig
  * @returns LightFilter | QueryFilter | ProForm
@@ -64,6 +56,7 @@ const getFormCompetent = (isForm: boolean, searchConfig?: SearchConfig | false) 
 
 /**
  * 获取需要传给相应表单的props
+ *
  * @param searchConfig
  * @param name
  */
@@ -100,13 +93,14 @@ export type TableFormItem<T, U = any> = {
   dateFormatter?: 'string' | 'number' | false;
   search?: false | SearchConfig;
   columns: ProColumns<U, any>[];
-  formRef?: React.MutableRefObject<FormInstance | undefined> | ((formRef: FormInstance) => void);
+  formRef: React.MutableRefObject<FormInstance | undefined>;
   submitButtonLoading?: boolean;
   bordered?: boolean;
 } & Omit<FormItemProps, 'children' | 'onReset'>;
 
 /**
  * 把配置转化为输入控件
+ *
  * @param props
  * @param ref
  */
@@ -120,7 +114,7 @@ export const formInputRender: React.FC<{
   onSelect?: (value: any) => void;
   [key: string]: any;
 }> = (props, ref: any) => {
-  const { item, intl, form, type, formItemProps: propsFormItemProps, colSize, ...rest } = props;
+  const { item, intl, form, type, formItemProps: propsFormItemProps, ...rest } = props;
 
   const formItemProps = getFieldPropsOrFormItemProps(
     propsFormItemProps,
@@ -141,13 +135,9 @@ export const formInputRender: React.FC<{
     item,
   ) as any;
 
-  /**
-   * 自定义 render
-   */
+  /** 自定义 render */
   if (item.renderFormItem && form) {
-    /**
-     *删除 renderFormItem 防止重复的 dom 渲染
-     */
+    /** 删除 renderFormItem 防止重复的 dom 渲染 */
     const { renderFormItem, ...restItem } = item;
     const defaultRender = (newItem: ProColumns<any>) =>
       formInputRender({
@@ -194,9 +184,8 @@ export const formInputRender: React.FC<{
           ...item.fieldProps,
         }}
         formItemProps={formItemProps}
-        colSize={colSize}
       >
-        {React.cloneElement(dom, { ...rest, ...defaultProps })}
+        {React.cloneElement(dom, omit({ ...rest, ...defaultProps }, ['colSize']))}
       </ProFormField>
     );
   }
@@ -205,6 +194,7 @@ export const formInputRender: React.FC<{
     !valueType || (['textarea', 'jsonCode', 'code'].includes(valueType) && type === 'table')
       ? 'text'
       : (valueType as 'text');
+
   return (
     <ProFormField
       ref={ref}
@@ -302,35 +292,25 @@ const FormSearch = <T, U = any>({
   form: formConfig = {},
   bordered,
 }: TableFormItem<T, U>) => {
-  /**
-   * 为了支持 dom 的消失，支持了这个 api
-   */
+  /** 为了支持 dom 的消失，支持了这个 api */
   const intl = useIntl();
 
-  const formInstanceRef = useRef<FormInstance | undefined>();
-
-  /**
-   * 保存 valueTypeRef，用于分辨是用什么方式格式化数据
-   */
+  /** 保存 valueTypeRef，用于分辨是用什么方式格式化数据 */
   const valueTypeRef = useRef<Record<string, ProFieldValueType>>();
 
-  /**
-   * 保存 transformKeyRef，用于对表单key transform
-   */
+  /** 保存 transformKeyRef，用于对表单key transform */
   const transformKeyRef = useRef<Record<string, SearchTransformKeyFn>>({});
 
   const isForm = type === 'form';
-  /**
-   *提交表单，根据两种模式不同，方法不相同
-   */
+  /** 提交表单，根据两种模式不同，方法不相同 */
   const submit = async (firstLoad: boolean) => {
     let value;
     // 如果不是表单模式，不用进行验证
     if (!isForm) {
-      value = formInstanceRef.current?.getFieldsValue();
+      value = formRef.current?.getFieldsValue();
     } else {
       try {
-        value = await formInstanceRef.current?.validateFields();
+        value = await formRef.current?.validateFields();
       } catch (error) {
         // console.log(error)
       }
@@ -347,43 +327,28 @@ const FormSearch = <T, U = any>({
     }
   };
 
-  useImperativeHandle(
-    formRef,
-    () =>
-      ({
-        ...formInstanceRef.current,
-        submit: () => {
-          submit(false);
-          formInstanceRef.current?.submit();
-        },
-      } as any),
-    [formInstanceRef.current],
-  );
-
-  useEffect(() => {
-    if (!formRef) {
-      return;
-    }
-    if (typeof formRef === 'function' && formInstanceRef.current) {
-      formRef(formInstanceRef.current);
-    }
-  }, [formInstanceRef.current]);
-
   const genTransform = () => {
-    const tempMap = {};
-    const transformKeyMap = {};
+    let tempMap = {};
+    let transformKeyMap = {};
 
     columns.forEach((item) => {
       const { key, dataIndex, index, valueType, search } = item;
       // 以key为主,理论上key唯一
-      const finalKey = genColumnKey((key || dataIndex) as string, index);
+      const finalKey = [key || dataIndex || index].flat(1) as string[];
       // 如果是() => ValueType 需要特殊处理一下
-      tempMap[finalKey] =
-        typeof valueType === 'function' ? valueType(item as any, type) : valueType;
+      tempMap = namePathSet(
+        transformKeyMap,
+        finalKey,
+        typeof valueType === 'function' ? valueType(item as any, type) : valueType,
+      );
       const columnSearchConfig = omitBoolean(search);
       if (columnSearchConfig) {
-        transformKeyMap[finalKey] = (value: any, fieldName: string, target: any) =>
-          columnSearchConfig.transform(value, fieldName, target);
+        transformKeyMap = namePathSet(
+          transformKeyMap,
+          finalKey,
+          (value: any, fieldName: string, target: any) =>
+            columnSearchConfig.transform(value, fieldName, target),
+        );
       }
     });
 
@@ -432,7 +397,7 @@ const FormSearch = <T, U = any>({
         .map((item, index) =>
           proFormItemRender({
             isForm,
-            formInstance: formInstanceRef.current,
+            formInstance: formRef.current,
             item: {
               index,
               ...item,
@@ -448,7 +413,7 @@ const FormSearch = <T, U = any>({
     [isForm, type],
   );
 
-  const [domList, setDomList] = useState<JSX.Element[]>(() => updateDomList(columnsList));
+  const [domList, setDomList] = useState<JSX.Element[]>(() => []);
 
   useDeepCompareEffect(() => {
     if (columnsList.length < 1) return;
@@ -492,7 +457,7 @@ const FormSearch = <T, U = any>({
           {...loadingProps}
           {...getFromProps(isForm, searchConfig, competentName)}
           {...formConfig}
-          formRef={formInstanceRef}
+          formRef={formRef}
           onValuesChange={(change, all) => {
             setDomList(updateDomList(columnsList));
             if (formConfig.onValuesChange) {
@@ -503,13 +468,14 @@ const FormSearch = <T, U = any>({
             genTransform();
             // 触发一个 submit，之所以这里触发是为了保证 value 都被 format了
             if (valueTypeRef.current && type !== 'form') {
-              // 下面才去赋值，所以用 setTimeout 延时一下，略微性能好一点
+              // 重新计算一下dom
+              setDomList(updateDomList(columnsList));
               submit(true);
             }
           }}
           onReset={() => {
             if (onReset && valueTypeRef.current) {
-              const value = formInstanceRef.current?.getFieldsValue() as T;
+              const value = formRef.current?.getFieldsValue() as T;
               const finalValue = transformKeySubmitValue(
                 conversionSubmitValue(value, dateFormatter, valueTypeRef.current) as T,
                 transformKeyRef.current,

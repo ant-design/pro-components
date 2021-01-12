@@ -24,9 +24,7 @@ import type { UseEditableMapType, UseEditableMapUtilType } from './useEditableMa
 import useEditableMap from './useEditableMap';
 import useMountMergeState from './useMountMergeState';
 
-/**
- * hooks
- */
+/** Hooks */
 import useDebounceFn from './hooks/useDebounceFn';
 import usePrevious from './hooks/usePrevious';
 import conversionSubmitValue from './conversionSubmitValue';
@@ -35,9 +33,7 @@ import parseValueToMoment from './parseValueToMoment';
 import useDeepCompareEffect from './hooks/useDeepCompareEffect';
 import useDocumentTitle from './hooks/useDocumentTitle';
 
-/**
- * type
- */
+/** Type */
 import type {
   ProSchema,
   ProSchemaValueEnumMap,
@@ -61,6 +57,7 @@ import type {
   ProFieldFCRenderProps,
   ProRenderFieldPropsType,
 } from '@ant-design/pro-provider';
+import ErrorBoundary from './components/ErrorBoundary';
 
 export type {
   ProSchema,
@@ -94,6 +91,7 @@ export {
   FieldLabel,
   InlineErrorFormItem,
   DropdownFooter,
+  ErrorBoundary,
   // function
   transformKeySubmitValue,
   conversionSubmitValue,

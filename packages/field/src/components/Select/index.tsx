@@ -30,23 +30,15 @@ let testId = 0;
 
 export type FieldSelectProps = {
   text: string;
-  /**
-   * 值的枚举，如果存在枚举，Search 中会生成 select
-   */
+  /** 值的枚举，如果存在枚举，Search 中会生成 select */
   valueEnum?: ProFieldValueEnumType;
 
-  /**
-   * 从服务器读取选项
-   */
+  /** 从服务器读取选项 */
   request?: ProFieldRequestData;
-  /**
-   * 重新触发的时机
-   */
+  /** 重新触发的时机 */
   params?: any;
 
-  /**
-   * 组件的全局设置
-   */
+  /** 组件的全局设置 */
   fieldProps?: any;
 };
 
@@ -58,8 +50,8 @@ export const ObjToMap = (value: ProFieldValueEnumType | undefined): ProSchemaVal
 };
 
 /**
- * 转化 text 和 valueEnum
- * 通过 type 来添加 Status
+ * 转化 text 和 valueEnum 通过 type 来添加 Status
+ *
  * @param text
  * @param valueEnum
  * @param pure 纯净模式，不增加 status
@@ -105,6 +97,7 @@ export const proFieldParsingText = (
 
 /**
  * 获取类型的 type
+ *
  * @param obj
  */
 function getType(obj: any) {
@@ -121,6 +114,7 @@ function getType(obj: any) {
 
 /**
  * 把 value 的枚举转化为数组
+ *
  * @param valueEnum
  */
 export const proFieldParsingValueEnumToArray = (
@@ -132,9 +126,7 @@ export const proFieldParsingValueEnumToArray = (
   const enumArray: {
     value: string | number;
     text: string;
-    /**
-     * 是否禁用
-     */
+    /** 是否禁用 */
     disabled?: boolean;
   }[] = [];
   const valueEnum = ObjToMap(valueEnumParams);
@@ -170,9 +162,7 @@ export const useFieldFetchData = (
     proFieldKey?: React.Key;
   },
 ): [boolean, SelectProps<any>['options'], () => void] => {
-  /**
-   * key 是用来缓存请求的，如果不在是有问题
-   */
+  /** Key 是用来缓存请求的，如果不在是有问题 */
   const [cacheKey] = useState(() => {
     if (props.proFieldKey) {
       return props.proFieldKey;
@@ -187,10 +177,11 @@ export const useFieldFetchData = (
   const proFieldKeyRef = useRef(cacheKey);
 
   const getOptionsFormValueEnum = useCallback((valueEnum) => {
-    return proFieldParsingValueEnumToArray(ObjToMap(valueEnum)).map(({ value, text }) => ({
+    return proFieldParsingValueEnumToArray(ObjToMap(valueEnum)).map(({ value, text, ...rest }) => ({
       label: text,
       value,
       key: value,
+      ...rest,
     }));
   }, []);
 
@@ -244,7 +235,8 @@ export const useFieldFetchData = (
 };
 
 /**
- * 可以根据  valueEnum 来进行类型的设置
+ * 可以根据 valueEnum 来进行类型的设置
+ *
  * @param
  */
 const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {

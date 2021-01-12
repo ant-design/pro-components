@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-descriptions@1.4.3
+
+`2021-01-08`
+
+- 🐛 fix(descriptions): support ErrorBoundary [#1541](https://github.com/ant-design/pro-components/pull/1541) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-descriptions@1.2.0
 
 `2020-12-21`

@@ -18,8 +18,8 @@ const languageFormat = (text: string, language: string) => {
 };
 
 /**
- * 代码片段组件
- * 这个组件为了显示简单的配置，复杂的请使用更加重型的组件
+ * 代码片段组件 这个组件为了显示简单的配置，复杂的请使用更加重型的组件
+ *
  * @param
  */
 const FieldCode: ProFieldFC<{
