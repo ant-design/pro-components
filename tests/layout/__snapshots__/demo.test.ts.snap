@@ -6456,7 +6456,6 @@ Array [
   </div>,
   <div
     class="qixian-drawer qixian-drawer-right"
-    scrolllocker="[object Object]"
     style="z-index: 999;"
     tabindex="-1"
   >
@@ -11585,7 +11584,6 @@ Array [
   </div>,
   <div
     class="ant-drawer ant-drawer-right ant-drawer-open"
-    scrolllocker="[object Object]"
     style="z-index: 999;"
     tabindex="-1"
   >

@@ -18,7 +18,12 @@ export type OptionConfig = {
   density?: boolean;
   fullScreen?: OptionsType;
   reload?: OptionsType;
-  setting?: boolean;
+  setting?:
+    | boolean
+    | {
+        draggable?: boolean;
+        checkable?: boolean;
+      };
   search?: (SearchProps & { name?: string }) | boolean;
 };
 
@@ -98,7 +103,7 @@ function renderDefaultOption<T>(
         return null;
       }
       if (key === 'setting') {
-        return <ColumnSetting columns={columns} key={key} />;
+        return <ColumnSetting {...options[key]} columns={columns} key={key} />;
       }
       if (key === 'fullScreen') {
         return (

@@ -292,7 +292,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   useDeepCompareEffect(() => {
     if (tableColumn && tableColumn.length > 0) {
       // 重新生成key的字符串用于排序
-      const columnKeys = tableColumn.map((item, index) => genColumnKey(item.key, index));
+      const columnKeys = tableColumn.map((item) => genColumnKey(item.key, item.index));
       counter.setSortKeyColumns(columnKeys);
     }
   }, [tableColumn]);

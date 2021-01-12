@@ -15,7 +15,6 @@ module.exports = {
     'packages/**/src/**/*.{ts,tsx}',
     '!packages/**/src/demos/**',
     '!packages/**/src/**/demos/**',
-    '!packages/**/src/components/ColumnSetting/**',
   ],
   moduleNameMapper,
   testURL: 'http://localhost',
