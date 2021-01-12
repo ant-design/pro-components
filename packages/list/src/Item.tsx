@@ -168,7 +168,16 @@ function ProListItem(props: ItemProps) {
           ) : null}
         </div>
         {needExpanded && (content || expandedRowDom) && (
-          <div className={`${className}-content`}>{content}</div>
+          <div className={`${className}-content`}>
+            {content}
+            {expandedRowRender && rowSupportExpand && (
+              <div
+                className={expandedRowClassName && expandedRowClassName(item, index, indentSize)}
+              >
+                {expandedRowDom}
+              </div>
+            )}
+          </div>
         )}
       </Skeleton>
     </List.Item>
@@ -181,11 +190,6 @@ function ProListItem(props: ItemProps) {
       extra={actions ? [<div onClick={(e) => e.stopPropagation()}>{actions}</div>] : []}
     >
       {content}
-      {expandedRowRender && rowSupportExpand && (
-        <div className={expandedRowClassName && expandedRowClassName(item, index, indentSize)}>
-          {expandedRowDom}
-        </div>
-      )}
     </ProCard>
   );
   return (
