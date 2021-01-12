@@ -172,7 +172,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         [postData].filter((item) => item) as any,
       );
       if (Array.isArray(response)) {
-        return response;
+        return response as RequestData<T>;
       }
       const msgData = { ...response, data: responseData } as RequestData<T>;
       return msgData;

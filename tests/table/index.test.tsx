@@ -613,7 +613,6 @@ describe('BasicTable', () => {
           },
         ]}
         postData={undefined}
-        // @ts-expect-error
         request={async () => {
           fn();
           await waitTime(500);

@@ -182,7 +182,7 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
     },
     sort: Record<string, SortOrder>,
     filter: Record<string, React.ReactText[]>,
-  ) => Promise<RequestData<T>>;
+  ) => Promise<Partial<RequestData<T>>>;
 
   /** @name 对数据进行一些处理 */
   postData?: (data: any[]) => any[];
