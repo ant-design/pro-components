@@ -4,12 +4,37 @@
 @pro-list-prefix-cls: ant-pro-list;
 
 .@{pro-list-prefix-cls} {
+  .@{ant-prefix}-list-grid {
+    padding: 0 24px;
+  }
+
   .@{ant-prefix}-list-pagination {
     padding: 0 18px;
   }
 
   .@{pro-list-prefix-cls}-row {
     padding: 0 18px 0 24px;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.02);
+      transition: background-color 0.3s;
+      .@{ant-prefix}-list-item-action {
+        display: block;
+      }
+
+      .@{pro-list-prefix-cls}-row-subheader-actions {
+        display: block;
+      }
+    }
+
+    &-card {
+      margin: 8px 0;
+      padding: 0 8px;
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
 
     &.@{pro-list-prefix-cls}-row-editable {
       .@{ant-prefix}-list-item {
@@ -28,7 +53,6 @@
 
     &.@{pro-list-prefix-cls}-row-selected {
       background-color: @table-selected-row-bg;
-
       &:hover {
         background-color: @table-selected-row-bg;
       }
@@ -49,18 +73,6 @@
       background-repeat: no-repeat;
       background-position: left top;
       background-size: 12px 12px;
-    }
-
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.02);
-      transition: background-color 0.3s;
-      .@{ant-prefix}-list-item-action {
-        display: block;
-      }
-
-      .@{pro-list-prefix-cls}-row-subheader-actions {
-        display: block;
-      }
     }
 
     &-show-action-hover {

@@ -167,6 +167,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
         return (
           <ProListItem
             key={recordKey}
+            cardProps={rest.grid}
             {...listItemProps}
             recordKey={recordKey}
             isEditable={isEditable || false}
