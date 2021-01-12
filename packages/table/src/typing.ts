@@ -273,6 +273,8 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   onDataSourceChange?: (dataSource: T[]) => void;
   /** @name 查询表单和 Table 的卡片 border 配置 */
   cardBordered?: Bordered;
+  /** debounce wait */
+  wait?: number;
 } & Omit<TableProps<T>, 'columns' | 'rowSelection'>;
 
 export type ActionType = ProCoreActionType & {

@@ -189,6 +189,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       onRequestError,
       manual: !request || (!formSearch && search !== false),
       effects: [stringify(params), stringify(formSearch), stringify(proFilter), stringify(proSort)],
+      wait: props.wait,
     },
   );
   // ============================ END ============================
