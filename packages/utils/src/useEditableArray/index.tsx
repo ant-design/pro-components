@@ -246,7 +246,7 @@ export const SaveEditableAction: React.FC<ActionRenderConfig<any> & { row: any }
           // eslint-disable-next-line no-console
           console.log(e);
           setLoading(false);
-          return e;
+          return null;
         }
       }}
     >
@@ -288,7 +288,7 @@ export const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any
       // eslint-disable-next-line no-console
       console.log(e);
       setLoading(false);
-      return e;
+      return null;
     }
   };
   return children !== false ? (
