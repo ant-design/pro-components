@@ -50,7 +50,11 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
   const [getRecordByKey] = useLazyKVMap(dataSource, 'children', getRowKey);
 
   // 合并分页的的配置
-  const [mergedPagination] = usePagination(dataSource.length, pagination as any, () => {});
+  const [mergedPagination] = usePagination(
+    dataSource.length,
+    { responsive: true, ...pagination } as any,
+    () => {},
+  );
   /** 根据分页来回去不同的数据，模拟 table */
   const pageData = React.useMemo<RecordType[]>(() => {
     if (
