@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-list@1.2.18
+
+`2021-01-12`
+
+- 🐛 fix(list): A large number of stylesyou [#1585](https://github.com/ant-design/pro-components/pull/1585) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-list@1.2.15
 
 `2021-01-08`

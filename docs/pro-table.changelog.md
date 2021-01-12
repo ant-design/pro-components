@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.24.0
+
+`2021-01-12`
+
+- 💥 feat(table): table columns use tree [#1583](https://github.com/ant-design/pro-components/pull/1583) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.23.0
 
 `2021-01-11`
