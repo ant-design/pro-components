@@ -212,7 +212,7 @@ export const useFieldFetchData = (
         setLoading(true);
         const fetchData = await props.request(props.params, props);
         setLoading(false);
-        return fetchData;
+        return fetchData as Required<ProFieldRequestData>[];
       }
       return [];
     },
@@ -223,7 +223,7 @@ export const useFieldFetchData = (
 
   return [
     loading,
-    props.request ? data : options,
+    props.request ? (data as SelectProps<any>['options']) : options,
     async () => {
       if (!props.request) return;
       setLoading(true);
