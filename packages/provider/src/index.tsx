@@ -18,6 +18,7 @@ import ptBR from './locale/pt_BR';
 import koKR from './locale/ko_KR';
 import idID from './locale/id_ID';
 import deDE from './locale/de_DE';
+import faIR from './locale/fa_IR';
 
 export type ProSchemaValueEnumType = {
   /** @name 演示的文案 */
@@ -134,6 +135,7 @@ const ptBRIntl = createIntl('pt_BR', ptBR);
 const koKRIntl = createIntl('ko_KR', koKR);
 const idIDIntl = createIntl('id_ID', idID);
 const deDEIntl = createIntl('de_DE', deDE);
+const faIRIntl = createIntl('fa_IR', faIR);
 
 const intlMap = {
   'ar-EG': arEGIntl,
@@ -151,6 +153,7 @@ const intlMap = {
   'ko-KR': koKRIntl,
   'id-ID': idIDIntl,
   'de-DE': deDEIntl,
+  'fa-IR': faIRIntl,
 };
 
 const intlMapKeys = Object.keys(intlMap);
@@ -173,6 +176,7 @@ export {
   koKRIntl,
   idIDIntl,
   deDEIntl,
+  faIRIntl,
   intlMap,
   intlMapKeys,
 };
