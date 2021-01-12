@@ -125,7 +125,7 @@ function ProListItem(props: ItemProps) {
 
   const needExpanded = expanded || Object.values(expandableConfig || {}).length === 0;
   const expandedRowDom = expandedRowRender && expandedRowRender(item, index, indentSize, expanded);
-  console.log(cardProps);
+
   const defaultDom = !cardProps ? (
     <List.Item
       actions={actions ? [<div onClick={(e) => e.stopPropagation()}>{actions}</div>] : []}
@@ -168,16 +168,7 @@ function ProListItem(props: ItemProps) {
           ) : null}
         </div>
         {needExpanded && (content || expandedRowDom) && (
-          <div className={`${className}-content`}>
-            {content}
-            {expandedRowRender && rowSupportExpand && (
-              <div
-                className={expandedRowClassName && expandedRowClassName(item, index, indentSize)}
-              >
-                {expandedRowDom}
-              </div>
-            )}
-          </div>
+          <div className={`${className}-content`}>{content}</div>
         )}
       </Skeleton>
     </List.Item>
