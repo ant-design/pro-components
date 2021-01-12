@@ -52,6 +52,10 @@ nav:
 
 <code src="./demos/pagination.tsx" background="#f5f5f5" />
 
+### 卡片列表
+
+<code src="./demos/card-list.tsx" background="#f5f5f5" />
+
 ## API
 
 ### ProList API

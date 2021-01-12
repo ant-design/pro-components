@@ -3017,16 +3017,6 @@
   resolved "https://registry.npm.taobao.org/@qixian.cs/path-to-regexp/download/@qixian.cs/path-to-regexp-6.1.0.tgz#6b84ad01596332aba95fa29d2e70104698cd5c45"
   integrity sha1-a4StAVljMqupX6KdLnAQRpjNXEU=
 
-"@react-dnd/asap@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.npm.taobao.org/@react-dnd/asap/download/@react-dnd/asap-4.0.0.tgz#b300eeed83e9801f51bd66b0337c9a6f04548651"
-  integrity sha1-swDu7YPpgB9RvWawM3yabwRUhlE=
-
-"@react-dnd/invariant@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.npm.taobao.org/@react-dnd/invariant/download/@react-dnd/invariant-2.0.0.tgz#09d2e81cd39e0e767d7da62df9325860f24e517e"
-  integrity sha1-CdLoHNOeDnZ9faYt+TJYYPJOUX4=
-
 "@rollup/plugin-babel@5.2.1":
   version "5.2.1"
   resolved "https://registry.npm.taobao.org/@rollup/plugin-babel/download/@rollup/plugin-babel-5.2.1.tgz#20fc8f8864dc0eaa1c5578408459606808f72924"
@@ -8384,15 +8374,6 @@ discontinuous-range@1.0.0:
   version "1.0.0"
   resolved "https://registry.npm.taobao.org/discontinuous-range/download/discontinuous-range-1.0.0.tgz#e38331f0844bba49b9a9cb71c771585aab1bc65a"
   integrity sha1-44Mx8IRLukm5qctxx3FYWqsbxlo=
-
-dnd-core@^10.0.2:
-  version "10.0.2"
-  resolved "https://registry.npm.taobao.org/dnd-core/download/dnd-core-10.0.2.tgz#051dc119682ea1185622f954667670d3d5f6a574"
-  integrity sha1-BR3BGWguoRhWIvlUZnZw09X2pXQ=
-  dependencies:
-    "@react-dnd/asap" "^4.0.0"
-    "@react-dnd/invariant" "^2.0.0"
-    redux "^4.0.4"
 
 doctrine@1.5.0:
   version "1.5.0"
@@ -19247,7 +19228,7 @@ redeyed@~2.1.0:
   dependencies:
     esprima "~4.0.0"
 
-redux@^4.0.0, redux@^4.0.4:
+redux@^4.0.0:
   version "4.0.5"
   resolved "https://registry.npm.taobao.org/redux/download/redux-4.0.5.tgz?cache=0&sync_timestamp=1593529700795&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fredux%2Fdownload%2Fredux-4.0.5.tgz#4db5de5816e17891de8a80c424232d06f051d93f"
   integrity sha1-TbXeWBbheJHeioDEJCMtBvBR2T8=
