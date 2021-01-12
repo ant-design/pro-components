@@ -374,5 +374,13 @@ describe('Table ColumnSetting', () => {
     await waitForComponentToPaint(html, 500);
 
     expect(html.find('span.ant-tree-checkbox.ant-tree-checkbox-checked').length).toBe(2);
+
+    html.find('.ant-tree-treenode > .ant-tree-node-content-wrapper').at(1).simulate('dragStart');
+    html.find('.ant-tree-treenode > .ant-tree-node-content-wrapper').at(0).simulate('dragEnter');
+    await waitForComponentToPaint(html, 1000);
+
+    html.find('.ant-tree-treenode > .ant-tree-node-content-wrapper').at(0).simulate('drop');
+
+    await waitForComponentToPaint(html, 1000);
   });
 });
