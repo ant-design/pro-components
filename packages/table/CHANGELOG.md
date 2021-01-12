@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.24.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.23.0...@ant-design/pro-table@2.24.0) (2021-01-12)
+
+### Bug Fixes
+
+- **table:** table support data is partial ([a0f592e](https://github.com/ant-design/pro-components/commit/a0f592e8275882df2bc26aa6c7c224a517e265f7))
+
+### Features
+
+- **table:** table columns use tree ([#1583](https://github.com/ant-design/pro-components/issues/1583)) ([821d54f](https://github.com/ant-design/pro-components/commit/821d54f1f77337155e314f0a95cab04ae80adc8e))
+
 # [2.23.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.22.2...@ant-design/pro-table@2.23.0) (2021-01-11)
 
 ### Bug Fixes

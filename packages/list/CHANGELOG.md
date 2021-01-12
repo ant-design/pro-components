@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.18](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.2.17...@ant-design/pro-list@1.2.18) (2021-01-12)
+
+### Bug Fixes
+
+- **list:** A large number of stylesyou ([#1585](https://github.com/ant-design/pro-components/issues/1585)) ([fc3be66](https://github.com/ant-design/pro-components/commit/fc3be66057bade241c59405a9b73bb9d79b06766))
+
 ## [1.2.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.2.16...@ant-design/pro-list@1.2.17) (2021-01-11)
 
 **Note:** Version bump only for package @ant-design/pro-list
