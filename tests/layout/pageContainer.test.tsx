@@ -240,4 +240,12 @@ describe('PageContainer', () => {
 
     expect(fn).toBeCalledWith('info');
   });
+
+  it('content is text and title is null', () => {
+    const html = render(<PageContainer content="just so so" />);
+    expect(html).toMatchSnapshot();
+
+    const html2 = render(<PageContainer extraContent={<div>extraContent</div>} />);
+    expect(html2).toMatchSnapshot();
+  });
 });
