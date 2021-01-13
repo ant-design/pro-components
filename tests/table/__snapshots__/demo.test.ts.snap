@@ -17799,10 +17799,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                   >
                     <label
                       class=""
-                      for="span"
-                      title="表单类型"
+                      for="formLayout"
+                      title="表单布局"
                     >
-                      表单类型
+                      表单布局
                       <span
                         aria-label="question-circle"
                         class="anticon anticon-question-circle ant-form-item-tooltip"
@@ -17838,7 +17838,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                       >
                         <div
                           class="ant-select ant-select-sm ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                          text="24"
+                          text="horizontal"
                         >
                           <div
                             class="ant-select-selector"
@@ -17847,14 +17847,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                               class="ant-select-selection-search"
                             >
                               <input
-                                aria-activedescendant="span_list_0"
+                                aria-activedescendant="formLayout_list_0"
                                 aria-autocomplete="list"
-                                aria-controls="span_list"
+                                aria-controls="formLayout_list"
                                 aria-haspopup="listbox"
-                                aria-owns="span_list"
+                                aria-owns="formLayout_list"
                                 autocomplete="off"
                                 class="ant-select-selection-search-input"
-                                id="span"
+                                id="formLayout"
                                 readonly=""
                                 role="combobox"
                                 style="opacity: 0;"
@@ -17865,9 +17865,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                             </span>
                             <span
                               class="ant-select-selection-item"
-                              title="24"
+                              title="水平"
                             >
-                              24
+                              水平
                             </span>
                           </div>
                           <span
@@ -17941,9 +17941,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                     <label
                       class=""
                       for="filterType"
-                      title="标签长度"
+                      title="表单类型"
                     >
-                      标签长度
+                      表单类型
                       <span
                         aria-label="question-circle"
                         class="anticon anticon-question-circle ant-form-item-tooltip"
@@ -18081,9 +18081,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                     <label
                       class=""
                       for="dateValueType"
-                      title="标签长度"
+                      title="日期类型"
                     >
-                      标签长度
+                      日期类型
                       <span
                         aria-label="question-circle"
                         class="anticon anticon-question-circle ant-form-item-tooltip"
