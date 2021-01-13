@@ -1,6 +1,7 @@
 import type { SearchTransformKeyFn } from '../typing';
 import get from 'rc-util/lib/utils/get';
 import namePathSet from 'rc-util/lib/utils/set';
+import { waitTime } from 'tests/util';
 
 export type DataFormatMapType = Record<string, SearchTransformKeyFn | undefined>;
 
@@ -45,15 +46,13 @@ const transformKeySubmitValue = <T = any>(
         result = namePathSet(result, [tempKey], itemValue);
       }
     });
-
-    finalValues = {
-      ...finalValues,
-      ...result,
-    };
     return result;
   };
 
-  gen(values);
+  finalValues = {
+    ...gen(values),
+    ...finalValues,
+  };
 
   return finalValues;
 };
