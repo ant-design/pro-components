@@ -25,10 +25,17 @@ const useFetchData = <T extends RequestData<any>>(
     manual: boolean;
     onLoadingChange?: (loading: UseFetchDataAction['loading']) => void;
     pagination: boolean;
+    debounceTime?: number;
   },
 ): UseFetchDataAction => {
-  const { pagination, onLoadingChange, onLoad = () => null, manual, onRequestError } =
-    options || {};
+  const {
+    pagination,
+    onLoadingChange,
+    onLoad = () => null,
+    manual,
+    onRequestError,
+    debounceTime = 10,
+  } = options || {};
 
   const [list, setList] = useMountMergeState<any[]>(defaultData as any, {
     value: options?.dataSource,
@@ -106,7 +113,7 @@ const useFetchData = <T extends RequestData<any>>(
     }
   };
 
-  const fetchListDebounce = useDebounceFn(fetchList, [], 10);
+  const fetchListDebounce = useDebounceFn(fetchList, [], debounceTime);
 
   /** PageIndex 改变的时候自动刷新 */
   useEffect(() => {
