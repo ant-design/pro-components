@@ -34,7 +34,7 @@ const useFetchData = <T extends RequestData<any>>(
     onLoad = () => null,
     manual,
     onRequestError,
-    debounceTime = 100,
+    debounceTime = 10,
   } = options || {};
 
   const [list, setList] = useMountMergeState<any[]>(defaultData as any, {
