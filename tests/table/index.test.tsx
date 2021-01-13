@@ -1053,7 +1053,7 @@ describe('BasicTable', () => {
           });
         }}
         rowKey="key"
-        debounceTime={5000}
+        debounceTime={500}
       />,
     );
     await waitForComponentToPaint(html, 1200);
