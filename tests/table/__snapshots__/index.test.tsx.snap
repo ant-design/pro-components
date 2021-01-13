@@ -7054,7 +7054,89 @@ exports[`BasicTable 🎏 bordered = {search = true, table = false}  1`] = `
 >
   <div
     class="ant-pro-table-search ant-pro-table-search-query-filter ant-card-bordered"
-  />
+  >
+    <form
+      class="ant-form ant-form-horizontal"
+    >
+      <input
+        style="display:none"
+        type="text"
+      />
+      <div
+        class="ant-row ant-row-start"
+        style="margin-left:-12px;margin-right:-12px"
+      >
+        <div
+          class="ant-col ant-col-8 ant-col-offset-16"
+          style="padding-left:12px;padding-right:12px;text-align:right"
+        >
+          <div
+            class="ant-row ant-form-item pro-form-query-filter-actions"
+          >
+            <div
+              class="ant-col ant-form-item-label"
+            >
+              <label
+                class="ant-form-item-no-colon"
+                title=" "
+              >
+                 
+              </label>
+            </div>
+            <div
+              class="ant-col ant-form-item-control"
+            >
+              <div
+                class="ant-form-item-control-input"
+              >
+                <div
+                  class="ant-form-item-control-input-content"
+                >
+                  <div
+                    class="ant-space ant-space-horizontal ant-space-align-center"
+                  >
+                    <div
+                      class="ant-space-item"
+                    >
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      >
+                        <div
+                          class="ant-space-item"
+                          style="margin-right:8px"
+                        >
+                          <button
+                            class="ant-btn"
+                            type="button"
+                          >
+                            <span>
+                              重 置
+                            </span>
+                          </button>
+                        </div>
+                        <div
+                          class="ant-space-item"
+                        >
+                          <button
+                            class="ant-btn ant-btn-primary"
+                            type="button"
+                          >
+                            <span>
+                              查 询
+                            </span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
   <div
     class="ant-card"
     style="height:100%"
@@ -7489,7 +7571,89 @@ exports[`BasicTable 🎏 bordered = true  1`] = `
 >
   <div
     class="ant-pro-table-search ant-pro-table-search-query-filter ant-card-bordered"
-  />
+  >
+    <form
+      class="ant-form ant-form-horizontal"
+    >
+      <input
+        style="display:none"
+        type="text"
+      />
+      <div
+        class="ant-row ant-row-start"
+        style="margin-left:-12px;margin-right:-12px"
+      >
+        <div
+          class="ant-col ant-col-8 ant-col-offset-16"
+          style="padding-left:12px;padding-right:12px;text-align:right"
+        >
+          <div
+            class="ant-row ant-form-item pro-form-query-filter-actions"
+          >
+            <div
+              class="ant-col ant-form-item-label"
+            >
+              <label
+                class="ant-form-item-no-colon"
+                title=" "
+              >
+                 
+              </label>
+            </div>
+            <div
+              class="ant-col ant-form-item-control"
+            >
+              <div
+                class="ant-form-item-control-input"
+              >
+                <div
+                  class="ant-form-item-control-input-content"
+                >
+                  <div
+                    class="ant-space ant-space-horizontal ant-space-align-center"
+                  >
+                    <div
+                      class="ant-space-item"
+                    >
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      >
+                        <div
+                          class="ant-space-item"
+                          style="margin-right:8px"
+                        >
+                          <button
+                            class="ant-btn"
+                            type="button"
+                          >
+                            <span>
+                              重 置
+                            </span>
+                          </button>
+                        </div>
+                        <div
+                          class="ant-space-item"
+                        >
+                          <button
+                            class="ant-btn ant-btn-primary"
+                            type="button"
+                          >
+                            <span>
+                              查 询
+                            </span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
   <div
     class="ant-card ant-card-bordered"
     style="height:100%"
