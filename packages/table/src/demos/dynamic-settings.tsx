@@ -86,6 +86,7 @@ const initData = {
   labelWidth: 80,
   filterType: 'query',
   dateValueType: 'date',
+  formLayout: 'horizontal',
   options: {
     show: true,
     density: true,
@@ -317,29 +318,20 @@ const DynamicSettings = () => {
               fieldProps={{
                 size: 'small',
               }}
-              tooltip={`search={{span:8}}`}
+              tooltip={`search={{layout:"${state.formLayout}"}}`}
               options={[
                 {
-                  label: '24',
-                  value: 24,
+                  label: '垂直',
+                  value: 'vertical',
                 },
                 {
-                  label: '12',
-                  value: 12,
-                },
-                {
-                  label: '8',
-                  value: 8,
-                },
-                {
-                  label: '6',
-                  value: 6,
+                  label: '水平',
+                  value: 'horizontal',
                 },
               ]}
-              label="表单类型"
-              name="span"
+              label="表单布局"
+              name="formLayout"
             />
-
             <ProFormSelect
               fieldProps={{
                 size: 'small',
@@ -355,10 +347,9 @@ const DynamicSettings = () => {
                   value: 'light',
                 },
               ]}
-              label="标签长度"
+              label="表单类型"
               name="filterType"
             />
-
             <ProFormSelect
               fieldProps={{
                 size: 'small',
@@ -381,7 +372,7 @@ const DynamicSettings = () => {
                   value: 'time',
                 },
               ]}
-              label="标签长度"
+              label="日期类型"
               name="dateValueType"
             />
           </ProForm.Group>
@@ -424,6 +415,7 @@ const DynamicSettings = () => {
           search={
             state.search
               ? {
+                  layout: state.formLayout,
                   collapsed: state.collapsed,
                   span: state.span,
                   labelWidth: state.labelWidth,

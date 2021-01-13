@@ -45,15 +45,13 @@ const transformKeySubmitValue = <T = any>(
         result = namePathSet(result, [tempKey], itemValue);
       }
     });
-
-    finalValues = {
-      ...finalValues,
-      ...result,
-    };
     return result;
   };
 
-  gen(values);
+  finalValues = {
+    ...gen(values),
+    ...finalValues,
+  };
 
   return finalValues;
 };

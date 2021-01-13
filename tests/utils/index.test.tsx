@@ -345,7 +345,6 @@ describe('utils', () => {
       },
     );
     const htmlKeys = Object.keys(html).sort();
-    console.log(htmlKeys);
     expect(htmlKeys).toEqual(
       ['dateRange', 'dateTimeRange', 'money', 'name', 'new-dataTime', 'new-time'].sort(),
     );
