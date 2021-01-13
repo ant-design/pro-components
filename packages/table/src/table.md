@@ -284,7 +284,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | manualRequest | 是否需要手动触发首次请求, 配置为 `true` 时不可隐藏搜索表单 | `boolean` | false |
 | editable | 可编辑表格的相关配置 | [TableRowEditable<T>](<(/components/editable-table)#editable-编辑行配置>) | - |
 | cardBordered | Table 和 Search 外围 Card 组件的边框 | `boolean \| {search?: boolean, table?: boolean}` | false |
-| debounceTime | 防抖时间 | `number` | 100 |
+| debounceTime | 防抖时间 | `number` | 10 |
 
 #### RecordCreator
 
