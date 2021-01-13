@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.25.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.24.0...@ant-design/pro-table@2.25.0) (2021-01-13)
+
+### Features
+
+- table request add debounce wait ([#1591](https://github.com/ant-design/pro-components/issues/1591)) ([a75eb4c](https://github.com/ant-design/pro-components/commit/a75eb4c9ec210c22afaf3a0940ead445ed3dc832))
+
 # [2.24.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.23.0...@ant-design/pro-table@2.24.0) (2021-01-12)
 
 ### Bug Fixes

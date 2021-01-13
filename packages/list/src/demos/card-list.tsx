@@ -41,7 +41,7 @@ export default () => {
         defaultPageSize: 8,
         showSizeChanger: false,
       }}
-      grid={{ gutter: 16, column: 4 }}
+      grid={{ gutter: 16, column: 3 }}
       metas={{
         title: {},
         subTitle: {},

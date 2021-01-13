@@ -277,6 +277,7 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | manualRequest | Whether or not the first request needs to be triggered manually, with `true` not hiding the search form | `boolean` | false |
 | editable | Configuration for editable tables | [TableRowEditable<T>](#editable) | - |
 | cardBordered | Borders for Table and Search outer Card components | `boolean \| {search?: boolean, table?: boolean}` | false |
+| debounceTime | debounce time | `number` | 10 |
 
 #### RecordCreator
 

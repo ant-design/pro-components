@@ -656,14 +656,14 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
               style="margin-left: -8px; margin-right: -8px;"
             >
               <div
-                style="width: 25%; max-width: 25%;"
+                style="width: 33.333333333333336%; max-width: 33.333333333333336%;"
               >
                 <div
                   class="ant-pro-list-row ant-pro-list-row-card"
                 >
                   <div
                     class="ant-pro-card ant-pro-card-border"
-                    column="4"
+                    column="3"
                   >
                     <div
                       class="ant-pro-card-header"
@@ -755,14 +755,14 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                 </div>
               </div>
               <div
-                style="width: 25%; max-width: 25%;"
+                style="width: 33.333333333333336%; max-width: 33.333333333333336%;"
               >
                 <div
                   class="ant-pro-list-row ant-pro-list-row-card"
                 >
                   <div
                     class="ant-pro-card ant-pro-card-border"
-                    column="4"
+                    column="3"
                   >
                     <div
                       class="ant-pro-card-header"
@@ -854,14 +854,14 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                 </div>
               </div>
               <div
-                style="width: 25%; max-width: 25%;"
+                style="width: 33.333333333333336%; max-width: 33.333333333333336%;"
               >
                 <div
                   class="ant-pro-list-row ant-pro-list-row-card"
                 >
                   <div
                     class="ant-pro-card ant-pro-card-border"
-                    column="4"
+                    column="3"
                   >
                     <div
                       class="ant-pro-card-header"
@@ -953,14 +953,14 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                 </div>
               </div>
               <div
-                style="width: 25%; max-width: 25%;"
+                style="width: 33.333333333333336%; max-width: 33.333333333333336%;"
               >
                 <div
                   class="ant-pro-list-row ant-pro-list-row-card"
                 >
                   <div
                     class="ant-pro-card ant-pro-card-border"
-                    column="4"
+                    column="3"
                   >
                     <div
                       class="ant-pro-card-header"
@@ -1052,14 +1052,14 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                 </div>
               </div>
               <div
-                style="width: 25%; max-width: 25%;"
+                style="width: 33.333333333333336%; max-width: 33.333333333333336%;"
               >
                 <div
                   class="ant-pro-list-row ant-pro-list-row-card"
                 >
                   <div
                     class="ant-pro-card ant-pro-card-border"
-                    column="4"
+                    column="3"
                   >
                     <div
                       class="ant-pro-card-header"
@@ -1151,14 +1151,14 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                 </div>
               </div>
               <div
-                style="width: 25%; max-width: 25%;"
+                style="width: 33.333333333333336%; max-width: 33.333333333333336%;"
               >
                 <div
                   class="ant-pro-list-row ant-pro-list-row-card"
                 >
                   <div
                     class="ant-pro-card ant-pro-card-border"
-                    column="4"
+                    column="3"
                   >
                     <div
                       class="ant-pro-card-header"
@@ -1250,14 +1250,14 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                 </div>
               </div>
               <div
-                style="width: 25%; max-width: 25%;"
+                style="width: 33.333333333333336%; max-width: 33.333333333333336%;"
               >
                 <div
                   class="ant-pro-list-row ant-pro-list-row-card"
                 >
                   <div
                     class="ant-pro-card ant-pro-card-border"
-                    column="4"
+                    column="3"
                   >
                     <div
                       class="ant-pro-card-header"
@@ -1349,14 +1349,14 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                 </div>
               </div>
               <div
-                style="width: 25%; max-width: 25%;"
+                style="width: 33.333333333333336%; max-width: 33.333333333333336%;"
               >
                 <div
                   class="ant-pro-list-row ant-pro-list-row-card"
                 >
                   <div
                     class="ant-pro-card ant-pro-card-border"
-                    column="4"
+                    column="3"
                   >
                     <div
                       class="ant-pro-card-header"
