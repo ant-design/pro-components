@@ -1,7 +1,6 @@
 import type { SearchTransformKeyFn } from '../typing';
 import get from 'rc-util/lib/utils/get';
 import namePathSet from 'rc-util/lib/utils/set';
-import { waitTime } from 'tests/util';
 
 export type DataFormatMapType = Record<string, SearchTransformKeyFn | undefined>;
 
