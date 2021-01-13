@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.10.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.10.8...@ant-design/pro-layout@6.10.9) (2021-01-13)
+
+### Bug Fixes
+
+- **form:** fix the problem of duplicate form fields ([#1607](https://github.com/ant-design/pro-components/issues/1607)) ([fe237a3](https://github.com/ant-design/pro-components/commit/fe237a3b99738cc19afb8ff63551f5c08076dad7))
+
 ## [6.10.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.10.7...@ant-design/pro-layout@6.10.8) (2021-01-13)
 
 ### Bug Fixes

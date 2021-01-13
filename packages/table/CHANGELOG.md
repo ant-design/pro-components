@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.25.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.25.0...@ant-design/pro-table@2.25.1) (2021-01-13)
+
+### Bug Fixes
+
+- **form:** default render form ([#1611](https://github.com/ant-design/pro-components/issues/1611)) ([fcdfeb6](https://github.com/ant-design/pro-components/commit/fcdfeb659c776250c7b70c4d71db2ac0609ee550))
+- **form:** fix the problem of duplicate form fields ([#1607](https://github.com/ant-design/pro-components/issues/1607)) ([fe237a3](https://github.com/ant-design/pro-components/commit/fe237a3b99738cc19afb8ff63551f5c08076dad7))
+- **table:** docs debounce time api ([#1599](https://github.com/ant-design/pro-components/issues/1599)) ([146d49b](https://github.com/ant-design/pro-components/commit/146d49b93ecbfb0efc0d31e114c5101d1f79de79))
+
 # [2.25.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.24.0...@ant-design/pro-table@2.25.0) (2021-01-13)
 
 ### Features

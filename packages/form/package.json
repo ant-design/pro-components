@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-form",
-  "version": "1.13.9",
+  "version": "1.13.10",
   "description": "@ant-design/pro-form",
   "keywords": [
     "antd",
@@ -34,9 +34,9 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
-    "@ant-design/pro-field": "1.8.6",
+    "@ant-design/pro-field": "1.8.7",
     "@ant-design/pro-provider": "1.4.2",
-    "@ant-design/pro-utils": "1.10.4",
+    "@ant-design/pro-utils": "1.10.5",
     "classnames": "^2.2.6",
     "omit.js": "^2.0.2",
     "rc-resize-observer": "^0.2.3",

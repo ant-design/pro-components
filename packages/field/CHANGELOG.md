@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.8.6...@ant-design/pro-field@1.8.7) (2021-01-13)
+
+### Bug Fixes
+
+- **form:** fix the problem of duplicate form fields ([#1607](https://github.com/ant-design/pro-components/issues/1607)) ([fe237a3](https://github.com/ant-design/pro-components/commit/fe237a3b99738cc19afb8ff63551f5c08076dad7))
+
 ## [1.8.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.8.5...@ant-design/pro-field@1.8.6) (2021-01-12)
 
 **Note:** Version bump only for package @ant-design/pro-field
