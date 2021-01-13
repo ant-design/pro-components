@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.10.8
+
+`2021-01-13`
+
+- 🐛 fix(layout): layout return null when content has [#1598](https://github.com/ant-design/pro-components/pull/1598) [@hengkx](https://github.com/hengkx)
+
 ## @ant-design/pro-layout@6.10.6
 
 `2021-01-11`

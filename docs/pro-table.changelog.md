@@ -9,6 +9,18 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.25.1
+
+`2021-01-13`
+
+- 🐛 fix(table): docs debounce time api [#1599](https://github.com/ant-design/pro-components/pull/1599) [@hengkx](https://github.com/hengkx)
+
+## @ant-design/pro-table@2.25.0
+
+`2021-01-13`
+
+- 🐛 feat(table): table request add debounce wait [#1591](https://github.com/ant-design/pro-components/pull/1591) [@hengkx](https://github.com/hengkx)
+
 ## @ant-design/pro-table@2.24.0
 
 `2021-01-12`
