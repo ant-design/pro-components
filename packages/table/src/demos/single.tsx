@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { PlusOutlined, EllipsisOutlined } from '@ant-design/icons';
 import { Button, Tag, Space, Menu, Dropdown } from 'antd';
 import type { ProColumns, ActionType } from '@ant-design/pro-table';
@@ -126,7 +126,10 @@ const menu = (
 
 export default () => {
   const actionRef = useRef<ActionType>();
-
+  const formRef = useRef<ActionType>();
+  useEffect(() => {
+    console.log(formRef.current);
+  }, []);
   return (
     <ProTable<GithubIssueItem>
       columns={columns}
@@ -141,6 +144,7 @@ export default () => {
       editable={{
         type: 'multiple',
       }}
+      formRef={formRef}
       rowKey="id"
       search={{
         labelWidth: 'auto',

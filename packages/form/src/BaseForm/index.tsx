@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useImperativeHandle } from 'react';
 import { Form } from 'antd';
 import type { FormProps, FormInstance } from 'antd/lib/form/Form';
 import type { FormItemProps } from 'antd/lib/form';
@@ -66,6 +66,10 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
 
   const [form] = Form.useForm();
   const formRef = useRef<FormInstance>(userForm || form);
+
+  // 初始化给一个默认的 form
+  useImperativeHandle(propsFormRef, () => formRef.current, []);
+
   const fieldsValueType = useRef<Record<string, ProFieldValueType>>({});
   /** 保存 transformKeyRef，用于对表单key transform */
   const transformKeyRef = useRef<Record<string, SearchTransformKeyFn | undefined>>({});

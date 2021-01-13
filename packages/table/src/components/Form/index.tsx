@@ -452,45 +452,43 @@ const FormSearch = <T, U = any>({
         [`${getPrefixCls('card')}-bordered`]: !!bordered,
       })}
     >
-      {domList?.length > 0 && (
-        <Competent
-          {...loadingProps}
-          {...getFromProps(isForm, searchConfig, competentName)}
-          {...formConfig}
-          formRef={formRef}
-          onValuesChange={(change, all) => {
+      <Competent
+        {...loadingProps}
+        {...getFromProps(isForm, searchConfig, competentName)}
+        {...formConfig}
+        formRef={formRef}
+        onValuesChange={(change, all) => {
+          setDomList(updateDomList(columnsList));
+          if (formConfig.onValuesChange) {
+            formConfig.onValuesChange(change, all);
+          }
+        }}
+        onInit={() => {
+          genTransform();
+          // 触发一个 submit，之所以这里触发是为了保证 value 都被 format了
+          if (valueTypeRef.current && type !== 'form') {
+            // 重新计算一下dom
             setDomList(updateDomList(columnsList));
-            if (formConfig.onValuesChange) {
-              formConfig.onValuesChange(change, all);
-            }
-          }}
-          onInit={() => {
-            genTransform();
-            // 触发一个 submit，之所以这里触发是为了保证 value 都被 format了
-            if (valueTypeRef.current && type !== 'form') {
-              // 重新计算一下dom
-              setDomList(updateDomList(columnsList));
-              submit(true);
-            }
-          }}
-          onReset={() => {
-            if (onReset && valueTypeRef.current) {
-              const value = formRef.current?.getFieldsValue() as T;
-              const finalValue = transformKeySubmitValue(
-                conversionSubmitValue(value, dateFormatter, valueTypeRef.current) as T,
-                transformKeyRef.current,
-              );
-              onReset(finalValue);
-            }
-          }}
-          onFinish={() => {
-            submit(false);
-          }}
-          initialValues={formConfig.initialValues}
-        >
-          {domList}
-        </Competent>
-      )}
+            submit(true);
+          }
+        }}
+        onReset={() => {
+          if (onReset && valueTypeRef.current) {
+            const value = formRef.current?.getFieldsValue() as T;
+            const finalValue = transformKeySubmitValue(
+              conversionSubmitValue(value, dateFormatter, valueTypeRef.current) as T,
+              transformKeyRef.current,
+            );
+            onReset(finalValue);
+          }
+        }}
+        onFinish={() => {
+          submit(false);
+        }}
+        initialValues={formConfig.initialValues}
+      >
+        {domList}
+      </Competent>
     </div>
   );
 };
