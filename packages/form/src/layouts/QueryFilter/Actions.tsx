@@ -77,9 +77,7 @@ const Actions: React.FC<ActionsProps> = (props) => {
       {collapseRender !== false && omitBoolean(collapseRender) && (
         <a
           className={getPrefixCls('pro-form-collapse-button')}
-          onClick={() => {
-            setCollapsed(!collapsed);
-          }}
+          onClick={() => setCollapsed(!collapsed)}
         >
           {collapseRender?.(collapsed, props, intl)}
         </a>
