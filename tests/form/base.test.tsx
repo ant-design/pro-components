@@ -433,6 +433,33 @@ describe('ProForm', () => {
     expect(wrapper.find('span#label_text').text()).toBe('与《test》 与 《test2》合同约定生效方式');
   });
 
+  it('📦 ProForm.Group support collapsible', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <ProForm.Group title="qixian" collapsible onCollapse={(c) => fn(c)}>
+        <ProFormText name="phone" />
+        <ProFormText name="phone2" />
+      </ProForm.Group>,
+    );
+
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-pro-form-group-title').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+
+    expect(fn).toBeCalledWith(true);
+
+    act(() => {
+      wrapper.find('.ant-pro-form-group-title').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    expect(fn).toBeCalledWith(false);
+  });
+
   it('📦 DatePicker', async () => {
     const onFinish = jest.fn();
     const wrapper = mount(

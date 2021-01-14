@@ -2273,9 +2273,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/components-other.tsx 
       <div
         class="ant-pro-form-group-title"
       >
-        <div>
-          日期相关分组
-        </div>
+        日期相关分组
       </div>
       <div
         class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
@@ -4186,9 +4184,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/components-other-read
       <div
         class="ant-pro-form-group-title"
       >
-        <div>
-          日期相关分组
-        </div>
+        日期相关分组
       </div>
       <div
         class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
@@ -11341,9 +11337,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/multi-card-step-form.
               <div
                 class="ant-pro-form-group-title"
               >
-                <div>
-                  节点
-                </div>
+                节点
               </div>
               <div
                 class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
@@ -14546,9 +14540,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/search-filter.tsx cor
               class="ant-pro-form-group-title"
               style="display: inline-block; margin-right: 16px;"
             >
-              <div>
-                姓名
-              </div>
+              姓名
             </div>
             <div
               class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
@@ -14633,9 +14625,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/search-filter.tsx cor
               class="ant-pro-form-group-title"
               style="display: inline-block; margin-right: 16px;"
             >
-              <div>
-                详情
-              </div>
+              详情
             </div>
             <div
               class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"

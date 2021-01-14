@@ -45,18 +45,19 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
   const label = (
     <LabelIconTip
       label={
-        <div>
-          {collapsibleButton}
-          {title}
-        </div>
+        collapsibleButton ? (
+          <div>
+            {collapsibleButton}
+            {title}
+          </div>
+        ) : (
+          title
+        )
       }
       tooltip={tooltip}
     />
   );
-
-  const titleDom = titleRender
-    ? titleRender(<LabelIconTip label={label} tooltip={tooltip} />, props)
-    : label;
+  const titleDom = titleRender ? titleRender(label, props) : label;
 
   return (
     <div
