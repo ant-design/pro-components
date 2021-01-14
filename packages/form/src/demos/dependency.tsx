@@ -40,7 +40,7 @@ export default () => {
       />
       {/*  ProFormDependency 会自动注入并且 进行 shouldUpdate 的比对  */}
       <ProFormDependency name={['name', ['name2', 'text']]}>
-        {(values) => {
+        {({ name, name2 }) => {
           return (
             <ProFormSelect
               options={[
@@ -51,9 +51,7 @@ export default () => {
               ]}
               width="md"
               name="useMode"
-              label={`与《${values?.name || ''}》 与 《${
-                values?.name2?.text || ''
-              }》合同约定生效方式`}
+              label={`与《${name || ''}》 与 《${name2?.text || ''}》合同约定生效方式`}
             />
           );
         }}
