@@ -40,7 +40,7 @@ export type ActionRenderFunction<T> = (
 ) => React.ReactNode[];
 
 export type RowEditableConfig<T> = {
-  /** @name 编辑的类型，暂时只支持单选 */
+  /** @name 编辑的类型，支持单选和多选 */
   type?: RowEditableType;
   /** @name 正在编辑的列 */
   editableKeys?: React.Key[];
