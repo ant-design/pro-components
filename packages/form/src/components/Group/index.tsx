@@ -66,7 +66,7 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
       style={style}
       ref={ref}
     >
-      {titleDom && (
+      {(title || tooltip || extra) && (
         <div
           className={`${className}-title`}
           style={titleStyle}
@@ -74,17 +74,21 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
             setCollapsed(!collapsed);
           }}
         >
-          <div
-            style={{
-              display: 'flex',
-              width: '100%',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-            }}
-          >
-            {titleDom}
-            <span onClick={(e) => e.stopPropagation()}>{extra}</span>
-          </div>
+          {extra ? (
+            <div
+              style={{
+                display: 'flex',
+                width: '100%',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+              }}
+            >
+              {titleDom}
+              <span onClick={(e) => e.stopPropagation()}>{extra}</span>
+            </div>
+          ) : (
+            titleDom
+          )}
         </div>
       )}
       {collapsible && collapsed ? null : (
