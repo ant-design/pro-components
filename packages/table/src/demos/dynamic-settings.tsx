@@ -1,6 +1,7 @@
 import { DownOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
 import ProForm, {
+  ProFormDigit,
   ProFormRadio,
   ProFormSelect,
   ProFormSwitch,
@@ -8,6 +9,7 @@ import ProForm, {
 } from '@ant-design/pro-form';
 import type { ProColumnType } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
+import { useDebounceFn } from '@ant-design/pro-utils';
 import ProCard from '@ant-design/pro-card';
 import { Button } from 'antd';
 
@@ -59,22 +61,33 @@ const columns: ProColumnType<DataType>[] = [
   },
 ];
 
-const data: DataType[] = [];
-for (let i = 1; i <= 200; i += 1) {
-  data.push({
-    key: i,
-    name: 'John Brown',
-    age: i + 10,
-    time: Date.now(),
-    address: i % 2 === 0 ? 'london' : 'New York',
-    description: `My name is John Brown, I am ${i}2 years old, living in New York No. ${i} Lake Park.`,
-  });
-}
+const genData = (total: number) => {
+  if (total < 1) {
+    return [];
+  }
+  const data: DataType[] = [];
+  for (let i = 1; i <= total; i += 1) {
+    data.push({
+      key: i,
+      name: 'John Brown',
+      age: i + 10,
+      time: Date.now(),
+      address: i % 2 === 0 ? 'london' : 'New York',
+      description: `My name is John Brown, I am ${i}2 years old, living in New York No. ${i} Lake Park.`,
+    });
+  }
+  return data;
+};
 
 const initData = {
   bordered: true,
   loading: false,
-  pagination: true,
+  pagination: {
+    show: true,
+    pageSize: 5,
+    current: 1,
+    total: 100,
+  },
   size: 'small',
   expandable: false,
   headerTitle: '高级表格',
@@ -103,25 +116,19 @@ const initData = {
 };
 
 const DynamicSettings = () => {
-  const [state, setState] = useState<any>(initData);
-  const { xScroll, yScroll } = state;
+  const [config, setConfig] = useState<any>(initData);
 
-  const scroll: { x?: React.Key; y?: React.Key } = {};
-  if (yScroll) {
-    scroll.y = 240;
-  }
-  if (xScroll) {
-    scroll.x = '100vw';
-  }
+  /** 去抖配置 */
+  const updateConfig = useDebounceFn(async (state) => {
+    setConfig(state);
+  }, 20);
+
   const tableColumns = columns.map((item) => ({
     ...item,
-    ellipsis: state.ellipsis,
-    valueType: item?.dataIndex === 'time' ? state.dateValueType : item.valueType,
+    ellipsis: config.ellipsis,
+    valueType: item?.dataIndex === 'time' ? config.dateValueType : item.valueType,
   }));
-  if (xScroll === 'fixed') {
-    tableColumns[0].fixed = true;
-    tableColumns[tableColumns.length - 1].fixed = 'right';
-  }
+
   return (
     <ProCard
       split="vertical"
@@ -139,29 +146,29 @@ const DynamicSettings = () => {
         }}
       >
         <ProTable
-          {...state}
+          {...config}
           pagination={
-            state.pagination
-              ? {
+            config.pagination?.show
+              ? config.pagination
+              : {
                   pageSize: 5,
                 }
-              : false
           }
-          search={state.search?.show ? state.search : {}}
+          search={config.search?.show ? config.search : {}}
           expandable={
-            state.expandable && {
+            config.expandable && {
               expandedRowRender: (record: DataType) => <p>{record.description}</p>,
             }
           }
-          options={state.options?.show ? state.options : false}
+          options={config.options?.show ? config.options : false}
           toolBarRender={
-            state?.toolBarRender ? () => [<Button type="primary">刷新</Button>] : false
+            config?.toolBarRender ? () => [<Button type="primary">刷新</Button>] : false
           }
-          footer={state.footer ? () => 'Here is footer' : false}
-          headerTitle={state.headerTitle}
+          footer={config.footer ? () => 'Here is footer' : false}
+          headerTitle={config.headerTitle}
           columns={tableColumns}
-          dataSource={state.hasData !== false ? data : null}
-          scroll={state.scroll}
+          dataSource={genData(config.pagination?.total)}
+          scroll={config.scroll}
         />
       </ProCard>
       <ProForm
@@ -169,13 +176,18 @@ const DynamicSettings = () => {
         initialValues={initData}
         submitter={false}
         colon={false}
-        onValuesChange={(_, values) => setState(values)}
+        onValuesChange={(_, values) => updateConfig.run(values)}
       >
+        <ProCard colSpan="260px" tabs={{}} />
         <ProCard
           colSpan="260px"
           style={{
             height: '100vh',
             overflow: 'auto',
+            position: 'fixed',
+            boxShadow: '2px 0 6px rgba(0, 21, 41, 0.35)',
+            top: 0,
+            right: 0,
           }}
           tabs={{}}
         >
@@ -189,7 +201,7 @@ const DynamicSettings = () => {
             }}
           >
             <ProForm.Group
-              title="Table"
+              title="表格配置"
               size={0}
               collapsible
               direction="horizontal"
@@ -266,15 +278,6 @@ const DynamicSettings = () => {
                 tooltip="rowSelection"
                 name="rowSelection"
               />
-
-              <ProFormSwitch
-                fieldProps={{
-                  size: 'small',
-                }}
-                label="页码"
-                tooltip="pagination"
-                name="pagination"
-              />
             </ProForm.Group>
             <ProForm.Group
               size={0}
@@ -301,6 +304,7 @@ const DynamicSettings = () => {
                 name="headerTitle"
                 tooltip="headerTitle={false}"
               />
+
               <ProFormSwitch
                 fieldProps={{
                   size: 'small',
@@ -342,6 +346,16 @@ const DynamicSettings = () => {
                 name={['options', 'setting']}
               />
             </ProForm.Group>
+          </ProCard.TabPane>
+          <ProCard.TabPane
+            cardProps={{
+              bodyStyle: {
+                padding: 12,
+              },
+            }}
+            key="tab3"
+            tab="表单配置"
+          >
             <ProForm.Group
               title="查询表单"
               size={0}
@@ -408,7 +422,7 @@ const DynamicSettings = () => {
                   size: 'small',
                 }}
                 name={['search', 'layout']}
-                tooltip={`search={{layout:"${state.search?.layout}"}}`}
+                tooltip={`search={{layout:"${config.search?.layout}"}}`}
                 options={[
                   {
                     label: '垂直',
@@ -447,7 +461,7 @@ const DynamicSettings = () => {
                     minWidth: 80,
                   },
                 }}
-                tooltip={`valueType=${state.dateValueType}`}
+                tooltip={`valueType=${config.dateValueType}`}
                 options={[
                   {
                     label: '日期',
@@ -476,14 +490,67 @@ const DynamicSettings = () => {
             key="tab2"
             tab="数据配置"
           >
-            <ProFormSwitch
-              fieldProps={{
-                size: 'small',
-              }}
-              label="数据"
-              tooltip="dataSource"
-              name="hasData"
-            />
+            <ProForm.Group
+              title="分页器"
+              size={0}
+              collapsible
+              tooltip="pagination={}"
+              direction="horizontal"
+              labelLayout="twoLine"
+              extra={
+                <ProFormSwitch
+                  fieldProps={{
+                    size: 'small',
+                  }}
+                  noStyle
+                  name={['pagination', 'show']}
+                />
+              }
+            >
+              <ProFormRadio.Group
+                tooltip={`pagination={size:"middle"}`}
+                radioType="button"
+                fieldProps={{
+                  size: 'small',
+                }}
+                label="尺寸"
+                options={[
+                  {
+                    label: '默认',
+                    value: 'default',
+                  },
+                  {
+                    label: '小',
+                    value: 'small',
+                  },
+                ]}
+                name={['pagination', 'size']}
+              />
+              <ProFormDigit
+                fieldProps={{
+                  size: 'small',
+                }}
+                label="页码"
+                tooltip={`pagination={{ current:10 }}`}
+                name={['pagination', 'current']}
+              />
+              <ProFormDigit
+                fieldProps={{
+                  size: 'small',
+                }}
+                label="每页数量"
+                tooltip={`pagination={{ pageSize:10 }}`}
+                name={['pagination', 'pageSize']}
+              />
+              <ProFormDigit
+                fieldProps={{
+                  size: 'small',
+                }}
+                label="数据总数"
+                tooltip={`pagination={{ total:100 }}`}
+                name={['pagination', 'total']}
+              />
+            </ProForm.Group>
           </ProCard.TabPane>
         </ProCard>
       </ProForm>
