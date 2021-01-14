@@ -419,8 +419,7 @@ function useEditableArray<RecordType>(
   };
 
   /**
-   * 同时只能支持一行,取消之后数据消息，不会触发 dataSource
-   *
+   * @deprecated 同时只能支持一行,取消之后数据消息，不会触发 dataSource
    * @param row
    * @param options
    * @name 增加新的行
