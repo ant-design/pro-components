@@ -40,7 +40,7 @@ export type ActionRenderFunction<T> = (
 ) => React.ReactNode[];
 
 export type RowEditableConfig<T> = {
-  /** @name 编辑的类型，暂时只支持单选 */
+  /** @name 编辑的类型，支持单选和多选 */
   type?: RowEditableType;
   /** @name 正在编辑的列 */
   editableKeys?: React.Key[];
@@ -419,8 +419,7 @@ function useEditableArray<RecordType>(
   };
 
   /**
-   * 同时只能支持一行,取消之后数据消息，不会触发 dataSource
-   *
+   * @deprecated 同时只能支持一行,取消之后数据消息，不会触发 dataSource
    * @param row
    * @param options
    * @name 增加新的行

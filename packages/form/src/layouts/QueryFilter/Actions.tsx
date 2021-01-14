@@ -3,6 +3,7 @@ import { Space, ConfigProvider } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import type { IntlType } from '@ant-design/pro-provider';
 import { useIntl } from '@ant-design/pro-provider';
+import { omitBoolean } from '@ant-design/pro-utils';
 
 export type ActionsProps = {
   submitter: React.ReactNode;
@@ -73,14 +74,12 @@ const Actions: React.FC<ActionsProps> = (props) => {
   return (
     <Space style={style} size={16}>
       {submitter}
-      {collapseRender !== false && (
+      {collapseRender !== false && omitBoolean(collapseRender) && (
         <a
           className={getPrefixCls('pro-form-collapse-button')}
-          onClick={() => {
-            setCollapsed(!collapsed);
-          }}
+          onClick={() => setCollapsed(!collapsed)}
         >
-          {collapseRender(collapsed, props, intl)}
+          {collapseRender?.(collapsed, props, intl)}
         </a>
       )}
     </Space>

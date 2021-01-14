@@ -433,6 +433,90 @@ describe('ProForm', () => {
     expect(wrapper.find('span#label_text').text()).toBe('与《test》 与 《test2》合同约定生效方式');
   });
 
+  it('📦 ProForm.Group support collapsible', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <ProForm>
+        <ProForm.Group title="qixian" collapsible onCollapse={(c) => fn(c)}>
+          <ProFormText name="phone" />
+          <ProFormText name="phone2" />
+        </ProForm.Group>
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-pro-form-group-title').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+
+    expect(fn).toBeCalledWith(true);
+
+    act(() => {
+      wrapper.find('.ant-pro-form-group-title').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    expect(fn).toBeCalledWith(false);
+  });
+
+  it('📦 ProForm.Group support defaultCollapsed', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <ProForm>
+        <ProForm.Group title="qixian" collapsible defaultCollapsed={true} onCollapse={(c) => fn(c)}>
+          <ProFormText name="phone" />
+          <ProFormText name="phone2" />
+        </ProForm.Group>
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-pro-form-group-title').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+
+    expect(fn).toBeCalledWith(false);
+
+    act(() => {
+      wrapper.find('.ant-pro-form-group-title').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    expect(fn).toBeCalledWith(true);
+  });
+
+  it('📦 ProForm.Group support defaultCollapsed', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <ProForm>
+        <ProForm.Group
+          title="qixian"
+          collapsible
+          extra={<a id="click">点击</a>}
+          onCollapse={(c) => fn(c)}
+        >
+          <ProFormText name="phone" />
+          <ProFormText name="phone2" />
+        </ProForm.Group>
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('#click').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+
+    expect(fn).not.toBeCalled();
+  });
+
   it('📦 DatePicker', async () => {
     const onFinish = jest.fn();
     const wrapper = mount(

@@ -672,27 +672,18 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         class="ant-pro-card-title"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center ant-pro-core-label-tip"
+                          class="ant-pro-core-label-tip"
                         >
+                          语雀的天空
                           <div
-                            class="ant-space-item"
-                            style="margin-right: 4px;"
+                            class="ant-pro-core-label-tip-subtitle"
                           >
-                            语雀的天空
-                          </div>
-                          <div
-                            class="ant-space-item"
-                          >
-                            <div
-                              class="ant-pro-core-label-tip-subtitle"
+                            <span
+                              class="ant-tag ant-tag-has-color"
+                              style="background-color: rgb(91, 216, 166);"
                             >
-                              <span
-                                class="ant-tag ant-tag-has-color"
-                                style="background-color: rgb(91, 216, 166);"
-                              >
-                                语雀专栏
-                              </span>
-                            </div>
+                              语雀专栏
+                            </span>
                           </div>
                         </div>
                       </div>
@@ -771,27 +762,18 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         class="ant-pro-card-title"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center ant-pro-core-label-tip"
+                          class="ant-pro-core-label-tip"
                         >
+                          Ant Design
                           <div
-                            class="ant-space-item"
-                            style="margin-right: 4px;"
+                            class="ant-pro-core-label-tip-subtitle"
                           >
-                            Ant Design
-                          </div>
-                          <div
-                            class="ant-space-item"
-                          >
-                            <div
-                              class="ant-pro-core-label-tip-subtitle"
+                            <span
+                              class="ant-tag ant-tag-has-color"
+                              style="background-color: rgb(91, 216, 166);"
                             >
-                              <span
-                                class="ant-tag ant-tag-has-color"
-                                style="background-color: rgb(91, 216, 166);"
-                              >
-                                语雀专栏
-                              </span>
-                            </div>
+                              语雀专栏
+                            </span>
                           </div>
                         </div>
                       </div>
@@ -870,27 +852,18 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         class="ant-pro-card-title"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center ant-pro-core-label-tip"
+                          class="ant-pro-core-label-tip"
                         >
+                          蚂蚁金服体验科技
                           <div
-                            class="ant-space-item"
-                            style="margin-right: 4px;"
+                            class="ant-pro-core-label-tip-subtitle"
                           >
-                            蚂蚁金服体验科技
-                          </div>
-                          <div
-                            class="ant-space-item"
-                          >
-                            <div
-                              class="ant-pro-core-label-tip-subtitle"
+                            <span
+                              class="ant-tag ant-tag-has-color"
+                              style="background-color: rgb(91, 216, 166);"
                             >
-                              <span
-                                class="ant-tag ant-tag-has-color"
-                                style="background-color: rgb(91, 216, 166);"
-                              >
-                                语雀专栏
-                              </span>
-                            </div>
+                              语雀专栏
+                            </span>
                           </div>
                         </div>
                       </div>
@@ -969,27 +942,18 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         class="ant-pro-card-title"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center ant-pro-core-label-tip"
+                          class="ant-pro-core-label-tip"
                         >
+                          TechUI
                           <div
-                            class="ant-space-item"
-                            style="margin-right: 4px;"
+                            class="ant-pro-core-label-tip-subtitle"
                           >
-                            TechUI
-                          </div>
-                          <div
-                            class="ant-space-item"
-                          >
-                            <div
-                              class="ant-pro-core-label-tip-subtitle"
+                            <span
+                              class="ant-tag ant-tag-has-color"
+                              style="background-color: rgb(91, 216, 166);"
                             >
-                              <span
-                                class="ant-tag ant-tag-has-color"
-                                style="background-color: rgb(91, 216, 166);"
-                              >
-                                语雀专栏
-                              </span>
-                            </div>
+                              语雀专栏
+                            </span>
                           </div>
                         </div>
                       </div>
@@ -1068,27 +1032,18 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         class="ant-pro-card-title"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center ant-pro-core-label-tip"
+                          class="ant-pro-core-label-tip"
                         >
+                          TechUI 2.0
                           <div
-                            class="ant-space-item"
-                            style="margin-right: 4px;"
+                            class="ant-pro-core-label-tip-subtitle"
                           >
-                            TechUI 2.0
-                          </div>
-                          <div
-                            class="ant-space-item"
-                          >
-                            <div
-                              class="ant-pro-core-label-tip-subtitle"
+                            <span
+                              class="ant-tag ant-tag-has-color"
+                              style="background-color: rgb(91, 216, 166);"
                             >
-                              <span
-                                class="ant-tag ant-tag-has-color"
-                                style="background-color: rgb(91, 216, 166);"
-                              >
-                                语雀专栏
-                              </span>
-                            </div>
+                              语雀专栏
+                            </span>
                           </div>
                         </div>
                       </div>
@@ -1167,27 +1122,18 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         class="ant-pro-card-title"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center ant-pro-core-label-tip"
+                          class="ant-pro-core-label-tip"
                         >
+                          Bigfish
                           <div
-                            class="ant-space-item"
-                            style="margin-right: 4px;"
+                            class="ant-pro-core-label-tip-subtitle"
                           >
-                            Bigfish
-                          </div>
-                          <div
-                            class="ant-space-item"
-                          >
-                            <div
-                              class="ant-pro-core-label-tip-subtitle"
+                            <span
+                              class="ant-tag ant-tag-has-color"
+                              style="background-color: rgb(91, 216, 166);"
                             >
-                              <span
-                                class="ant-tag ant-tag-has-color"
-                                style="background-color: rgb(91, 216, 166);"
-                              >
-                                语雀专栏
-                              </span>
-                            </div>
+                              语雀专栏
+                            </span>
                           </div>
                         </div>
                       </div>
@@ -1266,27 +1212,18 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         class="ant-pro-card-title"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center ant-pro-core-label-tip"
+                          class="ant-pro-core-label-tip"
                         >
+                          Umi
                           <div
-                            class="ant-space-item"
-                            style="margin-right: 4px;"
+                            class="ant-pro-core-label-tip-subtitle"
                           >
-                            Umi
-                          </div>
-                          <div
-                            class="ant-space-item"
-                          >
-                            <div
-                              class="ant-pro-core-label-tip-subtitle"
+                            <span
+                              class="ant-tag ant-tag-has-color"
+                              style="background-color: rgb(91, 216, 166);"
                             >
-                              <span
-                                class="ant-tag ant-tag-has-color"
-                                style="background-color: rgb(91, 216, 166);"
-                              >
-                                语雀专栏
-                              </span>
-                            </div>
+                              语雀专栏
+                            </span>
                           </div>
                         </div>
                       </div>
@@ -1365,27 +1302,18 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         class="ant-pro-card-title"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center ant-pro-core-label-tip"
+                          class="ant-pro-core-label-tip"
                         >
+                          Ant Design Pro
                           <div
-                            class="ant-space-item"
-                            style="margin-right: 4px;"
+                            class="ant-pro-core-label-tip-subtitle"
                           >
-                            Ant Design Pro
-                          </div>
-                          <div
-                            class="ant-space-item"
-                          >
-                            <div
-                              class="ant-pro-core-label-tip-subtitle"
+                            <span
+                              class="ant-tag ant-tag-has-color"
+                              style="background-color: rgb(91, 216, 166);"
                             >
-                              <span
-                                class="ant-tag ant-tag-has-color"
-                                style="background-color: rgb(91, 216, 166);"
-                              >
-                                语雀专栏
-                              </span>
-                            </div>
+                              语雀专栏
+                            </span>
                           </div>
                         </div>
                       </div>
