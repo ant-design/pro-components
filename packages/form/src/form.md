@@ -75,6 +75,10 @@ ProForm 自带了数量可观的 Field, 这些组件本质上是 FromItem 和 �
 
 <code src="./demos/login.tsx" height="300px"/>
 
+### Form 的 layout 切换
+
+<code src="./demos/layout-change.tsx" height="548px"/>
+
 ### 基本使用
 
 <code src="./demos/base.tsx" height="548px"/>
