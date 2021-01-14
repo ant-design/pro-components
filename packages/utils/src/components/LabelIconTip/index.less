@@ -3,11 +3,17 @@
 @pro-core-label-tip: ~'@{ant-prefix}-pro-core-label-tip';
 
 .@{pro-core-label-tip} {
+  display: flex;
+  align-items: center;
+
   &-icon {
+    display: block;
+    margin-left: 4px;
     cursor: pointer;
   }
 
   &-subtitle {
+    margin-left: 4px;
     color: @text-color-secondary;
     font-weight: normal;
     font-size: @font-size-base;
