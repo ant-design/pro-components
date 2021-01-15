@@ -11,14 +11,19 @@ import type { CommonFormProps } from '../../BaseForm';
 import BaseForm from '../../BaseForm';
 import { noteOnce } from 'rc-util/lib/warning';
 
+export type FinishHandler<R = any> = (options: {
+  formRef: React.MutableRefObject<FormInstance<R> | undefined>;
+  setVisible: (visible: boolean) => void;
+}) => void;
+
 export type ModalFormProps = Omit<FormProps, 'onFinish' | 'title'> &
-  CommonFormProps & {
+  Omit<CommonFormProps, 'onFinish'> & {
     /**
      * 接受返回一个boolean，返回 true 会关掉这个弹窗
      *
      * @name 表单结束后调用
      */
-    onFinish?: (formData: Store) => Promise<boolean | void>;
+    onFinish?: (formData: Store) => Promise<boolean | void | FinishHandler>;
 
     /** @name 用于触发抽屉打开的 dom */
     trigger?: JSX.Element;
@@ -111,6 +116,13 @@ const ModalForm: React.FC<ModalFormProps> = ({
               }
               const success = await onFinish(values);
               if (success) {
+                if (typeof success === 'function') {
+                  success({
+                    formRef,
+                    setVisible,
+                  });
+                  return;
+                }
                 formRef.current?.resetFields();
                 setVisible(false);
               }
