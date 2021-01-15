@@ -122,5 +122,3 @@ ProComponents is developed on top of antd. In order to maintain compatibility wi
 const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 const prefixCls = getPrefixCls('pro-${package name}');
 ```
-
-**_ Translated with www.DeepL.com/Translator (free version) _**

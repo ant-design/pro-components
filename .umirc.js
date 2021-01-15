@@ -133,7 +133,13 @@ export default {
       },
       {
         title: '数据录入',
-        children: ['form'],
+        children: [
+          'form',
+          'FieldSet/index',
+          'QueryFilter/index',
+          'StepsForm/index',
+          'ModalForm/index',
+        ],
       },
       {
         title: '数据展示',
@@ -147,7 +153,7 @@ export default {
     '/en-US/components': [
       {
         title: 'Architecture Design',
-        children: ['components'],
+        children: ['components.en-US.md'],
       },
       {
         title: 'Layout',
@@ -155,7 +161,13 @@ export default {
       },
       {
         title: 'Data entry',
-        children: ['form'],
+        children: [
+          'form',
+          'FieldSet/index',
+          'QueryFilter/index',
+          'StepsForm/index',
+          'ModalForm/index',
+        ],
       },
       {
         title: 'Data Display',

@@ -3077,69 +3077,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/components-other-read
       >
         <label
           class=""
-          for="validate_other_name2"
-          title="name"
-        >
-          name
-        </label>
-      </div>
-      <div
-        class="ant-col ant-form-item-control"
-      >
-        <div
-          class="ant-form-item-control-input"
-        >
-          <div
-            class="ant-form-item-control-input-content"
-          >
-            <span
-              class="ant-input-affix-wrapper"
-              style="width: 500px;"
-            >
-              <input
-                class="ant-input"
-                id="validate_other_name2"
-                placeholder="请输入"
-                type="text"
-                value=""
-              />
-              <span
-                class="ant-input-suffix"
-              >
-                <span
-                  aria-label="close-circle"
-                  class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
-                  role="button"
-                  tabindex="-1"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="close-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                    />
-                  </svg>
-                </span>
-              </span>
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="ant-row ant-form-item"
-    >
-      <div
-        class="ant-col ant-form-item-label"
-      >
-        <label
-          class=""
           for="validate_other_name"
           title="name"
         >
@@ -7601,105 +7538,120 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
 exports[`form demos 📸 renders ./packages/form/src/demos/layout-change.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-radio-group ant-radio-group-outline"
-    style="margin: 16px;"
+    class="ant-row ant-form-item"
   >
-    <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked"
+    <div
+      class="ant-col ant-form-item-control"
     >
-      <span
-        class="ant-radio ant-radio-checked"
+      <div
+        class="ant-form-item-control-input"
       >
-        <input
-          checked=""
-          class="ant-radio-input"
-          type="radio"
-          value="LightFilter"
-        />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        LightFilter
-      </span>
-    </label>
-    <label
-      class="ant-radio-wrapper"
-    >
-      <span
-        class="ant-radio"
-      >
-        <input
-          class="ant-radio-input"
-          type="radio"
-          value="ProForm"
-        />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        ProForm
-      </span>
-    </label>
-    <label
-      class="ant-radio-wrapper"
-    >
-      <span
-        class="ant-radio"
-      >
-        <input
-          class="ant-radio-input"
-          type="radio"
-          value="ModalForm"
-        />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        ModalForm
-      </span>
-    </label>
-    <label
-      class="ant-radio-wrapper"
-    >
-      <span
-        class="ant-radio"
-      >
-        <input
-          class="ant-radio-input"
-          type="radio"
-          value="DrawerForm"
-        />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        DrawerForm
-      </span>
-    </label>
-    <label
-      class="ant-radio-wrapper"
-    >
-      <span
-        class="ant-radio"
-      >
-        <input
-          class="ant-radio-input"
-          type="radio"
-          value="QueryFilter"
-        />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        QueryFilter
-      </span>
-    </label>
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <div
+            class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
+          >
+            <label
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+            >
+              <span
+                class="ant-radio-button ant-radio-button-checked"
+              >
+                <input
+                  checked=""
+                  class="ant-radio-button-input"
+                  type="radio"
+                  value="LightFilter"
+                />
+                <span
+                  class="ant-radio-button-inner"
+                />
+              </span>
+              <span>
+                LightFilter
+              </span>
+            </label>
+            <label
+              class="ant-radio-button-wrapper"
+            >
+              <span
+                class="ant-radio-button"
+              >
+                <input
+                  class="ant-radio-button-input"
+                  type="radio"
+                  value="ProForm"
+                />
+                <span
+                  class="ant-radio-button-inner"
+                />
+              </span>
+              <span>
+                ProForm
+              </span>
+            </label>
+            <label
+              class="ant-radio-button-wrapper"
+            >
+              <span
+                class="ant-radio-button"
+              >
+                <input
+                  class="ant-radio-button-input"
+                  type="radio"
+                  value="ModalForm"
+                />
+                <span
+                  class="ant-radio-button-inner"
+                />
+              </span>
+              <span>
+                ModalForm
+              </span>
+            </label>
+            <label
+              class="ant-radio-button-wrapper"
+            >
+              <span
+                class="ant-radio-button"
+              >
+                <input
+                  class="ant-radio-button-input"
+                  type="radio"
+                  value="DrawerForm"
+                />
+                <span
+                  class="ant-radio-button-inner"
+                />
+              </span>
+              <span>
+                DrawerForm
+              </span>
+            </label>
+            <label
+              class="ant-radio-button-wrapper"
+            >
+              <span
+                class="ant-radio-button"
+              >
+                <input
+                  class="ant-radio-button-input"
+                  type="radio"
+                  value="QueryFilter"
+                />
+                <span
+                  class="ant-radio-button-inner"
+                />
+              </span>
+              <span>
+                QueryFilter
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>,
   <div
     style="margin: 24px;"
@@ -11011,7 +10963,7 @@ Array [
         class="ant-modal-root"
       >
         <div
-          aria-labelledby="rcDialogTitle0"
+          aria-labelledby="rcDialogTitle3"
           class="ant-modal-wrap"
           role="dialog"
           style="display: none;"
@@ -11052,6 +11004,51 @@ Array [
     </span>
   </button>,
 ]
+`;
+
+exports[`form demos 📸 renders ./packages/form/src/demos/modal-form-submitter.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center"
+>
+  <div
+    class="ant-space-item"
+    style="margin-right: 8px;"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        自己定义footer的按钮
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-right: 8px;"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        自定义文字
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        隐藏或修改按钮样式
+      </span>
+    </button>
+  </div>
+</div>
 `;
 
 exports[`form demos 📸 renders ./packages/form/src/demos/modal-step-form.tsx correctly 1`] = `

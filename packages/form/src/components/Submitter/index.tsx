@@ -26,7 +26,11 @@ export type SubmitterProps<T = {}> = {
   /** @name 自定义操作的渲染 */
   render?:
     | ((
-        props: SubmitterProps & T,
+        props: SubmitterProps &
+          T & {
+            submit: () => void;
+            reset: () => void;
+          },
         dom: JSX.Element[],
       ) => React.ReactNode[] | React.ReactNode | false)
     | false;
@@ -53,6 +57,16 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (props) => 
     submitButtonProps,
     resetButtonProps,
   } = props;
+
+  const submit = () => {
+    form.resetFields();
+    onReset?.();
+  };
+
+  const reset = () => {
+    form.resetFields();
+    onReset?.();
+  };
 
   const {
     submitText = intl.getMessage('tableForm.submit', '提交'),
@@ -85,7 +99,7 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (props) => 
     </Button>,
   ];
 
-  const renderDom = render ? render(props, dom) : dom;
+  const renderDom = render ? render({ ...props, submit, reset }, dom) : dom;
   if (!renderDom) {
     return null;
   }
