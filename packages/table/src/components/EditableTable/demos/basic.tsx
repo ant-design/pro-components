@@ -168,6 +168,7 @@ export default () => {
         value={dataSource}
         onChange={setDataSource}
         editable={{
+          type: 'multiple',
           editableKeys,
           onSave: async () => {
             await waitTime(2000);

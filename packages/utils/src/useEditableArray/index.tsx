@@ -14,6 +14,10 @@ export type RowEditableType = 'single' | 'multiple';
 
 export type RecordKey = React.Key | React.Key[];
 
+export const toNumber = (recordKey: string) => {
+  return Number.isNaN((recordKey as unknown) as number) ? recordKey : Number(recordKey);
+};
+
 export const recordKeyToString = (rowKey: RecordKey): React.Key => {
   if (Array.isArray(rowKey)) return rowKey.join(',');
   return rowKey;
@@ -46,6 +50,8 @@ export type RowEditableConfig<T> = {
   editableKeys?: React.Key[];
   /** 正在编辑的列修改的时候 */
   onChange?: (editableKeys: React.Key[], editableRows: T[] | T) => void;
+  /** 正在编辑的列修改的时候 */
+  onValuesChange?: (record: T, dataSource: T[]) => void;
   /** @name 自定义编辑的操作 */
   actionRender?: ActionRenderFunction<T>;
 
@@ -304,7 +310,7 @@ export function defaultActionRender<T>(row: T, config: ActionRenderConfig<T, New
     <SaveEditableAction key="save" {...config} row={row}>
       {saveText}
     </SaveEditableAction>,
-    !newLineConfig ? (
+    newLineConfig?.options.recordKey !== recordKey ? (
       <DeleteEditableAction key="delete" {...config} row={row}>
         {deleteText}
       </DeleteEditableAction>
@@ -333,6 +339,7 @@ function useEditableArray<RecordType>(
   props: RowEditableConfig<RecordType> & {
     getRowKey: GetRowKey<RecordType>;
     dataSource: RecordType[];
+    onValuesChange?: (record: RecordType, dataSource: RecordType[]) => void;
     childrenColumnName: string | undefined;
     setDataSource: (dataSource: RecordType[]) => void;
   },
@@ -418,8 +425,38 @@ function useEditableArray<RecordType>(
     return true;
   };
 
+  const onValuesChange = (value: RecordType, values: RecordType) => {
+    if (!props.onValuesChange) {
+      return;
+    }
+    let { dataSource } = props;
+    // 这里是把正在编辑中的所有表单数据都修改掉
+    // 不然会用 props 里面的 dataSource，数据只有正在编辑中的
+    Object.keys(values).forEach((recordKey) => {
+      const editRow = values[recordKey];
+      dataSource = editableRowByKey(
+        {
+          data: dataSource,
+          getRowKey: props.getRowKey,
+          row: editRow,
+          key: toNumber(recordKey),
+          childrenColumnName: props.childrenColumnName || 'children',
+        },
+        'update',
+      );
+    });
+    const recordKey = toNumber(Object.keys(value).pop() as string);
+    if (recordKey === newLineRecord?.options.recordKey) {
+      cancelEditable(recordKey);
+      startEditable(recordKey);
+    }
+    const editRow = values[recordKey];
+    props.onValuesChange(editRow, dataSource);
+  };
+
   /**
-   * @deprecated 同时只能支持一行,取消之后数据消息，不会触发 dataSource
+   * 同时只能支持一行,取消之后数据消息，不会触发 dataSource
+   *
    * @param row
    * @param options
    * @name 增加新的行
@@ -458,99 +495,97 @@ function useEditableArray<RecordType>(
   const deleteText = intl.getMessage('editableTable.action.delete', '删除');
   const cancelText = intl.getMessage('editableTable.action.cancel', '取消');
 
-  const actionRender = useCallback(
-    (row: RecordType & { index: number }, form: FormInstance<any>) => {
-      const key = props.getRowKey(row, row.index);
-      const config = {
-        saveText,
-        cancelText,
-        deleteText,
-        addEditRecord,
-        recordKey: key,
-        cancelEditable,
-        index: row.index,
-        newLineConfig: newLineRecord,
-        onCancel: async (
-          recordKey: RecordKey,
-          editRow: RecordType & {
-            index?: number;
-          },
-          isNewLine?: NewLineConfig<RecordType>,
-        ) => {
-          const success = await props?.onCancel?.(recordKey, editRow, isNewLine);
-          if (success === false) {
-            return false;
+  const actionRender = (row: RecordType & { index: number }, form: FormInstance<any>) => {
+    const key = props.getRowKey(row, row.index);
+    const config = {
+      saveText,
+      cancelText,
+      deleteText,
+      addEditRecord,
+      recordKey: key,
+      cancelEditable,
+      index: row.index,
+      newLineConfig: newLineRecord,
+      onCancel: async (
+        recordKey: RecordKey,
+        editRow: RecordType & {
+          index?: number;
+        },
+        isNewLine?: NewLineConfig<RecordType>,
+      ) => {
+        const success = await props?.onCancel?.(recordKey, editRow, isNewLine);
+        if (success === false) {
+          return false;
+        }
+        return true;
+      },
+      onDelete: async (
+        recordKey: RecordKey,
+        editRow: RecordType & {
+          index?: number;
+        },
+      ) => {
+        const actionProps = {
+          data: props.dataSource,
+          getRowKey: props.getRowKey,
+          row: editRow,
+          key: recordKey,
+          childrenColumnName: props.childrenColumnName || 'children',
+        };
+        const success = await props?.onDelete?.(recordKey, editRow);
+        if (success === false) {
+          return false;
+        }
+        props.setDataSource(editableRowByKey(actionProps, 'delete'));
+        return true;
+      },
+      onSave: async (
+        recordKey: RecordKey,
+        editRow: RecordType & {
+          index?: number;
+        },
+        isNewLine?: NewLineConfig<RecordType>,
+      ) => {
+        const { options } = isNewLine || {};
+        const success = await props?.onSave?.(recordKey, editRow, isNewLine);
+        if (success === false) {
+          return false;
+        }
+        cancelEditable(recordKey);
+        if (isNewLine) {
+          if (options?.position === 'top') {
+            props.setDataSource([editRow, ...props.dataSource]);
+          } else {
+            props.setDataSource([...props.dataSource, editRow]);
           }
           return true;
-        },
-        onDelete: async (
-          recordKey: RecordKey,
-          editRow: RecordType & {
-            index?: number;
-          },
-        ) => {
-          const actionProps = {
-            data: props.dataSource,
-            getRowKey: props.getRowKey,
-            row: editRow,
-            key: recordKey,
-            childrenColumnName: props.childrenColumnName || 'children',
-          };
-          const success = await props?.onDelete?.(recordKey, editRow);
-          if (success === false) {
-            return false;
-          }
-          props.setDataSource(editableRowByKey(actionProps, 'delete'));
-          return true;
-        },
-        onSave: async (
-          recordKey: RecordKey,
-          editRow: RecordType & {
-            index?: number;
-          },
-          isNewLine?: NewLineConfig<RecordType>,
-        ) => {
-          const { options } = isNewLine || {};
-          const success = await props?.onSave?.(recordKey, editRow, isNewLine);
-          if (success === false) {
-            return false;
-          }
-          cancelEditable(recordKey);
-          if (isNewLine) {
-            if (options?.position === 'top') {
-              props.setDataSource([editRow, ...props.dataSource]);
-            } else {
-              props.setDataSource([...props.dataSource, editRow]);
-            }
-            return true;
-          }
-          const actionProps = {
-            data: props.dataSource,
-            getRowKey: props.getRowKey,
-            row: editRow,
-            key: recordKey,
-            childrenColumnName: props.childrenColumnName || 'children',
-          };
-          props.setDataSource(editableRowByKey(actionProps, 'update'));
-          return true;
-        },
-        form,
-        editableKeys,
-        setEditableRowKeys,
-        deletePopconfirmMessage: props.deletePopconfirmMessage || '删除此行？',
-      };
-      const defaultDoms = defaultActionRender<RecordType>(row, config);
+        }
+        const actionProps = {
+          data: props.dataSource,
+          getRowKey: props.getRowKey,
+          row: editRow,
+          key: recordKey,
+          childrenColumnName: props.childrenColumnName || 'children',
+        };
+        props.setDataSource(editableRowByKey(actionProps, 'update'));
+        return true;
+      },
+      form,
+      editableKeys,
+      setEditableRowKeys,
+      deletePopconfirmMessage: props.deletePopconfirmMessage || '删除此行？',
+    };
 
-      if (props.actionRender)
-        return props.actionRender(row, config, {
-          save: defaultDoms[0],
-          delete: defaultDoms[1],
-          cancel: defaultDoms[2],
-        });
-      return defaultDoms;
-    },
-    [editableKeys.join(',')],
-  );
+    const defaultDoms = defaultActionRender<RecordType>(row, config);
+
+    if (props.actionRender)
+      return props.actionRender(row, config, {
+        save: defaultDoms[0],
+        delete: defaultDoms[1],
+        cancel: defaultDoms[2],
+      });
+    return defaultDoms;
+  };
 
   return {
     editableKeys,
@@ -561,6 +596,7 @@ function useEditableArray<RecordType>(
     cancelEditable,
     addEditRecord,
     newLineRecord,
+    onValuesChange,
   };
 }
 
