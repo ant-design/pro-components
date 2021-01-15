@@ -143,13 +143,18 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
               setLoading({
                 delay: 100,
               });
-              await rest.onFinish(
-                transformKeySubmitValue(
-                  conversionSubmitValue(values, dateFormatter, fieldsValueType.current),
-                  transformKeyRef.current,
-                ),
-              );
-              setLoading(false);
+              try {
+                await rest.onFinish(
+                  transformKeySubmitValue(
+                    conversionSubmitValue(values, dateFormatter, fieldsValueType.current),
+                    transformKeyRef.current,
+                  ),
+                );
+                setLoading(false);
+              } catch (error) {
+                // console.log(error);
+                setLoading(false);
+              }
             }}
           >
             <input
