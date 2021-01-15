@@ -40,16 +40,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
     </div>
     <div
       class="ant-descriptions-extra"
-    >
-      <button
-        class="ant-btn ant-btn-primary"
-        type="button"
-      >
-        <span>
-          提 交
-        </span>
-      </button>
-    </div>
+    />
   </div>
   <div
     class="ant-descriptions-view"
