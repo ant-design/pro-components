@@ -74,6 +74,7 @@ export default () => {
       },
     },
   ];
+
   return (
     <>
       <EditableProTable<DataSourceType>
@@ -82,26 +83,22 @@ export default () => {
         columns={columns}
         value={dataSource}
         onChange={(data) => {
-          setEditableRowKeys(defaultData.map((item) => item.id));
+          setEditableRowKeys(data.map((item) => item.id));
           setDataSource(data);
         }}
-        toolBarRender={() => [
-          <Button
-            onClick={() => {
-              const id = Date.now();
-              setDataSource([...dataSource, { id }]);
-              setEditableRowKeys([...editableKeys, id]);
-            }}
-          >
-            新增一行
-          </Button>,
-        ]}
-        request={async () => ({
-          data: defaultData,
-          total: 3,
-          success: true,
-        })}
-        recordCreatorProps={false}
+        recordCreatorProps={{
+          newRecordType: 'dataSource',
+          record: () => ({
+            id: Date.now(),
+          }),
+        }}
+        toolBarRender={() => {
+          return [
+            <Button type="primary" key="save">
+              保存数据
+            </Button>,
+          ];
+        }}
         editable={{
           type: 'multiple',
           editableKeys,
@@ -111,7 +108,7 @@ export default () => {
           onValuesChange: (record, recordList) => {
             setDataSource(recordList);
           },
-          onChange: (keys) => setEditableRowKeys(keys),
+          onChange: setEditableRowKeys,
         }}
       />
       <ProCard title="表格数据" headerBordered collapsible defaultCollapsed>

@@ -26,6 +26,7 @@ export const recordKeyToString = (rowKey: RecordKey): React.Key => {
 export type AddLineOptions = {
   position?: 'top' | 'bottom';
   recordKey?: RecordKey;
+  newRecordType?: 'dataSource' | 'cache';
 };
 
 export type NewLineConfig<T> = {
@@ -44,7 +45,10 @@ export type ActionRenderFunction<T> = (
 ) => React.ReactNode[];
 
 export type RowEditableConfig<T> = {
-  /** @name 编辑的类型，支持单选和多选 */
+  /**
+   * @type single | multiple
+   * @name 编辑的类型，支持单选和多选
+   */
   type?: RowEditableType;
   /** @name 正在编辑的列 */
   editableKeys?: React.Key[];
@@ -54,15 +58,13 @@ export type RowEditableConfig<T> = {
   onValuesChange?: (record: T, dataSource: T[]) => void;
   /** @name 自定义编辑的操作 */
   actionRender?: ActionRenderFunction<T>;
-
   /** 行保存的时候 */
   onSave?: (
     key: RecordKey,
     row: T & { index?: number },
     newLineConfig?: NewLineConfig<T>,
   ) => Promise<boolean | void>;
-
-  /** 行保存的时候 */
+  /** 行取消的时候 */
   onCancel?: (
     key: RecordKey,
     row: T & { index?: number },
@@ -71,7 +73,6 @@ export type RowEditableConfig<T> = {
 
   /** 行删除的时候 */
   onDelete?: (key: RecordKey, row: T & { index?: number }) => Promise<boolean | void>;
-
   /** 删除行时的确认消息 */
   deletePopconfirmMessage?: React.ReactNode;
   /** 只能编辑一行的的提示 */
@@ -478,13 +479,17 @@ function useEditableArray<RecordType>(
       const recordKey = props.getRowKey(row, props.dataSource.length);
       editableKeysSet.add(recordKey);
       setEditableRowKeys(Array.from(editableKeysSet));
-      setNewLineRecord({
-        defaultValue: row,
-        options: {
-          ...options,
-          recordKey,
-        },
-      });
+      if (options?.newRecordType === 'dataSource') {
+        props.setDataSource?.([...props.dataSource, row]);
+      } else {
+        setNewLineRecord({
+          defaultValue: row,
+          options: {
+            ...options,
+            recordKey,
+          },
+        });
+      }
     });
     return true;
   };
