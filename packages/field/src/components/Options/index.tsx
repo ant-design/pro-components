@@ -42,7 +42,7 @@ const FieldOptions: ProFieldFC<{}> = ({ text, mode: type, render, fieldProps }) 
   }
 
   if (!text || !Array.isArray(text)) {
-    if (React.isValidElement(text)) {
+    if (!React.isValidElement(text)) {
       return null;
     }
     return text as JSX.Element;
