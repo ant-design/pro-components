@@ -454,7 +454,10 @@ function useEditableArray<RecordType>(
     const editRow = dataSource.find((item, index) => {
       const key = props.getRowKey(item, index);
       return key === recordKey;
-    }) as RecordType;
+    }) || {
+      ...newLineRecord?.defaultValue,
+      ...values[recordKey],
+    };
 
     props.onValuesChange(editRow, dataSource);
   };
