@@ -17718,7 +17718,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
       />
       <div
         class="ant-pro-card"
-        style="width: 260px; flex-shrink: 0;"
+        style="width: 300px; flex-shrink: 0;"
       >
         <div
           class="ant-pro-card-tabs"
@@ -17790,7 +17790,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
       </div>
       <div
         class="ant-pro-card"
-        style="width: 260px; flex-shrink: 0; height: 100vh; overflow: auto; position: fixed; box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35); top: 0px; right: 0px;"
+        style="width: 300px; flex-shrink: 0; height: 100vh; overflow: auto; position: fixed; box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35); top: 0px; right: 0px;"
       >
         <div
           class="ant-pro-card-tabs"

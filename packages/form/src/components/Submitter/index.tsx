@@ -59,8 +59,9 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (props) => 
   } = props;
 
   const submit = () => {
-    form.resetFields();
-    onReset?.();
+    console.log('run');
+    form.submit();
+    onSubmit?.();
   };
 
   const reset = () => {
@@ -78,8 +79,7 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (props) => 
       {...resetButtonProps}
       key="rest"
       onClick={(e) => {
-        form.resetFields();
-        onReset?.();
+        reset();
         resetButtonProps?.onClick?.(e);
       }}
     >
@@ -90,8 +90,7 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (props) => 
       {...submitButtonProps}
       key="submit"
       onClick={(e) => {
-        form.submit();
-        onSubmit?.();
+        submit();
         submitButtonProps?.onClick?.(e);
       }}
     >
