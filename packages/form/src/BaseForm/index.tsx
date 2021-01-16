@@ -9,6 +9,8 @@ import {
   transformKeySubmitValue,
   useMountMergeState,
 } from '@ant-design/pro-utils';
+import { useUrlSearchParams } from 'use-url-search-params';
+
 import SizeContext from 'antd/lib/config-provider/SizeContext';
 import namePathSet from 'rc-util/lib/utils/set';
 import type { ButtonProps } from 'antd/lib/button';
@@ -42,7 +44,7 @@ export type BaseFormProps = {
     form: FormInstance<any>,
   ) => React.ReactNode;
   fieldProps?: FieldProps;
-  onInit?: () => void;
+  onInit?: (values: any) => void;
   dateFormatter?: 'number' | 'string' | false;
   formItemProps?: FormItemProps;
   groupProps?: GroupProps;
@@ -65,6 +67,8 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
   } = props;
 
   const [form] = Form.useForm();
+  /** 同步 url 上的参数 */
+  const [urlSearch, setUrlSearch] = useUrlSearchParams({}, {});
   const formRef = useRef<FormInstance>(userForm || form);
 
   // 初始化给一个默认的 form
@@ -104,7 +108,15 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
   };
   useEffect(() => {
     if (isUpdate) {
-      onInit?.();
+      const finalValues = transformKeySubmitValue(
+        conversionSubmitValue(
+          formRef.current.getFieldsValue(),
+          dateFormatter,
+          fieldsValueType.current,
+        ),
+        transformKeyRef.current,
+      );
+      onInit?.(finalValues);
     }
   }, [isUpdate]);
 
@@ -136,6 +148,11 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
             }}
             form={userForm || form}
             {...rest}
+            // 组合 urlSearch 和 initialValues
+            initialValues={{
+              ...urlSearch,
+              ...rest.initialValues,
+            }}
             onFinish={async (values) => {
               if (!rest.onFinish) {
                 return;
@@ -144,11 +161,22 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
                 delay: 100,
               });
               try {
-                await rest.onFinish(
-                  transformKeySubmitValue(
-                    conversionSubmitValue(values, dateFormatter, fieldsValueType.current),
-                    transformKeyRef.current,
-                  ),
+                const finalValues = transformKeySubmitValue(
+                  conversionSubmitValue(values, dateFormatter, fieldsValueType.current),
+                  transformKeyRef.current,
+                );
+
+                console.log(finalValues);
+
+                await rest.onFinish(finalValues);
+
+                setUrlSearch(
+                  Object.keys(finalValues).reduce((pre, next) => {
+                    return {
+                      ...pre,
+                      [next]: finalValues[next] || undefined,
+                    };
+                  }, {}),
                 );
                 setLoading(false);
               } catch (error) {
