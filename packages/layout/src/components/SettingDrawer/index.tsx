@@ -6,10 +6,9 @@ import {
   SettingOutlined,
 } from '@ant-design/icons';
 import { isBrowser } from '@ant-design/pro-utils';
+import { useUrlSearchParams } from 'use-url-search-params';
 
 import { Button, Divider, Drawer, List, Switch, message, Alert } from 'antd';
-import { createBrowserHistory } from 'history';
-import { stringify, parse } from 'qs';
 import React, { useState, useEffect, useRef } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -60,6 +59,7 @@ export type SettingDrawerProps = {
   hideCopyButton?: boolean;
   onCollapseChange?: (collapse: boolean) => void;
   onSettingChange?: (settings: MergerSettingsType<ProSettings>) => void;
+  pathname?: string;
 };
 
 export type SettingDrawerState = {
@@ -67,21 +67,19 @@ export type SettingDrawerState = {
   language?: string;
 } & MergerSettingsType<ProSettings>;
 
-let oldSetting: MergerSettingsType<ProSettings> = {};
-
-const getDifferentSetting = (state: Partial<ProSettings>) => {
+const getDifferentSetting = (state: Partial<ProSettings>): Record<string, any> => {
   const stateObj: Partial<ProSettings> = {};
   Object.keys(state).forEach((key) => {
-    if (state[key] !== oldSetting[key] && key !== 'collapse') {
+    if (state[key] !== defaultSettings[key] && key !== 'collapse') {
       stateObj[key] = state[key];
+    } else {
+      stateObj[key] = undefined;
     }
-
     if (key.includes('Render')) {
       stateObj[key] = state[key] === 'false' || state[key] === false ? false : undefined;
     }
   });
-
-  delete stateObj.menu;
+  stateObj.menu = undefined;
   return stateObj;
 };
 
@@ -266,6 +264,7 @@ const getThemeList = (settings: Partial<ProSettings>) => {
  * @param param0
  */
 const initState = (
+  urlParams: Record<string, any>,
   settings: Partial<ProSettings>,
   onSettingChange: SettingDrawerProps['onSettingChange'],
   publicPath?: string,
@@ -276,41 +275,28 @@ const initState = (
 
   let loadedStyle = false;
 
-  if (window.location.search) {
-    const params = parse(window.location.search.replace('?', '')) as {
-      primaryColor: string;
-      navTheme: string;
-    };
-
-    const replaceSetting = {};
-    Object.keys(params).forEach((key) => {
-      if (defaultSettings[key] || defaultSettings[key] === undefined) {
-        replaceSetting[key] = params[key];
-        if (key.includes('Render')) {
-          replaceSetting[key] = params[key] === 'false' ? false : undefined;
-        }
+  const replaceSetting = {};
+  Object.keys(urlParams).forEach((key) => {
+    if (defaultSettings[key] || defaultSettings[key] === undefined) {
+      replaceSetting[key] = urlParams[key];
+      if (key.includes('Render')) {
+        replaceSetting[key] = urlParams[key] === 'false' ? false : undefined;
       }
+    }
+  });
+
+  if (onSettingChange) {
+    onSettingChange({
+      ...settings,
+      ...replaceSetting,
     });
-
-    if (onSettingChange) {
-      onSettingChange({
-        ...settings,
-        ...replaceSetting,
-      });
-    }
-
-    // 如果 url 中设置主题，进行一次加载。
-    if (oldSetting.navTheme !== params.navTheme && params.navTheme) {
-      updateTheme(
-        settings.navTheme === 'realDark',
-        (params as { primaryColor: string }).primaryColor,
-        true,
-        publicPath,
-      );
-      loadedStyle = true;
-    }
   }
 
+  // 如果 url 中设置主题，进行一次加载。
+  if (defaultSettings.navTheme !== urlParams.navTheme && urlParams.navTheme) {
+    updateTheme(settings.navTheme === 'realDark', urlParams.primaryColor, true, publicPath);
+    loadedStyle = true;
+  }
   if (loadedStyle) {
     return;
   }
@@ -321,20 +307,24 @@ const initState = (
   }
 };
 
-const getParamsFromUrl = (settings?: MergerSettingsType<ProSettings>) => {
+const getParamsFromUrl = (
+  urlParams: Record<string, any>,
+  settings?: MergerSettingsType<ProSettings>,
+) => {
   if (!isBrowser()) {
     return defaultSettings;
   }
-  // 第一次进入与 浏览器参数同步一下
-  let params = {};
-  if (window.location.search) {
-    params = parse(window.location.search.replace('?', ''));
-  }
-
-  Object.keys(params).forEach((key) => {
-    if (params[key] === 'true') {
+  const params = {};
+  Object.keys(urlParams).forEach((key) => {
+    if (urlParams[key] === 'true') {
       params[key] = true;
+      return;
     }
+    if (urlParams[key] === 'false') {
+      params[key] = false;
+      return;
+    }
+    params[key] = urlParams[key];
   });
 
   return {
@@ -372,6 +362,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     getContainer,
     onSettingChange,
     prefixCls = 'ant-pro',
+    pathname = window.location.pathname,
   } = props;
   const firstRender = useRef<boolean>(true);
 
@@ -380,8 +371,10 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     onChange: props.onCollapseChange,
   });
   const [language, setLanguage] = useState<string>(getLanguage());
+  const [urlParams, setUrlParams] = useUrlSearchParams({}, {});
+
   const [settingState, setSettingState] = useMergedState<Partial<ProSettings>>(
-    () => getParamsFromUrl(propsSettings),
+    () => getParamsFromUrl(urlParams, propsSettings),
     {
       value: propsSettings,
       onChange: onSettingChange,
@@ -400,24 +393,22 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
       }
     };
 
-    // 记住默认的选择，方便做 diff，然后保存到 url 参数中
-    oldSetting = {
-      ...defaultSettings,
-      ...propsSettings,
-    };
-
     /** 如果不是浏览器 都没有必要做了 */
     if (!isBrowser()) {
       return () => null;
     }
-    initState(settingState, setSettingState, props.publicPath);
+    initState(
+      getParamsFromUrl(urlParams, propsSettings),
+      settingState,
+      setSettingState,
+      props.publicPath,
+    );
     window.addEventListener('languagechange', onLanguageChange, {
       passive: true,
     });
 
     return () => window.removeEventListener('languagechange', onLanguageChange);
   }, []);
-
   /**
    * 修改设置
    *
@@ -483,23 +474,13 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
       return;
     }
 
-    const browserHistory = createBrowserHistory();
-    let params = {};
-    if (window.location.search) {
-      params = parse(window.location.search.replace('?', ''));
-    }
-
-    const diffParams = getDifferentSetting({ ...params, ...settingState });
+    const diffParams = getDifferentSetting({ ...urlParams, ...settingState });
     if (Object.keys(settingState).length < 1) {
       return;
     }
-
-    browserHistory.replace({
-      search: stringify(diffParams),
-    });
-  }, [JSON.stringify(settingState)]);
+    setUrlParams(diffParams);
+  }, [setUrlParams, settingState, urlParams, pathname]);
   const baseClassName = `${prefixCls}-setting`;
-
   return (
     <Drawer
       visible={show}

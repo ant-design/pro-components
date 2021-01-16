@@ -47,7 +47,6 @@
     "@types/jest": "^26.0.0",
     "@types/memoize-one": "^5.1.2",
     "@types/node": "^14.0.26",
-    "@types/qs": "^6.9.4",
     "@types/react": "^16.9.17",
     "@types/react-copy-to-clipboard": "^4.3.0",
     "@types/react-dom": "^16.9.1",
