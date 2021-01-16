@@ -219,7 +219,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     if (typeof rowKey === 'function') {
       return rowKey;
     }
-    return (record: T, index: number) => (record as any)?.[rowKey as string] ?? `${index}`;
+    return (record: T, index: number) => (record as any)?.[rowKey as string] ?? index;
   }, [rowKey]);
 
   /** 可编辑行的相关配置 */
@@ -516,7 +516,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
 
   /** 默认的 table dom，如果是编辑模式，外面还要包个 form */
   const baseTableDom = (
-    <Form component={false}>
+    <Form component={false} onValuesChange={editableUtils.onValuesChange}>
       <Table<T> {...tableProps} rowKey={rowKey} tableLayout={tableLayout} />
     </Form>
   );
