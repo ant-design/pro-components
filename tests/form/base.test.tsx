@@ -38,6 +38,31 @@ describe('ProForm', () => {
     expect(fn).toBeCalled();
   });
 
+  it('📦 onFinish should simulate button close loading', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <ProForm
+        onFinish={async () => {
+          fn();
+          await waitTime(1000);
+          throw new Error('期贤');
+        }}
+      />,
+    );
+
+    await waitForComponentToPaint(wrapper, 200);
+    act(() => {
+      wrapper.find('button.ant-btn-primary').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper, 200);
+    expect(wrapper.find('.ant-btn-loading').exists()).toBe(true);
+    expect(fn).toBeCalled();
+
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect(wrapper.find('.ant-btn-loading').exists()).toBe(false);
+  });
+
   it('📦 submit props actionsRender=()=>false', async () => {
     const wrapper = mount(
       <ProForm
