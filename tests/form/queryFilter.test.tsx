@@ -105,6 +105,11 @@ describe('QueryFilter', () => {
         <ProFormText label="d" name="d" />
       </QueryFilter>,
     );
+
+    act(() => {
+      wrapper.find('.ant-pro-form-collapse-button').simulate('submit');
+    });
+
     expect(wrapper.find('.ant-row.ant-form-item-hidden').length).toEqual(1);
   });
 
