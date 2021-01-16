@@ -451,7 +451,11 @@ function useEditableArray<RecordType>(
       cancelEditable(recordKey);
       startEditable(recordKey);
     }
-    const editRow = values[recordKey];
+    const editRow = dataSource.find((item, index) => {
+      const key = props.getRowKey(item, index);
+      return key === recordKey;
+    }) as RecordType;
+
     props.onValuesChange(editRow, dataSource);
   };
 

@@ -318,6 +318,40 @@ describe('EditorProTable', () => {
     expect(fn).toBeCalledWith([624748504]);
   });
 
+  it('📝 support onValuesChange', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        recordCreatorProps={false}
+        columns={columns}
+        value={defaultData}
+        editable={{
+          editableKeys: [624748504],
+          onValuesChange: (record) => {
+            fn(record.id);
+          },
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+
+    act(() => {
+      wrapper
+        .find('.ant-table-tbody tr.ant-table-row')
+        .at(0)
+        .find(`td .ant-input`)
+        .at(0)
+        .simulate('change', {
+          target: {
+            value: 'qixian',
+          },
+        });
+    });
+
+    expect(fn).toBeCalledWith(624748504);
+  });
+
   it('📝 renderFormItem run defaultRender', async () => {
     const wrapper = render(
       <EditableProTable<DataSourceType>
