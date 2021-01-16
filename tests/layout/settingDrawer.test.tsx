@@ -9,19 +9,6 @@ describe('settingDrawer.test', () => {
   beforeAll(() => {
     process.env.NODE_ENV = 'TEST';
     process.env.USE_MEDIA = 'md';
-    const mockResponse = jest.fn();
-    Object.defineProperty(window, 'location', {
-      value: {
-        assign: mockResponse,
-        hash: {
-          endsWith: mockResponse,
-          includes: mockResponse,
-        },
-        search:
-          '?navTheme=realDark&layout=mix&primaryColor=daybreak&splitMenus=true&fixedHeader=true',
-      },
-      writable: true,
-    });
 
     Object.defineProperty(window, 'localStorage', {
       value: {
