@@ -7,7 +7,6 @@ import { runFunction } from '@ant-design/pro-utils';
 import type { ButtonProps } from 'antd/lib/button';
 import ProTable from '../../Table';
 import type { ProTableProps, ActionType } from '../../typing';
-import dataSource from '../../demos/dataSource';
 
 export type RecordCreatorProps<T> = {
   record: T | ((index: number) => T);
@@ -85,7 +84,7 @@ function EditableTable<T extends Record<string, any>, U extends ParamsType = Par
     return (
       recordCreatorProps !== false && (
         <RecordCreator
-          record={runFunction(record, dataSource.length) || {}}
+          record={runFunction(record, value.length) || {}}
           position={position}
           newRecordType={newRecordType}
         >
