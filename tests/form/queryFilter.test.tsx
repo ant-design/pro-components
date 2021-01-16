@@ -106,11 +106,65 @@ describe('QueryFilter', () => {
       </QueryFilter>,
     );
 
-    act(() => {
-      wrapper.find('.ant-pro-form-collapse-button').simulate('submit');
-    });
-
     expect(wrapper.find('.ant-row.ant-form-item-hidden').length).toEqual(1);
+  });
+
+  it('submitter support render', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <QueryFilter
+        style={{ width: 1064 }}
+        defaultCollapsed
+        onFinish={fn}
+        submitter={{
+          render: (props) => {
+            return [
+              <a
+                key="submit"
+                id="submit"
+                onClick={() => {
+                  props.submit();
+                }}
+              >
+                提交
+              </a>,
+              <a
+                key="reset"
+                id="reset"
+                onClick={() => {
+                  props.reset();
+                }}
+              >
+                重置
+              </a>,
+            ];
+          },
+        }}
+        layout="vertical"
+      >
+        <ProFormText label="a" name="a" />
+        <ProFormText label="b" name="b" />
+        <ProFormText label="c" name="c" />
+        <ProFormText label="d" name="d" />
+      </QueryFilter>,
+    );
+
+    act(() => {
+      wrapper.find('.ant-pro-form-collapse-button').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('#submit').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('#reset').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+
+    expect(fn).toBeCalled();
   });
 
   it('collapseRender should work', async () => {
