@@ -107,6 +107,7 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
     submitter === false ? undefined : (
       <Submitter
         key="submitter"
+        {...submitterProps}
         onReset={() => {
           const finalValues = transformKeySubmitValue(
             conversionSubmitValue(
@@ -116,9 +117,9 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
             ),
             transformKeyRef.current,
           );
+          submitterProps?.onReset?.(finalValues);
           onReset?.(finalValues);
         }}
-        {...submitterProps}
         form={userForm || form}
         submitButtonProps={{
           loading,

@@ -18,7 +18,7 @@ describe('ProForm', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  fit('📦 ProForm support sync form url', async () => {
+  it('📦 ProForm support sync form url', async () => {
     const wrapper = mount(
       <ProForm onFinish={async () => {}} syncToUrl>
         <ProFormText name="navTheme" />
