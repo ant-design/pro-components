@@ -63,11 +63,17 @@ interface RequestData {
 
 <code src="./demos/request.tsx" />
 
-### columns
+### columns 配置
 
 通过请求接口数据和 columns 来展示定义列表
 
 <code src="./demos/columns.tsx" />
+
+### dataSource 配置数据
+
+ProDescriptions 支持了和 Table 相同的 dataSource
+
+<code src="./demos/data-source.tsx" />
 
 ### 可编辑的定义列表
 
