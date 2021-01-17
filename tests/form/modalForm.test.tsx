@@ -135,6 +135,22 @@ describe('ModalForm', () => {
     expect(fn).toBeCalledWith(false);
   });
 
+  it('📦 modal visible=true simulate onVisibleChange', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <ModalForm
+        visible
+        trigger={<Button id="new">新建</Button>}
+        onVisibleChange={(visible) => fn(visible)}
+      >
+        <ProFormText name="name" />
+      </ModalForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    expect(fn).toBeCalledWith(true);
+  });
+
   it('📦 reset button will simulate onVisibleChange', async () => {
     const fn = jest.fn();
     const wrapper = mount(
@@ -218,6 +234,6 @@ describe('ModalForm', () => {
     });
 
     await waitForComponentToPaint(wrapper);
-    expect(fn).toBeCalledTimes(0);
+    expect(fn).toBeCalledTimes(1);
   });
 });
