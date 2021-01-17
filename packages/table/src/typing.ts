@@ -108,6 +108,9 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
     /** 在新建表单中删除 */
     hideInForm?: boolean;
 
+    /** 不在配置工具中显示 */
+    hideInSetting?: boolean;
+
     /** 表头的筛选菜单项 */
     filters?: boolean | ColumnFilterItem[];
 
