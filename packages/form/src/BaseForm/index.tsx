@@ -186,7 +186,7 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
                   conversionSubmitValue(values, dateFormatter, fieldsValueType.current),
                   transformKeyRef.current,
                 );
-                await rest.onFinish(finalValues);
+
                 const params = Object.keys(finalValues).reduce((pre, next) => {
                   return {
                     ...pre,
@@ -198,6 +198,8 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
                   /** 在同步到 url 上时对参数进行转化 */
                   setUrlSearch(genParams(syncToUrl, params, 'set'));
                 }
+
+                await rest.onFinish(finalValues);
 
                 setLoading(false);
               } catch (error) {
