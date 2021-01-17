@@ -63,11 +63,17 @@ Display the definition list by requesting interface data
 
 <code src="./demos/request.tsx" />
 
-### columns
+### Configure data by request and columns
 
-Display a list of definitions by requesting interface data and columns
+Display the definition list by requesting interface data and columns
 
 <code src="./demos/columns.tsx" />
+
+### Configuring data with dataSource and columns
+
+ProDescriptions supports the same dataSource as Table
+
+<code src="./demos/data-source.tsx" />
 
 ### Editable list of definitions
 
