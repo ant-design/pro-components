@@ -402,6 +402,12 @@ describe('Table ColumnSetting', () => {
             dataIndex: 'name2',
             copyable: true,
           },
+          {
+            title: 'Name3',
+            key: 'name3',
+            dataIndex: 'name3',
+            hideInTable: true,
+          },
         ]}
         dataSource={[
           {
