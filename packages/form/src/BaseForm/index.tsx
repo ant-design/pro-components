@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useImperativeHandle } from 'react';
+import React, { useRef, useEffect, useImperativeHandle, useMemo } from 'react';
 import { Form } from 'antd';
 import type { FormProps, FormInstance } from 'antd/lib/form/Form';
 import type { FormItemProps } from 'antd/lib/form';
@@ -35,6 +35,8 @@ export type CommonFormProps = {
 
   /** @name 获取真正的可以获得值的 from */
   formRef?: React.MutableRefObject<FormInstance | undefined>;
+  /** @name 同步结果到 url 中 */
+  syncToUrl?: true | ((values: Record<string, any>, type: 'get' | 'set') => Record<string, any>);
 };
 
 export type BaseFormProps = {
@@ -48,15 +50,18 @@ export type BaseFormProps = {
   dateFormatter?: 'number' | 'string' | false;
   formItemProps?: FormItemProps;
   groupProps?: GroupProps;
-  syncToUrl?: true | ((values: Record<string, any>) => Record<string, any>);
 } & Omit<FormProps, 'onFinish'> &
   CommonFormProps;
 
-const genParams = (syncUrl: BaseFormProps['syncToUrl'], params: Record<string, any>) => {
+const genParams = (
+  syncUrl: BaseFormProps['syncToUrl'],
+  params: Record<string, any>,
+  type: 'get' | 'set',
+) => {
   if (syncUrl === true) {
     return params;
   }
-  return runFunction(syncUrl, params);
+  return runFunction(syncUrl, params, type);
 };
 
 const BaseForm: React.FC<BaseFormProps> = (props) => {
@@ -127,7 +132,15 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
       );
       onInit?.(finalValues);
     }
-  }, [isUpdate]);
+  }, [dateFormatter, isUpdate]);
+
+  // 如果为 false，不需要触发设置进去
+  const urlParamsMergeInitialValues = useMemo(() => {
+    if (!syncToUrl) {
+      return {};
+    }
+    return genParams(syncToUrl, urlSearch, 'get');
+  }, [syncToUrl, urlSearch]);
 
   return (
     // 增加国际化的能力，与 table 组件可以统一
@@ -159,8 +172,7 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
             {...rest}
             // 组合 urlSearch 和 initialValues
             initialValues={{
-              // 如果为 false，不需要触发设置进去
-              ...(syncToUrl ? genParams(syncToUrl, urlSearch) : {}),
+              ...urlParamsMergeInitialValues,
               ...rest.initialValues,
             }}
             onFinish={async (values) => {
@@ -184,7 +196,7 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
 
                 if (syncToUrl) {
                   /** 在同步到 url 上时对参数进行转化 */
-                  setUrlSearch(genParams(syncToUrl, params));
+                  setUrlSearch(genParams(syncToUrl, params, 'set'));
                 }
 
                 setLoading(false);

@@ -46,7 +46,6 @@ const columns: ProColumns<GithubIssueItem>[] = [
   {
     title: '状态',
     dataIndex: 'state',
-    initialValue: 'open',
     filters: true,
     onFilter: true,
     valueType: 'select',
@@ -86,14 +85,13 @@ const columns: ProColumns<GithubIssueItem>[] = [
   },
   {
     title: '创建时间',
-    key: 'created_at',
+    key: 'showTime',
     dataIndex: 'created_at',
     valueType: 'date',
     hideInSearch: true,
   },
   {
     title: '创建时间',
-    key: 'dateRange',
     dataIndex: 'created_at',
     valueType: 'dateRange',
     hideInTable: true,
@@ -161,6 +159,17 @@ export default () => {
       rowKey="id"
       search={{
         labelWidth: 'auto',
+      }}
+      form={{
+        syncToUrl: (values, type) => {
+          if (type === 'get') {
+            return {
+              ...values,
+              created_at: [values.startTime, values.endTime],
+            };
+          }
+          return values;
+        },
       }}
       pagination={{
         pageSize: 5,
