@@ -135,6 +135,14 @@ export const formInputRender: React.FC<{
     item,
   ) as any;
 
+  const initialProps = {
+    name: item.key || item.dataIndex,
+    initialValue: item.initialValue,
+    params: item.params,
+    key: `${item.dataIndex || ''}-${item.key || ''}-${item.index}`,
+    formItemProps,
+  };
+
   /** 自定义 render */
   if (item.renderFormItem && form) {
     /** 删除 renderFormItem 防止重复的 dom 渲染 */
@@ -171,19 +179,15 @@ export const formInputRender: React.FC<{
     }
     return (
       <ProFormField
-        key={`${item.dataIndex || ''}-${item.key || ''}-${item.index}`}
         {...rest}
+        {...initialProps}
         ref={ref}
-        initialValue={item.initialValue}
-        name={item.key || item.dataIndex}
-        params={item.params}
         fieldProps={{
           style: {
             width: undefined,
           },
           ...item.fieldProps,
         }}
-        formItemProps={formItemProps}
       >
         {React.cloneElement(dom, omit({ ...rest, ...defaultProps }, ['colSize']))}
       </ProFormField>
@@ -201,7 +205,7 @@ export const formInputRender: React.FC<{
       tooltip={item.tooltip || item.tip}
       isDefaultDom
       valueEnum={runFunction<[undefined]>(item.valueEnum, undefined)}
-      name={item.key || item.dataIndex}
+      {...initialProps}
       onChange={onChange}
       fieldProps={{
         style: {
@@ -209,16 +213,10 @@ export const formInputRender: React.FC<{
         },
         ...restFieldProps,
       }}
+      {...rest}
       // valueType = textarea，但是在 查询表单这里，应该是个 input 框
       valueType={finalValueType}
-      initialValue={item.initialValue}
-      {...rest}
-      formItemProps={{
-        ...formItemProps,
-        rules: type === 'form' ? rest?.rules || formItemProps?.rules : undefined,
-      }}
       rules={undefined}
-      key={`${item.dataIndex || ''}-${item.key || ''}-${item.index}`}
     />
   );
 };
