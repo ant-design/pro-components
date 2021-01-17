@@ -25,6 +25,13 @@ describe('ProForm', () => {
       </ProForm>,
     );
     await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('button.ant-btn-primary').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper);
+
     expect(wrapper.render()).toMatchSnapshot();
   });
 
