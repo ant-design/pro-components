@@ -387,6 +387,7 @@ const FormSearch = <T, U = any>({
     >
       <Competent
         {...loadingProps}
+        ignoreRules={true}
         {...getFromProps(isForm, searchConfig, competentName)}
         {...formConfig}
         formRef={formRef}

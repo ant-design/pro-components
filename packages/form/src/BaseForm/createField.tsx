@@ -119,7 +119,7 @@ function createField<P extends ProFormItemProps = any>(
         valueType: valueType || (rest as any).valueType || 'text',
         transform,
       });
-    }, []);
+    }, [props.name, transform, valueType]);
 
     // restFormItemProps is user props pass to Form.Item
     const restFormItemProps = pickProFormItemProps(rest);
