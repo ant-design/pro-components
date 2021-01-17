@@ -84,6 +84,10 @@ ProForm is the best choice when you want to implement a form quickly but don't w
 
 <code src="./demos/dependency.tsx" height="248px"/>
 
+### Sync submission results to url
+
+<code src="./demos/sync-to-url.tsx" height="548px"/>
+
 ### Fixed footer
 
 <code src="./demos/layout-base.tsx" iframe="764px" />
