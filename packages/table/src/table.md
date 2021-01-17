@@ -45,6 +45,12 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 
 <code src="./demos/no-title.tsx"  height="350px"/>
 
+### 必填的查询表单
+
+尽量使用 initialValue 来解决问题，必填项挫败感比较强
+
+<code src="./demos/open-rules.tsx"  height="350px"/>
+
 ### 嵌套表格
 
 <code src="./demos/table-nested.tsx" background="#f5f5f5"  height="400px"/>

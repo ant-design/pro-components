@@ -124,6 +124,16 @@ export const formInputRender: React.FC<{
     item,
   ) as any;
 
+  /** 公共的 props */
+  const initialProps = {
+    name: item.key || item.dataIndex,
+    initialValue: item.initialValue,
+    params: item.params,
+    key: `${item.dataIndex || ''}-${item.key || ''}-${item.index}`,
+    formItemProps,
+    transform: item.search ? item.search?.transform : undefined,
+  };
+
   /** 自定义 render */
   if (item.renderFormItem && form) {
     /** 删除 renderFormItem 防止重复的 dom 渲染 */
@@ -160,22 +170,14 @@ export const formInputRender: React.FC<{
     }
     return (
       <ProFormField
-        key={`${item.dataIndex || ''}-${item.key || ''}-${item.index}`}
         {...rest}
+        {...initialProps}
         ref={ref}
-        initialValue={item.initialValue}
-        name={item.key || item.dataIndex}
-        params={item.params}
         fieldProps={{
           style: {
             width: undefined,
           },
           ...item.fieldProps,
-        }}
-        transform={item.search ? item.search?.transform : undefined}
-        formItemProps={{
-          ...formItemProps,
-          rules: type === 'form' ? rest?.rules || formItemProps?.rules : undefined,
         }}
       >
         {React.cloneElement(dom, omit({ ...rest, ...defaultProps }, ['colSize']))}
@@ -194,7 +196,6 @@ export const formInputRender: React.FC<{
       tooltip={item.tooltip || item.tip}
       isDefaultDom
       valueEnum={runFunction<[undefined]>(item.valueEnum, undefined)}
-      name={item.key || item.dataIndex}
       onChange={onChange}
       fieldProps={{
         style: {
@@ -202,17 +203,10 @@ export const formInputRender: React.FC<{
         },
         ...restFieldProps,
       }}
+      {...rest}
+      {...initialProps}
       // valueType = textarea，但是在 查询表单这里，应该是个 input 框
       valueType={finalValueType}
-      initialValue={item.initialValue}
-      {...rest}
-      formItemProps={{
-        ...formItemProps,
-        rules: type === 'form' ? rest?.rules || formItemProps?.rules : undefined,
-      }}
-      transform={item.search ? item.search?.transform : undefined}
-      rules={undefined}
-      key={`${item.dataIndex || ''}-${item.key || ''}-${item.index}`}
     />
   );
 };
@@ -392,6 +386,7 @@ const FormSearch = <T, U = any>({
     >
       <Competent
         {...loadingProps}
+        ignoreRules={true}
         {...getFromProps(isForm, searchConfig, competentName)}
         {...formConfig}
         formRef={formRef}

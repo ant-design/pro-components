@@ -122,6 +122,12 @@ Configure toolbar rendering using the `toolbar` property extension.
 
 <code src="./demos/listToolBar.tsx" background="#f5f5f5" height="450px"/>
 
+### Required Inquiry Form
+
+Try to use initialValue to solve the problem, required fields are more frustrating
+
+<code src="./demos/open-rules.tsx"  height="350px"/>
+
 ### Form body customization
 
 <code src="./demos/renderTable.tsx" background="#f5f5f5" height="500px"/>

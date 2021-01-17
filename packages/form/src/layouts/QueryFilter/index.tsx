@@ -119,12 +119,23 @@ export type BaseQueryFilterProps = Omit<ActionsProps, 'submitter' | 'setCollapse
         dom: React.ReactNode[],
       ) => React.ReactNode[])
     | false;
+  /** 忽略 Form.Item 规则 */
+  ignoreRules?: boolean;
 };
 
-const flatMapItems = (items: React.ReactNode[]): React.ReactNode[] => {
+const flatMapItems = (items: React.ReactNode[], ignoreRules?: boolean): React.ReactNode[] => {
   return items.flatMap((item: any) => {
     if (item?.type.displayName === 'ProForm-Group' && !item.props?.title) {
       return item.props.children;
+    }
+    if (ignoreRules && React.isValidElement(item)) {
+      return React.cloneElement(item, {
+        ...(item.props as any),
+        formItemProps: {
+          ...(item.props as any)?.formItemProps,
+          rules: [],
+        },
+      });
     }
     return item;
   });
@@ -153,6 +164,7 @@ const QueryFilterContent: React.FC<{
     layout: FormProps['layout'];
   };
   optionRender: BaseQueryFilterProps['optionRender'];
+  ignoreRules?: boolean;
 }> = (props) => {
   const intl = useIntl();
   const resetText = props.resetText || intl.getMessage('tableForm.reset', '重置');
@@ -203,54 +215,56 @@ const QueryFilterContent: React.FC<{
   /** 是否需要展示 collapseRender */
   const needCollapseRender = itemLength - 1 >= showLength;
 
-  const doms = flatMapItems(items).map((item: React.ReactNode, index: number) => {
-    // 如果 formItem 自己配置了 hidden，默认使用它自己的
-    const hidden: boolean =
-      (item as ReactElement<{ hidden: boolean }>)?.props?.hidden ||
-      // 如果收起了
-      (collapsed &&
-        // 如果 超过显示长度 且 总长度超过了 24
-        index >= showLength &&
-        totalSpan >= 24);
+  const doms = flatMapItems(items, props.ignoreRules).map(
+    (item: React.ReactNode, index: number) => {
+      // 如果 formItem 自己配置了 hidden，默认使用它自己的
+      const hidden: boolean =
+        (item as ReactElement<{ hidden: boolean }>)?.props?.hidden ||
+        // 如果收起了
+        (collapsed &&
+          // 如果 超过显示长度 且 总长度超过了 24
+          index >= showLength &&
+          totalSpan >= 24);
 
-    const colSize = React.isValidElement<any>(item) ? item?.props?.colSize : 1;
+      const colSize = React.isValidElement<any>(item) ? item?.props?.colSize : 1;
 
-    const colSpan = Math.min(spanSize.span * (colSize || 1), 24);
+      const colSpan = Math.min(spanSize.span * (colSize || 1), 24);
 
-    // 每一列的key, 一般是存在的
-    const itemKey = (React.isValidElement(item) && (item.key || `${item.props?.name}`)) || index;
+      // 每一列的key, 一般是存在的
+      const itemKey = (React.isValidElement(item) && (item.key || `${item.props?.name}`)) || index;
 
-    currentSpan += colSpan;
+      currentSpan += colSpan;
 
-    if (React.isValidElement(item) && hidden) {
-      return React.cloneElement(item, {
-        hidden: true,
-        key: itemKey || index,
-      });
-    }
+      if (React.isValidElement(item) && hidden) {
+        return React.cloneElement(item, {
+          hidden: true,
+          key: itemKey || index,
+        });
+      }
 
-    if (24 - (totalSpan % 24) < colSpan) {
-      // 如果当前行空余位置放不下，那么折行
-      totalSpan += 24 - (totalSpan % 24);
-    }
+      if (24 - (totalSpan % 24) < colSpan) {
+        // 如果当前行空余位置放不下，那么折行
+        totalSpan += 24 - (totalSpan % 24);
+      }
 
-    totalSpan += colSpan;
+      totalSpan += colSpan;
 
-    const colItem = (
-      <Col key={itemKey} span={colSpan}>
-        {item}
-      </Col>
-    );
-    if (split && currentSpan % 24 === 0 && index < itemLength - 1) {
-      return [
-        colItem,
-        <Col span="24" key="line">
-          <Divider style={{ marginTop: -8, marginBottom: 16 }} dashed />
-        </Col>,
-      ];
-    }
-    return colItem;
-  });
+      const colItem = (
+        <Col key={itemKey} span={colSpan}>
+          {item}
+        </Col>
+      );
+      if (split && currentSpan % 24 === 0 && index < itemLength - 1) {
+        return [
+          colItem,
+          <Col span="24" key="line">
+            <Divider style={{ marginTop: -8, marginBottom: 16 }} dashed />
+          </Col>,
+        ];
+      }
+      return colItem;
+    },
+  );
 
   return (
     <Row gutter={24} justify="start" key="resize-observer-row">
@@ -297,6 +311,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
     labelWidth = '80',
     style,
     split,
+    ignoreRules,
     ...rest
   } = props;
 
@@ -363,6 +378,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
               submitter={renderSubmitter}
               items={items}
               split={split}
+              ignoreRules={ignoreRules}
               showLength={showLength}
             />
           ) : null

@@ -14,6 +14,7 @@ export type LightFilterProps = {
   collapse?: boolean;
   collapseLabel?: React.ReactNode;
   bordered?: boolean;
+  ignoreRules?: boolean;
 } & Omit<FormProps, 'onFinish'> &
   CommonFormProps;
 
@@ -166,6 +167,7 @@ const LightFilter: React.FC<LightFilterProps> = (props) => {
     onValuesChange,
     form: userForm,
     bordered,
+    ignoreRules,
     ...reset
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
