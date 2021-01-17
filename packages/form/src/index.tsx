@@ -47,6 +47,9 @@ export type {
   ProFormFieldSetProps,
   ProFormDependencyProps,
 };
+
+const ProFormGroup = ProForm.Group;
+
 export {
   // controls
   ProFormDatePicker,
@@ -69,6 +72,7 @@ export {
   ProFormCaptcha,
   ProFormDateTimeRangePicker,
   ProFormDependency,
+  ProFormGroup,
   // layouts
   QueryFilter,
   LightFilter,

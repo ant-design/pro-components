@@ -1,6 +1,6 @@
 import { mount } from 'enzyme';
 import React from 'react';
-import { QueryFilter, ProFormText } from '@ant-design/pro-form';
+import { QueryFilter, ProFormText, ProFormGroup } from '@ant-design/pro-form';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint, waitTime } from '../util';
 
@@ -190,5 +190,22 @@ describe('QueryFilter', () => {
     });
     await waitTime(100);
     expect(wrapper.find('a.ant-pro-form-collapse-button').text()).toBe('close');
+  });
+
+  it('QueryFilter support ProForm.Group', async () => {
+    const wrapper = mount(
+      <QueryFilter collapsed={true} layout="vertical">
+        <ProFormGroup>
+          <ProFormText label="a" name="a" />
+          <ProFormText label="b" name="b" />
+        </ProFormGroup>
+        <ProFormText label="c" name="c" />
+        <ProFormText label="d" name="d" />
+      </QueryFilter>,
+    );
+
+    await waitForComponentToPaint(wrapper);
+
+    expect(wrapper.find('.ant-pro-form-group').exists()).toBeFalsy();
   });
 });
