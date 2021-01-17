@@ -20,7 +20,7 @@ describe('ProForm', () => {
 
   it('📦 ProForm support sync form url', async () => {
     const wrapper = mount(
-      <ProForm syncToUrl>
+      <ProForm onFinish={async () => {}} syncToUrl>
         <ProFormText name="navTheme" />
       </ProForm>,
     );
