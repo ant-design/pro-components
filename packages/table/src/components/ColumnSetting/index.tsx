@@ -216,6 +216,11 @@ const GroupCheckboxList: React.FC<{
       rightList.push(item);
       return;
     }
+
+    /** 不在 setting 中展示的 */
+    if (item.hideInSetting) {
+      return;
+    }
     list.push(item);
   });
 

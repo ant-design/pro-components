@@ -59,7 +59,6 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (props) => 
   } = props;
 
   const submit = () => {
-    console.log('run');
     form.submit();
     onSubmit?.();
   };
