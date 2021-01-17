@@ -14,9 +14,9 @@ export type SearchConfig = {
 
 export type SubmitterProps<T = {}> = {
   /** @name 提交方法 */
-  onSubmit?: () => void;
+  onSubmit?: (value?: T) => void;
   /** @name 重置方法 */
-  onReset?: () => void;
+  onReset?: (value?: T) => void;
   /** @name 搜索的配置，一般用来配置文本 */
   searchConfig?: SearchConfig;
   /** @name 提交按钮的 props */
@@ -59,7 +59,6 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (props) => 
   } = props;
 
   const submit = () => {
-    console.log('run');
     form.submit();
     onSubmit?.();
   };

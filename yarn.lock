@@ -3952,15 +3952,6 @@
     "@types/react" "*"
     "@types/react-router" "*"
 
-"@types/react-router-dom@5.1.2":
-  version "5.1.2"
-  resolved "https://registry.npm.taobao.org/@types/react-router-dom/download/@types/react-router-dom-5.1.2.tgz?cache=0&sync_timestamp=1609344176146&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Freact-router-dom%2Fdownload%2F%40types%2Freact-router-dom-5.1.2.tgz#853f229f1f297513c0be84f7c914a08b778cfdf5"
-  integrity sha1-hT8inx8pdRPAvoT3yRSgi3eM/fU=
-  dependencies:
-    "@types/history" "*"
-    "@types/react" "*"
-    "@types/react-router" "*"
-
 "@types/react-router-dom@5.1.5":
   version "5.1.5"
   resolved "https://registry.npm.taobao.org/@types/react-router-dom/download/@types/react-router-dom-5.1.5.tgz?cache=0&sync_timestamp=1609344176146&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Freact-router-dom%2Fdownload%2F%40types%2Freact-router-dom-5.1.5.tgz#7c334a2ea785dbad2b2dcdd83d2cf3d9973da090"
@@ -9188,9 +9179,9 @@ eslint-rule-composer@^0.3.0:
   integrity sha1-eTIMknsMXA09PSt2yLSkiPJbuvk=
 
 eslint-rule-docs@^1.1.5:
-  version "1.1.218"
-  resolved "https://registry.npm.taobao.org/eslint-rule-docs/download/eslint-rule-docs-1.1.218.tgz#089482e87918995f51f86c5412b30c9cb46a1ea1"
-  integrity sha1-CJSC6HkYmV9R+GxUErMMnLRqHqE=
+  version "1.1.219"
+  resolved "https://registry.npm.taobao.org/eslint-rule-docs/download/eslint-rule-docs-1.1.219.tgz#56be57cf4857b1749e78dab0175a617d0320ce02"
+  integrity sha1-Vr5Xz0hXsXSeeNqwF1phfQMgzgI=
 
 eslint-scope@^4.0.3:
   version "4.0.3"
@@ -21453,7 +21444,7 @@ svgo@^1.0.0, svgo@^1.2.2:
 
 swr@^0.3.6:
   version "0.3.11"
-  resolved "https://registry.npm.taobao.org/swr/download/swr-0.3.11.tgz#f7f50ed26c06afea4249482cec504768a2272664"
+  resolved "https://registry.npm.taobao.org/swr/download/swr-0.3.11.tgz?cache=0&sync_timestamp=1610802359189&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fswr%2Fdownload%2Fswr-0.3.11.tgz#f7f50ed26c06afea4249482cec504768a2272664"
   integrity sha1-9/UO0mwGr+pCSUgs7FBHaKInJmQ=
   dependencies:
     dequal "2.0.2"

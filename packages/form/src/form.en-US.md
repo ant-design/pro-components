@@ -84,6 +84,10 @@ ProForm is the best choice when you want to implement a form quickly but don't w
 
 <code src="./demos/dependency.tsx" height="248px"/>
 
+### Sync submission results to url
+
+<code src="./demos/sync-to-url.tsx" height="548px"/>
+
 ### Fixed footer
 
 <code src="./demos/layout-base.tsx" iframe="764px" />
@@ -106,6 +110,7 @@ ProForm is a repackaging of antd Form, if you want to customize form elements, P
 | onReset | Callback for clicking the reset button, the reset button will be rendered only after it is set | `(e)=>void` | - |
 | submitter | Submitter button-related configuration | `boolean` \| `SubmitterProps` | `true` |
 | dateFormatter | AutoFormat data, mainly moment forms, supports string and number modes | `string\| number \|false` | string |
+| syncToUrl | sync parameters to url,url only supports string, better read [documentation](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) before using | `true | (values,type)=>values` | - |
 | string | [(...)] (https://ant.design/components/form-cn/) | support other antd `Form` component parameters besides `wrapperCol` \| `labelCol` \| `layout` | - | - |
 
 ### ProForm.

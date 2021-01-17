@@ -7,20 +7,9 @@ import type { BaseQueryFilterProps, QueryFilterProps, ProFormProps } from '@ant-
 import ProForm, { QueryFilter, LightFilter, ProFormField } from '@ant-design/pro-form';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import type {
-  ProSchemaComponentTypes,
-  SearchTransformKeyFn,
-  ProFieldValueType,
-} from '@ant-design/pro-utils';
+import type { ProSchemaComponentTypes, ProFieldValueType } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
-import {
-  omitBoolean,
-  useDeepCompareEffect,
-  conversionSubmitValue,
-  transformKeySubmitValue,
-  getFieldPropsOrFormItemProps,
-} from '@ant-design/pro-utils';
-import namePathSet from 'rc-util/lib/utils/set';
+import { useDeepCompareEffect, getFieldPropsOrFormItemProps } from '@ant-design/pro-utils';
 import type { ProColumns } from '../../index';
 import './index.less';
 
@@ -135,12 +124,14 @@ export const formInputRender: React.FC<{
     item,
   ) as any;
 
+  /** 公共的 props */
   const initialProps = {
     name: item.key || item.dataIndex,
     initialValue: item.initialValue,
     params: item.params,
     key: `${item.dataIndex || ''}-${item.key || ''}-${item.index}`,
     formItemProps,
+    transform: item.search ? item.search?.transform : undefined,
   };
 
   /** 自定义 render */
@@ -293,69 +284,13 @@ const FormSearch = <T, U = any>({
   /** 为了支持 dom 的消失，支持了这个 api */
   const intl = useIntl();
 
-  /** 保存 valueTypeRef，用于分辨是用什么方式格式化数据 */
-  const valueTypeRef = useRef<Record<string, ProFieldValueType>>();
-
-  /** 保存 transformKeyRef，用于对表单key transform */
-  const transformKeyRef = useRef<Record<string, SearchTransformKeyFn>>({});
-
   const isForm = type === 'form';
   /** 提交表单，根据两种模式不同，方法不相同 */
-  const submit = async (firstLoad: boolean) => {
-    let value;
-    // 如果不是表单模式，不用进行验证
-    if (!isForm) {
-      value = formRef.current?.getFieldsValue();
-    } else {
-      try {
-        value = await formRef.current?.validateFields();
-      } catch (error) {
-        // console.log(error)
-      }
-    }
-    if (onSubmit && valueTypeRef.current) {
-      // 转化值
-      // moment -> string
-      // key: [value, value] -> { key:value, key: value }
-      const finalValue = transformKeySubmitValue(
-        conversionSubmitValue(value, dateFormatter, valueTypeRef.current) as T,
-        transformKeyRef.current,
-      );
-      onSubmit(finalValue, firstLoad);
+  const submit = async (values: T, firstLoad: boolean) => {
+    if (onSubmit) {
+      onSubmit(values, firstLoad);
     }
   };
-
-  const genTransform = () => {
-    let tempMap = {};
-    let transformKeyMap = {};
-
-    columns.forEach((item) => {
-      const { key, dataIndex, index, valueType, search } = item;
-      // 以key为主,理论上key唯一
-      const finalKey = [key || dataIndex || index].flat(1) as string[];
-      // 如果是() => ValueType 需要特殊处理一下
-      tempMap = namePathSet(
-        transformKeyMap,
-        finalKey,
-        typeof valueType === 'function' ? valueType(item as any, type) : valueType,
-      );
-      const columnSearchConfig = omitBoolean(search);
-      if (columnSearchConfig) {
-        transformKeyMap = namePathSet(
-          transformKeyMap,
-          finalKey,
-          (value: any, fieldName: string, target: any) =>
-            columnSearchConfig.transform(value, fieldName, target),
-        );
-      }
-    });
-
-    valueTypeRef.current = tempMap;
-    transformKeyRef.current = transformKeyMap;
-  };
-  useDeepCompareEffect(() => {
-    genTransform();
-  }, [columns]);
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
@@ -461,27 +396,20 @@ const FormSearch = <T, U = any>({
             formConfig.onValuesChange(change, all);
           }
         }}
-        onInit={() => {
-          genTransform();
+        dateFormatter={dateFormatter}
+        onInit={(values: T) => {
           // 触发一个 submit，之所以这里触发是为了保证 value 都被 format了
-          if (valueTypeRef.current && type !== 'form') {
+          if (type !== 'form') {
             // 重新计算一下dom
             setDomList(updateDomList(columnsList));
-            submit(true);
+            submit(values, true);
           }
         }}
-        onReset={() => {
-          if (onReset && valueTypeRef.current) {
-            const value = formRef.current?.getFieldsValue() as T;
-            const finalValue = transformKeySubmitValue(
-              conversionSubmitValue(value, dateFormatter, valueTypeRef.current) as T,
-              transformKeyRef.current,
-            );
-            onReset(finalValue);
-          }
+        onReset={(values: T) => {
+          onReset?.(values);
         }}
-        onFinish={() => {
-          submit(false);
+        onFinish={(values: T) => {
+          submit(values, false);
         }}
         initialValues={formConfig.initialValues}
       >

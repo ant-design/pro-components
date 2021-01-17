@@ -36,7 +36,6 @@
     "@ant-design/icons": "^4.0.0",
     "@ant-design/pro-provider": "1.4.2",
     "@ant-design/pro-utils": "1.10.5",
-    "@types/react-router-dom": "5.1.2",
     "@umijs/route-utils": "^1.0.33",
     "classnames": "^2.2.6",
     "omit.js": "^2.0.2",

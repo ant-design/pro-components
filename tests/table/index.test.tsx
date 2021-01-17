@@ -1035,7 +1035,7 @@ describe('BasicTable', () => {
     expect(html).toMatchSnapshot();
   });
 
-  it('debounce time ', async () => {
+  it('🎏 debounce time ', async () => {
     const ref = React.createRef<ActionType>();
     const fn = jest.fn();
     const html = mount(

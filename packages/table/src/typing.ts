@@ -108,6 +108,9 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
     /** 在新建表单中删除 */
     hideInForm?: boolean;
 
+    /** 不在配置工具中显示 */
+    hideInSetting?: boolean;
+
     /** 表头的筛选菜单项 */
     filters?: boolean | ColumnFilterItem[];
 
@@ -217,11 +220,12 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
 
   /** @name 操作栏配置 */
   options?: OptionConfig | false;
+
   /** @name 是否显示搜索表单 */
   search?: false | SearchConfig;
 
   /**
-   * 基本配置与 antd Form 相同, 但是劫持了 form 的配置
+   * 基本配置与 antd Form 相同, 但是劫持了 form onFinish 的配置
    *
    * @name type="form" 和 搜索表单 的 Form 配置
    */

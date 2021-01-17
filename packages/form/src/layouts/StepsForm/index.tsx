@@ -6,7 +6,6 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { StepsProps } from 'antd/lib/steps';
 import classNames from 'classnames';
 import type { FormInstance } from 'antd/lib/form';
-import type { ButtonProps } from 'antd/lib/button';
 import { useIntl } from '@ant-design/pro-provider';
 import { useMountMergeState } from '@ant-design/pro-utils';
 
@@ -70,8 +69,8 @@ export const StepsFormProvide = React.createContext<
       onFormFinish: (name: string, formData: any) => void;
       keyArray: string[];
       formArrayRef: React.MutableRefObject<React.MutableRefObject<FormInstance<any> | undefined>[]>;
-      loading: ButtonProps['loading'];
-      setLoading: React.Dispatch<ButtonProps['loading']>;
+      loading: boolean;
+      setLoading: (loading: boolean) => void;
       formMapRef: React.MutableRefObject<Map<string, StepFormProps>>;
       next: () => void;
     }
@@ -102,7 +101,7 @@ const StepsForm: React.FC<StepsFormProps> & {
   const formMapRef = useRef(new Map<string, StepFormProps>());
   const formArrayRef = useRef<React.MutableRefObject<FormInstance<any> | undefined>[]>([]);
   const [formArray, setFormArray] = useMountMergeState<string[]>([]);
-  const [loading, setLoading] = useMountMergeState<ButtonProps['loading']>(false);
+  const [loading, setLoading] = useMountMergeState<boolean>(false);
   const intl = useIntl();
 
   /** 受控的方式来操作表单 */
