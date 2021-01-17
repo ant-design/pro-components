@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { List, Skeleton, ConfigProvider } from 'antd';
-import ProCard, { ProCardProps } from '@ant-design/pro-card';
+import type { ProCardProps } from '@ant-design/pro-card';
+import ProCard from '@ant-design/pro-card';
 import { RightOutlined } from '@ant-design/icons';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { ListGridType } from 'antd/lib/list';

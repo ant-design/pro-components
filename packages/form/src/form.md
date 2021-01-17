@@ -84,6 +84,12 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 
 <code src="./demos/dependency.tsx" height="248px"/>
 
+### 同步提交结果到 url
+
+打开时也会把 url 的参数设置为默认值，支持 transform, 但是要注意字段的映射。
+
+<code src="./demos/sync-to-url.tsx" height="548px"/>
+
 ### 固定页脚
 
 <code src="./demos/layout-base.tsx" iframe="764px" />
@@ -101,10 +107,11 @@ ProForm 是 antd Form 的再封装，如果你想要自定义表单元素，ProF
 > antd 的 From api 查看[这里](https://ant.design/components/form-cn/)
 
 | 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | onFinish | 提交表单且数据验证成功后回调事件，同 antd 4 `Form` 组件 API | `(values)=>Promise<void>` | - |
 | onReset | 点击重置按钮的回调，设置后重置按钮才会被渲染 | `(e)=>void` | - |
 | submitter | 提交按钮相关配置 | `boolean` \| `SubmitterProps` | `true` |
+| syncToUrl | 同步参数到 url 上,url 只支持 string，在使用之前最好读一下[文档](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) | `true | (values,type)=>values` | - |
 | dateFormatter | 自动格式数据,主要是 moment 的表单,支持 string 和 number 两种模式 | `string\| number \|false` | string |
 | [(...)](https://ant.design/components/form-cn/) | 支持除 `wrapperCol` \| `labelCol` \| `layout` 外的其他 antd `Form` 组件参数 | - | - |
 

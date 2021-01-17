@@ -152,7 +152,6 @@ const QueryFilterContent: React.FC<{
     span: number;
     layout: FormProps['layout'];
   };
-  onReset: QueryFilterProps['onReset'];
   optionRender: BaseQueryFilterProps['optionRender'];
 }> = (props) => {
   const intl = useIntl();
@@ -167,7 +166,7 @@ const QueryFilterContent: React.FC<{
     },
   );
 
-  const { optionRender, collapseRender, split, items, spanSize, showLength, onReset } = props;
+  const { optionRender, collapseRender, split, items, spanSize, showLength } = props;
 
   const submitter = useMemo(() => {
     if (!props.submitter) {
@@ -190,10 +189,9 @@ const QueryFilterContent: React.FC<{
               dom,
             )
         : optionRender,
-      onReset,
       ...props.submitter.props,
     });
-  }, [props, resetText, searchText, optionRender, onReset]);
+  }, [props, resetText, searchText, optionRender]);
 
   // totalSpan 统计控件占的位置，计算 offset 保证查询按钮在最后一列
   let totalSpan = submitter ? spanSize.span : 0;
@@ -333,6 +331,7 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
     >
       <BaseForm
         {...rest}
+        onReset={onReset}
         style={style}
         layout={spanSize.layout}
         fieldProps={{
@@ -361,7 +360,6 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
               defaultCollapsed={defaultCollapsed}
               onCollapse={onCollapse}
               optionRender={optionRender}
-              onReset={onReset}
               submitter={renderSubmitter}
               items={items}
               split={split}

@@ -18,6 +18,27 @@ describe('ProForm', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('📦 ProForm support sync form url', async () => {
+    const wrapper = mount(
+      <ProForm onFinish={async () => {}} syncToUrl>
+        <ProFormText name="navTheme" />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('button.ant-btn-primary').simulate('click');
+    });
+
+    act(() => {
+      wrapper.find('button.ant-btn').at(1).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
   it('📦 onFinish should simulate button loading', async () => {
     const fn = jest.fn();
     const wrapper = mount(
