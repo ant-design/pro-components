@@ -4,6 +4,7 @@ import {
   useDebounceFn,
   useDeepCompareEffect,
   useMountMergeState,
+  useBatchFrameState,
 } from '@ant-design/pro-utils';
 import ReactDOM from 'react-dom';
 import type { PageInfo, RequestData, UseFetchDataAction } from './typing';
