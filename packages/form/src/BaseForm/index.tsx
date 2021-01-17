@@ -77,6 +77,7 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
     formRef: propsFormRef,
     onInit,
     syncToUrl,
+    onReset,
     ...rest
   } = props;
 
@@ -174,6 +175,17 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
             initialValues={{
               ...urlParamsMergeInitialValues,
               ...rest.initialValues,
+            }}
+            onReset={() => {
+              const finalValues = transformKeySubmitValue(
+                conversionSubmitValue(
+                  formRef.current.getFieldsValue(),
+                  dateFormatter,
+                  fieldsValueType.current,
+                ),
+                transformKeyRef.current,
+              );
+              onReset?.(finalValues);
             }}
             onFinish={async (values) => {
               if (!rest.onFinish) {
