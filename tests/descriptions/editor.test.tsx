@@ -339,7 +339,7 @@ describe('Descriptions', () => {
         .at(0)
         .find('input')
         .exists(),
-    ).toBeTruthy();
+    ).toBeFalsy();
   });
 
   it('📝 type=single, only edit one rows', async () => {

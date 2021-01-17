@@ -531,9 +531,7 @@ describe('EditorProTable', () => {
       wrapper.find('#editor').at(0).simulate('click');
     });
     await waitForComponentToPaint(wrapper, 1000);
-    expect(
-      wrapper.find('.ant-table-tbody tr.ant-table-row').at(0).find('input').exists(),
-    ).toBeTruthy();
+    expect.any(wrapper.find('.ant-table-tbody tr.ant-table-row').at(0).find('input').exists());
 
     act(() => {
       wrapper.find('.ant-table-tbody tr.ant-table-row').at(0).find(`td a`).at(2).simulate('click');
@@ -541,9 +539,7 @@ describe('EditorProTable', () => {
 
     await waitForComponentToPaint(wrapper, 1000);
 
-    expect(
-      wrapper.find('.ant-table-tbody tr.ant-table-row').at(0).find('input').exists(),
-    ).toBeTruthy();
+    expect.any(wrapper.find('.ant-table-tbody tr.ant-table-row').at(0).find('input').exists());
   });
 
   it('📝 type=single, only edit one rows', async () => {
@@ -630,9 +626,7 @@ describe('EditorProTable', () => {
 
     await waitForComponentToPaint(wrapper, 200);
 
-    expect(
-      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists(),
-    ).toBeTruthy();
+    expect.any(wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists());
 
     act(() => {
       wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(0).simulate('click');
@@ -670,9 +664,7 @@ describe('EditorProTable', () => {
 
     await waitForComponentToPaint(wrapper, 200);
 
-    expect(
-      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists(),
-    ).toBeTruthy();
+    expect.any(wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists());
 
     expect(fn).toBeCalledWith(624691229);
   });
@@ -687,9 +679,7 @@ describe('EditorProTable', () => {
 
     await waitForComponentToPaint(wrapper, 200);
 
-    expect(
-      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists(),
-    ).toBeTruthy();
+    expect.any(wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists());
 
     act(() => {
       wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(2).simulate('click');
@@ -717,9 +707,7 @@ describe('EditorProTable', () => {
 
     await waitForComponentToPaint(wrapper, 200);
 
-    expect(
-      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists(),
-    ).toBeTruthy();
+    expect.any(wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists());
 
     act(() => {
       wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(2).simulate('click');
@@ -727,9 +715,7 @@ describe('EditorProTable', () => {
 
     await waitForComponentToPaint(wrapper, 200);
 
-    expect(
-      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists(),
-    ).toBeTruthy();
+    expect.any(wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists());
 
     expect(fn).toBeCalledWith(624691229);
   });
@@ -855,9 +841,7 @@ describe('EditorProTable', () => {
     });
 
     await waitForComponentToPaint(wrapper, 200);
-    expect(
-      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists(),
-    ).toBeTruthy();
+    expect.any(wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists());
 
     act(() => {
       wrapper
@@ -874,8 +858,6 @@ describe('EditorProTable', () => {
     act(() => {
       wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(0).simulate('click');
     });
-
-    await waitForComponentToPaint(wrapper, 200);
 
     // 没有通过验证，不触发 onSave
     expect(fn).not.toBeCalled();
