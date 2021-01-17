@@ -196,7 +196,6 @@ export const formInputRender: React.FC<{
       tooltip={item.tooltip || item.tip}
       isDefaultDom
       valueEnum={runFunction<[undefined]>(item.valueEnum, undefined)}
-      {...initialProps}
       onChange={onChange}
       fieldProps={{
         style: {
@@ -205,9 +204,9 @@ export const formInputRender: React.FC<{
         ...restFieldProps,
       }}
       {...rest}
+      {...initialProps}
       // valueType = textarea，但是在 查询表单这里，应该是个 input 框
       valueType={finalValueType}
-      rules={undefined}
     />
   );
 };
