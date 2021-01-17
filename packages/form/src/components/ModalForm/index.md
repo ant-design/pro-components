@@ -22,9 +22,13 @@ ModalForm 和 DrawerForm 都提供了 trigger 来减少 state 的使用，如果
 
 <code src="../../demos/drawer-form.tsx"  background="#f5f5f5" height="32px"/>
 
-## 自定义 Drawer 表单 按钮
+## 自定义 Drawer 表单按钮
 
 <code src="../../demos/modal-form-submitter.tsx"  background="#f5f5f5" height="32px"/>
+
+## 使用 visible 和 onVisibleChange
+
+<code src="../../demos/visible-on-visible-change.tsx"  background="#f5f5f5" height="32px"/>
 
 ## API
 

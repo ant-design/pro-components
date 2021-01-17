@@ -66,6 +66,12 @@ const ModalForm: React.FC<ModalFormProps> = ({
 
   const context = useContext(ConfigProvider.ConfigContext);
 
+  useEffect(() => {
+    if (visible && rest.visible) {
+      onVisibleChange?.(true);
+    }
+  }, [visible]);
+
   /** 设置 trigger 的情况下，懒渲染优化性能；使之可以直接配合表格操作等场景使用 */
   const isFirstRender = useRef(!modalProps?.forceRender);
   /**

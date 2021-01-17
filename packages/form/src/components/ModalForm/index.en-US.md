@@ -21,6 +21,10 @@ ModalForm and DrawerForm both provide triggers to reduce state usage, if you nee
 
 <code src="../../demos/drawer-form.tsx" background="#f5f5f5" height="32px"/>
 
+## Use visible and onVisibleChange
+
+<code src="../../demos/visible-on-visible-change.tsx"  background="#f5f5f5" height="32px"/>
+
 ## API
 
 ### ModalForm

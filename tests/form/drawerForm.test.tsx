@@ -285,6 +285,6 @@ describe('DrawerForm', () => {
     });
 
     await waitForComponentToPaint(wrapper);
-    expect(fn).toBeCalledTimes(0);
+    expect(fn).toBeCalledTimes(1);
   });
 });
