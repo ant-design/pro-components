@@ -18,6 +18,27 @@ describe('ProForm', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('📦 ProForm support sync form url', async () => {
+    const wrapper = mount(
+      <ProForm onFinish={async () => {}} syncToUrl>
+        <ProFormText name="navTheme" />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('button.ant-btn-primary').simulate('click');
+    });
+
+    act(() => {
+      wrapper.find('button.ant-btn').at(1).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
   it('📦 onFinish should simulate button loading', async () => {
     const fn = jest.fn();
     const wrapper = mount(
@@ -38,6 +59,31 @@ describe('ProForm', () => {
     expect(fn).toBeCalled();
   });
 
+  it('📦 onFinish should simulate button close loading', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <ProForm
+        onFinish={async () => {
+          fn();
+          await waitTime(1000);
+          throw new Error('期贤');
+        }}
+      />,
+    );
+
+    await waitForComponentToPaint(wrapper, 200);
+    act(() => {
+      wrapper.find('button.ant-btn-primary').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper, 200);
+    expect(wrapper.find('.ant-btn-loading').exists()).toBe(true);
+    expect(fn).toBeCalled();
+
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect(wrapper.find('.ant-btn-loading').exists()).toBe(false);
+  });
+
   it('📦 submit props actionsRender=()=>false', async () => {
     const wrapper = mount(
       <ProForm
@@ -49,7 +95,38 @@ describe('ProForm', () => {
     await waitForComponentToPaint(wrapper);
     expect(wrapper.render()).toMatchSnapshot();
   });
-
+  it('📦 ProForm support namePath is array', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <ProForm
+        initialValues={{
+          name: {
+            test: 'test',
+          },
+          test: 'test2',
+        }}
+        onFinish={async (params) => {
+          fn(params);
+        }}
+      >
+        <ProFormText name={['name', 'test']} />
+        <ProFormText name="test" />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+    act(() => {
+      wrapper.find('button.ant-btn-primary').simulate('keypress', {
+        key: 'Enter',
+      });
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(fn).toBeCalledWith({
+      name: {
+        test: 'test',
+      },
+      test: 'test2',
+    });
+  });
   it('📦 ProForm support enter submit', async () => {
     const fn = jest.fn();
     const wrapper = mount(
@@ -400,6 +477,90 @@ describe('ProForm', () => {
     });
 
     expect(wrapper.find('span#label_text').text()).toBe('与《test》 与 《test2》合同约定生效方式');
+  });
+
+  it('📦 ProForm.Group support collapsible', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <ProForm>
+        <ProForm.Group title="qixian" collapsible onCollapse={(c) => fn(c)}>
+          <ProFormText name="phone" />
+          <ProFormText name="phone2" />
+        </ProForm.Group>
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-pro-form-group-title').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+
+    expect(fn).toBeCalledWith(true);
+
+    act(() => {
+      wrapper.find('.ant-pro-form-group-title').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    expect(fn).toBeCalledWith(false);
+  });
+
+  it('📦 ProForm.Group support defaultCollapsed', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <ProForm>
+        <ProForm.Group title="qixian" collapsible defaultCollapsed={true} onCollapse={(c) => fn(c)}>
+          <ProFormText name="phone" />
+          <ProFormText name="phone2" />
+        </ProForm.Group>
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-pro-form-group-title').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+
+    expect(fn).toBeCalledWith(false);
+
+    act(() => {
+      wrapper.find('.ant-pro-form-group-title').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    expect(fn).toBeCalledWith(true);
+  });
+
+  it('📦 ProForm.Group support defaultCollapsed', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <ProForm>
+        <ProForm.Group
+          title="qixian"
+          collapsible
+          extra={<a id="click">点击</a>}
+          onCollapse={(c) => fn(c)}
+        >
+          <ProFormText name="phone" />
+          <ProFormText name="phone2" />
+        </ProForm.Group>
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('#click').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+
+    expect(fn).not.toBeCalled();
   });
 
   it('📦 DatePicker', async () => {

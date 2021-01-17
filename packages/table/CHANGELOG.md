@@ -2,6 +2,40 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.25.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.25.0...@ant-design/pro-table@2.25.1) (2021-01-13)
+
+### Bug Fixes
+
+- **form:** default render form ([#1611](https://github.com/ant-design/pro-components/issues/1611)) ([fcdfeb6](https://github.com/ant-design/pro-components/commit/fcdfeb659c776250c7b70c4d71db2ac0609ee550))
+- **form:** fix the problem of duplicate form fields ([#1607](https://github.com/ant-design/pro-components/issues/1607)) ([fe237a3](https://github.com/ant-design/pro-components/commit/fe237a3b99738cc19afb8ff63551f5c08076dad7))
+- **table:** docs debounce time api ([#1599](https://github.com/ant-design/pro-components/issues/1599)) ([146d49b](https://github.com/ant-design/pro-components/commit/146d49b93ecbfb0efc0d31e114c5101d1f79de79))
+
+# [2.25.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.24.0...@ant-design/pro-table@2.25.0) (2021-01-13)
+
+### Features
+
+- table request add debounce wait ([#1591](https://github.com/ant-design/pro-components/issues/1591)) ([a75eb4c](https://github.com/ant-design/pro-components/commit/a75eb4c9ec210c22afaf3a0940ead445ed3dc832))
+
+# [2.24.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.23.0...@ant-design/pro-table@2.24.0) (2021-01-12)
+
+### Bug Fixes
+
+- **table:** table support data is partial ([a0f592e](https://github.com/ant-design/pro-components/commit/a0f592e8275882df2bc26aa6c7c224a517e265f7))
+
+### Features
+
+- **table:** table columns use tree ([#1583](https://github.com/ant-design/pro-components/issues/1583)) ([821d54f](https://github.com/ant-design/pro-components/commit/821d54f1f77337155e314f0a95cab04ae80adc8e))
+
+# [2.23.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.22.2...@ant-design/pro-table@2.23.0) (2021-01-11)
+
+### Bug Fixes
+
+- **table:** optimised type to suit oneapi ([#1576](https://github.com/ant-design/pro-components/issues/1576)) ([44054e2](https://github.com/ant-design/pro-components/commit/44054e2cc64fb4f8d21c39612271f01cb3fc39d8))
+
+### Features
+
+- **table:** editable table add tableViewRender ([#1572](https://github.com/ant-design/pro-components/issues/1572)) ([457f814](https://github.com/ant-design/pro-components/commit/457f81405debc2e7f0daf8bce8ab30e07dfbaa6f))
+
 ## [2.22.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.22.1...@ant-design/pro-table@2.22.2) (2021-01-11)
 
 ### Bug Fixes

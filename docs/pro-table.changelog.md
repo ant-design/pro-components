@@ -9,6 +9,31 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.25.1
+
+`2021-01-13`
+
+- 🐛 fix(table): docs debounce time api [#1599](https://github.com/ant-design/pro-components/pull/1599) [@hengkx](https://github.com/hengkx)
+
+## @ant-design/pro-table@2.25.0
+
+`2021-01-13`
+
+- 🐛 feat(table): table request add debounce wait [#1591](https://github.com/ant-design/pro-components/pull/1591) [@hengkx](https://github.com/hengkx)
+
+## @ant-design/pro-table@2.24.0
+
+`2021-01-12`
+
+- 💥 feat(table): table columns use tree [#1583](https://github.com/ant-design/pro-components/pull/1583) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.23.0
+
+`2021-01-11`
+
+- 🐛 fix(table): optimised type to suit oneapi [#1576](https://github.com/ant-design/pro-components/pull/1576) [@chenshuai2144](https://github.com/chenshuai2144)
+- feat: editable table add tableViewRender [#1572](https://github.com/ant-design/pro-components/pull/1572) [@tolerance-go](https://github.com/tolerance-go)
+
 ## @ant-design/pro-table@2.22.1
 
 `2021-01-08`

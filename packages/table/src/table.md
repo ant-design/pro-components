@@ -21,6 +21,10 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 
 ## 代码演示
 
+### 属性展示
+
+<code src="./demos/dynamic-settings.tsx"  background="#f5f5f5" iframe="500px"/>
+
 ### 查询表格
 
 <code src="./demos/single.tsx" background="#f5f5f5" height="500px" />
@@ -28,10 +32,6 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 ### DataSource
 
 <code src="./demos/dataSource.tsx" background="#f5f5f5" height="500px"/>
-
-### 动态设置
-
-<code src="./demos/dynamic-settings.tsx"  background="#f5f5f5" iframe="500px"/>
 
 ### 降级为普通表格
 
@@ -284,6 +284,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | manualRequest | 是否需要手动触发首次请求, 配置为 `true` 时不可隐藏搜索表单 | `boolean` | false |
 | editable | 可编辑表格的相关配置 | [TableRowEditable<T>](<(/components/editable-table)#editable-编辑行配置>) | - |
 | cardBordered | Table 和 Search 外围 Card 组件的边框 | `boolean \| {search?: boolean, table?: boolean}` | false |
+| debounceTime | 防抖时间 | `number` | 10 |
 
 #### RecordCreator
 
@@ -383,8 +384,8 @@ ref.current.cancelEditable(rowKey);
 | --- | --- | --- | --- |
 | title | 与 antd 中基本相同，但是支持通过传入一个方法 | `ReactNode \| ((config: ProColumnType<T>, type: ProTableTypes) => ReactNode)` | - |
 | tooltip | 会在 title 之后展示一个 icon，hover 之后提示一些信息 | string | - |
-| renderText | 类似 table 的 render，但是必须返回 string，如果只是希望转化枚举，可以使用 [valueEnum](#valueEnum) | `(text: any,record: T,index: number,action: UseFetchDataAction<RequestData<T>>) => string` | - |
-| render | 类似 table 的 render，第一个参数变成了 dom,增加了第四个参数 action | `(text: ReactNode,record: T,index: number,action: UseFetchDataAction<RequestData<T>>) => ReactNode \| ReactNode[]` | - |
+| renderText | 类似 table 的 render，但是必须返回 string，如果只是希望转化枚举，可以使用 [valueEnum](#valueEnum) | `(text: any,record: T,index: number,action: UseFetchDataAction<T>) => string` | - |
+| render | 类似 table 的 render，第一个参数变成了 dom,增加了第四个参数 action | `(text: ReactNode,record: T,index: number,action: UseFetchDataAction<T>) => ReactNode \| ReactNode[]` | - |
 | ellipsis | 是否自动缩略 | `boolean` | - |
 | copyable | 是否支持复制 | `boolean` | - |
 | valueEnum | 值的枚举，会自动转化把值当成 key 来取出要显示的内容 | [valueEnum](#valueenum) | - |

@@ -17,47 +17,6 @@ ProLayout 可以提供一个标准又不失灵活的中后台标准布局，同�
 
 页面中需要承载内容时，可以使用 ProLayout 来减少布局成本。
 
-### 和 umi 插件一起使用
-
-ProLayout 与 umi 配合使用会有最好的效果，umi 会把 config.ts 中的路由帮我们自动注入到配置的 layout 中，这样我们就可以免去手写菜单的烦恼。
-
-ProLayout 扩展了 umi 的 router 配置，新增了 name，icon，locale,hideInMenu,hideChildrenInMenu 等配置，这样可以更方便的生成菜单，在一个地方配置即可。数据格式如下：
-
-```ts | pure
-export interface MenuDataItem {
-  /** @name 子菜单 */
-  children?: MenuDataItem[];
-  /** @name 在菜单中隐藏子节点 */
-  hideChildrenInMenu?: boolean;
-  /** @name 在菜单中隐藏自己和子节点 */
-  hideInMenu?: boolean;
-  /** @name 菜单的icon */
-  icon?: React.ReactNode;
-  /** @name 自定义菜单的国际化 key */
-  locale?: string | false;
-  /** @name 菜单的名字 */
-  name?: string;
-  /** @name 用于标定选中的值，默认是 path */
-  key?: string;
-  /** @name disable 菜单选项 */
-  disabled?: boolean;
-  /** @name 路径 */
-  path?: string;
-  /**
-   * 当此节点被选中的时候也会选中 parentKeys 的节点
-   *
-   * @name 自定义父节点
-   */
-  parentKeys?: string[];
-  /** @name 隐藏自己，并且将子节点提升到与自己平级 */
-  flatMenu?: boolean;
-
-  [key: string]: any;
-}
-```
-
-ProLayout 会根据 `location.pathname` 来自动选中菜单，并且自动生成相应的面包屑。如果不想使用可以自己配置 `selectedKeys` 和 `openKeys` 来进行受控配置。
-
 ## 代码演示
 
 ### 基础使用
@@ -407,6 +366,48 @@ ProLayout 提供一些 api 删除用户不需要的区域。在 SettingDrawer �
 - `menuExtraRender` 可以为菜单增加一个额外内容，在菜单头和菜单之间
 
 > 在 layout 中所有的 xxxRender 都可以传入 false，来关闭渲染。
+
+### 和 umi 一起使用
+
+ProLayout 与 umi 配合使用会有最好的效果，umi 会把 config.ts 中的路由帮我们自动注入到配置的 layout 中，这样我们就可以免去手写菜单的烦恼。
+
+ProLayout 扩展了 umi 的 router 配置，新增了 name，icon，locale,hideInMenu,hideChildrenInMenu 等配置，这样可以更方便的生成菜单，在一个地方配置即可。数据格式如下：
+
+```ts | pure
+export interface MenuDataItem {
+  /** @name 子菜单 */
+  children?: MenuDataItem[];
+  /** @name 在菜单中隐藏子节点 */
+  hideChildrenInMenu?: boolean;
+  /** @name 在菜单中隐藏自己和子节点 */
+  hideInMenu?: boolean;
+  /** @name 在面包屑中隐藏 */
+  hideInBreadcrumb?: boolean;
+  /** @name 菜单的icon */
+  icon?: React.ReactNode;
+  /** @name 自定义菜单的国际化 key */
+  locale?: string | false;
+  /** @name 菜单的名字 */
+  name?: string;
+  /** @name 用于标定选中的值，默认是 path */
+  key?: string;
+  /** @name disable 菜单选项 */
+  disabled?: boolean;
+  /** @name 路径 */
+  path?: string;
+  /**
+   * @deprecated 当此节点被选中的时候也会选中 parentKeys 的节点
+   * @name 自定义父节点
+   */
+  parentKeys?: string[];
+  /** @name 隐藏自己，并且将子节点提升到与自己平级 */
+  flatMenu?: boolean;
+
+  [key: string]: any;
+}
+```
+
+ProLayout 会根据 `location.pathname` 来自动选中菜单，并且自动生成相应的面包屑。如果不想使用可以自己配置 `selectedKeys` 和 `openKeys` 来进行受控配置。
 
 ### 收起展开
 

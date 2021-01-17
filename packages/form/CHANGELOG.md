@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.13.9...@ant-design/pro-form@1.13.10) (2021-01-13)
+
+### Bug Fixes
+
+- **form:** default render form ([#1611](https://github.com/ant-design/pro-components/issues/1611)) ([fcdfeb6](https://github.com/ant-design/pro-components/commit/fcdfeb659c776250c7b70c4d71db2ac0609ee550))
+
+## [1.13.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.13.8...@ant-design/pro-form@1.13.9) (2021-01-12)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.13.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.13.7...@ant-design/pro-form@1.13.8) (2021-01-11)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
 ## [1.13.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.13.6...@ant-design/pro-form@1.13.7) (2021-01-11)
 
 **Note:** Version bump only for package @ant-design/pro-form

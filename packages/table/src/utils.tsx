@@ -15,13 +15,7 @@ import { proFieldParsingValueEnumToArray } from '@ant-design/pro-field';
 import get from 'rc-util/lib/utils/get';
 import type { IntlType } from '@ant-design/pro-provider';
 
-import type {
-  ActionType,
-  ProColumnGroupType,
-  ProColumns,
-  RequestData,
-  UseFetchDataAction,
-} from './typing';
+import type { ActionType, ProColumnGroupType, ProColumns, UseFetchDataAction } from './typing';
 import type { ColumnsState, useContainer } from './container';
 import defaultRenderText from './defaultRender';
 
@@ -100,7 +94,7 @@ export const genCopyable = (dom: React.ReactNode, item: ProColumns<any>, text: s
  */
 export function mergePagination<T>(
   pagination: TablePaginationConfig | boolean | undefined = {},
-  action: UseFetchDataAction<RequestData<T>>,
+  action: UseFetchDataAction<T>,
   intl: IntlType,
 ): TablePaginationConfig | false | undefined {
   if (pagination === false) {
@@ -141,7 +135,7 @@ export function mergePagination<T>(
  */
 export function useActionType<T>(
   ref: React.MutableRefObject<ActionType | undefined>,
-  action: UseFetchDataAction<RequestData<T>>,
+  action: UseFetchDataAction<T>,
   props: {
     fullScreen: () => void;
     onCleanSelected: () => void;

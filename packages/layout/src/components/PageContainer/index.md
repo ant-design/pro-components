@@ -82,3 +82,23 @@ PageContainer 封装了 ant design 的 PageHeader 组件，增加了 tabList 和
 | footer | 悬浮在底部的操作栏，传入一个数组，会自动加空格 | `ReactNode[]` | - |
 
 > fixedHeader 使用了 antd 的 Affix 实现，默认监听 body，如果你的滚动条不在 body 上需要人肉[设置](https://ant.design/components/affix-cn/)一下。
+
+### FooterToolbar
+
+| 参数     | 说明                            | 类型                       | 默认值 |
+| -------- | ------------------------------- | -------------------------- | ------ |
+| extra    | 额外内容区，位于 content 的右侧 | `ReactNode`                | -      |
+| children | 内容区域                        | `ReactNode`\|`ReactNode[]` | -      |
+
+FooterToolbar api 比较简单，主要功能是实现了在 layout 中自动控制浮动，使其不会挡住菜单。如果你没有使用 ProLayout 需要通过 style 来自定义宽度和浮动。
+
+```tsx | pure
+<FooterToolbar
+  style={{
+    left: 208,
+    width: `calc(100% - 208px)`,
+  }}
+>
+  <Button>提交</Button>
+</FooterToolbar>
+```

@@ -2,11 +2,24 @@ import type { FormItemProps } from 'antd/lib/form';
 
 export type GroupProps = {
   title?: React.ReactNode;
+  tooltip?: string;
+  extra?: React.ReactNode;
   /** 组件之前的间隔 */
   size?: number;
   style?: React.CSSProperties;
   titleStyle?: React.CSSProperties;
   titleRender?: (title: React.ReactNode, props: GroupProps) => React.ReactNode;
+  /** 子项的排列方式 */
+  direction?: 'horizontal' | 'vertical';
+  labelLayout?: 'inline' | 'twoLine';
+  /** 是否折叠 * */
+  collapsed?: boolean;
+  /** 是否可折叠 * */
+  collapsible?: boolean;
+  /** 默认的折叠状态 */
+  defaultCollapsed?: boolean;
+  /** 折叠修改的事件 */
+  onCollapse?: (collapsed: boolean) => void;
 };
 
 export type FieldProps = {

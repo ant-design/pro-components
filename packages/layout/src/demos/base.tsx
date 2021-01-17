@@ -130,6 +130,7 @@ export default () => {
         </PageContainer>
       </ProLayout>
       <SettingDrawer
+        pathname={pathname}
         getContainer={() => document.getElementById('test-pro-layout')}
         settings={settings}
         onSettingChange={(changeSetting) => setSetting(changeSetting)}

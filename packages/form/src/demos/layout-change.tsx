@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, message, Radio } from 'antd';
+import { Button, message } from 'antd';
 import ProForm, {
   ModalForm,
   DrawerForm,
@@ -9,6 +9,7 @@ import ProForm, {
   ProFormText,
   ProFormDateRangePicker,
   ProFormSelect,
+  ProFormRadio,
 } from '@ant-design/pro-form';
 import { PlusOutlined } from '@ant-design/icons';
 
@@ -33,12 +34,15 @@ export default () => {
   const FormComponents = Components[type];
   return (
     <>
-      <Radio.Group
+      <ProFormRadio.Group
         style={{
           margin: 16,
         }}
-        value={type}
-        onChange={(e) => setType(e.target.value)}
+        radioType="button"
+        fieldProps={{
+          value: type,
+          onChange: (e) => setType(e.target.value),
+        }}
         options={['LightFilter', 'ProForm', 'ModalForm', 'DrawerForm', 'QueryFilter']}
       />
       <div

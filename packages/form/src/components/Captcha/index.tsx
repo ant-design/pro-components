@@ -1,5 +1,5 @@
 ﻿import { Button, Input, Form } from 'antd';
-import { NamePath } from 'antd/lib/form/interface';
+import type { NamePath } from 'antd/lib/form/interface';
 import type { ButtonProps } from 'antd/lib/button';
 import type { InputProps } from 'antd/lib/input';
 import React, { useState, useCallback, useEffect } from 'react';
@@ -29,7 +29,7 @@ export type ProFormCaptchaProps = ProFormItemProps<InputProps> & {
 const ProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((props, ref: any) => {
   const [count, setCount] = useState<number>(props.countDown || 60);
   const [timing, setTiming] = useState(false);
-  const [loading, setLoading] = useState<ButtonProps['loading']>();
+  const [loading, setLoading] = useState<boolean>();
   // 这么写是为了防止restProps中 带入 onChange, defaultValue, rules props tabUtil
   const {
     rules,
@@ -47,9 +47,7 @@ const ProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((props, r
 
   const onGetCaptcha = useCallback(async (mobile: string) => {
     try {
-      setLoading({
-        delay: 100,
-      });
+      setLoading(true);
       await restProps.onGetCaptcha(mobile);
       setLoading(false);
       setTiming(true);

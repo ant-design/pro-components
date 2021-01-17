@@ -9,6 +9,20 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.13.10
+
+`2021-01-13`
+
+- 🐛 fix(form): fix the problem of duplicate form fields [#1607](https://github.com/ant-design/pro-components/pull/1607) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): default render form [#1611](https://github.com/ant-design/pro-components/pull/1611) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-form@1.13.8
+
+`2021-01-11`
+
+- fix(form): fix namePath is array error [#1579](https://github.com/ant-design/pro-components/pull/1579) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): lightSelect searchInput allowClear [#1568](https://github.com/ant-design/pro-components/pull/1568) [@oldturkey](https://github.com/oldturkey)
+
 ## @ant-design/pro-form@1.13.6
 
 `2021-01-08`

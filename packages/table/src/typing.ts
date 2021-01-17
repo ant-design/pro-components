@@ -29,14 +29,14 @@ export type PageInfo = {
 };
 
 export type RequestData<T> = {
-  data: T[];
+  data: T[] | undefined;
   success?: boolean;
   total?: number;
-  [key: string]: any;
-};
-export type UseFetchDataAction<T extends RequestData<any>> = {
-  dataSource: T['data'];
-  setDataSource: (dataSource: T['data']) => void;
+} & Record<string, any>;
+
+export type UseFetchDataAction<T = any> = {
+  dataSource: T[];
+  setDataSource: (dataSource: T[]) => void;
   loading: boolean | SpinProps | undefined;
   current: number;
   pageSize: number;
@@ -107,6 +107,9 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
 
     /** 在新建表单中删除 */
     hideInForm?: boolean;
+
+    /** 不在配置工具中显示 */
+    hideInSetting?: boolean;
 
     /** 表头的筛选菜单项 */
     filters?: boolean | ColumnFilterItem[];
@@ -182,7 +185,7 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
     },
     sort: Record<string, SortOrder>,
     filter: Record<string, React.ReactText[]>,
-  ) => Promise<RequestData<T>>;
+  ) => Promise<Partial<RequestData<T>>>;
 
   /** @name 对数据进行一些处理 */
   postData?: (data: any[]) => any[];
@@ -217,11 +220,12 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
 
   /** @name 操作栏配置 */
   options?: OptionConfig | false;
+
   /** @name 是否显示搜索表单 */
   search?: false | SearchConfig;
 
   /**
-   * 基本配置与 antd Form 相同, 但是劫持了 form 的配置
+   * 基本配置与 antd Form 相同, 但是劫持了 form onFinish 的配置
    *
    * @name type="form" 和 搜索表单 的 Form 配置
    */
@@ -273,6 +277,8 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   onDataSourceChange?: (dataSource: T[]) => void;
   /** @name 查询表单和 Table 的卡片 border 配置 */
   cardBordered?: Bordered;
+  /** Debounce time */
+  debounceTime?: number;
 } & Omit<TableProps<T>, 'columns' | 'rowSelection'>;
 
 export type ActionType = ProCoreActionType & {

@@ -278,14 +278,22 @@ describe('utils', () => {
         time: '2019-11-16 12:50:26',
         name: 'qixian',
         money: 20,
-        dateTimeRange: ['2019-11-16 12:50:26', '2019-11-16 12:55:26'],
+        test: {
+          name: 'test',
+        },
+        dateTimeRange: {
+          time: ['2019-11-16 12:50:26', '2019-11-16 12:55:26'],
+        },
         dateRange: ['2019-11-16 12:50:26', '2019-11-16 12:55:26'],
       },
       {
-        dateTimeRange: (value: any) => ({
-          dateTimeRange1: value[0],
-          dateTimeRange2: value[1],
-        }),
+        dateTimeRange: {
+          // @ts-ignore
+          time: (value: any) => ({
+            dateTimeRange1: value[0],
+            dateTimeRange2: value[1],
+          }),
+        },
         dateRange: (value: any) => ({
           dateRange1: value[0],
           dateRange2: value[1],
@@ -293,6 +301,7 @@ describe('utils', () => {
       },
     );
     const htmlKeys = Object.keys(html).sort();
+
     expect(htmlKeys).toEqual(
       [
         'dateTimeRange1',
@@ -302,9 +311,11 @@ describe('utils', () => {
         'dataTime',
         'time',
         'name',
+        'test',
         'money',
       ].sort(),
     );
+
     expect(htmlKeys).not.toEqual(
       ['dataTime', 'time', 'name', 'money', 'dateTimeRange', 'dateRange'].sort(),
     );

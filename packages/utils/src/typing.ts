@@ -46,8 +46,8 @@ export type ProFieldRequestData<U = any> = (
   props: any,
 ) => Promise<
   {
-    label: React.ReactNode;
-    value: React.ReactText;
+    label?: React.ReactNode;
+    value?: React.ReactText;
     [key: string]: any;
   }[]
 >;
@@ -237,7 +237,7 @@ export type ProSchema<
     | ProSchemaValueEnumMap;
 
   /** @name 从服务器请求枚举 */
-  request?: ProFieldRequestData<ProSchema>;
+  request?: ProFieldRequestData;
 
   /** @name 从服务器请求的参数，改变了会触发 reload */
   params?: Record<string, any>;

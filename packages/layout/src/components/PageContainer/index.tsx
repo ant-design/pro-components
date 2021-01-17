@@ -178,7 +178,9 @@ const defaultPageHeaderRender = (
     !pageHeaderProps.tags &&
     !pageHeaderProps.footer &&
     !pageHeaderProps.avatar &&
-    !pageHeaderProps.backIcon
+    !pageHeaderProps.backIcon &&
+    !content &&
+    !extraContent
   ) {
     return null;
   }

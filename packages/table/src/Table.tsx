@@ -168,11 +168,11 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       delete (actionParams as any)._timestamp;
       const response = await request((actionParams as unknown) as U, proSort, proFilter);
       const responseData = postDataPipeline<T[]>(
-        response.data,
+        response.data!,
         [postData].filter((item) => item) as any,
       );
       if (Array.isArray(response)) {
-        return response;
+        return response as RequestData<T>;
       }
       const msgData = { ...response, data: responseData } as RequestData<T>;
       return msgData;
@@ -189,6 +189,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       onRequestError,
       manual: !request || (!formSearch && search !== false),
       effects: [stringify(params), stringify(formSearch), stringify(proFilter), stringify(proSort)],
+      debounceTime: props.debounceTime,
     },
   );
   // ============================ END ============================
@@ -218,7 +219,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     if (typeof rowKey === 'function') {
       return rowKey;
     }
-    return (record: T, index: number) => (record as any)?.[rowKey as string] ?? `${index}`;
+    return (record: T, index: number) => (record as any)?.[rowKey as string] ?? index;
   }, [rowKey]);
 
   /** 可编辑行的相关配置 */
@@ -292,7 +293,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   useDeepCompareEffect(() => {
     if (tableColumn && tableColumn.length > 0) {
       // 重新生成key的字符串用于排序
-      const columnKeys = tableColumn.map((item, index) => genColumnKey(item.key, index));
+      const columnKeys = tableColumn.map((item) => genColumnKey(item.key, item.index));
       counter.setSortKeyColumns(columnKeys);
     }
   }, [tableColumn]);
@@ -515,7 +516,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
 
   /** 默认的 table dom，如果是编辑模式，外面还要包个 form */
   const baseTableDom = (
-    <Form component={false}>
+    <Form component={false} onValuesChange={editableUtils.onValuesChange}>
       <Table<T> {...tableProps} rowKey={rowKey} tableLayout={tableLayout} />
     </Form>
   );

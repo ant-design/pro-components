@@ -10,9 +10,8 @@ export type ProFormSwitchProps = ProFormItemProps<SwitchProps> & {
 };
 
 /**
- * 单选 Switch
- *
- * @param
+ * @zh-cn 单选 Switch
+ * @en-us Single Choice Switch
  */
 const ProFormSwitch: React.FC<ProFormSwitchProps> = React.forwardRef(
   ({ fieldProps, unCheckedChildren, checkedChildren, proFieldProps }, ref: any) => {

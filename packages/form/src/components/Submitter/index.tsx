@@ -14,9 +14,9 @@ export type SearchConfig = {
 
 export type SubmitterProps<T = {}> = {
   /** @name 提交方法 */
-  onSubmit?: () => void;
+  onSubmit?: (value?: T) => void;
   /** @name 重置方法 */
-  onReset?: () => void;
+  onReset?: (value?: T) => void;
   /** @name 搜索的配置，一般用来配置文本 */
   searchConfig?: SearchConfig;
   /** @name 提交按钮的 props */
@@ -26,7 +26,11 @@ export type SubmitterProps<T = {}> = {
   /** @name 自定义操作的渲染 */
   render?:
     | ((
-        props: SubmitterProps & T,
+        props: SubmitterProps &
+          T & {
+            submit: () => void;
+            reset: () => void;
+          },
         dom: JSX.Element[],
       ) => React.ReactNode[] | React.ReactNode | false)
     | false;
@@ -54,6 +58,16 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (props) => 
     resetButtonProps,
   } = props;
 
+  const submit = () => {
+    form.submit();
+    onSubmit?.();
+  };
+
+  const reset = () => {
+    form.resetFields();
+    onReset?.();
+  };
+
   const {
     submitText = intl.getMessage('tableForm.submit', '提交'),
     resetText = intl.getMessage('tableForm.reset', '重置'),
@@ -64,8 +78,7 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (props) => 
       {...resetButtonProps}
       key="rest"
       onClick={(e) => {
-        form.resetFields();
-        onReset?.();
+        reset();
         resetButtonProps?.onClick?.(e);
       }}
     >
@@ -76,8 +89,7 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (props) => 
       {...submitButtonProps}
       key="submit"
       onClick={(e) => {
-        form.submit();
-        onSubmit?.();
+        submit();
         submitButtonProps?.onClick?.(e);
       }}
     >
@@ -85,7 +97,7 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (props) => 
     </Button>,
   ];
 
-  const renderDom = render ? render(props, dom) : dom;
+  const renderDom = render ? render({ ...props, submit, reset }, dom) : dom;
   if (!renderDom) {
     return null;
   }

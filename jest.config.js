@@ -15,10 +15,10 @@ module.exports = {
     'packages/**/src/**/*.{ts,tsx}',
     '!packages/**/src/demos/**',
     '!packages/**/src/**/demos/**',
-    '!packages/**/src/components/ColumnSetting/**',
   ],
   moduleNameMapper,
-  testURL: 'http://localhost',
+  testURL:
+    'http://localhost?navTheme=realDark&layout=mix&primaryColor=daybreak&splitMenus=false&fixedHeader=true',
   verbose: true,
   snapshotSerializers: [require.resolve('enzyme-to-json/serializer')],
   extraSetupFiles: ['./tests/setupTests.js'],

@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 import { List, Skeleton, ConfigProvider } from 'antd';
+import type { ProCardProps } from '@ant-design/pro-card';
+import ProCard from '@ant-design/pro-card';
 import { RightOutlined } from '@ant-design/icons';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { ListGridType } from 'antd/lib/list';
@@ -68,6 +70,7 @@ export type ItemProps = {
   type?: 'new' | 'top' | 'inline' | 'subheader';
   isEditable: boolean;
   recordKey: string | number | undefined;
+  cardProps?: ProCardProps;
 };
 
 function ProListItem(props: ItemProps) {
@@ -85,6 +88,7 @@ function ProListItem(props: ItemProps) {
     item,
     recordKey,
     avatar,
+    cardProps,
     description,
     isEditable,
     checkbox,
@@ -123,62 +127,80 @@ function ProListItem(props: ItemProps) {
   const needExpanded = expanded || Object.values(expandableConfig || {}).length === 0;
   const expandedRowDom = expandedRowRender && expandedRowRender(item, index, indentSize, expanded);
 
-  return (
-    <div className={className} style={style}>
-      <List.Item
-        actions={actions ? [<div onClick={(e) => e.stopPropagation()}>{actions}</div>] : []}
-        {...rest}
-        onClick={() => {
-          if (expandRowByClick) {
-            onExpand(!expanded);
-          }
-        }}
-      >
-        <Skeleton avatar title={false} loading={loading} active>
-          <div className={`${className}-header`}>
-            <div className={`${className}-header-option`}>
-              {checkbox && <div className={`${className}-checkbox`}>{checkbox}</div>}
-              {Object.values(expandableConfig || {}).length > 0 &&
-                rowSupportExpand &&
-                renderExpandIcon({
-                  prefixCls,
-                  expandIcon,
-                  onExpand,
-                  expanded,
-                })}
-            </div>
-            {title || avatar || subTitle || description ? (
-              <List.Item.Meta
-                avatar={avatar}
-                title={
-                  title || subTitle ? (
-                    <div className={`${className}-header-title`}>
-                      {title && <div className={`${className}-title`}>{title}</div>}
-                      {subTitle && <div className={`${className}-subTitle`}>{subTitle}</div>}
-                    </div>
-                  ) : null
-                }
-                description={
-                  description &&
-                  needExpanded && <div className={`${className}-description`}>{description}</div>
-                }
-              />
-            ) : null}
+  const defaultDom = !cardProps ? (
+    <List.Item
+      actions={actions ? [<div onClick={(e) => e.stopPropagation()}>{actions}</div>] : []}
+      {...rest}
+      onClick={() => {
+        if (expandRowByClick) {
+          onExpand(!expanded);
+        }
+      }}
+    >
+      <Skeleton avatar title={false} loading={loading} active>
+        <div className={`${className}-header`}>
+          <div className={`${className}-header-option`}>
+            {checkbox && <div className={`${className}-checkbox`}>{checkbox}</div>}
+            {Object.values(expandableConfig || {}).length > 0 &&
+              rowSupportExpand &&
+              renderExpandIcon({
+                prefixCls,
+                expandIcon,
+                onExpand,
+                expanded,
+              })}
           </div>
-          {needExpanded && (content || expandedRowDom) && (
-            <div className={`${className}-content`}>
-              {content}
-              {expandedRowRender && rowSupportExpand && (
-                <div
-                  className={expandedRowClassName && expandedRowClassName(item, index, indentSize)}
-                >
-                  {expandedRowDom}
-                </div>
-              )}
-            </div>
-          )}
-        </Skeleton>
-      </List.Item>
+          {title || avatar || subTitle || description ? (
+            <List.Item.Meta
+              avatar={avatar}
+              title={
+                title || subTitle ? (
+                  <div className={`${className}-header-title`}>
+                    {title && <div className={`${className}-title`}>{title}</div>}
+                    {subTitle && <div className={`${className}-subTitle`}>{subTitle}</div>}
+                  </div>
+                ) : null
+              }
+              description={
+                description &&
+                needExpanded && <div className={`${className}-description`}>{description}</div>
+              }
+            />
+          ) : null}
+        </div>
+        {needExpanded && (content || expandedRowDom) && (
+          <div className={`${className}-content`}>
+            {content}
+            {expandedRowRender && rowSupportExpand && (
+              <div
+                className={expandedRowClassName && expandedRowClassName(item, index, indentSize)}
+              >
+                {expandedRowDom}
+              </div>
+            )}
+          </div>
+        )}
+      </Skeleton>
+    </List.Item>
+  ) : (
+    <ProCard
+      bordered
+      {...cardProps}
+      title={title}
+      subTitle={subTitle}
+      extra={actions ? [<div onClick={(e) => e.stopPropagation()}>{actions}</div>] : []}
+    >
+      {content}
+    </ProCard>
+  );
+  return (
+    <div
+      className={classNames(className, {
+        [`${className}-card`]: cardProps,
+      })}
+      style={style}
+    >
+      {defaultDom}
     </div>
   );
 }

@@ -2,7 +2,8 @@
 import React from 'react';
 import { Button } from 'antd';
 import { act } from 'react-dom/test-utils';
-import { StepsForm, StepsFormProps, ProFormText } from '@ant-design/pro-form';
+import type { StepsFormProps } from '@ant-design/pro-form';
+import { StepsForm, ProFormText } from '@ant-design/pro-form';
 import { waitForComponentToPaint } from '../util';
 
 describe('StepsForm', () => {

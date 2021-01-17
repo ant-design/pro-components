@@ -21,6 +21,10 @@ nav:
 
 <code src="./demos/custom.tsx" background="#f5f5f5" height="420px"/>
 
+### 实时保存的编辑表格
+
+<code src="./demos/real-time-editing.tsx" background="#f5f5f5" height="420px"/>
+
 ## API
 
 | 属性 | 描述 | 类型 | 默认值 |

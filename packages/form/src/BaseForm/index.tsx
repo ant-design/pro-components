@@ -1,17 +1,19 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useImperativeHandle, useMemo } from 'react';
 import { Form } from 'antd';
 import type { FormProps, FormInstance } from 'antd/lib/form/Form';
 import type { FormItemProps } from 'antd/lib/form';
 import { ConfigProviderWrap } from '@ant-design/pro-provider';
 import type { ProFieldValueType, SearchTransformKeyFn } from '@ant-design/pro-utils';
+import { runFunction } from '@ant-design/pro-utils';
 import {
   conversionSubmitValue,
   transformKeySubmitValue,
   useMountMergeState,
 } from '@ant-design/pro-utils';
+import { useUrlSearchParams } from 'use-url-search-params';
+
 import SizeContext from 'antd/lib/config-provider/SizeContext';
 import namePathSet from 'rc-util/lib/utils/set';
-import type { ButtonProps } from 'antd/lib/button';
 import FieldContext from '../FieldContext';
 import type { SubmitterProps } from '../components/Submitter';
 import Submitter from '../components/Submitter';
@@ -33,6 +35,8 @@ export type CommonFormProps = {
 
   /** @name 获取真正的可以获得值的 from */
   formRef?: React.MutableRefObject<FormInstance | undefined>;
+  /** @name 同步结果到 url 中 */
+  syncToUrl?: true | ((values: Record<string, any>, type: 'get' | 'set') => Record<string, any>);
 };
 
 export type BaseFormProps = {
@@ -42,12 +46,23 @@ export type BaseFormProps = {
     form: FormInstance<any>,
   ) => React.ReactNode;
   fieldProps?: FieldProps;
-  onInit?: () => void;
+  onInit?: (values: any) => void;
   dateFormatter?: 'number' | 'string' | false;
   formItemProps?: FormItemProps;
   groupProps?: GroupProps;
 } & Omit<FormProps, 'onFinish'> &
   CommonFormProps;
+
+const genParams = (
+  syncUrl: BaseFormProps['syncToUrl'],
+  params: Record<string, any>,
+  type: 'get' | 'set',
+) => {
+  if (syncUrl === true) {
+    return params;
+  }
+  return runFunction(syncUrl, params, type);
+};
 
 const BaseForm: React.FC<BaseFormProps> = (props) => {
   const {
@@ -61,16 +76,24 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
     form: userForm,
     formRef: propsFormRef,
     onInit,
+    syncToUrl,
+    onReset,
     ...rest
   } = props;
 
   const [form] = Form.useForm();
+  /** 同步 url 上的参数 */
+  const [urlSearch, setUrlSearch] = useUrlSearchParams({}, {});
   const formRef = useRef<FormInstance>(userForm || form);
+
+  // 初始化给一个默认的 form
+  useImperativeHandle(propsFormRef, () => formRef.current, []);
+
   const fieldsValueType = useRef<Record<string, ProFieldValueType>>({});
   /** 保存 transformKeyRef，用于对表单key transform */
   const transformKeyRef = useRef<Record<string, SearchTransformKeyFn | undefined>>({});
 
-  const [loading, setLoading] = useMountMergeState<ButtonProps['loading']>(false);
+  const [loading, setLoading] = useMountMergeState<boolean>(false);
 
   /** 因为 protable 里面的值无法保证刚开始就存在 所以多进行了一次触发，这样可以解决部分问题 */
   const [isUpdate, updateState] = useMountMergeState(false);
@@ -85,6 +108,18 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
       <Submitter
         key="submitter"
         {...submitterProps}
+        onReset={() => {
+          const finalValues = transformKeySubmitValue(
+            conversionSubmitValue(
+              formRef.current.getFieldsValue(),
+              dateFormatter,
+              fieldsValueType.current,
+            ),
+            transformKeyRef.current,
+          );
+          submitterProps?.onReset?.(finalValues);
+          onReset?.(finalValues);
+        }}
         form={userForm || form}
         submitButtonProps={{
           loading,
@@ -100,9 +135,25 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
   };
   useEffect(() => {
     if (isUpdate) {
-      onInit?.();
+      const finalValues = transformKeySubmitValue(
+        conversionSubmitValue(
+          formRef.current.getFieldsValue(),
+          dateFormatter,
+          fieldsValueType.current,
+        ),
+        transformKeyRef.current,
+      );
+      onInit?.(finalValues);
     }
-  }, [isUpdate]);
+  }, [dateFormatter, isUpdate]);
+
+  // 如果为 false，不需要触发设置进去
+  const urlParamsMergeInitialValues = useMemo(() => {
+    if (!syncToUrl) {
+      return {};
+    }
+    return genParams(syncToUrl, urlSearch, 'get');
+  }, [syncToUrl, urlSearch]);
 
   return (
     // 增加国际化的能力，与 table 组件可以统一
@@ -132,20 +183,41 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
             }}
             form={userForm || form}
             {...rest}
+            // 组合 urlSearch 和 initialValues
+            initialValues={{
+              ...urlParamsMergeInitialValues,
+              ...rest.initialValues,
+            }}
             onFinish={async (values) => {
               if (!rest.onFinish) {
                 return;
               }
-              setLoading({
-                delay: 100,
-              });
-              await rest.onFinish(
-                transformKeySubmitValue(
+              setLoading(true);
+
+              try {
+                const finalValues = transformKeySubmitValue(
                   conversionSubmitValue(values, dateFormatter, fieldsValueType.current),
                   transformKeyRef.current,
-                ),
-              );
-              setLoading(false);
+                );
+                await rest.onFinish(finalValues);
+
+                const params = Object.keys(finalValues).reduce((pre, next) => {
+                  return {
+                    ...pre,
+                    [next]: finalValues[next] || undefined,
+                  };
+                }, {});
+
+                if (syncToUrl) {
+                  /** 在同步到 url 上时对参数进行转化 */
+                  setUrlSearch(genParams(syncToUrl, params, 'set'));
+                }
+
+                setLoading(false);
+              } catch (error) {
+                // console.log(error);
+                setLoading(false);
+              }
             }}
           >
             <input

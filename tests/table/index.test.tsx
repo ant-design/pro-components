@@ -613,7 +613,6 @@ describe('BasicTable', () => {
           },
         ]}
         postData={undefined}
-        // @ts-expect-error
         request={async () => {
           fn();
           await waitTime(500);
@@ -1034,5 +1033,33 @@ describe('BasicTable', () => {
       />,
     );
     expect(html).toMatchSnapshot();
+  });
+
+  it('🎏 debounce time ', async () => {
+    const ref = React.createRef<ActionType>();
+    const fn = jest.fn();
+    const html = mount(
+      <ProTable
+        actionRef={ref as any}
+        size="small"
+        cardBordered
+        columns={columns}
+        request={async () => {
+          fn();
+          return Promise.resolve({
+            data: [],
+            total: 200,
+            success: true,
+          });
+        }}
+        rowKey="key"
+        debounceTime={500}
+      />,
+    );
+    await waitForComponentToPaint(html, 1200);
+    for (let i = 0; i < 10; i += 1) {
+      ref.current?.reload();
+    }
+    expect(fn).toBeCalledTimes(1);
   });
 });

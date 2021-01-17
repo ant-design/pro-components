@@ -2605,6 +2605,8 @@ exports[`Field 🐴 options support dom text 1`] = `
 
 exports[`Field 🐴 options support empty dom 1`] = `null`;
 
+exports[`Field 🐴 options support no text 1`] = `null`;
+
 exports[`Field 🐴 options support one dom 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"

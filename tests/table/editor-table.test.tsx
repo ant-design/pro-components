@@ -318,6 +318,109 @@ describe('EditorProTable', () => {
     expect(fn).toBeCalledWith([624748504]);
   });
 
+  it('📝 support onValuesChange', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        recordCreatorProps={false}
+        columns={columns}
+        value={defaultData}
+        editable={{
+          editableKeys: [624748504],
+          onValuesChange: (record) => {
+            fn(record.id);
+          },
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+
+    act(() => {
+      wrapper
+        .find('.ant-table-tbody tr.ant-table-row')
+        .at(0)
+        .find(`td .ant-input`)
+        .at(0)
+        .simulate('change', {
+          target: {
+            value: 'qixian',
+          },
+        });
+    });
+
+    expect(fn).toBeCalledWith(624748504);
+  });
+
+  it('📝 support newRecordType = dataSource', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        recordCreatorProps={{
+          newRecordType: 'dataSource',
+          record: {
+            id: Date.now(),
+          },
+        }}
+        columns={columns}
+        value={defaultData}
+        onChange={(list) => {
+          fn(list.length);
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+    act(() => {
+      wrapper.find('button.ant-btn-dashed').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper, 1000);
+    expect(fn).toBeCalledWith(4);
+  });
+
+  it('📝 support onValuesChange and recordCreatorProps', async () => {
+    const fn = jest.fn();
+    const newLineId = Date.now();
+    const wrapper = mount(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        recordCreatorProps={{
+          position: 'top',
+          record: {
+            id: newLineId,
+          },
+        }}
+        columns={columns}
+        value={defaultData}
+        editable={{
+          onValuesChange: (record) => {
+            fn(record.id);
+          },
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+
+    act(() => {
+      wrapper.find('button.ant-btn-dashed').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper, 200);
+    act(() => {
+      wrapper
+        .find('.ant-table-tbody tr.ant-table-row')
+        .at(0)
+        .find(`td .ant-input`)
+        .at(0)
+        .simulate('change', {
+          target: {
+            value: 'qixian',
+          },
+        });
+    });
+
+    expect(fn).toBeCalledWith(newLineId);
+  });
+
   it('📝 renderFormItem run defaultRender', async () => {
     const wrapper = render(
       <EditableProTable<DataSourceType>

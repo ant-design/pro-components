@@ -154,5 +154,3 @@ useEffect(() => {
 // Refresh
 ref.current.reload();
 ```
-
-**_ Translated with www.DeepL.com/Translator (free version) _**

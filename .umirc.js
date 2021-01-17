@@ -107,15 +107,6 @@ export default {
     devServerRender: false,
   },
   exportStatic: {},
-  externals:
-    process.env.NODE_ENV === 'development'
-      ? {
-          react: 'window.React',
-          'react-dom': 'window.ReactDOM',
-          moment: 'window.moment',
-          antd: 'window.antd',
-        }
-      : {},
   targets: {
     chrome: 80,
     firefox: false,
@@ -130,15 +121,6 @@ export default {
     process.env.NODE_ENV === 'development'
       ? ['https://gw.alipayobjects.com/os/lib/antd/4.6.6/dist/antd.css']
       : [],
-  scripts:
-    process.env.NODE_ENV === 'development'
-      ? [
-          'https://gw.alipayobjects.com/os/lib/react/16.13.1/umd/react.development.js',
-          'https://gw.alipayobjects.com/os/lib/react-dom/16.13.1/umd/react-dom.development.js',
-          'https://gw.alipayobjects.com/os/lib/moment/2.29.0/min/moment-with-locales.js',
-          'https://gw.alipayobjects.com/os/lib/antd/4.9.3/dist/antd-with-locales.js',
-        ]
-      : [],
   menus: {
     '/components': [
       {
@@ -151,7 +133,13 @@ export default {
       },
       {
         title: '数据录入',
-        children: ['form'],
+        children: [
+          'form',
+          'FieldSet/index',
+          'QueryFilter/index',
+          'StepsForm/index',
+          'ModalForm/index',
+        ],
       },
       {
         title: '数据展示',
@@ -165,7 +153,7 @@ export default {
     '/en-US/components': [
       {
         title: 'Architecture Design',
-        children: ['components'],
+        children: ['components.en-US.md'],
       },
       {
         title: 'Layout',
@@ -173,7 +161,13 @@ export default {
       },
       {
         title: 'Data entry',
-        children: ['form'],
+        children: [
+          'form',
+          'FieldSet/index',
+          'QueryFilter/index',
+          'StepsForm/index',
+          'ModalForm/index',
+        ],
       },
       {
         title: 'Data Display',

@@ -46,7 +46,6 @@ const columns: ProColumns<GithubIssueItem>[] = [
   {
     title: '状态',
     dataIndex: 'state',
-    initialValue: 'open',
     filters: true,
     onFilter: true,
     valueType: 'select',
@@ -70,6 +69,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
   {
     title: '标签',
     dataIndex: 'labels',
+    search: false,
     renderFormItem: (_, { defaultRender }) => {
       return defaultRender(_);
     },
@@ -85,9 +85,24 @@ const columns: ProColumns<GithubIssueItem>[] = [
   },
   {
     title: '创建时间',
-    key: 'created_at',
+    key: 'showTime',
     dataIndex: 'created_at',
     valueType: 'date',
+    hideInSearch: true,
+  },
+  {
+    title: '创建时间',
+    dataIndex: 'created_at',
+    valueType: 'dateRange',
+    hideInTable: true,
+    search: {
+      transform: (value) => {
+        return {
+          startTime: value[0],
+          endTime: value[1],
+        };
+      },
+    },
   },
   {
     title: '操作',
@@ -144,6 +159,18 @@ export default () => {
       rowKey="id"
       search={{
         labelWidth: 'auto',
+      }}
+      form={{
+        // 由于配置了 transform，提交的参与与定义的不同这里需要转化一下
+        syncToUrl: (values, type) => {
+          if (type === 'get') {
+            return {
+              ...values,
+              created_at: [values.startTime, values.endTime],
+            };
+          }
+          return values;
+        },
       }}
       pagination={{
         pageSize: 5,

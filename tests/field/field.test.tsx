@@ -572,6 +572,11 @@ describe('Field', () => {
     expect(html).toMatchSnapshot();
   });
 
+  it('🐴 options support no text', async () => {
+    const html = render(<Field text="qixian" valueType="option" mode="read" />);
+    expect(html).toMatchSnapshot();
+  });
+
   it('🐴 options support dom list', () => {
     const html = render(
       <Field

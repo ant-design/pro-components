@@ -4,7 +4,7 @@ import { useIntl } from '@ant-design/pro-provider';
 import type { TooltipProps } from 'antd/lib/tooltip';
 import type { TabPaneProps } from 'antd/lib/tabs';
 import classNames from 'classnames';
-import type { SearchProps } from 'antd/es/input';
+import type { SearchProps } from 'antd/lib/input';
 import { LabelIconTip } from '@ant-design/pro-utils';
 import type { ListToolBarHeaderMenuProps } from './HeaderMenu';
 import HeaderMenu from './HeaderMenu';

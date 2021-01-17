@@ -1,5 +1,93 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`PageContainer content is text and title is null 1`] = `
+<div
+  class="ant-pro-page-container"
+>
+  <div
+    class="ant-pro-page-container-warp"
+  >
+    <div
+      class="ant-page-header ant-page-header-ghost"
+    >
+      <div
+        class="ant-page-header-content"
+      >
+        <div
+          class="ant-pro-page-container-detail"
+        >
+          <div
+            class="ant-pro-page-container-main"
+          >
+            <div
+              class="ant-pro-page-container-row"
+            >
+              <div
+                class="ant-pro-page-container-content"
+              >
+                just so so
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-pro-grid-content"
+  >
+    <div
+      class="ant-pro-grid-content-children"
+    />
+  </div>
+</div>
+`;
+
+exports[`PageContainer content is text and title is null 2`] = `
+<div
+  class="ant-pro-page-container"
+>
+  <div
+    class="ant-pro-page-container-warp"
+  >
+    <div
+      class="ant-page-header ant-page-header-ghost"
+    >
+      <div
+        class="ant-page-header-content"
+      >
+        <div
+          class="ant-pro-page-container-detail"
+        >
+          <div
+            class="ant-pro-page-container-main"
+          >
+            <div
+              class="ant-pro-page-container-row"
+            >
+              <div
+                class="ant-pro-page-container-extraContent"
+              >
+                <div>
+                  extraContent
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-pro-grid-content"
+  >
+    <div
+      class="ant-pro-grid-content-children"
+    />
+  </div>
+</div>
+`;
+
 exports[`PageContainer ⚡️ support fixHeader 1`] = `
 <div
   class="ant-pro-page-container"

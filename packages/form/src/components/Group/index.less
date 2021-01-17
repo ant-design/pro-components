@@ -10,4 +10,39 @@
   &-container {
     flex-wrap: wrap;
   }
+
+  &-twoLine {
+    display: block;
+    width: 100%;
+
+    .@{pro-form-group-prefix-cls}-title {
+      width: 100%;
+      margin: 8px 0;
+    }
+    .@{pro-form-group-prefix-cls}-container {
+      padding-left: 16px;
+    }
+
+    .@{ant-prefix}-space-item,
+    .@{ant-prefix}-form-item {
+      width: 100%;
+    }
+
+    .@{ant-prefix}-form-item {
+      &-control {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        &-input {
+          align-items: center;
+          justify-content: flex-end;
+
+          &-content {
+            flex: none;
+          }
+        }
+      }
+    }
+  }
 }

@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.10.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.10.8...@ant-design/pro-layout@6.10.9) (2021-01-13)
+
+### Bug Fixes
+
+- **form:** fix the problem of duplicate form fields ([#1607](https://github.com/ant-design/pro-components/issues/1607)) ([fe237a3](https://github.com/ant-design/pro-components/commit/fe237a3b99738cc19afb8ff63551f5c08076dad7))
+
+## [6.10.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.10.7...@ant-design/pro-layout@6.10.8) (2021-01-13)
+
+### Bug Fixes
+
+- **layout:** layout return null when content has ([#1598](https://github.com/ant-design/pro-components/issues/1598)) ([eac6819](https://github.com/ant-design/pro-components/commit/eac6819476546b944d38ca324e1bf84db2e2b63e))
+
+## [6.10.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.10.6...@ant-design/pro-layout@6.10.7) (2021-01-12)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.10.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.10.5...@ant-design/pro-layout@6.10.6) (2021-01-11)
+
+### Bug Fixes
+
+- **layout:** fix layout headerTitleRender props type error ([#1570](https://github.com/ant-design/pro-components/issues/1570)) ([e366905](https://github.com/ant-design/pro-components/commit/e36690588613683a69d4eeb309f28758ddb1f8a8))
+
 ## [6.10.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.10.4...@ant-design/pro-layout@6.10.5) (2021-01-08)
 
 **Note:** Version bump only for package @ant-design/pro-layout
