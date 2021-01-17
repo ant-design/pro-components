@@ -383,4 +383,45 @@ describe('Table ColumnSetting', () => {
 
     await waitForComponentToPaint(html, 1000);
   });
+
+  it('🎏 columnSetting support hideInSetting', async () => {
+    const html = mount(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+            copyable: true,
+            hideInSetting: true,
+          },
+          {
+            title: 'Name2',
+            key: 'name2',
+            dataIndex: 'name2',
+            copyable: true,
+          },
+        ]}
+        dataSource={[
+          {
+            key: 1,
+            name: `TradeCode ${1}`,
+            createdAt: 1602572994055,
+          },
+        ]}
+        rowKey="key"
+      />,
+    );
+
+    await waitForComponentToPaint(html, 200);
+    act(() => {
+      const icon = html.find('.ant-pro-table-list-toolbar-setting-item .anticon-setting');
+      icon.simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 1000);
+
+    expect(html.find('.ant-tree-treenode').length).toBe(2);
+  });
 });
