@@ -107,6 +107,17 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
     submitter === false ? undefined : (
       <Submitter
         key="submitter"
+        onReset={() => {
+          const finalValues = transformKeySubmitValue(
+            conversionSubmitValue(
+              formRef.current.getFieldsValue(),
+              dateFormatter,
+              fieldsValueType.current,
+            ),
+            transformKeyRef.current,
+          );
+          onReset?.(finalValues);
+        }}
         {...submitterProps}
         form={userForm || form}
         submitButtonProps={{
@@ -175,17 +186,6 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
             initialValues={{
               ...urlParamsMergeInitialValues,
               ...rest.initialValues,
-            }}
-            onReset={() => {
-              const finalValues = transformKeySubmitValue(
-                conversionSubmitValue(
-                  formRef.current.getFieldsValue(),
-                  dateFormatter,
-                  fieldsValueType.current,
-                ),
-                transformKeyRef.current,
-              );
-              onReset?.(finalValues);
             }}
             onFinish={async (values) => {
               if (!rest.onFinish) {

@@ -18,7 +18,7 @@ describe('ProForm', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('📦 ProForm support sync form url', async () => {
+  fit('📦 ProForm support sync form url', async () => {
     const wrapper = mount(
       <ProForm onFinish={async () => {}} syncToUrl>
         <ProFormText name="navTheme" />
@@ -28,6 +28,10 @@ describe('ProForm', () => {
 
     act(() => {
       wrapper.find('button.ant-btn-primary').simulate('click');
+    });
+
+    act(() => {
+      wrapper.find('button.ant-btn').at(1).simulate('click');
     });
 
     await waitForComponentToPaint(wrapper);
