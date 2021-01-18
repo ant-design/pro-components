@@ -227,7 +227,7 @@ export const FieldRender: React.FC<
   );
 };
 
-const conversionProProSchemaToDescriptionsItem = (
+const schemaToDescriptionsItem = (
   items: ProDescriptionsItemProps<any>[],
   entity: any,
   action: ProCoreActionType<any>,
@@ -235,7 +235,7 @@ const conversionProProSchemaToDescriptionsItem = (
 ) => {
   const options: JSX.Element[] = [];
   // 因为 Descriptions 只是个语法糖，children 是不会执行的，所以需要这里处理一下
-  const children = items.map((item, index) => {
+  const children = items?.map?.((item, index) => {
     if (React.isValidElement(item)) {
       return item;
     }
@@ -407,7 +407,7 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
     });
   };
 
-  const { options, children } = conversionProProSchemaToDescriptionsItem(
+  const { options, children } = schemaToDescriptionsItem(
     getColumns(),
     action.dataSource || {},
     actionRef?.current || action,

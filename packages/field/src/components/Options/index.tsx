@@ -30,7 +30,8 @@ const FieldOptions: ProFieldFC<{}> = ({ text, mode: type, render, fieldProps }) 
       { mode: type, ...fieldProps },
       <></>,
     ) as unknown) as React.ReactNode[];
-    if (!doms || doms?.length < 1) {
+
+    if (!doms || doms?.length < 1 || !Array.isArray(doms)) {
       return null;
     }
 
