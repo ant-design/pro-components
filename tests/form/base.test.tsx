@@ -127,10 +127,12 @@ describe('ProForm', () => {
       test: 'test2',
     });
   });
+
   it('📦 ProForm support enter submit', async () => {
     const fn = jest.fn();
     const wrapper = mount(
       <ProForm
+        omitNil={false}
         onFinish={async () => {
           fn();
         }}
