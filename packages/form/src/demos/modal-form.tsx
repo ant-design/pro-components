@@ -18,7 +18,10 @@ const waitTime = (time: number = 100) => {
 
 export default () => {
   return (
-    <ModalForm
+    <ModalForm<{
+      name: string;
+      company: string;
+    }>
       title="新建表单"
       trigger={
         <Button type="primary">
@@ -31,7 +34,7 @@ export default () => {
       }}
       onFinish={async (values) => {
         await waitTime(2000);
-        console.log(values);
+        console.log(values.name);
         message.success('提交成功');
         return true;
       }}

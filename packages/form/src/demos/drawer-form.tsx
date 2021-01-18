@@ -19,7 +19,10 @@ const waitTime = (time: number = 100) => {
 export default () => {
   const formRef = useRef();
   return (
-    <DrawerForm
+    <DrawerForm<{
+      name: string;
+      company: string;
+    }>
       title="新建表单"
       formRef={formRef}
       trigger={
@@ -34,8 +37,7 @@ export default () => {
       }}
       onFinish={async (values) => {
         await waitTime(2000);
-        console.log(values);
-        console.log(formRef);
+        console.log(values.name);
         message.success('提交成功');
         // 不返回不会关闭弹框
         return true;

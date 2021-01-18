@@ -2,7 +2,6 @@
 import { Modal, ConfigProvider } from 'antd';
 import type { FormInstance, FormProps } from 'antd/lib/form';
 import type { ModalProps } from 'antd/lib/modal';
-import type { Store } from 'antd/lib/form/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'omit.js';
 import { createPortal } from 'react-dom';
@@ -11,14 +10,14 @@ import type { CommonFormProps } from '../../BaseForm';
 import BaseForm from '../../BaseForm';
 import { noteOnce } from 'rc-util/lib/warning';
 
-export type ModalFormProps = Omit<FormProps, 'onFinish' | 'title'> &
-  CommonFormProps & {
+export type ModalFormProps<T = Record<string, any>> = Omit<FormProps<T>, 'onFinish' | 'title'> &
+  CommonFormProps<T> & {
     /**
      * 接受返回一个boolean，返回 true 会关掉这个弹窗
      *
      * @name 表单结束后调用
      */
-    onFinish?: (formData: Store) => Promise<boolean | void>;
+    onFinish?: (formData: T) => Promise<boolean | void>;
 
     /** @name 用于触发抽屉打开的 dom */
     trigger?: JSX.Element;
@@ -43,7 +42,7 @@ export type ModalFormProps = Omit<FormProps, 'onFinish' | 'title'> &
     width?: ModalProps['width'];
   };
 
-const ModalForm: React.FC<ModalFormProps> = ({
+function ModalForm<T = Record<string, any>>({
   children,
   trigger,
   onVisibleChange,
@@ -52,7 +51,7 @@ const ModalForm: React.FC<ModalFormProps> = ({
   title,
   width,
   ...rest
-}) => {
+}: ModalFormProps<T>) {
   const [visible, setVisible] = useMergedState<boolean>(!!rest.visible, {
     value: rest.visible,
     onChange: onVisibleChange,
@@ -171,6 +170,6 @@ const ModalForm: React.FC<ModalFormProps> = ({
         })}
     </>
   );
-};
+}
 
 export default ModalForm;

@@ -5,12 +5,10 @@ import Group from '../../components/Group';
 import type { CommonFormProps } from '../../BaseForm';
 import BaseForm from '../../BaseForm';
 
-export type ProFormProps = Omit<FormProps, 'onFinish'> & CommonFormProps;
+export type ProFormProps<T = Record<string, any>> = Omit<FormProps<T>, 'onFinish'> &
+  CommonFormProps<T>;
 
-const ProForm: React.FC<ProFormProps> & {
-  Group: typeof Group;
-  useForm: typeof Form.useForm;
-} = (props) => {
+function ProForm<T = Record<string, any>>(props: ProFormProps<T>) {
   return (
     <BaseForm
       layout="vertical"
@@ -29,7 +27,7 @@ const ProForm: React.FC<ProFormProps> & {
       {...props}
     />
   );
-};
+}
 
 ProForm.Group = Group;
 ProForm.useForm = Form.useForm;

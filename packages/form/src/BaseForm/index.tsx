@@ -19,7 +19,7 @@ import type { SubmitterProps } from '../components/Submitter';
 import Submitter from '../components/Submitter';
 import type { GroupProps, FieldProps } from '../interface';
 
-export type CommonFormProps = {
+export type CommonFormProps<T extends Record<string, any> = Record<string, any>> = {
   submitter?:
     | SubmitterProps<{
         form?: FormInstance<any>;
@@ -31,30 +31,30 @@ export type CommonFormProps = {
    *
    * @name 表单结束后调用
    */
-  onFinish?: (formData: Record<string, any>) => Promise<boolean | void>;
+  onFinish?: (formData: T) => Promise<boolean | void>;
 
   /** @name 获取真正的可以获得值的 from */
   formRef?: React.MutableRefObject<FormInstance | undefined>;
   /** @name 同步结果到 url 中 */
-  syncToUrl?: true | ((values: Record<string, any>, type: 'get' | 'set') => Record<string, any>);
+  syncToUrl?: true | ((values: T, type: 'get' | 'set') => T);
 };
 
-export type BaseFormProps = {
+export type BaseFormProps<T = Record<string, any>> = {
   contentRender?: (
     items: React.ReactNode[],
     submitter: React.ReactElement<SubmitterProps> | undefined,
     form: FormInstance<any>,
   ) => React.ReactNode;
   fieldProps?: FieldProps;
-  onInit?: (values: any) => void;
+  onInit?: (values: T) => void;
   dateFormatter?: 'number' | 'string' | false;
   formItemProps?: FormItemProps;
   groupProps?: GroupProps;
 } & Omit<FormProps, 'onFinish'> &
-  CommonFormProps;
+  CommonFormProps<T>;
 
 const genParams = (
-  syncUrl: BaseFormProps['syncToUrl'],
+  syncUrl: BaseFormProps<any>['syncToUrl'],
   params: Record<string, any>,
   type: 'get' | 'set',
 ) => {
@@ -64,7 +64,7 @@ const genParams = (
   return runFunction(syncUrl, params, type);
 };
 
-const BaseForm: React.FC<BaseFormProps> = (props) => {
+function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   const {
     children,
     contentRender,
@@ -241,6 +241,6 @@ const BaseForm: React.FC<BaseFormProps> = (props) => {
       </FieldContext.Provider>
     </ConfigProviderWrap>
   );
-};
+}
 
 export default BaseForm;

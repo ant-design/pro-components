@@ -10,13 +10,13 @@ import type { CommonFormProps } from '../../BaseForm';
 import BaseForm from '../../BaseForm';
 import './index.less';
 
-export type LightFilterProps = {
+export type LightFilterProps<T> = {
   collapse?: boolean;
   collapseLabel?: React.ReactNode;
   bordered?: boolean;
   ignoreRules?: boolean;
-} & Omit<FormProps, 'onFinish'> &
-  CommonFormProps;
+} & Omit<FormProps<T>, 'onFinish'> &
+  CommonFormProps<T>;
 
 /**
  * 单行的查询表单，一般用于配合 table 或者 list使用 有时也会用于 card 的额外区域
@@ -158,7 +158,7 @@ const LightFilterContainer: React.FC<{
   );
 };
 
-const LightFilter: React.FC<LightFilterProps> = (props) => {
+function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
   const {
     size,
     collapse,
@@ -197,7 +197,7 @@ const LightFilter: React.FC<LightFilterProps> = (props) => {
             collapse={collapse}
             collapseLabel={collapseLabel}
             values={values}
-            onValuesChange={(newValues) => {
+            onValuesChange={(newValues: any) => {
               const newAllValues = {
                 ...values,
                 ...newValues,
@@ -231,6 +231,6 @@ const LightFilter: React.FC<LightFilterProps> = (props) => {
       }}
     />
   );
-};
+}
 
 export default LightFilter;
