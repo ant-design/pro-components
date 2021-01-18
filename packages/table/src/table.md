@@ -575,15 +575,15 @@ Form 的列是根据 `valueType` 来生成不同的类型。
 
 #### 代码演示
 
-<code src="./demos/ListToolBar/basic.tsx" background="#f0f2f5"/>
+<code src="./demos/ListToolBar/basic.tsx" background="#f0f2f5" title="基本使用" />
 
-<code src="./demos/ListToolBar/no-title.tsx" background="#f0f2f5"/>
+<code src="./demos/ListToolBar/no-title.tsx" background="#f0f2f5" title="无标题" desc="没有标题的情况下搜索框会前置。" />
 
-<code src="./demos/ListToolBar/multipleLine.tsx" background="#f0f2f5"/>
+<code src="./demos/ListToolBar/multipleLine.tsx" background="#f0f2f5" title="双行布局" desc="双行的情况下会有双行的布局形式。" />
 
-<code src="./demos/ListToolBar/tabs.tsx" background="#f0f2f5"/>
+<code src="./demos/ListToolBar/tabs.tsx" background="#f0f2f5"  title="带标签" desc="标签需配合 `multipleLine` 为 `true` 时使用。" />
 
-<code src="./demos/ListToolBar/menu.tsx" background="#f0f2f5"/>
+<code src="./demos/ListToolBar/menu.tsx" background="#f0f2f5" title="标题下拉菜单"/>
 
 #### ListToolBarProps
 
