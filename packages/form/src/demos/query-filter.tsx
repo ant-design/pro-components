@@ -9,9 +9,12 @@ import {
 
 export default () => {
   return (
-    <QueryFilter
+    <QueryFilter<{
+      name: string;
+      company: string;
+    }>
       onFinish={async (values) => {
-        console.log(values);
+        console.log(values.name);
       }}
     >
       <ProFormText name="name" label="应用名称" rules={[{ required: true }]} />

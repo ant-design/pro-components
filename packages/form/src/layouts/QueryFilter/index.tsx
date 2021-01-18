@@ -141,10 +141,10 @@ const flatMapItems = (items: React.ReactNode[], ignoreRules?: boolean): React.Re
   });
 };
 
-export type QueryFilterProps = Omit<FormProps, 'onFinish'> &
-  CommonFormProps &
+export type QueryFilterProps<T> = Omit<FormProps<T>, 'onFinish'> &
+  CommonFormProps<T> &
   BaseQueryFilterProps & {
-    onReset?: () => void;
+    onReset?: (values: T) => void;
   };
 
 const QueryFilterContent: React.FC<{
@@ -158,7 +158,7 @@ const QueryFilterContent: React.FC<{
   items: React.ReactNode[];
   submitter?: JSX.Element | false;
   showLength: number;
-  collapseRender: QueryFilterProps['collapseRender'];
+  collapseRender: QueryFilterProps<any>['collapseRender'];
   spanSize: {
     span: number;
     layout: FormProps['layout'];
@@ -295,7 +295,7 @@ const QueryFilterContent: React.FC<{
 
 const defaultWidth = isBrowser() ? 0 : 1024;
 
-const QueryFilter: React.FC<QueryFilterProps> = (props) => {
+function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
   const {
     collapsed: controlCollapsed,
     layout,
@@ -386,6 +386,6 @@ const QueryFilter: React.FC<QueryFilterProps> = (props) => {
       />
     </RcResizeObserver>
   );
-};
+}
 
 export default QueryFilter;

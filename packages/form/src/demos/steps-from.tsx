@@ -22,7 +22,9 @@ const waitTime = (time: number = 100) => {
 export default () => {
   return (
     <ProCard>
-      <StepsForm
+      <StepsForm<{
+        name: string;
+      }>
         onFinish={async (values) => {
           console.log(values);
           await waitTime(1000);
@@ -34,10 +36,13 @@ export default () => {
           },
         }}
       >
-        <StepsForm.StepForm
+        <StepsForm.StepForm<{
+          name: string;
+        }>
           name="base"
           title="创建实验"
-          onFinish={async () => {
+          onFinish={async ({ name }) => {
+            console.log(name);
             await waitTime(2000);
             return true;
           }}
@@ -54,7 +59,12 @@ export default () => {
           <ProFormDateRangePicker name="dateTime" label="时间区间" />
           <ProFormTextArea name="remark" label="备注" width="lg" placeholder="请输入备注" />
         </StepsForm.StepForm>
-        <StepsForm.StepForm name="checkbox" title="设置参数">
+        <StepsForm.StepForm<{
+          checkbox: string;
+        }>
+          name="checkbox"
+          title="设置参数"
+        >
           <ProFormCheckbox.Group
             name="checkbox"
             label="迁移类型"

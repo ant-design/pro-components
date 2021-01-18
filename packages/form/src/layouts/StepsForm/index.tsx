@@ -15,9 +15,7 @@ import './index.less';
 import type { ProFormProps } from '../ProForm';
 import type { SubmitterProps } from '../../components/Submitter';
 
-type Store = Record<string, any>;
-
-type StepsFormProps<T = Store> = {
+type StepsFormProps<T = Record<string, any>> = {
   /**
    * 返回 true 会重置步数，并且清空表单
    *
@@ -26,7 +24,7 @@ type StepsFormProps<T = Store> = {
   onFinish?: (values: T) => Promise<boolean | void>;
   current?: number;
   stepsProps?: StepsProps;
-  formProps?: ProFormProps;
+  formProps?: ProFormProps<T>;
   onCurrentChange?: (current: number) => void;
   /** 自定义步骤器 */
   stepsRender?: (
@@ -76,11 +74,11 @@ export const StepsFormProvide = React.createContext<
     }
   | undefined
 >(undefined);
-
-const StepsForm: React.FC<StepsFormProps> & {
-  StepForm: typeof StepForm;
-  useForm: typeof Form.useForm;
-} = (props) => {
+function StepsForm<T = Record<string, any>>(
+  props: StepsFormProps<T> & {
+    children: any;
+  },
+) {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-steps-form');
 
@@ -97,7 +95,7 @@ const StepsForm: React.FC<StepsFormProps> & {
     containerStyle,
     ...rest
   } = props;
-  const formDataRef = useRef(new Map<string, Store>());
+  const formDataRef = useRef(new Map<string, Record<string, any>>());
   const formMapRef = useRef(new Map<string, StepFormProps>());
   const formArrayRef = useRef<React.MutableRefObject<FormInstance<any> | undefined>[]>([]);
   const [formArray, setFormArray] = useMountMergeState<string[]>([]);
@@ -136,7 +134,7 @@ const StepsForm: React.FC<StepsFormProps> & {
           return;
         }
         setLoading(true);
-        const values = Array.from(formDataRef.current.values()).reduce((pre, cur) => {
+        const values: any = Array.from(formDataRef.current.values()).reduce((pre, cur) => {
           return {
             ...pre,
             ...cur,
@@ -337,7 +335,7 @@ const StepsForm: React.FC<StepsFormProps> & {
       </Form.Provider>
     </div>
   );
-};
+}
 
 StepsForm.StepForm = StepForm;
 StepsForm.useForm = Form.useForm;

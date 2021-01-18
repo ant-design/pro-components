@@ -3,7 +3,6 @@ import { ConfigProvider, Drawer } from 'antd';
 import type { FormInstance, FormProps } from 'antd/lib/form';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { DrawerProps } from 'antd/lib/drawer';
-import type { Store } from 'antd/lib/form/interface';
 import { createPortal } from 'react-dom';
 import omit from 'omit.js';
 
@@ -11,14 +10,14 @@ import type { CommonFormProps } from '../../BaseForm';
 import BaseForm from '../../BaseForm';
 import { noteOnce } from 'rc-util/lib/warning';
 
-export type DrawerFormProps = Omit<FormProps, 'onFinish' | 'title'> &
-  CommonFormProps & {
+export type DrawerFormProps<T = Record<string, any>> = Omit<FormProps, 'onFinish' | 'title'> &
+  CommonFormProps<T> & {
     /**
      * 接受返回一个boolean，返回 true 会关掉这个抽屉
      *
      * @name 表单结束后调用
      */
-    onFinish?: (formData: Store) => Promise<boolean | void>;
+    onFinish?: (formData: T) => Promise<boolean | void>;
 
     /** @name 用于触发抽屉打开的 dom */
     trigger?: JSX.Element;
@@ -42,7 +41,7 @@ export type DrawerFormProps = Omit<FormProps, 'onFinish' | 'title'> &
     width?: DrawerProps['width'];
   };
 
-const DrawerForm: React.FC<DrawerFormProps> = ({
+function DrawerForm<T = Record<string, any>>({
   children,
   trigger,
   onVisibleChange,
@@ -51,7 +50,7 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
   title,
   width,
   ...rest
-}) => {
+}: DrawerFormProps<T>) {
   const [visible, setVisible] = useMergedState<boolean>(!!rest.visible, {
     value: rest.visible,
     onChange: onVisibleChange,
@@ -176,6 +175,6 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
         })}
     </>
   );
-};
+}
 
 export default DrawerForm;

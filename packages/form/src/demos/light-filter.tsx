@@ -30,14 +30,17 @@ export default () => {
       </Radio.Group>
       <br />
       <br />
-      <LightFilter
+      <LightFilter<{
+        sex: string;
+        company: string;
+      }>
         initialValues={{
           name1: 'yutingzhao1991',
           name3: '2020-08-19',
           range: [20, 80],
         }}
         size={size}
-        onFinish={async (values) => console.log(values)}
+        onFinish={async (values) => console.log(values.sex)}
       >
         <ProFormSelect
           name="sex"

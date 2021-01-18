@@ -12,7 +12,10 @@ const waitTime = (time: number = 100) => {
 
 export default () => {
   return (
-    <ProForm
+    <ProForm<{
+      name: string;
+      company: string;
+    }>
       onFinish={async (values) => {
         await waitTime(2000);
         console.log(values);
