@@ -5,7 +5,7 @@ import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('QueryFilter', () => {
-  it('basic use', async () => {
+  it('🕵️‍♀️ basic use', async () => {
     const onFinish = jest.fn();
     const wrapper = mount(
       <QueryFilter
@@ -29,7 +29,7 @@ describe('QueryFilter', () => {
     });
   });
 
-  it('keep all field value when collapsed', async () => {
+  it('🕵️‍♀️ keep all field value when collapsed', async () => {
     const onFinish = jest.fn();
     const wrapper = mount(
       <QueryFilter
@@ -38,6 +38,7 @@ describe('QueryFilter', () => {
         initialValues={{
           a: 'testa',
           b: 'testb',
+          c: 'testc',
         }}
       >
         <ProFormText label="a" name="a" />
@@ -55,10 +56,42 @@ describe('QueryFilter', () => {
     expect(onFinish).toHaveBeenCalledWith({
       a: 'testa',
       b: 'testb',
+      c: 'testc',
     });
   });
 
-  it('labelWidth', async () => {
+  it('🕵️‍♀️ no keep collapsed field value', async () => {
+    const onFinish = jest.fn();
+    const wrapper = mount(
+      <QueryFilter
+        defaultCollapsed
+        onFinish={onFinish}
+        preserve={false}
+        initialValues={{
+          a: 'testa',
+          b: 'testb',
+          c: 'testc',
+        }}
+      >
+        <ProFormText label="a" name="a" />
+        <ProFormText label="b" name="b" />
+        <ProFormText label="c" name="c" />
+      </QueryFilter>,
+    );
+    act(() => {
+      wrapper.find('.ant-btn-primary').simulate('submit');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(wrapper.find('.ant-input').length).toEqual(2);
+    expect(wrapper.find('.ant-row.ant-form-item-hidden').length).toEqual(0);
+    expect(wrapper.find('.anticon-down').length).toEqual(1);
+    expect(onFinish).toHaveBeenCalledWith({
+      a: 'testa',
+      b: 'testb',
+    });
+  });
+
+  it('🕵️‍♀️ labelWidth', async () => {
     const wrapper = mount(
       <QueryFilter
         labelWidth={70}
@@ -74,7 +107,7 @@ describe('QueryFilter', () => {
     );
   });
 
-  it('responsive 512', async () => {
+  it('🕵️‍♀️ responsive 512', async () => {
     const wrapper = mount(
       <QueryFilter style={{ width: 512 }} defaultCollapsed>
         <ProFormText label="a" name="a" />
@@ -84,7 +117,7 @@ describe('QueryFilter', () => {
     expect(wrapper.find('.ant-row.ant-form-item-hidden').length).toEqual(1);
   });
 
-  it('responsive 1064', async () => {
+  it('🕵️‍♀️ responsive 1064', async () => {
     const wrapper = mount(
       <QueryFilter defaultCollapsed style={{ width: 1064 }}>
         <ProFormText label="a" name="a" />
@@ -96,7 +129,7 @@ describe('QueryFilter', () => {
     expect(wrapper.find('.ant-row.ant-form-item-hidden').length).toEqual(2);
   });
 
-  it('responsive 1064 with vertical', async () => {
+  it('🕵️‍♀️ responsive 1064 with vertical', async () => {
     const wrapper = mount(
       <QueryFilter style={{ width: 1064 }} defaultCollapsed layout="vertical">
         <ProFormText label="a" name="a" />
@@ -109,7 +142,7 @@ describe('QueryFilter', () => {
     expect(wrapper.find('.ant-row.ant-form-item-hidden').length).toEqual(1);
   });
 
-  it('submitter support render', async () => {
+  it('🕵️‍♀️ submitter support render', async () => {
     const fn = jest.fn();
     const wrapper = mount(
       <QueryFilter
@@ -167,7 +200,7 @@ describe('QueryFilter', () => {
     expect(fn).toBeCalled();
   });
 
-  it('collapseRender should work', async () => {
+  it('🕵️‍♀️ collapseRender should work', async () => {
     const wrapper = mount(
       <QueryFilter
         style={{ width: 1064 }}
@@ -192,7 +225,7 @@ describe('QueryFilter', () => {
     expect(wrapper.find('a.ant-pro-form-collapse-button').text()).toBe('close');
   });
 
-  it('QueryFilter support ProForm.Group', async () => {
+  it('🕵️‍♀️ QueryFilter support ProForm.Group', async () => {
     const wrapper = mount(
       <QueryFilter collapsed={true} layout="vertical">
         <ProFormGroup>
