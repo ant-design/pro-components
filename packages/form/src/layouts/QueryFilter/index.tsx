@@ -165,6 +165,7 @@ const QueryFilterContent: React.FC<{
   };
   optionRender: BaseQueryFilterProps['optionRender'];
   ignoreRules?: boolean;
+  preserve?: boolean;
 }> = (props) => {
   const intl = useIntl();
   const resetText = props.resetText || intl.getMessage('tableForm.reset', '重置');
@@ -236,6 +237,9 @@ const QueryFilterContent: React.FC<{
       currentSpan += colSpan;
 
       if (React.isValidElement(item) && hidden) {
+        if (!props.preserve) {
+          return null;
+        }
         return React.cloneElement(item, {
           hidden: true,
           key: itemKey || index,
@@ -311,6 +315,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
     labelWidth = '80',
     style,
     split,
+    preserve = true,
     ignoreRules,
     ...rest
   } = props;
@@ -345,6 +350,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
       }}
     >
       <BaseForm
+        preserve={preserve}
         {...rest}
         onReset={onReset}
         style={style}
@@ -378,6 +384,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
               submitter={renderSubmitter}
               items={items}
               split={split}
+              preserve={preserve}
               ignoreRules={ignoreRules}
               showLength={showLength}
             />

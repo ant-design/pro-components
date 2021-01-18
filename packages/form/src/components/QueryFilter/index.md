@@ -58,6 +58,7 @@ QueryFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 | labelWidth | label 宽度 | `number` \| `'auto'` | `98` |
 | span | 表单项宽度 | `number[0 - 24]` | - |
 | split | 每一行是否有分割线 | `boolean` | - |
+| preserve | 是否能够查询收起的数据，如果设置为 true，收起后的表单数据将会丢失 | `boolean` | true |
 
 #### 响应式断点规则
 
