@@ -90,7 +90,7 @@ ProForm 自带的 Filed ,与 valueType 基本上一一对应。
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| width | Field 的长度，我们归纳了常用的 Field 长度以及适合的场景，支持了一些枚举 "xs" , "s" , "m" , "l" , "x" | `number \| "xs" \| "s" \| "m" \| "l" \| "x"` | - |
+| width | Field 的长度，我们归纳了常用的 Field 长度以及适合的场景，支持了一些枚举 "xs" , "sm" , "md" ,"lg" , "xl" | `number \| "xs" \| "sm" \| "md" \| "lg" \| "xl"` | - |
 | tooltip | 会在 label 旁增加一个 icon，悬浮后展示配置的信息 | `string \| tooltipProps` | - |
 | secondary | 是否是次要控件，只针对 LightFilter 下有效 | `boolean` | `false` |
 | allowClear | 支持清除，针对 LightFilter 下有效，主动设置情况下同时也会透传给 `fieldProps` | `boolean` | `true` |
@@ -102,9 +102,9 @@ ProForm 自带的 Filed ,与 valueType 基本上一一对应。
 ![width info](https://gw.alipayobjects.com/zos/antfincdn/CyJPTSL07y/1574664269794-254db9de-2574-4361-bcf1-b82c6db0c80a.png)
 
 - `XS=104px` 适用于短数字、短文本或选项。
-- `S=216px` 适用于较短字段录入、如姓名、电话、ID 等。
-- `M=328px` 标准宽度，适用于大部分字段长度。
-- `L=440px` 适用于较长字段录入，如长网址、标签组、文件路径等。
+- `SM=216px` 适用于较短字段录入、如姓名、电话、ID 等。
+- `MD=328px` 标准宽度，适用于大部分字段长度。
+- `LG=440px` 适用于较长字段录入，如长网址、标签组、文件路径等。
 - `XL=552px` 适用于长文本录入，如长链接、描述、备注等，通常搭配自适应多行输入框或定高文本域使用。
 
 ### ProFormText
