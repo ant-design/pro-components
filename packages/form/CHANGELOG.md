@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.14.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.13.10...@ant-design/pro-form@1.14.0) (2021-01-18)
+
+### Bug Fixes
+
+- **form:** form supports generic types ([#1662](https://github.com/ant-design/pro-components/issues/1662)) ([aedbc18](https://github.com/ant-design/pro-components/commit/aedbc18c75177ae8132dc1861384bcd5d2660d25))
+- **form:** onFinish close loading when throw error ([#1639](https://github.com/ant-design/pro-components/issues/1639)) ([3a1451c](https://github.com/ant-design/pro-components/commit/3a1451c41900bf8cd0e1f574210fd2f562e75ac5))
+- **form:** query form support open rules ([#1653](https://github.com/ant-design/pro-components/issues/1653)) ([5833ea2](https://github.com/ant-design/pro-components/commit/5833ea2c0e5279a143d9e4cd53a0036d1c2fd4f1))
+- **form:** visible=true when simulate onVisibleChange ([#1658](https://github.com/ant-design/pro-components/issues/1658)) ([210ae8a](https://github.com/ant-design/pro-components/commit/210ae8a84b142a629997386d820869f8d3e4365b))
+
+### Features
+
+- **form:** form support omitNil ([#1666](https://github.com/ant-design/pro-components/issues/1666)) ([67e8416](https://github.com/ant-design/pro-components/commit/67e8416fa85a531c3b6e7b98c8ae0874a8c9b8f8))
+- **form:** QueryForm support preserve ([#1665](https://github.com/ant-design/pro-components/issues/1665)) ([fba2ed5](https://github.com/ant-design/pro-components/commit/fba2ed5a8462a27965b0df84f34a1563e41a216e))
+- **form:** support sync url ([#1650](https://github.com/ant-design/pro-components/issues/1650)) ([df6a8ec](https://github.com/ant-design/pro-components/commit/df6a8ec7340891691334ab4acc1c7d8679f649d7))
+- **table:** support hideInSetting props ([#1651](https://github.com/ant-design/pro-components/issues/1651)) ([2dee954](https://github.com/ant-design/pro-components/commit/2dee95453c79de23d967f285bb8aa9351b8b8cb0))
+
 ## [1.13.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.13.9...@ant-design/pro-form@1.13.10) (2021-01-13)
 
 ### Bug Fixes

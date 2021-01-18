@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.10.5...@ant-design/pro-utils@1.11.0) (2021-01-18)
+
+### Features
+
+- **form:** form support omitNil ([#1666](https://github.com/ant-design/pro-components/issues/1666)) ([67e8416](https://github.com/ant-design/pro-components/commit/67e8416fa85a531c3b6e7b98c8ae0874a8c9b8f8))
+- **table:** table support editable.onValuesChange ([#1644](https://github.com/ant-design/pro-components/issues/1644)) ([2017a46](https://github.com/ant-design/pro-components/commit/2017a463fd74fbd6334b2154b59ed0b4f48c4d89))
+
 ## [1.10.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.10.4...@ant-design/pro-utils@1.10.5) (2021-01-13)
 
 ### Bug Fixes

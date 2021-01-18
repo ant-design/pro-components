@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.26.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.25.1...@ant-design/pro-table@2.26.0) (2021-01-18)
+
+### Bug Fixes
+
+- **form:** query form support open rules ([#1653](https://github.com/ant-design/pro-components/issues/1653)) ([5833ea2](https://github.com/ant-design/pro-components/commit/5833ea2c0e5279a143d9e4cd53a0036d1c2fd4f1))
+
+### Features
+
+- **form:** support sync url ([#1650](https://github.com/ant-design/pro-components/issues/1650)) ([df6a8ec](https://github.com/ant-design/pro-components/commit/df6a8ec7340891691334ab4acc1c7d8679f649d7))
+- **table:** support hideInSetting props ([#1651](https://github.com/ant-design/pro-components/issues/1651)) ([2dee954](https://github.com/ant-design/pro-components/commit/2dee95453c79de23d967f285bb8aa9351b8b8cb0))
+- **table:** table support editable.onValuesChange ([#1644](https://github.com/ant-design/pro-components/issues/1644)) ([2017a46](https://github.com/ant-design/pro-components/commit/2017a463fd74fbd6334b2154b59ed0b4f48c4d89))
+
 ## [2.25.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.25.0...@ant-design/pro-table@2.25.1) (2021-01-13)
 
 ### Bug Fixes

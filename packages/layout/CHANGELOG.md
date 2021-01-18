@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.11.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.10.9...@ant-design/pro-layout@6.11.0) (2021-01-18)
+
+### Bug Fixes
+
+- **layout:** use use-url-search-params hooks sync url ([#1648](https://github.com/ant-design/pro-components/issues/1648)) ([e00fb5c](https://github.com/ant-design/pro-components/commit/e00fb5cbdc83a5ed830522d88b5b1f28671877df))
+
+### Features
+
+- **form:** support sync url ([#1650](https://github.com/ant-design/pro-components/issues/1650)) ([df6a8ec](https://github.com/ant-design/pro-components/commit/df6a8ec7340891691334ab4acc1c7d8679f649d7))
+
 ## [6.10.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.10.8...@ant-design/pro-layout@6.10.9) (2021-01-13)
 
 ### Bug Fixes

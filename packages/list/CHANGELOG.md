@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.2.20...@ant-design/pro-list@1.3.0) (2021-01-18)
+
+### Bug Fixes
+
+- **list:** fix card list no support Avatar error ([#1663](https://github.com/ant-design/pro-components/issues/1663)) ([f2109ad](https://github.com/ant-design/pro-components/commit/f2109ad361b2f51dac36f3db266d08225ae89d5c))
+
+### Features
+
+- **form:** support sync url ([#1650](https://github.com/ant-design/pro-components/issues/1650)) ([df6a8ec](https://github.com/ant-design/pro-components/commit/df6a8ec7340891691334ab4acc1c7d8679f649d7))
+
 ## [1.2.20](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.2.19...@ant-design/pro-list@1.2.20) (2021-01-13)
 
 **Note:** Version bump only for package @ant-design/pro-list

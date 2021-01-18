@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.8.7...@ant-design/pro-field@1.9.0) (2021-01-18)
+
+### Bug Fixes
+
+- **descriptions:** fix items=null throw error ([#1659](https://github.com/ant-design/pro-components/issues/1659)) ([5f2f845](https://github.com/ant-design/pro-components/commit/5f2f8457b60ea5700e597a839e1c3db8819dbbd5))
+
+### Features
+
+- **table:** table support editable.onValuesChange ([#1644](https://github.com/ant-design/pro-components/issues/1644)) ([2017a46](https://github.com/ant-design/pro-components/commit/2017a463fd74fbd6334b2154b59ed0b4f48c4d89))
+
 ## [1.8.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.8.6...@ant-design/pro-field@1.8.7) (2021-01-13)
 
 ### Bug Fixes
