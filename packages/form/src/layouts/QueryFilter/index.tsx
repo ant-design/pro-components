@@ -141,7 +141,7 @@ const flatMapItems = (items: React.ReactNode[], ignoreRules?: boolean): React.Re
   });
 };
 
-export type QueryFilterProps<T> = Omit<FormProps<T>, 'onFinish'> &
+export type QueryFilterProps<T = Record<string, any>> = Omit<FormProps<T>, 'onFinish'> &
   CommonFormProps<T> &
   BaseQueryFilterProps & {
     onReset?: (values: T) => void;
