@@ -47,7 +47,17 @@ All options in collapsed mode are collapsed by default, with or without values, 
 
 QueryFilter supports the following properties in addition to the API inherited from ProForm.
 
-| Parameters | Description | Type | Default | | --- | --- | --- | --- | collapsed | collapsed | Whether or not to collapse out-of-bounds form items for controlled mode | `boolean` | - | | defaultCollapsed | Whether or not to collapse out-of-order form items in default state | `boolean` | true | | onCollapse | Callback when toggling the collapsed state of the form | `(collapsed)=>void` | - | | hideRequiredMark | Hide the required markers for all form items, **hide by default** | `boolean` | true | | defaultColsNumber | The default number of controls to be displayed in the collapsed state, if not set or less than 0, one line of controls will be displayed; if the number is greater than or equal to the number of controls, the expand button will be hidden | `number` | - | | labelWidth | label width | `number` \| `'auto'` | `98` | | span | width of form items | `number[0 - 24]` | - | | split | whether each line has a split line | `boolean` | - |
+| Parameters | Description | Type | Default |
+| --- | --- | --- | --- |
+| collapsed | Whether or not to collapse out-of-bounds form items for controlled mode | `boolean` | - |
+| defaultCollapsed | Whether or not to collapse out-of-order form items in default state | `boolean` | true |
+| onCollapse | Callback when toggling the collapsed state of the form | `(collapsed)=>void` | - |
+| hideRequiredMark | Hide the required markers for all form items, **hide by default** | `boolean` | true |
+| defaultColsNumber | The default number of controls to be displayed in the collapsed state, if not set or less than 0, one line of controls will be displayed; if the number is greater than or equal to the number of controls, the expand button will be hidden | `number` | - |
+| labelWidth | label width | `number` \| `'auto'` | `98` |
+| span | width of form items | `number[0 - 24]` | - |
+| split | whether each line has a split line | `boolean` | - |
+| preserve | If set to true, the form data will be lost after being put away | `boolean` | true |
 
 #### Responsive Breakpoint Rules
 
@@ -80,5 +90,3 @@ LightFilter supports the following properties in addition to the API inherited f
 | --- | --- | --- | --- |
 | collapse | whether to collapse all fields by default | `boolean` | `false` |
 | collapseLabel | label of collapsed area | `ReactNode` | `MoreFilter <DownOutlined/>` |
-
-**_ Translated with www.DeepL.com/Translator (free version) _**
