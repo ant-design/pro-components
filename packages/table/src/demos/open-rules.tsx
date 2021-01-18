@@ -127,7 +127,7 @@ export default () => {
         labelWidth: 'auto',
       }}
       form={{
-        ignoreRules: true,
+        ignoreRules: false,
       }}
       pagination={{
         pageSize: 5,

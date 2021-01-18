@@ -27356,7 +27356,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
               class="ant-col ant-form-item-label"
             >
               <label
-                class=""
+                class="ant-form-item-required"
                 for="title"
                 title="标题"
               >
@@ -27446,7 +27446,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
               class="ant-col ant-form-item-label"
             >
               <label
-                class=""
+                class="ant-form-item-required"
                 for="state"
                 title="状态"
               >
