@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-descriptions@1.4.8
+
+`2021-01-18`
+
+- 🐛 fix(descriptions): fix items=null throw error [#1659](https://github.com/ant-design/pro-components/pull/1659) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-descriptions@1.4.3
 
 `2021-01-08`

@@ -9,6 +9,18 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.14.0
+
+`2021-01-18`
+
+- 🐛 fix(form): form supports generic types [#1662](https://github.com/ant-design/pro-components/pull/1662) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): visible=true when simulate onVisibleChange [#1658](https://github.com/ant-design/pro-components/pull/1658) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): query form support open rules [#1653](https://github.com/ant-design/pro-components/pull/1653) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): onFinish close loading when throw error [#1639](https://github.com/ant-design/pro-components/pull/1639) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(form): form support omitNil [#1666](https://github.com/ant-design/pro-components/pull/1666) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(form): QueryForm support preserve [#1665](https://github.com/ant-design/pro-components/pull/1665) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(form): support sync url [#1650](https://github.com/ant-design/pro-components/pull/1650) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-form@1.13.10
 
 `2021-01-13`

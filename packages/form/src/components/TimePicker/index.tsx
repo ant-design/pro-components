@@ -11,9 +11,9 @@ const valueType = 'time';
  *
  * @param
  */
-const ProFormTimePicker: React.FC<ProFormItemProps<
-  DatePickerProps
->> = React.forwardRef(({ fieldProps, proFieldProps }, ref: any) => (
+const ProFormTimePicker: React.FC<
+  ProFormItemProps<DatePickerProps>
+> = React.forwardRef(({ fieldProps, proFieldProps }, ref: any) => (
   <ProField
     ref={ref}
     text={fieldProps?.value || ''}

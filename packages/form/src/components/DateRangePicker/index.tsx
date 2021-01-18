@@ -11,9 +11,9 @@ const valueType = 'dateRange';
  *
  * @param
  */
-const ProFormDatePicker: React.FC<ProFormItemProps<
-  DatePickerProps
->> = React.forwardRef(({ fieldProps, proFieldProps }, ref) => (
+const ProFormDatePicker: React.FC<
+  ProFormItemProps<DatePickerProps>
+> = React.forwardRef(({ fieldProps, proFieldProps }, ref) => (
   <ProField
     ref={ref}
     text={fieldProps?.value}

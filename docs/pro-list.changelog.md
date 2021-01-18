@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-list@1.3.0
+
+`2021-01-18`
+
+- 🐛 fix(list): fix card list no support Avatar error [#1663](https://github.com/ant-design/pro-components/pull/1663) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-list@1.2.18
 
 `2021-01-12`

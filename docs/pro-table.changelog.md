@@ -9,6 +9,14 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.26.0
+
+`2021-01-18`
+
+- 💥 feat(table): onSave return response [#1578](https://github.com/ant-design/pro-components/pull/1578) [@DerrickTel](https://github.com/DerrickTel)
+- 💥 feat(table): support hideInSetting props [#1651](https://github.com/ant-design/pro-components/pull/1651) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(table): table support editable.onValuesChange [#1644](https://github.com/ant-design/pro-components/pull/1644) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.25.1
 
 `2021-01-13`

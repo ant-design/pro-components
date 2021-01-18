@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.11.0
+
+`2021-01-18`
+
+- 🐛 fix(layout): use use-url-search-params hooks sync url [#1648](https://github.com/ant-design/pro-components/pull/1648) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-layout@6.10.8
 
 `2021-01-13`

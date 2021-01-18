@@ -10,9 +10,9 @@ const valueType = 'dateWeek';
  *
  * @param
  */
-const ProFormDatePickerWeek: React.FC<ProFormItemProps<
-  WeekPickerProps
->> = React.forwardRef(({ proFieldProps, fieldProps }, ref: any) => (
+const ProFormDatePickerWeek: React.FC<
+  ProFormItemProps<WeekPickerProps>
+> = React.forwardRef(({ proFieldProps, fieldProps }, ref: any) => (
   <ProField
     ref={ref}
     text={fieldProps?.value}
