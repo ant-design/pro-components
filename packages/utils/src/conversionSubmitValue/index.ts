@@ -83,6 +83,7 @@ const conversionSubmitValue = <T = any>(
   value: T,
   dateFormatter: DateFormatter,
   valueTypeMap: Record<string, any>,
+  omitNil?: boolean,
   parentKey?: string,
 ): T => {
   const tmpValue = {} as T;
@@ -91,11 +92,11 @@ const conversionSubmitValue = <T = any>(
     const namePath = parentKey ? [parentKey, key] : [key];
     const valueType = get(valueTypeMap, namePath) || 'text';
     const itemValue = value[key];
-    if (isNil(itemValue)) {
+    if (isNil(itemValue) && omitNil) {
       return;
     }
     if (isPlainObject(itemValue)) {
-      tmpValue[key] = conversionSubmitValue(itemValue, dateFormatter, valueTypeMap, key);
+      tmpValue[key] = conversionSubmitValue(itemValue, dateFormatter, valueTypeMap, omitNil, key);
       return;
     }
     // 都没命中，原样返回

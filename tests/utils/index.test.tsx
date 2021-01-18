@@ -64,6 +64,22 @@ describe('utils', () => {
     expect(fn).toBeCalledTimes(2);
   });
 
+  fit('📅 conversionSubmitValue nil', async () => {
+    const html = conversionSubmitValue(
+      {
+        name: 'qixian',
+        money: null,
+      },
+      'string',
+      {
+        name: 'text',
+        money: 'text',
+      },
+      true,
+    );
+    expect(html.money === undefined).toBeTruthy();
+  });
+
   it('📅 conversionSubmitValue string', async () => {
     const html = conversionSubmitValue(
       {
@@ -94,7 +110,7 @@ describe('utils', () => {
     expect(html.timeRange2.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:50:26');
   });
 
-  it('📅 conversionSubmitValue string', async () => {
+  it('📅 conversionSubmitValue namePath string', async () => {
     const html = conversionSubmitValue<any>(
       {
         date: {

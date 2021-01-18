@@ -37,6 +37,14 @@ export type CommonFormProps<T extends Record<string, any> = Record<string, any>>
   formRef?: React.MutableRefObject<FormInstance | undefined>;
   /** @name 同步结果到 url 中 */
   syncToUrl?: true | ((values: T, type: 'get' | 'set') => T);
+  /**
+   * 如果为 false,会原样保存。
+   *
+   * @default true
+   * @param 要不要值中的 Null 和 undefined
+   */
+
+  omitNil?: boolean;
 };
 
 export type BaseFormProps<T = Record<string, any>> = {
@@ -78,6 +86,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
     onInit,
     syncToUrl,
     onReset,
+    omitNil = true,
     ...rest
   } = props;
 
@@ -102,6 +111,12 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   const submitterProps: SubmitterProps =
     typeof submitter === 'boolean' || !submitter ? {} : submitter;
 
+  const transformKey = (values: any) =>
+    transformKeySubmitValue(
+      conversionSubmitValue(values, dateFormatter, fieldsValueType.current, omitNil),
+      transformKeyRef.current,
+    );
+
   /** 渲染提交按钮与重置按钮 */
   const submitterNode =
     submitter === false ? undefined : (
@@ -109,14 +124,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
         key="submitter"
         {...submitterProps}
         onReset={() => {
-          const finalValues = transformKeySubmitValue(
-            conversionSubmitValue(
-              formRef.current.getFieldsValue(),
-              dateFormatter,
-              fieldsValueType.current,
-            ),
-            transformKeyRef.current,
-          );
+          const finalValues = transformKey(formRef.current.getFieldsValue());
           submitterProps?.onReset?.(finalValues);
           onReset?.(finalValues);
         }}
@@ -135,14 +143,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   };
   useEffect(() => {
     if (isUpdate) {
-      const finalValues = transformKeySubmitValue(
-        conversionSubmitValue(
-          formRef.current.getFieldsValue(),
-          dateFormatter,
-          fieldsValueType.current,
-        ),
-        transformKeyRef.current,
-      );
+      const finalValues = transformKey(formRef.current.getFieldsValue());
       onInit?.(finalValues);
     }
   }, [dateFormatter, isUpdate]);
@@ -193,12 +194,8 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
                 return;
               }
               setLoading(true);
-
               try {
-                const finalValues = transformKeySubmitValue(
-                  conversionSubmitValue(values, dateFormatter, fieldsValueType.current),
-                  transformKeyRef.current,
-                );
+                const finalValues = transformKey(values);
                 await rest.onFinish(finalValues);
 
                 const params = Object.keys(finalValues).reduce((pre, next) => {
