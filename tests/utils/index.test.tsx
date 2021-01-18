@@ -64,7 +64,7 @@ describe('utils', () => {
     expect(fn).toBeCalledTimes(2);
   });
 
-  fit('📅 conversionSubmitValue nil', async () => {
+  it('📅 conversionSubmitValue nil', async () => {
     const html = conversionSubmitValue(
       {
         name: 'qixian',
