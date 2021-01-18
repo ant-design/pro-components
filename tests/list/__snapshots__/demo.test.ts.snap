@@ -656,14 +656,14 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
               style="margin-left: -8px; margin-right: -8px;"
             >
               <div
-                style="width: 33.333333333333336%; max-width: 33.333333333333336%;"
+                style="width: 50%; max-width: 50%;"
               >
                 <div
                   class="ant-pro-list-row ant-pro-list-row-card"
                 >
                   <div
                     class="ant-pro-card ant-pro-card-border"
-                    column="3"
+                    column="2"
                   >
                     <div
                       class="ant-pro-card-header"
@@ -674,6 +674,19 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         <div
                           class="ant-pro-core-label-tip"
                         >
+                          <span
+                            class="ant-avatar ant-avatar-circle ant-avatar-image ant-list-item-meta-avatar"
+                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                          >
+                            <span
+                              class="ant-avatar ant-avatar-circle ant-avatar-image"
+                              style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            >
+                              <img
+                                src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                              />
+                            </span>
+                          </span>
                           语雀的天空
                           <div
                             class="ant-pro-core-label-tip-subtitle"
@@ -746,14 +759,14 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                 </div>
               </div>
               <div
-                style="width: 33.333333333333336%; max-width: 33.333333333333336%;"
+                style="width: 50%; max-width: 50%;"
               >
                 <div
                   class="ant-pro-list-row ant-pro-list-row-card"
                 >
                   <div
                     class="ant-pro-card ant-pro-card-border"
-                    column="3"
+                    column="2"
                   >
                     <div
                       class="ant-pro-card-header"
@@ -764,6 +777,19 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         <div
                           class="ant-pro-core-label-tip"
                         >
+                          <span
+                            class="ant-avatar ant-avatar-circle ant-avatar-image ant-list-item-meta-avatar"
+                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                          >
+                            <span
+                              class="ant-avatar ant-avatar-circle ant-avatar-image"
+                              style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            >
+                              <img
+                                src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                              />
+                            </span>
+                          </span>
                           Ant Design
                           <div
                             class="ant-pro-core-label-tip-subtitle"
@@ -836,14 +862,14 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                 </div>
               </div>
               <div
-                style="width: 33.333333333333336%; max-width: 33.333333333333336%;"
+                style="width: 50%; max-width: 50%;"
               >
                 <div
                   class="ant-pro-list-row ant-pro-list-row-card"
                 >
                   <div
                     class="ant-pro-card ant-pro-card-border"
-                    column="3"
+                    column="2"
                   >
                     <div
                       class="ant-pro-card-header"
@@ -854,6 +880,19 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         <div
                           class="ant-pro-core-label-tip"
                         >
+                          <span
+                            class="ant-avatar ant-avatar-circle ant-avatar-image ant-list-item-meta-avatar"
+                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                          >
+                            <span
+                              class="ant-avatar ant-avatar-circle ant-avatar-image"
+                              style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            >
+                              <img
+                                src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                              />
+                            </span>
+                          </span>
                           蚂蚁金服体验科技
                           <div
                             class="ant-pro-core-label-tip-subtitle"
@@ -926,14 +965,14 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                 </div>
               </div>
               <div
-                style="width: 33.333333333333336%; max-width: 33.333333333333336%;"
+                style="width: 50%; max-width: 50%;"
               >
                 <div
                   class="ant-pro-list-row ant-pro-list-row-card"
                 >
                   <div
                     class="ant-pro-card ant-pro-card-border"
-                    column="3"
+                    column="2"
                   >
                     <div
                       class="ant-pro-card-header"
@@ -944,6 +983,19 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         <div
                           class="ant-pro-core-label-tip"
                         >
+                          <span
+                            class="ant-avatar ant-avatar-circle ant-avatar-image ant-list-item-meta-avatar"
+                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                          >
+                            <span
+                              class="ant-avatar ant-avatar-circle ant-avatar-image"
+                              style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            >
+                              <img
+                                src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                              />
+                            </span>
+                          </span>
                           TechUI
                           <div
                             class="ant-pro-core-label-tip-subtitle"
@@ -1016,14 +1068,14 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                 </div>
               </div>
               <div
-                style="width: 33.333333333333336%; max-width: 33.333333333333336%;"
+                style="width: 50%; max-width: 50%;"
               >
                 <div
                   class="ant-pro-list-row ant-pro-list-row-card"
                 >
                   <div
                     class="ant-pro-card ant-pro-card-border"
-                    column="3"
+                    column="2"
                   >
                     <div
                       class="ant-pro-card-header"
@@ -1034,6 +1086,19 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         <div
                           class="ant-pro-core-label-tip"
                         >
+                          <span
+                            class="ant-avatar ant-avatar-circle ant-avatar-image ant-list-item-meta-avatar"
+                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                          >
+                            <span
+                              class="ant-avatar ant-avatar-circle ant-avatar-image"
+                              style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            >
+                              <img
+                                src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                              />
+                            </span>
+                          </span>
                           TechUI 2.0
                           <div
                             class="ant-pro-core-label-tip-subtitle"
@@ -1106,14 +1171,14 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                 </div>
               </div>
               <div
-                style="width: 33.333333333333336%; max-width: 33.333333333333336%;"
+                style="width: 50%; max-width: 50%;"
               >
                 <div
                   class="ant-pro-list-row ant-pro-list-row-card"
                 >
                   <div
                     class="ant-pro-card ant-pro-card-border"
-                    column="3"
+                    column="2"
                   >
                     <div
                       class="ant-pro-card-header"
@@ -1124,6 +1189,19 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         <div
                           class="ant-pro-core-label-tip"
                         >
+                          <span
+                            class="ant-avatar ant-avatar-circle ant-avatar-image ant-list-item-meta-avatar"
+                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                          >
+                            <span
+                              class="ant-avatar ant-avatar-circle ant-avatar-image"
+                              style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            >
+                              <img
+                                src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                              />
+                            </span>
+                          </span>
                           Bigfish
                           <div
                             class="ant-pro-core-label-tip-subtitle"
@@ -1196,14 +1274,14 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                 </div>
               </div>
               <div
-                style="width: 33.333333333333336%; max-width: 33.333333333333336%;"
+                style="width: 50%; max-width: 50%;"
               >
                 <div
                   class="ant-pro-list-row ant-pro-list-row-card"
                 >
                   <div
                     class="ant-pro-card ant-pro-card-border"
-                    column="3"
+                    column="2"
                   >
                     <div
                       class="ant-pro-card-header"
@@ -1214,6 +1292,19 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         <div
                           class="ant-pro-core-label-tip"
                         >
+                          <span
+                            class="ant-avatar ant-avatar-circle ant-avatar-image ant-list-item-meta-avatar"
+                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                          >
+                            <span
+                              class="ant-avatar ant-avatar-circle ant-avatar-image"
+                              style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            >
+                              <img
+                                src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                              />
+                            </span>
+                          </span>
                           Umi
                           <div
                             class="ant-pro-core-label-tip-subtitle"
@@ -1286,14 +1377,14 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                 </div>
               </div>
               <div
-                style="width: 33.333333333333336%; max-width: 33.333333333333336%;"
+                style="width: 50%; max-width: 50%;"
               >
                 <div
                   class="ant-pro-list-row ant-pro-list-row-card"
                 >
                   <div
                     class="ant-pro-card ant-pro-card-border"
-                    column="3"
+                    column="2"
                   >
                     <div
                       class="ant-pro-card-header"
@@ -1304,6 +1395,19 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         <div
                           class="ant-pro-core-label-tip"
                         >
+                          <span
+                            class="ant-avatar ant-avatar-circle ant-avatar-image ant-list-item-meta-avatar"
+                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                          >
+                            <span
+                              class="ant-avatar ant-avatar-circle ant-avatar-image"
+                              style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            >
+                              <img
+                                src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                              />
+                            </span>
+                          </span>
                           Ant Design Pro
                           <div
                             class="ant-pro-core-label-tip-subtitle"

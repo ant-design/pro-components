@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { List, Skeleton, ConfigProvider } from 'antd';
+import { List, Avatar, Skeleton, ConfigProvider } from 'antd';
 import type { ProCardProps } from '@ant-design/pro-card';
 import ProCard from '@ant-design/pro-card';
 import { RightOutlined } from '@ant-design/icons';
@@ -185,8 +185,14 @@ function ProListItem(props: ItemProps) {
   ) : (
     <ProCard
       bordered
+      loading={loading}
       {...cardProps}
-      title={title}
+      title={
+        <>
+          <Avatar size={22} src={avatar} className={getPrefixCls('list-item-meta-avatar')} />
+          {title}
+        </>
+      }
       subTitle={subTitle}
       extra={actions ? [<div onClick={(e) => e.stopPropagation()}>{actions}</div>] : []}
     >
