@@ -640,7 +640,14 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   };
 
   const proTableDom = (
-    <div className={className} id="ant-design-pro-table" style={style} ref={rootRef}>
+    <div
+      className={classNames(className, {
+        [`${className}-polling`]: action.pollingLoading,
+      })}
+      id="ant-design-pro-table"
+      style={style}
+      ref={rootRef}
+    >
       {isLightFilter ? null : searchNode}
       {/* 渲染一个额外的区域，用于一些自定义 */}
       {type !== 'form' && props.tableExtraRender && (

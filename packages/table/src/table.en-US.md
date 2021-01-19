@@ -320,7 +320,7 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | onDelete | Triggered when a line is deleted | `(key: Key, row: T) => Promise<boolean>` | - |
 | onCancel | Triggered when you cancel editing a line | `(key: Key, row: T,newLine?:newLineConfig) => Promise<boolean>` | - |
 | actionRender | Customize the action bar for edit mode | `(row: T, config: ActionRenderConfig<T>) => ReactNode[]` | - |
-| deletePopconfirmMessage | popup confirmation message when deleting | `ReactNode` | `Delete this row? ` |
+| deletePopconfirmMessage | popup confirmation message when deleting | `ReactNode` | `Delete this row?` |
 | onlyOneLineEditorAlertMessage | Message that only one line can be edited | `ReactNode` | `Only one line can be edited at a time` |
 | onlyAddOneLineAlertMessage | A prompt that can only add one line at a time | `ReactNode` | `Can only add one line at a time` |
 

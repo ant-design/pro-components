@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import {
   usePrevious,
   useDebounceFn,
@@ -56,6 +56,8 @@ const useFetchData = <T extends RequestData<any>>(
     mergeOptionAndPageInfo(options),
   );
 
+  const [pollingLoading, setPollingLoading] = useState(false);
+
   // Batching update  https://github.com/facebook/react/issues/14259
   const setDataAndLoading = (newData: T[], dataTotal: number) => {
     unstable_batchedUpdates(() => {
@@ -76,7 +78,7 @@ const useFetchData = <T extends RequestData<any>>(
   const { effects = [] } = options || {};
 
   /** 请求数据 */
-  const fetchList = async (pollingLoading: boolean) => {
+  const fetchList = async (isPolling: boolean) => {
     if (loading || requesting.current || !getData) {
       return;
     }
@@ -87,8 +89,10 @@ const useFetchData = <T extends RequestData<any>>(
       return;
     }
 
-    if (!pollingLoading) {
+    if (!isPolling) {
       setLoading(true);
+    } else {
+      setPollingLoading(true);
     }
 
     requesting.current = true;
@@ -123,17 +127,20 @@ const useFetchData = <T extends RequestData<any>>(
       }
       onRequestError(e);
     } finally {
-      setLoading(false);
+      requestAnimationFrame(() => {
+        setLoading(false);
+        setPollingLoading(false);
+      });
     }
   };
 
   const fetchListDebounce = useDebounceFn(
-    async (pollingLoading?: boolean) => {
+    async (isPolling?: boolean) => {
       if (pollingSetTimeRef.current) {
         clearTimeout(pollingSetTimeRef.current);
       }
       const needPolling = runFunction(polling, list);
-      const msg = await fetchList(pollingLoading ?? needPolling);
+      const msg = await fetchList(isPolling ?? needPolling);
       if (needPolling) {
         pollingSetTimeRef.current = setTimeout(() => {
           fetchListDebounce.run();
@@ -186,6 +193,7 @@ const useFetchData = <T extends RequestData<any>>(
       await fetchListDebounce.run(false);
     },
     pageInfo,
+    pollingLoading,
     reset: () => {
       setPageInfo(
         options?.pageInfo

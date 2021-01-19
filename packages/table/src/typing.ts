@@ -42,6 +42,7 @@ export type UseFetchDataAction<T = any> = {
   reload: () => Promise<void>;
   fullScreen?: () => void;
   reset: () => void;
+  pollingLoading: boolean;
   setPageInfo: (pageInfo: Partial<PageInfo>) => void;
 };
 
