@@ -449,4 +449,4 @@ export interface MenuDataItem {
 
 Sometimes we want the server to manage our routes, so we want the menus to be distributed by the server. We provide `menuDataRender` to modify the data, but note that `menuDataRender` will trigger re-rendering and will also support internationalization and permission configuration, so if you don't need internationalization, we recommend using `postMenuData` for a significant performance boost.
 
-The server needs to return the same data as `MenuDataItem`, `menuDataRender` needs to return an array, if you want to have better performance you can try using the route property in props, here is a [demo](/components/layout#from server) Here is a [demo](/components/layout#from server).
+The server needs to return the same data as `MenuDataItem`, `menuDataRender` needs to return an array, if you want to have better performance you can try using the route property in props, here is a [demo](/components/layout#load-from-server-menu).
