@@ -15,15 +15,15 @@ nav:
 
 ### 可编辑表格
 
-<code src="./demos/basic.tsx" background="#f5f5f5" height="420px"/>
+<code src="./demos/basic.tsx" background="#f5f5f5" height="420px" title="可编辑表格" />
 
 ### 自定义可编辑表格
 
-<code src="./demos/custom.tsx" background="#f5f5f5" height="420px"/>
+<code src="./demos/custom.tsx" background="#f5f5f5" height="420px" title="自定义可编辑表格" />
 
 ### 实时保存的编辑表格
 
-<code src="./demos/real-time-editing.tsx" background="#f5f5f5" height="420px"/>
+<code src="./demos/real-time-editing.tsx" background="#f5f5f5" height="420px" title="实时保存的编辑表格" />
 
 ## API
 

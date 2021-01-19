@@ -1,4 +1,3 @@
-/** Title: 可编辑表格 */
 import React, { useState } from 'react';
 import type { ProColumns } from '@ant-design/pro-table';
 import { EditableProTable } from '@ant-design/pro-table';
