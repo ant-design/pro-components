@@ -23,9 +23,9 @@ import type { ColumnsState, useContainer } from './container';
 import type { SearchConfig, TableFormItem } from './components/Form';
 
 export type PageInfo = {
-  page: number;
   pageSize: number;
   total: number;
+  current: number;
 };
 
 export type RequestData<T> = {
@@ -38,12 +38,9 @@ export type UseFetchDataAction<T = any> = {
   dataSource: T[];
   setDataSource: (dataSource: T[]) => void;
   loading: boolean | SpinProps | undefined;
-  current: number;
-  pageSize: number;
-  total: number;
+  pageInfo: PageInfo;
   reload: () => Promise<void>;
   fullScreen?: () => void;
-  resetPageIndex: () => void;
   reset: () => void;
   setPageInfo: (pageInfo: Partial<PageInfo>) => void;
 };
@@ -283,4 +280,25 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
 
 export type ActionType = ProCoreActionType & {
   fullScreen?: () => void;
+};
+
+export type UseFetchProps = {
+  dataSource?: any;
+  loading: UseFetchDataAction['loading'];
+  onLoadingChange?: (loading: UseFetchDataAction['loading']) => void;
+  onLoad?: (dataSource: any[], extra: any) => void;
+  onDataSourceChange?: (dataSource?: any) => void;
+  postData: any;
+  pageInfo:
+    | {
+        current?: number;
+        pageSize?: number;
+        defaultCurrent?: number;
+        defaultPageSize?: number;
+      }
+    | false;
+  effects?: any[];
+  onRequestError?: (e: Error) => void;
+  manual: boolean;
+  debounceTime?: number;
 };

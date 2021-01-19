@@ -5,70 +5,65 @@ import {
   useDeepCompareEffect,
   useMountMergeState,
 } from '@ant-design/pro-utils';
-import ReactDOM from 'react-dom';
-import type { PageInfo, RequestData, UseFetchDataAction } from './typing';
+import { unstable_batchedUpdates } from 'react-dom';
+import type { PageInfo, RequestData, UseFetchProps, UseFetchDataAction } from './typing';
+import { postDataPipeline } from './utils';
+
+/**
+ * 组合用户的配置和默认值
+ *
+ * @param param0
+ */
+const mergeOptionAndPageInfo = ({ pageInfo }: UseFetchProps) => {
+  if (pageInfo) {
+    const { current, defaultCurrent, pageSize, defaultPageSize } = pageInfo;
+    return {
+      current: current || defaultCurrent || 1,
+      total: 0,
+      pageSize: pageSize || defaultPageSize || 20,
+    };
+  }
+  return { current: 1, total: 0, pageSize: 20 };
+};
 
 const useFetchData = <T extends RequestData<any>>(
   getData: (params?: { pageSize: number; current: number }) => Promise<T>,
   defaultData: any[],
-  options: {
-    dataSource?: any;
-    loading: UseFetchDataAction['loading'];
-    onDataSourceChange?: (dataSource?: any) => void;
-    current?: number;
-    pageSize?: number;
-    defaultCurrent?: number;
-    defaultPageSize?: number;
-    effects?: any[];
-    onLoad?: (dataSource: any[]) => void;
-    onRequestError?: (e: Error) => void;
-    manual: boolean;
-    onLoadingChange?: (loading: UseFetchDataAction['loading']) => void;
-    pagination: boolean;
-    debounceTime?: number;
-  },
+  options: UseFetchProps,
 ): UseFetchDataAction => {
-  const {
-    pagination,
-    onLoadingChange,
-    onLoad = () => null,
-    manual,
-    onRequestError,
-    debounceTime = 10,
-  } = options || {};
+  const { onLoad, manual, onRequestError, debounceTime = 20 } = options || {};
 
   const [list, setList] = useMountMergeState<any[]>(defaultData as any, {
     value: options?.dataSource,
     onChange: options?.onDataSourceChange,
   });
 
-  const [loading, setLoading] = useMountMergeState<UseFetchDataAction['loading']>(undefined, {
+  const [loading, setLoading] = useMountMergeState<UseFetchDataAction['loading']>(false, {
     value: options?.loading,
-    onChange: onLoadingChange,
+    onChange: options?.onLoadingChange,
   });
 
   const requesting = useRef(false);
 
-  const [pageInfo, setPageInfo] = useMountMergeState<PageInfo>({
-    page: options?.current || options?.defaultCurrent || 1,
-    total: 0,
-    pageSize: options?.pageSize || options?.defaultPageSize || 20,
-  });
+  const [pageInfo, setPageInfo] = useMountMergeState<PageInfo>(() =>
+    mergeOptionAndPageInfo(options),
+  );
 
   // Batching update  https://github.com/facebook/react/issues/14259
   const setDataAndLoading = (newData: T[], dataTotal: number) => {
-    ReactDOM.unstable_batchedUpdates(() => {
+    unstable_batchedUpdates(() => {
       setList(newData);
-      setLoading(false);
-      setPageInfo({
-        ...pageInfo,
-        total: dataTotal,
-      });
+      if (pageInfo.total !== dataTotal) {
+        setPageInfo({
+          ...pageInfo,
+          total: dataTotal || newData.length,
+        });
+      }
     });
   };
 
   // pre state
-  const prePage = usePrevious(pageInfo.page);
+  const prePage = usePrevious(pageInfo.current);
   const prePageSize = usePrevious(pageInfo.pageSize);
 
   const { effects = [] } = options || {};
@@ -81,35 +76,38 @@ const useFetchData = <T extends RequestData<any>>(
     setLoading(true);
     requesting.current = true;
 
-    const { pageSize, page } = pageInfo;
+    const { pageSize, current } = pageInfo;
     try {
-      const { data = [], success, total: dataTotal = 0 } = await getData(
-        pagination !== false
+      const pageParams =
+        options?.pageInfo !== false
           ? {
-              current: page,
+              current,
               pageSize,
             }
-          : undefined,
-      );
+          : undefined;
+
+      const { data = [], success, total = 0, ...rest } = await getData(pageParams);
+
       requesting.current = false;
 
-      if (success !== false) {
-        setDataAndLoading(data, dataTotal);
-      } else {
-        setLoading(false);
+      if (success === false) {
+        return;
       }
-      if (onLoad) {
-        onLoad(data);
-      }
+      const responseData = postDataPipeline<T[]>(
+        data!,
+        [options.postData].filter((item) => item) as any,
+      );
+      setDataAndLoading(responseData, total);
+      onLoad?.(responseData, rest);
     } catch (e) {
-      setLoading(false);
       requesting.current = false;
       // 如果没有传递这个方法的话，需要把错误抛出去，以免吞掉错误
       if (onRequestError === undefined) {
         throw new Error(e);
-      } else {
-        onRequestError(e);
       }
+      onRequestError(e);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -117,10 +115,10 @@ const useFetchData = <T extends RequestData<any>>(
 
   /** PageIndex 改变的时候自动刷新 */
   useEffect(() => {
-    const { page, pageSize } = pageInfo;
+    const { current, pageSize } = pageInfo;
     // 如果上次的页码为空或者两次页码等于是没必要查询的
     // 如果 pageSize 发生变化是需要查询的，所以又加了 prePageSize
-    if ((!prePage || prePage === page) && (!prePageSize || prePageSize === pageSize)) {
+    if ((!prePage || prePage === current) && (!prePageSize || prePageSize === pageSize)) {
       return;
     }
     // 如果 list 的长度大于 pageSize 的长度
@@ -128,26 +126,27 @@ const useFetchData = <T extends RequestData<any>>(
     // (pageIndex - 1 || 1) 至少要第一页
     // 在第一页大于 10
     // 第二页也应该是大于 10
-    if (page !== undefined && list && list.length <= pageSize) {
+    if (current !== undefined && list && list.length <= pageSize) {
       fetchListDebounce.run();
     }
-  }, [pageInfo.page]);
+  }, [pageInfo.current]);
 
   // pageSize 修改后返回第一页
   useEffect(() => {
     if (!prePageSize) {
       return;
     }
-    /** 切换页面的时候清空一下数据，不然会造成判断失误。 会认为是本地分页而不是服务器分页从而不请求数据 */
+    /**
+     * 切换页面的时候清空一下数据，不然会造成判断失误。
+     *
+     * 会认为是本地分页而不是服务器分页从而不请求数据
+     */
     setList([]);
-    setPageInfo({ ...pageInfo, page: 1 });
+    setTimeout(() => {
+      setPageInfo({ ...pageInfo, current: 1 });
+    }, 0);
     fetchListDebounce.run();
   }, [pageInfo.pageSize]);
-
-  /** 重置pageIndex 到 1 */
-  const resetPageIndex = () => {
-    setPageInfo({ ...pageInfo, page: 1 });
-  };
 
   useDeepCompareEffect(() => {
     if (manual) {
@@ -164,22 +163,28 @@ const useFetchData = <T extends RequestData<any>>(
     setDataSource: setList,
     loading,
     reload: async () => fetchListDebounce.run(),
-    total: pageInfo.total,
-    resetPageIndex,
-    current: pageInfo.page,
+    pageInfo,
     reset: () => {
-      setPageInfo({
-        page: options?.defaultCurrent || 1,
-        total: 0,
-        pageSize: options?.defaultPageSize || 20,
-      });
+      setPageInfo(
+        options?.pageInfo
+          ? {
+              current: options?.pageInfo?.defaultCurrent || 1,
+              total: 0,
+              pageSize: options?.pageInfo?.defaultPageSize || 20,
+            }
+          : {
+              current: 1,
+              total: 0,
+              pageSize: 20,
+            },
+      );
     },
-    pageSize: pageInfo.pageSize,
-    setPageInfo: (info) =>
+    setPageInfo: (info) => {
       setPageInfo({
         ...pageInfo,
         ...info,
-      }),
+      });
+    },
   };
 };
 

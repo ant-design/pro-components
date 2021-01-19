@@ -319,7 +319,6 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
     ignoreRules,
     ...rest
   } = props;
-
   const [width, setWidth] = useMountMergeState(
     () => (typeof style?.width === 'number' ? style?.width : defaultWidth) as number,
   );
