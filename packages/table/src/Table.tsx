@@ -423,6 +423,10 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
             return;
           }
           const { name = 'keyword' } = options.search === true ? {} : options.search;
+
+          // back first page
+          action.resetPageIndex();
+
           setFormSearch(
             omitUndefined({
               ...formSearch,
