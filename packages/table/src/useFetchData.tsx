@@ -145,15 +145,6 @@ const useFetchData = <T extends RequestData<any>>(
     if (!prePageSize) {
       return;
     }
-    /**
-     * 切换页面的时候清空一下数据，不然会造成判断失误。
-     *
-     * 会认为是本地分页而不是服务器分页从而不请求数据
-     */
-    setList([]);
-    setTimeout(() => {
-      setPageInfo({ ...pageInfo, current: 1 });
-    }, 0);
     fetchListDebounce.run();
   }, [pageInfo.pageSize]);
 
