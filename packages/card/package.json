@@ -35,7 +35,8 @@
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
     "@ant-design/pro-utils": "1.11.0",
-    "classnames": "^2.2.6"
+    "classnames": "^2.2.6",
+    "omit.js": "^2.0.2"
   },
   "peerDependencies": {
     "antd": "4.x",
