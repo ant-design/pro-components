@@ -30,10 +30,16 @@ html {
 }
 .__dumi-default-layout-hero {
   background-image: url(https://gw.alipayobjects.com/zos/basement_prod/5edc7f4d-3302-4710-963b-7b6c77ea8d06.svg);
+  background-position-y: -10px;
   background-size: cover;
+  transition: 0.3s all;
+
+  &:hover {
+    background-position-y: -20px;
+  }
 
   h1 {
-    color: #fff;
+    color: #fff !important;
   }
 
   div > p {
