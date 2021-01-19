@@ -164,6 +164,7 @@ export const formInputRender: React.FC<{
     if (!React.isValidElement(dom)) {
       return dom;
     }
+
     const defaultProps = dom.props as any;
     if (defaultProps.isDefaultDom) {
       return dom;
@@ -342,10 +343,10 @@ const FormSearch = <T, U = any>({
       columnsListRef.current = newFormItemList;
       return newFormItemList;
     },
-    [isForm, type],
+    [formRef, intl, isForm, type],
   );
 
-  const [domList, setDomList] = useState<JSX.Element[]>(() => []);
+  const [domList, setDomList] = useState<JSX.Element[]>(() => updateDomList(columnsList));
 
   useDeepCompareEffect(() => {
     if (columnsList.length < 1) return;
@@ -375,7 +376,6 @@ const FormSearch = <T, U = any>({
     }),
     [submitButtonLoading],
   );
-
   return (
     <div
       className={classNames(className, {
