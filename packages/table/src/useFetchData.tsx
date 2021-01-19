@@ -27,11 +27,14 @@ const mergeOptionAndPageInfo = ({ pageInfo }: UseFetchProps) => {
 };
 
 const useFetchData = <T extends RequestData<any>>(
-  getData: (params?: { pageSize: number; current: number }) => Promise<T>,
+  getData: undefined | ((params?: { pageSize: number; current: number }) => Promise<T>),
   defaultData: any[],
   options: UseFetchProps,
 ): UseFetchDataAction => {
   const { onLoad, manual, onRequestError, debounceTime = 20 } = options || {};
+
+  /** 是否首次加载的指示器 */
+  const manualRequestRef = useRef<boolean>(manual);
 
   const [list, setList] = useMountMergeState<any[]>(defaultData as any, {
     value: options?.dataSource,
@@ -70,12 +73,18 @@ const useFetchData = <T extends RequestData<any>>(
 
   /** 请求数据 */
   const fetchList = async () => {
-    if (loading || requesting.current) {
+    if (loading || requesting.current || !getData) {
       return;
     }
+
+    // 需要手动触发的首次请求
+    if (manualRequestRef.current) {
+      manualRequestRef.current = false;
+      return;
+    }
+
     setLoading(true);
     requesting.current = true;
-
     const { pageSize, current } = pageInfo;
     try {
       const pageParams =
@@ -111,7 +120,7 @@ const useFetchData = <T extends RequestData<any>>(
     }
   };
 
-  const fetchListDebounce = useDebounceFn(fetchList, [], debounceTime);
+  const fetchListDebounce = useDebounceFn(fetchList, [manualRequestRef.current], debounceTime);
 
   /** PageIndex 改变的时候自动刷新 */
   useEffect(() => {
@@ -149,9 +158,6 @@ const useFetchData = <T extends RequestData<any>>(
   }, [pageInfo.pageSize]);
 
   useDeepCompareEffect(() => {
-    if (manual) {
-      return () => null;
-    }
     fetchListDebounce.run();
     return () => {
       fetchListDebounce.cancel();
@@ -162,7 +168,9 @@ const useFetchData = <T extends RequestData<any>>(
     dataSource: list,
     setDataSource: setList,
     loading,
-    reload: async () => fetchListDebounce.run(),
+    reload: async () => {
+      fetchListDebounce.run();
+    },
     pageInfo,
     reset: () => {
       setPageInfo(

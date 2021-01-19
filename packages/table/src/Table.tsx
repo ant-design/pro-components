@@ -96,9 +96,9 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     formRef: propRef,
     type = 'table',
     columnEmptyText = '-',
-    manualRequest = false,
     toolbar,
     rowKey,
+    manualRequest,
     ...rest
   } = props;
   const actionRef = useRef<ActionType>();
@@ -126,9 +126,22 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     [setSelectedRowKeys, setSelectedRows],
   );
 
-  const [formSearch, setFormSearch] = useMountMergeState<Record<string, any> | undefined>(
-    undefined,
-  );
+  const [formSearch, setFormSearch] = useMountMergeState<Record<string, any> | undefined>(() => {
+    // 如果手动模式，或者 search 不存在的时候设置为 undefined
+    // undefined 就不会触发首次加载
+    if (manualRequest || search !== false) {
+      return undefined;
+    }
+    return {};
+  });
+
+  const manual = useMemo(() => {
+    //  formSearch = undefined  满足条件就不触发加载
+    if (formSearch === undefined) {
+      return true;
+    }
+    return false;
+  }, [formSearch === undefined, search]);
 
   const [proFilter, setProFilter] = useMountMergeState<Record<string, React.ReactText[]>>({});
   const [proSort, setProSort] = useMountMergeState<Record<string, SortOrder>>({});
@@ -136,9 +149,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   /** 获取 table 的 dom ref */
   const rootRef = useRef<HTMLDivElement>(null);
   const intl = useIntl();
-
-  /** 是否首次加载的指示器 */
-  const manualRequestRef = useRef<boolean>(manualRequest);
 
   /** 需要初始化 不然默认可能报错 这里取了 defaultCurrent 和 current 为了保证不会重复刷新 */
   const fetchPagination =
@@ -148,26 +158,19 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
 
   // ============================ useFetchData ============================
   const action = useFetchData(
-    async (pageParams) => {
-      // 需要手动触发的首次请求
-      if (!request || manualRequestRef.current) {
-        manualRequestRef.current = false;
-        return {
-          data: props.dataSource || [],
-          success: true,
-        } as RequestData<T>;
-      }
-
-      const actionParams = {
-        ...(pageParams || {}),
-        ...formSearch,
-        ...params,
-      };
-      // eslint-disable-next-line no-underscore-dangle
-      delete (actionParams as any)._timestamp;
-      const response = await request((actionParams as unknown) as U, proSort, proFilter);
-      return response as RequestData<T>;
-    },
+    request
+      ? async (pageParams) => {
+          const actionParams = {
+            ...(pageParams || {}),
+            ...formSearch,
+            ...params,
+          };
+          // eslint-disable-next-line no-underscore-dangle
+          delete (actionParams as any)._timestamp;
+          const response = await request((actionParams as unknown) as U, proSort, proFilter);
+          return response as RequestData<T>;
+        }
+      : undefined,
     defaultData,
     {
       pageInfo: propsPagination === false ? false : fetchPagination,
@@ -178,7 +181,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       onLoadingChange,
       onRequestError,
       postData,
-      manual: !request || (!formSearch && search !== false),
+      manual,
       effects: [stringify(params), stringify(formSearch), stringify(proFilter), stringify(proSort)],
       debounceTime: props.debounceTime,
     },
@@ -409,6 +412,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         type={type}
         formRef={formRef}
         onSubmit={onSubmit}
+        manualRequest={manualRequest}
         onReset={onReset}
         dateFormatter={rest.dateFormatter}
         search={search}

@@ -84,6 +84,7 @@ export type TableFormItem<T, U = any> = {
   columns: ProColumns<U, any>[];
   formRef: React.MutableRefObject<FormInstance | undefined>;
   submitButtonLoading?: boolean;
+  manualRequest?: boolean;
   bordered?: boolean;
 } & Omit<FormItemProps, 'children' | 'onReset'>;
 
@@ -275,6 +276,7 @@ const FormSearch = <T, U = any>({
   dateFormatter = 'string',
   type,
   columns,
+  manualRequest,
   onReset,
   submitButtonLoading,
   search: searchConfig,
@@ -402,6 +404,8 @@ const FormSearch = <T, U = any>({
           if (type !== 'form') {
             // 重新计算一下dom
             setDomList(updateDomList(columnsList));
+            /** 如果是手动模式不需要提交 */
+            if (manualRequest) return;
             submit(values, true);
           }
         }}
