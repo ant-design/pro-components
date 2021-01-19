@@ -6,7 +6,7 @@ hero:
   title: ProComponents
   desc: 🏆 Use Ant Design like a Pro!
   actions:
-    - text: quick-start →
+    - text: 🥳 quick-start →
       link: /en-US/docs/getting-started
 
 features:
