@@ -145,6 +145,7 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   columns?: ProColumns<T, ValueType>[];
   /** @name ListToolBar 的属性 */
   toolbar?: ListToolBarProps;
+
   params?: U;
 
   columnsStateMap?: Record<string, ColumnsState>;
@@ -206,6 +207,13 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   /** @name 数据加载失败时触发 */
   onRequestError?: (e: Error) => void;
 
+  /**
+   * 是否轮询 ProTable 它不会自动提交表单，如果你想自动提交表单的功能，需要在 onValueChange 中调用 formRef.current?.submit()
+   *
+   * @param dataSource 返回当前的表单数据，你可以用它判断要不要打开轮询
+   */
+  polling?: number | ((dataSource: T[]) => number);
+
   /** @name 给封装的 table 的 className */
   tableClassName?: string;
 
@@ -218,7 +226,10 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   /** @name 操作栏配置 */
   options?: OptionConfig | false;
 
-  /** @name 是否显示搜索表单 */
+  /**
+   * @type SearchConfig
+   * @name 是否显示搜索表单
+   */
   search?: false | SearchConfig;
 
   /**
@@ -301,4 +312,5 @@ export type UseFetchProps = {
   onRequestError?: (e: Error) => void;
   manual: boolean;
   debounceTime?: number;
+  polling?: number | ((dataSource: any[]) => number);
 };

@@ -100,6 +100,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     toolbar,
     rowKey,
     manualRequest,
+    polling,
     ...rest
   } = props;
   const actionRef = useRef<ActionType>();
@@ -183,6 +184,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       onRequestError,
       postData,
       manual,
+      polling,
       effects: [stringify(params), stringify(formSearch), stringify(proFilter), stringify(proSort)],
       debounceTime: props.debounceTime,
     },
@@ -437,6 +439,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     beforeSearchSubmit,
     cardBordered,
     formRef,
+    manualRequest,
     pagination,
     props,
     propsColumns,

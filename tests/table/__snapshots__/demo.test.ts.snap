@@ -29051,7 +29051,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
               <div
                 class="ant-pro-table-list-toolbar-title"
               >
-                轮询
+                上次更新时间：00:00:00
               </div>
             </div>
           </div>

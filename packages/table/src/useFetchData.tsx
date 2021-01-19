@@ -4,6 +4,7 @@ import {
   useDebounceFn,
   useDeepCompareEffect,
   useMountMergeState,
+  runFunction,
 } from '@ant-design/pro-utils';
 import { unstable_batchedUpdates } from 'react-dom';
 import type { PageInfo, RequestData, UseFetchProps, UseFetchDataAction } from './typing';
@@ -31,10 +32,13 @@ const useFetchData = <T extends RequestData<any>>(
   defaultData: any[],
   options: UseFetchProps,
 ): UseFetchDataAction => {
-  const { onLoad, manual, onRequestError, debounceTime = 20 } = options || {};
+  const { onLoad, manual, polling, onRequestError, debounceTime = 20 } = options || {};
 
   /** 是否首次加载的指示器 */
   const manualRequestRef = useRef<boolean>(manual);
+
+  /** 轮询的setTime ID 存储 */
+  const pollingSetTimeRef = useRef<any>();
 
   const [list, setList] = useMountMergeState<any[]>(defaultData as any, {
     value: options?.dataSource,
@@ -72,7 +76,7 @@ const useFetchData = <T extends RequestData<any>>(
   const { effects = [] } = options || {};
 
   /** 请求数据 */
-  const fetchList = async () => {
+  const fetchList = async (pollingLoading: boolean) => {
     if (loading || requesting.current || !getData) {
       return;
     }
@@ -83,7 +87,10 @@ const useFetchData = <T extends RequestData<any>>(
       return;
     }
 
-    setLoading(true);
+    if (!pollingLoading) {
+      setLoading(true);
+    }
+
     requesting.current = true;
     const { pageSize, current } = pageInfo;
     try {
@@ -120,7 +127,23 @@ const useFetchData = <T extends RequestData<any>>(
     }
   };
 
-  const fetchListDebounce = useDebounceFn(fetchList, [manualRequestRef.current], debounceTime);
+  const fetchListDebounce = useDebounceFn(
+    async (pollingLoading?: boolean) => {
+      if (pollingSetTimeRef.current) {
+        clearTimeout(pollingSetTimeRef.current);
+      }
+      const needPolling = runFunction(polling, list);
+      const msg = await fetchList(pollingLoading ?? needPolling);
+      if (needPolling) {
+        pollingSetTimeRef.current = setTimeout(() => {
+          fetchListDebounce.run();
+        }, Math.max(needPolling, 2000));
+      }
+      return msg;
+    },
+    [manualRequestRef.current],
+    debounceTime,
+  );
 
   /** PageIndex 改变的时候自动刷新 */
   useEffect(() => {
@@ -136,7 +159,7 @@ const useFetchData = <T extends RequestData<any>>(
     // 在第一页大于 10
     // 第二页也应该是大于 10
     if (current !== undefined && list && list.length <= pageSize) {
-      fetchListDebounce.run();
+      fetchListDebounce.run(false);
     }
   }, [pageInfo.current]);
 
@@ -145,11 +168,11 @@ const useFetchData = <T extends RequestData<any>>(
     if (!prePageSize) {
       return;
     }
-    fetchListDebounce.run();
+    fetchListDebounce.run(false);
   }, [pageInfo.pageSize]);
 
   useDeepCompareEffect(() => {
-    fetchListDebounce.run();
+    fetchListDebounce.run(false);
     return () => {
       fetchListDebounce.cancel();
     };
@@ -160,7 +183,7 @@ const useFetchData = <T extends RequestData<any>>(
     setDataSource: setList,
     loading,
     reload: async () => {
-      fetchListDebounce.run();
+      await fetchListDebounce.run(false);
     },
     pageInfo,
     reset: () => {
