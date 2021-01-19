@@ -364,9 +364,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
 
   /** 查询表单相关的配置 */
   const searchNode = useMemo(() => {
-    if (search === false) {
-      return null;
-    }
     if (search === false && type !== 'form') {
       return null;
     }
