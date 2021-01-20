@@ -61,13 +61,23 @@ export const proFieldParsingText = (
   valueEnumParams: ProFieldValueEnumType,
 ): React.ReactNode => {
   if (Array.isArray(text)) {
-    return <Space>{text.map((value) => proFieldParsingText(value, valueEnumParams))}</Space>;
+    return (
+      <Space>
+        {text.map((value) => (
+          // @ts-ignore
+          <React.Fragment key={value?.value || value}>
+            {proFieldParsingText(value, valueEnumParams)}
+          </React.Fragment>
+        ))}
+      </Space>
+    );
   }
 
   const valueEnum = ObjToMap(valueEnumParams);
 
   if (!valueEnum.has(text) && !valueEnum.has(`${text}`)) {
-    return text;
+    // @ts-ignore
+    return text?.label || text;
   }
 
   const domText = (valueEnum.get(text) || valueEnum.get(`${text}`)) as {
@@ -77,10 +87,12 @@ export const proFieldParsingText = (
   };
 
   if (!domText) {
-    return text;
+    // @ts-ignore
+    return text?.label || text;
   }
 
   const { status, color } = domText;
+
   const Status = TableStatus[status || 'Init'];
   // 如果类型存在优先使用类型
   if (Status) {

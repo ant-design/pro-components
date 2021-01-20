@@ -100,6 +100,37 @@ export default () => {
             }}
           />
         </Descriptions.Item>
+        <Descriptions.Item label="多选 labelInValue">
+          <Field
+            text={[
+              {
+                value: 'open1',
+                label: '打开',
+              },
+              {
+                value: 'closed2',
+                label: '关闭',
+              },
+            ]}
+            mode={state}
+            valueType="checkbox"
+            valueEnum={{
+              all: { text: '全部', disabled: true, status: 'Default' },
+              open: {
+                text: '未解决',
+                status: 'Error',
+              },
+              closed: {
+                text: '已解决',
+                status: 'Success',
+              },
+              processing: {
+                text: '解决中',
+                status: 'Processing',
+              },
+            }}
+          />
+        </Descriptions.Item>
         <Descriptions.Item label="单选">
           <Field
             text="open"
