@@ -19,7 +19,8 @@ export default () => {
           // startTime 和 endTime 拼成 createTimeRanger
           return {
             ...values,
-            createTimeRanger: [values.startTime, values.endTime],
+            createTimeRanger:
+              values.startTime || values.endTime ? [values.startTime, values.endTime] : undefined,
           };
         }
         // expirationTime 不同步到 url
@@ -43,8 +44,8 @@ export default () => {
       <ProFormDateRangePicker
         transform={(values) => {
           return {
-            startTime: values[0],
-            endTime: values[1],
+            startTime: values ? values[0] : undefined,
+            endTime: values ? values[1] : undefined,
           };
         }}
         width="md"

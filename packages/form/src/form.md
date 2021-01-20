@@ -88,7 +88,7 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 
 打开时也会把 url 的参数设置为默认值，支持 transform, 但是要注意字段的映射。
 
-<code src="./demos/sync-to-url.tsx" height="548px"/>
+<code src="./demos/sync-to-url.tsx" height="376px"/>
 
 ### 固定页脚
 
