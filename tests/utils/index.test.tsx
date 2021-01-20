@@ -372,6 +372,41 @@ describe('utils', () => {
     expect(html.dateRange.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:55:26');
   });
 
+  it('📅 transformKeySubmitValue ignore empty transform', async () => {
+    const dataIn = {
+      dataTime: '2019-11-16 12:50:26',
+      time: '2019-11-16 12:50:26',
+      name: 'qixian',
+      money: 20,
+      dateTimeRange: ['2019-11-16 12:50:26', '2019-11-16 12:55:26'],
+      dateRange: ['2019-11-16 12:50:26', '2019-11-16 12:55:26'],
+    };
+    const html = transformKeySubmitValue(dataIn, {
+      dataTime: undefined,
+      time: undefined,
+    });
+    expect(html).toBe(dataIn);
+  });
+
+  it('📅 transformKeySubmitValue ignore React element', async () => {
+    const labelInValue = { label: <div>test</div>, value: 'LABEL' };
+    const dataIn = {
+      dataTime: '2019-11-16 12:50:26',
+      time: '2019-11-16 12:50:26',
+      tag: labelInValue,
+      money: 20,
+      dateTimeRange: ['2019-11-16 12:50:26', '2019-11-16 12:55:26'],
+      dateRange: ['2019-11-16 12:50:26', '2019-11-16 12:55:26'],
+    };
+    const html = transformKeySubmitValue(dataIn, {
+      dataTime: () => ['new-dataTime'],
+      time: undefined,
+    });
+    expect(html['new-dataTime']).toBe('2019-11-16 12:50:26');
+    expect(html['tag']).not.toBe(labelInValue);
+    expect(html.tag.label).toBe(labelInValue.label);
+  });
+
   it('📅 isNil', async () => {
     expect(isNil(null)).toBe(true);
     expect(isNil(undefined)).toBe(true);
