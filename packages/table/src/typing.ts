@@ -35,7 +35,7 @@ export type RequestData<T> = {
 } & Record<string, any>;
 
 export type UseFetchDataAction<T = any> = {
-  dataSource: T[] | undefined;
+  dataSource: T[];
   setDataSource: (dataSource: T[]) => void;
   loading: boolean | SpinProps | undefined;
   pageInfo: PageInfo;

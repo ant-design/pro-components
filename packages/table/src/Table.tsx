@@ -540,9 +540,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   );
 
   const editableDataSource = (): T[] => {
-    if (!action.dataSource) {
-      return [];
-    }
     const { options: newLineOptions, defaultValue: row } = editableUtils.newLineRecord || {};
     if (newLineOptions?.position === 'top') {
       return [row, ...action.dataSource];
@@ -554,7 +551,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     return [...action.dataSource, row];
   };
 
-  const tableProps = {
+  const getTableProps = () => ({
     ...rest,
     size: counter.tableSize,
     rowSelection: propsRowSelection === false ? undefined : rowSelection,
@@ -592,7 +589,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         setProSort(omitUndefined({ [`${sorter.field}`]: sorter.order as SortOrder }));
       }
     },
-  };
+  });
 
   /** 如果有 ellipsis ，设置 tableLayout 为 fixed */
   const tableLayout = props.columns?.some((item) => item.ellipsis) ? 'fixed' : 'auto';
@@ -600,7 +597,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   /** 默认的 table dom，如果是编辑模式，外面还要包个 form */
   const baseTableDom = action.dataSource ? (
     <Form component={false} onValuesChange={editableUtils.onValuesChange} key="table">
-      <Table<T> {...tableProps} rowKey={rowKey} tableLayout={tableLayout} />
+      <Table<T> {...getTableProps()} rowKey={rowKey} tableLayout={tableLayout} />
     </Form>
   ) : (
     <div
@@ -617,7 +614,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
 
   /** 自定义的 render */
   const tableDom = props.tableViewRender
-    ? props.tableViewRender(tableProps, baseTableDom)
+    ? props.tableViewRender(getTableProps(), baseTableDom)
     : baseTableDom;
 
   /** Table 区域的 dom，为了方便 render */

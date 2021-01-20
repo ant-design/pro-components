@@ -186,7 +186,7 @@ const useFetchData = <T extends RequestData<any>>(
   }, [...effects, manual]);
 
   return {
-    dataSource: list,
+    dataSource: list!,
     setDataSource: setList,
     loading,
     reload: async () => {
