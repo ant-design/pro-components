@@ -138,7 +138,7 @@ describe('BasicTable Search', () => {
       html.find('button.ant-btn').at(0).simulate('click');
     });
 
-    await waitForComponentToPaint(html, 500);
+    await waitForComponentToPaint(html, 300);
 
     expect(fn).toBeCalledTimes(2);
     expect(resetFn).toBeCalledTimes(1);
@@ -177,7 +177,7 @@ describe('BasicTable Search', () => {
       html.find('button.ant-btn').at(0).simulate('click');
     });
 
-    await waitForComponentToPaint(html, 500);
+    await waitForComponentToPaint(html, 200);
 
     expect(fn).toBeCalledTimes(2);
     expect(resetFn).toBeCalledTimes(1);

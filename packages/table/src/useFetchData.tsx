@@ -32,7 +32,7 @@ const useFetchData = <T extends RequestData<any>>(
   defaultData: any[],
   options: UseFetchProps,
 ): UseFetchDataAction => {
-  const { onLoad, manual, polling, onRequestError, debounceTime = 20 } = options || {};
+  const { onLoad, manual, polling, onRequestError, debounceTime = 10 } = options || {};
 
   /** 是否首次加载的指示器 */
   const manualRequestRef = useRef<boolean>(manual);
