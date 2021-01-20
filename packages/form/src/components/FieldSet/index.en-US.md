@@ -76,11 +76,11 @@ The name parameter must be an array, if it is a nested structure you can configu
 
 ### Full amount of form field
 
-<code src="../../demos/components-other.tsx" heigh="1774px"/>
+<code src="./demos/components-other.tsx" heigh="1774px"/>
 
 ### Read-only for form field
 
-<code src="../../demos/components-other-readonly.tsx" heigh="1774px"/>
+<code src="./demos/components-other-readonly.tsx" heigh="1774px"/>
 
 ## API
 
