@@ -85,15 +85,12 @@ function getButtonText({
  * @param className
  */
 function renderDefaultOption<T>(
-  options: ToolBarProps<T>['options'],
+  options: OptionConfig,
   defaultOptions: OptionConfig & {
     intl: IntlType;
   },
   columns: ColumnType<T>[],
 ) {
-  if (!options) {
-    return null;
-  }
   return Object.keys(options)
     .filter((item) => item)
     .map((key) => {
@@ -170,15 +167,13 @@ function ToolBar<T>({
       }),
     };
 
-    return (
-      renderDefaultOption<T>(
-        options,
-        {
-          ...defaultOptions,
-          intl,
-        },
-        columns,
-      ) || []
+    return renderDefaultOption<T>(
+      options,
+      {
+        ...defaultOptions,
+        intl,
+      },
+      columns,
     );
   }, [action, columns, intl, propsOptions]);
   // 操作列表
