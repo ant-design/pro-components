@@ -14,33 +14,33 @@ nav:
 
 ### 查询筛选
 
-<code src="../../demos/query-filter.tsx" height="168px"/>
+<code src="./demos/query-filter.tsx" height="168px"/>
 
 ### 查询筛选-默认收起
 
-<code src="../../demos/query-filter-collapsed.tsx" height="56px"/>
+<code src="./demos/query-filter-collapsed.tsx" height="56px"/>
 
 ### 查询筛选-垂直布局
 
-<code src="../../demos/query-filter-vertical.tsx"  height="172px"/>
+<code src="./demos/query-filter-vertical.tsx"  height="172px"/>
 
 ### 查询筛选-搜索
 
-<code src="../../demos/search-filter.tsx" background="#f0f2f5" height="274px"/>
+<code src="./demos/search-filter.tsx" background="#f0f2f5" height="274px"/>
 
 ### 轻量筛选
 
-<code src="../../demos/light-filter.tsx" height="86px"/>
+<code src="./demos/light-filter.tsx" height="86px"/>
 
 ### 轻量筛选-边框模式
 
-<code src="../../demos/light-filter-bordered.tsx" height="32px" />
+<code src="./demos/light-filter-bordered.tsx" height="32px" />
 
 ### 轻量筛选-折叠模式
 
 折叠模式下所有的选项都会默认折叠，不管是否有值，控件的 `secondary` 将不再有效。
 
-<code src="../../demos/light-filter-collapse.tsx" height="40px"/>
+<code src="./demos/light-filter-collapse.tsx" height="40px"/>
 
 ## API
 
