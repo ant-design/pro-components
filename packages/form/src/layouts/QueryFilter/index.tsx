@@ -370,25 +370,23 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
             marginRight: 16,
           },
         }}
-        contentRender={(items, renderSubmitter, form) =>
-          width ? (
-            <QueryFilterContent
-              spanSize={spanSize}
-              collapsed={controlCollapsed}
-              form={form}
-              collapseRender={collapseRender}
-              defaultCollapsed={defaultCollapsed}
-              onCollapse={onCollapse}
-              optionRender={optionRender}
-              submitter={renderSubmitter}
-              items={items}
-              split={split}
-              preserve={preserve}
-              ignoreRules={ignoreRules}
-              showLength={showLength}
-            />
-          ) : null
-        }
+        contentRender={(items, renderSubmitter, form) => (
+          <QueryFilterContent
+            spanSize={spanSize}
+            collapsed={controlCollapsed}
+            form={form}
+            collapseRender={collapseRender}
+            defaultCollapsed={defaultCollapsed}
+            onCollapse={onCollapse}
+            optionRender={optionRender}
+            submitter={renderSubmitter}
+            items={items}
+            split={split}
+            preserve={preserve}
+            ignoreRules={ignoreRules}
+            showLength={showLength}
+          />
+        )}
       />
     </RcResizeObserver>
   );

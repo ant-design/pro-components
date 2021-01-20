@@ -29,7 +29,7 @@ const mergeOptionAndPageInfo = ({ pageInfo }: UseFetchProps) => {
 
 const useFetchData = <T extends RequestData<any>>(
   getData: undefined | ((params?: { pageSize: number; current: number }) => Promise<T>),
-  defaultData: any[],
+  defaultData: any[] | undefined,
   options: UseFetchProps,
 ): UseFetchDataAction => {
   const { onLoad, manual, polling, onRequestError, debounceTime = 20 } = options || {};
@@ -40,7 +40,7 @@ const useFetchData = <T extends RequestData<any>>(
   /** 轮询的setTime ID 存储 */
   const pollingSetTimeRef = useRef<any>();
 
-  const [list, setList] = useMountMergeState<any[]>(defaultData as any, {
+  const [list, setList] = useMountMergeState<any[] | undefined>(defaultData, {
     value: options?.dataSource,
     onChange: options?.onDataSourceChange,
   });

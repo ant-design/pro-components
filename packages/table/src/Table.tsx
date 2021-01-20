@@ -6,7 +6,7 @@ import React, {
   useImperativeHandle,
   useEffect,
 } from 'react';
-import { Table, ConfigProvider, Form, Card } from 'antd';
+import { Table, ConfigProvider, Form, Card, Spin } from 'antd';
 import type { ParamsType } from '@ant-design/pro-provider';
 import { useIntl, ConfigProviderWrap } from '@ant-design/pro-provider';
 import classNames from 'classnames';
@@ -72,7 +72,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     request,
     className: propsClassName,
     params = {},
-    defaultData = [],
+    defaultData,
     headerTitle,
     postData,
     pagination: propsPagination,
@@ -244,7 +244,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     ...props.editable,
     getRowKey,
     childrenColumnName: props.expandable?.childrenColumnName,
-    dataSource: action.dataSource,
+    dataSource: action.dataSource || [],
     setDataSource: action.setDataSource,
   });
 
@@ -361,7 +361,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       setSelectedRowsAndKey(keys, rows);
     },
   };
-
   /** 查询表单相关的配置 */
   const searchNode = useMemo(() => {
     if (search === false && type !== 'form') {
@@ -508,6 +507,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       />
     );
   }, [
+    action,
     formSearch,
     headerTitle,
     isLightFilter,
@@ -540,6 +540,9 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   );
 
   const editableDataSource = (): T[] => {
+    if (!action.dataSource) {
+      return [];
+    }
     const { options: newLineOptions, defaultValue: row } = editableUtils.newLineRecord || {};
     if (newLineOptions?.position === 'top') {
       return [row, ...action.dataSource];
@@ -595,10 +598,21 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   const tableLayout = props.columns?.some((item) => item.ellipsis) ? 'fixed' : 'auto';
 
   /** 默认的 table dom，如果是编辑模式，外面还要包个 form */
-  const baseTableDom = (
+  const baseTableDom = action.dataSource ? (
     <Form component={false} onValuesChange={editableUtils.onValuesChange} key="table">
       <Table<T> {...tableProps} rowKey={rowKey} tableLayout={tableLayout} />
     </Form>
+  ) : (
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 50,
+      }}
+    >
+      <Spin size="large" />
+    </div>
   );
 
   /** 自定义的 render */
@@ -653,7 +667,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     >
       {isLightFilter ? null : searchNode}
       {/* 渲染一个额外的区域，用于一些自定义 */}
-      {type !== 'form' && props.tableExtraRender && (
+      {type !== 'form' && props.tableExtraRender && action.dataSource && (
         <div className={`${className}-extra`}>
           {props.tableExtraRender(props, action.dataSource)}
         </div>

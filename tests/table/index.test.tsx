@@ -868,13 +868,8 @@ describe('BasicTable', () => {
             valueType: 'money',
           },
         ]}
-        request={async () => {
-          return new Promise((resolve) => {
-            setTimeout(() => {
-              resolve({ data: [] });
-            }, 5000);
-          });
-        }}
+        loading
+        dataSource={[]}
         rowKey="key"
       />,
     );

@@ -362,13 +362,12 @@ describe('BasicTable Search', () => {
         }}
         onSubmit={(values) => {
           fn(values);
-          console.log(values);
           formValues = values as any;
         }}
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 300);
+    await waitForComponentToPaint(html, 1000);
 
     act(() => {
       html.find('button.ant-btn.ant-btn-primary').simulate('click');
@@ -511,16 +510,11 @@ describe('BasicTable Search', () => {
             dataIndex: 'name',
           },
         ]}
-        request={async () => {
-          return {
-            data: [],
-            success: false,
-          };
-        }}
+        dataSource={[]}
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 600);
+    await waitForComponentToPaint(html, 1000);
 
     expect(html.find('.ant-empty').exists()).toBeTruthy();
 
