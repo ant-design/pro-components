@@ -74,7 +74,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
   const filterValue = Array.isArray(value)
     ? value.map((v) => getValueOrLabel(valueMap, v))
     : getValueOrLabel(valueMap, value);
-
+  console.log(value);
   return (
     <div
       className={classNames(
