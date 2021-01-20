@@ -368,7 +368,7 @@ describe('BasicTable Search', () => {
     act(() => {
       html.find('button.ant-btn.ant-btn-primary').simulate('click');
     });
-    await waitForComponentToPaint(html, 1200);
+    await waitForComponentToPaint(html, 1400);
 
     expect(formValues.origin).toBe('origin');
     expect(formValues.status).toBe('state');
