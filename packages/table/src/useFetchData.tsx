@@ -110,9 +110,9 @@ const useFetchData = <T extends RequestData<any>>(
 
       requesting.current = false;
 
-      if (success === false) {
-        return;
-      }
+      // 如果失败了，直接返回，不走剩下的逻辑了
+      if (success === false) return;
+
       const responseData = postDataPipeline<T[]>(
         data!,
         [options.postData].filter((item) => item) as any,
