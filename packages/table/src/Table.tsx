@@ -201,7 +201,11 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
           setPageInfo: ({ pageSize, current }: PageInfo) => {
             // pageSize 发生改变，并且你不是在第一页，切回到第一页
             // 这样可以防止出现 跳转到一个空的数据页的问题
-            if (pageSize !== action.pageInfo.pageSize && current !== 1) {
+            if (
+              pageSize !== action.pageInfo.pageSize &&
+              // 当前页码
+              action.pageInfo.current !== 1
+            ) {
               action.setDataSource([]);
               requestAnimationFrame(() => {
                 action.setPageInfo({
