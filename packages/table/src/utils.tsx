@@ -94,15 +94,16 @@ export const genCopyable = (dom: React.ReactNode, item: ProColumns<any>, text: s
  */
 export function mergePagination<T>(
   pagination: TablePaginationConfig | boolean | undefined = {},
-  action: UseFetchDataAction<T>,
+  pageInfo: UseFetchDataAction<T>['pageInfo'] & {
+    setPageInfo: any;
+  },
   intl: IntlType,
 ): TablePaginationConfig | false | undefined {
   if (pagination === false) {
     return false;
   }
-  const defaultPagination: TablePaginationConfig | {} =
-    typeof pagination === 'object' ? pagination : {};
-  const { current, pageSize } = action;
+  const { total, current, pageSize, setPageInfo } = pageInfo;
+  const defaultPagination: TablePaginationConfig = typeof pagination === 'object' ? pagination : {};
 
   return {
     showTotal: (all, range) =>
@@ -111,7 +112,7 @@ export function mergePagination<T>(
         '条/总共',
       )} ${all} ${intl.getMessage('pagination.total.item', '条')}`,
     showSizeChanger: true,
-    total: action.total,
+    total,
     ...(defaultPagination as TablePaginationConfig),
     current,
     pageSize,
@@ -120,7 +121,7 @@ export function mergePagination<T>(
       onChange?.(page, newPageSize || 20);
       // pageSize 改变之后就没必要切换页码
       if (newPageSize !== pageSize || current !== page) {
-        action.setPageInfo({ pageSize: newPageSize, page });
+        setPageInfo({ pageSize: newPageSize, current: page });
       }
     },
   };
@@ -151,12 +152,14 @@ export function useActionType<T>(
       if (resetPageIndex) {
         await props.onCleanSelected();
       }
-      await action?.reload();
+      action?.reload();
     },
     reloadAndRest: async () => {
       // reload 之后大概率会切换数据，清空一下选择。
       props.onCleanSelected();
-      await action.resetPageIndex();
+      await action.setPageInfo({
+        current: 1,
+      });
       await action?.reload();
     },
     reset: async () => {

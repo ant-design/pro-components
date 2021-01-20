@@ -5,6 +5,13 @@ import ProTable from '@ant-design/pro-table';
 import { request } from './demo';
 import { waitForComponentToPaint } from '../util';
 
+function toggleOpen(wrapper: any) {
+  act(() => {
+    wrapper.find('.ant-select-selector').simulate('mousedown');
+    wrapper.update();
+  });
+}
+
 describe('BasicTable pagination', () => {
   it('🎏 pagination current test', async () => {
     const fn = jest.fn();
@@ -85,6 +92,49 @@ describe('BasicTable pagination', () => {
     await waitForComponentToPaint(html, 200);
 
     expect(fn).toBeCalledWith(10);
+  });
+
+  it('🎏 pagination pageSize should reset page', async () => {
+    const currentFn = jest.fn();
+    const html = mount(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+        ]}
+        request={(params) => {
+          currentFn(params.current);
+          return request({
+            pageSize: 10,
+            current: 1,
+          });
+        }}
+        pagination={{
+          defaultCurrent: 2,
+        }}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 1200);
+
+    expect(currentFn).toBeCalledWith(2);
+
+    act(() => {
+      toggleOpen(html.find('.ant-pagination-options'));
+    });
+
+    await waitForComponentToPaint(html, 200);
+
+    act(() => {
+      html.find('.ant-select-item').at(2).simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 1200);
+
+    expect(currentFn).toBeCalledWith(1);
   });
 
   it('🎏 pagination current', async () => {

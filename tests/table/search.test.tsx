@@ -138,7 +138,7 @@ describe('BasicTable Search', () => {
       html.find('button.ant-btn').at(0).simulate('click');
     });
 
-    await waitForComponentToPaint(html, 500);
+    await waitForComponentToPaint(html, 300);
 
     expect(fn).toBeCalledTimes(2);
     expect(resetFn).toBeCalledTimes(1);
@@ -177,7 +177,7 @@ describe('BasicTable Search', () => {
       html.find('button.ant-btn').at(0).simulate('click');
     });
 
-    await waitForComponentToPaint(html, 500);
+    await waitForComponentToPaint(html, 200);
 
     expect(fn).toBeCalledTimes(2);
     expect(resetFn).toBeCalledTimes(1);
@@ -320,6 +320,10 @@ describe('BasicTable Search', () => {
     await waitForComponentToPaint(html, 200);
 
     expect(html.find('.ant-col.ant-col-12').exists()).toBeTruthy();
+
+    act(() => {
+      html.unmount();
+    });
   });
 
   it('🎏 transform test', async () => {
@@ -363,18 +367,22 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 300);
+    await waitForComponentToPaint(html, 1400);
 
     act(() => {
       html.find('button.ant-btn.ant-btn-primary').simulate('click');
     });
-    await waitForComponentToPaint(html, 500);
+    await waitForComponentToPaint(html, 1400);
 
     expect(formValues.origin).toBe('origin');
     expect(formValues.status).toBe('state');
     expect(formValues.startTime).toBe('2020-09-11');
     expect(formValues.endTime).toBe('2020-09-22');
     expect(fn).toBeCalledTimes(1);
+
+    act(() => {
+      html.unmount();
+    });
   });
 
   it('🎏 renderFormItem test and fieldProps onChange', async () => {
@@ -426,6 +434,10 @@ describe('BasicTable Search', () => {
     });
     expect(onChangeFn).toBeCalledWith('12');
     expect(fn).toBeCalledWith('12');
+
+    act(() => {
+      html.unmount();
+    });
   });
 
   it('🎏 renderFormItem support return false', async () => {
@@ -498,16 +510,11 @@ describe('BasicTable Search', () => {
             dataIndex: 'name',
           },
         ]}
-        request={async () => {
-          return {
-            data: [],
-            success: false,
-          };
-        }}
+        dataSource={[]}
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 600);
+    await waitForComponentToPaint(html, 1000);
 
     expect(html.find('.ant-empty').exists()).toBeTruthy();
 
@@ -594,5 +601,9 @@ describe('BasicTable Search', () => {
     await waitTime(500);
 
     expect(html.render()).toMatchSnapshot();
+
+    act(() => {
+      html.unmount();
+    });
   });
 });

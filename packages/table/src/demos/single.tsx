@@ -141,7 +141,6 @@ const menu = (
 
 export default () => {
   const actionRef = useRef<ActionType>();
-
   return (
     <ProTable<GithubIssueItem>
       columns={columns}

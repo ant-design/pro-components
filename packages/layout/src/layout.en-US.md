@@ -134,7 +134,7 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 | logo | url to the top-left corner of layout's logo | `ReactNode` \| `()=> ReactNode` | - |
 | pure | Whether to remove all self-contained interfaces | `boolean` | - |
 | loading | The loading state of the layout | `boolean` | - |
-| location | The location information of the current application session. If your application creates a custom history, you will need to display the location attribute as described in [issue](https://github.com/ant-design/pro-components/issues/327) | [history.location] (https://reactrouter.com/web/api/history) | isBrowser ? window.location : undefined |
+| location | The location information of the current application session. If your application creates a custom history, you will need to display the location attribute as described in [issue](https://github.com/ant-design/pro-components/issues/327) | [history.location](https://reactrouter.com/web/api/history) | isBrowser ? window.location : undefined |
 | menuHeaderRender | render logo and title | `ReactNode` \| `(logo,title)=>ReactNode` | - |
 | menuFooterRender | Render a block at the bottom of the layout | `(menuProps)=>ReactNode` | - |
 | onMenuHeaderClick | menu menu menu's header click event | `(e: React.MouseEvent<HTMLDivElement>) => void` | - |

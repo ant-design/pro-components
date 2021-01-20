@@ -71,7 +71,7 @@ describe('BasicTable', () => {
         ]}
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 2000);
     act(() => {
       expect(html.render()).toMatchSnapshot();
     });
@@ -868,13 +868,8 @@ describe('BasicTable', () => {
             valueType: 'money',
           },
         ]}
-        request={async () => {
-          return new Promise((resolve) => {
-            setTimeout(() => {
-              resolve({ data: [] });
-            }, 5000);
-          });
-        }}
+        loading
+        dataSource={[]}
         rowKey="key"
       />,
     );
@@ -1056,10 +1051,12 @@ describe('BasicTable', () => {
         debounceTime={500}
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitForComponentToPaint(html, 1000);
     for (let i = 0; i < 10; i += 1) {
       ref.current?.reload();
     }
+    await waitForComponentToPaint(html, 500);
+
     expect(fn).toBeCalledTimes(1);
   });
 });

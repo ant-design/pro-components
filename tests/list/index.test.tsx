@@ -271,13 +271,13 @@ describe('List', () => {
     expect(html.find('.ant-checkbox-input').at(1).prop('checked')).toEqual(false);
   });
 
-  it('🚏 pagination', async () => {
+  it('🚏 support pagination', async () => {
     const html = mount(<PaginationDemo />);
     expect(html.find('.ant-list-item').length).toEqual(5);
     act(() => {
       html.find('.ant-pagination-item').at(1).simulate('click');
     });
-    await waitForComponentToPaint(html, 20);
+    await waitForComponentToPaint(html, 200);
     expect(html.find('.ant-list-item').length).toEqual(2);
 
     act(() => {

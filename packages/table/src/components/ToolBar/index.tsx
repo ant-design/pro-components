@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { ReloadOutlined, SettingOutlined } from '@ant-design/icons';
 import { Tooltip } from 'antd';
 import type { SearchProps } from 'antd/lib/input';
@@ -51,7 +51,6 @@ export type ToolBarProps<T = unknown> = {
   className?: string;
   onSearch?: (keyWords: string) => void;
   columns: ColumnType<T>[];
-  editableUtils: any;
 };
 
 function getButtonText({
@@ -86,15 +85,12 @@ function getButtonText({
  * @param className
  */
 function renderDefaultOption<T>(
-  options: ToolBarProps<T>['options'],
+  options: OptionConfig,
   defaultOptions: OptionConfig & {
     intl: IntlType;
   },
   columns: ColumnType<T>[],
 ) {
-  if (!options) {
-    return null;
-  }
   return Object.keys(options)
     .filter((item) => item)
     .map((key) => {
@@ -149,40 +145,47 @@ function ToolBar<T>({
   columns,
   ...rest
 }: ToolBarProps<T>) {
-  const defaultOptions = {
-    reload: () => action?.current?.reload(),
-    density: true,
-    setting: true,
-    search: false,
-    fullScreen: () => action?.current?.fullScreen?.(),
-  };
   const counter = Container.useContainer();
-  const options =
-    propsOptions !== false
-      ? {
-          ...defaultOptions,
-          ...(propsOptions || {
-            fullScreen: false,
-          }),
-        }
-      : false;
 
   const intl = useIntl();
-  const optionDom =
-    renderDefaultOption<T>(
+  const optionDom = useMemo(() => {
+    const defaultOptions = {
+      reload: () => action?.current?.reload(),
+      density: true,
+      setting: true,
+      search: false,
+      fullScreen: () => action?.current?.fullScreen?.(),
+    };
+    if (propsOptions === false) {
+      return [];
+    }
+
+    const options = {
+      ...defaultOptions,
+      ...(propsOptions || {
+        fullScreen: false,
+      }),
+    };
+
+    return renderDefaultOption<T>(
       options,
       {
         ...defaultOptions,
         intl,
       },
       columns,
-    ) || [];
+    );
+  }, [action, columns, intl, propsOptions]);
   // 操作列表
   const actions = toolBarRender
     ? toolBarRender(action?.current, { selectedRowKeys, selectedRows })
     : [];
-  const getSearchConfig = (search: OptionConfig['search']) => {
-    if (!search) return false;
+
+  const searchConfig = useMemo(() => {
+    if (!propsOptions) {
+      return false;
+    }
+    if (!propsOptions.search) return false;
 
     /** 受控的value 和 onChange */
     const defaultSearchConfig = {
@@ -190,24 +193,24 @@ function ToolBar<T>({
       onChange: (e: React.ChangeEvent<HTMLInputElement>) => counter.setKeyWords(e.target.value),
     };
 
-    if (search === true) return defaultSearchConfig;
+    if (propsOptions.search === true) return defaultSearchConfig;
 
     return {
       ...defaultSearchConfig,
-      ...search,
+      ...propsOptions.search,
     };
-  };
+  }, [counter, propsOptions]);
 
   useEffect(() => {
     if (counter.keyWords === undefined) {
       onSearch?.('');
     }
-  }, [counter.keyWords]);
+  }, [counter.keyWords, onSearch]);
   return (
     <ListToolBar
       title={headerTitle}
       tooltip={tooltip || rest.tip}
-      search={options && getSearchConfig(options.search)}
+      search={searchConfig}
       onSearch={onSearch}
       actions={actions}
       settings={optionDom}
