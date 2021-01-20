@@ -1,13 +1,25 @@
+import React from 'react';
 import type { SearchTransformKeyFn } from '../typing';
 import get from 'rc-util/lib/utils/get';
 import namePathSet from 'rc-util/lib/utils/set';
+import isNil from '../isNil';
 
 export type DataFormatMapType = Record<string, SearchTransformKeyFn | undefined>;
 
 const transformKeySubmitValue = <T = any>(
   values: T,
-  dataFormatMap: Record<string, SearchTransformKeyFn | undefined>,
+  dataFormatMapRaw: Record<string, SearchTransformKeyFn | undefined>,
 ) => {
+  // ignore nil transfrom
+  const dataFormatMap = Object.keys(dataFormatMapRaw).reduce((ret, key) => {
+    const value = dataFormatMapRaw[key];
+    if (!isNil(value)) {
+      // eslint-disable-next-line no-param-reassign
+      ret[key] = value!; // can't be undefined
+    }
+    return ret;
+  }, {} as Record<string, SearchTransformKeyFn>);
+
   if (Object.keys(dataFormatMap).length < 1) {
     return values;
   }
@@ -18,7 +30,11 @@ const transformKeySubmitValue = <T = any>(
     Object.keys(tempValues).forEach((entryKey) => {
       const key = parentsKey ? [parentsKey, entryKey] : [entryKey];
       const itemValue = tempValues[entryKey];
-      if (typeof itemValue === 'object' && !Array.isArray(itemValue)) {
+      if (
+        typeof itemValue === 'object' &&
+        !Array.isArray(itemValue) &&
+        !React.isValidElement(itemValue) // ignore walk through
+      ) {
         const genValues = gen(itemValue, entryKey);
         if (Object.keys(genValues).length < 1) {
           return;

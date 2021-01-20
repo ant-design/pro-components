@@ -74,6 +74,21 @@ const getFromProps = (isForm: boolean, searchConfig: any, name: string) => {
   return {};
 };
 
+/**
+ * 从formConfig中获取传给相应表单的配置
+ *
+ * @param isForm
+ * @param formCofig
+ */
+const getFormConfigs = (isForm: boolean, formCofig: any) => {
+  if (isForm) {
+    // 传给Form的配置
+    return omit(formCofig, ['ignoreRules']);
+  }
+  // 传给Filter的配置
+  return { ignoreRules: true, ...formCofig };
+};
+
 export type TableFormItem<T, U = any> = {
   onSubmit?: (value: T, firstLoad: boolean) => void;
   onReset?: (value: T) => void;
@@ -386,9 +401,8 @@ const FormSearch = <T, U = any>({
     >
       <Competent
         {...loadingProps}
-        ignoreRules={true}
         {...getFromProps(isForm, searchConfig, competentName)}
-        {...formConfig}
+        {...getFormConfigs(isForm, formConfig)}
         formRef={formRef}
         onValuesChange={(change, all) => {
           setDomList(updateDomList(columnsList));
