@@ -367,7 +367,7 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1400);
 
     act(() => {
       html.find('button.ant-btn.ant-btn-primary').simulate('click');
