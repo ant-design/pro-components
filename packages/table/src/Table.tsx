@@ -541,6 +541,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
 
   const editableDataSource = (): T[] => {
     const { options: newLineOptions, defaultValue: row } = editableUtils.newLineRecord || {};
+
     if (newLineOptions?.position === 'top') {
       return [row, ...action.dataSource];
     }
