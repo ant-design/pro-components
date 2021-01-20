@@ -8380,7 +8380,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/light-filter.tsx corr
                   >
                     <div
                       class="ant-select ant-select-single ant-select-show-arrow ant-select-show-search"
-                      text=""
+                      text="[object Object],[object Object]"
                     >
                       <div
                         class="ant-select-selector"
@@ -8404,9 +8404,10 @@ exports[`form demos 📸 renders ./packages/form/src/demos/light-filter.tsx corr
                           />
                         </span>
                         <span
-                          class="ant-select-selection-placeholder"
+                          class="ant-select-selection-item"
+                          title="打开"
                         >
-                          性别
+                          打开
                         </span>
                       </div>
                       <span
@@ -8437,9 +8438,13 @@ exports[`form demos 📸 renders ./packages/form/src/demos/light-filter.tsx corr
                       </span>
                     </div>
                     <span
-                      class="ant-pro-core-field-label ant-pro-core-field-label-middle"
+                      class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active"
                     >
-                      性别
+                      <span
+                        title="打开,关闭"
+                      >
+                        性别: 打开,关闭
+                      </span>
                       <span
                         aria-label="down"
                         class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
