@@ -2882,11 +2882,11 @@ exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 
                     </g>
                   </svg>
                 </div>
-                <p
+                <div
                   class="ant-empty-description"
                 >
                   No Data
-                </p>
+                </div>
               </div>
             </div>
           </div>

@@ -7543,11 +7543,11 @@ exports[`BasicTable 🎏 bordered = {search = true, table = false}  1`] = `
                                 </g>
                               </svg>
                             </div>
-                            <p
+                            <div
                               class="ant-empty-description"
                             >
                               No Data
-                            </p>
+                            </div>
                           </div>
                         </td>
                       </tr>
@@ -8060,11 +8060,11 @@ exports[`BasicTable 🎏 bordered = true  1`] = `
                                 </g>
                               </svg>
                             </div>
-                            <p
+                            <div
                               class="ant-empty-description"
                             >
                               No Data
-                            </p>
+                            </div>
                           </div>
                         </td>
                       </tr>
@@ -8155,11 +8155,11 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
           </g>
         </svg>
       </div>
-      <p
+      <div
         class="ant-empty-description"
       >
         No Data
-      </p>
+      </div>
     </div>
   </div>
 </div>
