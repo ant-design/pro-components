@@ -102,7 +102,7 @@ ProForm is the best choice when you want to implement a form quickly but don't w
 
 ProForm is a repackaging of antd Form, if you want to customize form elements, ProForm is the same way as antd, you can still customize it with FormItem + custom components. Of course this does not affect other components, QueryFilter and other components as well.
 
-> antd's From api View [here](https://ant.design/components/form-cn/)
+> antd's Form api View [here](https://ant.design/components/form-cn/)
 
 | Parameters | Description | Type | Default |
 | --- | --- | --- | --- | --- |

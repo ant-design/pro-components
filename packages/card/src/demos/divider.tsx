@@ -1,5 +1,3 @@
-/** Uuid: ff1e143f title: 分组指标 */
-
 import React from 'react';
 import { Statistic } from 'antd';
 import ProCard from '@ant-design/pro-card';

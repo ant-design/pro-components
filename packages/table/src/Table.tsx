@@ -480,6 +480,12 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         return;
       }
       const { name = 'keyword' } = options.search === true ? {} : options.search;
+
+      // 查询的时候的回到第一页
+      action.setPageInfo({
+        current: 1,
+      });
+
       setFormSearch(
         omitUndefined({
           ...formSearch,

@@ -320,6 +320,10 @@ describe('BasicTable Search', () => {
     await waitForComponentToPaint(html, 200);
 
     expect(html.find('.ant-col.ant-col-12').exists()).toBeTruthy();
+
+    act(() => {
+      html.unmount();
+    });
   });
 
   it('🎏 transform test', async () => {
@@ -358,6 +362,7 @@ describe('BasicTable Search', () => {
         }}
         onSubmit={(values) => {
           fn(values);
+          console.log(values);
           formValues = values as any;
         }}
         rowKey="key"
@@ -375,6 +380,10 @@ describe('BasicTable Search', () => {
     expect(formValues.startTime).toBe('2020-09-11');
     expect(formValues.endTime).toBe('2020-09-22');
     expect(fn).toBeCalledTimes(1);
+
+    act(() => {
+      html.unmount();
+    });
   });
 
   it('🎏 renderFormItem test and fieldProps onChange', async () => {
@@ -426,6 +435,10 @@ describe('BasicTable Search', () => {
     });
     expect(onChangeFn).toBeCalledWith('12');
     expect(fn).toBeCalledWith('12');
+
+    act(() => {
+      html.unmount();
+    });
   });
 
   it('🎏 renderFormItem support return false', async () => {
@@ -594,5 +607,9 @@ describe('BasicTable Search', () => {
     await waitTime(500);
 
     expect(html.render()).toMatchSnapshot();
+
+    act(() => {
+      html.unmount();
+    });
   });
 });
