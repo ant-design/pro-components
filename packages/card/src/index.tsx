@@ -241,7 +241,7 @@ const ProCard: ProCardType = React.forwardRef<HTMLDivElement>((props: ProCardPro
   };
 
   const cardCls = classNames(`${prefixCls}`, className, {
-    [`${prefixCls}-span-${span}`]: typeof span === 'number' && span > 0 && span <= 24,
+    [`${prefixCls}-span-${span}`]: typeof span === 'number' && span >= 0 && span <= 24,
     [`${prefixCls}-border`]: bordered,
     [`${prefixCls}-contain-card`]: containProCard,
     [`${prefixCls}-loading`]: loading,
