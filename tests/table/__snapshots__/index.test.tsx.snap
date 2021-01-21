@@ -7047,7 +7047,7 @@ exports[`BasicTable 🎏 base use 1`] = `
 </div>
 `;
 
-exports[`BasicTable 🎏 bordered = {search = true, table = false}  1`] = `
+exports[`BasicTable 🎏 bordered = {search = true, table = false} 1`] = `
 <div
   class="ant-pro-table"
   id="ant-design-pro-table"
@@ -8208,7 +8208,7 @@ exports[`BasicTable 🎏 bordered = {search = true, table = false}  1`] = `
 </div>
 `;
 
-exports[`BasicTable 🎏 bordered = true  1`] = `
+exports[`BasicTable 🎏 bordered = true 1`] = `
 <div
   class="ant-pro-table"
   id="ant-design-pro-table"
@@ -9608,7 +9608,7 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
 </div>
 `;
 
-exports[`BasicTable 🎏 do not render Search  1`] = `
+exports[`BasicTable 🎏 do not render Search 1`] = `
 <div
   class="ant-pro-table"
   id="ant-design-pro-table"
