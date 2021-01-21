@@ -417,7 +417,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       setFormSearch(omitParams);
       // back first page
       action.setPageInfo({
-        pageSize: 1,
+        current: 1,
       });
       props.onReset?.();
     };
