@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useImperativeHandle, useMemo } from 'react';
+import React, { useRef, useEffect, useImperativeHandle, useState } from 'react';
 import { Form } from 'antd';
 import type { FormProps, FormInstance } from 'antd/lib/form/Form';
 import type { FormItemProps } from 'antd/lib/form';
@@ -111,9 +111,9 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   const submitterProps: SubmitterProps =
     typeof submitter === 'boolean' || !submitter ? {} : submitter;
 
-  const transformKey = (values: any) =>
+  const transformKey = (values: any, omit: boolean) =>
     transformKeySubmitValue(
-      conversionSubmitValue(values, dateFormatter, fieldsValueType.current, omitNil),
+      conversionSubmitValue(values, dateFormatter, fieldsValueType.current, omit),
       transformKeyRef.current,
     );
 
@@ -124,9 +124,13 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
         key="submitter"
         {...submitterProps}
         onReset={() => {
-          const finalValues = transformKey(formRef.current.getFieldsValue());
+          const finalValues = transformKey(formRef.current.getFieldsValue(), omitNil);
           submitterProps?.onReset?.(finalValues);
           onReset?.(finalValues);
+          // 如果 syncToUrl，清空一下数据
+          if (syncToUrl) {
+            setUrlSearch(transformKey(formRef.current.getFieldsValue(), false));
+          }
         }}
         form={userForm || form}
         submitButtonProps={{
@@ -143,19 +147,18 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   };
   useEffect(() => {
     if (isUpdate) {
-      const finalValues = transformKey(formRef.current.getFieldsValue());
+      const finalValues = transformKey(formRef.current.getFieldsValue(), omitNil);
       onInit?.(finalValues);
     }
   }, [dateFormatter, isUpdate]);
 
   // 如果为 false，不需要触发设置进去
-  const urlParamsMergeInitialValues = useMemo(() => {
+  const [urlParamsMergeInitialValues] = useState(() => {
     if (!syncToUrl) {
       return {};
     }
     return genParams(syncToUrl, urlSearch, 'get');
-  }, [syncToUrl, urlSearch]);
-
+  });
   return (
     // 增加国际化的能力，与 table 组件可以统一
     <ConfigProviderWrap>
@@ -189,23 +192,25 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
               ...urlParamsMergeInitialValues,
               ...rest.initialValues,
             }}
-            onFinish={async (values) => {
+            onFinish={async () => {
               if (!rest.onFinish) {
                 return;
               }
               setLoading(true);
               try {
-                const finalValues = transformKey(values);
+                const finalValues = transformKey(formRef.current.getFieldsValue(), omitNil);
                 await rest.onFinish(finalValues);
 
-                const params = Object.keys(finalValues).reduce((pre, next) => {
-                  return {
-                    ...pre,
-                    [next]: finalValues[next] || undefined,
-                  };
-                }, {});
-
                 if (syncToUrl) {
+                  // 把没有的值设置为未定义可以删掉 url 的参数
+                  const params = Object.keys(
+                    transformKey(formRef.current.getFieldsValue(), false),
+                  ).reduce((pre, next) => {
+                    return {
+                      ...pre,
+                      [next]: finalValues[next] || undefined,
+                    };
+                  }, {});
                   /** 在同步到 url 上时对参数进行转化 */
                   setUrlSearch(genParams(syncToUrl, params, 'set'));
                 }
