@@ -33,7 +33,10 @@ import type { ModalFormProps } from './layouts/ModalForm';
 import ModalForm from './layouts/ModalForm';
 import type { DrawerFormProps } from './layouts/DrawerForm';
 import DrawerForm from './layouts/DrawerForm';
+import { FormInstance, FormItemProps, FormProps } from './BaseForm';
 import './index.less';
+
+export { FormProps, FormItemProps, FormInstance };
 
 export type {
   ProFormCaptchaProps,

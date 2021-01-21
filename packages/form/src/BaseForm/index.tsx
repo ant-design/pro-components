@@ -245,4 +245,6 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   );
 }
 
+export { FormProps, FormItemProps, FormInstance };
+
 export default BaseForm;

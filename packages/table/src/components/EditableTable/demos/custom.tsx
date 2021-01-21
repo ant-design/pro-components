@@ -4,7 +4,7 @@ import { EditableProTable } from '@ant-design/pro-table';
 import type { ActionType } from '@ant-design/pro-table';
 import ProField from '@ant-design/pro-field';
 import ProCard from '@ant-design/pro-card';
-import { Button, Input, message, Space, Tag } from 'antd';
+import { Button, Input, Space, Tag } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 
 const waitTime = (time: number = 100) => {
