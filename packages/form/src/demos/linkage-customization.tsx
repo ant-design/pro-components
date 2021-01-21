@@ -7,9 +7,10 @@ import ProForm, {
   ProFormTextArea,
   ProFormCheckbox,
   ProFormDateRangePicker,
+  ProFormDependency,
 } from '@ant-design/pro-form';
 import ProCard from '@ant-design/pro-card';
-import { Button, message, Form } from 'antd';
+import { Button, message } from 'antd';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -103,9 +104,8 @@ export default () => {
             <ProFormText name="dbName" label="业务 DB 用户名" />
             <ProFormDatePicker name="datetime" label="记录保存时间" width="sm" />
           </ProForm.Group>
-          <Form.Item noStyle shouldUpdate={(pre, next) => pre.dbName !== next.dbName}>
-            {({ getFieldValue }) => {
-              const dbName = getFieldValue('dbName');
+          <ProFormDependency name={['dbName']}>
+            {({ dbName }) => {
               return (
                 <ProFormCheckbox.Group
                   name="checkbox"
@@ -114,7 +114,7 @@ export default () => {
                 />
               );
             }}
-          </Form.Item>
+          </ProFormDependency>
         </StepsForm.StepForm>
         <StepsForm.StepForm name="time" title="发布实验">
           <ProFormCheckbox.Group

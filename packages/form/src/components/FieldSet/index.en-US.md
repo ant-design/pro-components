@@ -19,9 +19,9 @@ ProFormText is the product of FormItem + Input and can be analogous to the follo
 ```tsx | pure
 const ProFormText = (props) => {
   return (
-    <Form.Item {. .props}>
+    <ProForm.Item {. .props}>
       <Input placeholder={props.placeholder} {. .props.fieldProps} />
-    </Form.Item
+    </ProForm.Item
   );
 };
 ```

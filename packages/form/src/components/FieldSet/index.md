@@ -19,9 +19,9 @@ ProFormText 是 FormItem + Input 的产物，可以类比于以下的代码：
 ```tsx | pure
 const ProFormText = (props) => {
   return (
-    <Form.Item {...props}>
+    <ProForm.Item {...props}>
       <Input placeholder={props.placeholder} {...props.fieldProps} />
-    </Form.Item>
+    </ProForm.Item>
   );
 };
 ```

@@ -34,7 +34,7 @@ Step-by-step forms, Modal forms, Drawer forms, Query forms, Lightweight filters 
 
 // Interdependent component linkage
 <ProForm
-  <Form.Item noStyle shouldUpdate>
+  <ProForm.Item noStyle shouldUpdate>
     {(form) => {
       return (
         <ProFormSelect
@@ -50,15 +50,15 @@ Step-by-step forms, Modal forms, Drawer forms, Query forms, Lightweight filters 
         />
       );
     }}
-  </Form.Item>.
+  </ProForm.Item>.
 </ProForm>;
 
 
 // Using custom components
 <ProForm
-  <Form.Item name="switch" label="Switch" valuePropName="checked">
+  <ProForm.Item name="switch" label="Switch" valuePropName="checked">
     <Switch />
-  </Form.Item
+  </ProForm.Item
 </ProForm
 ```
 
