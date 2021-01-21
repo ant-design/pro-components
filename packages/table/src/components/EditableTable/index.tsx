@@ -159,10 +159,13 @@ function EditableTable<T extends Record<string, any>, U extends ParamsType = Par
         dataSource={value}
         editable={{
           ...props.editable,
-          onValuesChange: (r: T, dataSource: T[]) => {
-            props.editable?.onValuesChange?.(r, dataSource);
-            props.onValuesChange?.(dataSource, r);
-          },
+          onValuesChange:
+            props?.onValuesChange || props.editable?.onValuesChange
+              ? (r: T, dataSource: T[]) => {
+                  props.editable?.onValuesChange?.(r, dataSource);
+                  props.onValuesChange?.(dataSource, r);
+                }
+              : undefined,
         }}
         onDataSourceChange={setValue}
       />
