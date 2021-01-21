@@ -9,6 +9,15 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.27.0
+
+`2021-01-21`
+
+- 🐛 fix(table): stop passing prop ignoreRules to Form [#1699](https://github.com/ant-design/pro-components/pull/1699) [@ChenCheng220](https://github.com/ChenCheng220)
+- 🐛 fix(pro-table): on option search resetPageIndex [#1689](https://github.com/ant-design/pro-components/pull/1689) [@lzbabd](https://github.com/lzbabd)
+- 💥 feat(table): EditableProTable support onValuesChange [#1713](https://github.com/ant-design/pro-components/pull/1713) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): ProTable supports polling [#1694](https://github.com/ant-design/pro-components/pull/1694) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.26.0
 
 `2021-01-18`

@@ -9,6 +9,14 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.15.0
+
+`2021-01-21`
+
+- 🐛 fix(form): fix StepsForm onFinish error [#1714](https://github.com/ant-design/pro-components/pull/1714) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix from reset error [#1709](https://github.com/ant-design/pro-components/pull/1709) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix: allow `labelInValue` value in form values [#1705](https://github.com/ant-design/pro-components/pull/1705) [@eynol](https://github.com/eynol)
+
 ## @ant-design/pro-form@1.14.0
 
 `2021-01-18`
