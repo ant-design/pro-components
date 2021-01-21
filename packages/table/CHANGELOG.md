@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.27.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.27.0...@ant-design/pro-table@2.27.1) (2021-01-21)
+
+### Bug Fixes
+
+- **table:** fix table reset pageSize ([85ab498](https://github.com/ant-design/pro-components/commit/85ab4989ef872645294fe85a5fc60b5b9c653a19))
+
 # [2.27.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.26.1...@ant-design/pro-table@2.27.0) (2021-01-21)
 
 ### Bug Fixes
