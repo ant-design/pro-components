@@ -66,6 +66,7 @@ describe('BasicTable Search', () => {
     mockOffsetWidth = 0;
 
     const fn = jest.fn();
+    const paramsFn = jest.fn();
     const html = mount(
       <ProTable
         size="small"
@@ -85,6 +86,7 @@ describe('BasicTable Search', () => {
         ]}
         onSubmit={fn}
         request={(params) => {
+          paramsFn(params.current, params.pageSize);
           return request(params);
         }}
         rowKey="key"
@@ -104,6 +106,7 @@ describe('BasicTable Search', () => {
     await waitForComponentToPaint(html, 500);
 
     expect(fn).toBeCalledTimes(1);
+    expect(paramsFn).toBeCalledWith(1, 20);
   });
 
   it('🎏 reset test', async () => {

@@ -77,7 +77,7 @@ describe('BasicTable', () => {
     });
   });
 
-  it('🎏 do not render Search ', async () => {
+  it('🎏 do not render Search', async () => {
     const html = mount(
       <ProTable
         size="small"
@@ -986,7 +986,7 @@ describe('BasicTable', () => {
     expect(fn).toBeCalledWith('name');
   });
 
-  it('🎏 bordered = true ', async () => {
+  it('🎏 bordered = true', async () => {
     const html = render(
       <ProTable
         size="small"
@@ -1007,7 +1007,7 @@ describe('BasicTable', () => {
     expect(html).toMatchSnapshot();
   });
 
-  it('🎏 bordered = {search = true, table = false} ', async () => {
+  it('🎏 bordered = {search = true, table = false}', async () => {
     const html = render(
       <ProTable
         size="small"
@@ -1030,7 +1030,7 @@ describe('BasicTable', () => {
     expect(html).toMatchSnapshot();
   });
 
-  it('🎏 debounce time ', async () => {
+  it('🎏 debounce time', async () => {
     const ref = React.createRef<ActionType>();
     const fn = jest.fn();
     const html = mount(
