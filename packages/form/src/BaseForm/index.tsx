@@ -153,13 +153,12 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   }, [dateFormatter, isUpdate]);
 
   // 如果为 false，不需要触发设置进去
-  const urlParamsMergeInitialValues = useState(() => {
+  const [urlParamsMergeInitialValues] = useState(() => {
     if (!syncToUrl) {
       return {};
     }
     return genParams(syncToUrl, urlSearch, 'get');
   });
-
   return (
     // 增加国际化的能力，与 table 组件可以统一
     <ConfigProviderWrap>
