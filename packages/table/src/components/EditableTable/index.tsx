@@ -38,6 +38,8 @@ export type EditableProTableProps<T, U extends ParamsType> = Omit<
     | false;
   /** 最大行数 */
   maxLength?: number;
+  /** Table 的值发生改变，为了适应 Form 调整了顺序 */
+  onValuesChange?: (values: T[], record: T) => void;
 };
 
 const EditableTableActionContext = React.createContext<
@@ -155,6 +157,13 @@ function EditableTable<T extends Record<string, any>, U extends ParamsType = Par
         actionRef={actionRef}
         onChange={onTableChange}
         dataSource={value}
+        editable={{
+          ...props.editable,
+          onValuesChange: (r: T, dataSource: T[]) => {
+            props.editable?.onValuesChange?.(r, dataSource);
+            props.onValuesChange?.(dataSource, r);
+          },
+        }}
         onDataSourceChange={setValue}
       />
     </EditableTableActionContext.Provider>
