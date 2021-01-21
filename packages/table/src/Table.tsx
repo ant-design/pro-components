@@ -249,7 +249,10 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     getRowKey,
     childrenColumnName: props.expandable?.childrenColumnName,
     dataSource: action.dataSource || [],
-    setDataSource: action.setDataSource,
+    setDataSource: (data) => {
+      props.editable?.onValuesChange?.(undefined as any, data);
+      action.setDataSource(data);
+    },
   });
 
   /** 绑定 action */

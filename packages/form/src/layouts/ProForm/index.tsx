@@ -31,5 +31,6 @@ function ProForm<T = Record<string, any>>(props: ProFormProps<T>) {
 
 ProForm.Group = Group;
 ProForm.useForm = Form.useForm;
+ProForm.Item = Form.Item;
 
 export default ProForm;

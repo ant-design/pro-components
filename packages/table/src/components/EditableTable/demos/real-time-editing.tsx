@@ -93,7 +93,14 @@ export default () => {
         }}
         toolBarRender={() => {
           return [
-            <Button type="primary" key="save">
+            <Button
+              type="primary"
+              key="save"
+              onClick={() => {
+                // dataSource 就是当前数据，可以调用 api 将其保存
+                console.log(dataSource);
+              }}
+            >
               保存数据
             </Button>,
           ];
