@@ -18,6 +18,7 @@ export type LightWrapperProps = {
   size?: SizeType;
   value?: any;
   onChange?: (value?: any) => void;
+  onBlur?: (value?: any) => void;
   style?: React.CSSProperties;
   className?: string;
   children?: React.ReactNode;
@@ -35,6 +36,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
     size,
     disabled,
     onChange,
+    onBlur,
     className,
     style,
     children,
@@ -61,12 +63,14 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
       return React.cloneElement(children, {
         value,
         onChange,
+        onBlur,
         ...children.props,
         fieldProps: {
           id,
           [valuePropName]: props[valuePropName],
           // 这个 onChange 是 Form.Item 添加上的，要通过 fieldProps 透传给 ProField 调用
           onChange,
+          onBlur,
           // 优先使用 children.props.fieldProps，比如 LightFilter 中可能需要通过 fieldProps 覆盖 Form.Item 默认的 onChange
           ...children.props.fieldProps,
         },
