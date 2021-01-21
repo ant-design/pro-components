@@ -115,6 +115,45 @@ ProForm 自带的 Filed ,与 valueType 基本上一一对应。
 <ProFormText name="text" label="名称" placeholder="请输入名称" fieldProps={inputProps} />
 ```
 
+### ProFormCaptcha
+
+ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组件。
+
+```tsx | pure
+<ProFormCaptcha
+  fieldProps={{
+    size: 'large',
+    prefix: <MailTwoTone />,
+  }}
+  captchaProps={{
+    size: 'large',
+  }}
+  // 手机号的 name，onGetCaptcha 会注入这个值
+  phoneName="phone"
+  name="captcha"
+  rules={[
+    {
+      required: true,
+      message: '请输入验证码',
+    },
+  ]}
+  placeholder="请输入验证码"
+  // 如果需要失败可以 throw 一个错误出来，onGetCaptcha 会自动停止
+  // throw new Error("获取验证码错误")
+  onGetCaptcha={async (phone) => {
+    await waitTime(1000);
+    message.success(`手机号 ${phone} 验证码发送成功!`);
+  }}
+/>
+```
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| onGetCaptcha | 点击获取验证码的事件，如果配置了 phoneName 会自动注入 | `(phone)=>Promise<any>` | - |
+| captchaProps | 获取验证码按钮的 props，与 antd 的 props 相同 | `ButtonProps` | - |
+| countDown | 倒计时的秒数 | number | 60 |
+| captchaTextRender | 渲染计时的文案 | `(timing: boolean, count: number) => React.ReactNode` | - |
+
 ### ProFormText.Password
 
 与 [Input.Password](https://ant.design/components/input-cn/#Input.Password) 相同。
