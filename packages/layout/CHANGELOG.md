@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.12.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.11.1...@ant-design/pro-layout@6.12.0) (2021-01-21)
+
+### Features
+
+- **table:** proTable supports polling ([#1694](https://github.com/ant-design/pro-components/issues/1694)) ([b37fe69](https://github.com/ant-design/pro-components/commit/b37fe69c53363acfc431900e01d6c5512fdae118))
+
 ## [6.11.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.11.0...@ant-design/pro-layout@6.11.1) (2021-01-18)
 
 **Note:** Version bump only for package @ant-design/pro-layout

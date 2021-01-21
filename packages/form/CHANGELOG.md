@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.15.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.14.1...@ant-design/pro-form@1.15.0) (2021-01-21)
+
+### Bug Fixes
+
+- **field:** select support labelInValue ([#1708](https://github.com/ant-design/pro-components/issues/1708)) ([45a653f](https://github.com/ant-design/pro-components/commit/45a653fa0b0d9fc27d650655083db66f50e04585))
+- **form:** fix from reset error ([#1709](https://github.com/ant-design/pro-components/issues/1709)) ([6877918](https://github.com/ant-design/pro-components/commit/687791816b1706debf0f75d3609e17e08f88a5e5))
+- **form:** fix StepsForm onFinish error ([35c1369](https://github.com/ant-design/pro-components/commit/35c1369fcd13ad32f92f396d62b33df3c2be16e2))
+- **form:** fix StepsForm onFinish error ([#1714](https://github.com/ant-design/pro-components/issues/1714)) ([380b8ee](https://github.com/ant-design/pro-components/commit/380b8eea5f59a5fb09c896509a5958389e32b08b))
+
+### Features
+
+- **table:** EditableProTable support onValuesChange ([#1713](https://github.com/ant-design/pro-components/issues/1713)) ([8e67799](https://github.com/ant-design/pro-components/commit/8e67799125e37c44d356166a309479c611895d86))
+- **table:** proTable supports polling ([#1694](https://github.com/ant-design/pro-components/issues/1694)) ([b37fe69](https://github.com/ant-design/pro-components/commit/b37fe69c53363acfc431900e01d6c5512fdae118))
+
 ## [1.14.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.14.0...@ant-design/pro-form@1.14.1) (2021-01-18)
 
 **Note:** Version bump only for package @ant-design/pro-form
