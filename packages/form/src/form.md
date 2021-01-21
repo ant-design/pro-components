@@ -80,7 +80,7 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 
 <code src="./demos/login.tsx" height="300px"/>
 
-### 互相依赖的表单项
+### 表单联动
 
 <code src="./demos/dependency.tsx" height="248px"/>
 
@@ -93,10 +93,6 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 ### 固定页脚
 
 <code src="./demos/layout-base.tsx" iframe="764px" />
-
-### 表单联动
-
-<code src="./demos/linkage-customization.tsx" heigh="1774px" />
 
 ### ProForm 和 EditableTable 同时使用
 
