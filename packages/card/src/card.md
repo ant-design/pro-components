@@ -116,6 +116,10 @@ group:
 
 <code src="./demos/bordered.tsx" />
 
+### 浮出效果
+
+<code src="./demos/hoverable.tsx" title="浮出效果" desc="通过 hoverable 配置浮出效果" background="#f0f2f5"/>
+
 ### 页签
 
 配置 `tabs` 属性配合 `ProCard.TabPane` 子组件可以配置卡片的标签栏。
