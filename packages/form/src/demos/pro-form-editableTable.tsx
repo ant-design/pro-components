@@ -65,6 +65,10 @@ const columns: ProColumns<DataSourceType>[] = [
     title: '描述',
     dataIndex: 'decs',
   },
+  {
+    title: '操作',
+    valueType: 'option',
+  },
 ];
 
 export default () => {
@@ -118,6 +122,9 @@ export default () => {
             type: 'multiple',
             editableKeys,
             onChange: setEditableRowKeys,
+            actionRender: (row, _, dom) => {
+              return [dom.delete];
+            },
           }}
         />
       </ProForm.Item>
