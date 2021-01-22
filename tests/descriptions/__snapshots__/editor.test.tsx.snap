@@ -10,16 +10,6 @@ Array [
     class="ant-descriptions"
   >
     <div
-      class="ant-descriptions-header"
-    >
-      <div
-        class="ant-descriptions-title"
-      />
-      <div
-        class="ant-descriptions-extra"
-      />
-    </div>
-    <div
       class="ant-descriptions-view"
     >
       <table>
@@ -198,16 +188,6 @@ Array [
   <div
     class="ant-descriptions"
   >
-    <div
-      class="ant-descriptions-header"
-    >
-      <div
-        class="ant-descriptions-title"
-      />
-      <div
-        class="ant-descriptions-extra"
-      />
-    </div>
     <div
       class="ant-descriptions-view"
     >
