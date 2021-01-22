@@ -603,22 +603,23 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   const tableLayout = props.columns?.some((item) => item.ellipsis) ? 'fixed' : 'auto';
 
   /** 默认的 table dom，如果是编辑模式，外面还要包个 form */
-  const baseTableDom = action.dataSource ? (
-    <Form component={false} onValuesChange={editableUtils.onValuesChange} key="table">
-      <Table<T> {...getTableProps()} rowKey={rowKey} tableLayout={tableLayout} />
-    </Form>
-  ) : (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 50,
-      }}
-    >
-      <Spin size="large" />
-    </div>
-  );
+  const baseTableDom =
+    action.dataSource !== undefined ? (
+      <Form component={false} onValuesChange={editableUtils.onValuesChange} key="table">
+        <Table<T> {...getTableProps()} rowKey={rowKey} tableLayout={tableLayout} />
+      </Form>
+    ) : (
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          padding: 50,
+        }}
+      >
+        <Spin size="large" />
+      </div>
+    );
 
   /** 自定义的 render */
   const tableDom = props.tableViewRender
