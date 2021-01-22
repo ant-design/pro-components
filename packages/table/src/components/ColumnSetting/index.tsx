@@ -112,7 +112,7 @@ const CheckboxList: React.FC<{
     const newColumns = [...sortKeyColumns.current];
     const findIndex = newColumns.findIndex((columnKey) => columnKey === id);
     const targetIndex = newColumns.findIndex((columnKey) => columnKey === targetId);
-    const isBottom = dropPosition > targetIndex;
+    const isDownword = dropPosition > findIndex;
     if (findIndex < 0) {
       return;
     }
@@ -121,7 +121,7 @@ const CheckboxList: React.FC<{
     if (dropPosition === 0) {
       newColumns.unshift(targetItem);
     } else {
-      newColumns.splice(isBottom ? targetIndex + 1 : targetIndex, 0, targetItem);
+      newColumns.splice(isDownword ? targetIndex : targetIndex + 1, 0, targetItem);
     }
     // 重新生成排序数组
     newColumns.forEach((key, order) => {
@@ -156,7 +156,9 @@ const CheckboxList: React.FC<{
       onDrop={(info) => {
         const dropKey = info.node.key;
         const dragKey = info.dragNode.key;
-        move(dragKey, dropKey, info.dropPosition);
+        const { dropPosition, dropToGap } = info;
+        const position = dropPosition === -1 || !dropToGap ? dropPosition + 1 : dropPosition;
+        move(dragKey, dropKey, position);
       }}
       blockNode
       onCheck={(_, e) => {
