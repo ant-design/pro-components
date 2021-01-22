@@ -319,7 +319,7 @@ const schemaToDescriptionsItem = (
   });
   return {
     // 空数组传递还是会被判定为有值
-    options: options.length ? options : null,
+    options: options?.length ? options : null,
     children,
   };
 };
