@@ -16,15 +16,15 @@ StepsForm 通过 Provider 来管理子表单的数据，每个字表单都是完
 
 ## 分步表单
 
-<code src="../../demos/steps-from.tsx" height="532px"/>
+<code src="./demos/steps-from.tsx" height="532px"/>
 
 ## 分步表单-多卡片
 
-<code src="../../demos/multi-card-step-form.tsx"  background="#f5f5f5" height="868px"/>
+<code src="./demos/multi-card-step-form.tsx"  background="#f5f5f5" height="868px"/>
 
 ## 分步表单-与 Modal 配合使用
 
-<code src="../../demos/modal-step-form.tsx"  background="#f5f5f5" height="32px"/>
+<code src="./demos/modal-step-form.tsx"  background="#f5f5f5" height="32px"/>
 
 ## API
 

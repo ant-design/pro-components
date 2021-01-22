@@ -12,19 +12,19 @@ nav:
 
 StepsForm manages the data of sub forms through a Provider, each word form is a complete set of data that is combined in StepsForm to form the final data. It also comes with a progress bar and a related API to manage the progress bar.
 
-> StepsForm inherits from Form.Provider, see the documentation [here](https://ant.design/components/form-cn/#Form.Provider), the value of the transformed moment is a function provided by ProForm, so ` onFormFinish` and `onFormChange` where the values are untransformed.
+> StepsForm inherits from Form.Provider, see the documentation [here](https://ant.design/components/form-cn/#Form.Provider), the value of the transformed moment is a function provided by ProForm, so `onFormFinish` and `onFormChange` where the values are untransformed.
 
 ## Step-by-Step Forms
 
-<code src="../../demos/steps-from.tsx" height="532px"/>
+<code src="./demos/steps-from.tsx" height="532px"/>
 
 ## Step-by-Step Forms - Multi-Card
 
-<code src="../../demos/multi-card-step-form.tsx"  background="#f5f5f5" height="868px"/>
+<code src="./demos/multi-card-step-form.tsx"  background="#f5f5f5" height="868px"/>
 
 ## Step-by-Step Forms - Works with Modal
 
-<code src="../../demos/modal-step-form.tsx"  background="#f5f5f5" height="32px"/>
+<code src="./demos/modal-step-form.tsx"  background="#f5f5f5" height="32px"/>
 
 ## API
 

@@ -71,13 +71,13 @@ describe('BasicTable', () => {
         ]}
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 2000);
     act(() => {
       expect(html.render()).toMatchSnapshot();
     });
   });
 
-  it('🎏 do not render Search ', async () => {
+  it('🎏 do not render Search', async () => {
     const html = mount(
       <ProTable
         size="small"
@@ -868,13 +868,8 @@ describe('BasicTable', () => {
             valueType: 'money',
           },
         ]}
-        request={async () => {
-          return new Promise((resolve) => {
-            setTimeout(() => {
-              resolve({ data: [] });
-            }, 5000);
-          });
-        }}
+        loading
+        dataSource={[]}
         rowKey="key"
       />,
     );
@@ -991,7 +986,7 @@ describe('BasicTable', () => {
     expect(fn).toBeCalledWith('name');
   });
 
-  it('🎏 bordered = true ', async () => {
+  it('🎏 bordered = true', async () => {
     const html = render(
       <ProTable
         size="small"
@@ -1012,7 +1007,7 @@ describe('BasicTable', () => {
     expect(html).toMatchSnapshot();
   });
 
-  it('🎏 bordered = {search = true, table = false} ', async () => {
+  it('🎏 bordered = {search = true, table = false}', async () => {
     const html = render(
       <ProTable
         size="small"
@@ -1035,7 +1030,7 @@ describe('BasicTable', () => {
     expect(html).toMatchSnapshot();
   });
 
-  it('🎏 debounce time ', async () => {
+  it('🎏 debounce time', async () => {
     const ref = React.createRef<ActionType>();
     const fn = jest.fn();
     const html = mount(
@@ -1056,10 +1051,12 @@ describe('BasicTable', () => {
         debounceTime={500}
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitForComponentToPaint(html, 1000);
     for (let i = 0; i < 10; i += 1) {
       ref.current?.reload();
     }
+    await waitForComponentToPaint(html, 500);
+
     expect(fn).toBeCalledTimes(1);
   });
 });

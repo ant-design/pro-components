@@ -23,9 +23,9 @@ import type { ColumnsState, useContainer } from './container';
 import type { SearchConfig, TableFormItem } from './components/Form';
 
 export type PageInfo = {
-  page: number;
   pageSize: number;
   total: number;
+  current: number;
 };
 
 export type RequestData<T> = {
@@ -38,13 +38,11 @@ export type UseFetchDataAction<T = any> = {
   dataSource: T[];
   setDataSource: (dataSource: T[]) => void;
   loading: boolean | SpinProps | undefined;
-  current: number;
-  pageSize: number;
-  total: number;
+  pageInfo: PageInfo;
   reload: () => Promise<void>;
   fullScreen?: () => void;
-  resetPageIndex: () => void;
   reset: () => void;
+  pollingLoading: boolean;
   setPageInfo: (pageInfo: Partial<PageInfo>) => void;
 };
 
@@ -148,6 +146,7 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   columns?: ProColumns<T, ValueType>[];
   /** @name ListToolBar 的属性 */
   toolbar?: ListToolBarProps;
+
   params?: U;
 
   columnsStateMap?: Record<string, ColumnsState>;
@@ -209,6 +208,13 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   /** @name 数据加载失败时触发 */
   onRequestError?: (e: Error) => void;
 
+  /**
+   * 是否轮询 ProTable 它不会自动提交表单，如果你想自动提交表单的功能，需要在 onValueChange 中调用 formRef.current?.submit()
+   *
+   * @param dataSource 返回当前的表单数据，你可以用它判断要不要打开轮询
+   */
+  polling?: number | ((dataSource: T[]) => number);
+
   /** @name 给封装的 table 的 className */
   tableClassName?: string;
 
@@ -221,7 +227,10 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   /** @name 操作栏配置 */
   options?: OptionConfig | false;
 
-  /** @name 是否显示搜索表单 */
+  /**
+   * @type SearchConfig
+   * @name 是否显示搜索表单
+   */
   search?: false | SearchConfig;
 
   /**
@@ -283,4 +292,26 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
 
 export type ActionType = ProCoreActionType & {
   fullScreen?: () => void;
+};
+
+export type UseFetchProps = {
+  dataSource?: any;
+  loading: UseFetchDataAction['loading'];
+  onLoadingChange?: (loading: UseFetchDataAction['loading']) => void;
+  onLoad?: (dataSource: any[], extra: any) => void;
+  onDataSourceChange?: (dataSource?: any) => void;
+  postData: any;
+  pageInfo:
+    | {
+        current?: number;
+        pageSize?: number;
+        defaultCurrent?: number;
+        defaultPageSize?: number;
+      }
+    | false;
+  effects?: any[];
+  onRequestError?: (e: Error) => void;
+  manual: boolean;
+  debounceTime?: number;
+  polling?: number | ((dataSource: any[]) => number);
 };

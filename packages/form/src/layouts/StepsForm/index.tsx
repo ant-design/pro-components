@@ -140,12 +140,17 @@ function StepsForm<T = Record<string, any>>(
             ...cur,
           };
         }, {});
-        const success = props.onFinish(values);
-        if (success) {
-          setStep(0);
-          formArrayRef.current.forEach((form) => form.current?.resetFields());
+        try {
+          const success = await props.onFinish(values);
+          if (success) {
+            setStep(0);
+            formArrayRef.current.forEach((form) => form.current?.resetFields());
+          }
+        } catch (error) {
+          console.log(error);
+        } finally {
+          setLoading(false);
         }
-        setLoading(false);
       }
     },
     [step],

@@ -65,7 +65,7 @@ group:
 
 你可以嵌套卡片组件来将内容分组, 以及 `Divider` 子组件来分隔这些内容。
 
-<code src="./demos/divider.tsx" background="#f0f2f5" />
+<code src="./demos/divider.tsx" background="#f0f2f5" title="分组指标" />
 
 ### 标题带分割线
 

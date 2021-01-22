@@ -74,6 +74,21 @@ const getFromProps = (isForm: boolean, searchConfig: any, name: string) => {
   return {};
 };
 
+/**
+ * 从formConfig中获取传给相应表单的配置
+ *
+ * @param isForm
+ * @param formCofig
+ */
+const getFormConfigs = (isForm: boolean, formCofig: any) => {
+  if (isForm) {
+    // 传给Form的配置
+    return omit(formCofig, ['ignoreRules']);
+  }
+  // 传给Filter的配置
+  return { ignoreRules: true, ...formCofig };
+};
+
 export type TableFormItem<T, U = any> = {
   onSubmit?: (value: T, firstLoad: boolean) => void;
   onReset?: (value: T) => void;
@@ -84,6 +99,7 @@ export type TableFormItem<T, U = any> = {
   columns: ProColumns<U, any>[];
   formRef: React.MutableRefObject<FormInstance | undefined>;
   submitButtonLoading?: boolean;
+  manualRequest?: boolean;
   bordered?: boolean;
 } & Omit<FormItemProps, 'children' | 'onReset'>;
 
@@ -164,6 +180,7 @@ export const formInputRender: React.FC<{
     if (!React.isValidElement(dom)) {
       return dom;
     }
+
     const defaultProps = dom.props as any;
     if (defaultProps.isDefaultDom) {
       return dom;
@@ -274,6 +291,7 @@ const FormSearch = <T, U = any>({
   dateFormatter = 'string',
   type,
   columns,
+  manualRequest,
   onReset,
   submitButtonLoading,
   search: searchConfig,
@@ -342,10 +360,10 @@ const FormSearch = <T, U = any>({
       columnsListRef.current = newFormItemList;
       return newFormItemList;
     },
-    [isForm, type],
+    [formRef, intl, isForm, type],
   );
 
-  const [domList, setDomList] = useState<JSX.Element[]>(() => []);
+  const [domList, setDomList] = useState<JSX.Element[]>(() => updateDomList(columnsList));
 
   useDeepCompareEffect(() => {
     if (columnsList.length < 1) return;
@@ -375,7 +393,6 @@ const FormSearch = <T, U = any>({
     }),
     [submitButtonLoading],
   );
-
   return (
     <div
       className={classNames(className, {
@@ -386,9 +403,8 @@ const FormSearch = <T, U = any>({
     >
       <Competent
         {...loadingProps}
-        ignoreRules={true}
         {...getFromProps(isForm, searchConfig, competentName)}
-        {...formConfig}
+        {...getFormConfigs(isForm, formConfig)}
         formRef={formRef}
         onValuesChange={(change, all) => {
           setDomList(updateDomList(columnsList));
@@ -402,6 +418,8 @@ const FormSearch = <T, U = any>({
           if (type !== 'form') {
             // 重新计算一下dom
             setDomList(updateDomList(columnsList));
+            /** 如果是手动模式不需要提交 */
+            if (manualRequest) return;
             submit(values, true);
           }
         }}

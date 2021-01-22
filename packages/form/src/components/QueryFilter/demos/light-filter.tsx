@@ -38,6 +38,16 @@ export default () => {
           name1: 'yutingzhao1991',
           name3: '2020-08-19',
           range: [20, 80],
+          sex: [
+            {
+              value: 'open1',
+              label: '打开',
+            },
+            {
+              value: 'closed2',
+              label: '关闭',
+            },
+          ],
         }}
         size={size}
         onFinish={async (values) => console.log(values.sex)}
@@ -47,6 +57,9 @@ export default () => {
           label="性别"
           showSearch
           allowClear={false}
+          fieldProps={{
+            labelInValue: true,
+          }}
           valueEnum={{
             man: '男',
             woman: '女',

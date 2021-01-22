@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.27.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.27.0...@ant-design/pro-table@2.27.1) (2021-01-21)
+
+### Bug Fixes
+
+- **table:** fix table reset pageSize ([85ab498](https://github.com/ant-design/pro-components/commit/85ab4989ef872645294fe85a5fc60b5b9c653a19))
+
+# [2.27.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.26.1...@ant-design/pro-table@2.27.0) (2021-01-21)
+
+### Bug Fixes
+
+- **form:** fix StepsForm onFinish error ([#1714](https://github.com/ant-design/pro-components/issues/1714)) ([380b8ee](https://github.com/ant-design/pro-components/commit/380b8eea5f59a5fb09c896509a5958389e32b08b))
+- **pro-table:** on option search resetPageIndex ([#1689](https://github.com/ant-design/pro-components/issues/1689)) ([092ce34](https://github.com/ant-design/pro-components/commit/092ce342f6299f45d9491f202ef6042e6a188cc0))
+- **table:** stop passing prop ignoreRules to Form ([#1699](https://github.com/ant-design/pro-components/issues/1699)) ([c5bcbdf](https://github.com/ant-design/pro-components/commit/c5bcbdfead692f633a9ab061c3edb6d241c47824))
+
+### Features
+
+- **table:** EditableProTable support onValuesChange ([#1713](https://github.com/ant-design/pro-components/issues/1713)) ([8e67799](https://github.com/ant-design/pro-components/commit/8e67799125e37c44d356166a309479c611895d86))
+- **table:** proTable supports polling ([#1694](https://github.com/ant-design/pro-components/issues/1694)) ([b37fe69](https://github.com/ant-design/pro-components/commit/b37fe69c53363acfc431900e01d6c5512fdae118))
+
 ## [2.26.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.26.0...@ant-design/pro-table@2.26.1) (2021-01-18)
 
 **Note:** Version bump only for package @ant-design/pro-table

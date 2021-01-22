@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.9.0...@ant-design/pro-field@1.9.1) (2021-01-21)
+
+### Bug Fixes
+
+- **field:** select support labelInValue ([#1708](https://github.com/ant-design/pro-components/issues/1708)) ([45a653f](https://github.com/ant-design/pro-components/commit/45a653fa0b0d9fc27d650655083db66f50e04585))
+
 # [1.9.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.8.7...@ant-design/pro-field@1.9.0) (2021-01-18)
 
 ### Bug Fixes

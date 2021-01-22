@@ -19,9 +19,9 @@ ProFormText is the product of FormItem + Input and can be analogous to the follo
 ```tsx | pure
 const ProFormText = (props) => {
   return (
-    <Form.Item {. .props}>
+    <ProForm.Item {. .props}>
       <Input placeholder={props.placeholder} {. .props.fieldProps} />
-    </Form.Item
+    </ProForm.Item
   );
 };
 ```
@@ -76,11 +76,11 @@ The name parameter must be an array, if it is a nested structure you can configu
 
 ### Full amount of form field
 
-<code src="../../demos/components-other.tsx" heigh="1774px"/>
+<code src="./demos/components-other.tsx" heigh="1774px"/>
 
 ### Read-only for form field
 
-<code src="../../demos/components-other-readonly.tsx" heigh="1774px"/>
+<code src="./demos/components-other-readonly.tsx" heigh="1774px"/>
 
 ## API
 
@@ -114,6 +114,45 @@ Same as [Input](https://ant.design/components/input-cn/).
 ```tsx | pure
 <ProFormText name="text" label="Name" placeholder="Please enter a name" fieldProps={inputProps} />
 ```
+
+### ProFormCaptcha
+
+ProFormCaptcha is a component developed to support common CAPTCHA functionality in the middle and backend.
+
+```tsx | pure
+<ProFormCaptcha
+  fieldProps={{
+    size: 'large',
+    prefix: <MailTwoTone />,
+  }}
+  captchaProps={{
+    size: 'large',
+  }}
+  // The name of the phone number, which is injected by onGetCaptcha
+  phoneName="phone"
+  name="captcha"
+  rules={[
+    {
+      required: true,
+      message: 'Please enter the verification code',
+    },
+  ]}
+  placeholder="Please enter a captcha"
+  // If you need to fail, you can throw an error and onGetCaptcha will stop automatically
+  // throw new Error("Error getting captcha")
+  onGetCaptcha={async (phone) => {
+    await waitTime(1000);
+    message.success(`phone number ${phone} Verification code sent successfully! `);
+  }}
+/>
+```
+
+| parameters | description | type | default |
+| --- | --- | --- | --- |
+| onGetCaptcha | The event to click to get the captcha, if phoneName is configured it will be injected automatically | `(phone)=>Promise<any>` | - |
+| captchaProps | The props of the Get Captcha button, same as antd's props | `ButtonProps` | - |
+| countDown | The number of seconds to count down | number | 60 |
+| captchaTextRender | Render the text of the timer | `(timing: boolean, count: number) => React.ReactNode` | - |
 
 ### ProFormText.Password
 

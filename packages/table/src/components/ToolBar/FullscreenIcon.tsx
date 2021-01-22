@@ -26,4 +26,4 @@ const FullScreenIcon = () => {
   );
 };
 
-export default FullScreenIcon;
+export default React.memo(FullScreenIcon);

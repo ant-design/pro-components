@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-field@1.9.1
+
+`2021-01-21`
+
+- 🐛 fix(field): select support labelInValue [#1708](https://github.com/ant-design/pro-components/pull/1708) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-field@1.8.4
 
 `2021-01-11`

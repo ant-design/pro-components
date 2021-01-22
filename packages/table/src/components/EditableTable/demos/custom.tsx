@@ -1,11 +1,10 @@
-/** Title: 自定义可编辑表格 */
 import React, { useRef, useState } from 'react';
 import type { ProColumns } from '@ant-design/pro-table';
 import { EditableProTable } from '@ant-design/pro-table';
 import type { ActionType } from '@ant-design/pro-table';
 import ProField from '@ant-design/pro-field';
 import ProCard from '@ant-design/pro-card';
-import { Button, Input, message, Space, Tag } from 'antd';
+import { Button, Input, Space, Tag } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 
 const waitTime = (time: number = 100) => {
@@ -205,29 +204,7 @@ export default () => {
             await waitTime(2000);
           },
           onChange: setEditableRowKeys,
-          actionRender: (row, config) => [
-            <a
-              key="save"
-              onClick={async () => {
-                const values = (await config?.form?.validateFields()) as DataSourceType;
-                const hide = message.loading('保存中。。。');
-                await config?.onSave?.(config.recordKey, { ...row, ...values });
-                hide();
-              }}
-            >
-              保存
-            </a>,
-            <a
-              key="cancel"
-              onClick={async () => {
-                const values = (await config?.form?.validateFields()) as DataSourceType;
-                config?.cancelEditable(config.recordKey);
-                await config?.onCancel?.(config.recordKey, { ...row, ...values });
-              }}
-            >
-              取消
-            </a>,
-          ],
+          actionRender: (row, config, dom) => [dom.save, dom.cancel],
         }}
       />
       <ProCard title="表格数据" headerBordered collapsible defaultCollapsed>

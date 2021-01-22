@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.11.0...@ant-design/pro-utils@1.11.1) (2021-01-21)
+
+### Bug Fixes
+
+- **filed:** allow value in form values ([#1705](https://github.com/ant-design/pro-components/issues/1705)) ([12b1d80](https://github.com/ant-design/pro-components/commit/12b1d808459ecc99cbb614e7d3cda041cd07a00e))
+
 # [1.11.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.10.5...@ant-design/pro-utils@1.11.0) (2021-01-18)
 
 ### Features

@@ -318,7 +318,8 @@ const schemaToDescriptionsItem = (
     return field;
   });
   return {
-    options,
+    // 空数组传递还是会被判定为有值
+    options: options?.length ? options : null,
     children,
   };
 };
@@ -417,6 +418,12 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
   /** 如果不是可编辑模式，没必要注入 ProForm */
   const FormComponent = editable ? ProForm : (dom: { children: any }) => dom.children;
 
+  /** 即使组件返回null了, 在传递的过程中还是会被Description检测到为有值 */
+  let title = null;
+  if (rest.title || rest.tooltip || rest.tip) {
+    title = <LabelIconTip label={rest.title} tooltip={rest.tooltip || rest.tip} />;
+  }
+
   return (
     <ErrorBoundary>
       <FormComponent component={false} submitter={false} {...formProps} onFinish={undefined}>
@@ -432,7 +439,7 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
               options
             )
           }
-          title={<LabelIconTip label={rest.title} tooltip={rest.tooltip || rest.tip} />}
+          title={title}
         >
           {children}
         </Descriptions>
