@@ -80,13 +80,13 @@ const useFetchData = <T extends RequestData<any>>(
   /** 请求数据 */
   const fetchList = async (isPolling: boolean) => {
     if (loading || requesting.current || !getData) {
-      return;
+      return [];
     }
 
     // 需要手动触发的首次请求
     if (manualRequestRef.current) {
       manualRequestRef.current = false;
-      return;
+      return [];
     }
 
     if (!isPolling) {
@@ -111,7 +111,7 @@ const useFetchData = <T extends RequestData<any>>(
       requesting.current = false;
 
       // 如果失败了，直接返回，不走剩下的逻辑了
-      if (success === false) return;
+      if (success === false) return [];
 
       const responseData = postDataPipeline<T[]>(
         data!,
@@ -119,6 +119,8 @@ const useFetchData = <T extends RequestData<any>>(
       );
       setDataAndLoading(responseData, total);
       onLoad?.(responseData, rest);
+
+      return responseData;
     } catch (e) {
       requesting.current = false;
       // 如果没有传递这个方法的话，需要把错误抛出去，以免吞掉错误
@@ -132,18 +134,26 @@ const useFetchData = <T extends RequestData<any>>(
         setPollingLoading(false);
       });
     }
+
+    return [];
   };
 
   const fetchListDebounce = useDebounceFn(
-    async (isPolling?: boolean) => {
+    async (isPolling: boolean) => {
       if (pollingSetTimeRef.current) {
         clearTimeout(pollingSetTimeRef.current);
       }
-      const needPolling = runFunction(polling, list);
-      const msg = await fetchList(isPolling ?? needPolling);
+      const msg = await fetchList(isPolling);
+
+      // 把判断要不要轮询的逻辑放到后面来这样可以保证数据是根据当前来
+      // 放到请求前面会导致数据是上一次的
+      const needPolling = runFunction(polling, msg);
+
+      // 如果需要轮询，搞个一段时间后执行
       if (needPolling) {
         pollingSetTimeRef.current = setTimeout(() => {
-          fetchListDebounce.run();
+          fetchListDebounce.run(needPolling);
+          // 这里判断最小要2000ms，不然一直loading
         }, Math.max(needPolling, 2000));
       }
       return msg;
