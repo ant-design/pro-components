@@ -1,6 +1,7 @@
 @import (reference) '~antd/lib/style/themes/default';
 
 @pro-card-prefix-cls: ~'@{ant-prefix}-pro-card';
+@card-hoverable-hover-border: transparent;
 
 .@{pro-card-prefix-cls} {
   display: flex;
@@ -14,6 +15,16 @@
 
   &-border {
     border: @border-width-base @border-style-base @border-color-split;
+  }
+
+  &-hoverable {
+    cursor: pointer;
+    transition: box-shadow 0.3s, border-color 0.3s;
+
+    &:hover {
+      border-color: @card-hoverable-hover-border;
+      box-shadow: @card-shadow;
+    }
   }
 
   &-size-small {
@@ -149,6 +160,10 @@
     width: percentage((@index / @grid-columns));
   }
   .loop-grid-columns((@index - 1));
+}
+
+.@{pro-card-prefix-cls}-span-0 {
+  display: none;
 }
 
 .loop-grid-columns(@grid-columns);
