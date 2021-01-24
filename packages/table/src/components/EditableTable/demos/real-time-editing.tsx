@@ -108,8 +108,8 @@ export default () => {
         editable={{
           type: 'multiple',
           editableKeys,
-          actionRender: (row, config, doms) => {
-            return [doms.delete];
+          actionRender: (row, config, defaultDoms) => {
+            return [defaultDoms.delete];
           },
           onValuesChange: (record, recordList) => {
             setDataSource(recordList);
