@@ -162,6 +162,13 @@ const useFetchData = <T extends RequestData<any>>(
     debounceTime,
   );
 
+  // 如果轮询结束了，直接销毁定时器
+  useEffect(() => {
+    if (!polling) {
+      clearTimeout(pollingSetTimeRef.current);
+    }
+  }, [polling]);
+
   /** PageIndex 改变的时候自动刷新 */
   useEffect(() => {
     const { current, pageSize } = pageInfo;

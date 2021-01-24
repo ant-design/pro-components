@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { PlusOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import type { ProColumns } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
+import { LoadingOutlined, ReloadOutlined } from '@ant-design/icons';
 import moment from 'moment';
 
 const valueEnum = {
@@ -88,6 +88,7 @@ const columns: ProColumns<TableListItem>[] = [
 
 export default () => {
   const [time, setTime] = useState(() => Date.now());
+  const [polling, setPolling] = useState<number | undefined>(2000);
   return (
     <ProTable<TableListItem>
       columns={columns}
@@ -95,7 +96,7 @@ export default () => {
       pagination={{
         showSizeChanger: true,
       }}
-      polling={2000}
+      polling={polling || undefined}
       request={async () => {
         await timeAwait(2000);
         setTime(Date.now());
@@ -108,9 +109,19 @@ export default () => {
       dateFormatter="string"
       headerTitle={`上次更新时间：${moment(time).format('HH:mm:ss')}`}
       toolBarRender={() => [
-        <Button key="3" type="primary">
-          <PlusOutlined />
-          新建
+        <Button
+          key="3"
+          type="primary"
+          onClick={() => {
+            if (polling) {
+              setPolling(undefined);
+              return;
+            }
+            setPolling(2000);
+          }}
+        >
+          {polling ? <LoadingOutlined /> : <ReloadOutlined />}
+          {polling ? '停止轮询' : '开始轮询'}
         </Button>,
       ]}
     />

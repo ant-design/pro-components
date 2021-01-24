@@ -79,7 +79,7 @@ RTL means right-to-left.
 
 <code src="./demos/columnsStateMap.tsx" background="#f5f5f5" height="300px"/>
 
-### 表格轮询网络数据
+### 表格轮询
 
 <code src="./demos/pollinga.tsx" background="#f5f5f5" height="360px"/>
 
