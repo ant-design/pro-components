@@ -2,7 +2,7 @@ import './BasicLayout.less';
 
 import type { CSSProperties } from 'react';
 import React, { useContext, useEffect, useMemo, useState } from 'react';
-import type { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/lib/breadcrumb';
+import type { BreadcrumbProps as AntdBreadcrumbProps, BreadcrumbProps } from 'antd/lib/breadcrumb';
 import { Layout, ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import warning from 'warning';
@@ -88,6 +88,9 @@ export type BasicLayoutProps = Partial<RouterTypes<Route>> &
 
     /** 兼用 content的 margin */
     disableContentMargin?: boolean;
+
+    /** PageHeader 的 BreadcrumbProps 配置，会透传下去 */
+    breadcrumbProps?: BreadcrumbProps;
   };
 
 const headerRender = (
@@ -316,7 +319,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
       breadcrumb,
       layout: propsLayout as 'side',
     },
-    ['className', 'style'],
+    ['className', 'style', 'breadcrumbRender'],
   );
 
   // gen page title

@@ -1092,22 +1092,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
                       class="ant-breadcrumb-link"
                     >
                       <a
-                        href="/"
-                      >
-                        主页
-                      </a>
-                    </span>
-                    <span
-                      class="ant-breadcrumb-separator"
-                    >
-                      /
-                    </span>
-                  </span>
-                  <span>
-                    <span
-                      class="ant-breadcrumb-link"
-                    >
-                      <a
                         href="/admin"
                       >
                         管理

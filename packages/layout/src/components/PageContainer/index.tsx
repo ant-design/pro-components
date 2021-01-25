@@ -186,8 +186,13 @@ const defaultPageHeaderRender = (
   ) {
     return null;
   }
+
   return (
-    <PageHeader {...pageHeaderProps} prefixCls={prefixCls}>
+    <PageHeader
+      {...pageHeaderProps}
+      breadcrumb={{ ...pageHeaderProps.breadcrumb, ...pageHeaderProps.breadcrumbProps }}
+      prefixCls={prefixCls}
+    >
       {header?.children || renderPageHeader(content, extraContent, value.prefixedClassName)}
     </PageHeader>
   );

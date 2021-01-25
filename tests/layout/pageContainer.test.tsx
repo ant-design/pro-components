@@ -194,6 +194,47 @@ describe('PageContainer', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('🐲 prolayout support breadcrumbProps', async () => {
+    const wrapper = mount(
+      <BasicLayout
+        breadcrumbProps={{
+          separator: '>',
+          routes: [
+            {
+              path: 'index',
+              breadcrumbName: 'home',
+            },
+            {
+              path: 'first',
+              breadcrumbName: 'first',
+              children: [
+                {
+                  path: '/general',
+                  breadcrumbName: 'General',
+                },
+                {
+                  path: '/layout',
+                  breadcrumbName: 'Layout',
+                },
+                {
+                  path: '/navigation',
+                  breadcrumbName: 'Navigation',
+                },
+              ],
+            },
+            {
+              path: 'second',
+              breadcrumbName: 'second',
+            },
+          ],
+        }}
+      >
+        <PageContainer />
+      </BasicLayout>,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
   it('🐲 header.footer is null, do not render footerToolbar ', async () => {
     const wrapper = mount(
       <PageContainer
