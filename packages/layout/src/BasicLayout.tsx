@@ -335,6 +335,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   // gen breadcrumbProps, parameter for pageHeader
   const breadcrumbProps = getBreadcrumbProps({
     ...defaultProps,
+    breadcrumbRender: props.breadcrumbRender,
     breadcrumbMap,
   });
 
