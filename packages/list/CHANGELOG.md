@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.3.4...@ant-design/pro-list@1.3.5) (2021-01-25)
+
+### Bug Fixes
+
+- **table:** fix the problem that it still executes when polling=false ([#1747](https://github.com/ant-design/pro-components/issues/1747)) ([5c8ecfa](https://github.com/ant-design/pro-components/commit/5c8ecfa5ad36a558315089455d4e29dc22aa8b3c))
+
 ## [1.3.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.3.3...@ant-design/pro-list@1.3.4) (2021-01-21)
 
 **Note:** Version bump only for package @ant-design/pro-list

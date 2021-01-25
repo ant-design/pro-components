@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.27.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.27.1...@ant-design/pro-table@2.27.2) (2021-01-25)
+
+### Bug Fixes
+
+- **table:** fix column dragger problem ([#1730](https://github.com/ant-design/pro-components/issues/1730)) ([77fb14a](https://github.com/ant-design/pro-components/commit/77fb14a852f51003aa7713c83201d20e18a7565f))
+- **table:** fix polling times ([#1739](https://github.com/ant-design/pro-components/issues/1739)) ([2005764](https://github.com/ant-design/pro-components/commit/2005764c43ef37bc078f5bb23beca71b95140bbf))
+- **table:** fix the problem that it still executes when polling=false ([#1747](https://github.com/ant-design/pro-components/issues/1747)) ([5c8ecfa](https://github.com/ant-design/pro-components/commit/5c8ecfa5ad36a558315089455d4e29dc22aa8b3c))
+
 ## [2.27.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.27.0...@ant-design/pro-table@2.27.1) (2021-01-21)
 
 ### Bug Fixes

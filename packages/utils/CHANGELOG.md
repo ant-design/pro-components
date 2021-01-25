@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.11.1...@ant-design/pro-utils@1.11.2) (2021-01-25)
+
+### Bug Fixes
+
+- **form:** ignore Blob type ([#1722](https://github.com/ant-design/pro-components/issues/1722)) ([e8a2638](https://github.com/ant-design/pro-components/commit/e8a26386f14dcbc40950ebe3a68f2e001e0d48d7))
+
 ## [1.11.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.11.0...@ant-design/pro-utils@1.11.1) (2021-01-21)
 
 ### Bug Fixes
