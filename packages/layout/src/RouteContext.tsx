@@ -1,4 +1,5 @@
 import { createContext } from 'react';
+import type { BreadcrumbProps } from 'antd/lib/breadcrumb';
 import type { BreadcrumbListReturn } from './utils/getBreadcrumbProps';
 import type { PureSettings } from './defaultSettings';
 import type { MenuDataItem } from './typings';
@@ -24,6 +25,8 @@ export type RouteContextType = {
   matchMenus?: MenuDataItem[];
   matchMenuKeys?: string[];
   currentMenu?: PureSettings & MenuDataItem;
+  /** PageHeader 的 BreadcrumbProps 配置，会透传下去 */
+  breadcrumbProps?: BreadcrumbProps;
 } & Partial<PureSettings>;
 
 const routeContext: React.Context<RouteContextType> = createContext({});
