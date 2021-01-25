@@ -29,7 +29,7 @@ export type BaseMenuProps = {
   onCollapse?: (collapsed: boolean) => void;
   openKeys?: WithFalse<string[]> | undefined;
   handleOpenChange?: (openKeys: string[]) => void;
-
+  iconPrefixes?: string;
   /** 要给菜单的props, 参考antd-menu的属性。https://ant.design/components/menu-cn/ */
   menuProps?: MenuProps;
   style?: React.CSSProperties;
@@ -68,14 +68,17 @@ let IconFont = createFromIconfontCN({
 //   icon: 'http://demo.com/icon.png',
 //   icon: '/favicon.png',
 //   icon: <Icon type="setting" />,
-const getIcon = (icon?: string | React.ReactNode): React.ReactNode => {
+const getIcon = (
+  icon?: string | React.ReactNode,
+  iconPrefixes: string = 'icon-',
+): React.ReactNode => {
   if (typeof icon === 'string' && icon !== '') {
     if (isUrl(icon) || isImg(icon)) {
       return (
         <Icon component={() => <img src={icon} alt="icon" className="ant-pro-sider-menu-icon" />} />
       );
     }
-    if (icon.startsWith('icon-')) {
+    if (icon.startsWith(iconPrefixes)) {
       return <IconFont type={icon} />;
     }
   }
@@ -96,11 +99,11 @@ class MenuUtil {
   getSubMenuOrItem = (item: MenuDataItem, isChildren: boolean): React.ReactNode => {
     if (Array.isArray(item.children) && item && item.children.length > 0) {
       const name = this.getIntlName(item);
-      const { subMenuItemRender, prefixCls, menu } = this.props;
+      const { subMenuItemRender, prefixCls, menu, iconPrefixes } = this.props;
       //  get defaultTitle by menuItemRender
       const defaultTitle = item.icon ? (
         <span className={`${prefixCls}-menu-item`}>
-          {!isChildren && getIcon(item.icon)}
+          {!isChildren && getIcon(item.icon, iconPrefixes)}
           <span className={`${prefixCls}-menu-item-title`}>{name}</span>
         </span>
       ) : (
@@ -155,12 +158,18 @@ class MenuUtil {
    */
   getMenuItemPath = (item: MenuDataItem, isChildren: boolean) => {
     const itemPath = this.conversionPath(item.path || '/');
-    const { location = { pathname: '/' }, isMobile, onCollapse, menuItemRender } = this.props;
+    const {
+      location = { pathname: '/' },
+      isMobile,
+      onCollapse,
+      menuItemRender,
+      iconPrefixes,
+    } = this.props;
     const { target } = item;
     // if local is true formatMessage all name。
     const name = this.getIntlName(item);
     const { prefixCls } = this.props;
-    const icon = isChildren ? null : getIcon(item.icon);
+    const icon = isChildren ? null : getIcon(item.icon, iconPrefixes);
     let defaultItem = (
       <span className={`${prefixCls}-menu-item`}>
         {icon}
