@@ -74,6 +74,7 @@ const useFetchData = <T extends RequestData<any>>(
   // pre state
   const prePage = usePrevious(pageInfo.current);
   const prePageSize = usePrevious(pageInfo.pageSize);
+  const prePolling = usePrevious(polling);
 
   const { effects = [] } = options || {};
 
@@ -166,6 +167,9 @@ const useFetchData = <T extends RequestData<any>>(
   useEffect(() => {
     if (!polling) {
       clearTimeout(pollingSetTimeRef.current);
+    }
+    if (!prePolling && polling) {
+      fetchListDebounce.run(true);
     }
     return () => {
       clearTimeout(pollingSetTimeRef.current);
