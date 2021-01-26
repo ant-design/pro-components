@@ -167,6 +167,9 @@ const useFetchData = <T extends RequestData<any>>(
     if (!polling) {
       clearTimeout(pollingSetTimeRef.current);
     }
+    return () => {
+      clearTimeout(pollingSetTimeRef.current);
+    };
   }, [polling]);
 
   /** PageIndex 改变的时候自动刷新 */
