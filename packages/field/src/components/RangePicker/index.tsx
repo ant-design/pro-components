@@ -3,7 +3,6 @@ import React, { useState, useContext } from 'react';
 import moment from 'moment';
 import { FieldLabel, parseValueToMoment } from '@ant-design/pro-utils';
 import { useIntl } from '@ant-design/pro-provider';
-import SizeContext from 'antd/lib/config-provider/SizeContext';
 
 import type { ProFieldFC } from '../../index';
 
@@ -24,7 +23,7 @@ const FieldRangePicker: ProFieldFC<{
   ref,
 ) => {
   const intl = useIntl();
-  const size = useContext(SizeContext);
+  const size = useContext(ConfigProvider.SizeContext);
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-date-picker');
   const [startText, endText] = Array.isArray(text) ? text : [];

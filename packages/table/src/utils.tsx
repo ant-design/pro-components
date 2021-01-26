@@ -1,7 +1,7 @@
 import React from 'react';
+import type { TablePaginationConfig, TableColumnType } from 'antd';
 import { Space, Tooltip, Form, Typography } from 'antd';
 
-import type { ColumnsType, TablePaginationConfig } from 'antd/lib/table';
 import type {
   ProFieldValueType,
   ProSchemaComponentTypes,
@@ -364,7 +364,7 @@ export function genColumnList<T>(props: {
   columnEmptyText: ProFieldEmptyText;
   type: ProSchemaComponentTypes;
   editableUtils: UseEditableUtilType;
-}): (ColumnsType<T>[number] & { index?: number })[] {
+}): (TableColumnType<T> & { index?: number })[] {
   const { columns, map, counter, columnEmptyText, type, editableUtils } = props;
   return (columns
     .map((columnProps, columnsIndex) => {
@@ -432,7 +432,7 @@ export function genColumnList<T>(props: {
       };
       return omitUndefinedAndEmptyArr(tempColumns);
     })
-    .filter((item) => !item.hideInTable) as unknown) as (ColumnsType<T>[number] & {
+    .filter((item) => !item.hideInTable) as unknown) as (TableColumnType<T> & {
     index?: number;
   })[];
 }

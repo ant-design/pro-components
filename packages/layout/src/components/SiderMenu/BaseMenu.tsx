@@ -6,8 +6,7 @@ import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { isUrl, isImg } from '@ant-design/pro-utils';
 
-import type { MenuMode, MenuProps } from 'antd/lib/menu';
-import type { MenuTheme } from 'antd/lib/menu/MenuContext';
+import type { MenuTheme, MenuProps } from 'antd';
 import type { PureSettings } from '../../defaultSettings';
 import defaultSettings from '../../defaultSettings';
 import { getOpenKeysFromMenuData } from '../../utils/utils';
@@ -16,6 +15,9 @@ import type { MenuDataItem, MessageDescriptor, Route, RouterTypes, WithFalse } f
 import MenuCounter from './Counter';
 import type { PrivateSiderMenuProps } from './SiderMenu';
 import PageLoading from '../PageLoading';
+
+// todo
+export type MenuMode = 'vertical' | 'vertical-left' | 'vertical-right' | 'horizontal' | 'inline';
 
 export type BaseMenuProps = {
   className?: string;

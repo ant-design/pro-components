@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import type { BreadcrumbProps } from 'antd/lib/breadcrumb';
+import type { BreadcrumbProps } from 'antd';
 import type { BreadcrumbListReturn } from './utils/getBreadcrumbProps';
 import type { PureSettings } from './defaultSettings';
 import type { MenuDataItem } from './typings';

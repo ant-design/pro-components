@@ -1,7 +1,6 @@
 ﻿import React, { useContext, useEffect, useImperativeHandle, useMemo, useRef } from 'react';
 import { Modal, ConfigProvider } from 'antd';
-import type { FormInstance, FormProps } from 'antd/lib/form';
-import type { ModalProps } from 'antd/lib/modal';
+import type { FormInstance, ModalProps, FormProps } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'omit.js';
 import { createPortal } from 'react-dom';

@@ -6,12 +6,12 @@ import React, {
   useImperativeHandle,
   useEffect,
 } from 'react';
+import type { TablePaginationConfig } from 'antd';
 import { Table, ConfigProvider, Form, Card, Spin } from 'antd';
 import type { ParamsType } from '@ant-design/pro-provider';
 import { useIntl, ConfigProviderWrap } from '@ant-design/pro-provider';
 import classNames from 'classnames';
 import { stringify } from 'use-json-comparison';
-import type { TablePaginationConfig } from 'antd/lib/table';
 import type { TableCurrentDataSource, SorterResult, SortOrder } from 'antd/lib/table/interface';
 import {
   useDeepCompareEffect,

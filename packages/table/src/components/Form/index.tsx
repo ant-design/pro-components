@@ -1,5 +1,5 @@
 import React, { useContext, useRef, useCallback, useState, useMemo } from 'react';
-import type { FormInstance, FormItemProps } from 'antd/lib/form';
+import type { FormInstance, FormItemProps } from 'antd';
 import { ConfigProvider } from 'antd';
 import type { IntlType } from '@ant-design/pro-provider';
 import { useIntl } from '@ant-design/pro-provider';

@@ -1,11 +1,10 @@
 ﻿import React, { useEffect, useContext } from 'react';
-import { Form } from 'antd';
+import type { FormItemProps } from 'antd';
+import { Form, ConfigProvider } from 'antd';
 import type { ProFieldValueType, SearchTransformKeyFn } from '@ant-design/pro-utils';
 import { pickProFormItemProps } from '@ant-design/pro-utils';
-import type { FormItemProps } from 'antd/lib/form';
 import classnames from 'classnames';
 import { noteOnce } from 'rc-util/lib/warning';
-import SizeContext from 'antd/lib/config-provider/SizeContext';
 import FieldContext from '../FieldContext';
 import LightWrapper from './LightWrapper';
 import type { ProFormItemProps } from '../interface';
@@ -82,7 +81,7 @@ function createField<P extends ProFormItemProps = any>(
   config?: ProFormItemCreateConfig,
 ): ProFormComponent<P, ExtendsProps> {
   const FieldWithContext: React.FC<P> = (props: P & ExtendsProps) => {
-    const size = useContext(SizeContext);
+    const size = useContext(ConfigProvider.SizeContext);
     const {
       label,
       tooltip,

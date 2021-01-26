@@ -1,8 +1,7 @@
 import React from 'react';
-import type { FormInstance } from 'antd/lib/form';
+import type { FormInstance, ButtonProps } from 'antd';
 import { Button, Space } from 'antd';
 import { useIntl } from '@ant-design/pro-provider';
-import type { ButtonProps } from 'antd/lib/button';
 
 /** @name 用于配置操作栏 */
 export type SearchConfig = {

@@ -1,16 +1,16 @@
 import React from 'react';
+import type { SliderSingleProps } from 'antd';
 import { Slider } from 'antd';
-import type { SliderBaseProps } from 'antd/lib/slider';
 import type { ProFormItemProps } from '../../interface';
 import createField from '../../BaseForm/createField';
 
-export type ProFormSliderProps = ProFormItemProps<SliderBaseProps> & {
+export type ProFormSliderProps = ProFormItemProps<SliderSingleProps> & {
   range?: boolean;
-  min?: SliderBaseProps['min'];
-  max?: SliderBaseProps['max'];
-  step?: SliderBaseProps['step'];
-  marks?: SliderBaseProps['marks'];
-  vertical?: SliderBaseProps['vertical'];
+  min?: SliderSingleProps['min'];
+  max?: SliderSingleProps['max'];
+  step?: SliderSingleProps['step'];
+  marks?: SliderSingleProps['marks'];
+  vertical?: SliderSingleProps['vertical'];
 };
 /**
  * 文本选择组件
@@ -29,7 +29,7 @@ const ProFormSlider: React.ForwardRefRenderFunction<any, ProFormSliderProps> = (
       marks={marks}
       vertical={vertical}
       range={range}
-      {...fieldProps}
+      {...(fieldProps as any)}
       ref={ref}
     />
   );

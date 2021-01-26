@@ -1,7 +1,7 @@
 import React from 'react';
+import type { SwitchProps } from 'antd';
 import { Switch } from 'antd';
 import Omit from 'omit.js';
-import type { SwitchProps } from 'antd/lib/switch';
 import type { ProFieldFC } from '../../index';
 
 /**

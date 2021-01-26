@@ -1,6 +1,6 @@
 import React from 'react';
 import ProField from '@ant-design/pro-field';
-import type { SwitchProps } from 'antd/lib/switch';
+import type { SwitchProps } from 'antd';
 import createField from '../../BaseForm/createField';
 import type { ProFormItemProps } from '../../interface';
 

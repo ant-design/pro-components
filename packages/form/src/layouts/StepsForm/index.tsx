@@ -1,11 +1,10 @@
 import React, { useRef, useCallback, useEffect, useContext } from 'react';
+import type { StepsProps, FormInstance } from 'antd';
 import { Form, Steps, ConfigProvider, Button, Space } from 'antd';
 import toArray from 'rc-util/lib/Children/toArray';
 import type { FormProviderProps } from 'antd/lib/form/context';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import type { StepsProps } from 'antd/lib/steps';
 import classNames from 'classnames';
-import type { FormInstance } from 'antd/lib/form';
 import { useIntl } from '@ant-design/pro-provider';
 import { useMountMergeState } from '@ant-design/pro-utils';
 

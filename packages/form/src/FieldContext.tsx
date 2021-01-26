@@ -1,5 +1,5 @@
 import React from 'react';
-import type { FormItemProps } from 'antd/lib/form';
+import type { FormItemProps } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import type { ProFieldValueType, SearchTransformKeyFn } from '@ant-design/pro-utils';
 import type { GroupProps, FieldProps } from './interface';

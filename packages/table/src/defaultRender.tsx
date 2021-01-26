@@ -1,11 +1,11 @@
 import React from 'react';
+import type { FormInstance } from 'antd';
 import { Form } from 'antd';
 import type { ProFieldEmptyText, ProFieldPropsType } from '@ant-design/pro-field';
 import ProField from '@ant-design/pro-field';
 import type { ProFieldValueType, ProSchemaComponentTypes } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
 import { getFieldPropsOrFormItemProps, InlineErrorFormItem } from '@ant-design/pro-utils';
-import type { FormInstance } from 'antd/lib/form/Form';
 
 import type { ProColumnType } from './index';
 
