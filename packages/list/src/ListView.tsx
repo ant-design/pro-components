@@ -6,7 +6,7 @@ import type { ActionType } from '@ant-design/pro-table';
 import get from 'rc-util/lib/utils/get';
 import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
 import useSelection from 'antd/lib/table/hooks/useSelection';
-import usePagination from 'antd/ES/table/hooks/usePagination';
+import usePagination from 'antd/lib/table/hooks/usePagination';
 import ProListItem from './Item';
 import { PRO_LIST_KEYS } from './constants';
 
