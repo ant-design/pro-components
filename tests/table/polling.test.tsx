@@ -6,7 +6,7 @@ import { columns } from './demo';
 import { waitForComponentToPaint } from '../util';
 
 describe('polling', () => {
-  it('🎏 polling should clearTime', async () => {
+  it('⏱️ polling should clearTime', async () => {
     const fn = jest.fn();
     const html = mount(
       <ProTable
@@ -40,7 +40,7 @@ describe('polling', () => {
     expect(fn).toBeCalledTimes(2);
   });
 
-  it('🎏 polling min time is 2000', async () => {
+  it('⏱️ polling min time is 2000', async () => {
     const fn = jest.fn();
     const html = mount(
       <ProTable
@@ -67,7 +67,7 @@ describe('polling', () => {
     expect(fn).toBeCalledTimes(2);
   });
 
-  it('🎏 polling time=3000', async () => {
+  it('⏱️ polling time=3000', async () => {
     const fn = jest.fn();
     const html = mount(
       <ProTable
@@ -97,7 +97,7 @@ describe('polling', () => {
     expect(fn).toBeCalledTimes(2);
   });
 
-  it('🎏 polling support function', async () => {
+  it('⏱️ polling support function', async () => {
     const fn = jest.fn();
     const html = mount(
       <ProTable
