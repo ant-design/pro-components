@@ -48,6 +48,7 @@ export type ProDescriptionsItemProps<T = Record<string, any>, ValueType = 'text'
     ellipsis?: boolean;
     mode?: ProFieldFCMode;
     children?: React.ReactNode;
+    order?: number;
   },
   ProSchemaComponentTypes,
   ValueType
@@ -410,12 +411,19 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
       }
       return item.props;
     });
-    return [...childrenColumns, ...(columns || [])].filter((item) => {
-      if (['index', 'indexBorder'].includes(item.valueType)) {
-        return false;
-      }
-      return !item.hideInDescriptions;
-    });
+    return [...(columns || []), ...childrenColumns]
+      .filter((item) => {
+        if (['index', 'indexBorder'].includes(item.valueType)) {
+          return false;
+        }
+        return !item.hideInDescriptions;
+      })
+      .sort((a, b) => {
+        if (b.order || a.order) {
+          return (b.order || 0) - (a.order || 0);
+        }
+        return (b.index || 0) - (a.index || 0);
+      });
   };
 
   const { options, children } = schemaToDescriptionsItem(
