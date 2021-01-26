@@ -1,13 +1,12 @@
 import React from 'react';
+import type { ListProps, TableColumnType, TableProps } from 'antd';
 import { List } from 'antd';
 import type { GetRowKey } from 'antd/lib/table/interface';
-import type { ListProps } from 'antd/lib/list';
-import type { ColumnType, TableProps } from 'antd/es/table';
 import type { ActionType } from '@ant-design/pro-table';
 import get from 'rc-util/lib/utils/get';
 import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
 import useSelection from 'antd/lib/table/hooks/useSelection';
-import usePagination from 'antd/lib/table/hooks/usePagination';
+import usePagination from 'antd/ES/table/hooks/usePagination';
 import ProListItem from './Item';
 import { PRO_LIST_KEYS } from './constants';
 
@@ -147,7 +146,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
       pagination={pagination && (mergedPagination as ListViewProps<RecordType>['pagination'])}
       renderItem={(item, index) => {
         const listItemProps = {};
-        columns?.forEach((column: ColumnType<RecordType>) => {
+        columns?.forEach((column: TableColumnType<RecordType>) => {
           PRO_LIST_KEYS.forEach((key) => {
             if (column.key === key) {
               const dataIndex = column.dataIndex || key;

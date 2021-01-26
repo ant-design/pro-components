@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import type { DescriptionsProps, FormInstance, FormProps } from 'antd';
 import { Descriptions, Space, Form } from 'antd';
 import { EditOutlined, CloseOutlined, CheckOutlined } from '@ant-design/icons';
 import toArray from 'rc-util/lib/Children/toArray';
@@ -21,12 +22,21 @@ import {
 import get from 'rc-util/lib/utils/get';
 import { stringify } from 'use-json-comparison';
 import ProSkeleton from '@ant-design/pro-skeleton';
-import type { FormInstance, FormProps } from 'antd/lib/form';
-import type { DescriptionsItemProps } from 'antd/lib/descriptions/Item';
-import type { DescriptionsProps } from 'antd/lib/descriptions';
 import type { RequestData } from './useFetchData';
 import useFetchData from './useFetchData';
 import type { ProFieldFCMode } from '@ant-design/pro-utils';
+
+// todo remove it
+export interface DescriptionsItemProps {
+  prefixCls?: string;
+  className?: string;
+  style?: React.CSSProperties;
+  label?: React.ReactNode;
+  labelStyle?: React.CSSProperties;
+  contentStyle?: React.CSSProperties;
+  children: React.ReactNode;
+  span?: number;
+}
 
 export type ProDescriptionsItemProps<T = Record<string, any>, ValueType = 'text'> = ProSchema<
   T,

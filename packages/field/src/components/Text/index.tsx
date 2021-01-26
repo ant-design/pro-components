@@ -1,6 +1,6 @@
+import type { InputProps } from 'antd';
 import { Input } from 'antd';
 import React, { useRef, useImperativeHandle, useState, useEffect } from 'react';
-import type { InputProps } from 'antd/lib/input';
 import { useIntl } from '@ant-design/pro-provider';
 
 import type { ProFieldFC } from '../../index';

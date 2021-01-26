@@ -2,9 +2,7 @@ import { PageHeader, Tabs, Affix, ConfigProvider } from 'antd';
 import type { ReactNode } from 'react';
 import React, { useContext } from 'react';
 import classNames from 'classnames';
-import type { TabsProps, TabPaneProps } from 'antd/lib/tabs';
-import type { PageHeaderProps } from 'antd/lib/page-header';
-import type { AffixProps } from 'antd/lib/affix';
+import type { TabsProps, AffixProps, PageHeaderProps, TabPaneProps } from 'antd';
 
 import type { RouteContextType } from '../../RouteContext';
 import RouteContext from '../../RouteContext';

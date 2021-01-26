@@ -7,7 +7,8 @@ import React, {
   useCallback,
   useEffect,
 } from 'react';
-import { Select, Space, Spin } from 'antd';
+import type { SelectProps } from 'antd';
+import { Select, Space, Spin, ConfigProvider } from 'antd';
 import type {
   ProFieldRequestData,
   ProFieldValueEnumType,
@@ -18,8 +19,6 @@ import { useDeepCompareEffect } from '@ant-design/pro-utils';
 import useSWR from 'swr';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { useIntl } from '@ant-design/pro-provider';
-import SizeContext from 'antd/lib/config-provider/SizeContext';
-import type { SelectProps } from 'antd/lib/select';
 
 import LightSelect from './LightSelect';
 import type { ProFieldStatusType } from '../Status';
@@ -274,7 +273,7 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
 
   const [loading, options, fetchData] = useFieldFetchData(props);
 
-  const size = useContext(SizeContext);
+  const size = useContext(ConfigProvider.SizeContext);
   useImperativeHandle(ref, () => ({
     ...(inputRef.current || {}),
     fetchData: () => fetchData(),

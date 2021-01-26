@@ -6,9 +6,9 @@ import {
   VerticalAlignTopOutlined,
   VerticalAlignBottomOutlined,
 } from '@ant-design/icons';
+import type { TableColumnType } from 'antd';
 import { Checkbox, Tree, Popover, ConfigProvider, Tooltip } from 'antd';
 import classNames from 'classnames';
-import type { ColumnType } from 'antd/lib/table';
 
 import type { ColumnsState } from '../../container';
 import Container from '../../container';
@@ -19,7 +19,7 @@ import { genColumnKey } from '../../utils';
 import type { ProColumns } from '../../typing';
 
 type ColumnSettingProps<T = any> = {
-  columns: ColumnType<T>[];
+  columns: TableColumnType<T>[];
   draggable?: boolean;
   checkable?: boolean;
 };
@@ -112,7 +112,7 @@ const CheckboxList: React.FC<{
     const newColumns = [...sortKeyColumns.current];
     const findIndex = newColumns.findIndex((columnKey) => columnKey === id);
     const targetIndex = newColumns.findIndex((columnKey) => columnKey === targetId);
-    const isDownword = dropPosition > findIndex;
+    const isDownWord = dropPosition > findIndex;
     if (findIndex < 0) {
       return;
     }
@@ -121,7 +121,7 @@ const CheckboxList: React.FC<{
     if (dropPosition === 0) {
       newColumns.unshift(targetItem);
     } else {
-      newColumns.splice(isDownword ? targetIndex : targetIndex + 1, 0, targetItem);
+      newColumns.splice(isDownWord ? targetIndex : targetIndex + 1, 0, targetItem);
     }
     // 重新生成排序数组
     newColumns.forEach((key, order) => {

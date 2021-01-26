@@ -1,7 +1,7 @@
 ﻿import type React from 'react';
 import { useCallback, useMemo } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import type { FormInstance } from 'antd/lib/form';
+import type { FormInstance } from 'antd';
 import { useIntl } from '@ant-design/pro-provider';
 import { message } from 'antd';
 import ReactDOM from 'react-dom';

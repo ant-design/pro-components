@@ -1,11 +1,10 @@
 import React, { useMemo, useContext, useRef, useImperativeHandle } from 'react';
-import type { ListProps } from 'antd/lib/list';
+import type { ListProps, PaginationProps } from 'antd';
 import classNames from 'classnames';
 import type { ProTableProps, ProColumnType, ActionType } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
 import type { ParamsType } from '@ant-design/pro-provider';
 import { ConfigProvider, Form } from 'antd';
-import type { PaginationConfig } from 'antd/lib/pagination';
 
 import ListView from './ListView';
 
@@ -137,7 +136,7 @@ function ProList<
               expandable={expandable}
               rowSelection={rowSelection === false ? undefined : rowSelection}
               showActions={showActions}
-              pagination={pagination as PaginationConfig}
+              pagination={pagination as PaginationProps}
               itemLayout={itemLayout}
               loading={loading}
             />

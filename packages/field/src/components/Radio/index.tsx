@@ -1,7 +1,7 @@
 ﻿import React, { useContext, useImperativeHandle, useRef } from 'react';
+import type { RadioGroupProps } from 'antd';
 import { Radio, ConfigProvider, Spin } from 'antd';
 import classNames from 'classnames';
-import type { RadioGroupProps } from 'antd/lib/radio';
 import type { ProFieldFC } from '../../index';
 
 import './index.less';

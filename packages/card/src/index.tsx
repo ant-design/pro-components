@@ -1,12 +1,12 @@
 import type { PropsWithChildren, ReactNode } from 'react';
 import React, { useContext } from 'react';
+import type { TabsProps } from 'antd';
 import { Grid, Tabs, ConfigProvider } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { LabelIconTip } from '@ant-design/pro-utils';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import type { TabsProps } from 'antd/lib/tabs';
 import CardLoading from './components/CardLoading';
 import Divider from './components/Divider';
 import TabPane from './components/TabPane';

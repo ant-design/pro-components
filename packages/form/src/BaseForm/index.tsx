@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useImperativeHandle, useState } from 'react';
+import type { FormProps, FormItemProps, FormInstance } from 'antd';
+import { ConfigProvider } from 'antd';
 import { Form } from 'antd';
-import type { FormProps, FormInstance } from 'antd/lib/form/Form';
-import type { FormItemProps } from 'antd/lib/form';
 import { ConfigProviderWrap } from '@ant-design/pro-provider';
 import type { ProFieldValueType, SearchTransformKeyFn } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
@@ -12,7 +12,6 @@ import {
 } from '@ant-design/pro-utils';
 import { useUrlSearchParams } from 'use-url-search-params';
 
-import SizeContext from 'antd/lib/config-provider/SizeContext';
 import namePathSet from 'rc-util/lib/utils/set';
 import FieldContext from '../FieldContext';
 import type { SubmitterProps } from '../components/Submitter';
@@ -178,7 +177,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
           },
         }}
       >
-        <SizeContext.Provider value={rest.size}>
+        <ConfigProvider.SizeContext.Provider value={rest.size}>
           <Form
             onKeyPress={(event) => {
               if (event.key === 'Enter') {
@@ -239,7 +238,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
             </Form.Item>
             {content}
           </Form>
-        </SizeContext.Provider>
+        </ConfigProvider.SizeContext.Provider>
       </FieldContext.Provider>
     </ConfigProviderWrap>
   );

@@ -1,10 +1,9 @@
+import type { DatePickerProps } from 'antd';
 import { DatePicker, ConfigProvider } from 'antd';
 import React, { useState, useContext } from 'react';
 import moment from 'moment';
 import { useIntl } from '@ant-design/pro-provider';
 import { FieldLabel, parseValueToMoment } from '@ant-design/pro-utils';
-import SizeContext from 'antd/lib/config-provider/SizeContext';
-import type { DatePickerProps } from 'antd/lib/date-picker';
 import type { ProFieldFC } from '../../index';
 import './index.less';
 
@@ -37,7 +36,7 @@ const FieldDatePicker: ProFieldFC<{
   ref,
 ) => {
   const intl = useIntl();
-  const size = useContext(SizeContext);
+  const size = useContext(ConfigProvider.SizeContext);
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-date-picker');
   const [open, setOpen] = useState<boolean>(false);
