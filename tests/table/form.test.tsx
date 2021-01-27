@@ -203,7 +203,7 @@ describe('BasicTable Search', () => {
     });
   });
 
-  fit('🎏 fieldProps and formItemProps support function', async () => {
+  it('🎏 fieldProps and formItemProps support function', async () => {
     const ref = React.createRef<FormInstance | undefined>();
     const html = mount(
       <ProTable
