@@ -8,16 +8,10 @@ import type { ListGridType } from 'antd/lib/list';
 import type { ExpandableConfig } from 'antd/lib/table/interface';
 import classNames from 'classnames';
 
-export type ExpandIconProps<RecordType> = {
-  onExpand: (expanded: boolean) => void;
-  record: RecordType;
-  expanded: boolean;
-};
-
 export type RenderExpandIconProps<RecordType> = {
   prefixCls: string;
   expanded: boolean;
-  expandIcon?: (expandIconProps: ExpandIconProps<RecordType>) => React.ReactNode;
+  expandIcon: React.ReactNode;
   onExpand: (expanded: boolean) => void;
   record: RecordType;
 };
