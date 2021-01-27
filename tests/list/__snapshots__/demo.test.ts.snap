@@ -2144,27 +2144,33 @@ exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 
                       class="ant-pro-list-row-header-option"
                     >
                       <span
-                        class="ant-pro-list-row-expand-icon ant-pro-list-row-collapsed"
+                        aria-label="plus-circle"
+                        class="anticon anticon-plus-circle"
+                        role="img"
+                        tabindex="-1"
                       >
-                        <span
-                          aria-label="right"
-                          class="anticon anticon-right"
-                          role="img"
+                        <svg
+                          aria-hidden="true"
+                          data-icon="plus-circle"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
                         >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="right"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                            />
-                          </svg>
-                        </span>
+                          <path
+                            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                            fill="#1890ff"
+                          />
+                          <path
+                            d="M512 140c-205.4 0-372 166.6-372 372s166.6 372 372 372 372-166.6 372-372-166.6-372-372-372zm192 396c0 4.4-3.6 8-8 8H544v152c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V544H328c-4.4 0-8-3.6-8-8v-48c0-4.4 3.6-8 8-8h152V328c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v152h152c4.4 0 8 3.6 8 8v48z"
+                            fill="#e6f7ff"
+                          />
+                          <path
+                            d="M696 480H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8z"
+                            fill="#1890ff"
+                          />
+                        </svg>
                       </span>
                     </div>
                     <div
@@ -2255,27 +2261,33 @@ exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 
                       class="ant-pro-list-row-header-option"
                     >
                       <span
-                        class="ant-pro-list-row-expand-icon ant-pro-list-row-collapsed"
+                        aria-label="plus-circle"
+                        class="anticon anticon-plus-circle"
+                        role="img"
+                        tabindex="-1"
                       >
-                        <span
-                          aria-label="right"
-                          class="anticon anticon-right"
-                          role="img"
+                        <svg
+                          aria-hidden="true"
+                          data-icon="plus-circle"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
                         >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="right"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                            />
-                          </svg>
-                        </span>
+                          <path
+                            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                            fill="#1890ff"
+                          />
+                          <path
+                            d="M512 140c-205.4 0-372 166.6-372 372s166.6 372 372 372 372-166.6 372-372-166.6-372-372-372zm192 396c0 4.4-3.6 8-8 8H544v152c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V544H328c-4.4 0-8-3.6-8-8v-48c0-4.4 3.6-8 8-8h152V328c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v152h152c4.4 0 8 3.6 8 8v48z"
+                            fill="#e6f7ff"
+                          />
+                          <path
+                            d="M696 480H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8z"
+                            fill="#1890ff"
+                          />
+                        </svg>
                       </span>
                     </div>
                     <div
@@ -2366,27 +2378,33 @@ exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 
                       class="ant-pro-list-row-header-option"
                     >
                       <span
-                        class="ant-pro-list-row-expand-icon ant-pro-list-row-collapsed"
+                        aria-label="plus-circle"
+                        class="anticon anticon-plus-circle"
+                        role="img"
+                        tabindex="-1"
                       >
-                        <span
-                          aria-label="right"
-                          class="anticon anticon-right"
-                          role="img"
+                        <svg
+                          aria-hidden="true"
+                          data-icon="plus-circle"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
                         >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="right"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                            />
-                          </svg>
-                        </span>
+                          <path
+                            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                            fill="#1890ff"
+                          />
+                          <path
+                            d="M512 140c-205.4 0-372 166.6-372 372s166.6 372 372 372 372-166.6 372-372-166.6-372-372-372zm192 396c0 4.4-3.6 8-8 8H544v152c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V544H328c-4.4 0-8-3.6-8-8v-48c0-4.4 3.6-8 8-8h152V328c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v152h152c4.4 0 8 3.6 8 8v48z"
+                            fill="#e6f7ff"
+                          />
+                          <path
+                            d="M696 480H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8z"
+                            fill="#1890ff"
+                          />
+                        </svg>
                       </span>
                     </div>
                     <div
@@ -2477,27 +2495,33 @@ exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 
                       class="ant-pro-list-row-header-option"
                     >
                       <span
-                        class="ant-pro-list-row-expand-icon ant-pro-list-row-collapsed"
+                        aria-label="plus-circle"
+                        class="anticon anticon-plus-circle"
+                        role="img"
+                        tabindex="-1"
                       >
-                        <span
-                          aria-label="right"
-                          class="anticon anticon-right"
-                          role="img"
+                        <svg
+                          aria-hidden="true"
+                          data-icon="plus-circle"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
                         >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="right"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                            />
-                          </svg>
-                        </span>
+                          <path
+                            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                            fill="#1890ff"
+                          />
+                          <path
+                            d="M512 140c-205.4 0-372 166.6-372 372s166.6 372 372 372 372-166.6 372-372-166.6-372-372-372zm192 396c0 4.4-3.6 8-8 8H544v152c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V544H328c-4.4 0-8-3.6-8-8v-48c0-4.4 3.6-8 8-8h152V328c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v152h152c4.4 0 8 3.6 8 8v48z"
+                            fill="#e6f7ff"
+                          />
+                          <path
+                            d="M696 480H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8z"
+                            fill="#1890ff"
+                          />
+                        </svg>
                       </span>
                     </div>
                     <div
@@ -5664,6 +5688,7 @@ Array [
                               />
                             </svg>
                           </span>
+                          ,
                         </span>
                       </div>
                       <div
@@ -5775,6 +5800,7 @@ Array [
                               />
                             </svg>
                           </span>
+                          ,
                         </span>
                       </div>
                       <div
@@ -5886,6 +5912,7 @@ Array [
                               />
                             </svg>
                           </span>
+                          ,
                         </span>
                       </div>
                       <div
@@ -5997,6 +6024,7 @@ Array [
                               />
                             </svg>
                           </span>
+                          ,
                         </span>
                       </div>
                       <div
@@ -6189,6 +6217,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
                             />
                           </svg>
                         </span>
+                        ,
                       </span>
                     </div>
                     <div
@@ -6344,6 +6373,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
                             />
                           </svg>
                         </span>
+                        ,
                       </span>
                     </div>
                     <div
@@ -6499,6 +6529,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
                             />
                           </svg>
                         </span>
+                        ,
                       </span>
                     </div>
                     <div
@@ -6654,6 +6685,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
                             />
                           </svg>
                         </span>
+                        ,
                       </span>
                     </div>
                     <div
