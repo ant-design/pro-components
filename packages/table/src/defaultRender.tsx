@@ -1,5 +1,5 @@
 import React from 'react';
-import type { FormInstance } from 'antd';
+import type { FormInstance, FormItemProps } from 'antd';
 import { Form } from 'antd';
 import type { ProFieldEmptyText, ProFieldPropsType } from '@ant-design/pro-field';
 import ProField from '@ant-design/pro-field';
@@ -101,7 +101,7 @@ function defaultRenderText<T>(config: {
             ...columnProps,
             isEditable: true,
           },
-        );
+        ) as FormItemProps;
 
         const inputDom = (
           <InlineErrorFormItem
@@ -153,6 +153,10 @@ function defaultRenderText<T>(config: {
                 columnProps?.key || columnProps?.dataIndex || config.index,
               )}
               {...formItemProps}
+              messageVariables={{
+                label: columnProps.title as string,
+                ...formItemProps?.messageVariables,
+              }}
             >
               {renderDom}
             </InlineErrorFormItem>
