@@ -203,7 +203,7 @@ describe('BasicTable Search', () => {
     });
   });
 
-  it('🎏 fieldProps and formItemProps support function', async () => {
+  fit('🎏 fieldProps and formItemProps support function', async () => {
     const ref = React.createRef<FormInstance | undefined>();
     const html = mount(
       <ProTable
@@ -254,7 +254,7 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitForComponentToPaint(html, 1400);
 
     /** 修改值 */
     act(() => {
