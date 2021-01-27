@@ -96,7 +96,6 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     onExpand,
     onExpandedRowsChange,
     rowExpandable,
-    expandIcon,
   } = expandableConfig || {};
 
   const [innerExpandedKeys, setInnerExpandedKeys] = React.useState<Key[]>(() => {
