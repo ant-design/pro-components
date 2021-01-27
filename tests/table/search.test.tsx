@@ -224,14 +224,48 @@ describe('BasicTable Search', () => {
       />,
     );
     await waitForComponentToPaint(html, 1200);
+  });
 
-    act(() => {
-      html.find('button.ant-btn').at(0).simulate('click');
-    });
+  it('🎏 manualRequest no render loading dom', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            title: '金额',
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+          {
+            title: 'Name',
+            key: 'name',
+            children: [
+              {
+                title: '金额',
+                dataIndex: 'money',
+                valueType: 'money',
+              },
+              {
+                title: '姓名',
+                dataIndex: 'name',
+                valueType: 'money',
+              },
+            ],
+          },
+        ]}
+        manualRequest
+        request={async (params) => {
+          fn();
+          return request(params);
+        }}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 1200);
+    expect(fn).toBeCalledTimes(0);
 
-    await waitForComponentToPaint(html, 500);
-
-    expect(fn).toBeCalledTimes(1);
+    expect(html.find('.ant-spin').exists()).toBeFalsy();
   });
 
   it('🎏 manualRequest test', async () => {
