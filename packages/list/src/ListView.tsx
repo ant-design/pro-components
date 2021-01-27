@@ -96,6 +96,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     onExpand,
     onExpandedRowsChange,
     rowExpandable,
+    expandIcon,
   } = expandableConfig || {};
 
   const [innerExpandedKeys, setInnerExpandedKeys] = React.useState<Key[]>(() => {
@@ -175,6 +176,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
             onExpand={() => {
               onTriggerExpand(item);
             }}
+            record={item}
             showActions={showActions}
             rowSupportExpand={!rowExpandable || (rowExpandable && rowExpandable(item))}
             selected={selectedKeySet.has(getRowKey(item, index))}

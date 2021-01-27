@@ -8,25 +8,37 @@ import type { ListGridType } from 'antd/lib/list';
 import type { ExpandableConfig } from 'antd/lib/table/interface';
 import classNames from 'classnames';
 
-export type RenderExpandIconProps = {
-  prefixCls: string;
-  expanded: boolean;
-  expandIcon: React.ReactNode;
+export type ExpandIconProps<RecordType> = {
   onExpand: (expanded: boolean) => void;
+  record: RecordType;
+  expanded: boolean;
 };
 
-export function renderExpandIcon({
+export type RenderExpandIconProps<RecordType> = {
+  prefixCls: string;
+  expanded: boolean;
+  expandIcon?: (expandIconProps: ExpandIconProps<RecordType>) => React.ReactNode;
+  onExpand: (expanded: boolean) => void;
+  record: RecordType;
+};
+
+export function renderExpandIcon<RecordType>({
   prefixCls,
-  expandIcon = <RightOutlined />,
+  expandIcon,
   onExpand,
   expanded,
-}: RenderExpandIconProps) {
+  record,
+}: RenderExpandIconProps<RecordType>) {
   const expandClassName = `${prefixCls}-row-expand-icon`;
 
   const onClick: React.MouseEventHandler<HTMLElement> = (event) => {
     onExpand(!expanded);
     event.stopPropagation();
   };
+
+  if (typeof expandIcon === 'function') {
+    return expandIcon({ expanded, onExpand, record });
+  }
 
   return (
     <span
@@ -36,12 +48,12 @@ export function renderExpandIcon({
       })}
       onClick={onClick}
     >
-      {expandIcon}
+      <RightOutlined />,
     </span>
   );
 }
 
-export type ItemProps = {
+export type ItemProps<RecordType> = {
   title?: React.ReactNode;
   subTitle?: React.ReactNode;
   checkbox?: React.ReactNode;
@@ -71,9 +83,10 @@ export type ItemProps = {
   isEditable: boolean;
   recordKey: string | number | undefined;
   cardProps?: ProCardProps;
+  record?: RecordType;
 };
 
-function ProListItem(props: ItemProps) {
+function ProListItem<RecordType>(props: ItemProps<RecordType>) {
   const { prefixCls: customizePrefixCls } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-list', customizePrefixCls);
@@ -103,6 +116,7 @@ function ProListItem(props: ItemProps) {
     type,
     style,
     className: propsClassName = defaultClassName,
+    record,
     ...rest
   } = props;
 
@@ -148,6 +162,7 @@ function ProListItem(props: ItemProps) {
                 expandIcon,
                 onExpand,
                 expanded,
+                record,
               })}
           </div>
           {title || avatar || subTitle || description ? (
