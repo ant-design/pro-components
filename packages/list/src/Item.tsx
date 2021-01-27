@@ -11,7 +11,13 @@ import classNames from 'classnames';
 export type RenderExpandIconProps<RecordType> = {
   prefixCls: string;
   expanded: boolean;
-  expandIcon: React.ReactNode;
+  expandIcon:
+    | React.ReactNode
+    | ((props: {
+        onExpand: (expanded: boolean) => void;
+        expanded: boolean;
+        record: RecordType;
+      }) => React.ReactNode);
   onExpand: (expanded: boolean) => void;
   record: RecordType;
 };
