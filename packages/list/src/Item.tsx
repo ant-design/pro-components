@@ -2,10 +2,10 @@ import React, { useContext } from 'react';
 import { List, Avatar, Skeleton, ConfigProvider } from 'antd';
 import type { ProCardProps } from '@ant-design/pro-card';
 import ProCard from '@ant-design/pro-card';
-import { RightOutlined } from '@ant-design/icons';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { ListGridType } from 'antd/lib/list';
 import type { ExpandableConfig } from 'antd/lib/table/interface';
+import { RightOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 
 export type RenderExpandIconProps<RecordType> = {
@@ -18,11 +18,12 @@ export type RenderExpandIconProps<RecordType> = {
 
 export function renderExpandIcon<RecordType>({
   prefixCls,
-  expandIcon,
+  expandIcon = <RightOutlined />,
   onExpand,
   expanded,
   record,
 }: RenderExpandIconProps<RecordType>) {
+  let icon = expandIcon;
   const expandClassName = `${prefixCls}-row-expand-icon`;
 
   const onClick: React.MouseEventHandler<HTMLElement> = (event) => {
@@ -31,7 +32,7 @@ export function renderExpandIcon<RecordType>({
   };
 
   if (typeof expandIcon === 'function') {
-    return expandIcon({ expanded, onExpand, record });
+    icon = expandIcon({ expanded, onExpand, record });
   }
 
   return (
@@ -42,7 +43,7 @@ export function renderExpandIcon<RecordType>({
       })}
       onClick={onClick}
     >
-      <RightOutlined />,
+      {icon}
     </span>
   );
 }
