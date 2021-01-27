@@ -224,14 +224,98 @@ describe('BasicTable Search', () => {
       />,
     );
     await waitForComponentToPaint(html, 1200);
+  });
+
+  it('🎏 table will render loading dom', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            title: '金额',
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+          {
+            title: 'Name',
+            key: 'name',
+            children: [
+              {
+                title: '金额',
+                dataIndex: 'money',
+                valueType: 'money',
+              },
+              {
+                title: '姓名',
+                dataIndex: 'name',
+                valueType: 'money',
+              },
+            ],
+          },
+        ]}
+        request={async (params) => {
+          fn();
+          await waitTime(5000);
+          return request(params);
+        }}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 1200);
+    expect(fn).toBeCalledTimes(1);
+
+    expect(html.find('.ant-spin').exists()).toBeTruthy();
 
     act(() => {
-      html.find('button.ant-btn').at(0).simulate('click');
+      html.unmount();
     });
+  });
 
-    await waitForComponentToPaint(html, 500);
+  it('🎏 manualRequest no render loading dom', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            title: '金额',
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+          {
+            title: 'Name',
+            key: 'name',
+            children: [
+              {
+                title: '金额',
+                dataIndex: 'money',
+                valueType: 'money',
+              },
+              {
+                title: '姓名',
+                dataIndex: 'name',
+                valueType: 'money',
+              },
+            ],
+          },
+        ]}
+        manualRequest
+        request={async (params) => {
+          fn();
+          return request(params);
+        }}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 1200);
+    expect(fn).toBeCalledTimes(0);
 
-    expect(fn).toBeCalledTimes(1);
+    expect(html.find('.ant-spin').exists()).toBeFalsy();
+
+    act(() => {
+      html.unmount();
+    });
   });
 
   it('🎏 manualRequest test', async () => {
@@ -280,9 +364,14 @@ describe('BasicTable Search', () => {
       ref.current?.submit();
     });
     await waitForComponentToPaint(html, 1200);
+
     expect(fn).toBeCalledTimes(1);
 
     MockDate.set(1479799364000);
+
+    act(() => {
+      html.unmount();
+    });
   });
 
   it('🎏 search span test', async () => {
