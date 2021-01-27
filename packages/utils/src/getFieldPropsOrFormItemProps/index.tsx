@@ -8,13 +8,13 @@
  */
 const getFieldPropsOrFormItemProps = (
   fieldProps: any,
-  form?: FormInstance<any>,
+  form?: FormInstance<any> | null,
   extraProps?: any,
-): Object & {
+): Record<string, any> & {
   onChange: any;
   colSize: number;
 } => {
-  if (!form) {
+  if (form === undefined) {
     return {} as any;
   }
   if (typeof fieldProps === 'function') {

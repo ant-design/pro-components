@@ -81,7 +81,7 @@ function defaultRenderText<T>(config: {
   if (config.mode !== 'edit') {
     return (
       <ProField
-        fieldProps={getFieldPropsOrFormItemProps(columnProps?.fieldProps, undefined, columnProps)}
+        fieldProps={getFieldPropsOrFormItemProps(columnProps?.fieldProps, null, columnProps)}
         {...proFieldProps}
       />
     );

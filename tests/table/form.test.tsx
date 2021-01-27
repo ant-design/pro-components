@@ -254,7 +254,7 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitForComponentToPaint(html, 1400);
 
     /** 修改值 */
     act(() => {

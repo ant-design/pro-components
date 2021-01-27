@@ -120,7 +120,6 @@ export const formInputRender: React.FC<{
   [key: string]: any;
 }> = (props, ref: any) => {
   const { item, intl, form, type, formItemProps: propsFormItemProps, ...rest } = props;
-
   const formItemProps = getFieldPropsOrFormItemProps(
     propsFormItemProps,
     form,
@@ -347,7 +346,7 @@ const FormSearch = <T, U = any>({
         .map((item, index) =>
           proFormItemRender({
             isForm,
-            formInstance: formRef.current,
+            formInstance: formRef.current || undefined,
             item: {
               index,
               ...item,
