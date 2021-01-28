@@ -235,6 +235,7 @@ describe('List', () => {
   });
 
   it('🚏 expandable with expandIcon', async () => {
+    const fn = jest.fn();
     const Wrapper = () => {
       return (
         <ProList
@@ -251,7 +252,9 @@ describe('List', () => {
             content: {},
           }}
           expandable={{
-            expandIcon: () => <div className="expand-icon" />,
+            expandIcon: ({ record }) => (
+              <div onClick={() => fn(record.name)} className="expand-icon" />
+            ),
           }}
           rowKey={(item) => {
             return item.name;
@@ -262,6 +265,8 @@ describe('List', () => {
     const html = mount(<Wrapper />);
 
     expect(html.find('.expand-icon')).toHaveLength(1);
+
+    expect(fn).toBeCalledWith('我是名称');
   });
 
   it('🚏 rowSelection', async () => {
