@@ -156,7 +156,7 @@ class MenuUtil {
   getMenuItemPath = (item: MenuDataItem, isChildren: boolean) => {
     const itemPath = this.conversionPath(item.path || '/');
     const { location = { pathname: '/' }, isMobile, onCollapse, menuItemRender } = this.props;
-    const { target } = item;
+    const { target = '_blank' } = item;
     // if local is true formatMessage all name。
     const name = this.getIntlName(item);
     const { prefixCls } = this.props;
