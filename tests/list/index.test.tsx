@@ -234,6 +234,36 @@ describe('List', () => {
     );
   });
 
+  it('🚏 expandable with expandIcon', async () => {
+    const Wrapper = () => {
+      return (
+        <ProList
+          dataSource={[
+            {
+              name: '我是名称',
+              content: <div>我是内容</div>,
+            },
+          ]}
+          metas={{
+            title: {
+              dataIndex: 'name',
+            },
+            content: {},
+          }}
+          expandable={{
+            expandIcon: () => <div className="expand-icon" />,
+          }}
+          rowKey={(item) => {
+            return item.name;
+          }}
+        />
+      );
+    };
+    const html = mount(<Wrapper />);
+
+    expect(html.find('.expand-icon')).toHaveLength(1);
+  });
+
   it('🚏 rowSelection', async () => {
     const Wrapper = () => {
       const [selectedRowKeys, setSelectedRowKeys] = useState<ReactText[]>([]);
