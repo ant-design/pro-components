@@ -6370,7 +6370,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             class="ant-form-item-no-colon"
             title=" "
           >
-             
+
           </label>
         </div>
         <div
@@ -6829,7 +6829,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             class="ant-form-item-no-colon"
             title=" "
           >
-             
+
           </label>
         </div>
         <div
@@ -7346,7 +7346,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             class="ant-form-item-no-colon"
             title=" "
           >
-             
+
           </label>
         </div>
         <div
@@ -7587,7 +7587,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
           <a
             class="filterTrigger"
           >
-            高级筛选 
+            高级筛选
             <span
               aria-label="up"
               class="anticon anticon-up"
@@ -7936,7 +7936,7 @@ Array [
       </svg>
     </span>
     <span>
-      分布表单新建
+      分步表单新建
     </span>
   </button>,
   <div

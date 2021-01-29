@@ -25,7 +25,7 @@ export default () => {
     <>
       <Button type="primary" onClick={() => setVisible(true)}>
         <PlusOutlined />
-        分布表单新建
+        分步表单新建
       </Button>
       <StepsForm
         onFinish={async (values) => {
@@ -42,7 +42,7 @@ export default () => {
         stepsFormRender={(dom, submitter) => {
           return (
             <Modal
-              title="分布表单"
+              title="分步表单"
               width={800}
               onCancel={() => setVisible(false)}
               visible={visible}
