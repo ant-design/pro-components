@@ -470,7 +470,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     if (toolBarRender === false) {
       return null;
     }
-    if (options === false && !headerTitle && !toolBarRender && !toolbar) {
+    if (options === false && !headerTitle && !toolBarRender && !toolbar && !isLightFilter) {
       return null;
     }
     /** 根据表单类型的不同决定是否生成 toolbarProps */
