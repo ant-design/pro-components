@@ -27,5 +27,6 @@ export default {
   pkgs: [...headPkgs, ...tailPkgs],
   extraBabelPlugins: [
     ['babel-plugin-import', { libraryName: 'antd', libraryDirectory: 'es', style: true }, 'antd'],
+    [require('./scripts/replaceLib')],
   ],
 };

@@ -9,6 +9,14 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.27.2
+
+`2021-01-25`
+
+- 🐛 fix(table): fix the problem that it still executes when polling=false [#1747](https://github.com/ant-design/pro-components/pull/1747) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix polling times [#1739](https://github.com/ant-design/pro-components/pull/1739) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix column dragger problem [#1730](https://github.com/ant-design/pro-components/pull/1730) [@ChenCheng220](https://github.com/ChenCheng220)
+
 ## @ant-design/pro-table@2.27.0
 
 `2021-01-21`

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { InfoCircleOutlined } from '@ant-design/icons';
 import { Tooltip, ConfigProvider } from 'antd';
-import type { TooltipProps } from 'antd/lib/tooltip';
+import type { TooltipProps } from 'antd';
 import './index.less';
 
 /**

@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.15.2
+
+`2021-01-25`
+
+- fix: ignore Blob type [#1722](https://github.com/ant-design/pro-components/pull/1722) [@eynol](https://github.com/eynol)
+
 ## @ant-design/pro-form@1.15.0
 
 `2021-01-21`

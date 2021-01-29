@@ -62,8 +62,16 @@ nav:
 recordCreatorProps = {
   // 顶部添加还是末尾添加
   position: 'end',
+  // 新增一行的方式，默认是缓存，取消后就会消失
+  // 如果设置为 dataSource 会触发 onchange，取消后也不会消失，只能删除
+  newRecordType: 'dataSource',
   // 不写 key ，会使用 index 当行 id
   record: {},
+  // 按钮的样式设置，可以设置按钮是否显示
+  // 这样可以做最大行限制和最小行限制之类的功能
+  style: {
+    display: 'none',
+  },
   // https://ant.design/components/button-cn/#API
   ...antButtonProps,
 };
@@ -194,26 +202,7 @@ render: (text, record, _, action) => [
 
 ```typescript
 const editable = {
-  actionRender: (row, config) => [
-    <a
-      key="save"
-      onClick={async () => {
-        const values = (await config?.form?.validateFields()) as DataSourceType;
-        const hide = message.loading('保存中。。。');
-        await config?.onSave?.(config.recordKey, { ...row, ...values });
-        hide();
-      }}
-    >
-      保存
-    </a>,
-    <a
-      key="save"
-      onClick={async () => {
-        await config?.onCancel?.(config.recordKey, row);
-      }}
-    >
-      取消
-    </a>,
-  ],
+  // defaultDom = {save,cancel,delete} 可以酌情添加和使用
+  actionRender: (row, config, defaultDom) => [defaultDom.save, defaultDom.cancel],
 };
 ```

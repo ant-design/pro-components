@@ -95,7 +95,7 @@ describe('BasicTable', () => {
       />,
     );
 
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
     act(() => {
       expect(html.render()).toMatchSnapshot();
     });
@@ -120,7 +120,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
     act(() => {
       expect(html.render()).toMatchSnapshot();
     });
@@ -145,7 +145,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
     act(() => {
       expect(html.render()).toMatchSnapshot();
     });
@@ -1051,7 +1051,7 @@ describe('BasicTable', () => {
         debounceTime={500}
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
     for (let i = 0; i < 10; i += 1) {
       ref.current?.reload();
     }

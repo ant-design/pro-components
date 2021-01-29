@@ -150,6 +150,7 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 | breakpoint | Trigger [breakpoint](https://ant.design/components/grid-cn/#Col) for responsive layouts | `Enum { 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' }` | `lg` |
 | menu | For the moment, only locale,locale can be turned off for the menu's own globalization | `{ locale: boolean, defaultOpenAll: boolean }` | `{ locale: true }` |
 | iconfontUrl | Use the icon configuration of [IconFont](https://ant.design/components/icon-cn/#components-icon-demo-iconfont) | `URL` | - |
+| iconPrefixes | icon prefix of side menu | `string` | `icon-` |
 | locale | Language settings for the current layout | `zh-CN` \| `zh-TW` \| `en-US` | navigator.language |
 | settings | settings for layout | [`Settings`](#Settings) | - |
 | siderWidth | width of the side menu | `number` | 208 |

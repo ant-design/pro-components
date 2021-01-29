@@ -1,6 +1,6 @@
 import { Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
-import type { FormInstance, FormItemProps } from 'antd/lib/form';
+import type { FormInstance, FormItemProps } from 'antd';
 import get from 'rc-util/lib/utils/get';
 
 declare type RenderChildren<Values = any> = (

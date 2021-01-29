@@ -1,7 +1,7 @@
 ﻿import React, { useCallback, useMemo, useRef, useState } from 'react';
 import type { GetRowKey } from 'antd/lib/table/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import type { FormInstance } from 'antd/lib/form';
+import type { FormInstance } from 'antd';
 import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
 import { LoadingOutlined } from '@ant-design/icons';
 import { useIntl } from '@ant-design/pro-provider';

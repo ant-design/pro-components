@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import type { FormProps } from 'antd/lib/form/Form';
+import type { FormProps } from 'antd';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import classNames from 'classnames';
 import { Form, ConfigProvider } from 'antd';

@@ -1,6 +1,6 @@
 import React from 'react';
 import ProField from '@ant-design/pro-field';
-import type { RateProps } from 'antd/lib/rate';
+import type { RateProps } from 'antd';
 import type { ProFormItemProps } from '../../interface';
 import createField from '../../BaseForm/createField';
 /**

@@ -33,7 +33,7 @@ export default () => (
   <ProList<any>
     toolBarRender={() => {
       return [
-        <Button key="3" type="primary">
+        <Button key="add" type="primary">
           新建
         </Button>,
       ];

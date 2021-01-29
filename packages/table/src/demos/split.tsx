@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import type { BadgeProps } from 'antd';
 import { Button, Badge } from 'antd';
-import type { BadgeProps } from 'antd/lib/badge';
 import type { ProColumns } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
 import ProCard from '@ant-design/pro-card';

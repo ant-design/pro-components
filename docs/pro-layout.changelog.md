@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.13.0
+
+`2021-01-25`
+
+- 💥 feat(layout): ProLayout support breadcrumbProps [#1757](https://github.com/ant-design/pro-components/pull/1757) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix: icon from iconfont.cn starts without icon- [#1750](https://github.com/ant-design/pro-components/pull/1750) [@fengsx](https://github.com/fengsx)
+
 ## @ant-design/pro-layout@6.11.0
 
 `2021-01-18`

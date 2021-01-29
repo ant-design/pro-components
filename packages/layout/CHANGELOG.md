@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.13.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.12.0...@ant-design/pro-layout@6.13.0) (2021-01-25)
+
+### Features
+
+- **layout:** ProLayout support breadcrumbProps ([#1757](https://github.com/ant-design/pro-components/issues/1757)) ([f15bba8](https://github.com/ant-design/pro-components/commit/f15bba862ff43b349cd91bf2906e29dddf8637f0))
+- **layout:** prolayout support iconPrefixes ([#1750](https://github.com/ant-design/pro-components/issues/1750)) ([b5357a6](https://github.com/ant-design/pro-components/commit/b5357a6c9145792884a131a2ed893661a87ee08a))
+
 # [6.12.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.11.1...@ant-design/pro-layout@6.12.0) (2021-01-21)
 
 ### Features

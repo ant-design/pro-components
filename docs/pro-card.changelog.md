@@ -10,6 +10,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-card@1.10.0
+
+`2021-01-25`
+
+- feat: support card hoverable and colSpan = 0 [#1718](https://github.com/ant-design/pro-components/pull/1718) [@rdmclin2](https://github.com/rdmclin2)
+
 ## @ant-design/pro-card@1.9.12
 
 `2021-01-18`

@@ -1,7 +1,6 @@
 import React from 'react';
 import ProField from '@ant-design/pro-field';
-import type { InputProps } from 'antd/lib/input';
-import type { SelectProps } from 'antd/lib/select';
+import type { InputProps, SelectProps } from 'antd';
 import type { ProSchema } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
 

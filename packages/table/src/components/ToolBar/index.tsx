@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo } from 'react';
 import { ReloadOutlined, SettingOutlined } from '@ant-design/icons';
+import type { TableColumnType } from 'antd';
 import { Tooltip } from 'antd';
 import type { SearchProps } from 'antd/lib/input';
-import type { ColumnType } from 'antd/lib/table';
 import type { IntlType } from '@ant-design/pro-provider';
 import { useIntl } from '@ant-design/pro-provider';
 import type { ListToolBarProps } from '../ListToolBar';
@@ -50,7 +50,7 @@ export type ToolBarProps<T = unknown> = {
   selectedRows?: T[];
   className?: string;
   onSearch?: (keyWords: string) => void;
-  columns: ColumnType<T>[];
+  columns: TableColumnType<T>[];
 };
 
 function getButtonText({
@@ -89,7 +89,7 @@ function renderDefaultOption<T>(
   defaultOptions: OptionConfig & {
     intl: IntlType;
   },
-  columns: ColumnType<T>[],
+  columns: TableColumnType<T>[],
 ) {
   return Object.keys(options)
     .filter((item) => item)

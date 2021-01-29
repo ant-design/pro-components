@@ -1,7 +1,6 @@
 ﻿import React, { useImperativeHandle } from 'react';
 import { Space } from 'antd';
-import type { FormItemProps } from 'antd/lib/form';
-import type { SpaceProps } from 'antd/lib/space';
+import type { FormItemProps, SpaceProps } from 'antd';
 import toArray from 'rc-util/lib/Children/toArray';
 import createField from '../../BaseForm/createField';
 

@@ -1,12 +1,12 @@
 import type { PropsWithChildren, ReactNode } from 'react';
 import React, { useContext } from 'react';
+import type { TabsProps } from 'antd';
 import { Grid, Tabs, ConfigProvider } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { LabelIconTip } from '@ant-design/pro-utils';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import type { TabsProps } from 'antd/lib/tabs';
 import CardLoading from './components/CardLoading';
 import Divider from './components/Divider';
 import TabPane from './components/TabPane';
@@ -34,7 +34,6 @@ export type ProCardProps = {
   subTitle?: React.ReactNode;
   /** 标题说明 */
   tooltip?: string;
-
   /** @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一 */
   tip?: string;
   /** 右上角自定义区域 */
@@ -59,6 +58,12 @@ export type ProCardProps = {
   split?: 'vertical' | 'horizontal';
   /** 是否有边框 */
   bordered?: boolean;
+  /**
+   * 鼠标移过时可浮起
+   *
+   * @default false
+   */
+  hoverable?: boolean;
   /** 幽灵模式，即是否取消卡片内容区域的 padding 和 背景颜色。 */
   ghost?: boolean;
   /** 是否可折叠 */
@@ -107,6 +112,7 @@ const ProCard: ProCardType = React.forwardRef<HTMLDivElement>((props: ProCardPro
     size,
     actions,
     ghost = false,
+    hoverable = false,
     direction,
     collapsed: controlCollapsed,
     collapsible = false,
@@ -235,12 +241,13 @@ const ProCard: ProCardType = React.forwardRef<HTMLDivElement>((props: ProCardPro
   };
 
   const cardCls = classNames(`${prefixCls}`, className, {
-    [`${prefixCls}-span-${span}`]: typeof span === 'number' && span > 0 && span <= 24,
+    [`${prefixCls}-span-${span}`]: typeof span === 'number' && span >= 0 && span <= 24,
     [`${prefixCls}-border`]: bordered,
     [`${prefixCls}-contain-card`]: containProCard,
     [`${prefixCls}-loading`]: loading,
     [`${prefixCls}-split`]: split === 'vertical' || split === 'horizontal',
     [`${prefixCls}-ghost`]: ghost,
+    [`${prefixCls}-hoverable`]: hoverable,
     [`${prefixCls}-size-${size}`]: size,
     [`${prefixCls}-type-${type}`]: type,
     [`${prefixCls}-collapse`]: collapsed,

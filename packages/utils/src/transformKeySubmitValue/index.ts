@@ -33,7 +33,8 @@ const transformKeySubmitValue = <T = any>(
       if (
         typeof itemValue === 'object' &&
         !Array.isArray(itemValue) &&
-        !React.isValidElement(itemValue) // ignore walk through
+        !React.isValidElement(itemValue) && // ignore walk throungh React Element
+        !(itemValue instanceof Blob) // ignore walk throungh Blob
       ) {
         const genValues = gen(itemValue, entryKey);
         if (Object.keys(genValues).length < 1) {

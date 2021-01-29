@@ -1,5 +1,5 @@
 import React, { useContext, useRef, useCallback, useState, useMemo } from 'react';
-import type { FormInstance, FormItemProps } from 'antd/lib/form';
+import type { FormInstance, FormItemProps } from 'antd';
 import { ConfigProvider } from 'antd';
 import type { IntlType } from '@ant-design/pro-provider';
 import { useIntl } from '@ant-design/pro-provider';
@@ -120,7 +120,6 @@ export const formInputRender: React.FC<{
   [key: string]: any;
 }> = (props, ref: any) => {
   const { item, intl, form, type, formItemProps: propsFormItemProps, ...rest } = props;
-
   const formItemProps = getFieldPropsOrFormItemProps(
     propsFormItemProps,
     form,
@@ -347,7 +346,7 @@ const FormSearch = <T, U = any>({
         .map((item, index) =>
           proFormItemRender({
             isForm,
-            formInstance: formRef.current,
+            formInstance: formRef.current || undefined,
             item: {
               index,
               ...item,

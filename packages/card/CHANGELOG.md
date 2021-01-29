@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.9.14...@ant-design/pro-card@1.10.0) (2021-01-25)
+
+### Features
+
+- **card:** support card hoverable and colSpan = 0 ([#1718](https://github.com/ant-design/pro-components/issues/1718)) ([e9079b5](https://github.com/ant-design/pro-components/commit/e9079b575090094227849b1999e76926965fa637))
+
 ## [1.9.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.9.13...@ant-design/pro-card@1.9.14) (2021-01-21)
 
 **Note:** Version bump only for package @ant-design/pro-card

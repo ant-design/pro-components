@@ -1,8 +1,7 @@
 ﻿import React, { useContext, useEffect, useMemo, useImperativeHandle, useRef } from 'react';
+import type { DrawerProps, FormInstance, FormProps } from 'antd';
 import { ConfigProvider, Drawer } from 'antd';
-import type { FormInstance, FormProps } from 'antd/lib/form';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import type { DrawerProps } from 'antd/lib/drawer';
 import { createPortal } from 'react-dom';
 import omit from 'omit.js';
 

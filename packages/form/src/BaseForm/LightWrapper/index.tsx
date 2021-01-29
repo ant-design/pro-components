@@ -6,10 +6,11 @@ import {
   isDropdownValueType,
   useMountMergeState,
 } from '@ant-design/pro-utils';
-import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import { ConfigProvider } from 'antd';
 
 import './index.less';
+
+export type SizeType = 'small' | 'middle' | 'large' | undefined;
 
 export type LightWrapperProps = {
   label?: React.ReactNode;

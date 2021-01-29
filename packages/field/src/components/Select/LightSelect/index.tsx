@@ -1,6 +1,6 @@
 import React, { useState, useContext, useMemo } from 'react';
+import type { SelectProps } from 'antd';
 import { Select, Input, ConfigProvider } from 'antd';
-import type { SelectProps } from 'antd/lib/select';
 import { SearchOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import { FieldLabel } from '@ant-design/pro-utils';
