@@ -2,31 +2,44 @@ import React, { useContext } from 'react';
 import { List, Avatar, Skeleton, ConfigProvider } from 'antd';
 import type { ProCardProps } from '@ant-design/pro-card';
 import ProCard from '@ant-design/pro-card';
-import { RightOutlined } from '@ant-design/icons';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { ListGridType } from 'antd/lib/list';
 import type { ExpandableConfig } from 'antd/lib/table/interface';
+import { RightOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 
-export type RenderExpandIconProps = {
+export type RenderExpandIconProps<RecordType> = {
   prefixCls: string;
   expanded: boolean;
-  expandIcon: React.ReactNode;
+  expandIcon:
+    | React.ReactNode
+    | ((props: {
+        onExpand: (expanded: boolean) => void;
+        expanded: boolean;
+        record: RecordType;
+      }) => React.ReactNode);
   onExpand: (expanded: boolean) => void;
+  record: RecordType;
 };
 
-export function renderExpandIcon({
+export function renderExpandIcon<RecordType>({
   prefixCls,
   expandIcon = <RightOutlined />,
   onExpand,
   expanded,
-}: RenderExpandIconProps) {
+  record,
+}: RenderExpandIconProps<RecordType>) {
+  let icon = expandIcon;
   const expandClassName = `${prefixCls}-row-expand-icon`;
 
   const onClick: React.MouseEventHandler<HTMLElement> = (event) => {
     onExpand(!expanded);
     event.stopPropagation();
   };
+
+  if (typeof expandIcon === 'function') {
+    icon = expandIcon({ expanded, onExpand, record });
+  }
 
   return (
     <span
@@ -36,12 +49,12 @@ export function renderExpandIcon({
       })}
       onClick={onClick}
     >
-      {expandIcon}
+      {icon}
     </span>
   );
 }
 
-export type ItemProps = {
+export type ItemProps<RecordType> = {
   title?: React.ReactNode;
   subTitle?: React.ReactNode;
   checkbox?: React.ReactNode;
@@ -71,9 +84,10 @@ export type ItemProps = {
   isEditable: boolean;
   recordKey: string | number | undefined;
   cardProps?: ProCardProps;
+  record?: RecordType;
 };
 
-function ProListItem(props: ItemProps) {
+function ProListItem<RecordType>(props: ItemProps<RecordType>) {
   const { prefixCls: customizePrefixCls } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-list', customizePrefixCls);
@@ -103,6 +117,7 @@ function ProListItem(props: ItemProps) {
     type,
     style,
     className: propsClassName = defaultClassName,
+    record,
     ...rest
   } = props;
 
@@ -148,6 +163,7 @@ function ProListItem(props: ItemProps) {
                 expandIcon,
                 onExpand,
                 expanded,
+                record,
               })}
           </div>
           {title || avatar || subTitle || description ? (

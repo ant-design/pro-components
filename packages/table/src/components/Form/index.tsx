@@ -78,15 +78,15 @@ const getFromProps = (isForm: boolean, searchConfig: any, name: string) => {
  * 从formConfig中获取传给相应表单的配置
  *
  * @param isForm
- * @param formCofig
+ * @param formConfig
  */
-const getFormConfigs = (isForm: boolean, formCofig: any) => {
+const getFormConfigs = (isForm: boolean, formConfig: any) => {
   if (isForm) {
     // 传给Form的配置
-    return omit(formCofig, ['ignoreRules']);
+    return omit(formConfig, ['ignoreRules']);
   }
   // 传给Filter的配置
-  return { ignoreRules: true, ...formCofig };
+  return { ignoreRules: true, ...formConfig };
 };
 
 export type TableFormItem<T, U = any> = {
