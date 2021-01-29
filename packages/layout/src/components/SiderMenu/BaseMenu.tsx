@@ -167,7 +167,7 @@ class MenuUtil {
       menuItemRender,
       iconPrefixes,
     } = this.props;
-    const { target } = item;
+    const { target = '_blank' } = item;
     // if local is true formatMessage all name。
     const name = this.getIntlName(item);
     const { prefixCls } = this.props;
