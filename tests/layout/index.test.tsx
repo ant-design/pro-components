@@ -823,7 +823,7 @@ describe('BasicLayout', () => {
     expect(wrapper.find('.ant-pro-basicLayout-top').exists()).toBeTruthy();
   });
 
-  fit('🥩 BasicLayout menu support autoClose', async () => {
+  it('🥩 BasicLayout menu support autoClose', async () => {
     const Demo = () => {
       const [pathname, setPathname] = useState('/admin/sub-page1');
       return (
