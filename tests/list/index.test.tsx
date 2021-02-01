@@ -253,7 +253,7 @@ describe('List', () => {
           }}
           expandable={{
             expandIcon: ({ record }) => (
-              <div onClick={() => fn(record.name)} className="expand-icon" />
+              <div id="test_click" onClick={() => fn(record.name)} className="expand-icon" />
             ),
           }}
           rowKey={(item) => {
@@ -264,7 +264,13 @@ describe('List', () => {
     };
     const html = mount(<Wrapper />);
 
+    await waitForComponentToPaint(html, 1200);
+
     expect(html.find('.expand-icon')).toHaveLength(1);
+
+    act(() => {
+      html.find('#test_click').simulate('click');
+    });
 
     expect(fn).toBeCalledWith('我是名称');
   });

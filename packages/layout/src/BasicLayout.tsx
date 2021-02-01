@@ -413,7 +413,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     if (onPageChange) {
       onPageChange(props.location);
     }
-  }, [stringify(props.location)]);
+  }, [props.location?.pathname, props.location?.pathname?.search]);
 
   const [hasFooterToolbar, setHasFooterToolbar] = useState(false);
 

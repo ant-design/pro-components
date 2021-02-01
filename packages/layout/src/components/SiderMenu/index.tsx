@@ -34,6 +34,7 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (prop
       setFlatMenuKeys(Object.keys(newFlatMenus));
     });
     return () => window.cancelAnimationFrame && window.cancelAnimationFrame(animationFrameId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [matchMenuKeys.join('-')]);
 
   useEffect(() => {
@@ -42,6 +43,7 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (prop
         onCollapse(true);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isMobile]);
 
   const omitProps = Omit(props, ['className', 'style']);

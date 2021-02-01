@@ -48,7 +48,7 @@ type StepsFormProps<T = Record<string, any>> = {
    * @param submitter 操作按钮
    */
   stepsFormRender?: (from: React.ReactNode, submitter: React.ReactNode) => React.ReactNode;
-  /** 按钮的统一配置，优先级低于分布表单的配置 */
+  /** 按钮的统一配置，优先级低于分步表单的配置 */
   submitter?:
     | SubmitterProps<{
         step: number;
