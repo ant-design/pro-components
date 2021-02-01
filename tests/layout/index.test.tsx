@@ -872,6 +872,10 @@ describe('BasicLayout', () => {
                   path: '/list/sub-page2',
                   name: '二级列表页面',
                 },
+                {
+                  path: 'https://ant.design',
+                  name: 'antd',
+                },
               ],
             },
           ]}
@@ -890,6 +894,10 @@ describe('BasicLayout', () => {
       html.find('ul.ant-menu-sub').at(1).find('.ant-menu-item-only-child').at(1).simulate('click');
     });
     await waitForComponentToPaint(html, 100);
+
+    act(() => {
+      html.find('span.ant-pro-menu-item-link').simulate('click');
+    });
 
     expect(html.find('.ant-menu-submenu-open').length).toBe(2);
   });

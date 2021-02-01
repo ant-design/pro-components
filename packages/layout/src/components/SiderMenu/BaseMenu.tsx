@@ -186,7 +186,7 @@ class MenuUtil {
           onClick={() => {
             window.open(itemPath);
           }}
-          className={`${prefixCls}-menu-item`}
+          className={`${prefixCls}-menu-item ${prefixCls}-menu-item-link`}
         >
           {icon}
           <span className={`${prefixCls}-menu-item-title`}>{name}</span>
@@ -322,9 +322,8 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         newKeys = Array.from(new Set([...matchMenuKeys, ...(openKeys || [])]));
       }
       setOpenKeys(newKeys);
-    } else if (flatMenuKeys.length > 0) {
-      setDefaultOpenAll(false);
-    }
+    } else if (flatMenuKeys.length > 0) setDefaultOpenAll(false);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [matchMenuKeys.join('-'), collapsed]);
 
