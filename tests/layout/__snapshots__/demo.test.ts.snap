@@ -4155,7 +4155,7 @@ Array [
                 role="menuitem"
               >
                 <span
-                  class="ant-pro-menu-item"
+                  class="ant-pro-menu-item ant-pro-menu-item-link"
                 >
                   <span
                     aria-label="ant-design"
@@ -4571,7 +4571,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
               >
                 <a>
                   <span
-                    class="ant-pro-menu-item"
+                    class="ant-pro-menu-item ant-pro-menu-item-link"
                   >
                     <span
                       aria-label="ant-design"
@@ -5652,7 +5652,7 @@ Array [
               >
                 <a>
                   <span
-                    class="qixian-pro-menu-item"
+                    class="qixian-pro-menu-item qixian-pro-menu-item-link"
                   >
                     <span
                       aria-label="ant-design"
@@ -7456,7 +7456,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
             >
               <a>
                 <span
-                  class="ant-pro-menu-item"
+                  class="ant-pro-menu-item ant-pro-menu-item-link"
                 >
                   <span
                     aria-label="ant-design"
@@ -7842,7 +7842,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                 <div>
                   pre 
                   <span
-                    class="ant-pro-menu-item"
+                    class="ant-pro-menu-item ant-pro-menu-item-link"
                   >
                     <span
                       aria-label="ant-design"
@@ -8346,7 +8346,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
               role="menuitem"
             >
               <span
-                class="ant-pro-menu-item"
+                class="ant-pro-menu-item ant-pro-menu-item-link"
               >
                 <span
                   aria-label="ant-design"
@@ -8720,7 +8720,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                 style="padding-left: 16px;"
               >
                 <span
-                  class="ant-pro-menu-item"
+                  class="ant-pro-menu-item ant-pro-menu-item-link"
                 >
                   <span
                     aria-label="ant-design"
@@ -9203,7 +9203,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
                 style="padding-left: 16px;"
               >
                 <span
-                  class="ant-pro-menu-item"
+                  class="ant-pro-menu-item ant-pro-menu-item-link"
                 >
                   <span
                     aria-label="ant-design"
@@ -11182,7 +11182,7 @@ Array [
                     role="menuitem"
                   >
                     <span
-                      class="ant-pro-menu-item"
+                      class="ant-pro-menu-item ant-pro-menu-item-link"
                     >
                       <span
                         aria-label="ant-design"
@@ -11490,7 +11490,7 @@ Array [
                     role="menuitem"
                   >
                     <span
-                      class="ant-pro-menu-item"
+                      class="ant-pro-menu-item ant-pro-menu-item-link"
                     >
                       <span
                         aria-label="ant-design"
@@ -11703,7 +11703,7 @@ Array [
                 style="padding-left: 16px;"
               >
                 <span
-                  class="ant-pro-menu-item"
+                  class="ant-pro-menu-item ant-pro-menu-item-link"
                 >
                   <span
                     aria-label="ant-design"
@@ -11993,7 +11993,7 @@ Array [
                     role="menuitem"
                   >
                     <span
-                      class="ant-pro-menu-item"
+                      class="ant-pro-menu-item ant-pro-menu-item-link"
                     >
                       <span
                         aria-label="ant-design"
