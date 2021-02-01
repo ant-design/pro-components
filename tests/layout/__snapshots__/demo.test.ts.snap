@@ -4317,7 +4317,7 @@ Array [
           class="ant-layout-footer"
           style="padding: 0px;"
         >
-          <footer
+          <div
             class="ant-pro-global-footer"
           >
             <div
@@ -4388,7 +4388,7 @@ Array [
               </span>
                2019 蚂蚁金服体验技术部出品
             </div>
-          </footer>
+          </div>
         </footer>
       </div>
     </section>
@@ -8506,7 +8506,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
         class="ant-layout-footer"
         style="padding: 0px;"
       >
-        <footer
+        <div
           class="ant-pro-global-footer"
         >
           <div
@@ -8552,7 +8552,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
             </span>
              这是一条测试文案
           </div>
-        </footer>
+        </div>
       </footer>
     </div>
   </section>
