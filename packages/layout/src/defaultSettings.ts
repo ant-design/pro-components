@@ -25,7 +25,13 @@ export type PureSettings = {
   /** @name sticky siderbar */
   fixSiderbar?: boolean;
   /** @name menu 相关的一些配置 */
-  menu?: { locale?: boolean; defaultOpenAll?: boolean; loading?: boolean; type?: 'sub' | 'group' };
+  menu?: {
+    locale?: boolean;
+    defaultOpenAll?: boolean;
+    loading?: boolean;
+    type?: 'sub' | 'group';
+    autoClose?: false;
+  };
   /**
    * 设置为 false，在 layout 中只展示 pageName，而不是 pageName - title
    *

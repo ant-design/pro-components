@@ -1,5 +1,5 @@
 import { mount, render } from 'enzyme';
-import React from 'react';
+import React, { useState } from 'react';
 import { act } from 'react-dom/test-utils';
 import type { BasicLayoutProps } from '@ant-design/pro-layout';
 import BasicLayout from '@ant-design/pro-layout';
@@ -500,7 +500,7 @@ describe('BasicLayout', () => {
     });
   });
 
-  it('🥩headerTitleRender ', async () => {
+  it('🥩 headerTitleRender ', async () => {
     const wrapper = mount<BasicLayoutProps>(
       <BasicLayout
         headerTitleRender={() => <h2 id="mix-test">mix title</h2>}
@@ -821,5 +821,84 @@ describe('BasicLayout', () => {
     });
     await waitForComponentToPaint(wrapper, 100);
     expect(wrapper.find('.ant-pro-basicLayout-top').exists()).toBeTruthy();
+  });
+
+  it('🥩 BasicLayout menu support autoClose', async () => {
+    const Demo = () => {
+      const [pathname, setPathname] = useState('/admin/sub-page1');
+      return (
+        <BasicLayout
+          menu={{
+            autoClose: false,
+          }}
+          location={{ pathname }}
+          menuItemRender={(item, dom) => (
+            <a
+              onClick={() => {
+                setPathname(item.path || '/welcome');
+              }}
+            >
+              {dom}
+            </a>
+          )}
+          menuDataRender={() => [
+            {
+              path: '/admin',
+              name: '管理页',
+              routes: [
+                {
+                  path: '/admin/sub-page1',
+                  name: '一级页面',
+                },
+                {
+                  path: '/admin/sub-page2',
+                  name: '二级页面',
+                },
+                {
+                  path: '/admin/sub-page3',
+                  name: '三级页面',
+                },
+              ],
+            },
+            {
+              name: '列表页',
+              path: '/list',
+              routes: [
+                {
+                  path: '/list/sub-page',
+                  name: '一级列表页面',
+                },
+                {
+                  path: '/list/sub-page2',
+                  name: '二级列表页面',
+                },
+                {
+                  path: 'https://ant.design',
+                  name: 'antd',
+                },
+              ],
+            },
+          ]}
+        />
+      );
+    };
+    const html = mount(<Demo />);
+    await waitForComponentToPaint(html);
+
+    expect(html.find('li.ant-menu-submenu').length).toBe(2);
+    act(() => {
+      html.find('li.ant-menu-submenu').at(1).find('div.ant-menu-submenu-title').simulate('click');
+    });
+    await waitForComponentToPaint(html, 100);
+    act(() => {
+      html.find('ul.ant-menu-sub').at(1).find('.ant-menu-item-only-child').at(1).simulate('click');
+    });
+    await waitForComponentToPaint(html, 100);
+
+    act(() => {
+      html.find('span.ant-pro-menu-item-link').simulate('click');
+    });
+
+    expect(html.find('.ant-menu-submenu-open').length).toBe(2);
   });
 });

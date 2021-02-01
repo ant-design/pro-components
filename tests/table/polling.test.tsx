@@ -93,7 +93,7 @@ describe('polling', () => {
 
     expect(fn).toBeCalledTimes(1);
 
-    await waitForComponentToPaint(html, 1200);
+    await waitForComponentToPaint(html, 2000);
     expect(fn).toBeCalledTimes(2);
   });
 

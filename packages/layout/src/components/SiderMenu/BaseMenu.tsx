@@ -167,7 +167,6 @@ class MenuUtil {
       menuItemRender,
       iconPrefixes,
     } = this.props;
-    const { target = '_blank' } = item;
     // if local is true formatMessage all name。
     const name = this.getIntlName(item);
     const { prefixCls } = this.props;
@@ -183,10 +182,15 @@ class MenuUtil {
     // Is it a http link
     if (isHttpUrl) {
       defaultItem = (
-        <a href={itemPath} target={target} className={`${prefixCls}-menu-item`}>
+        <span
+          onClick={() => {
+            window.open(itemPath);
+          }}
+          className={`${prefixCls}-menu-item ${prefixCls}-menu-item-link`}
+        >
           {icon}
           <span className={`${prefixCls}-menu-item-title`}>{name}</span>
-        </a>
+        </span>
       );
     }
 
@@ -255,7 +259,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   const { flatMenuKeys } = MenuCounter.useContainer();
   const [defaultOpenAll, setDefaultOpenAll] = useState(menu?.defaultOpenAll);
 
-  const [openKeys, setOpenKeys] = useMergedState<WithFalse<React.ReactText[]>>(
+  const [openKeys, setOpenKeys] = useMergedState<WithFalse<React.Key[]>>(
     () => {
       if (menu?.defaultOpenAll) {
         return getOpenKeysFromMenuData(menuData) || [];
@@ -290,6 +294,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       setOpenKeys(matchMenuKeys);
       setSelectedKeys(matchMenuKeys);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [matchMenuKeys.join('-')]);
 
   useEffect(() => {
@@ -311,13 +316,20 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       propsOpenKeys !== false &&
       matchMenuKeys.join('-') !== (openKeys || []).join('-')
     ) {
-      setOpenKeys(matchMenuKeys);
-    } else if (flatMenuKeys.length > 0) {
-      setDefaultOpenAll(false);
-    }
+      let newKeys: React.Key[] = matchMenuKeys;
+      // 如果不自动关闭，我需要把 openKeys 放进去
+      if (menu?.autoClose === false) {
+        newKeys = Array.from(new Set([...matchMenuKeys, ...(openKeys || [])]));
+      }
+      setOpenKeys(newKeys);
+    } else if (flatMenuKeys.length > 0) setDefaultOpenAll(false);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [matchMenuKeys.join('-'), collapsed]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const openKeysProps = useMemo(() => getOpenKeysProps(openKeys, props), [
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     openKeys && openKeys.join(','),
     props.layout,
     props.collapsed,
