@@ -1,5 +1,5 @@
 ---
-title: StepsForm - 分布表单
+title: StepsForm - 分步表单
 order: 1
 group:
   path: /
