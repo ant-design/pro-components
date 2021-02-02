@@ -105,12 +105,12 @@ function defaultRenderText<T>(config: {
 
         const inputDom = (
           <InlineErrorFormItem
-            initialValue={text}
             name={spellNamePath(
               config.recordKey || config.index,
               columnProps?.key || columnProps?.dataIndex || config.index,
             )}
             {...formItemProps}
+            initialValue={text || formItemProps?.initialValue}
           >
             <ProField
               fieldProps={getFieldPropsOrFormItemProps(
@@ -147,12 +147,12 @@ function defaultRenderText<T>(config: {
           );
           return (
             <InlineErrorFormItem
-              initialValue={text}
               name={spellNamePath(
                 config.recordKey || config.index,
                 columnProps?.key || columnProps?.dataIndex || config.index,
               )}
               {...formItemProps}
+              initialValue={text || formItemProps?.initialValue}
               messageVariables={{
                 label: columnProps.title as string,
                 ...formItemProps?.messageVariables,
