@@ -507,6 +507,51 @@ describe('EditorProTable', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  fit('📝 columns initialValue alway work', async () => {
+    const wrapper = mount(
+      <EditableProTable
+        rowKey="id"
+        editable={{
+          editableKeys: [624748504],
+        }}
+        columns={[
+          {
+            // dataIndex 存在有数据，不显示 initialValue
+            dataIndex: 'index',
+            valueType: 'text',
+            width: 48,
+            initialValue: '123',
+          },
+          {
+            // dataIndex 不存在就没有数据显示 initialValue
+            dataIndex: 'xxx2',
+            valueType: 'text',
+            width: 48,
+            formItemProps: {
+              initialValue: '123',
+            },
+          },
+          {
+            // dataIndex 不存在就没有数据显示 initialValue
+            dataIndex: 'xxx',
+            valueType: 'text',
+            width: 48,
+            formItemProps: () => {
+              return { initialValue: '1234' };
+            },
+          },
+        ]}
+        value={defaultData}
+      />,
+    );
+
+    await waitForComponentToPaint(wrapper, 1200);
+
+    act(() => {
+      expect(wrapper.render()).toMatchSnapshot();
+    });
+  });
+
   it('📝 support editorRowKeys', async () => {
     const wrapper = mount(<EditorProTableDemo editorRowKeys={[624748504]} />);
     await waitForComponentToPaint(wrapper, 1000);

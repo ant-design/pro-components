@@ -110,7 +110,7 @@ function defaultRenderText<T>(config: {
               columnProps?.key || columnProps?.dataIndex || config.index,
             )}
             {...formItemProps}
-            initialValue={text || formItemProps.initialValue}
+            initialValue={text || formItemProps?.initialValue}
           >
             <ProField
               fieldProps={getFieldPropsOrFormItemProps(
@@ -152,7 +152,7 @@ function defaultRenderText<T>(config: {
                 columnProps?.key || columnProps?.dataIndex || config.index,
               )}
               {...formItemProps}
-              initialValue={text || formItemProps.initialValue}
+              initialValue={text || formItemProps?.initialValue}
               messageVariables={{
                 label: columnProps.title as string,
                 ...formItemProps?.messageVariables,
