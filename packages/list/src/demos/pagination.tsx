@@ -59,7 +59,6 @@ export default () => {
       }}
       headerTitle="翻页"
       dataSource={data}
-      renderItem={(item) => item}
     />
   );
 };

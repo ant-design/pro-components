@@ -95,7 +95,6 @@ export default () => {
         headerTitle="预设的列状态"
         rowSelection={rowSelection}
         dataSource={dataSource}
-        renderItem={(item) => item}
         expandable={{ expandedRowKeys, onExpandedRowsChange: setExpandedRowKeys }}
       />
     </>
