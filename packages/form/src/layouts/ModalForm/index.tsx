@@ -128,6 +128,7 @@ function ModalForm<T = Record<string, any>>({
                 type: (modalProps?.okType as 'text') || 'primary',
               },
               resetButtonProps: {
+                preventDefault: true,
                 onClick: (e) => {
                   modalProps?.onCancel?.(e);
                   setVisible(false);

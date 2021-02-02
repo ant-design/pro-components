@@ -1,6 +1,7 @@
 import React from 'react';
 import type { FormInstance, ButtonProps } from 'antd';
 import { Button, Space } from 'antd';
+import omit from 'omit.js';
 import { useIntl } from '@ant-design/pro-provider';
 
 /** @name 用于配置操作栏 */
@@ -19,9 +20,9 @@ export type SubmitterProps<T = {}> = {
   /** @name 搜索的配置，一般用来配置文本 */
   searchConfig?: SearchConfig;
   /** @name 提交按钮的 props */
-  submitButtonProps?: ButtonProps;
+  submitButtonProps?: ButtonProps & { preventDefault?: boolean };
   /** @name 重置按钮的 props */
-  resetButtonProps?: ButtonProps;
+  resetButtonProps?: ButtonProps & { preventDefault?: boolean };
   /** @name 自定义操作的渲染 */
   render?:
     | ((
@@ -54,7 +55,7 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (props) => 
     onReset,
     searchConfig = {},
     submitButtonProps,
-    resetButtonProps,
+    resetButtonProps = {},
   } = props;
 
   const submit = () => {
@@ -76,10 +77,10 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (props) => 
   /** 默认的操作的逻辑 */
   const dom = [
     <Button
-      {...resetButtonProps}
+      {...omit(resetButtonProps, ['preventDefault'])}
       key="rest"
       onClick={(e) => {
-        reset();
+        if (!resetButtonProps?.preventDefault) reset();
         resetButtonProps?.onClick?.(e);
       }}
     >
@@ -87,10 +88,10 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (props) => 
     </Button>,
     <Button
       type="primary"
-      {...submitButtonProps}
+      {...omit(submitButtonProps || {}, ['preventDefault'])}
       key="submit"
       onClick={(e) => {
-        submit();
+        if (!submitButtonProps?.preventDefault) submit();
         submitButtonProps?.onClick?.(e);
       }}
     >

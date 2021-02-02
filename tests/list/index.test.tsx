@@ -275,6 +275,30 @@ describe('List', () => {
     expect(fn).toBeCalledWith('我是名称');
   });
 
+  it('🚏 ProList support renderItem', async () => {
+    const Wrapper = () => {
+      return (
+        <ProList
+          dataSource={[
+            {
+              name: '我是名称',
+              content: <div>我是内容</div>,
+            },
+          ]}
+          renderItem={(_, index) => {
+            return <div id="test_index">{index}</div>;
+          }}
+          rowKey={(item) => {
+            return item.name;
+          }}
+        />
+      );
+    };
+    const html = mount(<Wrapper />);
+
+    expect(html.find('#test_index').exists()).toBeTruthy();
+  });
+
   it('🚏 rowSelection', async () => {
     const Wrapper = () => {
       return (
