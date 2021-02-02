@@ -114,6 +114,7 @@ function DrawerForm<T = Record<string, any>>({
                 resetText: '取消',
               },
               resetButtonProps: {
+                preventDefault: true,
                 onClick: (e: any) => {
                   setVisible(false);
                   drawerProps?.onClose?.(e);
