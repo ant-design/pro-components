@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.14.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.13.0...@ant-design/pro-layout@6.14.0) (2021-02-02)
+
+### Bug Fixes
+
+- **layout:** footer use div ([#1816](https://github.com/ant-design/pro-components/issues/1816)) ([49ad6d7](https://github.com/ant-design/pro-components/commit/49ad6d7bb92356de0e63e52884379a2e6970702b))
+
+### Features
+
+- **layout:** support menu.autoClose ([#1815](https://github.com/ant-design/pro-components/issues/1815)) ([433d20c](https://github.com/ant-design/pro-components/commit/433d20c4ec62ff9d8d2f23792370fd6ff9bdef58))
+
 # [6.13.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.12.0...@ant-design/pro-layout@6.13.0) (2021-01-25)
 
 ### Features

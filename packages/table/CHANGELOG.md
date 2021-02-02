@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.28.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.27.2...@ant-design/pro-table@2.28.0) (2021-02-02)
+
+### Bug Fixes
+
+- **table:** fix fieldProps no has bug ([#1776](https://github.com/ant-design/pro-components/issues/1776)) ([01e67a4](https://github.com/ant-design/pro-components/commit/01e67a45ef0f977e38688ab727dde878b11dd338))
+- **table:** fix manualRequest always show loading error ([#1767](https://github.com/ant-design/pro-components/issues/1767)) ([17d92e6](https://github.com/ant-design/pro-components/commit/17d92e6f5a5e0986b9066fe7ea8f5f27b54f0576))
+- **table:** LightFilter dosn't render if options={false} ([#1802](https://github.com/ant-design/pro-components/issues/1802)) ([38ad131](https://github.com/ant-design/pro-components/commit/38ad13150a504e0529ac07c543616472dbcfeaca))
+- **table:** reset messageVariables to label ([#1773](https://github.com/ant-design/pro-components/issues/1773)) ([baa8b65](https://github.com/ant-design/pro-components/commit/baa8b659980d6695b609a334251a003f0f50ae2d))
+
+### Features
+
+- **descriptions:** descriptions Columns support order ([#1763](https://github.com/ant-design/pro-components/issues/1763)) ([b004d9d](https://github.com/ant-design/pro-components/commit/b004d9d41fde2e0a75bcbe23e2ffcf8f70f837cb))
+- **list:** proList support checkox alert ([#1821](https://github.com/ant-design/pro-components/issues/1821)) ([8784360](https://github.com/ant-design/pro-components/commit/8784360b3238064c67d1782ad67d9aecbfa4a490))
+
 ## [2.27.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.27.1...@ant-design/pro-table@2.27.2) (2021-01-25)
 
 ### Bug Fixes

@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.4.12...@ant-design/pro-descriptions@1.5.0) (2021-02-02)
+
+### Features
+
+- **descriptions:** descriptions Columns support order ([#1763](https://github.com/ant-design/pro-components/issues/1763)) ([b004d9d](https://github.com/ant-design/pro-components/commit/b004d9d41fde2e0a75bcbe23e2ffcf8f70f837cb))
+
 ## [1.4.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.4.11...@ant-design/pro-descriptions@1.4.12) (2021-01-25)
 
 **Note:** Version bump only for package @ant-design/pro-descriptions

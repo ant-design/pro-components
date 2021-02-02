@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.3.5...@ant-design/pro-list@1.4.0) (2021-02-02)
+
+### Features
+
+- **list:** proList support checkox alert ([#1821](https://github.com/ant-design/pro-components/issues/1821)) ([8784360](https://github.com/ant-design/pro-components/commit/8784360b3238064c67d1782ad67d9aecbfa4a490))
+
 ## [1.3.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.3.4...@ant-design/pro-list@1.3.5) (2021-01-25)
 
 ### Bug Fixes

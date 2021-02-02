@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.11.2...@ant-design/pro-utils@1.11.3) (2021-02-02)
+
+### Bug Fixes
+
+- **table:** fix fieldProps no has bug ([#1776](https://github.com/ant-design/pro-components/issues/1776)) ([01e67a4](https://github.com/ant-design/pro-components/commit/01e67a45ef0f977e38688ab727dde878b11dd338))
+
 ## [1.11.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.11.1...@ant-design/pro-utils@1.11.2) (2021-01-25)
 
 ### Bug Fixes
