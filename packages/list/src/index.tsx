@@ -59,8 +59,8 @@ function ProList<
     rowSelection: propRowSelection = false,
     pagination: propsPagination = false,
     itemLayout,
-    grid,
     renderItem,
+    grid,
     ...rest
   } = props;
 
@@ -126,9 +126,9 @@ function ProList<
           <Form component={false}>
             <ListView
               grid={grid}
-              renderItem={renderItem}
               prefixCls={prefixCls}
               columns={columns}
+              renderItem={renderItem}
               actionRef={actionRef}
               dataSource={dataSource || []}
               size={size as 'large'}
