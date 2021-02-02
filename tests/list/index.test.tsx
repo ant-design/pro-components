@@ -277,12 +277,6 @@ describe('List', () => {
 
   it('🚏 rowSelection', async () => {
     const Wrapper = () => {
-      const [selectedRowKeys, setSelectedRowKeys] = useState<ReactText[]>([]);
-      const rowSelection = {
-        selectedRowKeys,
-        selections: true,
-        onChange: (keys: ReactText[]) => setSelectedRowKeys(keys),
-      };
       return (
         <ProList
           dataSource={[
@@ -295,7 +289,7 @@ describe('List', () => {
               description: '我是描述',
             },
           ]}
-          rowSelection={rowSelection}
+          rowSelection={{}}
           metas={{
             title: {
               dataIndex: 'name',
@@ -307,7 +301,15 @@ describe('List', () => {
     };
     const html = mount(<Wrapper />);
     expect(html.find('.ant-checkbox-input').length).toEqual(2);
-    html.find('.ant-checkbox-input').at(0).simulate('change');
+    html
+      .find('.ant-checkbox-input')
+      .at(0)
+      .simulate('change', {
+        target: {
+          checked: true,
+        },
+      });
+    await waitForComponentToPaint(html, 1000);
     expect(html.find('.ant-checkbox-input').at(0).prop('checked')).toEqual(true);
     expect(html.find('.ant-checkbox-input').at(1).prop('checked')).toEqual(false);
   });

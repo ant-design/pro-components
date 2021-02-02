@@ -56,6 +56,7 @@ function ProList<
     search = false,
     expandable,
     showActions,
+    rowSelection: propRowSelection = false,
     pagination: propsPagination = false,
     itemLayout,
     grid,
@@ -133,7 +134,7 @@ function ProList<
               split={split}
               rowKey={rowKey}
               expandable={expandable}
-              rowSelection={rowSelection === false ? undefined : rowSelection}
+              rowSelection={propRowSelection === false ? undefined : rowSelection}
               showActions={showActions}
               pagination={pagination as PaginationProps}
               itemLayout={itemLayout}
