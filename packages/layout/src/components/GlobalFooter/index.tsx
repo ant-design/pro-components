@@ -35,7 +35,7 @@ export default ({
   const baseClassName = `${prefixCls}-global-footer`;
   const clsString = classNames(baseClassName, className);
   return (
-    <footer className={clsString} style={style}>
+    <div className={clsString} style={style}>
       {links && (
         <div className={`${baseClassName}-links`}>
           {links.map((link) => (
@@ -51,6 +51,6 @@ export default ({
         </div>
       )}
       {copyright && <div className={`${baseClassName}-copyright`}>{copyright}</div>}
-    </footer>
+    </div>
   );
 };
