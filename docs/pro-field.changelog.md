@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-field@1.9.3
+
+`2021-02-02`
+
+- 🐛 fix(table): fix fieldProps no has bug [#1776](https://github.com/ant-design/pro-components/pull/1776) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-field@1.9.1
 
 `2021-01-21`

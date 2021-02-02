@@ -9,6 +9,22 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.28.0
+
+`2021-02-02`
+
+- 🐛 fix(table): LightFilter dosn't render if options={false} [#1802](https://github.com/ant-design/pro-components/pull/1802) [@ChenCheng220](https://github.com/ChenCheng220)
+- 🐛 fix(table): reset messageVariables to label [#1773](https://github.com/ant-design/pro-components/pull/1773) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix fieldProps no has bug [#1776](https://github.com/ant-design/pro-components/pull/1776) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix manualRequest always show loading error [#1767](https://github.com/ant-design/pro-components/pull/1767) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-list@1.4.0
+
+`2021-02-02`
+
+- 💥 feat(list): proList support checkox alert [#1821](https://github.com/ant-design/pro-components/pull/1821) [@chenshuai2144](https://github.com/chenshuai2144)
+- ✨ feat(list): support expandIcon(#1710) [#1771](https://github.com/ant-design/pro-components/pull/1771) [@DerrickTel](https://github.com/DerrickTel)
+
 ## @ant-design/pro-list@1.3.0
 
 `2021-01-18`

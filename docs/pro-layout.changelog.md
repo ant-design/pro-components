@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.14.0
+
+`2021-02-02`
+
+- 🐛 fix(layout): footer use div [#1816](https://github.com/ant-design/pro-components/pull/1816) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(layout): support menu.autoClose [#1815](https://github.com/ant-design/pro-components/pull/1815) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-layout@6.13.0
 
 `2021-01-25`
