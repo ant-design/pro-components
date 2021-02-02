@@ -507,7 +507,7 @@ describe('EditorProTable', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  fit('📝 columns initialValue alway work', async () => {
+  it('📝 columns initialValue alway work', async () => {
     const wrapper = mount(
       <EditableProTable
         rowKey="id"
