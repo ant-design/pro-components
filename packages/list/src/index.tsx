@@ -56,7 +56,6 @@ function ProList<
     search = false,
     expandable,
     showActions,
-    rowSelection,
     pagination: propsPagination = false,
     itemLayout,
     grid,
@@ -120,7 +119,7 @@ function ProList<
           padding: '0 24px',
         },
       }}
-      tableViewRender={({ columns, size, pagination, dataSource, loading }) => {
+      tableViewRender={({ columns, size, pagination, rowSelection, dataSource, loading }) => {
         return (
           <Form component={false}>
             <ListView
