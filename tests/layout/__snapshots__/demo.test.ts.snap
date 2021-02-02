@@ -5448,6 +5448,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
             </div>
             <div
               class="ant-pro-footer-bar"
+              style="width: calc(100% - 208px);"
             >
               <div
                 class="ant-pro-footer-bar-left"
@@ -6529,6 +6530,7 @@ Array [
             </div>
             <div
               class="qixian-pro-footer-bar"
+              style="width: calc(100% - 208px);"
             >
               <div
                 class="qixian-pro-footer-bar-left"
@@ -6583,6 +6585,7 @@ Array [
             <button
               aria-label="Close"
               class="qixian-drawer-close"
+              style="--scroll-bar: 0px;"
               type="button"
             >
               <span
@@ -12075,6 +12078,7 @@ Array [
             <button
               aria-label="Close"
               class="ant-drawer-close"
+              style="--scroll-bar: 0px;"
               type="button"
             >
               <span
