@@ -60,6 +60,7 @@ function ProList<
     pagination: propsPagination = false,
     itemLayout,
     grid,
+    renderItem,
     ...rest
   } = props;
 
@@ -125,6 +126,7 @@ function ProList<
           <Form component={false}>
             <ListView
               grid={grid}
+              renderItem={renderItem}
               prefixCls={prefixCls}
               columns={columns}
               actionRef={actionRef}

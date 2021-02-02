@@ -32,6 +32,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     showActions,
     prefixCls,
     actionRef,
+    renderItem,
     expandable: expandableConfig,
     rowSelection,
     pagination, // List 的 pagination 默认是 false
@@ -145,6 +146,9 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
       dataSource={pageData}
       pagination={pagination && (mergedPagination as ListViewProps<RecordType>['pagination'])}
       renderItem={(item, index) => {
+        if (renderItem) {
+          return renderItem(item, index);
+        }
         const listItemProps = {};
         columns?.forEach((column: TableColumnType<RecordType>) => {
           PRO_LIST_KEYS.forEach((key) => {
