@@ -6662,7 +6662,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                       <tr
                         aria-hidden="true"
                         class="ant-table-measure-row"
-                        style="height: 0px; font-size: 0px;"
+                        style="height: 0px; font-size: 0;"
                       >
                         <td
                           style="padding: 0px; border: 0px; height: 0px;"

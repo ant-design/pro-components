@@ -4102,7 +4102,6 @@ Array [
                   <button
                     aria-label="Close"
                     class="ant-drawer-close"
-                    style="--scroll-bar: 0px;"
                     type="button"
                   >
                     <span
@@ -4446,7 +4445,6 @@ Array [
                   <button
                     aria-label="Close"
                     class="ant-drawer-close"
-                    style="--scroll-bar: 0px;"
                     type="button"
                   >
                     <span
@@ -14021,7 +14019,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                         </div>
                         <div
                           class="ant-pro-footer-bar"
-                          style="width: calc(100% - 48px);"
                         >
                           <div
                             class="ant-pro-footer-bar-left"
