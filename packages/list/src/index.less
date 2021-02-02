@@ -1,11 +1,15 @@
 @import '~antd/lib/style/themes/default.less';
 @import '~antd/lib/list/style/index.less';
 
-@pro-list-prefix-cls: ant-pro-list;
+@pro-list-prefix-cls: ~'@{ant-prefix}-pro-list';
 
 .@{pro-list-prefix-cls} {
   .@{ant-prefix}-list-grid {
     padding: 0 24px;
+  }
+
+  .@{ant-prefix}-pro-table-alert {
+    margin: 0 24px 16px 24px;
   }
 
   .@{ant-prefix}-list-pagination {

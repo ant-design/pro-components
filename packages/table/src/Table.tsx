@@ -623,7 +623,13 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
 
   /** 自定义的 render */
   const tableDom = props.tableViewRender
-    ? props.tableViewRender(getTableProps(), baseTableDom)
+    ? props.tableViewRender(
+        {
+          ...getTableProps(),
+          rowSelection,
+        },
+        baseTableDom,
+      )
     : baseTableDom;
 
   /** Table 区域的 dom，为了方便 render */
