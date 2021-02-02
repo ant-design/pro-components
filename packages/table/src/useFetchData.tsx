@@ -120,7 +120,6 @@ const useFetchData = <T extends RequestData<any>>(
       );
       setDataAndLoading(responseData, total);
       onLoad?.(responseData, rest);
-
       return responseData;
     } catch (e) {
       requesting.current = false;
@@ -128,6 +127,7 @@ const useFetchData = <T extends RequestData<any>>(
       if (onRequestError === undefined) {
         throw new Error(e);
       }
+      if (list === undefined) setList([]);
       onRequestError(e);
     } finally {
       requestAnimationFrame(() => {
