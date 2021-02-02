@@ -80,9 +80,7 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (props) => 
       {...omit(resetButtonProps, ['preventDefault'])}
       key="rest"
       onClick={(e) => {
-        if (!resetButtonProps?.preventDefault) {
-          reset();
-        }
+        if (!resetButtonProps?.preventDefault) reset();
         resetButtonProps?.onClick?.(e);
       }}
     >
@@ -93,10 +91,7 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (props) => 
       {...omit(submitButtonProps, ['preventDefault'])}
       key="submit"
       onClick={(e) => {
-        if (!submitButtonProps?.preventDefault) {
-          reset();
-        }
-        submit();
+        if (!submitButtonProps?.preventDefault) submit();
         submitButtonProps?.onClick?.(e);
       }}
     >
