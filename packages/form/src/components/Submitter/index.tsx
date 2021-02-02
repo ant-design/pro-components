@@ -54,7 +54,7 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (props) => 
     render,
     onReset,
     searchConfig = {},
-    submitButtonProps = {},
+    submitButtonProps,
     resetButtonProps = {},
   } = props;
 
@@ -88,7 +88,7 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (props) => 
     </Button>,
     <Button
       type="primary"
-      {...omit(submitButtonProps, ['preventDefault'])}
+      {...omit(submitButtonProps || {}, ['preventDefault'])}
       key="submit"
       onClick={(e) => {
         if (!submitButtonProps?.preventDefault) submit();
