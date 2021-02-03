@@ -144,7 +144,15 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
 
   const defaultDom = !cardProps ? (
     <List.Item
-      actions={actions ? [<div onClick={(e) => e.stopPropagation()}>{actions}</div>] : []}
+      actions={
+        actions
+          ? [
+              <div key="action" onClick={(e) => e.stopPropagation()}>
+                {actions}
+              </div>,
+            ]
+          : []
+      }
       {...rest}
       onClick={() => {
         if (expandRowByClick) {
