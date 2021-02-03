@@ -15,6 +15,9 @@ export type RowEditableType = 'single' | 'multiple';
 export type RecordKey = React.Key | React.Key[];
 
 export const toNumber = (recordKey: string) => {
+  if (recordKey.startsWith('0')) {
+    return recordKey;
+  }
   return Number.isNaN((recordKey as unknown) as number) ? recordKey : Number(recordKey);
 };
 

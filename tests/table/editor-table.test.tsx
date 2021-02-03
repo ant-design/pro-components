@@ -8,7 +8,7 @@ import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint, waitTime } from '../util';
 
 type DataSourceType = {
-  id: number;
+  id: number | string;
   title?: string;
   labels?: {
     name: string;
@@ -384,6 +384,50 @@ describe('EditorProTable', () => {
     });
 
     expect(fn).toBeCalledWith(624748504);
+  });
+
+  it('📝 support onValuesChange when is string key', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        recordCreatorProps={false}
+        columns={columns}
+        value={[
+          {
+            id: '02',
+            title: '🐛 [BUG]yarn install命令 antd2.4.5会报错',
+            labels: [{ name: 'bug', color: 'error' }],
+            time: {
+              created_at: '2020-05-26T09:42:56Z',
+            },
+            state: 'processing',
+          },
+        ]}
+        editable={{
+          editableKeys: ['02'],
+          onValuesChange: (record) => {
+            fn(record.id);
+          },
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+
+    act(() => {
+      wrapper
+        .find('.ant-table-tbody tr.ant-table-row')
+        .at(0)
+        .find(`td .ant-input`)
+        .at(0)
+        .simulate('change', {
+          target: {
+            value: 'qixian',
+          },
+        });
+    });
+
+    expect(fn).toBeCalledWith('02');
   });
 
   it('📝 support newRecordType = dataSource', async () => {
