@@ -1,5 +1,6 @@
 import type { FormInstance, FormItemProps } from 'antd/lib/form';
 import type { Moment } from 'moment';
+import { PageInfo } from 'packages/table/src/typing';
 import type { ReactNode } from 'react';
 import type { UseEditableUtilType } from './useEditableArray';
 
@@ -122,6 +123,7 @@ export type ProCoreActionType<T = {}> = {
 
   /** @name 清空选择 */
   clearSelected?: () => void;
+  pageInfo?: PageInfo;
 } & Omit<
   UseEditableUtilType,
   'newLineRecord' | 'editableKeys' | 'actionRender' | 'setEditableRowKeys'
