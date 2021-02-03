@@ -147,6 +147,7 @@ export function useActionType<T>(
   /** 这里生成action的映射，保证 action 总是使用的最新 只需要渲染一次即可 */
   const userAction: ActionType = {
     ...props.editableUtils,
+    pageInfo: action.pageInfo,
     reload: async (resetPageIndex?: boolean) => {
       // 如果为 true，回到第一页
       if (resetPageIndex) {

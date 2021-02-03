@@ -3,6 +3,12 @@ import type { Moment } from 'moment';
 import type { ReactNode } from 'react';
 import type { UseEditableUtilType } from './useEditableArray';
 
+type PageInfo = {
+  pageSize: number;
+  total: number;
+  current: number;
+};
+
 /**
  * Password 密码框 money 金额 option 操作 需要返回一个数组 date 日期 YYYY-MM-DD dateRange 日期范围 YYYY-MM-DD[] dateTime
  * 日期和时间 YYYY-MM-DD HH:mm:ss dateTimeRange 范围日期和时间 YYYY-MM-DD HH:mm:ss[] time: 时间 HH:mm:ss index：序列
@@ -122,6 +128,7 @@ export type ProCoreActionType<T = {}> = {
 
   /** @name 清空选择 */
   clearSelected?: () => void;
+  pageInfo?: PageInfo;
 } & Omit<
   UseEditableUtilType,
   'newLineRecord' | 'editableKeys' | 'actionRender' | 'setEditableRowKeys'
