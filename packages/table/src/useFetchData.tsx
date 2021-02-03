@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect } from 'react';
 import {
   usePrevious,
   useDebounceFn,
@@ -56,7 +56,7 @@ const useFetchData = <T extends RequestData<any>>(
     mergeOptionAndPageInfo(options),
   );
 
-  const [pollingLoading, setPollingLoading] = useState(false);
+  const [pollingLoading, setPollingLoading] = useMountMergeState(false);
 
   // Batching update  https://github.com/facebook/react/issues/14259
   const setDataAndLoading = (newData: T[], dataTotal: number) => {
@@ -107,7 +107,7 @@ const useFetchData = <T extends RequestData<any>>(
             }
           : undefined;
 
-      const { data = [], success, total = 0, ...rest } = await getData(pageParams);
+      const { data = [], success, total = 0, ...rest } = (await getData(pageParams)) || {};
 
       requesting.current = false;
 
