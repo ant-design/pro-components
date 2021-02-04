@@ -10,7 +10,7 @@ nav:
 
 ## FAQ
 
-以下整理了一些 ProComponents 社区常见的问题和官方答复，在提问之前建议找找有没有类似的问题。
+以下整理了一些 ProComponents 社区常见的问题和官方答复，在提问之前建议找找有没有类似的问题。此外我们也维护了一个反馈较多 [how to use 标签](https://github.com/ant-design/pro-components/issues?q=is%3Aissue+label%3A%22%F0%9F%A4%B7%F0%9F%8F%BC+How+to+use%22+) 亦可参考。
 
 ### ProTable request 返回的数据格式可以自定义吗?
 
@@ -30,6 +30,10 @@ title: (_, type) => {
   return null;
 };
 ```
+
+### 我没法安装 `ProComponents` 和 `ProComponents` 的依赖，顺便提一句，我在中国大陆。
+
+那啥，试试 [cnpm](http://npm.taobao.org/)和[yarn](https://www.npmjs.com/package/yarn)。
 
 ## 错误和警告
 
