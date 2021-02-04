@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.14.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.14.0...@ant-design/pro-layout@6.14.1) (2021-02-04)
+
+### Bug Fixes
+
+- **layout:** container add width:100% ([#1845](https://github.com/ant-design/pro-components/issues/1845)) ([e3d9f32](https://github.com/ant-design/pro-components/commit/e3d9f32d33607e84a6b80772d6b805cdd7f0b41c))
+
 # [6.14.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.13.0...@ant-design/pro-layout@6.14.0) (2021-02-02)
 
 ### Bug Fixes

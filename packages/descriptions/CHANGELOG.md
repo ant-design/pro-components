@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.5.0...@ant-design/pro-descriptions@1.5.1) (2021-02-04)
+
+### Bug Fixes
+
+- **table:** fix editabletable initialValue alaway rewirte ([#1834](https://github.com/ant-design/pro-components/issues/1834)) ([b86b7e8](https://github.com/ant-design/pro-components/commit/b86b7e8a2f1bbb018863ef9a50bac8e82ce9a8f8))
+
 # [1.5.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.4.12...@ant-design/pro-descriptions@1.5.0) (2021-02-02)
 
 ### Features

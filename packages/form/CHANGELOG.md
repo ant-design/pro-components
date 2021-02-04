@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.15.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.15.3...@ant-design/pro-form@1.15.4) (2021-02-04)
+
+### Bug Fixes
+
+- **form:** modal and drawer form close not reset ([#1827](https://github.com/ant-design/pro-components/issues/1827)) ([71d456c](https://github.com/ant-design/pro-components/commit/71d456c5d07222046bfdfcd08de953dd5c269bd0))
+
 ## [1.15.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.15.2...@ant-design/pro-form@1.15.3) (2021-02-02)
 
 ### Bug Fixes

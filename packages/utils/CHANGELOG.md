@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.12.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.11.3...@ant-design/pro-utils@1.12.0) (2021-02-04)
+
+### Bug Fixes
+
+- **table:** fix toNumber will gen 0 start number ([#1850](https://github.com/ant-design/pro-components/issues/1850)) ([63ca3b8](https://github.com/ant-design/pro-components/commit/63ca3b824501eae102f8b0098b5645740acab7ed))
+
+### Features
+
+- **table:** actionRef add pageInfo ([#1851](https://github.com/ant-design/pro-components/issues/1851)) ([7370cba](https://github.com/ant-design/pro-components/commit/7370cba941b350b0e93fcd135dd12623d66ea511))
+
 ## [1.11.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.11.2...@ant-design/pro-utils@1.11.3) (2021-02-02)
 
 ### Bug Fixes

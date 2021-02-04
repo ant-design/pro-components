@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.29.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.28.0...@ant-design/pro-table@2.29.0) (2021-02-04)
+
+### Bug Fixes
+
+- **form:** fix form control error ([#1833](https://github.com/ant-design/pro-components/issues/1833)) ([541c7b3](https://github.com/ant-design/pro-components/commit/541c7b35a0faf2c682fe26dca43b2102ba955cd0))
+- **list:** fix list item no key error ([#1836](https://github.com/ant-design/pro-components/issues/1836)) ([2690cd6](https://github.com/ant-design/pro-components/commit/2690cd6d81dc99e86b136405afd289d4b6eb9316))
+- **table:** fix editabletable initialValue alaway rewirte ([#1834](https://github.com/ant-design/pro-components/issues/1834)) ([b86b7e8](https://github.com/ant-design/pro-components/commit/b86b7e8a2f1bbb018863ef9a50bac8e82ce9a8f8))
+- **table:** fix table no close loading when error ([#1832](https://github.com/ant-design/pro-components/issues/1832)) ([0ee772e](https://github.com/ant-design/pro-components/commit/0ee772ea78817258085b0f101c3f38609b4c4fd2))
+- **table:** fix table unmount warning ([#1840](https://github.com/ant-design/pro-components/issues/1840)) ([826ff42](https://github.com/ant-design/pro-components/commit/826ff42ad18e49865f9255de4f64ee83b2836092))
+- **table:** fix toNumber will gen 0 start number ([#1850](https://github.com/ant-design/pro-components/issues/1850)) ([63ca3b8](https://github.com/ant-design/pro-components/commit/63ca3b824501eae102f8b0098b5645740acab7ed))
+
+### Features
+
+- **table:** actionRef add pageInfo ([#1851](https://github.com/ant-design/pro-components/issues/1851)) ([7370cba](https://github.com/ant-design/pro-components/commit/7370cba941b350b0e93fcd135dd12623d66ea511))
+
 # [2.28.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.27.2...@ant-design/pro-table@2.28.0) (2021-02-02)
 
 ### Bug Fixes

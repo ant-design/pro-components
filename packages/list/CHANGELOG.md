@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.4.0...@ant-design/pro-list@1.5.0) (2021-02-04)
+
+### Bug Fixes
+
+- **list:** fix list item no key error ([#1836](https://github.com/ant-design/pro-components/issues/1836)) ([2690cd6](https://github.com/ant-design/pro-components/commit/2690cd6d81dc99e86b136405afd289d4b6eb9316))
+
+### Features
+
+- **list:** ProList support renderItem ([#1824](https://github.com/ant-design/pro-components/issues/1824)) ([8f64e3d](https://github.com/ant-design/pro-components/commit/8f64e3dede6ece981c445f4ac4f80e6d410fc7ed))
+
 # [1.4.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.3.5...@ant-design/pro-list@1.4.0) (2021-02-02)
 
 ### Features
