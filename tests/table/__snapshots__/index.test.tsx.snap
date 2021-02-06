@@ -713,7 +713,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                     <input
                       autocomplete="off"
                       id="time"
-                      placeholder="Select time"
+                      placeholder="请选择时间"
                       readonly=""
                       size="10"
                       title=""
@@ -6810,7 +6810,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                 aria-disabled="false"
                 class="ant-pagination-prev"
                 tabindex="0"
-                title="Previous Page"
+                title="上一页"
               >
                 <button
                   class="ant-pagination-item-link"
@@ -6852,7 +6852,7 @@ exports[`BasicTable 🎏 base use 1`] = `
               <li
                 class="ant-pagination-jump-prev ant-pagination-jump-prev-custom-icon"
                 tabindex="0"
-                title="Previous 5 Pages"
+                title="向前 5 页"
               >
                 <a
                   class="ant-pagination-item-link"
@@ -6945,7 +6945,7 @@ exports[`BasicTable 🎏 base use 1`] = `
               <li
                 aria-disabled="true"
                 class="ant-pagination-next ant-pagination-disabled"
-                title="Next Page"
+                title="下一页"
               >
                 <button
                   class="ant-pagination-item-link"
@@ -7005,9 +7005,9 @@ exports[`BasicTable 🎏 base use 1`] = `
                     </span>
                     <span
                       class="ant-select-selection-item"
-                      title="20 / page"
+                      title="20 条/页"
                     >
-                      20 / page
+                      20 条/页
                     </span>
                   </div>
                   <span
@@ -7793,7 +7793,7 @@ exports[`BasicTable 🎏 bordered = {search = true, table = false} 1`] = `
                     <input
                       autocomplete="off"
                       id="time"
-                      placeholder="Select time"
+                      placeholder="请选择时间"
                       readonly=""
                       size="10"
                       title=""
@@ -8954,7 +8954,7 @@ exports[`BasicTable 🎏 bordered = true 1`] = `
                     <input
                       autocomplete="off"
                       id="time"
-                      placeholder="Select time"
+                      placeholder="请选择时间"
                       readonly=""
                       size="10"
                       title=""
@@ -15911,7 +15911,7 @@ exports[`BasicTable 🎏 do not render Search 1`] = `
                 aria-disabled="false"
                 class="ant-pagination-prev"
                 tabindex="0"
-                title="Previous Page"
+                title="上一页"
               >
                 <button
                   class="ant-pagination-item-link"
@@ -15953,7 +15953,7 @@ exports[`BasicTable 🎏 do not render Search 1`] = `
               <li
                 class="ant-pagination-jump-prev ant-pagination-jump-prev-custom-icon"
                 tabindex="0"
-                title="Previous 5 Pages"
+                title="向前 5 页"
               >
                 <a
                   class="ant-pagination-item-link"
@@ -16046,7 +16046,7 @@ exports[`BasicTable 🎏 do not render Search 1`] = `
               <li
                 aria-disabled="true"
                 class="ant-pagination-next ant-pagination-disabled"
-                title="Next Page"
+                title="下一页"
               >
                 <button
                   class="ant-pagination-item-link"
@@ -16106,9 +16106,9 @@ exports[`BasicTable 🎏 do not render Search 1`] = `
                     </span>
                     <span
                       class="ant-select-selection-item"
-                      title="20 / page"
+                      title="20 条/页"
                     >
-                      20 / page
+                      20 条/页
                     </span>
                   </div>
                   <span
@@ -16690,7 +16690,7 @@ exports[`BasicTable 🎏 do not render default option 1`] = `
               <li
                 aria-disabled="true"
                 class="ant-pagination-prev ant-pagination-disabled"
-                title="Previous Page"
+                title="上一页"
               >
                 <button
                   class="ant-pagination-item-link"
@@ -16777,7 +16777,7 @@ exports[`BasicTable 🎏 do not render default option 1`] = `
               <li
                 class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
                 tabindex="0"
-                title="Next 5 Pages"
+                title="向后 5 页"
               >
                 <a
                   class="ant-pagination-item-link"
@@ -16827,7 +16827,7 @@ exports[`BasicTable 🎏 do not render default option 1`] = `
                 aria-disabled="false"
                 class="ant-pagination-next"
                 tabindex="0"
-                title="Next Page"
+                title="下一页"
               >
                 <button
                   class="ant-pagination-item-link"
@@ -16886,9 +16886,9 @@ exports[`BasicTable 🎏 do not render default option 1`] = `
                     </span>
                     <span
                       class="ant-select-selection-item"
-                      title="20 / page"
+                      title="20 条/页"
                     >
-                      20 / page
+                      20 条/页
                     </span>
                   </div>
                   <span
@@ -17530,7 +17530,7 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
               <li
                 aria-disabled="true"
                 class="ant-pagination-prev ant-pagination-disabled"
-                title="Previous Page"
+                title="上一页"
               >
                 <button
                   class="ant-pagination-item-link"
@@ -17617,7 +17617,7 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
               <li
                 class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
                 tabindex="0"
-                title="Next 5 Pages"
+                title="向后 5 页"
               >
                 <a
                   class="ant-pagination-item-link"
@@ -17667,7 +17667,7 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
                 aria-disabled="false"
                 class="ant-pagination-next"
                 tabindex="0"
-                title="Next Page"
+                title="下一页"
               >
                 <button
                   class="ant-pagination-item-link"
@@ -17726,9 +17726,9 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
                     </span>
                     <span
                       class="ant-select-selection-item"
-                      title="20 / page"
+                      title="20 条/页"
                     >
-                      20 / page
+                      20 条/页
                     </span>
                   </div>
                   <span
@@ -18881,7 +18881,7 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
               <li
                 aria-disabled="true"
                 class="ant-pagination-prev ant-pagination-disabled"
-                title="Previous Page"
+                title="上一页"
               >
                 <button
                   class="ant-pagination-item-link"
@@ -18968,7 +18968,7 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
               <li
                 class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
                 tabindex="0"
-                title="Next 5 Pages"
+                title="向后 5 页"
               >
                 <a
                   class="ant-pagination-item-link"
@@ -19018,7 +19018,7 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                 aria-disabled="false"
                 class="ant-pagination-next"
                 tabindex="0"
-                title="Next Page"
+                title="下一页"
               >
                 <button
                   class="ant-pagination-item-link"
@@ -19077,9 +19077,9 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                     </span>
                     <span
                       class="ant-select-selection-item"
-                      title="20 / page"
+                      title="20 条/页"
                     >
-                      20 / page
+                      20 条/页
                     </span>
                   </div>
                   <span

@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { ConfigProvider as AntdConfigProvider } from 'antd';
+import zh_CN from 'antd/lib/locale/zh_CN';
 
 import { noteOnce } from 'rc-util/lib/warning';
 
@@ -225,6 +226,8 @@ const findIntlKeyByAntdLocaleKey = (localeKey: string | undefined) => {
  */
 const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({ children }) => {
   const { locale } = useContext(AntdConfigProvider.ConfigContext);
+  // 如果 locale 不存在自动注入的 AntdConfigProvider
+  const Provider = locale === undefined ? AntdConfigProvider : React.Fragment;
   return (
     <ConfigConsumer>
       {(value) => {
@@ -235,15 +238,25 @@ const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({ children }) => 
           localeName && value.intl?.locale === 'default'
             ? intlMap[key]
             : value.intl || intlMap[key];
+
+        // 自动注入 antd 的配置
+        const configProvider =
+          locale === undefined
+            ? {
+                locale: zh_CN,
+              }
+            : {};
         return (
-          <ConfigProvider
-            value={{
-              ...value,
-              intl: intl || zhCNIntl,
-            }}
-          >
-            {children}
-          </ConfigProvider>
+          <Provider {...configProvider}>
+            <ConfigProvider
+              value={{
+                ...value,
+                intl: intl || zhCNIntl,
+              }}
+            >
+              {children}
+            </ConfigProvider>
+          </Provider>
         );
       }}
     </ConfigConsumer>
