@@ -43,18 +43,18 @@ EditableProTable is essentially the same as ProTable, with a few presets added t
 
 ### editable edit line configuration
 
-| property | description | type | default |
+| Property | Description | Type | Default Value |
 | --- | --- | --- | --- |
-| type | The type of editable form, single or multiple | `single` \| `multiple` | - |
-| editableKeys | The row being edited, a controlled property. The default `key` will use the `rowKey` configuration, if not configured it will use `index`, it is recommended to use rowKey | `Key[]` | - |
-| onChange | triggered when row data is modified | `(editableKeys: Key[], editableRows: T[]) => void` | - |
-| onSave | Triggered when a row is saved, only updated | `(key: Key, row: T,newLine?:newLineConfig) => Promise<any>` | - |
-| onDelete | Triggered when a line is deleted | `(key: Key, row: T) => Promise<any>` | - |
-| onCancel | Triggered when you cancel editing a line | `(key: Key, row: T,newLine?:newLineConfig) => Promise<any>` | - |
-| actionRender | Customize the action bar for edit mode | `(row: T, config: ActionRenderConfig<T>) => ReactNode[]` | - |
-| deletePopconfirmMessage | popup confirmation message when deleting | `ReactNode` | `Delete this row? ` |
-| onlyOneLineEditorAlertMessage | Message that only one line can be edited | `ReactNode` | `Only one line can be edited at a time` |
-| onlyAddOneLineAlertMessage | A prompt that can only add one line at a time | `ReactNode` | `Can only add one line at a time` |
+| form | Form instance of editable form, use `Form.useForm` to generate and use | `FormInstance` | - |
+| editableKeys | Row being edited, controlled attributes. The default `key` will use the configuration of `rowKey`, if there is no configuration, it will use the `index`, it is recommended to use rowKey | `Key[]` | - |
+| onChange | Triggered when row data is modified | `(editableKeys: Key[], editableRows: T[]) => void` | - |
+| onSave | Triggered when a row is saved, only update | `(key: Key, row: T,newLine?:newLineConfig) => Promise<any>` | - |
+| onDelete | Triggered when a row is deleted | `(key: Key, row: T) => Promise<any>` | - |
+| onCancel | Triggered when cancel editing a line | `(key: Key, row: T,newLine?:newLineConfig) => Promise<any>` | - |
+| actionRender | Custom edit mode action bar | `(row: T, config: ActionRenderConfig<T>) => ReactNode[]` | - |
+| deletePopconfirmMessage | The pop-up confirmation box prompt message when deleting | `ReactNode` | `Delete this line? ` |
+| onlyOneLineEditorAlertMessage | Only one line can be edited | `ReactNode` | `Only one line can be edited at the same time` |
+| onlyAddOneLineAlertMessage | Only one line can be added at the same time | `ReactNode` | `Only add one line` |
 
 ### recordCreatorProps New button configuration
 

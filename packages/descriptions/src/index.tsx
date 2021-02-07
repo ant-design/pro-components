@@ -444,7 +444,13 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
 
   return (
     <ErrorBoundary>
-      <FormComponent component={false} submitter={false} {...formProps} onFinish={undefined}>
+      <FormComponent
+        form={props.editable?.form}
+        component={false}
+        submitter={false}
+        {...formProps}
+        onFinish={undefined}
+      >
         <Descriptions
           {...rest}
           extra={

@@ -605,7 +605,12 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   /** 默认的 table dom，如果是编辑模式，外面还要包个 form */
   const baseTableDom =
     action.dataSource !== undefined || manualRequest ? (
-      <Form component={false} onValuesChange={editableUtils.onValuesChange} key="table">
+      <Form
+        component={false}
+        form={props.editable?.form}
+        onValuesChange={editableUtils.onValuesChange}
+        key="table"
+      >
         <Table<T> {...getTableProps()} rowKey={rowKey} tableLayout={tableLayout} />
       </Form>
     ) : (
