@@ -6,6 +6,7 @@ import ProDescriptions from '@ant-design/pro-descriptions';
 export default () => {
   return (
     <ProDescriptions
+      // bordered
       formProps={{
         onValuesChange: (e, f) => console.log(f),
       }}

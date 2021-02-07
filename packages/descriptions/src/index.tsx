@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import type { DescriptionsProps, FormInstance, FormProps } from 'antd';
-import { Descriptions, Space, Form } from 'antd';
+import { Descriptions, Space, Form, ConfigProvider } from 'antd';
 import { EditOutlined, CloseOutlined, CheckOutlined } from '@ant-design/icons';
 import toArray from 'rc-util/lib/Children/toArray';
 import ProForm, { ProFormField } from '@ant-design/pro-form';
@@ -25,6 +25,7 @@ import ProSkeleton from '@ant-design/pro-skeleton';
 import type { RequestData } from './useFetchData';
 import useFetchData from './useFetchData';
 import type { ProFieldFCMode } from '@ant-design/pro-utils';
+import './index.less';
 
 // todo remove it
 export interface DescriptionsItemProps {
@@ -173,7 +174,6 @@ export const FieldRender: React.FC<
     <div
       style={{
         margin: '-5px 0',
-        position: 'absolute',
       }}
     >
       <Form.Item noStyle shouldUpdate>
@@ -357,6 +357,8 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
     ...rest
   } = props;
 
+  const context = useContext(ConfigProvider.ConfigContext);
+
   const action = useFetchData<RequestData>(
     async () => {
       const data = request ? await request(params) : { data: {} };
@@ -442,10 +444,13 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
     title = <LabelIconTip label={rest.title} tooltip={rest.tooltip || rest.tip} />;
   }
 
+  const className = context.getPrefixCls('pro-descriptions');
+
   return (
     <ErrorBoundary>
       <FormComponent component={false} submitter={false} {...formProps} onFinish={undefined}>
         <Descriptions
+          className={className}
           {...rest}
           extra={
             rest.extra ? (
