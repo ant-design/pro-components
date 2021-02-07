@@ -4,7 +4,7 @@ import { EditableProTable } from '@ant-design/pro-table';
 import type { ActionType } from '@ant-design/pro-table';
 import ProField from '@ant-design/pro-field';
 import ProCard from '@ant-design/pro-card';
-import { Button, Input, Space, Tag } from 'antd';
+import { Button, Input, Space, Tag, Form } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 
 const waitTime = (time: number = 100) => {
@@ -168,21 +168,31 @@ export default () => {
   const actionRef = useRef<ActionType>();
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>([]);
   const [dataSource, setDataSource] = useState<DataSourceType[]>([]);
-
+  const [form] = Form.useForm();
   return (
     <>
-      <Button
-        type="primary"
-        onClick={() => {
-          actionRef.current?.addEditRecord?.({
-            id: (Math.random() * 1000000).toFixed(0),
-            title: '新的一行',
-          });
-        }}
-        icon={<PlusOutlined />}
-      >
-        新建一行
-      </Button>
+      <Space>
+        <Button
+          type="primary"
+          onClick={() => {
+            actionRef.current?.addEditRecord?.({
+              id: (Math.random() * 1000000).toFixed(0),
+              title: '新的一行',
+            });
+          }}
+          icon={<PlusOutlined />}
+        >
+          新建一行
+        </Button>
+        <Button
+          onClick={() => {
+            form.resetFields();
+          }}
+        >
+          重置表单
+        </Button>
+      </Space>
+
       <EditableProTable<DataSourceType>
         rowKey="id"
         actionRef={actionRef}
@@ -199,6 +209,7 @@ export default () => {
         value={dataSource}
         onChange={setDataSource}
         editable={{
+          form,
           editableKeys,
           onSave: async () => {
             await waitTime(2000);
