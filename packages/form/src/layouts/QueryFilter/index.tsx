@@ -151,8 +151,8 @@ const QueryFilterContent: React.FC<{
   defaultCollapsed: boolean;
   onCollapse: undefined | ((collapsed: boolean) => void);
   collapsed: boolean | undefined;
-  resetText?: string;
-  searchText?: string;
+  resetText: string | undefined;
+  searchText: string | undefined;
   split?: boolean;
   form: FormInstance<any>;
   items: React.ReactNode[];
@@ -382,6 +382,8 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
             submitter={renderSubmitter}
             items={items}
             split={split}
+            resetText={props.resetText}
+            searchText={props.searchText}
             preserve={preserve}
             ignoreRules={ignoreRules}
             showLength={showLength}

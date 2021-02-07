@@ -57,7 +57,6 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (props) => 
     submitButtonProps,
     resetButtonProps = {},
   } = props;
-
   const submit = () => {
     form.submit();
     onSubmit?.();

@@ -126,6 +126,35 @@ describe('BasicTable', () => {
     });
   });
 
+  it('🎏 ProTable support searchText and  resetText', async () => {
+    const html = mount(
+      <ProTable
+        size="small"
+        options={{
+          fullScreen: false,
+          reload: false,
+          setting: false,
+        }}
+        form={{
+          searchText: 'test',
+          resetText: 'test2',
+        }}
+        columns={[
+          {
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+        ]}
+        dataSource={[]}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 1200);
+
+    expect(html.find('.ant-btn.ant-btn-primary').text()).toBe('test');
+    expect(html.find('.ant-btn').at(0).text()).toBe('test2');
+  });
+
   it('🎏 do not render setting', async () => {
     const html = mount(
       <ProTable
