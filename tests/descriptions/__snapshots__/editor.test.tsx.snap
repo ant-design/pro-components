@@ -7,7 +7,7 @@ Array [
     type="text"
   />,
   <div
-    class="ant-descriptions"
+    class="ant-descriptions ant-pro-descriptions"
   >
     <div
       class="ant-descriptions-view"
@@ -31,7 +31,7 @@ Array [
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    style="margin:-5px 0;position:absolute"
+                    style="margin:-5px 0"
                   >
                     <div
                       class="ant-space ant-space-horizontal ant-space-align-center"
@@ -186,7 +186,7 @@ Array [
     type="text"
   />,
   <div
-    class="ant-descriptions"
+    class="ant-descriptions ant-pro-descriptions"
   >
     <div
       class="ant-descriptions-view"
@@ -210,7 +210,7 @@ Array [
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    style="margin:-5px 0;position:absolute"
+                    style="margin:-5px 0"
                   >
                     <div
                       class="ant-space ant-space-horizontal ant-space-align-center"
