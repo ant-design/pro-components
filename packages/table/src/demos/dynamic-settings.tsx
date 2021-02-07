@@ -167,7 +167,7 @@ const DynamicSettings = () => {
           footer={config.footer ? () => 'Here is footer' : false}
           headerTitle={config.headerTitle}
           columns={tableColumns}
-          dataSource={genData(config.pagination?.total)}
+          dataSource={genData(config.pagination?.total || 10)}
           scroll={config.scroll}
         />
       </ProCard>
@@ -373,6 +373,22 @@ const DynamicSettings = () => {
                 />
               }
             >
+              <ProFormText
+                label="提交按钮文案"
+                fieldProps={{
+                  size: 'small',
+                }}
+                tooltip={`search={{submitText:"提交"}}`}
+                name={['search', 'submitText']}
+              />
+              <ProFormText
+                label="重置按钮文案"
+                fieldProps={{
+                  size: 'small',
+                }}
+                tooltip={`search={{resetText:"重置"}}`}
+                name={['search', 'resetText']}
+              />
               <ProFormSwitch
                 fieldProps={{
                   size: 'small',
@@ -415,7 +431,6 @@ const DynamicSettings = () => {
                 label="表单栅格"
                 name={['search', 'span']}
               />
-
               <ProFormRadio.Group
                 radioType="button"
                 fieldProps={{
