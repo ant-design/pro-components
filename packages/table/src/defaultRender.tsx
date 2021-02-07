@@ -103,13 +103,21 @@ function defaultRenderText<T>(config: {
           },
         ) as FormItemProps;
 
+        const messageVariables = {
+          label: (columnProps?.title as string) || '此项',
+          type: (columnProps?.valueType as string) || '文本',
+          ...formItemProps?.messageVariables,
+        };
+
+        const name = spellNamePath(
+          config.recordKey || config.index,
+          columnProps?.key || columnProps?.dataIndex || config.index,
+        );
         const inputDom = (
           <InlineErrorFormItem
-            name={spellNamePath(
-              config.recordKey || config.index,
-              columnProps?.key || columnProps?.dataIndex || config.index,
-            )}
+            name={name}
             {...formItemProps}
+            messageVariables={messageVariables}
             initialValue={text || formItemProps?.initialValue}
           >
             <ProField
@@ -153,10 +161,7 @@ function defaultRenderText<T>(config: {
               )}
               {...formItemProps}
               initialValue={text || formItemProps?.initialValue}
-              messageVariables={{
-                label: columnProps.title as string,
-                ...formItemProps?.messageVariables,
-              }}
+              messageVariables={messageVariables}
             >
               {renderDom}
             </InlineErrorFormItem>
