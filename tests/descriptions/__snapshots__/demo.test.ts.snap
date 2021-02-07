@@ -2,7 +2,7 @@
 
 exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.tsx correctly 1`] = `
 <div
-  class="ant-descriptions"
+  class="ant-descriptions ant-pro-descriptions"
 >
   <div
     class="ant-descriptions-header"
@@ -430,7 +430,7 @@ Done in 9.70s.
 
 exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/columns.tsx correctly 1`] = `
 <div
-  class="ant-descriptions"
+  class="ant-descriptions ant-pro-descriptions"
 >
   <div
     class="ant-descriptions-header"
@@ -638,7 +638,7 @@ Array [
     type="text"
   />,
   <div
-    class="ant-descriptions"
+    class="ant-descriptions ant-pro-descriptions"
   >
     <div
       class="ant-descriptions-header"
@@ -805,7 +805,7 @@ Array [
 
 exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/data-source.tsx correctly 1`] = `
 <div
-  class="ant-descriptions"
+  class="ant-descriptions ant-pro-descriptions"
 >
   <div
     class="ant-descriptions-header"
@@ -1013,7 +1013,7 @@ Array [
     type="text"
   />,
   <div
-    class="ant-descriptions"
+    class="ant-descriptions ant-pro-descriptions"
   >
     <div
       class="ant-descriptions-header"
@@ -1390,7 +1390,7 @@ Array [
 
 exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/request.tsx correctly 1`] = `
 <div
-  class="ant-descriptions"
+  class="ant-descriptions ant-pro-descriptions"
 >
   <div
     class="ant-descriptions-header"

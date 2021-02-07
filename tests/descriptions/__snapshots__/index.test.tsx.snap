@@ -2,7 +2,7 @@
 
 exports[`descriptions 🏊‍♂️ ProDescriptions support order 1`] = `
 <div
-  class="ant-descriptions"
+  class="ant-descriptions ant-pro-descriptions"
 >
   <div
     class="ant-descriptions-view"
