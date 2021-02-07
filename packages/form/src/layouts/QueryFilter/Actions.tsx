@@ -61,20 +61,15 @@ const defaultCollapseRender: ActionsProps['collapseRender'] = (collapsed, _, int
  * @param props
  */
 const Actions: React.FC<ActionsProps> = (props) => {
-  const {
-    setCollapsed,
-    collapsed = false,
-    collapseRender = defaultCollapseRender,
-    submitter,
-    style,
-  } = props;
+  const { setCollapsed, collapsed = false, submitter, style } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const intl = useIntl();
 
+  const collapseRender = omitBoolean(props.collapseRender) || defaultCollapseRender;
   return (
     <Space style={style} size={16}>
       {submitter}
-      {collapseRender !== false && omitBoolean(collapseRender) && (
+      {props.collapseRender !== false && (
         <a
           className={getPrefixCls('pro-form-collapse-button')}
           onClick={() => setCollapsed(!collapsed)}
