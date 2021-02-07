@@ -48,6 +48,8 @@ export type ActionRenderFunction<T> = (
 ) => React.ReactNode[];
 
 export type RowEditableConfig<T> = {
+  /** @name 控制可编辑表格的 form */
+  form?: FormInstance;
   /**
    * @type single | multiple
    * @name 编辑的类型，支持单选和多选
