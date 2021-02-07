@@ -1497,7 +1497,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
             <li
               aria-disabled="true"
               class="ant-pagination-prev ant-pagination-disabled"
-              title="Previous Page"
+              title="上一页"
             >
               <button
                 class="ant-pagination-item-link"
@@ -1540,7 +1540,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
             <li
               aria-disabled="true"
               class="ant-pagination-next ant-pagination-disabled"
-              title="Next Page"
+              title="下一页"
             >
               <button
                 class="ant-pagination-item-link"
@@ -2885,7 +2885,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 
                 <div
                   class="ant-empty-description"
                 >
-                  No Data
+                  暂无数据
                 </div>
               </div>
             </div>
@@ -2906,7 +2906,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 
             <li
               aria-disabled="true"
               class="ant-pagination-prev ant-pagination-disabled"
-              title="Previous Page"
+              title="上一页"
             >
               <button
                 class="ant-pagination-item-link"
@@ -2949,7 +2949,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 
             <li
               aria-disabled="true"
               class="ant-pagination-next ant-pagination-disabled"
-              title="Next Page"
+              title="下一页"
             >
               <button
                 class="ant-pagination-item-link"
@@ -3009,9 +3009,9 @@ exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 
                   </span>
                   <span
                     class="ant-select-selection-item"
-                    title="5 / page"
+                    title="5 条/页"
                   >
-                    5 / page
+                    5 条/页
                   </span>
                 </div>
                 <span
@@ -4634,7 +4634,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
             <li
               aria-disabled="true"
               class="ant-pagination-prev ant-pagination-disabled"
-              title="Previous Page"
+              title="上一页"
             >
               <button
                 class="ant-pagination-item-link"
@@ -4689,7 +4689,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
               aria-disabled="false"
               class="ant-pagination-next"
               tabindex="0"
-              title="Next Page"
+              title="下一页"
             >
               <button
                 class="ant-pagination-item-link"
@@ -4748,9 +4748,9 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                   </span>
                   <span
                     class="ant-select-selection-item"
-                    title="5 / page"
+                    title="5 条/页"
                   >
-                    5 / page
+                    5 条/页
                   </span>
                 </div>
                 <span

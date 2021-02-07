@@ -592,7 +592,7 @@ describe('ProForm', () => {
     });
     await waitForComponentToPaint(wrapper);
     expect(onFinish).toHaveBeenCalledWith({
-      date: '2020-09-01',
+      date: '2020-09-02',
       dateWeek: '2020-37th',
       dateMonth: '2020-09',
       dateQuarter: '2020-Q2',

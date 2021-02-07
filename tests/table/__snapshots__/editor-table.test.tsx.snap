@@ -152,7 +152,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                             style="padding-left:0px"
                           />
                           <button
-                            aria-label="Expand row"
+                            aria-label="展开行"
                             class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
                             type="button"
                           />
@@ -255,7 +255,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                             style="padding-left:0px"
                           />
                           <button
-                            aria-label="Expand row"
+                            aria-label="展开行"
                             class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
                             type="button"
                           />
@@ -358,7 +358,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                             style="padding-left:0px"
                           />
                           <button
-                            aria-label="Expand row"
+                            aria-label="展开行"
                             class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                             type="button"
                           />
@@ -684,7 +684,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
                             style="padding-left:0px"
                           />
                           <button
-                            aria-label="Expand row"
+                            aria-label="展开行"
                             class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
                             type="button"
                           />
@@ -787,7 +787,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
                             style="padding-left:0px"
                           />
                           <button
-                            aria-label="Expand row"
+                            aria-label="展开行"
                             class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
                             type="button"
                           />
@@ -890,7 +890,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
                             style="padding-left:0px"
                           />
                           <button
-                            aria-label="Expand row"
+                            aria-label="展开行"
                             class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                             type="button"
                           />
@@ -1146,7 +1146,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                             style="padding-left:0px"
                           />
                           <button
-                            aria-label="Expand row"
+                            aria-label="展开行"
                             class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
                             type="button"
                           />
@@ -1249,7 +1249,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                             style="padding-left:0px"
                           />
                           <button
-                            aria-label="Expand row"
+                            aria-label="展开行"
                             class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
                             type="button"
                           />
@@ -1352,7 +1352,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                             style="padding-left:0px"
                           />
                           <button
-                            aria-label="Expand row"
+                            aria-label="展开行"
                             class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                             type="button"
                           />
@@ -1531,7 +1531,7 @@ exports[`EditorProTable 📝 columns initialValue alway work 1`] = `
                             style="padding-left: 0px;"
                           />
                           <button
-                            aria-label="Expand row"
+                            aria-label="展开行"
                             class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
                             type="button"
                           />
@@ -1716,7 +1716,7 @@ exports[`EditorProTable 📝 columns initialValue alway work 1`] = `
                             style="padding-left: 0px;"
                           />
                           <button
-                            aria-label="Expand row"
+                            aria-label="展开行"
                             class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
                             type="button"
                           />
@@ -1745,7 +1745,7 @@ exports[`EditorProTable 📝 columns initialValue alway work 1`] = `
                             style="padding-left: 0px;"
                           />
                           <button
-                            aria-label="Expand row"
+                            aria-label="展开行"
                             class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                             type="button"
                           />
@@ -1876,7 +1876,7 @@ exports[`EditorProTable 📝 columns support editable test 1`] = `
                             style="padding-left:0px"
                           />
                           <button
-                            aria-label="Expand row"
+                            aria-label="展开行"
                             class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
                             type="button"
                           />
@@ -1908,7 +1908,7 @@ exports[`EditorProTable 📝 columns support editable test 1`] = `
                             style="padding-left:0px"
                           />
                           <button
-                            aria-label="Expand row"
+                            aria-label="展开行"
                             class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
                             type="button"
                           />
@@ -1940,7 +1940,7 @@ exports[`EditorProTable 📝 columns support editable test 1`] = `
                             style="padding-left:0px"
                           />
                           <button
-                            aria-label="Expand row"
+                            aria-label="展开行"
                             class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                             type="button"
                           />
@@ -2068,7 +2068,7 @@ exports[`EditorProTable 📝 renderFormItem run defaultRender 1`] = `
                             style="padding-left:0px"
                           />
                           <button
-                            aria-label="Expand row"
+                            aria-label="展开行"
                             class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
                             type="button"
                           />
@@ -2129,7 +2129,7 @@ exports[`EditorProTable 📝 renderFormItem run defaultRender 1`] = `
                             style="padding-left:0px"
                           />
                           <button
-                            aria-label="Expand row"
+                            aria-label="展开行"
                             class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
                             type="button"
                           />
@@ -2152,7 +2152,7 @@ exports[`EditorProTable 📝 renderFormItem run defaultRender 1`] = `
                             style="padding-left:0px"
                           />
                           <button
-                            aria-label="Expand row"
+                            aria-label="展开行"
                             class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                             type="button"
                           />

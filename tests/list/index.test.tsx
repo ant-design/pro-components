@@ -99,7 +99,7 @@ describe('List', () => {
         }}
       />,
     );
-    expect(html.find('.ant-empty-description').text()).toEqual('No Data');
+    expect(html.find('.ant-empty-description').text()).toEqual('暂无数据');
   });
 
   it('🚏 expandable', async () => {

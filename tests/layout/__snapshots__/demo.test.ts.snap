@@ -10156,7 +10156,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
                     class="ant-page-header-back"
                   >
                     <div
-                      aria-label="Back"
+                      aria-label="返回"
                       class="ant-page-header-back-button"
                       role="button"
                       style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
