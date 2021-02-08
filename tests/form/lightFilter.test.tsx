@@ -165,7 +165,7 @@ describe('LightFilter', () => {
       wrapper.find('.ant-pro-core-field-label .anticon-close').simulate('click');
     });
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('名称');
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('请输入');
 
     act(() => {
       wrapper.unmount();
@@ -217,7 +217,7 @@ describe('LightFilter', () => {
       wrapper.find('.ant-pro-core-field-label .anticon-close').simulate('click');
     });
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('名称');
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('请输入');
 
     act(() => {
       wrapper.unmount();
@@ -278,7 +278,7 @@ describe('LightFilter', () => {
     });
     await waitForComponentToPaint(wrapper);
     expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual(
-      '名称: 杰克2,TechUI,YES这是...3项',
+      '名称: 杰克2,TechUI,YES这是一个很长很长的测试阿aa阿ABC...3项',
     );
     act(() => {
       // press Backspace
@@ -288,13 +288,14 @@ describe('LightFilter', () => {
     await waitForComponentToPaint(wrapper);
 
     expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual(
-      '名称: 杰克2,TechUI,YES这是...3项',
+      '名称: 杰克2,TechUI,YES这是一个很长很长的测试阿aa阿ABC...3项',
     );
 
     act(() => {
       wrapper.unmount();
     });
   });
+
   it(' 🪕 DateRangePicker', async () => {
     const onFinish = jest.fn();
     const wrapper = mount(
@@ -304,18 +305,32 @@ describe('LightFilter', () => {
     );
     await waitForComponentToPaint(wrapper);
     expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('日期范围');
+
     act(() => {
       wrapper.find('.ant-pro-core-field-label').simulate('click');
     });
     await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('div.ant-picker-range').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper, 100);
+
     act(() => {
       wrapper.find('.ant-picker-cell-inner').at(2).simulate('click');
     });
     await waitForComponentToPaint(wrapper);
+
     act(() => {
       wrapper.find('.ant-picker-cell-inner').at(12).simulate('click');
     });
     await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-pro-core-dropdown-footer .ant-btn-primary').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+
     expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual(
       '日期范围: 2016-11-02 ~ 2016-11-12',
     );
@@ -328,6 +343,7 @@ describe('LightFilter', () => {
       wrapper.find('.ant-pro-core-field-label .anticon-close').simulate('click');
     });
     await waitForComponentToPaint(wrapper);
+
     expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('日期范围');
 
     act(() => {
@@ -335,6 +351,12 @@ describe('LightFilter', () => {
       wrapper.find('.ant-pro-core-field-label').simulate('click');
     });
     await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('div.ant-picker-range').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper, 100);
+
     act(() => {
       wrapper.find('.ant-picker-cell-inner').at(2).simulate('click');
     });
@@ -342,7 +364,14 @@ describe('LightFilter', () => {
     act(() => {
       wrapper.find('.ant-picker-cell-inner').at(12).simulate('click');
     });
+
     await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-pro-core-dropdown-footer .ant-btn-primary').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+
     expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual(
       '日期范围: 2016-11-02 ~ 2016-11-12',
     );
@@ -360,7 +389,7 @@ describe('LightFilter', () => {
       </LightFilter>,
     );
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('日期时间');
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('请选择');
     act(() => {
       wrapper.find('.ant-pro-core-field-label').simulate('click');
     });

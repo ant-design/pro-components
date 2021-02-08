@@ -85,7 +85,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
   if (children && React.isValidElement(children)) {
     allowClear = children.props.fieldProps?.allowClear;
   }
-
+  const labelValue = props[valuePropName];
   return (
     <FilterDropdown
       disabled={disabled}
@@ -104,7 +104,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
           className={className}
           label={label}
           placeholder={placeholder}
-          value={props[valuePropName]}
+          value={labelValue}
           disabled={disabled}
           expanded={open}
           formatter={labelFormatter}

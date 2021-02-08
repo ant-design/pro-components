@@ -19,7 +19,7 @@ import FieldDatePicker from './components/DatePicker';
 import FieldFromNow from './components/FromNow';
 import FieldRangePicker from './components/RangePicker';
 import FieldCode from './components/Code';
-import FieldTimePicker from './components/TimePicker';
+import FieldTimePicker, { FieldTimeRangePicker } from './components/TimePicker';
 import FieldText from './components/Text';
 import FieldTextArea from './components/TextArea';
 import FieldPassword from './components/Password';
@@ -221,6 +221,11 @@ const defaultRenderText = (
   /** 如果是时间类型的值 */
   if (valueType === 'time') {
     return <FieldTimePicker text={text as string} format="HH:mm:ss" {...props} />;
+  }
+
+  /** 如果是时间类型的值 */
+  if (valueType === 'timeRange') {
+    return <FieldTimeRangePicker text={text as string[]} format="HH:mm:ss" {...props} />;
   }
 
   if (valueType === 'fromNow') {
