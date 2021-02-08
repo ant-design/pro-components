@@ -389,7 +389,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
           _timestamp: Date.now(),
           ...pageInfo,
         };
-        const omitParams = omit(beforeSearchSubmit(submitParams), Object.keys(pageInfo));
+        const omitParams = omit(beforeSearchSubmit(submitParams), Object.keys(pageInfo!));
         setFormSearch(omitParams);
         if (!firstLoad) {
           // back first page
@@ -413,7 +413,10 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
           })
         : {};
 
-      const omitParams = omit(beforeSearchSubmit({ ...value, ...pageInfo }), Object.keys(pageInfo));
+      const omitParams = omit(
+        beforeSearchSubmit({ ...value, ...pageInfo }),
+        Object.keys(pageInfo!),
+      );
       setFormSearch(omitParams);
       // back first page
       action.setPageInfo({
