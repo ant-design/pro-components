@@ -34916,6 +34916,7 @@ Array [
                 <div
                   class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                   name="state"
+                  style="min-width: 100px;"
                   text="all"
                 >
                   <div

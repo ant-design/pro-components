@@ -220,6 +220,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
               >
                 <div
                   class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+                  style="min-width: 100px; max-width: 320px;"
                 >
                   <div
                     class="ant-progress-outer"

@@ -39,23 +39,23 @@ describe('LightFilter', () => {
       // click open more drowdown
       wrapper.find('.ant-pro-core-field-dropdown-label').at(1).simulate('click');
     });
+
     await waitForComponentToPaint(wrapper);
+
     expect(wrapper.find('div.ant-col.ant-form-item-control').length).toEqual(3);
 
     act(() => {
       // change input in drowdown
-      wrapper.find('.ant-input').simulate('change', {
+      wrapper.find('.ant-pro-core-field-dropdown-content .ant-input').simulate('change', {
         target: {
           value: 'new value',
           name3: '2020-08-19',
         },
       });
+      wrapper.find('.ant-pro-core-dropdown-footer .ant-btn.ant-btn-primary').simulate('click');
     });
     await waitForComponentToPaint(wrapper);
-    act(() => {
-      wrapper.find('.ant-btn.ant-btn-primary').simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
+
     expect(onValuesChange).toHaveBeenCalledWith({
       name1: 'yutingzhao1991',
       name2: 'new value',

@@ -99,6 +99,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
           >
             <div
               class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              style="min-width: 100px;"
               text=""
             >
               <div
@@ -186,6 +187,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
           >
             <div
               class="ant-select pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              style="min-width: 100px;"
               text=""
             >
               <div
@@ -273,6 +275,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
           >
             <div
               class="ant-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
+              style="min-width: 100px;"
               text=""
             >
               <div
@@ -350,6 +353,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
           >
             <div
               class="ant-input-number"
+              style="width: 100%;"
             >
               <div
                 class="ant-input-number-handler-wrap"
@@ -8466,6 +8470,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                         >
                           <div
                             class="ant-select pro-field-sm ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                            style="min-width: 100px;"
                             text=""
                           >
                             <div
@@ -8546,6 +8551,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                         >
                           <div
                             class="ant-select pro-field-sm ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                            style="min-width: 100px;"
                             text=""
                           >
                             <div
@@ -8699,6 +8705,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                   >
                     <div
                       class="ant-input-number pro-field-xs"
+                      style="width: 100%;"
                     >
                       <div
                         class="ant-input-number-handler-wrap"
@@ -8975,6 +8982,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                   >
                     <div
                       class="ant-select pro-field-lg ant-select-multiple ant-select-allow-clear ant-select-show-search"
+                      style="min-width: 100px;"
                       text="吴家豪,周星星"
                     >
                       <div
@@ -9628,6 +9636,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                   >
                     <div
                       class="ant-select pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      style="min-width: 100px;"
                       text="1"
                     >
                       <div
@@ -9742,6 +9751,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                   >
                     <div
                       class="ant-select pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      style="min-width: 100px;"
                       text="2"
                     >
                       <div
@@ -10759,6 +10769,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                   >
                     <div
                       class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      style="min-width: 100px;"
                       text="1"
                     >
                       <div
@@ -10873,6 +10884,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                   >
                     <div
                       class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      style="min-width: 100px;"
                       text="2"
                     >
                       <div
@@ -11412,6 +11424,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
               >
                 <div
                   class="ant-select pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                  style="min-width: 100px;"
                   text=""
                 >
                   <div
@@ -12283,6 +12296,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/dependency.tsx correc
         >
           <div
             class="ant-select pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
+            style="min-width: 100px;"
             text="chapter"
           >
             <div
@@ -12397,6 +12411,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/dependency.tsx correc
         >
           <div
             class="ant-select pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
+            style="min-width: 100px;"
             text="chapter"
           >
             <div
@@ -13367,6 +13382,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                     >
                                       <div
                                         class="ant-select pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                        style="min-width: 100px;"
                                         text=""
                                       >
                                         <div
@@ -13458,6 +13474,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                     >
                                       <div
                                         class="ant-select pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                        style="min-width: 100px;"
                                         text=""
                                       >
                                         <div
@@ -13746,6 +13763,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                     >
                                       <div
                                         class="ant-select pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                        style="min-width: 100px;"
                                         text="money"
                                       >
                                         <div
@@ -13865,6 +13883,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                     >
                                       <div
                                         class="ant-select pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                        style="min-width: 100px;"
                                         text="6"
                                       >
                                         <div
@@ -14158,6 +14177,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                               >
                                 <div
                                   class="ant-input-number pro-field-xs"
+                                  style="width: 100%;"
                                 >
                                   <div
                                     class="ant-input-number-handler-wrap"
@@ -15859,6 +15879,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                   >
                     <div
                       class="ant-select pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      style="min-width: 100px;"
                       text="1"
                     >
                       <div
@@ -15973,6 +15994,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                   >
                     <div
                       class="ant-select pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      style="min-width: 100px;"
                       text="2"
                     >
                       <div
@@ -17485,6 +17507,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/sync-to-url.tsx corre
         >
           <div
             class="ant-select pro-field-sm ant-select-single ant-select-allow-clear ant-select-show-arrow"
+            style="min-width: 100px;"
             text="chapter"
           >
             <div
