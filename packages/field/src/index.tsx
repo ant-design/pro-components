@@ -359,7 +359,7 @@ export {
   FieldTimePicker,
   FieldText,
   FieldStatus,
-  FieldSelect as FiledSelect,
+  FieldSelect,
   proFieldParsingText,
   proFieldParsingValueEnumToArray,
 };
