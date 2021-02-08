@@ -15,6 +15,7 @@ import {
 } from '@ant-design/pro-form';
 import { Radio } from 'antd';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
+import moment from 'moment';
 
 export default () => {
   const [size, setSize] = React.useState<SizeType>('middle');
@@ -48,6 +49,14 @@ export default () => {
               value: 'closed2',
               label: '关闭',
             },
+          ],
+          datetimeRanger: [
+            moment('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
+            moment('2019-11-16 12:50:26').valueOf(),
+          ],
+          timeRanger: [
+            moment('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
+            moment('2019-11-16 12:50:26').valueOf(),
           ],
         }}
         size={size}
@@ -87,6 +96,7 @@ export default () => {
         <ProFormDateTimePicker name="datetime" label="日期时间" />
         <ProFormDateTimeRangePicker name="datetimeRanger" label="日期时间范围" />
         <ProFormTimePicker name="time" label="时间" />
+        <ProFormTimePicker.RangePicker name="timeRanger" label="时间范围" />
         <ProFormFieldSet name="name" label="姓名">
           <ProFormText />
           <ProFormText />

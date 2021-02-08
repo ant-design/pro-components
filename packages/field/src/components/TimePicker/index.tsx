@@ -122,9 +122,10 @@ const FieldTimeRangePicker: ProFieldFC<{
   if (mode === 'edit' || mode === 'update') {
     let dom;
     const { disabled, onChange, placeholder, allowClear, value } = fieldProps;
-    const momentValue = parseValueToMoment(value) as moment.Moment;
+    const momentValue = parseValueToMoment(value) as moment.Moment[];
     if (light) {
-      const valueStr: string = (momentValue && momentValue.format(format || 'HH:mm:ss')) || '';
+      const valueStr: string =
+        parsedStartText && parsedEndText && `${parsedStartText} ~ ${parsedEndText}`;
       dom = (
         <div
           className={`${prefixCls}-light`}
@@ -133,11 +134,11 @@ const FieldTimeRangePicker: ProFieldFC<{
           }}
         >
           <TimePicker.RangePicker
-            value={momentValue}
             format={format}
             {...fieldProps}
             onOpenChange={setOpen}
             open={open}
+            value={momentValue}
           />
           <FieldLabel
             label={label}

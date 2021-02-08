@@ -4,6 +4,7 @@ import ProField from '@ant-design/pro-field';
 import type { DatePickerProps } from 'antd';
 import type { ProFormItemProps } from '../../interface';
 import createField from '../../BaseForm/createField';
+import { dateArrayFormatter } from '@ant-design/pro-utils';
 
 const valueType = 'time';
 
@@ -41,12 +42,12 @@ const ProFormTimePicker = createField<ProFormItemProps<DatePickerProps>>(TimePic
   customLightMode: true,
   valueType,
 }) as React.FC<ProFormItemProps<DatePickerProps>> & {
-  RangePicker?: typeof TimeRangePicker;
+  RangePicker: React.FC<ProFormItemProps<DatePickerProps>>;
 };
 
 ProFormTimePicker.RangePicker = createField<ProFormItemProps<DatePickerProps>>(TimeRangePicker, {
-  customLightMode: true,
   valueType: 'timeRange',
-}) as typeof TimeRangePicker;
+  lightFilterLabelFormatter: (value) => dateArrayFormatter(value, 'HH:mm:SS'),
+}) as React.FC<ProFormItemProps<DatePickerProps>>;
 
 export default ProFormTimePicker;
