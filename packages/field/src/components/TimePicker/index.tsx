@@ -98,12 +98,8 @@ const FieldTimePicker: ProFieldFC<{
 const FieldTimeRangePicker: ProFieldFC<{
   text: React.ReactText[];
   format: string;
-}> = ({ text, mode, light, label, format, render, renderFormItem, plain, fieldProps }) => {
-  const [open, setOpen] = useState<boolean>(false);
-  const size = useContext(ConfigProvider.SizeContext);
+}> = ({ text, mode, format, render, renderFormItem, plain, fieldProps }) => {
   const [startText, endText] = Array.isArray(text) ? text : [];
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const prefixCls = getPrefixCls('pro-field-date-picker');
   const parsedStartText: string = startText ? moment(startText).format(format || 'YYYY-MM-DD') : '';
   const parsedEndText: string = endText ? moment(endText).format(format || 'YYYY-MM-DD') : '';
 
@@ -120,52 +116,17 @@ const FieldTimeRangePicker: ProFieldFC<{
     return dom;
   }
   if (mode === 'edit' || mode === 'update') {
-    let dom;
-    const { disabled, onChange, placeholder, allowClear, value } = fieldProps;
+    const { value } = fieldProps;
     const momentValue = parseValueToMoment(value) as moment.Moment[];
-    if (light) {
-      const valueStr: string =
-        parsedStartText && parsedEndText && `${parsedStartText} ~ ${parsedEndText}`;
-      dom = (
-        <div
-          className={`${prefixCls}-light`}
-          onClick={() => {
-            setOpen(true);
-          }}
-        >
-          <TimePicker.RangePicker
-            format={format}
-            {...fieldProps}
-            onOpenChange={setOpen}
-            open={open}
-            value={momentValue}
-          />
-          <FieldLabel
-            label={label}
-            disabled={disabled}
-            placeholder={placeholder}
-            size={size}
-            value={valueStr}
-            allowClear={allowClear}
-            onClear={() => {
-              if (onChange) {
-                onChange(null);
-              }
-            }}
-            expanded={open}
-          />
-        </div>
-      );
-    } else {
-      dom = (
-        <TimePicker.RangePicker
-          format={format}
-          bordered={plain === undefined ? true : !plain}
-          {...fieldProps}
-          value={momentValue}
-        />
-      );
-    }
+
+    const dom = (
+      <TimePicker.RangePicker
+        format={format}
+        bordered={plain === undefined ? true : !plain}
+        {...fieldProps}
+        value={momentValue}
+      />
+    );
     if (renderFormItem) {
       return renderFormItem(text, { mode, ...fieldProps }, dom);
     }
