@@ -10987,7 +10987,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
           >
             <label
               class=""
-              for="contract_createTime"
+              for="contractTime"
               title="合同生效时间"
             >
               合同生效时间
@@ -11010,7 +11010,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                   >
                     <input
                       autocomplete="off"
-                      id="contract_createTime"
+                      id="contractTime"
                       placeholder="请选择"
                       readonly=""
                       size="12"
@@ -14391,7 +14391,7 @@ Array [
                         >
                           <input
                             autocomplete="off"
-                            id="contract_createTime"
+                            id="contractTime"
                             placeholder="请选择"
                             readonly=""
                             size="12"
