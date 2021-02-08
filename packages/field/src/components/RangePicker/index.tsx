@@ -3,11 +3,7 @@ import React, { useState, useContext } from 'react';
 import moment from 'moment';
 import { FieldLabel, parseValueToMoment } from '@ant-design/pro-utils';
 import { useIntl } from '@ant-design/pro-provider';
-
 import type { ProFieldFC } from '../../index';
-
-const ACTIVE_PICKER_INDEX_LEFT = 0;
-const ACTIVE_PICKER_INDEX_RIGHT = 1;
 
 /**
  * 日期范围选择组件
@@ -29,7 +25,6 @@ const FieldRangePicker: ProFieldFC<{
   const [startText, endText] = Array.isArray(text) ? text : [];
   const [open, setOpen] = useState<boolean>(false);
   // activePickerIndex for https://github.com/ant-design/ant-design/issues/22158
-  const [activePickerIndex, setActivePickerIndex] = useState<0 | 1>();
   const parsedStartText: string = startText ? moment(startText).format(format || 'YYYY-MM-DD') : '';
   const parsedEndText: string = endText ? moment(endText).format(format || 'YYYY-MM-DD') : '';
 
@@ -54,7 +49,7 @@ const FieldRangePicker: ProFieldFC<{
     } = fieldProps;
     let dom;
     const momentValue = parseValueToMoment(fieldProps.value) as moment.Moment;
-    if (light) {
+    if (light && !showTime) {
       const valueStr: string =
         parsedStartText && parsedEndText && `${parsedStartText} ~ ${parsedEndText}`;
       dom = (
@@ -64,33 +59,24 @@ const FieldRangePicker: ProFieldFC<{
             setOpen(true);
           }}
         >
-          <DatePicker.RangePicker
-            {...fieldProps}
-            ref={ref}
-            format={format}
-            showTime={showTime}
-            placeholder={[
-              intl.getMessage('tableForm.selectPlaceholder', '请选择'),
-              intl.getMessage('tableForm.selectPlaceholder', '请选择'),
-            ]}
-            bordered={plain === undefined ? true : !plain}
-            onChange={(v) => {
-              onChange(v);
-              setTimeout(() => {
-                setOpen(false);
-              }, 0);
-            }}
-            activePickerIndex={activePickerIndex}
-            onOpenChange={setOpen}
-            open={open}
-            onCalendarChange={(dates) => {
-              if (dates && !dates[0]) {
-                setActivePickerIndex(ACTIVE_PICKER_INDEX_LEFT);
-              } else if (dates && !dates[1]) {
-                setActivePickerIndex(ACTIVE_PICKER_INDEX_RIGHT);
-              }
-            }}
-          />
+          {open && (
+            <DatePicker.RangePicker
+              {...fieldProps}
+              ref={ref}
+              format={format}
+              showTime={showTime}
+              placeholder={[
+                intl.getMessage('tableForm.selectPlaceholder', '请选择'),
+                intl.getMessage('tableForm.selectPlaceholder', '请选择'),
+              ]}
+              bordered={plain === undefined ? true : !plain}
+              onChange={(v) => {
+                onChange(v);
+              }}
+              onOpenChange={setOpen}
+              open={open}
+            />
+          )}
           <FieldLabel
             label={label}
             disabled={disabled}
@@ -100,7 +86,6 @@ const FieldRangePicker: ProFieldFC<{
             allowClear={allowClear}
             onClear={() => {
               onChange(null);
-              setActivePickerIndex(0);
             }}
             expanded={open}
           />

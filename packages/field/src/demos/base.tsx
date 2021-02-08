@@ -284,6 +284,17 @@ export default () => {
             mode={state}
           />
         </Descriptions.Item>
+        <Descriptions.Item label="时间区间">
+          <Field
+            text={[
+              moment('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
+              moment('2019-11-16 12:50:26').valueOf(),
+            ]}
+            plain={plain}
+            valueType="timeRange"
+            mode={state}
+          />
+        </Descriptions.Item>
         <Descriptions.Item label="密码">
           <Field text="password" plain={plain} valueType="password" mode={state} />
         </Descriptions.Item>

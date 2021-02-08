@@ -165,7 +165,7 @@ describe('LightFilter', () => {
       wrapper.find('.ant-pro-core-field-label .anticon-close').simulate('click');
     });
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('名称');
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('请输入');
 
     act(() => {
       wrapper.unmount();
@@ -217,7 +217,7 @@ describe('LightFilter', () => {
       wrapper.find('.ant-pro-core-field-label .anticon-close').simulate('click');
     });
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('名称');
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('请输入');
 
     act(() => {
       wrapper.unmount();
@@ -303,7 +303,7 @@ describe('LightFilter', () => {
       </LightFilter>,
     );
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('日期范围');
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('请选择');
     act(() => {
       wrapper.find('.ant-pro-core-field-label').simulate('click');
     });
@@ -328,7 +328,7 @@ describe('LightFilter', () => {
       wrapper.find('.ant-pro-core-field-label .anticon-close').simulate('click');
     });
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('日期范围');
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('请选择');
 
     act(() => {
       // 测试第二次再打开的情况
@@ -360,7 +360,7 @@ describe('LightFilter', () => {
       </LightFilter>,
     );
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('日期时间');
+    expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('请选择');
     act(() => {
       wrapper.find('.ant-pro-core-field-label').simulate('click');
     });

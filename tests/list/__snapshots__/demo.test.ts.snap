@@ -2741,7 +2741,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 
                                         <span
                                           class="ant-select-selection-placeholder"
                                         >
-                                          状态
+                                          请输入
                                         </span>
                                       </div>
                                       <span
@@ -2774,7 +2774,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 
                                     <span
                                       class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
                                     >
-                                      状态
+                                      请输入
                                       <span
                                         aria-label="down"
                                         class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"

@@ -2,6 +2,7 @@ import React from 'react';
 
 import ProField from '@ant-design/pro-field';
 import type { DatePickerProps } from 'antd';
+import moment from 'moment';
 import type { ProFormItemProps } from '../../interface';
 import createField from '../../BaseForm/createField';
 
@@ -27,5 +28,15 @@ const ProFormDateTimeRangePicker: React.FC<
 
 export default createField<ProFormItemProps<DatePickerProps>>(ProFormDateTimeRangePicker, {
   valueType,
-  customLightMode: true,
+  lightFilterLabelFormatter: (value) => {
+    const [startText, endText] = Array.isArray(value) ? value : [];
+    // activePickerIndex for https://github.com/ant-design/ant-design/issues/22158
+    const parsedStartText: string = startText
+      ? moment(startText).format('YYYY-MM-DD HH:mm:SS')
+      : '';
+    const parsedEndText: string = endText ? moment(endText).format('YYYY-MM-DD HH:mm:SS') : '';
+    const valueStr: string =
+      parsedStartText && parsedEndText && `${parsedStartText} ~ ${parsedEndText}`;
+    return valueStr;
+  },
 });

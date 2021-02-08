@@ -130,8 +130,6 @@ function createField<P extends ProFormItemProps = any>(
     const realFieldProps = {
       ...(ignoreFormItem ? formNeedProps : {}),
       disabled: props.disabled,
-      // 轻量筛选模式下默认不显示 FormItem 的 label，label 设置为 placeholder
-      placeholder: proFieldProps?.light ? placeholder || label : placeholder,
       ...(fieldProps || {}),
       ...(rest.fieldProps || {}),
       style: {

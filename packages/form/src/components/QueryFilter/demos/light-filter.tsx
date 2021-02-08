@@ -9,6 +9,7 @@ import {
   ProFormDateRangePicker,
   ProFormDateTimePicker,
   ProFormTimePicker,
+  ProFormDateTimeRangePicker,
   ProFormSlider,
   ProFormFieldSet,
 } from '@ant-design/pro-form';
@@ -84,6 +85,7 @@ export default () => {
         <ProFormDatePicker name="name3" label="不能清空的日期" allowClear={false} />
         <ProFormDateRangePicker name="date" label="日期范围" />
         <ProFormDateTimePicker name="datetime" label="日期时间" />
+        <ProFormDateTimeRangePicker name="datetimeRanger" label="日期时间范围" />
         <ProFormTimePicker name="time" label="时间" />
         <ProFormFieldSet name="name" label="姓名">
           <ProFormText />
