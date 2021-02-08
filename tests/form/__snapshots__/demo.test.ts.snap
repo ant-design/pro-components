@@ -10921,7 +10921,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
           >
             <label
               class=""
-              for="contract"
+              for="contract_name"
               title="合同名称"
             >
               合同名称
@@ -10941,7 +10941,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                 >
                   <input
                     class="ant-input"
-                    id="contract"
+                    id="contract_name"
                     placeholder="请输入名称"
                     type="text"
                     value=""
@@ -10987,7 +10987,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
           >
             <label
               class=""
-              for="contractTime"
+              for="contract_createTime"
               title="合同生效时间"
             >
               合同生效时间
@@ -11010,7 +11010,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                   >
                     <input
                       autocomplete="off"
-                      id="contractTime"
+                      id="contract_createTime"
                       placeholder="请选择"
                       readonly=""
                       size="12"
@@ -12908,7 +12908,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                 >
                                   <label
                                     class=""
-                                    for="contract"
+                                    for="contract_name"
                                     title="合同名称"
                                   >
                                     合同名称
@@ -12928,7 +12928,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                       >
                                         <input
                                           class="ant-input"
-                                          id="contract"
+                                          id="contract_name"
                                           placeholder="请输入名称"
                                           type="text"
                                           value=""
@@ -12974,7 +12974,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                 >
                                   <label
                                     class=""
-                                    for="contractTime"
+                                    for="contract_createTime"
                                     title="合同生效时间"
                                   >
                                     合同生效时间
@@ -12997,7 +12997,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                         >
                                           <input
                                             autocomplete="off"
-                                            id="contractTime"
+                                            id="contract_createTime"
                                             placeholder="请选择"
                                             readonly=""
                                             size="12"

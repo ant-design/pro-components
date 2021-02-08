@@ -37,8 +37,13 @@ export default () => {
         <ProFormText width="md" name="company" label="我方公司名称" placeholder="请输入名称" />
       </ProForm.Group>
       <ProForm.Group>
-        <ProFormText name="contract" width="md" label="合同名称" placeholder="请输入名称" />
-        <ProFormDateRangePicker width="md" name="contractTime" label="合同生效时间" />
+        <ProFormText
+          name={['contract', 'name']}
+          width="md"
+          label="合同名称"
+          placeholder="请输入名称"
+        />
+        <ProFormDateRangePicker width="md" name={['contract', 'createTime']} label="合同生效时间" />
       </ProForm.Group>
       <ProForm.Group>
         <ProFormSelect
