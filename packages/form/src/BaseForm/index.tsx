@@ -146,8 +146,10 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   };
   useEffect(() => {
     if (isUpdate) {
-      const finalValues = transformKey(formRef.current.getFieldsValue(), omitNil);
-      onInit?.(finalValues);
+      setTimeout(() => {
+        const finalValues = transformKey(formRef.current.getFieldsValue(), omitNil);
+        onInit?.(finalValues);
+      }, 0);
     }
   }, [dateFormatter, isUpdate]);
 
