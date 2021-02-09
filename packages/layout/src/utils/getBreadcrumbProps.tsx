@@ -32,13 +32,8 @@ const defaultItemRender: AntdBreadcrumbProps['itemRender'] = ({ breadcrumbName, 
 );
 
 const renderItemLocal = (item: MenuDataItem, props: BreadcrumbProps): string => {
-  const {
-    formatMessage,
-    menu = {
-      locale: false,
-    },
-  } = props;
-  if (item.locale && formatMessage && menu.locale !== false) {
+  const { formatMessage, menu } = props;
+  if (item.locale && formatMessage && menu?.locale !== false) {
     return formatMessage({ id: item.locale, defaultMessage: item.name });
   }
   return item.name as string;
@@ -48,11 +43,6 @@ export const getBreadcrumb = (
   breadcrumbMap: Map<string, MenuDataItem>,
   url: string,
 ): MenuDataItem => {
-  if (!breadcrumbMap) {
-    return {
-      path: '',
-    };
-  }
   let breadcrumbItem = breadcrumbMap.get(url);
   if (!breadcrumbItem) {
     // Find the first matching path in the order defined by route config
@@ -61,10 +51,7 @@ export const getBreadcrumb = (
       // remove ? ,不然会重复
       pathToRegexp(path.replace('?', '')).test(url),
     );
-
-    if (targetPath) {
-      breadcrumbItem = breadcrumbMap.get(targetPath);
-    }
+    if (targetPath) breadcrumbItem = breadcrumbMap.get(targetPath);
   }
   return breadcrumbItem || { path: '' };
 };
@@ -83,15 +70,12 @@ export const getBreadcrumbFromProps = (
 };
 
 const conversionFromLocation = (
-  routerLocation: BreadcrumbProps['location'] = { pathname: '/' },
+  routerLocation: BreadcrumbProps['location'],
   breadcrumbMap: Map<string, MenuDataItem>,
   props: BreadcrumbProps,
 ): AntdBreadcrumbProps['routes'] => {
-  if (!routerLocation) {
-    return [];
-  }
   // Convertor the url to an array
-  const pathSnippets = urlToList(routerLocation.pathname);
+  const pathSnippets = urlToList(routerLocation?.pathname);
   // Loop data mosaic routing
   const extraBreadcrumbItems: AntdBreadcrumbProps['routes'] = pathSnippets
     .map((url) => {
@@ -100,9 +84,6 @@ const conversionFromLocation = (
       const { routerBase = '/' } = isBrowser() ? window : {};
       const realPath = routerBase === '/' ? url : `${routerBase}${url}`;
       const currentBreadcrumb = getBreadcrumb(breadcrumbMap, url);
-      if (currentBreadcrumb.inherited) {
-        return { path: '', breadcrumbName: '' };
-      }
       const name = renderItemLocal(currentBreadcrumb, props);
       const { hideInBreadcrumb } = currentBreadcrumb;
       return name && !hideInBreadcrumb

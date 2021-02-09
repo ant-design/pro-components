@@ -15,6 +15,16 @@ describe('settingDrawer.test', () => {
         getItem: jest.fn(() => 'zh-CN'),
       },
     });
+
+    Object.defineProperty(window, 'navigator', {
+      value: {
+        clipboard: {
+          writeText: async () => {
+            return true;
+          },
+        },
+      },
+    });
   });
 
   it('base user', () => {
@@ -61,6 +71,11 @@ describe('settingDrawer.test', () => {
         }}
       />,
     );
+    await waitForComponentToPaint(html);
+
+    act(() => {
+      html.find('.ant-btn.ant-btn-block').simulate('click');
+    });
     await waitForComponentToPaint(html);
     expect(fn).toBeCalled();
     act(() => {

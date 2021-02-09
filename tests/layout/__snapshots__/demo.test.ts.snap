@@ -1302,7 +1302,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                     <div
                       aria-expanded="true"
                       aria-haspopup="true"
-                      aria-owns="/110877f75b0a359c84fdc9462f779a12745e7ba7bc0742eef755172a1403f486$Menu"
+                      aria-owns="/92d826f9a130fbbb71347a40dada14dd36ba7dea12a60ba715c2b75717f5b3b5$Menu"
                       class="ant-menu-submenu-title"
                       role="button"
                       style="padding-left: 32px;"
@@ -1318,7 +1318,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                     </div>
                     <ul
                       class="ant-menu ant-menu-sub ant-menu-inline"
-                      id="/110877f75b0a359c84fdc9462f779a12745e7ba7bc0742eef755172a1403f486$Menu"
+                      id="/92d826f9a130fbbb71347a40dada14dd36ba7dea12a60ba715c2b75717f5b3b5$Menu"
                       role="menu"
                     >
                       <li
@@ -1360,7 +1360,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                     <div
                       aria-expanded="true"
                       aria-haspopup="true"
-                      aria-owns="/808f087ed4abadf0ea3677f9efb7dc87f390843b80282cbf16b5ee78d6f5acf3$Menu"
+                      aria-owns="/de3b3ea22b7dda58cc37be5a07751c94ebc6a2ce87ba542b11cb37ea6d1853d9$Menu"
                       class="ant-menu-submenu-title"
                       role="button"
                       style="padding-left: 32px;"
@@ -1376,7 +1376,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                     </div>
                     <ul
                       class="ant-menu ant-menu-sub ant-menu-inline"
-                      id="/808f087ed4abadf0ea3677f9efb7dc87f390843b80282cbf16b5ee78d6f5acf3$Menu"
+                      id="/de3b3ea22b7dda58cc37be5a07751c94ebc6a2ce87ba542b11cb37ea6d1853d9$Menu"
                       role="menu"
                     >
                       <li
@@ -9600,8 +9600,12 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
       class="ant-layout"
       style="position: relative;"
     >
+      <header
+        class="ant-layout-header"
+        style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
+      />
       <main
-        class="ant-layout-content ant-pro-basicLayout-content"
+        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
       >
         <div
           style="height: 120vh;"

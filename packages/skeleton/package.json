@@ -33,7 +33,7 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "use-media-antd-query": "^1.0.3"
+    "use-media-antd-query": "^1.0.6"
   },
   "peerDependencies": {
     "antd": "4.x",

@@ -10,7 +10,6 @@ import { useUrlSearchParams } from 'use-url-search-params';
 
 import { Button, Divider, Drawer, List, Switch, message, Alert } from 'antd';
 import React, { useState, useEffect, useRef } from 'react';
-import CopyToClipboard from 'react-copy-to-clipboard';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'omit.js';
 import type { ProSettings } from '../../defaultSettings';
@@ -617,14 +616,22 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
         )}
 
         {hideCopyButton ? null : (
-          <CopyToClipboard
-            text={genCopySettingJson(settingState)}
-            onCopy={() => message.success(formatMessage({ id: 'app.setting.copyinfo' }))}
+          <Button
+            block
+            icon={<CopyOutlined />}
+            style={{ marginBottom: 24 }}
+            onClick={async () => {
+              try {
+                await navigator.clipboard.writeText(genCopySettingJson(settingState));
+
+                message.success(formatMessage({ id: 'app.setting.copyinfo' }));
+              } catch (error) {
+                console.log(error);
+              }
+            }}
           >
-            <Button block icon={<CopyOutlined />} style={{ marginBottom: 24 }}>
-              {formatMessage({ id: 'app.setting.copy' })}
-            </Button>
-          </CopyToClipboard>
+            {formatMessage({ id: 'app.setting.copy' })}
+          </Button>
         )}
       </div>
     </Drawer>
