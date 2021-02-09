@@ -15,6 +15,16 @@ describe('settingDrawer.test', () => {
         getItem: jest.fn(() => 'zh-CN'),
       },
     });
+
+    Object.defineProperty(window, 'navigator', {
+      value: {
+        clipboard: {
+          writeText: async () => {
+            return true;
+          },
+        },
+      },
+    });
   });
 
   it('base user', () => {
