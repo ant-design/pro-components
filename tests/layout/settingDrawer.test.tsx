@@ -62,6 +62,11 @@ describe('settingDrawer.test', () => {
       />,
     );
     await waitForComponentToPaint(html);
+
+    act(() => {
+      html.find('.ant-btn.ant-btn-block').simulate('click');
+    });
+    await waitForComponentToPaint(html);
     expect(fn).toBeCalled();
     act(() => {
       html.unmount();
