@@ -48,6 +48,7 @@ exports[`descriptions 🏊‍♂️ ProDescriptions support order 1`] = `
               >
                 <div
                   class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+                  style="min-width: 100px; max-width: 320px;"
                 >
                   <div
                     class="ant-progress-outer"
@@ -88,6 +89,7 @@ exports[`descriptions 🏊‍♂️ ProDescriptions support order 1`] = `
               >
                 <div
                   class="ant-progress ant-progress-line ant-progress-status-success ant-progress-show-info ant-progress-small"
+                  style="min-width: 100px; max-width: 320px;"
                 >
                   <div
                     class="ant-progress-outer"
@@ -149,6 +151,7 @@ exports[`descriptions 🏊‍♂️ ProDescriptions support order 1`] = `
               >
                 <div
                   class="ant-progress ant-progress-line ant-progress-status-exception ant-progress-show-info ant-progress-small"
+                  style="min-width: 100px; max-width: 320px;"
                 >
                   <div
                     class="ant-progress-outer"
