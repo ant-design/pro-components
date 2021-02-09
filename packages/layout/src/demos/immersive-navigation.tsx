@@ -94,7 +94,9 @@ export default () => {
           );
         }}
         fixSiderbar
-        headerRender={false}
+        headerRender={() => {
+          return null;
+        }}
         onMenuHeaderClick={(e) => console.log(e)}
         menuItemRender={(item, dom) => (
           <a
