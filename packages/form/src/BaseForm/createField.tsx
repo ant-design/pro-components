@@ -2,6 +2,7 @@
 import type { FormItemProps } from 'antd';
 import { Form, ConfigProvider } from 'antd';
 import type { ProFieldValueType, SearchTransformKeyFn } from '@ant-design/pro-utils';
+import { omitUndefined } from '@ant-design/pro-utils';
 import { pickProFormItemProps } from '@ant-design/pro-utils';
 import classnames from 'classnames';
 import { noteOnce } from 'rc-util/lib/warning';
@@ -130,8 +131,6 @@ function createField<P extends ProFormItemProps = any>(
     const realFieldProps = {
       ...(ignoreFormItem ? formNeedProps : {}),
       disabled: props.disabled,
-      // 轻量筛选模式下默认不显示 FormItem 的 label，label 设置为 placeholder
-      placeholder: proFieldProps?.light ? placeholder || label : placeholder,
       ...(fieldProps || {}),
       ...(rest.fieldProps || {}),
       style: {
@@ -160,23 +159,23 @@ function createField<P extends ProFormItemProps = any>(
         // ProXxx 上面的 props 透传给 FieldProps，可能包含 Field 自定义的 props，
         // 比如 ProFormSelect 的 request
         {...(rest as P)}
-        fieldProps={{
+        fieldProps={omitUndefined({
           allowClear,
           ...realFieldProps,
-          style: {
+          style: omitUndefined({
             width: typeof width === 'number' ? width : undefined,
             ...realFieldProps?.style,
-          },
+          }),
           className: classnames(realFieldProps?.className, {
             [`pro-field-${width}`]: width && WIDTH_SIZE_ENUM[width],
           }),
-        }}
-        proFieldProps={{
+        })}
+        proFieldProps={omitUndefined({
           mode: readonly ? 'read' : 'edit',
           params: rest.params,
           proFieldKey: otherProps?.name,
           ...proFieldProps,
-        }}
+        })}
       />
     );
 
@@ -184,6 +183,7 @@ function createField<P extends ProFormItemProps = any>(
     if (ignoreFormItem) {
       return field;
     }
+
     return (
       <Form.Item
         // 全局的提供一个 tip 功能，可以减少代码量

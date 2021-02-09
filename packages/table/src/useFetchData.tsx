@@ -218,7 +218,7 @@ const useFetchData = <T extends RequestData<any>>(
     },
     pageInfo,
     pollingLoading,
-    reset: () => {
+    reset: async () => {
       const { pageInfo: optionPageInfo } = options || {};
       const { defaultCurrent = 1, defaultPageSize = 20 } = optionPageInfo || {};
       const initialPageInfo = {
@@ -228,7 +228,7 @@ const useFetchData = <T extends RequestData<any>>(
       };
       setPageInfo(initialPageInfo);
     },
-    setPageInfo: (info) => {
+    setPageInfo: async (info) => {
       setPageInfo({
         ...pageInfo,
         ...info,

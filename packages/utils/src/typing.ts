@@ -28,6 +28,7 @@ export type ProFieldValueType =
   | 'dateTimeRange'
   | 'dateTime'
   | 'time'
+  | 'timeRange'
   | 'text'
   | 'select'
   | 'checkbox'

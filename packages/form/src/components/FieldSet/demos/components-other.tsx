@@ -16,6 +16,7 @@ import ProForm, {
   ProFormUploadDragger,
   ProFormFieldSet,
 } from '@ant-design/pro-form';
+import ProFormTimePicker from '../../TimePicker';
 
 const Demo = () => (
   <div
@@ -168,6 +169,8 @@ const Demo = () => (
       </ProFormFieldSet>
       <ProForm.Group title="日期相关分组">
         <ProFormDatePicker name="date" label="日期" />
+        <ProFormTimePicker name="time" label="时间" />
+        <ProFormTimePicker.RangePicker name="timeRange" label="时间区间" />
         <ProFormDatePicker.Week name="dateWeek" label="周" />
         <ProFormDatePicker.Month name="dateMonth" label="月" />
         <ProFormDatePicker.Quarter name="dateQuarter" label="季度" />

@@ -57,7 +57,9 @@ const FieldDatePicker: ProFieldFC<{
       allowClear,
       placeholder = intl.getMessage('tableForm.selectPlaceholder', '请选择'),
     } = fieldProps;
+
     const momentValue = parseValueToMoment(value) as moment.Moment;
+
     if (light) {
       const valueStr: string = (momentValue && momentValue.format(format)) || '';
       dom = (

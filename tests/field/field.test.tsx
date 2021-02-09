@@ -319,6 +319,7 @@ describe('Field', () => {
     'dateTimeRange',
     'dateTime',
     'time',
+    'timeRange',
     'switch',
     'text',
     'progress',

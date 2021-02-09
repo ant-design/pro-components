@@ -58,6 +58,7 @@ import type {
   ProRenderFieldPropsType,
 } from '@ant-design/pro-provider';
 import ErrorBoundary from './components/ErrorBoundary';
+import dateArrayFormatter from './dateArrayFormatter';
 
 export type {
   ProSchema,
@@ -108,6 +109,7 @@ export {
   pickProProps,
   runFunction,
   getFieldPropsOrFormItemProps,
+  dateArrayFormatter,
   // hooks
   useEditableArray,
   useEditableMap,
