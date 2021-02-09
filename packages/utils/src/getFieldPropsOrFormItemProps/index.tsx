@@ -1,4 +1,5 @@
 ﻿import type { FormInstance } from 'antd';
+import { runFunction } from '../runFunction';
 
 /**
  * 因为 fieldProps 支持了 function 所以新增了这个方法
@@ -17,10 +18,7 @@ const getFieldPropsOrFormItemProps = (
   if (form === undefined) {
     return {} as any;
   }
-  if (typeof fieldProps === 'function') {
-    return fieldProps(form, extraProps);
-  }
-  return fieldProps;
+  return runFunction(fieldProps, form, extraProps);
 };
 
 export default getFieldPropsOrFormItemProps;

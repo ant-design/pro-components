@@ -25,13 +25,13 @@ import FieldTextArea from './components/TextArea';
 import FieldPassword from './components/Password';
 import FieldStatus from './components/Status';
 import FieldOptions from './components/Options';
-import FiledSelect, {
+import FieldSelect, {
   proFieldParsingText,
   proFieldParsingValueEnumToArray,
 } from './components/Select';
-import FiledCheckbox from './components/Checkbox';
-import FiledRate from './components/Rate';
-import FiledSwitch from './components/Switch';
+import FieldCheckbox from './components/Checkbox';
+import FieldRate from './components/Rate';
+import FieldSwitch from './components/Switch';
 import FieldDigit from './components/Digit';
 import FieldSecond from './components/Second';
 
@@ -273,11 +273,11 @@ const defaultRenderText = (
   }
 
   if (valueType === 'select' || (valueType === 'text' && (props.valueEnum || props.request))) {
-    return <FiledSelect text={text as string} {...props} />;
+    return <FieldSelect text={text as string} {...props} />;
   }
 
   if (valueType === 'checkbox') {
-    return <FiledCheckbox text={text as string} {...props} />;
+    return <FieldCheckbox text={text as string} {...props} />;
   }
 
   if (valueType === 'radio') {
@@ -289,10 +289,10 @@ const defaultRenderText = (
   }
 
   if (valueType === 'rate') {
-    return <FiledRate text={text as string} {...props} />;
+    return <FieldRate text={text as string} {...props} />;
   }
   if (valueType === 'switch') {
-    return <FiledSwitch text={text as boolean} {...props} />;
+    return <FieldSwitch text={text as boolean} {...props} />;
   }
 
   if (valueType === 'option') {
@@ -363,7 +363,7 @@ export {
   FieldTimePicker,
   FieldText,
   FieldStatus,
-  FiledSelect,
+  FieldSelect,
   proFieldParsingText,
   proFieldParsingValueEnumToArray,
 };
