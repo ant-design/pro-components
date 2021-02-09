@@ -3,11 +3,14 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const { readdirSync } = require('fs');
 
 const tailPkgs = readdirSync(path.join(__dirname, 'packages')).filter(
   (pkg) => pkg.charAt(0) !== '.',
 );
+
+// const tailPkgs = ['table'];
 
 const isCI = process.env.PRO_COMPONENTS_CI === 'CI';
 
@@ -57,7 +60,7 @@ tailPkgs.forEach((pkg) => {
             }),
           ],
         }
-      : undefined,
+      : { concatenateModules: false },
     module: {
       rules: [
         {
@@ -159,6 +162,7 @@ tailPkgs.forEach((pkg) => {
     ],
     plugins: [
       new ProgressBarPlugin(),
+      // new BundleAnalyzerPlugin(),
       new MiniCssExtractPlugin({
         // Options similar to the same options in webpackOptions.output
         // both options are optional
