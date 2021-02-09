@@ -9600,8 +9600,12 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
       class="ant-layout"
       style="position: relative;"
     >
+      <header
+        class="ant-layout-header"
+        style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
+      />
       <main
-        class="ant-layout-content ant-pro-basicLayout-content"
+        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
       >
         <div
           style="height: 120vh;"
