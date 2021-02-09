@@ -22659,10 +22659,10 @@ use-json-comparison@^1.0.3, use-json-comparison@^1.0.5:
   resolved "https://registry.npm.taobao.org/use-json-comparison/download/use-json-comparison-1.0.5.tgz#d41a72d65fcf4cf72acc85c8f3980e2173809d63"
   integrity sha1-1Bpy1l/PTPcqzIXI85gOIXOAnWM=
 
-use-media-antd-query@1.0.4, use-media-antd-query@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.npm.taobao.org/use-media-antd-query/download/use-media-antd-query-1.0.4.tgz?cache=0&sync_timestamp=1612858785650&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fuse-media-antd-query%2Fdownload%2Fuse-media-antd-query-1.0.4.tgz#a8a6f556c329a53583b5e51717f34393eda8b91c"
-  integrity sha1-qKb1VsMppTWDteUXF/NDk+2ouRw=
+use-media-antd-query@1.0.6, use-media-antd-query@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.npm.taobao.org/use-media-antd-query/download/use-media-antd-query-1.0.6.tgz?cache=0&sync_timestamp=1612867743609&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fuse-media-antd-query%2Fdownload%2Fuse-media-antd-query-1.0.6.tgz#2395fc52a9bc810fa7360bff43eb84609eee1b2f"
+  integrity sha1-I5X8Uqm8gQ+nNgv/Q+uEYJ7uGy8=
 
 use-subscription@1.4.1:
   version "1.4.1"

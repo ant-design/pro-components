@@ -8,14 +8,14 @@
     "ant-design",
     "ant-design-pro"
   ],
-  "sideEffects": [
-    "*.less"
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/ant-design/pro-components"
   },
   "license": "MIT",
+  "sideEffects": [
+    "*.less"
+  ],
   "main": "lib/index.js",
   "module": "es/index.js",
   "types": "lib/index.d.ts",
@@ -41,7 +41,7 @@
     "rc-resize-observer": "^0.1.3",
     "rc-util": "^4.19.0",
     "unstated-next": "^1.1.0",
-    "use-media-antd-query": "1.0.4"
+    "use-media-antd-query": "1.0.6"
   },
   "peerDependencies": {
     "antd": "4.x",
