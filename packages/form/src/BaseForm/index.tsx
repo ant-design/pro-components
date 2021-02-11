@@ -91,7 +91,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
 
   const [form] = Form.useForm();
   /** 同步 url 上的参数 */
-  const [urlSearch, setUrlSearch] = useUrlSearchParams({}, {});
+  const [urlSearch, setUrlSearch] = useUrlSearchParams({});
   const formRef = useRef<FormInstance>(userForm || form);
 
   // 初始化给一个默认的 form

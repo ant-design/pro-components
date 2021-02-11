@@ -264,7 +264,12 @@ const GroupCheckboxList: React.FC<{
 function ColumnSetting<T>(props: ColumnSettingProps<T>) {
   const columnRef = useRef({});
   const counter = Container.useContainer();
-  const localColumns: Omit<ProColumns<any> & { index?: number }, 'ellipsis'>[] = props.columns;
+  const localColumns: TableColumnType<T> &
+    {
+      index?: number;
+      fixed?: any;
+      key?: any;
+    }[] = props.columns;
 
   const { columnsMap, setColumnsMap } = counter;
 

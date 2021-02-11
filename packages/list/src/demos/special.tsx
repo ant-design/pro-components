@@ -47,7 +47,7 @@ const data = ['语雀的天空（top）', 'Ant Design（inline）', '蚂蚁金�
 );
 
 export default () => {
-  const [expandedRowKeys, setExpandedRowKeys] = useState<ReactText[]>([]);
+  const [expandedRowKeys, setExpandedRowKeys] = useState<readonly ReactText[]>([]);
   const [selectedRowKeys, setSelectedRowKeys] = useState<ReactText[]>([]);
   const rowSelection = {
     selectedRowKeys,

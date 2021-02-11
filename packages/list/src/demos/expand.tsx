@@ -27,7 +27,7 @@ const dataSource = [
 ];
 
 export default () => {
-  const [expandedRowKeys, setExpandedRowKeys] = useState<ReactText[]>([]);
+  const [expandedRowKeys, setExpandedRowKeys] = useState<readonly ReactText[]>([]);
 
   return (
     <ProList<{ title: string }>
