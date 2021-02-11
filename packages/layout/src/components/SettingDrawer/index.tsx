@@ -6,7 +6,7 @@ import {
   SettingOutlined,
 } from '@ant-design/icons';
 import { isBrowser } from '@ant-design/pro-utils';
-import useUrlSearchParams from '@umijs/use-params';
+import { useUrlSearchParams } from '@umijs/use-params';
 
 import { Button, Divider, Drawer, List, Switch, message, Alert } from 'antd';
 import React, { useState, useEffect, useRef } from 'react';
