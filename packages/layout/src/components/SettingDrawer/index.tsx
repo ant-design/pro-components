@@ -105,8 +105,8 @@ export const getFormatMessage = (): ((data: { id: string; defaultMessage?: strin
 const updateTheme = (
   dark: boolean,
   color?: string,
-  hideMessageLoading = false,
   publicPath = '/theme',
+  hideMessageLoading?: boolean,
 ) => {
   // ssr
   if (typeof window === 'undefined' || !(window as any).umi_plugin_ant_themeVar) {
@@ -293,7 +293,7 @@ const initState = (
 
   // 如果 url 中设置主题，进行一次加载。
   if (defaultSettings.navTheme !== urlParams.navTheme && urlParams.navTheme) {
-    updateTheme(settings.navTheme === 'realDark', urlParams.primaryColor, true, publicPath);
+    updateTheme(settings.navTheme === 'realDark', urlParams.primaryColor, publicPath, true);
     loadedStyle = true;
   }
   if (loadedStyle) {
@@ -302,7 +302,7 @@ const initState = (
 
   // 如果 url 中没有设置主题，并且 url 中的没有加载，进行一次加载。
   if (defaultSettings.navTheme !== settings.navTheme && settings.navTheme) {
-    updateTheme(settings.navTheme === 'realDark', settings.primaryColor, true, publicPath);
+    updateTheme(settings.navTheme === 'realDark', settings.primaryColor, publicPath, true);
   }
 };
 
@@ -418,7 +418,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     nextState[key] = value;
 
     if (key === 'navTheme') {
-      updateTheme(value === 'realDark', undefined, hideMessageLoading, props.publicPath);
+      updateTheme(value === 'realDark', undefined, props.publicPath, !!hideMessageLoading);
       nextState.primaryColor = 'daybreak';
     }
 
@@ -426,8 +426,8 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
       updateTheme(
         nextState.navTheme === 'realDark',
         value === 'daybreak' ? '' : (value as string),
-        hideMessageLoading,
         props.publicPath,
+        !!hideMessageLoading,
       );
     }
 
