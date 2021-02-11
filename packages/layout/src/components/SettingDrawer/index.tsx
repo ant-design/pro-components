@@ -380,8 +380,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   );
   const preStateRef = useRef(settingState);
 
-  const { navTheme = 'dark', primaryColor = 'daybreak', layout = 'sidemenu', colorWeak } =
-    settingState || {};
+  const { navTheme, primaryColor, layout, colorWeak } = settingState || {};
 
   useEffect(() => {
     // 语言修改，这个是和 locale 是配置起来的
@@ -520,7 +519,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
           <BlockCheckbox
             prefixCls={baseClassName}
             list={themeList.themeList}
-            value={navTheme}
+            value={navTheme!}
             configType="theme"
             key="navTheme"
             onChange={(value) => changeSetting('navTheme', value, hideLoading)}
@@ -534,7 +533,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
           prefixCls={baseClassName}
         >
           <ThemeColor
-            value={primaryColor}
+            value={primaryColor!}
             colors={
               hideColors ? [] : themeList.colorList[navTheme === 'realDark' ? 'dark' : 'light']
             }
@@ -548,7 +547,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
         <Body prefixCls={baseClassName} title={formatMessage({ id: 'app.setting.navigationmode' })}>
           <BlockCheckbox
             prefixCls={baseClassName}
-            value={layout}
+            value={layout!}
             key="layout"
             configType="layout"
             list={[
