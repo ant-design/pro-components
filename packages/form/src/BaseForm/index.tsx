@@ -10,7 +10,7 @@ import {
   transformKeySubmitValue,
   useMountMergeState,
 } from '@ant-design/pro-utils';
-import { useUrlSearchParams } from 'use-url-search-params';
+import useUrlSearchParams from '@umijs/use-params';
 
 import namePathSet from 'rc-util/lib/utils/set';
 import FieldContext from '../FieldContext';

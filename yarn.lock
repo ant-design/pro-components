@@ -4842,6 +4842,11 @@
     "@umijs/utils" "3.3.7"
     webpack-chain "6.5.1"
 
+"@umijs/use-params@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.npm.taobao.org/@umijs/use-params/download/@umijs/use-params-1.0.1.tgz?cache=0&sync_timestamp=1613009801607&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40umijs%2Fuse-params%2Fdownload%2F%40umijs%2Fuse-params-1.0.1.tgz#f138431dc617e2629e8dc4f9ec8a7a12f05755d4"
+  integrity sha1-8ThDHcYX4mKejcT57Ip6EvBXVdQ=
+
 "@umijs/use-request@^1.4.3":
   version "1.4.3"
   resolved "https://registry.npm.taobao.org/@umijs/use-request/download/@umijs/use-request-1.4.3.tgz#bc5fadc4cb07d796eb35f09838d6a15cb12802f7"
@@ -22781,11 +22786,6 @@ use-subscription@1.4.1:
   integrity sha1-7cvMIg8a2y3U+gsvYbbMMI5iAGk=
   dependencies:
     object-assign "^4.1.1"
-
-use-url-search-params@^2.3.13:
-  version "2.3.13"
-  resolved "https://registry.npm.taobao.org/use-url-search-params/download/use-url-search-params-2.3.13.tgz#016009c8879fc7f631a58cdea572c5ded821bf35"
-  integrity sha1-AWAJyIefx/YxpYzepXLF3tghvzU=
 
 use@^3.1.0:
   version "3.1.1"
