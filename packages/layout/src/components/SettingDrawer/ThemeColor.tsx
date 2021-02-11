@@ -42,7 +42,7 @@ const ThemeColor: React.ForwardRefRenderFunction<HTMLDivElement, ThemeColorProps
     <div className="theme-color" ref={ref}>
       <div className="theme-color-content">
         {colorList.map(({ key, color }) => {
-          const themeKey = genThemeToString(color) || key;
+          const themeKey = genThemeToString(color);
           return (
             <Tooltip
               key={color}

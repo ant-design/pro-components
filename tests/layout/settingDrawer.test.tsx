@@ -290,6 +290,12 @@ describe('settingDrawer.test', () => {
       { key: 'geekblue', fileName: 'geekblue.css', modifyVars: { '@primary-color': '#2F54EB' } },
       { key: 'purple', fileName: 'purple.css', modifyVars: { '@primary-color': '#722ED1' } },
       {
+        key: 'qixian',
+        theme: 'dark',
+        fileName: 'dark-qixian.css',
+        modifyVars: { '@primary-color': '#F5222D' },
+      },
+      {
         key: 'dust',
         theme: 'dark',
         fileName: 'dark-dust.css',
