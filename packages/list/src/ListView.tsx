@@ -20,7 +20,7 @@ export type ListViewProps<RecordType> = AntdListProps<RecordType> &
     showActions?: 'hover' | 'always';
     rowSelection?: TableProps<RecordType>['rowSelection'];
     prefixCls: string;
-    dataSource: RecordType[];
+    dataSource: readonly RecordType[];
     actionRef: React.MutableRefObject<ActionType | undefined>;
   };
 
